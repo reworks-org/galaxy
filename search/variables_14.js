@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['val_5f32_5fconst_0',['val_32_const',['../d8/d3a/namespacegalaxy_1_1algorithm.html#ad486a008f9a3de016e7d678ab656e4a7',1,'galaxy::algorithm']]],
-  ['val_5f64_5fconst_1',['val_64_const',['../d8/d3a/namespacegalaxy_1_1algorithm.html#a35ee2d59ca185cec7efe2cb9e3426c97',1,'galaxy::algorithm']]],
+  ['val_5f32_5fconst_0',['val_32_const',['../d1/d92/namespacegalaxy_1_1math.html#aa176ec87fe07b2240a16c26c221fe409',1,'galaxy::math']]],
+  ['val_5f64_5fconst_1',['val_64_const',['../d1/d92/namespacegalaxy_1_1math.html#a7282841173b7751e6653d99cedfb74fa',1,'galaxy::math']]],
   ['vao_5ffrag_2',['vao_frag',['../d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4',1,'PostProcess.cpp']]],
   ['vao_5fvert_3',['vao_vert',['../d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5',1,'PostProcess.cpp']]],
   ['vertices_4',['vertices',['../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9',1,'Video.cpp']]],

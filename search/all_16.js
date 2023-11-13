@@ -1,10 +1,10 @@
 var searchData=
 [
   ['v_0',['V',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea5206560a306a2e085a437fd258eb57ce',1,'galaxy::input']]],
-  ['val_5f32_5fconst_1',['val_32_const',['../d8/d3a/namespacegalaxy_1_1algorithm.html#ad486a008f9a3de016e7d678ab656e4a7',1,'galaxy::algorithm']]],
-  ['val_5f64_5fconst_2',['val_64_const',['../d8/d3a/namespacegalaxy_1_1algorithm.html#a35ee2d59ca185cec7efe2cb9e3426c97',1,'galaxy::algorithm']]],
+  ['val_5f32_5fconst_1',['val_32_const',['../d1/d92/namespacegalaxy_1_1math.html#aa176ec87fe07b2240a16c26c221fe409',1,'galaxy::math']]],
+  ['val_5f64_5fconst_2',['val_64_const',['../d1/d92/namespacegalaxy_1_1math.html#a7282841173b7751e6653d99cedfb74fa',1,'galaxy::math']]],
   ['validations_3',['Validations',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa1be704d6e94870efc700236b103c3a3',1,'galaxy::meta::EntityMeta']]],
-  ['value_5fin_5frange_4',['value_in_range',['../d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#af397b840e5a1fc25640d2928e4ea020c',1,'galaxy::graphics::Rect']]],
+  ['value_5fin_5frange_4',['value_in_range',['../d5/dcc/classgalaxy_1_1math_1_1Rect.html#aa749173938b06851d9fda89f890e243e',1,'galaxy::math::Rect']]],
   ['vao_5',['vao',['../dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aa231012130626690bf97cc848617bf82',1,'galaxy::graphics::SpriteBatch']]],
   ['vao_5ffrag_6',['vao_frag',['../d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4',1,'PostProcess.cpp']]],
   ['vao_5fvert_7',['vao_vert',['../d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5',1,'PostProcess.cpp']]],

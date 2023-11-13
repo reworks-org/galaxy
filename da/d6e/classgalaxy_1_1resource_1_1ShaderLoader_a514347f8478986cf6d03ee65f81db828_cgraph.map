@@ -1,6 +1,6 @@
 <map id="galaxy::resource::ShaderLoader::build" name="galaxy::resource::ShaderLoader::build">
-<area shape="rect" id="Node000001" title="Build shaders." alt="" coords="5,29,188,69"/>
-<area shape="rect" id="Node000002" href="$d8/d3a/namespacegalaxy_1_1algorithm.html#ac6eec887fa5ff6447a184e226f6d4477" title="Convert string to 64bit hash." alt="" coords="236,29,380,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,47,222,47,222,52,188,52"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="268,30,266,20,272,10,287,5,308,3,333,6,346,13,344,18,331,11,308,8,288,10,276,15,271,21,274,28"/>
+<area shape="rect" id="Node000001" title="Build shaders." alt="" coords="5,22,188,62"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="236,29,411,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,39,222,39,222,45,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="286,31,278,21,283,11,298,5,323,3,355,7,367,16,364,20,353,11,323,8,299,10,286,15,284,20,290,27"/>
 </map>

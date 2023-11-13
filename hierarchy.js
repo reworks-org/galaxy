@@ -57,8 +57,8 @@ var hierarchy =
     [ "galaxy::core::Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", null ],
     [ "galaxy::resource::PrefabLoader", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html", null ],
     [ "galaxy::components::Primitive::PrimitiveData", "d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html", null ],
-    [ "galaxy::graphics::Rect< Type >", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", null ],
-    [ "galaxy::algorithm::RectPack", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html", null ],
+    [ "galaxy::math::Rect< Type >", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", null ],
+    [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
     [ "galaxy::graphics::Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", null ],
     [ "galaxy::graphics::Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", [
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
@@ -72,6 +72,7 @@ var hierarchy =
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
+      [ "galaxy::components::RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", null ],
       [ "galaxy::components::Script", "db/d40/classgalaxy_1_1components_1_1Script.html", null ],
       [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ],
       [ "galaxy::components::Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", null ],
@@ -103,6 +104,7 @@ var hierarchy =
     [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
+      [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]
     ] ],
@@ -123,5 +125,5 @@ var hierarchy =
     [ "galaxy::events::WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],
     [ "galaxy::events::WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", null ],
     [ "galaxy::core::WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", null ],
-    [ "galaxy::algorithm::ZLib", "d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html", null ]
+    [ "galaxy::math::ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", null ]
 ];

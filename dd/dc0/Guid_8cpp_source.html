@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('dd/dc0/Guid_8cpp_source.html','../../'
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6e/Random_8hpp.html">galaxy/algorithm/Random.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6e/Random_8hpp.html">galaxy/math/Random.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d38/Guid_8hpp.html">Guid.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
@@ -118,11 +118,11 @@ $(document).ready(function(){initNavTree('dd/dc0/Guid_8cpp_source.html','../../'
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f">   20</a></span>        <a class="code hl_function" href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f">Guid::Guid</a>()</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            : m_id {<span class="stringliteral">&quot;&quot;</span>}</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_variable" href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#aedf5721a6b858dbc82efff74a3b7c59d">m_id</a> += <a class="code hl_variable" href="../../dd/dc0/Guid_8cpp.html#a57fd49033bf363cbc1ec9a8bf3704268">s_chars</a>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(algorithm::random&lt;float&gt;(0.0f, 1.0f) * 6))];</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_variable" href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#aedf5721a6b858dbc82efff74a3b7c59d">m_id</a> += <a class="code hl_variable" href="../../dd/dc0/Guid_8cpp.html#a57fd49033bf363cbc1ec9a8bf3704268">s_chars</a>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(math::random&lt;float&gt;(0.0f, 1.0f) * 6))];</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 1; i &lt; 32; i++)</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                <span class="keyword">const</span> <span class="keyword">auto</span> random = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(algorithm::random&lt;float&gt;(0.0f, 1.0f) * 16);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                <span class="keyword">const</span> <span class="keyword">auto</span> random = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(math::random&lt;float&gt;(0.0f, 1.0f) * 16);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                <span class="keywordflow">if</span> (i == 8 || i == 12 || i == 16 || i == 20)</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                {</div>
@@ -216,14 +216,14 @@ $(document).ready(function(){initNavTree('dd/dc0/Guid_8cpp_source.html','../../'
 <div class="ttc" id="aclassgalaxy_1_1utils_1_1Guid_html_a8d032569c7e820d08e6b0153de18a6b0"><div class="ttname"><a href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a8d032569c7e820d08e6b0153de18a6b0">galaxy::utils::Guid::operator==</a></div><div class="ttdeci">bool operator==(const Guid &amp;rhs)</div><div class="ttdoc">Equality comparison.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc0/Guid_8cpp_source.html#l00081">Guid.cpp:81</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1utils_1_1Guid_html_aedf5721a6b858dbc82efff74a3b7c59d"><div class="ttname"><a href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#aedf5721a6b858dbc82efff74a3b7c59d">galaxy::utils::Guid::m_id</a></div><div class="ttdeci">std::string m_id</div><div class="ttdoc">Guid.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d38/Guid_8hpp_source.html#l00096">Guid.hpp:96</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1utils_1_1Guid_html_afab06d64fcfaad2b02356d021546f26d"><div class="ttname"><a href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#afab06d64fcfaad2b02356d021546f26d">galaxy::utils::Guid::to_string</a></div><div class="ttdeci">const std::string &amp; to_string() const</div><div class="ttdoc">Get the GUID as a string.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc0/Guid_8cpp_source.html#l00071">Guid.cpp:71</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00012">Timer.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a1194cae147883a6cbcc1cdd989eaf5f.html">utils</a></li><li class="navelem"><a class="el" href="../../dd/dc0/Guid_8cpp.html">Guid.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 9 2023 09:26:06 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Nov 13 2023 11:24:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

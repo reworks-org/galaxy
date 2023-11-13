@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/graphics/Shape.hpp Source File</title>
+<title>galaxy: galaxy/src/galaxy/math/Shape.hpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -101,48 +101,48 @@ $(document).ready(function(){initNavTree('d2/df8/Shape_8hpp_source.html','../../
 <div class="contents">
 <a href="../../d2/df8/Shape_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_GRAPHICS_SHAPE_HPP_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_GRAPHICS_SHAPE_HPP_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_MATH_SHAPE_HPP_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_MATH_SHAPE_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">namespace </span>graphics</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">namespace </span>math</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578">   18</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578">Shape</a> : <span class="keywordtype">short</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262">   18</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262">Shape</a> : <span class="keywordtype">short</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_enumvalue" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a0af50777920c1401ab975cab64c4d491">CIRCLE</a> = 0,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_enumvalue" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a0af50777920c1401ab975cab64c4d491">CIRCLE</a> = 0,</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_enumvalue" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870">ELLIPSE</a> = 1,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_enumvalue" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a3507764cffdfea213396f9d9eb30f870">ELLIPSE</a> = 1,</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_enumvalue" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a> = 2,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_enumvalue" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a> = 2,</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_enumvalue" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82">POINT</a> = 3,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_enumvalue" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aaebdbcb765394d25d6a604589a890f82">POINT</a> = 3,</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_enumvalue" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aeaa8e11478ccd5c257fe6f8bb5591c89">POLYLINE</a> = 4,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_enumvalue" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aeaa8e11478ccd5c257fe6f8bb5591c89">POLYLINE</a> = 4,</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <a class="code hl_enumvalue" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aecdc92bf56d960b73b02ee40125758bc">POLYGON</a> = 5</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <a class="code hl_enumvalue" href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aecdc92bf56d960b73b02ee40125758bc">POLYGON</a> = 5</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        };</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    } <span class="comment">// namespace graphics</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    } <span class="comment">// namespace math</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a2db5b83e24d5e4cf322637146de9b578"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578">galaxy::graphics::Shape</a></div><div class="ttdeci">Shape</div><div class="ttdoc">Basic shapes.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/df8/Shape_8hpp_source.html#l00018">Shape.hpp:19</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a2db5b83e24d5e4cf322637146de9b578a0af50777920c1401ab975cab64c4d491"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a0af50777920c1401ab975cab64c4d491">galaxy::graphics::Shape::CIRCLE</a></div><div class="ttdeci">@ CIRCLE</div><div class="ttdoc">A circlular shape.</div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870">galaxy::graphics::Shape::ELLIPSE</a></div><div class="ttdeci">@ ELLIPSE</div><div class="ttdoc">An odd circle.</div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a2db5b83e24d5e4cf322637146de9b578aeaa8e11478ccd5c257fe6f8bb5591c89"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aeaa8e11478ccd5c257fe6f8bb5591c89">galaxy::graphics::Shape::POLYLINE</a></div><div class="ttdeci">@ POLYLINE</div><div class="ttdoc">A line that stretches over a list of points.</div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a2db5b83e24d5e4cf322637146de9b578aecdc92bf56d960b73b02ee40125758bc"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aecdc92bf56d960b73b02ee40125758bc">galaxy::graphics::Shape::POLYGON</a></div><div class="ttdeci">@ POLYGON</div><div class="ttdoc">A closed loop line, i.e. a square.</div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7">galaxy::graphics::Primitives::LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">GL_LINES.</div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82">galaxy::graphics::Primitives::POINT</a></div><div class="ttdeci">@ POINT</div><div class="ttdoc">GL_POINTS.</div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262">galaxy::math::Shape</a></div><div class="ttdeci">Shape</div><div class="ttdoc">Basic shapes.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/df8/Shape_8hpp_source.html#l00018">Shape.hpp:19</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262a0af50777920c1401ab975cab64c4d491"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a0af50777920c1401ab975cab64c4d491">galaxy::math::Shape::CIRCLE</a></div><div class="ttdeci">@ CIRCLE</div><div class="ttdoc">A circlular shape.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262a17b8ef2c330f1430e00c9de5469fc7e7"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a17b8ef2c330f1430e00c9de5469fc7e7">galaxy::math::Shape::LINE</a></div><div class="ttdeci">@ LINE</div><div class="ttdoc">A line that stretches between only two points.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262a3507764cffdfea213396f9d9eb30f870"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a3507764cffdfea213396f9d9eb30f870">galaxy::math::Shape::ELLIPSE</a></div><div class="ttdeci">@ ELLIPSE</div><div class="ttdoc">An odd circle.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262aaebdbcb765394d25d6a604589a890f82"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aaebdbcb765394d25d6a604589a890f82">galaxy::math::Shape::POINT</a></div><div class="ttdeci">@ POINT</div><div class="ttdoc">A single vertex point.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262aeaa8e11478ccd5c257fe6f8bb5591c89"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aeaa8e11478ccd5c257fe6f8bb5591c89">galaxy::math::Shape::POLYLINE</a></div><div class="ttdeci">@ POLYLINE</div><div class="ttdoc">A line that stretches over a list of points.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab18b3fbe40d4718fc891f3ed725cc262aecdc92bf56d960b73b02ee40125758bc"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aecdc92bf56d960b73b02ee40125758bc">galaxy::math::Shape::POLYGON</a></div><div class="ttdeci">@ POLYGON</div><div class="ttdoc">A closed loop line, i.e. a square.</div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00012">Timer.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../d2/df8/Shape_8hpp.html">Shape.hpp</a></li>
-    <li class="footer">Generated on Thu Nov 9 2023 09:26:06 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../d2/df8/Shape_8hpp.html">Shape.hpp</a></li>
+    <li class="footer">Generated on Mon Nov 13 2023 11:24:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

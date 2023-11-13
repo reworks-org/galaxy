@@ -1,4 +1,4 @@
 var RectPack_8hpp =
 [
-    [ "galaxy::algorithm::RectPack", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack" ]
+    [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ]
 ];

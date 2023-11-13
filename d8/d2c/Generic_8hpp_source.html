@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/algorithm/Generic.hpp Source File</title>
+<title>galaxy: galaxy/src/galaxy/math/Generic.hpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -101,8 +101,8 @@ $(document).ready(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../.
 <div class="contents">
 <a href="../../d8/d2c/Generic_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_ALGORITHM_GENERIC_HPP_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_ALGORITHM_GENERIC_HPP_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_MATH_GENERIC_HPP_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_MATH_GENERIC_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
@@ -111,11 +111,11 @@ $(document).ready(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../.
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">namespace </span>algorithm</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">namespace </span>math</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">template</span>&lt;meta::is_arithmetic Type&gt;</div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#af4e018556ce75e495e92004aeacf0b5c">   31</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#af4e018556ce75e495e92004aeacf0b5c">normalize</a>(<span class="keyword">const</span> Type val, <span class="keyword">const</span> Type max)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#a08d68c471dcf5179897ba3f3873d2c9e">   31</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a08d68c471dcf5179897ba3f3873d2c9e">normalize</a>(<span class="keyword">const</span> Type val, <span class="keyword">const</span> Type max)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">return</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(val) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(max));</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../.
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
 <div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a494ea9277f097cc1b8fb539f32c957b2">   47</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a494ea9277f097cc1b8fb539f32c957b2">contains</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector&lt;Type&gt;</a>&amp; cont, <span class="keyword">const</span> Type&amp; val)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#ac561b8daffde46125bc12285ca637739">   47</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#ac561b8daffde46125bc12285ca637739">contains</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector&lt;Type&gt;</a>&amp; cont, <span class="keyword">const</span> Type&amp; val)</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keyword">auto</span> out = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            std::for_each(cont.begin(), cont.end(), [&amp;](<span class="keyword">const</span> Type&amp; var) {</div>
@@ -136,22 +136,22 @@ $(document).ready(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../.
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    } <span class="comment">// namespace algorithm</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    } <span class="comment">// namespace math</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aMemory_8hpp_html"><div class="ttname"><a href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1algorithm_html_a494ea9277f097cc1b8fb539f32c957b2"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a494ea9277f097cc1b8fb539f32c957b2">galaxy::algorithm::contains</a></div><div class="ttdeci">bool contains(const meta::vector&lt; Type &gt; &amp;cont, const Type &amp;val)</div><div class="ttdoc">See if a vector contains a value.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d2c/Generic_8hpp_source.html#l00047">Generic.hpp:47</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1algorithm_html_af4e018556ce75e495e92004aeacf0b5c"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#af4e018556ce75e495e92004aeacf0b5c">galaxy::algorithm::normalize</a></div><div class="ttdeci">float normalize(const Type val, const Type max)</div><div class="ttdoc">Calc normalized value from range.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d2c/Generic_8hpp_source.html#l00031">Generic.hpp:31</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_a08d68c471dcf5179897ba3f3873d2c9e"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a08d68c471dcf5179897ba3f3873d2c9e">galaxy::math::normalize</a></div><div class="ttdeci">float normalize(const Type val, const Type max)</div><div class="ttdoc">Calc normalized value from range.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d2c/Generic_8hpp_source.html#l00031">Generic.hpp:31</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ac561b8daffde46125bc12285ca637739"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ac561b8daffde46125bc12285ca637739">galaxy::math::contains</a></div><div class="ttdeci">bool contains(const meta::vector&lt; Type &gt; &amp;cont, const Type &amp;val)</div><div class="ttdoc">See if a vector contains a value.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d2c/Generic_8hpp_source.html#l00047">Generic.hpp:47</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1meta_html_a91b98bdf02f8524397102fa7301964db"><div class="ttname"><a href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">galaxy::meta::vector</a></div><div class="ttdeci">std::vector&lt; T, mi_stl_allocator&lt; T &gt; &gt; vector</div><div class="ttdoc">std::vector with faster allocation.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d18/Memory_8hpp_source.html#l00057">Memory.hpp:57</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00012">Timer.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_1f81a538181977f9897a3b0a98aeaf92.html">algorithm</a></li><li class="navelem"><a class="el" href="../../d8/d2c/Generic_8hpp.html">Generic.hpp</a></li>
-    <li class="footer">Generated on Thu Nov 9 2023 09:26:06 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../d8/d2c/Generic_8hpp.html">Generic.hpp</a></li>
+    <li class="footer">Generated on Mon Nov 13 2023 11:24:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

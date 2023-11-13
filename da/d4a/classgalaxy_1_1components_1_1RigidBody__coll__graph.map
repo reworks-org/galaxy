@@ -1,0 +1,5 @@
+<map id="galaxy::components::RigidBody" name="galaxy::components::RigidBody">
+<area shape="rect" id="Node000001" title="Box2D physics body." alt="" coords="5,219,189,699"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="17,5,178,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,184,100,218,95,218,95,184"/>
+</map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/algorithm/Random.hpp Source File</title>
+<title>galaxy: galaxy/src/galaxy/math/Random.hpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -101,8 +101,8 @@ $(document).ready(function(){initNavTree('dd/d6e/Random_8hpp_source.html','../..
 <div class="contents">
 <a href="../../dd/d6e/Random_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_ALGORITHM_RANDOM_HPP_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_ALGORITHM_RANDOM_HPP_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_MATH_RANDOM_HPP_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_MATH_RANDOM_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
@@ -110,40 +110,40 @@ $(document).ready(function(){initNavTree('dd/d6e/Random_8hpp_source.html','../..
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">namespace </span>algorithm</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">namespace </span>math</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aabcb6c1353dd79b5621d691e89156aa5">   23</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aabcb6c1353dd79b5621d691e89156aa5">conditional_distribution</a> = std::conditional_t&lt;std::is_integral&lt;Type&gt;::value,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0">   23</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0">conditional_distribution</a> = std::conditional_t&lt;std::is_integral&lt;Type&gt;::value,</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            std::uniform_int_distribution&lt;Type&gt;,</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            std::conditional_t&lt;std::is_floating_point&lt;Type&gt;::value, std::uniform_real_distribution&lt;Type&gt;, <span class="keywordtype">void</span>&gt;&gt;;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">template</span>&lt;meta::is_arithmetic Type&gt;</div>
 <div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a7dcac342f42314cb28621fb836ec3a08">   38</a></span>        [[nodiscard]] <span class="keyword">inline</span> Type <a class="code hl_function" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a7dcac342f42314cb28621fb836ec3a08">random</a>(<span class="keyword">const</span> Type min, <span class="keyword">const</span> Type max)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#ad84f12df94aed7abdcb7c3f973dbee00">   38</a></span>        [[nodiscard]] <span class="keyword">inline</span> Type <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#ad84f12df94aed7abdcb7c3f973dbee00">random</a>(<span class="keyword">const</span> Type min, <span class="keyword">const</span> Type max)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            std::random_device rd;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            std::mt19937_64    mt {rd()};</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_typedef" href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aabcb6c1353dd79b5621d691e89156aa5">conditional_distribution&lt;Type&gt;</a> dist {min, max};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_typedef" href="../../d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0">conditional_distribution&lt;Type&gt;</a> dist {min, max};</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">return</span> dist(mt);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    } <span class="comment">// namespace algorithm</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    } <span class="comment">// namespace math</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1algorithm_html_a7dcac342f42314cb28621fb836ec3a08"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#a7dcac342f42314cb28621fb836ec3a08">galaxy::algorithm::random</a></div><div class="ttdeci">Type random(const Type min, const Type max)</div><div class="ttdoc">Generate a random number of type T.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d6e/Random_8hpp_source.html#l00038">Random.hpp:38</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1algorithm_html_aabcb6c1353dd79b5621d691e89156aa5"><div class="ttname"><a href="../../d8/d3a/namespacegalaxy_1_1algorithm.html#aabcb6c1353dd79b5621d691e89156aa5">galaxy::algorithm::conditional_distribution</a></div><div class="ttdeci">std::conditional_t&lt; std::is_integral&lt; Type &gt;::value, std::uniform_int_distribution&lt; Type &gt;, std::conditional_t&lt; std::is_floating_point&lt; Type &gt;::value, std::uniform_real_distribution&lt; Type &gt;, void &gt; &gt; conditional_distribution</div><div class="ttdoc">Source: http://stackoverflow.com/a/32907541.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d6e/Random_8hpp_source.html#l00023">Random.hpp:25</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Base64.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/de5/Base64_8cpp_source.html#l00047">Base64.cpp:48</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_acc72c3d7d22f4ac11d4d05c1091220b0"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0">galaxy::math::conditional_distribution</a></div><div class="ttdeci">std::conditional_t&lt; std::is_integral&lt; Type &gt;::value, std::uniform_int_distribution&lt; Type &gt;, std::conditional_t&lt; std::is_floating_point&lt; Type &gt;::value, std::uniform_real_distribution&lt; Type &gt;, void &gt; &gt; conditional_distribution</div><div class="ttdoc">Source: http://stackoverflow.com/a/32907541.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d6e/Random_8hpp_source.html#l00023">Random.hpp:25</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ad84f12df94aed7abdcb7c3f973dbee00"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ad84f12df94aed7abdcb7c3f973dbee00">galaxy::math::random</a></div><div class="ttdeci">Type random(const Type min, const Type max)</div><div class="ttdoc">Generate a random number of type T.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d6e/Random_8hpp_source.html#l00038">Random.hpp:38</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00012">Timer.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_1f81a538181977f9897a3b0a98aeaf92.html">algorithm</a></li><li class="navelem"><a class="el" href="../../dd/d6e/Random_8hpp.html">Random.hpp</a></li>
-    <li class="footer">Generated on Thu Nov 9 2023 09:26:06 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../dd/d6e/Random_8hpp.html">Random.hpp</a></li>
+    <li class="footer">Generated on Mon Nov 13 2023 11:24:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

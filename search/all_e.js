@@ -6,7 +6,7 @@ var searchData=
   ['next_5fframe_3',['next_frame',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#aa6edef98ed9b7fdadaf258d3f572262f',1,'galaxy::graphics::Animation']]],
   ['nk_5fglfw_5fgl4_5fimplementation_4',['NK_GLFW_GL4_IMPLEMENTATION',['../d8/d99/NuklearUI_8cpp.html#a5d25e9845b21d43de3fe644c6b25913b',1,'NuklearUI.cpp']]],
   ['normal_5',['NORMAL',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda1e23852820b9154316c7c06e2b7ba051',1,'galaxy::graphics::GaussianBlur']]],
-  ['normalize_6',['normalize',['../d8/d3a/namespacegalaxy_1_1algorithm.html#af4e018556ce75e495e92004aeacf0b5c',1,'galaxy::algorithm']]],
+  ['normalize_6',['normalize',['../d1/d92/namespacegalaxy_1_1math.html#a08d68c471dcf5179897ba3f3873d2c9e',1,'galaxy::math']]],
   ['notification_7',['notification',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a989726ab72c596fdc9004303091df246',1,'galaxy::fs::VirtualFileSystem']]],
   ['nuklearui_8',['nuklearui',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html',1,'galaxy::ui::NuklearUI'],['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c',1,'galaxy::ui::NuklearUI::NuklearUI()']]],
   ['nuklearui_2ecpp_9',['NuklearUI.cpp',['../d8/d99/NuklearUI_8cpp.html',1,'']]],

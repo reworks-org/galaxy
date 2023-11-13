@@ -18,6 +18,8 @@ var Globals_8hpp =
     [ "GALAXY_FONT_MSDF_RANGE", "d5/d64/Globals_8hpp.html#a249c1c4e5287697a88a0c37b6ed33716", null ],
     [ "GALAXY_FONT_MSDF_SCALE", "d5/d64/Globals_8hpp.html#a7fc9600d0ea2484b2934a2f7352936b2", null ],
     [ "GALAXY_DEFAULT_ELLIPSE_FRAGMENTS", "d5/d64/Globals_8hpp.html#a78d449533f268a3dbe9f4a30925ba80a", null ],
+    [ "GALAXY_WORLD_TO_BOX", "d5/d64/Globals_8hpp.html#a3e8d246355a0db6e5d25824b73b7d4d4", null ],
+    [ "GALAXY_BOX_TO_WORLD", "d5/d64/Globals_8hpp.html#aeafe52b63f91fdc6e71598753d60082f", null ],
     [ "GALAXY_ROOT_DIR", "d5/d64/Globals_8hpp.html#a85578f94dab36071859e17e9f5aa0ba8", null ],
     [ "GALAXY_DATA_DIR", "d5/d64/Globals_8hpp.html#a9ef10dd47560cbbd868265626d850ab6", null ],
     [ "GALAXY_WORK_DIR", "d5/d64/Globals_8hpp.html#adc92e0f0f0a44b8beeef90a91e82b1d5", null ],

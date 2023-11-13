@@ -1,6 +1,5 @@
 var dir_719a66e699117833dd2aa990b86b1834 =
 [
-    [ "algorithm", "dir_1f81a538181977f9897a3b0a98aeaf92.html", "dir_1f81a538181977f9897a3b0a98aeaf92" ],
     [ "async", "dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html", "dir_5f96bc83f9c3b09ebca36e7cfb485d9f" ],
     [ "components", "dir_2b954ff381b9b3885b7442a3ec8b9d3a.html", "dir_2b954ff381b9b3885b7442a3ec8b9d3a" ],
     [ "core", "dir_2fca6cf9c244716c7cc7db0f05b66bc2.html", "dir_2fca6cf9c244716c7cc7db0f05b66bc2" ],
@@ -11,6 +10,7 @@ var dir_719a66e699117833dd2aa990b86b1834 =
     [ "fs", "dir_1172629c230fd658e12a747419a13e17.html", "dir_1172629c230fd658e12a747419a13e17" ],
     [ "graphics", "dir_99aa8610175742e789e9b97044e8bb7a.html", "dir_99aa8610175742e789e9b97044e8bb7a" ],
     [ "input", "dir_b44bae1181d28134d9654f6dd7c8beaa.html", "dir_b44bae1181d28134d9654f6dd7c8beaa" ],
+    [ "math", "dir_5adffbad0d676b36ea4ec849c81f774b.html", "dir_5adffbad0d676b36ea4ec849c81f774b" ],
     [ "media", "dir_d3c4af17bd947ce0a543d597ca1cfb63.html", "dir_d3c4af17bd947ce0a543d597ca1cfb63" ],
     [ "meta", "dir_7f735fbad00ad2f3f96d935c571f321a.html", "dir_7f735fbad00ad2f3f96d935c571f321a" ],
     [ "platform", "dir_539763b671f38b158c533952648703b5.html", "dir_539763b671f38b158c533952648703b5" ],

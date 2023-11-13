@@ -1,10 +1,6 @@
 var annotated_dup =
 [
     [ "galaxy", "d0/d46/namespacegalaxy.html", [
-      [ "algorithm", "d8/d3a/namespacegalaxy_1_1algorithm.html", [
-        [ "RectPack", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack.html", "d5/d99/classgalaxy_1_1algorithm_1_1RectPack" ],
-        [ "ZLib", "d2/d05/classgalaxy_1_1algorithm_1_1ZLib.html", "d2/d05/classgalaxy_1_1algorithm_1_1ZLib" ]
-      ] ],
       [ "async", "d0/d7f/namespacegalaxy_1_1async.html", [
         [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ],
         [ "TimerAsync", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync" ]
@@ -12,6 +8,7 @@ var annotated_dup =
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
+        [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
         [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
         [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
@@ -75,7 +72,6 @@ var annotated_dup =
         [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
         [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
         [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
-        [ "Rect", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", "d4/d0a/classgalaxy_1_1graphics_1_1Rect" ],
         [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ],
         [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", "d3/db6/classgalaxy_1_1graphics_1_1Renderable" ],
         [ "RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand" ],
@@ -103,6 +99,11 @@ var annotated_dup =
       ] ],
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", "d4/d00/classgalaxy_1_1lua_1_1BasicScript" ]
+      ] ],
+      [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
+        [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", "d5/dcc/classgalaxy_1_1math_1_1Rect" ],
+        [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
+        [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]
       ] ],
       [ "media", "dc/d80/namespacegalaxy_1_1media.html", [
         [ "AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine" ],
@@ -139,6 +140,7 @@ var annotated_dup =
       ] ],
       [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", [
         [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],
+        [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],
         [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]

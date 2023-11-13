@@ -1,9 +1,9 @@
-<map id="galaxy/src/galaxy/algorithm/RectPack.hpp" name="galaxy/src/galaxy/algorithm/RectPack.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="522,5,726,45"/>
-<area shape="rect" id="Node000002" href="$dc/d61/RectPack_8cpp.html" title=" " alt="" coords="410,93,614,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="590,56,538,95,535,91,586,52"/>
+<map id="galaxy/src/galaxy/math/RectPack.hpp" name="galaxy/src/galaxy/math/RectPack.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="545,5,719,45"/>
+<area shape="rect" id="Node000002" href="$dc/d61/RectPack_8cpp.html" title=" " alt="" coords="439,93,614,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="600,56,552,95,548,91,597,52"/>
 <area shape="rect" id="Node000003" href="$db/d27/TextureAtlas_8hpp.html" title=" " alt="" coords="639,93,836,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="661,52,714,91,711,95,658,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="667,52,716,91,712,95,664,56"/>
 <area shape="rect" id="Node000004" href="$d0/dff/Sprite_8cpp.html" title=" " alt="" coords="5,181,227,221"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="626,136,430,161,239,184,227,186,227,180,238,179,429,155,625,131"/>
 <area shape="rect" id="Node000005" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="251,181,421,221"/>

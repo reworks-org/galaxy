@@ -16,7 +16,6 @@ var namespacegalaxy_1_1graphics =
     [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
     [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
     [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
-    [ "Rect", "d4/d0a/classgalaxy_1_1graphics_1_1Rect.html", "d4/d0a/classgalaxy_1_1graphics_1_1Rect" ],
     [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ],
     [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", "d3/db6/classgalaxy_1_1graphics_1_1Renderable" ],
     [ "RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand" ],
@@ -35,8 +34,6 @@ var namespacegalaxy_1_1graphics =
     [ "is_posteffect", "d7/de6/conceptgalaxy_1_1graphics_1_1is__posteffect.html", null ],
     [ "UniformBuffer", "db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b", null ],
     [ "ShaderStorageBuffer", "db/dab/namespacegalaxy_1_1graphics.html#a5d5409faff54258ee123932bb7290160", null ],
-    [ "iRect", "db/dab/namespacegalaxy_1_1graphics.html#acc40cc97c7634fbf7a7f195d0f7670e1", null ],
-    [ "fRect", "db/dab/namespacegalaxy_1_1graphics.html#ab2faabf6d2aedbcb421132f115566b52", null ],
     [ "AttributeBinding", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019", [
       [ "POSITION_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5", null ],
       [ "TEXEL_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d", null ],
@@ -55,14 +52,6 @@ var namespacegalaxy_1_1graphics =
       [ "TRIANGLE", "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a9bcd89070cae224dce305f5011659ef4", null ],
       [ "TRIANGLE_STRIP", "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a708de017e3b83ccba21dfc9f6367d46f", null ],
       [ "TRIANGLE_FAN", "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aa9f047dff7e4cd4d8d3bdeafc4029d47", null ]
-    ] ],
-    [ "Shape", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578", [
-      [ "CIRCLE", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a0af50777920c1401ab975cab64c4d491", null ],
-      [ "ELLIPSE", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870", null ],
-      [ "LINE", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a17b8ef2c330f1430e00c9de5469fc7e7", null ],
-      [ "POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aaebdbcb765394d25d6a604589a890f82", null ],
-      [ "POLYLINE", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aeaa8e11478ccd5c257fe6f8bb5591c89", null ],
-      [ "POLYGON", "db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578aecdc92bf56d960b73b02ee40125758bc", null ]
     ] ],
     [ "StorageFlag", "db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66c", [
       [ "STATIC_DRAW", "db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca0c5234f5830e196c1079d1fdcf3f9aba", null ],

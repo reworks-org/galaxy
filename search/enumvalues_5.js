@@ -1,7 +1,7 @@
 var searchData=
 [
   ['e_0',['E',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3a3ea00cfc35332cedf6e5e9a32e94da',1,'galaxy::input']]],
-  ['ellipse_1',['ELLIPSE',['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a3507764cffdfea213396f9d9eb30f870',1,'galaxy::graphics']]],
+  ['ellipse_1',['ELLIPSE',['../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a3507764cffdfea213396f9d9eb30f870',1,'galaxy::math']]],
   ['end_2',['END',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab1a326c06d88bf042f73d70f50197905',1,'galaxy::input']]],
   ['enhanced_5fdark_3',['ENHANCED_DARK',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eaea0263b117e1728c2a77ba4418226613',1,'galaxy::ui']]],
   ['enter_4',['ENTER',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea331b3100a485d8cacff1d3df8e9b0c13',1,'galaxy::input']]],

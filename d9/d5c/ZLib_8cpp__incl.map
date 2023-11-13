@@ -1,7 +1,7 @@
-<map id="galaxy/src/galaxy/algorithm/ZLib.cpp" name="galaxy/src/galaxy/algorithm/ZLib.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="744,5,948,45"/>
+<map id="galaxy/src/galaxy/math/ZLib.cpp" name="galaxy/src/galaxy/math/ZLib.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="758,5,933,45"/>
 <area shape="rect" id="Node000002" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="358,93,514,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="748,48,510,93,509,88,747,43"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="758,46,510,93,509,88,757,41"/>
 <area shape="rect" id="Node000009" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="742,167,950,192"/>
 <area shape="poly" id="edge31_Node000001_Node000009" title=" " alt="" coords="848,46,848,153,843,153,843,46"/>
 <area shape="rect" id="Node000030" href="$db/dba/ZLib_8hpp.html" title=" " alt="" coords="948,93,1026,119"/>

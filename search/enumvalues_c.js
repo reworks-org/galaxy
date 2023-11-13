@@ -8,7 +8,7 @@ var searchData=
   ['left_5fcontrol_5',['LEFT_CONTROL',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaddf133566f544b297f2f84874c283589',1,'galaxy::input']]],
   ['left_5fshift_6',['LEFT_SHIFT',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab6c7e6204e97690efd79d6f513ed5613',1,'galaxy::input']]],
   ['left_5fsuper_7',['LEFT_SUPER',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eafd816cf0346d4939b4cf3bed78dd7fde',1,'galaxy::input']]],
-  ['line_8',['line',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7',1,'galaxy::graphics::LINE'],['../db/dab/namespacegalaxy_1_1graphics.html#a2db5b83e24d5e4cf322637146de9b578a17b8ef2c330f1430e00c9de5469fc7e7',1,'galaxy::graphics::LINE']]],
+  ['line_8',['line',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7',1,'galaxy::graphics::LINE'],['../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a17b8ef2c330f1430e00c9de5469fc7e7',1,'galaxy::math::LINE']]],
   ['line_5floop_9',['LINE_LOOP',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a8e0df0247f66bd2cac06f16abb562134',1,'galaxy::graphics']]],
   ['line_5fstrip_10',['LINE_STRIP',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930ae64a4d2159ed46d077e21a505575c814',1,'galaxy::graphics']]],
   ['low_11',['LOW',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda41bc94cbd8eebea13ce0491b2ac11b88',1,'galaxy::graphics::GaussianBlur']]]

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['value_5fin_5frange_0',['value_in_range',['../d4/d0a/classgalaxy_1_1graphics_1_1Rect.html#af397b840e5a1fc25640d2928e4ea020c',1,'galaxy::graphics::Rect']]],
+  ['value_5fin_5frange_0',['value_in_range',['../d5/dcc/classgalaxy_1_1math_1_1Rect.html#aa749173938b06851d9fda89f890e243e',1,'galaxy::math::Rect']]],
   ['vao_1',['vao',['../dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#aa231012130626690bf97cc848617bf82',1,'galaxy::graphics::SpriteBatch']]],
   ['vbo_2',['vbo',['../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a0e8071abbff118cbf92313c6782bab89',1,'galaxy::graphics::VertexArray']]],
   ['vertex_3',['vertex',['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7d9e424bad9d5a95c6bc7789ddd58697',1,'galaxy::graphics::Vertex::Vertex()'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#acc8891b388fbe98c0966897f490e0373',1,'galaxy::graphics::Vertex::Vertex(const glm::vec2 &amp;pos, const glm::vec2 &amp;texels={}, const glm::vec2 &amp;normals={}, const graphics::Colour &amp;colour={})'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#af508f20ca05a7066d4249f36e493d0d5',1,'galaxy::graphics::Vertex::Vertex(Vertex &amp;&amp;)'],['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a0e428805c2f0f8abdfa74d02ea768a0f',1,'galaxy::graphics::Vertex::Vertex(const Vertex &amp;)']]],

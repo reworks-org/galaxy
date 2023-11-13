@@ -1,5 +1,5 @@
 var Base64_8hpp =
 [
-    [ "encode_base64", "d0/d79/Base64_8hpp.html#af51b2738ee1cf60733c4681ff4ad825b", null ],
-    [ "decode_base64", "d0/d79/Base64_8hpp.html#aa1a4102763ede9a59182d62bc7f6e243", null ]
+    [ "encode_base64", "d0/d79/Base64_8hpp.html#a22ab4e39e7e3045a60708b514c2df529", null ],
+    [ "decode_base64", "d0/d79/Base64_8hpp.html#a6ae9cb90ed7180e96e12016f22b1121d", null ]
 ];
