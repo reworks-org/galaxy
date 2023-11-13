@@ -85,6 +85,13 @@ namespace galaxy
 			[[nodiscard]] bool intersects(const Rect<Type>& b) const;
 
 			///
+			/// Set the top-left position.
+			///
+			/// \param pos {x, y} coordinate.
+			///
+			void set_top_left(const glm::vec2& pos);
+
+			///
 			/// Get top right corner.
 			///
 			/// \return x + width.
@@ -214,6 +221,13 @@ namespace galaxy
 		inline bool Rect<Type>::intersects(const Rect<Type>& b) const
 		{
 			return !(x >= b.get_right() || get_right() <= b.x || y >= b.get_bottom() || get_bottom() <= b.y);
+		}
+
+		template<meta::is_arithmetic Type>
+		inline void Rect<Type>::set_top_left(const glm::vec2& pos)
+		{
+			x = pos.x;
+			y = pos.y;
 		}
 
 		template<meta::is_arithmetic Type>
