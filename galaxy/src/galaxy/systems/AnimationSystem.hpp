@@ -15,7 +15,7 @@ namespace galaxy
 	namespace systems
 	{
 		///
-		/// Processess entities with a renderable component.
+		/// Update entity animations.
 		///
 		class AnimationSystem final : public systems::System
 		{

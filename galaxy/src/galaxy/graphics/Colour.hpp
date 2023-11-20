@@ -59,14 +59,16 @@ namespace galaxy
 			~Colour();
 
 			///
-			/// Set using normalized values.
+			/// \brief Set using normalized values.
+			///
+			/// Clamped between 0 and 1.
 			///
 			/// \param r Red.
 			/// \param g Green.
 			/// \param b Blue.
-			/// \param a Alpha level. Defaults to Opaque (255).
+			/// \param a Alpha level. Defaults to Opaque (1.0f).
 			///
-			void set_from_normalized(const float r, const float g, const float b, const float a);
+			void set_from_normalized(const float r, const float g, const float b, const float a = 1.0f);
 
 			///
 			/// \brief Normalizes values and returns as floats.

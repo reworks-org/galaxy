@@ -40,6 +40,7 @@ namespace galaxy
 
 		RigidBody::RigidBody(RigidBody* ptr)
 			: Serializable {}
+			, m_body {nullptr}
 		{
 			const auto& copy = *ptr;
 

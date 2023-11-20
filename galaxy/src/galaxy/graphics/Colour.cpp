@@ -42,10 +42,10 @@ namespace galaxy
 
 		void Colour::set_from_normalized(const float r, const float g, const float b, const float a)
 		{
-			m_red   = static_cast<std::uint8_t>(std::max(r, 0.0f) * COLOUR_OFFSET);
-			m_green = static_cast<std::uint8_t>(std::max(g, 0.0f) * COLOUR_OFFSET);
-			m_blue  = static_cast<std::uint8_t>(std::max(b, 0.0f) * COLOUR_OFFSET);
-			m_alpha = static_cast<std::uint8_t>(std::max(a, 0.0f) * COLOUR_OFFSET);
+			m_red   = static_cast<std::uint8_t>(std::clamp(r, 0.0f, 1.0f) * COLOUR_OFFSET);
+			m_green = static_cast<std::uint8_t>(std::clamp(g, 0.0f, 1.0f) * COLOUR_OFFSET);
+			m_blue  = static_cast<std::uint8_t>(std::clamp(b, 0.0f, 1.0f) * COLOUR_OFFSET);
+			m_alpha = static_cast<std::uint8_t>(std::clamp(a, 0.0f, 1.0f) * COLOUR_OFFSET);
 		}
 
 		std::array<float, 4> Colour::to_array()

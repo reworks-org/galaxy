@@ -28,8 +28,8 @@ namespace galaxy
 
 		void PhysicsSystem::update(scene::Scene* scene)
 		{
-			const auto view = scene->m_world.m_registry.group<components::RigidBody>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
-			for (auto&& [entity, body, transform] : view.each())
+			const auto group = scene->m_world.m_registry.group<components::RigidBody>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
+			for (auto&& [entity, body, transform] : group.each())
 			{
 				const auto& pos = body.m_body->GetPosition();
 				transform.set_pos(pos.x * GALAXY_BOX_TO_WORLD, pos.y * GALAXY_BOX_TO_WORLD);

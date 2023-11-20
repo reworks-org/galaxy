@@ -25,8 +25,8 @@ namespace galaxy
 
 		void ScriptSystem::update(scene::Scene* scene)
 		{
-			const auto view = scene->m_world.m_registry.view<components::Script>(entt::exclude<flags::Disabled>);
-			for (auto&& [entity, script] : view.each())
+			const auto group = scene->m_world.m_registry.view<components::Script>(entt::exclude<flags::Disabled>);
+			for (auto&& [entity, script] : group.each())
 			{
 				if (script.m_update.valid())
 				{
