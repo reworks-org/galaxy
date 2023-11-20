@@ -34,7 +34,7 @@ namespace galaxy
 		///
 		/// String of glyphs rendered with a font.
 		///
-		class Text final : public graphics::Renderable, public fs::Serializable
+		class Text final : public fs::Serializable, public graphics::Renderable
 		{
 			friend class sc::panel::EntityEditor;
 			friend class systems::RenderSystem;
@@ -220,11 +220,46 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_font() const;
 
 			///
-			/// Get VAO object.
+			/// Number of instances to render.
 			///
-			/// \return Reference to this renderable's VAO.
+			/// \return Count for number of instances.
 			///
-			[[nodiscard]] const graphics::VertexArray& get_vao() const override;
+			[[nodiscard]] int get_instances() const override;
+
+			///
+			/// Get OpenGL rendering mode.
+			///
+			/// \return Unsigned int.
+			///
+			[[nodiscard]] unsigned int get_mode() const override;
+
+			///
+			/// Get vertex array object.
+			///
+			/// \return VAO handle.
+			///
+			[[nodiscard]] unsigned int get_vao() const override;
+
+			///
+			/// Gets OpenGL texture id.
+			///
+			/// \return unsigned int. 0 if no texture.
+			///
+			[[nodiscard]] unsigned int get_texture() const override;
+
+			///
+			/// Get index (element) buffer count.
+			///
+			/// \return Unsigned int.
+			///
+			[[nodiscard]] unsigned int get_count() const override;
+
+			///
+			/// Get rendering layer.
+			///
+			/// \return Integer. 0 is valid as a layer. So are negatives.
+			///
+			[[nodiscard]] int get_layer() const override;
 
 			///
 			/// Serializes object.
@@ -302,6 +337,16 @@ namespace galaxy
 			/// Alignment.
 			///
 			Alignment m_alignment;
+
+			///
+			/// Opengl texture id.
+			///
+			unsigned int m_tex_id;
+
+			///
+			/// Object z-level for drawing.
+			///
+			int m_layer;
 		};
 	} // namespace components
 } // namespace galaxy

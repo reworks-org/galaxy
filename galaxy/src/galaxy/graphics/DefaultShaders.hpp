@@ -186,6 +186,88 @@ namespace galaxy
 				io_frag = vec4(y, cb, cr, 1.0) * rec601;
 			}
 		)";
+
+		///
+		/// Particle vertex shader.
+		///
+		constexpr const auto particle_vert = R"(
+			#version 460 core
+			
+			layout (location = 0) in vec4 vertex;
+			layout (location = 1) in vec2 pos;
+			layout (location = 2) in vec2 scale;
+			layout (location = 3) in vec4 colour;
+	
+			precision highp int;
+			precision highp float;
+
+			layout(std140, binding = 0) uniform camera_data
+			{
+				mat4 u_camera_model_view;
+				mat4 u_camera_proj;
+			};
+
+			layout(std140, binding = 1) uniform render_data
+			{
+				mat4 u_transform;
+				vec4 u_colour;
+				int u_entity;
+				bool u_point;
+				bool u_textured;
+			};
+
+			out vec2 io_texels;
+			out vec4 io_colour;
+	
+			void main()
+			{
+				gl_Position =  u_camera_proj * u_camera_model_view * vec4(vertex.xy, 0.0, 1.0);
+
+				io_texels = vertex.zw;
+				io_texels.y = 1.0 - io_texels.y;
+				io_colour = colour;
+				
+			}
+		)";
+
+		///
+		/// Particle frag shader.
+		///
+		constexpr const auto particle_frag = R"(
+			#version 460 core
+
+			precision highp int;
+			precision highp float;
+
+			layout(std140, binding = 0) uniform camera_data
+			{
+				mat4 u_camera_model_view;
+				mat4 u_camera_proj;
+			};
+
+			layout(std140, binding = 1) uniform render_data
+			{
+				mat4 u_transform;
+				vec4 u_colour;
+				int u_entity;
+				bool u_point;
+				bool u_textured;
+			};
+
+			layout (location = 0) out vec4 io_frag_colour;
+			layout (location = 1) out int io_entity;
+
+			in vec2 io_texels;
+			in vec4 io_colour;
+
+			layout (location = 0) uniform sampler2D u_texture;
+
+			void main()
+			{
+				io_frag_colour = texture(u_texture, io_texels) * io_colour;
+				io_entity = u_entity;
+			}
+		)";
 	} // namespace shaders
 } // namespace galaxy
 

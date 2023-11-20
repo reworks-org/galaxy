@@ -39,7 +39,7 @@ namespace galaxy
 		///
 		/// 2D primitive shape.
 		///
-		class Primitive final : public graphics::Renderable, public fs::Serializable
+		class Primitive final : public fs::Serializable, public graphics::Renderable
 		{
 			friend class sc::panel::EntityEditor;
 			friend class systems::RenderSystem;
@@ -156,18 +156,46 @@ namespace galaxy
 			[[nodiscard]] float get_height() const;
 
 			///
+			/// Number of instances to render.
+			///
+			/// \return Count for number of instances.
+			///
+			[[nodiscard]] int get_instances() const override;
+
+			///
 			/// Get OpenGL rendering mode.
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int get_mode() const;
+			[[nodiscard]] unsigned int get_mode() const override;
 
 			///
-			/// Get VAO object.
+			/// Get vertex array object.
 			///
-			/// \return Reference to this renderable's VAO.
+			/// \return VAO handle.
 			///
-			[[nodiscard]] const graphics::VertexArray& get_vao() const override;
+			[[nodiscard]] unsigned int get_vao() const override;
+
+			///
+			/// Gets OpenGL texture id.
+			///
+			/// \return unsigned int. 0 if no texture.
+			///
+			[[nodiscard]] unsigned int get_texture() const override;
+
+			///
+			/// Get index (element) buffer count.
+			///
+			/// \return Unsigned int.
+			///
+			[[nodiscard]] unsigned int get_count() const override;
+
+			///
+			/// Get rendering layer.
+			///
+			/// \return Integer. 0 is valid as a layer. So are negatives.
+			///
+			[[nodiscard]] int get_layer() const override;
 
 			///
 			/// Serializes object.
@@ -230,15 +258,19 @@ namespace galaxy
 			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
 			///
 			unsigned int m_mode;
+
+			///
+			/// Object z-level for drawing.
+			///
+			int m_layer;
 		};
 
 		template<math::Shape shape>
 		inline void Primitive::create(const PrimitiveData& data, const graphics::Colour& colour, const int layer)
 		{
-			m_shape          = shape;
-			m_data           = data;
-			m_layer          = layer;
-			m_texture_handle = 0;
+			m_shape = shape;
+			m_data  = data;
+			m_layer = layer;
 
 			meta::vector<unsigned int>     indices;
 			meta::vector<graphics::Vertex> vertices;

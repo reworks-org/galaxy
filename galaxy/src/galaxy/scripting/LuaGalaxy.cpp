@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/components/Animated.hpp"
+#include "galaxy/components/ParticleGenerator.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
@@ -112,6 +113,43 @@ namespace galaxy
 			animated_type["set_and_play"]        = sol::resolve<void(const std::string&)>(&components::Animated::play);
 			animated_type["set"]                 = &components::Animated::set;
 			animated_type["stop"]                = &components::Animated::stop;
+
+			auto pg_type = lua.new_usertype<components::ParticleGenerator>("ParticleGenerator",
+				sol::constructors<components::ParticleGenerator()>(),
+				"type_id",
+				&entt::type_hash<components::ParticleGenerator>::value);
+
+			pg_type["generate"]                = &components::ParticleGenerator::generate;
+			pg_type["count"]                   = &components::ParticleGenerator::m_count;
+			pg_type["fixed_alpha"]             = &components::ParticleGenerator::m_fixed_alpha;
+			pg_type["fixed_colour"]            = &components::ParticleGenerator::m_fixed_colour;
+			pg_type["fixed_life"]              = &components::ParticleGenerator::m_fixed_life;
+			pg_type["fixed_scale"]             = &components::ParticleGenerator::m_fixed_scale;
+			pg_type["fixed_vel"]               = &components::ParticleGenerator::m_fixed_vel;
+			pg_type["keep_scale_aspect_ratio"] = &components::ParticleGenerator::m_keep_scale_aspect_ratio;
+			pg_type["max_alpha"]               = &components::ParticleGenerator::m_max_alpha;
+			pg_type["max_colour"]              = &components::ParticleGenerator::m_max_colour;
+			pg_type["max_life"]                = &components::ParticleGenerator::m_max_life;
+			pg_type["max_rect_spread"]         = &components::ParticleGenerator::m_max_rect_spread;
+			pg_type["max_scale"]               = &components::ParticleGenerator::m_max_scale;
+			pg_type["max_vel"]                 = &components::ParticleGenerator::m_max_vel;
+			pg_type["min_alpha"]               = &components::ParticleGenerator::m_min_alpha;
+			pg_type["min_colour"]              = &components::ParticleGenerator::m_min_colour;
+			pg_type["min_life"]                = &components::ParticleGenerator::m_min_life;
+			pg_type["min_rect_spread"]         = &components::ParticleGenerator::m_min_rect_spread;
+			pg_type["min_scale"]               = &components::ParticleGenerator::m_min_scale;
+			pg_type["min_vel"]                 = &components::ParticleGenerator::m_min_vel;
+			pg_type["particles"]               = &components::ParticleGenerator::m_particles;
+			pg_type["randomize_colour"]        = &components::ParticleGenerator::m_randomize_colour;
+			pg_type["randomize_colour_alpha"]  = &components::ParticleGenerator::m_randomize_colour_alpha;
+			pg_type["randomize_initial_vel"]   = &components::ParticleGenerator::m_randomize_initial_vel;
+			pg_type["randomize_life"]          = &components::ParticleGenerator::m_randomize_life;
+			pg_type["randomize_position"]      = &components::ParticleGenerator::m_randomize_position;
+			pg_type["randomize_scale"]         = &components::ParticleGenerator::m_randomize_scale;
+			pg_type["spread"]                  = &components::ParticleGenerator::m_spread;
+			pg_type["spread_radius"]           = &components::ParticleGenerator::m_spread_radius;
+			pg_type["reset"]                   = sol::resolve<void(void)>(&components::ParticleGenerator::reset);
+			pg_type["reset_index"]             = sol::resolve<void(const unsigned int)>(&components::ParticleGenerator::reset);
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
@@ -535,6 +573,13 @@ namespace galaxy
 			font_type["load"]             = sol::resolve<bool(const std::string&)>(&graphics::Font::load);
 			font_type["load_mem"]         = sol::resolve<bool(unsigned char*, const unsigned int)>(&graphics::Font::load);
 			font_type["vertical_advance"] = &graphics::Font::vertical_advance;
+
+			auto particle_type      = lua.new_usertype<graphics::Particle>("Particle", sol::constructors<graphics::Particle()>());
+			particle_type["colour"] = &graphics::Particle::m_colour;
+			particle_type["life"]   = &graphics::Particle::m_life;
+			particle_type["pos"]    = &graphics::Particle::m_pos;
+			particle_type["scale"]  = &graphics::Particle::m_scale;
+			particle_type["vel"]    = &graphics::Particle::m_vel;
 
 			/* INPUT */
 			// clang-format off

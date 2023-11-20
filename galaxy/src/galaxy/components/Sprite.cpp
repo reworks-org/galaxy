@@ -8,6 +8,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 
 #include "Sprite.hpp"
@@ -21,14 +22,13 @@ namespace galaxy
 			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
+			, m_tex_id {0}
+			, m_layer {0}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
 			: Serializable {}
-			, m_opacity {1.0f}
-			, m_width {0.0f}
-			, m_height {0.0f}
 		{
 			deserialize(json);
 		}
@@ -38,35 +38,39 @@ namespace galaxy
 			, m_opacity {1.0f}
 			, m_width {0.0f}
 			, m_height {0.0f}
+			, m_tex_id {0}
+			, m_layer {0}
 		{
 			create(ptr->m_tex_name, ptr->m_layer, ptr->m_opacity);
 		}
 
 		Sprite::Sprite(Sprite&& s)
-			: Renderable {std::move(s)}
-			, Serializable {}
-			, m_opacity {1.0f}
-			, m_width {0.0f}
-			, m_height {0.0f}
+			: Serializable {}
 		{
 			this->m_vao      = std::move(s.m_vao);
 			this->m_tex_name = std::move(s.m_tex_name);
 			this->m_opacity  = s.m_opacity;
 			this->m_width    = s.m_width;
 			this->m_height   = s.m_height;
+			this->m_tex_id   = s.m_tex_id;
+			this->m_layer    = s.m_layer;
+
+			s.m_tex_id = 0;
 		}
 
 		Sprite& Sprite::operator=(Sprite&& s)
 		{
 			if (this != &s)
 			{
-				this->Renderable::operator=(std::move(s));
-
 				this->m_vao      = std::move(s.m_vao);
 				this->m_tex_name = std::move(s.m_tex_name);
 				this->m_opacity  = s.m_opacity;
 				this->m_width    = s.m_width;
 				this->m_height   = s.m_height;
+				this->m_tex_id   = s.m_tex_id;
+				this->m_layer    = s.m_layer;
+
+				s.m_tex_id = 0;
 			}
 
 			return *this;
@@ -85,12 +89,12 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_tex_name       = texture;
-				m_opacity        = std::clamp(opacity, 0.0f, 1.0f);
-				m_width          = static_cast<float>(info.m_region.width);
-				m_height         = static_cast<float>(info.m_region.height);
-				m_layer          = layer;
-				m_texture_handle = info.m_handle;
+				m_tex_name = texture;
+				m_opacity  = std::clamp(opacity, 0.0f, 1.0f);
+				m_width    = static_cast<float>(info.m_region.width);
+				m_height   = static_cast<float>(info.m_region.height);
+				m_layer    = layer;
+				m_tex_id   = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -123,12 +127,12 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_tex_name       = texture;
-				m_opacity        = std::clamp(opacity, 0.0f, 1.0f);
-				m_width          = static_cast<float>(info.m_region.width);
-				m_height         = static_cast<float>(info.m_region.height);
-				m_layer          = layer;
-				m_texture_handle = info.m_handle;
+				m_tex_name = texture;
+				m_opacity  = std::clamp(opacity, 0.0f, 1.0f);
+				m_width    = static_cast<float>(info.m_region.width);
+				m_height   = static_cast<float>(info.m_region.height);
+				m_layer    = layer;
+				m_tex_id   = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -168,10 +172,10 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_tex_name       = texture;
-				m_width          = static_cast<float>(info.m_region.width);
-				m_height         = static_cast<float>(info.m_region.height);
-				m_texture_handle = info.m_handle;
+				m_tex_name = texture;
+				m_width    = static_cast<float>(info.m_region.width);
+				m_height   = static_cast<float>(info.m_region.height);
+				m_tex_id   = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -204,10 +208,10 @@ namespace galaxy
 			{
 				const auto& info = info_opt.value().get();
 
-				m_tex_name       = texture;
-				m_width          = static_cast<float>(info.m_region.width);
-				m_height         = static_cast<float>(info.m_region.height);
-				m_texture_handle = info.m_handle;
+				m_tex_name = texture;
+				m_width    = static_cast<float>(info.m_region.width);
+				m_height   = static_cast<float>(info.m_region.height);
+				m_tex_id   = info.m_handle;
 
 				std::array<graphics::Vertex, 4> vertices;
 
@@ -263,24 +267,49 @@ namespace galaxy
 			return m_tex_name;
 		}
 
-		const graphics::VertexArray& Sprite::get_vao() const
+		int Sprite::get_instances() const
 		{
-			return m_vao;
+			return 1;
+		}
+
+		unsigned int Sprite::get_mode() const
+		{
+			return graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+		}
+
+		unsigned int Sprite::get_vao() const
+		{
+			return m_vao.id();
+		}
+
+		unsigned int Sprite::get_texture() const
+		{
+			return m_tex_id;
+		}
+
+		unsigned int Sprite::get_count() const
+		{
+			return m_vao.index_count();
+		}
+
+		int Sprite::get_layer() const
+		{
+			return m_layer;
 		}
 
 		nlohmann::json Sprite::serialize()
 		{
-			nlohmann::json json  = "{}"_json;
-			json["texture_name"] = m_tex_name;
-			json["opacity"]      = m_opacity;
-			json["layer"]        = m_layer;
+			nlohmann::json json = "{}"_json;
+			json["texture"]     = m_tex_name;
+			json["opacity"]     = m_opacity;
+			json["layer"]       = m_layer;
 
 			return json;
 		}
 
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
-			create(json.at("texture_name"), json.at("layer"), json.at("opacity"));
+			create(json.at("texture"), json.at("layer"), json.at("opacity"));
 		}
 	} // namespace components
 } // namespace galaxy

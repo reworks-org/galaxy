@@ -12,6 +12,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
+#include <galaxy/components/ParticleGenerator.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Script.hpp>
@@ -132,6 +133,7 @@ namespace sc
 					if (ImGui::BeginPopup("AddNewComponent"))
 					{
 						draw_entry<components::Animated>(selected, "Animated");
+						draw_entry<components::ParticleGenerator>(selected, "ParticleGenerator");
 						draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
 						draw_entry<components::Script>(selected, "Script");
@@ -284,6 +286,9 @@ namespace sc
 
 							ImGui::EndCombo();
 						}
+					});
+
+					draw_component<components::ParticleGenerator>(selected, "ParticleGenerator", [](components::ParticleGenerator* pg) {
 					});
 
 					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {

@@ -16,6 +16,7 @@
 #include <miniaudio.h>
 
 #include "galaxy/components/Animated.hpp"
+#include "galaxy/components/ParticleGenerator.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
@@ -63,6 +64,7 @@ namespace galaxy
 			entt_sol::register_meta_component<components::RigidBody>();
 			entt_sol::register_meta_component<components::Primitive>();
 			entt_sol::register_meta_component<components::Animated>();
+			entt_sol::register_meta_component<components::ParticleGenerator>();
 			entt_sol::register_meta_component<components::UIScript>();
 			entt_sol::register_meta_component<flags::DenySerialization>();
 			entt_sol::register_meta_component<flags::Disabled>();

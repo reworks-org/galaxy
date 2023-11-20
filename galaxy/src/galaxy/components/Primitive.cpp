@@ -17,33 +17,28 @@ namespace galaxy
 	namespace components
 	{
 		Primitive::Primitive()
-			: Renderable {}
-			, Serializable {}
+			: Serializable {}
 			, m_width {0}
 			, m_height {0}
 			, m_shape {math::Shape::POLYGON}
 			, m_mode {0}
+			, m_layer {0}
 		{
 		}
 
 		Primitive::Primitive(const nlohmann::json& json)
-			: Renderable {}
-			, Serializable {}
-			, m_width {0}
-			, m_height {0}
-			, m_shape {math::Shape::POLYGON}
-			, m_mode {0}
+			: Serializable {}
 		{
 			deserialize(json);
 		}
 
 		Primitive::Primitive(Primitive* ptr)
-			: Renderable {}
-			, Serializable {}
+			: Serializable {}
 			, m_width {0}
 			, m_height {0}
 			, m_shape {math::Shape::POLYGON}
 			, m_mode {0}
+			, m_layer {0}
 		{
 			switch (ptr->m_shape)
 			{
@@ -74,12 +69,7 @@ namespace galaxy
 		}
 
 		Primitive::Primitive(Primitive&& p)
-			: Renderable {std::move(p)}
-			, Serializable {}
-			, m_width {0}
-			, m_height {0}
-			, m_shape {math::Shape::POLYGON}
-			, m_mode {0}
+			: Serializable {}
 		{
 			this->m_colour         = std::move(p.m_colour);
 			this->m_width          = p.m_width;
@@ -92,14 +82,13 @@ namespace galaxy
 			this->m_data.start_end = std::move(p.m_data.start_end);
 			this->m_vao            = std::move(p.m_vao);
 			this->m_mode           = p.m_mode;
+			this->m_layer          = p.m_layer;
 		}
 
 		Primitive& Primitive::operator=(Primitive&& p)
 		{
 			if (this != &p)
 			{
-				this->Renderable::operator=(std::move(p));
-
 				this->m_colour         = std::move(p.m_colour);
 				this->m_width          = p.m_width;
 				this->m_height         = p.m_height;
@@ -111,6 +100,7 @@ namespace galaxy
 				this->m_data.start_end = std::move(p.m_data.start_end);
 				this->m_vao            = std::move(p.m_vao);
 				this->m_mode           = p.m_mode;
+				this->m_layer          = p.m_layer;
 			}
 
 			return *this;
@@ -140,14 +130,34 @@ namespace galaxy
 			return m_height;
 		}
 
+		int Primitive::get_instances() const
+		{
+			return 1;
+		}
+
 		unsigned int Primitive::get_mode() const
 		{
 			return m_mode;
 		}
 
-		const graphics::VertexArray& Primitive::get_vao() const
+		unsigned int Primitive::get_vao() const
 		{
-			return m_vao;
+			return m_vao.id();
+		}
+
+		unsigned int Primitive::get_texture() const
+		{
+			return 0;
+		}
+
+		unsigned int Primitive::get_count() const
+		{
+			return m_vao.index_count();
+		}
+
+		int Primitive::get_layer() const
+		{
+			return m_layer;
 		}
 
 		nlohmann::json Primitive::serialize()

@@ -20,12 +20,7 @@ namespace galaxy
 			///
 			/// Normal VBO.
 			///
-			VERTEX_BUFFER_POINT = 0,
-
-			///
-			/// Instance offsets.
-			///
-			INSTANCE_BUFFER_POINT = 1
+			VERTEX_BUFFER_POINT = 0
 		};
 	} // namespace graphics
 } // namespace galaxy

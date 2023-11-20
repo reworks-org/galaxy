@@ -40,7 +40,6 @@
     <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
     <ClCompile Include="src\galaxy\graphics\Framebuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\IndexBuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\InstanceBuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
     <ClCompile Include="src\galaxy\graphics\Primitives.cpp" />
@@ -149,6 +148,10 @@
     <ClCompile Include="src\galaxy\fs\ArchiveEntry.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Particle.cpp" />
+    <ClCompile Include="src\galaxy\components\ParticleGenerator.cpp" />
+    <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
+    <ClCompile Include="src\galaxy\graphics\ParticleSpread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -190,7 +193,6 @@
     <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
     <ClInclude Include="src\galaxy\graphics\Framebuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\IndexBuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\InstanceBuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
     <ClInclude Include="src\galaxy\graphics\Primitives.hpp" />
@@ -295,5 +297,9 @@
     <ClInclude Include="src\galaxy\fs\ArchiveEntry.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Particle.hpp" />
+    <ClInclude Include="src\galaxy\components\ParticleGenerator.hpp" />
+    <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
+    <ClInclude Include="src\galaxy\graphics\ParticleSpread.hpp" />
   </ItemGroup>
 </Project>

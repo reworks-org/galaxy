@@ -25,10 +25,9 @@ namespace galaxy
 		{
 			this->destroy();
 
-			this->m_vao             = va.m_vao;
-			this->m_vbo             = std::move(va.m_vbo);
-			this->m_ibo             = std::move(va.m_ibo);
-			this->m_instance_buffer = std::move(va.m_instance_buffer);
+			this->m_vao = va.m_vao;
+			this->m_vbo = std::move(va.m_vbo);
+			this->m_ibo = std::move(va.m_ibo);
 
 			va.m_vao = 0;
 		}
@@ -39,10 +38,9 @@ namespace galaxy
 			{
 				this->destroy();
 
-				this->m_vao             = va.m_vao;
-				this->m_vbo             = std::move(va.m_vbo);
-				this->m_ibo             = std::move(va.m_ibo);
-				this->m_instance_buffer = std::move(va.m_instance_buffer);
+				this->m_vao = va.m_vao;
+				this->m_vbo = std::move(va.m_vbo);
+				this->m_ibo = std::move(va.m_ibo);
 
 				va.m_vao = 0;
 			}
@@ -113,19 +111,6 @@ namespace galaxy
 			glVertexArrayAttribBinding(m_vao,
 				static_cast<unsigned int>(AttributeBinding::COLOUR_POINT),
 				static_cast<unsigned int>(BufferBinding::VERTEX_BUFFER_POINT));
-		}
-
-		void VertexArray::set_instanced(std::span<glm::vec2> offsets)
-		{
-			m_instance_buffer.create(offsets);
-
-			glVertexArrayVertexBuffer(m_vao, static_cast<unsigned int>(BufferBinding::INSTANCE_BUFFER_POINT), m_instance_buffer.id(), 0, sizeof(float) * 2);
-			glEnableVertexArrayAttrib(m_vao, static_cast<unsigned int>(AttributeBinding::OFFSET_POINT));
-			glVertexArrayAttribFormat(m_vao, static_cast<unsigned int>(AttributeBinding::OFFSET_POINT), 2, GL_FLOAT, GL_FALSE, 0);
-			glVertexArrayAttribBinding(m_vao,
-				static_cast<unsigned int>(AttributeBinding::OFFSET_POINT),
-				static_cast<unsigned int>(BufferBinding::INSTANCE_BUFFER_POINT));
-			glVertexArrayBindingDivisor(m_vao, static_cast<unsigned int>(BufferBinding::INSTANCE_BUFFER_POINT), 1);
 		}
 
 		void VertexArray::sub_buffer(const unsigned int index, std::span<Vertex> vertices)

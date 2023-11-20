@@ -33,6 +33,9 @@ namespace galaxy
 			m_r2d_shader.load_raw(shaders::r2d_vert, shaders::r2d_frag);
 			m_r2d_shader.compile();
 
+			m_particle_shader.load_raw(shaders::particle_vert, shaders::particle_frag);
+			m_particle_shader.compile();
+
 			auto& window = core::ServiceLocator<core::Window>::ref();
 			m_width      = window.get_width();
 			m_height     = window.get_height();
@@ -70,13 +73,13 @@ namespace galaxy
 			// std::execution::par maybe used when > 1000? But 1000 draw calls is too slow anyway.
 
 			std::sort(m_data.begin(), m_data.end(), [](const RenderCommand& left, const RenderCommand& right) -> bool {
-				if (left.renderable->get_layer() == right.renderable->get_layer())
+				if (left.m_layer == right.m_layer)
 				{
-					return left.renderable->get_texture_handle() < right.renderable->get_texture_handle();
+					return left.m_texture < right.m_texture;
 				}
 				else
 				{
-					return left.renderable->get_layer() < right.renderable->get_layer();
+					return left.m_layer < right.m_layer;
 				}
 			});
 
@@ -84,19 +87,28 @@ namespace galaxy
 
 			for (auto& cmd : m_data)
 			{
+				if (cmd.m_particle)
+				{
+					m_particle_shader.bind();
+				}
+
 				m_r2d_ubo->buffer<Render2DUniform>(0, 1, &cmd.uniform_data);
 
-				glBindVertexArray(cmd.renderable->get_vao().id());
+				glBindVertexArray(cmd.m_vao);
 
-				const auto tex = cmd.renderable->get_texture_handle();
-				if (m_prev_texture != tex)
+				if (m_prev_texture != cmd.m_texture)
 				{
-					glBindTextureUnit(0, tex);
-					m_prev_texture = tex;
+					glBindTextureUnit(0, cmd.m_texture);
+					m_prev_texture = cmd.m_texture;
 				}
 
 				// Instances = 1 is the same as glDrawElements.
-				glDrawElementsInstanced(cmd.mode, cmd.renderable->get_vao().index_count(), GL_UNSIGNED_INT, nullptr, cmd.instances);
+				glDrawElementsInstanced(cmd.mode, cmd.m_index_count, GL_UNSIGNED_INT, nullptr, cmd.instances);
+
+				if (cmd.m_particle)
+				{
+					m_r2d_shader.bind();
+				}
 			}
 		}
 

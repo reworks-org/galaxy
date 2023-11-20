@@ -4,10 +4,11 @@
 - refine exporting, asset config, etc.
 - great blog: https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
 
-movement/collision:
-https://github.com/RandyGaul/cute_headers/blob/master/examples_cute_gl_and_c2/main.cpp
-https://github.com/RandyGaul/player2d
-https://github.com/sro5h/tinyc2-tests/blob/master/circle/CircleToPolygon.cpp
+
+- add particle generator to editor
+- test particle generator
+- finish particle generator serialization
+- finish documenting paritcle generator
 
 TileMap:
 	loading a map should generate prefabs and store them.
@@ -70,10 +71,5 @@ add instance rendering
 more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 	 - implement b2_debugdraw?
 
-
 linux:
 https://github.com/nackdai/makeitso
-
-particles:
-https://github.com/nintervik/2D-Particle-System
-https://github.com/MauriceGit/Partikel_accelleration_on_GPU

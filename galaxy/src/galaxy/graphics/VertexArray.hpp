@@ -11,7 +11,6 @@
 #include <memory>
 
 #include "galaxy/graphics/IndexBuffer.hpp"
-#include "galaxy/graphics/InstanceBuffer.hpp"
 #include "galaxy/graphics/VertexBuffer.hpp"
 
 namespace galaxy
@@ -62,13 +61,6 @@ namespace galaxy
 			/// \param indices_flag Static or dynamic data buffer.
 			///
 			void create(const unsigned int size, std::span<unsigned int> indices, const StorageFlag indices_flag);
-
-			///
-			/// Enable instancing for this vertex array.
-			///
-			/// \param offsets Offset position for each vertex.
-			///
-			void set_instanced(std::span<glm::vec2> offsets);
 
 			///
 			/// Sub-buffer vertex object.
@@ -154,11 +146,6 @@ namespace galaxy
 			/// Index buffer.
 			///
 			IndexBuffer m_ibo;
-
-			///
-			/// Instance buffer.
-			///
-			InstanceBuffer m_instance_buffer;
 		};
 	} // namespace graphics
 } // namespace galaxy

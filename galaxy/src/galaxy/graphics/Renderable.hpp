@@ -8,9 +8,6 @@
 #ifndef GALAXY_GRAPHICS_RENDERABLE_HPP_
 #define GALAXY_GRAPHICS_RENDERABLE_HPP_
 
-#include "galaxy/graphics/Primitives.hpp"
-#include "galaxy/graphics/VertexArray.hpp"
-
 namespace galaxy
 {
 	namespace graphics
@@ -22,68 +19,57 @@ namespace galaxy
 		{
 		  public:
 			///
-			/// Move constructor.
-			///
-			Renderable(Renderable&&);
-
-			///
-			/// Move assignment operator.
-			///
-			virtual Renderable& operator=(Renderable&&);
-
-			///
 			/// Destructor.
 			///
-			virtual ~Renderable();
+			virtual ~Renderable() = default;
+
+			///
+			/// Number of instances to render.
+			///
+			/// \return Count for number of instances.
+			///
+			[[nodiscard]] virtual int get_instances() const = 0;
+
+			///
+			/// Get OpenGL rendering mode.
+			///
+			/// \return Unsigned int.
+			///
+			[[nodiscard]] virtual unsigned int get_mode() const = 0;
+
+			///
+			/// Get vertex array object.
+			///
+			/// \return VAO handle.
+			///
+			[[nodiscard]] virtual unsigned int get_vao() const = 0;
 
 			///
 			/// Gets OpenGL texture id.
 			///
 			/// \return unsigned int. 0 if no texture.
 			///
-			[[nodiscard]] unsigned int get_texture_handle() const;
+			[[nodiscard]] virtual unsigned int get_texture() const = 0;
+
+			///
+			/// Get index (element) buffer count.
+			///
+			/// \return Unsigned int.
+			///
+			[[nodiscard]] virtual unsigned int get_count() const = 0;
 
 			///
 			/// Get rendering layer.
 			///
 			/// \return Integer. 0 is valid as a layer. So are negatives.
 			///
-			[[nodiscard]] int get_layer() const;
-
-			///
-			/// Get VAO object.
-			///
-			/// \return Reference to this renderable's VAO.
-			///
-			[[nodiscard]] virtual const graphics::VertexArray& get_vao() const = 0;
+			[[nodiscard]] virtual int get_layer() const = 0;
 
 		  protected:
 			///
 			/// Constructor.
 			///
-			Renderable();
-
-		  private:
-			///
-			/// Copy constructor.
-			///
-			Renderable(const Renderable&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Renderable& operator=(const Renderable&) = delete;
-
-		  protected:
-			///
-			/// Opengl texture id.
-			///
-			unsigned int m_texture_handle;
-
-			///
-			/// Object z-level for drawing.
-			///
-			int m_layer;
+			Renderable() = default;
 		};
 	} // namespace graphics
 } // namespace galaxy

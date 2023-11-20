@@ -9,6 +9,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
@@ -19,50 +20,41 @@ namespace galaxy
 	namespace components
 	{
 		Text::Text()
-			: Renderable {}
-			, Serializable {}
+			: Serializable {}
 			, m_font {nullptr}
 			, m_width {0.0f}
 			, m_height {0.0f}
 			, m_size {0.0f}
 			, m_alignment {Alignment::LEFT}
+			, m_tex_id {0}
+			, m_layer {0}
 		{
 		}
 
 		Text::Text(const nlohmann::json& json)
-			: Renderable {}
-			, Serializable {}
-			, m_font {nullptr}
-			, m_width {0.0f}
-			, m_height {0.0f}
-			, m_size {0.0f}
-			, m_alignment {Alignment::LEFT}
+			: Serializable {}
 		{
 			deserialize(json);
 		}
 
 		Text::Text(Text* ptr)
-			: Renderable {}
-			, Serializable {}
+			: Serializable {}
 			, m_font {nullptr}
 			, m_width {0.0f}
 			, m_height {0.0f}
 			, m_size {0.0f}
 			, m_alignment {Alignment::LEFT}
+			, m_tex_id {0}
+			, m_layer {0}
 		{
 			create(ptr->m_text, ptr->m_size, ptr->m_font_name, ptr->m_colour, ptr->m_layer, ptr->m_alignment);
 		}
 
 		Text::Text(Text&& t)
-			: Renderable {std::move(t)}
-			, Serializable {}
-			, m_font {nullptr}
-			, m_width {0.0f}
-			, m_height {0.0f}
-			, m_size {0.0f}
+			: Serializable {}
 		{
-			this->m_vao       = std::move(t.m_vao);
 			this->m_colour    = std::move(t.m_colour);
+			this->m_vao       = std::move(t.m_vao);
 			this->m_rt        = std::move(t.m_rt);
 			this->m_font_name = t.m_font_name;
 			this->m_font      = t.m_font;
@@ -71,16 +63,17 @@ namespace galaxy
 			this->m_text      = std::move(t.m_text);
 			this->m_size      = t.m_size;
 			this->m_alignment = t.m_alignment;
+			this->m_tex_id    = t.m_tex_id;
+			this->m_layer     = t.m_layer;
 
-			t.m_font = nullptr;
+			t.m_font   = nullptr;
+			t.m_tex_id = 0;
 		}
 
 		Text& Text::operator=(Text&& t)
 		{
 			if (this != &t)
 			{
-				this->Renderable::operator=(std::move(t));
-
 				this->m_vao       = std::move(t.m_vao);
 				this->m_colour    = std::move(t.m_colour);
 				this->m_rt        = std::move(t.m_rt);
@@ -91,8 +84,11 @@ namespace galaxy
 				this->m_text      = std::move(t.m_text);
 				this->m_size      = t.m_size;
 				this->m_alignment = t.m_alignment;
+				this->m_tex_id    = t.m_tex_id;
+				this->m_layer     = t.m_layer;
 
-				t.m_font = nullptr;
+				t.m_font   = nullptr;
+				t.m_tex_id = 0;
 			}
 
 			return *this;
@@ -125,7 +121,7 @@ namespace galaxy
 				m_height       = vec.y;
 
 				m_rt.create(static_cast<int>(m_width), static_cast<int>(m_height));
-				m_texture_handle = m_rt.get_texture();
+				m_tex_id = m_rt.get_texture();
 
 				m_rt.bind(true);
 
@@ -320,9 +316,34 @@ namespace galaxy
 			return m_font_name;
 		}
 
-		const graphics::VertexArray& Text::get_vao() const
+		int Text::get_instances() const
 		{
-			return m_vao;
+			return 1;
+		}
+
+		unsigned int Text::get_mode() const
+		{
+			return graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+		}
+
+		unsigned int Text::get_vao() const
+		{
+			return m_vao.id();
+		}
+
+		unsigned int Text::get_texture() const
+		{
+			return m_tex_id;
+		}
+
+		unsigned int Text::get_count() const
+		{
+			return m_vao.index_count();
+		}
+
+		int Text::get_layer() const
+		{
+			return m_layer;
 		}
 
 		nlohmann::json Text::serialize()

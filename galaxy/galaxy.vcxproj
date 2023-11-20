@@ -11,9 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\graphics\ParticleSpread.cpp" />
+    <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
+    <ClCompile Include="src\galaxy\components\ParticleGenerator.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Particle.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
+    <ClInclude Include="src\galaxy\graphics\ParticleSpread.hpp" />
+    <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
+    <ClInclude Include="src\galaxy\components\ParticleGenerator.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
@@ -115,7 +122,6 @@
     <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
     <ClCompile Include="src\galaxy\graphics\Framebuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\IndexBuffer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\InstanceBuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\Sharpen.cpp" />
     <ClCompile Include="src\galaxy\graphics\postfx\SMAA.cpp" />
@@ -167,6 +173,7 @@
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\graphics\Particle.hpp" />
     <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
@@ -254,7 +261,6 @@
     <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
     <ClInclude Include="src\galaxy\graphics\Framebuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\IndexBuffer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\InstanceBuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\Sharpen.hpp" />
     <ClInclude Include="src\galaxy\graphics\postfx\SMAA.hpp" />

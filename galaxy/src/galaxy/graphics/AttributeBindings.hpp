@@ -30,12 +30,7 @@ namespace galaxy
 			///
 			/// Colour data.
 			///
-			COLOUR_POINT = 2u,
-
-			///
-			/// Instance offset data.
-			///
-			OFFSET_POINT = 3u
+			COLOUR_POINT = 2u
 		};
 	} // namespace graphics
 } // namespace galaxy

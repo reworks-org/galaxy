@@ -11,9 +11,10 @@
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/graphics/Buffer.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/graphics/Texture.hpp"
-#include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/PostProcess.hpp"
+#include "galaxy/graphics/RenderCommand.hpp"
+#include "galaxy/graphics/Texture.hpp"
+#include "galaxy/graphics/VertexArray.hpp"
 
 struct GLFWwindow;
 
@@ -138,6 +139,11 @@ namespace galaxy
 			/// Shader used when drawing with renderer.
 			///
 			graphics::Shader m_r2d_shader;
+
+			///
+			/// Shader for rendering particles.
+			///
+			graphics::Shader m_particle_shader;
 
 			///
 			/// Cache previous texture to prevent rebinding.
