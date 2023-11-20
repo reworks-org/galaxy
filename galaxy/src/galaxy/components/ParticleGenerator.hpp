@@ -20,16 +20,18 @@ namespace galaxy
 	namespace systems
 	{
 		class RenderSystem;
+		class ParticleSystem;
 	} // namespace systems
 
 	namespace components
 	{
 		///
-		///
+		/// Allows an entity to emit particle effects.
 		///
 		class ParticleGenerator final : public fs::Serializable, public graphics::Renderable
 		{
 			friend class systems::RenderSystem;
+			friend class systems::ParticleSystem;
 
 		  public:
 			///
@@ -67,20 +69,23 @@ namespace galaxy
 			virtual ~ParticleGenerator();
 
 			///
+			/// Configures and generates the particles to be emitted.
 			///
+			/// \param pos Starting position of particles.
+			/// \param texture Texture for particles to have.
+			/// \param layer Rendering layer.
+			/// \param count Amount of particles to emit.
 			///
 			void generate(const glm::vec2& pos, const std::string& texture, const int layer, const int count);
 
 			///
-			///
+			/// Reset all particle lifetime and positions.
 			///
 			void reset();
 
 			///
+			/// Copy updated particle data to opengl.
 			///
-			///
-			void reset(const unsigned int index);
-
 			void buffer_instances();
 
 			///
@@ -150,176 +155,183 @@ namespace galaxy
 			///
 			ParticleGenerator(const ParticleGenerator&) = delete;
 
+			///
+			/// Reset a specific particle.
+			///
+			/// \param index Index in the particle list.
+			///
+			void reset(const unsigned int index);
+
 		  private:
 			///
-			///
+			/// Create initial opengl buffers.
 			///
 			void generate_buffers();
 
 		  public:
 			///
-			///
+			/// Number of particles.
 			///
 			int m_count;
 
 			///
-			///
+			/// Should spawning position be randomized.
 			///
 			bool m_randomize_position;
 
 			///
-			///
+			/// Should initial velocity be randomized.
 			///
 			bool m_randomize_initial_vel;
 
 			///
-			///
+			/// Should particle life be randomized.
 			///
 			bool m_randomize_life;
 
 			///
-			///
+			/// Should particle size be randomized.
 			///
 			bool m_randomize_scale;
 
 			///
-			///
+			/// Should particles maintain aspect ratio when scaling.
 			///
 			bool m_keep_scale_aspect_ratio;
 
 			///
-			///
+			/// Should particle tint be randomized.
 			///
 			bool m_randomize_colour;
 
 			///
-			///
+			/// Should particle opacity be randomized.
 			///
 			bool m_randomize_colour_alpha;
 
 			///
-			///
+			/// Defines area in which particles are spawned.
 			///
 			graphics::ParticleSpread m_spread;
 
 			///
-			///
+			/// Radius particles should spawn around the emitter.
 			///
 			float m_spread_radius;
 
 			///
-			///
+			/// Min spread for a rectangle area.
 			///
 			glm::vec2 m_min_rect_spread;
 
 			///
-			///
+			/// Max spread for a rectangle area.
 			///
 			glm::vec2 m_max_rect_spread;
 
 			///
-			///
+			/// Default velocity.
 			///
 			glm::vec2 m_fixed_vel;
 
 			///
-			///
+			/// Min allowed velocity.
 			///
 			glm::vec2 m_min_vel;
 
 			///
-			///
+			/// Max allowed velocity.
 			///
 			glm::vec2 m_max_vel;
 
 			///
-			///
+			/// Default life.
 			///
 			float m_fixed_life;
 
 			///
-			///
+			/// Min particle life.
 			///
 			float m_min_life;
 
 			///
-			///
+			/// Max particle life.
 			///
 			float m_max_life;
 
 			///
-			///
+			/// Default scale.
 			///
 			glm::vec2 m_fixed_scale;
 
 			///
-			///
+			/// Min scale.
 			///
 			glm::vec2 m_min_scale;
 
 			///
-			///
+			/// Max scale.
 			///
 			glm::vec2 m_max_scale;
 
 			///
-			///
+			/// Default colour.
 			///
 			glm::vec3 m_fixed_colour;
 
 			///
-			///
+			/// Min colour.
 			///
 			glm::vec3 m_min_colour;
 
 			///
-			///
+			/// Max colour.
 			///
 			glm::vec3 m_max_colour;
 
 			///
-			///
+			/// Default opacity.
 			///
 			float m_fixed_alpha;
 
 			///
-			///
+			/// Min allowed opacity.
 			///
 			float m_min_alpha;
 
 			///
-			///
+			/// Max allowed opacity.
 			///
 			float m_max_alpha;
 
 			///
-			///
+			/// List of created particles.
 			///
 			meta::vector<graphics::Particle> m_particles;
 
 		  private:
 			///
-			///
+			/// OpenGL instance buffer handle.
 			///
 			unsigned int m_instance;
 
 			///
-			///
+			/// OpenGL vertex array object handle.
 			///
 			unsigned int m_vao;
 
 			///
-			///
+			/// OpenGL vertex buffer object handle.
 			///
 			unsigned int m_vbo;
 
 			///
-			///
+			/// OpenGL element buffer handle.
 			///
 			unsigned int m_ebo;
 
 			///
-			///
+			/// Texture name.
 			///
 			std::string m_texture;
 

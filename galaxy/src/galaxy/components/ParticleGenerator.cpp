@@ -273,6 +273,173 @@ namespace galaxy
 			}
 		}
 
+		void ParticleGenerator::buffer_instances()
+		{
+			glBindBuffer(GL_ARRAY_BUFFER, m_instance);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(graphics::Particle) * m_particles.size(), m_particles.data(), GL_STATIC_DRAW);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+		}
+
+		int ParticleGenerator::get_instances() const
+		{
+			return m_count;
+		}
+
+		unsigned int ParticleGenerator::get_mode() const
+		{
+			return graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
+		}
+
+		unsigned int ParticleGenerator::get_vao() const
+		{
+			return m_vao;
+		}
+
+		unsigned int ParticleGenerator::get_texture() const
+		{
+			return m_tex_id;
+		}
+
+		unsigned int ParticleGenerator::get_count() const
+		{
+			return 6;
+		}
+
+		int ParticleGenerator::get_layer() const
+		{
+			return m_layer;
+		}
+
+		nlohmann::json ParticleGenerator::serialize()
+		{
+			nlohmann::json json             = "{}"_json;
+			json["texture"]                 = m_texture;
+			json["layer"]                   = m_layer;
+			json["start"]["x"]              = m_start_pos.x;
+			json["start"]["y"]              = m_start_pos.y;
+			json["count"]                   = m_count;
+			json["randomize_position"]      = m_randomize_position;
+			json["randomize_initial_vel"]   = m_randomize_initial_vel;
+			json["randomize_life"]          = m_randomize_life;
+			json["randomize_scale"]         = m_randomize_scale;
+			json["keep_scale_aspect_ratio"] = m_keep_scale_aspect_ratio;
+			json["randomize_colour"]        = m_randomize_colour;
+			json["randomize_colour_alpha"]  = m_randomize_colour_alpha;
+			json["spread_radius;"]          = m_spread_radius;
+			json["fixed_life"]              = m_fixed_life;
+			json["min_life"]                = m_min_life;
+			json["max_life"]                = m_max_life;
+			json["fixed_alpha"]             = m_fixed_alpha;
+			json["min_alpha"]               = m_min_alpha;
+			json["max_alpha"]               = m_max_alpha;
+			json["spread"]                  = magic_enum::enum_name(m_spread);
+			json["min_rect_spread"]["x"]    = m_min_rect_spread.x;
+			json["min_rect_spread"]["y"]    = m_min_rect_spread.y;
+			json["max_rect_spread"]["x"]    = m_max_rect_spread.x;
+			json["max_rect_spread"]["y"]    = m_max_rect_spread.y;
+			json["fixed_vel"]["x"]          = m_fixed_vel.x;
+			json["fixed_vel"]["y"]          = m_fixed_vel.y;
+			json["min_vel"]["x"]            = m_min_vel.x;
+			json["min_vel"]["y"]            = m_min_vel.y;
+			json["max_vel"]["x"]            = m_max_vel.x;
+			json["max_vel"]["y"]            = m_max_vel.y;
+			json["fixed_scale"]["x"]        = m_fixed_scale.x;
+			json["fixed_scale"]["y"]        = m_fixed_scale.y;
+			json["min_scale"]["x"]          = m_min_scale.x;
+			json["min_scale"]["y"]          = m_min_scale.y;
+			json["max_scale"]["x"]          = m_max_scale.x;
+			json["max_scale"]["y"]          = m_max_scale.y;
+			json["fixed_colour"]["x"]       = m_fixed_colour.x;
+			json["fixed_colour"]["y"]       = m_fixed_colour.y;
+			json["fixed_colour"]["z"]       = m_fixed_colour.z;
+			json["min_colour"]["x"]         = m_min_colour.x;
+			json["min_colour"]["y"]         = m_min_colour.y;
+			json["min_colour"]["z"]         = m_min_colour.z;
+			json["max_colour"]["x"]         = m_max_colour.x;
+			json["max_colour"]["y"]         = m_max_colour.y;
+			json["max_colour"]["z"]         = m_max_colour.z;
+
+			return json;
+		}
+
+		void ParticleGenerator::deserialize(const nlohmann::json& json)
+		{
+			m_texture = json.at("texture");
+			m_layer   = json.at("layer");
+
+			const auto& start_pos = json.at("start_pos");
+			m_start_pos.x         = start_pos.at("x");
+			m_start_pos.y         = start_pos.at("y");
+
+			m_count                   = json.at("count");
+			m_randomize_position      = json.at("randomize_position");
+			m_randomize_initial_vel   = json.at("randomize_initial_vel");
+			m_randomize_life          = json.at("randomize_life");
+			m_randomize_scale         = json.at("randomize_scale");
+			m_keep_scale_aspect_ratio = json.at("keep_scale_aspect_ratio");
+			m_randomize_colour        = json.at("randomize_colour");
+			m_randomize_colour_alpha  = json.at("randomize_colour_alpha");
+			m_spread_radius           = json.at("spread_radius");
+			m_fixed_life              = json.at("fixed_life");
+			m_min_life                = json.at("min_life");
+			m_max_life                = json.at("max_life");
+			m_fixed_alpha             = json.at("fixed_alpha");
+			m_min_alpha               = json.at("min_alpha");
+			m_max_alpha               = json.at("max_alpha");
+
+			std::string spread = json.at("spread");
+			m_spread           = magic_enum::enum_cast<graphics::ParticleSpread>(spread).value();
+
+			const auto& min_rect_spread = json.at("min_rect_spread");
+			m_min_rect_spread.x         = min_rect_spread.at("x");
+			m_min_rect_spread.y         = min_rect_spread.at("y");
+
+			const auto& max_rect_spread = json.at("max_rect_spread");
+			m_max_rect_spread.x         = max_rect_spread.at("x");
+			m_max_rect_spread.y         = max_rect_spread.at("y");
+
+			const auto& fixed_vel = json.at("fixed_vel");
+			m_fixed_vel.x         = fixed_vel.at("x");
+			m_fixed_vel.y         = fixed_vel.at("y");
+
+			const auto& min_vel = json.at("min_vel");
+			m_min_vel.x         = min_vel.at("x");
+			m_min_vel.y         = min_vel.at("y");
+
+			const auto& max_vel = json.at("max_vel");
+			m_max_vel.x         = max_vel.at("x");
+			m_max_vel.y         = max_vel.at("y");
+
+			const auto& fixed_scale = json.at("fixed_scale");
+			m_fixed_scale.x         = fixed_scale.at("x");
+			m_fixed_scale.y         = fixed_scale.at("y");
+
+			const auto& min_scale = json.at("min_scale");
+			m_min_scale.x         = min_scale.at("x");
+			m_min_scale.y         = min_scale.at("y");
+
+			const auto& max_scale = json.at("max_scale");
+			m_max_scale.x         = max_scale.at("x");
+			m_max_scale.y         = max_scale.at("y");
+
+			const auto& fixed_colour = json.at("fixed_colour");
+			m_fixed_colour.x         = fixed_colour.at("x");
+			m_fixed_colour.y         = fixed_colour.at("y");
+			m_fixed_colour.z         = fixed_colour.at("z");
+
+			const auto& min_colour = json.at("min_colour");
+			m_min_colour.x         = min_colour.at("x");
+			m_min_colour.y         = min_colour.at("y");
+			m_min_colour.z         = min_colour.at("z");
+
+			const auto& max_colour = json.at("max_colour");
+			m_max_colour.x         = max_colour.at("x");
+			m_max_colour.y         = max_colour.at("y");
+			m_max_colour.z         = max_colour.at("z");
+
+			generate(m_start_pos, m_texture, m_layer, m_count);
+		}
+
 		void ParticleGenerator::reset(const unsigned int index)
 		{
 			math::Random random;
@@ -365,53 +532,6 @@ namespace galaxy
 					m_particles[index].m_colour = {m_fixed_colour, m_fixed_alpha};
 				}
 			}
-		}
-
-		void ParticleGenerator::buffer_instances()
-		{
-			glBindBuffer(GL_ARRAY_BUFFER, m_instance);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(graphics::Particle) * m_particles.size(), m_particles.data(), GL_STATIC_DRAW);
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
-		}
-
-		int ParticleGenerator::get_instances() const
-		{
-			return m_count;
-		}
-
-		unsigned int ParticleGenerator::get_mode() const
-		{
-			return graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-		}
-
-		unsigned int ParticleGenerator::get_vao() const
-		{
-			return m_vao;
-		}
-
-		unsigned int ParticleGenerator::get_texture() const
-		{
-			return m_tex_id;
-		}
-
-		unsigned int ParticleGenerator::get_count() const
-		{
-			return 6;
-		}
-
-		int ParticleGenerator::get_layer() const
-		{
-			return m_layer;
-		}
-
-		nlohmann::json ParticleGenerator::serialize()
-		{
-			nlohmann::json json = "{}"_json;
-			return json;
-		}
-
-		void ParticleGenerator::deserialize(const nlohmann::json& json)
-		{
 		}
 
 		void ParticleGenerator::generate_buffers()

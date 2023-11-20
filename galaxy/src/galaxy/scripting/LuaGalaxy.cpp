@@ -149,7 +149,6 @@ namespace galaxy
 			pg_type["spread"]                  = &components::ParticleGenerator::m_spread;
 			pg_type["spread_radius"]           = &components::ParticleGenerator::m_spread_radius;
 			pg_type["reset"]                   = sol::resolve<void(void)>(&components::ParticleGenerator::reset);
-			pg_type["reset_index"]             = sol::resolve<void(const unsigned int)>(&components::ParticleGenerator::reset);
 
 			auto primitive_data_type =
 				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());

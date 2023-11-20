@@ -7,8 +7,6 @@
 
 - add particle generator to editor
 - test particle generator
-- finish particle generator serialization
-- finish documenting paritcle generator
 
 TileMap:
 	loading a map should generate prefabs and store them.
