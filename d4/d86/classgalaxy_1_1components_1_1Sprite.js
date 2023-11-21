@@ -16,7 +16,12 @@ var classgalaxy_1_1components_1_1Sprite =
     [ "get_width", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab36bc88560bd79e32761db28a4a8de56", null ],
     [ "get_height", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac73573b174260b12ae2b3f4a611c5d21", null ],
     [ "get_texture_name", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a30b3230444cf56d6f8219e384040ba71", null ],
-    [ "get_vao", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a851f808b6569e6c1c9bcca49ab49132e", null ],
+    [ "get_instances", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a13359a5b4ba9d171e65c8f7d73dc8784", null ],
+    [ "get_mode", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac6bd2e6d8875ff7834aace16233d2d90", null ],
+    [ "get_vao", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2913e546f85fbc86a7242893b01ae9c1", null ],
+    [ "get_texture", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a58c45fa7db5fc10102247c791799f762", null ],
+    [ "get_count", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#aa85d7f74938d7f7ce566af6edb1c5cf3", null ],
+    [ "get_layer", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a1b3c0e045badee3f45e1322da06a17fc", null ],
     [ "serialize", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#aabb40d44c4e4f602e6937b99816559bf", null ],
     [ "deserialize", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69", null ],
     [ "operator=", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a19f7039aa3d2c8dcd5bb5d11a4050678", null ],
@@ -26,5 +31,7 @@ var classgalaxy_1_1components_1_1Sprite =
     [ "m_tex_name", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab1525a02050ed98cc68e14f2a4ebc6dc", null ],
     [ "m_opacity", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ab1a9043752ef0f83d4da60d5638b8a19", null ],
     [ "m_width", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ad507d206fc22d0f971e657540cf2b6a4", null ],
-    [ "m_height", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a51b48d21713b600e1bf274e9ec97d4c3", null ]
+    [ "m_height", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a51b48d21713b600e1bf274e9ec97d4c3", null ],
+    [ "m_tex_id", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a706469b6d0f97d8a2a4de73dc2dda001", null ],
+    [ "m_layer", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a1738b3d29074d3f95fb1773b38930081", null ]
 ];

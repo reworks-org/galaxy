@@ -126,9 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a34cd522c717ec8b795fb8df4858774b2" id="r_a34cd522c717ec8b795fb8df4858774b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a34cd522c717ec8b795fb8df4858774b2">~Colour</a> ()</td></tr>
 <tr class="memdesc:a34cd522c717ec8b795fb8df4858774b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a34cd522c717ec8b795fb8df4858774b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a723bd2060f539154c0333974ae0432f7" id="r_a723bd2060f539154c0333974ae0432f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a723bd2060f539154c0333974ae0432f7">set_from_normalized</a> (const float r, const float g, const float b, const float a)</td></tr>
-<tr class="memdesc:a723bd2060f539154c0333974ae0432f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set using normalized values.  <br /></td></tr>
-<tr class="separator:a723bd2060f539154c0333974ae0432f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af169bf244529903d7bad44e2cbf7b736" id="r_af169bf244529903d7bad44e2cbf7b736"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#af169bf244529903d7bad44e2cbf7b736">set_from_normalized</a> (const float r, const float g, const float b, const float a=1.0f)</td></tr>
+<tr class="memdesc:af169bf244529903d7bad44e2cbf7b736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set using normalized values.  <br /></td></tr>
+<tr class="separator:af169bf244529903d7bad44e2cbf7b736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b54f8869e3b7a818e0eb80e466c25b5" id="r_a6b54f8869e3b7a818e0eb80e466c25b5"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6b54f8869e3b7a818e0eb80e466c25b5">to_array</a> ()</td></tr>
 <tr class="memdesc:a6b54f8869e3b7a818e0eb80e466c25b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes values and returns as floats.  <br /></td></tr>
 <tr class="separator:a6b54f8869e3b7a818e0eb80e466c25b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,8 +265,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a723bd2060f539154c0333974ae0432f7" name="a723bd2060f539154c0333974ae0432f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a723bd2060f539154c0333974ae0432f7">&#9670;&#160;</a></span>set_from_normalized()</h2>
+<a id="af169bf244529903d7bad44e2cbf7b736" name="af169bf244529903d7bad44e2cbf7b736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af169bf244529903d7bad44e2cbf7b736">&#9670;&#160;</a></span>set_from_normalized()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,7 +293,7 @@ Static Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
+          <td class="paramname"><em>a</em> = <code>1.0f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -304,12 +304,13 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set using normalized values. </p>
+<p>Clamped between 0 and 1.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>Red. </td></tr>
     <tr><td class="paramname">g</td><td>Green. </td></tr>
     <tr><td class="paramname">b</td><td>Blue. </td></tr>
-    <tr><td class="paramname">a</td><td>Alpha level. Defaults to Opaque (255). </td></tr>
+    <tr><td class="paramname">a</td><td>Alpha level. Defaults to Opaque (1.0f). </td></tr>
   </table>
   </dd>
 </dl>
@@ -503,7 +504,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Red. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00099">99</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -521,7 +522,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Green. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00104">104</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -539,7 +540,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Blue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +558,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Alpha. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00112">112</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd2/Colour_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../db/dd2/Colour_8hpp_source.html">Colour.hpp</a>.</p>
 
 </div>
 </div>
@@ -571,7 +572,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a></li>
-    <li class="footer">Generated on Mon Nov 13 2023 11:24:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 21 2023 01:40:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

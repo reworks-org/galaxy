@@ -1,5 +1,6 @@
 var namespacegalaxy_1_1math =
 [
+    [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
     [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", "d5/dcc/classgalaxy_1_1math_1_1Rect" ],
     [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
     [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ],

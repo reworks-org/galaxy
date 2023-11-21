@@ -1,19 +1,17 @@
 <map id="galaxy::components::Sprite" name="galaxy::components::Sprite">
-<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="299,771,445,1131"/>
-<area shape="rect" id="Node000002" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,425,208,671"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,681,301,838,297,841,193,684"/>
-<area shape="rect" id="Node000003" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="233,465,394,631"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="330,644,348,770,343,771,325,645"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="419,388,589,708"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="454,709,439,756,434,754,449,708"/>
-<area shape="rect" id="Node000005" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="99,5,269,325"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="271,312,283,323,315,345,344,354,374,364,407,386,409,388,405,392,404,390,372,369,342,359,312,349,280,327,268,315"/>
-<area shape="rect" id="Node000006" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="293,13,496,318"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="441,318,456,371,451,373,436,319"/>
-<area shape="rect" id="Node000007" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html" title="Abstraction for OpenGL instance buffer objects." alt="" coords="521,15,703,315"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="572,316,556,373,551,371,567,315"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="685,515,763,581"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="703,583,603,710,458,867,454,863,599,706,699,579"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="728,125,859,205"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="786,219,732,516,727,515,781,218"/>
+<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="283,851,428,1251"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,505,167,671"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,682,182,787,232,870,285,948,280,951,228,873,177,789,124,684"/>
+<area shape="rect" id="Node000003" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="191,485,394,691"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="311,704,331,850,326,851,306,705"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="418,388,589,788"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="442,789,427,836,422,834,437,787"/>
+<area shape="rect" id="Node000005" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="207,5,378,325"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="377,324,408,387,413,396,408,398,404,389,372,327"/>
+<area shape="rect" id="Node000006" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html" title="Abstraction for OpenGL index (element) buffer objects." alt="" coords="402,13,605,318"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="506,318,506,371,501,371,501,318"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="635,555,713,621"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="669,621,645,700,626,746,603,789,567,842,526,892,442,977,438,974,522,888,562,839,598,787,621,743,640,698,664,620"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="629,125,759,205"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="694,219,678,555,673,555,689,219"/>
 </map>

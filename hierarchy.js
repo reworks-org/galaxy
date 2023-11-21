@@ -30,7 +30,6 @@ var hierarchy =
       [ "galaxy::input::Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", null ],
       [ "galaxy::input::Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", null ]
     ] ],
-    [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
     [ "galaxy::events::KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", null ],
     [ "galaxy::events::KeyDown", "d7/d91/structgalaxy_1_1events_1_1KeyDown.html", null ],
     [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", null ],
@@ -45,6 +44,7 @@ var hierarchy =
     [ "galaxy::events::MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", null ],
     [ "galaxy::resource::MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", null ],
     [ "galaxy::ui::NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", null ],
+    [ "galaxy::graphics::Particle", "d1/d93/classgalaxy_1_1graphics_1_1Particle.html", null ],
     [ "galaxy::graphics::PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", [
       [ "galaxy::graphics::ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", null ],
       [ "galaxy::graphics::FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", null ],
@@ -57,10 +57,12 @@ var hierarchy =
     [ "galaxy::core::Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", null ],
     [ "galaxy::resource::PrefabLoader", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html", null ],
     [ "galaxy::components::Primitive::PrimitiveData", "d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html", null ],
+    [ "galaxy::math::Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", null ],
     [ "galaxy::math::Rect< Type >", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", null ],
     [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
     [ "galaxy::graphics::Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", null ],
     [ "galaxy::graphics::Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html", [
+      [ "galaxy::components::ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
       [ "galaxy::components::Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", null ],
       [ "galaxy::components::Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", null ]
@@ -71,6 +73,7 @@ var hierarchy =
     [ "galaxy::media::RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
+      [ "galaxy::components::ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html", null ],
       [ "galaxy::components::Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", null ],
       [ "galaxy::components::RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", null ],
       [ "galaxy::components::Script", "db/d40/classgalaxy_1_1components_1_1Script.html", null ],
@@ -104,6 +107,7 @@ var hierarchy =
     [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
+      [ "galaxy::systems::ParticleSystem", "da/dc2/classgalaxy_1_1systems_1_1ParticleSystem.html", null ],
       [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]

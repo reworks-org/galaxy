@@ -94,8 +94,6 @@ $(document).ready(function(){initNavTree('d3/db6/classgalaxy_1_1graphics_1_1Rend
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="../../df/ddc/classgalaxy_1_1graphics_1_1Renderable-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">galaxy::graphics::Renderable Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -112,13 +110,15 @@ $(document).ready(function(){initNavTree('d3/db6/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/dfc/classgalaxy_1_1graphics_1_1Renderable__inherit__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Renderable_inherit__map" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Renderable_inherit__map" id="agalaxy_1_1graphics_1_1Renderable_inherit__map">
-<area shape="rect" title="Data to submit to renderer." alt="" coords="146,5,349,251"/>
-<area shape="rect" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="5,299,151,819"/>
-<area shape="poly" title=" " alt="" coords="180,264,164,300,153,328,148,326,160,298,175,262"/>
-<area shape="rect" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="175,359,320,759"/>
-<area shape="poly" title=" " alt="" coords="250,264,250,359,245,359,245,264"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="344,309,489,809"/>
-<area shape="poly" title=" " alt="" coords="320,262,335,298,346,326,341,328,330,300,315,264"/>
+<area shape="rect" title="Data to submit to renderer." alt="" coords="275,5,477,211"/>
+<area shape="rect" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html" title="Allows an entity to emit particle effects." alt="" coords="5,259,195,1008"/>
+<area shape="poly" title=" " alt="" coords="266,193,235,225,209,260,197,280,192,277,204,257,231,221,263,189"/>
+<area shape="rect" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="219,403,365,863"/>
+<area shape="poly" title=" " alt="" coords="360,225,331,404,326,403,355,224"/>
+<area shape="rect" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="389,413,534,853"/>
+<area shape="poly" title=" " alt="" coords="397,224,428,413,423,413,392,225"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="558,363,703,903"/>
+<area shape="poly" title=" " alt="" coords="490,187,522,220,549,257,575,308,594,362,589,364,570,310,544,260,518,224,486,191"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -128,84 +128,47 @@ $(document).ready(function(){initNavTree('d3/db6/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dee/classgalaxy_1_1graphics_1_1Renderable__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Renderable_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Renderable_coll__map" id="agalaxy_1_1graphics_1_1Renderable_coll__map">
-<area shape="rect" title="Data to submit to renderer." alt="" coords="5,5,208,251"/>
+<area shape="rect" title="Data to submit to renderer." alt="" coords="5,5,208,211"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a39a0da204d35a59961fe42c998c38ddd" id="r_a39a0da204d35a59961fe42c998c38ddd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a39a0da204d35a59961fe42c998c38ddd">Renderable</a> (<a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&amp;)</td></tr>
-<tr class="memdesc:a39a0da204d35a59961fe42c998c38ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
-<tr class="separator:a39a0da204d35a59961fe42c998c38ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32763aff65e4d281e9e6ff8b62e150ee" id="r_a32763aff65e4d281e9e6ff8b62e150ee"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a32763aff65e4d281e9e6ff8b62e150ee">operator=</a> (<a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&amp;)</td></tr>
-<tr class="memdesc:a32763aff65e4d281e9e6ff8b62e150ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
-<tr class="separator:a32763aff65e4d281e9e6ff8b62e150ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d9afc135228b7cf6c7051d8039b29e0" id="r_a8d9afc135228b7cf6c7051d8039b29e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a8d9afc135228b7cf6c7051d8039b29e0">~Renderable</a> ()</td></tr>
-<tr class="memdesc:a8d9afc135228b7cf6c7051d8039b29e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:a8d9afc135228b7cf6c7051d8039b29e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3ac7edd795f8448ceaa80a28f210ea1" id="r_ae3ac7edd795f8448ceaa80a28f210ea1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ae3ac7edd795f8448ceaa80a28f210ea1">get_texture_handle</a> () const</td></tr>
-<tr class="memdesc:ae3ac7edd795f8448ceaa80a28f210ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets OpenGL texture id.  <br /></td></tr>
-<tr class="separator:ae3ac7edd795f8448ceaa80a28f210ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14c26bf64a8b170657981724140f98da" id="r_a14c26bf64a8b170657981724140f98da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a14c26bf64a8b170657981724140f98da">get_layer</a> () const</td></tr>
-<tr class="memdesc:a14c26bf64a8b170657981724140f98da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rendering layer.  <br /></td></tr>
-<tr class="separator:a14c26bf64a8b170657981724140f98da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611f9560684835446ec3c757b4d97e14" id="r_a611f9560684835446ec3c757b4d97e14"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">graphics::VertexArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a611f9560684835446ec3c757b4d97e14">get_vao</a> () const =0</td></tr>
-<tr class="memdesc:a611f9560684835446ec3c757b4d97e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get VAO object.  <br /></td></tr>
-<tr class="separator:a611f9560684835446ec3c757b4d97e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49757be1c9563d965a3f83b22938db0a" id="r_a49757be1c9563d965a3f83b22938db0a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a49757be1c9563d965a3f83b22938db0a">~Renderable</a> ()=default</td></tr>
+<tr class="memdesc:a49757be1c9563d965a3f83b22938db0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:a49757be1c9563d965a3f83b22938db0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bde6fa29155d5839e3bb093e4f7b776" id="r_a6bde6fa29155d5839e3bb093e4f7b776"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a6bde6fa29155d5839e3bb093e4f7b776">get_instances</a> () const =0</td></tr>
+<tr class="memdesc:a6bde6fa29155d5839e3bb093e4f7b776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of instances to render.  <br /></td></tr>
+<tr class="separator:a6bde6fa29155d5839e3bb093e4f7b776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acded47adc954b439eff44272b2631b24" id="r_acded47adc954b439eff44272b2631b24"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#acded47adc954b439eff44272b2631b24">get_mode</a> () const =0</td></tr>
+<tr class="memdesc:acded47adc954b439eff44272b2631b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get OpenGL rendering mode.  <br /></td></tr>
+<tr class="separator:acded47adc954b439eff44272b2631b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac033c5aba445fe142d44eef037d54c8e" id="r_ac033c5aba445fe142d44eef037d54c8e"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ac033c5aba445fe142d44eef037d54c8e">get_vao</a> () const =0</td></tr>
+<tr class="memdesc:ac033c5aba445fe142d44eef037d54c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vertex array object.  <br /></td></tr>
+<tr class="separator:ac033c5aba445fe142d44eef037d54c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57e388a76646de968982510a260eb59a" id="r_a57e388a76646de968982510a260eb59a"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a57e388a76646de968982510a260eb59a">get_texture</a> () const =0</td></tr>
+<tr class="memdesc:a57e388a76646de968982510a260eb59a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets OpenGL texture id.  <br /></td></tr>
+<tr class="separator:a57e388a76646de968982510a260eb59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf7749fd1864f041ecacdcff12996a0" id="r_a3bf7749fd1864f041ecacdcff12996a0"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a3bf7749fd1864f041ecacdcff12996a0">get_count</a> () const =0</td></tr>
+<tr class="memdesc:a3bf7749fd1864f041ecacdcff12996a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get index (element) buffer count.  <br /></td></tr>
+<tr class="separator:a3bf7749fd1864f041ecacdcff12996a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18871972317b20e9e039e6551a03a8f" id="r_ab18871972317b20e9e039e6551a03a8f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ab18871972317b20e9e039e6551a03a8f">get_layer</a> () const =0</td></tr>
+<tr class="memdesc:ab18871972317b20e9e039e6551a03a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rendering layer.  <br /></td></tr>
+<tr class="separator:ab18871972317b20e9e039e6551a03a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:abe52b1bd56ed20e4f98bfbaa66e60d97" id="r_abe52b1bd56ed20e4f98bfbaa66e60d97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#abe52b1bd56ed20e4f98bfbaa66e60d97">Renderable</a> ()</td></tr>
-<tr class="memdesc:abe52b1bd56ed20e4f98bfbaa66e60d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:abe52b1bd56ed20e4f98bfbaa66e60d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a4ba3f65b3f8d1cf7902e442fce8b84f4" id="r_a4ba3f65b3f8d1cf7902e442fce8b84f4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a4ba3f65b3f8d1cf7902e442fce8b84f4">m_texture_handle</a></td></tr>
-<tr class="memdesc:a4ba3f65b3f8d1cf7902e442fce8b84f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opengl texture id.  <br /></td></tr>
-<tr class="separator:a4ba3f65b3f8d1cf7902e442fce8b84f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb11ee999df94db8ead1237716e97918" id="r_acb11ee999df94db8ead1237716e97918"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#acb11ee999df94db8ead1237716e97918">m_layer</a></td></tr>
-<tr class="memdesc:acb11ee999df94db8ead1237716e97918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object z-level for drawing.  <br /></td></tr>
-<tr class="separator:acb11ee999df94db8ead1237716e97918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aa739ddab569873e53db77fe4e9e2fbc2" id="r_aa739ddab569873e53db77fe4e9e2fbc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#aa739ddab569873e53db77fe4e9e2fbc2">Renderable</a> (const <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aa739ddab569873e53db77fe4e9e2fbc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
-<tr class="separator:aa739ddab569873e53db77fe4e9e2fbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeb839f0262260b71a6109d443824448" id="r_adeb839f0262260b71a6109d443824448"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#adeb839f0262260b71a6109d443824448">operator=</a> (const <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;)=delete</td></tr>
-<tr class="memdesc:adeb839f0262260b71a6109d443824448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
-<tr class="separator:adeb839f0262260b71a6109d443824448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99778b17033bc5b74e6f79b1a4ac28a0" id="r_a99778b17033bc5b74e6f79b1a4ac28a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a99778b17033bc5b74e6f79b1a4ac28a0">Renderable</a> ()=default</td></tr>
+<tr class="memdesc:a99778b17033bc5b74e6f79b1a4ac28a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:a99778b17033bc5b74e6f79b1a4ac28a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Data to submit to renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html">Renderable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html">Renderable.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a39a0da204d35a59961fe42c998c38ddd" name="a39a0da204d35a59961fe42c998c38ddd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39a0da204d35a59961fe42c998c38ddd">&#9670;&#160;</a></span>Renderable() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">galaxy::graphics::Renderable::Renderable </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Move constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../db/d19/Renderable_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a8d9afc135228b7cf6c7051d8039b29e0" name="a8d9afc135228b7cf6c7051d8039b29e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d9afc135228b7cf6c7051d8039b29e0">&#9670;&#160;</a></span>~Renderable()</h2>
+<a id="a49757be1c9563d965a3f83b22938db0a" name="a49757be1c9563d965a3f83b22938db0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49757be1c9563d965a3f83b22938db0a">&#9670;&#160;</a></span>~Renderable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +177,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">galaxy::graphics::Renderable::~Renderable </td>
+          <td class="memname">virtual galaxy::graphics::Renderable::~Renderable </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -222,19 +185,17 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d19/Renderable_8cpp_source.html#l00037">37</a> of file <a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a>.</p>
-
 </div>
 </div>
-<a id="abe52b1bd56ed20e4f98bfbaa66e60d97" name="abe52b1bd56ed20e4f98bfbaa66e60d97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe52b1bd56ed20e4f98bfbaa66e60d97">&#9670;&#160;</a></span>Renderable() <span class="overload">[2/3]</span></h2>
+<a id="a99778b17033bc5b74e6f79b1a4ac28a0" name="a99778b17033bc5b74e6f79b1a4ac28a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99778b17033bc5b74e6f79b1a4ac28a0">&#9670;&#160;</a></span>Renderable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,48 +212,18 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d19/Renderable_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aa739ddab569873e53db77fe4e9e2fbc2" name="aa739ddab569873e53db77fe4e9e2fbc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa739ddab569873e53db77fe4e9e2fbc2">&#9670;&#160;</a></span>Renderable() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">galaxy::graphics::Renderable::Renderable </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy constructor. </p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a32763aff65e4d281e9e6ff8b62e150ee" name="a32763aff65e4d281e9e6ff8b62e150ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32763aff65e4d281e9e6ff8b62e150ee">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a6bde6fa29155d5839e3bb093e4f7b776" name="a6bde6fa29155d5839e3bb093e4f7b776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bde6fa29155d5839e3bb093e4f7b776">&#9670;&#160;</a></span>get_instances()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,81 +232,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp; galaxy::graphics::Renderable::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment operator. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../db/d19/Renderable_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae3ac7edd795f8448ceaa80a28f210ea1" name="ae3ac7edd795f8448ceaa80a28f210ea1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3ac7edd795f8448ceaa80a28f210ea1">&#9670;&#160;</a></span>get_texture_handle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int galaxy::graphics::Renderable::get_texture_handle </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets OpenGL texture id. </p>
-<dl class="section return"><dt>Returns</dt><dd>unsigned int. 0 if no texture. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/d19/Renderable_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a14c26bf64a8b170657981724140f98da" name="a14c26bf64a8b170657981724140f98da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14c26bf64a8b170657981724140f98da">&#9670;&#160;</a></span>get_layer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int galaxy::graphics::Renderable::get_layer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get rendering layer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Integer. 0 is valid as a layer. So are negatives. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../db/d19/Renderable_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a611f9560684835446ec3c757b4d97e14" name="a611f9560684835446ec3c757b4d97e14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a611f9560684835446ec3c757b4d97e14">&#9670;&#160;</a></span>get_vao()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">graphics::VertexArray</a> &amp; galaxy::graphics::Renderable::get_vao </td>
+          <td class="memname">virtual int galaxy::graphics::Renderable::get_instances </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -388,15 +245,15 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get VAO object. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this renderable's VAO. </dd></dl>
+<p>Number of instances to render. </p>
+<dl class="section return"><dt>Returns</dt><dd>Count for number of instances. </dd></dl>
 
-<p>Implemented in <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a22b7bcb170a1be2d795adce570d3fe24">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#a851f808b6569e6c1c9bcca49ab49132e">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a8d0e010da9fe4da38fb7db4b9cbc4fc8">galaxy::components::Text</a>.</p>
+<p>Implemented in <a class="el" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aeb503b3d8256e9ba6b402ba4f0bc88b8">galaxy::components::ParticleGenerator</a>, <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a1acc4bc21cc3ed603985da3289828216">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#a13359a5b4ba9d171e65c8f7d73dc8784">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a980fc1c0755e2d9c4b9bbc5c6f73f5c1">galaxy::components::Text</a>.</p>
 
 </div>
 </div>
-<a id="adeb839f0262260b71a6109d443824448" name="adeb839f0262260b71a6109d443824448"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adeb839f0262260b71a6109d443824448">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="acded47adc954b439eff44272b2631b24" name="acded47adc954b439eff44272b2631b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acded47adc954b439eff44272b2631b24">&#9670;&#160;</a></span>get_mode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,27 +262,28 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp; galaxy::graphics::Renderable::operator= </td>
+          <td class="memname">virtual unsigned int galaxy::graphics::Renderable::get_mode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment operator. </p>
+<p>Get OpenGL rendering mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned int. </dd></dl>
+
+<p>Implemented in <a class="el" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a2ea32aed085f1cee9ea028de01efd440">galaxy::components::ParticleGenerator</a>, <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#aeeb70a7f18805dbaf1199e41a803cd7a">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac6bd2e6d8875ff7834aace16233d2d90">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ac9b194235274fac2391815a4d7e54998">galaxy::components::Text</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4ba3f65b3f8d1cf7902e442fce8b84f4" name="a4ba3f65b3f8d1cf7902e442fce8b84f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba3f65b3f8d1cf7902e442fce8b84f4">&#9670;&#160;</a></span>m_texture_handle</h2>
+<a id="ac033c5aba445fe142d44eef037d54c8e" name="ac033c5aba445fe142d44eef037d54c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac033c5aba445fe142d44eef037d54c8e">&#9670;&#160;</a></span>get_vao()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,24 +292,28 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int galaxy::graphics::Renderable::m_texture_handle</td>
+          <td class="memname">virtual unsigned int galaxy::graphics::Renderable::get_vao </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opengl texture id. </p>
+<p>Get vertex array object. </p>
+<dl class="section return"><dt>Returns</dt><dd>VAO handle. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html">Renderable.hpp</a>.</p>
+<p>Implemented in <a class="el" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a0448e42cf421068939c0f997a0923920">galaxy::components::ParticleGenerator</a>, <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a19b98966499a85db0f68508bb3c7bf86">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2913e546f85fbc86a7242893b01ae9c1">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a1204c3c56979e6d2ebba8cb7d96bc6e6">galaxy::components::Text</a>.</p>
 
 </div>
 </div>
-<a id="acb11ee999df94db8ead1237716e97918" name="acb11ee999df94db8ead1237716e97918"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb11ee999df94db8ead1237716e97918">&#9670;&#160;</a></span>m_layer</h2>
+<a id="a57e388a76646de968982510a260eb59a" name="a57e388a76646de968982510a260eb59a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57e388a76646de968982510a260eb59a">&#9670;&#160;</a></span>get_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,25 +322,88 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int galaxy::graphics::Renderable::m_layer</td>
+          <td class="memname">virtual unsigned int galaxy::graphics::Renderable::get_texture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Object z-level for drawing. </p>
+<p>Gets OpenGL texture id. </p>
+<dl class="section return"><dt>Returns</dt><dd>unsigned int. 0 if no texture. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d5/d1a/Renderable_8hpp_source.html">Renderable.hpp</a>.</p>
+<p>Implemented in <a class="el" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a5509e35b6783492a41ebb222e18041b2">galaxy::components::ParticleGenerator</a>, <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a3bc7d16ec98180d24e86a04538c619b3">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#a58c45fa7db5fc10102247c791799f762">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a3f3ab230aa3a7b4ee5df2d0bb771d164">galaxy::components::Text</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="a3bf7749fd1864f041ecacdcff12996a0" name="a3bf7749fd1864f041ecacdcff12996a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf7749fd1864f041ecacdcff12996a0">&#9670;&#160;</a></span>get_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int galaxy::graphics::Renderable::get_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get index (element) buffer count. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned int. </dd></dl>
+
+<p>Implemented in <a class="el" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a0b30a5ef4f382171060d086e76e0527b">galaxy::components::ParticleGenerator</a>, <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a0e8da44527d52b6c9ce1eece141e9574">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#aa85d7f74938d7f7ce566af6edb1c5cf3">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aa500dd2f07d4a3016c7e510dd5271a5e">galaxy::components::Text</a>.</p>
+
+</div>
+</div>
+<a id="ab18871972317b20e9e039e6551a03a8f" name="ab18871972317b20e9e039e6551a03a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab18871972317b20e9e039e6551a03a8f">&#9670;&#160;</a></span>get_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int galaxy::graphics::Renderable::get_layer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get rendering layer. </p>
+<dl class="section return"><dt>Returns</dt><dd>Integer. 0 is valid as a layer. So are negatives. </dd></dl>
+
+<p>Implemented in <a class="el" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#ae32ab0f4dd93340e804229522a2416b0">galaxy::components::ParticleGenerator</a>, <a class="el" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a3b4f3f4c3f1d7199d706b13e2b01b4ba">galaxy::components::Primitive</a>, <a class="el" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#a1b3c0e045badee3f45e1322da06a17fc">galaxy::components::Sprite</a>, and <a class="el" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a6fc67da96ceb939c00906d1c60c8e4ae">galaxy::components::Text</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>galaxy/src/galaxy/graphics/<a class="el" href="../../d5/d1a/Renderable_8hpp_source.html">Renderable.hpp</a></li>
-<li>galaxy/src/galaxy/graphics/<a class="el" href="../../db/d19/Renderable_8cpp_source.html">Renderable.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -486,7 +411,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../d3/db6/classgalaxy_1_1graphics_1_1Renderable.html">Renderable</a></li>
-    <li class="footer">Generated on Mon Nov 13 2023 11:24:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 21 2023 01:40:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

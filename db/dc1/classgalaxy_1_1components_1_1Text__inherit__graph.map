@@ -1,7 +1,7 @@
 <map id="galaxy::components::Text" name="galaxy::components::Text">
-<area shape="rect" id="Node000001" title="String of glyphs rendered with a font." alt="" coords="137,299,282,799"/>
-<area shape="rect" id="Node000002" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,5,208,251"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,263,151,298,146,299,137,265"/>
-<area shape="rect" id="Node000003" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="233,45,394,211"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="292,225,274,299,269,298,287,223"/>
+<area shape="rect" id="Node000001" title="String of glyphs rendered with a font." alt="" coords="116,259,261,799"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,25,167,191"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,204,125,258,120,259,107,205"/>
+<area shape="rect" id="Node000003" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="191,5,394,211"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,225,258,259,253,258,261,224"/>
 </map>

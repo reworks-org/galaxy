@@ -141,8 +141,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html">IndexBuffer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction for OpenGL index (element) buffer objects.  <a href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html">InstanceBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction for OpenGL instance buffer objects.  <a href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d93/classgalaxy_1_1graphics_1_1Particle.html">Particle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data for a particle in a particle effect.  <a href="../../d1/d93/classgalaxy_1_1graphics_1_1Particle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html">PostEffect</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages post processing effects to apply to combined scene.  <a href="../../d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html#details">More...</a><br /></td></tr>
@@ -216,15 +216,18 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a2d111055d5af497b9a30395038476019" id="r_a2d111055d5af497b9a30395038476019"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019">AttributeBinding</a> : unsigned int { <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5">POSITION_POINT</a> = 0u
 , <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d">TEXEL_POINT</a> = 1u
 , <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb">COLOUR_POINT</a> = 2u
-, <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939">OFFSET_POINT</a> = 3u
  }</td></tr>
 <tr class="memdesc:a2d111055d5af497b9a30395038476019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the location of shader attribute binding point for the VAO.  <a href="../../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019">More...</a><br /></td></tr>
 <tr class="separator:a2d111055d5af497b9a30395038476019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af58396d22d2aa10e4a0de27c82f4e45b" id="r_af58396d22d2aa10e4a0de27c82f4e45b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45b">BufferBinding</a> : unsigned int { <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba9d8102760f7af3639a97cd88b43b56d4">VERTEX_BUFFER_POINT</a> = 0
-, <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba2e37e7b71c4223dcf4ab61621653b3a8">INSTANCE_BUFFER_POINT</a> = 1
  }</td></tr>
 <tr class="memdesc:af58396d22d2aa10e4a0de27c82f4e45b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the location of a buffer's binding point for the VAO.  <a href="../../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45b">More...</a><br /></td></tr>
 <tr class="separator:af58396d22d2aa10e4a0de27c82f4e45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425598176d5586d75647dcaa8ff81db3" id="r_a425598176d5586d75647dcaa8ff81db3"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3">ParticleSpread</a> { <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3a7e9911b843a8b20ca682e9471e234bd3">SPREAD_TYPE_SPHERE</a>
+, <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3a853cb4d01e2306a80663af75c4c8c0fe">SPREAD_TYPE_RECTANGLE</a>
+ }</td></tr>
+<tr class="memdesc:a425598176d5586d75647dcaa8ff81db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls how particles are placed when being randomly generated.  <a href="../../db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3">More...</a><br /></td></tr>
+<tr class="separator:a425598176d5586d75647dcaa8ff81db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a407936cc7d3153f747b045b598fd4930" id="r_a407936cc7d3153f747b045b598fd4930"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930">Primitives</a> : unsigned int { <br />
 &#160;&#160;<a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82">POINT</a> = GL_POINTS
 , <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a> = GL_LINES
@@ -351,8 +354,6 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb" name="a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb"></a>COLOUR_POINT&#160;</td><td class="fielddoc"><p><a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour.">Colour</a> data. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939" name="a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939"></a>OFFSET_POINT&#160;</td><td class="fielddoc"><p>Instance offset data. </p>
-</td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d32/AttributeBindings_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../d6/d32/AttributeBindings_8hpp_source.html">AttributeBindings.hpp</a>.</p>
@@ -383,11 +384,41 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af58396d22d2aa10e4a0de27c82f4e45ba9d8102760f7af3639a97cd88b43b56d4" name="af58396d22d2aa10e4a0de27c82f4e45ba9d8102760f7af3639a97cd88b43b56d4"></a>VERTEX_BUFFER_POINT&#160;</td><td class="fielddoc"><p>Normal VBO. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="af58396d22d2aa10e4a0de27c82f4e45ba2e37e7b71c4223dcf4ab61621653b3a8" name="af58396d22d2aa10e4a0de27c82f4e45ba2e37e7b71c4223dcf4ab61621653b3a8"></a>INSTANCE_BUFFER_POINT&#160;</td><td class="fielddoc"><p>Instance offsets. </p>
-</td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d3d/BufferBindings_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../de/d3d/BufferBindings_8hpp_source.html">BufferBindings.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a425598176d5586d75647dcaa8ff81db3" name="a425598176d5586d75647dcaa8ff81db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a425598176d5586d75647dcaa8ff81db3">&#9670;&#160;</a></span>ParticleSpread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3">galaxy::graphics::ParticleSpread</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Controls how particles are placed when being randomly generated. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a425598176d5586d75647dcaa8ff81db3a7e9911b843a8b20ca682e9471e234bd3" name="a425598176d5586d75647dcaa8ff81db3a7e9911b843a8b20ca682e9471e234bd3"></a>SPREAD_TYPE_SPHERE&#160;</td><td class="fielddoc"><p>Confine to a spherical area. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a425598176d5586d75647dcaa8ff81db3a853cb4d01e2306a80663af75c4c8c0fe" name="a425598176d5586d75647dcaa8ff81db3a853cb4d01e2306a80663af75c4c8c0fe"></a>SPREAD_TYPE_RECTANGLE&#160;</td><td class="fielddoc"><p>Confine to a rectangular area. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d0d/ParticleSpread_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../db/d0d/ParticleSpread_8hpp_source.html">ParticleSpread.hpp</a>.</p>
 
 </div>
 </div>
@@ -577,11 +608,15 @@ Functions</h2></td></tr>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph.png" border="0" usemap="#adb/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph" alt=""/></div>
 <map name="adb/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph" id="adb/dab/namespacegalaxy_1_1graphics_a5f8c433419059375e3d84deeaa3b0092_icgraph">
-<area shape="rect" title="Convert a primitive enum to OpenGL draw type." alt="" coords="284,37,479,77"/>
-<area shape="rect" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="44,5,197,45"/>
-<area shape="poly" title=" " alt="" coords="270,46,197,37,198,32,271,41"/>
-<area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,69,236,109"/>
-<area shape="poly" title=" " alt="" coords="271,74,236,78,236,73,270,68"/>
+<area shape="rect" title="Convert a primitive enum to OpenGL draw type." alt="" coords="207,113,401,153"/>
+<area shape="rect" href="../../dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="253,109,158,60,131,48,133,43,160,55,256,104"/>
+<area shape="rect" href="../../dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a2ea32aed085f1cee9ea028de01efd440" title="Get OpenGL rendering mode." alt="" coords="5,70,159,125"/>
+<area shape="poly" title=" " alt="" coords="193,118,159,112,159,107,193,113"/>
+<area shape="rect" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac6bd2e6d8875ff7834aace16233d2d90" title="Get OpenGL rendering mode." alt="" coords="5,149,159,189"/>
+<area shape="poly" title=" " alt="" coords="193,154,159,160,159,154,193,149"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ac9b194235274fac2391815a4d7e54998" title="Get OpenGL rendering mode." alt="" coords="5,213,159,253"/>
+<area shape="poly" title=" " alt="" coords="250,162,160,204,132,216,130,211,158,199,248,157"/>
 </map>
 </div>
 
@@ -873,7 +908,7 @@ template&lt;&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li>
-    <li class="footer">Generated on Mon Nov 13 2023 11:24:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 21 2023 01:40:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,9 +1,11 @@
 <map id="galaxy::graphics::Renderable" name="galaxy::graphics::Renderable">
-<area shape="rect" id="Node000001" title="Data to submit to renderer." alt="" coords="146,5,349,251"/>
-<area shape="rect" id="Node000002" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="5,299,151,819"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,264,164,300,153,328,148,326,160,298,175,262"/>
-<area shape="rect" id="Node000003" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="175,359,320,759"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,264,250,359,245,359,245,264"/>
-<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="344,309,489,809"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="320,262,335,298,346,326,341,328,330,300,315,264"/>
+<area shape="rect" id="Node000001" title="Data to submit to renderer." alt="" coords="275,5,477,211"/>
+<area shape="rect" id="Node000002" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html" title="Allows an entity to emit particle effects." alt="" coords="5,259,195,1008"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,193,235,225,209,260,197,280,192,277,204,257,231,221,263,189"/>
+<area shape="rect" id="Node000003" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="219,403,365,863"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="360,225,331,404,326,403,355,224"/>
+<area shape="rect" id="Node000004" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="389,413,534,853"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,224,428,413,423,413,392,225"/>
+<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="558,363,703,903"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="490,187,522,220,549,257,575,308,594,362,589,364,570,310,544,260,518,224,486,191"/>
 </map>

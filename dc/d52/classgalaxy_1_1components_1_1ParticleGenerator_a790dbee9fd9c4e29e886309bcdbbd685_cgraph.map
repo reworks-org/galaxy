@@ -1,0 +1,14 @@
+<map id="galaxy::components::ParticleGenerator::ParticleGenerator" name="galaxy::components::ParticleGenerator::ParticleGenerator">
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,69,159,124"/>
+<area shape="rect" id="Node000002" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a5e370669adb728949ff2d97ad3f0e6fe" title="Deserializes from object." alt="" coords="207,69,360,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,94,193,94,193,99,159,99"/>
+<area shape="rect" id="Node000003" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a6b80c2b179fdf6b1fd94c6a5b174c4d5" title="Configures and generates the particles to be emitted." alt="" coords="408,69,561,124"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,94,394,94,394,99,360,99"/>
+<area shape="rect" id="Node000004" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#acff5de79c179bd12b653c1b5652790de" title="Create initial opengl buffers." alt="" coords="648,5,801,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="561,74,634,54,635,59,562,79"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="609,84,840,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="562,94,595,94,595,99,562,99"/>
+<area shape="rect" id="Node000006" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aaaf25a2164ae5fd314754433ddac249b" title="Reset all particle lifetime and positions." alt="" coords="648,157,801,212"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="561,122,638,150,636,155,559,127"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="678,157,678,147,687,138,702,133,725,131,752,134,767,142,765,146,750,139,725,136,703,138,689,143,683,149,683,157"/>
+</map>

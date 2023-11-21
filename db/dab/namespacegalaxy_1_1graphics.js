@@ -13,7 +13,7 @@ var namespacegalaxy_1_1graphics =
     [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
     [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],
     [ "IndexBuffer", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html", "d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer" ],
-    [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
+    [ "Particle", "d1/d93/classgalaxy_1_1graphics_1_1Particle.html", "d1/d93/classgalaxy_1_1graphics_1_1Particle" ],
     [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
     [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
     [ "Render2DUniform", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html", "dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform" ],
@@ -37,12 +37,14 @@ var namespacegalaxy_1_1graphics =
     [ "AttributeBinding", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019", [
       [ "POSITION_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5", null ],
       [ "TEXEL_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d", null ],
-      [ "COLOUR_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb", null ],
-      [ "OFFSET_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939", null ]
+      [ "COLOUR_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019aa5fe8faf171e5b7fe2f80f8cd126c8bb", null ]
     ] ],
     [ "BufferBinding", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45b", [
-      [ "VERTEX_BUFFER_POINT", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba9d8102760f7af3639a97cd88b43b56d4", null ],
-      [ "INSTANCE_BUFFER_POINT", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba2e37e7b71c4223dcf4ab61621653b3a8", null ]
+      [ "VERTEX_BUFFER_POINT", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba9d8102760f7af3639a97cd88b43b56d4", null ]
+    ] ],
+    [ "ParticleSpread", "db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3", [
+      [ "SPREAD_TYPE_SPHERE", "db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3a7e9911b843a8b20ca682e9471e234bd3", null ],
+      [ "SPREAD_TYPE_RECTANGLE", "db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3a853cb4d01e2306a80663af75c4c8c0fe", null ]
     ] ],
     [ "Primitives", "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930", [
       [ "POINT", "db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930aaebdbcb765394d25d6a604589a890f82", null ],

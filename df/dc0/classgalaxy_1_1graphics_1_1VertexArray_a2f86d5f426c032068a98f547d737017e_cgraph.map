@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::VertexArray::set_instanced" name="galaxy::graphics::VertexArray::set_instanced">
-<area shape="rect" id="Node000001" title="Enable instancing for this vertex array." alt="" coords="5,37,184,77"/>
-<area shape="rect" id="Node000002" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a35527dd07c658f498567f189f1fd3c33" title="Create instance buffer object." alt="" coords="232,5,423,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,42,218,38,219,43,185,48"/>
-<area shape="rect" id="Node000003" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a8116dac22a444d6c5ffbc5d56fe2185c" title="Get OpenGL handle." alt="" coords="232,69,423,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,67,219,72,218,77,184,72"/>
-</map>

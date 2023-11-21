@@ -11,7 +11,5 @@ var searchData=
   ['inputdevice_2ecpp_8',['InputDevice.cpp',['../df/d7c/InputDevice_8cpp.html',1,'']]],
   ['inputdevice_2ehpp_9',['InputDevice.hpp',['../d4/da5/InputDevice_8hpp.html',1,'']]],
   ['inputmods_2ecpp_10',['InputMods.cpp',['../dc/d8e/InputMods_8cpp.html',1,'']]],
-  ['inputmods_2ehpp_11',['InputMods.hpp',['../d4/d98/InputMods_8hpp.html',1,'']]],
-  ['instancebuffer_2ecpp_12',['InstanceBuffer.cpp',['../d7/d7f/InstanceBuffer_8cpp.html',1,'']]],
-  ['instancebuffer_2ehpp_13',['InstanceBuffer.hpp',['../dd/d53/InstanceBuffer_8hpp.html',1,'']]]
+  ['inputmods_2ehpp_11',['InputMods.hpp',['../d4/d98/InputMods_8hpp.html',1,'']]]
 ];

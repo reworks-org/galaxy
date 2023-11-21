@@ -102,14 +102,54 @@ $(document).ready(function(){initNavTree('d4/dde/Random_8cpp_source.html','../..
 <a href="../../d4/dde/Random_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6e/Random_8hpp.html">Random.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>math</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ac84da373112079f3b1c5881ee30daace">   14</a></span>        <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ac84da373112079f3b1c5881ee30daace">Random::Random</a>()</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            : m_rd {}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            , m_mt {m_rd()}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        }</div>
+</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a51ffc288b3c186f651cc4577ed1d9e5a">   20</a></span>        glm::vec2 <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a51ffc288b3c186f651cc4577ed1d9e5a">Random::gen_vec2</a>(<span class="keyword">const</span> glm::vec2&amp; min, <span class="keyword">const</span> glm::vec2&amp; max)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">return</span> {gen&lt;float&gt;(min.x, max.x), gen&lt;float&gt;(min.y, max.y)};</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a049e66bdec93fce2305144d2420a44bb">   25</a></span>        glm::vec3 <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a049e66bdec93fce2305144d2420a44bb">Random::gen_vec3</a>(<span class="keyword">const</span> glm::vec3&amp; min, <span class="keyword">const</span> glm::vec3&amp; max)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">return</span> {gen&lt;float&gt;(min.x, max.x), gen&lt;float&gt;(min.y, max.y), gen&lt;float&gt;(min.z, max.z)};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ac5fbaa8f5762f27f30dc5bfc309e3818">   30</a></span>        glm::vec4 <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ac5fbaa8f5762f27f30dc5bfc309e3818">Random::gen_vec4</a>(<span class="keyword">const</span> glm::vec4&amp; min, <span class="keyword">const</span> glm::vec4&amp; max)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">return</span> {gen&lt;float&gt;(min.x, max.x), gen&lt;float&gt;(min.y, max.y), gen&lt;float&gt;(min.z, max.z), gen&lt;float&gt;(min.w, max.w)};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    } <span class="comment">// namespace math</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aRandom_8hpp_html"><div class="ttname"><a href="../../dd/d6e/Random_8hpp.html">Random.hpp</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a049e66bdec93fce2305144d2420a44bb"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a049e66bdec93fce2305144d2420a44bb">galaxy::math::Random::gen_vec3</a></div><div class="ttdeci">glm::vec3 gen_vec3(const glm::vec3 &amp;min, const glm::vec3 &amp;max)</div><div class="ttdoc">Generate a random vec3.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00025">Random.cpp:25</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a51ffc288b3c186f651cc4577ed1d9e5a"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a51ffc288b3c186f651cc4577ed1d9e5a">galaxy::math::Random::gen_vec2</a></div><div class="ttdeci">glm::vec2 gen_vec2(const glm::vec2 &amp;min, const glm::vec2 &amp;max)</div><div class="ttdoc">Generate a random vec2.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00020">Random.cpp:20</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_ac5fbaa8f5762f27f30dc5bfc309e3818"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ac5fbaa8f5762f27f30dc5bfc309e3818">galaxy::math::Random::gen_vec4</a></div><div class="ttdeci">glm::vec4 gen_vec4(const glm::vec4 &amp;min, const glm::vec4 &amp;max)</div><div class="ttdoc">Generate a random vec4.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00030">Random.cpp:30</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_ac84da373112079f3b1c5881ee30daace"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ac84da373112079f3b1c5881ee30daace">galaxy::math::Random::Random</a></div><div class="ttdeci">Random()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00014">Random.cpp:14</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00012">Timer.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../d4/dde/Random_8cpp.html">Random.cpp</a></li>
-    <li class="footer">Generated on Mon Nov 13 2023 11:24:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 21 2023 01:40:28 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

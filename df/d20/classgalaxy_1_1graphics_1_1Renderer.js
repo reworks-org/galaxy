@@ -19,6 +19,7 @@ var classgalaxy_1_1graphics_1_1Renderer =
     [ "m_r2d_ubo", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae00adbc8cf29256cab7c0a6263cdcc3f", null ],
     [ "m_data", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a0e567cd61c8a1426d17e93aac382e626", null ],
     [ "m_r2d_shader", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a3b3832f8862899ae63ac91ec13b3ff51", null ],
+    [ "m_particle_shader", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ac336636ac5942983073e3f74a014034c", null ],
     [ "m_prev_texture", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a79ca99961fb0bd47be0dd547effe10eb", null ],
     [ "m_prev_nm", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af5ae47697dd8adb2500b842426703a17", null ],
     [ "m_postprocess", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5c259d1b4d274dc9ea52d704c4cc8ae6", null ],

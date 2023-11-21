@@ -1,0 +1,12 @@
+<map id="galaxy::components::ParticleGenerator::ParticleGenerator" name="galaxy::components::ParticleGenerator::ParticleGenerator">
+<area shape="rect" id="Node000001" title="Pointer constructor." alt="" coords="5,69,159,124"/>
+<area shape="rect" id="Node000002" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a6b80c2b179fdf6b1fd94c6a5b174c4d5" title="Configures and generates the particles to be emitted." alt="" coords="207,69,360,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,94,193,94,193,99,159,99"/>
+<area shape="rect" id="Node000003" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#acff5de79c179bd12b653c1b5652790de" title="Create initial opengl buffers." alt="" coords="447,5,600,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,74,433,54,434,59,361,79"/>
+<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="408,84,639,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="360,94,394,94,394,99,360,99"/>
+<area shape="rect" id="Node000005" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aaaf25a2164ae5fd314754433ddac249b" title="Reset all particle lifetime and positions." alt="" coords="447,157,600,212"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="359,122,437,150,435,155,358,127"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="477,157,477,147,485,138,501,133,523,131,550,134,566,142,563,146,549,139,523,136,502,138,488,143,482,149,482,157"/>
+</map>

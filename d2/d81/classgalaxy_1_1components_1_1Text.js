@@ -27,7 +27,12 @@ var classgalaxy_1_1components_1_1Text =
     [ "get_size", "d2/d81/classgalaxy_1_1components_1_1Text.html#ab8c18fade49984e5cee71cea75fd0338", null ],
     [ "get_alignment", "d2/d81/classgalaxy_1_1components_1_1Text.html#ab5878f5acf525e94d4246b285e60c5d8", null ],
     [ "get_font", "d2/d81/classgalaxy_1_1components_1_1Text.html#a1e27141095adbef72234119cfbf6d744", null ],
-    [ "get_vao", "d2/d81/classgalaxy_1_1components_1_1Text.html#a8d0e010da9fe4da38fb7db4b9cbc4fc8", null ],
+    [ "get_instances", "d2/d81/classgalaxy_1_1components_1_1Text.html#a980fc1c0755e2d9c4b9bbc5c6f73f5c1", null ],
+    [ "get_mode", "d2/d81/classgalaxy_1_1components_1_1Text.html#ac9b194235274fac2391815a4d7e54998", null ],
+    [ "get_vao", "d2/d81/classgalaxy_1_1components_1_1Text.html#a1204c3c56979e6d2ebba8cb7d96bc6e6", null ],
+    [ "get_texture", "d2/d81/classgalaxy_1_1components_1_1Text.html#a3f3ab230aa3a7b4ee5df2d0bb771d164", null ],
+    [ "get_count", "d2/d81/classgalaxy_1_1components_1_1Text.html#aa500dd2f07d4a3016c7e510dd5271a5e", null ],
+    [ "get_layer", "d2/d81/classgalaxy_1_1components_1_1Text.html#a6fc67da96ceb939c00906d1c60c8e4ae", null ],
     [ "serialize", "d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872", null ],
     [ "deserialize", "d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed", null ],
     [ "operator=", "d2/d81/classgalaxy_1_1components_1_1Text.html#a2449778c6632c44c31110f51483b4b50", null ],
@@ -42,5 +47,7 @@ var classgalaxy_1_1components_1_1Text =
     [ "m_height", "d2/d81/classgalaxy_1_1components_1_1Text.html#a1f372f28cfae8a4923c88b0bd5bb133a", null ],
     [ "m_text", "d2/d81/classgalaxy_1_1components_1_1Text.html#a6dee42dfc73247d0d51675b784d64775", null ],
     [ "m_size", "d2/d81/classgalaxy_1_1components_1_1Text.html#ad678b99e6b6ed2184db2b3a053381998", null ],
-    [ "m_alignment", "d2/d81/classgalaxy_1_1components_1_1Text.html#aac707607be9ac032a371d64d6f6920e7", null ]
+    [ "m_alignment", "d2/d81/classgalaxy_1_1components_1_1Text.html#aac707607be9ac032a371d64d6f6920e7", null ],
+    [ "m_tex_id", "d2/d81/classgalaxy_1_1components_1_1Text.html#a837f840fada3cfaadbf2686f88ef140a", null ],
+    [ "m_layer", "d2/d81/classgalaxy_1_1components_1_1Text.html#a14ab07e8e0fe501167759e88767a6439", null ]
 ];

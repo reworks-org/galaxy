@@ -1,14 +1,11 @@
 var classgalaxy_1_1graphics_1_1Renderable =
 [
-    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a39a0da204d35a59961fe42c998c38ddd", null ],
-    [ "~Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a8d9afc135228b7cf6c7051d8039b29e0", null ],
-    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#abe52b1bd56ed20e4f98bfbaa66e60d97", null ],
-    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#aa739ddab569873e53db77fe4e9e2fbc2", null ],
-    [ "operator=", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a32763aff65e4d281e9e6ff8b62e150ee", null ],
-    [ "get_texture_handle", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ae3ac7edd795f8448ceaa80a28f210ea1", null ],
-    [ "get_layer", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a14c26bf64a8b170657981724140f98da", null ],
-    [ "get_vao", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a611f9560684835446ec3c757b4d97e14", null ],
-    [ "operator=", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#adeb839f0262260b71a6109d443824448", null ],
-    [ "m_texture_handle", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a4ba3f65b3f8d1cf7902e442fce8b84f4", null ],
-    [ "m_layer", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#acb11ee999df94db8ead1237716e97918", null ]
+    [ "~Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a49757be1c9563d965a3f83b22938db0a", null ],
+    [ "Renderable", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a99778b17033bc5b74e6f79b1a4ac28a0", null ],
+    [ "get_instances", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a6bde6fa29155d5839e3bb093e4f7b776", null ],
+    [ "get_mode", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#acded47adc954b439eff44272b2631b24", null ],
+    [ "get_vao", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ac033c5aba445fe142d44eef037d54c8e", null ],
+    [ "get_texture", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a57e388a76646de968982510a260eb59a", null ],
+    [ "get_count", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#a3bf7749fd1864f041ecacdcff12996a0", null ],
+    [ "get_layer", "d3/db6/classgalaxy_1_1graphics_1_1Renderable.html#ab18871972317b20e9e039e6551a03a8f", null ]
 ];

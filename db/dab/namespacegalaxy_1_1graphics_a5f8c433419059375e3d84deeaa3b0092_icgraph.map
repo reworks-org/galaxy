@@ -1,7 +1,11 @@
 <map id="galaxy::graphics::primitive_to_gl" name="galaxy::graphics::primitive_to_gl">
-<area shape="rect" id="Node000001" title="Convert a primitive enum to OpenGL draw type." alt="" coords="284,37,479,77"/>
-<area shape="rect" id="Node000002" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="44,5,197,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,46,197,37,198,32,271,41"/>
-<area shape="rect" id="Node000003" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,69,236,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,74,236,78,236,73,270,68"/>
+<area shape="rect" id="Node000001" title="Convert a primitive enum to OpenGL draw type." alt="" coords="207,113,401,153"/>
+<area shape="rect" id="Node000002" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,109,158,60,131,48,133,43,160,55,256,104"/>
+<area shape="rect" id="Node000003" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a2ea32aed085f1cee9ea028de01efd440" title="Get OpenGL rendering mode." alt="" coords="5,70,159,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,118,159,112,159,107,193,113"/>
+<area shape="rect" id="Node000004" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#ac6bd2e6d8875ff7834aace16233d2d90" title="Get OpenGL rendering mode." alt="" coords="5,149,159,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="193,154,159,160,159,154,193,149"/>
+<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ac9b194235274fac2391815a4d7e54998" title="Get OpenGL rendering mode." alt="" coords="5,213,159,253"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="250,162,160,204,132,216,130,211,158,199,248,157"/>
 </map>

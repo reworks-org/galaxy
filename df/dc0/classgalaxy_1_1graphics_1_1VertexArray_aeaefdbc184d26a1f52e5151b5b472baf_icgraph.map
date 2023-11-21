@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::VertexArray::id" name="galaxy::graphics::VertexArray::id">
+<area shape="rect" id="Node000001" title="Get VAO GL id." alt="" coords="207,69,385,109"/>
+<area shape="rect" id="Node000002" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a19b98966499a85db0f68508bb3c7bf86" title="Get vertex array object." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,68,149,48,150,43,216,63"/>
+<area shape="rect" id="Node000003" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2913e546f85fbc86a7242893b01ae9c1" title="Get vertex array object." alt="" coords="5,69,159,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,92,159,92,159,87,193,87"/>
+<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a1204c3c56979e6d2ebba8cb7d96bc6e6" title="Get vertex array object." alt="" coords="5,133,159,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,116,150,136,149,131,214,111"/>
+</map>

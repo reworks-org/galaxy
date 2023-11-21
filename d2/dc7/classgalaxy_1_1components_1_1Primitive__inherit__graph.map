@@ -1,7 +1,7 @@
 <map id="galaxy::components::Primitive" name="galaxy::components::Primitive">
-<area shape="rect" id="Node000001" title="2D primitive shape." alt="" coords="137,299,282,819"/>
-<area shape="rect" id="Node000002" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,5,208,251"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,263,150,298,145,299,136,264"/>
-<area shape="rect" id="Node000003" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="233,45,394,211"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="293,225,275,299,270,298,288,223"/>
+<area shape="rect" id="Node000001" title="2D primitive shape." alt="" coords="116,259,261,719"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,25,167,191"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,203,129,258,124,259,109,205"/>
+<area shape="rect" id="Node000003" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="191,5,394,211"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="264,225,254,259,249,258,258,224"/>
 </map>
