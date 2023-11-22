@@ -120,6 +120,7 @@ namespace galaxy
 				&entt::type_hash<components::ParticleGenerator>::value);
 
 			pg_type["generate"]                = &components::ParticleGenerator::generate;
+			pg_type["regenerate"]              = &components::ParticleGenerator::regenerate;
 			pg_type["count"]                   = &components::ParticleGenerator::m_count;
 			pg_type["fixed_alpha"]             = &components::ParticleGenerator::m_fixed_alpha;
 			pg_type["fixed_colour"]            = &components::ParticleGenerator::m_fixed_colour;
@@ -139,7 +140,6 @@ namespace galaxy
 			pg_type["min_rect_spread"]         = &components::ParticleGenerator::m_min_rect_spread;
 			pg_type["min_scale"]               = &components::ParticleGenerator::m_min_scale;
 			pg_type["min_vel"]                 = &components::ParticleGenerator::m_min_vel;
-			pg_type["particles"]               = &components::ParticleGenerator::m_particles;
 			pg_type["randomize_colour"]        = &components::ParticleGenerator::m_randomize_colour;
 			pg_type["randomize_colour_alpha"]  = &components::ParticleGenerator::m_randomize_colour_alpha;
 			pg_type["randomize_initial_vel"]   = &components::ParticleGenerator::m_randomize_initial_vel;
@@ -148,6 +148,9 @@ namespace galaxy
 			pg_type["randomize_scale"]         = &components::ParticleGenerator::m_randomize_scale;
 			pg_type["spread"]                  = &components::ParticleGenerator::m_spread;
 			pg_type["spread_radius"]           = &components::ParticleGenerator::m_spread_radius;
+			pg_type["layer"]                   = &components::ParticleGenerator::m_layer;
+			pg_type["texture"]                 = &components::ParticleGenerator::m_texture;
+			pg_type["start_pos"]               = &components::ParticleGenerator::m_start_pos;
 			pg_type["reset"]                   = sol::resolve<void(void)>(&components::ParticleGenerator::reset);
 
 			auto primitive_data_type =

@@ -228,6 +228,87 @@ namespace galaxy
 		{
 			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, msg});
 		}
+
+		bool imgui_glm_vec2(const char* label, glm::vec2& vec)
+		{
+			auto clicked = false;
+
+			ImGui::PushID(label);
+
+			ImGui::TextUnformatted(label);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(150);
+			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(150);
+			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::PopID();
+			return clicked;
+		}
+
+		bool imgui_glm_vec3(const char* label, glm::vec3& vec)
+		{
+			auto clicked = false;
+
+			ImGui::PushID(label);
+
+			ImGui::TextUnformatted(label);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(100);
+			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(100);
+			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(100);
+			clicked |= ImGui::InputFloat("Z", &vec.z, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::PopID();
+			return clicked;
+		}
+
+		bool imgui_glm_vec4(const char* label, glm::vec4& vec)
+		{
+			auto clicked = false;
+
+			ImGui::PushID(label);
+
+			ImGui::TextUnformatted(label);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("Z", &vec.z, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("W", &vec.w, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::PopID();
+			return clicked;
+		}
 	} // namespace ui
 } // namespace galaxy
 

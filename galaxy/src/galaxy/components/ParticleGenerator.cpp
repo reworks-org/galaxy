@@ -15,6 +15,11 @@
 
 #include "ParticleGenerator.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26477)
+#endif
+
 namespace galaxy
 {
 	namespace components
@@ -265,6 +270,15 @@ namespace galaxy
 			}
 		}
 
+		void ParticleGenerator::regenerate()
+		{
+			m_particles.clear();
+			m_particles.resize(m_count);
+
+			reset();
+			generate_buffers();
+		}
+
 		void ParticleGenerator::reset()
 		{
 			for (auto i = 0; i < m_count; i++)
@@ -388,7 +402,11 @@ namespace galaxy
 			m_max_alpha               = json.at("max_alpha");
 
 			std::string spread = json.at("spread");
-			m_spread           = magic_enum::enum_cast<graphics::ParticleSpread>(spread).value();
+			auto        opt    = magic_enum::enum_cast<graphics::ParticleSpread>(spread);
+			if (opt.has_value())
+			{
+				m_spread = opt.value();
+			}
 
 			const auto& min_rect_spread = json.at("min_rect_spread");
 			m_min_rect_spread.x         = min_rect_spread.at("x");
@@ -437,7 +455,7 @@ namespace galaxy
 			m_max_colour.y         = max_colour.at("y");
 			m_max_colour.z         = max_colour.at("z");
 
-			generate(m_start_pos, m_texture, m_layer, m_count);
+			regenerate();
 		}
 
 		void ParticleGenerator::reset(const unsigned int index)
@@ -561,6 +579,11 @@ namespace galaxy
 				glDeleteVertexArrays(1, &m_vao);
 			}
 
+			if (m_ebo != 0)
+			{
+				glDeleteBuffers(1, &m_ebo);
+			}
+
 			if (m_vbo != 0)
 			{
 				glDeleteBuffers(1, &m_vbo);
@@ -586,13 +609,13 @@ namespace galaxy
 			glEnableVertexAttribArray(0);
 
 			glBindBuffer(GL_ARRAY_BUFFER, m_instance);
-			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, particle_size, (void*)offsetof(graphics::Particle, m_pos));
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, particle_size, reinterpret_cast<void*>(offsetof(graphics::Particle, m_pos)));
 			glEnableVertexAttribArray(1);
 
-			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, particle_size, (void*)offsetof(graphics::Particle, m_scale));
+			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, particle_size, reinterpret_cast<void*>(offsetof(graphics::Particle, m_scale)));
 			glEnableVertexAttribArray(2);
 
-			glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, particle_size, (void*)offsetof(graphics::Particle, m_colour));
+			glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, particle_size, reinterpret_cast<void*>(offsetof(graphics::Particle, m_colour)));
 			glEnableVertexAttribArray(3);
 
 			glVertexAttribDivisor(1, 1);
@@ -604,3 +627,7 @@ namespace galaxy
 		}
 	} // namespace components
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

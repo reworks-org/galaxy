@@ -79,6 +79,11 @@ namespace galaxy
 			void generate(const glm::vec2& pos, const std::string& texture, const int layer, const int count);
 
 			///
+			/// Re-generates particles from existing config.
+			///
+			void regenerate();
+
+			///
 			/// Reset all particle lifetime and positions.
 			///
 			void reset();
@@ -305,9 +310,18 @@ namespace galaxy
 			float m_max_alpha;
 
 			///
-			/// List of created particles.
+			/// Texture name.
 			///
-			meta::vector<graphics::Particle> m_particles;
+			std::string m_texture;
+
+			///
+			/// Starting pos.
+			///
+			glm::vec2 m_start_pos;
+			///
+			/// Object z-level for drawing.
+			///
+			int m_layer;
 
 		  private:
 			///
@@ -331,24 +345,14 @@ namespace galaxy
 			unsigned int m_ebo;
 
 			///
-			/// Texture name.
-			///
-			std::string m_texture;
-
-			///
-			/// Starting pos.
-			///
-			glm::vec2 m_start_pos;
-
-			///
 			/// Opengl texture id.
 			///
 			unsigned int m_tex_id;
 
 			///
-			/// Object z-level for drawing.
+			/// List of created particles.
 			///
-			int m_layer;
+			meta::vector<graphics::Particle> m_particles;
 		};
 	} // namespace components
 } // namespace galaxy

@@ -6,11 +6,9 @@
 ///
 
 #include <entt/entity/registry.hpp>
-#include <magic_enum.hpp>
 #include <imgui_stdlib.h>
+#include <magic_enum.hpp>
 
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/core/Window.hpp>
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/ParticleGenerator.hpp>
 #include <galaxy/components/Primitive.hpp>
@@ -21,6 +19,8 @@
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
 #include <galaxy/components/UIScript.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/core/Window.hpp>
 #include <galaxy/flags/DenySerialization.hpp>
 #include <galaxy/flags/Disabled.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
@@ -288,7 +288,179 @@ namespace sc
 						}
 					});
 
-					draw_component<components::ParticleGenerator>(selected, "ParticleGenerator", [](components::ParticleGenerator* pg) {
+					draw_component<components::ParticleGenerator>(selected, "ParticleGenerator", [&](components::ParticleGenerator* pg) {
+						if (ImGui::Button("Generate"))
+						{
+							updates.emplace_back([pg]() {
+								pg->regenerate();
+							});
+						}
+
+						ImGui::SameLine();
+
+						if (ImGui::Button("Reset Particles"))
+						{
+							pg->reset();
+						}
+
+						ImGui::InputInt("Count", &pg->m_count);
+						ImGui::InputInt("Layer", &pg->m_layer);
+						ImGui::Checkbox("Keep Aspect Ratio", &pg->m_keep_scale_aspect_ratio);
+						ui::imgui_glm_vec2("Start Pos", pg->m_start_pos);
+
+						ImGui::Spacing();
+
+						m_filter_tex_pg.DrawWithHint("###EntityTextureSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
+
+						if (ImGui::BeginCombo("Texture", pg->m_texture.c_str()))
+						{
+							for (const auto& key : core::ServiceLocator<resource::TextureAtlas>::ref().keys())
+							{
+								if (m_filter_tex_pg.PassFilter(key.c_str()))
+								{
+									const bool selected = (pg->m_texture == key);
+									if (ImGui::Selectable(key.c_str(), selected))
+									{
+										pg->m_texture = key;
+									}
+
+									if (selected)
+									{
+										ImGui::SetItemDefaultFocus();
+									}
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Randomize:");
+
+						ImGui::Checkbox("Position", &pg->m_randomize_position);
+						ImGui::SameLine();
+						ImGui::Checkbox("Init Vel", &pg->m_randomize_initial_vel);
+						ImGui::SameLine();
+						ImGui::Checkbox("Life", &pg->m_randomize_life);
+
+						ImGui::Checkbox("Scale", &pg->m_randomize_scale);
+						ImGui::SameLine();
+						ImGui::Checkbox("Colour", &pg->m_randomize_colour);
+						ImGui::SameLine();
+						ImGui::Checkbox("Alpha", &pg->m_randomize_colour_alpha);
+
+						static auto                       s_selected = std::string(magic_enum::enum_name(pg->m_spread));
+						static std::array<std::string, 2> s_spreads  = {"SPREAD_TYPE_RECTANGLE", "SPREAD_TYPE_SPHERE"};
+
+						if (ImGui::BeginCombo("Spread", s_selected.c_str()))
+						{
+							for (const auto& name : s_spreads)
+							{
+								const bool selected = (s_selected == name);
+								if (ImGui::Selectable(name.c_str(), selected))
+								{
+									s_selected   = name;
+									pg->m_spread = magic_enum::enum_cast<graphics::ParticleSpread>(s_selected).value();
+								}
+
+								if (selected)
+								{
+									ImGui::SetItemDefaultFocus();
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						ImGui::InputFloat("Spread Radius", &pg->m_spread_radius, 0.1f, 1.0f, "%.1f");
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Rect Spread:");
+						ImGui::PushID("rect");
+						ui::imgui_glm_vec2("Min", pg->m_min_rect_spread);
+						ui::imgui_glm_vec2("Max", pg->m_max_rect_spread);
+						ImGui::PopID();
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Velocity:");
+						ImGui::PushID("vel");
+						ui::imgui_glm_vec2("Fixed", pg->m_fixed_vel);
+						ui::imgui_glm_vec2("Min", pg->m_min_vel);
+						ui::imgui_glm_vec2("Max", pg->m_max_vel);
+						ImGui::PopID();
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Life:");
+						ImGui::PushID("life");
+						ImGui::InputFloat("Fixed", &pg->m_fixed_life);
+						ImGui::InputFloat("Min", &pg->m_min_life);
+						ImGui::InputFloat("Max", &pg->m_max_life);
+						ImGui::PopID();
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Scale:");
+						ImGui::PushID("scale");
+						ui::imgui_glm_vec2("Fixed", pg->m_fixed_scale);
+						ui::imgui_glm_vec2("Min", pg->m_min_scale);
+						ui::imgui_glm_vec2("Max", pg->m_max_scale);
+						ImGui::PopID();
+
+						ImGui::Spacing();
+
+						if (ImGui::CollapsingHeader("Tint"))
+						{
+							ImGui::PushID("tint");
+
+							float fixed_col[3] = {
+								pg->m_fixed_colour.x,
+								pg->m_fixed_colour.y,
+								pg->m_fixed_colour.z,
+							};
+							ImGui::ColorPicker3("Fixed", fixed_col);
+
+							float min_col[3] = {
+								pg->m_fixed_colour.x,
+								pg->m_fixed_colour.y,
+								pg->m_fixed_colour.z,
+							};
+							ImGui::ColorPicker3("Min", min_col);
+
+							float max_col[3] = {
+								pg->m_max_colour.x,
+								pg->m_max_colour.y,
+								pg->m_max_colour.z,
+							};
+							ImGui::ColorPicker3("Max", max_col);
+
+							ImGui::PopID();
+						}
+
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Alpha:");
+						ImGui::PushID("alpha");
+
+						if (ImGui::InputFloat("Fixed", &pg->m_fixed_alpha, 0.01f, 0.1f, "%.1f"))
+						{
+							pg->m_fixed_alpha = std::clamp(pg->m_fixed_alpha, 0.0f, 1.0f);
+						}
+
+						if (ImGui::InputFloat("Min", &pg->m_min_alpha, 0.01f, 0.1f, "%.1f"))
+						{
+							pg->m_min_alpha = std::clamp(pg->m_min_alpha, 0.0f, 1.0f);
+						}
+
+						if (ImGui::InputFloat("Max", &pg->m_max_alpha, 0.01f, 0.1f, "%.1f"))
+						{
+							pg->m_max_alpha = std::clamp(pg->m_max_alpha, 0.0f, 1.0f);
+						}
+
+						ImGui::PopID();
 					});
 
 					draw_component<components::Primitive>(selected, "Primitive", [&](components::Primitive* primitive) {
@@ -399,13 +571,7 @@ namespace sc
 							if (ImGui::BeginPopup("PolyPointPopup"))
 							{
 								static glm::vec2 s_point {0.0f, 0.0f};
-								ImGui::SetNextItemWidth(150);
-								ImGui::InputFloat("X##7", &s_point.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-								ImGui::SameLine();
-
-								ImGui::SetNextItemWidth(150);
-								ImGui::InputFloat("Y##8", &s_point.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+								ui::imgui_glm_vec2("Point", s_point);
 
 								if (ImGui::Button("Push"))
 								{

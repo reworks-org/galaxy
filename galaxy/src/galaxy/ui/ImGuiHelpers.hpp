@@ -10,6 +10,9 @@
 
 #include <functional>
 
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <imgui_stdlib.h>
 
 namespace galaxy
@@ -134,6 +137,36 @@ namespace galaxy
 		/// \param msg Message to display.
 		///
 		void imgui_notify_error(const char* msg);
+
+		///
+		/// GLM vector 2 widget.
+		///
+		/// \param label Widget label.
+		/// \param vec Vector.
+		///
+		/// \return True if any field is clicked.
+		///
+		[[maybe_unused]] bool imgui_glm_vec2(const char* label, glm::vec2& vec);
+
+		///
+		/// GLM vector 3 widget.
+		///
+		/// \param label Widget label.
+		/// \param vec Vector.
+		///
+		/// \return True if any field is clicked.
+		///
+		[[maybe_unused]] bool imgui_glm_vec3(const char* label, glm::vec3& vec);
+
+		///
+		/// GLM vector 4 widget.
+		///
+		/// \param label Widget label.
+		/// \param vec Vector.
+		///
+		/// \return True if any field is clicked.
+		///
+		[[maybe_unused]] bool imgui_glm_vec4(const char* label, glm::vec4& vec);
 	} // namespace ui
 } // namespace galaxy
 

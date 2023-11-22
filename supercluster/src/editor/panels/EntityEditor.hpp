@@ -43,6 +43,7 @@ namespace sc
 		  private:
 			ImGuiTextFilter m_filter_shaders;
 			ImGuiTextFilter m_filter_textures;
+			ImGuiTextFilter m_filter_tex_pg;
 			ImGuiTextFilter m_filter_fonts;
 		};
 
