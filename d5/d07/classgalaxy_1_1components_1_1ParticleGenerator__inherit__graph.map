@@ -1,7 +1,7 @@
 <map id="galaxy::components::ParticleGenerator" name="galaxy::components::ParticleGenerator">
-<area shape="rect" id="Node000001" title="Allows an entity to emit particle effects." alt="" coords="94,259,283,1008"/>
+<area shape="rect" id="Node000001" title="Allows an entity to emit particle effects." alt="" coords="94,259,283,968"/>
 <area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,25,167,191"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,204,118,258,113,259,102,205"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,204,119,258,114,259,103,205"/>
 <area shape="rect" id="Node000003" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="191,5,394,211"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,224,266,259,260,258,267,223"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,225,264,259,259,258,266,224"/>
 </map>

@@ -1,11 +1,11 @@
 <map id="galaxy::components::ParticleGenerator" name="galaxy::components::ParticleGenerator">
-<area shape="rect" id="Node000001" title="Allows an entity to emit particle effects." alt="" coords="198,403,387,1132"/>
+<area shape="rect" id="Node000001" title="Allows an entity to emit particle effects." alt="" coords="198,403,387,1112"/>
 <area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,155,167,320"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,332,200,523,195,525,121,334"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,332,200,518,195,520,121,334"/>
 <area shape="rect" id="Node000003" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="191,135,394,340"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="295,354,295,403,290,403,290,354"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="295,354,295,402,290,402,290,354"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="419,205,497,270"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="451,271,395,449,390,447,446,269"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="450,271,395,445,390,443,445,269"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="393,5,523,85"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="461,99,461,204,455,204,455,99"/>
 </map>

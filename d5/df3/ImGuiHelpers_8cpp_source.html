@@ -359,13 +359,100 @@ $(document).ready(function(){initNavTree('d5/df3/ImGuiHelpers_8cpp_source.html',
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, msg});</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
 </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    } <span class="comment">// namespace ui</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a04e7572be7f432e40a3dee3571c9fd2e">  232</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a04e7572be7f432e40a3dee3571c9fd2e">imgui_glm_vec2</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* label, glm::vec2&amp; vec)</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keyword">auto</span> clicked = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            ImGui::PushID(label);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            ImGui::TextUnformatted(label);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            ImGui::SetNextItemWidth(150);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;X&quot;</span>, &amp;vec.x, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            ImGui::SetNextItemWidth(150);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;Y&quot;</span>, &amp;vec.y, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            ImGui::PopID();</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            <span class="keywordflow">return</span> clicked;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        }</div>
 </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">#pragma warning(pop)</span></div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="foldopen" id="foldopen00254" data-start="{" data-end="}">
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a540fec72ae3e1c4f5156ff535a7bf1a3">  254</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a540fec72ae3e1c4f5156ff535a7bf1a3">imgui_glm_vec3</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* label, glm::vec3&amp; vec)</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            <span class="keyword">auto</span> clicked = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            ImGui::PushID(label);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            ImGui::TextUnformatted(label);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            ImGui::SetNextItemWidth(100);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;X&quot;</span>, &amp;vec.x, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            ImGui::SetNextItemWidth(100);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;Y&quot;</span>, &amp;vec.y, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            ImGui::SetNextItemWidth(100);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;Z&quot;</span>, &amp;vec.z, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            ImGui::PopID();</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            <span class="keywordflow">return</span> clicked;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        }</div>
+</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="foldopen" id="foldopen00281" data-start="{" data-end="}">
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9ea9137bfa4a7f48555a0f23385b56bb">  281</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9ea9137bfa4a7f48555a0f23385b56bb">imgui_glm_vec4</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* label, glm::vec4&amp; vec)</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            <span class="keyword">auto</span> clicked = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            ImGui::PushID(label);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            ImGui::TextUnformatted(label);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            ImGui::SetNextItemWidth(75);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;X&quot;</span>, &amp;vec.x, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            ImGui::SetNextItemWidth(75);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;Y&quot;</span>, &amp;vec.y, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            ImGui::SetNextItemWidth(75);</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;Z&quot;</span>, &amp;vec.z, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            ImGui::SameLine();</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>            ImGui::SetNextItemWidth(75);</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            clicked |= ImGui::InputFloat(<span class="stringliteral">&quot;W&quot;</span>, &amp;vec.w, 1.0f, 10.0f, <span class="stringliteral">&quot;%.1f&quot;</span>, ImGuiInputTextFlags_CharsNoBlank);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            ImGui::PopID();</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            <span class="keywordflow">return</span> clicked;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        }</div>
+</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    } <span class="comment">// namespace ui</span></div>
+</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aImGuiHelpers_8cpp_html_a02747bb4ca6fae1dc36ef25510ab47d2"><div class="ttname"><a href="../../d5/df3/ImGuiHelpers_8cpp.html#a02747bb4ca6fae1dc36ef25510ab47d2">popup_state</a></div><div class="ttdeci">robin_hood::unordered_flat_map&lt; const char *, bool &gt; popup_state</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00028">ImGuiHelpers.cpp:28</a></div></div>
 <div class="ttc" id="aImGuiHelpers_8cpp_html_a6ee2246266ec1eb217b9ea69c06dfc5f"><div class="ttname"><a href="../../d5/df3/ImGuiHelpers_8cpp.html#a6ee2246266ec1eb217b9ea69c06dfc5f">mid</a></div><div class="ttdeci">constexpr const ImVec2 mid</div><div class="ttdoc">ImGuiHelpers.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00027">ImGuiHelpers.cpp:27</a></div></div>
 <div class="ttc" id="aImGuiHelpers_8hpp_html"><div class="ttname"><a href="../../d7/d23/ImGuiHelpers_8hpp.html">ImGuiHelpers.hpp</a></div></div>
@@ -381,14 +468,17 @@ $(document).ready(function(){initNavTree('d5/df3/ImGuiHelpers_8cpp_source.html',
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html_a343b28be25ae6f1cad2c21e53d29b504"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a343b28be25ae6f1cad2c21e53d29b504">galaxy::graphics::Texture::get_height</a></div><div class="ttdeci">int get_height() const</div><div class="ttdoc">Get texture height.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d87/Texture_8cpp_source.html#l00256">Texture.cpp:256</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html_a920dc24fc1ca66e27e11956fb1e4723a"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a920dc24fc1ca66e27e11956fb1e4723a">galaxy::graphics::Texture::handle</a></div><div class="ttdeci">unsigned int handle() const</div><div class="ttdoc">Gets internal OpenGL id.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d87/Texture_8cpp_source.html#l00279">Texture.cpp:279</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html_a9af7981fb30bb5d6b8fdca1a8e8166b0"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a9af7981fb30bb5d6b8fdca1a8e8166b0">galaxy::graphics::Texture::get_width</a></div><div class="ttdeci">int get_width() const</div><div class="ttdoc">Get texture width.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d87/Texture_8cpp_source.html#l00251">Texture.cpp:251</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a04e7572be7f432e40a3dee3571c9fd2e"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a04e7572be7f432e40a3dee3571c9fd2e">galaxy::ui::imgui_glm_vec2</a></div><div class="ttdeci">bool imgui_glm_vec2(const char *label, glm::vec2 &amp;vec)</div><div class="ttdoc">GLM vector 2 widget.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00232">ImGuiHelpers.cpp:232</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a07ea7645484387d4e690f8efc3a9b8e4"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">galaxy::ui::imgui_notify_error</a></div><div class="ttdeci">void imgui_notify_error(const char *msg)</div><div class="ttdoc">ImGui error notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00227">ImGuiHelpers.cpp:227</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a3378247f83641a1709f12f96715d25b6"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6">galaxy::ui::imgui_confirm</a></div><div class="ttdeci">void imgui_confirm(const char *popup, const std::function&lt; void(void)&gt; &amp;yes, const std::function&lt; void(void)&gt; &amp;no)</div><div class="ttdoc">Render the confirmation popup.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00127">ImGuiHelpers.cpp:127</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a540fec72ae3e1c4f5156ff535a7bf1a3"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a540fec72ae3e1c4f5156ff535a7bf1a3">galaxy::ui::imgui_glm_vec3</a></div><div class="ttdeci">bool imgui_glm_vec3(const char *label, glm::vec3 &amp;vec)</div><div class="ttdoc">GLM vector 3 widget.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00254">ImGuiHelpers.cpp:254</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a67865b34fe34c0f136768dc267b0e151"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151">galaxy::ui::imgui_imagebutton</a></div><div class="ttdeci">bool imgui_imagebutton(const graphics::Texture &amp;texture, const ImVec2 &amp;size, const ImVec4 &amp;bg_col, const ImVec4 &amp;tint_col)</div><div class="ttdoc">Render an imgui image button with a galaxy texture.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00192">ImGuiHelpers.cpp:192</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a6c64426a2357bdcdd6991be9483dc7e1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">galaxy::ui::imgui_new_frame</a></div><div class="ttdeci">void imgui_new_frame()</div><div class="ttdoc">New imgui frame with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00083">ImGuiHelpers.cpp:83</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a7ff5e05d5cf8281ac3a5fd5805dec67e"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">galaxy::ui::imgui_center_next_window</a></div><div class="ttdeci">void imgui_center_next_window()</div><div class="ttdoc">Make sure the next window opened is centered on the monitor.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00170">ImGuiHelpers.cpp:170</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a82c355b60d2b89ed9254b74aa8e9f6a7"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7">galaxy::ui::imgui_image</a></div><div class="ttdeci">void imgui_image(const graphics::Texture &amp;texture, const ImVec2 &amp;size)</div><div class="ttdoc">Display a galaxy image with imgui.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00200">ImGuiHelpers.cpp:200</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a92cad3546d4d2918bafa7c79f78c1ba1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1">galaxy::ui::imgui_notify_success</a></div><div class="ttdeci">void imgui_notify_success(const char *msg)</div><div class="ttdoc">ImGui success notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00212">ImGuiHelpers.cpp:212</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a9b448428ad6a24f04383d3d99a76fb94"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94">galaxy::ui::imgui_destroy_context</a></div><div class="ttdeci">void imgui_destroy_context()</div><div class="ttdoc">Cleanup imgui resources used by galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00113">ImGuiHelpers.cpp:113</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a9ea9137bfa4a7f48555a0f23385b56bb"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9ea9137bfa4a7f48555a0f23385b56bb">galaxy::ui::imgui_glm_vec4</a></div><div class="ttdeci">bool imgui_glm_vec4(const char *label, glm::vec4 &amp;vec)</div><div class="ttdoc">GLM vector 4 widget.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00281">ImGuiHelpers.cpp:281</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_ac10ec2a6e29137fea44d75a88eb6f291"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291">galaxy::ui::imgui_shortcut</a></div><div class="ttdeci">bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags)</div><div class="ttdoc">Trigger imgui actions from keyboard shortcut.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00176">ImGuiHelpers.cpp:176</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_ac72dd21f0dc545815c93acaca2ed87db"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">galaxy::ui::imgui_init_context</a></div><div class="ttdeci">ImGuiIO &amp; imgui_init_context()</div><div class="ttdoc">Initialize ImGui context with galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00044">ImGuiHelpers.cpp:44</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_acf7a7bef0f311ebe615256f621cb6af8"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8">galaxy::ui::imgui_notify_info</a></div><div class="ttdeci">void imgui_notify_info(const char *msg)</div><div class="ttdoc">ImGui info notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00217">ImGuiHelpers.cpp:217</a></div></div>
@@ -404,7 +494,7 @@ $(document).ready(function(){initNavTree('d5/df3/ImGuiHelpers_8cpp_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_330652aa214d4f712fc3581a9ff507d7.html">ui</a></li><li class="navelem"><a class="el" href="../../d5/df3/ImGuiHelpers_8cpp.html">ImGuiHelpers.cpp</a></li>
-    <li class="footer">Generated on Tue Nov 21 2023 01:40:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 22 2023 12:37:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

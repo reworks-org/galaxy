@@ -1,7 +1,13 @@
 <map id="galaxy/src/galaxy/ui/ImGuiHelpers.hpp" name="galaxy/src/galaxy/ui/ImGuiHelpers.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="35,5,188,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="229,5,383,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,92,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,47,69,84,65,81,94,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="117,93,231,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,44,158,81,154,84,124,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,48,100,92,98,87,244,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="116,93,227,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,48,204,89,202,84,272,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="251,93,361,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="309,46,309,79,303,79,303,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="385,93,496,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="340,43,410,84,408,89,337,48"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="521,93,635,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="372,43,526,87,524,92,370,48"/>
 </map>

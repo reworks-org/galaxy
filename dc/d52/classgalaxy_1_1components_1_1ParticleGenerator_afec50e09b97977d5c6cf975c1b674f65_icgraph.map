@@ -1,0 +1,11 @@
+<map id="galaxy::components::ParticleGenerator::regenerate" name="galaxy::components::ParticleGenerator::regenerate">
+<area shape="rect" id="Node000001" title="Re&#45;generates particles from existing config." alt="" coords="437,41,591,96"/>
+<area shape="rect" id="Node000002" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a5e370669adb728949ff2d97ad3f0e6fe" title="Deserializes from object." alt="" coords="236,5,389,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,55,389,49,390,44,424,50"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="244,85,381,125"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="424,87,382,95,381,90,423,82"/>
+<area shape="rect" id="Node000003" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a790dbee9fd9c4e29e886309bcdbbd685" title="JSON constructor." alt="" coords="20,5,173,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,35,174,35,174,30,222,30"/>
+<area shape="rect" id="Node000005" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,85,188,125"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="230,107,188,107,188,102,230,102"/>
+</map>

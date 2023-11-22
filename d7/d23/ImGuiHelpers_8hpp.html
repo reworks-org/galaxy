@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('d7/d23/ImGuiHelpers_8hpp.html','../../
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;glm/vec2.hpp&gt;</code><br />
+<code>#include &lt;glm/vec3.hpp&gt;</code><br />
+<code>#include &lt;glm/vec4.hpp&gt;</code><br />
 <code>#include &lt;imgui_stdlib.h&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for ImGuiHelpers.hpp:</div>
@@ -106,11 +109,17 @@ $(document).ready(function(){initNavTree('d7/d23/ImGuiHelpers_8hpp.html','../../
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/de3/ImGuiHelpers_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2ui_2ImGuiHelpers_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2ui_2ImGuiHelpers_8hpp" id="agalaxy_2src_2galaxy_2ui_2ImGuiHelpers_8hpp">
-<area shape="rect" title=" " alt="" coords="35,5,188,45"/>
+<area shape="rect" title=" " alt="" coords="229,5,383,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,92,119"/>
-<area shape="poly" title=" " alt="" coords="98,47,69,84,65,81,94,44"/>
-<area shape="rect" title=" " alt="" coords="117,93,231,119"/>
-<area shape="poly" title=" " alt="" coords="129,44,158,81,154,84,124,47"/>
+<area shape="poly" title=" " alt="" coords="245,48,100,92,98,87,244,43"/>
+<area shape="rect" title=" " alt="" coords="116,93,227,119"/>
+<area shape="poly" title=" " alt="" coords="275,48,204,89,202,84,272,43"/>
+<area shape="rect" title=" " alt="" coords="251,93,361,119"/>
+<area shape="poly" title=" " alt="" coords="309,46,309,79,303,79,303,46"/>
+<area shape="rect" title=" " alt="" coords="385,93,496,119"/>
+<area shape="poly" title=" " alt="" coords="340,43,410,84,408,89,337,48"/>
+<area shape="rect" title=" " alt="" coords="521,93,635,119"/>
+<area shape="poly" title=" " alt="" coords="372,43,526,87,524,92,370,48"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -187,6 +196,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a07ea7645484387d4e690f8efc3a9b8e4" id="r_a07ea7645484387d4e690f8efc3a9b8e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">galaxy::ui::imgui_notify_error</a> (const char *msg)</td></tr>
 <tr class="memdesc:a07ea7645484387d4e690f8efc3a9b8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ImGui error notification.  <br /></td></tr>
 <tr class="separator:a07ea7645484387d4e690f8efc3a9b8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e7572be7f432e40a3dee3571c9fd2e" id="r_a04e7572be7f432e40a3dee3571c9fd2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a04e7572be7f432e40a3dee3571c9fd2e">galaxy::ui::imgui_glm_vec2</a> (const char *label, glm::vec2 &amp;vec)</td></tr>
+<tr class="memdesc:a04e7572be7f432e40a3dee3571c9fd2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">GLM vector 2 widget.  <br /></td></tr>
+<tr class="separator:a04e7572be7f432e40a3dee3571c9fd2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540fec72ae3e1c4f5156ff535a7bf1a3" id="r_a540fec72ae3e1c4f5156ff535a7bf1a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a540fec72ae3e1c4f5156ff535a7bf1a3">galaxy::ui::imgui_glm_vec3</a> (const char *label, glm::vec3 &amp;vec)</td></tr>
+<tr class="memdesc:a540fec72ae3e1c4f5156ff535a7bf1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">GLM vector 3 widget.  <br /></td></tr>
+<tr class="separator:a540fec72ae3e1c4f5156ff535a7bf1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea9137bfa4a7f48555a0f23385b56bb" id="r_a9ea9137bfa4a7f48555a0f23385b56bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a9ea9137bfa4a7f48555a0f23385b56bb">galaxy::ui::imgui_glm_vec4</a> (const char *label, glm::vec4 &amp;vec)</td></tr>
+<tr class="memdesc:a9ea9137bfa4a7f48555a0f23385b56bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">GLM vector 4 widget.  <br /></td></tr>
+<tr class="separator:a9ea9137bfa4a7f48555a0f23385b56bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5cbd197008aad04421000554a099fd6" id="r_ad5cbd197008aad04421000554a099fd6"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d23/ImGuiHelpers_8hpp.html#ad5cbd197008aad04421000554a099fd6">operator==</a> (const ImVec2 &amp;a, const ImVec2 &amp;b)</td></tr>
 <tr class="separator:ad5cbd197008aad04421000554a099fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e868171767d4dca4a9e0ad5233ebaec" id="r_a7e868171767d4dca4a9e0ad5233ebaec"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d23/ImGuiHelpers_8hpp.html#a7e868171767d4dca4a9e0ad5233ebaec">operator!=</a> (const ImVec2 &amp;a, const ImVec2 &amp;b)</td></tr>
@@ -227,7 +245,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html#l00140">140</a> of file <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html">ImGuiHelpers.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html#l00173">173</a> of file <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html">ImGuiHelpers.hpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +283,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html">ImGuiHelpers.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html#l00178">178</a> of file <a class="el" href="../../d7/d23/ImGuiHelpers_8hpp_source.html">ImGuiHelpers.hpp</a>.</p>
 
 </div>
 </div>
@@ -275,7 +293,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_330652aa214d4f712fc3581a9ff507d7.html">ui</a></li><li class="navelem"><a class="el" href="../../d7/d23/ImGuiHelpers_8hpp.html">ImGuiHelpers.hpp</a></li>
-    <li class="footer">Generated on Tue Nov 21 2023 01:40:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 22 2023 12:37:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

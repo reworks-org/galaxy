@@ -8,6 +8,7 @@ var classgalaxy_1_1components_1_1ParticleGenerator =
     [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a559a5fde872e426e236d2e2d14468302", null ],
     [ "operator=", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a6194a231bc0696c81c50c7ad02d4917c", null ],
     [ "generate", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a6b80c2b179fdf6b1fd94c6a5b174c4d5", null ],
+    [ "regenerate", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#afec50e09b97977d5c6cf975c1b674f65", null ],
     [ "reset", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aaaf25a2164ae5fd314754433ddac249b", null ],
     [ "buffer_instances", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#ae4c82e194f2c24ef84470547cf4e521a", null ],
     [ "get_instances", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aeb503b3d8256e9ba6b402ba4f0bc88b8", null ],
@@ -50,13 +51,13 @@ var classgalaxy_1_1components_1_1ParticleGenerator =
     [ "m_fixed_alpha", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#af0238327d2f59784942d5b7bde45ae82", null ],
     [ "m_min_alpha", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#af2b9f45099bba7e27b9327b752af526c", null ],
     [ "m_max_alpha", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#afa93aacf460c7401a885652647c6b538", null ],
-    [ "m_particles", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a3c7c9ed582d10f06fbd9b05c5fd5cfbc", null ],
+    [ "m_texture", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#adb7af13c9f69560216f6e7a9f5bb25a5", null ],
+    [ "m_start_pos", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aa8a85199c702746fd92b6fc357bd6537", null ],
+    [ "m_layer", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a7d88e95f50cd358f7c4eb4765f4a145d", null ],
     [ "m_instance", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#acc73ba39d0f90a4aab8f8466ab3e2299", null ],
     [ "m_vao", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a77b46089940bd2e5071b0fda3afc1d36", null ],
     [ "m_vbo", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a099578c053bc746aaed804c2411e4cc0", null ],
     [ "m_ebo", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a1f5f7105abb6718601728cc260d38cdb", null ],
-    [ "m_texture", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#adb7af13c9f69560216f6e7a9f5bb25a5", null ],
-    [ "m_start_pos", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aa8a85199c702746fd92b6fc357bd6537", null ],
     [ "m_tex_id", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a4788940e4cde64263736956523b01703", null ],
-    [ "m_layer", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a7d88e95f50cd358f7c4eb4765f4a145d", null ]
+    [ "m_particles", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a3c7c9ed582d10f06fbd9b05c5fd5cfbc", null ]
 ];
