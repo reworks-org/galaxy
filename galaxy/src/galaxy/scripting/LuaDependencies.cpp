@@ -9,10 +9,10 @@
 #include <box2d/b2_world.h>
 #include <entt/addons/sol/dispatcher.hpp>
 #include <entt/addons/sol/registry.hpp>
+#include <glm/mat4x4.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
-#include <glm/mat4x4.hpp>
 #include <miniaudio.h>
 
 #include "galaxy/components/Animated.hpp"

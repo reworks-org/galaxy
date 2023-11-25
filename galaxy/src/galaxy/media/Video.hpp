@@ -8,8 +8,8 @@
 #ifndef GALAXY_MEDIA_VIDEO_HPP_
 #define GALAXY_MEDIA_VIDEO_HPP_
 
-#include <pl_mpeg.h>
 #include <miniaudio.h>
+#include <pl_mpeg.h>
 
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/media/RingBuffer.hpp"

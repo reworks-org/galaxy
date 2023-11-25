@@ -11,8 +11,8 @@
 #include <span>
 #include <string_view>
 
-#include "galaxy/graphics/TextureModes.hpp"
 #include "galaxy/graphics/TextureFilters.hpp"
+#include "galaxy/graphics/TextureModes.hpp"
 
 namespace galaxy
 {

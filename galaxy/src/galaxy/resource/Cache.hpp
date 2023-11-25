@@ -10,11 +10,11 @@
 
 #include <robin_hood.h>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/ArchiveEntry.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/meta/Concepts.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/VirtualFileSystem.hpp"
 
 namespace galaxy
 {

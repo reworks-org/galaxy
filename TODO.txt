@@ -4,8 +4,6 @@
 - refine exporting, asset config, etc.
 - great blog: https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
 
-
-- add particle generator to editor
 - test particle generator
 
 TileMap:

@@ -8,9 +8,9 @@
 #include <fstream>
 
 #include <BS_thread_pool.hpp>
-#include <imgui_impl_glfw.h>
 #include <imgui_addons/code_editor/ImGuiController.h>
 #include <imgui_addons/imgui_notify.h>
+#include <imgui_impl_glfw.h>
 #include <nlohmann/json.hpp>
 
 #include <galaxy/core/Config.hpp>

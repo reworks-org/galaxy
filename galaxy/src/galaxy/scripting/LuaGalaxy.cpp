@@ -45,8 +45,8 @@
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/state/StateMachine.hpp"
-#include "galaxy/utils/Guid.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
+#include "galaxy/utils/Guid.hpp"
 
 #include "Lua.hpp"
 

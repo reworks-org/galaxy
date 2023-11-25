@@ -5,8 +5,8 @@
 /// See LICENSE.txt.
 ///
 
-#include <iostream>
 #include <format>
+#include <iostream>
 
 #include "ConsoleSink.hpp"
 

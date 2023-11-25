@@ -7,9 +7,9 @@
 
 #include "galaxy/components/ParticleGenerator.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/scene/Scene.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/utils/Globals.hpp"
 
 #include "ParticleSystem.hpp"

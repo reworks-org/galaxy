@@ -7,9 +7,9 @@
 
 #include <iostream>
 
-#include <mimalloc-new-delete.h>
-#include <imgui_freetype.h>
 #include <imgui_addons/imgui_notify.h>
+#include <imgui_freetype.h>
+#include <mimalloc-new-delete.h>
 
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/Config.hpp>

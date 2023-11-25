@@ -8,9 +8,9 @@
 #ifndef GALAXY_COMPONENTS_PRIMITIVE_HPP_
 #define GALAXY_COMPONENTS_PRIMITIVE_HPP_
 
-#include <glm/vec4.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/trigonometric.hpp>
+#include <glm/vec4.hpp>
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Colour.hpp"

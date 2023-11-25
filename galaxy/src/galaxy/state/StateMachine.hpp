@@ -9,8 +9,8 @@
 #define GALAXY_STATE_STATEMACHINE_HPP_
 
 #include <memory>
-#include <stack>
 #include <robin_hood.h>
+#include <stack>
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/state/State.hpp"

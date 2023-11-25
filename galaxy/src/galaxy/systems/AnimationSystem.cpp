@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Sprite.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/Scene.hpp"

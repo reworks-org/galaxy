@@ -7,8 +7,8 @@
 
 #include <fstream>
 
-#include <imgui_stdlib.h>
 #include <imgui_addons/material_design_icons.h>
+#include <imgui_stdlib.h>
 #include <sol/sol.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>

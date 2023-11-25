@@ -7,9 +7,9 @@
 
 #include <glad/glad.h>
 #include <glfw/glfw3.h>
-#include <imgui_impl_opengl3.h>
-#include <imgui_impl_glfw.h>
 #include <imgui_addons/imgui_notify.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"

@@ -24,10 +24,10 @@
 #include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
+#include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
-#include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 
 #include "World.hpp"

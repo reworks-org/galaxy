@@ -10,8 +10,8 @@
 
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Font.hpp"
-#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/Renderable.hpp"
+#include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
 
 namespace sc

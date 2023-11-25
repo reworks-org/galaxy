@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_internal.h>
-#include <imgui_addons/material_design_icons.h>
 #include <imgui_addons/code_editor/ImGuiController.h>
+#include <imgui_addons/material_design_icons.h>
+#include <imgui_internal.h>
 
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>

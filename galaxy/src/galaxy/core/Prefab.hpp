@@ -9,8 +9,8 @@
 #define GALAXY_CORE_PREFAB_HPP_
 
 #include <entt/fwd.hpp>
-#include <robin_hood.h>
 #include <nlohmann/json.hpp>
+#include <robin_hood.h>
 
 namespace galaxy
 {

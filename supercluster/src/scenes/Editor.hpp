@@ -11,8 +11,8 @@
 #include <zip.h>
 
 #include <galaxy/async/Timer.hpp>
-#include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/graphics/Renderable.hpp>
+#include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/graphics/RenderTexture.hpp>
 #include <galaxy/platform/Subprocess.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
@@ -21,10 +21,10 @@
 #include "editor/panels/AssetPanel.hpp"
 #include "editor/panels/EntityEditor.hpp"
 #include "editor/panels/JSONEditor.hpp"
-#include "editor/panels/LuaConsole.hpp"
-#include "editor/panels/ScenePanel.hpp"
 #include "editor/panels/LogConsole.hpp"
+#include "editor/panels/LuaConsole.hpp"
 #include "editor/panels/noise/NoisePanel.hpp"
+#include "editor/panels/ScenePanel.hpp"
 
 #include "editor/Settings.hpp"
 

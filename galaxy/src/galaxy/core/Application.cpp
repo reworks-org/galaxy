@@ -7,10 +7,6 @@
 
 #include <BS_thread_pool.hpp>
 
-#include "galaxy/core/Config.hpp"
-#include "galaxy/core/Loader.hpp"
-#include "galaxy/core/Window.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/ParticleGenerator.hpp"
 #include "galaxy/components/Primitive.hpp"
@@ -21,6 +17,10 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/components/UIScript.hpp"
+#include "galaxy/core/Config.hpp"
+#include "galaxy/core/Loader.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
@@ -41,9 +41,9 @@
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/scripting/Lua.hpp"
-#include "galaxy/ui/NuklearUI.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
 #include "galaxy/ui/ImGuiTheme.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Application.hpp"
 

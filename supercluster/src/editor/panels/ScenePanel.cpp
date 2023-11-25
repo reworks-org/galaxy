@@ -7,8 +7,8 @@
 
 #include <imgui_addons/material_design_icons.h>
 
-#include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/components/Tag.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/math/Base64.hpp>
 #include <galaxy/math/ZLib.hpp>

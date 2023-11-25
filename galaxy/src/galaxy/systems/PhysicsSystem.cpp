@@ -7,8 +7,8 @@
 
 #include <glm/trigonometric.hpp>
 
-#include "galaxy/components/Transform.hpp"
 #include "galaxy/components/RigidBody.hpp"
+#include "galaxy/components/Transform.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/scene/Scene.hpp"
 

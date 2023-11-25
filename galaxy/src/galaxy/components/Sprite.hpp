@@ -9,9 +9,9 @@
 #define GALAXY_COMPONENTS_SPRITE_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/math/Rect.hpp"
 #include "galaxy/graphics/Renderable.hpp"
 #include "galaxy/graphics/VertexArray.hpp"
+#include "galaxy/math/Rect.hpp"
 
 namespace sc
 {

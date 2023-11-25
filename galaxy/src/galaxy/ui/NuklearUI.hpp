@@ -12,9 +12,9 @@
 #include <Nuklear.hpp>
 #include <robin_hood.h>
 
+#include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/KeyChar.hpp"
 
 namespace galaxy
 {

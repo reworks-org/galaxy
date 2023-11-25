@@ -8,19 +8,19 @@
 #ifndef GALAXY_META_MEMORY_HPP_
 #define GALAXY_META_MEMORY_HPP_
 
-#include <type_traits>
-#include <optional>
-#include <string>
-#include <vector>
 #include <deque>
 #include <forward_list>
 #include <list>
-#include <set>
 #include <map>
+#include <optional>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
-#include <stack>
-#include <queue>
+#include <vector>
 
 #include "galaxy/meta/Concepts.hpp"
 

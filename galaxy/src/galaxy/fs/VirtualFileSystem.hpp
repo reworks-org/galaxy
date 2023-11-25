@@ -12,11 +12,11 @@
 
 #include <zip.h>
 
-#include "galaxy/meta/FileType.hpp"
 #include "galaxy/fs/ArchiveEntry.hpp"
 #include "galaxy/fs/DialogButton.hpp"
 #include "galaxy/fs/DialogIcons.hpp"
 #include "galaxy/fs/DialogType.hpp"
+#include "galaxy/meta/FileType.hpp"
 
 namespace galaxy
 {

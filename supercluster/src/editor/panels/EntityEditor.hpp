@@ -8,8 +8,8 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
 
-#include <imgui_internal.h>
 #include <imgui_addons/material_design_icons.h>
+#include <imgui_internal.h>
 #include <nlohmann/json.hpp>
 
 #include <galaxy/components/Script.hpp>

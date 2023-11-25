@@ -15,8 +15,8 @@
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
-#include "galaxy/utils/StringUtils.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
+#include "galaxy/utils/StringUtils.hpp"
 
 #include "Window.hpp"
 

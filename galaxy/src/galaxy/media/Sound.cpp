@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/media/AudioEngine.hpp"
 
 #include "Sound.hpp"
 

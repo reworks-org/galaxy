@@ -5,12 +5,12 @@
 #include <FastNoise/FastNoise.h>
 #include <FastNoise/Metadata.h>
 #include <FastNoise/MultiThreadQueues.h>
-#include <imgui_stdlib.h>
-#include <imgui_internal.h>
-#include <imgui_addons/imnodes.h>
-#include <imgui_addons/material_design_icons.h>
 #include <glm/vec2.hpp>
 #include <glm/vec4.hpp>
+#include <imgui_addons/imnodes.h>
+#include <imgui_addons/material_design_icons.h>
+#include <imgui_internal.h>
+#include <imgui_stdlib.h>
 
 #include <galaxy/graphics/Texture.hpp>
 
