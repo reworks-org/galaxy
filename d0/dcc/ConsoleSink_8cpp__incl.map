@@ -1,11 +1,11 @@
 <map id="galaxy/src/galaxy/error/ConsoleSink.cpp" name="galaxy/src/galaxy/error/ConsoleSink.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="57,5,229,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,85,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,48,72,87,69,82,117,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,176,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,46,145,79,140,79,140,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="50,5,222,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,72,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,48,65,87,62,82,111,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,93,176,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,46,139,79,133,79,133,46"/>
 <area shape="rect" id="Node000004" href="$d9/d4b/ConsoleSink_8hpp.html" title=" " alt="" coords="200,93,331,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,43,237,84,234,88,171,48"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,43,236,84,233,88,166,48"/>
 <area shape="rect" id="Node000005" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="185,167,346,192"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,119,268,153,263,153,263,119"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="217,240,314,265"/>
