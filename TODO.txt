@@ -15,12 +15,9 @@ TileMap:
 	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
 		prerendering lets us to fancy lighting and stuff.
 		i.e. create tilemap in tiled, then export to use as bg image.
-https://stackoverflow.com/questions/892811/drawing-isometric-game-worlds
-https://github.com/fallahn/tmxlite/issues/131
 https://github.com/Madour/LDtkViewer
 https://github.com/Madour/LDtkLoader/tree/master
 https://github.com/Madour/LDtk-SFML-Game/blob/master/src/main.cpp
-https://github.com/SFML/SFML/blob/69ea0cd863aed1d4092b970b676924a716ff718b/include/SFML/Graphics/Rect.inl#L109C61-L109C73
 
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor
