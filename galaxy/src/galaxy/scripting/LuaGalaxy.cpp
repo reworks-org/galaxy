@@ -1017,6 +1017,38 @@ namespace galaxy
 			lang_type["set"]            = &resource::Language::set;
 			lang_type["translate"]      = &resource::Language::translate;
 
+			auto sfxcache_type     = lua.new_usertype<resource::SFXCache>("sfxcaches", sol::no_constructor);
+			sfxcache_type["clear"] = &resource::SFXCache::clear;
+			sfxcache_type["empty"] = &resource::SFXCache::empty;
+			sfxcache_type["get"]   = &resource::SFXCache::get;
+			sfxcache_type["has"]   = &resource::SFXCache::has;
+			sfxcache_type["keys"]  = &resource::SFXCache::keys;
+			sfxcache_type["size"]  = &resource::SFXCache::size;
+
+			auto musiccache_type     = lua.new_usertype<resource::MusicCache>("MusicCache", sol::no_constructor);
+			musiccache_type["clear"] = &resource::MusicCache::clear;
+			musiccache_type["empty"] = &resource::MusicCache::empty;
+			musiccache_type["get"]   = &resource::MusicCache::get;
+			musiccache_type["has"]   = &resource::MusicCache::has;
+			musiccache_type["keys"]  = &resource::MusicCache::keys;
+			musiccache_type["size"]  = &resource::MusicCache::size;
+
+			auto voicecache_type     = lua.new_usertype<resource::VoiceCache>("VoiceCache", sol::no_constructor);
+			voicecache_type["clear"] = &resource::VoiceCache::clear;
+			voicecache_type["empty"] = &resource::VoiceCache::empty;
+			voicecache_type["get"]   = &resource::VoiceCache::get;
+			voicecache_type["has"]   = &resource::VoiceCache::has;
+			voicecache_type["keys"]  = &resource::VoiceCache::keys;
+			voicecache_type["size"]  = &resource::VoiceCache::size;
+
+			auto videocache_type     = lua.new_usertype<resource::VideoCache>("VideoCache", sol::no_constructor);
+			videocache_type["clear"] = &resource::VideoCache::clear;
+			videocache_type["empty"] = &resource::VideoCache::empty;
+			videocache_type["get"]   = &resource::VideoCache::get;
+			videocache_type["has"]   = &resource::VideoCache::has;
+			videocache_type["keys"]  = &resource::VideoCache::keys;
+			videocache_type["size"]  = &resource::VideoCache::size;
+
 			auto prefabs_type     = lua.new_usertype<resource::Prefabs>("Prefabs", sol::no_constructor);
 			prefabs_type["clear"] = &resource::Prefabs::clear;
 			prefabs_type["empty"] = &resource::Prefabs::empty;
