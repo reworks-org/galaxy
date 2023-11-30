@@ -24,7 +24,7 @@ namespace galaxy
 			///
 			/// Handle for the zip archive.
 			///
-			std::string entry;
+			long long index;
 
 			///
 			/// Zip archive the entry belongs to.

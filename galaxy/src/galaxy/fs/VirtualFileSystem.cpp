@@ -149,7 +149,7 @@ namespace galaxy
 				zip_entry_open(z, entry.c_str());
 				zip_entry_fwrite(z, path.string().c_str());
 
-				m_tree[fname] = ArchiveEntry {.entry = entry, .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
+				m_tree[fname] = ArchiveEntry {.index = zip_entry_index(z), .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
 				zip_entry_close(z);
 				zip_close(z);
 			}
@@ -177,10 +177,10 @@ namespace galaxy
 		{
 			if (m_tree.contains(fname))
 			{
-				char* entries[] = {(char*)entry.entry.c_str()};
+				size_t entries[] = {static_cast<size_t>(entry.index)};
 
 				auto z = zip_open(entry.pack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'd');
-				if (zip_entries_delete(z, entries, 1) < 0)
+				if (zip_entries_deletebyindex(z, entries, 1) < 0)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to remove '{0}' from vfs.", fname);
 				}
@@ -322,8 +322,9 @@ namespace galaxy
 				{
 					if (!zip_entry_isdir(z))
 					{
-						const auto fp                  = std::filesystem::path(zip_entry_name(z));
-						m_tree[fp.filename().string()] = ArchiveEntry {.entry = zip_entry_name(z), .pack = path, .type = get_asset_type_from_path(fp.string())};
+						const auto fp = std::filesystem::path(zip_entry_name(z));
+						m_tree[fp.filename().string()] =
+							ArchiveEntry {.index = zip_entry_index(z), .pack = path, .type = get_asset_type_from_path(fp.string())};
 					}
 
 					zip_entry_close(z);

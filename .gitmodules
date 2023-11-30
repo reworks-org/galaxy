@@ -28,9 +28,6 @@
 [submodule "lib/zip"]
 	path = lib/zip
 	url = https://github.com/kuba--/zip.git
-[submodule "lib/ldtkloader"]
-	path = lib/ldtkloader
-	url = https://github.com/Madour/LDtkLoader.git
 [submodule "lib/box2d"]
 	path = lib/box2d
 	url = https://github.com/erincatto/box2d.git

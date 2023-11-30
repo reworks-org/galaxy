@@ -624,6 +624,7 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="json\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="json\include\nlohmann\byte_container_with_subtype.hpp" />
+    <ClInclude Include="json\include\nlohmann\detail\abi_macros.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\from_json.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\to_chars.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\conversions\to_json.hpp" />
@@ -651,11 +652,13 @@
     <ClInclude Include="json\include\nlohmann\detail\meta\detected.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\meta\identity_tag.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\meta\is_sax.hpp" />
+    <ClInclude Include="json\include\nlohmann\detail\meta\std_fs.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\meta\type_traits.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\meta\void_t.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\output\binary_writer.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\output\output_adapters.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\output\serializer.hpp" />
+    <ClInclude Include="json\include\nlohmann\detail\string_concat.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\string_escape.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\value_t.hpp" />
     <ClInclude Include="json\include\nlohmann\json.hpp" />
@@ -676,14 +679,11 @@
     <ClInclude Include="ldtkloader\include\LDtkLoader\Layer.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\Level.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\Project.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\thirdparty\json_fwd.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\thirdparty\optional.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\Tile.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\Tileset.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\Utils.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
     <ClInclude Include="ldtkloader\src\json.hpp" />
-    <ClInclude Include="ldtkloader_generated\LDtkLoader\generated\Version.hpp" />
     <ClInclude Include="lua\src\lapi.h" />
     <ClInclude Include="lua\src\lauxlib.h" />
     <ClInclude Include="lua\src\lcode.h" />
@@ -859,7 +859,6 @@
     <ClInclude Include="threadpool\BS_thread_pool.hpp" />
     <ClInclude Include="threadpool\include\BS_thread_pool.hpp" />
     <ClInclude Include="threadpool\include\BS_thread_pool_light.hpp" />
-    <ClInclude Include="tileson\include\tileson.hpp" />
     <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
@@ -1112,7 +1111,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader_generated/;$(SolutionDir)lib/ldtkloader/include/;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader/include/;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1169,7 +1168,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader_generated/;$(SolutionDir)lib/ldtkloader/include/;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader/include/;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

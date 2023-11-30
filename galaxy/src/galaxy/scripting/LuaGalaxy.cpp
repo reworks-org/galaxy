@@ -457,7 +457,7 @@ namespace galaxy
 
 			auto archiveentry_type     = lua.new_usertype<fs::ArchiveEntry>("ArchiveEntry", sol::constructors<fs::ArchiveEntry()>());
 			archiveentry_type["pack"]  = &fs::ArchiveEntry::pack;
-			archiveentry_type["entry"] = &fs::ArchiveEntry::entry;
+			archiveentry_type["index"] = &fs::ArchiveEntry::index;
 			archiveentry_type["type"]  = &fs::ArchiveEntry::type;
 
 			auto vfs_type                    = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);

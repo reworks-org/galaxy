@@ -327,7 +327,7 @@ namespace galaxy
 
 				auto z = zip_open(entry.pack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'r');
 
-				if (zip_entry_open(z, entry.entry.c_str()) >= 0)
+				if (zip_entry_openbyindex(z, entry.index) >= 0)
 				{
 					buffer.resize(zip_entry_size(z));
 
@@ -370,7 +370,7 @@ namespace galaxy
 					remove(file, ae);
 
 					auto z = zip_open(ae.pack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'a');
-					if (zip_entry_open(z, ae.entry.c_str()) >= 0)
+					if (zip_entry_openbyindex(z, ae.index) >= 0)
 					{
 						if (zip_entry_write(z, data.data(), data.size()) < 0)
 						{
@@ -402,7 +402,7 @@ namespace galaxy
 							result          = true;
 							const auto path = std::filesystem::path(zip_entry_name(z));
 							m_tree[path.filename().string()] =
-								ArchiveEntry {.entry = zip_entry_name(z), .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
+								ArchiveEntry {.index = zip_entry_index(z), .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
 						}
 
 						zip_entry_close(z);
