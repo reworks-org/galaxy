@@ -31,14 +31,6 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Tag::Tag(Tag* ptr)
-			: Serializable {}
-		{
-			const auto& copy = *ptr;
-
-			this->m_tag = copy.m_tag;
-		}
-
 		Tag::Tag(Tag&& t)
 			: Serializable {}
 			, m_tag {"null"}

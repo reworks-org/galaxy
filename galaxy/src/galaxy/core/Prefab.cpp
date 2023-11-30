@@ -35,45 +35,26 @@ namespace galaxy
 
 		void Prefab::from_entity(entt::entity entity, entt::registry& registry)
 		{
-			m_data.clear();
-
 			auto& em = ServiceLocator<meta::EntityMeta>::ref();
 
-			for (auto&& [id, storage] : registry.storage())
+			if (registry.valid(entity))
 			{
-				if (storage.contains(entity))
-				{
-					m_data[id] = em.copy_to_any(id, storage.value(entity));
-				}
+				m_json = em.serialize_entity(entity, registry);
 			}
-
-			m_json = em.serialize_entity(entity, registry);
 		}
 
 		void Prefab::from_json(const nlohmann::json& json)
 		{
-			const auto& components = json.at("components");
-			if (!components.empty())
+			if (json.contains("components"))
 			{
-				auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
-				for (const auto& [key, value] : components.items())
-				{
-					m_data[em.get_typeid(key)] = em.any_from_json(key, value);
-				}
+				m_json = json;
 			}
 		}
 
-		entt::entity Prefab::to_entity(entt::registry& registry)
+		entt::entity Prefab::to_entity(entt::registry& registry) const
 		{
 			auto& em = ServiceLocator<meta::EntityMeta>::ref();
-
-			const auto entity = registry.create();
-			for (auto&& [id, component] : m_data)
-			{
-				em.any_factory(em.get_type(id), entity, registry, component);
-			}
-
-			return entity;
+			return em.deserialize_entity(m_json, registry);
 		}
 
 		const nlohmann::json& Prefab::to_json() const

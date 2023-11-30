@@ -27,12 +27,6 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Script::Script(Script* ptr)
-			: Serializable {}
-		{
-			load(ptr->file());
-		}
-
 		Script::Script(Script&& s)
 		{
 			this->m_file           = std::move(s.m_file);

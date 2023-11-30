@@ -33,17 +33,6 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Sprite::Sprite(Sprite* ptr)
-			: Serializable {}
-			, m_opacity {1.0f}
-			, m_width {0.0f}
-			, m_height {0.0f}
-			, m_tex_id {0}
-			, m_layer {0}
-		{
-			create(ptr->m_tex_name, ptr->m_layer, ptr->m_opacity);
-		}
-
 		Sprite::Sprite(Sprite&& s)
 			: Serializable {}
 		{

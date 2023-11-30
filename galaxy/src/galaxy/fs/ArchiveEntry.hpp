@@ -24,7 +24,7 @@ namespace galaxy
 			///
 			/// Handle for the zip archive.
 			///
-			long long index;
+			long long index = -1;
 
 			///
 			/// Zip archive the entry belongs to.

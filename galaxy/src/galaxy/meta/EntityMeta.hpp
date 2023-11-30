@@ -43,10 +43,8 @@ namespace galaxy
 			using Validations = robin_hood::unordered_flat_map<entt::id_type, std::function<bool(const entt::entity, entt::registry&)>>;
 			using ComponentJSONFactory =
 				robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
-			using ComponentPtrFactory = robin_hood::unordered_flat_map<std::string, std::function<entt::any(void*)>>;
-			using ComponentAnyFactory = robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, entt::registry&, entt::any&)>>;
-			using AnyJSONFactory      = robin_hood::unordered_flat_map<std::string, std::function<entt::any(const nlohmann::json&)>>;
-			using SerializeFactory    = robin_hood::unordered_flat_map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
+			using AnyJSONFactory   = robin_hood::unordered_flat_map<std::string, std::function<entt::any(const nlohmann::json&)>>;
+			using SerializeFactory = robin_hood::unordered_flat_map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
 
 		  public:
 			///
@@ -79,16 +77,6 @@ namespace galaxy
 			void json_factory(const std::string& type, const entt::entity entity, entt::registry& registry, const nlohmann::json& json);
 
 			///
-			/// Construct component from an entt::any and assign to provided entity and registry.
-			///
-			/// \param type Type of component as a string.
-			/// \param entity Entity to assign component to.
-			/// \param registry Registry that the entity belong to and where to create the component.
-			/// \param any Component to copy from.
-			///
-			void any_factory(const std::string& type, const entt::entity entity, entt::registry& registry, entt::any& any);
-
-			///
 			/// Construct an entt::any from a json object.
 			///
 			/// \param type Component type as a string.
@@ -109,14 +97,16 @@ namespace galaxy
 			[[nodiscard]] nlohmann::json serialize_entity(const entt::entity entity, entt::registry& registry);
 
 			///
-			/// Creates an entt::any from a component pointer.
+			/// \brief Create an entity from a JSON object.
 			///
-			/// \param id Type of the component.
-			/// \param component Component data from entt storage.
+			/// If your using this make sure you have called register_component().
 			///
-			/// \return Newly constructed entt::any.
+			/// \param json Preloaded JSON object.
+			/// \param registry Registry entity belongs to.
 			///
-			[[nodiscard]] entt::any copy_to_any(const entt::id_type id, void* component);
+			/// \return Created entity, or entt::null if failed.
+			///
+			[[maybe_unused]] entt::entity deserialize_entity(const nlohmann::json& json, entt::registry& registry);
 
 			///
 			/// Get a string representation of an entity type id.
@@ -165,16 +155,6 @@ namespace galaxy
 			/// Used to allow for component creation from json.
 			///
 			ComponentJSONFactory m_json_factory;
-
-			///
-			/// Creates a component object from a pointer of the same type.
-			///
-			ComponentPtrFactory m_ptr_factory;
-
-			///
-			/// Creates a component from an entt::any object.
-			///
-			ComponentAnyFactory m_any_factory;
 
 			///
 			/// Creates an entt::any from a json component data.
@@ -227,7 +207,7 @@ namespace galaxy
 		template<valid_component Component>
 		inline void EntityMeta::register_component(const std::string& name)
 		{
-			if (!m_json_factory.contains(name) && !m_ptr_factory.contains(name) && !m_any_factory.contains(name))
+			if (!m_json_factory.contains(name))
 			{
 				const auto hash = entt::type_id<Component>().hash();
 				m_id_to_name.emplace(hash, name);
@@ -235,14 +215,6 @@ namespace galaxy
 
 				m_json_factory.emplace(name, [](const entt::entity entity, entt::registry& registry, const nlohmann::json& json) {
 					registry.emplace<Component>(entity, json);
-				});
-
-				m_ptr_factory.emplace(name, [](void* component) -> entt::any {
-					return entt::make_any<Component>(static_cast<Component*>(component));
-				});
-
-				m_any_factory.emplace(name, [](const entt::entity entity, entt::registry& registry, entt::any& any) {
-					registry.emplace<Component>(entity, static_cast<Component*>(any.data()));
 				});
 
 				m_json_any_factory.emplace(name, [](const nlohmann::json& json) -> entt::any {

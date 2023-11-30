@@ -35,13 +35,6 @@ namespace galaxy
 			UIScript(const nlohmann::json& json);
 
 			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			UIScript(UIScript* ptr);
-
-			///
 			/// Move constructor.
 			///
 			UIScript(UIScript&&);

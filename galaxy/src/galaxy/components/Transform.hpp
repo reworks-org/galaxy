@@ -35,13 +35,6 @@ namespace galaxy
 			Transform(const nlohmann::json& json);
 
 			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			Transform(Transform* ptr);
-
-			///
 			/// Move constructor.
 			///
 			Transform(Transform&&);

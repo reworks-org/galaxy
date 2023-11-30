@@ -10,7 +10,6 @@
 
 #include <entt/fwd.hpp>
 #include <nlohmann/json.hpp>
-#include <robin_hood.h>
 
 namespace galaxy
 {
@@ -64,7 +63,7 @@ namespace galaxy
 			///
 			/// \return Newly created entity.
 			///
-			[[nodiscard]] entt::entity to_entity(entt::registry& registry);
+			[[nodiscard]] entt::entity to_entity(entt::registry& registry) const;
 
 			///
 			/// Gets the json representation of this prefab.
@@ -86,11 +85,6 @@ namespace galaxy
 			/// Prefab as json data.
 			///
 			nlohmann::json m_json;
-
-			///
-			/// Maps the meta id of the component to the component data.
-			///
-			robin_hood::unordered_flat_map<entt::id_type, entt::any> m_data;
 		};
 	} // namespace core
 } // namespace galaxy

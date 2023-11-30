@@ -109,32 +109,6 @@ namespace galaxy
 			}
 		}
 
-		entt::entity World::create_from_json(const nlohmann::json& json)
-		{
-			const auto  entity     = m_registry.create();
-			const auto& components = json.at("components");
-
-			if (!components.empty())
-			{
-				auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
-				for (const auto& [key, value] : components.items())
-				{
-					// Use the assign function to create components for entities without having to know the type.
-					em.json_factory(key, entity, m_registry, value);
-				}
-			}
-
-			m_registry.emplace<flags::Disabled>(entity);
-
-			if (!m_registry.all_of<components::Tag>(entity))
-			{
-				auto& tag = m_registry.emplace<components::Tag>(entity);
-				tag.m_tag = "Untagged";
-			}
-
-			return entity;
-		}
-
 		void World::update()
 		{
 			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
@@ -231,6 +205,8 @@ namespace galaxy
 
 		void World::deserialize(const nlohmann::json& json)
 		{
+			auto& em = ServiceLocator<meta::EntityMeta>::ref();
+
 			m_bodies_to_construct.clear();
 			m_registry.clear();
 
@@ -244,9 +220,17 @@ namespace galaxy
 			m_position_iterations = physics.at("position_iterations");
 
 			const auto& entity_json = json.at("entities");
-			for (const auto& entity : entity_json)
+			for (const auto& data : entity_json)
 			{
-				create_from_json(entity);
+				const auto entity = em.deserialize_entity(data, m_registry);
+
+				m_registry.emplace<flags::Disabled>(entity);
+
+				if (!m_registry.all_of<components::Tag>(entity))
+				{
+					auto& tag = m_registry.emplace<components::Tag>(entity);
+					tag.m_tag = "Untagged";
+				}
 			}
 		}
 

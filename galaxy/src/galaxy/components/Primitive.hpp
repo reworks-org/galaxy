@@ -90,13 +90,6 @@ namespace galaxy
 			Primitive(const nlohmann::json& json);
 
 			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			Primitive(Primitive* ptr);
-
-			///
 			/// Move constructor.
 			///
 			Primitive(Primitive&&);

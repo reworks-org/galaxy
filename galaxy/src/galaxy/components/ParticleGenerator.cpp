@@ -75,45 +75,6 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		ParticleGenerator::ParticleGenerator(ParticleGenerator* ptr)
-			: Serializable {}
-			, m_count {0}
-			, m_randomize_position {true}
-			, m_randomize_initial_vel {true}
-			, m_randomize_life {true}
-			, m_randomize_scale {true}
-			, m_keep_scale_aspect_ratio {true}
-			, m_randomize_colour {true}
-			, m_randomize_colour_alpha {true}
-			, m_spread {graphics::ParticleSpread::SPREAD_TYPE_SPHERE}
-			, m_spread_radius {2.0f}
-			, m_min_rect_spread {-3.0f, -2.0f}
-			, m_max_rect_spread {3.0f, 2.0f}
-			, m_fixed_vel {0.0f, 0.0f}
-			, m_min_vel {-1.0f, 1.0f}
-			, m_max_vel {1.0f, 5.0f}
-			, m_fixed_life {1.0f}
-			, m_min_life {0.1f}
-			, m_max_life {5.0f}
-			, m_fixed_scale {0.1f, 0.1f}
-			, m_min_scale {0.1f, 0.1f}
-			, m_max_scale {0.2f, 0.2f}
-			, m_fixed_colour {1.0f, 1.0f, 1.0f}
-			, m_min_colour {0.0f, 0.0f, 0.0f}
-			, m_max_colour {1.0f, 1.0f, 1.0f}
-			, m_fixed_alpha {1.0f}
-			, m_min_alpha {0.0f}
-			, m_max_alpha {1.0f}
-			, m_instance {0}
-			, m_vbo {0}
-			, m_ebo {0}
-			, m_vao {0}
-			, m_tex_id {0}
-			, m_layer {0}
-		{
-			generate(ptr->m_start_pos, ptr->m_texture, ptr->m_layer, ptr->m_count);
-		}
-
 		ParticleGenerator::ParticleGenerator(ParticleGenerator&& p)
 			: Serializable {}
 			, m_count {0}

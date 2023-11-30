@@ -32,42 +32,6 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		Primitive::Primitive(Primitive* ptr)
-			: Serializable {}
-			, m_width {0}
-			, m_height {0}
-			, m_shape {math::Shape::POLYGON}
-			, m_mode {0}
-			, m_layer {0}
-		{
-			switch (ptr->m_shape)
-			{
-				case math::Shape::CIRCLE:
-					create<math::Shape::CIRCLE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
-					break;
-
-				case math::Shape::ELLIPSE:
-					create<math::Shape::ELLIPSE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
-					break;
-
-				case math::Shape::LINE:
-					create<math::Shape::LINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
-					break;
-
-				case math::Shape::POINT:
-					create<math::Shape::POINT>(ptr->m_data, ptr->m_colour, ptr->m_layer);
-					break;
-
-				case math::Shape::POLYGON:
-					create<math::Shape::POLYGON>(ptr->m_data, ptr->m_colour, ptr->m_layer);
-					break;
-
-				case math::Shape::POLYLINE:
-					create<math::Shape::POLYLINE>(ptr->m_data, ptr->m_colour, ptr->m_layer);
-					break;
-			}
-		}
-
 		Primitive::Primitive(Primitive&& p)
 			: Serializable {}
 		{

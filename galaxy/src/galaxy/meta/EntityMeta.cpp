@@ -25,11 +25,6 @@ namespace galaxy
 			m_json_factory[type](entity, registry, json);
 		}
 
-		void EntityMeta::any_factory(const std::string& type, const entt::entity entity, entt::registry& registry, entt::any& any)
-		{
-			m_any_factory[type](entity, registry, any);
-		}
-
 		entt::any EntityMeta::any_from_json(const std::string& type, const nlohmann::json& json)
 		{
 			return m_json_any_factory[type](json);
@@ -55,9 +50,21 @@ namespace galaxy
 			return json;
 		}
 
-		entt::any EntityMeta::copy_to_any(const entt::id_type id, void* component)
+		entt::entity EntityMeta::deserialize_entity(const nlohmann::json& json, entt::registry& registry)
 		{
-			return m_ptr_factory[get_type(id)](component);
+			const auto  entity     = registry.create();
+			const auto& components = json.at("components");
+
+			if (!components.empty())
+			{
+				for (const auto& [key, value] : components.items())
+				{
+					// Use the assign function to create components for entities without having to know the type.
+					json_factory(key, entity, registry, value);
+				}
+			}
+
+			return entity;
 		}
 
 		const std::string& EntityMeta::get_type(const entt::id_type id)

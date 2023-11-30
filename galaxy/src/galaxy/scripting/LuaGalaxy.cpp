@@ -974,15 +974,14 @@ namespace galaxy
 			entt_anytype["type"]  = &entt::any::type;
 
 			auto entitymeta_type                   = lua.new_usertype<meta::EntityMeta>("EntityMeta", sol::no_constructor);
-			entitymeta_type["any_factory"]         = &meta::EntityMeta::any_factory;
 			entitymeta_type["any_from_json"]       = &meta::EntityMeta::any_from_json;
-			entitymeta_type["copy_to_any"]         = &meta::EntityMeta::copy_to_any;
 			entitymeta_type["get_type"]            = &meta::EntityMeta::get_type;
 			entitymeta_type["get_typeid"]          = &meta::EntityMeta::get_typeid;
 			entitymeta_type["get_validations"]     = &meta::EntityMeta::get_validations;
 			entitymeta_type["get_validation_list"] = &meta::EntityMeta::get_validation_list;
 			entitymeta_type["json_factory"]        = &meta::EntityMeta::json_factory;
 			entitymeta_type["serialize_entity"]    = &meta::EntityMeta::serialize_entity;
+			entitymeta_type["deserialize_entity"]  = &meta::EntityMeta::deserialize_entity;
 			entitymeta_type["get_type"]            = &meta::EntityMeta::get_type;
 
 			/* PLATFORM */

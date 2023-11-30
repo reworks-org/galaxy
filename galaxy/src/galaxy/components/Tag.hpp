@@ -40,13 +40,6 @@ namespace galaxy
 			Tag(const nlohmann::json& json);
 
 			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			Tag(Tag* ptr);
-
-			///
 			/// Move constructor.
 			///
 			Tag(Tag&&);

@@ -71,17 +71,6 @@ namespace galaxy
 			[[maybe_unused]] entt::entity create_from_prefab(const std::string& name);
 
 			///
-			/// \brief Create an entity from a JSON object.
-			///
-			/// If your using this make sure you have called register_component().
-			///
-			/// \param json Preloaded JSON object.
-			///
-			/// \return Created entity, or entt::null if failed.
-			///
-			[[maybe_unused]] entt::entity create_from_json(const nlohmann::json& json);
-
-			///
 			/// \brief Add a system to the manager.
 			///
 			/// \tparam System Type of system to create.

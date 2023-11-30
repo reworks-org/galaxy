@@ -25,11 +25,6 @@ namespace galaxy
 			deserialize(json);
 		}
 
-		UIScript::UIScript(UIScript* ptr)
-		{
-			load(ptr->m_file);
-		}
-
 		UIScript::UIScript(UIScript&& s)
 		{
 			this->m_self   = std::move(s.m_self);

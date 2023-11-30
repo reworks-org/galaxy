@@ -47,13 +47,6 @@ namespace galaxy
 			ParticleGenerator(const nlohmann::json& json);
 
 			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			ParticleGenerator(ParticleGenerator* ptr);
-
-			///
 			/// Move constructor.
 			///
 			ParticleGenerator(ParticleGenerator&&);
