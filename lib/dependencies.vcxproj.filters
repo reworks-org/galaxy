@@ -91,20 +91,6 @@
     <ClCompile Include="stb\include\stb_image.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
-    <ClCompile Include="ldtkloader\src\DataTypes.cpp" />
-    <ClCompile Include="ldtkloader\src\Entity.cpp" />
-    <ClCompile Include="ldtkloader\src\EntityDef.cpp" />
-    <ClCompile Include="ldtkloader\src\Enum.cpp" />
-    <ClCompile Include="ldtkloader\src\FieldsContainer.cpp" />
-    <ClCompile Include="ldtkloader\src\Layer.cpp" />
-    <ClCompile Include="ldtkloader\src\LayerDef.cpp" />
-    <ClCompile Include="ldtkloader\src\Level.cpp" />
-    <ClCompile Include="ldtkloader\src\Project.cpp" />
-    <ClCompile Include="ldtkloader\src\TagsContainer.cpp" />
-    <ClCompile Include="ldtkloader\src\Tile.cpp" />
-    <ClCompile Include="ldtkloader\src\Tileset.cpp" />
-    <ClCompile Include="ldtkloader\src\Utils.cpp" />
-    <ClCompile Include="ldtkloader\src\World.cpp" />
     <ClCompile Include="box2d\src\collision\b2_broad_phase.cpp" />
     <ClCompile Include="box2d\src\collision\b2_chain_shape.cpp" />
     <ClCompile Include="box2d\src\collision\b2_circle_shape.cpp" />
@@ -747,24 +733,6 @@
     <ClInclude Include="imgui\imgui_addons\ImTween.h" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\containers\FieldsContainer.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\containers\TagsContainer.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\EntityDef.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\FieldDef.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\LayerDef.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\DataTypes.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Entity.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Enum.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Field.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Layer.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Level.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Project.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Tile.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Tileset.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\Utils.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
-    <ClInclude Include="ldtkloader\src\json.hpp" />
-    <ClInclude Include="ldtkloader\include\LDtkLoader\generated\Version.hpp" />
     <ClInclude Include="box2d\include\box2d\b2_api.h" />
     <ClInclude Include="box2d\include\box2d\b2_block_allocator.h" />
     <ClInclude Include="box2d\include\box2d\b2_body.h" />
@@ -858,6 +826,7 @@
     <ClInclude Include="json\include\nlohmann\json.hpp" />
     <ClInclude Include="json\include\nlohmann\json_fwd.hpp" />
     <ClInclude Include="json\include\nlohmann\ordered_map.hpp" />
+    <ClInclude Include="tson\tileson.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

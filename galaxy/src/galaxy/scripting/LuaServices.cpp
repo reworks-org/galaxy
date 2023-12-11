@@ -15,6 +15,7 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -50,6 +51,7 @@ namespace galaxy
 			lua["galaxy_fs"]            = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 			lua["galaxy_config"]        = std::ref(core::ServiceLocator<core::Config>::ref());
 			lua["galaxy_language"]      = std::ref(core::ServiceLocator<resource::Language>::ref());
+			lua["galaxy_maps"]          = std::ref(core::ServiceLocator<resource::Maps>::ref());
 		}
 	} // namespace lua
 } // namespace galaxy

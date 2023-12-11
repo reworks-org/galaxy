@@ -96,7 +96,7 @@ namespace galaxy
 			}
 		}
 
-		void SpriteBatch::commit()
+		void SpriteBatch::build()
 		{
 			// Six indicies per quad. Number of quads is total vertexs / 4.
 			// The size here is always a multiple of 4 so no "uneven" division takes place.

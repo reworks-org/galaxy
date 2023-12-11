@@ -152,6 +152,10 @@
     <ClCompile Include="src\galaxy\components\ParticleGenerator.cpp" />
     <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\ParticleSpread.cpp" />
+    <ClCompile Include="src\galaxy\resource\Maps.cpp" />
+    <ClCompile Include="src\galaxy\map\Map.cpp" />
+    <ClCompile Include="src\galaxy\map\TileAnimation.cpp" />
+    <ClCompile Include="src\galaxy\components\MapData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -301,5 +305,9 @@
     <ClInclude Include="src\galaxy\components\ParticleGenerator.hpp" />
     <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\ParticleSpread.hpp" />
+    <ClInclude Include="src\galaxy\resource\Maps.hpp" />
+    <ClInclude Include="src\galaxy\map\Map.hpp" />
+    <ClInclude Include="src\galaxy\map\TileAnimation.hpp" />
+    <ClInclude Include="src\galaxy\components\MapData.hpp" />
   </ItemGroup>
 </Project>

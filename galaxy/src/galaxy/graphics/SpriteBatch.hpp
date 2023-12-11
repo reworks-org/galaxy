@@ -64,7 +64,7 @@ namespace galaxy
 			///
 			/// Make sure you call BEFORE sub_buffer or you will lose data.
 			///
-			void commit();
+			void build();
 
 			///
 			/// Sub-buffer vertex object.

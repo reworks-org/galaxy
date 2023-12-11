@@ -7,17 +7,19 @@
 - test particle generator
 
 TileMap:
-	loading a map should generate prefabs and store them.
-	we can then on the fly create new entities from these prefabs.
-	I.e. load all data beforehand and just assign/copy into a component.
+	map should create all entities on load.
+	leave the entities in the registry alone.
+	just enable/disable in bulk as needed.
 	worldspace/tilemap transitions/loadings separate from loader.
 	add load screen when switching maps in scene.
 	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
 		prerendering lets us to fancy lighting and stuff.
 		i.e. create tilemap in tiled, then export to use as bg image.
-https://github.com/Madour/LDtkViewer
-https://github.com/Madour/LDtkLoader/tree/master
-https://github.com/Madour/LDtk-SFML-Game/blob/master/src/main.cpp
+		support layer visibility being toggled at runtime. not just when loading.
+		handle serializing specific parts of map data.
+- https://github.com/fallahn/tmxlite/issues/131
+- https://github.com/SSBMTonberry/tileson/issues/97
+- https://github.com/SSBMTonberry/tileson/issues/110
 
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor

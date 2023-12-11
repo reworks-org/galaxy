@@ -8,6 +8,7 @@
 #include <BS_thread_pool.hpp>
 
 #include "galaxy/components/Animated.hpp"
+#include "galaxy/components/MapData.hpp"
 #include "galaxy/components/ParticleGenerator.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -35,6 +36,7 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -178,6 +180,7 @@ namespace galaxy
 			//
 			auto& em = ServiceLocator<meta::EntityMeta>::make();
 			em.register_component<components::Animated>("Animated");
+			em.register_component<components::MapData>("MapData");
 			em.register_component<components::ParticleGenerator>("ParticleGenerator");
 			em.register_component<components::Primitive>("Primitive");
 			em.register_component<components::RigidBody>("RigidBody");
@@ -195,6 +198,8 @@ namespace galaxy
 			em.register_dependencies<components::Text, components::Transform>();
 			em.register_dependencies<components::Animated, components::Sprite>();
 			em.register_dependencies<components::RigidBody, components::Transform>();
+			em.register_dependencies<components::MapData, components::Transform>();
+			em.register_dependencies<components::MapData, components::Animated>();
 
 			//
 			// Initialize Lua.
@@ -224,6 +229,7 @@ namespace galaxy
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
 			ServiceLocator<resource::TextureAtlas>::make();
+			ServiceLocator<resource::Maps>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::BasicScripts>::make();
 			ServiceLocator<resource::Language>::make();
@@ -249,6 +255,7 @@ namespace galaxy
 			ServiceLocator<resource::Language>::del();
 			ServiceLocator<resource::BasicScripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
+			ServiceLocator<resource::Maps>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();

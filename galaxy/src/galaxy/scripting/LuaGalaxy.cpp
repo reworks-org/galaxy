@@ -6,6 +6,7 @@
 ///
 
 #include "galaxy/components/Animated.hpp"
+#include "galaxy/components/MapData.hpp"
 #include "galaxy/components/ParticleGenerator.hpp"
 #include "galaxy/components/Primitive.hpp"
 #include "galaxy/components/RigidBody.hpp"
@@ -25,6 +26,7 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/input/Input.hpp"
+#include "galaxy/map/Map.hpp"
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/math/Generic.hpp"
@@ -39,6 +41,7 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
@@ -113,6 +116,13 @@ namespace galaxy
 			animated_type["set_and_play"]        = sol::resolve<void(const std::string&)>(&components::Animated::play);
 			animated_type["set"]                 = &components::Animated::set;
 			animated_type["stop"]                = &components::Animated::stop;
+
+			auto mapdata_type = lua.new_usertype<components::MapData>("MapData",
+				sol::constructors<components::MapData()>(),
+				"type_id",
+				&entt::type_hash<components::MapData>::value);
+
+			mapdata_type["set_texture"] = &components::MapData::set_texture;
 
 			auto pg_type = lua.new_usertype<components::ParticleGenerator>("ParticleGenerator",
 				sol::constructors<components::ParticleGenerator()>(),
@@ -783,6 +793,15 @@ namespace galaxy
 			lua["galaxy_keyboard"]  = std::ref(window.get_input<input::Keyboard>());
 			lua["galaxy_mouse"]     = std::ref(window.get_input<input::Mouse>());
 
+			/* MAP */
+			auto tileanim_type   = lua.new_usertype<map::TileAnimation>("TileAnimation");
+			auto map_type        = lua.new_usertype<map::Map>("Map", sol::constructors<map::Map(), map::Map(const std::string&)>());
+			map_type["create"]   = &map::Map::create;
+			map_type["disable"]  = &map::Map::disable;
+			map_type["enable"]   = &map::Map::enable;
+			map_type["get_name"] = &map::Map::get_name;
+			map_type["load"]     = &map::Map::load;
+
 			/* MATH */
 			lua.set_function("normalize", &math::normalize<float>);
 			lua.set_function("encode_base64", &math::encode_base64);
@@ -1015,6 +1034,14 @@ namespace galaxy
 			lang_type["clear"]          = sol::resolve<void(void)>(&resource::Language::clear);
 			lang_type["set"]            = &resource::Language::set;
 			lang_type["translate"]      = &resource::Language::translate;
+
+			auto maps_type     = lua.new_usertype<resource::Maps>("Maps", sol::no_constructor);
+			maps_type["clear"] = &resource::Maps::clear;
+			maps_type["empty"] = &resource::Maps::empty;
+			maps_type["get"]   = &resource::Maps::get;
+			maps_type["has"]   = &resource::Maps::has;
+			maps_type["keys"]  = &resource::Maps::keys;
+			maps_type["size"]  = &resource::Maps::size;
 
 			auto sfxcache_type     = lua.new_usertype<resource::SFXCache>("sfxcaches", sol::no_constructor);
 			sfxcache_type["clear"] = &resource::SFXCache::clear;

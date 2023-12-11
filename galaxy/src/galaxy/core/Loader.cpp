@@ -18,6 +18,7 @@
 #include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Language.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
@@ -96,6 +97,7 @@ namespace galaxy
 			ServiceLocator<resource::Fonts>::ref().load_vfs(fs::AssetType::FONT);
 			ServiceLocator<resource::BasicScripts>::ref().load_vfs(fs::AssetType::SCRIPT);
 			ServiceLocator<resource::Prefabs>::ref().load_vfs(fs::AssetType::PREFABS);
+			ServiceLocator<resource::Maps>::ref().load_vfs(fs::AssetType::MAPS);
 
 			auto& config = ServiceLocator<Config>::ref();
 			auto& lang   = ServiceLocator<resource::Language>::ref();
