@@ -1,6 +1,7 @@
 var namespacegalaxy_1_1components =
 [
     [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
+    [ "MapData", "df/da3/classgalaxy_1_1components_1_1MapData.html", "df/da3/classgalaxy_1_1components_1_1MapData" ],
     [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator" ],
     [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
     [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],

@@ -1,0 +1,10 @@
+<map id="galaxy::map::Map::process_layer" name="galaxy::map::Map::process_layer">
+<area shape="rect" id="Node000001" title="Recursive function to process tiled map layers." alt="" coords="656,29,852,69"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="794,18,780,11,754,8,731,10,717,15,712,21,715,28,710,30,707,20,714,10,730,5,754,3,782,6,797,13"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aa51c144395b00304fb943492b3ae5fa5" title="Create entities for tilemap." alt="" coords="421,37,608,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="642,52,608,52,608,47,642,47"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,29,373,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,52,374,52,374,47,408,47"/>
+<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,29,188,69"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,52,188,52,188,47,222,47"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="galaxy::map::Map::load" name="galaxy::map::Map::load">
+<area shape="rect" id="Node000001" title="Load and parse tiled map." alt="" coords="5,55,180,80"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="247,5,439,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,52,264,31,265,36,158,57"/>
+<area shape="rect" id="Node000003" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#adfb43e6f636610e929cee8bd6eb4343c" title="Destroy map and entities." alt="" coords="246,55,441,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,65,233,65,233,70,180,70"/>
+<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="228,104,459,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,77,265,99,264,104,157,83"/>
+</map>

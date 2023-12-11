@@ -1,7 +1,0 @@
-<map id="galaxy::components::UIScript::UIScript" name="galaxy::components::UIScript::UIScript">
-<area shape="rect" id="Node000001" title="Pointer constructor." alt="" coords="5,5,159,45"/>
-<area shape="rect" id="Node000002" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a613a9f3eb9a7649865d0c7f933b9b87c" title="Load script and set context." alt="" coords="207,5,360,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
-<area shape="rect" id="Node000003" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a03066d747b8a81cd5d575a1a6d3abed1" title="Get script file path." alt="" coords="408,5,561,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,23,394,23,394,28,360,28"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="galaxy::core::World::create_from_json" name="galaxy::core::World::create_from_json">
-<area shape="rect" id="Node000001" title="Create an entity from a JSON object." alt="" coords="407,5,553,45"/>
-<area shape="rect" id="Node000002" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28" title="Deserializes from object." alt="" coords="212,5,359,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,28,359,28,359,23,393,23"/>
-<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,5,164,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="199,28,164,28,164,23,199,23"/>
-</map>

@@ -7,7 +7,7 @@ var classgalaxy_1_1graphics_1_1SpriteBatch =
     [ "operator=", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a4ace9c7194ce6eb8eef385925dbe3035", null ],
     [ "init", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a73aead35b857e14b3fb10cd37ebe23e2", null ],
     [ "push", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#ab43766a060183a2336102faef9b1ae64", null ],
-    [ "commit", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a2179cf80f3920f5bf3f93f1a8eca2536", null ],
+    [ "build", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a8523005a3790ae7ce2f48c46a4b994d4", null ],
     [ "sub_buffer", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a727f0d8a1342a6edde991509ba572a78", null ],
     [ "flush", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9", null ],
     [ "count", "dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a1ae66e0c281af933fc5317ad9624cd24", null ],

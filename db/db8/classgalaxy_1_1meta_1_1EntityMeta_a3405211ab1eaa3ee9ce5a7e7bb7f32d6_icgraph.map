@@ -1,7 +1,10 @@
 <map id="galaxy::meta::EntityMeta::json_factory" name="galaxy::meta::EntityMeta::json_factory">
-<area shape="rect" id="Node000001" title="Construct component from json and assign to provided entity and registry." alt="" coords="421,5,608,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="rect" id="Node000001" title="Construct component from json and assign to provided entity and registry." alt="" coords="656,35,843,75"/>
+<area shape="rect" id="Node000002" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a24c8e4effc29506b9b0ab2c2f9190b6e" title="Create an entity from a JSON object." alt="" coords="421,5,608,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="642,44,608,40,609,34,643,39"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,35,373,75"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="642,60,608,60,421,60,374,59,374,54,421,55,608,55,642,54"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,43,374,48,373,42,407,38"/>
+<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,35,188,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,57,188,57,188,52,222,52"/>
 </map>

@@ -2,7 +2,6 @@ var classgalaxy_1_1components_1_1ParticleGenerator =
 [
     [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a8cd4ffe9943f70f96e6ca3009832e9f7", null ],
     [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a790dbee9fd9c4e29e886309bcdbbd685", null ],
-    [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#ad2ba2e9cdd5d6df1e06d66a281000410", null ],
     [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a1fad5886a94e149be86922c2db39b0b1", null ],
     [ "~ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a77c64f101898b2f820f630050e805234", null ],
     [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#a559a5fde872e426e236d2e2d14468302", null ],

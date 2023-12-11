@@ -1,11 +1,13 @@
 <map id="galaxy::graphics::Renderable" name="galaxy::graphics::Renderable">
-<area shape="rect" id="Node000001" title="Data to submit to renderer." alt="" coords="275,5,477,211"/>
-<area shape="rect" id="Node000002" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html" title="Allows an entity to emit particle effects." alt="" coords="5,259,195,968"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,194,235,225,209,260,197,280,193,277,204,257,231,222,263,190"/>
-<area shape="rect" id="Node000003" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="219,383,365,843"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="359,225,333,384,328,383,354,224"/>
-<area shape="rect" id="Node000004" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="389,393,534,833"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="398,224,427,393,422,394,393,225"/>
-<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="558,343,703,883"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="490,187,522,220,549,257,571,298,588,342,583,344,566,301,544,260,518,224,486,191"/>
+<area shape="rect" id="Node000001" title="Data to submit to renderer." alt="" coords="361,5,563,211"/>
+<area shape="rect" id="Node000002" href="$df/da3/classgalaxy_1_1components_1_1MapData.html" title="Map Data component." alt="" coords="5,413,151,813"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="349,143,300,163,250,189,204,221,165,260,142,295,123,333,108,373,97,414,92,413,103,371,118,331,137,292,161,257,201,217,248,184,298,158,347,138"/>
+<area shape="rect" id="Node000003" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html" title="Allows an entity to emit particle effects." alt="" coords="175,259,365,968"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="396,224,379,260,367,288,362,286,374,258,391,222"/>
+<area shape="rect" id="Node000004" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html" title="2D primitive shape." alt="" coords="389,383,535,843"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="465,225,465,383,459,383,459,225"/>
+<area shape="rect" id="Node000005" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="559,393,704,833"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="534,222,550,258,573,324,592,392,587,394,568,326,545,260,529,224"/>
+<area shape="rect" id="Node000006" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="728,343,873,883"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="578,150,616,170,654,194,689,223,719,257,744,298,764,342,759,344,739,300,715,260,685,227,651,199,613,175,575,154"/>
 </map>

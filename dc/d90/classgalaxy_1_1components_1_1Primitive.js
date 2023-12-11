@@ -3,7 +3,6 @@ var classgalaxy_1_1components_1_1Primitive =
     [ "PrimitiveData", "d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html", "d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData" ],
     [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a771ec047cae73516d8284c5c22c7e729", null ],
     [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ab87ae8fe4c36b6a1e0b840ebdd32d660", null ],
-    [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#ac88826781ab58703edc07c731354ef49", null ],
     [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a124cc8c0e44c0c6982123fdc4d9becbb", null ],
     [ "~Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a1ad339f7e52fb66d95029ca639997e49", null ],
     [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html#a4161c85865c50e156c1f113ef4d878cb", null ],

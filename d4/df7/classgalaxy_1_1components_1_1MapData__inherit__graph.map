@@ -1,0 +1,5 @@
+<map id="galaxy::components::MapData" name="galaxy::components::MapData">
+<area shape="rect" id="Node000001" title="Map Data component." alt="" coords="34,259,179,659"/>
+<area shape="rect" id="Node000002" href="$d3/db6/classgalaxy_1_1graphics_1_1Renderable.html" title="Data to submit to renderer." alt="" coords="5,5,208,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,225,109,258,104,258,104,225"/>
+</map>

@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('d6/d40/classgalaxy_1_1core_1_1Prefab.h
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/df7/classgalaxy_1_1core_1_1Prefab__coll__graph.png" border="0" usemap="#agalaxy_1_1core_1_1Prefab_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1core_1_1Prefab_coll__map" id="agalaxy_1_1core_1_1Prefab_coll__map">
-<area shape="rect" title="Preconstructed entity definition that can be loaded at any time." alt="" coords="5,5,148,231"/>
+<area shape="rect" title="Preconstructed entity definition that can be loaded at any time." alt="" coords="5,5,148,211"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -132,9 +132,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2c2fd598aff19fa9b6a9ee965869d66" id="r_aa2c2fd598aff19fa9b6a9ee965869d66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66">from_json</a> (const nlohmann::json &amp;json)</td></tr>
 <tr class="memdesc:aa2c2fd598aff19fa9b6a9ee965869d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the prefab from a json object.  <br /></td></tr>
 <tr class="separator:aa2c2fd598aff19fa9b6a9ee965869d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acea040dc562e3a603c6880ef8ab455ac" id="r_acea040dc562e3a603c6880ef8ab455ac"><td class="memItemLeft" align="right" valign="top">entt::entity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#acea040dc562e3a603c6880ef8ab455ac">to_entity</a> (entt::registry &amp;registry)</td></tr>
-<tr class="memdesc:acea040dc562e3a603c6880ef8ab455ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entity from this prefab.  <br /></td></tr>
-<tr class="separator:acea040dc562e3a603c6880ef8ab455ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c6f7f4b50815a361fda814ce36e6e3" id="r_a07c6f7f4b50815a361fda814ce36e6e3"><td class="memItemLeft" align="right" valign="top">entt::entity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a07c6f7f4b50815a361fda814ce36e6e3">to_entity</a> (entt::registry &amp;registry) const</td></tr>
+<tr class="memdesc:a07c6f7f4b50815a361fda814ce36e6e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entity from this prefab.  <br /></td></tr>
+<tr class="separator:a07c6f7f4b50815a361fda814ce36e6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a9df04473e253ce8748c6414eaf6ac5" id="r_a0a9df04473e253ce8748c6414eaf6ac5"><td class="memItemLeft" align="right" valign="top">const nlohmann::json &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5">to_json</a> () const</td></tr>
 <tr class="memdesc:a0a9df04473e253ce8748c6414eaf6ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the json representation of this prefab.  <br /></td></tr>
 <tr class="separator:a0a9df04473e253ce8748c6414eaf6ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,14 +150,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a58ade311c54235ba5accc6e8bbd69307" id="r_a58ade311c54235ba5accc6e8bbd69307"><td class="memItemLeft" align="right" valign="top">nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a58ade311c54235ba5accc6e8bbd69307">m_json</a></td></tr>
 <tr class="memdesc:a58ade311c54235ba5accc6e8bbd69307"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html" title="Preconstructed entity definition that can be loaded at any time.">Prefab</a> as json data.  <br /></td></tr>
 <tr class="separator:a58ade311c54235ba5accc6e8bbd69307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab26043cadc2b69727cc00636ed094d73" id="r_ab26043cadc2b69727cc00636ed094d73"><td class="memItemLeft" align="right" valign="top">robin_hood::unordered_flat_map&lt; entt::id_type, entt::any &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ab26043cadc2b69727cc00636ed094d73">m_data</a></td></tr>
-<tr class="memdesc:ab26043cadc2b69727cc00636ed094d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the meta id of the component to the component data.  <br /></td></tr>
-<tr class="separator:ab26043cadc2b69727cc00636ed094d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Preconstructed entity definition that can be loaded at any time. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d98/Prefab_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../d1/d98/Prefab_8hpp_source.html">Prefab.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d98/Prefab_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d1/d98/Prefab_8hpp_source.html">Prefab.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0a575c3e30653ae4e11a994a965852af" name="a0a575c3e30653ae4e11a994a965852af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a575c3e30653ae4e11a994a965852af">&#9670;&#160;</a></span>Prefab() <span class="overload">[1/3]</span></h2>
@@ -247,8 +244,6 @@ Private Attributes</h2></td></tr>
 <area shape="rect" title="JSON constructor." alt="" coords="5,5,156,45"/>
 <area shape="rect" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66" title="Creates the prefab from a json object." alt="" coords="204,5,355,45"/>
 <area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="403,13,633,38"/>
-<area shape="poly" title=" " alt="" coords="355,23,389,23,389,28,355,28"/>
 </map>
 </div>
 
@@ -395,24 +390,12 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/de1/Prefab_8cpp_source.html#l00053">53</a> of file <a class="el" href="../../d7/de1/Prefab_8cpp_source.html">Prefab.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/de1/Prefab_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../d7/de1/Prefab_8cpp_source.html">Prefab.cpp</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_cgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_cgraph" alt=""/></div>
-<map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_cgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_cgraph">
-<area shape="rect" title="Creates the prefab from a json object." alt="" coords="5,5,156,45"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="204,13,435,38"/>
-<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
-</map>
-</div>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_icgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_icgraph" alt=""/></div>
 <map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_icgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_aa2c2fd598aff19fa9b6a9ee965869d66_icgraph">
 <area shape="rect" title="Creates the prefab from a json object." alt="" coords="435,37,585,77"/>
@@ -427,8 +410,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acea040dc562e3a603c6880ef8ab455ac" name="acea040dc562e3a603c6880ef8ab455ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acea040dc562e3a603c6880ef8ab455ac">&#9670;&#160;</a></span>to_entity()</h2>
+<a id="a07c6f7f4b50815a361fda814ce36e6e3" name="a07c6f7f4b50815a361fda814ce36e6e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c6f7f4b50815a361fda814ce36e6e3">&#9670;&#160;</a></span>to_entity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,7 +421,7 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">entt::registry &amp;&#160;</td>
           <td class="paramname"><em>registry</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -452,26 +435,26 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Newly created entity. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/de1/Prefab_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d7/de1/Prefab_8cpp_source.html">Prefab.cpp</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d7/de1/Prefab_8cpp_source.html#l00054">54</a> of file <a class="el" href="../../d7/de1/Prefab_8cpp_source.html">Prefab.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_cgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_cgraph" alt=""/></div>
-<map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_cgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_cgraph">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_cgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_cgraph" alt=""/></div>
+<map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_cgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_cgraph">
 <area shape="rect" title="Creates an entity from this prefab." alt="" coords="5,5,156,45"/>
 <area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="204,13,435,38"/>
 <area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
 </map>
 </div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_icgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_icgraph" alt=""/></div>
-<map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_icgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_acea040dc562e3a603c6880ef8ab455ac_icgraph">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_icgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_icgraph" alt=""/></div>
+<map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_icgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_a07c6f7f4b50815a361fda814ce36e6e3_icgraph">
 <area shape="rect" title="Creates an entity from this prefab." alt="" coords="421,5,572,45"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
 <area shape="poly" title=" " alt="" coords="407,28,374,28,374,23,407,23"/>
@@ -500,12 +483,12 @@ Private Attributes</h2></td></tr>
 <p>Gets the json representation of this prefab. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const reference from the json object. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/de1/Prefab_8cpp_source.html#l00079">79</a> of file <a class="el" href="../../d7/de1/Prefab_8cpp_source.html">Prefab.cpp</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d7/de1/Prefab_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d7/de1/Prefab_8cpp_source.html">Prefab.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d6/d40/classgalaxy_1_1core_1_1Prefab_a0a9df04473e253ce8748c6414eaf6ac5_icgraph.png" border="0" usemap="#ad6/d40/classgalaxy_1_1core_1_1Prefab_a0a9df04473e253ce8748c6414eaf6ac5_icgraph" alt=""/></div>
 <map name="ad6/d40/classgalaxy_1_1core_1_1Prefab_a0a9df04473e253ce8748c6414eaf6ac5_icgraph" id="ad6/d40/classgalaxy_1_1core_1_1Prefab_a0a9df04473e253ce8748c6414eaf6ac5_icgraph">
 <area shape="rect" title="Gets the json representation of this prefab." alt="" coords="421,5,572,45"/>
@@ -541,33 +524,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html" title="Preconstructed entity definition that can be loaded at any time.">Prefab</a> as json data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d98/Prefab_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d1/d98/Prefab_8hpp_source.html">Prefab.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab26043cadc2b69727cc00636ed094d73" name="ab26043cadc2b69727cc00636ed094d73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab26043cadc2b69727cc00636ed094d73">&#9670;&#160;</a></span>m_data</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">robin_hood::unordered_flat_map&lt;entt::id_type, entt::any&gt; galaxy::core::Prefab::m_data</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Maps the meta id of the component to the component data. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d98/Prefab_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../d1/d98/Prefab_8hpp_source.html">Prefab.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d98/Prefab_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../d1/d98/Prefab_8hpp_source.html">Prefab.hpp</a>.</p>
 
 </div>
 </div>
@@ -581,7 +538,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/dcb/namespacegalaxy_1_1core.html">core</a></li><li class="navelem"><a class="el" href="../../d6/d40/classgalaxy_1_1core_1_1Prefab.html">Prefab</a></li>
-    <li class="footer">Generated on Sun Nov 26 2023 08:03:53 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Dec 11 2023 09:20:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

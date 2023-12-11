@@ -1,13 +1,10 @@
 <map id="galaxy::meta::EntityMeta::get_type" name="galaxy::meta::EntityMeta::get_type">
-<area shape="rect" id="Node000001" title="Get a string representation of an entity type id." alt="" coords="656,63,843,103"/>
-<area shape="rect" id="Node000002" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#adb63a1eb9d336323d4f35a1a70017f7f" title="Creates an entt::any from a component pointer." alt="" coords="421,5,608,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="653,62,596,48,598,43,654,57"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,63,373,103"/>
-<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="642,85,373,85,373,80,642,80"/>
-<area shape="rect" id="Node000005" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ac96e4426d2aa26beff10bf1c163d3920" title="Serialise a single entity." alt="" coords="421,120,608,160"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="654,109,598,123,596,117,653,103"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,52,374,67,373,61,427,46"/>
-<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,63,188,103"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,85,188,85,188,80,222,80"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="427,119,373,104,374,99,429,114"/>
+<area shape="rect" id="Node000001" title="Get a string representation of an entity type id." alt="" coords="656,5,843,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="642,25,608,24,421,24,374,25,374,20,421,19,608,19,642,19"/>
+<area shape="rect" id="Node000004" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ac96e4426d2aa26beff10bf1c163d3920" title="Serialise a single entity." alt="" coords="421,33,608,73"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="643,41,609,45,608,40,642,35"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="407,42,373,37,374,32,408,36"/>
 </map>

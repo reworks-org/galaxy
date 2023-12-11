@@ -7,7 +7,6 @@ var classgalaxy_1_1components_1_1Text =
     ] ],
     [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html#a486427a74315afbc8b1380a8d87ca238", null ],
     [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976", null ],
-    [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html#ae7f042dbebc24ab51a6938a615c74d51", null ],
     [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html#a463e13d5d6a15689dfdb3bc1887f44df", null ],
     [ "~Text", "d2/d81/classgalaxy_1_1components_1_1Text.html#a7b94e919884fc379f65bf9579cba3270", null ],
     [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html#aa53723e98a5b9795c570db20c0742aec", null ],

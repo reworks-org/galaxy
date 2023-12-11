@@ -3,7 +3,6 @@ var classgalaxy_1_1components_1_1Animated =
     [ "AnimationCache", "da/d18/classgalaxy_1_1components_1_1Animated.html#a89d961c84fada28215a5d8d1b79de2aa", null ],
     [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html#a27201816d702ff9fda9e6b7ae2d9d643", null ],
     [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb", null ],
-    [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html#a202e26b42d09e443e7690d95e21dc623", null ],
     [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html#a3e51e33a707de12dc62c9f779aa56512", null ],
     [ "~Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html#a054198ddd1c32ca1c358806236c9174c", null ],
     [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html#a84973042241996eb083b0a6a29bb3152", null ],

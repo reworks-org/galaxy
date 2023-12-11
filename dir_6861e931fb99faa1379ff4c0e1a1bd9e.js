@@ -8,6 +8,8 @@ var dir_6861e931fb99faa1379ff4c0e1a1bd9e =
     [ "Fonts.hpp", "d9/d7d/Fonts_8hpp.html", "d9/d7d/Fonts_8hpp" ],
     [ "Language.cpp", "d6/daa/Language_8cpp.html", null ],
     [ "Language.hpp", "dd/d8e/Language_8hpp.html", "dd/d8e/Language_8hpp" ],
+    [ "Maps.cpp", "d7/d5e/Maps_8cpp.html", null ],
+    [ "Maps.hpp", "db/d05/Maps_8hpp.html", "db/d05/Maps_8hpp" ],
     [ "Media.cpp", "d0/d71/Media_8cpp.html", null ],
     [ "Media.hpp", "d7/db2/Media_8hpp.html", "d7/db2/Media_8hpp" ],
     [ "Prefabs.cpp", "dc/d7a/Prefabs_8cpp.html", null ],

@@ -1,7 +1,7 @@
 <map id="galaxy::fs::ArchiveEntry" name="galaxy::fs::ArchiveEntry">
-<area shape="rect" id="Node000001" title="An entry in an archive in the virtual file system." alt="" coords="5,277,173,343"/>
+<area shape="rect" id="Node000001" title="An entry in an archive in the virtual file system." alt="" coords="5,263,173,348"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="50,135,129,200"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,200,92,261,87,261,87,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,200,92,246,87,246,87,200"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="24,5,155,85"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,99,92,134,87,134,87,99"/>
 </map>

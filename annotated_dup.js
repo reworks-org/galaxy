@@ -7,6 +7,7 @@ var annotated_dup =
       ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
+        [ "MapData", "df/da3/classgalaxy_1_1components_1_1MapData.html", "df/da3/classgalaxy_1_1components_1_1MapData" ],
         [ "ParticleGenerator", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html", "dc/d52/classgalaxy_1_1components_1_1ParticleGenerator" ],
         [ "Primitive", "dc/d90/classgalaxy_1_1components_1_1Primitive.html", "dc/d90/classgalaxy_1_1components_1_1Primitive" ],
         [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
@@ -101,6 +102,10 @@ var annotated_dup =
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", "d4/d00/classgalaxy_1_1lua_1_1BasicScript" ]
       ] ],
+      [ "map", "d6/d4d/namespacegalaxy_1_1map.html", [
+        [ "Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", "df/d2b/classgalaxy_1_1map_1_1Map" ],
+        [ "TileAnimation", "db/da2/classgalaxy_1_1map_1_1TileAnimation.html", "db/da2/classgalaxy_1_1map_1_1TileAnimation" ]
+      ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
         [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", "d5/dcc/classgalaxy_1_1math_1_1Rect" ],
@@ -124,6 +129,7 @@ var annotated_dup =
         [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
         [ "FontLoader", "dc/d97/classgalaxy_1_1resource_1_1FontLoader.html", "dc/d97/classgalaxy_1_1resource_1_1FontLoader" ],
         [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ],
+        [ "MapLoader", "d2/d88/classgalaxy_1_1resource_1_1MapLoader.html", "d2/d88/classgalaxy_1_1resource_1_1MapLoader" ],
         [ "MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", "de/db0/classgalaxy_1_1resource_1_1MusicLoader" ],
         [ "PrefabLoader", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader" ],
         [ "SFXLoader", "df/dad/classgalaxy_1_1resource_1_1SFXLoader.html", "df/dad/classgalaxy_1_1resource_1_1SFXLoader" ],

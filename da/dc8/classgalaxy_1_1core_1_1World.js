@@ -8,7 +8,6 @@ var classgalaxy_1_1core_1_1World =
     [ "World", "da/dc8/classgalaxy_1_1core_1_1World.html#aeef1fb5b668881b8f2efa479a8fa803c", null ],
     [ "create", "da/dc8/classgalaxy_1_1core_1_1World.html#a50148c100051a947110fda48af0b41c7", null ],
     [ "create_from_prefab", "da/dc8/classgalaxy_1_1core_1_1World.html#a722257d3a9ff42272aff79398d407e85", null ],
-    [ "create_from_json", "da/dc8/classgalaxy_1_1core_1_1World.html#a4d23d713c6ac2cac5649fc0ab294b568", null ],
     [ "create_system", "da/dc8/classgalaxy_1_1core_1_1World.html#a1b735df594984e972dee3f6cdf11242d", null ],
     [ "update", "da/dc8/classgalaxy_1_1core_1_1World.html#aa7f8f198f935395f9a30c59890868e7e", null ],
     [ "only_update_rendering", "da/dc8/classgalaxy_1_1core_1_1World.html#a57156d5bf1785626abbbbf7df1b78eda", null ],

@@ -14,10 +14,12 @@ var searchData=
   ['texturefilters_2ehpp_11',['TextureFilters.hpp',['../df/d23/TextureFilters_8hpp.html',1,'']]],
   ['texturemodes_2ecpp_12',['TextureModes.cpp',['../da/dba/TextureModes_8cpp.html',1,'']]],
   ['texturemodes_2ehpp_13',['TextureModes.hpp',['../df/d19/TextureModes_8hpp.html',1,'']]],
-  ['timer_2ecpp_14',['Timer.cpp',['../d0/dc2/Timer_8cpp.html',1,'']]],
-  ['timer_2ehpp_15',['Timer.hpp',['../d8/dbf/Timer_8hpp.html',1,'']]],
-  ['timerasync_2ecpp_16',['TimerAsync.cpp',['../d1/d2a/TimerAsync_8cpp.html',1,'']]],
-  ['timerasync_2ehpp_17',['TimerAsync.hpp',['../d5/d75/TimerAsync_8hpp.html',1,'']]],
-  ['transform_2ecpp_18',['Transform.cpp',['../d0/d59/Transform_8cpp.html',1,'']]],
-  ['transform_2ehpp_19',['Transform.hpp',['../da/d83/Transform_8hpp.html',1,'']]]
+  ['tileanimation_2ecpp_14',['TileAnimation.cpp',['../dc/dd2/TileAnimation_8cpp.html',1,'']]],
+  ['tileanimation_2ehpp_15',['TileAnimation.hpp',['../d9/dc2/TileAnimation_8hpp.html',1,'']]],
+  ['timer_2ecpp_16',['Timer.cpp',['../d0/dc2/Timer_8cpp.html',1,'']]],
+  ['timer_2ehpp_17',['Timer.hpp',['../d8/dbf/Timer_8hpp.html',1,'']]],
+  ['timerasync_2ecpp_18',['TimerAsync.cpp',['../d1/d2a/TimerAsync_8cpp.html',1,'']]],
+  ['timerasync_2ehpp_19',['TimerAsync.hpp',['../d5/d75/TimerAsync_8hpp.html',1,'']]],
+  ['transform_2ecpp_20',['Transform.cpp',['../d0/d59/Transform_8cpp.html',1,'']]],
+  ['transform_2ehpp_21',['Transform.hpp',['../da/d83/Transform_8hpp.html',1,'']]]
 ];
