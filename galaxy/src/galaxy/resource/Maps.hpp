@@ -34,7 +34,7 @@ namespace galaxy
 		///
 		/// Abbreviation for map cache type.
 		///
-		using Maps = Cache<map::Map, MapLoader, true>;
+		using Maps = Cache<map::Map, MapLoader, false>;
 	} // namespace resource
 } // namespace galaxy
 
