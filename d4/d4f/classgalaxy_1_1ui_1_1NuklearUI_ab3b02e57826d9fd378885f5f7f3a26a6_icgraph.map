@@ -1,16 +1,18 @@
 <map id="galaxy::ui::NuklearUI::ctx" name="galaxy::ui::NuklearUI::ctx">
-<area shape="rect" id="Node000001" title="Nuklear Context." alt="" coords="632,100,819,125"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,32,373,72"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="700,92,649,52,617,33,583,19,525,9,465,11,408,21,360,35,359,30,407,16,464,6,525,4,585,14,620,28,652,48,703,88"/>
-<area shape="rect" id="Node000004" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c" title="Constructor." alt="" coords="423,28,582,68"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="666,98,572,71,574,66,668,93"/>
-<area shape="rect" id="Node000005" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#af380f4368758244de1504b1d6fee76e9" title="Change the active font." alt="" coords="423,92,582,132"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="618,115,582,115,582,110,618,110"/>
-<area shape="rect" id="Node000006" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a06ad38fd7053c12c0d6c1894f380514b" title="Part of the loading screen. Informs the user that the atlas is being built." alt="" coords="421,156,584,196"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="668,132,574,159,572,154,666,126"/>
-<area shape="rect" id="Node000007" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a109fc3ab2fe7a0ca81d43314aa3bee94" title="Shows a progress bar for loading screens." alt="" coords="423,220,582,260"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="699,135,647,173,585,211,560,223,558,218,583,206,645,168,696,131"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,32,188,72"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,55,188,55,188,50,222,50"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="422,91,371,75,373,70,424,86"/>
+<area shape="rect" id="Node000001" title="Nuklear Context." alt="" coords="632,135,819,160"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,36,373,76"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="705,126,655,70,621,43,583,22,554,14,524,10,462,12,404,23,355,38,354,33,403,18,462,6,524,4,555,8,585,17,624,38,659,66,709,122"/>
+<area shape="rect" id="Node000004" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c" title="Constructor." alt="" coords="423,32,582,72"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="683,131,583,86,554,74,556,69,585,81,685,127"/>
+<area shape="rect" id="Node000005" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#af380f4368758244de1504b1d6fee76e9" title="Change the active font." alt="" coords="423,96,582,136"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="622,136,582,130,582,124,623,130"/>
+<area shape="rect" id="Node000006" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a06ad38fd7053c12c0d6c1894f380514b" title="Part of the loading screen. Informs the user that the atlas is being built." alt="" coords="421,160,584,200"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="623,165,585,171,584,165,623,160"/>
+<area shape="rect" id="Node000007" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a109fc3ab2fe7a0ca81d43314aa3bee94" title="Shows a progress bar for loading screens." alt="" coords="423,224,582,264"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="685,169,585,214,556,226,554,221,583,209,683,164"/>
+<area shape="rect" id="Node000008" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abdef5567bcd656d8e5dd7b1fd74767a8" title="Loading screen UI for maps." alt="" coords="421,288,584,328"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="706,173,654,224,621,253,585,278,563,290,560,285,583,274,618,249,650,221,702,169"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,36,188,76"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,58,188,58,188,53,222,53"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="422,94,371,79,373,73,424,89"/>
 </map>

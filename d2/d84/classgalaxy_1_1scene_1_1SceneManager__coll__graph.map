@@ -1,32 +1,38 @@
 <map id="galaxy::scene::SceneManager" name="galaxy::scene::SceneManager">
-<area shape="rect" id="Node000001" title="Scene saving/loading, creation, changing and loading." alt="" coords="5,1828,212,2093"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="48,5,209,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,184,98,317,90,465,90,1454,94,1650,103,1828,97,1828,89,1651,85,1454,85,465,93,316,110,184"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="234,812,399,1077"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="157,183,159,194,171,271,178,336,182,448,190,559,200,623,217,698,234,755,256,811,251,813,229,757,211,699,194,624,184,559,177,448,173,336,166,271,154,195,152,184"/>
-<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="226,233,405,699"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="202,181,210,193,230,232,225,234,205,196,198,184"/>
-<area shape="rect" id="Node000007" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="125,1140,313,1765"/>
-<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="135,184,162,698,195,1140,190,1140,157,699,130,184"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="338,1413,509,1493"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="420,1493,410,1550,391,1620,364,1695,327,1767,280,1826,227,1877,223,1873,276,1822,322,1764,359,1693,386,1618,404,1548,415,1492"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="364,1077,370,1101,401,1261,420,1396,415,1397,396,1262,365,1102,359,1078"/>
-<area shape="poly" id="edge13_Node000007_Node000004" title=" " alt="" coords="236,1056,217,1102,211,1125,205,1123,211,1100,232,1053"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="319,699,319,795,314,795,313,699"/>
-<area shape="rect" id="Node000006" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="234,38,413,138"/>
-<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="325,138,323,217,318,217,320,138"/>
-<area shape="poly" id="edge8_Node000004_Node000007" title=" " alt="" coords="280,1139,285,1116,289,1093,294,1094,290,1116,285,1140"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="437,912,631,977"/>
-<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="521,979,478,1049,447,1086,410,1118,387,1128,366,1129,347,1131,328,1142,327,1143,323,1139,324,1138,345,1126,366,1124,386,1123,407,1114,443,1083,473,1046,517,976"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="533,433,682,499"/>
-<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="595,513,568,609,545,723,536,826,536,912,530,912,531,826,539,722,563,607,590,511"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="652,55,675,121"/>
-<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="661,121,617,418,612,417,656,120"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="642,723,791,788"/>
-<area shape="poly" id="edge17_Node000013_Node000010" title=" " alt="" coords="674,121,686,173,697,233,710,367,717,500,720,706,715,706,711,500,704,367,691,234,681,174,669,122"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="429,433,508,499"/>
-<area shape="poly" id="edge14_Node000004_Node000011" title=" " alt="" coords="469,499,452,628,434,709,410,789,406,798,401,796,405,787,429,707,446,627,464,498"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="437,48,567,128"/>
-<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="500,142,474,433,469,433,495,141"/>
-<area shape="poly" id="edge16_Node000003_Node000013" title=" " alt="" coords="713,802,690,928,671,1004,646,1078,600,1177,548,1271,496,1352,454,1414,450,1411,492,1349,543,1268,596,1174,641,1076,666,1003,685,927,708,801"/>
+<area shape="rect" id="Node000001" title="Scene saving/loading, creation, changing and loading." alt="" coords="5,2021,212,2287"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="57,148,219,313"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,328,101,482,93,570,90,658,90,1647,94,1844,103,2021,97,2021,89,1844,85,1647,85,658,88,570,96,482,118,327"/>
+<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="302,1005,467,1271"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="158,327,159,337,168,422,171,495,169,620,170,679,176,741,191,811,216,891,234,931,255,970,304,1040,300,1043,251,972,229,933,212,893,186,812,171,742,164,679,163,620,165,495,163,422,154,338,153,327"/>
+<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="226,427,405,892"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="204,324,210,336,248,425,243,428,205,338,199,327"/>
+<area shape="rect" id="Node000007" href="$da/dc8/classgalaxy_1_1core_1_1World.html" title="Provides an additional set of functionality around an entt::registry." alt="" coords="237,1333,425,1959"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="138,327,140,583,148,737,163,892,180,1003,201,1116,249,1332,244,1334,196,1118,175,1004,158,892,143,738,135,583,133,327"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="474,1606,645,1686"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="555,1687,542,1744,519,1816,486,1892,465,1927,440,1960,393,2007,339,2048,282,2082,228,2109,225,2104,280,2077,336,2043,389,2003,436,1957,460,1924,481,1889,514,1814,537,1743,550,1685"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="446,1270,455,1294,508,1454,547,1590,542,1591,503,1456,450,1296,441,1272"/>
+<area shape="poly" id="edge13_Node000007_Node000004" title=" " alt="" coords="312,1272,305,1295,300,1318,295,1317,299,1294,307,1270"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="339,892,351,981,353,989,347,990,346,982,333,893"/>
+<area shape="rect" id="Node000006" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="243,181,422,281"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="333,281,328,410,323,410,328,281"/>
+<area shape="poly" id="edge8_Node000004_Node000007" title=" " alt="" coords="370,1333,373,1309,375,1287,380,1287,378,1310,376,1334"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="661,916,855,981"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="731,983,607,1130,532,1229,464,1335,435,1390,430,1387,460,1332,528,1226,603,1127,727,980"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="721,198,870,263"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="780,277,763,338,754,460,753,628,760,916,754,916,748,628,749,460,758,337,775,276"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="784,13,807,78"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="798,78,798,182,793,182,793,78"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="575,198,696,263"/>
+<area shape="poly" id="edge19_Node000014_Node000010" title=" " alt="" coords="785,56,752,79,715,111,686,148,662,185,657,182,681,144,711,107,748,74,782,51"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="861,337,1010,403"/>
+<area shape="poly" id="edge21_Node000015_Node000010" title=" " alt="" coords="809,55,846,93,867,118,884,147,903,191,917,237,933,320,928,321,912,238,898,193,880,149,862,121,842,96,805,59"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="460,198,539,263"/>
+<area shape="poly" id="edge14_Node000004_Node000011" title=" " alt="" coords="495,264,481,338,467,427,460,511,457,583,458,705,456,827,450,898,437,982,435,990,430,989,431,981,444,898,451,827,453,705,451,583,454,511,462,426,475,337,490,263"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="550,627,729,692"/>
+<area shape="poly" id="edge17_Node000013_Node000011" title=" " alt="" coords="511,263,555,402,626,610,621,612,550,403,506,264"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="434,5,565,85"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="502,99,502,198,497,198,497,99"/>
+<area shape="poly" id="edge16_Node000004_Node000013" title=" " alt="" coords="630,693,591,785,564,840,534,894,514,918,468,992,464,989,509,914,529,890,560,838,586,783,625,691"/>
+<area shape="poly" id="edge18_Node000013_Node000014" title=" " alt="" coords="638,277,639,403,642,627,636,627,634,403,633,277"/>
+<area shape="poly" id="edge20_Node000003_Node000015" title=" " alt="" coords="939,416,936,564,930,665,920,779,903,902,878,1027,845,1152,802,1272,753,1371,696,1465,639,1546,593,1607,589,1604,635,1543,691,1462,748,1368,797,1270,840,1151,873,1026,897,901,914,779,925,665,931,564,934,416"/>
 </map>

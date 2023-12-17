@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('dd/ddf/classgalaxy_1_1core_1_1Loader.h
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d6d/classgalaxy_1_1core_1_1Loader__coll__graph.png" border="0" usemap="#agalaxy_1_1core_1_1Loader_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1core_1_1Loader_coll__map" id="agalaxy_1_1core_1_1Loader_coll__map">
-<area shape="rect" title="Asset and Config loader." alt="" coords="5,5,153,191"/>
+<area shape="rect" title="Asset and Config loader." alt="" coords="5,5,153,211"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -133,6 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9179b2808cbffa7249ea372e4bcfda5" id="r_ae9179b2808cbffa7249ea372e4bcfda5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5">load_window</a> ()</td></tr>
 <tr class="memdesc:ae9179b2808cbffa7249ea372e4bcfda5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only loads the window settings.  <br /></td></tr>
 <tr class="separator:ae9179b2808cbffa7249ea372e4bcfda5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae308ce2927357665191c9a3168513a49" id="r_ae308ce2927357665191c9a3168513a49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae308ce2927357665191c9a3168513a49">load_maps</a> (const std::vector&lt; std::string &gt; &amp;maps, entt::registry &amp;registry)</td></tr>
+<tr class="memdesc:ae308ce2927357665191c9a3168513a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load maps.  <br /></td></tr>
+<tr class="separator:ae308ce2927357665191c9a3168513a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840a4d868d242380b46ae69886f165c5" id="r_a840a4d868d242380b46ae69886f165c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5">build_resources</a> ()</td></tr>
 <tr class="memdesc:a840a4d868d242380b46ae69886f165c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds opengl resources on the main thread.  <br /></td></tr>
 <tr class="separator:a840a4d868d242380b46ae69886f165c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Asset and <a class="el" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html" title="Allows you to read, write and manipulate JSON config files.">Config</a> loader. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/Loader_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../d0/dde/Loader_8hpp_source.html">Loader.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/Loader_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../d0/dde/Loader_8hpp_source.html">Loader.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad908f3e74eea4859060e95d3e989941e" name="ad908f3e74eea4859060e95d3e989941e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad908f3e74eea4859060e95d3e989941e">&#9670;&#160;</a></span>Loader()</h2>
@@ -201,6 +204,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads resources, user config and window settings. </p>
+<p>Does not load maps. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/def/Loader_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d0/def/Loader_8cpp_source.html">Loader.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -373,6 +377,57 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae308ce2927357665191c9a3168513a49" name="ae308ce2927357665191c9a3168513a49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae308ce2927357665191c9a3168513a49">&#9670;&#160;</a></span>load_maps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Loader::load_maps </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>maps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::registry &amp;&#160;</td>
+          <td class="paramname"><em>registry</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load maps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maps</td><td>List of maps to load. </td></tr>
+    <tr><td class="paramname">registry</td><td>Entity registry to load maps into. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/def/Loader_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../d0/def/Loader_8cpp_source.html">Loader.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/ddf/classgalaxy_1_1core_1_1Loader_ae308ce2927357665191c9a3168513a49_cgraph.png" border="0" usemap="#add/ddf/classgalaxy_1_1core_1_1Loader_ae308ce2927357665191c9a3168513a49_cgraph" alt=""/></div>
+<map name="add/ddf/classgalaxy_1_1core_1_1Loader_ae308ce2927357665191c9a3168513a49_cgraph" id="add/ddf/classgalaxy_1_1core_1_1Loader_ae308ce2927357665191c9a3168513a49_cgraph">
+<area shape="rect" title="Load maps." alt="" coords="5,5,159,45"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,13,437,38"/>
+<area shape="poly" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a840a4d868d242380b46ae69886f165c5" name="a840a4d868d242380b46ae69886f165c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a840a4d868d242380b46ae69886f165c5">&#9670;&#160;</a></span>build_resources()</h2>
 
@@ -390,12 +445,12 @@ Public Member Functions</h2></td></tr>
 
 <p>Builds opengl resources on the main thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/def/Loader_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../d0/def/Loader_8cpp_source.html">Loader.cpp</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d0/def/Loader_8cpp_source.html#l00177">177</a> of file <a class="el" href="../../d0/def/Loader_8cpp_source.html">Loader.cpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dd/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_cgraph.png" border="0" usemap="#add/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_cgraph" alt=""/></div>
 <map name="add/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_cgraph" id="add/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_cgraph">
 <area shape="rect" title="Builds opengl resources on the main thread." alt="" coords="5,5,159,45"/>
@@ -403,11 +458,11 @@ Public Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
 </map>
 </div>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dd/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_icgraph.png" border="0" usemap="#add/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_icgraph" alt=""/></div>
 <map name="add/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_icgraph" id="add/ddf/classgalaxy_1_1core_1_1Loader_a840a4d868d242380b46ae69886f165c5_icgraph">
 <area shape="rect" title="Builds opengl resources on the main thread." alt="" coords="207,5,360,45"/>
@@ -428,7 +483,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/dcb/namespacegalaxy_1_1core.html">core</a></li><li class="navelem"><a class="el" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html">Loader</a></li>
-    <li class="footer">Generated on Tue Dec 12 2023 03:06:28 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Dec 17 2023 08:39:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

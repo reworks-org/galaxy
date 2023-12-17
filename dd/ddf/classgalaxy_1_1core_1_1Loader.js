@@ -6,5 +6,6 @@ var classgalaxy_1_1core_1_1Loader =
     [ "load_resources", "dd/ddf/classgalaxy_1_1core_1_1Loader.html#a0288c765e17c348296bef57c95a47e7d", null ],
     [ "load_user_config", "dd/ddf/classgalaxy_1_1core_1_1Loader.html#a9cd2d939dc4eb3cb8a921d91672cb797", null ],
     [ "load_window", "dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5", null ],
+    [ "load_maps", "dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae308ce2927357665191c9a3168513a49", null ],
     [ "build_resources", "dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5", null ]
 ];
