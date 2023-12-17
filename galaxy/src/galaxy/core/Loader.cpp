@@ -150,6 +150,30 @@ namespace galaxy
 			}
 		}
 
+		void Loader::load_maps(const std::vector<std::string>& maps, entt::registry& registry)
+		{
+			auto& nui       = ServiceLocator<ui::NuklearUI>::ref();
+			auto& renderer  = ServiceLocator<graphics::Renderer>::ref();
+			auto& maploader = core::ServiceLocator<resource::Maps>::ref();
+
+			nui.enable_input();
+			renderer.prepare_default();
+
+			for (auto& map : maps)
+			{
+				glfwPollEvents();
+				nui.new_frame();
+				nui.show_loading_maps(map);
+				renderer.clear();
+				nui.render();
+				renderer.swap_buffers();
+
+				maploader.get(map)->create(registry);
+			}
+
+			nui.disable_input();
+		}
+
 		void Loader::build_resources()
 		{
 			core::ServiceLocator<resource::Shaders>::ref().build();

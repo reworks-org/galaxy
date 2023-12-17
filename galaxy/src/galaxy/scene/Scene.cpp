@@ -8,9 +8,11 @@
 #include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
+#include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/resource/Maps.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
@@ -56,6 +58,7 @@ namespace galaxy
 
 		void Scene::load()
 		{
+			core::ServiceLocator<core::Loader>::ref().load_maps(m_assigned_maps, m_world.m_registry);
 		}
 
 		void Scene::unload()
@@ -101,6 +104,7 @@ namespace galaxy
 			json["camera"]      = m_camera.serialize();
 			json["world"]       = m_world.serialize();
 			json["name"]        = m_name;
+			json["maps"]        = m_assigned_maps;
 
 			return json;
 		}
@@ -109,7 +113,8 @@ namespace galaxy
 		{
 			m_camera.deserialize(json.at("camera"));
 			m_world.deserialize(json.at("world"));
-			m_name = json.at("name");
+			m_name          = json.at("name");
+			m_assigned_maps = json.at("maps");
 		}
 	} // namespace scene
 } // namespace galaxy

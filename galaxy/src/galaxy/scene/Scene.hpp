@@ -108,6 +108,11 @@ namespace galaxy
 			/// Scene name for debug purposes.
 			///
 			std::string m_name;
+
+			///
+			/// Maps assigned to this scene.
+			///
+			std::vector<std::string> m_assigned_maps;
 		};
 	} // namespace scene
 } // namespace galaxy

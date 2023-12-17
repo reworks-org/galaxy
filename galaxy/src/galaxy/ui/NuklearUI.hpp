@@ -109,6 +109,13 @@ namespace galaxy
 			void show_building_atlas();
 
 			///
+			/// Loading screen UI for maps.
+			///
+			/// \param map_name Map name to render for loading.
+			///
+			void show_loading_maps(const std::string& map_name);
+
+			///
 			/// Nuklear Context.
 			///
 			/// \return Pointer to context. DO NOT FREE.

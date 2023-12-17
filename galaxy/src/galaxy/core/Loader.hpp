@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_LOADER_HPP_
 #define GALAXY_CORE_LOADER_HPP_
 
+#include <entt/entity/fwd.hpp>
+
 namespace galaxy
 {
 	namespace core
@@ -29,7 +31,9 @@ namespace galaxy
 			~Loader();
 
 			///
-			/// Loads resources, user config and window settings.
+			/// \brief Loads resources, user config and window settings.
+			///
+			/// Does not load maps.
 			///
 			void load_all();
 
@@ -47,6 +51,14 @@ namespace galaxy
 			/// Only loads the window settings.
 			///
 			void load_window();
+
+			///
+			/// Load maps.
+			///
+			/// \param maps List of maps to load.
+			/// \param registry Entity registry to load maps into.
+			///
+			void load_maps(const std::vector<std::string>& maps, entt::registry& registry);
 
 			///
 			/// Builds opengl resources on the main thread.

@@ -158,6 +158,23 @@ namespace galaxy
 			nk_end(ctx());
 		}
 
+		void NuklearUI::show_loading_maps(const std::string& map_name)
+		{
+			auto& window = core::ServiceLocator<core::Window>::ref();
+
+			if (nk_begin(ctx(),
+					"building_window",
+					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 20, 400, 40),
+					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
+			{
+				const auto text = std::format("Loading map '{0}'...", map_name);
+				nk_layout_row_dynamic(ctx(), 20, 1);
+				nk_label(ctx(), text.c_str(), NK_TEXT_CENTERED);
+			}
+
+			nk_end(ctx());
+		}
+
 		nk_context* NuklearUI::ctx() const
 		{
 			return &m_ctx->ctx;
