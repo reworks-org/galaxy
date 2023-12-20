@@ -111,9 +111,10 @@ namespace galaxy
 			///
 			/// Loading screen UI for maps.
 			///
-			/// \param map_name Map name to render for loading.
+			/// \param cur Current map being loaded.
+			/// \param total Total maps to load.
 			///
-			void show_loading_maps(const std::string& map_name);
+			void show_loading_maps(const int cur, const int total);
 
 			///
 			/// Nuklear Context.

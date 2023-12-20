@@ -159,11 +159,14 @@ namespace galaxy
 			nui.enable_input();
 			renderer.prepare_default();
 
+			int cur = 0;
 			for (auto& map : maps)
 			{
+				cur++;
+
 				glfwPollEvents();
 				nui.new_frame();
-				nui.show_loading_maps(map);
+				nui.show_loading_maps(cur, static_cast<int>(maps.size()));
 				renderer.clear();
 				nui.render();
 				renderer.swap_buffers();

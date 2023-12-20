@@ -158,7 +158,7 @@ namespace galaxy
 			nk_end(ctx());
 		}
 
-		void NuklearUI::show_loading_maps(const std::string& map_name)
+		void NuklearUI::show_loading_maps(const int cur, const int total)
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
 
@@ -167,7 +167,7 @@ namespace galaxy
 					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 20, 400, 40),
 					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
 			{
-				const auto text = std::format("Loading map '{0}'...", map_name);
+				const auto text = std::format("Loading maps... [{0}/{1}]", cur, total);
 				nk_layout_row_dynamic(ctx(), 20, 1);
 				nk_label(ctx(), text.c_str(), NK_TEXT_CENTERED);
 			}
