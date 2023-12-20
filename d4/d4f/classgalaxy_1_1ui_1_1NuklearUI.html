@@ -161,9 +161,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06ad38fd7053c12c0d6c1894f380514b" id="r_a06ad38fd7053c12c0d6c1894f380514b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a06ad38fd7053c12c0d6c1894f380514b">show_building_atlas</a> ()</td></tr>
 <tr class="memdesc:a06ad38fd7053c12c0d6c1894f380514b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Part of the loading screen. Informs the user that the atlas is being built.  <br /></td></tr>
 <tr class="separator:a06ad38fd7053c12c0d6c1894f380514b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdef5567bcd656d8e5dd7b1fd74767a8" id="r_abdef5567bcd656d8e5dd7b1fd74767a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abdef5567bcd656d8e5dd7b1fd74767a8">show_loading_maps</a> (const std::string &amp;map_name)</td></tr>
-<tr class="memdesc:abdef5567bcd656d8e5dd7b1fd74767a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loading screen UI for maps.  <br /></td></tr>
-<tr class="separator:abdef5567bcd656d8e5dd7b1fd74767a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5794e30b4adf3e01c6a78ab3809edac6" id="r_a5794e30b4adf3e01c6a78ab3809edac6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a5794e30b4adf3e01c6a78ab3809edac6">show_loading_maps</a> (const int cur, const int total)</td></tr>
+<tr class="memdesc:a5794e30b4adf3e01c6a78ab3809edac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loading screen UI for maps.  <br /></td></tr>
+<tr class="separator:a5794e30b4adf3e01c6a78ab3809edac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3b02e57826d9fd378885f5f7f3a26a6" id="r_ab3b02e57826d9fd378885f5f7f3a26a6"><td class="memItemLeft" align="right" valign="top">nk_context *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6">ctx</a> () const</td></tr>
 <tr class="memdesc:ab3b02e57826d9fd378885f5f7f3a26a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nuklear Context.  <br /></td></tr>
 <tr class="separator:ab3b02e57826d9fd378885f5f7f3a26a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -651,8 +651,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abdef5567bcd656d8e5dd7b1fd74767a8" name="abdef5567bcd656d8e5dd7b1fd74767a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdef5567bcd656d8e5dd7b1fd74767a8">&#9670;&#160;</a></span>show_loading_maps()</h2>
+<a id="a5794e30b4adf3e01c6a78ab3809edac6" name="a5794e30b4adf3e01c6a78ab3809edac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5794e30b4adf3e01c6a78ab3809edac6">&#9670;&#160;</a></span>show_loading_maps()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -660,9 +660,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::ui::NuklearUI::show_loading_maps </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>map_name</em></td><td>)</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>cur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>total</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -670,7 +680,8 @@ Private Attributes</h2></td></tr>
 <p>Loading screen UI for maps. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">map_name</td><td>Map name to render for loading. </td></tr>
+    <tr><td class="paramname">cur</td><td>Current map being loaded. </td></tr>
+    <tr><td class="paramname">total</td><td>Total maps to load. </td></tr>
   </table>
   </dd>
 </dl>
@@ -681,8 +692,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI_abdef5567bcd656d8e5dd7b1fd74767a8_cgraph.png" border="0" usemap="#ad4/d4f/classgalaxy_1_1ui_1_1NuklearUI_abdef5567bcd656d8e5dd7b1fd74767a8_cgraph" alt=""/></div>
-<map name="ad4/d4f/classgalaxy_1_1ui_1_1NuklearUI_abdef5567bcd656d8e5dd7b1fd74767a8_cgraph" id="ad4/d4f/classgalaxy_1_1ui_1_1NuklearUI_abdef5567bcd656d8e5dd7b1fd74767a8_cgraph">
+<div class="center"><img src="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI_a5794e30b4adf3e01c6a78ab3809edac6_cgraph.png" border="0" usemap="#ad4/d4f/classgalaxy_1_1ui_1_1NuklearUI_a5794e30b4adf3e01c6a78ab3809edac6_cgraph" alt=""/></div>
+<map name="ad4/d4f/classgalaxy_1_1ui_1_1NuklearUI_a5794e30b4adf3e01c6a78ab3809edac6_cgraph" id="ad4/d4f/classgalaxy_1_1ui_1_1NuklearUI_a5794e30b4adf3e01c6a78ab3809edac6_cgraph">
 <area shape="rect" title="Loading screen UI for maps." alt="" coords="5,23,168,63"/>
 <area shape="rect" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="238,5,425,31"/>
 <area shape="poly" title=" " alt="" coords="168,32,224,26,225,32,169,38"/>
@@ -730,7 +741,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="623,165,585,171,584,165,623,160"/>
 <area shape="rect" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a109fc3ab2fe7a0ca81d43314aa3bee94" title="Shows a progress bar for loading screens." alt="" coords="423,224,582,264"/>
 <area shape="poly" title=" " alt="" coords="685,169,585,214,556,226,554,221,583,209,683,164"/>
-<area shape="rect" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abdef5567bcd656d8e5dd7b1fd74767a8" title="Loading screen UI for maps." alt="" coords="421,288,584,328"/>
+<area shape="rect" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a5794e30b4adf3e01c6a78ab3809edac6" title="Loading screen UI for maps." alt="" coords="421,288,584,328"/>
 <area shape="poly" title=" " alt="" coords="706,173,654,224,621,253,585,278,563,290,560,285,583,274,618,249,650,221,702,169"/>
 <area shape="rect" href="../../d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,36,188,76"/>
 <area shape="poly" title=" " alt="" coords="222,58,188,58,188,53,222,53"/>
@@ -763,7 +774,7 @@ Private Attributes</h2></td></tr>
 
 <p>Nuklear context pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00129">129</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00130">130</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
 
 </div>
 </div>
@@ -789,7 +800,7 @@ Private Attributes</h2></td></tr>
 
 <p>Nuklear atlas pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00134">134</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00135">135</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
 
 </div>
 </div>
@@ -815,7 +826,7 @@ Private Attributes</h2></td></tr>
 
 <p>Viewport backup when rendering. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00139">139</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00140">140</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +852,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fonts used by nuklear. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../d2/dc1/NuklearUI_8hpp_source.html">NuklearUI.hpp</a>.</p>
 
 </div>
 </div>
@@ -855,7 +866,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html">ui</a></li><li class="navelem"><a class="el" href="../../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html">NuklearUI</a></li>
-    <li class="footer">Generated on Sun Dec 17 2023 08:39:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Dec 20 2023 02:20:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

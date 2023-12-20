@@ -1,13 +1,16 @@
 <map id="galaxy::scene::Scene::deserialize" name="galaxy::scene::Scene::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,69,164,109"/>
 <area shape="rect" id="Node000002" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aeb57a5e7ce37c58200401e6aab211b28" title="Deserializes from object." alt="" coords="232,5,379,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,43,218,35,219,41,164,49"/>
-<area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="212,69,399,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,66,199,71,198,76,164,71"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="447,13,677,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="379,23,433,23,433,28,379,28"/>
-<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="469,69,655,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="399,87,455,87,455,92,399,92"/>
-<area shape="rect" id="Node000006" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d" title="Set camera projection." alt="" coords="725,69,912,109"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="655,87,712,87,712,92,655,92"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,67,222,47,224,52,155,72"/>
+<area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="212,133,399,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,107,224,127,222,132,154,112"/>
+<area shape="rect" id="Node000007" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#af180d373d0af1d6144458a468d61fd3f" title="Set currently active map." alt="" coords="226,69,385,109"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="164,87,212,87,212,92,164,92"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="447,45,677,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="379,32,447,40,446,46,378,37"/>
+<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="469,133,655,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="399,151,455,151,455,156,399,156"/>
+<area shape="rect" id="Node000006" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d" title="Set camera projection." alt="" coords="725,133,912,173"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="655,151,712,151,712,156,655,156"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="385,77,446,69,447,74,385,82"/>
 </map>

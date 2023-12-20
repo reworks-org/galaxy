@@ -25,7 +25,7 @@ var searchData=
   ['load_5fdisk_22',['load_disk',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a1333af21939c208ff36362e9952083d3',1,'galaxy::graphics::Texture']]],
   ['load_5fentry_23',['load_entry',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a60255d9c6116729af9771b853b76676a',1,'galaxy::graphics::Texture']]],
   ['load_5ffrom_5fvfs_24',['load_from_vfs',['../db/dc3/classgalaxy_1_1resource_1_1Language.html#ac15a1ab5ce5620b2001cf3e496fe8981',1,'galaxy::resource::Language']]],
-  ['load_5fmaps_25',['load_maps',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae308ce2927357665191c9a3168513a49',1,'galaxy::core::Loader']]],
+  ['load_5fmaps_25',['load_maps',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae308ce2927357665191c9a3168513a49',1,'galaxy::core::Loader::load_maps()'],['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#af012fed0e613d318b6d39044d09cade5',1,'galaxy::scene::Scene::load_maps()']]],
   ['load_5fraw_26',['load_raw',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8e8b15bb84835035804c05cc19152403',1,'galaxy::graphics::Shader::load_raw(const std::string &amp;src)'],['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#addeaca77cbd67f649d4f5407a33ed804',1,'galaxy::graphics::Shader::load_raw(const std::string &amp;vertex_src, const std::string &amp;fragment_src)'],['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ab7d69aad8789abccc7f992cdf44fae7f',1,'galaxy::graphics::Texture::load_raw()']]],
   ['load_5fresources_27',['load_resources',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a0288c765e17c348296bef57c95a47e7d',1,'galaxy::core::Loader']]],
   ['load_5fscene_28',['load_scene',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d',1,'galaxy::scene::SceneManager']]],
