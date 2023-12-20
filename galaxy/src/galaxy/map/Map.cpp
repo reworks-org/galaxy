@@ -26,6 +26,7 @@ namespace galaxy
 	{
 		Map::Map()
 			: m_created {false}
+			, m_registry {nullptr}
 		{
 		}
 
@@ -97,7 +98,7 @@ namespace galaxy
 
 		void Map::enable()
 		{
-			for (entt::entity e : m_entities)
+			for (const auto e : m_entities)
 			{
 				m_registry->emplace<flags::Disabled>(e);
 			}
@@ -105,7 +106,7 @@ namespace galaxy
 
 		void Map::disable()
 		{
-			for (entt::entity e : m_entities)
+			for (const auto e : m_entities)
 			{
 				m_registry->remove<flags::Disabled>(e);
 			}
@@ -421,7 +422,7 @@ namespace galaxy
 							tc.m_blue  = objText.color.b;
 							tc.m_alpha = objText.color.a;
 
-							components::Text::Alignment al;
+							components::Text::Alignment al = components::Text::Alignment::LEFT;
 							switch (objText.horizontalAlignment)
 							{
 								case tson::TextAlignment::Left:

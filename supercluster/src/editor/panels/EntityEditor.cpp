@@ -10,6 +10,7 @@
 #include <magic_enum.hpp>
 
 #include <galaxy/components/Animated.hpp>
+#include <galaxy/components/MapData.hpp>
 #include <galaxy/components/ParticleGenerator.hpp>
 #include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
@@ -286,6 +287,12 @@ namespace sc
 
 							ImGui::EndCombo();
 						}
+					});
+
+					draw_component<components::MapData>(selected, "MapData", [](components::MapData* mapdata) {
+						ImGui::Text("Texture ID: %u", mapdata->m_texture);
+						ImGui::Text("Layer: %i", mapdata->m_layer);
+						ImGui::Text("Animation Count: %u", mapdata->m_animations.size());
 					});
 
 					draw_component<components::ParticleGenerator>(selected, "ParticleGenerator", [&](components::ParticleGenerator* pg) {

@@ -12,6 +12,7 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/math/Base64.hpp>
 #include <galaxy/math/ZLib.hpp>
+#include <galaxy/resource/Maps.hpp>
 #include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -143,6 +144,70 @@ namespace sc
 							ImGui::TreePop();
 
 							break;
+						}
+
+						ImGui::Spacing();
+						ImGui::Separator();
+						ImGui::Spacing();
+
+						ImGui::TextUnformatted("Mapping:");
+
+						m_filter_maps.DrawWithHint("###MapSearch", ICON_MDI_MAGNIFY "Filter maps...", ImGui::GetContentRegionAvail().x);
+
+						ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+						if (ImGui::BeginCombo("##AssignableMaps", "Assign a Map"))
+						{
+							for (const auto& key : core::ServiceLocator<resource::Maps>::ref().keys())
+							{
+								auto begin = scene->m_assigned_maps.begin();
+								auto end   = scene->m_assigned_maps.end();
+
+								if (m_filter_maps.PassFilter(key.c_str()) && (std::find(begin, end, key) == end))
+								{
+									if (ImGui::Selectable(key.c_str()))
+									{
+										scene->m_assigned_maps.emplace_back(key);
+									}
+								}
+							}
+
+							ImGui::EndCombo();
+						}
+
+						if (ImGui::Button("Load Maps"))
+						{
+							scene->load_maps();
+						}
+
+						m_filter_assigned_maps.DrawWithHint("###AssignedMapsSearch",
+							ICON_MDI_MAGNIFY "Filter Assigned Maps...",
+							ImGui::GetContentRegionAvail().x);
+
+						static const std::string s_blank = "";
+
+						const auto& name = scene->m_map ? scene->m_map->get_name() : s_blank;
+
+						ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+						if (ImGui::BeginCombo("Set Active Map", name.c_str()))
+						{
+							for (const auto& key : scene->m_assigned_maps)
+							{
+								if (m_filter_assigned_maps.PassFilter(key.c_str()))
+								{
+									const bool selected = (name == key);
+									if (ImGui::Selectable(key.c_str(), selected))
+									{
+										scene->set_active_map(name);
+									}
+
+									if (selected)
+									{
+										ImGui::SetItemDefaultFocus();
+									}
+								}
+							}
+
+							ImGui::EndCombo();
 						}
 
 						ImGui::Spacing();

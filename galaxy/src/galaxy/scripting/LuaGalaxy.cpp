@@ -1114,11 +1114,15 @@ namespace galaxy
 			scenemanager_type["unload_scene"] = &scene::SceneManager::unload_scene;
 
 			// Use scenemanager to create.
-			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
-			scene_type["camera"]     = &scene::Scene::m_camera;
-			scene_type["dispatcher"] = &scene::Scene::m_dispatcher;
-			scene_type["name"]       = &scene::Scene::m_name;
-			scene_type["world"]      = &scene::Scene::m_world;
+			auto scene_type              = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
+			scene_type["camera"]         = &scene::Scene::m_camera;
+			scene_type["dispatcher"]     = &scene::Scene::m_dispatcher;
+			scene_type["name"]           = &scene::Scene::m_name;
+			scene_type["world"]          = &scene::Scene::m_world;
+			scene_type["map"]            = &scene::Scene::m_map;
+			scene_type["assigned_maps"]  = &scene::Scene::m_assigned_maps;
+			scene_type["load_maps"]      = &scene::Scene::load_maps;
+			scene_type["set_active_map"] = &scene::Scene::set_active_map;
 
 			/* SCRIPTING */
 			auto basicscript_type              = lua.new_usertype<lua::BasicScript>("BasicScript", sol::constructors<lua::BasicScript()>());

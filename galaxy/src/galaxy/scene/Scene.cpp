@@ -28,6 +28,7 @@ namespace galaxy
 			: m_camera {false}
 			, m_world {this}
 			, m_name {"Untitled"}
+			, m_map {nullptr}
 		{
 			init();
 		}
@@ -36,6 +37,7 @@ namespace galaxy
 			: m_camera {false}
 			, m_world {this}
 			, m_name {name}
+			, m_map {nullptr}
 		{
 			init();
 		}
@@ -58,7 +60,7 @@ namespace galaxy
 
 		void Scene::load()
 		{
-			core::ServiceLocator<core::Loader>::ref().load_maps(m_assigned_maps, m_world.m_registry);
+			load_maps();
 		}
 
 		void Scene::unload()
@@ -93,6 +95,26 @@ namespace galaxy
 			nui.render();
 		}
 
+		void Scene::load_maps()
+		{
+			core::ServiceLocator<core::Loader>::ref().load_maps(m_assigned_maps, m_world.m_registry);
+		}
+
+		void Scene::set_active_map(const std::string& map)
+		{
+			if (!m_map)
+			{
+				m_map->disable();
+			}
+
+			m_map = !map.empty() ? core::ServiceLocator<resource::Maps>::ref().get(map) : nullptr;
+
+			if (m_map)
+			{
+				m_map->enable();
+			}
+		}
+
 		void Scene::on_window_resized(const events::WindowResized& e)
 		{
 			m_camera.on_window_resized(e);
@@ -105,6 +127,7 @@ namespace galaxy
 			json["world"]       = m_world.serialize();
 			json["name"]        = m_name;
 			json["maps"]        = m_assigned_maps;
+			json["active_map"]  = m_map ? m_map->get_name() : "";
 
 			return json;
 		}
@@ -115,6 +138,8 @@ namespace galaxy
 			m_world.deserialize(json.at("world"));
 			m_name          = json.at("name");
 			m_assigned_maps = json.at("maps");
+
+			set_active_map(json.at("active_map"));
 		}
 	} // namespace scene
 } // namespace galaxy

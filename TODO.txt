@@ -6,12 +6,8 @@
 
 - test particle generator
 
-TileMap:
-	map should create all entities on load.
-	leave the entities in the registry alone.
-	just enable/disable in bulk as needed.
-	worldspace/tilemap transitions/loadings separate from loader.
-	add load screen when switching maps in scene.
+Tilemap post processing:
+???
 	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
 		prerendering lets us to fancy lighting and stuff.
 		i.e. create tilemap in tiled, then export to use as bg image.

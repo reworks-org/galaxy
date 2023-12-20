@@ -12,6 +12,7 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/map/Map.hpp"
 
 namespace galaxy
 {
@@ -60,6 +61,18 @@ namespace galaxy
 			/// Render scene.
 			///
 			virtual void render();
+
+			///
+			/// Load maps.
+			///
+			void load_maps();
+
+			///
+			/// Set currently active map.
+			///
+			/// \param map Name of map to use.
+			///
+			void set_active_map(const std::string& map);
 
 			///
 			/// Event processing method for window size change.
@@ -113,6 +126,11 @@ namespace galaxy
 			/// Maps assigned to this scene.
 			///
 			std::vector<std::string> m_assigned_maps;
+
+			///
+			/// Currently active map.
+			///
+			std::shared_ptr<map::Map> m_map;
 		};
 	} // namespace scene
 } // namespace galaxy

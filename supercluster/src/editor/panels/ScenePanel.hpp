@@ -31,9 +31,10 @@ namespace sc
 			std::string m_selected;
 			std::string m_selected_layer;
 
-			ImGuiTextFilter m_filter_maps;
 			ImGuiTextFilter m_filter_prefabs;
 			ImGuiTextFilter m_filter_tags;
+			ImGuiTextFilter m_filter_maps;
+			ImGuiTextFilter m_filter_assigned_maps;
 		};
 	} // namespace panel
 } // namespace sc
