@@ -528,15 +528,18 @@ namespace sc
 
 			if (ImGui::BeginMenu("Tools"))
 			{
-				static auto s_basedir = GALAXY_ROOT_DIR.string() + GALAXY_EDITOR_DATA_DIR;
+				static auto s_basedir = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
+				static auto s_tiled   = s_basedir / "tools/tiled/tiled.exe";
+				static auto s_bfxr    = s_basedir / "tools/bfxr/Bfxr.exe";
+
 				if (ImGui::MenuItem("Tiled"))
 				{
-					m_tiled_process.create(s_basedir + "tools/tiled/tiled.exe");
+					m_tiled_process.create(s_tiled.string());
 				}
 
 				if (ImGui::MenuItem("Bfxr"))
 				{
-					m_bfxr_process.create(s_basedir + "tools/bfxr/Bfxr.exe");
+					m_bfxr_process.create(s_bfxr.string());
 				}
 
 				ImGui::EndMenu();
