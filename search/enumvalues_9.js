@@ -1,6 +1,6 @@
 var searchData=
 [
   ['i_0',['I',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eadd7536794b63bf90eccfd37f9b147d7f',1,'galaxy::input']]],
-  ['info_1',['info',['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3',1,'galaxy::error::INFO'],['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acaf9b6b99962bf5c2264824231d7a40c',1,'galaxy::fs::info']]],
+  ['info_1',['info',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acaf9b6b99962bf5c2264824231d7a40c',1,'galaxy::fs::info'],['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3',1,'galaxy::error::INFO']]],
   ['insert_2',['INSERT',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea61ee777e7f71dc466c3b2c685d8d313b',1,'galaxy::input']]]
 ];

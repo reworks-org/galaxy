@@ -17,7 +17,6 @@ var namespacegalaxy_1_1ui =
     [ "imgui_open_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#adb971134dd0fbb688645b10be3b9e28e", null ],
     [ "imgui_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#a3378247f83641a1709f12f96715d25b6", null ],
     [ "imgui_center_next_window", "d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e", null ],
-    [ "imgui_shortcut", "d3/dd9/namespacegalaxy_1_1ui.html#ac10ec2a6e29137fea44d75a88eb6f291", null ],
     [ "imgui_imagebutton", "d3/dd9/namespacegalaxy_1_1ui.html#a67865b34fe34c0f136768dc267b0e151", null ],
     [ "imgui_image", "d3/dd9/namespacegalaxy_1_1ui.html#a82c355b60d2b89ed9254b74aa8e9f6a7", null ],
     [ "imgui_image", "d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e", null ],

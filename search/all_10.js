@@ -47,7 +47,7 @@ var searchData=
   ['prefab_2ecpp_44',['Prefab.cpp',['../d7/de1/Prefab_8cpp.html',1,'']]],
   ['prefab_2ehpp_45',['Prefab.hpp',['../d1/d98/Prefab_8hpp.html',1,'']]],
   ['prefabloader_46',['PrefabLoader',['../d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html',1,'galaxy::resource']]],
-  ['prefabs_47',['prefabs',['../d4/d1b/namespacegalaxy_1_1resource.html#ab189c7ee04618a2135e3564c6909156e',1,'galaxy::resource::Prefabs'],['../d6/d19/namespacegalaxy_1_1fs.html#ab7fd018b5a5fa07d3672b692c5cf00c9afcf68851a92aa9cf331f9f86ad676b0a',1,'galaxy::fs::PREFABS']]],
+  ['prefabs_47',['prefabs',['../d6/d19/namespacegalaxy_1_1fs.html#ab7fd018b5a5fa07d3672b692c5cf00c9afcf68851a92aa9cf331f9f86ad676b0a',1,'galaxy::fs::PREFABS'],['../d4/d1b/namespacegalaxy_1_1resource.html#ab189c7ee04618a2135e3564c6909156e',1,'galaxy::resource::Prefabs']]],
   ['prefabs_2ecpp_48',['Prefabs.cpp',['../dc/d7a/Prefabs_8cpp.html',1,'']]],
   ['prefabs_2ehpp_49',['Prefabs.hpp',['../d3/d96/Prefabs_8hpp.html',1,'']]],
   ['prepare_5fdefault_50',['prepare_default',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ac8c2e72ca79d46a1cb8d7e3da669bef7',1,'galaxy::graphics::Renderer']]],
