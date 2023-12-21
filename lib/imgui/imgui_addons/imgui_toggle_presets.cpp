@@ -12,7 +12,7 @@ namespace
     const ImVec4 RedHighlight(1.0f, 0.3f, 0.0f, 0.75f);
 
     // DPI aware scale utility: the scale should proportional to the font size
-    // font Size is typically 14.5 on normal DPI screens, and 29 on windows HighSPI
+    // font Size is typically 14.5 on normal DPI screens, and 29 on windows HighDPI
     float DpiFactor()
     {
         return ImGui::GetFontSize() / 14.5f;

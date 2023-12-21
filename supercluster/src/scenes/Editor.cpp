@@ -691,7 +691,7 @@ namespace sc
 			ImGui::EndPopup();
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_N))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_N))
 		{
 			ui::imgui_open_confirm("NewConfirmPopup");
 		}
@@ -708,7 +708,7 @@ namespace sc
 		);
 		// clang-format on
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_O))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_O))
 		{
 			m_update_stack.emplace_back([&]() {
 				const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.scproj"}, "../editor_data/projects");
@@ -727,62 +727,62 @@ namespace sc
 			exit();
 		});
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl, ImGuiKey_S))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_S))
 		{
 			save_project();
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift, ImGuiKey_S))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift | ImGuiKey_S))
 		{
 			save_project(true);
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_R))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_R))
 		{
 			restart();
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_S))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_S))
 		{
 			m_show_scenes = !m_show_scenes;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_E))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_E))
 		{
 			m_show_entities = !m_show_entities;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_V))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_V))
 		{
 			m_show_viewport = !m_show_viewport;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_A))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_A))
 		{
 			m_show_assetpanel = !m_show_assetpanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_L))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_L))
 		{
 			m_show_logpanel = !m_show_logpanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_T))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_T))
 		{
 			m_show_luapanel = !m_show_luapanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_J))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_J))
 		{
 			m_show_jsonpanel = !m_show_jsonpanel;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_C))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_C))
 		{
 			m_show_codeeditor = !m_show_codeeditor;
 		}
 
-		if (ui::imgui_shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt, ImGuiKey_N))
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_N))
 		{
 			m_show_noisegraph = !m_show_noisegraph;
 		}
@@ -906,7 +906,7 @@ namespace sc
 		static constexpr const auto s_notification_size = ImVec4(43.f / 255.f, 43.f / 255.f, 43.f / 255.f, 100.f / 255.f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 5.f);
 		ImGui::PushStyleColor(ImGuiCol_WindowBg, s_notification_size);
-		ImGui_Notify::RenderNotifications();
+		ImGui::RenderNotifications();
 		ImGui::PopStyleVar(1);
 		ImGui::PopStyleColor(1);
 

@@ -71,7 +71,7 @@ int main(int argsc, char* argsv[])
 				font_cfg.OversampleV           = 1;
 				font_cfg.FontBuilderFlags     |= ImGuiFreeTypeBuilderFlags_LoadColor;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
-				ImGui_Notify::MergeIconsWithLatestFont(16.0f, false);
+				ImGui::MergeIconsWithLatestFont(16.0f, false);
 
 				auto& config = core::ServiceLocator<core::Config>::ref();
 				config.restore<std::string>("theme", "DARK", "editor");

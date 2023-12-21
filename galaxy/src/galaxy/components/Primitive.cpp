@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
 #include "galaxy/error/Log.hpp"

@@ -8,7 +8,7 @@
 #include <regex>
 
 #define INPUT_BUFFER_SIZE 256
-#define MAX_PATH_LENGTH   512
+#define MAX_PATH_LENGTH 512
 
 struct DirectoryFinderSearchResult
 {
@@ -33,36 +33,35 @@ struct DirectoryFinder
 	typedef void (*OnFocusedCallback)(int folderViewId);
 
 	DirectoryFinder(const std::string& folderPath,
-		OnResultClickCallback onResultClickCallback       = nullptr,
-		OnResultFoundCallback onResultFoundCallback       = nullptr,
+		OnResultClickCallback onResultClickCallback = nullptr,
+		OnResultFoundCallback onResultFoundCallback = nullptr,
 		OnSearchFinishedCallback onSearchFinishedCallback = nullptr,
-		OnFocusedCallback onFocusedCallback               = nullptr,
-		int id                                            = -1,
-		int createdFromFolderView                         = -1);
+		OnFocusedCallback onFocusedCallback = nullptr,
+		int id = -1, int createdFromFolderView = -1);
 	bool OnImGui();
 
 private:
-	int id                    = -1;
+	int id = -1;
 	int createdFromFolderView = -1;
 
-	std::string panelName                = "Folder search";
-	char directoryPath[MAX_PATH_LENGTH]  = "\0";
-	bool regexEnabled                    = true;
-	bool caseSensitiveEnabled            = true;
-	char toFind[INPUT_BUFFER_SIZE]       = "\0";
-	char toInclude[INPUT_BUFFER_SIZE]    = "\0";
-	char toExclude[INPUT_BUFFER_SIZE]    = "\0";
+	std::string panelName = "Folder search";
+	char directoryPath[MAX_PATH_LENGTH] = "\0";
+	bool regexEnabled = true;
+	bool caseSensitiveEnabled = true;
+	char toFind[INPUT_BUFFER_SIZE] = "\0";
+	char toInclude[INPUT_BUFFER_SIZE] = "\0";
+	char toExclude[INPUT_BUFFER_SIZE] = "\0";
 	char resultFilter[INPUT_BUFFER_SIZE] = "\0";
 	std::regex resultFilterRegex;
 
 	std::vector<DirectoryFinderSearchResultFile> resultFiles;
 	std::vector<DirectoryFinderSearchResult*> resultsInFile;
 
-	OnResultClickCallback onResultClickCallback       = nullptr;
-	OnResultFoundCallback onResultFoundCallback       = nullptr;
+	OnResultClickCallback onResultClickCallback = nullptr;
+	OnResultFoundCallback onResultFoundCallback = nullptr;
 	OnSearchFinishedCallback onSearchFinishedCallback = nullptr;
-	OnFocusedCallback onFocusedCallback               = nullptr;
-	std::thread* finderThread                         = nullptr;
+	OnFocusedCallback onFocusedCallback = nullptr;
+	std::thread* finderThread = nullptr;
 	std::mutex finderThreadMutex;
 
 	void Find();

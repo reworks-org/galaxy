@@ -3,51 +3,60 @@
 #include <filesystem>
 #include <fstream>
 
+#include "../FontManager.h"
 #include "../portable-file-dialogs.h"
 #include "../Utils.h"
 
 #define FIND_POPUP_TEXT_FIELD_LENGTH 128
 
 std::unordered_map<std::string, TextEditor::LanguageDefinitionId> FileTextEdit::extensionToLanguageDefinition = {
-	{".cpp", TextEditor::LanguageDefinitionId::Cpp},
-	{".cc", TextEditor::LanguageDefinitionId::Cpp},
-	{".hpp", TextEditor::LanguageDefinitionId::Cpp},
-	{".h", TextEditor::LanguageDefinitionId::Cpp},
-	{".hlsl", TextEditor::LanguageDefinitionId::Hlsl},
-	{".glsl", TextEditor::LanguageDefinitionId::Glsl},
-	{".py", TextEditor::LanguageDefinitionId::Python},
-	{".c", TextEditor::LanguageDefinitionId::C},
-	{".sql", TextEditor::LanguageDefinitionId::Sql},
-	{".as", TextEditor::LanguageDefinitionId::AngelScript},
-	{".lua", TextEditor::LanguageDefinitionId::Lua},
-	{".cs", TextEditor::LanguageDefinitionId::Cs},
-	{".json", TextEditor::LanguageDefinitionId::Json}};
-std::unordered_map<TextEditor::LanguageDefinitionId, const char*> FileTextEdit::languageDefinitionToName = {{TextEditor::LanguageDefinitionId::None, "None"},
-	{TextEditor::LanguageDefinitionId::Cpp, "C++"},
-	{TextEditor::LanguageDefinitionId::C, "C"},
-	{TextEditor::LanguageDefinitionId::Cs, "C#"},
-	{TextEditor::LanguageDefinitionId::Python, "Python"},
-	{TextEditor::LanguageDefinitionId::Lua, "Lua"},
-	{TextEditor::LanguageDefinitionId::Json, "Json"},
-	{TextEditor::LanguageDefinitionId::Sql, "SQL"},
+	{ ".cpp",         TextEditor::LanguageDefinitionId::Cpp},
+	{  ".cc",         TextEditor::LanguageDefinitionId::Cpp},
+	{ ".hpp",         TextEditor::LanguageDefinitionId::Cpp},
+	{   ".h",         TextEditor::LanguageDefinitionId::Cpp},
+	{".hlsl",        TextEditor::LanguageDefinitionId::Hlsl},
+	{".glsl",        TextEditor::LanguageDefinitionId::Glsl},
+	{  ".py",      TextEditor::LanguageDefinitionId::Python},
+	{   ".c",		   TextEditor::LanguageDefinitionId::C},
+	{ ".sql",         TextEditor::LanguageDefinitionId::Sql},
+	{  ".as", TextEditor::LanguageDefinitionId::AngelScript},
+	{ ".lua",         TextEditor::LanguageDefinitionId::Lua},
+	{  ".cs",          TextEditor::LanguageDefinitionId::Cs},
+	{".json",        TextEditor::LanguageDefinitionId::Json}
+};
+
+std::unordered_map<TextEditor::LanguageDefinitionId, const char*> FileTextEdit::languageDefinitionToName = {
+	{	   TextEditor::LanguageDefinitionId::None,        "None"},
+	{		TextEditor::LanguageDefinitionId::Cpp,         "C++"},
+	{		  TextEditor::LanguageDefinitionId::C,           "C"},
+	{		 TextEditor::LanguageDefinitionId::Cs,          "C#"},
+	{	 TextEditor::LanguageDefinitionId::Python,      "Python"},
+	{		TextEditor::LanguageDefinitionId::Lua,         "Lua"},
+	{	   TextEditor::LanguageDefinitionId::Json,        "Json"},
+	{		TextEditor::LanguageDefinitionId::Sql,         "SQL"},
 	{TextEditor::LanguageDefinitionId::AngelScript, "AngelScript"},
-	{TextEditor::LanguageDefinitionId::Glsl, "GLSL"},
-	{TextEditor::LanguageDefinitionId::Hlsl, "HLSL"}};
-std::unordered_map<TextEditor::PaletteId, const char*> FileTextEdit::colorPaletteToName                  = {{TextEditor::PaletteId::Dark, "Dark"},
-					 {TextEditor::PaletteId::Light, "Light"},
-					 {TextEditor::PaletteId::Mariana, "Mariana"},
-					 {TextEditor::PaletteId::RetroBlue, "Retro blue"}};
+	{	   TextEditor::LanguageDefinitionId::Glsl,        "GLSL"},
+	{	   TextEditor::LanguageDefinitionId::Hlsl,        "HLSL"}
+};
+
+std::unordered_map<TextEditor::PaletteId, const char*> FileTextEdit::colorPaletteToName = std::unordered_map<TextEditor::PaletteId, const char*> {
+	{	 TextEditor::PaletteId::Dark,       "Dark"},
+	{    TextEditor::PaletteId::Light,      "Light"},
+	{  TextEditor::PaletteId::Mariana,    "Mariana"},
+	{TextEditor::PaletteId::RetroBlue, "Retro blue"}
+};
 
 FileTextEdit::FileTextEdit(const char* filePath,
-	int id,
-	int createdFromFolderView,
-	OnFocusedCallback onFocusedCallback,
-	OnShowInFolderViewCallback onShowInFolderViewCallback)
+	int                                id,
+	int                                createdFromFolderView,
+	OnFocusedCallback                  onFocusedCallback,
+	OnShowInFolderViewCallback         onShowInFolderViewCallback)
 {
 	this->id                         = id;
 	this->createdFromFolderView      = createdFromFolderView;
 	this->onFocusedCallback          = onFocusedCallback;
 	this->onShowInFolderViewCallback = onShowInFolderViewCallback;
+	this->codeFontSize               = FontManager::GetDefaultUiFontSize();
 	editor                           = new TextEditor();
 	if (filePath == nullptr)
 		panelName = "untitled##" + std::to_string((int)this);
@@ -58,7 +67,7 @@ FileTextEdit::FileTextEdit(const char* filePath,
 		auto pathObject   = std::filesystem::path(filePath);
 		panelName         = pathObject.filename().string() + "##" + std::to_string((int)this);
 		std::ifstream t(Utils::Utf8ToWstring(filePath));
-		std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+		std::string   str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 		editor->SetText(str);
 		auto lang = extensionToLanguageDefinition.find(pathObject.extension().string());
 		if (lang != extensionToLanguageDefinition.end())
@@ -73,6 +82,9 @@ FileTextEdit::~FileTextEdit()
 
 bool FileTextEdit::OnImGui()
 {
+	ImFont* codeFontEditor = FontManager::GetCodeFont(codeFontSize);
+	ImFont* codeFontTopBar = FontManager::GetCodeFont(FontManager::GetDefaultUiFontSize());
+
 	bool windowIsOpen = true;
 
 	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
@@ -84,9 +96,11 @@ bool FileTextEdit::OnImGui()
 	if (ImGui::IsWindowFocused() && onFocusedCallback != nullptr)
 		onFocusedCallback(this->createdFromFolderView);
 
-	bool isFocused               = ImGui::IsWindowFocused();
-	bool requestingGoToLinePopup = false;
-	bool requestingFindPopup     = false;
+	bool isFocused                  = ImGui::IsWindowFocused();
+	bool requestingGoToLinePopup    = false;
+	bool requestingFindPopup        = false;
+	bool requestingFontSizeIncrease = false;
+	bool requestingFontSizeDecrease = false;
 	if (ImGui::BeginMenuBar())
 	{
 		if (ImGui::BeginMenu("File"))
@@ -97,10 +111,16 @@ bool FileTextEdit::OnImGui()
 				OnLoadFromCommand();
 			if (ImGui::MenuItem("Save", "Ctrl+S"))
 				OnSaveCommand();
+			if (this->hasAssociatedFile && ImGui::MenuItem("Show in file explorer"))
+			{
+				std::string command = "explorer \"" + this->associatedFile + "\"";
+				system(command.c_str());
+			}
+
 			if (this->hasAssociatedFile && this->onShowInFolderViewCallback != nullptr && this->createdFromFolderView > -1 &&
 				ImGui::MenuItem("Show in folder view"))
 				this->onShowInFolderViewCallback(this->associatedFile, this->createdFromFolderView);
-			;
+
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Edit"))
@@ -137,6 +157,7 @@ bool FileTextEdit::OnImGui()
 
 		if (ImGui::BeginMenu("View"))
 		{
+			ImGui::SliderInt("Font size", &codeFontSize, FontManager::GetMinCodeFontSize(), FontManager::GetMaxCodeFontSize());
 			ImGui::SliderInt("Tab size", &tabSize, 1, 8);
 			ImGui::SliderFloat("Line spacing", &lineSpacing, 1.0f, 2.0f);
 			editor->SetTabSize(tabSize);
@@ -184,17 +205,27 @@ bool FileTextEdit::OnImGui()
 
 		int line, column;
 		editor->GetCursorPosition(line, column);
+
+		if (codeFontTopBar != nullptr)
+			ImGui::PushFont(codeFontTopBar);
 		ImGui::Text("%6d/%-6d %6d lines | %s | %s",
 			line + 1,
 			column + 1,
 			editor->GetLineCount(),
 			editor->IsOverwriteEnabled() ? "Ovr" : "Ins",
 			editor->GetLanguageDefinitionName());
+		if (codeFontTopBar != nullptr)
+			ImGui::PopFont();
 
 		ImGui::EndMenuBar();
 	}
 
+	if (codeFontEditor != nullptr)
+		ImGui::PushFont(codeFontEditor);
 	isFocused |= editor->Render("TextEditor", isFocused);
+	if (codeFontEditor != nullptr)
+		ImGui::PopFont();
+
 	if (isFocused)
 	{
 		bool ctrlPressed = ImGui::GetIO().KeyCtrl;
@@ -208,6 +239,10 @@ bool FileTextEdit::OnImGui()
 				requestingGoToLinePopup = true;
 			if (ImGui::IsKeyDown(ImGuiKey_F))
 				requestingFindPopup = true;
+			if (ImGui::IsKeyPressed(ImGuiKey_Equal) || ImGui::GetIO().MouseWheel > 0.0f)
+				requestingFontSizeIncrease = true;
+			if (ImGui::IsKeyPressed(ImGuiKey_Minus) || ImGui::GetIO().MouseWheel < 0.0f)
+				requestingFontSizeDecrease = true;
 		}
 	}
 
@@ -225,6 +260,7 @@ bool FileTextEdit::OnImGui()
 			editor->ClearExtraCursors();
 			editor->ClearSelections();
 			editor->SelectLine(targetLineFixed);
+			CenterViewAtLine(targetLineFixed);
 			ImGui::CloseCurrentPopup();
 			ImGui::GetIO().ClearInputKeys();
 		}
@@ -246,6 +282,9 @@ bool FileTextEdit::OnImGui()
 		{
 			editor->ClearExtraCursors();
 			editor->SelectNextOccurrenceOf(ctrlfTextToFind, toFindTextSize, ctrlfCaseSensitive);
+			int nextOccurrenceLine, _;
+			editor->GetCursorPosition(nextOccurrenceLine, _);
+			CenterViewAtLine(nextOccurrenceLine);
 		}
 		if (ImGui::Button("Find all") && toFindTextSize > 0)
 			editor->SelectAllOccurrencesOf(ctrlfTextToFind, toFindTextSize, ctrlfCaseSensitive);
@@ -254,6 +293,11 @@ bool FileTextEdit::OnImGui()
 
 		ImGui::EndPopup();
 	}
+
+	if (requestingFontSizeIncrease && codeFontSize < FontManager::GetMaxCodeFontSize())
+		codeFontSize++;
+	if (requestingFontSizeDecrease && codeFontSize > FontManager::GetMinCodeFontSize())
+		codeFontSize--;
 
 	ImGui::End();
 
@@ -264,6 +308,11 @@ void FileTextEdit::SetSelection(int startLine, int startChar, int endLine, int e
 {
 	editor->SetCursorPosition(endLine, endChar);
 	editor->SelectRegion(startLine, startChar, endLine, endChar);
+}
+
+void FileTextEdit::CenterViewAtLine(int line)
+{
+	editor->SetViewAtLine(line, TextEditor::SetViewAtLineMode::Centered);
 }
 
 const char* FileTextEdit::GetAssociatedFile()
@@ -284,7 +333,7 @@ void FileTextEdit::OnFolderViewDeleted(int folderViewId)
 void FileTextEdit::OnReloadCommand()
 {
 	std::ifstream t(Utils::Utf8ToWstring(associatedFile));
-	std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+	std::string   str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 	editor->SetText(str);
 	undoIndexInDisk = 0;
 }
@@ -297,7 +346,7 @@ void FileTextEdit::OnLoadFromCommand()
 	else
 	{
 		std::ifstream t(Utils::Utf8ToWstring(selection[0]));
-		std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+		std::string   str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
 		editor->SetText(str);
 		auto pathObject = std::filesystem::path(selection[0]);
 		auto lang       = extensionToLanguageDefinition.find(pathObject.extension().string());

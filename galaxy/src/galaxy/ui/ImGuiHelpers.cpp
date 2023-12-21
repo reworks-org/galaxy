@@ -173,22 +173,6 @@ namespace galaxy
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
 		}
 
-		bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags)
-		{
-			if (ImGui::GetIO().KeyMods != mods)
-			{
-				return false;
-			}
-			else if (!ImGui::IsWindowFocused(flags))
-			{
-				return false;
-			}
-			else
-			{
-				return ImGui::IsKeyPressed(key, false);
-			}
-		}
-
 		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)
 		{
 			const auto id     = std::to_string(texture.handle()) + std::to_string(texture.get_width()) + std::to_string(texture.get_height());
@@ -211,22 +195,22 @@ namespace galaxy
 
 		void imgui_notify_success(const char* msg)
 		{
-			ImGui_Notify::InsertNotification({ImGuiToastType_Success, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType_Success, 2000, msg});
 		}
 
 		void imgui_notify_info(const char* msg)
 		{
-			ImGui_Notify::InsertNotification({ImGuiToastType_Info, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType_Info, 2000, msg});
 		}
 
 		void imgui_notify_warning(const char* msg)
 		{
-			ImGui_Notify::InsertNotification({ImGuiToastType_Warning, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType_Warning, 2000, msg});
 		}
 
 		void imgui_notify_error(const char* msg)
 		{
-			ImGui_Notify::InsertNotification({ImGuiToastType_Error, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType_Error, 2000, msg});
 		}
 
 		bool imgui_glm_vec2(const char* label, glm::vec2& vec)

@@ -30,6 +30,10 @@ public:
 	{
 		None, Cpp, C, Cs, Python, Lua, Json, Sql, AngelScript, Glsl, Hlsl
 	};
+	enum class SetViewAtLineMode
+	{
+		FirstVisibleLine, Centered, LastVisibleLine
+	};
 
 	inline void SetReadOnlyEnabled(bool aValue) { mReadOnly = aValue; }
 	inline bool IsReadOnlyEnabled() const { return mReadOnly; }
@@ -72,6 +76,9 @@ public:
 		outLine = coords.mLine;
 		outColumn = coords.mColumn;
 	}
+	int GetFirstVisibleLine();
+	int GetLastVisibleLine();
+	void SetViewAtLine(int aLine, SetViewAtLineMode aMode);
 
 	void Copy();
 	void Cut();
@@ -90,9 +97,6 @@ public:
 
 	bool Render(const char* aTitle, bool aParentIsFocused = false, const ImVec2& aSize = ImVec2(), bool aBorder = false);
 
-	void ImGuiDebugPanel(const std::string& panelName = "Debug");
-	void UnitTests();
-
 private:
 	// ------------- Generic utils ------------- //
 
@@ -108,6 +112,12 @@ private:
 	static inline bool IsUTFSequence(char c)
 	{
 		return (c & 0xC0) == 0x80;
+	}
+	static inline float Distance(const ImVec2& a, const ImVec2& b)
+	{
+		float x = a.x - b.x;
+		float y = a.y - b.y;
+		return sqrt(x * x + y * y);
 	}
 	template<typename T>
 	static inline T Max(T a, T b) { return a > b ? a : b; }
@@ -355,10 +365,10 @@ private:
 	void RemoveCurrentLines();
 
 	float TextDistanceToLineStart(const Coordinates& aFrom, bool aSanitizeCoords = true) const;
-	void EnsureCursorVisible(int aCursor = -1);
+	void EnsureCursorVisible(int aCursor = -1, bool aStartToo = false);
 
 	Coordinates SanitizeCoordinates(const Coordinates& aValue) const;
-	Coordinates GetActualCursorCoordinates(int aCursor = -1) const;
+	Coordinates GetActualCursorCoordinates(int aCursor = -1, bool aStart = false) const;
 	Coordinates ScreenPosToCoordinates(const ImVec2& aPosition, bool aInsertionMode = false, bool* isOverLineNumber = nullptr) const;
 	Coordinates FindWordStart(const Coordinates& aFrom) const;
 	Coordinates FindWordEnd(const Coordinates& aFrom) const;
@@ -381,6 +391,7 @@ private:
 
 	void HandleKeyboardInputs(bool aParentIsFocused = false);
 	void HandleMouseInputs();
+	void UpdateViewVariables(float aScrollX, float aScrollY);
 	void Render(bool aParentIsFocused = false);
 
 	void OnCursorPositionChanged();
@@ -407,7 +418,10 @@ private:
 	bool mShowLineNumbers = true;
 	bool mShortTabs = false;
 
+	int mSetViewAtLine = -1;
+	SetViewAtLineMode mSetViewAtLineMode;
 	int mEnsureCursorVisible = -1;
+	bool mEnsureCursorVisibleStartToo = false;
 	bool mScrollToTop = false;
 
 	float mTextStart = 20.0f; // position (in pixels) where a code line starts relative to the left of the TextEditor.
@@ -415,7 +429,8 @@ private:
 	ImVec2 mCharAdvance;
 	float mCurrentSpaceHeight = 20.0f;
 	float mCurrentSpaceWidth = 20.0f;
-	float mLastClick = -1.0f;
+	float mLastClickTime = -1.0f;
+	ImVec2 mLastClickPos;
 	int mFirstVisibleLine = 0;
 	int mLastVisibleLine = 0;
 	int mVisibleLineCount = 0;

@@ -7,7 +7,7 @@
 
 #include <box2d/b2_fixture.h>
 #include <box2d/b2_polygon_shape.h>
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"

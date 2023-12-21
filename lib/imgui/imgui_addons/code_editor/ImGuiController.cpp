@@ -1,23 +1,25 @@
 #include "ImGuiController.h"
 
-#include <string>
-#include <iostream>
-#include <fstream>
 #include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <string>
 
 #include <imgui.h>
-#include <imgui_internal.h>
 #include <imgui_addons/material_design_icons.h>
+#include <imgui_internal.h>
 
 #include "portable-file-dialogs.h"
 
-#include "panels/DirectoryTreeView.h"
+#include "FontManager.h"
 #include "panels/DirectoryFinder.h"
+#include "panels/DirectoryTreeView.h"
 #include "panels/FileTextEdit.h"
-#include "Utils.h"
 #include "PathUtils.h"
+#include "Utils.h"
 
 #include <GLFW/glfw3.h>
+
 namespace scex::ImGuiController
 {
 	int folderViewForLastFocusedPanel = -1;
@@ -39,18 +41,24 @@ namespace scex::ImGuiController
 	bool menuBarEnabled    = true;
 	bool textEditDebugInfo = false;
 
-	std::unordered_map<std::string, FileTextEdit*> fileToEditorMap;
-	FileTextEdit* editorToFocus = nullptr;
+	ImFont* textEditorFont;
+	ImFont* uiFont;
 
-	std::vector<DirectoryFinder*> folderFinders;
+	std::unordered_map<std::string, FileTextEdit*> fileToEditorMap;
+	FileTextEdit*                                  editorToFocus = nullptr;
+
+	std::vector<DirectoryFinder*>   folderFinders;
 	std::vector<DirectoryTreeView*> folderViewers;
-	std::vector<FileTextEdit*> fileTextEdits;
+	std::vector<FileTextEdit*>      fileTextEdits;
 
 	std::vector<std::pair<std::string, DirectoryTreeView::OnContextMenuCallback>> folderViewFileContextMenuOptions = {
-		{"Show in file explorer", OnShowInFileExplorer}};
-	std::vector<std::pair<std::string, DirectoryTreeView::OnContextMenuCallback>> folderViewFolderContextMenuOptions = {{"Find in folder", OnFindInFolder},
-		{"Show in file explorer", OnShowInFileExplorer},
-		{"Open in file explorer", OnFolderOpenInFileExplorer}};
+		{"Show in file explorer", OnShowInFileExplorer}
+    };
+	std::vector<std::pair<std::string, DirectoryTreeView::OnContextMenuCallback>> folderViewFolderContextMenuOptions = {
+		{       "Find in folder",             OnFindInFolder},
+		{"Show in file explorer",       OnShowInFileExplorer},
+		{"Open in file explorer", OnFolderOpenInFileExplorer}
+    };
 
 	FileTextEdit* CreateNewEditor(const char* filePath = nullptr, int fromFolderView = -1)
 	{
@@ -70,6 +78,7 @@ namespace scex::ImGuiController
 			&folderViewFolderContextMenuOptions,
 			folderViewerId));
 	}
+
 	void CreateNewFolderSearch(const std::string& folderPath, int fromFolderView)
 	{
 		int folderSearchId = folderFinders.size();
@@ -94,24 +103,28 @@ namespace scex::ImGuiController
 	{
 		glfwPostEmptyEvent();
 	}
+
 	void OnFolderOpenInFileExplorer(const std::string& folderPath, int folderViewId)
 	{
 		// doesn't work with non ASCII
 		std::string command = "explorer \"" + folderPath + "\"";
 		system(command.c_str());
 	}
+
 	void OnFindInFolder(const std::string& folderPath, int folderViewId)
 	{
 		CreateNewFolderSearch(folderPath, folderViewId);
 	}
+
 	void OnShowInFileExplorer(const std::string& filePath, int folderViewId)
 	{
-		auto path                    = std::filesystem::path(filePath);
+		auto        path             = std::filesystem::path(filePath);
 		std::string parentFolderPath = path.parent_path().string();
 		// doesn't work with non ASCII
 		std::string command = "explorer /select,\"" + path.string() + "\",\"" + parentFolderPath + "\"";
 		system(command.c_str());
 	}
+
 	void OnFileClickedInFolderView(const std::string& filePath, int folderViewId)
 	{
 		if (fileToEditorMap.find(filePath) == fileToEditorMap.end() || fileToEditorMap[filePath] == nullptr)
@@ -137,7 +150,9 @@ namespace scex::ImGuiController
 		else
 			targetEditor = editorToFocus = fileToEditorMap[filePath];
 		targetEditor->SetSelection(searchResult.lineNumber - 1, searchResult.startCharIndex, searchResult.lineNumber - 1, searchResult.endCharIndex);
+		targetEditor->CenterViewAtLine(searchResult.lineNumber - 1);
 	}
+
 	void OnFolderSearchResultFoundOrSearchFinished()
 	{
 		glfwPostEmptyEvent();
@@ -153,6 +168,11 @@ namespace scex::ImGuiController
 void scex::ImGuiController::Setup(const std::string& root)
 {
 	PathUtils::SetProgramDirectory(root);
+
+	int fontSize = 17;
+	FileTextEdit::SetDarkPaletteAsDefault();
+
+	FontManager::Initialize(ImGui::GetIO(), fontSize);
 }
 
 bool scex::ImGuiController::HasControl()
@@ -190,16 +210,16 @@ void scex::ImGuiController::Tick(double deltaTime)
 			menuBarEnabled = !menuBarEnabled;
 
 		newTextPanelRequested |= ctrlKeyDown && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_N), false);
-		openFileRequested |= ctrlKeyDown && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_O), false);
-		fileSearchRequested |= ctrlKeyDown && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_P), false);
+		openFileRequested     |= ctrlKeyDown && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_O), false);
+		fileSearchRequested   |= ctrlKeyDown && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_P), false);
 
 		if (menuBarEnabled)
 		{
 			if (ImGui::BeginMenuBar())
 			{
 				newTextPanelRequested |= ImGui::MenuItem("New text panel", "Ctrl+N");
-				openFileRequested |= ImGui::MenuItem("Open file", "Ctrl+O");
-				openFolderRequested |= ImGui::MenuItem("Open folder");
+				openFileRequested     |= ImGui::MenuItem("Open file", "Ctrl+O");
+				openFolderRequested   |= ImGui::MenuItem("Open folder");
 
 				ImGui::EndMenuBar();
 			}

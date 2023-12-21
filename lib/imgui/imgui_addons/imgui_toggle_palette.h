@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../imgui.h"
+#include "imgui.h"
 
 // ImGuiTogglePalette: A collection of colors used to customize the rendering of a toggle widget.
 //   Leaving any ImVec4 as default (zero) will allow the theme color to be used for that member.

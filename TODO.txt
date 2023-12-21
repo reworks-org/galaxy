@@ -1,3 +1,4 @@
+- add support for miniaudios new fading api
 - add support to writing to update archives
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?

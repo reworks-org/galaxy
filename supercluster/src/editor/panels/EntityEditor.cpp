@@ -7,7 +7,7 @@
 
 #include <entt/entity/registry.hpp>
 #include <imgui_stdlib.h>
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/MapData.hpp>

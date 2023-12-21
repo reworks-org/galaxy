@@ -26,12 +26,12 @@ struct DirectoryTreeView
 	typedef void (*OnFocusedCallback)(int folderViewId);
 
 	DirectoryTreeView(const std::string& folderPath,
-		OnNodeFoundCallback onNodeFoundCallback                                              = nullptr,
-		OnFileClickCallback onFileClickCallback                                              = nullptr,
-		OnFocusedCallback onFocusedCallback                                                  = nullptr,
-		std::vector<std::pair<std::string, OnContextMenuCallback>>* fileContextMenuOptions   = nullptr,
+		OnNodeFoundCallback onNodeFoundCallback = nullptr,
+		OnFileClickCallback onFileClickCallback = nullptr,
+		OnFocusedCallback onFocusedCallback = nullptr,
+		std::vector<std::pair<std::string, OnContextMenuCallback>>* fileContextMenuOptions = nullptr,
 		std::vector<std::pair<std::string, OnContextMenuCallback>>* folderContextMenuOptions = nullptr,
-		int id                                                                               = -1);
+		int id = -1);
 	~DirectoryTreeView();
 	bool OnImGui(double deltaTime);
 	void RunSearch();
@@ -41,10 +41,10 @@ private:
 	int id = -1;
 
 	std::string fileToHighlight = "";
-	float selectionTimer        = -1.0f;
+	float selectionTimer = -1.0f;
 
 	bool requestingFocus = false;
-	bool searching       = false;
+	bool searching = false;
 	char findFilesBuffer[FIND_FILES_BUFFER_SIZE];
 
 	std::string panelName = "Folder view";
@@ -53,9 +53,9 @@ private:
 	DirectoryTreeViewNode directoryTreeRoot;
 	OnNodeFoundCallback onNodeFoundCallback = nullptr;
 	OnFileClickCallback onFileClickCallback = nullptr;
-	OnFocusedCallback onFocusedCallback     = nullptr;
+	OnFocusedCallback onFocusedCallback = nullptr;
 
-	bool isHoveringNodeThisFrame                 = false;
+	bool isHoveringNodeThisFrame = false;
 	const DirectoryTreeViewNode* lastHoveredNode = nullptr;
 	std::vector<std::pair<std::string, OnContextMenuCallback>>* fileContextMenuOptions;
 	std::vector<std::pair<std::string, OnContextMenuCallback>>* folderContextMenuOptions;

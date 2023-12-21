@@ -11,7 +11,7 @@
 #include <filesystem>
 #include <source_location>
 
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 #include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"

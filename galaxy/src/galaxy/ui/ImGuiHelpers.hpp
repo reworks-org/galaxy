@@ -69,17 +69,6 @@ namespace galaxy
 		void imgui_center_next_window();
 
 		///
-		/// Trigger imgui actions from keyboard shortcut.
-		///
-		/// \param mods Key input modifiers.
-		/// \param key Key pressed.
-		/// \param flags Focusing flags. Defaults to any window.
-		///
-		/// \return True if shortcut was pressed.
-		///
-		[[nodiscard]] bool imgui_shortcut(ImGuiKeyChord mods, ImGuiKey key, ImGuiFocusedFlags flags = ImGuiFocusedFlags_AnyWindow);
-
-		///
 		/// Render an imgui image button with a galaxy texture.
 		///
 		/// \param texture Texture to display.
@@ -169,15 +158,5 @@ namespace galaxy
 		[[maybe_unused]] bool imgui_glm_vec4(const char* label, glm::vec4& vec);
 	} // namespace ui
 } // namespace galaxy
-
-[[nodiscard]] inline const bool operator==(const ImVec2& a, const ImVec2& b)
-{
-	return ((a.x == b.x) && (a.y == b.y));
-}
-
-[[nodiscard]] inline const bool operator!=(const ImVec2& a, const ImVec2& b)
-{
-	return !(a == b);
-}
 
 #endif

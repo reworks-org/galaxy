@@ -444,17 +444,17 @@ namespace ImGui
         int num_brackets_open = 0;
     };
 
-	struct Emphasis {
-		enum EmphasisState {
-			NONE,
-			LEFT,
-			MIDDLE,
-			RIGHT,
-		};
+    struct Emphasis {
+        enum EmphasisState {
+            NONE,
+            LEFT,
+            MIDDLE,
+            RIGHT,
+        };
         EmphasisState state = NONE;
         TextBlock text;
         char sym;
-	};
+    };
 
     inline void UnderLine( ImColor col_ )
     {
@@ -497,14 +497,14 @@ namespace ImGui
             const char* text = markdown_ + textStart + 1;
             textRegion_.RenderTextWrapped( text, text + textSize - 1 );
         }
-		else if( line_.isEmphasis )         // render emphasis
-		{
-			formatInfo.level = line_.emphasisCount;
-			formatInfo.type = MarkdownFormatType::EMPHASIS;
-			mdConfig_.formatCallback(formatInfo, true);
-			const char* text = markdown_ + textStart;
-			textRegion_.RenderTextWrapped(text, text + textSize);
-		}
+        else if( line_.isEmphasis )         // render emphasis
+        {
+            formatInfo.level = line_.emphasisCount;
+            formatInfo.type = MarkdownFormatType::EMPHASIS;
+            mdConfig_.formatCallback(formatInfo, true);
+            const char* text = markdown_ + textStart;
+            textRegion_.RenderTextWrapped(text, text + textSize);
+        }
         else                                // render a normal paragraph chunk
         {
             formatInfo.type = MarkdownFormatType::NORMAL_TEXT;
@@ -686,14 +686,14 @@ namespace ImGui
             }
 
             // Test to see if we have emphasis styling
-			switch( em.state )
-			{
-			case Emphasis::NONE:
-				if( link.state == Link::NO_LINK && !line.isHeading )
+            switch( em.state )
+            {
+            case Emphasis::NONE:
+                if( link.state == Link::NO_LINK && !line.isHeading )
                 {
                     int next = i + 1;
                     int prev = i - 1;
-					if( ( c == '*' || c == '_' )
+                    if( ( c == '*' || c == '_' )
                         && ( i == line.lineStart
                             || markdown_[ prev ] == ' '
                             || markdown_[ prev ] == '\t' ) // empasis must be preceded by whitespace or line start
@@ -702,41 +702,41 @@ namespace ImGui
                         && markdown_[ next ] != '\n'
                         && markdown_[ next ] != '\t' )
                     {
-						em.state = Emphasis::LEFT;
-						em.sym = c;
+                        em.state = Emphasis::LEFT;
+                        em.sym = c;
                         em.text.start = i;
-						line.emphasisCount = 1;
-						continue;
-					}
-				}
-				break;
-			case Emphasis::LEFT:
-				if( em.sym == c )
+                        line.emphasisCount = 1;
+                        continue;
+                    }
+                }
+                break;
+            case Emphasis::LEFT:
+                if( em.sym == c )
                 {
-					++line.emphasisCount;
-					continue;
-				}
+                    ++line.emphasisCount;
+                    continue;
+                }
                 else
                 {
-					em.text.start = i;
-					em.state = Emphasis::MIDDLE;
-				}
-				break;
-			case Emphasis::MIDDLE:
-				if( em.sym == c )
+                    em.text.start = i;
+                    em.state = Emphasis::MIDDLE;
+                }
+                break;
+            case Emphasis::MIDDLE:
+                if( em.sym == c )
                 {
-					em.state = Emphasis::RIGHT;
-					em.text.stop = i;
+                    em.state = Emphasis::RIGHT;
+                    em.text.stop = i;
                    // pass through to case Emphasis::RIGHT
-				}
+                }
                 else
                 {
                     break;
                 }
-			case Emphasis::RIGHT:
-				if( em.sym == c )
+            case Emphasis::RIGHT:
+                if( em.sym == c )
                 {
-					if( line.emphasisCount < 3 && ( i - em.text.stop + 1 == line.emphasisCount ) )
+                    if( line.emphasisCount < 3 && ( i - em.text.stop + 1 == line.emphasisCount ) )
                     {
                         // render text up to emphasis
                         int lineEnd = em.text.start - line.emphasisCount;
@@ -744,22 +744,22 @@ namespace ImGui
                         {
                             line.lineEnd = lineEnd;
                             RenderLine( markdown_, line, textRegion, mdConfig_ );
-						    ImGui::SameLine( 0.0f, 0.0f );
+                            ImGui::SameLine( 0.0f, 0.0f );
                             line.isUnorderedListStart = false;
                             line.leadSpaceCount = 0;
                         }
-						line.isEmphasis = true;
-						line.lastRenderPosition = em.text.start - 1;
+                        line.isEmphasis = true;
+                        line.lastRenderPosition = em.text.start - 1;
                         line.lineStart = em.text.start;
-					    line.lineEnd = em.text.stop;
-					    RenderLine( markdown_, line, textRegion, mdConfig_ );
-					    ImGui::SameLine( 0.0f, 0.0f );
-					    line.isEmphasis = false;
-					    line.lastRenderPosition = i;
-					    em = Emphasis();
+                        line.lineEnd = em.text.stop;
+                        RenderLine( markdown_, line, textRegion, mdConfig_ );
+                        ImGui::SameLine( 0.0f, 0.0f );
+                        line.isEmphasis = false;
+                        line.lastRenderPosition = i;
+                        em = Emphasis();
                     }
                     continue;
-				} 
+                } 
                 else
                 {
                     em.state = Emphasis::NONE;
@@ -775,8 +775,8 @@ namespace ImGui
                         line.lastRenderPosition = line.lineStart - 1;
                     }
                 }
-				break;
-			}
+                break;
+            }
 
             // handle end of line (render)
             if( c == '\n' )
@@ -795,7 +795,7 @@ namespace ImGui
                 }
 
                 // reset the line and emphasis state
-				line = Line();
+                line = Line();
                 em = Emphasis();
 
                 line.lineStart = i + 1;
@@ -930,7 +930,7 @@ namespace ImGui
         {
         case MarkdownFormatType::NORMAL_TEXT:
             break;
-		case MarkdownFormatType::EMPHASIS:
+        case MarkdownFormatType::EMPHASIS:
         {
             MarkdownHeadingFormat fmt;
             // default styling for emphasis uses last headingFormats - for your own styling
@@ -938,33 +938,33 @@ namespace ImGui
             if( markdownFormatInfo_.level == 1 )
             {
                 // normal emphasis
- 			    if( start_ )
-			    {
+                if( start_ )
+                {
                     ImGui::PushStyleColor( ImGuiCol_Text, ImGui::GetStyle().Colors[ ImGuiCol_TextDisabled ] );
-			    }
+                }
                 else
-			    {
+                {
                     ImGui::PopStyleColor();
-			    }              
+                }              
             }
             else
             {
                 // strong emphasis
                 fmt = markdownFormatInfo_.config->headingFormats[ MarkdownConfig::NUMHEADINGS - 1 ];
-			    if( start_ )
-			    {
-				    if( fmt.font )
-				    {
-					    ImGui::PushFont( fmt.font );
-				    }
-			    }
+                if( start_ )
+                {
+                    if( fmt.font )
+                    {
+                        ImGui::PushFont( fmt.font );
+                    }
+                }
                 else
-			    {
-				    if( fmt.font )
-				    {
-					    ImGui::PopFont();
-				    }
-			    }
+                {
+                    if( fmt.font )
+                    {
+                        ImGui::PopFont();
+                    }
+                }
             }
             break;
         }

@@ -7,6 +7,7 @@
 #include "TextEditor.h"
 
 #define IMGUI_SCROLLBAR_WIDTH 14.0f
+#define POS_TO_COORDS_COLUMN_OFFSET 0.33f
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui.h" // for imGui::GetCurrentWindow()
 
@@ -189,6 +190,22 @@ void TextEditor::ClearSelections()
 void TextEditor::SetCursorPosition(int aLine, int aCharIndex)
 {
 	SetCursorPosition({ aLine, GetCharacterColumn(aLine, aCharIndex) }, -1, true);
+}
+
+int TextEditor::GetFirstVisibleLine()
+{
+	return mFirstVisibleLine;
+}
+
+int TextEditor::GetLastVisibleLine()
+{
+	return mLastVisibleLine;
+}
+
+void TextEditor::SetViewAtLine(int aLine, SetViewAtLineMode aMode)
+{
+	mSetViewAtLine = aLine;
+	mSetViewAtLineMode = aMode;
 }
 
 void TextEditor::Copy()
@@ -1145,7 +1162,7 @@ void TextEditor::SelectNextOccurrenceOf(const char* aText, int aTextSize, int aC
 	Coordinates nextStart, nextEnd;
 	FindNextOccurrence(aText, aTextSize, mState.mCursors[aCursor].mInteractiveEnd, nextStart, nextEnd, aCaseSensitive);
 	SetSelection(nextStart, nextEnd, aCursor);
-	EnsureCursorVisible(aCursor);
+	EnsureCursorVisible(aCursor, true);
 }
 
 void TextEditor::AddCursorForNextOccurrence(bool aCaseSensitive)
@@ -1163,7 +1180,7 @@ void TextEditor::AddCursorForNextOccurrence(bool aCaseSensitive)
 	SetSelection(nextStart, nextEnd, mState.mCurrentCursor);
 	mState.SortCursorsFromTopToBottom();
 	MergeCursorsIfPossible();
-	EnsureCursorVisible();
+	EnsureCursorVisible(-1, true);
 }
 
 bool TextEditor::FindNextOccurrence(const char* aText, int aTextSize, const Coordinates& aFrom, Coordinates& outStart, Coordinates& outEnd, bool aCaseSensitive)
@@ -1343,7 +1360,6 @@ void TextEditor::ChangeCurrentLinesIndentation(bool aIncrease)
 		}
 	}
 
-	EnsureCursorVisible();
 	if (u.mOperations.size() > 0)
 		AddUndo(u);
 }
@@ -1568,12 +1584,13 @@ float TextEditor::TextDistanceToLineStart(const Coordinates& aFrom, bool aSaniti
 		return aFrom.mColumn * mCharAdvance.x;
 }
 
-void TextEditor::EnsureCursorVisible(int aCursor)
+void TextEditor::EnsureCursorVisible(int aCursor, bool aStartToo)
 {
 	if (aCursor == -1)
 		aCursor = mState.GetLastAddedCursorIndex();
 
 	mEnsureCursorVisible = aCursor;
+	mEnsureCursorVisibleStartToo = aStartToo;
 	return;
 }
 
@@ -1602,12 +1619,12 @@ TextEditor::Coordinates TextEditor::SanitizeCoordinates(const Coordinates& aValu
 	}
 }
 
-TextEditor::Coordinates TextEditor::GetActualCursorCoordinates(int aCursor) const
+TextEditor::Coordinates TextEditor::GetActualCursorCoordinates(int aCursor, bool aStart) const
 {
 	if (aCursor == -1)
-		return SanitizeCoordinates(mState.mCursors[mState.mCurrentCursor].mInteractiveEnd);
+		return SanitizeCoordinates(aStart ? mState.mCursors[mState.mCurrentCursor].mInteractiveStart : mState.mCursors[mState.mCurrentCursor].mInteractiveEnd);
 	else
-		return SanitizeCoordinates(mState.mCursors[aCursor].mInteractiveEnd);
+		return SanitizeCoordinates(aStart ? mState.mCursors[aCursor].mInteractiveStart : mState.mCursors[aCursor].mInteractiveEnd);
 }
 
 TextEditor::Coordinates TextEditor::ScreenPosToCoordinates(const ImVec2& aPosition, bool aInsertionMode, bool* isOverLineNumber) const
@@ -1632,6 +1649,8 @@ TextEditor::Coordinates TextEditor::ScreenPosToCoordinates(const ImVec2& aPositi
 		else
 			out.mColumn = columnToRight;
 	}
+	else
+		out.mColumn = Max(0, (int)floor((local.x - mTextStart + POS_TO_COORDS_COLUMN_OFFSET * mCharAdvance.x) / mCharAdvance.x));
 	return SanitizeCoordinates(out);
 }
 
@@ -1644,8 +1663,10 @@ TextEditor::Coordinates TextEditor::FindWordStart(const Coordinates& aFrom) cons
 	auto& line = mLines[lineIndex];
 	int charIndex = GetCharacterIndexL(aFrom);
 
-	if (charIndex >= (int)line.size())
+	if (charIndex > (int)line.size() || line.size() == 0)
 		return aFrom;
+	if (charIndex == (int)line.size())
+		charIndex--;
 
 	bool initialIsWordChar = CharIsWordChar(line[charIndex].mChar);
 	bool initialIsSpace = isspace(line[charIndex].mChar);
@@ -2088,7 +2109,10 @@ void TextEditor::HandleMouseInputs()
 		{
 			auto doubleClick = ImGui::IsMouseDoubleClicked(0);
 			auto t = ImGui::GetTime();
-			auto tripleClick = click && !doubleClick && (mLastClick != -1.0f && (t - mLastClick) < io.MouseDoubleClickTime);
+			auto tripleClick = click && !doubleClick &&
+				(mLastClickTime != -1.0f && (t - mLastClickTime) < io.MouseDoubleClickTime &&
+					Distance(io.MousePos, mLastClickPos) < 0.01f);
+
 			if (click)
 				mDraggingSelection = true;
 
@@ -2119,7 +2143,7 @@ void TextEditor::HandleMouseInputs()
 					Coordinates{ cursorCoords.mLine, GetLineMaxColumn(cursorCoords.mLine) };
 				SetSelection({ cursorCoords.mLine, 0 }, targetCursorPos, mState.mCurrentCursor);
 
-				mLastClick = -1.0f;
+				mLastClickTime = -1.0f;
 			}
 
 			/*
@@ -2136,7 +2160,8 @@ void TextEditor::HandleMouseInputs()
 				Coordinates cursorCoords = ScreenPosToCoordinates(ImGui::GetMousePos());
 				SetSelection(FindWordStart(cursorCoords), FindWordEnd(cursorCoords), mState.mCurrentCursor);
 
-				mLastClick = (float)ImGui::GetTime();
+				mLastClickTime = (float)ImGui::GetTime();
+				mLastClickPos = io.MousePos;
 			}
 
 			/*
@@ -2161,7 +2186,8 @@ void TextEditor::HandleMouseInputs()
 				else
 					SetCursorPosition(cursorCoords, mState.GetLastAddedCursorIndex());
 
-				mLastClick = (float)ImGui::GetTime();
+				mLastClickTime = (float)ImGui::GetTime();
+				mLastClickPos = io.MousePos;
 			}
 			else if (ImGui::IsMouseReleased(0))
 			{
@@ -2178,6 +2204,20 @@ void TextEditor::HandleMouseInputs()
 			}
 		}
 	}
+}
+
+void TextEditor::UpdateViewVariables(float aScrollX, float aScrollY)
+{
+	mContentHeight = ImGui::GetWindowHeight() - (IsHorizontalScrollbarVisible() ? IMGUI_SCROLLBAR_WIDTH : 0.0f);
+	mContentWidth = ImGui::GetWindowWidth() - (IsVerticalScrollbarVisible() ? IMGUI_SCROLLBAR_WIDTH : 0.0f);
+
+	mVisibleLineCount = Max((int)ceil(mContentHeight / mCharAdvance.y), 0);
+	mFirstVisibleLine = Max((int)(aScrollY / mCharAdvance.y), 0);
+	mLastVisibleLine = Max((int)((mContentHeight + aScrollY) / mCharAdvance.y), 0);
+
+	mVisibleColumnCount = Max((int)ceil((mContentWidth - Max(mTextStart - aScrollX, 0.0f)) / mCharAdvance.x), 0);
+	mFirstVisibleColumn = Max((int)(Max(aScrollX - mTextStart, 0.0f) / mCharAdvance.x), 0);
+	mLastVisibleColumn = Max((int)((mContentWidth + aScrollX - mTextStart) / mCharAdvance.x), 0);
 }
 
 void TextEditor::Render(bool aParentIsFocused)
@@ -2199,16 +2239,7 @@ void TextEditor::Render(bool aParentIsFocused)
 	ImVec2 cursorScreenPos = ImGui::GetCursorScreenPos();
 	mScrollX = ImGui::GetScrollX();
 	mScrollY = ImGui::GetScrollY();
-	mContentHeight = ImGui::GetWindowHeight() - (IsHorizontalScrollbarVisible() ? IMGUI_SCROLLBAR_WIDTH : 0.0f);
-	mContentWidth = ImGui::GetWindowWidth() - (IsVerticalScrollbarVisible() ? IMGUI_SCROLLBAR_WIDTH : 0.0f);
-
-	mVisibleLineCount = Max((int)ceil(mContentHeight / mCharAdvance.y), 0);
-	mFirstVisibleLine = Max((int)(mScrollY / mCharAdvance.y), 0);
-	mLastVisibleLine = Max((int)((mContentHeight + mScrollY) / mCharAdvance.y), 0);
-
-	mVisibleColumnCount = Max((int)ceil((mContentWidth - Max(mTextStart - mScrollX, 0.0f)) / mCharAdvance.x), 0);
-	mFirstVisibleColumn = Max((int)(Max(mScrollX - mTextStart, 0.0f) / mCharAdvance.x), 0);
-	mLastVisibleColumn = Max((int)((mContentWidth + mScrollX - mTextStart) / mCharAdvance.x), 0);
+	UpdateViewVariables(mScrollX, mScrollY);
 
 	int maxColumnLimited = 0;
 	if (!mLines.empty())
@@ -2230,24 +2261,24 @@ void TextEditor::Render(bool aParentIsFocused)
 			// Draw selection for the current line
 			for (int c = 0; c <= mState.mCurrentCursor; c++)
 			{
-				float sstart = -1.0f;
-				float ssend = -1.0f;
+				float rectStart = -1.0f;
+				float rectEnd = -1.0f;
+				Coordinates cursorSelectionStart = mState.mCursors[c].GetSelectionStart();
+				Coordinates cursorSelectionEnd = mState.mCursors[c].GetSelectionEnd();
+				assert(cursorSelectionStart <= cursorSelectionEnd);
 
-				assert(mState.mCursors[c].GetSelectionStart() <= mState.mCursors[c].GetSelectionEnd());
-				if (mState.mCursors[c].GetSelectionStart() <= lineEndCoord)
-					sstart = mState.mCursors[c].GetSelectionStart() > lineStartCoord ? TextDistanceToLineStart(mState.mCursors[c].GetSelectionStart()) : 0.0f;
-				if (mState.mCursors[c].GetSelectionEnd() > lineStartCoord)
-					ssend = TextDistanceToLineStart(mState.mCursors[c].GetSelectionEnd() < lineEndCoord ? mState.mCursors[c].GetSelectionEnd() : lineEndCoord);
+				if (cursorSelectionStart <= lineEndCoord)
+					rectStart = cursorSelectionStart > lineStartCoord ? TextDistanceToLineStart(cursorSelectionStart) : 0.0f;
+				if (cursorSelectionEnd > lineStartCoord)
+					rectEnd = TextDistanceToLineStart(cursorSelectionEnd < lineEndCoord ? cursorSelectionEnd : lineEndCoord);
+				if (cursorSelectionEnd.mLine > lineNo || cursorSelectionEnd.mLine == lineNo && cursorSelectionEnd > lineEndCoord)
+					rectEnd += mCharAdvance.x;
 
-				if (mState.mCursors[c].GetSelectionEnd().mLine > lineNo)
-					ssend += mCharAdvance.x;
-
-				if (sstart != -1 && ssend != -1 && sstart < ssend)
-				{
-					ImVec2 vstart(lineStartScreenPos.x + mTextStart + sstart, lineStartScreenPos.y);
-					ImVec2 vend(lineStartScreenPos.x + mTextStart + ssend, lineStartScreenPos.y + mCharAdvance.y);
-					drawList->AddRectFilled(vstart, vend, mPalette[(int)PaletteIndex::Selection]);
-				}
+				if (rectStart != -1 && rectEnd != -1 && rectStart < rectEnd)
+					drawList->AddRectFilled(
+						ImVec2{ lineStartScreenPos.x + mTextStart + rectStart, lineStartScreenPos.y },
+						ImVec2{ lineStartScreenPos.x + mTextStart + rectEnd, lineStartScreenPos.y + mCharAdvance.y },
+						mPalette[(int)PaletteIndex::Selection]);
 			}
 
 			// Draw line number (right aligned)
@@ -2379,37 +2410,60 @@ void TextEditor::Render(bool aParentIsFocused)
 
 	if (mEnsureCursorVisible > -1)
 	{
-		auto pos = GetActualCursorCoordinates(mEnsureCursorVisible);
-		if (pos.mLine <= mFirstVisibleLine)
+		for (int i = 0; i < (mEnsureCursorVisibleStartToo ? 2 : 1); i++) // first pass for interactive end and second pass for interactive start
 		{
-			float targetScroll = std::max(0.0f, (pos.mLine - 0.5f) * mCharAdvance.y);
-			if (targetScroll < mScrollY)
-				ImGui::SetScrollY(targetScroll);
-		}
-		if (pos.mLine >= mLastVisibleLine)
-		{
-			float targetScroll = std::max(0.0f, (pos.mLine + 1.5f) * mCharAdvance.y - mContentHeight);
-			if (targetScroll > mScrollY)
-				ImGui::SetScrollY(targetScroll);
-		}
-		if (pos.mColumn <= mFirstVisibleColumn)
-		{
-			float targetScroll = std::max(0.0f, mTextStart + (pos.mColumn - 0.5f) * mCharAdvance.x);
-			if (targetScroll < mScrollX)
-				ImGui::SetScrollX(targetScroll);
-		}
-		if (pos.mColumn >= mLastVisibleColumn)
-		{
-			float targetScroll = std::max(0.0f, mTextStart + (pos.mColumn + 0.5f) * mCharAdvance.x - mContentWidth);
-			if (targetScroll > mScrollX)
-				ImGui::SetScrollX(targetScroll);
+			if (i) UpdateViewVariables(mScrollX, mScrollY); // second pass depends on changes made in first pass
+			Coordinates targetCoords = GetActualCursorCoordinates(mEnsureCursorVisible, i); // cursor selection end or start
+			if (targetCoords.mLine <= mFirstVisibleLine)
+			{
+				float targetScroll = std::max(0.0f, (targetCoords.mLine - 0.5f) * mCharAdvance.y);
+				if (targetScroll < mScrollY)
+					ImGui::SetScrollY(targetScroll);
+			}
+			if (targetCoords.mLine >= mLastVisibleLine)
+			{
+				float targetScroll = std::max(0.0f, (targetCoords.mLine + 1.5f) * mCharAdvance.y - mContentHeight);
+				if (targetScroll > mScrollY)
+					ImGui::SetScrollY(targetScroll);
+			}
+			if (targetCoords.mColumn <= mFirstVisibleColumn)
+			{
+				float targetScroll = std::max(0.0f, mTextStart + (targetCoords.mColumn - 0.5f) * mCharAdvance.x);
+				if (targetScroll < mScrollX)
+					ImGui::SetScrollX(mScrollX = targetScroll);
+			}
+			if (targetCoords.mColumn >= mLastVisibleColumn)
+			{
+				float targetScroll = std::max(0.0f, mTextStart + (targetCoords.mColumn + 0.5f) * mCharAdvance.x - mContentWidth);
+				if (targetScroll > mScrollX)
+					ImGui::SetScrollX(mScrollX = targetScroll);
+			}
 		}
 		mEnsureCursorVisible = -1;
 	}
-	else if (mScrollToTop)
+	if (mScrollToTop)
 	{
 		ImGui::SetScrollY(0.0f);
 		mScrollToTop = false;
+	}
+	if (mSetViewAtLine > -1)
+	{
+		float targetScroll;
+		switch (mSetViewAtLineMode)
+		{
+		default:
+		case SetViewAtLineMode::FirstVisibleLine:
+			targetScroll = std::max(0.0f, (float)mSetViewAtLine * mCharAdvance.y);
+			break;
+		case SetViewAtLineMode::LastVisibleLine:
+			targetScroll = std::max(0.0f, (float)(mSetViewAtLine - (mLastVisibleLine - mFirstVisibleLine)) * mCharAdvance.y);
+			break;
+		case SetViewAtLineMode::Centered:
+			targetScroll = std::max(0.0f, ((float)mSetViewAtLine - (float)(mLastVisibleLine - mFirstVisibleLine) * 0.5f) * mCharAdvance.y);
+			break;
+		}
+		ImGui::SetScrollY(targetScroll);
+		mSetViewAtLine = -1;
 	}
 }
 

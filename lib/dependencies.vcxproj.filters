@@ -136,6 +136,7 @@
     <ClCompile Include="box2d\src\dynamics\b2_world.cpp" />
     <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
     <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
+    <ClCompile Include="imgui\imgui_addons\code_editor\FontManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
@@ -223,15 +224,6 @@
     <ClInclude Include="lua\src\lundump.h" />
     <ClInclude Include="lua\src\lvm.h" />
     <ClInclude Include="lua\src\lzio.h" />
-    <ClInclude Include="magic_enum\include\magic_enum.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_format.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_fuse.hpp" />
-    <ClInclude Include="sol3\include\sol\compatibility\compat-5.3.c.h" />
-    <ClInclude Include="sol3\include\sol\compatibility\compat-5.3.h" />
-    <ClInclude Include="sol3\include\sol\compatibility\compat-5.4.h" />
-    <ClInclude Include="sol3\include\sol\compatibility\lua_version.hpp" />
-    <ClInclude Include="sol3\include\sol\detail\build_version.hpp" />
-    <ClInclude Include="sol3\include\sol\stack\detail\pairs.hpp" />
     <ClInclude Include="sol3\include\sol\as_args.hpp" />
     <ClInclude Include="sol3\include\sol\as_returns.hpp" />
     <ClInclude Include="sol3\include\sol\assert.hpp" />
@@ -339,7 +331,6 @@
     <ClInclude Include="sol3\include\sol\version.hpp" />
     <ClInclude Include="sol3\include\sol\wrapper.hpp" />
     <ClInclude Include="stb\include\stb_image.h" />
-    <ClInclude Include="stb\include\stb_image_resize.h" />
     <ClInclude Include="stb\include\stb_image_write.h" />
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="subprocess\subprocess.h" />
@@ -350,7 +341,6 @@
     <ClInclude Include="msdfgl\include\msdfgl_map.h" />
     <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
     <ClInclude Include="stb\include\stb_image.h" />
-    <ClInclude Include="stb\include\stb_image_resize.h" />
     <ClInclude Include="stb\include\stb_image_write.h" />
     <ClInclude Include="stb\include\stb_sprintf.h" />
     <ClInclude Include="miniaudio\miniaudio.h" />
@@ -676,12 +666,6 @@
     <ClInclude Include="glm\glm\vec3.hpp" />
     <ClInclude Include="glm\glm\vec4.hpp" />
     <ClInclude Include="glm\glm\vector_relational.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_all.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_containers.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_flags.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_iostream.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_switch.hpp" />
-    <ClInclude Include="magic_enum\include\magic_enum_utility.hpp" />
     <ClInclude Include="mimalloc\include\mimalloc\atomic.h" />
     <ClInclude Include="mimalloc\include\mimalloc\internal.h" />
     <ClInclude Include="mimalloc\include\mimalloc\prim.h" />
@@ -827,6 +811,28 @@
     <ClInclude Include="json\include\nlohmann\json_fwd.hpp" />
     <ClInclude Include="json\include\nlohmann\ordered_map.hpp" />
     <ClInclude Include="tson\tileson.hpp" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\FiraCode\FiraCode-Regular.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\FontManager.h" />
+    <ClInclude Include="sol3\include\sol\forward_as.hpp" />
+    <ClInclude Include="sol3\include\sol\unreachable.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_all.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_containers.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_flags.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_format.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_fuse.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_iostream.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_switch.hpp" />
+    <ClInclude Include="magic_enum\include\magic_enum\magic_enum_utility.hpp" />
+    <ClInclude Include="sol3\include\sol\compatibility\compat-5.3.c.h" />
+    <ClInclude Include="sol3\include\sol\compatibility\compat-5.3.h" />
+    <ClInclude Include="sol3\include\sol\compatibility\compat-5.4.h" />
+    <ClInclude Include="sol3\include\sol\compatibility\lua_version.hpp" />
+    <ClInclude Include="sol3\include\sol\detail\build_version.hpp" />
+    <ClInclude Include="sol3\include\sol\stack\detail\pairs.hpp" />
+    <ClInclude Include="sol3\include\sol\utility\is_integer.hpp" />
+    <ClInclude Include="sol3\include\sol\utility\to_string.hpp" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\Inter\Inter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

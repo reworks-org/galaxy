@@ -1,12 +1,12 @@
 SPDX-License-Identifier: ZLIB
 
-********* TINY FILE DIALOGS LATEST VERSION IS ONLY ON SOURCEFORGE *********
+********* TINY FILE DIALOGS OFFICIAL WEBSITE IS ON SOURCEFORGE *********
 
                    http://tinyfiledialogs.sourceforge.net
          git clone http://git.code.sf.net/p/tinyfiledialogs/code tinyfd
 ***************************************************************************
 
-tiny file dialogs ( cross-platform C C++ ) v3.15.1 [Oct 12, 2023]
+tiny file dialogs ( cross-platform C C++ ) v3.16 [Nov 23, 2023]
  _________
 /         \   Tray-popup InputBox PasswordBox MessageBox Notification Beep
 |tiny file|   ColorPicker OpenFileDialog SaveFileDialog SelectFolderDialog
@@ -181,13 +181,10 @@ char const * tinyfd_colorChooser(
  |   if a graphical display is absent, it will use console dialogs |
  |_________________________________________________________________|
 
-OSX :
-$ clang -o hello.app hello.c tinyfiledialogs.c
-( or gcc )
 
-UNIX :
-$ gcc -o hello hello.c tinyfiledialogs.c
-( or clang tcc owcc cc CC )
+UNIX (including MacOS) :
+$ clang -o hello hello.c tinyfiledialogs.c
+( or gcc tcc owcc cc CC )
 ( usefull warnings: -g3 -Wall -Wextra -Wdouble-promotion -Wconversion -Wno-sign-conversion
 -Wno-unused-parameter -Wno-unused-function -fsanitize=undefined -fsanitize=thread )
 

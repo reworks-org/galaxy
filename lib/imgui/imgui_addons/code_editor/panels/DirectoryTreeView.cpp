@@ -3,10 +3,11 @@
 #include <iostream>
 #include "../PathUtils.h"
 
-#define MAX_SEARCH_RESULTS             50
+#define MAX_SEARCH_RESULTS 50
 #define SECONDS_TO_SELECT_ON_SHOW_FILE 2.0f
 
-DirectoryTreeView::DirectoryTreeView(const std::string& folderPath,
+DirectoryTreeView::DirectoryTreeView(
+	const std::string& folderPath,
 	OnNodeFoundCallback onNodeFoundCallback,
 	OnFileClickCallback onFileClickCallback,
 	OnFocusedCallback onFocusedCallback,
@@ -14,16 +15,16 @@ DirectoryTreeView::DirectoryTreeView(const std::string& folderPath,
 	std::vector<std::pair<std::string, OnContextMenuCallback>>* folderContextMenuOptions,
 	int id)
 {
-	this->id                       = id;
-	panelName                      = "Folder view##" + std::to_string((int)this);
-	directoryPath                  = folderPath;
-	this->onNodeFoundCallback      = onNodeFoundCallback;
-	this->onFileClickCallback      = onFileClickCallback;
-	this->onFocusedCallback        = onFocusedCallback;
-	this->fileContextMenuOptions   = fileContextMenuOptions;
+	this->id = id;
+	panelName = "Folder view##" + std::to_string((int)this);
+	directoryPath = folderPath;
+	this->onNodeFoundCallback = onNodeFoundCallback;
+	this->onFileClickCallback = onFileClickCallback;
+	this->onFocusedCallback = onFocusedCallback;
+	this->fileContextMenuOptions = fileContextMenuOptions;
 	this->folderContextMenuOptions = folderContextMenuOptions;
-	findFilesBuffer[0]             = '\0';
-	folderLoaderThread             = new std::thread(RefreshThread, this);
+	findFilesBuffer[0] = '\0';
+	folderLoaderThread = new std::thread(RefreshThread, this);
 }
 
 DirectoryTreeView::~DirectoryTreeView()
@@ -41,7 +42,7 @@ bool DirectoryTreeView::OnImGui(double deltaTime)
 	{
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::MenuItem("Search"))
+			if (ImGui::MenuItem("Run Search"))
 			{
 				RunSearch();
 			}
@@ -68,10 +69,7 @@ bool DirectoryTreeView::OnImGui(double deltaTime)
 				Trie::GetSuggestions(&searchTrie, std::string(findFilesBuffer), searchResults, MAX_SEARCH_RESULTS);
 			}
 			bool searchTextFieldHasFocus = ImGui::IsItemFocused();
-			bool pressedEnterOnSearchbarAndThereAreSearchResults =
-				searchTextFieldHasFocus && searchResults.size() > 0 &&
-				(ImGui::IsKeyDown(ImGuiKey_Enter) ||
-					ImGui::IsKeyDown(ImGuiKey_KeypadEnter)); // to be able to press enter right after typing without using arrow keys
+			bool pressedEnterOnSearchbarAndThereAreSearchResults = searchTextFieldHasFocus && searchResults.size() > 0 && (ImGui::IsKeyDown(ImGuiKey_Enter) || ImGui::IsKeyDown(ImGuiKey_KeypadEnter)); // to be able to press enter right after typing without using arrow keys
 
 			bool callbackCalled = false;
 			for (const std::string& searchResult : searchResults)
@@ -89,7 +87,7 @@ bool DirectoryTreeView::OnImGui(double deltaTime)
 						{
 							onFileClickCallback(filePath, id);
 							ImGui::GetIO().ClearInputKeys();
-							searching      = false;
+							searching = false;
 							callbackCalled = true;
 							break;
 						}
@@ -100,8 +98,8 @@ bool DirectoryTreeView::OnImGui(double deltaTime)
 		}
 
 		isHoveringNodeThisFrame = false;
-		ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, {0.0f, 0.0f});
-		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, {0.0f, 2.0f});
+		ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, { 0.0f, 0.0f });
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, { 0.0f, 2.0f });
 		ImGui::SetNextItemOpen(true);
 		RecursivelyDisplayDirectoryNode(directoryTreeRoot);
 		if (selectionTimer > 0.0f)
@@ -144,7 +142,7 @@ bool DirectoryTreeView::OnImGui(double deltaTime)
 	if (!windowIsOpen && folderLoaderThread != nullptr)
 	{
 		std::thread* threadToJoin = folderLoaderThread;
-		folderLoaderThread        = nullptr;
+		folderLoaderThread = nullptr;
 		threadToJoin->join();
 	}
 	return windowIsOpen;
@@ -153,14 +151,14 @@ bool DirectoryTreeView::OnImGui(double deltaTime)
 void DirectoryTreeView::RunSearch()
 {
 	requestingFocus = searching = true;
-	findFilesBuffer[0]          = '\0';
+	findFilesBuffer[0] = '\0';
 	searchResults.clear();
 }
 
 void DirectoryTreeView::ShowFile(const std::string& filePath)
 {
 	fileToHighlight = filePath;
-	selectionTimer  = SECONDS_TO_SELECT_ON_SHOW_FILE;
+	selectionTimer = SECONDS_TO_SELECT_ON_SHOW_FILE;
 }
 
 void DirectoryTreeView::Refresh()
@@ -178,15 +176,13 @@ void DirectoryTreeView::Refresh()
 
 void DirectoryTreeView::RecursivelyAddDirectoryNodes(DirectoryTreeViewNode& parentNode, std::filesystem::directory_iterator directoryIterator)
 {
-	if (folderLoaderThread == nullptr)
-		return;
+	if (folderLoaderThread == nullptr) return;
 	for (const std::filesystem::directory_entry& entry : directoryIterator)
 	{
 		DirectoryTreeViewNode& childNode = parentNode.children.emplace_back();
-		childNode.fullPath               = entry.path().string();
-		childNode.fileName               = entry.path().filename().string();
-		if (onNodeFoundCallback != nullptr)
-			onNodeFoundCallback();
+		childNode.fullPath = entry.path().string();
+		childNode.fileName = entry.path().filename().string();
+		if (onNodeFoundCallback != nullptr) onNodeFoundCallback();
 		if (childNode.isDirectory = entry.is_directory(); childNode.isDirectory)
 			RecursivelyAddDirectoryNodes(childNode, std::filesystem::directory_iterator(entry));
 		else
@@ -196,9 +192,7 @@ void DirectoryTreeView::RecursivelyAddDirectoryNodes(DirectoryTreeViewNode& pare
 		}
 	}
 
-	auto moveDirectoriesToFront = [](const DirectoryTreeViewNode& a, const DirectoryTreeViewNode& b) {
-		return (a.isDirectory > b.isDirectory);
-	};
+	auto moveDirectoriesToFront = [](const DirectoryTreeViewNode& a, const DirectoryTreeViewNode& b) { return (a.isDirectory > b.isDirectory); };
 	std::sort(parentNode.children.begin(), parentNode.children.end(), moveDirectoriesToFront);
 }
 
@@ -212,15 +206,14 @@ void DirectoryTreeView::CreateDirectoryNodeTreeFromPath(DirectoryTreeViewNode& r
 
 void DirectoryTreeView::SetLastHoveredNode(const DirectoryTreeViewNode* node)
 {
-	lastHoveredNode         = node;
+	lastHoveredNode = node;
 	isHoveringNodeThisFrame = true;
 }
 
 void DirectoryTreeView::RecursivelyDisplayDirectoryNode(const DirectoryTreeViewNode& parentNode)
 {
 	bool needToSelectNode = false;
-	if (fileToHighlight.length() > 0 &&
-		PathUtils::GetFolderPath(fileToHighlight).find(parentNode.fullPath) != std::string::npos) // show file in folder functionality
+	if (fileToHighlight.length() > 0 && PathUtils::GetFolderPath(fileToHighlight).find(parentNode.fullPath) != std::string::npos) // show file in folder functionality
 		ImGui::SetNextItemOpen(true);
 	else if (fileToHighlight.compare(parentNode.fullPath) == 0)
 		needToSelectNode = true;
@@ -245,8 +238,8 @@ void DirectoryTreeView::RecursivelyDisplayDirectoryNode(const DirectoryTreeViewN
 	else
 	{
 		if (ImGui::TreeNodeEx(parentNode.fileName.c_str(),
-				ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_SpanFullWidth | ImGuiTreeNodeFlags_FramePadding |
-					(needToSelectNode ? ImGuiTreeNodeFlags_Selected : 0x0)))
+			ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_SpanFullWidth |
+			ImGuiTreeNodeFlags_FramePadding | (needToSelectNode ? ImGuiTreeNodeFlags_Selected : 0x0)))
 		{
 			if (ImGui::IsItemClicked(0))
 			{
