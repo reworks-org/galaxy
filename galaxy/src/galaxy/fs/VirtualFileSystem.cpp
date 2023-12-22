@@ -133,7 +133,7 @@ namespace galaxy
 				path = std::filesystem::absolute(GALAXY_ROOT_DIR / path);
 			}
 
-			if (path.string().find(GALAXY_WORK_DIR) != std::string::npos)
+			if (path.string().find(GALAXY_WORK_DIR.substr(0, GALAXY_WORK_DIR.length() - 1)) != std::string::npos)
 			{
 				auto       fname = path.filename().string();
 				const auto opt   = find(fname);
@@ -144,6 +144,8 @@ namespace galaxy
 
 				auto entry = path.string();
 				strutils::replace_all(entry, GALAXY_ROOT_DIR.string(), "");
+				strutils::replace_all(entry, "\\", "/");
+				strutils::replace_all(entry, "/" + GALAXY_WORK_DIR, "");
 
 				auto z = zip_open(m_datapack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'a');
 				zip_entry_open(z, entry.c_str());
@@ -152,6 +154,8 @@ namespace galaxy
 				m_tree[fname] = ArchiveEntry {.index = zip_entry_index(z), .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
 				zip_entry_close(z);
 				zip_close(z);
+
+				GALAXY_LOG(GALAXY_INFO, "Imported '{0}'.", fname);
 			}
 			else
 			{
