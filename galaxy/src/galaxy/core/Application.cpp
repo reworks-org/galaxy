@@ -198,8 +198,7 @@ namespace galaxy
 			em.register_dependencies<components::Text, components::Transform>();
 			em.register_dependencies<components::Animated, components::Sprite>();
 			em.register_dependencies<components::RigidBody, components::Transform>();
-			em.register_dependencies<components::MapData, components::Transform>();
-			em.register_dependencies<components::MapData, components::Animated>();
+			em.register_dependencies<components::MapData, components::Transform, components::Animated>();
 
 			//
 			// Initialize Lua.
