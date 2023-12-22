@@ -41,7 +41,7 @@ namespace galaxy
 
 		Map::~Map()
 		{
-			destroy();
+			m_registry = nullptr;
 		}
 
 		void Map::load(const std::string& file)
@@ -100,15 +100,18 @@ namespace galaxy
 			}
 		}
 
-		void Map::enable()
+		void Map::destroy()
 		{
-			for (const auto e : m_entities)
+			if (m_created)
 			{
-				m_registry->emplace<flags::Disabled>(e);
+				m_registry->destroy(m_entities.begin(), m_entities.end());
+				m_entities.clear();
+
+				m_created = false;
 			}
 		}
 
-		void Map::disable()
+		void Map::enable()
 		{
 			for (const auto e : m_entities)
 			{
@@ -116,17 +119,17 @@ namespace galaxy
 			}
 		}
 
+		void Map::disable()
+		{
+			for (const auto e : m_entities)
+			{
+				m_registry->emplace<flags::Disabled>(e);
+			}
+		}
+
 		const std::string& Map::get_name() const
 		{
 			return m_name;
-		}
-
-		void Map::destroy()
-		{
-			m_registry->destroy(m_entities.begin(), m_entities.end());
-			m_entities.clear();
-
-			m_created = false;
 		}
 
 		void Map::process_layer(tson::Layer& layer, int& level)
@@ -186,7 +189,7 @@ namespace galaxy
 				const auto animated = tile.getTile()->getAnimation().any();
 
 				auto& atlas    = core::ServiceLocator<resource::TextureAtlas>::ref();
-				auto  info_opt = atlas.query(tileset->getImage().stem().string());
+				auto  info_opt = atlas.query(tileset->getImage().filename().string());
 
 				if (info_opt.has_value())
 				{
@@ -271,6 +274,10 @@ namespace galaxy
 					{
 						map.m_animations[tile.getTile()->getId()].m_tiles_to_animate.emplace(index, vertices);
 					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read texture '{0}' from tilemap.");
 				}
 			}
 

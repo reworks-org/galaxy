@@ -183,12 +183,10 @@ namespace sc
 							ICON_MDI_MAGNIFY "Filter Assigned Maps...",
 							ImGui::GetContentRegionAvail().x);
 
-						static const std::string s_blank = "";
-
-						const auto& name = scene->m_map ? scene->m_map->get_name() : s_blank;
+						static std::string name = scene->m_map ? scene->m_map->get_name() : "Set Active Map";
 
 						ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
-						if (ImGui::BeginCombo("Set Active Map", name.c_str()))
+						if (ImGui::BeginCombo("##SetActiveMap", name.c_str()))
 						{
 							for (const auto& key : scene->m_assigned_maps)
 							{
@@ -197,6 +195,7 @@ namespace sc
 									const bool selected = (name == key);
 									if (ImGui::Selectable(key.c_str(), selected))
 									{
+										name = key;
 										scene->set_active_map(name);
 									}
 

@@ -18,6 +18,7 @@ namespace galaxy
 			: m_texture {0}
 			, m_layer {0}
 		{
+			GALAXY_LOG(GALAXY_FATAL, "no map default construct.");
 		}
 
 		MapData::MapData(const int total_tiles)

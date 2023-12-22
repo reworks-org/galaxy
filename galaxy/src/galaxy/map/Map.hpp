@@ -57,6 +57,11 @@ namespace galaxy
 			void create(entt::registry& registry);
 
 			///
+			/// Destroy map and entities.
+			///
+			void destroy();
+
+			///
 			/// Enable the currently active map's entities.
 			///
 			void enable();
@@ -74,11 +79,6 @@ namespace galaxy
 			[[nodiscard]] const std::string& get_name() const;
 
 		  private:
-			///
-			/// Destroy map and entities.
-			///
-			void destroy();
-
 			///
 			/// Recursive function to process tiled map layers.
 			///

@@ -102,7 +102,7 @@ namespace galaxy
 
 		void Scene::set_active_map(const std::string& map)
 		{
-			if (!m_map)
+			if (m_map)
 			{
 				m_map->disable();
 			}
