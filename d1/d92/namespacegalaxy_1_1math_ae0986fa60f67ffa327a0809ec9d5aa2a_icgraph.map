@@ -1,17 +1,12 @@
 <map id="galaxy::math::decode_zlib" name="galaxy::math::decode_zlib">
-<area shape="rect" id="Node000001" title="Decompresses string into ZLib." alt="" coords="721,66,913,91"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,29,392,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="781,62,731,38,673,20,613,10,567,9,459,20,393,32,392,27,458,15,566,3,614,5,674,15,733,33,783,57"/>
-<area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4" title="Load and parse tiled map." alt="" coords="479,94,653,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="708,93,654,100,653,94,707,88"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a1b1a68358eb7d6c421040b6b52e74373" title="Load app data file into scene manager." alt="" coords="459,29,673,69"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="708,68,673,64,674,59,708,63"/>
-<area shape="rect" id="Node000007" href="$d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html#a14188f921b47fd976c6ee141e9c9bfb5" title="Overloaded operator() used to load a resource." alt="" coords="477,144,655,184"/>
-<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="772,99,674,134,637,146,635,141,672,129,770,94"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,29,188,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,52,188,52,188,47,241,47"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="498,93,392,68,393,63,499,88"/>
-<area shape="rect" id="Node000005" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a949cec15151de0cb13f05fef95474ee0" title="Loading constructor." alt="" coords="236,94,411,119"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="465,109,411,109,411,104,465,104"/>
-<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="445,52,392,52,392,47,445,47"/>
+<area shape="rect" id="Node000001" title="Decompresses string into ZLib." alt="" coords="684,41,876,66"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="720,40,636,24,576,19,529,19,421,24,374,25,374,20,421,19,529,14,576,14,636,19,721,35"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a1b1a68358eb7d6c421040b6b52e74373" title="Load app data file into scene manager." alt="" coords="421,33,636,73"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="671,56,636,56,636,51,671,51"/>
+<area shape="rect" id="Node000005" href="$d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html#a14188f921b47fd976c6ee141e9c9bfb5" title="Overloaded operator() used to load a resource." alt="" coords="439,97,618,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="717,72,609,100,607,95,715,67"/>
+<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="408,41,373,37,374,31,408,36"/>
 </map>

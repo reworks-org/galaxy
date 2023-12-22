@@ -1,5 +1,0 @@
-<map id="galaxy::map::Map::~Map" name="galaxy::map::Map::~Map">
-<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,5,191,31"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#adfb43e6f636610e929cee8bd6eb4343c" title="Destroy map and entities." alt="" coords="239,5,433,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,15,225,15,225,21,191,21"/>
-</map>

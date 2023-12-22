@@ -1,11 +1,9 @@
 <map id="galaxy::map::Map::Map" name="galaxy::map::Map::Map">
-<area shape="rect" id="Node000001" title="Loading constructor." alt="" coords="5,55,180,80"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4" title="Load and parse tiled map." alt="" coords="228,55,403,80"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,65,214,65,214,70,180,70"/>
-<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="470,5,662,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="380,52,487,31,488,36,381,57"/>
-<area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#adfb43e6f636610e929cee8bd6eb4343c" title="Destroy map and entities." alt="" coords="469,55,663,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="403,65,455,65,455,70,403,70"/>
-<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="451,104,681,129"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="381,77,488,99,487,104,380,83"/>
+<area shape="rect" id="Node000001" title="Loading constructor." alt="" coords="5,31,180,56"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4" title="Load and parse tiled map." alt="" coords="228,31,403,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,41,214,41,214,46,180,46"/>
+<area shape="rect" id="Node000003" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#adfb43e6f636610e929cee8bd6eb4343c" title="Destroy map and entities." alt="" coords="469,5,663,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,32,455,27,456,32,403,37"/>
+<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="451,55,681,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="403,49,437,52,437,58,402,54"/>
 </map>

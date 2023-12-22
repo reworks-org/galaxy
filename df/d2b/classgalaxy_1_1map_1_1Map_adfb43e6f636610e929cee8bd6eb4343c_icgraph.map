@@ -1,13 +1,11 @@
 <map id="galaxy::map::Map::destroy" name="galaxy::map::Map::destroy">
-<area shape="rect" id="Node000001" title="Destroy map and entities." alt="" coords="692,66,887,91"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4" title="Load and parse tiled map." alt="" coords="464,41,639,66"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="678,70,639,65,639,60,679,64"/>
-<area shape="rect" id="Node000006" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a5ed8860ed13140e3d7556d86cdf19062" title="Destructor." alt="" coords="459,90,644,115"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="679,92,645,96,644,91,678,87"/>
+<area shape="rect" id="Node000001" title="Destroy map and entities." alt="" coords="681,42,876,67"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4" title="Load and parse tiled map." alt="" coords="459,42,633,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="668,57,634,57,634,52,668,52"/>
 <area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,5,392,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,44,392,36,392,31,450,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="444,44,392,37,392,32,445,39"/>
 <area shape="rect" id="Node000005" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a949cec15151de0cb13f05fef95474ee0" title="Loading constructor." alt="" coords="236,70,411,95"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="450,69,411,74,411,69,450,64"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="445,70,411,74,410,69,445,65"/>
 <area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="241,28,188,28,188,23,241,23"/>
 </map>
