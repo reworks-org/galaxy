@@ -26,11 +26,15 @@ namespace galaxy
 	{
 		Map::Map()
 			: m_created {false}
+			, m_map {nullptr}
 			, m_registry {nullptr}
 		{
 		}
 
 		Map::Map(const std::string& file)
+			: m_created {false}
+			, m_map {nullptr}
+			, m_registry {nullptr}
 		{
 			load(file);
 		}
@@ -44,18 +48,18 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto zlib = fs.read<meta::FSTextR>(file);
-			if (!zlib.empty())
+			auto data = fs.read<meta::FSTextR>(file);
+			if (!data.empty())
 			{
-				auto data = math::decode_zlib(zlib);
-
 				tson::Tileson parser;
-				m_map = parser.parse(data);
+				m_map = parser.parse(data.data(), data.size(), nullptr);
 
 				if (m_map->getStatus() == tson::ParseStatus::OK)
 				{
-					// Now the map hasnt failed to load, we can destroy the old data.
-					destroy();
+					if (m_created)
+					{
+						destroy();
+					}
 
 					m_name = file;
 
@@ -67,7 +71,7 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to parse tile map '{0}'.", file);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to parse tile map '{0}' because '{1}'.", file, m_map->getStatusMessage());
 				}
 			}
 			else
