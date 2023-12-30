@@ -53,6 +53,11 @@ namespace galaxy
 
 		void SpriteBatch::init(const int max_quads)
 		{
+			if (max_quads <= 0)
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to create spritebatch with 0 quads.");
+			}
+
 			meta::vector<unsigned int> indices;
 			indices.reserve(static_cast<std::size_t>(max_quads) * 6);
 

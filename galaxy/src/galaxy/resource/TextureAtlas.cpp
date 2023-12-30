@@ -41,7 +41,7 @@ namespace galaxy
 				graphics::Texture texture {data};
 
 				const auto path = std::filesystem::path(file);
-				const auto name = path.stem().string();
+				const auto name = path.filename().string();
 
 				if (!m_data.contains(name))
 				{

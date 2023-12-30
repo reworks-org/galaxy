@@ -421,38 +421,12 @@ namespace galaxy
 
 					case tson::ObjectType::Text:
 						{
-							GALAXY_LOG(GALAXY_WARNING, "Tiled Text Objects only have partial support.");
-
-							auto& text    = m_registry->emplace<components::Text>(entity);
-							auto& objText = obj.getText();
-
-							graphics::Colour tc;
-
-							tc.m_red   = objText.color.r;
-							tc.m_green = objText.color.g;
-							tc.m_blue  = objText.color.b;
-							tc.m_alpha = objText.color.a;
-
-							components::Text::Alignment al = components::Text::Alignment::LEFT;
-							switch (objText.horizontalAlignment)
-							{
-								case tson::TextAlignment::Left:
-									al = components::Text::Alignment::LEFT;
-									break;
-								case tson::TextAlignment::Center:
-									al = components::Text::Alignment::CENTER;
-									break;
-								case tson::TextAlignment::Right:
-									al = components::Text::Alignment::RIGHT;
-									break;
-							}
-
-							text.create(objText.text, static_cast<float>(objText.pixelSize), objText.fontFamily, tc, level, al);
+							GALAXY_LOG(GALAXY_WARNING, "Tiled text Objects are not supported.");
 						}
 						break;
 
 					case tson::ObjectType::Template:
-						GALAXY_LOG(GALAXY_WARNING, "Tiled Template objects are not supported.");
+						GALAXY_LOG(GALAXY_WARNING, "Tiled template objects are not supported.");
 						break;
 				}
 			}
