@@ -137,6 +137,13 @@
     <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
     <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
     <ClCompile Include="imgui\imgui_addons\code_editor\FontManager.cpp" />
+    <ClCompile Include="physfs\src\physfs.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_dir.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_unpacked.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_zip.c" />
+    <ClCompile Include="physfs\src\physfs_byteorder.c" />
+    <ClCompile Include="physfs\src\physfs_platform_windows.c" />
+    <ClCompile Include="physfs\src\physfs_unicode.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
@@ -833,6 +840,11 @@
     <ClInclude Include="sol3\include\sol\utility\is_integer.hpp" />
     <ClInclude Include="sol3\include\sol\utility\to_string.hpp" />
     <ClInclude Include="imgui\imgui_addons\code_editor\Inter\Inter.h" />
+    <ClInclude Include="physfs\src\physfs.h" />
+    <ClInclude Include="physfs\src\physfs_internal.h" />
+    <ClInclude Include="physfs\src\physfs_casefolding.h" />
+    <ClInclude Include="physfs\src\physfs_platforms.h" />
+    <ClInclude Include="physfs\src\physfs_miniz.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

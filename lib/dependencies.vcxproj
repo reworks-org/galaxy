@@ -142,6 +142,13 @@
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="nuklear\nuklear.c" />
+    <ClCompile Include="physfs\src\physfs.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_dir.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_unpacked.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_zip.c" />
+    <ClCompile Include="physfs\src\physfs_byteorder.c" />
+    <ClCompile Include="physfs\src\physfs_platform_windows.c" />
+    <ClCompile Include="physfs\src\physfs_unicode.c" />
     <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
     <ClCompile Include="stb\include\stb_image.c" />
     <ClCompile Include="stb\include\stb_vorbis.cpp" />
@@ -709,6 +716,11 @@
     <ClInclude Include="nuklear\nuklear.h" />
     <ClInclude Include="nuklear\Nuklear.hpp" />
     <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
+    <ClInclude Include="physfs\src\physfs.h" />
+    <ClInclude Include="physfs\src\physfs_casefolding.h" />
+    <ClInclude Include="physfs\src\physfs_internal.h" />
+    <ClInclude Include="physfs\src\physfs_miniz.h" />
+    <ClInclude Include="physfs\src\physfs_platforms.h" />
     <ClInclude Include="pl_mpeg\pl_mpeg.h" />
     <ClInclude Include="robin_hood\src\include\robin_hood.h" />
     <ClInclude Include="sol3\include\sol\assert.hpp" />
@@ -1052,7 +1064,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_PLATFORM_WINDOWS;ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1087,7 +1099,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1113,7 +1125,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_PLATFORM_WINDOWS;ENTT_DISABLE_ASSERT;FASTNOISE_STATIC_LIB;GLFW_PLATFORM_WIN32;UNICODE;_UNICODE;MSDFGL_STATIC_DEFINE;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_GLFW_WIN32;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1144,7 +1156,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/fastnoise2/include/;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/include;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
