@@ -27,10 +27,7 @@ namespace galaxy
 		inline static unsigned int GALAXY_CUR_UPS_VAR {0};
 		inline static unsigned int GALAXY_CUR_FPS_VAR {0};
 
-		inline static const std::string data {"data/"};
-		inline static const std::string data_mods {"data/mods/"};
-		inline static const std::string data_updates {"data/updates/"};
-		inline static const std::string work_dir {"assets/"};
+		inline static const std::string asset_dir {"assets/"};
 		inline static const std::string editor_data_dir {"editor/"};
 		inline static const std::string assets_music {"music/"};
 		inline static const std::string assets_sfx {"sfx/"};
@@ -153,22 +150,7 @@ namespace galaxy
 ///
 /// Main data directory.
 ///
-#define GALAXY_DATA_DIR galaxy::DoNotUseReferToMacros::data
-
-///
-/// Directory for working assets.
-///
-#define GALAXY_WORK_DIR galaxy::DoNotUseReferToMacros::work_dir
-
-///
-/// Directory for mods.
-///
-#define GALAXY_MOD_DIR galaxy::DoNotUseReferToMacros::data_mods
-
-///
-/// Directory for update archives.
-///
-#define GALAXY_UPDATE_DIR galaxy::DoNotUseReferToMacros::data_updates
+#define GALAXY_ASSET_DIR galaxy::DoNotUseReferToMacros::asset_dir
 
 ///
 /// Directory for galaxy editor data.

@@ -30,15 +30,6 @@ namespace galaxy
 			Texture();
 
 			///
-			/// \brief Argument Constructor.
-			///
-			/// Loads from standard 256 byte array.
-			///
-			/// \param buffer Memory buffer to load from.
-			///
-			Texture(std::span<std::uint8_t> buffer);
-
-			///
 			/// Move constructor.
 			///
 			Texture(Texture&&);
@@ -54,6 +45,15 @@ namespace galaxy
 			~Texture();
 
 			///
+			/// Load a texture from vfs.
+			///
+			/// \param file Texture in VFS to load.
+			///
+			/// \return True if texture loaded successfully.
+			///
+			[[nodiscard]] bool load(const std::string& file);
+
+			///
 			/// \brief Loads texture from memory.
 			///
 			/// Loads from standard 256 byte array.
@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			/// \return True if texture loaded successfully.
 			///
-			[[maybe_unused]] bool load(std::span<std::uint8_t> buffer);
+			[[maybe_unused]] bool load_mem(std::span<std::uint8_t> buffer);
 
 			///
 			/// \brief Load raw pixel data from memory.
@@ -79,29 +79,11 @@ namespace galaxy
 			void load_raw(const int width, const int height, unsigned int storage_format, unsigned int pixel_format, unsigned int type, void* buffer);
 
 			///
-			/// Load a texture from entry.
-			///
-			/// \param entry Texture in VFS to load.
-			///
-			/// \return True if texture loaded successfully.
-			///
-			[[nodiscard]] bool load_entry(const std::string& entry);
-
-			///
-			///  Loads texture from file.
-			///
-			/// \param file File on disk to load from.
-			///
-			/// \return True if texture loaded successfully.
-			///
-			[[nodiscard]] bool load_disk(const std::string& file);
-
-			///
 			/// Saves texture to file on disk.
 			///
-			/// \param filepath Path and filename to save texture to. Does not need extension (it will be ignored).
+			/// \param file Path and filename to save texture to. Does not need extension (it will be ignored).
 			///
-			void save(std::string_view filepath);
+			void save(std::string_view file);
 
 			///
 			/// Deletes texture data and configuration in OpenGL and creates new texture handle.

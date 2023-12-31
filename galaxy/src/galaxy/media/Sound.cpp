@@ -65,7 +65,7 @@ namespace galaxy
 			ma_decoder_uninit(&m_decoder);
 			m_data.clear();
 
-			m_data = fs.read<meta::FSBinaryR>(file);
+			m_data = fs.read_binary(file);
 			if (!m_data.empty())
 			{
 				if (ma_decoder_init_memory(m_data.data(), m_data.size(), nullptr, &m_decoder) != MA_SUCCESS)

@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		/// \return Fully parsed json object.
 		///
-		[[nodiscard]] std::optional<nlohmann::json> read_vfs(const std::string& entry);
+		[[nodiscard]] std::optional<nlohmann::json> read(const std::string& entry);
 
 		///
 		/// Read raw json string.
@@ -33,15 +33,6 @@ namespace galaxy
 		[[nodiscard]] std::optional<nlohmann::json> read_raw(const std::string& json);
 
 		///
-		/// Load and parse a json file from disk.
-		///
-		/// \param file File to read and parse.
-		///
-		/// \return Fully parsed json object.
-		///
-		[[nodiscard]] std::optional<nlohmann::json> read_disk(const std::string& file);
-
-		///
 		/// Write json to vfs.
 		///
 		/// \param Entry Entry in the vfs to write to.
@@ -49,17 +40,7 @@ namespace galaxy
 		///
 		/// \return True if file successfully saved.
 		///
-		[[nodiscard]] bool write_vfs(const std::string& entry, const nlohmann::json& json);
-
-		///
-		/// Save a json file to disk.
-		///
-		/// \param file Path to the file to save.
-		/// \param json Json to write to file.
-		///
-		/// \return True if file successfully saved to disk.
-		///
-		[[nodiscard]] bool write_disk(const std::string& file, const nlohmann::json& json);
+		[[nodiscard]] bool write(const std::string& entry, const nlohmann::json& json);
 	} // namespace json
 } // namespace galaxy
 

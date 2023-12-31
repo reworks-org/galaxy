@@ -26,15 +26,6 @@ namespace galaxy
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
 		}
 
-		Texture::Texture(std::span<std::uint8_t> buffer)
-			: m_width {0}
-			, m_height {0}
-			, m_texture {0}
-		{
-			glCreateTextures(GL_TEXTURE_2D, 1, &m_texture);
-			load(buffer);
-		}
-
 		Texture::Texture(Texture&& t)
 		{
 			if (this->m_texture != 0)
@@ -79,7 +70,24 @@ namespace galaxy
 			}
 		}
 
-		bool Texture::load(std::span<std::uint8_t> buffer)
+		bool Texture::load(const std::string& file)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			auto data = fs.read_binary(file);
+			if (!data.empty())
+			{
+				return load_mem(data);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs.", file);
+			}
+
+			return false;
+		}
+
+		bool Texture::load_mem(std::span<std::uint8_t> buffer)
 		{
 			bool result = false;
 
@@ -139,64 +147,41 @@ namespace galaxy
 			glTextureParameterf(m_texture, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 		}
 
-		bool Texture::load_entry(const std::string& entry)
+		void Texture::save(std::string_view file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto data = fs.read<meta::FSBinaryR>(entry);
-			if (!data.empty())
+			auto path = std::filesystem::path(file);
+			if (!path.is_absolute())
 			{
-				return load(data);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs.", entry);
+				path = GALAXY_ROOT_DIR / path;
 			}
 
-			return false;
-		}
-
-		bool Texture::load_disk(const std::string& file)
-		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			auto data = fs.read_disk<meta::FSBinaryR>(file);
-			if (!data.empty())
+			if (!path.has_extension())
 			{
-				return load(data);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from disk.", file);
+				path.replace_extension(".png");
 			}
 
-			return false;
-		}
-
-		void Texture::save(std::string_view filepath)
-		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-
-			auto path = std::filesystem::path(filepath);
-			auto full = GALAXY_ROOT_DIR / GALAXY_WORK_DIR / path.parent_path() / path.stem();
-
-			if (!std::filesystem::exists(full.parent_path()))
+			if (!std::filesystem::exists(path.parent_path()))
 			{
-				std::filesystem::create_directories(full.parent_path());
+				std::filesystem::create_directories(path.parent_path());
 			}
 
-			if (full.extension() != ".png" || full.extension() != ".PNG" || !full.has_extension())
-			{
-				full.replace_extension(".png");
-			}
-
-			const auto                 ui = static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4u;
-			meta::vector<unsigned int> pixels(ui, 0);
+			meta::vector<unsigned int> pixels(static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4u, 0);
 
 			glGetTextureImage(m_texture, 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(full.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+
+			int            len = 0;
+			unsigned char* png = stbi_write_png_to_mem((const unsigned char*)pixels.data(), m_width * 4, m_width, m_height, 4, &len);
+
+			if (!fs.write_raw(png, len, path.string()))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to write '{0}' to disk.", path.string());
+			}
+
+			mi_free(png);
 		}
 
 		void Texture::recreate()

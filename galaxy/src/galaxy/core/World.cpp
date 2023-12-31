@@ -328,31 +328,41 @@ namespace galaxy
 			auto& ui    = registry.get<components::UIScript>(entity);
 			auto& state = core::ServiceLocator<sol::state>::ref();
 			auto& nui   = core::ServiceLocator<ui::NuklearUI>::ref();
+			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto result = state.load_file(ui.file());
-			if (result.valid())
+			const auto script = fs.read(ui.file());
+			if (!script.empty())
 			{
-				ui.m_self = result.call();
+				auto result = state.load(script);
 
-				if (ui.m_self.valid())
+				if (result.valid())
 				{
-					ui.m_self["ctx"]        = nui.ctx();
-					ui.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
+					ui.m_self = result.call();
 
-					ui.m_update = ui.m_self["do_ui"];
-					if (!ui.m_update.valid())
+					if (ui.m_self.valid())
 					{
-						GALAXY_LOG(GALAXY_ERROR, "Update function not present in ui script '{0}'.", ui.file());
+						ui.m_self["ctx"]        = nui.ctx();
+						ui.m_self["dispatcher"] = std::ref(m_scene->m_dispatcher);
+
+						ui.m_update = ui.m_self["do_ui"];
+						if (!ui.m_update.valid())
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Update function not present in ui script '{0}'.", ui.file());
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to validate ui script '{0}'. Make sure its in the correct format.", ui.file());
 					}
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to validate ui script '{0}'. Make sure its in the correct format.", ui.file());
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load ui script '{0}' because '{1}'.", ui.file(), magic_enum::enum_name(result.status()));
 				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load ui script '{0}' because '{1}'.", ui.file(), magic_enum::enum_name(result.status()));
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read script '{0}'.", ui.file());
 			}
 		}
 

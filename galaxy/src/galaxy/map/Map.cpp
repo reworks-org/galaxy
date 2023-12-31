@@ -48,7 +48,7 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto data = fs.read<meta::FSTextR>(file);
+			auto data = fs.read(file);
 			if (!data.empty())
 			{
 				tson::Tileson parser;

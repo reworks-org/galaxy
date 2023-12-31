@@ -33,10 +33,10 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto script = fs.read<meta::FSTextR>(file);
+			const auto script = fs.read(file);
 			if (!script.empty())
 			{
-				m_script = core::ServiceLocator<sol::state>::ref().load_file(script);
+				m_script = core::ServiceLocator<sol::state>::ref().load(script);
 				if (m_script.status() != sol::load_status::ok)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to load script '{0}' because '{1}'.", file, magic_enum::enum_name(m_script.status()));

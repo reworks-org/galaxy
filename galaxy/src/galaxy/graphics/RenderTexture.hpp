@@ -71,13 +71,11 @@ namespace galaxy
 			void resize(int width, int height);
 
 			///
-			/// \brief Saves texture to file on disk.
+			/// Saves texture to file on disk.
 			///
-			/// Depending on the size of the buffer this can be quite slow.
+			/// \param file Path and filename to save texture to. Does not need extension (it will be ignored).
 			///
-			/// \param filepath Path and filename to save texture to. Can only save .PNG.
-			///
-			void save(std::string_view filepath);
+			void save(std::string_view file);
 
 			///
 			/// Bind framebuffer and texture.

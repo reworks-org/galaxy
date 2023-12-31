@@ -100,7 +100,7 @@ namespace galaxy
 		void Video::load(const std::string& file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			m_buffer = fs.read<meta::FSBinaryR>(file);
+			m_buffer = fs.read_binary(file);
 			if (!m_buffer.empty())
 			{
 				m_plm = plm_create_with_memory(m_buffer.data(), m_buffer.size(), false);

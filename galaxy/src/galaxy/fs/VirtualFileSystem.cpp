@@ -5,17 +5,22 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <mimalloc.h>
+#include <physfs.h>
 #include <tinyfiledialogs.h>
+#include <zip.h>
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/error/PhysFSError.hpp"
 
 #include "VirtualFileSystem.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 GALAXY_DISABLE_WARNING_PUSH
 GALAXY_DISABLE_WARNING(26493)
+GALAXY_DISABLE_WARNING(4244)
 #endif
 
 namespace galaxy
@@ -24,190 +29,222 @@ namespace galaxy
 	{
 		VirtualFileSystem::VirtualFileSystem()
 		{
-			auto& config = core::ServiceLocator<core::Config>::ref();
-
 			// Create data directories.
-			create_asset_layout(GALAXY_DATA_DIR, "");
-			create_asset_layout(GALAXY_MOD_DIR, "");
-			create_asset_layout(GALAXY_UPDATE_DIR, "");
+			std::filesystem::create_directories(GALAXY_ROOT_DIR / GALAXY_ASSET_DIR);
+			std::filesystem::create_directories(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR);
 
-			// Create asset directories.
-			if (config.get<bool>("create_asset_work_directories"))
+			// Set up allocators for physfs.
+			PHYSFS_Allocator a = {};
+			a.Init             = nullptr;
+			a.Deinit           = nullptr;
+			a.Free             = mi_free;
+			a.Malloc           = mi_malloc;
+			a.Realloc          = mi_realloc;
+			error::physfs_check(PHYSFS_setAllocator(&a));
+
+			// Set up vfs.
+			if (error::physfs_check(PHYSFS_init(nullptr)))
 			{
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_MUSIC_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_SFX_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_VOICE_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_FONT_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_SCRIPT_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_SHADER_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_TEXTURE_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_ATLAS_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_LANG_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_PREFABS_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_MAPS_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_VIDEO_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_UI_DIR);
-				create_asset_layout(GALAXY_WORK_DIR, GALAXY_UI_FONTS_DIR);
-				create_asset_layout(GALAXY_EDITOR_DATA_DIR, "");
+				PHYSFS_permitSymbolicLinks(false);
+
+				auto write_dir = GALAXY_ROOT_DIR / GALAXY_ASSET_DIR;
+				write_dir.make_preferred();
+				error::physfs_check(PHYSFS_setWriteDir(write_dir.string().c_str()));
+
+				auto& config   = core::ServiceLocator<core::Config>::ref();
+				auto  read_dir = GALAXY_ROOT_DIR / config.get<std::string>("asset_pak");
+				read_dir.make_preferred();
+
+				// Create asset pack if it doesn't exist.
+				if (!std::filesystem::exists(read_dir))
+				{
+					zip_close(zip_open(read_dir.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w'));
+				}
+
+				if (config.get<bool>("use_loose_assets"))
+				{
+					read_dir = write_dir;
+				}
+
+				error::physfs_check(PHYSFS_mount(read_dir.string().c_str(), nullptr, true));
+
+				const auto merged = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
+				error::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
+
+				mkdir(GALAXY_MUSIC_DIR);
+				mkdir(GALAXY_SFX_DIR);
+				mkdir(GALAXY_VOICE_DIR);
+				mkdir(GALAXY_FONT_DIR);
+				mkdir(GALAXY_SCRIPT_DIR);
+				mkdir(GALAXY_SHADER_DIR);
+				mkdir(GALAXY_TEXTURE_DIR);
+				mkdir(GALAXY_ATLAS_DIR);
+				mkdir(GALAXY_LANG_DIR);
+				mkdir(GALAXY_PREFABS_DIR);
+				mkdir(GALAXY_MAPS_DIR);
+				mkdir(GALAXY_VIDEO_DIR);
+				mkdir(GALAXY_UI_DIR);
+				mkdir(GALAXY_UI_FONTS_DIR);
 			}
-
-			m_folder_type_map = {
-				{   GALAXY_MUSIC_DIR,   AssetType::MUSIC},
-				{     GALAXY_SFX_DIR,     AssetType::SFX},
-				{   GALAXY_VOICE_DIR,   AssetType::VOICE},
-				{    GALAXY_FONT_DIR,    AssetType::FONT},
-				{  GALAXY_SCRIPT_DIR,  AssetType::SCRIPT},
-				{  GALAXY_SHADER_DIR,  AssetType::SHADER},
-				{ GALAXY_TEXTURE_DIR, AssetType::TEXTURE},
-				{   GALAXY_ATLAS_DIR,   AssetType::ATLAS},
-				{    GALAXY_LANG_DIR,    AssetType::LANG},
-				{ GALAXY_PREFABS_DIR, AssetType::PREFABS},
-				{    GALAXY_MAPS_DIR,    AssetType::MAPS},
-				{   GALAXY_VIDEO_DIR,   AssetType::VIDEO},
-				{      GALAXY_UI_DIR,      AssetType::UI},
-				{GALAXY_UI_FONTS_DIR, AssetType::UI_FONT}
-            };
-
-			m_datapack = std::filesystem::path(GALAXY_ROOT_DIR / GALAXY_DATA_DIR / "data.galaxypak").string();
-			std::replace(m_datapack.begin(), m_datapack.end(), '\\', '/');
-
-			// Create base zip if it doesn't exist.
-			if (!std::filesystem::exists(m_datapack))
-			{
-				zip_close(zip_open(m_datapack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w'));
-			}
-
-			rebuild_filesystem();
 		}
 
 		VirtualFileSystem::~VirtualFileSystem()
 		{
-			clear();
+			error::physfs_check(PHYSFS_deinit());
 		}
 
-		void VirtualFileSystem::rebuild_filesystem()
+		std::string VirtualFileSystem::read(const std::string& file)
 		{
-			clear();
-
-			// Append base first.
-			append_archive(m_datapack);
-
-			// Then prepend updates.
-			append_archives(GALAXY_UPDATE_DIR);
-			append_archives(GALAXY_MOD_DIR);
-		}
-
-		void VirtualFileSystem::mkdir_disk(std::string_view path)
-		{
-			auto fp = std::filesystem::path(path);
-			if (!fp.is_absolute())
+			PHYSFS_File* f = PHYSFS_openRead(file.c_str());
+			if (error::physfs_check(f))
 			{
-				fp = GALAXY_ROOT_DIR / path;
-			}
+				const auto len = PHYSFS_fileLength(f);
 
-			std::filesystem::create_directories(fp);
-		}
-
-		bool VirtualFileSystem::contains(const std::string& file)
-		{
-			const auto path = std::filesystem::path(file);
-			return m_tree.contains(path.filename().string());
-		}
-
-		std::optional<ArchiveEntry> VirtualFileSystem::find(const std::string& file)
-		{
-			auto str = static_cast<std::string>(file);
-			if (contains(str))
-			{
-				return std::make_optional(m_tree[str]);
-			}
-
-			return std::nullopt;
-		}
-
-		void VirtualFileSystem::import(const std::string& file)
-		{
-			auto path = std::filesystem::path(file);
-			if (!path.is_absolute())
-			{
-				path = std::filesystem::absolute(GALAXY_ROOT_DIR / path);
-			}
-
-			if (path.string().find(GALAXY_WORK_DIR.substr(0, GALAXY_WORK_DIR.length() - 1)) != std::string::npos)
-			{
-				auto       fname = path.filename().string();
-				const auto opt   = find(fname);
-				if (opt.has_value())
+				if (error::physfs_check(len))
 				{
-					remove(fname, opt.value());
+					std::string buffer;
+					buffer.resize(len);
+
+					if (error::physfs_check(PHYSFS_readBytes(f, buffer.data(), buffer.size())))
+					{
+						return buffer;
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to check file length for '{0}'.", file);
 				}
 
-				auto entry = path.string();
-				strutils::replace_all(entry, GALAXY_ROOT_DIR.string(), "");
-				strutils::replace_all(entry, "\\", "/");
-				strutils::replace_all(entry, "/" + GALAXY_WORK_DIR, "");
-
-				auto z = zip_open(m_datapack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'a');
-				zip_entry_open(z, entry.c_str());
-				zip_entry_fwrite(z, path.string().c_str());
-
-				m_tree[fname] = ArchiveEntry {.index = zip_entry_index(z), .pack = m_datapack, .type = get_asset_type_from_path(path.string())};
-				zip_entry_close(z);
-				zip_close(z);
-
-				GALAXY_LOG(GALAXY_INFO, "Imported '{0}'.", fname);
+				error::physfs_check(PHYSFS_close(f));
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to import file outside of working directory.");
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
 			}
+
+			return {};
 		}
 
-		void VirtualFileSystem::remove(const std::vector<std::string>& entries)
+		meta::vector<std::uint8_t> VirtualFileSystem::read_binary(const std::string& file)
 		{
-			for (const auto& entry : entries)
+			PHYSFS_File* f = PHYSFS_openRead(file.c_str());
+			if (error::physfs_check(f))
 			{
-				const auto fname = std::filesystem::path(entry).filename().string();
+				const auto len = PHYSFS_fileLength(f);
 
-				const auto opt = find(fname);
-				if (opt.has_value())
+				if (error::physfs_check(len))
 				{
-					remove(fname, opt.value());
-				}
-			}
-		}
+					meta::vector<std::uint8_t> buffer;
+					buffer.resize(len);
 
-		void VirtualFileSystem::remove(const std::string& fname, const ArchiveEntry& entry)
-		{
-			if (m_tree.contains(fname))
+					if (error::physfs_check(PHYSFS_readBytes(f, &buffer[0], buffer.size())))
+					{
+						return buffer;
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to check file length for '{0}'.", file);
+				}
+
+				error::physfs_check(PHYSFS_close(f));
+			}
+			else
 			{
-				size_t entries[] = {static_cast<size_t>(entry.index)};
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+			}
 
-				auto z = zip_open(entry.pack.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'd');
-				if (zip_entries_deletebyindex(z, entries, 1) < 0)
+			return {};
+		}
+
+		bool VirtualFileSystem::write(const std::string& data, const std::string& file)
+		{
+			return write_raw(data.data(), data.size() * sizeof(char), file);
+		}
+
+		bool VirtualFileSystem::write_binary(std::span<std::uint8_t> data, const std::string& file)
+		{
+			return write_raw(data.data(), data.size_bytes(), file);
+		}
+
+		bool VirtualFileSystem::write_raw(const void* data, const std::size_t size, const std::string& file)
+		{
+			PHYSFS_File* f = PHYSFS_openWrite(file.c_str());
+			if (error::physfs_check(f))
+			{
+				const auto len = PHYSFS_fileLength(f);
+
+				if (error::physfs_check(PHYSFS_writeBytes(f, data, size)))
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to remove '{0}' from vfs.", fname);
+					return true;
 				}
-				zip_close(z);
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+				}
 
-				m_tree.erase(fname);
+				error::physfs_check(PHYSFS_close(f));
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+			}
+
+			return false;
+		}
+
+		void VirtualFileSystem::mkdir(const std::string& dir)
+		{
+			if (!exists(dir))
+			{
+				error::physfs_check(PHYSFS_mkdir(dir.c_str()));
 			}
 		}
 
-		std::vector<std::string> VirtualFileSystem::list_assets(const AssetType type)
+		void VirtualFileSystem::remove(const std::string& path)
 		{
-			std::vector<std::string> files;
-			files.reserve(m_tree.size());
+			error::physfs_check(PHYSFS_delete(path.c_str()));
+		}
 
-			std::for_each(/*std::execution::par, */ m_tree.begin(), m_tree.end(), [&](auto& pair) {
-				if (pair.second.type == type)
-				{
-					files.emplace_back(pair.first);
-				}
-			});
+		bool VirtualFileSystem::exists(const std::string& file)
+		{
+			return PHYSFS_exists(file.c_str());
+		}
 
-			files.shrink_to_fit();
-			return files;
+		bool VirtualFileSystem::is_dir(const std::string& path)
+		{
+			return PHYSFS_isDirectory(path.c_str());
+		}
+
+		meta::vector<std::string> VirtualFileSystem::list(const std::string& dir)
+		{
+			meta::vector<std::string> list;
+
+			error::physfs_check(PHYSFS_enumerate(
+				dir.c_str(),
+				[](void* data, const char* origdir, const char* fname) -> PHYSFS_EnumerateCallbackResult {
+					if (data != nullptr && fname != nullptr)
+					{
+						std::string o = origdir;
+						std::string f = fname;
+
+						auto* my_list = static_cast<meta::vector<std::string>*>(data);
+						my_list->emplace_back(o + f);
+					}
+
+					return PHYSFS_ENUM_OK;
+				},
+				&list));
+
+			return list;
 		}
 
 		void VirtualFileSystem::alert()
@@ -282,77 +319,6 @@ namespace galaxy
 			{
 				return {};
 			}
-		}
-
-		void VirtualFileSystem::clear()
-		{
-			m_tree.clear();
-		}
-
-		const robin_hood::unordered_flat_map<std::string, ArchiveEntry>& VirtualFileSystem::tree()
-		{
-			return m_tree;
-		}
-
-		void VirtualFileSystem::create_asset_layout(const std::filesystem::path& root, const std::string& asset_folder)
-		{
-			const auto merged = GALAXY_ROOT_DIR / root / asset_folder;
-			if (!std::filesystem::exists(merged))
-			{
-				GALAXY_LOG(GALAXY_INFO, "Creating asset folder at: '{0}'.", merged.string());
-				std::filesystem::create_directories(merged);
-			}
-		}
-
-		void VirtualFileSystem::append_archives(const std::filesystem::path& path)
-		{
-			const auto di = std::filesystem::directory_iterator(GALAXY_ROOT_DIR / path, std::filesystem::directory_options::skip_permission_denied);
-			for (const auto& entry : di)
-			{
-				if (!entry.is_directory() && entry.path().extension() == ".galaxypak")
-				{
-					append_archive(entry.path().string());
-				}
-			}
-		}
-
-		void VirtualFileSystem::append_archive(const std::string& path)
-		{
-			auto z = zip_open(path.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'r');
-
-			for (auto i = 0; i < zip_entries_total(z); ++i)
-			{
-				if (zip_entry_openbyindex(z, i) >= 0)
-				{
-					if (!zip_entry_isdir(z))
-					{
-						const auto fp = std::filesystem::path(zip_entry_name(z));
-						m_tree[fp.filename().string()] =
-							ArchiveEntry {.index = zip_entry_index(z), .pack = path, .type = get_asset_type_from_path(fp.string())};
-					}
-
-					zip_entry_close(z);
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to extract an entry from '{0}'.", path);
-				}
-			}
-
-			zip_close(z);
-		}
-
-		AssetType VirtualFileSystem::get_asset_type_from_path(const std::string& path)
-		{
-			for (const auto& [folder, type] : m_folder_type_map)
-			{
-				if (path.find(folder) != std::string::npos)
-				{
-					return type;
-				}
-			}
-
-			return AssetType::UNKNOWN;
 		}
 	} // namespace fs
 } // namespace galaxy

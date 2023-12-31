@@ -1,13 +1,12 @@
 {
     "config": {
-        "app_data": "default.galaxy",
+        "asset_pak": "data.galaxypak",
         "audio": {
             "dialogue_volume": 1.0,
             "listener_count": 1,
             "music_volume": 1.0,
             "sfx_volume": 1.0
         },
-        "create_asset_work_directories": true,
         "default_lang": "en_au",
         "editor": {
             "autosave_interval_seconds": 300,
@@ -25,7 +24,7 @@
                 "sharpen": false,
                 "smaa": false
             },
-            "texture_atlas_size": 4096,
+            "texture_atlas_size": 2048,
             "trilinear_filtering": true
         },
         "input": {
@@ -38,6 +37,7 @@
         },
         "log_performance": false,
         "ui_font_size": 14.0,
+        "use_loose_assets": true,
         "window": {
             "cursor_icon": "",
             "debug": true,

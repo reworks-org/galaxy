@@ -38,7 +38,7 @@ namespace sc
 		: Scene(name)
 		, m_editor_camera {true}
 	{
-		scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_WORK_DIR).string());
+		scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_ASSET_DIR).string());
 
 #ifdef _DEBUG
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
@@ -62,11 +62,11 @@ namespace sc
 		m_mousepick_buffer = fb.add_storage_attachment();
 		fb.create();
 
-		m_camera_btn.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/camera.png");
+		m_camera_btn.load("icons/camera.png");
 		m_camera_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_camera_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-		m_editor_cam_btn.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/video.png");
+		m_editor_cam_btn.load("icons/video.png");
 		m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 		m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
@@ -344,7 +344,7 @@ namespace sc
 			// Copy assets.
 			const auto options =
 				std::filesystem::copy_options::update_existing | std::filesystem::copy_options::recursive | std::filesystem::copy_options::skip_symlinks;
-			std::filesystem::copy(std::filesystem::path(GALAXY_ROOT_DIR / GALAXY_DATA_DIR), path / GALAXY_DATA_DIR, options);
+			std::filesystem::copy(std::filesystem::path(GALAXY_ROOT_DIR / GALAXY_ASSET_DIR), path / GALAXY_ASSET_DIR, options);
 
 			m_show_exportprogress = false;
 		});

@@ -71,30 +71,41 @@ namespace galaxy
 			m_framebuffer.resize(width, height);
 		}
 
-		void RenderTexture::save(std::string_view filepath)
+		void RenderTexture::save(std::string_view file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto path = std::filesystem::path(filepath);
-			auto full = GALAXY_ROOT_DIR / GALAXY_WORK_DIR / path.parent_path() / path.stem();
-
-			if (!std::filesystem::exists(full.parent_path()))
+			auto path = std::filesystem::path(file);
+			if (!path.is_absolute())
 			{
-				std::filesystem::create_directories(full.parent_path());
+				path = GALAXY_ROOT_DIR / path;
 			}
 
-			if (full.extension() != ".png" || full.extension() != ".PNG" || !full.has_extension())
+			if (!path.has_extension())
 			{
-				full.replace_extension(".png");
+				path.replace_extension(".png");
 			}
 
-			const auto                 ui = static_cast<unsigned int>(get_width()) * static_cast<unsigned int>(get_height()) * 4u;
-			meta::vector<unsigned int> pixels(ui, 0);
+			if (!std::filesystem::exists(path.parent_path()))
+			{
+				std::filesystem::create_directories(path.parent_path());
+			}
+
+			meta::vector<unsigned int> pixels(static_cast<unsigned int>(get_width()) * static_cast<unsigned int>(get_height()) * 4u, 0);
 
 			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(full.string().c_str(), get_width(), get_height(), 4, pixels.data(), get_width() * 4);
+
+			int            len = 0;
+			unsigned char* png = stbi_write_png_to_mem((const unsigned char*)pixels.data(), get_width() * 4, get_width(), get_height(), 4, &len);
+
+			if (!fs.write_raw(png, len, path.string()))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to write '{0}' to disk.", path.string());
+			}
+
+			mi_free(png);
 		}
 
 		void RenderTexture::bind(const bool clear)

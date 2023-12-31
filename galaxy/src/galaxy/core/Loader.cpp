@@ -89,15 +89,15 @@ namespace galaxy
 
 		void Loader::load_resources()
 		{
-			ServiceLocator<resource::SFXCache>::ref().load_vfs(fs::AssetType::SFX);
-			ServiceLocator<resource::MusicCache>::ref().load_vfs(fs::AssetType::MUSIC);
-			ServiceLocator<resource::VoiceCache>::ref().load_vfs(fs::AssetType::VOICE);
-			ServiceLocator<resource::VideoCache>::ref().load_vfs(fs::AssetType::VIDEO);
-			ServiceLocator<resource::Shaders>::ref().load_vfs(fs::AssetType::SHADER);
-			ServiceLocator<resource::Fonts>::ref().load_vfs(fs::AssetType::FONT);
-			ServiceLocator<resource::BasicScripts>::ref().load_vfs(fs::AssetType::SCRIPT);
-			ServiceLocator<resource::Prefabs>::ref().load_vfs(fs::AssetType::PREFABS);
-			ServiceLocator<resource::Maps>::ref().load_vfs(fs::AssetType::MAPS);
+			ServiceLocator<resource::SFXCache>::ref().load_vfs(GALAXY_SFX_DIR);
+			ServiceLocator<resource::MusicCache>::ref().load_vfs(GALAXY_MUSIC_DIR);
+			ServiceLocator<resource::VoiceCache>::ref().load_vfs(GALAXY_VOICE_DIR);
+			ServiceLocator<resource::VideoCache>::ref().load_vfs(GALAXY_VIDEO_DIR);
+			ServiceLocator<resource::Shaders>::ref().load_vfs(GALAXY_SHADER_DIR);
+			ServiceLocator<resource::Fonts>::ref().load_vfs(GALAXY_FONT_DIR);
+			ServiceLocator<resource::BasicScripts>::ref().load_vfs(GALAXY_SCRIPT_DIR);
+			ServiceLocator<resource::Prefabs>::ref().load_vfs(GALAXY_PREFABS_DIR);
+			ServiceLocator<resource::Maps>::ref().load_vfs(GALAXY_MAPS_DIR);
 
 			auto& config = ServiceLocator<Config>::ref();
 			auto& lang   = ServiceLocator<resource::Language>::ref();

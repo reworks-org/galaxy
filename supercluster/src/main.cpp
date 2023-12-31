@@ -53,7 +53,7 @@ int main(int argsc, char* argsv[])
 			Supercluster app;
 
 			{
-				auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read_disk<meta::FSBinaryR>("editor/sc.png");
+				auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read_binary("sc.png");
 				core::ServiceLocator<core::Window>::ref().set_icon(data);
 
 				if (!std::filesystem::exists(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR / "projects"))

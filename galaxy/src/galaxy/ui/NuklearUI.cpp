@@ -35,9 +35,9 @@ namespace galaxy
 			nk_glfw3_font_stash_begin(&m_atlas);
 
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			for (const auto& file : fs.list_assets(fs::AssetType::UI_FONT))
+			for (const auto& file : fs.list(GALAXY_UI_FONTS_DIR))
 			{
-				auto data = fs.read<meta::FSBinaryR>(file);
+				auto data = fs.read_binary(file);
 				if (!data.empty())
 				{
 					auto font = nk_font_atlas_add_from_memory(m_atlas, data.data(), data.size(), config.get<float>("ui_font_size"), nullptr);

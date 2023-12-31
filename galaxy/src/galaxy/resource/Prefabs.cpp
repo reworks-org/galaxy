@@ -20,7 +20,7 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			const auto data = fs.read<meta::FSTextR>(file);
+			const auto data = fs.read(file);
 			if (!data.empty())
 			{
 				const auto base64       = math::decode_zlib(data);

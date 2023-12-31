@@ -67,7 +67,7 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto data = fs.read<meta::FSBinaryR>(file);
+			auto data = fs.read_binary(file);
 			if (!data.empty())
 			{
 				stbi_set_flip_vertically_on_load(true);

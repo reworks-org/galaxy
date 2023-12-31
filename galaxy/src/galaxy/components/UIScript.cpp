@@ -62,7 +62,7 @@ namespace galaxy
 
 			m_file = file;
 
-			if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().contains(m_file))
+			if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().exists(m_file))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to find ui script '{0}'.", m_file);
 				m_file = {};

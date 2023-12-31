@@ -29,7 +29,7 @@ namespace galaxy
 		{
 			clear();
 
-			for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list_assets(fs::AssetType::LANG))
+			for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list(GALAXY_LANG_DIR))
 			{
 				sol::state lua;
 				load(lua, file);
@@ -40,7 +40,7 @@ namespace galaxy
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto data = fs.read<meta::FSTextR>(file);
+			auto data = fs.read(file);
 			if (!data.empty())
 			{
 				lua.open_libraries(sol::lib::base, sol::lib::string, sol::lib::table);

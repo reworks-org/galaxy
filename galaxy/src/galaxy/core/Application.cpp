@@ -78,10 +78,10 @@ namespace galaxy
 			// CONFIG.
 			//
 			auto& config = ServiceLocator<Config>::make(config_file);
-			config.restore<bool>("create_asset_work_directories", true);
-			config.restore<std::string>("default_lang", "en_au");
-			config.restore<std::string>("app_data", "default.galaxy");
+			config.restore<bool>("use_loose_assets", true);
+			config.restore<std::string>("asset_pak", "data.galaxypak");
 			config.restore<bool>("log_performance", true);
+			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("title", "Title", "window");
 			config.restore<std::string>("icon", "", "window");
 			config.restore<std::string>("cursor_icon", "", "window");
@@ -99,7 +99,7 @@ namespace galaxy
 			config.restore<int>("listener_count", 1, "audio");
 			config.restore<bool>("trilinear_filtering", false, "graphics");
 			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
-			config.restore<int>("texture_atlas_size", 4096, "graphics");
+			config.restore<int>("texture_atlas_size", 2048, "graphics");
 			config.restore<bool>("smaa", false, "graphics.effects");
 			config.restore<bool>("sharpen", false, "graphics.effects");
 			config.restore<bool>("gamma_correction", false, "graphics.effects");
@@ -143,9 +143,9 @@ namespace galaxy
 			auto& fs = ServiceLocator<fs::VirtualFileSystem>::make();
 
 			// Generate default language file.
-			if (!fs.contains("en_au.lang"))
+			if (!fs.exists("en_au.lang"))
 			{
-				if (!fs.write<meta::FSTextW>("region='en_au'\ndata={}", "lang/en_au.lang"))
+				if (!fs.write("region='en_au'\ndata={}", "lang/en_au.lang"))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
 				}

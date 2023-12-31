@@ -521,7 +521,7 @@ namespace galaxy
 			{
 				auto& fs = ServiceLocator<fs::VirtualFileSystem>::ref();
 
-				auto data = fs.read<meta::FSBinaryR>(icon);
+				auto data = fs.read_binary(icon);
 				if (!data.empty())
 				{
 					// Fill glfw-compatible struct.

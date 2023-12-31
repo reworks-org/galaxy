@@ -11,7 +11,6 @@
 #include <robin_hood.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/ArchiveEntry.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/meta/Concepts.hpp"
@@ -67,13 +66,13 @@ namespace galaxy
 			///
 			/// Load resources of a specific type.
 			///
-			/// \param type The type of resource to load.
+			/// \param dir The directory in the vfs to load assets from.
 			///
-			inline void load_vfs(const fs::AssetType type)
+			inline void load_vfs(const std::string& dir)
 			{
 				clear();
 
-				for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list_assets(type))
+				for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list(dir))
 				{
 					load(file, file);
 				}

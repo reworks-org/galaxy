@@ -141,11 +141,8 @@
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClCompile Include="src\galaxy\flags\DenySerialization.cpp" />
     <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
-    <ClCompile Include="src\galaxy\meta\FileType.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
-    <ClCompile Include="src\galaxy\fs\AssetType.cpp" />
-    <ClCompile Include="src\galaxy\fs\ArchiveEntry.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\Particle.cpp" />
@@ -156,6 +153,7 @@
     <ClCompile Include="src\galaxy\map\Map.cpp" />
     <ClCompile Include="src\galaxy\map\TileAnimation.cpp" />
     <ClCompile Include="src\galaxy\components\MapData.cpp" />
+    <ClCompile Include="src\galaxy\error\PhysFSError.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -294,11 +292,8 @@
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClInclude Include="src\galaxy\flags\DenySerialization.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
-    <ClInclude Include="src\galaxy\meta\FileType.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
-    <ClInclude Include="src\galaxy\fs\AssetType.hpp" />
-    <ClInclude Include="src\galaxy\fs\ArchiveEntry.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\Particle.hpp" />
@@ -309,5 +304,6 @@
     <ClInclude Include="src\galaxy\map\Map.hpp" />
     <ClInclude Include="src\galaxy\map\TileAnimation.hpp" />
     <ClInclude Include="src\galaxy\components\MapData.hpp" />
+    <ClInclude Include="src\galaxy\error\PhysFSError.hpp" />
   </ItemGroup>
 </Project>

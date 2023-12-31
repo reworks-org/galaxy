@@ -65,32 +65,14 @@ namespace sc
 			}
 		}
 
-		void JSONEditor::load_file(const std::string& file)
+		void JSONEditor::load(const std::string& file)
 		{
 			if (!m_loaded)
 			{
-				const auto json_opt = json::read_disk(file);
+				const auto json_opt = json::read(file);
 				if (json_opt == std::nullopt)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for JSONEditor panel.", file);
-					m_loaded = false;
-				}
-				else
-				{
-					m_root   = json_opt.value();
-					m_loaded = true;
-				}
-			}
-		}
-
-		void JSONEditor::load_vfs(const std::string& entry)
-		{
-			if (!m_loaded)
-			{
-				const auto json_opt = json::read_vfs(entry);
-				if (json_opt == std::nullopt)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json from memory for JSONEditor. panel.");
 					m_loaded = false;
 				}
 				else
@@ -116,7 +98,7 @@ namespace sc
 			{
 				if (!m_external)
 				{
-					if (!json::write_disk(path, m_root))
+					if (!json::write(path, m_root))
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to save json to disk using file: {0}, for JSONEditor panel.", path);
 					}
@@ -150,7 +132,7 @@ namespace sc
 						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.json"});
 						if (!path.empty())
 						{
-							load_file(path);
+							load(path);
 						}
 						else
 						{

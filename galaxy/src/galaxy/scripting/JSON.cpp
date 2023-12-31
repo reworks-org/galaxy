@@ -16,10 +16,10 @@ namespace galaxy
 {
 	namespace json
 	{
-		std::optional<nlohmann::json> read_vfs(const std::string& entry)
+		std::optional<nlohmann::json> read(const std::string& entry)
 		{
 			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto  data = fs.read<meta::FSTextR>(entry);
+			auto  data = fs.read(entry);
 
 			nlohmann::json json = nlohmann::json::parse(data);
 			return std::make_optional(json);
@@ -31,25 +31,10 @@ namespace galaxy
 			return std::make_optional(parsed);
 		}
 
-		std::optional<nlohmann::json> read_disk(const std::string& file)
-		{
-			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto  data = fs.read_disk<meta::FSTextR>(file);
-
-			nlohmann::json json = nlohmann::json::parse(data);
-			return std::make_optional(json);
-		}
-
-		bool write_vfs(const std::string& entry, const nlohmann::json& json)
+		bool write(const std::string& entry, const nlohmann::json& json)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			return fs.write<meta::FSTextW>(json.dump(4), entry);
-		}
-
-		bool write_disk(const std::string& file, const nlohmann::json& json)
-		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			return fs.write_disk<meta::FSTextW>(json.dump(4), file);
+			return fs.write(json.dump(4), entry);
 		}
 	} // namespace json
 } // namespace galaxy

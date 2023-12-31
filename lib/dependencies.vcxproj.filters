@@ -144,6 +144,16 @@
     <ClCompile Include="physfs\src\physfs_byteorder.c" />
     <ClCompile Include="physfs\src\physfs_platform_windows.c" />
     <ClCompile Include="physfs\src\physfs_unicode.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_7z.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_csm.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_grp.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_hog.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_iso9660.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_mvl.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_qpak.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_slb.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_vdf.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_wad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="freetype2_win\include\freetype\config\ftconfig.h" />
@@ -845,6 +855,7 @@
     <ClInclude Include="physfs\src\physfs_casefolding.h" />
     <ClInclude Include="physfs\src\physfs_platforms.h" />
     <ClInclude Include="physfs\src\physfs_miniz.h" />
+    <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

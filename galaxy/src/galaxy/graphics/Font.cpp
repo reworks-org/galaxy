@@ -87,7 +87,7 @@ namespace galaxy
 			auto  result = false;
 			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
-			auto data = fs.read<meta::FSBinaryR>(file);
+			auto data = fs.read_binary(file);
 			if (!data.empty())
 			{
 				auto& fc = core::ServiceLocator<FontContext>::ref();

@@ -423,25 +423,6 @@ namespace galaxy
 
 			/* FS */
 			// clang-format off
-			lua.new_enum<fs::AssetType>("AssetType",
-			{
-				{"ATLAS", fs::AssetType::ATLAS},
-				{"FONT", fs::AssetType::FONT},
-				{"LANG", fs::AssetType::LANG},
-				{"MAPS", fs::AssetType::MAPS},
-				{"MUSIC", fs::AssetType::MUSIC},
-				{"PREFABS", fs::AssetType::PREFABS},
-				{"SCRIPT", fs::AssetType::SCRIPT},
-				{"SFX", fs::AssetType::SFX},
-				{"SHADER", fs::AssetType::SHADER},
-				{"TEXTURE", fs::AssetType::TEXTURE},
-				{"UI", fs::AssetType::UI},
-				{"UI_FONT", fs::AssetType::UI_FONT},
-				{"UNKNOWN", fs::AssetType::UNKNOWN},
-				{"VIDEO", fs::AssetType::VIDEO},
-				{"VOICE", fs::AssetType::VOICE}
-			});
-
 			lua.new_enum<fs::DialogButton>("DialogButton",
             {
 				{"cancel_no", fs::DialogButton::cancel_no},
@@ -465,25 +446,24 @@ namespace galaxy
 			});
 			// clang-format on
 
-			auto archiveentry_type     = lua.new_usertype<fs::ArchiveEntry>("ArchiveEntry", sol::constructors<fs::ArchiveEntry()>());
-			archiveentry_type["pack"]  = &fs::ArchiveEntry::pack;
-			archiveentry_type["index"] = &fs::ArchiveEntry::index;
-			archiveentry_type["type"]  = &fs::ArchiveEntry::type;
-
 			auto vfs_type                    = lua.new_usertype<fs::VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
 			vfs_type["alert"]                = &fs::VirtualFileSystem::alert;
-			vfs_type["find"]                 = &fs::VirtualFileSystem::find;
+			vfs_type["exists"]               = &fs::VirtualFileSystem::exists;
+			vfs_type["input_box"]            = &fs::VirtualFileSystem::input_box;
+			vfs_type["is_dir"]               = &fs::VirtualFileSystem::is_dir;
+			vfs_type["list"]                 = &fs::VirtualFileSystem::list;
+			vfs_type["message_box"]          = &fs::VirtualFileSystem::message_box;
+			vfs_type["mkdir"]                = &fs::VirtualFileSystem::mkdir;
+			vfs_type["notification"]         = &fs::VirtualFileSystem::notification;
 			vfs_type["open_file_dialog"]     = &fs::VirtualFileSystem::open_file_dialog;
 			vfs_type["open_save_dialog"]     = &fs::VirtualFileSystem::open_save_dialog;
+			vfs_type["read"]                 = &fs::VirtualFileSystem::read;
+			vfs_type["read_binary"]          = &fs::VirtualFileSystem::read_binary;
+			vfs_type["remove"]               = &fs::VirtualFileSystem::remove;
 			vfs_type["select_folder_dialog"] = &fs::VirtualFileSystem::select_folder_dialog;
-			vfs_type["contains"]             = &fs::VirtualFileSystem::contains;
-			vfs_type["import"]               = &fs::VirtualFileSystem::import;
-			vfs_type["input_box"]            = &fs::VirtualFileSystem::input_box;
-			vfs_type["list_assets"]          = &fs::VirtualFileSystem::list_assets;
-			vfs_type["message_box"]          = &fs::VirtualFileSystem::message_box;
-			vfs_type["mkdir_disk"]           = &fs::VirtualFileSystem::mkdir_disk;
-			vfs_type["notification"]         = &fs::VirtualFileSystem::notification;
-			vfs_type["rebuild_filesystem"]   = &fs::VirtualFileSystem::rebuild_filesystem;
+			vfs_type["write"]                = &fs::VirtualFileSystem::write;
+			vfs_type["write_binary"]         = &fs::VirtualFileSystem::write_binary;
+			vfs_type["write_raw"]            = &fs::VirtualFileSystem::write_raw;
 
 			/* GRAPHICS */
 			// clang-format off
@@ -1161,10 +1141,8 @@ namespace galaxy
 			lua.set("GALAXY_FONT_MSDF_SCALE", GALAXY_FONT_MSDF_SCALE);
 			lua.set("GALAXY_DEFAULT_ELLIPSE_FRAGMENTS", GALAXY_DEFAULT_ELLIPSE_FRAGMENTS);
 			lua.set("GALAXY_ROOT_DIR", GALAXY_ROOT_DIR.string());
-			lua.set("GALAXY_DATA_DIR", GALAXY_DATA_DIR);
-			lua.set("GALAXY_WORK_DIR", GALAXY_WORK_DIR);
-			lua.set("GALAXY_MOD_DIR", GALAXY_MOD_DIR);
-			lua.set("GALAXY_UPDATE_DIR", GALAXY_UPDATE_DIR);
+			lua.set("GALAXY_ASSET_DIR", GALAXY_ASSET_DIR);
+			lua.set("GALAXY_EDITOR_DATA_DIR", GALAXY_EDITOR_DATA_DIR);
 			lua.set("GALAXY_MUSIC_DIR", GALAXY_MUSIC_DIR);
 			lua.set("GALAXY_SFX_DIR", GALAXY_SFX_DIR);
 			lua.set("GALAXY_VOICE_DIR", GALAXY_VOICE_DIR);
@@ -1179,7 +1157,6 @@ namespace galaxy
 			lua.set("GALAXY_VIDEO_DIR", GALAXY_VIDEO_DIR);
 			lua.set("GALAXY_UI_DIR", GALAXY_UI_DIR);
 			lua.set("GALAXY_UI_FONTS_DIR", GALAXY_UI_FONTS_DIR);
-			lua.set("GALAXY_EDITOR_DATA_DIR", GALAXY_EDITOR_DATA_DIR);
 			lua.set("GALAXY_ZLIB_COMPLETE_CHUNK", GALAXY_ZLIB_COMPLETE_CHUNK);
 			lua.set("GALAXY_EXIT_SUCCESS", GALAXY_EXIT_SUCCESS);
 			lua.set("GALAXY_EXIT_FAILURE", GALAXY_EXIT_FAILURE);

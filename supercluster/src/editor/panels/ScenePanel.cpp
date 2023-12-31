@@ -322,7 +322,7 @@ namespace sc
 								auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 								auto  dest = fs.open_save_dialog("untitled.gprefab", {"*.gprefab"});
 
-								if (!fs.write_disk<meta::FSTextW>(zlib, dest))
+								if (!fs.write(zlib, dest))
 								{
 									GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
 									ui::imgui_notify_error("Failed to save prefab.");

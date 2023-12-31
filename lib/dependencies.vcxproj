@@ -143,8 +143,18 @@
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
     <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="physfs\src\physfs.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_7z.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_csm.c" />
     <ClCompile Include="physfs\src\physfs_archiver_dir.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_grp.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_hog.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_iso9660.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_mvl.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_qpak.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_slb.c" />
     <ClCompile Include="physfs\src\physfs_archiver_unpacked.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_vdf.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_wad.c" />
     <ClCompile Include="physfs\src\physfs_archiver_zip.c" />
     <ClCompile Include="physfs\src\physfs_byteorder.c" />
     <ClCompile Include="physfs\src\physfs_platform_windows.c" />
@@ -719,6 +729,7 @@
     <ClInclude Include="physfs\src\physfs.h" />
     <ClInclude Include="physfs\src\physfs_casefolding.h" />
     <ClInclude Include="physfs\src\physfs_internal.h" />
+    <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
     <ClInclude Include="physfs\src\physfs_miniz.h" />
     <ClInclude Include="physfs\src\physfs_platforms.h" />
     <ClInclude Include="pl_mpeg\pl_mpeg.h" />

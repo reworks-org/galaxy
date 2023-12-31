@@ -100,7 +100,7 @@ namespace galaxy
 
 		void SceneManager::load_appdata(const std::string& appdata_file)
 		{
-			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read<meta::FSTextR>(appdata_file);
+			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read(appdata_file);
 			if (!data.empty())
 			{
 				const auto decoded_zlib = math::decode_zlib(data);
@@ -132,7 +132,7 @@ namespace galaxy
 		{
 			const auto json = serialize();
 
-			if (!json::write_vfs(file, json))
+			if (!json::write(file, json))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", file);
 			}

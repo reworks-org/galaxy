@@ -37,7 +37,7 @@ namespace sc
 			, m_contextmenu_opened {false}
 		{
 			auto& fs      = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			m_root        = GALAXY_ROOT_DIR / GALAXY_WORK_DIR;
+			m_root        = GALAXY_ROOT_DIR / GALAXY_ASSET_DIR;
 			m_current_dir = m_root;
 
 			m_root_str = m_root.string();
@@ -51,23 +51,23 @@ namespace sc
 			m_thumb_size = config.get<float>("thumb_size", "editor");
 			m_padding    = config.get<float>("padding", "editor");
 
-			m_backward.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/backward.png");
+			m_backward.load("icons/backward.png");
 			m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_file.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/file.png");
+			m_file.load("icons/file.png");
 			m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_file.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_folder.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/folder.png");
+			m_folder.load("icons/folder.png");
 			m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_forward.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/forward.png");
+			m_forward.load("icons/forward.png");
 			m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_refresh.load_disk(GALAXY_EDITOR_DATA_DIR + "icons/reload.png");
+			m_refresh.load("icons/reload.png");
 			m_refresh.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_refresh.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
@@ -101,43 +101,43 @@ namespace sc
 			m_tex_map.try_emplace(FileType::MAP);
 			m_tex_map.try_emplace(FileType::PREFAB);
 
-			m_tex_map[FileType::AUDIO].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/audio.png");
+			m_tex_map[FileType::AUDIO].load("icons/audio.png");
 			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::FONT].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/font.png");
+			m_tex_map[FileType::FONT].load("icons/font.png");
 			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::SHADER].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/glsl.png");
+			m_tex_map[FileType::SHADER].load("icons/glsl.png");
 			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::JSON].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/json.png");
+			m_tex_map[FileType::JSON].load("icons/json.png");
 			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::LANG].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/lang.png");
+			m_tex_map[FileType::LANG].load("icons/lang.png");
 			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::LUA].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/lua.png");
+			m_tex_map[FileType::LUA].load("icons/lua.png");
 			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::PROJ].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/proj.png");
+			m_tex_map[FileType::PROJ].load("icons/proj.png");
 			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::TEXTURE].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/texture.png");
+			m_tex_map[FileType::TEXTURE].load("icons/texture.png");
 			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::MAP].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/map.png");
+			m_tex_map[FileType::MAP].load("icons/map.png");
 			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 
-			m_tex_map[FileType::PREFAB].load_disk(GALAXY_EDITOR_DATA_DIR + "icons/prefab.png");
+			m_tex_map[FileType::PREFAB].load("icons/prefab.png");
 			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
 			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
 		}
@@ -414,7 +414,7 @@ namespace sc
 							auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 							const auto path = std::filesystem::path(m_current_dir / "script.lua");
-							if (!fs.write_disk<meta::FSTextW>("-- galaxy script (lua)", path.string()))
+							if (!fs.write("-- galaxy script (lua)", path.string()))
 							{
 								ui::imgui_notify_error("Failed to save new script.");
 							}
@@ -427,11 +427,6 @@ namespace sc
 
 					if (!m_selected.m_extension.empty())
 					{
-						if (ImGui::MenuItem(ICON_MDI_IMPORT " Import"))
-						{
-							core::ServiceLocator<fs::VirtualFileSystem>::ref().import(m_selected.m_path.string());
-						}
-
 						switch (m_ext_map[m_selected.m_extension])
 						{
 							case FileType::LUA:
@@ -549,7 +544,7 @@ namespace sc
 		void AssetPanel::load_preview()
 		{
 			m_preview.recreate();
-			m_preview.load_disk(m_selected.m_path.string());
+			m_preview.load(m_selected.m_path.string());
 			m_open_preview = true;
 		}
 

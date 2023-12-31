@@ -35,10 +35,11 @@ namespace galaxy
 		void TextureAtlas::add(const std::string& file)
 		{
 			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto  data = fs.read<meta::FSBinaryR>(file);
+			auto  data = fs.read_binary(file);
 			if (!data.empty())
 			{
-				graphics::Texture texture {data};
+				graphics::Texture texture;
+				texture.load_mem(data);
 
 				const auto path = std::filesystem::path(file);
 				const auto name = path.filename().string();
@@ -138,7 +139,7 @@ namespace galaxy
 		{
 			clear();
 
-			for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list_assets(fs::AssetType::ATLAS))
+			for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list(GALAXY_ATLAS_DIR))
 			{
 				add(file);
 			}

@@ -1,12 +1,14 @@
 https://github.com/stephenberry/glaze
 replace json with that.
 
+add mod support
+add update support
 
 switch asset panel to use loose in dev
  - so use physfs, and mount loose folders when in dev, and to use asset pack in release
  - use kuba/zip to export assets i.e. writing.
  - then only need physfs for reading.
-
+ 
 - add support for miniaudios new fading api
 - add support to writing to update archives
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
