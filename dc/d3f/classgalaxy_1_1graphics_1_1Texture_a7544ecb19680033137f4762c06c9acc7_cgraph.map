@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Texture::Texture" name="galaxy::graphics::Texture::Texture">
-<area shape="rect" id="Node000001" title="Argument Constructor." alt="" coords="5,5,189,45"/>
-<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aac43cd3401c0f444e5c2bbc6ba84905f" title="Loads texture from memory." alt="" coords="237,5,421,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,23,223,23,223,28,190,28"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="469,13,700,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="422,23,456,23,456,28,422,28"/>
-</map>

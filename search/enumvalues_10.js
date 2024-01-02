@@ -9,6 +9,5 @@ var searchData=
   ['polygon_6',['POLYGON',['../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aecdc92bf56d960b73b02ee40125758bc',1,'galaxy::math']]],
   ['polyline_7',['POLYLINE',['../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aeaa8e11478ccd5c257fe6f8bb5591c89',1,'galaxy::math']]],
   ['position_5fpoint_8',['POSITION_POINT',['../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5',1,'galaxy::graphics']]],
-  ['prefabs_9',['PREFABS',['../d6/d19/namespacegalaxy_1_1fs.html#ab7fd018b5a5fa07d3672b692c5cf00c9afcf68851a92aa9cf331f9f86ad676b0a',1,'galaxy::fs']]],
-  ['print_5fscreen_10',['PRINT_SCREEN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea853f8ded7a96b5a765704974e6a3ca96',1,'galaxy::input']]]
+  ['print_5fscreen_9',['PRINT_SCREEN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea853f8ded7a96b5a765704974e6a3ca96',1,'galaxy::input']]]
 ];

@@ -1,9 +1,0 @@
-<map id="galaxy::scene::SceneManager::save_appdata" name="galaxy::scene::SceneManager::save_appdata">
-<area shape="rect" id="Node000001" title="Save all active scenes and sub data within those scenes." alt="" coords="5,35,220,75"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e" title="Serializes object." alt="" coords="268,5,483,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,40,254,36,255,41,220,45"/>
-<area shape="rect" id="Node000003" href="$de/dd6/namespacegalaxy_1_1json.html#ae5c1d676d7f382cbbc7f220afa2d75bc" title="Write json to vfs." alt="" coords="291,70,459,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,63,278,70,278,75,220,69"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="531,70,761,95"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="460,80,517,80,517,85,460,85"/>
-</map>

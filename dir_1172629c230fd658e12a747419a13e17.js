@@ -1,9 +1,5 @@
 var dir_1172629c230fd658e12a747419a13e17 =
 [
-    [ "ArchiveEntry.cpp", "d7/dbc/ArchiveEntry_8cpp.html", null ],
-    [ "ArchiveEntry.hpp", "d3/d14/ArchiveEntry_8hpp.html", "d3/d14/ArchiveEntry_8hpp" ],
-    [ "AssetType.cpp", "d8/d69/AssetType_8cpp.html", null ],
-    [ "AssetType.hpp", "d0/dce/AssetType_8hpp.html", "d0/dce/AssetType_8hpp" ],
     [ "DialogButton.cpp", "d0/de1/DialogButton_8cpp.html", null ],
     [ "DialogButton.hpp", "d5/d02/DialogButton_8hpp.html", "d5/d02/DialogButton_8hpp" ],
     [ "DialogIcons.cpp", "d6/d55/DialogIcons_8cpp.html", null ],

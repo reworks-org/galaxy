@@ -1,5 +1,0 @@
-<map id="galaxy::json::write_disk" name="galaxy::json::write_disk">
-<area shape="rect" id="Node000001" title="Save a json file to disk." alt="" coords="5,5,180,31"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="228,5,459,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
-</map>

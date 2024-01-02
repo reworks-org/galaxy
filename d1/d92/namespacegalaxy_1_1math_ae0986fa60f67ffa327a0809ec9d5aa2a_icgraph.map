@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Decompresses string into ZLib." alt="" coords="684,41,876,66"/>
 <area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,5,373,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="720,40,636,24,576,19,529,19,421,24,374,25,374,20,421,19,529,14,576,14,636,19,721,35"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a1b1a68358eb7d6c421040b6b52e74373" title="Load app data file into scene manager." alt="" coords="421,33,636,73"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="421,33,636,73"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="671,56,636,56,636,51,671,51"/>
 <area shape="rect" id="Node000005" href="$d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html#a14188f921b47fd976c6ee141e9c9bfb5" title="Overloaded operator() used to load a resource." alt="" coords="439,97,618,137"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="717,72,609,100,607,95,715,67"/>

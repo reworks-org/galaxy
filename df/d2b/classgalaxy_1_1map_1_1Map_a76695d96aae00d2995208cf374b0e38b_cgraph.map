@@ -1,98 +1,57 @@
 <map id="galaxy::map::Map::process_layer" name="galaxy::map::Map::process_layer">
-<area shape="rect" id="Node000001" title="Recursive function to process tiled map layers." alt="" coords="5,852,201,892"/>
-<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="58,852,55,842,63,833,79,827,103,825,132,828,147,835,145,840,130,833,103,831,80,833,66,837,61,843,63,851"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#ab9b27cb948c4f59aa76bcf29fddf6b3f" title="Recursive function to process image layer." alt="" coords="249,852,445,892"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,869,236,869,236,875,201,875"/>
-<area shape="rect" id="Node000012" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a338903d79648747c1dddd0d22a88a867" title="Recursive function to process object layer." alt="" coords="249,756,445,796"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="154,849,282,799,284,804,156,854"/>
-<area shape="rect" id="Node000034" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a872940d78049c6742a64665230236c3d" title="Recursive function to process tile layer." alt="" coords="249,1127,445,1167"/>
-<area shape="poly" id="edge42_Node000001_Node000034" title=" " alt="" coords="124,890,321,1115,317,1118,120,894"/>
-<area shape="rect" id="Node000003" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="514,724,667,764"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,850,444,806,467,789,492,774,508,767,510,771,495,778,470,793,447,810,381,854"/>
-<area shape="rect" id="Node000011" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="514,852,667,892"/>
-<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="446,869,500,869,500,875,446,875"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="745,724,924,764"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="668,741,731,741,731,747,668,747"/>
-<area shape="rect" id="Node000009" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="745,660,924,700"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="667,721,744,701,746,706,668,727"/>
-<area shape="rect" id="Node000010" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="1260,633,1491,658"/>
-<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="668,760,737,773,809,787,872,802,979,826,1030,832,1084,830,1143,819,1211,796,1257,770,1298,736,1331,700,1356,668,1360,671,1335,703,1302,740,1260,775,1213,801,1144,824,1084,835,1030,837,978,832,870,807,808,792,735,779,667,765"/>
-<area shape="rect" id="Node000005" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="991,683,1202,723"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="924,727,977,719,978,724,925,733"/>
-<area shape="rect" id="Node000006" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="1007,747,1186,787"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="924,749,994,755,993,760,924,754"/>
-<area shape="rect" id="Node000007" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="981,569,1212,594"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="915,722,932,710,943,697,949,685,954,658,960,631,967,618,980,605,988,598,992,603,983,609,972,621,965,633,959,659,954,686,947,700,935,714,918,726"/>
-<area shape="rect" id="Node000008" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="1007,619,1186,659"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="907,721,932,710,946,700,955,689,965,679,980,668,995,661,997,666,983,673,969,683,959,693,949,704,935,714,909,726"/>
-<area shape="poly" id="edge16_Node000012_Node000003" title=" " alt="" coords="445,760,500,753,501,758,446,766"/>
-<area shape="poly" id="edge41_Node000012_Node000011" title=" " alt="" coords="392,794,494,838,514,845,512,850,492,842,390,799"/>
-<area shape="rect" id="Node000013" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="514,788,667,828"/>
-<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="446,786,501,794,500,799,445,792"/>
-<area shape="rect" id="Node000015" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="514,468,667,508"/>
-<area shape="poly" id="edge17_Node000012_Node000015" title=" " alt="" coords="364,754,562,517,566,520,368,757"/>
-<area shape="rect" id="Node000033" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#ae8515d2233b667b5db9e13f89a1c6400" title="Fetch tile offset in tileset." alt="" coords="507,660,674,700"/>
-<area shape="poly" id="edge40_Node000012_Node000033" title=" " alt="" coords="390,753,492,710,512,702,514,707,494,714,392,758"/>
-<area shape="poly" id="edge14_Node000013_Node000004" title=" " alt="" coords="667,785,744,765,746,770,668,791"/>
-<area shape="rect" id="Node000014" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="737,852,932,892"/>
-<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="668,825,746,846,744,851,667,831"/>
-<area shape="poly" id="edge30_Node000015_Node000004" title=" " alt="" coords="606,507,677,623,714,680,738,710,745,715,742,719,734,714,710,683,672,626,602,510"/>
-<area shape="poly" id="edge32_Node000015_Node000009" title=" " alt="" coords="607,507,659,575,696,613,738,646,748,652,745,656,734,650,692,617,655,578,603,510"/>
-<area shape="poly" id="edge36_Node000015_Node000010" title=" " alt="" coords="667,465,736,453,841,448,978,450,1112,463,1169,474,1213,490,1259,518,1300,553,1334,589,1359,619,1355,623,1330,592,1296,557,1256,522,1211,494,1168,479,1112,468,977,455,841,453,736,459,668,471"/>
-<area shape="rect" id="Node000016" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="743,69,926,109"/>
-<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="598,467,651,354,690,280,734,207,768,159,803,119,807,122,773,163,738,209,695,282,656,356,603,469"/>
-<area shape="rect" id="Node000020" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="743,335,926,375"/>
-<area shape="poly" id="edge23_Node000015_Node000020" title=" " alt="" coords="627,465,784,379,787,384,630,470"/>
-<area shape="rect" id="Node000026" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a2a63886dc9055942bfb4f424fe28f404" title="Generate some default verticies." alt="" coords="745,468,924,508"/>
-<area shape="poly" id="edge31_Node000015_Node000026" title=" " alt="" coords="668,485,731,485,731,491,668,491"/>
-<area shape="rect" id="Node000027" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117" title="Get projection." alt="" coords="743,532,926,572"/>
-<area shape="poly" id="edge33_Node000015_Node000027" title=" " alt="" coords="668,505,746,526,744,531,667,511"/>
-<area shape="rect" id="Node000028" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="743,596,926,636"/>
-<area shape="poly" id="edge34_Node000015_Node000028" title=" " alt="" coords="619,506,672,544,737,582,753,589,751,593,735,586,669,548,616,510"/>
-<area shape="rect" id="Node000030" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f" title="Replaces all occurances of a string." alt="" coords="736,221,933,246"/>
-<area shape="poly" id="edge37_Node000015_Node000030" title=" " alt="" coords="596,467,614,423,643,366,683,307,707,280,734,257,746,249,749,254,738,261,711,284,687,310,647,369,619,425,601,469"/>
-<area shape="rect" id="Node000031" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Unbind framebuffer and texture." alt="" coords="743,271,926,311"/>
-<area shape="poly" id="edge38_Node000015_Node000031" title=" " alt="" coords="602,466,654,395,692,355,734,320,745,314,747,319,738,325,695,359,658,399,607,469"/>
-<area shape="rect" id="Node000017" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="989,5,1204,45"/>
-<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="917,67,1000,46,1002,51,918,72"/>
-<area shape="rect" id="Node000019" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="1005,69,1188,109"/>
-<area shape="poly" id="edge21_Node000016_Node000019" title=" " alt="" coords="926,87,992,87,992,92,926,92"/>
-<area shape="rect" id="Node000018" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="1268,37,1483,77"/>
-<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="1205,35,1255,41,1254,46,1204,40"/>
-<area shape="poly" id="edge22_Node000019_Node000018" title=" " alt="" coords="1188,76,1254,69,1254,74,1189,82"/>
-<area shape="rect" id="Node000021" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="989,389,1204,429"/>
-<area shape="poly" id="edge24_Node000020_Node000021" title=" " alt="" coords="927,371,987,384,986,389,926,376"/>
-<area shape="rect" id="Node000022" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="989,197,1204,237"/>
-<area shape="poly" id="edge26_Node000020_Node000022" title=" " alt="" coords="913,332,932,321,947,303,955,285,963,266,980,247,988,241,991,246,983,251,967,269,960,287,952,306,935,325,915,337"/>
-<area shape="rect" id="Node000023" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="989,261,1204,301"/>
-<area shape="poly" id="edge27_Node000020_Node000023" title=" " alt="" coords="905,332,981,311,1010,303,1011,308,982,316,907,337"/>
-<area shape="rect" id="Node000025" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="989,325,1204,365"/>
-<area shape="poly" id="edge29_Node000020_Node000025" title=" " alt="" coords="926,349,975,347,976,352,926,354"/>
-<area shape="poly" id="edge25_Node000021_Node000010" title=" " alt="" coords="1177,427,1213,446,1262,487,1305,535,1338,581,1362,619,1358,622,1334,584,1300,538,1259,491,1211,450,1175,432"/>
-<area shape="rect" id="Node000024" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="1268,261,1483,301"/>
-<area shape="poly" id="edge28_Node000023_Node000024" title=" " alt="" coords="1204,279,1254,279,1254,284,1204,284"/>
-<area shape="rect" id="Node000029" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="989,504,1204,544"/>
-<area shape="poly" id="edge35_Node000028_Node000029" title=" " alt="" coords="902,593,932,582,956,568,980,554,1000,546,1002,551,982,558,959,572,935,586,904,598"/>
-<area shape="rect" id="Node000032" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="989,133,1204,173"/>
-<area shape="poly" id="edge39_Node000031_Node000032" title=" " alt="" coords="910,268,932,255,947,238,955,220,963,201,980,183,989,177,991,182,983,187,967,204,960,222,952,241,935,259,913,273"/>
-<area shape="poly" id="edge48_Node000034_Node000010" title=" " alt="" coords="355,1125,374,1087,403,1039,443,991,466,970,492,952,552,923,606,908,656,902,705,903,807,910,866,909,933,901,1014,892,1079,886,1140,873,1173,859,1211,838,1260,799,1302,753,1335,707,1358,669,1363,672,1339,710,1306,756,1263,803,1213,842,1175,863,1141,878,1079,892,1015,897,934,907,866,914,807,915,705,908,657,907,607,913,554,928,495,957,469,974,447,995,408,1042,378,1090,359,1128"/>
-<area shape="poly" id="edge50_Node000034_Node000011" title=" " alt="" coords="353,1126,372,1082,401,1024,441,963,465,934,492,909,509,896,512,901,495,913,469,938,445,966,406,1026,377,1084,358,1128"/>
-<area shape="rect" id="Node000035" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae758c13eb44771849aaad9c9998c8056" title="Get stored rotation." alt="" coords="499,967,682,1007"/>
-<area shape="poly" id="edge43_Node000034_Node000035" title=" " alt="" coords="364,1125,418,1071,454,1042,492,1016,505,1010,507,1015,495,1021,457,1046,422,1075,368,1128"/>
-<area shape="rect" id="Node000036" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a82c3f8f58cad54c0d5d48b9f5072be13" title="Get stored scale." alt="" coords="508,1031,673,1071"/>
-<area shape="poly" id="edge44_Node000034_Node000036" title=" " alt="" coords="390,1124,492,1080,512,1073,514,1078,494,1085,392,1129"/>
-<area shape="rect" id="Node000037" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="493,1095,688,1135"/>
-<area shape="poly" id="edge45_Node000034_Node000037" title=" " alt="" coords="445,1131,479,1127,480,1132,446,1136"/>
-<area shape="rect" id="Node000038" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="498,1159,683,1199"/>
-<area shape="poly" id="edge46_Node000034_Node000038" title=" " alt="" coords="446,1157,485,1162,484,1167,445,1162"/>
-<area shape="rect" id="Node000039" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="498,1223,683,1263"/>
-<area shape="poly" id="edge47_Node000034_Node000039" title=" " alt="" coords="392,1164,494,1208,514,1215,512,1220,492,1213,390,1169"/>
-<area shape="rect" id="Node000040" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the rotational origin point." alt="" coords="507,1287,674,1327"/>
-<area shape="poly" id="edge49_Node000034_Node000040" title=" " alt="" coords="368,1165,422,1218,457,1247,495,1272,507,1279,505,1284,492,1277,454,1251,418,1222,364,1169"/>
-<area shape="rect" id="Node000041" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a2788c368d5a7122e521f7d56bb72aecb" title="Set the entity rotation." alt="" coords="500,1351,681,1391"/>
-<area shape="poly" id="edge51_Node000034_Node000041" title=" " alt="" coords="361,1165,381,1202,411,1248,449,1295,495,1337,503,1342,500,1346,492,1341,445,1299,407,1251,376,1205,356,1168"/>
-<area shape="rect" id="Node000042" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="509,1415,673,1470"/>
-<area shape="poly" id="edge52_Node000034_Node000042" title=" " alt="" coords="357,1166,375,1213,403,1276,444,1342,468,1373,495,1401,501,1406,498,1410,492,1405,464,1377,439,1345,399,1278,370,1215,352,1168"/>
-<area shape="rect" id="Node000043" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="509,1494,673,1549"/>
-<area shape="poly" id="edge53_Node000034_Node000043" title=" " alt="" coords="354,1166,367,1226,393,1310,412,1356,435,1401,462,1443,495,1481,499,1484,495,1488,491,1485,458,1446,430,1403,407,1358,388,1312,362,1228,349,1167"/>
+<area shape="rect" id="Node000001" title="Recursive function to process tiled map layers." alt="" coords="5,225,201,265"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="58,226,55,216,63,206,79,201,103,199,132,202,147,209,145,214,130,207,103,204,80,206,66,211,61,217,63,224"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#ab9b27cb948c4f59aa76bcf29fddf6b3f" title="Recursive function to process image layer." alt="" coords="249,225,445,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,243,236,243,236,248,201,248"/>
+<area shape="rect" id="Node000012" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a338903d79648747c1dddd0d22a88a867" title="Recursive function to process object layer." alt="" coords="249,161,445,201"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="180,223,257,202,258,207,181,228"/>
+<area shape="rect" id="Node000016" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a872940d78049c6742a64665230236c3d" title="Recursive function to process tile layer." alt="" coords="249,531,445,571"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="123,264,324,518,320,521,118,267"/>
+<area shape="rect" id="Node000003" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="514,161,667,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,223,500,202,502,207,425,228"/>
+<area shape="rect" id="Node000011" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="514,225,667,265"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="446,243,500,243,500,248,446,248"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="762,97,941,137"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="667,160,755,138,756,143,668,165"/>
+<area shape="rect" id="Node000009" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="762,161,941,201"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="668,179,748,179,748,184,668,184"/>
+<area shape="rect" id="Node000010" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="736,337,967,362"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="664,199,689,211,731,238,770,269,830,325,827,329,767,273,728,242,687,216,661,204"/>
+<area shape="rect" id="Node000005" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="1025,5,1235,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="933,95,966,83,989,69,1014,55,1033,47,1035,52,1016,60,992,74,968,88,935,100"/>
+<area shape="rect" id="Node000006" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="1041,69,1219,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="940,106,1027,97,1027,102,941,111"/>
+<area shape="rect" id="Node000007" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="1015,134,1245,159"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="941,124,1001,130,1001,136,940,129"/>
+<area shape="rect" id="Node000008" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="1041,184,1219,224"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="931,135,968,147,1016,168,1042,177,1040,182,1014,173,966,152,929,140"/>
+<area shape="poly" id="edge16_Node000012_Node000003" title=" " alt="" coords="446,179,500,179,500,184,446,184"/>
+<area shape="poly" id="edge18_Node000012_Node000011" title=" " alt="" coords="425,199,502,219,500,224,423,204"/>
+<area shape="rect" id="Node000013" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a2277b23e5fdd7a8198989ccdb40260b2" title="Create the primitive vertexs." alt="" coords="514,33,667,73"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="373,159,426,121,492,83,508,76,510,81,495,88,429,126,376,163"/>
+<area shape="rect" id="Node000015" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#ae8515d2233b667b5db9e13f89a1c6400" title="Fetch tile offset in tileset." alt="" coords="507,97,674,137"/>
+<area shape="poly" id="edge17_Node000012_Node000015" title=" " alt="" coords="423,159,500,138,502,143,425,164"/>
+<area shape="poly" id="edge14_Node000013_Node000004" title=" " alt="" coords="668,70,756,91,755,97,667,75"/>
+<area shape="rect" id="Node000014" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="754,33,949,73"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="668,51,740,51,740,56,668,56"/>
+<area shape="poly" id="edge25_Node000016_Node000010" title=" " alt="" coords="389,528,492,484,547,468,591,459,634,450,687,432,757,400,816,367,819,372,760,405,689,437,635,455,592,464,548,473,494,489,391,533"/>
+<area shape="poly" id="edge27_Node000016_Node000011" title=" " alt="" coords="351,530,367,479,395,411,436,338,462,305,492,275,500,269,503,273,495,279,466,308,440,341,400,413,372,481,356,531"/>
+<area shape="rect" id="Node000017" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae758c13eb44771849aaad9c9998c8056" title="Get stored rotation." alt="" coords="499,499,682,539"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="445,535,486,530,486,535,446,540"/>
+<area shape="rect" id="Node000018" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a82c3f8f58cad54c0d5d48b9f5072be13" title="Get stored scale." alt="" coords="508,563,673,603"/>
+<area shape="poly" id="edge21_Node000016_Node000018" title=" " alt="" coords="446,561,495,567,494,573,445,566"/>
+<area shape="rect" id="Node000019" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="493,627,688,667"/>
+<area shape="poly" id="edge22_Node000016_Node000019" title=" " alt="" coords="392,568,494,612,514,619,512,624,492,617,390,573"/>
+<area shape="rect" id="Node000020" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="498,691,683,731"/>
+<area shape="poly" id="edge23_Node000016_Node000020" title=" " alt="" coords="368,569,422,622,457,651,495,676,507,683,505,688,492,681,454,655,418,626,364,573"/>
+<area shape="rect" id="Node000021" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="498,755,683,795"/>
+<area shape="poly" id="edge24_Node000016_Node000021" title=" " alt="" coords="361,569,381,606,411,652,449,699,495,741,503,746,500,750,492,745,445,703,407,655,376,609,356,572"/>
+<area shape="rect" id="Node000022" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the rotational origin point." alt="" coords="507,819,674,859"/>
+<area shape="poly" id="edge26_Node000016_Node000022" title=" " alt="" coords="357,570,374,618,402,681,442,747,467,778,495,805,501,809,498,814,492,809,463,781,438,750,397,683,369,620,352,572"/>
+<area shape="rect" id="Node000023" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a2788c368d5a7122e521f7d56bb72aecb" title="Set the entity rotation." alt="" coords="500,883,681,923"/>
+<area shape="poly" id="edge28_Node000016_Node000023" title=" " alt="" coords="355,570,368,629,394,709,412,752,435,794,463,834,495,869,501,873,497,877,492,873,459,837,431,797,407,754,389,711,363,630,349,571"/>
+<area shape="rect" id="Node000024" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="509,290,673,345"/>
+<area shape="poly" id="edge29_Node000016_Node000024" title=" " alt="" coords="357,529,377,492,408,445,446,397,492,354,497,350,500,354,495,358,450,400,412,449,382,495,361,531"/>
+<area shape="rect" id="Node000025" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="509,369,673,423"/>
+<area shape="poly" id="edge30_Node000016_Node000025" title=" " alt="" coords="371,528,425,486,492,440,515,427,517,432,495,445,428,490,374,533"/>
 </map>

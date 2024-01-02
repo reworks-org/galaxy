@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::RenderTexture::get_width" name="galaxy::graphics::RenderTexture::get_width">
 <area shape="rect" id="Node000001" title="Get texture width." alt="" coords="236,5,419,45"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a997e5f87758f7003ab60dc7cda45c118" title="Saves texture to file on disk." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a440ab2bccbe20da4782c6558d2b453e6" title="Saves texture to file on disk." alt="" coords="5,5,188,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
 </map>

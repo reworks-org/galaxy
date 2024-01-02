@@ -1,15 +1,12 @@
 <map id="galaxy::fs::VirtualFileSystem::VirtualFileSystem" name="galaxy::fs::VirtualFileSystem::VirtualFileSystem">
 <area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,69,213,109"/>
-<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae63632c811add96e820aa07ff7a9aa0e" title="Create default asset layout." alt="" coords="273,5,481,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,67,279,46,280,51,194,72"/>
-<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a4025eb33e05f34effbe766a7cd121b56" title="Rebuild the filesystem index cache." alt="" coords="273,69,481,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,87,259,87,259,92,213,92"/>
-<area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="261,134,492,159"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="204,107,304,128,303,134,203,112"/>
-<area shape="rect" id="Node000004" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a6e70add0a2e647ff6360013471f50836" title="Append archive entries to the tree." alt="" coords="540,5,748,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="460,67,546,46,547,51,462,72"/>
-<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a15840fdd0946eea397f79dab6fc08c8e" title="Append archives within a directory to the search path." alt="" coords="540,69,748,109"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="481,87,526,87,526,92,481,92"/>
-<area shape="rect" id="Node000006" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0754f32a175592698ed58f45b25cf7cf" title="Close all handles except root archive, and clear directory tree." alt="" coords="540,133,748,173"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="462,107,547,128,546,133,460,112"/>
+<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="273,12,481,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,67,269,52,270,58,204,72"/>
+<area shape="rect" id="Node000004" href="$d3/d81/namespacegalaxy_1_1error.html#aba2082667422d8fbfefd61a140bd90e3" title="Call a physfs function with error handling and logs a message for you." alt="" coords="567,69,721,109"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="214,87,553,87,553,92,214,92"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="261,127,492,153"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="214,106,296,122,295,127,213,112"/>
+<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ad5ffea521344ba9318bb8c865ca7b7d5" title="Does the file exist in the vfs." alt="" coords="540,5,748,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="481,27,526,26,526,31,481,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="471,49,554,67,553,73,470,55"/>
 </map>

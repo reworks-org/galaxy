@@ -2,12 +2,10 @@
 <area shape="rect" id="Node000001" title="Load a MPEG&#45;1 from video file." alt="" coords="5,92,164,132"/>
 <area shape="rect" id="Node000002" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="252,5,403,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,89,211,55,238,46,240,51,213,60,130,94"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,70,443,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,100,208,94,209,100,165,105"/>
-<area shape="rect" id="Node000005" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="248,120,407,160"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,119,235,127,234,132,164,124"/>
-<area shape="rect" id="Node000006" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b" title="Write data to ring buffer." alt="" coords="232,184,423,224"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="125,130,213,170,235,177,234,182,211,174,123,135"/>
-<area shape="rect" id="Node000003" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a02d4321137e9d59e26b7807f3c66a675" title="Read the ring buffer." alt="" coords="491,5,681,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="403,23,477,23,477,28,403,28"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,70,443,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,100,208,94,209,100,165,105"/>
+<area shape="rect" id="Node000004" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="248,120,407,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,119,235,127,234,132,164,124"/>
+<area shape="rect" id="Node000005" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b" title="Write data to ring buffer." alt="" coords="232,184,423,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="125,130,213,170,235,177,234,182,211,174,123,135"/>
 </map>

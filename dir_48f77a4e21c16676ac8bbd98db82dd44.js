@@ -10,6 +10,8 @@ var dir_48f77a4e21c16676ac8bbd98db82dd44 =
     [ "LogLevel.hpp", "d8/d00/LogLevel_8hpp.html", "d8/d00/LogLevel_8hpp" ],
     [ "OpenGLError.cpp", "dd/daa/OpenGLError_8cpp.html", "dd/daa/OpenGLError_8cpp" ],
     [ "OpenGLError.hpp", "d5/dd1/OpenGLError_8hpp.html", "d5/dd1/OpenGLError_8hpp" ],
+    [ "PhysFSError.cpp", "dd/df8/PhysFSError_8cpp.html", "dd/df8/PhysFSError_8cpp" ],
+    [ "PhysFSError.hpp", "d0/d44/PhysFSError_8hpp.html", "d0/d44/PhysFSError_8hpp" ],
     [ "Sink.cpp", "d6/d18/Sink_8cpp.html", null ],
     [ "Sink.hpp", "d8/d5e/Sink_8hpp.html", "d8/d5e/Sink_8hpp" ]
 ];

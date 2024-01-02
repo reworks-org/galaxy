@@ -8,7 +8,7 @@ var classgalaxy_1_1graphics_1_1RenderTexture =
     [ "operator=", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6705e5a75e2d4479a82275fd7a990f55", null ],
     [ "create", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d", null ],
     [ "resize", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706", null ],
-    [ "save", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a997e5f87758f7003ab60dc7cda45c118", null ],
+    [ "save", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a440ab2bccbe20da4782c6558d2b453e6", null ],
     [ "bind", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f", null ],
     [ "unbind", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464", null ],
     [ "clear", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5", null ],

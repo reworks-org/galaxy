@@ -53,7 +53,6 @@ var annotated_dup =
         [ "Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", "d3/d72/classgalaxy_1_1flags_1_1Disabled" ]
       ] ],
       [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", [
-        [ "ArchiveEntry", "d0/db4/structgalaxy_1_1fs_1_1ArchiveEntry.html", "d0/db4/structgalaxy_1_1fs_1_1ArchiveEntry" ],
         [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],

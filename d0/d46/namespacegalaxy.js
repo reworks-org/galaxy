@@ -14,11 +14,9 @@ var namespacegalaxy =
     [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", "db/dab/namespacegalaxy_1_1graphics" ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", "dd/d59/namespacegalaxy_1_1input" ],
     [ "json", "de/dd6/namespacegalaxy_1_1json.html", [
-      [ "read_vfs", "de/dd6/namespacegalaxy_1_1json.html#aaab6da711dbf1b9b210914765ac7f088", null ],
+      [ "read", "de/dd6/namespacegalaxy_1_1json.html#aaf01bc3e874285b88161d7c6b9b26bcb", null ],
       [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#aa31b660b1d3dee00d3c6910ecc4db4cf", null ],
-      [ "read_disk", "de/dd6/namespacegalaxy_1_1json.html#aef7d20c599dc44e9779b17c5d87b32b3", null ],
-      [ "write_vfs", "de/dd6/namespacegalaxy_1_1json.html#ae5c1d676d7f382cbbc7f220afa2d75bc", null ],
-      [ "write_disk", "de/dd6/namespacegalaxy_1_1json.html#aa50ace825a37783f47c3f48487fa370e", null ]
+      [ "write", "de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a", null ]
     ] ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
     [ "map", "d6/d4d/namespacegalaxy_1_1map.html", "d6/d4d/namespacegalaxy_1_1map" ],

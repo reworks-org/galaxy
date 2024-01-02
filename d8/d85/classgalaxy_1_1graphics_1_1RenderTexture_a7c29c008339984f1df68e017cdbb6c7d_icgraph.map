@@ -1,37 +1,29 @@
 <map id="galaxy::graphics::RenderTexture::create" name="galaxy::graphics::RenderTexture::create">
-<area shape="rect" id="Node000001" title="Create the RenderTexture." alt="" coords="1447,229,1629,269"/>
-<area shape="rect" id="Node000002" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="1155,5,1388,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1520,218,1500,181,1473,138,1438,95,1397,60,1376,48,1378,43,1400,55,1442,91,1477,134,1505,178,1524,215"/>
-<area shape="rect" id="Node000003" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="1195,69,1348,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1510,221,1461,170,1430,145,1397,124,1347,105,1349,100,1400,119,1434,141,1465,166,1514,217"/>
-<area shape="rect" id="Node000011" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="1184,133,1359,173"/>
-<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="1485,226,1398,188,1358,175,1360,170,1400,183,1487,221"/>
-<area shape="rect" id="Node000012" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="1144,197,1399,237"/>
-<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1433,239,1398,235,1399,230,1433,234"/>
-<area shape="rect" id="Node000013" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="1173,261,1369,301"/>
-<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="1433,265,1370,272,1369,267,1433,259"/>
-<area shape="rect" id="Node000014" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="1164,325,1379,365"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="1487,278,1400,316,1361,328,1360,323,1398,311,1485,273"/>
-<area shape="rect" id="Node000016" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a686fd76f52864e436f2660d07eae5d7a" title="Argument constructor." alt="" coords="1180,389,1363,429"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="1514,282,1465,332,1434,358,1400,380,1364,395,1362,390,1397,375,1430,354,1461,328,1510,278"/>
-<area shape="rect" id="Node000017" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="1177,453,1366,493"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1524,283,1505,321,1477,364,1442,407,1400,444,1367,460,1365,455,1397,439,1438,404,1473,361,1500,318,1520,281"/>
-<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="921,12,1075,52"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1181,73,1074,51,1075,45,1182,68"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,109,373,149"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="1181,96,656,117,374,129,374,124,656,112,1181,90"/>
-<area shape="rect" id="Node000008" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a338903d79648747c1dddd0d22a88a867" title="Recursive function to process object layer." alt="" coords="900,139,1096,179"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="1182,114,1145,124,1077,141,1076,136,1143,119,1181,109"/>
-<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="677,12,831,52"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="908,35,831,35,831,29,908,29"/>
-<area shape="rect" id="Node000007" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,109,188,149"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="222,132,188,132,188,127,222,127"/>
-<area shape="rect" id="Node000009" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a76695d96aae00d2995208cf374b0e38b" title="Recursive function to process tiled map layers." alt="" coords="656,151,852,191"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="887,167,852,169,852,163,886,161"/>
-<area shape="poly" id="edge11_Node000009_Node000009" title=" " alt="" coords="794,139,780,132,754,129,731,131,717,136,712,142,715,150,710,151,707,141,714,132,730,126,754,124,782,127,797,134"/>
-<area shape="rect" id="Node000010" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aa51c144395b00304fb943492b3ae5fa5" title="Create entities for tilemap." alt="" coords="421,142,608,167"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="642,166,608,164,608,158,643,161"/>
-<area shape="poly" id="edge10_Node000010_Node000006" title=" " alt="" coords="407,144,373,140,374,135,408,139"/>
-<area shape="rect" id="Node000015" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="901,325,1095,365"/>
-<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="1150,348,1096,348,1096,343,1150,343"/>
+<area shape="rect" id="Node000001" title="Create the RenderTexture." alt="" coords="781,229,964,269"/>
+<area shape="rect" id="Node000002" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="489,5,723,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="854,218,835,181,807,138,773,95,732,60,710,48,713,43,735,55,777,91,812,134,839,178,859,215"/>
+<area shape="rect" id="Node000003" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="529,69,683,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="845,221,796,170,765,145,732,124,682,105,684,100,735,119,768,141,799,166,848,217"/>
+<area shape="rect" id="Node000008" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="519,133,693,173"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="820,226,732,188,693,175,694,170,734,183,822,221"/>
+<area shape="rect" id="Node000009" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="479,197,733,237"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="767,239,733,235,734,230,768,234"/>
+<area shape="rect" id="Node000010" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="508,261,704,301"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="768,265,705,272,704,267,767,259"/>
+<area shape="rect" id="Node000011" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="499,325,713,365"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="822,278,734,316,696,328,694,323,732,311,820,273"/>
+<area shape="rect" id="Node000013" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a686fd76f52864e436f2660d07eae5d7a" title="Argument constructor." alt="" coords="515,389,697,429"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="848,282,799,332,768,358,735,380,699,395,697,390,732,375,765,354,796,328,845,278"/>
+<area shape="rect" id="Node000014" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="511,453,701,493"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="859,283,839,321,812,364,777,407,735,444,702,460,700,455,732,439,773,404,807,361,835,318,854,281"/>
+<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="257,37,410,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="515,81,410,69,411,64,516,76"/>
+<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="265,101,402,141"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="516,103,403,116,402,111,515,97"/>
+<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="20,37,173,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="242,60,174,60,174,55,242,55"/>
+<area shape="rect" id="Node000007" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,101,188,141"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="251,124,188,124,188,119,251,119"/>
+<area shape="rect" id="Node000012" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="236,325,431,365"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="485,348,431,348,431,343,485,343"/>
 </map>

@@ -13,5 +13,7 @@ var namespacegalaxy_1_1error =
     ] ],
     [ "gl_errcode_as_string", "d3/d81/namespacegalaxy_1_1error.html#aae02b0d611f319e23e5bf699aa403575", null ],
     [ "gl_get_all_errors", "d3/d81/namespacegalaxy_1_1error.html#a169a2b466fbd10d41637d1627e48f1e5", null ],
-    [ "gl_add_error", "d3/d81/namespacegalaxy_1_1error.html#a992b35658b4009f3246e8a19a294f9b5", null ]
+    [ "gl_add_error", "d3/d81/namespacegalaxy_1_1error.html#a992b35658b4009f3246e8a19a294f9b5", null ],
+    [ "physfs_check", "d3/d81/namespacegalaxy_1_1error.html#aba2082667422d8fbfefd61a140bd90e3", null ],
+    [ "physfs_check", "d3/d81/namespacegalaxy_1_1error.html#af3b9c80dda02cf9b0d390847859ee359", null ]
 ];

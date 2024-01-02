@@ -1,7 +1,9 @@
 <map id="galaxy::components::UIScript::load" name="galaxy::components::UIScript::load">
-<area shape="rect" id="Node000001" title="Load script and set context." alt="" coords="415,5,568,45"/>
-<area shape="rect" id="Node000002" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a1e168536955fe04f5d969ea79f6fe254" title="Deserializes from object." alt="" coords="207,5,367,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,28,367,28,367,23,401,23"/>
-<area shape="rect" id="Node000003" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#ade343d82257de60bb52498bfbc537001" title="JSON constructor." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="rect" id="Node000001" title="Load script and set context." alt="" coords="415,37,568,77"/>
+<area shape="rect" id="Node000002" href="$da/dc8/classgalaxy_1_1core_1_1World.html#a2cdf7025868b0d1a17e947be263bc5d1" title="Function that integrates nuklear init with entt on construct event." alt="" coords="213,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,46,360,39,361,34,401,41"/>
+<area shape="rect" id="Node000003" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a1e168536955fe04f5d969ea79f6fe254" title="Deserializes from object." alt="" coords="207,69,367,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="401,74,367,79,366,74,401,69"/>
+<area shape="rect" id="Node000004" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#ade343d82257de60bb52498bfbc537001" title="JSON constructor." alt="" coords="5,69,159,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,92,159,92,159,87,193,87"/>
 </map>
