@@ -80,14 +80,14 @@ namespace galaxy
 			///
 			/// \param appdata_file Zlib + Base64 encoded json data file. Should have .galaxy extension.
 			///
-			void load_appdata(const std::string& appdata_file);
+			void load_app(const std::string& appdata_file);
 
 			///
 			/// Save all active scenes and sub data within those scenes.
 			///
 			/// \param file File to save data to.
 			///
-			void save_appdata(const std::string& file);
+			void save_app(const std::string& file);
 
 			///
 			/// Gets a specific scene.

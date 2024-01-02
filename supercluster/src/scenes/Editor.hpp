@@ -53,8 +53,8 @@ namespace sc
 	  private:
 		void draw_editor();
 		void viewport();
-
 		void do_updates();
+		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 
 	  private:
 		async::Timer         m_autosave;

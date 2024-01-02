@@ -55,12 +55,6 @@ namespace galaxy
 				auto  read_dir = GALAXY_ROOT_DIR / config.get<std::string>("asset_pak");
 				read_dir.make_preferred();
 
-				// Create asset pack if it doesn't exist.
-				if (!std::filesystem::exists(read_dir))
-				{
-					zip_close(zip_open(read_dir.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w'));
-				}
-
 				if (config.get<bool>("use_loose_assets"))
 				{
 					read_dir = write_dir;

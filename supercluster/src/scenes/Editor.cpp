@@ -305,8 +305,9 @@ namespace sc
 
 		auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
 		tp.push_task([&]() {
-			auto&      config = core::ServiceLocator<core::Config>::ref();
-			const auto path   = std::filesystem::path("export");
+			auto& config = core::ServiceLocator<core::Config>::ref();
+
+			const std::filesystem::path path = GALAXY_EDITOR_DATA_DIR + "export/";
 			if (!std::filesystem::exists(path))
 			{
 				std::filesystem::create_directories(path);
@@ -319,7 +320,7 @@ namespace sc
 			data      = math::encode_base64(data);
 			data      = math::encode_zlib(data);
 
-			app_data.open(path / config.get<std::string>("app_data"), std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
+			app_data.open(path / "app.galaxy", std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
 			if (app_data.good())
 			{
 				app_data.write(data.data(), data.size());
@@ -328,6 +329,7 @@ namespace sc
 			app_data.close();
 
 			auto config_data = m_settings.save().dump(4);
+			strutils::replace_first(config_data, "\"use_loose_assets\": true", "\"use_loose_assets\": false");
 
 			app_config.open(path / "config.json", std::ofstream::out | std::ofstream::trunc);
 			if (app_config.good())
@@ -341,10 +343,12 @@ namespace sc
 
 			app_config.close();
 
-			// Copy assets.
-			const auto options =
-				std::filesystem::copy_options::update_existing | std::filesystem::copy_options::recursive | std::filesystem::copy_options::skip_symlinks;
-			std::filesystem::copy(std::filesystem::path(GALAXY_ROOT_DIR / GALAXY_ASSET_DIR), path / GALAXY_ASSET_DIR, options);
+			const auto zip_path = path / config.get<std::string>("asset_pak");
+			std::filesystem::remove(zip_path);
+
+			struct zip_t* zip = zip_open(zip_path.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
+			recursively_zip_assets(zip, GALAXY_ASSET_DIR);
+			zip_close(zip);
 
 			m_show_exportprogress = false;
 		});
@@ -977,5 +981,24 @@ namespace sc
 		}
 
 		m_update_stack.clear();
+	}
+
+	void Editor::recursively_zip_assets(zip_t* zip, const std::filesystem::path& path)
+	{
+		for (const auto& entry : std::filesystem::directory_iterator(path))
+		{
+			const auto entry_path = std::filesystem::path(entry);
+
+			if (entry.is_directory())
+			{
+				recursively_zip_assets(zip, entry_path);
+			}
+			else
+			{
+				zip_entry_open(zip, entry_path.relative_path().string().c_str());
+				zip_entry_fwrite(zip, entry_path.string().c_str());
+				zip_entry_close(zip);
+			}
+		}
 	}
 } // namespace sc

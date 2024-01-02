@@ -1085,11 +1085,11 @@ namespace galaxy
 			scenemanager_type["current"]      = &scene::SceneManager::current;
 			scenemanager_type["get"]          = &scene::SceneManager::get;
 			scenemanager_type["has_current"]  = &scene::SceneManager::has_current;
-			scenemanager_type["load_appdata"] = &scene::SceneManager::load_appdata;
+			scenemanager_type["load_app"]     = &scene::SceneManager::load_app;
 			scenemanager_type["load_scene"]   = &scene::SceneManager::load_scene;
 			scenemanager_type["make_scene"]   = &scene::SceneManager::make_scene;
 			scenemanager_type["remove"]       = &scene::SceneManager::remove;
-			scenemanager_type["save_appdata"] = &scene::SceneManager::save_appdata;
+			scenemanager_type["save_app"]     = &scene::SceneManager::save_app;
 			scenemanager_type["set_scene"]    = &scene::SceneManager::set_scene;
 			scenemanager_type["unload_scene"] = &scene::SceneManager::unload_scene;
 

@@ -98,7 +98,7 @@ namespace galaxy
 			m_current = nullptr;
 		}
 
-		void SceneManager::load_appdata(const std::string& appdata_file)
+		void SceneManager::load_app(const std::string& appdata_file)
 		{
 			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read(appdata_file);
 			if (!data.empty())
@@ -128,7 +128,7 @@ namespace galaxy
 			}
 		}
 
-		void SceneManager::save_appdata(const std::string& file)
+		void SceneManager::save_app(const std::string& file)
 		{
 			const auto json = serialize();
 
