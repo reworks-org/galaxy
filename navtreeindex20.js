@@ -1,8 +1,7 @@
 var NAVTREEINDEX20 =
 {
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aeda247aedcabb8aad1ff8f8f8f74abaa":[2,0,0,1,4,32],
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3":[2,0,0,1,4,21],
 "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3":[0,0,0,1,4,21],
+"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3":[2,0,0,1,4,21],
 "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbfb53090abafd31987dda8ff8123ec0":[0,0,0,1,4,22],
 "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbfb53090abafd31987dda8ff8123ec0":[2,0,0,1,4,22],
 "dir_1172629c230fd658e12a747419a13e17.html":[3,0,0,0,0,7],
