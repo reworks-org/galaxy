@@ -46,10 +46,8 @@ int main(int argsc, char* argsv[])
 	{
 		GALAXY_RESTART = false;
 
-#ifdef NDEBUG
 		try
 		{
-#endif
 			Supercluster app;
 
 			{
@@ -122,8 +120,6 @@ int main(int argsc, char* argsv[])
 
 			app.run();
 			ui::imgui_destroy_context();
-
-#ifdef NDEBUG
 		}
 		catch (const std::exception& e)
 		{
@@ -131,7 +127,6 @@ int main(int argsc, char* argsv[])
 			std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
 			std::cout << "======================" << std::endl;
 		}
-#endif
 	} while (GALAXY_RESTART);
 
 	return GALAXY_EXIT_SUCCESS;

@@ -283,84 +283,73 @@ namespace galaxy
 
 		void Application::run()
 		{
-#ifdef NDEBUG
-			try
+			GALAXY_CUR_UPS = 0;
+			GALAXY_CUR_FPS = 0;
+
+			auto& config   = ServiceLocator<Config>::ref();
+			auto& window   = ServiceLocator<Window>::ref();
+			auto& manager  = ServiceLocator<scene::SceneManager>::ref();
+			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
+			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
+
+			const auto log_perf = config.get<bool>("log_performance");
+
+			unsigned int frames  = 0u;
+			unsigned int updates = 0u;
+
+			constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
+			constexpr const auto one_second  = std::chrono::seconds {1};
+
+			std::chrono::nanoseconds accumulator {0};
+			std::chrono::nanoseconds perf_counter {0};
+			std::chrono::nanoseconds elapsed {0};
+
+			auto current  = std::chrono::high_resolution_clock::now();
+			auto previous = current;
+
+			while (window.is_open())
 			{
-#endif
-				GALAXY_CUR_UPS = 0;
-				GALAXY_CUR_FPS = 0;
+				current      = std::chrono::high_resolution_clock::now();
+				elapsed      = current - previous;
+				previous     = current;
+				accumulator += elapsed;
 
-				auto& config   = ServiceLocator<Config>::ref();
-				auto& window   = ServiceLocator<Window>::ref();
-				auto& manager  = ServiceLocator<scene::SceneManager>::ref();
-				auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
-				auto& renderer = ServiceLocator<graphics::Renderer>::ref();
+				auto& scene = manager.current();
 
-				const auto log_perf = config.get<bool>("log_performance");
+				perf_counter += elapsed;
 
-				unsigned int frames  = 0u;
-				unsigned int updates = 0u;
-
-				constexpr const auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(GALAXY_UPS);
-				constexpr const auto one_second  = std::chrono::seconds {1};
-
-				std::chrono::nanoseconds accumulator {0};
-				std::chrono::nanoseconds perf_counter {0};
-				std::chrono::nanoseconds elapsed {0};
-
-				auto current  = std::chrono::high_resolution_clock::now();
-				auto previous = current;
-
-				while (window.is_open())
+				while (accumulator >= GALAXY_UPS)
 				{
-					current      = std::chrono::high_resolution_clock::now();
-					elapsed      = current - previous;
-					previous     = current;
-					accumulator += elapsed;
+					renderer.flush();
 
-					auto& scene = manager.current();
+					window.poll_events();
+					scene.update();
 
-					perf_counter += elapsed;
+					accumulator -= ups_as_nano;
 
-					while (accumulator >= GALAXY_UPS)
-					{
-						renderer.flush();
-
-						window.poll_events();
-						scene.update();
-
-						accumulator -= ups_as_nano;
-
-						updates++;
-					}
-
-					scene.render();
-					renderer.swap_buffers();
-
-					frames++;
-
-					if (perf_counter >= one_second)
-					{
-						if (log_perf)
-						{
-							GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
-						}
-
-						GALAXY_CUR_UPS = updates;
-						GALAXY_CUR_FPS = frames;
-
-						frames       = 0;
-						updates      = 0;
-						perf_counter = std::chrono::nanoseconds {0};
-					}
+					updates++;
 				}
-#ifdef NDEBUG
+
+				scene.render();
+				renderer.swap_buffers();
+
+				frames++;
+
+				if (perf_counter >= one_second)
+				{
+					if (log_perf)
+					{
+						GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
+					}
+
+					GALAXY_CUR_UPS = updates;
+					GALAXY_CUR_FPS = frames;
+
+					frames       = 0;
+					updates      = 0;
+					perf_counter = std::chrono::nanoseconds {0};
+				}
 			}
-			catch (const std::exception& e)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Main loop exception: '{0}'.", e.what());
-			}
-#endif
 		}
 	} // namespace core
 } // namespace galaxy

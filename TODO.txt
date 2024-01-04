@@ -3,6 +3,7 @@ replace json with that.
 
 add mod support
 add update support
+move asset pack and project file name from config to globals
 
 add a script in /export to copy exes and build distribution?
  

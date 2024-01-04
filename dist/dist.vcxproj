@@ -97,8 +97,7 @@
       <AdditionalOptions>/ignore:4006  /ignore:4099 /ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>call "$(SolutionDir)scripts\dist_win.cmd" $(SolutionDir)</Command>
       <Message>
       </Message>
     </PostBuildEvent>

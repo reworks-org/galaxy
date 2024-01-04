@@ -57,6 +57,21 @@ namespace galaxy
 
 				if (config.get<bool>("use_loose_assets"))
 				{
+					mkdir(GALAXY_MUSIC_DIR);
+					mkdir(GALAXY_SFX_DIR);
+					mkdir(GALAXY_VOICE_DIR);
+					mkdir(GALAXY_FONT_DIR);
+					mkdir(GALAXY_SCRIPT_DIR);
+					mkdir(GALAXY_SHADER_DIR);
+					mkdir(GALAXY_TEXTURE_DIR);
+					mkdir(GALAXY_ATLAS_DIR);
+					mkdir(GALAXY_LANG_DIR);
+					mkdir(GALAXY_PREFABS_DIR);
+					mkdir(GALAXY_MAPS_DIR);
+					mkdir(GALAXY_VIDEO_DIR);
+					mkdir(GALAXY_UI_DIR);
+					mkdir(GALAXY_UI_FONTS_DIR);
+
 					read_dir = write_dir;
 				}
 
@@ -64,21 +79,6 @@ namespace galaxy
 
 				const auto merged = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
 				error::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
-
-				mkdir(GALAXY_MUSIC_DIR);
-				mkdir(GALAXY_SFX_DIR);
-				mkdir(GALAXY_VOICE_DIR);
-				mkdir(GALAXY_FONT_DIR);
-				mkdir(GALAXY_SCRIPT_DIR);
-				mkdir(GALAXY_SHADER_DIR);
-				mkdir(GALAXY_TEXTURE_DIR);
-				mkdir(GALAXY_ATLAS_DIR);
-				mkdir(GALAXY_LANG_DIR);
-				mkdir(GALAXY_PREFABS_DIR);
-				mkdir(GALAXY_MAPS_DIR);
-				mkdir(GALAXY_VIDEO_DIR);
-				mkdir(GALAXY_UI_DIR);
-				mkdir(GALAXY_UI_FONTS_DIR);
 			}
 		}
 

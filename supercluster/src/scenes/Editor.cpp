@@ -40,10 +40,8 @@ namespace sc
 	{
 		scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_ASSET_DIR).string());
 
-#ifdef _DEBUG
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
 		m_log_console.set_sink(&sink);
-#endif
 
 		m_framebuffer.create(1, 1);
 		m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
@@ -218,10 +216,8 @@ namespace sc
 
 			auto data = std::string(buffer.begin(), buffer.end());
 
-#ifndef _DEBUG
 			data = math::decode_zlib(data);
 			data = math::decode_base64(data);
-#endif
 
 			auto json = json::read_raw(data);
 
@@ -277,10 +273,8 @@ namespace sc
 
 				auto data = out_json.dump(4);
 
-#ifndef _DEBUG
 				data = math::encode_base64(data);
 				data = math::encode_zlib(data);
-#endif
 
 				ofs.write(data.data(), data.size());
 
@@ -367,9 +361,7 @@ namespace sc
 
 	void Editor::draw_editor()
 	{
-#ifdef _DEBUG
 		static bool s_show_demo = false;
-#endif
 
 		m_framebuffer.bind(true);
 		m_framebuffer.get_framebuffer().clear_storagebuffer(m_mousepick_buffer, -1);
@@ -519,13 +511,11 @@ namespace sc
 					m_show_noisegraph = !m_show_noisegraph;
 				}
 
-#ifdef _DEBUG
 				if (ImGui::MenuItem("ImGui Demo Window"))
 				{
 					GALAXY_LOG(GALAXY_INFO, "SHOWING DEBUG WINDOW.");
 					s_show_demo = !s_show_demo;
 				}
-#endif
 
 				ImGui::EndMenu();
 			}
@@ -865,12 +855,10 @@ namespace sc
 			ImGui::End();
 		}
 
-#ifdef _DEBUG
 		if (s_show_demo)
 		{
 			ImGui::ShowDemoWindow(&s_show_demo);
 		}
-#endif
 
 		if (m_show_exportprogress)
 		{

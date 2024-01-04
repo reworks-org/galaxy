@@ -7,21 +7,21 @@ build/
 legacy/
 output/
 
-sandbox/bin/Debug/*.exe
-sandbox/bin/Debug/*.pdb
-sandbox/bin/Debug/*.dll
-sandbox/bin/Debug/editor/tools/LDtk
-sandbox/bin/Debug/editor/tools/bfxr
-sandbox/bin/Debug/export
-sandbox/bin/Debug/logs
+dist/bin/Debug/*.exe
+dist/bin/Debug/*.pdb
+dist/bin/Debug/*.dll
+dist/bin/Debug/editor/tools/LDtk
+dist/bin/Debug/editor/tools/bfxr
+dist/bin/Debug/export
+dist/bin/Debug/logs
 
-sandbox/bin/Release/*.exe
-sandbox/bin/Release/*.pdb
-sandbox/bin/Release/*.dll
-sandbox/bin/Release/editor/tools/LDtk
-sandbox/bin/Release/editor/tools/bfxr
-sandbox/bin/Release/export
-sandbox/bin/Release/logs
+dist/bin/Release/*.exe
+dist/bin/Release/*.pdb
+dist/bin/Release/*.dll
+dist/bin/Release/editor/tools/LDtk
+dist/bin/Release/editor/tools/bfxr
+dist/bin/Release/export
+dist/bin/Release/logs
 
 supercluster/bin/Debug/*.exe
 supercluster/bin/Debug/*.pdb
@@ -38,5 +38,3 @@ supercluster/bin/Release/editor/tools/LDtk
 supercluster/bin/Release/editor/tools/bfxr
 supercluster/bin/Release/export
 supercluster/bin/Release/logs
-
-tests/bin
