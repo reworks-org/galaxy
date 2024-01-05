@@ -222,28 +222,23 @@ namespace galaxy
 
 					components::Transform tile_transform;
 
-					glm::vec2 scale    = tile_transform.get_scale();
-					float     rotation = tile_transform.get_rotation();
+					bool flippedHorizontally = tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Horizontally);
+					bool flippedVertically   = tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Vertically);
+
 					tile_transform.set_origin(draw_rect.width / 2.0f, draw_rect.height / 2.0f);
 
-					if (tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Horizontally))
-					{
-						scale.x = -scale.x;
-					}
-
-					if (tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Vertically))
-					{
-						scale.y = -scale.y;
-					}
-
+					float rotation = tile_transform.get_rotation();
 					if (tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Diagonally))
 					{
-						rotation += 90.f;
+						tile_transform.rotate(90.0f);
+
+						flippedHorizontally = flippedVertically;
+						flippedVertically   = !tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Horizontally);
 					}
 
-					tile_transform.set_scale_horizontal(scale.x);
-					tile_transform.set_scale_vertical(scale.y);
-					tile_transform.set_rotation(rotation);
+					glm::vec2 scale = tile_transform.get_scale();
+					tile_transform.set_scale_horizontal(scale.x * (flippedHorizontally ? -1.0f : 1.0f));
+					tile_transform.set_scale_vertical(scale.y * (flippedVertically ? -1.0f : 1.0f));
 					tile_transform.set_pos(tile.getPosition().x, tile.getPosition().y);
 
 					meta::vector<graphics::Vertex> vertices(4);
