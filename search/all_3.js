@@ -36,7 +36,7 @@ var searchData=
   ['comma_33',['COMMA',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea4d9b3e9fc12849d060371eb65154c751',1,'galaxy::input']]],
   ['compile_34',['compile',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4',1,'galaxy::graphics::Shader']]],
   ['componentjsonfactory_35',['ComponentJSONFactory',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3bcd5b54f496d580f3769111c60fd8eb',1,'galaxy::meta::EntityMeta']]],
-  ['compress_36',['compress',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a9a42fb1d47362f45425639bc6d2c931e',1,'galaxy::math::ZLib::compress(const std::string &amp;input)'],['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afba08c078f425b1925fb4be9d7d0ee118b1',1,'galaxy::math::ZLib::COMPRESS']]],
+  ['compress_36',['compress',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afba08c078f425b1925fb4be9d7d0ee118b1',1,'galaxy::math::ZLib::COMPRESS'],['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a9a42fb1d47362f45425639bc6d2c931e',1,'galaxy::math::ZLib::compress(const std::string &amp;input)']]],
   ['concepts_2ecpp_37',['Concepts.cpp',['../db/d78/Concepts_8cpp.html',1,'']]],
   ['concepts_2ehpp_38',['Concepts.hpp',['../d3/d84/Concepts_8hpp.html',1,'']]],
   ['conditional_5fdistribution_39',['conditional_distribution',['../d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0',1,'galaxy::math']]],

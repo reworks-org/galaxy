@@ -12,12 +12,12 @@
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="195,316,259,302,260,307,196,321"/>
 <area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="249,326,480,351"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="201,336,236,336,236,341,201,341"/>
-<area shape="rect" id="Node000008" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the rotational origin point." alt="" coords="281,376,448,416"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="196,356,269,372,268,377,195,361"/>
-<area shape="rect" id="Node000009" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="288,440,441,480"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="134,357,186,392,250,426,276,435,274,440,248,430,184,396,131,361"/>
-<area shape="rect" id="Node000010" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a2788c368d5a7122e521f7d56bb72aecb" title="Set the entity rotation." alt="" coords="274,504,455,544"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="120,357,172,423,209,459,251,490,262,496,260,501,248,494,206,463,169,426,116,361"/>
+<area shape="rect" id="Node000008" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a78a4b7b36ee11c5e1a77e085d981a8cf" title="Rotate entity." alt="" coords="288,376,441,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="196,356,275,374,274,379,195,361"/>
+<area shape="rect" id="Node000009" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the origin point." alt="" coords="281,440,448,480"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="134,357,186,392,250,426,269,433,267,438,248,430,184,396,131,361"/>
+<area shape="rect" id="Node000010" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a58dc9868c566ffcf68779b86ac3d057a" title="Sets position without moving the entity." alt="" coords="288,504,441,544"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="120,357,172,423,209,459,251,490,276,502,274,507,248,494,206,463,169,426,116,361"/>
 <area shape="rect" id="Node000011" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="283,569,447,623"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="115,358,134,399,164,452,203,506,251,554,272,567,269,572,248,558,199,510,159,455,130,402,111,360"/>
 <area shape="rect" id="Node000012" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="283,647,447,702"/>

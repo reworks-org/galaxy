@@ -37,7 +37,7 @@
 <area shape="rect" id="Node000015" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="989,33,1183,73"/>
 <area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="902,51,975,51,975,56,902,56"/>
 <area shape="poly" id="edge26_Node000017_Node000011" title=" " alt="" coords="623,528,727,484,782,468,825,459,868,450,922,432,992,400,1051,367,1053,372,994,405,924,437,870,455,826,464,783,473,729,489,625,533"/>
-<area shape="poly" id="edge28_Node000017_Node000012" title=" " alt="" coords="586,530,602,479,629,411,671,338,697,305,726,275,735,269,738,273,730,279,701,308,675,341,634,413,607,481,591,531"/>
+<area shape="poly" id="edge29_Node000017_Node000012" title=" " alt="" coords="586,530,602,479,629,411,671,338,697,305,726,275,735,269,738,273,730,279,701,308,675,341,634,413,607,481,591,531"/>
 <area shape="rect" id="Node000018" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ae758c13eb44771849aaad9c9998c8056" title="Get stored rotation." alt="" coords="734,499,917,539"/>
 <area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="680,535,720,530,721,535,681,540"/>
 <area shape="rect" id="Node000019" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a82c3f8f58cad54c0d5d48b9f5072be13" title="Get stored scale." alt="" coords="743,563,908,603"/>
@@ -48,10 +48,10 @@
 <area shape="poly" id="edge24_Node000017_Node000021" title=" " alt="" coords="603,569,656,622,692,651,729,676,742,683,739,688,727,681,688,655,653,626,599,573"/>
 <area shape="rect" id="Node000022" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="733,755,918,795"/>
 <area shape="poly" id="edge25_Node000017_Node000022" title=" " alt="" coords="595,569,616,606,646,652,684,699,730,741,738,746,735,750,726,745,680,703,641,655,611,609,591,572"/>
-<area shape="rect" id="Node000023" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the rotational origin point." alt="" coords="742,819,909,859"/>
-<area shape="poly" id="edge27_Node000017_Node000023" title=" " alt="" coords="592,570,608,618,637,681,677,747,702,778,730,805,736,809,733,814,726,809,698,781,673,750,632,683,603,620,587,572"/>
-<area shape="rect" id="Node000024" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a2788c368d5a7122e521f7d56bb72aecb" title="Set the entity rotation." alt="" coords="735,883,916,923"/>
-<area shape="poly" id="edge29_Node000017_Node000024" title=" " alt="" coords="589,570,602,629,628,709,647,752,670,794,697,834,730,869,735,873,732,877,726,873,693,837,665,797,642,754,623,711,597,630,584,571"/>
+<area shape="rect" id="Node000023" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a78a4b7b36ee11c5e1a77e085d981a8cf" title="Rotate entity." alt="" coords="749,819,902,859"/>
+<area shape="poly" id="edge27_Node000017_Node000023" title=" " alt="" coords="592,570,608,618,637,681,677,747,702,778,730,805,738,811,735,815,726,809,698,781,673,750,632,683,603,620,587,572"/>
+<area shape="rect" id="Node000024" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a14081a9a9604770b52d73779d0e8a150" title="Set the origin point." alt="" coords="742,883,909,923"/>
+<area shape="poly" id="edge28_Node000017_Node000024" title=" " alt="" coords="589,570,602,629,628,709,647,752,670,794,697,834,730,869,735,873,732,877,726,873,693,837,665,797,642,754,623,711,597,630,584,571"/>
 <area shape="rect" id="Node000025" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a3a418528606c029859a32553f077cc7f" title="Set entity scale." alt="" coords="743,290,907,345"/>
 <area shape="poly" id="edge30_Node000017_Node000025" title=" " alt="" coords="591,529,612,492,642,445,681,397,726,354,732,350,735,354,730,358,685,400,647,449,616,495,596,531"/>
 <area shape="rect" id="Node000026" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a9f4b4c9c0b5764c90ad70f1c9130ab92" title="Set entity scale." alt="" coords="743,369,907,423"/>

@@ -5,6 +5,8 @@ var structgalaxy_1_1DoNotUseReferToMacros =
     [ "GALAXY_RESTART_FLAG", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a262565106f471c3e55b8021e4fb713e5", null ],
     [ "GALAXY_CUR_UPS_VAR", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a1ad73f63cd90c6e6efa9d985ff074d33", null ],
     [ "GALAXY_CUR_FPS_VAR", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a8140b9dbcda1739f4e55a7d317d02d0b", null ],
+    [ "app_data", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#af4a02178dfec3810377320bd6fc96a8f", null ],
+    [ "asset_pack", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a74af57248362e72fc528aa66a4f1aefa", null ],
     [ "asset_dir", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#af09d64a2e2d4442e45780fe0ba748aa1", null ],
     [ "editor_data_dir", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ad0564d18ca5c49fc5364ec96de46ec73", null ],
     [ "assets_music", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#aa88833f566dcf8026aca46351204ce46", null ],

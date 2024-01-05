@@ -21,6 +21,8 @@ var Globals_8hpp =
     [ "GALAXY_WORLD_TO_BOX", "d5/d64/Globals_8hpp.html#a3e8d246355a0db6e5d25824b73b7d4d4", null ],
     [ "GALAXY_BOX_TO_WORLD", "d5/d64/Globals_8hpp.html#aeafe52b63f91fdc6e71598753d60082f", null ],
     [ "GALAXY_ROOT_DIR", "d5/d64/Globals_8hpp.html#a85578f94dab36071859e17e9f5aa0ba8", null ],
+    [ "GALAXY_ASSET_PACK", "d5/d64/Globals_8hpp.html#af34076a49098c4d394ebb956c461a349", null ],
+    [ "GALAXY_APPDATA", "d5/d64/Globals_8hpp.html#a30c1ffdd0d9752dd70041d6c84513c5c", null ],
     [ "GALAXY_ASSET_DIR", "d5/d64/Globals_8hpp.html#a688bd06fb8aa39a15644969c8284e729", null ],
     [ "GALAXY_EDITOR_DATA_DIR", "d5/d64/Globals_8hpp.html#a203d2777dc7c5b199e6b6dd05875b4b3", null ],
     [ "GALAXY_MUSIC_DIR", "d5/d64/Globals_8hpp.html#ae28c665f8250a7851e3cdd543a1cd662", null ],
