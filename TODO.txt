@@ -3,29 +3,14 @@ replace json with that.
 
 add mod support
 add update support
-move asset pack and project file name from config to globals
-
-add a script in /export to copy exes and build distribution?
  
 - add support for miniaudios new fading api
-- add support to writing to update archives
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
-- refine exporting, asset config, etc.
-- great blog: https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
 
-- test particle generator
-
-Tilemap post processing:
-???
-	maps now no longer render tiles, rather we pre-render a scene -> animated tiles are different / separate objects.
-		prerendering lets us to fancy lighting and stuff.
-		i.e. create tilemap in tiled, then export to use as bg image.
-		support layer visibility being toggled at runtime. not just when loading.
-		handle serializing specific parts of map data.
+Tilemap:
 - https://github.com/fallahn/tmxlite/issues/131
 - https://github.com/SSBMTonberry/tileson/issues/97
-- https://github.com/SSBMTonberry/tileson/issues/110
 
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor
@@ -71,6 +56,7 @@ fix no ambient light when no lights in scene
 add instance rendering
 more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
 	 - implement b2_debugdraw?
+https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
 
 linux:
 https://github.com/nackdai/makeitso

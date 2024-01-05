@@ -52,7 +52,7 @@ namespace galaxy
 				error::physfs_check(PHYSFS_setWriteDir(write_dir.string().c_str()));
 
 				auto& config   = core::ServiceLocator<core::Config>::ref();
-				auto  read_dir = GALAXY_ROOT_DIR / config.get<std::string>("asset_pak");
+				auto  read_dir = GALAXY_ROOT_DIR / GALAXY_ASSET_PACK;
 				read_dir.make_preferred();
 
 				if (config.get<bool>("use_loose_assets"))

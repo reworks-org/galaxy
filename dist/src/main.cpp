@@ -35,7 +35,7 @@ int main(int argsc, char* argsv[])
 		Dist app;
 
 		{
-			const auto path = GALAXY_ROOT_DIR / "app.galaxy";
+			const auto path = GALAXY_ROOT_DIR / GALAXY_APPDATA;
 
 			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
 			sm.load_app(path.string());

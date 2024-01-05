@@ -79,7 +79,6 @@ namespace galaxy
 			//
 			auto& config = ServiceLocator<Config>::make(config_file);
 			config.restore<bool>("use_loose_assets", true);
-			config.restore<std::string>("asset_pak", "data.galaxypak");
 			config.restore<bool>("log_performance", true);
 			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("title", "Title", "window");

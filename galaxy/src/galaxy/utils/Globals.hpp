@@ -27,6 +27,8 @@ namespace galaxy
 		inline static unsigned int GALAXY_CUR_UPS_VAR {0};
 		inline static unsigned int GALAXY_CUR_FPS_VAR {0};
 
+		inline static const std::string app_data {"app.galaxy"};
+		inline static const std::string asset_pack {"data.galaxypak"};
 		inline static const std::string asset_dir {"assets/"};
 		inline static const std::string editor_data_dir {"editor/"};
 		inline static const std::string assets_music {"music/"};
@@ -146,6 +148,16 @@ namespace galaxy
 /// Current root directory of application, unless it has been changed.
 ///
 #define GALAXY_ROOT_DIR std::filesystem::current_path()
+
+///
+/// Galaxy asset pack name.
+///
+#define GALAXY_ASSET_PACK galaxy::DoNotUseReferToMacros::asset_pack
+
+///
+/// Galaxy appdata file.
+///
+#define GALAXY_APPDATA galaxy::DoNotUseReferToMacros::app_data
 
 ///
 /// Main data directory.

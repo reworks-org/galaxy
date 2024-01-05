@@ -299,8 +299,6 @@ namespace sc
 
 		auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
 		tp.push_task([&]() {
-			auto& config = core::ServiceLocator<core::Config>::ref();
-
 			const std::filesystem::path path = GALAXY_EDITOR_DATA_DIR + "export/";
 			if (!std::filesystem::exists(path))
 			{
@@ -314,7 +312,7 @@ namespace sc
 			data      = math::encode_base64(data);
 			data      = math::encode_zlib(data);
 
-			app_data.open(path / "app.galaxy", std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
+			app_data.open(path / GALAXY_APPDATA, std::ofstream::out | std::ofstream::trunc | std::ofstream::binary);
 			if (app_data.good())
 			{
 				app_data.write(data.data(), data.size());
@@ -337,7 +335,7 @@ namespace sc
 
 			app_config.close();
 
-			const auto zip_path = path / config.get<std::string>("asset_pak");
+			const auto zip_path = path / GALAXY_ASSET_PACK;
 			std::filesystem::remove(zip_path);
 
 			struct zip_t* zip = zip_open(zip_path.string().c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
