@@ -101,7 +101,9 @@ namespace galaxy
 			void set_rotation(const float degrees);
 
 			///
-			/// Set the rotational origin point.
+			/// \brief Set the origin point.
+			///
+			/// Only affects rotation and scale.
 			///
 			/// \param x X position to set origin to.
 			/// \param y Y position to set origin to.
