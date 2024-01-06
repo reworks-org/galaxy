@@ -14,17 +14,6 @@
 
 using namespace galaxy;
 
-class Dist : public core::Application
-{
-  public:
-	Dist()
-		: Application {"logs/", "config.json"}
-	{
-	}
-
-	virtual ~Dist() = default;
-};
-
 int main(int argsc, char* argsv[])
 {
 	GALAXY_UNUSED(argsc);
@@ -32,7 +21,7 @@ int main(int argsc, char* argsv[])
 
 	try
 	{
-		Dist app;
+		core::App dist("logs/", "config.json");
 
 		{
 			const auto path = GALAXY_ROOT_DIR / GALAXY_APPDATA;
@@ -41,7 +30,7 @@ int main(int argsc, char* argsv[])
 			sm.load_app(path.string());
 		}
 
-		app.run();
+		dist.run();
 	}
 	catch (const std::exception& e)
 	{

@@ -31,24 +31,11 @@ namespace galaxy
 	namespace core
 	{
 		///
-		/// Base level class for any galaxy application.
+		/// Base level class for any galaxy app.
 		///
-		class Application
+		class App final
 		{
 		  public:
-			///
-			/// \brief Virtual destructor.
-			///
-			/// Cleans up engine related memory usage.
-			///
-			virtual ~Application();
-
-			///
-			/// Runs the application.
-			///
-			void run();
-
-		  protected:
 			///
 			/// \brief Default constructor.
 			///
@@ -58,27 +45,38 @@ namespace galaxy
 			/// \param log_dir Specify the base directory to store log files.
 			/// \param config_file Filepath of config file.
 			///
-			explicit Application(std::string_view log_dir, std::string_view config_file);
+			explicit App(std::string_view log_dir, std::string_view config_file);
 
+			///
+			/// Destructor.
+			///
+			~App();
+
+			///
+			/// Runs the app.
+			///
+			void run();
+
+		  private:
 			///
 			/// Copy constructor.
 			///
-			Application(const Application&) = delete;
+			App(const App&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			Application(Application&&) = delete;
+			App(App&&) = delete;
 
 			///
 			/// Copy assignment operator.
 			///
-			Application& operator=(const Application&) = delete;
+			App& operator=(const App&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			Application& operator=(Application&&) = delete;
+			App& operator=(App&&) = delete;
 		};
 	} // namespace core
 } // namespace galaxy

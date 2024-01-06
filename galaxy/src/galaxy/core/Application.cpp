@@ -53,7 +53,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Application::Application(std::string_view log_dir, std::string_view config_file)
+		App::App(std::string_view log_dir, std::string_view config_file)
 		{
 			platform::configure_terminal();
 
@@ -247,7 +247,7 @@ namespace galaxy
 			core::ServiceLocator<core::Loader>::ref().load_all();
 		}
 
-		Application::~Application()
+		App::~App()
 		{
 			ServiceLocator<scene::SceneManager>::del();
 			ServiceLocator<resource::Language>::del();
@@ -280,7 +280,7 @@ namespace galaxy
 			GALAXY_LOG_FINISH();
 		}
 
-		void Application::run()
+		void App::run()
 		{
 			GALAXY_CUR_UPS = 0;
 			GALAXY_CUR_FPS = 0;

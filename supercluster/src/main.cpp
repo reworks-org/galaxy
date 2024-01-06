@@ -26,17 +26,6 @@
 
 using namespace galaxy;
 
-class Supercluster : public core::Application
-{
-  public:
-	Supercluster()
-		: Application {"logs/", "config.json"}
-	{
-	}
-
-	virtual ~Supercluster() = default;
-};
-
 int main(int argsc, char* argsv[])
 {
 	GALAXY_UNUSED(argsc);
@@ -48,7 +37,7 @@ int main(int argsc, char* argsv[])
 
 		try
 		{
-			Supercluster app;
+			core::App supercluster("logs/", "config.json");
 
 			{
 				auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read_binary("sc.png");
@@ -118,7 +107,7 @@ int main(int argsc, char* argsv[])
 				sm.set_scene("sc_menu");
 			}
 
-			app.run();
+			supercluster.run();
 			ui::imgui_destroy_context();
 		}
 		catch (const std::exception& e)
