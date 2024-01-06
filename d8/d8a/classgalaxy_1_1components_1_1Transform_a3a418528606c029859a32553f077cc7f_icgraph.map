@@ -1,19 +1,19 @@
 <map id="galaxy::components::Transform::set_scale_horizontal" name="galaxy::components::Transform::set_scale_horizontal">
-<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="1144,55,1308,110"/>
-<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="911,5,1085,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1130,61,1077,48,1079,43,1131,56"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,103,373,143"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1131,89,374,122,373,117,1130,84"/>
-<area shape="rect" id="Node000006" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a872940d78049c6742a64665230236c3d" title="Recursive function to process tile layer." alt="" coords="900,132,1096,172"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1132,114,1065,134,1064,129,1130,109"/>
-<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="670,5,838,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="897,28,838,28,838,23,897,23"/>
-<area shape="rect" id="Node000005" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,103,188,143"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,125,188,125,188,120,222,120"/>
-<area shape="rect" id="Node000007" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a76695d96aae00d2995208cf374b0e38b" title="Recursive function to process tiled map layers." alt="" coords="656,144,852,184"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="887,160,852,162,852,157,886,155"/>
-<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="794,132,780,125,754,123,731,125,717,129,712,135,715,143,710,144,707,134,714,125,730,119,754,117,782,120,797,127"/>
-<area shape="rect" id="Node000008" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aa51c144395b00304fb943492b3ae5fa5" title="Create entities for tilemap." alt="" coords="421,135,608,161"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="642,159,608,157,608,152,643,154"/>
-<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="407,138,373,134,374,128,408,132"/>
+<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="1128,55,1292,110"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="895,5,1069,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1114,61,1061,48,1063,43,1115,56"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,103,357,143"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1115,89,358,122,357,117,1114,84"/>
+<area shape="rect" id="Node000006" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a872940d78049c6742a64665230236c3d" title="Recursive function to process tile layer." alt="" coords="884,132,1080,172"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1116,114,1049,134,1048,129,1114,109"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="654,5,822,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="881,28,822,28,822,23,881,23"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,110,172,135"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,125,172,125,172,120,206,120"/>
+<area shape="rect" id="Node000007" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a76695d96aae00d2995208cf374b0e38b" title="Recursive function to process tiled map layers." alt="" coords="640,144,836,184"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="871,160,836,162,836,157,870,155"/>
+<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="778,132,764,125,738,123,715,125,701,129,696,135,699,143,694,144,691,134,698,125,714,119,738,117,766,120,781,127"/>
+<area shape="rect" id="Node000008" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aa51c144395b00304fb943492b3ae5fa5" title="Create entities for tilemap." alt="" coords="405,135,592,161"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="626,159,592,157,592,152,627,154"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="391,138,357,134,358,128,392,132"/>
 </map>

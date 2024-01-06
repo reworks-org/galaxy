@@ -1,7 +1,7 @@
 <map id="galaxy::components::RigidBody::get_restitution_threshold" name="galaxy::components::RigidBody::get_restitution_threshold">
-<area shape="rect" id="Node000001" title="Get restitution threshold." alt="" coords="421,5,620,60"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,13,373,53"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,35,374,35,374,30,407,30"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,13,188,53"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,35,188,35,188,30,222,30"/>
+<area shape="rect" id="Node000001" title="Get restitution threshold." alt="" coords="405,5,604,60"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,13,357,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="391,35,358,35,358,30,391,30"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,20,172,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,35,172,35,172,30,206,30"/>
 </map>

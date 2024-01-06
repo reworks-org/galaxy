@@ -1,19 +1,19 @@
 <map id="galaxy::graphics::Animation::restart" name="galaxy::graphics::Animation::restart">
-<area shape="rect" id="Node000001" title="Restart animation from beginning." alt="" coords="657,23,860,63"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="253,23,391,63"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="666,23,609,14,533,8,456,14,391,26,390,21,456,9,533,3,610,9,667,18"/>
-<area shape="rect" id="Node000004" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab921f3413dabc0e52edb15f69054ee77" title="Change the current animation." alt="" coords="456,87,609,127"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="675,70,605,90,603,85,673,65"/>
-<area shape="rect" id="Node000008" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a804058d0de3fdced9c8db1db0039cdd5" title="Stop the animation." alt="" coords="456,23,609,63"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="643,46,610,46,610,41,643,41"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,23,188,63"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,46,188,46,188,41,240,41"/>
-<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="452,86,388,66,389,61,454,81"/>
-<area shape="rect" id="Node000005" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b" title="Deserializes from object." alt="" coords="236,87,408,127"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="442,110,408,110,408,105,442,105"/>
-<area shape="rect" id="Node000007" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#af0cddd34786ef9a9596869c9e82a6899" title="Play a specific animation." alt="" coords="245,151,399,191"/>
-<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="454,134,389,154,388,149,452,129"/>
-<area shape="rect" id="Node000006" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb" title="JSON constructor." alt="" coords="15,87,179,127"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="222,110,179,110,179,105,222,105"/>
-<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="442,46,391,46,391,41,442,41"/>
+<area shape="rect" id="Node000001" title="Restart animation from beginning." alt="" coords="641,23,844,63"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="237,23,375,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="650,23,593,14,517,8,440,14,375,26,374,21,440,9,517,3,594,9,651,18"/>
+<area shape="rect" id="Node000004" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab921f3413dabc0e52edb15f69054ee77" title="Change the current animation." alt="" coords="440,87,593,127"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="659,70,589,90,587,85,657,65"/>
+<area shape="rect" id="Node000008" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a804058d0de3fdced9c8db1db0039cdd5" title="Stop the animation." alt="" coords="440,23,593,63"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="627,46,594,46,594,41,627,41"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,31,172,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,46,172,46,172,41,223,41"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="436,86,372,66,373,61,438,81"/>
+<area shape="rect" id="Node000005" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b" title="Deserializes from object." alt="" coords="220,87,392,127"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="426,110,392,110,392,105,426,105"/>
+<area shape="rect" id="Node000007" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#af0cddd34786ef9a9596869c9e82a6899" title="Play a specific animation." alt="" coords="229,151,383,191"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="438,134,373,154,372,149,436,129"/>
+<area shape="rect" id="Node000006" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb" title="JSON constructor." alt="" coords="7,87,171,127"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="206,110,171,110,171,105,206,105"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="426,46,375,46,375,41,426,41"/>
 </map>

@@ -2,21 +2,21 @@
 <area shape="rect" id="Node000001" title="Set camera projection." alt="" coords="709,63,896,103"/>
 <area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a5de17bc670c666a86ff0143f4b9172a2" title="Argument constructor." alt="" coords="475,5,661,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="706,62,650,48,651,43,707,57"/>
-<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9aaea1dbd55a7f3105756f45b4492d73" title="JSON constructor." alt="" coords="5,59,192,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="696,85,192,82,192,77,696,79"/>
+<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9aaea1dbd55a7f3105756f45b4492d73" title="JSON constructor." alt="" coords="5,63,192,103"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="696,85,192,85,192,80,696,80"/>
 <area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="475,152,661,192"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="738,110,623,154,621,149,736,105"/>
-<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="240,123,427,163"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="461,161,427,157,427,152,462,156"/>
-<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="265,187,402,227"/>
-<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="461,190,403,199,402,194,461,185"/>
-<area shape="rect" id="Node000009" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9fdb7fa5c572a31d50e2c9e4eda4ddbf" title="Event processing method for window size change." alt="" coords="240,251,427,291"/>
-<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="517,200,428,241,396,253,394,248,426,236,514,196"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="246,122,172,101,173,96,247,116"/>
-<area shape="rect" id="Node000006" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="19,123,178,163"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="226,145,178,145,178,140,226,140"/>
-<area shape="rect" id="Node000008" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="7,187,190,227"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="250,209,190,209,190,204,250,204"/>
-<area shape="rect" id="Node000010" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac6142bd7410789dd0c94346ad4c12bb8" title="Event processing method for window size change." alt="" coords="19,251,178,291"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="226,273,178,273,178,268,226,268"/>
+<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="240,120,427,160"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="461,160,427,155,427,150,462,155"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="265,184,402,224"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="461,189,403,197,402,192,461,184"/>
+<area shape="rect" id="Node000009" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9fdb7fa5c572a31d50e2c9e4eda4ddbf" title="Event processing method for window size change." alt="" coords="240,248,427,288"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="514,200,428,238,396,250,394,245,426,234,512,195"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="237,119,180,105,182,100,238,114"/>
+<area shape="rect" id="Node000006" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="19,127,178,167"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="226,146,178,147,178,142,226,140"/>
+<area shape="rect" id="Node000008" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="15,191,182,217"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="251,207,182,207,182,201,251,201"/>
+<area shape="rect" id="Node000010" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac6142bd7410789dd0c94346ad4c12bb8" title="Event processing method for window size change." alt="" coords="19,248,178,288"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="226,271,178,271,178,265,226,265"/>
 </map>

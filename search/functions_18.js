@@ -3,7 +3,7 @@ var searchData=
   ['_7eanimated_0',['~Animated',['../da/d18/classgalaxy_1_1components_1_1Animated.html#a054198ddd1c32ca1c358806236c9174c',1,'galaxy::components::Animated']]],
   ['_7eanimation_1',['~Animation',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a76b0a4c1310027a8f3a3b5ad769c590c',1,'galaxy::graphics::Animation']]],
   ['_7eanimationsystem_2',['~AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131',1,'galaxy::systems::AnimationSystem']]],
-  ['_7eapplication_3',['~Application',['../d5/da2/classgalaxy_1_1core_1_1Application.html#a66a3e4f5addb11c7cfa2c9e0222dc88d',1,'galaxy::core::Application']]],
+  ['_7eapp_3',['~App',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b',1,'galaxy::core::App']]],
   ['_7eaudioengine_4',['~AudioEngine',['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a20461fc16b08089a1a60f818ea4ddcb1',1,'galaxy::media::AudioEngine']]],
   ['_7ebasicscript_5',['~BasicScript',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#ad7937213ee20a001e9e9ed61dfe8dc26',1,'galaxy::lua::BasicScript']]],
   ['_7ebuffer_6',['~Buffer',['../dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html#adb88ba0792b2330a7b76310d5730d3c6',1,'galaxy::graphics::Buffer']]],

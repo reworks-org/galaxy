@@ -1,11 +1,11 @@
 <map id="galaxy::input::Mouse::get_pos" name="galaxy::input::Mouse::get_pos">
-<area shape="rect" id="Node000001" title="Get last recorded mouse position." alt="" coords="445,37,603,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="248,5,385,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="431,46,385,39,386,33,432,40"/>
-<area shape="rect" id="Node000004" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="236,69,397,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="432,74,398,80,397,74,432,69"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="234,28,188,28,188,23,234,23"/>
-<area shape="rect" id="Node000005" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="16,69,177,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,92,178,92,178,87,222,87"/>
+<area shape="rect" id="Node000001" title="Get last recorded mouse position." alt="" coords="429,37,587,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="232,5,369,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="415,46,369,39,370,33,416,40"/>
+<area shape="rect" id="Node000004" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="220,69,381,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="416,74,382,80,381,74,416,69"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="218,28,172,28,172,23,218,23"/>
+<area shape="rect" id="Node000005" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="8,69,169,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,170,92,170,87,206,87"/>
 </map>

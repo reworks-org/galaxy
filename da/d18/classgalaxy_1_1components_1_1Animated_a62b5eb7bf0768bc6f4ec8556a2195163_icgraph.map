@@ -1,11 +1,11 @@
 <map id="galaxy::components::Animated::play" name="galaxy::components::Animated::play">
-<area shape="rect" id="Node000001" title="Play the animation." alt="" coords="456,37,609,77"/>
-<area shape="rect" id="Node000002" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b" title="Deserializes from object." alt="" coords="236,5,408,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,46,408,41,409,36,443,41"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="253,69,391,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="442,74,391,82,390,76,442,68"/>
-<area shape="rect" id="Node000003" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb" title="JSON constructor." alt="" coords="15,5,179,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,28,179,28,179,23,222,23"/>
-<area shape="rect" id="Node000005" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,69,188,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="240,92,188,92,188,87,240,87"/>
+<area shape="rect" id="Node000001" title="Play the animation." alt="" coords="440,37,593,77"/>
+<area shape="rect" id="Node000002" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a9abb649139f36cbc5b67653977c3728b" title="Deserializes from object." alt="" coords="220,5,392,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="426,46,392,41,393,36,427,41"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="237,69,375,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="426,74,375,82,374,76,426,68"/>
+<area shape="rect" id="Node000003" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb" title="JSON constructor." alt="" coords="7,5,171,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,28,171,28,171,23,206,23"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="223,92,172,92,172,87,223,87"/>
 </map>

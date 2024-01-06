@@ -19,7 +19,7 @@ var annotated_dup =
         [ "UIScript", "dd/d64/classgalaxy_1_1components_1_1UIScript.html", "dd/d64/classgalaxy_1_1components_1_1UIScript" ]
       ] ],
       [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
-        [ "Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", "d5/da2/classgalaxy_1_1core_1_1Application" ],
+        [ "App", "d5/d5a/classgalaxy_1_1core_1_1App.html", "d5/d5a/classgalaxy_1_1core_1_1App" ],
         [ "Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", "d6/de9/classgalaxy_1_1core_1_1Config" ],
         [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
         [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ],

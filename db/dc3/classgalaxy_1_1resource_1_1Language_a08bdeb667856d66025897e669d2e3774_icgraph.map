@@ -1,9 +1,9 @@
 <map id="galaxy::resource::Language::translate" name="galaxy::resource::Language::translate">
-<area shape="rect" id="Node000001" title="Translates a key into the active language&#39;s text." alt="" coords="484,37,684,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="267,5,405,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="470,45,405,37,405,32,471,40"/>
-<area shape="rect" id="Node000004" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#abda0ce3dce2f2436f911e3aa85e2e05f" title="Overloaded operator[] to translate a key into the active language&#39;s text." alt="" coords="236,69,436,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="471,75,437,79,436,74,470,69"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,28,188,28,188,23,253,23"/>
+<area shape="rect" id="Node000001" title="Translates a key into the active language&#39;s text." alt="" coords="468,37,668,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="251,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,45,389,37,389,32,455,40"/>
+<area shape="rect" id="Node000004" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#abda0ce3dce2f2436f911e3aa85e2e05f" title="Overloaded operator[] to translate a key into the active language&#39;s text." alt="" coords="220,69,420,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="455,75,421,79,420,74,454,69"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,28,172,28,172,23,238,23"/>
 </map>

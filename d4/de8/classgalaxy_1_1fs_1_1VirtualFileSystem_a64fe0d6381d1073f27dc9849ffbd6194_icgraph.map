@@ -1,8 +1,8 @@
 <map id="galaxy::fs::VirtualFileSystem::list" name="galaxy::fs::VirtualFileSystem::list">
-<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="421,29,629,69"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="562,18,549,11,525,8,504,10,492,15,487,21,489,28,484,30,482,20,488,10,503,5,525,3,551,6,565,13"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,29,373,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,52,373,52,373,47,407,47"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,29,188,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,52,188,52,188,47,222,47"/>
+<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="405,29,613,69"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="546,18,533,11,509,8,488,10,476,15,471,21,473,28,468,30,466,20,472,10,487,5,509,3,535,6,549,13"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,29,357,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="391,52,357,52,357,47,391,47"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,37,172,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,52,172,52,172,47,206,47"/>
 </map>

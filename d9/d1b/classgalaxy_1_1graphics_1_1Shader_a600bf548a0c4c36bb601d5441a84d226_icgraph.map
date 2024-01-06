@@ -1,41 +1,41 @@
 <map id="galaxy::graphics::Shader::get_uniform_location" name="galaxy::graphics::Shader::get_uniform_location">
-<area shape="rect" id="Node000001" title="Retrieves the location of a shader uniform." alt="" coords="465,549,647,589"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="258,5,395,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="553,536,550,443,544,382,533,316,515,247,491,180,458,116,415,59,394,43,397,39,419,55,463,113,496,177,521,246,538,315,549,381,555,442,558,536"/>
-<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab07b958cb15123ce9f040676ce22afe1" title=" " alt="" coords="236,69,417,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="551,536,545,453,525,343,507,284,484,226,454,172,415,123,401,112,404,107,419,119,458,169,489,224,512,282,530,342,550,453,557,535"/>
-<area shape="rect" id="Node000005" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae37ee610eeac5135c41139903b31978e" title=" " alt="" coords="236,133,417,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="549,536,539,464,517,371,499,322,477,273,449,228,415,187,400,176,404,171,419,183,454,224,482,271,504,320,522,370,545,463,555,535"/>
-<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a93d35684f11aa23bff23c039f42e66db" title=" " alt="" coords="236,197,417,237"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="547,537,533,476,508,400,491,360,470,320,445,284,416,251,399,240,402,235,419,247,449,280,475,318,496,357,513,398,538,475,552,536"/>
-<area shape="rect" id="Node000007" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af960a2c4d54302c0ace488adf9aa3536" title=" " alt="" coords="236,261,417,301"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="543,537,526,488,499,429,463,368,441,340,416,315,398,304,401,299,419,311,445,337,467,365,504,426,531,486,548,535"/>
-<area shape="rect" id="Node000008" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a18c3ecf685fa50162a66fbdeb0d67bdb" title=" " alt="" coords="236,325,417,365"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="537,538,517,501,489,459,456,416,416,379,396,368,399,363,419,375,459,413,494,456,521,499,542,535"/>
-<area shape="rect" id="Node000009" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af2179b5f68f30fe6c18399fc2eb57c3a" title=" " alt="" coords="236,389,417,429"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="527,541,478,491,448,466,416,444,393,432,395,427,419,439,451,462,482,488,531,537"/>
-<area shape="rect" id="Node000010" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aee656dc6742f6e80b12efd72f1f5a33b" title=" " alt="" coords="236,453,417,493"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="501,546,416,508,385,496,387,491,418,503,503,541"/>
-<area shape="rect" id="Node000011" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af9fa739e3dd7b9c575c28f6deb1f3439" title=" " alt="" coords="236,517,417,557"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="451,557,417,553,418,547,452,552"/>
-<area shape="rect" id="Node000012" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af1496316e5b1ec6ccce2b6f779fa094e" title=" " alt="" coords="236,581,417,621"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="452,586,418,591,417,586,451,581"/>
-<area shape="rect" id="Node000013" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae53811bb2446d8e6b790e01382096467" title=" " alt="" coords="236,645,417,685"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="503,598,418,636,387,648,385,643,416,631,501,593"/>
-<area shape="rect" id="Node000014" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a41c189230dbe13384a6bcd4ec2e7ad4e" title=" " alt="" coords="236,709,417,749"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="531,601,482,651,451,677,419,700,395,712,393,707,416,695,448,673,478,647,527,598"/>
-<area shape="rect" id="Node000015" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7a607c1a83bb0217f7d9083740736ab4" title=" " alt="" coords="236,773,417,813"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="542,603,521,640,494,683,459,726,419,763,399,776,396,771,416,759,456,722,489,680,517,637,537,601"/>
-<area shape="rect" id="Node000016" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a6f4bf55ed8ce450aaaaacc08231426aa" title=" " alt="" coords="236,837,417,877"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="548,603,531,652,504,712,467,774,445,802,419,827,401,839,398,835,416,823,441,799,463,771,499,710,526,650,543,601"/>
-<area shape="rect" id="Node000017" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5a6fb8ed4700d0002051c9dea4bf2909" title=" " alt="" coords="236,901,417,941"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="552,603,538,664,513,741,496,781,475,821,449,858,419,891,402,903,399,899,416,887,445,855,470,818,491,779,508,739,533,663,547,602"/>
-<area shape="rect" id="Node000018" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a83e22babaf66ac6d672ae979ac3aa7e2" title=" " alt="" coords="236,965,417,1005"/>
-<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="555,603,545,675,522,769,504,819,482,868,454,914,419,955,404,967,400,963,415,951,449,911,477,866,499,817,517,768,539,674,549,603"/>
-<area shape="rect" id="Node000019" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a4c33bb84af0171b92abea2d4969e4f26" title=" " alt="" coords="236,1029,417,1069"/>
-<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="557,603,550,686,530,797,512,856,489,915,458,970,419,1019,404,1031,401,1027,415,1015,454,967,484,913,507,855,525,796,545,685,551,603"/>
-<area shape="rect" id="Node000020" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8064f7227ba77e135f7ef8f60bd8e553" title=" " alt="" coords="236,1093,417,1133"/>
-<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="558,603,555,696,549,757,538,824,521,893,496,961,463,1026,419,1083,404,1095,401,1091,415,1079,458,1023,491,959,515,891,533,823,544,757,550,696,553,603"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="244,28,188,28,188,23,244,23"/>
+<area shape="rect" id="Node000001" title="Retrieves the location of a shader uniform." alt="" coords="449,549,631,589"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="242,5,379,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="537,536,534,443,528,382,517,316,499,247,475,180,442,116,399,59,378,43,381,39,403,55,447,113,480,177,505,246,522,315,533,381,539,442,542,536"/>
+<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab07b958cb15123ce9f040676ce22afe1" title=" " alt="" coords="220,69,401,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="535,536,529,453,509,343,491,284,468,226,438,172,399,123,385,112,388,107,403,119,442,169,473,224,496,282,514,342,534,453,541,535"/>
+<area shape="rect" id="Node000005" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae37ee610eeac5135c41139903b31978e" title=" " alt="" coords="220,133,401,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="533,536,523,464,501,371,483,322,461,273,433,228,399,187,384,176,388,171,403,183,438,224,466,271,488,320,506,370,529,463,539,535"/>
+<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a93d35684f11aa23bff23c039f42e66db" title=" " alt="" coords="220,197,401,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="531,537,517,476,492,400,475,360,454,320,429,284,400,251,383,240,386,235,403,247,433,280,459,318,480,357,497,398,522,475,536,536"/>
+<area shape="rect" id="Node000007" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af960a2c4d54302c0ace488adf9aa3536" title=" " alt="" coords="220,261,401,301"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="527,537,510,488,483,429,447,368,425,340,400,315,382,304,385,299,403,311,429,337,451,365,488,426,515,486,532,535"/>
+<area shape="rect" id="Node000008" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a18c3ecf685fa50162a66fbdeb0d67bdb" title=" " alt="" coords="220,325,401,365"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="521,538,501,501,473,459,440,416,400,379,380,368,383,363,403,375,443,413,478,456,505,499,526,535"/>
+<area shape="rect" id="Node000009" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af2179b5f68f30fe6c18399fc2eb57c3a" title=" " alt="" coords="220,389,401,429"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="511,541,462,491,432,466,400,444,377,432,379,427,403,439,435,462,466,488,515,537"/>
+<area shape="rect" id="Node000010" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aee656dc6742f6e80b12efd72f1f5a33b" title=" " alt="" coords="220,453,401,493"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="485,546,400,508,369,496,371,491,402,503,487,541"/>
+<area shape="rect" id="Node000011" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af9fa739e3dd7b9c575c28f6deb1f3439" title=" " alt="" coords="220,517,401,557"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="435,557,401,553,402,547,436,552"/>
+<area shape="rect" id="Node000012" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af1496316e5b1ec6ccce2b6f779fa094e" title=" " alt="" coords="220,581,401,621"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="436,586,402,591,401,586,435,581"/>
+<area shape="rect" id="Node000013" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ae53811bb2446d8e6b790e01382096467" title=" " alt="" coords="220,645,401,685"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="487,598,402,636,371,648,369,643,400,631,485,593"/>
+<area shape="rect" id="Node000014" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a41c189230dbe13384a6bcd4ec2e7ad4e" title=" " alt="" coords="220,709,401,749"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="515,601,466,651,435,677,403,700,379,712,377,707,400,695,432,673,462,647,511,598"/>
+<area shape="rect" id="Node000015" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7a607c1a83bb0217f7d9083740736ab4" title=" " alt="" coords="220,773,401,813"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="526,603,505,640,478,683,443,726,403,763,383,776,380,771,400,759,440,722,473,680,501,637,521,601"/>
+<area shape="rect" id="Node000016" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a6f4bf55ed8ce450aaaaacc08231426aa" title=" " alt="" coords="220,837,401,877"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="532,603,515,652,488,712,451,774,429,802,403,827,385,839,382,835,400,823,425,799,447,771,483,710,510,650,527,601"/>
+<area shape="rect" id="Node000017" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a5a6fb8ed4700d0002051c9dea4bf2909" title=" " alt="" coords="220,901,401,941"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="536,603,522,664,497,741,480,781,459,821,433,858,403,891,386,903,383,899,400,887,429,855,454,818,475,779,492,739,517,663,531,602"/>
+<area shape="rect" id="Node000018" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a83e22babaf66ac6d672ae979ac3aa7e2" title=" " alt="" coords="220,965,401,1005"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="539,603,529,675,506,769,488,819,466,868,438,914,403,955,388,967,384,963,399,951,433,911,461,866,483,817,501,768,523,674,533,603"/>
+<area shape="rect" id="Node000019" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a4c33bb84af0171b92abea2d4969e4f26" title=" " alt="" coords="220,1029,401,1069"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="541,603,534,686,514,797,496,856,473,915,442,970,403,1019,388,1031,385,1027,399,1015,438,967,468,913,491,855,509,796,529,685,535,603"/>
+<area shape="rect" id="Node000020" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8064f7227ba77e135f7ef8f60bd8e553" title=" " alt="" coords="220,1093,401,1133"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="542,603,539,696,533,757,522,824,505,893,480,961,447,1026,403,1083,388,1095,385,1091,399,1079,442,1023,475,959,499,891,517,823,528,757,534,696,537,603"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,28,172,28,172,23,228,23"/>
 </map>

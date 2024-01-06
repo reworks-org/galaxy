@@ -1,37 +1,37 @@
 <map id="galaxy::graphics::Framebuffer::resize" name="galaxy::graphics::Framebuffer::resize">
-<area shape="rect" id="Node000001" title="Resize framebuffer." alt="" coords="971,197,1185,237"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="740,197,923,237"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="957,220,923,220,923,215,957,215"/>
-<area shape="rect" id="Node000003" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="457,5,672,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="809,187,761,122,728,88,691,60,667,48,669,43,693,55,731,84,765,118,813,184"/>
-<area shape="rect" id="Node000004" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="463,69,666,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="794,191,747,156,691,124,660,112,661,107,693,119,750,151,798,186"/>
-<area shape="rect" id="Node000005" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9376a7a3e506174d847bfebc76b11f92" title="Resize framebuffers." alt="" coords="477,133,652,173"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="733,197,648,176,649,171,735,191"/>
-<area shape="rect" id="Node000006" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="437,197,692,237"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="726,220,692,220,692,215,726,215"/>
-<area shape="rect" id="Node000007" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="467,261,663,301"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="735,243,649,264,648,259,733,238"/>
-<area shape="rect" id="Node000008" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="470,325,659,365"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="798,248,750,283,693,316,660,328,659,323,691,311,747,279,794,244"/>
-<area shape="rect" id="Node000009" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="488,389,641,429"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="813,251,765,316,731,351,693,380,669,392,642,401,641,396,667,387,691,375,728,347,761,313,809,247"/>
-<area shape="rect" id="Node000010" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="244,165,381,205"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="474,402,453,393,435,379,420,359,412,339,409,299,408,259,401,239,387,219,373,208,377,203,391,216,406,237,413,258,414,299,417,338,424,357,439,375,456,388,476,397"/>
-<area shape="rect" id="Node000012" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="236,229,389,269"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="474,400,436,379,417,356,410,331,404,307,387,283,371,272,374,267,391,279,409,305,415,330,421,353,439,375,476,395"/>
-<area shape="rect" id="Node000013" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="236,293,389,333"/>
-<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="474,394,436,380,412,364,388,348,364,336,366,331,391,343,414,360,439,375,476,389"/>
-<area shape="rect" id="Node000014" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="236,357,389,397"/>
-<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="474,401,389,390,390,384,475,395"/>
-<area shape="rect" id="Node000015" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="236,421,389,461"/>
-<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="475,423,390,434,389,429,474,418"/>
-<area shape="rect" id="Node000016" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="236,485,389,525"/>
-<area shape="poly" id="edge15_Node000009_Node000016" title=" " alt="" coords="499,437,367,488,365,483,497,432"/>
-<area shape="rect" id="Node000017" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="236,549,389,589"/>
-<area shape="poly" id="edge16_Node000009_Node000017" title=" " alt="" coords="531,440,467,489,391,540,367,552,365,547,388,535,464,485,527,436"/>
-<area shape="rect" id="Node000018" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="236,613,389,653"/>
-<area shape="poly" id="edge17_Node000009_Node000018" title=" " alt="" coords="544,442,480,521,438,565,391,604,370,616,368,611,388,599,434,561,476,518,540,439"/>
-<area shape="rect" id="Node000011" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,165,188,205"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="230,188,188,188,188,183,230,183"/>
+<area shape="rect" id="Node000001" title="Resize framebuffer." alt="" coords="955,197,1169,237"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="724,197,907,237"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="941,220,907,220,907,215,941,215"/>
+<area shape="rect" id="Node000003" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="441,5,656,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="793,187,745,122,712,88,675,60,651,48,653,43,677,55,715,84,749,118,797,184"/>
+<area shape="rect" id="Node000004" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="447,69,650,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="778,191,731,156,675,124,644,112,645,107,677,119,734,151,782,186"/>
+<area shape="rect" id="Node000005" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9376a7a3e506174d847bfebc76b11f92" title="Resize framebuffers." alt="" coords="461,133,636,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="717,197,632,176,633,171,719,191"/>
+<area shape="rect" id="Node000006" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="421,197,676,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="710,220,676,220,676,215,710,215"/>
+<area shape="rect" id="Node000007" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="451,261,647,301"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="719,243,633,264,632,259,717,238"/>
+<area shape="rect" id="Node000008" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="454,325,643,365"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="782,248,734,283,677,316,644,328,643,323,675,311,731,279,778,244"/>
+<area shape="rect" id="Node000009" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="472,389,625,429"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="797,251,749,316,715,351,677,380,653,392,626,401,625,396,651,387,675,375,712,347,745,313,793,247"/>
+<area shape="rect" id="Node000010" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,165,365,205"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="458,402,437,393,419,379,404,359,396,339,393,299,392,259,385,239,371,219,357,208,361,203,375,216,390,237,397,258,398,299,401,338,408,357,423,375,440,388,460,397"/>
+<area shape="rect" id="Node000012" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="220,229,373,269"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="458,400,420,379,401,356,394,331,388,307,371,283,355,272,358,267,375,279,393,305,399,330,405,353,423,375,460,395"/>
+<area shape="rect" id="Node000013" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="220,293,373,333"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="458,394,420,380,396,364,372,348,348,336,350,331,375,343,398,360,423,375,460,389"/>
+<area shape="rect" id="Node000014" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="220,357,373,397"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="458,401,373,390,374,384,459,395"/>
+<area shape="rect" id="Node000015" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="220,421,373,461"/>
+<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="459,423,374,434,373,429,458,418"/>
+<area shape="rect" id="Node000016" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="220,485,373,525"/>
+<area shape="poly" id="edge15_Node000009_Node000016" title=" " alt="" coords="483,437,351,488,349,483,481,432"/>
+<area shape="rect" id="Node000017" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="220,549,373,589"/>
+<area shape="poly" id="edge16_Node000009_Node000017" title=" " alt="" coords="515,440,451,489,375,540,351,552,349,547,372,535,448,485,511,436"/>
+<area shape="rect" id="Node000018" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="220,613,373,653"/>
+<area shape="poly" id="edge17_Node000009_Node000018" title=" " alt="" coords="528,442,464,521,422,565,375,604,354,616,352,611,372,599,418,561,460,518,524,439"/>
+<area shape="rect" id="Node000011" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,173,172,198"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="214,188,172,188,172,183,214,183"/>
 </map>

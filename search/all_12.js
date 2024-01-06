@@ -83,6 +83,6 @@ var searchData=
   ['rotation_5forigin_80',['rotation_origin',['../da/d8c/Camera_8cpp.html#ad98aa84964727ee7d9e87c11edea46e0',1,'Camera.cpp']]],
   ['rotation_5fvec_81',['rotation_vec',['../d0/d59/Transform_8cpp.html#aae52476a15ca65ecb7a43069e718d78c',1,'Transform.cpp']]],
   ['rtrim_82',['rtrim',['../db/d7c/namespacegalaxy_1_1strutils.html#ac5695a7c71384e1de6aa6cf8a9e46e5a',1,'galaxy::strutils']]],
-  ['run_83',['run',['../d5/da2/classgalaxy_1_1core_1_1Application.html#a2ad347d92d89ae527681274048146af0',1,'galaxy::core::Application::run()'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a1544eea1062ecfd053e889f6efb4c821',1,'galaxy::lua::BasicScript::run()']]],
+  ['run_83',['run',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610',1,'galaxy::core::App::run()'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a1544eea1062ecfd053e889f6efb4c821',1,'galaxy::lua::BasicScript::run()']]],
   ['run_5fand_5freturn_84',['run_and_return',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#aa3ed737d348f57c80c8f6ca82aa4e9ef',1,'galaxy::lua::BasicScript']]]
 ];

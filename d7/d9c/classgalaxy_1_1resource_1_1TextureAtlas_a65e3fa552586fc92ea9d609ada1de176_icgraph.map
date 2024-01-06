@@ -1,8 +1,8 @@
 <map id="galaxy::resource::TextureAtlas::keys" name="galaxy::resource::TextureAtlas::keys">
-<area shape="rect" id="Node000001" title="Get a list of keys in the cache." alt="" coords="421,29,607,69"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="549,18,537,11,514,8,494,10,482,15,478,21,480,28,475,30,473,20,479,10,493,5,514,3,538,6,552,13"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,29,373,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,52,373,52,373,47,407,47"/>
-<area shape="rect" id="Node000003" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,29,188,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,52,188,52,188,47,222,47"/>
+<area shape="rect" id="Node000001" title="Get a list of keys in the cache." alt="" coords="405,29,591,69"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="533,18,521,11,498,8,478,10,466,15,462,21,464,28,459,30,457,20,463,10,477,5,498,3,522,6,536,13"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,29,357,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="391,52,357,52,357,47,391,47"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,37,172,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,52,172,52,172,47,206,47"/>
 </map>

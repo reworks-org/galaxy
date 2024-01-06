@@ -1,5 +1,5 @@
 <map id="galaxy::core::ServiceLocator::del" name="galaxy::core::ServiceLocator::del">
-<area shape="rect" id="Node000001" title="Delete the service and frees up the memory." alt="" coords="236,13,469,38"/>
-<area shape="rect" id="Node000002" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#a66a3e4f5addb11c7cfa2c9e0222dc88d" title="Virtual destructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,28,188,28,188,23,222,23"/>
+<area shape="rect" id="Node000001" title="Delete the service and frees up the memory." alt="" coords="232,5,465,31"/>
+<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="5,5,184,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,21,184,21,184,15,218,15"/>
 </map>

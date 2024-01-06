@@ -1,6 +1,6 @@
 var hierarchy =
 [
-    [ "galaxy::core::Application", "d5/da2/classgalaxy_1_1core_1_1Application.html", null ],
+    [ "galaxy::core::App", "d5/d5a/classgalaxy_1_1core_1_1App.html", null ],
     [ "galaxy::media::AudioEngine< type >", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::lua::BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", null ],
     [ "galaxy::resource::BasicScriptLoader", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader.html", null ],

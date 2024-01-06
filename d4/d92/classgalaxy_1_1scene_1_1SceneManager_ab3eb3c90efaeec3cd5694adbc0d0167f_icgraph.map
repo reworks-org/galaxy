@@ -1,15 +1,15 @@
 <map id="galaxy::scene::SceneManager::set_scene" name="galaxy::scene::SceneManager::set_scene">
-<area shape="rect" id="Node000001" title="Set the currently active scene." alt="" coords="1209,55,1424,95"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="947,26,1161,66"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1196,65,1161,61,1162,55,1196,59"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="236,26,373,66"/>
-<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="1196,80,1161,81,953,88,790,98,712,101,628,100,533,94,421,81,366,69,367,63,422,75,533,88,628,94,712,96,790,93,953,83,1161,75,1196,75"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d" title="Load data from memory into scenes." alt="" coords="684,26,899,66"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="933,49,899,49,899,43,933,43"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="695,26,636,17,528,8,482,10,422,17,367,29,366,23,421,11,481,5,529,3,636,11,696,21"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="421,26,636,66"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="671,49,636,49,636,43,671,43"/>
-<area shape="rect" id="Node000005" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,26,188,66"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,49,188,49,188,43,222,43"/>
-<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="408,49,374,49,374,43,408,43"/>
+<area shape="rect" id="Node000001" title="Set the currently active scene." alt="" coords="1193,55,1408,95"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="931,26,1145,66"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1180,65,1145,61,1146,55,1180,59"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,26,357,66"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="1180,80,1145,81,937,88,774,98,696,101,612,100,517,94,405,81,350,69,351,63,406,75,517,88,612,94,696,96,774,93,937,83,1145,75,1180,75"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a78698b73acaa4f15db56682ad732359d" title="Load data from memory into scenes." alt="" coords="668,26,883,66"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="917,49,883,49,883,43,917,43"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="679,26,620,17,512,8,466,10,406,17,351,29,350,23,405,11,465,5,513,3,620,11,680,21"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="405,26,620,66"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="655,49,620,49,620,43,655,43"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,33,172,59"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,49,172,49,172,43,206,43"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="392,49,358,49,358,43,392,43"/>
 </map>

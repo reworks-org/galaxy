@@ -1,9 +1,9 @@
 <map id="galaxy::media::AudioEngine::start_device" name="galaxy::media::AudioEngine::start_device">
-<area shape="rect" id="Node000001" title="Start device." alt="" coords="487,37,689,77"/>
-<area shape="rect" id="Node000002" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a8532b0faf8dbef5f32bd86a3c644fc57" title="Argument constructor." alt="" coords="236,5,439,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="473,45,438,41,439,36,473,40"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="269,69,406,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="473,75,406,83,406,78,473,69"/>
-<area shape="rect" id="Node000004" href="$d5/da2/classgalaxy_1_1core_1_1Application.html#abb1f0477ae0ce959fd2eed0466ea1ea1" title="Default constructor." alt="" coords="5,69,188,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,92,188,92,188,87,255,87"/>
+<area shape="rect" id="Node000001" title="Start device." alt="" coords="471,37,673,77"/>
+<area shape="rect" id="Node000002" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a8532b0faf8dbef5f32bd86a3c644fc57" title="Argument constructor." alt="" coords="220,5,423,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="457,45,422,41,423,36,457,40"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="253,69,390,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="457,75,390,83,390,78,457,69"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,92,172,92,172,87,238,87"/>
 </map>
