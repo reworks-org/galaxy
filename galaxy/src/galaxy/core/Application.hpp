@@ -53,6 +53,11 @@ namespace galaxy
 			~App();
 
 			///
+			/// Loads the default appdata file.
+			///
+			void load();
+
+			///
 			/// Runs the app.
 			///
 			void run();

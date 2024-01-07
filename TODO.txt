@@ -1,6 +1,6 @@
 https://github.com/stephenberry/glaze
 replace json with that.
-
+https://www.geeks3d.com/shader-library/
 add mod support
 add update support
  

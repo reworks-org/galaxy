@@ -9,8 +9,7 @@
 #include <tinyfiledialogs.h>
 
 #include <galaxy/core/Application.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/scene/SceneManager.hpp>
+#include <galaxy/utils/Globals.hpp>
 
 using namespace galaxy;
 
@@ -23,13 +22,7 @@ int main(int argsc, char* argsv[])
 	{
 		core::App dist("logs/", "config.json");
 
-		{
-			const auto path = GALAXY_ROOT_DIR / GALAXY_APPDATA;
-
-			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-			sm.load_app(path.string());
-		}
-
+		dist.load();
 		dist.run();
 	}
 	catch (const std::exception& e)
