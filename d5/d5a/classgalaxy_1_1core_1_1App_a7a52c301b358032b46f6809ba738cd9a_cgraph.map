@@ -1,0 +1,5 @@
+<map id="galaxy::core::App::load" name="galaxy::core::App::load">
+<area shape="rect" id="Node000001" title="Loads the default appdata file." alt="" coords="5,5,176,31"/>
+<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="224,5,455,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,15,210,15,210,21,176,21"/>
+</map>
