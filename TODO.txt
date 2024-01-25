@@ -1,3 +1,14 @@
+https://github.com/Korsreven/ion
+https://github.com/Localtings/Batch-Renderer
+https://github.com/RobLoach/pntr_tiled
+https://github.com/rbrich/xcikit
+https://github.com/vinders/pandora_toolbox
+https://github.com/Ily3s/Hexeng2D
+https://github.com/grz0zrg/fbg
+https://github.com/alxm/faur
+https://old.reddit.com/r/opengl/comments/19eqoi9/dealing_with_resolution_independence_in_a_2d_game/
+https://old.reddit.com/r/cpp/comments/19ehte1/c_final_is_truly_cool_enhancing_performance_and/
+
 https://github.com/stephenberry/glaze
 replace json with that.
 https://www.geeks3d.com/shader-library/
@@ -21,10 +32,9 @@ improve animation system
 https://github.com/sansumbrella/Choreograph
 https://github.com/mobius3/tweeny
 
-for ai pathfinding:
+AI:
+https://github.com/linkdd/aitoolkit
 https://github.com/Caerind/AwesomeCppGameDev#ai
-
-for ai combat?:
 https://github.com/BehaviorTree/BehaviorTree.CPP
 
 renderer:

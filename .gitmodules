@@ -34,3 +34,6 @@
 [submodule "lib/physfs"]
 	path = lib/physfs
 	url = https://github.com/icculus/physfs.git
+[submodule "lib/entt"]
+	path = lib/entt
+	url = https://github.com/skypjack/entt.git
