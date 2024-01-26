@@ -22,9 +22,11 @@ namespace sc
 		: Scene(name)
 		, m_load {false}
 	{
-		m_bg.load("sc.png");
-		m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+		if (m_bg.load("sc.png"))
+		{
+			m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+		}
 	}
 
 	Menu::~Menu()

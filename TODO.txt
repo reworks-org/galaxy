@@ -8,9 +8,8 @@ https://github.com/grz0zrg/fbg
 https://github.com/alxm/faur
 https://old.reddit.com/r/opengl/comments/19eqoi9/dealing_with_resolution_independence_in_a_2d_game/
 https://old.reddit.com/r/cpp/comments/19ehte1/c_final_is_truly_cool_enhancing_performance_and/
+https://github.com/miloyip/light2d
 
-https://github.com/stephenberry/glaze
-replace json with that.
 https://www.geeks3d.com/shader-library/
 add mod support
 add update support

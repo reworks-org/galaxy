@@ -106,10 +106,10 @@ namespace galaxy
 				"type_id",
 				&entt::type_hash<components::Animated>::value);
 
-			animated_type["active"]              = &components::Animated::active;
-			animated_type["add"]                 = &components::Animated::add;
-			animated_type["is_paused"]           = &components::Animated::is_paused;
-			animated_type["animations"]          = &components::Animated::m_animations;
+			animated_type["active"]    = &components::Animated::active;
+			animated_type["add"]       = &components::Animated::add;
+			animated_type["is_paused"] = &components::Animated::is_paused;
+			// animated_type["animations"]          = &components::Animated::m_animations;
 			animated_type["time_spent_on_frame"] = &components::Animated::m_time_spent_on_frame;
 			animated_type["pause"]               = &components::Animated::pause;
 			animated_type["play"]                = sol::resolve<void(void)>(&components::Animated::play);
@@ -968,15 +968,14 @@ namespace galaxy
 
 			/* META */
 			auto entt_anytype     = lua.new_usertype<entt::any>("EnttAny", sol::no_constructor);
-			entt_anytype["owner"] = &entt::any::owner;
 			entt_anytype["reset"] = &entt::any::reset;
 			entt_anytype["type"]  = &entt::any::type;
 
-			auto entitymeta_type                   = lua.new_usertype<meta::EntityMeta>("EntityMeta", sol::no_constructor);
-			entitymeta_type["any_from_json"]       = &meta::EntityMeta::any_from_json;
-			entitymeta_type["get_type"]            = &meta::EntityMeta::get_type;
-			entitymeta_type["get_typeid"]          = &meta::EntityMeta::get_typeid;
-			entitymeta_type["get_validations"]     = &meta::EntityMeta::get_validations;
+			auto entitymeta_type             = lua.new_usertype<meta::EntityMeta>("EntityMeta", sol::no_constructor);
+			entitymeta_type["any_from_json"] = &meta::EntityMeta::any_from_json;
+			entitymeta_type["get_type"]      = &meta::EntityMeta::get_type;
+			entitymeta_type["get_typeid"]    = &meta::EntityMeta::get_typeid;
+			// #entitymeta_type["get_validations"] = &meta::EntityMeta::get_validations;
 			entitymeta_type["get_validation_list"] = &meta::EntityMeta::get_validation_list;
 			entitymeta_type["json_factory"]        = &meta::EntityMeta::json_factory;
 			entitymeta_type["serialize_entity"]    = &meta::EntityMeta::serialize_entity;
@@ -1079,8 +1078,8 @@ namespace galaxy
 			textureatlas_type["keys"]     = &resource::TextureAtlas::keys;
 
 			/* STATE */
-			auto scenemanager_type            = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["all"]          = &scene::SceneManager::all;
+			auto scenemanager_type = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			// scenemanager_type["all"]          = &scene::SceneManager::all;
 			scenemanager_type["clear"]        = &scene::SceneManager::clear;
 			scenemanager_type["current"]      = &scene::SceneManager::current;
 			scenemanager_type["get"]          = &scene::SceneManager::get;

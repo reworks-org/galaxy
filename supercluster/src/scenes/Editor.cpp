@@ -60,13 +60,17 @@ namespace sc
 		m_mousepick_buffer = fb.add_storage_attachment();
 		fb.create();
 
-		m_camera_btn.load("icons/camera.png");
-		m_camera_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_camera_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+		if (m_camera_btn.load("icons/camera.png"))
+		{
+			m_camera_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_camera_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+		}
 
-		m_editor_cam_btn.load("icons/video.png");
-		m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-		m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+		if (m_editor_cam_btn.load("icons/video.png"))
+		{
+			m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+			m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+		}
 
 		m_nui      = &core::ServiceLocator<ui::NuklearUI>::ref();
 		m_window   = &core::ServiceLocator<core::Window>::ref();
@@ -504,11 +508,6 @@ namespace sc
 					m_show_codeeditor = !m_show_codeeditor;
 				}
 
-				if (ImGui::MenuItem("Toggle Noise Editor", "Ctrl+Alt+N"))
-				{
-					m_show_noisegraph = !m_show_noisegraph;
-				}
-
 				if (ImGui::MenuItem("ImGui Demo Window"))
 				{
 					GALAXY_LOG(GALAXY_INFO, "SHOWING DEBUG WINDOW.");
@@ -772,16 +771,6 @@ namespace sc
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_C))
 		{
 			m_show_codeeditor = !m_show_codeeditor;
-		}
-
-		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_N))
-		{
-			m_show_noisegraph = !m_show_noisegraph;
-		}
-
-		if (m_show_noisegraph)
-		{
-			m_noise_graph.render(&m_show_noisegraph, m_update_stack);
 		}
 
 		if (m_show_luapanel)

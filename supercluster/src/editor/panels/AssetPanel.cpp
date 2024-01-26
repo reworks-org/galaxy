@@ -12,10 +12,6 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/resource/Fonts.hpp>
-#include <galaxy/resource/Language.hpp>
-#include <galaxy/resource/Shaders.hpp>
-#include <galaxy/resource/TextureAtlas.hpp>
 
 #include "AssetPanel.hpp"
 
@@ -51,25 +47,35 @@ namespace sc
 			m_thumb_size = config.get<float>("thumb_size", "editor");
 			m_padding    = config.get<float>("padding", "editor");
 
-			m_backward.load("icons/backward.png");
-			m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_backward.load("icons/backward.png"))
+			{
+				m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_file.load("icons/file.png");
-			m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_file.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_file.load("icons/file.png"))
+			{
+				m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_file.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_folder.load("icons/folder.png");
-			m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_folder.load("icons/folder.png"))
+			{
+				m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_forward.load("icons/forward.png");
-			m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_forward.load("icons/forward.png"))
+			{
+				m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_refresh.load("icons/reload.png");
-			m_refresh.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_refresh.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_refresh.load("icons/reload.png"))
+			{
+				m_refresh.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_refresh.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
 			m_ext_map.emplace(".ogg", FileType::AUDIO);
 			m_ext_map.emplace(".wav", FileType::AUDIO);
@@ -101,45 +107,65 @@ namespace sc
 			m_tex_map.try_emplace(FileType::MAP);
 			m_tex_map.try_emplace(FileType::PREFAB);
 
-			m_tex_map[FileType::AUDIO].load("icons/audio.png");
-			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::AUDIO].load("icons/audio.png"))
+			{
+				m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::FONT].load("icons/font.png");
-			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::FONT].load("icons/font.png"))
+			{
+				m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::SHADER].load("icons/glsl.png");
-			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::SHADER].load("icons/glsl.png"))
+			{
+				m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::JSON].load("icons/json.png");
-			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::JSON].load("icons/json.png"))
+			{
+				m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::LANG].load("icons/lang.png");
-			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::LANG].load("icons/lang.png"))
+			{
+				m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::LUA].load("icons/lua.png");
-			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::LUA].load("icons/lua.png"))
+			{
+				m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::PROJ].load("icons/proj.png");
-			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::PROJ].load("icons/proj.png"))
+			{
+				m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::TEXTURE].load("icons/texture.png");
-			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::TEXTURE].load("icons/texture.png"))
+			{
+				m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::MAP].load("icons/map.png");
-			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::MAP].load("icons/map.png"))
+			{
+				m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 
-			m_tex_map[FileType::PREFAB].load("icons/prefab.png");
-			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			if (m_tex_map[FileType::PREFAB].load("icons/prefab.png"))
+			{
+				m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
+				m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			}
 		}
 
 		void AssetPanel::render(UpdateStack& updates)
@@ -544,8 +570,10 @@ namespace sc
 		void AssetPanel::load_preview()
 		{
 			m_preview.recreate();
-			m_preview.load(m_selected.m_path.string());
-			m_open_preview = true;
+			if (m_preview.load(m_selected.m_path.string()))
+			{
+				m_open_preview = true;
+			}
 		}
 
 		void AssetPanel::directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count)
