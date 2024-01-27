@@ -56,7 +56,7 @@ namespace sc
 		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 
 	  private:
-		async::Timer         m_autosave;
+		async::Timer<false>  m_autosave;
 		platform::Subprocess m_tiled_process;
 		platform::Subprocess m_bfxr_process;
 
