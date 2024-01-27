@@ -101,134 +101,15 @@ $(document).ready(function(){initNavTree('d0/dc2/Timer_8cpp_source.html','../../
 <div class="contents">
 <a href="../../d0/dc2/Timer_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d64/Globals_8hpp.html">galaxy/utils/Globals.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d0/d46/namespacegalaxy.html">   12</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d0/d7f/namespacegalaxy_1_1async.html">   14</a></span>    <span class="keyword">namespace </span>async</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a15809f3809e3a44a2f275110a6d49401">   16</a></span>        <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a15809f3809e3a44a2f275110a6d49401">Timer::Timer</a>()</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : m_repeat {false}</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            , m_stopped {true}</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            , m_time_passed {0.0}</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            , m_delay {1000}</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            , m_callback {nullptr}</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
-</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#aed1f54e655a00bbe468ee61a92b707aa">   25</a></span>        <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a15809f3809e3a44a2f275110a6d49401">Timer::Timer</a>(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp; func, <span class="keyword">const</span> std::uint32_t delay)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            : m_repeat {false}</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            , m_stopped {true}</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            , m_time_passed {0.0}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            , m_delay {1000}</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            , m_callback {nullptr}</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#af8073b57e2df17b3afa2ca99f8bdc125">set</a>(func, delay);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
-</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ae0a03082b0b3f867d41731b0a93eddbd">   35</a></span>        <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ae0a03082b0b3f867d41731b0a93eddbd">Timer::~Timer</a>()</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0">stop</a>();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
-</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#af8073b57e2df17b3afa2ca99f8bdc125">   40</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#af8073b57e2df17b3afa2ca99f8bdc125">Timer::set</a>(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp; func, <span class="keyword">const</span> std::uint32_t delay)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a38a63cc7ce2c4561e160dd09a6c4c0c5">m_callback</a> = func;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a12d31ad886fd9f11b75a777f58c4fb36">m_delay</a>    = delay;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
-</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a26d54f34540faac93bbf8c72df4178b5">   46</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a26d54f34540faac93bbf8c72df4178b5">Timer::repeat</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> repeat)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#abe074cf878a4dfb6d860bce2a2c5297a">m_repeat</a> = <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a26d54f34540faac93bbf8c72df4178b5">repeat</a>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }</div>
-</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a57d4c6d96e96ce432beb2116fbf0e648">   51</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a57d4c6d96e96ce432beb2116fbf0e648">Timer::update</a>()</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ac728936d88770cc4a9facf60bf2942a9">m_stopped</a>)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3e9de33f0b01562e86ae17aeb5b5ad92">m_time_passed</a> += (<a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146">GALAXY_DT</a> * 1000.0);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3e9de33f0b01562e86ae17aeb5b5ad92">m_time_passed</a> &gt;= <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a12d31ad886fd9f11b75a777f58c4fb36">m_delay</a>)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a38a63cc7ce2c4561e160dd09a6c4c0c5">m_callback</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#abe074cf878a4dfb6d860bce2a2c5297a">m_repeat</a>)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                        <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3e9de33f0b01562e86ae17aeb5b5ad92">m_time_passed</a> = 0.0;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                    }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                    {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                        <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0">stop</a>();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
-</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a46c687af58157cca1d9a7e8130e067b2">   73</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a46c687af58157cca1d9a7e8130e067b2">Timer::start</a>()</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ac728936d88770cc4a9facf60bf2942a9">m_stopped</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
-</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0">   78</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0">Timer::stop</a>()</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ac728936d88770cc4a9facf60bf2942a9">m_stopped</a>     = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3e9de33f0b01562e86ae17aeb5b5ad92">m_time_passed</a> = 0.0;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
-</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a0f645f081c4cae2796dc44aa19d67596">   84</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a0f645f081c4cae2796dc44aa19d67596">Timer::stopped</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ac728936d88770cc4a9facf60bf2942a9">m_stopped</a>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
-</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    } <span class="comment">// namespace async</span></div>
-</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>} <span class="comment">// namespace galaxy</span></div>
-</div>
-<div class="ttc" id="aGlobals_8hpp_html"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html">Globals.hpp</a></div></div>
-<div class="ttc" id="aGlobals_8hpp_html_a18e2a994bddbee1da721d788b3008146"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146">GALAXY_DT</a></div><div class="ttdeci">#define GALAXY_DT</div><div class="ttdoc">Galaxy Delta-Time.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00074">Globals.hpp:74</a></div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a>&quot;</span></div>
 <div class="ttc" id="aTimer_8hpp_html"><div class="ttname"><a href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a0f645f081c4cae2796dc44aa19d67596"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a0f645f081c4cae2796dc44aa19d67596">galaxy::async::Timer::stopped</a></div><div class="ttdeci">bool stopped() const</div><div class="ttdoc">Is the timer finished?</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00084">Timer.cpp:84</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a12d31ad886fd9f11b75a777f58c4fb36"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a12d31ad886fd9f11b75a777f58c4fb36">galaxy::async::Timer::m_delay</a></div><div class="ttdeci">std::uint32_t m_delay</div><div class="ttdoc">Current delay on timer.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00108">Timer.hpp:108</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a15809f3809e3a44a2f275110a6d49401"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a15809f3809e3a44a2f275110a6d49401">galaxy::async::Timer::Timer</a></div><div class="ttdeci">Timer()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00016">Timer.cpp:16</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a26d54f34540faac93bbf8c72df4178b5"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a26d54f34540faac93bbf8c72df4178b5">galaxy::async::Timer::repeat</a></div><div class="ttdeci">void repeat(const bool repeat)</div><div class="ttdoc">Make function repeat itself instead of running once.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00046">Timer.cpp:46</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a38a63cc7ce2c4561e160dd09a6c4c0c5"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a38a63cc7ce2c4561e160dd09a6c4c0c5">galaxy::async::Timer::m_callback</a></div><div class="ttdeci">std::function&lt; void(void)&gt; m_callback</div><div class="ttdoc">Callback function.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00113">Timer.hpp:113</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a3e9de33f0b01562e86ae17aeb5b5ad92"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3e9de33f0b01562e86ae17aeb5b5ad92">galaxy::async::Timer::m_time_passed</a></div><div class="ttdeci">double m_time_passed</div><div class="ttdoc">Time passed.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00103">Timer.hpp:103</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a46c687af58157cca1d9a7e8130e067b2"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a46c687af58157cca1d9a7e8130e067b2">galaxy::async::Timer::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Start timer.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00073">Timer.cpp:73</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a57d4c6d96e96ce432beb2116fbf0e648"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a57d4c6d96e96ce432beb2116fbf0e648">galaxy::async::Timer::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Call to update timer count.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00051">Timer.cpp:51</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_abe074cf878a4dfb6d860bce2a2c5297a"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#abe074cf878a4dfb6d860bce2a2c5297a">galaxy::async::Timer::m_repeat</a></div><div class="ttdeci">bool m_repeat</div><div class="ttdoc">Is function repeating?</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00093">Timer.hpp:93</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_ac728936d88770cc4a9facf60bf2942a9"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ac728936d88770cc4a9facf60bf2942a9">galaxy::async::Timer::m_stopped</a></div><div class="ttdeci">bool m_stopped</div><div class="ttdoc">Is timer stopped.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00098">Timer.hpp:98</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_ace4d3f927eb368d660cb3d7ed1c526f0"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ace4d3f927eb368d660cb3d7ed1c526f0">galaxy::async::Timer::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stop timer.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00078">Timer.cpp:78</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_ae0a03082b0b3f867d41731b0a93eddbd"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ae0a03082b0b3f867d41731b0a93eddbd">galaxy::async::Timer::~Timer</a></div><div class="ttdeci">~Timer()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00035">Timer.cpp:35</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_af8073b57e2df17b3afa2ca99f8bdc125"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#af8073b57e2df17b3afa2ca99f8bdc125">galaxy::async::Timer::set</a></div><div class="ttdeci">void set(const std::function&lt; void(void)&gt; &amp;func, const std::uint32_t delay)</div><div class="ttdoc">Run a function on a precision timer.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00040">Timer.cpp:40</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00012">Timer.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d0/dc2/Timer_8cpp.html">Timer.cpp</a></li>
-    <li class="footer">Generated on Sun Jan 7 2024 15:14:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 15:51:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

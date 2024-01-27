@@ -93,11 +93,13 @@ $(document).ready(function(){initNavTree('d8/dbf/Timer_8hpp.html','../../'); ini
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">Timer.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;functional&gt;</code><br />
+<div class="textblock"><code>#include &lt;BS_thread_pool.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddf/ServiceLocator_8hpp_source.html">galaxy/core/ServiceLocator.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Timer.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -105,9 +107,71 @@ $(document).ready(function(){initNavTree('d8/dbf/Timer_8hpp.html','../../'); ini
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d6/d22/Timer_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2async_2Timer_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2async_2Timer_8hpp" id="agalaxy_2src_2galaxy_2async_2Timer_8hpp">
-<area shape="rect" title=" " alt="" coords="5,5,184,45"/>
-<area shape="rect" title=" " alt="" coords="51,93,138,119"/>
-<area shape="poly" title=" " alt="" coords="97,46,97,79,92,79,92,46"/>
+<area shape="rect" title=" " alt="" coords="143,5,321,45"/>
+<area shape="rect" title=" " alt="" coords="51,93,202,119"/>
+<area shape="poly" title=" " alt="" coords="208,48,155,87,152,83,205,43"/>
+<area shape="rect" href="../../da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="226,93,451,119"/>
+<area shape="poly" title=" " alt="" coords="259,43,313,83,310,87,256,48"/>
+<area shape="rect" title=" " alt="" coords="229,167,307,192"/>
+<area shape="poly" title=" " alt="" coords="329,121,291,159,287,155,325,117"/>
+<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="331,167,487,192"/>
+<area shape="poly" title=" " alt="" coords="352,117,390,155,386,159,348,121"/>
+<area shape="rect" title=" " alt="" coords="320,387,411,412"/>
+<area shape="poly" title=" " alt="" coords="331,194,137,222,24,242,13,259,8,274,10,289,17,302,46,326,89,345,143,362,201,374,307,390,306,395,200,379,142,367,88,350,43,330,13,305,5,290,3,274,8,257,21,238,136,217,331,189"/>
+<area shape="rect" title=" " alt="" coords="35,240,159,265"/>
+<area shape="poly" title=" " alt="" coords="360,195,162,240,160,234,359,189"/>
+<area shape="rect" title=" " alt="" coords="183,240,406,265"/>
+<area shape="poly" title=" " alt="" coords="392,194,326,235,324,230,390,190"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="430,240,621,265"/>
+<area shape="poly" title=" " alt="" coords="429,190,496,230,493,235,427,194"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="645,240,806,265"/>
+<area shape="poly" title=" " alt="" coords="461,189,661,234,660,240,460,195"/>
+<area shape="rect" href="../../d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="831,240,1039,265"/>
+<area shape="poly" title=" " alt="" coords="488,189,837,236,836,241,487,194"/>
+<area shape="rect" title=" " alt="" coords="677,313,774,339"/>
+<area shape="poly" title=" " alt="" coords="728,266,728,300,723,300,723,266"/>
+<area shape="rect" href="../../d5/d64/Globals_8hpp.html" title=" " alt="" coords="821,313,1000,339"/>
+<area shape="poly" title=" " alt="" coords="933,267,922,301,916,299,928,265"/>
+<area shape="poly" title=" " alt="" coords="823,341,425,393,424,388,823,336"/>
+<area shape="rect" title=" " alt="" coords="801,387,868,412"/>
+<area shape="poly" title=" " alt="" coords="900,341,859,379,855,375,897,337"/>
+<area shape="rect" href="../../d4/d18/Memory_8hpp.html" title=" " alt="" coords="893,387,1081,412"/>
+<area shape="poly" title=" " alt="" coords="925,337,966,375,962,379,921,341"/>
+<area shape="rect" title=" " alt="" coords="353,460,415,485"/>
+<area shape="poly" title=" " alt="" coords="893,413,880,415,656,433,557,443,429,463,429,458,556,438,656,428,880,409,892,408"/>
+<area shape="rect" title=" " alt="" coords="440,460,539,485"/>
+<area shape="poly" title=" " alt="" coords="894,415,553,462,552,457,893,409"/>
+<area shape="rect" title=" " alt="" coords="563,460,605,485"/>
+<area shape="poly" title=" " alt="" coords="893,414,767,433,619,463,618,458,766,427,892,409"/>
+<area shape="rect" title=" " alt="" coords="629,460,680,485"/>
+<area shape="poly" title=" " alt="" coords="921,415,818,434,694,462,693,457,817,429,920,409"/>
+<area shape="rect" title=" " alt="" coords="704,460,779,485"/>
+<area shape="poly" title=" " alt="" coords="948,415,793,459,791,454,947,409"/>
+<area shape="rect" title=" " alt="" coords="803,460,866,485"/>
+<area shape="poly" title=" " alt="" coords="963,414,873,457,871,452,961,410"/>
+<area shape="rect" title=" " alt="" coords="891,460,933,485"/>
+<area shape="poly" title=" " alt="" coords="977,414,936,452,932,449,973,410"/>
+<area shape="rect" title=" " alt="" coords="958,460,1015,485"/>
+<area shape="poly" title=" " alt="" coords="989,412,989,446,984,446,984,412"/>
+<area shape="rect" title=" " alt="" coords="1040,460,1099,485"/>
+<area shape="poly" title=" " alt="" coords="1002,410,1047,449,1044,453,998,414"/>
+<area shape="rect" title=" " alt="" coords="1290,533,1382,559"/>
+<area shape="poly" title=" " alt="" coords="1012,410,1112,458,1164,483,1286,527,1285,532,1162,488,1110,462,1010,415"/>
+<area shape="rect" title=" " alt="" coords="1174,460,1298,485"/>
+<area shape="poly" title=" " alt="" coords="1027,409,1183,454,1182,459,1026,415"/>
+<area shape="rect" title=" " alt="" coords="1323,460,1437,485"/>
+<area shape="poly" title=" " alt="" coords="1050,409,1309,456,1308,461,1049,415"/>
+<area shape="rect" title=" " alt="" coords="1462,460,1525,485"/>
+<area shape="poly" title=" " alt="" coords="1081,407,1248,426,1449,457,1448,463,1248,431,1080,412"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="1549,460,1745,485"/>
+<area shape="poly" title=" " alt="" coords="1081,408,1535,457,1535,462,1081,413"/>
+<area shape="rect" title=" " alt="" coords="1769,460,1924,485"/>
+<area shape="poly" title=" " alt="" coords="1081,404,1378,424,1756,457,1756,463,1377,430,1081,409"/>
+<area shape="poly" title=" " alt="" coords="1597,488,1396,534,1395,529,1596,483"/>
+<area shape="rect" title=" " alt="" coords="1548,533,1628,559"/>
+<area shape="poly" title=" " alt="" coords="1639,487,1608,525,1604,521,1635,484"/>
+<area shape="rect" title=" " alt="" coords="1652,533,1759,559"/>
+<area shape="poly" title=" " alt="" coords="1658,484,1689,521,1685,525,1654,487"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -127,17 +191,23 @@ $(document).ready(function(){initNavTree('d8/dbf/Timer_8hpp.html','../../'); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html">galaxy::async::Timer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronous timer class.  <a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html">galaxy::async::Timer&lt; async &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">(A)synchronous timer class.  <a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d0/d46/namespacegalaxy" id="r_d0/d46/namespacegalaxy"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
-<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/dc2/Timer_8cpp.html">Timer.cpp</a> galaxy. <br /></td></tr>
+<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d0/d7f/namespacegalaxy_1_1async" id="r_d0/d7f/namespacegalaxy_1_1async"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7f/namespacegalaxy_1_1async.html">galaxy::async</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af53249875dcfe3dbb83c1bd8afb1eba4" id="r_af53249875dcfe3dbb83c1bd8afb1eba4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7f/namespacegalaxy_1_1async.html#af53249875dcfe3dbb83c1bd8afb1eba4">galaxy::async::TimerCallback</a> = std::function&lt; void(void)&gt;</td></tr>
+<tr class="memdesc:af53249875dcfe3dbb83c1bd8afb1eba4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html" title="(A)synchronous timer class.">Timer</a> callback type.  <br /></td></tr>
+<tr class="separator:af53249875dcfe3dbb83c1bd8afb1eba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -145,7 +215,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></li>
-    <li class="footer">Generated on Sun Jan 7 2024 15:14:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 15:51:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

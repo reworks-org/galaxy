@@ -2,8 +2,7 @@ var annotated_dup =
 [
     [ "galaxy", "d0/d46/namespacegalaxy.html", [
       [ "async", "d0/d7f/namespacegalaxy_1_1async.html", [
-        [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ],
-        [ "TimerAsync", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync.html", "d6/d7f/classgalaxy_1_1async_1_1TimerAsync" ]
+        [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ]
       ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
