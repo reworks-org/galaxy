@@ -75,6 +75,11 @@ namespace galaxy
 			void set_active_map(const std::string& map);
 
 			///
+			/// Update UI.
+			///
+			void update_ui();
+
+			///
 			/// Event processing method for window size change.
 			///
 			/// \param e Takes in a window resized event.

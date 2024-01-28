@@ -8,9 +8,11 @@
 #include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
+#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/flags/Disabled.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/systems/AnimationSystem.hpp"
@@ -91,7 +93,7 @@ namespace galaxy
 			renderer.render_postprocessing();
 
 			nui.new_frame();
-			nui.process_scripts(m_world.m_registry);
+			update_ui();
 			nui.render();
 		}
 
@@ -112,6 +114,18 @@ namespace galaxy
 			if (m_map)
 			{
 				m_map->enable();
+			}
+		}
+
+		void Scene::update_ui()
+		{
+			const auto view = m_world.m_registry.view<components::UIScript>(entt::exclude<flags::Disabled>);
+			for (auto&& [entity, script] : view.each())
+			{
+				if (script.m_update.valid())
+				{
+					script.m_update(script.m_self);
+				}
 			}
 		}
 

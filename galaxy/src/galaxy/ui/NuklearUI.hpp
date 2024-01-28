@@ -8,7 +8,6 @@
 #ifndef GALAXY_UI_NUKLEARUI_HPP_
 #define GALAXY_UI_NUKLEARUI_HPP_
 
-#include <entt/entity/fwd.hpp>
 #include <Nuklear.hpp>
 #include <robin_hood.h>
 
@@ -64,13 +63,6 @@ namespace galaxy
 			/// Called before any nuklear code.
 			///
 			void new_frame();
-
-			///
-			/// Update scripts and call ui functions.
-			///
-			/// \param registry Entity registry with scripts to run.
-			///
-			void process_scripts(entt::registry& registry);
 
 			///
 			/// Render nuklear.

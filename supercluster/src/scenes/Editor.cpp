@@ -379,8 +379,7 @@ namespace sc
 
 			m_nui->enable_input();
 			m_nui->new_frame();
-			m_nui->process_scripts(m_project_sm.current().m_world.m_registry);
-
+			m_project_sm.current().update_ui();
 			m_nui->render();
 			m_nui->disable_input();
 		}

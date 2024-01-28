@@ -9,7 +9,6 @@
 
 #include <entt/entity/registry.hpp>
 
-#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -77,18 +76,6 @@ namespace galaxy
 		void NuklearUI::new_frame()
 		{
 			nk_glfw3_new_frame();
-		}
-
-		void NuklearUI::process_scripts(entt::registry& registry)
-		{
-			const auto view = registry.view<components::UIScript>(entt::exclude<flags::Disabled>);
-			for (auto&& [entity, script] : view.each())
-			{
-				if (script.m_update.valid())
-				{
-					script.m_update(script.m_self);
-				}
-			}
 		}
 
 		void NuklearUI::render()
