@@ -85,11 +85,12 @@ namespace galaxy
 		{
 			m_fb.create(width, height);
 
-			m_shader.load_raw(gammacorrection_vert, gammacorrection_frag);
-			m_shader.compile();
-
-			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_gamma", m_gamma);
+			if (m_shader.load_raw(gammacorrection_vert, gammacorrection_frag))
+			{
+				m_shader.compile();
+				m_shader.set_uniform("u_texture", 0);
+				m_shader.set_uniform("u_gamma", m_gamma);
+			}
 		}
 
 		void GammaCorrection::resize(const int width, const int height)

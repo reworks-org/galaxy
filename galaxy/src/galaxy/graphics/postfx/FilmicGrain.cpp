@@ -95,8 +95,10 @@ namespace galaxy
 		{
 			m_fb.create(width, height);
 
-			m_shader.load_raw(filmicgrain_vert, filmicgrain_frag);
-			m_shader.compile();
+			if (m_shader.load_raw(filmicgrain_vert, filmicgrain_frag))
+			{
+				m_shader.compile();
+			}
 
 			m_shader.set_uniform("u_texture", 0);
 			m_shader.set_uniform("u_amount", m_amount);

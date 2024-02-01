@@ -1,25 +1,25 @@
 ///
-/// Fonts.hpp
+/// Scripts.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RESOURCE_FONTS_HPP_
-#define GALAXY_RESOURCE_FONTS_HPP_
+#ifndef GALAXY_RESOURCE_SCRIPTS_HPP_
+#define GALAXY_RESOURCE_SCRIPTS_HPP_
 
-#include "galaxy/graphics/Font.hpp"
 #include "galaxy/resource/Cache.hpp"
 #include "galaxy/resource/Loader.hpp"
+#include "galaxy/scripting/Script.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// Abbreviation for font cache.
+		/// Abbreviation for lua scripts cache.
 		///
-		using Fonts = Cache<graphics::Font, Loader<graphics::Font>>;
+		using Scripts = Cache<lua::Script, Loader<lua::Script>>;
 	} // namespace resource
 } // namespace galaxy
 

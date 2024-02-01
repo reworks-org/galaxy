@@ -41,7 +41,9 @@ namespace galaxy
 			///
 			/// \param file File to load.
 			///
-			void load(const std::string& file);
+			/// \return True if successful.
+			///
+			[[nodiscard]] bool load(const std::string& file);
 
 			///
 			/// Build opengl data.

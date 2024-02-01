@@ -1,8 +1,8 @@
 ///
-/// Fonts.cpp
+/// Loader.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Fonts.hpp"
+#include "Loader.hpp"

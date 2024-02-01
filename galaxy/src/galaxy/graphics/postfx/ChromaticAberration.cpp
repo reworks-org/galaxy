@@ -93,12 +93,13 @@ namespace galaxy
 		{
 			m_fb.create(width, height);
 
-			m_shader.load_raw(chromaticaberration_vert, chromaticaberration_frag);
-			m_shader.compile();
-
-			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
-			m_shader.set_uniform("u_direction", 0.509167f, 0.598f); // may need tweaking, in general 0.5, 0.5 is default, adjust to change direction.
+			if (m_shader.load_raw(chromaticaberration_vert, chromaticaberration_frag))
+			{
+				m_shader.compile();
+				m_shader.set_uniform("u_texture", 0);
+				m_shader.set_uniform("u_rgb_offset", m_r_offset, m_g_offset, m_b_offset);
+				m_shader.set_uniform("u_direction", 0.509167f, 0.598f); // may need tweaking, in general 0.5, 0.5 is default, adjust to change direction.
+			}
 		}
 
 		void ChromaticAberration::resize(const int width, const int height)

@@ -28,7 +28,7 @@ namespace galaxy
 
 		Shader::Shader(const std::string& vertex_src, const std::string& fragment_src)
 		{
-			load_raw(vertex_src, fragment_src);
+			GALAXY_UNUSED(load_raw(vertex_src, fragment_src));
 		}
 
 		Shader::Shader(const nlohmann::json& json)
@@ -37,7 +37,14 @@ namespace galaxy
 			if (json.count("file") > 0)
 			{
 				std::string file = json.at("file");
-				load(file);
+				if (!file.empty())
+				{
+					GALAXY_UNUSED(load(file));
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "No file provided in JSON data for shader.");
+				}
 			}
 			else
 			{

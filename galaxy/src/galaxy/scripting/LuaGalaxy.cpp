@@ -38,16 +38,14 @@
 #include "galaxy/media/Video.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Subprocess.hpp"
-#include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
+#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
-#include "galaxy/state/StateMachine.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 #include "galaxy/utils/Guid.hpp"
 
@@ -210,13 +208,13 @@ namespace galaxy
 			rigidbody_type["set_shape"]                 = &components::RigidBody::set_shape;
 			rigidbody_type["set_type"]                  = &components::RigidBody::set_type;
 
-			auto script_type      = lua.new_usertype<components::Script>("Script",
+			auto c_script_type      = lua.new_usertype<components::Script>("Script",
                 sol::constructors<components::Script()>(),
                 "type_id",
                 &entt::type_hash<components::Script>::value);
-			script_type["file"]   = &components::Script::file;
-			script_type["self"]   = &components::Script::m_self;
-			script_type["update"] = &components::Script::m_update;
+			c_script_type["file"]   = &components::Script::file;
+			c_script_type["self"]   = &components::Script::m_self;
+			c_script_type["update"] = &components::Script::m_update;
 
 			auto sprite_type = lua.new_usertype<components::Sprite>("Sprite",
 				sol::constructors<components::Sprite()>(),
@@ -992,13 +990,12 @@ namespace galaxy
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
 
 			/* RESOURCE */
-			auto basicscripts_type     = lua.new_usertype<resource::BasicScripts>("BasicScripts", sol::no_constructor);
-			basicscripts_type["clear"] = &resource::BasicScripts::clear;
-			basicscripts_type["empty"] = &resource::BasicScripts::empty;
-			basicscripts_type["get"]   = &resource::BasicScripts::get;
-			basicscripts_type["has"]   = &resource::BasicScripts::has;
-			basicscripts_type["keys"]  = &resource::BasicScripts::keys;
-			basicscripts_type["size"]  = &resource::BasicScripts::size;
+			auto res_scripts_type     = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
+			res_scripts_type["clear"] = &resource::Scripts::clear;
+			res_scripts_type["empty"] = &resource::Scripts::empty;
+			res_scripts_type["get"]   = &resource::Scripts::get;
+			res_scripts_type["has"]   = &resource::Scripts::has;
+			res_scripts_type["size"]  = &resource::Scripts::size;
 
 			auto fonts_type     = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
 			fonts_type["clear"] = &resource::Fonts::clear;
@@ -1008,12 +1005,6 @@ namespace galaxy
 			fonts_type["keys"]  = &resource::Fonts::keys;
 			fonts_type["size"]  = &resource::Fonts::size;
 
-			auto lang_type              = lua.new_usertype<resource::Language>("Language", sol::no_constructor);
-			lang_type["clear_specific"] = sol::resolve<void(const std::string&)>(&resource::Language::clear);
-			lang_type["clear"]          = sol::resolve<void(void)>(&resource::Language::clear);
-			lang_type["set"]            = &resource::Language::set;
-			lang_type["translate"]      = &resource::Language::translate;
-
 			auto maps_type     = lua.new_usertype<resource::Maps>("Maps", sol::no_constructor);
 			maps_type["clear"] = &resource::Maps::clear;
 			maps_type["empty"] = &resource::Maps::empty;
@@ -1022,13 +1013,12 @@ namespace galaxy
 			maps_type["keys"]  = &resource::Maps::keys;
 			maps_type["size"]  = &resource::Maps::size;
 
-			auto sfxcache_type     = lua.new_usertype<resource::SFXCache>("sfxcaches", sol::no_constructor);
-			sfxcache_type["clear"] = &resource::SFXCache::clear;
-			sfxcache_type["empty"] = &resource::SFXCache::empty;
-			sfxcache_type["get"]   = &resource::SFXCache::get;
-			sfxcache_type["has"]   = &resource::SFXCache::has;
-			sfxcache_type["keys"]  = &resource::SFXCache::keys;
-			sfxcache_type["size"]  = &resource::SFXCache::size;
+			auto soundCache_type     = lua.new_usertype<resource::SoundCache>("SoundCaches", sol::no_constructor);
+			soundCache_type["clear"] = &resource::SoundCache::clear;
+			soundCache_type["empty"] = &resource::SoundCache::empty;
+			soundCache_type["get"]   = &resource::SoundCache::get;
+			soundCache_type["has"]   = &resource::SoundCache::has;
+			soundCache_type["size"]  = &resource::SoundCache::size;
 
 			auto musiccache_type     = lua.new_usertype<resource::MusicCache>("MusicCache", sol::no_constructor);
 			musiccache_type["clear"] = &resource::MusicCache::clear;
@@ -1104,17 +1094,10 @@ namespace galaxy
 			scene_type["set_active_map"] = &scene::Scene::set_active_map;
 
 			/* SCRIPTING */
-			auto basicscript_type              = lua.new_usertype<lua::BasicScript>("BasicScript", sol::constructors<lua::BasicScript()>());
-			basicscript_type["load"]           = &lua::BasicScript::load;
-			basicscript_type["run"]            = &lua::BasicScript::run;
-			basicscript_type["run_and_return"] = &lua::BasicScript::run_and_return;
-
-			/* STATE */
-			auto state_type             = lua.new_usertype<state::State>("State", sol::no_constructor);
-			auto statemachine_type      = lua.new_usertype<state::StateMachine>("StateMachine", sol::constructors<state::StateMachine()>());
-			statemachine_type["pop"]    = &state::StateMachine::pop;
-			statemachine_type["push"]   = &state::StateMachine::push;
-			statemachine_type["update"] = &state::StateMachine::update;
+			auto script_type              = lua.new_usertype<lua::Script>("Script", sol::constructors<lua::Script()>());
+			script_type["load"]           = &lua::Script::load;
+			script_type["run"]            = &lua::Script::run;
+			script_type["run_and_return"] = &lua::Script::run_and_return;
 
 			/* UI */
 			auto nui_type             = lua.new_usertype<ui::NuklearUI>("NuklearUI", sol::no_constructor);

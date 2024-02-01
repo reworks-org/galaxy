@@ -63,15 +63,15 @@ namespace galaxy
 
 		void PostProcess::init(const int width, const int height)
 		{
-			m_output.load_raw(vao_vert, vao_frag);
-			m_output.compile();
+			if (m_output.load_raw(vao_vert, vao_frag))
+			{
+				m_output.compile();
+			}
 
 			// We use the old style of opengl here, rather than DSA, just to keep it simple.
 
 			glGenBuffers(1, &m_screen_vbo);
 			glGenVertexArrays(1, &m_screen_vao);
-
-			m_output.load_raw(vao_vert, vao_frag);
 
 			// clang-format off
 			constexpr const std::array<float, 16> verticies =

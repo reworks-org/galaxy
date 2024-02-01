@@ -16042,24 +16042,30 @@ namespace galaxy
 
 			const auto edge_vert = std::format("{0}{1}{2}", smaa_header_vert, smaa_full, smaa_edge_vert);
 			const auto edge_frag = std::format("{0}{1}{2}", smaa_header_frag, smaa_full, smaa_edge_frag);
-			m_smaa_edge.load_raw(edge_vert, edge_frag);
-			m_smaa_edge.compile();
-			m_smaa_edge.set_uniform("neighbour_tex", 0);
+			if (m_smaa_edge.load_raw(edge_vert, edge_frag))
+			{
+				m_smaa_edge.compile();
+				m_smaa_edge.set_uniform("neighbour_tex", 0);
+			}
 
 			const auto blend_vert = std::format("{0}{1}{2}", smaa_header_vert, smaa_full, smaa_blend_vert);
 			const auto blend_frag = std::format("{0}{1}{2}", smaa_header_frag, smaa_full, smaa_blend_frag);
-			m_smaa_blend.load_raw(blend_vert, blend_frag);
-			m_smaa_blend.compile();
-			m_smaa_blend.set_uniform("edge_tex", 0);
-			m_smaa_blend.set_uniform("area_tex", 1);
-			m_smaa_blend.set_uniform("search_tex", 2);
+			if (m_smaa_blend.load_raw(blend_vert, blend_frag))
+			{
+				m_smaa_blend.compile();
+				m_smaa_blend.set_uniform("edge_tex", 0);
+				m_smaa_blend.set_uniform("area_tex", 1);
+				m_smaa_blend.set_uniform("search_tex", 2);
+			}
 
 			const auto neighbourhood_vert = std::format("{0}{1}{2}", smaa_header_vert, smaa_full, smaa_neighbour_vert);
 			const auto neighbourhood_frag = std::format("{0}{1}{2}", smaa_header_frag, smaa_full, smaa_neighbour_frag);
-			m_smaa_neighbourhood.load_raw(neighbourhood_vert, neighbourhood_frag);
-			m_smaa_neighbourhood.compile();
-			m_smaa_neighbourhood.set_uniform("neighbour_tex", 0);
-			m_smaa_neighbourhood.set_uniform("blend_tex", 1);
+			if (m_smaa_neighbourhood.load_raw(neighbourhood_vert, neighbourhood_frag))
+			{
+				m_smaa_neighbourhood.compile();
+				m_smaa_neighbourhood.set_uniform("neighbour_tex", 0);
+				m_smaa_neighbourhood.set_uniform("blend_tex", 1);
+			}
 		}
 
 		SMAA::~SMAA()

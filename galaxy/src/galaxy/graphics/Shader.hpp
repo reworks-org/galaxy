@@ -75,7 +75,7 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load(const std::string& file);
+			[[nodiscard]] bool load(const std::string& file);
 
 			///
 			/// Loads a combined raw shader.
@@ -84,7 +84,7 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load_raw(const std::string& src);
+			[[nodiscard]] bool load_raw(const std::string& src);
 
 			///
 			/// Loads a shader into OpenGL from raw strings.
@@ -94,7 +94,7 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool load_raw(const std::string& vertex_src, const std::string& fragment_src);
+			[[nodiscard]] bool load_raw(const std::string& vertex_src, const std::string& fragment_src);
 
 			///
 			/// Compiles shader into OpenGL.

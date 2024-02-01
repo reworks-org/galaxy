@@ -51,7 +51,9 @@ namespace galaxy
 			/// \param type Classification of the sound.
 			/// \param file File to load.
 			///
-			void load(SoundType type, const std::string& file);
+			/// \return True if successful.
+			///
+			[[nodiscard]] bool load(SoundType type, const std::string& file);
 
 			///
 			/// Start playing the sound.

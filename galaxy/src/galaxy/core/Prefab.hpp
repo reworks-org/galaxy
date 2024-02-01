@@ -22,6 +22,11 @@ namespace galaxy
 		{
 		  public:
 			///
+			/// Constructor.
+			///
+			Prefab();
+
+			///
 			/// Entity constructor.
 			///
 			/// \param entity Entity to use.
@@ -37,9 +42,36 @@ namespace galaxy
 			Prefab(const nlohmann::json& json);
 
 			///
+			/// Copy constructor.
+			///
+			Prefab(const Prefab&);
+
+			///
+			/// Move constructor.
+			///
+			Prefab(Prefab&&);
+
+			///
+			/// Copy assignment operator.
+			///
+			Prefab& operator=(const Prefab&);
+
+			///
+			/// Move assignment operator.
+			///
+			Prefab& operator=(Prefab&&);
+
+			///
 			/// Destructor.
 			///
 			~Prefab();
+
+			///
+			/// Loads from a json file on disk.
+			///
+			/// \param file Json file to read from disk.
+			///
+			[[nodiscard]] bool load(const std::string& file);
 
 			///
 			/// Creates the prefab from an entity.
@@ -71,14 +103,6 @@ namespace galaxy
 			/// \return Const reference from the json object.
 			///
 			[[nodiscard]] const nlohmann::json& to_json() const;
-
-		  private:
-			///
-			/// \brief Constructor.
-			///
-			/// Deleted.
-			///
-			Prefab() = delete;
 
 		  private:
 			///

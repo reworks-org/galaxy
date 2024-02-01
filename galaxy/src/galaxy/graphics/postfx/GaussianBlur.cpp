@@ -120,11 +120,12 @@ namespace galaxy
 			m_horizontal.create(width, height);
 			m_vertical.create(width, height);
 
-			m_shader.load_raw(gaussianblur_vert, gaussianblur_frag);
-			m_shader.compile();
-
-			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_strength", static_cast<int>(m_strength));
+			if (m_shader.load_raw(gaussianblur_vert, gaussianblur_frag))
+			{
+				m_shader.compile();
+				m_shader.set_uniform("u_texture", 0);
+				m_shader.set_uniform("u_strength", static_cast<int>(m_strength));
+			}
 		}
 
 		void GaussianBlur::resize(const int width, const int height)

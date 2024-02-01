@@ -10,31 +10,16 @@
 
 #include "galaxy/map/Map.hpp"
 #include "galaxy/resource/Cache.hpp"
+#include "galaxy/resource/Loader.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
 		///
-		/// Resource manager for tiled maps.
+		/// Abbreviation for map cache.
 		///
-		class MapLoader final
-		{
-		  public:
-			///
-			/// Overloaded operator() used to load a resource.
-			///
-			/// \param file Path on disk to load file from. You don't need to check with the filesystem, already done by the cache.
-			///
-			/// \return Shared pointer to newly created resource.
-			///
-			std::shared_ptr<map::Map> operator()(const std::string& file);
-		};
-
-		///
-		/// Abbreviation for map cache type.
-		///
-		using Maps = Cache<map::Map, MapLoader, false>;
+		using Maps = Cache<map::Map, Loader<map::Map>>;
 	} // namespace resource
 } // namespace galaxy
 

@@ -47,7 +47,9 @@ namespace galaxy
 			///
 			/// \param file Map file in VFS to load.
 			///
-			void load(const std::string& file);
+			/// \return True if successful.
+			///
+			[[nodiscard]] bool load(const std::string& file);
 
 			///
 			/// Create entities for tilemap.

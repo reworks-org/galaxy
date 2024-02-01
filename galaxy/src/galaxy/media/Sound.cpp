@@ -25,7 +25,7 @@ namespace galaxy
 			: m_sound {}
 			, m_decoder {}
 		{
-			load(type, file);
+			GALAXY_UNUSED(load(type, file));
 		}
 
 		Sound::~Sound()
@@ -37,8 +37,10 @@ namespace galaxy
 			ma_decoder_uninit(&m_decoder);
 		}
 
-		void Sound::load(SoundType type, const std::string& file)
+		bool Sound::load(SoundType type, const std::string& file)
 		{
+			auto success = true;
+
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			ma_engine*   engine = nullptr;
@@ -72,18 +74,23 @@ namespace galaxy
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' into decoder.", file);
 					ma_decoder_uninit(&m_decoder);
+					success = false;
 				}
 
 				if (ma_sound_init_from_data_source(engine, &m_decoder, flags, nullptr, &m_sound) != MA_SUCCESS)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from decoder.", file);
 					ma_sound_uninit(&m_sound);
+					success = false;
 				}
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs", file);
+				success = false;
 			}
+
+			return success;
 		}
 
 		void Sound::play()

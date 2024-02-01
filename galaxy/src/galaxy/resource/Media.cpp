@@ -5,44 +5,46 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/VirtualFileSystem.hpp"
-
 #include "Media.hpp"
 
 namespace galaxy
 {
 	namespace resource
 	{
-		std::shared_ptr<media::Sound> SFXLoader::operator()(const std::string& file)
+		std::shared_ptr<media::Sound> SoundLoader::operator()(const std::string& file)
 		{
-			return std::make_shared<media::Sound>(media::SoundType::SFX, file);
+			auto resource = std::make_shared<media::Sound>();
+			if (!resource->load(media::SoundType::SFX, file))
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
+				return nullptr;
+			}
+
+			return resource;
 		}
 
 		std::shared_ptr<media::Sound> MusicLoader::operator()(const std::string& file)
 		{
-			return std::make_shared<media::Sound>(media::SoundType::MUSIC, file);
+			auto resource = std::make_shared<media::Sound>();
+			if (!resource->load(media::SoundType::MUSIC, file))
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
+				return nullptr;
+			}
+
+			return resource;
 		}
 
 		std::shared_ptr<media::Sound> VoiceLoader::operator()(const std::string& file)
 		{
-			return std::make_shared<media::Sound>(media::SoundType::VOICE, file);
-		}
-
-		void VideoLoader::build(robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<media::Video>>& cache)
-		{
-			for (auto&& [key, video] : cache)
+			auto resource = std::make_shared<media::Sound>();
+			if (!resource->load(media::SoundType::VOICE, file))
 			{
-				video->build();
+				GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
+				return nullptr;
 			}
-		}
 
-		std::shared_ptr<media::Video> VideoLoader::operator()(const std::string& file)
-		{
-			auto ptr = std::make_shared<media::Video>();
-			ptr->load(file);
-
-			return ptr;
+			return resource;
 		}
 	} // namespace resource
 } // namespace galaxy

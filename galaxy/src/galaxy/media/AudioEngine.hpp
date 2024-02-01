@@ -335,7 +335,7 @@ namespace galaxy
 		{
 			if constexpr (type == SoundType::SFX)
 			{
-				auto& ae = core::ServiceLocator<resource::SFXCache>::ref();
+				auto& ae = core::ServiceLocator<resource::SoundCache>::ref();
 				for (const auto& [key, value] : ae.cache())
 				{
 					value->stop();

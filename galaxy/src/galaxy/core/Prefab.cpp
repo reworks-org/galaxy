@@ -6,6 +6,10 @@
 ///
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/math/Base64.hpp"
+#include "galaxy/math/ZLib.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 
 #include "Prefab.hpp"
@@ -19,6 +23,10 @@ namespace galaxy
 {
 	namespace core
 	{
+		Prefab::Prefab()
+		{
+		}
+
 		Prefab::Prefab(entt::entity entity, entt::registry& registry)
 		{
 			from_entity(entity, registry);
@@ -29,8 +37,58 @@ namespace galaxy
 			from_json(json);
 		}
 
+		Prefab::Prefab(const Prefab& p)
+		{
+			this->m_json = p.m_json;
+		}
+
+		Prefab::Prefab(Prefab&& p)
+		{
+			this->m_json = std::move(p.m_json);
+		}
+
+		Prefab& Prefab::operator=(const Prefab& p)
+		{
+			if (this != &p)
+			{
+				this->m_json = p.m_json;
+			}
+
+			return *this;
+		}
+
+		Prefab& Prefab::operator=(Prefab&& p)
+		{
+			if (this != &p)
+			{
+				this->m_json = std::move(p.m_json);
+			}
+
+			return *this;
+		}
+
 		Prefab::~Prefab()
 		{
+		}
+
+		bool Prefab::load(const std::string& file)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto data = fs.read(file);
+			if (!data.empty())
+			{
+				const auto base64       = math::decode_zlib(data);
+				const auto decompressed = math::decode_base64(base64);
+
+				from_json(nlohmann::json::parse(decompressed));
+				return true;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to read empty prefab '{0}'.", file);
+				return false;
+			}
 		}
 
 		void Prefab::from_entity(entt::entity entity, entt::registry& registry)

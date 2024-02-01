@@ -88,27 +88,13 @@ namespace galaxy
 		concept valid_component = std::is_move_assignable<Type>::value && std::is_move_constructible<Type>::value && std::is_class<Type>::value;
 
 		///
-		/// Concept to enforce a loader that requires an opengl build() function.
-		///
-		/// \tparam Loader Loader class to test.
-		/// \tparam Resource Resource to build in OpenGL.
-		///
-		template<typename Loader, typename Resource>
-		concept loader_build_check =
-			requires (Loader loader, robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>> resource) { loader.build(resource); };
-
-		///
 		/// Ensures that the provided loader has an operator() that returns a shared pointer.
 		///
 		/// \tparam Loader The loader you want to test.
 		/// \tparam Resource The resource being loaded.
-		/// \tparam needs_gl Does the loader need a opengl builder function.
 		///
-		template<typename Loader, typename Resource, bool needs_gl>
-		concept is_loader = requires (Loader loader) {
-			loader.operator();
-			requires !needs_gl || (needs_gl && loader_build_check<Loader, Resource>);
-		};
+		template<typename Loader, typename Resource>
+		concept is_loader = requires (Loader loader) { loader.operator() && std::is_class<Loader>::value; };
 	} // namespace meta
 } // namespace galaxy
 

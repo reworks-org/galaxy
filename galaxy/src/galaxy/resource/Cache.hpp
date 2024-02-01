@@ -24,10 +24,9 @@ namespace galaxy
 		///
 		/// \tparam Resource Type of resource to manage.
 		/// \tparam Loader Loader to use when loading the resource.
-		/// \tparam needs_gl Does the loader need a opengl builder function.
 		///
-		template<meta::not_memory Resource, typename Loader, bool needs_gl>
-		// requires meta::is_loader<Loader, Resource, needs_gl>
+		template<meta::not_memory Resource, meta::not_memory Loader>
+		// requires meta::is_class < Resource>&& meta::is_loader < Loader, Resource>
 		class Cache final
 		{
 			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>>;
@@ -51,16 +50,12 @@ namespace galaxy
 			///
 			/// Load a resource.
 			///
-			/// \tparam Args Variable arg types.
+			/// \param file File to load. Also serves as key hash.
 			///
-			/// \param id Key to store resource with.
-			/// \param args Arguments to pass to loader's operator().
-			///
-			template<typename... Args>
-			inline void load(const std::string& id, Args&&... args)
+			inline void load(const std::string& file)
 			{
-				m_keys.push_back(id);
-				m_cache.emplace(hash(id), m_loader(std::forward<Args>(args)...));
+				m_keys.push_back(file);
+				m_cache.emplace(hash(file), m_loader(file));
 			}
 
 			///
@@ -68,26 +63,32 @@ namespace galaxy
 			///
 			/// \param dir The directory in the vfs to load assets from.
 			///
-			inline void load_vfs(const std::string& dir)
+			inline void load_folder(const std::string& dir)
 			{
 				clear();
 
 				for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list(dir))
 				{
-					load(file, file);
+					load(file);
 				}
 			}
 
 			///
-			/// \brief Builds any OpenGL data.
+			/// Insert a resource directly into the cache.
 			///
-			/// Does nothing if this class doesn't require it.
+			/// \param id Key to use to access resource.
+			/// \param resource Pointer to resource to take ownership of.
 			///
-			inline void build()
+			inline void insert(std::string_view id, std::shared_ptr<Resource> resource)
 			{
-				if constexpr (needs_gl)
+				const auto hashed = hash(id);
+				if (!m_cache.contains(hashed))
 				{
-					m_loader.build(m_cache);
+					m_cache[hashed] = resource;
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Tried to load duplicate resource '{0}'.", id);
 				}
 			}
 

@@ -36,7 +36,7 @@ namespace galaxy
 			, m_map {nullptr}
 			, m_registry {nullptr}
 		{
-			load(file);
+			GALAXY_UNUSED(load(file));
 		}
 
 		Map::~Map()
@@ -44,8 +44,10 @@ namespace galaxy
 			m_registry = nullptr;
 		}
 
-		void Map::load(const std::string& file)
+		bool Map::load(const std::string& file)
 		{
+			auto success = true;
+
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 			auto data = fs.read(file);
@@ -72,12 +74,16 @@ namespace galaxy
 				else
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to parse tile map '{0}' because '{1}'.", file, m_map->getStatusMessage());
+					success = false;
 				}
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from vfs.", file);
+				success = false;
 			}
+
+			return success;
 		}
 
 		void Map::create(entt::registry& registry)
@@ -227,7 +233,7 @@ namespace galaxy
 
 					tile_transform.set_origin(draw_rect.width / 2.0f, draw_rect.height / 2.0f);
 
-					float rotation = tile_transform.get_rotation();
+					const auto rotation = tile_transform.get_rotation();
 					if (tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Diagonally))
 					{
 						tile_transform.rotate(90.0f);
@@ -236,7 +242,7 @@ namespace galaxy
 						flippedVertically   = !tile.getTile()->hasFlipFlags(tson::TileFlipFlags::Horizontally);
 					}
 
-					glm::vec2 scale = tile_transform.get_scale();
+					const auto& scale = tile_transform.get_scale();
 					tile_transform.set_scale_horizontal(scale.x * (flippedHorizontally ? -1.0f : 1.0f));
 					tile_transform.set_scale_vertical(scale.y * (flippedVertically ? -1.0f : 1.0f));
 					tile_transform.set_pos(tile.getPosition().x, tile.getPosition().y);

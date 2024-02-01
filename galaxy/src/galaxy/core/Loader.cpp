@@ -12,14 +12,14 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/DefaultShaders.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
-#include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Prefabs.hpp"
+#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
@@ -89,21 +89,15 @@ namespace galaxy
 
 		void Loader::load_resources()
 		{
-			ServiceLocator<resource::SFXCache>::ref().load_vfs(GALAXY_SFX_DIR);
-			ServiceLocator<resource::MusicCache>::ref().load_vfs(GALAXY_MUSIC_DIR);
-			ServiceLocator<resource::VoiceCache>::ref().load_vfs(GALAXY_VOICE_DIR);
-			ServiceLocator<resource::VideoCache>::ref().load_vfs(GALAXY_VIDEO_DIR);
-			ServiceLocator<resource::Shaders>::ref().load_vfs(GALAXY_SHADER_DIR);
-			ServiceLocator<resource::Fonts>::ref().load_vfs(GALAXY_FONT_DIR);
-			ServiceLocator<resource::BasicScripts>::ref().load_vfs(GALAXY_SCRIPT_DIR);
-			ServiceLocator<resource::Prefabs>::ref().load_vfs(GALAXY_PREFABS_DIR);
-			ServiceLocator<resource::Maps>::ref().load_vfs(GALAXY_MAPS_DIR);
-
-			auto& config = ServiceLocator<Config>::ref();
-			auto& lang   = ServiceLocator<resource::Language>::ref();
-
-			lang.load_from_vfs();
-			lang.set(config.get<std::string>("default_lang"));
+			ServiceLocator<resource::SoundCache>::ref().load_folder(GALAXY_SFX_DIR);
+			ServiceLocator<resource::MusicCache>::ref().load_folder(GALAXY_MUSIC_DIR);
+			ServiceLocator<resource::VoiceCache>::ref().load_folder(GALAXY_VOICE_DIR);
+			ServiceLocator<resource::VideoCache>::ref().load_folder(GALAXY_VIDEO_DIR);
+			ServiceLocator<resource::Shaders>::ref().load_folder(GALAXY_SHADER_DIR);
+			ServiceLocator<resource::Fonts>::ref().load_folder(GALAXY_FONT_DIR);
+			ServiceLocator<resource::Scripts>::ref().load_folder(GALAXY_SCRIPT_DIR);
+			ServiceLocator<resource::Prefabs>::ref().load_folder(GALAXY_PREFABS_DIR);
+			ServiceLocator<resource::Maps>::ref().load_folder(GALAXY_MAPS_DIR);
 		}
 
 		void Loader::load_user_config()
@@ -179,8 +173,24 @@ namespace galaxy
 
 		void Loader::build_resources()
 		{
-			core::ServiceLocator<resource::Shaders>::ref().build();
-			core::ServiceLocator<resource::Fonts>::ref().build();
+			auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
+			shaders.insert("RenderToTexture", std::make_shared<graphics::Shader>(shaders::render_to_texture_vert, shaders::render_to_texture_frag));
+
+			for (const auto& [key, value] : shaders.cache())
+			{
+				value->compile();
+			}
+
+			for (const auto& [key, value] : core::ServiceLocator<resource::Fonts>::ref().cache())
+			{
+				value->build();
+			}
+
+			for (auto&& [key, value] : core::ServiceLocator<resource::VideoCache>::ref().cache())
+			{
+				value->build();
+			}
+
 			core::ServiceLocator<resource::TextureAtlas>::ref().add_from_vfs();
 		}
 	} // namespace core

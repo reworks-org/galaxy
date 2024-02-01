@@ -16,7 +16,14 @@
     <ClCompile Include="src\galaxy\map\Map.cpp" />
     <ClCompile Include="src\galaxy\graphics\ParticleSpread.cpp" />
     <ClCompile Include="src\galaxy\map\TileAnimation.cpp" />
+    <ClCompile Include="src\galaxy\resource\Cache.cpp" />
+    <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
+    <ClCompile Include="src\galaxy\resource\Loader.cpp" />
     <ClCompile Include="src\galaxy\resource\Maps.cpp" />
+    <ClCompile Include="src\galaxy\resource\Media.cpp" />
+    <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
+    <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
+    <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\systems\ParticleSystem.cpp" />
     <ClCompile Include="src\galaxy\components\ParticleGenerator.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
@@ -28,7 +35,14 @@
     <ClInclude Include="src\galaxy\map\Map.hpp" />
     <ClInclude Include="src\galaxy\graphics\ParticleSpread.hpp" />
     <ClInclude Include="src\galaxy\map\TileAnimation.hpp" />
+    <ClInclude Include="src\galaxy\resource\Cache.hpp" />
+    <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
+    <ClInclude Include="src\galaxy\resource\Loader.hpp" />
     <ClInclude Include="src\galaxy\resource\Maps.hpp" />
+    <ClInclude Include="src\galaxy\resource\Media.hpp" />
+    <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
+    <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
+    <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\systems\ParticleSystem.hpp" />
     <ClInclude Include="src\galaxy\components\ParticleGenerator.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
@@ -58,10 +72,8 @@
     <ClCompile Include="src\galaxy\media\Video.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaExternalModules.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
-    <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\graphics\SpriteBatch.cpp" />
-    <ClCompile Include="src\galaxy\resource\BasicScripts.cpp" />
-    <ClCompile Include="src\galaxy\scripting\BasicScript.cpp" />
+    <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaGalaxy.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaDependencies.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaNuklear.cpp" />
@@ -85,7 +97,6 @@
     <ClCompile Include="src\galaxy\graphics\Font.cpp" />
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
-    <ClCompile Include="src\galaxy\resource\Fonts.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButtons.cpp" />
     <ClCompile Include="src\galaxy\math\Generic.cpp" />
@@ -152,7 +163,6 @@
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
-    <ClCompile Include="src\galaxy\resource\Media.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
@@ -166,9 +176,6 @@
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
-    <ClCompile Include="src\galaxy\resource\Cache.cpp" />
-    <ClCompile Include="src\galaxy\resource\Language.cpp" />
-    <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\utils\Globals.cpp" />
@@ -197,10 +204,8 @@
     <ClInclude Include="src\galaxy\graphics\postfx\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\media\Video.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
-    <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
-    <ClInclude Include="src\galaxy\resource\BasicScripts.hpp" />
-    <ClInclude Include="src\galaxy\scripting\BasicScript.hpp" />
+    <ClInclude Include="src\galaxy\scripting\Script.hpp" />
     <ClInclude Include="src\galaxy\components\UIScript.hpp" />
     <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
@@ -220,7 +225,6 @@
     <ClInclude Include="src\galaxy\graphics\Font.hpp" />
     <ClInclude Include="src\galaxy\meta\Async.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
-    <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButtons.hpp" />
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -287,7 +291,6 @@
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
-    <ClInclude Include="src\galaxy\resource\Media.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
@@ -301,9 +304,6 @@
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
-    <ClInclude Include="src\galaxy\resource\Cache.hpp" />
-    <ClInclude Include="src\galaxy\resource\Language.hpp" />
-    <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />

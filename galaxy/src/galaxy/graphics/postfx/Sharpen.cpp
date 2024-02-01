@@ -98,11 +98,12 @@ namespace galaxy
 		{
 			m_fb.create(width, height);
 
-			m_shader.load_raw(sharpen_vert, sharpen_frag);
-			m_shader.compile();
-
-			m_shader.set_uniform("u_texture", 0);
-			m_shader.set_uniform("u_amount", m_amount);
+			if (m_shader.load_raw(sharpen_vert, sharpen_frag))
+			{
+				m_shader.compile();
+				m_shader.set_uniform("u_texture", 0);
+				m_shader.set_uniform("u_amount", m_amount);
+			}
 		}
 
 		void Sharpen::resize(const int width, const int height)

@@ -97,8 +97,10 @@ namespace galaxy
 			}
 		}
 
-		void Video::load(const std::string& file)
+		bool Video::load(const std::string& file)
 		{
+			auto success = true;
+
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			m_buffer = fs.read_binary(file);
 			if (!m_buffer.empty())
@@ -152,12 +154,16 @@ namespace galaxy
 				else
 				{
 					GALAXY_LOG(GALAXY_ERROR, "Failed to create PLM object with video file '{0}'.", file);
+					success = false;
 				}
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to find video file '{0}' in vfs.", file);
+				success = false;
 			}
+
+			return success;
 		}
 
 		void Video::build()

@@ -33,12 +33,11 @@
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Platform.hpp"
-#include "galaxy/resource/BasicScripts.hpp"
 #include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Language.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
+#include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
@@ -220,7 +219,7 @@ namespace galaxy
 			ServiceLocator<media::SoundEngine>::make(listener_count);
 			ServiceLocator<media::MusicEngine>::make(listener_count);
 			ServiceLocator<media::VoiceEngine>::make(listener_count);
-			ServiceLocator<resource::SFXCache>::make();
+			ServiceLocator<resource::SoundCache>::make();
 			ServiceLocator<resource::MusicCache>::make();
 			ServiceLocator<resource::VoiceCache>::make();
 			ServiceLocator<resource::VideoCache>::make();
@@ -229,8 +228,7 @@ namespace galaxy
 			ServiceLocator<resource::TextureAtlas>::make();
 			ServiceLocator<resource::Maps>::make();
 			ServiceLocator<resource::Prefabs>::make();
-			ServiceLocator<resource::BasicScripts>::make();
-			ServiceLocator<resource::Language>::make();
+			ServiceLocator<resource::Scripts>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
 			//
@@ -250,14 +248,13 @@ namespace galaxy
 		App::~App()
 		{
 			ServiceLocator<scene::SceneManager>::del();
-			ServiceLocator<resource::Language>::del();
-			ServiceLocator<resource::BasicScripts>::del();
+			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
 			ServiceLocator<resource::Maps>::del();
 			ServiceLocator<resource::TextureAtlas>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
-			ServiceLocator<resource::SFXCache>::del();
+			ServiceLocator<resource::SoundCache>::del();
 			ServiceLocator<resource::MusicCache>::del();
 			ServiceLocator<resource::VoiceCache>::del();
 			ServiceLocator<resource::VideoCache>::del();
