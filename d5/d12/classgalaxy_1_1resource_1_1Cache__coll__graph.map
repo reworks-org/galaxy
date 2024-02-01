@@ -1,3 +1,5 @@
-<map id="galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;" name="galaxy::resource::Cache&lt; Resource, Loader, needs_gl &gt;">
-<area shape="rect" id="Node000001" title="Cache for resources such as audio, fonts, etc." alt="" coords="5,5,228,445"/>
+<map id="galaxy::resource::Cache&lt; Resource, Loader &gt;" name="galaxy::resource::Cache&lt; Resource, Loader &gt;">
+<area shape="rect" id="Node000001" title="Cache for resources such as audio, fonts, etc." alt="" coords="7,148,177,568"/>
+<area shape="rect" id="Node000002" href="$d0/d02/structgalaxy_1_1resource_1_1Loader.html" title="Loads resources for a resource cache." alt="" coords="5,5,179,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,86,95,132,89,132,89,86"/>
 </map>

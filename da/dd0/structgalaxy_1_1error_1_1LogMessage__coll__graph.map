@@ -1,0 +1,7 @@
+<map id="galaxy::error::LogMessage" name="galaxy::error::LogMessage">
+<area shape="rect" id="Node000001" title="Parts of a log message to be passed to sinks." alt="" coords="5,336,191,401"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="59,135,137,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,200,101,319,95,319,95,200"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="33,5,163,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,99,101,134,95,134,95,99"/>
+</map>

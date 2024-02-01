@@ -21,9 +21,8 @@ var searchData=
   ['galaxy_3a_3aresource_18',['resource',['../d4/d1b/namespacegalaxy_1_1resource.html',1,'galaxy']]],
   ['galaxy_3a_3ascene_19',['scene',['../de/d3c/namespacegalaxy_1_1scene.html',1,'galaxy']]],
   ['galaxy_3a_3ashaders_20',['shaders',['../dc/d20/namespacegalaxy_1_1shaders.html',1,'galaxy']]],
-  ['galaxy_3a_3astate_21',['state',['../df/dcc/namespacegalaxy_1_1state.html',1,'galaxy']]],
-  ['galaxy_3a_3astrutils_22',['strutils',['../db/d7c/namespacegalaxy_1_1strutils.html',1,'galaxy']]],
-  ['galaxy_3a_3asystems_23',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
-  ['galaxy_3a_3aui_24',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]],
-  ['galaxy_3a_3autils_25',['utils',['../d2/d10/namespacegalaxy_1_1utils.html',1,'galaxy']]]
+  ['galaxy_3a_3astrutils_21',['strutils',['../db/d7c/namespacegalaxy_1_1strutils.html',1,'galaxy']]],
+  ['galaxy_3a_3asystems_22',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
+  ['galaxy_3a_3aui_23',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]],
+  ['galaxy_3a_3autils_24',['utils',['../d2/d10/namespacegalaxy_1_1utils.html',1,'galaxy']]]
 ];

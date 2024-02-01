@@ -1,6 +1,6 @@
 var namespacegalaxy_1_1lua =
 [
-    [ "BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", "d4/d00/classgalaxy_1_1lua_1_1BasicScript" ],
+    [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ],
     [ "inject_external_modules", "de/d12/namespacegalaxy_1_1lua.html#a1d89af4d732d847d84cb5d58d164c228", null ],
     [ "inject_dependencies", "de/d12/namespacegalaxy_1_1lua.html#af53ffd7c91b409917fdf518842ae7e17", null ],
     [ "inject_nuklear", "de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554", null ],

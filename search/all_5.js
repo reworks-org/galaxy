@@ -3,7 +3,7 @@ var searchData=
   ['e_0',['E',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3a3ea00cfc35332cedf6e5e9a32e94da',1,'galaxy::input']]],
   ['editor_5fdata_5fdir_1',['editor_data_dir',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ad0564d18ca5c49fc5364ec96de46ec73',1,'galaxy::DoNotUseReferToMacros']]],
   ['ellipse_2',['ELLIPSE',['../d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a3507764cffdfea213396f9d9eb30f870',1,'galaxy::math']]],
-  ['empty_3',['empty',['../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae',1,'galaxy::core::Config::empty()'],['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c',1,'galaxy::core::ServiceLocator::empty()'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a5e930c2e3f1761c5d385a37e11c4fb41',1,'galaxy::resource::Cache::empty()']]],
+  ['empty_3',['empty',['../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae',1,'galaxy::core::Config::empty()'],['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a49cfbc432dc18ee44653b4a949ea5e0c',1,'galaxy::core::ServiceLocator::empty()'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743',1,'galaxy::resource::Cache::empty()']]],
   ['enable_4',['enable',['../df/d2b/classgalaxy_1_1map_1_1Map.html#abf96ee85765c6cbbd46fe650dc46f006',1,'galaxy::map::Map']]],
   ['enable_5fentity_5',['enable_entity',['../da/dc8/classgalaxy_1_1core_1_1World.html#a1d8375ebd34d4f9ad0ddffa1e5c661c2',1,'galaxy::core::World']]],
   ['enable_5finput_6',['enable_input',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a54512250c55b600300d55aaf3dd0dc8f',1,'galaxy::ui::NuklearUI']]],

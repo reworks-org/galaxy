@@ -1,7 +1,0 @@
-<map id="galaxy::lua::BasicScript::BasicScript" name="galaxy::lua::BasicScript::BasicScript">
-<area shape="rect" id="Node000001" title="Argument Constructor." alt="" coords="5,5,179,45"/>
-<area shape="rect" id="Node000002" href="$d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#abe2950bda0de7ed5cb3e5dc22c31b28e" title="Load a script." alt="" coords="227,5,400,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,23,213,23,213,28,179,28"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="448,13,679,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="400,23,434,23,434,28,400,28"/>
-</map>

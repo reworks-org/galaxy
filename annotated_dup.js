@@ -31,6 +31,7 @@ var annotated_dup =
         [ "ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink" ],
         [ "FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", "de/d18/classgalaxy_1_1error_1_1FileSink" ],
         [ "Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", "d6/d5b/classgalaxy_1_1error_1_1Log" ],
+        [ "LogMessage", "d5/df7/structgalaxy_1_1error_1_1LogMessage.html", "d5/df7/structgalaxy_1_1error_1_1LogMessage" ],
         [ "Sink", "d6/d9f/classgalaxy_1_1error_1_1Sink.html", "d6/d9f/classgalaxy_1_1error_1_1Sink" ]
       ] ],
       [ "events", "d6/d3d/namespacegalaxy_1_1events.html", [
@@ -98,7 +99,7 @@ var annotated_dup =
         [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", "dd/d15/classgalaxy_1_1input_1_1Mouse" ]
       ] ],
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
-        [ "BasicScript", "d4/d00/classgalaxy_1_1lua_1_1BasicScript.html", "d4/d00/classgalaxy_1_1lua_1_1BasicScript" ]
+        [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ]
       ] ],
       [ "map", "d6/d4d/namespacegalaxy_1_1map.html", [
         [ "Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", "df/d2b/classgalaxy_1_1map_1_1Map" ],
@@ -123,26 +124,16 @@ var annotated_dup =
         [ "Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", "de/d02/classgalaxy_1_1platform_1_1Subprocess" ]
       ] ],
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
-        [ "BasicScriptLoader", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader.html", "d2/d38/classgalaxy_1_1resource_1_1BasicScriptLoader" ],
         [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
-        [ "FontLoader", "dc/d97/classgalaxy_1_1resource_1_1FontLoader.html", "dc/d97/classgalaxy_1_1resource_1_1FontLoader" ],
-        [ "Language", "db/dc3/classgalaxy_1_1resource_1_1Language.html", "db/dc3/classgalaxy_1_1resource_1_1Language" ],
-        [ "MapLoader", "d2/d88/classgalaxy_1_1resource_1_1MapLoader.html", "d2/d88/classgalaxy_1_1resource_1_1MapLoader" ],
-        [ "MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", "de/db0/classgalaxy_1_1resource_1_1MusicLoader" ],
-        [ "PrefabLoader", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader.html", "d7/d48/classgalaxy_1_1resource_1_1PrefabLoader" ],
-        [ "SFXLoader", "df/dad/classgalaxy_1_1resource_1_1SFXLoader.html", "df/dad/classgalaxy_1_1resource_1_1SFXLoader" ],
-        [ "ShaderLoader", "da/d6e/classgalaxy_1_1resource_1_1ShaderLoader.html", "da/d6e/classgalaxy_1_1resource_1_1ShaderLoader" ],
+        [ "Loader", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", "d0/d02/structgalaxy_1_1resource_1_1Loader" ],
+        [ "MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
+        [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
         [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
-        [ "VideoLoader", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader.html", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader" ],
-        [ "VoiceLoader", "d4/d7a/classgalaxy_1_1resource_1_1VoiceLoader.html", "d4/d7a/classgalaxy_1_1resource_1_1VoiceLoader" ]
+        [ "VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader" ]
       ] ],
       [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
         [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],
         [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", "d4/d92/classgalaxy_1_1scene_1_1SceneManager" ]
-      ] ],
-      [ "state", "df/dcc/namespacegalaxy_1_1state.html", [
-        [ "State", "db/d6a/classgalaxy_1_1state_1_1State.html", "db/d6a/classgalaxy_1_1state_1_1State" ],
-        [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
       ] ],
       [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", [
         [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],

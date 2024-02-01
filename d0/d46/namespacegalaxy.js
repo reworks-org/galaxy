@@ -36,7 +36,6 @@ var namespacegalaxy =
       [ "particle_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a2ca5b6cce17ef781bf1a9aeab8cea608", null ],
       [ "particle_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a22368fd9be33109e3564bf23bcc57088", null ]
     ] ],
-    [ "state", "df/dcc/namespacegalaxy_1_1state.html", "df/dcc/namespacegalaxy_1_1state" ],
     [ "strutils", "db/d7c/namespacegalaxy_1_1strutils.html", [
       [ "split", "db/d7c/namespacegalaxy_1_1strutils.html#aa49866d6c8088279303394a48f2a8324", null ],
       [ "replace_first", "db/d7c/namespacegalaxy_1_1strutils.html#aadb96bbbbd51e3761290151baf3bcd3d", null ],

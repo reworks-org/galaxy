@@ -1,0 +1,7 @@
+<map id="galaxy::resource::SoundLoader" name="galaxy::resource::SoundLoader">
+<area shape="rect" id="Node000001" title="Loads resources for the sound cache." alt="" coords="5,277,219,343"/>
+<area shape="rect" id="Node000002" href="$d0/d02/structgalaxy_1_1resource_1_1Loader.html" title=" " alt="" coords="25,148,199,228"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,242,115,277,109,277,109,242"/>
+<area shape="rect" id="Node000003" href="$d0/d02/structgalaxy_1_1resource_1_1Loader.html" title="Loads resources for a resource cache." alt="" coords="25,5,199,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,99,115,148,109,148,109,99"/>
+</map>

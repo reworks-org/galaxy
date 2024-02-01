@@ -3,7 +3,7 @@ var classgalaxy_1_1map_1_1Map =
     [ "Map", "df/d2b/classgalaxy_1_1map_1_1Map.html#a3bddd72676276cab2f9d9eb2cc01f62a", null ],
     [ "Map", "df/d2b/classgalaxy_1_1map_1_1Map.html#a949cec15151de0cb13f05fef95474ee0", null ],
     [ "~Map", "df/d2b/classgalaxy_1_1map_1_1Map.html#a5ed8860ed13140e3d7556d86cdf19062", null ],
-    [ "load", "df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4", null ],
+    [ "load", "df/d2b/classgalaxy_1_1map_1_1Map.html#ab185ccf89b04df67606edced50e4c03b", null ],
     [ "create", "df/d2b/classgalaxy_1_1map_1_1Map.html#aa51c144395b00304fb943492b3ae5fa5", null ],
     [ "destroy", "df/d2b/classgalaxy_1_1map_1_1Map.html#adfb43e6f636610e929cee8bd6eb4343c", null ],
     [ "enable", "df/d2b/classgalaxy_1_1map_1_1Map.html#abf96ee85765c6cbbd46fe650dc46f006", null ],

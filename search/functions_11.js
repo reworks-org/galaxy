@@ -37,6 +37,6 @@ var searchData=
   ['ringbuffer_34',['ringbuffer',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a6c79cb2bf3fc0b8a86bf9acb43b487f9',1,'galaxy::media::RingBuffer::RingBuffer(const RingBuffer &amp;)=delete'],['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a2f7213ce34ae72475d6c0b5fbe14129d',1,'galaxy::media::RingBuffer::RingBuffer(RingBuffer &amp;&amp;)=delete'],['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a8ca44a1c40e8ba20ca7caef75995b30b',1,'galaxy::media::RingBuffer::RingBuffer()=delete'],['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a08ef6e728f95fbf83ac49af5bee55a1e',1,'galaxy::media::RingBuffer::RingBuffer(const int capacity)']]],
   ['rotate_35',['rotate',['../d8/d8a/classgalaxy_1_1components_1_1Transform.html#a78a4b7b36ee11c5e1a77e085d981a8cf',1,'galaxy::components::Transform']]],
   ['rtrim_36',['rtrim',['../db/d7c/namespacegalaxy_1_1strutils.html#ac5695a7c71384e1de6aa6cf8a9e46e5a',1,'galaxy::strutils']]],
-  ['run_37',['run',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610',1,'galaxy::core::App::run()'],['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#a1544eea1062ecfd053e889f6efb4c821',1,'galaxy::lua::BasicScript::run()']]],
-  ['run_5fand_5freturn_38',['run_and_return',['../d4/d00/classgalaxy_1_1lua_1_1BasicScript.html#aa3ed737d348f57c80c8f6ca82aa4e9ef',1,'galaxy::lua::BasicScript']]]
+  ['run_37',['run',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610',1,'galaxy::core::App::run()'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3',1,'galaxy::lua::Script::run()']]],
+  ['run_5fand_5freturn_38',['run_and_return',['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a31ef0f29c7ffff47290b9a16f5a4b1b5',1,'galaxy::lua::Script']]]
 ];

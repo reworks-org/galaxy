@@ -1,6 +1,6 @@
 <map id="galaxy::map::Map::destroy" name="galaxy::map::Map::destroy">
 <area shape="rect" id="Node000001" title="Destroy map and entities." alt="" coords="665,42,860,67"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a3aa0ca0620d1aa2a2d9a14df06ee6ca4" title="Load and parse tiled map." alt="" coords="443,42,617,67"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#ab185ccf89b04df67606edced50e4c03b" title="Load and parse tiled map." alt="" coords="443,42,617,67"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="652,57,618,57,618,52,652,52"/>
 <area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="239,5,376,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,44,376,37,376,32,429,39"/>

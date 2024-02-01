@@ -1,0 +1,11 @@
+<map id="galaxy::resource::Loader&lt; Resource &gt;" name="galaxy::resource::Loader&lt; Resource &gt;">
+<area shape="rect" id="Node000001" title="Loads resources for a resource cache." alt="" coords="260,5,433,85"/>
+<area shape="rect" id="Node000002" href="$d0/d02/structgalaxy_1_1resource_1_1Loader.html" title=" " alt="" coords="260,148,433,228"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="349,99,349,148,344,148,344,99"/>
+<area shape="rect" id="Node000003" href="$d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html" title="Loads resources for the music cache." alt="" coords="5,277,216,343"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="259,237,174,280,172,275,257,232"/>
+<area shape="rect" id="Node000004" href="$d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html" title="Loads resources for the sound cache." alt="" coords="240,277,453,343"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="349,242,349,277,344,277,344,242"/>
+<area shape="rect" id="Node000005" href="$db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html" title="Loads resources for the voice cache." alt="" coords="477,277,685,343"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="436,232,521,275,518,280,434,237"/>
+</map>

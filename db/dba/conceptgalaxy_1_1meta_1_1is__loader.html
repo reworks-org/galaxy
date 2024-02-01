@@ -100,32 +100,27 @@ $(document).ready(function(){initNavTree('db/dba/conceptgalaxy_1_1meta_1_1is__lo
 
 <p><code>#include &lt;<a class="el" href="../../d3/d84/Concepts_8hpp_source.html">Concepts.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
-<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Loader, <span class="keyword">typename</span> Resource, <span class="keywordtype">bool</span> needs_gl&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">galaxy::meta::is_loader</a> =  <span class="keyword">requires</span> (Loader loader) {</div>
-<div class="line">            loader.operator();</div>
-<div class="line">            <span class="keyword">requires</span> !needs_gl || (needs_gl &amp;&amp; <a class="code hl_concept" href="../../d5/dfa/conceptgalaxy_1_1meta_1_1loader__build__check.html">loader_build_check&lt;Loader, Resource&gt;</a>);</div>
-<div class="line">        }</div>
-<div class="ttc" id="aconceptgalaxy_1_1meta_1_1is__loader_html"><div class="ttname"><a href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">galaxy::meta::is_loader</a></div><div class="ttdoc">Ensures that the provided loader has an operator() that returns a shared pointer.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00108">Concepts.hpp:108</a></div></div>
-<div class="ttc" id="aconceptgalaxy_1_1meta_1_1loader__build__check_html"><div class="ttname"><a href="../../d5/dfa/conceptgalaxy_1_1meta_1_1loader__build__check.html">galaxy::meta::loader_build_check</a></div><div class="ttdoc">Concept to enforce a loader that requires an opengl build() function.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00097">Concepts.hpp:97</a></div></div>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Loader, <span class="keyword">typename</span> Resource&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">galaxy::meta::is_loader</a> =  <span class="keyword">requires</span> (Loader loader) { loader.operator() &amp;&amp; std::is_class&lt;Loader&gt;::value; }</div>
+<div class="ttc" id="aconceptgalaxy_1_1meta_1_1is__loader_html"><div class="ttname"><a href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">galaxy::meta::is_loader</a></div><div class="ttdoc">Ensures that the provided loader has an operator() that returns a shared pointer.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00097">Concepts.hpp:97</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ensures that the provided loader has an operator() that returns a shared pointer. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Loader</td><td>The loader you want to test. </td></tr>
     <tr><td class="paramname">Resource</td><td>The resource being loaded. </td></tr>
-    <tr><td class="paramname">needs_gl</td><td>Does the loader need a opengl builder function. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d84/Concepts_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../d3/d84/Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d84/Concepts_8hpp_source.html#l00097">97</a> of file <a class="el" href="../../d3/d84/Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html">meta</a></li><li class="navelem"><a class="el" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">is_loader</a></li>
-    <li class="footer">Generated on Sat Jan 27 2024 15:51:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Feb 1 2024 16:00:41 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

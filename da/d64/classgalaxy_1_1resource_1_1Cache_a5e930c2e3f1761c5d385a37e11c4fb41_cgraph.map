@@ -1,5 +1,0 @@
-<map id="galaxy::resource::Cache::empty" name="galaxy::resource::Cache::empty">
-<area shape="rect" id="Node000001" title="Does the cache have any resources." alt="" coords="5,5,183,45"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a0ec30b1f41b620dd9eba7933d87bba20" title="Get amount of resources cached." alt="" coords="231,5,408,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,23,217,23,217,28,183,28"/>
-</map>

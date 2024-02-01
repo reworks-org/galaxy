@@ -3,7 +3,7 @@ var classgalaxy_1_1media_1_1Sound =
     [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#a9415c5561dd3a0c8eda0634a72cee1e6", null ],
     [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#afef642bbf570ef96ab89546d5f7a84ab", null ],
     [ "~Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#ab11fa86a5ec0c49ee11cc0080efd9bbc", null ],
-    [ "load", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#a3edfd9fe1539c8f34ac255140d52f7d7", null ],
+    [ "load", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#a386941e1d4c9de8bf20111da2ec8c6c2", null ],
     [ "play", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#ab61bb7c0e524d0de305ec08827b36142", null ],
     [ "pause", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#a1c37525976b61feec1c080dfdce65b35", null ],
     [ "stop", "d6/dd5/classgalaxy_1_1media_1_1Sound.html#a8033120bd361f0e2920ca4ee8dbfe8d9", null ],

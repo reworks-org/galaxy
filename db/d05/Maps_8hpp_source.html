@@ -106,37 +106,29 @@ $(document).ready(function(){initNavTree('db/d05/Maps_8hpp_source.html','../../'
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/dbe/Map_8hpp.html">galaxy/map/Map.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d1e/Cache_8hpp.html">galaxy/resource/Cache.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">namespace </span>resource</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d2/d88/classgalaxy_1_1resource_1_1MapLoader.html">   21</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d2/d88/classgalaxy_1_1resource_1_1MapLoader.html">MapLoader</a> final</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>          <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            std::shared_ptr&lt;map::Map&gt; <a class="code hl_function" href="../../d2/d88/classgalaxy_1_1resource_1_1MapLoader.html#a5476b39a02bd9c1ddae304b7a5f0f75f">operator()</a>(<span class="keyword">const</span> std::string&amp; file);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        };</div>
-</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d4/d1b/namespacegalaxy_1_1resource.html#a5a7b7e39a448e3028923831d732ecdcc">   37</a></span>        <span class="keyword">using </span><a class="code hl_class" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Maps</a> = <a class="code hl_class" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache&lt;map::Map, MapLoader, false&gt;</a>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    } <span class="comment">// namespace resource</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d7c/resource_2Loader_8hpp.html">galaxy/resource/Loader.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">namespace </span>resource</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d4/d1b/namespacegalaxy_1_1resource.html#a48ec9850533a435e5f28e1890275a292">   22</a></span>        <span class="keyword">using </span><a class="code hl_class" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Maps</a> = <a class="code hl_class" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache&lt;map::Map, Loader&lt;map::Map&gt;</a>&gt;;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    } <span class="comment">// namespace resource</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aCache_8hpp_html"><div class="ttname"><a href="../../d4/d1e/Cache_8hpp.html">Cache.hpp</a></div></div>
 <div class="ttc" id="aMap_8hpp_html"><div class="ttname"><a href="../../dc/dbe/Map_8hpp.html">Map.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a></div><div class="ttdoc">Cache for resources such as audio, fonts, etc.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00031">Cache.hpp:32</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1MapLoader_html"><div class="ttname"><a href="../../d2/d88/classgalaxy_1_1resource_1_1MapLoader.html">galaxy::resource::MapLoader</a></div><div class="ttdoc">Resource manager for tiled maps.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d05/Maps_8hpp_source.html#l00021">Maps.hpp:22</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1resource_1_1MapLoader_html_a5476b39a02bd9c1ddae304b7a5f0f75f"><div class="ttname"><a href="../../d2/d88/classgalaxy_1_1resource_1_1MapLoader.html#a5476b39a02bd9c1ddae304b7a5f0f75f">galaxy::resource::MapLoader::operator()</a></div><div class="ttdeci">std::shared_ptr&lt; map::Map &gt; operator()(const std::string &amp;file)</div><div class="ttdoc">Overloaded operator() used to load a resource.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d5e/Maps_8cpp_source.html#l00014">Maps.cpp:14</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00017">Timer.hpp:18</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1resource_1_1Cache_html"><div class="ttname"><a href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a></div><div class="ttdoc">Cache for resources such as audio, fonts, etc.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d1e/Cache_8hpp_source.html#l00030">Cache.hpp:31</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
+<div class="ttc" id="aresource_2Loader_8hpp_html"><div class="ttname"><a href="../../dc/d7c/resource_2Loader_8hpp.html">Loader.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../db/d05/Maps_8hpp.html">Maps.hpp</a></li>
-    <li class="footer">Generated on Sat Jan 27 2024 15:51:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Feb 1 2024 16:00:40 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

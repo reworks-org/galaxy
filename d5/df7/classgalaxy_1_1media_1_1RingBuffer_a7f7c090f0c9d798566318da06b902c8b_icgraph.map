@@ -1,6 +1,6 @@
 <map id="galaxy::media::RingBuffer::write" name="galaxy::media::RingBuffer::write">
 <area shape="rect" id="Node000001" title="Write data to ring buffer." alt="" coords="612,5,803,45"/>
-<area shape="rect" id="Node000002" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a1791972c8cc2d43824c3de6c1be30a0b" title="Load a MPEG&#45;1 from video file." alt="" coords="405,5,564,45"/>
+<area shape="rect" id="Node000002" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#addac9c6a8ad3f99e0218c45f796b5d27" title="Load a MPEG&#45;1 from video file." alt="" coords="405,5,564,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,28,564,28,564,23,598,23"/>
 <area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,5,357,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>

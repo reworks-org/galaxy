@@ -1,5 +1,0 @@
-<map id="galaxy::resource::Language::load" name="galaxy::resource::Language::load">
-<area shape="rect" id="Node000001" title="Load a specific file with a provided lua state." alt="" coords="253,5,453,45"/>
-<area shape="rect" id="Node000002" href="$db/dc3/classgalaxy_1_1resource_1_1Language.html#ac15a1ab5ce5620b2001cf3e496fe8981" title="Loads all languages in the vfs." alt="" coords="5,5,205,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,28,206,28,206,23,240,23"/>
-</map>

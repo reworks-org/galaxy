@@ -1,11 +1,10 @@
 var Media_8hpp =
 [
-    [ "galaxy::resource::SFXLoader", "df/dad/classgalaxy_1_1resource_1_1SFXLoader.html", "df/dad/classgalaxy_1_1resource_1_1SFXLoader" ],
-    [ "galaxy::resource::MusicLoader", "de/db0/classgalaxy_1_1resource_1_1MusicLoader.html", "de/db0/classgalaxy_1_1resource_1_1MusicLoader" ],
-    [ "galaxy::resource::VoiceLoader", "d4/d7a/classgalaxy_1_1resource_1_1VoiceLoader.html", "d4/d7a/classgalaxy_1_1resource_1_1VoiceLoader" ],
-    [ "galaxy::resource::VideoLoader", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader.html", "d1/de7/classgalaxy_1_1resource_1_1VideoLoader" ],
-    [ "SFXCache", "d7/db2/Media_8hpp.html#ab13d5a2a29e34016e5a6da1b1ad304c1", null ],
-    [ "MusicCache", "d7/db2/Media_8hpp.html#ad859bf5d2d8e9f078b22fc1f806194ef", null ],
-    [ "VoiceCache", "d7/db2/Media_8hpp.html#a60dd8d02cd37f4e790ce1139b2844b32", null ],
-    [ "VideoCache", "d7/db2/Media_8hpp.html#a186318f118b3946163fd3a975575a942", null ]
+    [ "galaxy::resource::SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
+    [ "galaxy::resource::MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
+    [ "galaxy::resource::VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader" ],
+    [ "SoundCache", "d7/db2/Media_8hpp.html#a1b3d78334f125c2160588db464f4dd7d", null ],
+    [ "MusicCache", "d7/db2/Media_8hpp.html#ab6faf1427a48967ef8391df410bf02e0", null ],
+    [ "VoiceCache", "d7/db2/Media_8hpp.html#a513d039956ff773bfc5eaaa608e3c459", null ],
+    [ "VideoCache", "d7/db2/Media_8hpp.html#ae0ad588e45ff968935ac1a15c6343ee1", null ]
 ];

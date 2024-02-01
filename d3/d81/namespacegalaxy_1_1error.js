@@ -3,6 +3,7 @@ var namespacegalaxy_1_1error =
     [ "ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink" ],
     [ "FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", "de/d18/classgalaxy_1_1error_1_1FileSink" ],
     [ "Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", "d6/d5b/classgalaxy_1_1error_1_1Log" ],
+    [ "LogMessage", "d5/df7/structgalaxy_1_1error_1_1LogMessage.html", "d5/df7/structgalaxy_1_1error_1_1LogMessage" ],
     [ "Sink", "d6/d9f/classgalaxy_1_1error_1_1Sink.html", "d6/d9f/classgalaxy_1_1error_1_1Sink" ],
     [ "LogLevel", "d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefd", [
       [ "INFO", "d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3", null ],

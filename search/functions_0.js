@@ -1,7 +1,7 @@
 var searchData=
 [
   ['active_0',['active',['../da/d18/classgalaxy_1_1components_1_1Animated.html#ad9dade86f15c3ef866e210f1106129a3',1,'galaxy::components::Animated']]],
-  ['add_1',['add',['../da/d18/classgalaxy_1_1components_1_1Animated.html#aca41cef8951590a33f016dac7eca133b',1,'galaxy::components::Animated::add()'],['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3',1,'galaxy::state::StateMachine::add()'],['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#abf3d2a3448d3840d92cfe7d3a04ff813',1,'galaxy::resource::TextureAtlas::add()'],['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4',1,'galaxy::graphics::PostProcess::add()']]],
+  ['add_1',['add',['../da/d18/classgalaxy_1_1components_1_1Animated.html#aca41cef8951590a33f016dac7eca133b',1,'galaxy::components::Animated::add()'],['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#abf3d2a3448d3840d92cfe7d3a04ff813',1,'galaxy::resource::TextureAtlas::add()'],['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4',1,'galaxy::graphics::PostProcess::add()']]],
   ['add_5fcolour_5fattachment_2',['add_colour_attachment',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee',1,'galaxy::graphics::Framebuffer']]],
   ['add_5fcolour_5frenderbuffer_3',['add_colour_renderbuffer',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#affadefb21f62cdd99686b39e316dfe52',1,'galaxy::graphics::Framebuffer']]],
   ['add_5fdepth_5fattachment_4',['add_depth_attachment',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a3cf7b9f77782f5cb7c9d26e142881823',1,'galaxy::graphics::Framebuffer']]],
