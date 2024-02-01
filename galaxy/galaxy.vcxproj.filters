@@ -110,8 +110,6 @@
     <ClCompile Include="src\galaxy\resource\Prefabs.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaExternalModules.cpp" />
-    <ClCompile Include="src\galaxy\state\State.cpp" />
-    <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
     <ClCompile Include="src\galaxy\resource\Media.cpp" />
     <ClCompile Include="src\galaxy\media\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\media\Sound.cpp" />
@@ -264,8 +262,6 @@
     <ClInclude Include="src\galaxy\graphics\SpriteBatch.hpp" />
     <ClInclude Include="src\galaxy\resource\Prefabs.hpp" />
     <ClInclude Include="src\galaxy\core\Prefab.hpp" />
-    <ClInclude Include="src\galaxy\state\State.hpp" />
-    <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
     <ClInclude Include="src\galaxy\resource\Media.hpp" />
     <ClInclude Include="src\galaxy\media\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\media\Sound.hpp" />
