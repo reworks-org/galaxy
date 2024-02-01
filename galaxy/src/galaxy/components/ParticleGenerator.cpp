@@ -11,6 +11,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Primitives.hpp"
 #include "galaxy/math/Random.hpp"
+#include "galaxy/platform/Pragma.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 
 #include "ParticleGenerator.hpp"

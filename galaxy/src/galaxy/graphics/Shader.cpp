@@ -9,6 +9,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 #include "Shader.hpp"
 

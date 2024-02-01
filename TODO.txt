@@ -4,7 +4,6 @@ sort out scenes vs layers vs sharing and communicating data between them.
 add mod support
 add update support
  
-- convert logging to a producer/consumer multiqueue.
 - refine Scripts to more easily "attachable" single use scripts or "trigger" scripts.
 - improve loading screen to more accurately display loading bar.
 - add support for miniaudios new fading api

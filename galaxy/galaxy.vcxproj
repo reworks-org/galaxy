@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\galaxy\components\MapData.cpp" />
+    <ClCompile Include="src\galaxy\error\LogMessage.cpp" />
     <ClCompile Include="src\galaxy\error\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\map\Map.cpp" />
     <ClCompile Include="src\galaxy\graphics\ParticleSpread.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClInclude Include="src\galaxy\components\MapData.hpp" />
+    <ClInclude Include="src\galaxy\error\LogMessage.hpp" />
     <ClInclude Include="src\galaxy\error\PhysFSError.hpp" />
     <ClInclude Include="src\galaxy\map\Map.hpp" />
     <ClInclude Include="src\galaxy\graphics\ParticleSpread.hpp" />
@@ -401,7 +403,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/readwritequeue;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -461,7 +463,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/readwritequeue;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/variant/include/;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/tileson/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/robin_hood/src/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

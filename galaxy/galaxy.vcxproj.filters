@@ -151,6 +151,7 @@
     <ClCompile Include="src\galaxy\resource\Scripts.cpp" />
     <ClCompile Include="src\galaxy\resource\Shaders.cpp" />
     <ClCompile Include="src\galaxy\resource\Cache.cpp" />
+    <ClCompile Include="src\galaxy\error\LogMessage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -299,5 +300,6 @@
     <ClInclude Include="src\galaxy\resource\Scripts.hpp" />
     <ClInclude Include="src\galaxy\resource\Shaders.hpp" />
     <ClInclude Include="src\galaxy\resource\Cache.hpp" />
+    <ClInclude Include="src\galaxy\error\LogMessage.hpp" />
   </ItemGroup>
 </Project>

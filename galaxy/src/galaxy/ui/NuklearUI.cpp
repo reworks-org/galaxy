@@ -14,6 +14,7 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 #include "NuklearUI.hpp"
 

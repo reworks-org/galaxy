@@ -53,21 +53,17 @@ namespace galaxy
 			m_file_stream.close();
 		}
 
-		void FileSink::sink_message(std::string_view colour,
-			std::string_view                         level,
-			std::string_view                         time,
-			std::string_view                         file,
-			std::string_view                         line,
-			std::string_view                         message)
+		void FileSink::sink_message(const LogMessage& message)
 		{
-			auto level_spaced = static_cast<std::string>(level);
+			auto level_spaced = static_cast<std::string>(message.level);
 			level_spaced.push_back(':');
 			while (level_spaced.length() < 9)
 			{
 				level_spaced.push_back(' ');
 			}
 
-			m_file_stream << std::format("[{0}] {1}[{2}] {3}\n", time, level_spaced, std::format("{0}, Ln {1}", file, line), message);
+			m_file_stream
+				<< std::format("[{0}] {1}[{2}] {3}\n", message.time, level_spaced, std::format("{0}, Ln {1}", message.file, message.line), message.message);
 		}
 	} // namespace error
 } // namespace galaxy

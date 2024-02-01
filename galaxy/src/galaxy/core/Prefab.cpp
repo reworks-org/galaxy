@@ -11,6 +11,7 @@
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/ZLib.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "Prefab.hpp"
 

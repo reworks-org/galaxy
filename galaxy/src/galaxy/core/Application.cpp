@@ -54,10 +54,13 @@ namespace galaxy
 	{
 		App::App(std::string_view log_dir, std::string_view config_file)
 		{
-			platform::configure_terminal();
-
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+			//
+			// Threadpool.
+			//
+			ServiceLocator<BS::thread_pool>::make(4);
 
 			//
 			// LOGGING.
@@ -69,9 +72,10 @@ namespace galaxy
 				std::filesystem::create_directory(log_dir);
 			}
 
+			GALAXY_LOG_INIT();
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
-			GALAXY_LOG(GALAXY_INFO, "Application started.");
+			GALAXY_LOG(GALAXY_INFO, "App started.");
 
 			//
 			// CONFIG.
@@ -154,19 +158,6 @@ namespace galaxy
 			//
 			ServiceLocator<ui::NuklearUI>::make();
 			ServiceLocator<Loader>::make();
-
-			//
-			// Threadpool.
-			//
-
-			// We take 2 away, one is being used by audio and another by subprocesses/libs/stl.
-			auto threads = std::thread::hardware_concurrency() - 2;
-			if (threads <= 0)
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Not enough threads on CPU, performance will be impacted.");
-				threads = 3;
-			}
-			ServiceLocator<BS::thread_pool>::make(threads);
 
 			//
 			// Set up Font Context.
@@ -264,8 +255,6 @@ namespace galaxy
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<meta::EntityMeta>::del();
 			ServiceLocator<graphics::FontContext>::del();
-			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
-			ServiceLocator<BS::thread_pool>::del();
 			ServiceLocator<ui::NuklearUI>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Loader>::del();
@@ -275,6 +264,9 @@ namespace galaxy
 
 			GALAXY_LOG(GALAXY_INFO, "Application closed.");
 			GALAXY_LOG_FINISH();
+
+			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
+			ServiceLocator<BS::thread_pool>::del();
 		}
 
 		void App::load()

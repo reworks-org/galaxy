@@ -10,6 +10,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/Disabled.hpp"
+#include "galaxy/platform/Pragma.hpp"
 #include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/utils/Globals.hpp"

@@ -12,16 +12,18 @@
 #include <source_location>
 
 #include <magic_enum/magic_enum.hpp>
+#include <readerwriterqueue.h>
 
 #include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"
-#include "galaxy/platform/Pragma.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 #define GALAXY_INFO                     galaxy::error::LogLevel::INFO
 #define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
 #define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
 #define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR
 #define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
+#define GALAXY_LOG_INIT                 galaxy::error::Log::handle().init
 #define GALAXY_LOG_FINISH               galaxy::error::Log::handle().finish
 #define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::handle().set_min_level<level>()
 #define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::handle().add_sink<sink>(__VA_ARGS__)
@@ -42,7 +44,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Log() = default;
+			~Log();
 
 			///
 			/// Retrieve log instance.
@@ -52,7 +54,12 @@ namespace galaxy
 			[[nodiscard]] static Log& handle();
 
 			///
-			/// Cleanup any static resources.
+			/// Initialize logging resources.
+			///
+			void init();
+
+			///
+			/// Cleanup any static resources and prepare to close threads.
 			///
 			void finish();
 
@@ -120,6 +127,16 @@ namespace galaxy
 
 		  private:
 			///
+			/// Keeps logging thread alive.
+			///
+			std::atomic_bool m_active;
+
+			///
+			/// Lock-free queue for single producer/consumer.
+			///
+			moodycamel::ReaderWriterQueue<LogMessage> m_queue;
+
+			///
 			/// Minimum level for a message to be logged.
 			///
 			LogLevel m_min_level;
@@ -149,34 +166,36 @@ namespace galaxy
 		{
 			if (level >= m_min_level)
 			{
-				constexpr const auto level_str = magic_enum::enum_name(level);
-
-				const auto now =
-					std::format("{0:%r}", std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time());
-
-				const auto line      = std::to_string(loc.line());
-				const auto file      = std::filesystem::path(loc.file_name()).filename().string();
-				const auto formatted = std::vformat(message, std::make_format_args(args...));
-
-				for (const auto& sink : m_sinks)
+				// clang-format off
+				LogMessage lm
 				{
-					if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
-					{
-						sink->sink_message("\x1B[37m", level_str, now, file, line, formatted);
-					}
-					else if constexpr (level == LogLevel::WARNING)
-					{
-						sink->sink_message("\x1B[33m", level_str, now, file, line, formatted);
-					}
-					else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
-					{
-						sink->sink_message("\x1B[31m", level_str, now, file, line, formatted);
-					}
+					.time    = std::format("{0:%r}", std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time()),
+					.file     = loc.file_name(),
+					.line    = std::to_string(loc.line()),
+					.message = std::vformat(message, std::make_format_args(args...))
+				};
+				// clang-format on
+
+				lm.level = magic_enum::enum_name<LogLevel>(level);
+
+				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
+				{
+					lm.colour = "\x1B[37m";
 				}
+				else if constexpr (level == LogLevel::WARNING)
+				{
+					lm.colour = "\x1B[33m";
+				}
+				else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
+				{
+					lm.colour = "\x1B[31m";
+				}
+
+				m_queue.enqueue(lm);
 
 				if constexpr (level == LogLevel::FATAL)
 				{
-					throw std::runtime_error(formatted);
+					throw std::runtime_error(lm.message);
 				}
 			}
 		}

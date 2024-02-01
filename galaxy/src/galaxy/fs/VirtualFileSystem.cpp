@@ -14,6 +14,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/error/PhysFSError.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "VirtualFileSystem.hpp"
 

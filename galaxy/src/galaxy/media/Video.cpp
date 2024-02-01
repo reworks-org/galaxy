@@ -10,6 +10,7 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/DefaultShaders.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 #include "Video.hpp"
 
