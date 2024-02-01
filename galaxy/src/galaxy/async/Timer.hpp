@@ -11,6 +11,7 @@
 #include <BS_thread_pool.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/utils/Globals.hpp"
 
 using namespace std::chrono_literals;
 
@@ -218,7 +219,7 @@ namespace galaxy
 						else
 						{
 							// Prevent excess CPU usage.
-							std::this_thread::sleep_for(0.5ms);
+							std::this_thread::sleep_for(0.1ms);
 						}
 					} while (m_repeat && !m_stopped);
 				});
