@@ -2,8 +2,8 @@
 
 <div align="center">
 	<a href="https://ci.appveyor.com/project/reworks/galaxy"><img src="https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true" /></a>
-	<a href="https://domre.github.io/galaxy/"><img src="https://travis-ci.com/DomRe/galaxy.svg?branch=master" /></a>
-	<a href="https://www.codacy.com/gh/DomRe/galaxy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030" /></a>
+	<a href="https://reworks-org.github.io/galaxy/"><img src="https://github.com/reworks-org/galaxy/actions/doxygen-gh-pages.yml/badge.svg" /></a>
+	<a href="https://app.codacy.com/gh/reworks-org/galaxy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030" /></a>
 	<a href="https://bestpractices.coreinfrastructure.org/projects/4377"><img src="https://bestpractices.coreinfrastructure.org/projects/4377/badge" /></a>
 	<a href="./LICENSE.txt"><img src="https://img.shields.io/badge/license-apache-blue.svg" /></a>
 </div>
@@ -62,14 +62,11 @@ In order to run these, you require a ```MSYS2 installation``` installed on your 
 
 
 ## Documentation
-See [online documentation](https://domre.github.io/galaxy/).
+See [online documentation](https://reworks-org.github.io/galaxy/).
 
 
 ## Features
 ```
-todo
-- Supports ogg vorbis for sound effects and music.
-- Supports videos containing MPEG1 Video ("mpeg1") and MPEG1 Audio Layer II ("mp2").
 ```
 
 

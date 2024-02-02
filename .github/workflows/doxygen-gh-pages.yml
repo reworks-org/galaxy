@@ -10,7 +10,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: DomRe/doxygen-github-pages-action@custom-doxygen-version
+      - uses: reworks-org/doxygen-github-pages-action@custom-doxygen-version
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
