@@ -8,7 +8,7 @@
 #include <cmath>
 #include <utility>
 
-#include "galaxy/platform/Platform.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "RingBuffer.hpp"
 

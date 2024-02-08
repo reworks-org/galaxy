@@ -32,7 +32,6 @@
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
-#include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
@@ -54,6 +53,17 @@ namespace galaxy
 	{
 		App::App(std::string_view log_dir, std::string_view config_file)
 		{
+#ifdef GALAXY_WIN_PLATFORM
+			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+			DWORD  mode   = 0;
+
+			if (handle != nullptr)
+			{
+				GetConsoleMode(handle, &mode);
+				mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+				SetConsoleMode(handle, mode);
+			}
+#endif
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
 

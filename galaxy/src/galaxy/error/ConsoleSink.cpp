@@ -8,8 +8,6 @@
 #include <format>
 #include <iostream>
 
-#include "galaxy/platform/Platform.hpp"
-
 #include "ConsoleSink.hpp"
 
 namespace galaxy
@@ -18,7 +16,6 @@ namespace galaxy
 	{
 		ConsoleSink::ConsoleSink()
 		{
-			platform::configure_terminal();
 		}
 
 		void ConsoleSink::sink_message(const LogMessage& message)
