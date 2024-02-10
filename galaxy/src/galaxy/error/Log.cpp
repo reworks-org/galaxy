@@ -42,7 +42,7 @@ namespace galaxy
 			m_min_level = LogLevel::INFO;
 
 			auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
-			tp.push_task([this]() {
+			tp.detach_task([this]() {
 				LogMessage message;
 				while (m_active || m_queue.peek() != nullptr)
 				{

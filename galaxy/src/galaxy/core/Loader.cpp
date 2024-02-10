@@ -47,9 +47,9 @@ namespace galaxy
 			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
 			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
 
-			tp.push_task(&Loader::load_user_config, this);
-			tp.push_task(&Loader::load_window, this);
-			tp.push_task(&Loader::load_resources, this);
+			tp.detach_task(&Loader::load_user_config, this);
+			tp.detach_task(&Loader::load_window, this);
+			tp.detach_task(&Loader::load_resources, this);
 
 			nui.enable_input();
 			renderer.prepare_default();

@@ -208,7 +208,7 @@ namespace galaxy
 			if constexpr (async)
 			{
 				auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
-				m_handle = tp.submit([&]() {
+				m_handle = tp.submit_task([&]() {
 					do
 					{
 						if (!m_paused)

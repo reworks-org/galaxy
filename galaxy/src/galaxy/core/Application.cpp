@@ -283,7 +283,7 @@ namespace galaxy
 			GALAXY_LOG(GALAXY_INFO, "Application closed.");
 			GALAXY_LOG_FINISH();
 
-			ServiceLocator<BS::thread_pool>::ref().wait_for_tasks();
+			ServiceLocator<BS::thread_pool>::ref().wait();
 			ServiceLocator<BS::thread_pool>::del();
 		}
 

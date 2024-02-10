@@ -293,7 +293,7 @@ namespace sc
 		m_show_exportprogress = true;
 
 		auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
-		tp.push_task([&]() {
+		tp.detach_task([&]() {
 			const std::filesystem::path path = GALAXY_EDITOR_DATA_DIR + "export/";
 			if (!std::filesystem::exists(path))
 			{
