@@ -52,7 +52,7 @@ namespace sc
 
 			if (ImGui::Begin(ICON_MDI_DATABASE " Entity", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
 			{
-				if (selected.m_selected != entt::null && selected.m_world != nullptr && selected.m_world->m_registry.valid(selected.m_selected))
+				if (selected.m_selected != entt::null && selected.m_scene != nullptr && selected.m_scene->m_registry.valid(selected.m_selected))
 				{
 					ImGui::PushID(static_cast<std::uint32_t>(selected.m_selected));
 
@@ -66,13 +66,13 @@ namespace sc
 					if (ImGui::Button("Destroy"))
 					{
 						updates.push_back([&]() {
-							selected.m_world->m_registry.destroy(selected.m_selected);
+							selected.m_scene->m_registry.destroy(selected.m_selected);
 							selected.m_selected = entt::null;
 						});
 					}
 					ImGui::PopStyleColor(3);
 
-					auto tag = selected.m_world->m_registry.try_get<components::Tag>(selected.m_selected);
+					auto tag = selected.m_scene->m_registry.try_get<components::Tag>(selected.m_selected);
 					if (tag)
 					{
 						ImGui::InputText("##Tag", &tag->m_tag, ImGuiInputTextFlags_AutoSelectAll);
@@ -85,18 +85,18 @@ namespace sc
 
 					if (ImGui::BeginPopup("EntityFlagsPopup"))
 					{
-						auto disabled = selected.m_world->m_registry.all_of<flags::Disabled>(selected.m_selected);
+						auto disabled = selected.m_scene->m_registry.all_of<flags::Disabled>(selected.m_selected);
 						if (ImGui::Checkbox("Disabled", &disabled))
 						{
 							if (disabled)
 							{
-								selected.m_world->m_registry.emplace_or_replace<flags::Disabled>(selected.m_selected);
+								selected.m_scene->m_registry.emplace_or_replace<flags::Disabled>(selected.m_selected);
 							}
 							else
 							{
-								if (selected.m_world->is_valid(selected.m_selected))
+								if (selected.m_scene->is_valid(selected.m_selected))
 								{
-									selected.m_world->m_registry.remove<flags::DenySerialization>(selected.m_selected);
+									selected.m_scene->m_registry.remove<flags::DenySerialization>(selected.m_selected);
 								}
 								else
 								{
@@ -107,16 +107,16 @@ namespace sc
 
 						ImGui::SameLine();
 
-						auto deny_save = selected.m_world->m_registry.all_of<flags::DenySerialization>(selected.m_selected);
+						auto deny_save = selected.m_scene->m_registry.all_of<flags::DenySerialization>(selected.m_selected);
 						if (ImGui::Checkbox("Deny Serialization", &deny_save))
 						{
 							if (deny_save)
 							{
-								selected.m_world->m_registry.emplace_or_replace<flags::DenySerialization>(selected.m_selected);
+								selected.m_scene->m_registry.emplace_or_replace<flags::DenySerialization>(selected.m_selected);
 							}
 							else
 							{
-								selected.m_world->m_registry.remove<flags::DenySerialization>(selected.m_selected);
+								selected.m_scene->m_registry.remove<flags::DenySerialization>(selected.m_selected);
 							}
 						}
 
@@ -720,7 +720,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + path + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
+								selected.m_scene->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
 							}
 						}
 
@@ -732,7 +732,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + script->file() + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_world->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
+								selected.m_scene->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
 							}
 						}
 
@@ -1002,7 +1002,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + path + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_world->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
+								selected.m_scene->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
 							}
 						}
 
@@ -1014,7 +1014,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + ui->file() + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_world->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
+								selected.m_scene->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
 							}
 						}
 

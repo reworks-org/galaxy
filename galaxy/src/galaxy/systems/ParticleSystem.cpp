@@ -29,7 +29,7 @@ namespace galaxy
 
 		void ParticleSystem::update(scene::Scene* scene)
 		{
-			const auto view = scene->m_world.m_registry.view<components::ParticleGenerator>(entt::exclude<flags::Disabled>);
+			const auto view = scene->m_registry.view<components::ParticleGenerator>(entt::exclude<flags::Disabled>);
 			for (auto&& [entity, gen] : view.each())
 			{
 				for (int i = 0; i < gen.m_count; i++)

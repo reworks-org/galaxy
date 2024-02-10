@@ -34,10 +34,10 @@ namespace galaxy
 			// Possible to do this in parallel but overhead would cost more than perf saved.
 			auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
 
-			const auto spr_group  = scene->m_world.m_registry.group<components::Sprite>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
-			const auto prim_group = scene->m_world.m_registry.group<components::Primitive>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
-			const auto text_group = scene->m_world.m_registry.group<components::Text>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
-			const auto pg_view    = scene->m_world.m_registry.view<components::ParticleGenerator>(entt::exclude<flags::Disabled>);
+			const auto spr_group  = scene->m_registry.group<components::Sprite>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
+			const auto prim_group = scene->m_registry.group<components::Primitive>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
+			const auto text_group = scene->m_registry.group<components::Text>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
+			const auto pg_view    = scene->m_registry.view<components::ParticleGenerator>(entt::exclude<flags::Disabled>);
 
 			graphics::RenderCommand cmd;
 

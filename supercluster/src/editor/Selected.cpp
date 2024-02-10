@@ -11,13 +11,13 @@ namespace sc
 {
 	Selected::Selected()
 		: m_selected {entt::null}
-		, m_world {nullptr}
+		, m_scene {nullptr}
 	{
 	}
 
 	Selected::~Selected()
 	{
-		m_world    = nullptr;
+		m_scene    = nullptr;
 		m_selected = entt::null;
 	}
 } // namespace sc

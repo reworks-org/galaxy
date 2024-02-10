@@ -40,7 +40,6 @@ namespace sc
 
 	void Menu::unload()
 	{
-		core::ServiceLocator<sol::state>::ref().collect_garbage();
 	}
 
 	void Menu::update()
@@ -76,12 +75,13 @@ namespace sc
 		if (ImGui::Button("New", {button_width, button_height}))
 		{
 			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-			if (auto ptr = sm.get("sc_editor").lock())
+			if (auto ptr = sm.get("sc_editor"))
 			{
 				auto editor = std::static_pointer_cast<sc::Editor>(ptr);
 				editor->new_project();
 
-				sm.set_scene("sc_editor");
+				ptr->m_enabled  = true;
+				this->m_enabled = false;
 			}
 		}
 
@@ -114,12 +114,13 @@ namespace sc
 		if (!path.empty())
 		{
 			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-			if (auto ptr = sm.get("sc_editor").lock())
+			if (auto ptr = sm.get("sc_editor"))
 			{
 				auto editor = std::static_pointer_cast<sc::Editor>(ptr);
 				editor->load_project(path);
 
-				sm.set_scene("sc_editor");
+				ptr->m_enabled  = true;
+				this->m_enabled = false;
 			}
 		}
 	}

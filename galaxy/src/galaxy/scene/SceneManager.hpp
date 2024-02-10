@@ -8,6 +8,7 @@
 #ifndef GALAXY_STATE_SCENEMANAGER_HPP_
 #define GALAXY_STATE_SCENEMANAGER_HPP_
 
+#include "galaxy/math/FNV1a.hpp"
 #include "galaxy/scene/Scene.hpp"
 
 namespace galaxy
@@ -15,15 +16,13 @@ namespace galaxy
 	namespace scene
 	{
 		///
-		/// Typedef for scene container.
-		///
-		using SceneContainer = robin_hood::unordered_flat_map<std::string, std::shared_ptr<Scene>>;
-
-		///
 		/// Scene saving/loading, creation, changing and loading.
 		///
 		class SceneManager final : public fs::Serializable
 		{
+			using Map  = robin_hood::unordered_flat_map<std::uint64_t, std::shared_ptr<Scene>>;
+			using List = meta::vector<std::shared_ptr<Scene>>;
+
 		  public:
 			///
 			/// Constructor.
@@ -33,45 +32,55 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~SceneManager();
+			virtual ~SceneManager();
 
 			///
-			/// Create a new scene.
+			/// Add a new scene.
 			///
 			/// \param name Scene name to assign.
 			///
-			/// \return Shared pointer to created scene.
+			/// \return Pointer to added scene.
 			///
-			[[maybe_unused]] std::weak_ptr<Scene> make_scene(const std::string& name);
+			[[maybe_unused]] std::shared_ptr<Scene> add(const std::string& name);
 
 			///
-			/// \brief Add an already existing scene.
+			/// Add a custom scene.
 			///
-			/// I.e. if you have a custom scene.
+			/// \tparam type Derived type of custom scene.
 			///
-			/// \param name Scene identifier.
-			/// \param scene Pointer to scene object. Let the manager take ownership.
+			/// \param name Scene name to assign.
 			///
-			void add_existing_scene(const std::string& name, std::shared_ptr<Scene> scene);
+			/// \return Pointer to added scene.
+			///
+			template<typename T>
+			[[maybe_unused]] std::shared_ptr<T> add_custom(const std::string& name);
 
 			///
-			/// Set the currently active scene.
+			/// Get a specific scene.
 			///
-			/// \param name Name id for scene.
+			/// \param name Name Id for scene.
 			///
-			void set_scene(const std::string& name);
+			/// \return Reference to requested scene.
+			///
+			[[nodiscard]] std::shared_ptr<Scene> get(const std::string& name);
 
 			///
-			/// Load data from memory into scenes.
+			/// \brief Remove a specific scene.
 			///
-			/// \param data JSON data to parse.
+			/// Preserves insertion order.
 			///
-			void load_scene(const std::string& data);
+			/// \param name Id for scene.
+			///
+			void remove(const std::string& name);
 
 			///
-			/// Unloads the currently active scene.
+			/// Does a scene exist.
 			///
-			void unload_scene();
+			/// \param name Id for scene.
+			///
+			/// \return True if exists.
+			///
+			[[nodiscard]] bool has(const std::string& name);
 
 			///
 			/// \brief Load app data file into scene manager.
@@ -90,54 +99,57 @@ namespace galaxy
 			void save_app(const std::string& file);
 
 			///
-			/// Gets a specific scene.
+			/// Handle events and update logic.
 			///
-			/// \param name Name id for scene.
-			///
-			/// \return Shared pointer to requested scene.
-			///
-			[[nodiscard]] std::weak_ptr<Scene> get(const std::string& name);
+			void update();
 
 			///
-			/// \brief Remove a specific scene.
+			/// Handle rendering.
 			///
-			/// You cant remove the currently active scene.
-			///
-			/// \param name Id for scene.
-			///
-			/// \return True if scene removed, false if not, because scene is active.
-			///
-			[[nodiscard]] bool remove(const std::string& name);
+			void render();
 
 			///
-			/// \brief Destroys all scenes.
+			/// Only update ui.
 			///
-			/// Beware of pointers becoming invalid.
-			///
-			/// \param clear_current Also clear the currently active scene.
-			///
-			void clear(bool clear_current = false);
+			void update_ui();
 
 			///
-			/// Get currently active scene.
+			/// Only update rendering.
 			///
-			/// \return Ref to currently active scene.
-			///
-			[[nodiscard]] Scene& current();
+			void update_rendering();
 
 			///
-			/// Checks if there is a currently active scene.
+			/// Deletes all scene data.
 			///
-			/// \return True if there is a valid current scene.
-			///
-			[[nodiscard]] bool has_current() const;
+			void clear();
 
 			///
 			/// Get all scenes.
 			///
-			/// \return SceneContainer reference.
+			/// \return Reference to scene object.
 			///
-			[[nodiscard]] SceneContainer& all();
+			[[nodiscard]] const Map& map() const;
+
+			///
+			/// Get scene order.
+			///
+			/// \return Reference to scene object.
+			///
+			[[nodiscard]] const List& list() const;
+
+			///
+			/// Get number of scenes.
+			///
+			/// \return Number of scenes.
+			///
+			[[nodiscard]] std::size_t size() const;
+
+			///
+			/// Are there any scenes.
+			///
+			/// \return True if no scenes.
+			///
+			[[nodiscard]] bool empty() const;
 
 			///
 			/// Serializes object.
@@ -155,15 +167,34 @@ namespace galaxy
 
 		  private:
 			///
-			/// Fast hashmap storing data.
+			/// Scene map.
 			///
-			SceneContainer m_scenes;
+			Map m_scenes;
 
 			///
-			/// Currently active scene.
+			/// Scene execution order.
 			///
-			std::shared_ptr<Scene> m_current;
+			List m_order;
 		};
+
+		template<typename T>
+		inline std::shared_ptr<T> SceneManager::add_custom(const std::string& name)
+		{
+			const auto hash = math::fnv1a_64(name.c_str());
+
+			if (!m_scenes.contains(hash))
+			{
+				auto child     = std::make_shared<T>(name);
+				m_scenes[hash] = std::static_pointer_cast<Scene>(child);
+
+				return child;
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Tried to add a duplicate scene '{0}'.", name);
+				return std::static_pointer_cast<T>(m_scenes[hash]);
+			}
+		}
 	} // namespace scene
 } // namespace galaxy
 

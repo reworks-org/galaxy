@@ -21,6 +21,18 @@
 #include "galaxy/core/Prefab.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/events/ContentScale.hpp"
+#include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyRepeat.hpp"
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/MouseEnter.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/events/WindowClosed.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/flags/DenySerialization.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -313,16 +325,6 @@ namespace galaxy
 			config_type["get_section_float"] = sol::resolve<float(const std::string&, const std::string&, const std::string&)>(&core::Config::get<float>);
 			config_type["get_section_string"] =
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
-
-			// Cannot be created in lua, accessed from scene instead.
-			auto world_type                   = lua.new_usertype<core::World>("World", sol::no_constructor);
-			world_type["clear"]               = &core::World::clear;
-			world_type["registry"]            = &core::World::m_registry;
-			world_type["create"]              = &core::World::create;
-			world_type["create_from_prefab"]  = &core::World::create_from_prefab;
-			world_type["is_valid"]            = &core::World::is_valid;
-			world_type["velocity_iterations"] = &core::World::m_velocity_iterations;
-			world_type["position_iterations"] = &core::World::m_position_iterations;
 
 			/* ERROR */
 			// clang-format off
@@ -1068,30 +1070,31 @@ namespace galaxy
 			textureatlas_type["keys"]     = &resource::TextureAtlas::keys;
 
 			/* STATE */
-			auto scenemanager_type = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
-			// scenemanager_type["all"]          = &scene::SceneManager::all;
-			scenemanager_type["clear"]        = &scene::SceneManager::clear;
-			scenemanager_type["current"]      = &scene::SceneManager::current;
-			scenemanager_type["get"]          = &scene::SceneManager::get;
-			scenemanager_type["has_current"]  = &scene::SceneManager::has_current;
-			scenemanager_type["load_app"]     = &scene::SceneManager::load_app;
-			scenemanager_type["load_scene"]   = &scene::SceneManager::load_scene;
-			scenemanager_type["make_scene"]   = &scene::SceneManager::make_scene;
-			scenemanager_type["remove"]       = &scene::SceneManager::remove;
-			scenemanager_type["save_app"]     = &scene::SceneManager::save_app;
-			scenemanager_type["set_scene"]    = &scene::SceneManager::set_scene;
-			scenemanager_type["unload_scene"] = &scene::SceneManager::unload_scene;
+			auto scenemanager_type        = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["add"]      = &scene::SceneManager::add;
+			scenemanager_type["empty"]    = &scene::SceneManager::empty;
+			scenemanager_type["get"]      = &scene::SceneManager::get;
+			scenemanager_type["has"]      = &scene::SceneManager::has;
+			scenemanager_type["load_app"] = &scene::SceneManager::load_app;
+			scenemanager_type["remove"]   = &scene::SceneManager::remove;
+			scenemanager_type["save_app"] = &scene::SceneManager::save_app;
+			scenemanager_type["size"]     = &scene::SceneManager::size;
 
 			// Use scenemanager to create.
-			auto scene_type              = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
-			scene_type["camera"]         = &scene::Scene::m_camera;
-			scene_type["dispatcher"]     = &scene::Scene::m_dispatcher;
-			scene_type["name"]           = &scene::Scene::m_name;
-			scene_type["world"]          = &scene::Scene::m_world;
-			scene_type["map"]            = &scene::Scene::m_map;
-			scene_type["assigned_maps"]  = &scene::Scene::m_assigned_maps;
-			scene_type["load_maps"]      = &scene::Scene::load_maps;
-			scene_type["set_active_map"] = &scene::Scene::set_active_map;
+			auto scene_type                   = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
+			scene_type["camera"]              = &scene::Scene::m_camera;
+			scene_type["name"]                = &scene::Scene::m_name;
+			scene_type["map"]                 = &scene::Scene::m_map;
+			scene_type["assigned_maps"]       = &scene::Scene::m_assigned_maps;
+			scene_type["load_maps"]           = &scene::Scene::load_maps;
+			scene_type["set_active_map"]      = &scene::Scene::set_active_map;
+			scene_type["registry"]            = &scene::Scene::m_registry;
+			scene_type["create"]              = &scene::Scene::create;
+			scene_type["create_from_prefab"]  = &scene::Scene::create_from_prefab;
+			scene_type["is_valid"]            = &scene::Scene::is_valid;
+			scene_type["velocity_iterations"] = &scene::Scene::m_velocity_iterations;
+			scene_type["position_iterations"] = &scene::Scene::m_position_iterations;
+			scene_type["enabled"]             = &scene::Scene::m_enabled;
 
 			/* SCRIPTING */
 			auto script_type              = lua.new_usertype<lua::Script>("Script", sol::constructors<lua::Script()>());

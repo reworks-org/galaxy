@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/signal/dispatcher.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
@@ -50,6 +51,7 @@ namespace galaxy
 			lua["galaxy_fs"]            = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 			lua["galaxy_config"]        = std::ref(core::ServiceLocator<core::Config>::ref());
 			lua["galaxy_maps"]          = std::ref(core::ServiceLocator<resource::Maps>::ref());
+			lua["galaxy_dispatcher"]    = std::ref(core::ServiceLocator<entt::dispatcher>::ref());
 		}
 	} // namespace lua
 } // namespace galaxy

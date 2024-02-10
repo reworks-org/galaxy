@@ -146,8 +146,8 @@ namespace galaxy
 			//
 			// Construct window and init glfw and OpenGL.
 			//
-			auto& window = ServiceLocator<Window>::make(window_settings);
-			ServiceLocator<graphics::Renderer>::make();
+			auto& window   = ServiceLocator<Window>::make(window_settings);
+			auto& renderer = ServiceLocator<graphics::Renderer>::make();
 
 			//
 			// VIRTUAL FILE SYSTEM.
@@ -166,7 +166,7 @@ namespace galaxy
 			//
 			// Nuklear UI.
 			//
-			ServiceLocator<ui::NuklearUI>::make();
+			auto& nui = ServiceLocator<ui::NuklearUI>::make();
 			ServiceLocator<Loader>::make();
 
 			//
@@ -230,7 +230,14 @@ namespace galaxy
 			ServiceLocator<resource::Maps>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
+			auto& dispatcher = ServiceLocator<entt::dispatcher>::make();
 			ServiceLocator<scene::SceneManager>::make();
+
+			// Late event subscribing.
+			dispatcher.sink<events::WindowResized>().connect<&graphics::Renderer::on_window_resized>(renderer);
+			dispatcher.sink<events::MousePressed>().connect<&ui::NuklearUI::on_mouse_pressed>(nui);
+			dispatcher.sink<events::MouseWheel>().connect<&ui::NuklearUI::on_mouse_wheel>(nui);
+			dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
 
 			//
 			// Add external libraries to Lua.
@@ -249,6 +256,7 @@ namespace galaxy
 		App::~App()
 		{
 			ServiceLocator<scene::SceneManager>::del();
+			ServiceLocator<entt::dispatcher>::del();
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
 			ServiceLocator<resource::Maps>::del();
@@ -320,8 +328,6 @@ namespace galaxy
 				previous     = current;
 				accumulator += elapsed;
 
-				auto& scene = manager.current();
-
 				perf_counter += elapsed;
 
 				while (accumulator >= GALAXY_UPS)
@@ -329,14 +335,14 @@ namespace galaxy
 					renderer.flush();
 
 					window.poll_events();
-					scene.update();
+					manager.update();
 
 					accumulator -= ups_as_nano;
 
 					updates++;
 				}
 
-				scene.render();
+				manager.render();
 				renderer.swap_buffers();
 
 				frames++;

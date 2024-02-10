@@ -36,7 +36,7 @@ namespace galaxy
 
 		void AnimationSystem::update(scene::Scene* scene)
 		{
-			const auto group = scene->m_world.m_registry.group<components::Animated>(entt::get<components::Sprite>, entt::exclude<flags::Disabled>);
+			const auto group = scene->m_registry.group<components::Animated>(entt::get<components::Sprite>, entt::exclude<flags::Disabled>);
 			for (auto&& [entity, animated, sprite] : group.each())
 			{
 				if (!animated.is_paused())
@@ -65,7 +65,7 @@ namespace galaxy
 			}
 
 			auto&      atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
-			const auto view  = scene->m_world.m_registry.view<components::MapData>(entt::exclude<flags::Disabled>);
+			const auto view  = scene->m_registry.view<components::MapData>(entt::exclude<flags::Disabled>);
 
 			for (auto&& [entity, map] : view.each())
 			{

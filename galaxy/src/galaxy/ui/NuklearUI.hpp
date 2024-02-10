@@ -38,26 +38,23 @@ namespace galaxy
 			///
 			/// On mouse pressed event handler.
 			///
-			/// \param window Pointer to GLFW window handle.
 			/// \param e Event to process.
 			///
-			void on_mouse_pressed(GLFWwindow* window, events::MousePressed& e);
+			void on_mouse_pressed(events::MousePressed& e);
 
 			///
 			/// On mouse wheel event handler.
 			///
-			/// \param window Pointer to GLFW window handle.
 			/// \param e Event to process.
 			///
-			void on_mouse_wheel(GLFWwindow* window, events::MouseWheel& e);
+			void on_mouse_wheel(events::MouseWheel& e);
 
 			///
 			/// On typing event handler.
 			///
-			/// \param window Pointer to GLFW window handle.
 			/// \param e Event to process.
 			///
-			void on_key_char(GLFWwindow* window, events::KeyChar& e);
+			void on_key_char(events::KeyChar& e);
 
 			///
 			/// Called before any nuklear code.

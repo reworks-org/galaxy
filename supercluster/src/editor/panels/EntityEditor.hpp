@@ -50,7 +50,7 @@ namespace sc
 		template<meta::valid_component Component>
 		inline void EntityEditor::draw_entry(Selected& selected, const std::string& name)
 		{
-			if (!selected.m_world->m_registry.all_of<Component>(selected.m_selected))
+			if (!selected.m_scene->m_registry.all_of<Component>(selected.m_selected))
 			{
 				if (ImGui::MenuItem(name.c_str()))
 				{
@@ -61,12 +61,12 @@ namespace sc
 						{
 							auto str = "{\"file\":\"" + path + "\"}";
 							strutils::replace_all(str, "\\", "/");
-							selected.m_world->m_registry.emplace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
+							selected.m_scene->m_registry.emplace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
 						}
 					}
 					else
 					{
-						selected.m_world->m_registry.emplace<Component>(selected.m_selected);
+						selected.m_scene->m_registry.emplace<Component>(selected.m_selected);
 					}
 
 					ImGui::CloseCurrentPopup();
@@ -81,7 +81,7 @@ namespace sc
 			const constexpr ImGuiTreeNodeFlags flags   = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
 													   ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
 
-			auto component = selected.m_world->m_registry.try_get<Component>(selected.m_selected);
+			auto component = selected.m_scene->m_registry.try_get<Component>(selected.m_selected);
 			if (component)
 			{
 				auto content_region = ImGui::GetContentRegionAvail();
@@ -111,7 +111,7 @@ namespace sc
 				{
 					if (ImGui::MenuItem("Remove Component##"))
 					{
-						selected.m_world->m_registry.remove<Component>(selected.m_selected);
+						selected.m_scene->m_registry.remove<Component>(selected.m_selected);
 						ImGui::CloseCurrentPopup();
 
 						open = false;

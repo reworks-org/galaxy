@@ -34,17 +34,6 @@ namespace sc
 					ui::imgui_center_next_window();
 				}
 
-				ImGui::SameLine();
-
-				if (ImGui::Button("Delete all Scenes"))
-				{
-					ui::imgui_open_confirm("ClearAllScenesPopup");
-				}
-
-				ui::imgui_confirm("ClearAllScenesPopup", [&]() {
-					sm.clear();
-				});
-
 				if (ImGui::BeginPopup("NewScenePopup"))
 				{
 					static auto make = false;
@@ -70,7 +59,7 @@ namespace sc
 						}
 						else
 						{
-							sm.make_scene(s_buff);
+							sm.add(s_buff);
 							s_buff = "";
 						}
 
@@ -80,70 +69,42 @@ namespace sc
 					ImGui::EndPopup();
 				}
 
-				if (sm.has_current())
-				{
-					ImGui::Text(std::format("Current: {0}", sm.current().m_name).c_str());
-				}
-				else
-				{
-					ImGui::Text("Current: ");
-				}
-
-				ImGui::Separator();
-
-				static auto s_exit_early = false;
-				for (auto&& [name, scene] : sm.all())
+				for (auto&& [name, scene] : sm.map())
 				{
 					ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-					if (m_selected == name)
+					if (m_selected == scene->m_name)
 					{
 						flags |= ImGuiTreeNodeFlags_Selected;
 					}
 
-					const bool is_open = ImGui::TreeNodeEx(name.c_str(), flags);
+					const bool is_open = ImGui::TreeNodeEx(scene->m_name.c_str(), flags);
 					if (ImGui::IsItemClicked())
 					{
-						m_selected = name;
+						m_selected = scene->m_name;
 					}
 
 					if (is_open)
 					{
-						if (ImGui::Button("Push"))
+						if (scene->m_enabled)
 						{
-							sm.set_scene(name);
+							if (ImGui::Button("Disable"))
+							{
+								scene->m_enabled = false;
+							}
 						}
-
-						ImGui::SameLine();
-
-						if (ImGui::Button("Pop"))
+						else
 						{
-							sm.unload_scene();
+							if (ImGui::Button("Enable"))
+							{
+								scene->m_enabled = true;
+							}
 						}
 
 						ImGui::SameLine();
 
 						if (ImGui::Button("Delete"))
 						{
-							ui::imgui_open_confirm("TreeRemovePopup");
-						}
-
-						ui::imgui_confirm("TreeRemovePopup", [&]() {
-							if (sm.remove(name))
-							{
-								s_exit_early = true;
-							}
-							else
-							{
-								ui::imgui_notify_warning("Cannot remove active scene.");
-							}
-						});
-
-						if (s_exit_early)
-						{
-							s_exit_early = false;
-							ImGui::TreePop();
-
-							break;
+							sm.remove(scene->m_name);
 						}
 
 						ImGui::Spacing();
@@ -235,9 +196,9 @@ namespace sc
 						ImGui::Spacing();
 
 						ImGui::TextUnformatted("Physics:");
-						if (scene->m_world.m_b2world)
+						if (scene->m_b2world)
 						{
-							auto* b2 = scene->m_world.m_b2world.get();
+							auto* b2 = scene->m_b2world.get();
 							if (ImGui::Button("Dump"))
 							{
 								b2->Dump();
@@ -266,8 +227,8 @@ namespace sc
 								b2->SetAutoClearForces(allow_autoclear);
 							}
 
-							ImGui::SliderInt("Position Iterations", &scene->m_world.m_velocity_iterations, 1, 10);
-							ImGui::SliderInt("Velocity Iterations", &scene->m_world.m_position_iterations, 1, 10);
+							ImGui::SliderInt("Position Iterations", &scene->m_velocity_iterations, 1, 10);
+							ImGui::SliderInt("Velocity Iterations", &scene->m_position_iterations, 1, 10);
 						}
 
 						ImGui::Spacing();
@@ -280,8 +241,8 @@ namespace sc
 						{
 							if (ImGui::MenuItem("Create New Entity"))
 							{
-								selected_entity.m_selected = scene->m_world.create();
-								selected_entity.m_world    = &scene->m_world;
+								selected_entity.m_selected = scene->create();
+								selected_entity.m_scene    = scene.get();
 							}
 
 							ImGui::EndPopup();
@@ -289,8 +250,8 @@ namespace sc
 
 						if (ImGui::Button("New Entity"))
 						{
-							selected_entity.m_selected = scene->m_world.create();
-							selected_entity.m_world    = &scene->m_world;
+							selected_entity.m_selected = scene->create();
+							selected_entity.m_scene    = scene.get();
 						}
 
 						ImGui::SameLine();
@@ -299,10 +260,6 @@ namespace sc
 						{
 							ui::imgui_open_confirm("ClearWorldPopup");
 						}
-
-						ui::imgui_confirm("ClearWorldPopup", [&]() {
-							scene->m_world.clear();
-						});
 
 						if (ImGui::Button("Load Prefab"))
 						{
@@ -313,9 +270,9 @@ namespace sc
 
 						if (ImGui::Button("Save as Prefab"))
 						{
-							if (selected_entity.m_selected != entt::null && selected_entity.m_world != nullptr)
+							if (selected_entity.m_selected != entt::null && selected_entity.m_scene != nullptr)
 							{
-								core::Prefab prefab {selected_entity.m_selected, selected_entity.m_world->m_registry};
+								core::Prefab prefab {selected_entity.m_selected, selected_entity.m_scene->m_registry};
 								const auto   base64 = math::encode_base64(prefab.to_json().dump(4));
 								const auto   zlib   = math::encode_zlib(base64);
 
@@ -361,7 +318,7 @@ namespace sc
 							{
 								if (!s_selected.empty())
 								{
-									scene->m_world.create_from_prefab(s_selected);
+									scene->create_from_prefab(s_selected);
 								}
 								else
 								{
@@ -385,7 +342,7 @@ namespace sc
 							if (ImGui::Selectable(id.c_str(), is_selected))
 							{
 								selected_entity.m_selected = entity;
-								selected_entity.m_world    = &scene->m_world;
+								selected_entity.m_scene    = scene.get();
 							}
 
 							if (is_selected)
@@ -405,11 +362,11 @@ namespace sc
 
 								if (deleted)
 								{
-									scene->m_world.m_registry.destroy(entity);
+									scene->m_registry.destroy(entity);
 									if (selected_entity.m_selected == entity)
 									{
 										selected_entity.m_selected = entt::null;
-										selected_entity.m_world    = nullptr;
+										selected_entity.m_scene    = scene.get();
 									}
 								}
 							}
@@ -418,9 +375,9 @@ namespace sc
 						ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
 						if (ImGui::BeginListBox("##EntityList"))
 						{
-							for (const auto& [entity] : scene->m_world.m_registry.storage<entt::entity>().each())
+							for (const auto& [entity] : scene->m_registry.storage<entt::entity>().each())
 							{
-								auto tag = scene->m_world.m_registry.try_get<components::Tag>(entity);
+								auto tag = scene->m_registry.try_get<components::Tag>(entity);
 								if (tag)
 								{
 									if (m_filter_tags.PassFilter(tag->m_tag.c_str()))

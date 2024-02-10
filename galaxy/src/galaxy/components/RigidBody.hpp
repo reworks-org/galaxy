@@ -15,10 +15,10 @@
 
 namespace galaxy
 {
-	namespace core
+	namespace scene
 	{
-		class World;
-	} // namespace core
+		class Scene;
+	} // namespace scene
 
 	namespace systems
 	{
@@ -32,7 +32,7 @@ namespace galaxy
 		///
 		class RigidBody final : public fs::Serializable
 		{
-			friend class core::World;
+			friend class scene::Scene;
 			friend class systems::PhysicsSystem;
 
 		  public:

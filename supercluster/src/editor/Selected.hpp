@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_SELECTED_HPP_
 #define SUPERCLUSTER_EDITOR_SELECTED_HPP_
 
-#include <galaxy/core/World.hpp>
+#include <galaxy/scene/Scene.hpp>
 
 using namespace galaxy;
 
@@ -21,8 +21,8 @@ namespace sc
 		~Selected();
 
 	  public:
-		entt::entity m_selected;
-		core::World* m_world;
+		entt::entity  m_selected;
+		scene::Scene* m_scene;
 	};
 } // namespace sc
 

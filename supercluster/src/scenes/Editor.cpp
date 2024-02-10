@@ -8,6 +8,7 @@
 #include <fstream>
 
 #include <BS_thread_pool.hpp>
+#include <entt/signal/dispatcher.hpp>
 #include <imgui_addons/code_editor/ImGuiController.h>
 #include <imgui_addons/imgui_notify.h>
 #include <imgui_impl_glfw.h>
@@ -16,6 +17,7 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/events/WindowClosed.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/input/Input.hpp>
@@ -76,7 +78,8 @@ namespace sc
 		m_window   = &core::ServiceLocator<core::Window>::ref();
 		m_renderer = &core::ServiceLocator<graphics::Renderer>::ref();
 
-		m_dispatcher.sink<events::WindowClosed>().connect<&on_window_close>();
+		auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+		dispatcher.sink<events::WindowClosed>().connect<&on_window_close>();
 	}
 
 	Editor::~Editor()
@@ -103,18 +106,12 @@ namespace sc
 
 	void Editor::update()
 	{
-		// Should be ok, since we only triggering window closed event.
-		m_window->trigger_queued_events(m_dispatcher);
-
 		do_updates();
 
 		if (m_game_mode || !m_stopped)
 		{
 			m_nui->enable_input();
-			if (m_project_sm.has_current())
-			{
-				m_project_sm.current().update();
-			}
+			m_project_sm.update();
 
 			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
 			{
@@ -133,50 +130,44 @@ namespace sc
 			m_nui->disable_input();
 			m_autosave.update();
 
-			if (m_project_sm.has_current())
+			m_project_sm.update_rendering();
+
+			if (m_viewport_focused && m_viewport_hovered)
 			{
-				m_project_sm.current().m_world.only_update_rendering();
-				// m_project_sm.current().m_world.update();
-
-				m_renderer->buffer_camera(m_project_sm.current().m_camera);
-
-				if (m_viewport_focused && m_viewport_hovered)
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
 				{
-					if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
+					auto [mx, my]  = ImGui::GetMousePos();
+					mx            -= m_viewport_bounds[0].x;
+					my            -= m_viewport_bounds[0].y;
+
+					const auto size = m_viewport_bounds[1] - m_viewport_bounds[0];
+					my              = size.y - my;
+
+					if (mx >= 0 && my >= 0 && mx < size.x && my < size.y)
 					{
-						auto [mx, my]  = ImGui::GetMousePos();
-						mx            -= m_viewport_bounds[0].x;
-						my            -= m_viewport_bounds[0].y;
+						auto& fb = m_framebuffer.get_framebuffer();
 
-						const auto size = m_viewport_bounds[1] - m_viewport_bounds[0];
-						my              = size.y - my;
-
-						if (mx >= 0 && my >= 0 && mx < size.x && my < size.y)
+						const auto entity = fb.read_storagebuffer(m_mousepick_buffer, static_cast<int>(mx), static_cast<int>(my));
+						if (entity == -1)
 						{
-							auto& fb = m_framebuffer.get_framebuffer();
-
-							const auto entity = fb.read_storagebuffer(m_mousepick_buffer, static_cast<int>(mx), static_cast<int>(my));
-							if (entity == -1)
-							{
-								m_selected_entity.m_selected = entt::null;
-								m_selected_entity.m_world    = nullptr;
-							}
-							else
-							{
-								m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
-								m_selected_entity.m_world    = &m_project_sm.current().m_world;
-							}
+							m_selected_entity.m_selected = entt::null;
+							m_selected_entity.m_scene    = nullptr;
+						}
+						else
+						{
+							m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
+							m_selected_entity.m_scene    = &m_project_sm.current().m_world;
 						}
 					}
+				}
 
-					if (ImGui::IsMouseDown(ImGuiMouseButton_Right) && m_editor_cam_enabled)
-					{
-						m_use_hand = true;
+				if (ImGui::IsMouseDown(ImGuiMouseButton_Right) && m_editor_cam_enabled)
+				{
+					m_use_hand = true;
 
-						m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
-						m_editor_camera.translate(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
-						ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
-					}
+					m_imgui_mouse_delta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+					m_editor_camera.translate(m_imgui_mouse_delta.x, m_imgui_mouse_delta.y);
+					ImGui::ResetMouseDragDelta(ImGuiMouseButton_Right);
 				}
 			}
 		}
@@ -190,7 +181,7 @@ namespace sc
 		}
 		else
 		{
-			m_project_sm.current().render();
+			m_project_sm.render();
 		}
 	}
 
@@ -368,7 +359,7 @@ namespace sc
 		m_framebuffer.bind(true);
 		m_framebuffer.get_framebuffer().clear_storagebuffer(m_mousepick_buffer, -1);
 
-		if (m_project_sm.has_current())
+		if (!m_project_sm.empty())
 		{
 			if (m_stopped && m_editor_cam_enabled)
 			{
@@ -379,7 +370,7 @@ namespace sc
 
 			m_nui->enable_input();
 			m_nui->new_frame();
-			m_project_sm.current().update_ui();
+			m_project_sm.update_ui();
 			m_nui->render();
 			m_nui->disable_input();
 		}
@@ -614,7 +605,7 @@ namespace sc
 			{
 				if (ImGui::Button(ICON_MDI_PLAY, m_icon_size))
 				{
-					if (m_project_sm.has_current())
+					if (!m_project_sm.empty())
 					{
 						ImGui_ImplGlfw_ToggleInput(true);
 
@@ -642,7 +633,7 @@ namespace sc
 
 			if (ImGui::Button(ICON_MDI_BUG_PLAY, m_icon_size))
 			{
-				if (m_project_sm.has_current())
+				if (!m_project_sm.empty())
 				{
 					ImGui_ImplGlfw_ToggleInput(true);
 

@@ -8,12 +8,10 @@
 #ifndef GALAXY_CORE_WINDOW_HPP_
 #define GALAXY_CORE_WINDOW_HPP_
 
-#include <entt/signal/dispatcher.hpp>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "galaxy/core/WindowSettings.hpp"
-#include "galaxy/events/EventQueue.hpp"
 #include "galaxy/input/Clipboard.hpp"
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Keyboard.hpp"
@@ -88,18 +86,6 @@ namespace galaxy
 			void resize(const int width, const int height);
 
 			///
-			/// Trigger all queued events for a dispatcher.
-			///
-			/// \param dispatcher An event dispatcher usually belonging to a scene.
-			///
-			void trigger_queued_events(entt::dispatcher& dispatcher);
-
-			///
-			/// Pop all queued events.
-			///
-			void pop_queued_events();
-
-			///
 			/// \brief Notify's user of an event without interrupting.
 			///
 			/// Think like windows flashing tray icon.
@@ -160,13 +146,6 @@ namespace galaxy
 			/// \return True if window is in input focus.
 			///
 			[[nodiscard]] bool is_focused() const;
-
-			///
-			/// Get queued events.
-			///
-			/// \return Reference to EventQueue.
-			///
-			[[nodiscard]] events::Queue& queued_events();
 
 			///
 			/// Get a window input device.
@@ -268,11 +247,6 @@ namespace galaxy
 			/// Height of window.
 			///
 			int m_height;
-
-			///
-			/// Event queue.
-			///
-			events::Queue m_event_queue;
 
 			///
 			/// Keyboard assigned to window.

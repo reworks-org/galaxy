@@ -99,12 +99,10 @@ int main(int argsc, char* argsv[])
 
 				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
 
-				auto menu   = std::make_shared<sc::Menu>("sc_menu");
-				auto editor = std::make_shared<sc::Editor>("sc_editor");
+				auto menu = sm.add_custom<sc::Menu>("sc_menu");
+				sm.add_custom<sc::Editor>("sc_editor");
 
-				sm.add_existing_scene(menu->m_name, menu);
-				sm.add_existing_scene(editor->m_name, editor);
-				sm.set_scene("sc_menu");
+				menu->m_enabled = true;
 			}
 
 			supercluster.run();

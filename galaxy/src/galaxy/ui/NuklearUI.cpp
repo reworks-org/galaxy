@@ -56,21 +56,21 @@ namespace galaxy
 			m_atlas = nullptr;
 		}
 
-		void NuklearUI::on_mouse_pressed(GLFWwindow* window, events::MousePressed& e)
+		void NuklearUI::on_mouse_pressed(events::MousePressed& e)
 		{
-			nk_glfw3_mouse_button_callback(window, static_cast<int>(e.button), GLFW_PRESS, static_cast<int>(e.mod));
+			nk_glfw3_mouse_button_callback(core::ServiceLocator<core::Window>::ref().handle(), static_cast<int>(e.button), GLFW_PRESS, static_cast<int>(e.mod));
 			e.handled = true;
 		}
 
-		void NuklearUI::on_mouse_wheel(GLFWwindow* window, events::MouseWheel& e)
+		void NuklearUI::on_mouse_wheel(events::MouseWheel& e)
 		{
-			nk_gflw3_scroll_callback(window, e.xoff, e.yoff);
+			nk_gflw3_scroll_callback(core::ServiceLocator<core::Window>::ref().handle(), e.xoff, e.yoff);
 			e.handled = true;
 		}
 
-		void NuklearUI::on_key_char(GLFWwindow* window, events::KeyChar& e)
+		void NuklearUI::on_key_char(events::KeyChar& e)
 		{
-			nk_glfw3_char_callback(window, e.codepoint);
+			nk_glfw3_char_callback(core::ServiceLocator<core::Window>::ref().handle(), e.codepoint);
 			e.handled = true;
 		}
 

@@ -5,17 +5,29 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/signal/dispatcher.hpp>
 #include <stb_image.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/events/ContentScale.hpp"
+#include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyRepeat.hpp"
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/MouseEnter.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/events/WindowClosed.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/FontContext.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
-#include "galaxy/ui/NuklearUI.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
 #include "Window.hpp"
@@ -126,11 +138,7 @@ namespace galaxy
 
 				// Create the window from input, ensuring it is centered in the screen.
 				m_window = glfwCreateWindow(settings.width, settings.height, settings.title.c_str(), nullptr, nullptr);
-				if (!m_window)
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to create window.");
-				}
-				else
+				if (m_window)
 				{
 					// Center window.
 					{
@@ -202,14 +210,12 @@ namespace galaxy
 
 					// Set close callback.
 					glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-						win->m_event_queue.emplace_back(events::WindowClosed {});
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+						dispatcher.trigger<events::WindowClosed>();
 					});
 
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-
 						// clang-format off
 						events::WindowResized wr
 						{
@@ -218,15 +224,12 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace_back(std::move(wr));
-						win->resize(width, height);
-						ServiceLocator<graphics::Renderer>::ref().resize(width, height);
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+						dispatcher.trigger(wr);
 					});
 
 					// Content scale callback.
 					glfwSetWindowContentScaleCallback(m_window, [](GLFWwindow* window, float xscale, float yscale) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-
 						// clang-format off
 						events::ContentScale sc
 						{
@@ -235,12 +238,15 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace_back(std::move(sc));
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+						dispatcher.trigger(sc);
 					});
 
 					// Key input callback.
 					glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win        = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+
 						if (!win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
@@ -255,7 +261,7 @@ namespace galaxy
 										.scancode = scancode
 									};
 								
-									win->m_event_queue.emplace_back<events::KeyDown>(std::move(kd));
+									dispatcher.trigger(kd);
 								}
 								break;
 
@@ -268,7 +274,7 @@ namespace galaxy
 										.scancode = scancode
 									};
 								
-									win->m_event_queue.emplace_back<events::KeyRepeat>(std::move(kr));
+									dispatcher.trigger(kr);
 								}
 								break;
 
@@ -281,13 +287,11 @@ namespace galaxy
 										.scancode = scancode
 									};
 								
-									win->m_event_queue.emplace_back<events::KeyUp>(std::move(ku));
+									dispatcher.trigger(ku);
 								}
 								break;
 
-								default:
-                                    GALAXY_LOG(GALAXY_FATAL, "Received invalid action in glfw key callback.");
-								break;
+								default:break;
 							}
 							// clang-format on
 						}
@@ -305,15 +309,13 @@ namespace galaxy
 							};
 							// clang-format on
 
-							ServiceLocator<ui::NuklearUI>::ref().on_key_char(window, kc);
-							win->m_event_queue.emplace_back<events::KeyChar>(std::move(kc));
+							auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+							dispatcher.trigger(kc);
 						}
 					});
 
 					// Mouse entered callback.
 					glfwSetCursorEnterCallback(m_window, [](GLFWwindow* window, int entered) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-
 						// clang-format off
 						events::MouseEnter me
 						{
@@ -321,13 +323,12 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace_back<events::MouseEnter>(std::move(me));
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+						dispatcher.trigger(me);
 					});
 
 					// Mouse movement callback.
 					glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-
 						// clang-format off
 						events::MouseMoved mm
 						{
@@ -336,12 +337,15 @@ namespace galaxy
 						};
 						// clang-format on
 
-						win->m_event_queue.emplace_back<events::MouseMoved>(std::move(mm));
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+						dispatcher.trigger(mm);
 					});
 
 					// Mouse button callback.
 					glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
-						auto*      win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto* win        = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+
 						const auto pos = win->m_mouse.get_pos();
 
 						// clang-format off
@@ -357,8 +361,7 @@ namespace galaxy
 									.mod = input::int_to_keymod(mods)
 								};
 								
-								ServiceLocator<ui::NuklearUI>::ref().on_mouse_pressed(window, mp);
-								win->m_event_queue.emplace_back<events::MousePressed>(std::move(mp));
+								dispatcher.trigger(mp);
 							}
 							break;
 
@@ -372,21 +375,17 @@ namespace galaxy
 									.mod = input::int_to_keymod(mods)
 								};
 								
-								win->m_event_queue.emplace_back<events::MouseReleased>(std::move(mr));
+								dispatcher.trigger(mr);
 							}
 							break;
 
-							default:
-                                GALAXY_LOG(GALAXY_FATAL, "Received invalid action in glfw key callback.");
-							break;
+							default:break;
 						}
 						// clang-format on
 					});
 
 					// Set scroll wheel callback.
 					glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xoffset, double yoffset) {
-						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-
 						// clang-format off
 						events::MouseWheel mw
 						{
@@ -395,8 +394,8 @@ namespace galaxy
 						};
 						// clang-format on
 
-						ServiceLocator<ui::NuklearUI>::ref().on_mouse_wheel(window, mw);
-						win->m_event_queue.emplace_back<events::MouseWheel>(std::move(mw));
+						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
+						dispatcher.trigger(mw);
 					});
 
 					// clang-format off
@@ -502,6 +501,10 @@ namespace galaxy
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 					}
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to create window.");
+				}
 			}
 		}
 
@@ -604,7 +607,6 @@ namespace galaxy
 
 		void Window::poll_events()
 		{
-			pop_queued_events();
 			glfwPollEvents();
 		}
 
@@ -614,23 +616,6 @@ namespace galaxy
 			m_height = height;
 
 			glfwSetWindowSize(m_window, m_width, m_height);
-		}
-
-		void Window::trigger_queued_events(entt::dispatcher& dispatcher)
-		{
-			for (auto i = 0; i < m_event_queue.size(); i++)
-			{
-				// clang-format off
-				mpark::visit([&](auto&& queued_event) {
-                    dispatcher.trigger(queued_event);
-                }, m_event_queue[i]);
-				// clang-format on
-			}
-		}
-
-		void Window::pop_queued_events()
-		{
-			m_event_queue.clear();
 		}
 
 		void Window::request_attention()
@@ -661,11 +646,6 @@ namespace galaxy
 		bool Window::is_focused() const
 		{
 			return glfwGetWindowAttrib(m_window, GLFW_FOCUSED);
-		}
-
-		events::Queue& Window::queued_events()
-		{
-			return m_event_queue;
 		}
 
 		const meta::vector<std::string>& Window::get_drop_paths() const
