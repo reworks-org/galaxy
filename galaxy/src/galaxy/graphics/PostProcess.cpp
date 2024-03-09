@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/graphics/AttributeBindings.hpp"
-#include "galaxy/graphics/BufferBindings.hpp"
-
 #include "PostProcess.hpp"
 
 ///
@@ -63,7 +60,7 @@ namespace galaxy
 
 		void PostProcess::init(const int width, const int height)
 		{
-			if (m_output.load_raw(vao_vert, vao_frag))
+			if (m_output.parse(vao_vert, vao_frag))
 			{
 				m_output.compile();
 			}
@@ -103,7 +100,6 @@ namespace galaxy
 		void PostProcess::destroy()
 		{
 			m_effects.clear();
-			m_output.destroy();
 
 			if (m_screen_vao != 0)
 			{
@@ -118,6 +114,11 @@ namespace galaxy
 			}
 
 			m_output_fb = 0;
+
+			for (PostEffect* effect : m_effects)
+			{
+				delete effect;
+			}
 		}
 
 		void PostProcess::resize(const int width, const int height)
@@ -144,7 +145,7 @@ namespace galaxy
 		{
 			glBindVertexArray(m_screen_vao);
 
-			m_output_fb = m_fb.get_texture();
+			m_output_fb = m_fb.texture();
 
 			// Post-processing effects pass.
 			for (auto&& effect : m_effects)

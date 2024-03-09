@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_ASSETPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_ASSETPANEL_HPP_
 
-#include <galaxy/graphics/Texture.hpp>
+#include <galaxy/graphics/gl/Texture2D.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "editor/SelectedAsset.hpp"
@@ -77,17 +77,17 @@ namespace sc
 
 			std::string m_root_str;
 
-			graphics::Texture m_backward;
-			graphics::Texture m_file;
-			graphics::Texture m_folder;
-			graphics::Texture m_forward;
-			graphics::Texture m_refresh;
-			graphics::Texture m_preview;
+			graphics::Texture2D m_backward;
+			graphics::Texture2D m_file;
+			graphics::Texture2D m_folder;
+			graphics::Texture2D m_forward;
+			graphics::Texture2D m_refresh;
+			graphics::Texture2D m_preview;
 
-			graphics::Texture* m_icon;
+			graphics::Texture2D* m_icon;
 
-			robin_hood::unordered_map<std::string, FileType>       m_ext_map;
-			robin_hood::unordered_map<FileType, graphics::Texture> m_tex_map;
+			robin_hood::unordered_map<std::string, FileType>         m_ext_map;
+			robin_hood::unordered_map<FileType, graphics::Texture2D> m_tex_map;
 
 			std::vector<std::filesystem::path> m_directories;
 		};

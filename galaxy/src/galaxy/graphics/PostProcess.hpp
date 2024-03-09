@@ -8,11 +8,13 @@
 #ifndef GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 #define GALAXY_GRAPHICS_POSTPROCESSOR_HPP_
 
-#include "galaxy/graphics/postfx/ChromaticAberration.hpp"
-#include "galaxy/graphics/postfx/GammaCorrection.hpp"
-#include "galaxy/graphics/postfx/GaussianBlur.hpp"
-#include "galaxy/graphics/postfx/Sharpen.hpp"
-#include "galaxy/graphics/postfx/SMAA.hpp"
+#include "galaxy/graphics/post/ChromaticAberration.hpp"
+#include "galaxy/graphics/post/FilmicGrain.hpp"
+#include "galaxy/graphics/post/GammaCorrection.hpp"
+#include "galaxy/graphics/post/GaussianBlur.hpp"
+#include "galaxy/graphics/post/Sharpen.hpp"
+#include "galaxy/graphics/post/SMAA.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -61,7 +63,7 @@ namespace galaxy
 			/// \return Weak pointer to newly created effect.
 			///
 			template<is_posteffect Effect, typename... Args>
-			[[maybe_unused]] std::weak_ptr<Effect> add(Args&&... args);
+			[[maybe_unused]] Effect& add(Args&&... args);
 
 			///
 			/// Bind to draw to post processor framebuffer.
@@ -105,7 +107,7 @@ namespace galaxy
 			///
 			/// List of effects to apply in order.
 			///
-			meta::vector<std::shared_ptr<PostEffect>> m_effects;
+			meta::vector<PostEffect*> m_effects;
 
 			///
 			/// Simple quad to draw when applying effects (buffer).
@@ -124,12 +126,12 @@ namespace galaxy
 		};
 
 		template<is_posteffect Effect, typename... Args>
-		inline std::weak_ptr<Effect> PostProcess::add(Args&&... args)
+		inline Effect& PostProcess::add(Args&&... args)
 		{
-			auto effect = std::make_shared<Effect>(std::forward<Args>(args)...);
-			m_effects.push_back(std::static_pointer_cast<PostEffect>(effect));
+			Effect* effect = new Effect(std::forward<Args>(args)...);
 
-			return effect;
+			m_effects.emplace_back(static_cast<PostEffect*>(effect));
+			return *effect;
 		}
 	} // namespace graphics
 } // namespace galaxy

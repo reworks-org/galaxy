@@ -5,17 +5,18 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/MapData.hpp"
-#include "galaxy/components/ParticleGenerator.hpp"
-#include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
+#include "galaxy/components/GUI.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/Polyline.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
-#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/Prefab.hpp"
@@ -36,9 +37,7 @@
 #include "galaxy/flags/DenySerialization.hpp"
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/Shader.hpp"
 #include "galaxy/input/Input.hpp"
-#include "galaxy/map/Map.hpp"
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/math/Generic.hpp"
@@ -51,12 +50,10 @@
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Subprocess.hpp"
 #include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 #include "galaxy/utils/Guid.hpp"
@@ -105,98 +102,12 @@ namespace galaxy
 
 		void inject_galaxy()
 		{
+			/*
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
 			lua.set_function("galaxy_load_user_config", &load_config_wrapper);
 			lua.set_function("galaxy_load_window_config", &load_window_wrapper);
 
-			/* COMPONENTS */
-			auto animated_type = lua.new_usertype<components::Animated>("Animated",
-				sol::constructors<components::Animated()>(),
-				"type_id",
-				&entt::type_hash<components::Animated>::value);
-
-			animated_type["active"]    = &components::Animated::active;
-			animated_type["add"]       = &components::Animated::add;
-			animated_type["is_paused"] = &components::Animated::is_paused;
-			// animated_type["animations"]          = &components::Animated::m_animations;
-			animated_type["time_spent_on_frame"] = &components::Animated::m_time_spent_on_frame;
-			animated_type["pause"]               = &components::Animated::pause;
-			animated_type["play"]                = sol::resolve<void(void)>(&components::Animated::play);
-			animated_type["set_and_play"]        = sol::resolve<void(const std::string&)>(&components::Animated::play);
-			animated_type["set"]                 = &components::Animated::set;
-			animated_type["stop"]                = &components::Animated::stop;
-
-			auto mapdata_type = lua.new_usertype<components::MapData>("MapData",
-				sol::constructors<components::MapData()>(),
-				"type_id",
-				&entt::type_hash<components::MapData>::value);
-
-			mapdata_type["set_texture"] = &components::MapData::set_texture;
-
-			auto pg_type = lua.new_usertype<components::ParticleGenerator>("ParticleGenerator",
-				sol::constructors<components::ParticleGenerator()>(),
-				"type_id",
-				&entt::type_hash<components::ParticleGenerator>::value);
-
-			pg_type["generate"]                = &components::ParticleGenerator::generate;
-			pg_type["regenerate"]              = &components::ParticleGenerator::regenerate;
-			pg_type["count"]                   = &components::ParticleGenerator::m_count;
-			pg_type["fixed_alpha"]             = &components::ParticleGenerator::m_fixed_alpha;
-			pg_type["fixed_colour"]            = &components::ParticleGenerator::m_fixed_colour;
-			pg_type["fixed_life"]              = &components::ParticleGenerator::m_fixed_life;
-			pg_type["fixed_scale"]             = &components::ParticleGenerator::m_fixed_scale;
-			pg_type["fixed_vel"]               = &components::ParticleGenerator::m_fixed_vel;
-			pg_type["keep_scale_aspect_ratio"] = &components::ParticleGenerator::m_keep_scale_aspect_ratio;
-			pg_type["max_alpha"]               = &components::ParticleGenerator::m_max_alpha;
-			pg_type["max_colour"]              = &components::ParticleGenerator::m_max_colour;
-			pg_type["max_life"]                = &components::ParticleGenerator::m_max_life;
-			pg_type["max_rect_spread"]         = &components::ParticleGenerator::m_max_rect_spread;
-			pg_type["max_scale"]               = &components::ParticleGenerator::m_max_scale;
-			pg_type["max_vel"]                 = &components::ParticleGenerator::m_max_vel;
-			pg_type["min_alpha"]               = &components::ParticleGenerator::m_min_alpha;
-			pg_type["min_colour"]              = &components::ParticleGenerator::m_min_colour;
-			pg_type["min_life"]                = &components::ParticleGenerator::m_min_life;
-			pg_type["min_rect_spread"]         = &components::ParticleGenerator::m_min_rect_spread;
-			pg_type["min_scale"]               = &components::ParticleGenerator::m_min_scale;
-			pg_type["min_vel"]                 = &components::ParticleGenerator::m_min_vel;
-			pg_type["randomize_colour"]        = &components::ParticleGenerator::m_randomize_colour;
-			pg_type["randomize_colour_alpha"]  = &components::ParticleGenerator::m_randomize_colour_alpha;
-			pg_type["randomize_initial_vel"]   = &components::ParticleGenerator::m_randomize_initial_vel;
-			pg_type["randomize_life"]          = &components::ParticleGenerator::m_randomize_life;
-			pg_type["randomize_position"]      = &components::ParticleGenerator::m_randomize_position;
-			pg_type["randomize_scale"]         = &components::ParticleGenerator::m_randomize_scale;
-			pg_type["spread"]                  = &components::ParticleGenerator::m_spread;
-			pg_type["spread_radius"]           = &components::ParticleGenerator::m_spread_radius;
-			pg_type["layer"]                   = &components::ParticleGenerator::m_layer;
-			pg_type["texture"]                 = &components::ParticleGenerator::m_texture;
-			pg_type["start_pos"]               = &components::ParticleGenerator::m_start_pos;
-			pg_type["reset"]                   = sol::resolve<void(void)>(&components::ParticleGenerator::reset);
-
-			auto primitive_data_type =
-				lua.new_usertype<components::Primitive::PrimitiveData>("PrimitiveData", sol::constructors<components::Primitive::PrimitiveData()>());
-			primitive_data_type["fragments"] = &components::Primitive::PrimitiveData::fragments;
-			primitive_data_type["points"]    = &components::Primitive::PrimitiveData::points;
-			primitive_data_type["radii"]     = &components::Primitive::PrimitiveData::radii;
-			primitive_data_type["radius"]    = &components::Primitive::PrimitiveData::radius;
-			primitive_data_type["start_end"] = &components::Primitive::PrimitiveData::start_end;
-
-			auto primitive_type = lua.new_usertype<components::Primitive>("Primitive",
-				sol::constructors<components::Primitive()>(),
-				"type_id",
-				&entt::type_hash<components::Primitive>::value);
-
-			primitive_type["create_circle"]   = &components::Primitive::create<math::Shape::CIRCLE>;
-			primitive_type["create_ellipse"]  = &components::Primitive::create<math::Shape::ELLIPSE>;
-			primitive_type["create_line"]     = &components::Primitive::create<math::Shape::LINE>;
-			primitive_type["create_point"]    = &components::Primitive::create<math::Shape::POINT>;
-			primitive_type["create_polygon"]  = &components::Primitive::create<math::Shape::POLYGON>;
-			primitive_type["create_polyline"] = &components::Primitive::create<math::Shape::POLYLINE>;
-			primitive_type["get_data"]        = &components::Primitive::get_data;
-			primitive_type["get_height"]      = &components::Primitive::get_height;
-			primitive_type["get_shape"]       = &components::Primitive::get_shape;
-			primitive_type["get_width"]       = &components::Primitive::get_width;
-			primitive_type["colour"]          = &components::Primitive::m_colour;
 
 			auto rigidbody_type = lua.new_usertype<components::RigidBody>("RigidBody",
 				sol::constructors<components::RigidBody()>(),
@@ -221,9 +132,9 @@ namespace galaxy
 			rigidbody_type["set_type"]                  = &components::RigidBody::set_type;
 
 			auto c_script_type      = lua.new_usertype<components::Script>("Script",
-                sol::constructors<components::Script()>(),
-                "type_id",
-                &entt::type_hash<components::Script>::value);
+				sol::constructors<components::Script()>(),
+				"type_id",
+				&entt::type_hash<components::Script>::value);
 			c_script_type["file"]   = &components::Script::file;
 			c_script_type["self"]   = &components::Script::m_self;
 			c_script_type["update"] = &components::Script::m_update;
@@ -247,9 +158,9 @@ namespace galaxy
 			tag_type["tag"] = &components::Tag::m_tag;
 
 			auto uiscript_type    = lua.new_usertype<components::UIScript>("UIScript",
-                sol::constructors<components::UIScript()>(),
-                "type_id",
-                &entt::type_hash<components::UIScript>::value);
+				sol::constructors<components::UIScript()>(),
+				"type_id",
+				&entt::type_hash<components::UIScript>::value);
 			uiscript_type["file"] = &components::UIScript::file;
 
 			// clang-format off
@@ -304,7 +215,6 @@ namespace galaxy
 			transform_type["set_rotation"]         = &components::Transform::set_rotation;
 			transform_type["translate"]            = &components::Transform::translate;
 
-			/* CORE */
 			auto prefab_type =
 				lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab(entt::entity, entt::registry&), core::Prefab(const nlohmann::json&)>());
 			prefab_type["from_entity"] = &core::Prefab::from_entity;
@@ -326,7 +236,6 @@ namespace galaxy
 			config_type["get_section_string"] =
 				sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
 
-			/* ERROR */
 			// clang-format off
 			lua.new_enum<error::LogLevel>("LogLevels",
 			{
@@ -340,7 +249,6 @@ namespace galaxy
 
 			lua.set_function("galaxy_log", &log_wrapper);
 
-			/* EVENTS */
 			auto contentscale_type       = lua.new_usertype<events::ContentScale>("ContentScale", sol::constructors<events::ContentScale()>());
 			contentscale_type["type_id"] = &entt::type_hash<events::ContentScale>::value;
 			contentscale_type["xscale"]  = &events::ContentScale::xscale;
@@ -413,7 +321,6 @@ namespace galaxy
 			auto windowclosed_type       = lua.new_usertype<events::WindowClosed>("WindowClosed", sol::constructors<events::WindowClosed()>());
 			windowclosed_type["type_id"] = &entt::type_hash<events::WindowClosed>::value;
 
-			/* FLAGS */
 			lua.new_usertype<flags::DenySerialization>("DenySerialization",
 				sol::constructors<flags::DenySerialization()>(),
 				"type_id",
@@ -421,25 +328,24 @@ namespace galaxy
 
 			lua.new_usertype<flags::Disabled>("Disabled", sol::constructors<flags::Disabled()>(), "type_id", &entt::type_hash<flags::Disabled>::value);
 
-			/* FS */
 			// clang-format off
 			lua.new_enum<fs::DialogButton>("DialogButton",
-            {
+			{
 				{"cancel_no", fs::DialogButton::cancel_no},
 				{"ok_yes", fs::DialogButton::ok_yes},
 				{"yes_no_cancel", fs::DialogButton::yes_no_cancel}
-            });
+			});
 
 			lua.new_enum<fs::DialogIcon>("DialogIcons",
 			{
-                {"info", fs::DialogIcon::info},
+				{"info", fs::DialogIcon::info},
 				{"warning", fs::DialogIcon::warning},
 				{"error", fs::DialogIcon::error}
-            });
+			});
 
 			lua.new_enum<fs::DialogType>("DialogType",
 			{
-			    {"ok", fs::DialogType::ok},
+				{"ok", fs::DialogType::ok},
 				{"okcancel", fs::DialogType::okcancel},
 				{"yesno", fs::DialogType::yesno},
 				{"yesnocancel", fs::DialogType::yesnocancel}
@@ -465,7 +371,6 @@ namespace galaxy
 			vfs_type["write_binary"]         = &fs::VirtualFileSystem::write_binary;
 			vfs_type["write_raw"]            = &fs::VirtualFileSystem::write_raw;
 
-			/* GRAPHICS */
 			// clang-format off
 			lua.new_enum<graphics::Primitives>("Primitives",
 			{
@@ -492,7 +397,7 @@ namespace galaxy
 			// clang-format on
 
 			auto colour_type        = lua.new_usertype<graphics::Colour>("Colour",
-                sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
+				sol::constructors<graphics::Colour(), graphics::Colour(const std::uint8_t, const std::uint8_t, const std::uint8_t, const std::uint8_t)>());
 			colour_type["alpha"]    = &graphics::Colour::m_alpha;
 			colour_type["blue"]     = &graphics::Colour::m_blue;
 			colour_type["green"]    = &graphics::Colour::m_green;
@@ -543,22 +448,6 @@ namespace galaxy
 			camera_type["rotation_speed"]    = &graphics::Camera::m_rotation_speed;
 			camera_type["translation_speed"] = &graphics::Camera::m_translation_speed;
 
-			auto frame_type              = lua.new_usertype<graphics::Frame>("Frame", sol::constructors<graphics::Frame()>());
-			frame_type["texture_id"]     = &graphics::Frame::m_texture_id;
-			frame_type["time_per_frame"] = &graphics::Frame::m_time_per_frame;
-
-			auto animation_type                   = lua.new_usertype<graphics::Animation>("Animation",
-                sol::constructors<graphics::Animation(), graphics::Animation(std::string_view, const bool, const double, std::span<graphics::Frame>)>());
-			animation_type["current_frame"]       = &graphics::Animation::current_frame;
-			animation_type["current_frame_index"] = &graphics::Animation::current_frame_index;
-			animation_type["frames"]              = &graphics::Animation::m_frames;
-			animation_type["looping"]             = &graphics::Animation::m_looping;
-			animation_type["name"]                = &graphics::Animation::m_name;
-			animation_type["speed"]               = &graphics::Animation::m_speed;
-			animation_type["total_frames"]        = &graphics::Animation::m_total_frames;
-			animation_type["next_frame"]          = &graphics::Animation::next_frame;
-			animation_type["restart"]             = &graphics::Animation::restart;
-
 			auto font_type                = lua.new_usertype<graphics::Font>("Font", sol::constructors<graphics::Font(), graphics::Font(const std::string&)>());
 			font_type["build"]            = &graphics::Font::build;
 			font_type["get_text_size"]    = &graphics::Font::get_text_size;
@@ -566,14 +455,6 @@ namespace galaxy
 			font_type["load_mem"]         = sol::resolve<bool(unsigned char*, const unsigned int)>(&graphics::Font::load);
 			font_type["vertical_advance"] = &graphics::Font::vertical_advance;
 
-			auto particle_type      = lua.new_usertype<graphics::Particle>("Particle", sol::constructors<graphics::Particle()>());
-			particle_type["colour"] = &graphics::Particle::m_colour;
-			particle_type["life"]   = &graphics::Particle::m_life;
-			particle_type["pos"]    = &graphics::Particle::m_pos;
-			particle_type["scale"]  = &graphics::Particle::m_scale;
-			particle_type["vel"]    = &graphics::Particle::m_vel;
-
-			/* INPUT */
 			// clang-format off
 			lua.new_enum<input::InputMods>("InputMods",
 			{
@@ -716,7 +597,7 @@ namespace galaxy
 			// clang-format off
 			lua.new_enum<input::MouseButtons>("MouseButtons",
 			{
-                {"UNKNOWN", input::MouseButtons::UNKNOWN},
+				{"UNKNOWN", input::MouseButtons::UNKNOWN},
 				{"BTN_1", input::MouseButtons::BTN_1},
 				{"BTN_2", input::MouseButtons::BTN_2},
 				{"BTN_3", input::MouseButtons::BTN_3},
@@ -773,16 +654,6 @@ namespace galaxy
 			lua["galaxy_keyboard"]  = std::ref(window.get_input<input::Keyboard>());
 			lua["galaxy_mouse"]     = std::ref(window.get_input<input::Mouse>());
 
-			/* MAP */
-			auto tileanim_type   = lua.new_usertype<map::TileAnimation>("TileAnimation");
-			auto map_type        = lua.new_usertype<map::Map>("Map", sol::constructors<map::Map(), map::Map(const std::string&)>());
-			map_type["create"]   = &map::Map::create;
-			map_type["disable"]  = &map::Map::disable;
-			map_type["enable"]   = &map::Map::enable;
-			map_type["get_name"] = &map::Map::get_name;
-			map_type["load"]     = &map::Map::load;
-
-			/* MATH */
 			lua.set_function("normalize", &math::normalize<float>);
 			lua.set_function("encode_base64", &math::encode_base64);
 			lua.set_function("decode_base64", &math::decode_base64);
@@ -838,7 +709,6 @@ namespace galaxy
 			frect_type["get_top_left"] = &math::fRect::get_top_left;
 			frect_type["intersects"]   = &math::fRect::intersects;
 
-			/* MEDIA */
 			// clang-format off
 			lua.new_enum<media::SoundType>("SoundType",
 			{
@@ -966,7 +836,6 @@ namespace galaxy
 			video_type["get_time"]       = &media::Video::get_time;
 			video_type["build"]          = &media::Video::build;
 
-			/* META */
 			auto entt_anytype     = lua.new_usertype<entt::any>("EnttAny", sol::no_constructor);
 			entt_anytype["reset"] = &entt::any::reset;
 			entt_anytype["type"]  = &entt::any::type;
@@ -982,16 +851,14 @@ namespace galaxy
 			entitymeta_type["deserialize_entity"]  = &meta::EntityMeta::deserialize_entity;
 			entitymeta_type["get_type"]            = &meta::EntityMeta::get_type;
 
-			/* PLATFORM */
 			auto subprocess_type         = lua.new_usertype<platform::Subprocess>("Subprocess",
-                sol::constructors<platform::Subprocess(), platform::Subprocess(std::string_view, std::span<std::string> args)>());
+				sol::constructors<platform::Subprocess(), platform::Subprocess(std::string_view, std::span<std::string> args)>());
 			subprocess_type["alive"]     = &platform::Subprocess::alive;
 			subprocess_type["create"]    = &platform::Subprocess::create;
 			subprocess_type["destroy"]   = &platform::Subprocess::destroy;
 			subprocess_type["join"]      = &platform::Subprocess::join;
 			subprocess_type["terminate"] = &platform::Subprocess::terminate;
 
-			/* RESOURCE */
 			auto res_scripts_type     = lua.new_usertype<resource::Scripts>("Scripts", sol::no_constructor);
 			res_scripts_type["clear"] = &resource::Scripts::clear;
 			res_scripts_type["empty"] = &resource::Scripts::empty;
@@ -1006,14 +873,6 @@ namespace galaxy
 			fonts_type["has"]   = &resource::Fonts::has;
 			fonts_type["keys"]  = &resource::Fonts::keys;
 			fonts_type["size"]  = &resource::Fonts::size;
-
-			auto maps_type     = lua.new_usertype<resource::Maps>("Maps", sol::no_constructor);
-			maps_type["clear"] = &resource::Maps::clear;
-			maps_type["empty"] = &resource::Maps::empty;
-			maps_type["get"]   = &resource::Maps::get;
-			maps_type["has"]   = &resource::Maps::has;
-			maps_type["keys"]  = &resource::Maps::keys;
-			maps_type["size"]  = &resource::Maps::size;
 
 			auto soundCache_type     = lua.new_usertype<resource::SoundCache>("SoundCaches", sol::no_constructor);
 			soundCache_type["clear"] = &resource::SoundCache::clear;
@@ -1069,7 +928,6 @@ namespace galaxy
 			textureatlas_type["save"]     = &resource::TextureAtlas::save;
 			textureatlas_type["keys"]     = &resource::TextureAtlas::keys;
 
-			/* STATE */
 			auto scenemanager_type        = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
 			scenemanager_type["add"]      = &scene::SceneManager::add;
 			scenemanager_type["empty"]    = &scene::SceneManager::empty;
@@ -1096,20 +954,17 @@ namespace galaxy
 			scene_type["position_iterations"] = &scene::Scene::m_position_iterations;
 			scene_type["enabled"]             = &scene::Scene::m_enabled;
 
-			/* SCRIPTING */
 			auto script_type              = lua.new_usertype<lua::Script>("Script", sol::constructors<lua::Script()>());
 			script_type["load"]           = &lua::Script::load;
 			script_type["run"]            = &lua::Script::run;
 			script_type["run_and_return"] = &lua::Script::run_and_return;
 
-			/* UI */
 			auto nui_type             = lua.new_usertype<ui::NuklearUI>("NuklearUI", sol::no_constructor);
 			nui_type["ctx"]           = &ui::NuklearUI::ctx;
 			nui_type["disable_input"] = &ui::NuklearUI::disable_input;
 			nui_type["enable_input"]  = &ui::NuklearUI::enable_input;
 			nui_type["set_font"]      = &ui::NuklearUI::set_font;
 
-			/* UTILS */
 			auto guid_type         = lua.new_usertype<utils::Guid>("Guid", sol::constructors<utils::Guid()>());
 			guid_type["as_string"] = &utils::Guid::to_string;
 			guid_type["is_empty"]  = &utils::Guid::is_empty;
@@ -1119,7 +974,7 @@ namespace galaxy
 			lua.set("GALAXY_FLAG_BITSET_COUNT", GALAXY_FLAG_BITSET_COUNT);
 			lua.set("GAlAXY_UBO_CAMERA_INDEX", GAlAXY_UBO_CAMERA_INDEX);
 			lua.set("GAlAXY_UBO_R2D_INDEX", GAlAXY_UBO_R2D_INDEX);
-			lua.set("GALAXY_SSBO_LIGHTING_INDEX", GALAXY_SSBO_LIGHTING_INDEX);
+			lua.set("GALAXY_BUFFER_TEXTURE_INDEX", GALAXY_BUFFER_TEXTURE_INDEX);
 			lua.set("GALAXY_MIN_CAMERA_ZOOM", GALAXY_MIN_CAMERA_ZOOM);
 			lua.set("GALAXY_MAX_CAMERA_ZOOM", GALAXY_MAX_CAMERA_ZOOM);
 			lua.set("GALAXY_FONT_MSDF_RANGE", GALAXY_FONT_MSDF_RANGE);
@@ -1135,7 +990,6 @@ namespace galaxy
 			lua.set("GALAXY_SCRIPT_DIR", GALAXY_SCRIPT_DIR);
 			lua.set("GALAXY_SHADER_DIR", GALAXY_SHADER_DIR);
 			lua.set("GALAXY_TEXTURE_DIR", GALAXY_TEXTURE_DIR);
-			lua.set("GALAXY_ATLAS_DIR", GALAXY_ATLAS_DIR);
 			lua.set("GALAXY_LANG_DIR", GALAXY_LANG_DIR);
 			lua.set("GALAXY_PREFABS_DIR", GALAXY_PREFABS_DIR);
 			lua.set("GALAXY_MAPS_DIR", GALAXY_MAPS_DIR);
@@ -1149,6 +1003,7 @@ namespace galaxy
 			lua.set("GALAXY_BOX_TO_WORLD", GALAXY_BOX_TO_WORLD);
 
 			lua.set_function("galaxy_str_begins_with", &strutils::begins_with);
+			*/
 		}
 	} // namespace lua
 } // namespace galaxy

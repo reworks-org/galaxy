@@ -32,8 +32,8 @@ namespace galaxy
 			for (auto&& [entity, body, transform] : group.each())
 			{
 				const auto& pos = body.m_body->GetPosition();
-				transform.set_pos(pos.x * GALAXY_BOX_TO_WORLD, pos.y * GALAXY_BOX_TO_WORLD);
-				transform.set_rotation(glm::degrees(body.m_body->GetAngle()));
+				transform.m_tf.set_pos(pos.x * GALAXY_BOX_TO_WORLD, pos.y * GALAXY_BOX_TO_WORLD);
+				transform.m_tf.set_rotation(glm::degrees(body.m_body->GetAngle()));
 			}
 		}
 	} // namespace systems

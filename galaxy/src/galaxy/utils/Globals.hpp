@@ -38,7 +38,6 @@ namespace galaxy
 		inline static const std::string assets_script {"scripts/"};
 		inline static const std::string assets_shader {"shaders/"};
 		inline static const std::string assets_texture {"textures/"};
-		inline static const std::string assets_atlas {"atlas/"};
 		inline static const std::string assets_lang {"lang/"};
 		inline static const std::string assets_prefabs {"prefabs/"};
 		inline static const std::string assets_maps {"maps/"};
@@ -96,17 +95,12 @@ namespace galaxy
 ///
 /// Index of camera uniform buffer in shaders.
 ///
-#define GAlAXY_UBO_CAMERA_INDEX 0
+#define GAlAXY_BUFFER_CAMERA_INDEX 0
 
 ///
-/// Index of render 2d uniform buffer in shaders.
+/// Index of 2d uniform data in shaders.
 ///
-#define GAlAXY_UBO_R2D_INDEX 1
-
-///
-/// Index for SSBO light data.
-///
-#define GALAXY_SSBO_LIGHTING_INDEX 2
+#define GAlAXY_BUFFER_RENDERDATA_INDEX 1
 
 ///
 /// Minimum zoom allowed on orthographic camera.
@@ -203,11 +197,6 @@ namespace galaxy
 /// Texture asset location.
 ///
 #define GALAXY_TEXTURE_DIR galaxy::DoNotUseReferToMacros::assets_texture
-
-///
-/// Atlas asset location.
-///
-#define GALAXY_ATLAS_DIR galaxy::DoNotUseReferToMacros::assets_atlas
 
 ///
 /// Lang asset location.

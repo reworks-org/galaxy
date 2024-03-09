@@ -5,17 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <algorithm>
-
-#include <glm/gtc/type_ptr.hpp>
 #include <nlohmann/json.hpp>
 
-#include "galaxy/utils/Globals.hpp"
-
 #include "Transform.hpp"
-
-const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
-const constexpr auto rotation_vec    = glm::vec3 {0.0f, 0.0f, 1.0f};
 
 namespace galaxy
 {
@@ -23,19 +15,11 @@ namespace galaxy
 	{
 		Transform::Transform()
 			: Serializable {}
-			, m_pos {0.0f, 0.0f, 0.0f}
-			, m_rotation {0.0f}
-			, m_scale {1.0f, 1.0f}
-			, m_origin {0.0f, 0.0f, 0.0f}
 		{
 		}
 
 		Transform::Transform(const nlohmann::json& json)
 			: Serializable {}
-			, m_pos {0.0f, 0.0f, 0.0f}
-			, m_rotation {0.0f}
-			, m_scale {1.0f, 1.0f}
-			, m_origin {0.0f, 0.0f, 0.0f}
 		{
 			deserialize(json);
 		}
@@ -43,135 +27,50 @@ namespace galaxy
 		Transform::Transform(Transform&& t)
 			: Serializable {}
 		{
-			this->m_pos      = std::move(t.m_pos);
-			this->m_rotation = t.m_rotation;
-			this->m_scale    = std::move(t.m_scale);
-			this->m_origin   = std::move(t.m_origin);
 		}
 
 		Transform& Transform::operator=(Transform&& t)
 		{
 			if (this != &t)
 			{
-				this->m_pos      = std::move(t.m_pos);
-				this->m_rotation = t.m_rotation;
-				this->m_scale    = std::move(t.m_scale);
-				this->m_origin   = std::move(t.m_origin);
+				this->m_tf = std::move(t.m_tf);
 			}
 
 			return *this;
 		}
 
-		void Transform::translate(const float x, const float y)
+		Transform::~Transform()
 		{
-			m_pos.x += x;
-			m_pos.y += y;
-		}
-
-		void Transform::rotate(const float degrees)
-		{
-			m_rotation += degrees;
-			m_rotation  = std::clamp(m_rotation, 0.0f, 360.0f);
-		}
-
-		void Transform::set_scale(const float scale)
-		{
-			m_scale.x = scale;
-			m_scale.y = scale;
-		}
-
-		void Transform::set_scale_horizontal(const float x)
-		{
-			m_scale.x = x;
-		}
-
-		void Transform::set_scale_vertical(const float y)
-		{
-			m_scale.y = y;
-		}
-
-		void Transform::set_pos(const float x, const float y)
-		{
-			m_pos.x = x;
-			m_pos.y = y;
-		}
-
-		void Transform::set_rotation(const float degrees)
-		{
-			m_rotation = std::clamp(degrees, 0.0f, 360.0f);
-		}
-
-		void Transform::set_origin(const float x, const float y)
-		{
-			m_origin.x = x;
-			m_origin.y = y;
-		}
-
-		void Transform::reset()
-		{
-			m_pos      = {0.0f, 0.0f, 0.0f};
-			m_rotation = 0.0f;
-			m_scale    = {1.0f, 1.0f};
-		}
-
-		glm::vec2 Transform::get_pos()
-		{
-			return {m_pos.x, m_pos.y};
-		}
-
-		float Transform::get_rotation() const
-		{
-			return m_rotation;
-		}
-
-		const glm::vec2& Transform::get_scale() const
-		{
-			return m_scale;
-		}
-
-		glm::vec2 Transform::get_origin()
-		{
-			return {m_origin.x, m_origin.y};
-		}
-
-		glm::mat4 Transform::get_transform()
-		{
-			auto rotation = glm::translate(identity_matrix, m_origin);
-			rotation      = glm::rotate(rotation, glm::radians(m_rotation), rotation_vec);
-			rotation      = glm::translate(rotation, -m_origin);
-
-			auto scale = glm::translate(identity_matrix, m_origin);
-			scale      = glm::scale(scale, {m_scale, 1.0f});
-			scale      = glm::translate(scale, -m_origin);
-
-			return glm::translate(identity_matrix, m_pos) * rotation * scale;
 		}
 
 		nlohmann::json Transform::serialize()
 		{
 			nlohmann::json json = "{}"_json;
 
-			json["pos"]["x"]   = m_pos.x;
-			json["pos"]["y"]   = m_pos.y;
-			json["rotation"]   = m_rotation;
-			json["scale"]["x"] = m_scale.x;
-			json["scale"]["y"] = m_scale.y;
+			json["pos"]["x"]    = m_tf.get_pos().x;
+			json["pos"]["y"]    = m_tf.get_pos().y;
+			json["rotation"]    = m_tf.get_rotation();
+			json["scale"]["x"]  = m_tf.get_scale().x;
+			json["scale"]["y"]  = m_tf.get_scale().y;
+			json["origin"]["x"] = m_tf.get_origin().x;
+			json["origin"]["y"] = m_tf.get_origin().y;
 
 			return json;
 		}
 
 		void Transform::deserialize(const nlohmann::json& json)
 		{
-			reset();
-
 			const auto& pos = json.at("pos");
-			set_pos(pos.at("x"), pos.at("y"));
+			m_tf.set_pos(pos.at("x"), pos.at("y"));
 
-			rotate(json.at("rotation"));
+			m_tf.set_rotation(json.at("rotation"));
 
 			const auto& scale = json.at("scale");
-			set_scale_horizontal(scale.at("x"));
-			set_scale_vertical(scale.at("y"));
+			m_tf.set_scale_horizontal(scale.at("x"));
+			m_tf.set_scale_vertical(scale.at("y"));
+
+			const auto& origin = json.at("origin");
+			m_tf.set_origin(origin.at("x"), origin.at("y"));
 		}
 	} // namespace components
 } // namespace galaxy

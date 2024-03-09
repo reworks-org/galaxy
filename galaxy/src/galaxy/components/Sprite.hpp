@@ -9,35 +9,20 @@
 #define GALAXY_COMPONENTS_SPRITE_HPP_
 
 #include "galaxy/fs/Serializable.hpp"
-#include "galaxy/graphics/Renderable.hpp"
-#include "galaxy/graphics/VertexArray.hpp"
+#include "galaxy/graphics/Colour.hpp"
+#include "galaxy/graphics/gl/Texture2D.hpp"
+#include "galaxy/graphics/gl/VertexArray.hpp"
 #include "galaxy/math/Rect.hpp"
-
-namespace sc
-{
-	namespace panel
-	{
-		class EntityEditor;
-	} // namespace panel
-} // namespace sc
 
 namespace galaxy
 {
-	namespace systems
-	{
-		class RenderSystem;
-	} // namespace systems
-
 	namespace components
 	{
 		///
 		/// A sprite is a texture with vertex data.
 		///
-		class Sprite final : public fs::Serializable, public graphics::Renderable
+		class Sprite final : public fs::Serializable
 		{
-			friend class sc::panel::EntityEditor;
-			friend class systems::RenderSystem;
-
 		  public:
 			///
 			/// Constructor.
@@ -67,119 +52,26 @@ namespace galaxy
 			virtual ~Sprite();
 
 			///
-			/// Creates the internal vertex array.
-			///
-			/// \param texture Texture file in VFS.
-			/// \param layer Rendering layer.
-			/// \param opacity Opacity from 0.0f to 1.0f.
-			///
-			void create(const std::string& texture, const int layer, const float opacity);
-
-			///
-			/// Creates the internal vertex array.
-			///
-			/// \param texture Texture file in VFS.
-			/// \param texture_rect Custom region on a texture to render from.
-			/// \param layer Rendering layer.
-			/// \param opacity Opacity from 0.0f to 1.0f.
-			///
-			void create(const std::string& texture, const math::iRect& texture_rect, const int layer, const float opacity);
-
-			///
-			/// Updates texture and internal vertex array.
+			/// Sets the texture and vertex data.
 			///
 			/// \param texture Texture file in VFS.
 			///
-			void update(const std::string& texture);
+			void set_texture(const std::string& texture);
 
 			///
-			/// Updates texture and internal vertex array.
+			/// Sets the texture and vertex data.
 			///
 			/// \param texture Texture file in VFS.
-			/// \param texture_rect Custom region on a texture to render from.
+			/// \param rect Custom region on a texture to render from.
 			///
-			void update(const std::string& texture, const math::iRect& texture_rect);
+			void set_texture(const std::string& texture, const math::iRect& rect);
 
 			///
-			/// Set opacity.
+			/// Get texture.
 			///
-			/// \param opacity Opacity from 0.0f to 1.0f.
+			/// \return Pointer. DO NOT STORE THIS.
 			///
-			void set_opacity(const float opacity);
-
-			///
-			/// Get opacity.
-			///
-			/// \return float. In range 0.0f - 1.0f.
-			///
-			[[nodiscard]] float get_opacity() const;
-
-			///
-			/// \brief Get texture width.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Width as float.
-			///
-			[[nodiscard]] float get_width() const;
-
-			///
-			/// \brief Get texture height.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Height as float.
-			///
-			[[nodiscard]] float get_height() const;
-
-			///
-			/// Get texture ID in texture atlas.
-			///
-			/// \return Const string reference.
-			///
-			[[nodiscard]] const std::string& get_texture_name() const;
-
-			///
-			/// Number of instances to render.
-			///
-			/// \return Count for number of instances.
-			///
-			[[nodiscard]] int get_instances() const override;
-
-			///
-			/// Get OpenGL rendering mode.
-			///
-			/// \return Unsigned int.
-			///
-			[[nodiscard]] unsigned int get_mode() const override;
-
-			///
-			/// Get vertex array object.
-			///
-			/// \return VAO handle.
-			///
-			[[nodiscard]] unsigned int get_vao() const override;
-
-			///
-			/// Gets OpenGL texture id.
-			///
-			/// \return unsigned int. 0 if no texture.
-			///
-			[[nodiscard]] unsigned int get_texture() const override;
-
-			///
-			/// Get index (element) buffer count.
-			///
-			/// \return Unsigned int.
-			///
-			[[nodiscard]] unsigned int get_count() const override;
-
-			///
-			/// Get rendering layer.
-			///
-			/// \return Integer. 0 is valid as a layer. So are negatives.
-			///
-			[[nodiscard]] int get_layer() const override;
+			[[nodiscard]] graphics::Texture2D* get_texture();
 
 			///
 			/// Serializes object.
@@ -206,41 +98,27 @@ namespace galaxy
 			///
 			Sprite& operator=(const Sprite&) = delete;
 
-		  private:
+		  public:
 			///
 			/// Vertex Array Object.
 			///
 			graphics::VertexArray m_vao;
 
 			///
-			/// Texture Name.
+			/// Texture tint.
 			///
-			std::string m_tex_name;
+			graphics::Colour m_tint;
+
+		  private:
+			///
+			/// Texture.
+			///
+			std::shared_ptr<graphics::Texture2D> m_texture;
 
 			///
-			/// Sprite opacity.
+			/// Texture debug name.
 			///
-			float m_opacity;
-
-			///
-			/// Cached texture width.
-			///
-			float m_width;
-
-			///
-			/// Cached texture height.
-			///
-			float m_height;
-
-			///
-			/// Opengl texture id.
-			///
-			unsigned int m_tex_id;
-
-			///
-			/// Object z-level for drawing.
-			///
-			int m_layer;
+			std::string m_name;
 		};
 	} // namespace components
 } // namespace galaxy

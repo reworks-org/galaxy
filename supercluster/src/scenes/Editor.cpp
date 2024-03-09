@@ -58,25 +58,22 @@ namespace sc
 		}, config.get<int>("autosave_interval_seconds", "editor") * 1000);
 		// clang-format on
 
-		auto& fb           = m_framebuffer.get_framebuffer();
-		m_mousepick_buffer = fb.add_storage_attachment();
+		auto& fb = m_framebuffer.fbo();
+		fb.add_storage_attachment();
 		fb.create();
 
 		if (m_camera_btn.load("icons/camera.png"))
 		{
-			m_camera_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_camera_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_camera_btn.filter(graphics::TextureFilter::TRILINEAR);
 		}
 
 		if (m_editor_cam_btn.load("icons/video.png"))
 		{
-			m_editor_cam_btn.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_editor_cam_btn.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_editor_cam_btn.filter(graphics::TextureFilter::TRILINEAR);
 		}
 
-		m_nui      = &core::ServiceLocator<ui::NuklearUI>::ref();
-		m_window   = &core::ServiceLocator<core::Window>::ref();
-		m_renderer = &core::ServiceLocator<graphics::Renderer>::ref();
+		m_nui    = &core::ServiceLocator<ui::NuklearUI>::ref();
+		m_window = &core::ServiceLocator<core::Window>::ref();
 
 		auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
 		dispatcher.sink<events::WindowClosed>().connect<&on_window_close>();
@@ -145,9 +142,9 @@ namespace sc
 
 					if (mx >= 0 && my >= 0 && mx < size.x && my < size.y)
 					{
-						auto& fb = m_framebuffer.get_framebuffer();
+						auto& fb = m_framebuffer.fbo();
 
-						const auto entity = fb.read_storagebuffer(m_mousepick_buffer, static_cast<int>(mx), static_cast<int>(my));
+						const auto entity = fb.read_storagebuffer(mx, my);
 						if (entity == -1)
 						{
 							m_selected_entity.m_selected = entt::null;
@@ -156,7 +153,7 @@ namespace sc
 						else
 						{
 							m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
-							m_selected_entity.m_scene    = &m_project_sm.current().m_world;
+							// m_selected_entity.m_scene    = &m_project_sm.current().m_world;
 						}
 					}
 				}
@@ -357,16 +354,16 @@ namespace sc
 		static bool s_show_demo = false;
 
 		m_framebuffer.bind(true);
-		m_framebuffer.get_framebuffer().clear_storagebuffer(m_mousepick_buffer, -1);
+		m_framebuffer.fbo().clear_storagebuffer(-1);
 
 		if (!m_project_sm.empty())
 		{
 			if (m_stopped && m_editor_cam_enabled)
 			{
-				m_renderer->buffer_camera(m_editor_camera);
+				graphics::Renderer::ref().submit_camera(m_editor_camera);
 			}
 
-			m_renderer->draw();
+			graphics::Renderer::ref().draw();
 
 			m_nui->enable_input();
 			m_nui->new_frame();
@@ -375,8 +372,8 @@ namespace sc
 			m_nui->disable_input();
 		}
 
-		m_renderer->prepare_default();
-		m_renderer->clear();
+		graphics::Renderer::ref().begin_default();
+		graphics::Renderer::ref().clear_active();
 
 		ui::imgui_new_frame();
 

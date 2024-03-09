@@ -8,12 +8,7 @@
 #ifndef GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 #define GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 
-#include "galaxy/graphics/Render2DUniform.hpp"
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(26495)
-#endif
+#include "galaxy/graphics/RenderData.hpp"
 
 namespace galaxy
 {
@@ -25,50 +20,41 @@ namespace galaxy
 		struct RenderCommand final
 		{
 			///
-			/// Number of instances to render.
+			/// Layer to render on.
 			///
-			int instances;
+			int layer = 0;
 
 			///
-			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
+			/// Shader uniform data.
 			///
-			unsigned int mode;
-
-			///
-			/// Render2D shader uniform data block.
-			///
-			Render2DUniform uniform_data;
+			RenderData uniforms;
 
 			///
 			/// OpenGL vertex array object.
 			///
-			unsigned int m_vao;
+			unsigned int vao = 0;
 
 			///
-			/// OpenGL texture handle.
+			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
 			///
-			unsigned int m_texture;
+			unsigned int mode = 0;
 
 			///
 			/// OpenGL index (element) buffer count.
 			///
-			unsigned int m_index_count;
+			unsigned int count = 0;
 
 			///
-			/// Layer to render on.
+			/// Offset in vertex buffer marking beginning of element data.
 			///
-			int m_layer;
+			void* offset = nullptr;
 
 			///
-			/// Is this a particle?
+			/// Number of instances to render.
 			///
-			bool m_particle;
+			int instances = 1;
 		};
 	} // namespace graphics
 } // namespace galaxy
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_POP
-#endif
 
 #endif

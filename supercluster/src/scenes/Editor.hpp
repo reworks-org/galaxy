@@ -11,7 +11,6 @@
 #include <zip.h>
 
 #include <galaxy/async/Timer.hpp>
-#include <galaxy/graphics/Renderable.hpp>
 #include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/graphics/RenderTexture.hpp>
 #include <galaxy/platform/Subprocess.hpp>
@@ -101,9 +100,9 @@ namespace sc
 		std::array<glm::vec2, 2> m_viewport_bounds;
 		ImVec2                   m_imgui_mouse_delta = {0.0f, 0.0f};
 
-		graphics::Texture m_camera_btn;
-		graphics::Texture m_editor_cam_btn;
-		graphics::Camera  m_editor_camera;
+		graphics::Texture2D m_camera_btn;
+		graphics::Texture2D m_editor_cam_btn;
+		graphics::Camera    m_editor_camera;
 
 		std::string m_current_project_path;
 
@@ -113,9 +112,8 @@ namespace sc
 		unsigned int m_mousepick_buffer;
 		Selected     m_selected_entity;
 
-		ui::NuklearUI*      m_nui;
-		core::Window*       m_window;
-		graphics::Renderer* m_renderer;
+		ui::NuklearUI* m_nui;
+		core::Window*  m_window;
 	};
 } // namespace sc
 

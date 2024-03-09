@@ -21,80 +21,163 @@ namespace galaxy
 	namespace graphics
 	{
 		Colour::Colour()
-			: m_red {255}
-			, m_green {255}
-			, m_blue {255}
-			, m_alpha {255}
+			: m_array {255, 255, 255, 255}
+			, m_vec4 {1.0f, 1.0f, 1.0f, 1.0f}
 		{
 		}
 
-		Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a)
-			: m_red {r}
-			, m_green {g}
-			, m_blue {b}
-			, m_alpha {a}
+		Colour::Colour(Colour&& c)
 		{
+			this->m_array = std::move(c.m_array);
+			this->m_vec4  = std::move(c.m_vec4);
+		}
+
+		Colour::Colour(const Colour& c)
+		{
+			this->m_array = c.m_array;
+			this->m_vec4  = c.m_vec4;
+		}
+
+		Colour& Colour::operator=(Colour&& c)
+		{
+			if (this != &c)
+			{
+				this->m_array = std::move(c.m_array);
+				this->m_vec4  = std::move(c.m_vec4);
+			}
+
+			return *this;
+		}
+
+		Colour& Colour::operator=(const Colour& c)
+		{
+			if (this != &c)
+			{
+				this->m_array = c.m_array;
+				this->m_vec4  = c.m_vec4;
+			}
+
+			return *this;
 		}
 
 		Colour::~Colour()
 		{
 		}
 
-		void Colour::set_from_normalized(const float r, const float g, const float b, const float a)
+		void Colour::r(const std::uint8_t r)
 		{
-			m_red   = static_cast<std::uint8_t>(std::clamp(r, 0.0f, 1.0f) * COLOUR_OFFSET);
-			m_green = static_cast<std::uint8_t>(std::clamp(g, 0.0f, 1.0f) * COLOUR_OFFSET);
-			m_blue  = static_cast<std::uint8_t>(std::clamp(b, 0.0f, 1.0f) * COLOUR_OFFSET);
-			m_alpha = static_cast<std::uint8_t>(std::clamp(a, 0.0f, 1.0f) * COLOUR_OFFSET);
+			m_array[0] = r;
+
+			if (r == 255)
+			{
+				m_vec4.x = 1.0f;
+			}
+			else if (r == 0)
+			{
+				m_vec4.x = 0.0f;
+			}
+			else
+			{
+				m_vec4.x = static_cast<float>(r) / COLOUR_OFFSET;
+			}
 		}
 
-		std::array<float, 4> Colour::to_array()
+		void Colour::r(const float r)
 		{
-			float r = 0.0f, g = 0.0f, b = 0.0f, a = 0.0f;
-
-			if (m_red == 255)
-			{
-				r = 1.0f;
-			}
-			else if (m_red != 0)
-			{
-				r = static_cast<float>(m_red) / COLOUR_OFFSET;
-			}
-
-			if (m_green == 255)
-			{
-				g = 1.0f;
-			}
-			else if (m_green != 0)
-			{
-				g = static_cast<float>(m_green) / COLOUR_OFFSET;
-			}
-
-			if (m_blue == 255)
-			{
-				b = 1.0f;
-			}
-			else if (m_blue != 0)
-			{
-				b = static_cast<float>(m_blue) / COLOUR_OFFSET;
-			}
-
-			if (m_alpha == 255)
-			{
-				a = 1.0f;
-			}
-			else if (m_alpha != 0)
-			{
-				a = static_cast<float>(m_alpha) / COLOUR_OFFSET;
-			}
-
-			return {r, g, b, a};
+			m_vec4.x   = std::clamp(r, 0.0f, 1.0f);
+			m_array[0] = static_cast<std::uint8_t>(m_vec4.x * COLOUR_OFFSET);
 		}
 
-		glm::vec4 Colour::to_vec4()
+		void Colour::g(const std::uint8_t g)
 		{
-			const auto arr = to_array();
-			return {arr[0], arr[1], arr[2], arr[3]};
+			m_array[1] = g;
+
+			if (g == 255)
+			{
+				m_vec4.y = 1.0f;
+			}
+			else if (g == 0)
+			{
+				m_vec4.y = 0.0f;
+			}
+			else
+			{
+				m_vec4.y = static_cast<float>(g) / COLOUR_OFFSET;
+			}
+		}
+
+		void Colour::g(const float g)
+		{
+			m_vec4.y   = std::clamp(g, 0.0f, 1.0f);
+			m_array[1] = static_cast<std::uint8_t>(m_vec4.y * COLOUR_OFFSET);
+		}
+
+		void Colour::b(const std::uint8_t b)
+		{
+			m_array[2] = b;
+
+			if (b == 255)
+			{
+				m_vec4.z = 1.0f;
+			}
+			else if (b == 0)
+			{
+				m_vec4.z = 0.0f;
+			}
+			else
+			{
+				m_vec4.z = static_cast<float>(b) / COLOUR_OFFSET;
+			}
+		}
+
+		void Colour::b(const float b)
+		{
+			m_vec4.z   = std::clamp(b, 0.0f, 1.0f);
+			m_array[2] = static_cast<std::uint8_t>(m_vec4.z * COLOUR_OFFSET);
+		}
+
+		void Colour::a(const std::uint8_t a)
+		{
+			m_array[3] = a;
+
+			if (a == 255)
+			{
+				m_vec4.w = 1.0f;
+			}
+			else if (a == 0)
+			{
+				m_vec4.w = 0.0f;
+			}
+			else
+			{
+				m_vec4.w = static_cast<float>(a) / COLOUR_OFFSET;
+			}
+		}
+
+		void Colour::a(const float a)
+		{
+			m_vec4.w   = std::clamp(a, 0.0f, 1.0f);
+			m_array[3] = static_cast<std::uint8_t>(m_vec4.w * COLOUR_OFFSET);
+		}
+
+		std::array<std::uint8_t, 4>& Colour::array()
+		{
+			return m_array;
+		}
+
+		glm::vec4& Colour::vec4()
+		{
+			return m_vec4;
+		}
+
+		const std::array<std::uint8_t, 4>& Colour::array() const
+		{
+			return m_array;
+		}
+
+		const glm::vec4& Colour::vec4() const
+		{
+			return m_vec4;
 		}
 	} // namespace graphics
 } // namespace galaxy

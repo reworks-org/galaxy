@@ -8,7 +8,7 @@
 #ifndef GALAXY_RESOURCE_FONTS_HPP_
 #define GALAXY_RESOURCE_FONTS_HPP_
 
-#include "galaxy/graphics/Font.hpp"
+#include "galaxy/graphics/text/Font.hpp"
 #include "galaxy/resource/Cache.hpp"
 #include "galaxy/resource/Loader.hpp"
 

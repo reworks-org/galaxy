@@ -24,8 +24,7 @@ namespace sc
 	{
 		if (m_bg.load("sc.png"))
 		{
-			m_bg.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-			m_bg.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+			m_bg.filter(graphics::TextureFilter::TRILINEAR);
 		}
 	}
 

@@ -36,22 +36,31 @@ namespace galaxy
 			///
 			inline static const constexpr std::uint8_t TRANSPARENT = 0;
 
+		  public:
 			///
-			/// \brief Constructor.
-			///
-			/// Defaults to White.
+			/// Constructor.
 			///
 			Colour();
 
 			///
-			/// Argument Constructor.
+			/// Move constructor.
 			///
-			/// \param r Red.
-			/// \param g Green.
-			/// \param b Blue.
-			/// \param a Alpha level. Defaults to Opaque (255).
+			Colour(Colour&&);
+
 			///
-			Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a = OPAQUE);
+			/// Copy constructor.
+			///
+			Colour(const Colour&);
+
+			///
+			/// Move assignment operator.
+			///
+			Colour& operator=(Colour&&);
+
+			///
+			/// Copy assignment operator.
+			///
+			Colour& operator=(const Colour&);
 
 			///
 			/// Destructor.
@@ -59,60 +68,197 @@ namespace galaxy
 			~Colour();
 
 			///
-			/// \brief Set using normalized values.
+			/// Red.
 			///
-			/// Clamped between 0 and 1.
+			/// \param r 0 - 255.
 			///
-			/// \param r Red.
-			/// \param g Green.
-			/// \param b Blue.
-			/// \param a Alpha level. Defaults to Opaque (1.0f).
-			///
-			void set_from_normalized(const float r, const float g, const float b, const float a = 1.0f);
+			void r(const std::uint8_t r);
 
 			///
-			/// \brief Normalizes values and returns as floats.
+			/// Red.
 			///
-			/// Floats are in range 0.0f - 1.0f.
+			/// \param r 0 - 1.
 			///
-			/// \return Array of floats.
-			///
-			[[nodiscard]] std::array<float, 4> to_array();
+			void r(const float r);
 
-			// \brief Normalizes values and returns as floats.
 			///
-			/// Floats are in range 0.0f - 1.0f.
+			/// Green.
 			///
-			/// \return Vec4.
+			/// \param g 0 - 255.
 			///
-			[[nodiscard]] glm::vec4 to_vec4();
+			void g(const std::uint8_t g);
+
+			///
+			/// Green.
+			///
+			/// \param g 0 - 1.
+			///
+			void g(const float g);
+
+			///
+			/// Blue.
+			///
+			/// \param b 0 - 255.
+			///
+			void b(const std::uint8_t b);
+
+			///
+			/// Blue.
+			///
+			/// \param b 0 - 1.
+			///
+			void b(const float b);
+
+			///
+			/// Alpha.
+			///
+			/// \param a 0 - 255.
+			///
+			void a(const std::uint8_t a);
+
+			///
+			/// Alpha.
+			///
+			/// \param a 0 - 1.
+			///
+			void a(const float a);
+
+			///
+			/// Get red.
+			///
+			/// \tparam R Determines return value.
+			///
+			/// \return Int for 0 - 255, Float for 0 - 1.
+			///
+			template<typename R>
+			requires std::is_same_v<std::uint8_t, R> || std::is_same_v<float, R>
+			R r() const;
+
+			///
+			/// Get green.
+			///
+			/// \tparam G Determines return value.
+			///
+			/// \return Int for 0 - 255, Float for 0 - 1.
+			///
+			template<typename G>
+			requires std::is_same_v<std::uint8_t, G> || std::is_same_v<float, G>
+			G g() const;
+
+			///
+			/// Get blue.
+			///
+			/// \tparam B Determines return value.
+			///
+			/// \return Int for 0 - 255, Float for 0 - 1.
+			///
+			template<typename B>
+			requires std::is_same_v<std::uint8_t, B> || std::is_same_v<float, B>
+			B b() const;
+
+			///
+			/// Get alpha.
+			///
+			/// \tparam A Determines return value.
+			///
+			/// \return Int for 0 - 255, Float for 0 - 1.
+			///
+			template<typename A>
+			requires std::is_same_v<std::uint8_t, A> || std::is_same_v<float, A>
+			A a() const;
+
+			///
+			/// Get integer array.
+			///
+			/// \return Integers 0 - 255.
+			///
+			[[nodiscard]] std::array<std::uint8_t, 4>& array();
+
+			///
+			/// Get vec4.
+			///
+			/// \return Floats 0 - 1.
+			///
+			[[nodiscard]] glm::vec4& vec4();
+
+			///
+			/// Get const integer array.
+			///
+			/// \return Integers 0 - 255.
+			///
+			[[nodiscard]] const std::array<std::uint8_t, 4>& array() const;
+
+			///
+			/// Get const vec4.
+			///
+			/// \return Floats 0 - 1.
+			///
+			[[nodiscard]] const glm::vec4& vec4() const;
 
 			///
 			/// Comparison operator.
 			///
 			[[nodiscard]] auto operator<=>(const Colour&) const = default;
 
-		  public:
+		  private:
 			///
-			/// Red.
+			/// r,g,b,a = 0,1,2,3.
 			///
-			std::uint8_t m_red;
+			std::array<std::uint8_t, 4> m_array;
 
 			///
-			/// Green.
+			/// r,g,b,a = x,y,z,w.
 			///
-			std::uint8_t m_green;
-
-			///
-			/// Blue.
-			///
-			std::uint8_t m_blue;
-
-			///
-			/// Alpha.
-			///
-			std::uint8_t m_alpha;
+			glm::vec4 m_vec4;
 		};
+
+		template<>
+		inline float Colour::r() const
+		{
+			return m_vec4.x;
+		}
+
+		template<>
+		inline std::uint8_t Colour::r() const
+		{
+			return m_array[0];
+		}
+
+		template<>
+		inline float Colour::g() const
+		{
+			return m_vec4.y;
+		}
+
+		template<>
+		inline std::uint8_t Colour::g() const
+		{
+			return m_array[1];
+		}
+
+		template<>
+		inline float Colour::b() const
+		{
+			return m_vec4.z;
+		}
+
+		template<>
+		inline std::uint8_t Colour::b() const
+		{
+			return m_array[2];
+		}
+
+		template<>
+		inline float Colour::a() const
+		{
+			return m_vec4.w;
+		}
+
+		template<>
+		inline std::uint8_t Colour::a() const
+		{
+			return m_array[3];
+		}
 	} // namespace graphics
 } // namespace galaxy
 

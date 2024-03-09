@@ -8,8 +8,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/Primitives.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/Textures.hpp"
 
 #include "Sprite.hpp"
 
@@ -19,11 +18,6 @@ namespace galaxy
 	{
 		Sprite::Sprite()
 			: Serializable {}
-			, m_opacity {1.0f}
-			, m_width {0.0f}
-			, m_height {0.0f}
-			, m_tex_id {0}
-			, m_layer {0}
 		{
 		}
 
@@ -36,30 +30,24 @@ namespace galaxy
 		Sprite::Sprite(Sprite&& s)
 			: Serializable {}
 		{
-			this->m_vao      = std::move(s.m_vao);
-			this->m_tex_name = std::move(s.m_tex_name);
-			this->m_opacity  = s.m_opacity;
-			this->m_width    = s.m_width;
-			this->m_height   = s.m_height;
-			this->m_tex_id   = s.m_tex_id;
-			this->m_layer    = s.m_layer;
+			this->m_texture = s.m_texture;
+			this->m_vao     = std::move(s.m_vao);
+			this->m_tint    = std::move(s.m_tint);
+			this->m_name    = std::move(s.m_name);
 
-			s.m_tex_id = 0;
+			s.m_texture = nullptr;
 		}
 
 		Sprite& Sprite::operator=(Sprite&& s)
 		{
 			if (this != &s)
 			{
-				this->m_vao      = std::move(s.m_vao);
-				this->m_tex_name = std::move(s.m_tex_name);
-				this->m_opacity  = s.m_opacity;
-				this->m_width    = s.m_width;
-				this->m_height   = s.m_height;
-				this->m_tex_id   = s.m_tex_id;
-				this->m_layer    = s.m_layer;
+				this->m_texture = s.m_texture;
+				this->m_vao     = std::move(s.m_vao);
+				this->m_tint    = std::move(s.m_tint);
+				this->m_name    = std::move(s.m_name);
 
-				s.m_tex_id = 0;
+				s.m_texture = nullptr;
 			}
 
 			return *this;
@@ -69,37 +57,20 @@ namespace galaxy
 		{
 		}
 
-		void Sprite::create(const std::string& texture, const int layer, const float opacity)
+		void Sprite::set_texture(const std::string& texture)
 		{
-			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
+			auto& cache = core::ServiceLocator<resource::Textures>::ref();
+			auto  tex   = cache.get(texture);
 
-			const auto info_opt = atlas.query(texture);
-			if (info_opt.has_value())
+			if (tex)
 			{
-				const auto& info = info_opt.value().get();
+				m_name    = texture;
+				m_texture = tex;
 
-				m_tex_name = texture;
-				m_opacity  = std::clamp(opacity, 0.0f, 1.0f);
-				m_width    = static_cast<float>(info.m_region.width);
-				m_height   = static_cast<float>(info.m_region.height);
-				m_layer    = layer;
-				m_tex_id   = info.m_handle;
+				auto vertices = graphics::gen_quad_vertices(m_texture->width(), m_texture->height());
+				auto indices  = graphics::gen_default_indices();
 
-				std::array<graphics::Vertex, 4> vertices;
-
-				vertices[0].m_pos    = {0.0f, 0.0f};
-				vertices[0].m_texels = info.m_texel_region.ul_texels();
-
-				vertices[1].m_pos    = {m_width, 0.0f};
-				vertices[1].m_texels = info.m_texel_region.ur_texels();
-
-				vertices[2].m_pos    = {m_width, m_height};
-				vertices[2].m_texels = info.m_texel_region.br_texels();
-
-				vertices[3].m_pos    = {0.0f, m_height};
-				vertices[3].m_texels = info.m_texel_region.bl_texels();
-
-				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+				m_vao.buffer(vertices, indices);
 			}
 			else
 			{
@@ -107,44 +78,41 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::create(const std::string& texture, const math::iRect& texture_rect, const int layer, const float opacity)
+		void Sprite::set_texture(const std::string& texture, const math::iRect& rect)
 		{
-			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
+			auto& cache = core::ServiceLocator<resource::Textures>::ref();
+			auto  tex   = cache.get(texture);
 
-			const auto info_opt = atlas.query(texture);
-			if (info_opt.has_value())
+			if (tex)
 			{
-				const auto& info = info_opt.value().get();
+				m_name    = texture;
+				m_texture = tex;
 
-				m_tex_name = texture;
-				m_opacity  = std::clamp(opacity, 0.0f, 1.0f);
-				m_width    = static_cast<float>(info.m_region.width);
-				m_height   = static_cast<float>(info.m_region.height);
-				m_layer    = layer;
-				m_tex_id   = info.m_handle;
+				// clang-format off
+				std::array<graphics::Vertex, 4> vertices = 
+				{
+					graphics::Vertex {.m_pos = glm::vec2 {0.0f, 0.0f}},
+					graphics::Vertex {.m_pos = glm::vec2 {m_texture->width(), 0.0f}},
+					graphics::Vertex {.m_pos = glm::vec2 {m_texture->width(), m_texture->height()}},
+					graphics::Vertex {.m_pos = glm::vec2 {0.0f, m_texture->height()}}
+				};
+				// clang-format on
 
-				std::array<graphics::Vertex, 4> vertices;
+				vertices[0].m_texels.x = graphics::map_x_texel(rect.x, m_texture->width());
+				vertices[0].m_texels.y = graphics::map_y_texel(rect.y, m_texture->height());
 
-				const auto off_x = info.m_region.x + texture_rect.x;
-				const auto off_y = info.m_region.y + texture_rect.y;
+				vertices[1].m_texels.x = graphics::map_x_texel(rect.x + rect.width, m_texture->width());
+				vertices[1].m_texels.y = graphics::map_y_texel(rect.y, m_texture->height());
 
-				vertices[0].m_pos      = {0.0f, 0.0f};
-				vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
-				vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
+				vertices[2].m_texels.x = graphics::map_x_texel(rect.x + rect.width, m_texture->width());
+				vertices[2].m_texels.y = graphics::map_y_texel(rect.y + rect.height, m_texture->height());
 
-				vertices[1].m_pos      = {m_width, 0.0f};
-				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
-				vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
+				vertices[3].m_texels.x = graphics::map_x_texel(rect.x, m_texture->width());
+				vertices[3].m_texels.y = graphics::map_y_texel(rect.y + rect.height, m_texture->height());
 
-				vertices[2].m_pos      = {m_width, m_height};
-				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
-				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
+				auto indices = graphics::gen_default_indices();
 
-				vertices[3].m_pos      = {0.0f, m_height};
-				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
-				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
-
-				m_vao.create(vertices, graphics::StorageFlag::STATIC_DRAW, graphics::Vertex::get_default_indices(), graphics::StorageFlag::STATIC_DRAW);
+				m_vao.buffer(vertices, indices);
 			}
 			else
 			{
@@ -152,153 +120,32 @@ namespace galaxy
 			}
 		}
 
-		void Sprite::update(const std::string& texture)
+		graphics::Texture2D* Sprite::get_texture()
 		{
-			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
-
-			const auto info_opt = atlas.query(texture);
-			if (info_opt.has_value())
-			{
-				const auto& info = info_opt.value().get();
-
-				m_tex_name = texture;
-				m_width    = static_cast<float>(info.m_region.width);
-				m_height   = static_cast<float>(info.m_region.height);
-				m_tex_id   = info.m_handle;
-
-				std::array<graphics::Vertex, 4> vertices;
-
-				vertices[0].m_pos    = {0.0f, 0.0f};
-				vertices[0].m_texels = info.m_texel_region.ul_texels();
-
-				vertices[1].m_pos    = {m_width, 0.0f};
-				vertices[1].m_texels = info.m_texel_region.ur_texels();
-
-				vertices[2].m_pos    = {m_width, m_height};
-				vertices[2].m_texels = info.m_texel_region.br_texels();
-
-				vertices[3].m_pos    = {0.0f, m_height};
-				vertices[3].m_texels = info.m_texel_region.bl_texels();
-
-				m_vao.sub_buffer(0, vertices);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture atlas for '{0}'.", texture);
-			}
-		}
-
-		void Sprite::update(const std::string& texture, const math::iRect& texture_rect)
-		{
-			auto& atlas = core::ServiceLocator<resource::TextureAtlas>::ref();
-
-			const auto info_opt = atlas.query(texture);
-			if (info_opt.has_value())
-			{
-				const auto& info = info_opt.value().get();
-
-				m_tex_name = texture;
-				m_width    = static_cast<float>(info.m_region.width);
-				m_height   = static_cast<float>(info.m_region.height);
-				m_tex_id   = info.m_handle;
-
-				std::array<graphics::Vertex, 4> vertices;
-
-				const auto off_x = info.m_region.x + texture_rect.x;
-				const auto off_y = info.m_region.y + texture_rect.y;
-
-				vertices[0].m_pos      = {0.0f, 0.0f};
-				vertices[0].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
-				vertices[0].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
-
-				vertices[1].m_pos      = {m_width, 0.0f};
-				vertices[1].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
-				vertices[1].m_texels.y = resource::TextureAtlas::map_y_texel(off_y, info.m_sheet_height);
-
-				vertices[2].m_pos      = {m_width, m_height};
-				vertices[2].m_texels.x = resource::TextureAtlas::map_x_texel(off_x + texture_rect.width, info.m_sheet_width);
-				vertices[2].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
-
-				vertices[3].m_pos      = {0.0f, m_height};
-				vertices[3].m_texels.x = resource::TextureAtlas::map_x_texel(off_x, info.m_sheet_width);
-				vertices[3].m_texels.y = resource::TextureAtlas::map_y_texel(off_y + texture_rect.height, info.m_sheet_height);
-
-				m_vao.sub_buffer(0, vertices);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture atlas for '{0}'.", texture);
-			}
-		}
-
-		void Sprite::set_opacity(const float opacity)
-		{
-			m_opacity = std::clamp(opacity, 0.0f, 1.0f);
-		}
-
-		float Sprite::get_opacity() const
-		{
-			return m_opacity;
-		}
-
-		float Sprite::get_width() const
-		{
-			return m_width;
-		}
-
-		float Sprite::get_height() const
-		{
-			return m_height;
-		}
-
-		const std::string& Sprite::get_texture_name() const
-		{
-			return m_tex_name;
-		}
-
-		int Sprite::get_instances() const
-		{
-			return 1;
-		}
-
-		unsigned int Sprite::get_mode() const
-		{
-			return graphics::primitive_to_gl(graphics::Primitives::TRIANGLE);
-		}
-
-		unsigned int Sprite::get_vao() const
-		{
-			return m_vao.id();
-		}
-
-		unsigned int Sprite::get_texture() const
-		{
-			return m_tex_id;
-		}
-
-		unsigned int Sprite::get_count() const
-		{
-			return m_vao.index_count();
-		}
-
-		int Sprite::get_layer() const
-		{
-			return m_layer;
+			return m_texture.get();
 		}
 
 		nlohmann::json Sprite::serialize()
 		{
 			nlohmann::json json = "{}"_json;
-			json["texture"]     = m_tex_name;
-			json["opacity"]     = m_opacity;
-			json["layer"]       = m_layer;
+			json["texture"]     = m_name;
+			json["tint"]["r"]   = m_tint.r<std::uint8_t>();
+			json["tint"]["g"]   = m_tint.g<std::uint8_t>();
+			json["tint"]["b"]   = m_tint.b<std::uint8_t>();
+			json["tint"]["a"]   = m_tint.a<std::uint8_t>();
 
 			return json;
 		}
 
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
-			create(json.at("texture"), json.at("layer"), json.at("opacity"));
+			const auto& tint = json.at("tint");
+			m_tint.r(tint.at("r").get<std::uint8_t>());
+			m_tint.g(tint.at("g").get<std::uint8_t>());
+			m_tint.b(tint.at("b").get<std::uint8_t>());
+			m_tint.a(tint.at("a").get<std::uint8_t>());
+
+			set_texture(json.at("texture"));
 		}
 	} // namespace components
 } // namespace galaxy

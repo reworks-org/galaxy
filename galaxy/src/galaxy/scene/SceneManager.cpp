@@ -9,6 +9,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/ZLib.hpp"
 #include "galaxy/scripting/JSON.hpp"
@@ -152,6 +153,8 @@ namespace galaxy
 
 		void SceneManager::render()
 		{
+			graphics::Renderer::ref().begin_post();
+
 			for (auto&& scene : m_order)
 			{
 				if (scene->m_enabled)
@@ -159,6 +162,11 @@ namespace galaxy
 					scene->render();
 				}
 			}
+
+			graphics::Renderer::ref().end_post();
+			graphics::Renderer::ref().begin_default();
+			graphics::Renderer::ref().render_post();
+			graphics::Renderer::ref().end_default();
 		}
 
 		void SceneManager::update_ui()

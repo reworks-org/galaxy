@@ -50,32 +50,27 @@ namespace sc
 
 			if (m_backward.load("icons/backward.png"))
 			{
-				m_backward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_backward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_backward.filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_file.load("icons/file.png"))
 			{
-				m_file.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_file.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_file.filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_folder.load("icons/folder.png"))
 			{
-				m_folder.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_folder.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_folder.filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_forward.load("icons/forward.png"))
 			{
-				m_forward.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_forward.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_forward.filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_refresh.load("icons/reload.png"))
 			{
-				m_refresh.set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_refresh.set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_refresh.filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			m_ext_map.emplace(".ogg", FileType::AUDIO);
@@ -110,62 +105,52 @@ namespace sc
 
 			if (m_tex_map[FileType::AUDIO].load("icons/audio.png"))
 			{
-				m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::AUDIO].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::AUDIO].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::FONT].load("icons/font.png"))
 			{
-				m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::FONT].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::FONT].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::SHADER].load("icons/glsl.png"))
 			{
-				m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::SHADER].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::SHADER].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::JSON].load("icons/json.png"))
 			{
-				m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::JSON].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::JSON].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::LANG].load("icons/lang.png"))
 			{
-				m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::LANG].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::LANG].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::LUA].load("icons/lua.png"))
 			{
-				m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::LUA].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::LUA].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::PROJ].load("icons/proj.png"))
 			{
-				m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::PROJ].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::PROJ].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::TEXTURE].load("icons/texture.png"))
 			{
-				m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::TEXTURE].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::TEXTURE].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::MAP].load("icons/map.png"))
 			{
-				m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::MAP].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::MAP].filter(graphics::TextureFilter::TRILINEAR);
 			}
 
 			if (m_tex_map[FileType::PREFAB].load("icons/prefab.png"))
 			{
-				m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MIN_TRILINEAR);
-				m_tex_map[FileType::PREFAB].set_filter(graphics::TextureFilters::MAG_TRILINEAR);
+				m_tex_map[FileType::PREFAB].filter(graphics::TextureFilter::TRILINEAR);
 			}
 		}
 
@@ -528,7 +513,7 @@ namespace sc
 
 					if (ImGui::Begin("Preview", &m_open_preview, s_flags))
 					{
-						ui::imgui_image(m_preview, {m_preview.get_widthf(), m_preview.get_heightf()});
+						ui::imgui_image(m_preview, {m_preview.width(), m_preview.height()});
 					}
 
 					ImGui::End();

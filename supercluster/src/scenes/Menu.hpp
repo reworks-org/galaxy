@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_LAYERS_MENU_HPP_
 #define SUPERCLUSTER_LAYERS_MENU_HPP_
 
-#include <galaxy/graphics/Texture.hpp>
+#include <galaxy/graphics/gl/Texture2D.hpp>
 #include <galaxy/scene/Scene.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -31,8 +31,8 @@ namespace sc
 		void load_project();
 
 	  private:
-		graphics::Texture m_bg;
-		bool              m_load;
+		graphics::Texture2D m_bg;
+		bool                m_load;
 	};
 } // namespace sc
 

@@ -8,7 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_LogConsole_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_LogConsole_HPP_
 
-#include <galaxy/graphics/Texture.hpp>
+#include <galaxy/graphics/gl/Texture2D.hpp>
 
 #include "editor/EditorSink.hpp"
 

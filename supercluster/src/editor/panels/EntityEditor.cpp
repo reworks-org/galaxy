@@ -9,17 +9,12 @@
 #include <imgui_stdlib.h>
 #include <magic_enum/magic_enum.hpp>
 
-#include <galaxy/components/Animated.hpp>
-#include <galaxy/components/MapData.hpp>
-#include <galaxy/components/ParticleGenerator.hpp>
-#include <galaxy/components/Primitive.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
 #include <galaxy/components/Tag.hpp>
 #include <galaxy/components/Text.hpp>
 #include <galaxy/components/Transform.hpp>
-#include <galaxy/components/UIScript.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 #include <galaxy/flags/DenySerialization.hpp>
@@ -27,7 +22,6 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/Fonts.hpp>
 #include <galaxy/resource/Shaders.hpp>
-#include <galaxy/resource/TextureAtlas.hpp>
 #include <galaxy/scene/Scene.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -39,8 +33,6 @@ namespace sc
 {
 	namespace panel
 	{
-		static constexpr const auto s_types = magic_enum::enum_names<math::Shape>();
-
 		void EntityEditor::render(Selected& selected, UpdateStack& updates)
 		{
 			static const meta::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
@@ -133,22 +125,22 @@ namespace sc
 
 					if (ImGui::BeginPopup("AddNewComponent"))
 					{
-						draw_entry<components::Animated>(selected, "Animated");
-						draw_entry<components::ParticleGenerator>(selected, "ParticleGenerator");
-						draw_entry<components::Primitive>(selected, "Primitive");
+						// draw_entry<components::Animated>(selected, "Animated");
+						// draw_entry<components::ParticleGenerator>(selected, "ParticleGenerator");
+						// draw_entry<components::Primitive>(selected, "Primitive");
 						draw_entry<components::RigidBody>(selected, "RigidBody");
 						draw_entry<components::Script>(selected, "Script");
 						draw_entry<components::Sprite>(selected, "Sprite");
 						draw_entry<components::Tag>(selected, "Tag");
 						draw_entry<components::Text>(selected, "Text");
 						draw_entry<components::Transform>(selected, "Transform");
-						draw_entry<components::UIScript>(selected, "UIScript");
+						// draw_entry<components::UIScript>(selected, "UIScript");
 
 						ImGui::EndPopup();
 					}
 
 					ImGui::PopItemWidth();
-
+					/*
 					draw_component<components::Animated>(selected, "Animated", [](components::Animated* animated) {
 						if (animated->is_paused())
 						{
@@ -1027,7 +1019,7 @@ namespace sc
 
 						ImGui::Text("Loaded file: %s", ui->file().c_str());
 					});
-
+					*/
 					ImGui::PopID();
 				}
 			}

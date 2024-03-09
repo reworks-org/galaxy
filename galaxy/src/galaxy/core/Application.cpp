@@ -7,17 +7,19 @@
 
 #include <BS_thread_pool.hpp>
 
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/MapData.hpp"
-#include "galaxy/components/ParticleGenerator.hpp"
-#include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
+#include "galaxy/components/GUI.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/Polyline.hpp"
+#include "galaxy/components/RenderCommand.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
-#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -29,17 +31,17 @@
 #include "galaxy/flags/Disabled.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/text/FontContext.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/Textures.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
@@ -104,7 +106,6 @@ namespace galaxy
 			config.restore<int>("listener_count", 1, "audio");
 			config.restore<bool>("trilinear_filtering", false, "graphics");
 			config.restore<int>("ansiotrophic_filtering", 2, "graphics");
-			config.restore<int>("texture_atlas_size", 2048, "graphics");
 			config.restore<bool>("smaa", false, "graphics.effects");
 			config.restore<bool>("sharpen", false, "graphics.effects");
 			config.restore<bool>("gamma_correction", false, "graphics.effects");
@@ -139,8 +140,8 @@ namespace galaxy
 			//
 			// Construct window and init glfw and OpenGL.
 			//
-			auto& window   = ServiceLocator<Window>::make(window_settings);
-			auto& renderer = ServiceLocator<graphics::Renderer>::make();
+			auto& window = ServiceLocator<Window>::make(window_settings);
+			graphics::Renderer::ref().init();
 
 			//
 			// VIRTUAL FILE SYSTEM.
@@ -171,26 +172,30 @@ namespace galaxy
 			// Set up entity metadata.
 			//
 			auto& em = ServiceLocator<meta::EntityMeta>::make();
-			em.register_component<components::Animated>("Animated");
-			em.register_component<components::MapData>("MapData");
-			em.register_component<components::ParticleGenerator>("ParticleGenerator");
-			em.register_component<components::Primitive>("Primitive");
+			em.register_component<components::Circle>("Circle");
+			em.register_component<components::Ellipse>("Ellipse");
+			em.register_component<components::GUI>("GUI");
+			em.register_component<components::Point>("Point");
+			em.register_component<components::Polygon>("Polygon");
+			em.register_component<components::Polyline>("Polyline");
+			em.register_component<components::RenderCommand>("RenderCommand");
 			em.register_component<components::RigidBody>("RigidBody");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");
 			em.register_component<components::Tag>("Tag");
 			em.register_component<components::Text>("Text");
 			em.register_component<components::Transform>("Transform");
-			em.register_component<components::UIScript>("UIScript");
 			em.register_component<flags::DenySerialization>("DenySerialization");
 			em.register_component<flags::Disabled>("Disabled");
 
-			em.register_dependencies<components::Sprite, components::Transform>();
-			em.register_dependencies<components::Primitive, components::Transform>();
-			em.register_dependencies<components::Text, components::Transform>();
-			em.register_dependencies<components::Animated, components::Sprite>();
+			em.register_dependencies<components::Circle, components::Transform>();
+			em.register_dependencies<components::Ellipse, components::Transform>();
+			em.register_dependencies<components::Point, components::Transform>();
+			em.register_dependencies<components::Polygon, components::Transform>();
+			em.register_dependencies<components::Polyline, components::Transform>();
 			em.register_dependencies<components::RigidBody, components::Transform>();
-			em.register_dependencies<components::MapData, components::Transform, components::Animated>();
+			em.register_dependencies<components::Sprite, components::Transform>();
+			em.register_dependencies<components::Text, components::Transform>();
 
 			//
 			// Initialize Lua.
@@ -219,15 +224,14 @@ namespace galaxy
 			ServiceLocator<resource::VideoCache>::make();
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
-			ServiceLocator<resource::TextureAtlas>::make();
-			ServiceLocator<resource::Maps>::make();
+			ServiceLocator<resource::Textures>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
 			auto& dispatcher = ServiceLocator<entt::dispatcher>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
 			// Late event subscribing.
-			dispatcher.sink<events::WindowResized>().connect<&graphics::Renderer::on_window_resized>(renderer);
+			dispatcher.sink<events::WindowResized>().connect<&graphics::Renderer::on_window_resized>(graphics::Renderer::ref());
 			dispatcher.sink<events::MousePressed>().connect<&ui::NuklearUI::on_mouse_pressed>(nui);
 			dispatcher.sink<events::MouseWheel>().connect<&ui::NuklearUI::on_mouse_wheel>(nui);
 			dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
@@ -252,8 +256,7 @@ namespace galaxy
 			ServiceLocator<entt::dispatcher>::del();
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
-			ServiceLocator<resource::Maps>::del();
-			ServiceLocator<resource::TextureAtlas>::del();
+			ServiceLocator<resource::Textures>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
 			ServiceLocator<resource::SoundCache>::del();
@@ -269,7 +272,7 @@ namespace galaxy
 			ServiceLocator<ui::NuklearUI>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Loader>::del();
-			ServiceLocator<graphics::Renderer>::del();
+			graphics::Renderer::ref().destroy();
 			ServiceLocator<Window>::del();
 			ServiceLocator<Config>::del();
 
@@ -293,11 +296,10 @@ namespace galaxy
 			GALAXY_CUR_UPS = 0;
 			GALAXY_CUR_FPS = 0;
 
-			auto& config   = ServiceLocator<Config>::ref();
-			auto& window   = ServiceLocator<Window>::ref();
-			auto& manager  = ServiceLocator<scene::SceneManager>::ref();
-			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
-			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
+			auto& config  = ServiceLocator<Config>::ref();
+			auto& window  = ServiceLocator<Window>::ref();
+			auto& manager = ServiceLocator<scene::SceneManager>::ref();
+			auto& nui     = ServiceLocator<ui::NuklearUI>::ref();
 
 			const auto log_perf = config.get<bool>("log_performance");
 
@@ -325,8 +327,6 @@ namespace galaxy
 
 				while (accumulator >= GALAXY_UPS)
 				{
-					renderer.flush();
-
 					window.poll_events();
 					manager.update();
 
@@ -336,7 +336,6 @@ namespace galaxy
 				}
 
 				manager.render();
-				renderer.swap_buffers();
 
 				frames++;
 

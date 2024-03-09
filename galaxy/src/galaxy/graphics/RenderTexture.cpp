@@ -6,68 +6,94 @@
 ///
 
 #include <glad/glad.h>
-
-#include <glm/gtc/matrix_transform.hpp>
-#include <stb_image.h>
 #include <stb_image_write.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "RenderTexture.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26493)
+#endif
 
 namespace galaxy
 {
 	namespace graphics
 	{
 		RenderTexture::RenderTexture()
-			: m_projection {GALAXY_IDENTITY_MATRIX}
+			: m_width {0}
+			, m_height {0}
+			, m_handle {0}
 		{
-		}
-
-		RenderTexture::RenderTexture(const int width, const int height)
-			: m_projection {GALAXY_IDENTITY_MATRIX}
-		{
-			create(width, height);
 		}
 
 		RenderTexture::RenderTexture(RenderTexture&& rt)
 		{
+			if (this->m_handle != 0)
+			{
+				glMakeTextureHandleNonResidentARB(this->m_handle);
+			}
+
+			this->m_width       = rt.m_width;
+			this->m_height      = rt.m_height;
+			this->m_handle      = rt.m_handle;
 			this->m_framebuffer = std::move(rt.m_framebuffer);
-			this->m_projection  = std::move(rt.m_projection);
+
+			rt.m_handle = 0;
 		}
 
 		RenderTexture& RenderTexture::operator=(RenderTexture&& rt)
 		{
 			if (this != &rt)
 			{
+				if (this->m_handle != 0)
+				{
+					glMakeTextureHandleNonResidentARB(this->m_handle);
+				}
+
+				this->m_width       = rt.m_width;
+				this->m_height      = rt.m_height;
+				this->m_handle      = rt.m_handle;
 				this->m_framebuffer = std::move(rt.m_framebuffer);
-				this->m_projection  = std::move(rt.m_projection);
+
+				rt.m_handle = 0;
 			}
 
 			return *this;
 		}
 
-		void RenderTexture::create(int width, int height)
+		RenderTexture::~RenderTexture()
 		{
-			width  = std::max(1, width);
-			height = std::max(1, height);
-
-			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
-
-			m_framebuffer.init(width, height);
-			m_framebuffer.add_colour_attachment(false);
-			m_framebuffer.add_depth_renderbuffer();
-			m_framebuffer.create();
+			if (m_handle != 0)
+			{
+				glMakeTextureHandleNonResidentARB(m_handle);
+			}
 		}
 
-		void RenderTexture::resize(int width, int height)
+		void RenderTexture::create(const int width, const int height)
 		{
-			width  = std::max(1, width);
-			height = std::max(1, height);
+			m_width  = std::max(1, width);
+			m_height = std::max(1, height);
 
-			m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
+			// m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
+
+			m_framebuffer.add_colour_attachment(width, height);
+			m_framebuffer.add_depth_stencil_renderbuffer();
+			m_framebuffer.create();
+
+			m_handle = glGetTextureHandleARB(m_framebuffer.texture());
+			glMakeTextureHandleResidentARB(m_framebuffer.texture());
+		}
+
+		void RenderTexture::resize(const int width, const int height)
+		{
+			m_width  = std::max(1, width);
+			m_height = std::max(1, height);
+
+			// m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
 			m_framebuffer.resize(width, height);
 		}
 
@@ -91,14 +117,14 @@ namespace galaxy
 				std::filesystem::create_directories(path.parent_path());
 			}
 
-			meta::vector<unsigned int> pixels(static_cast<unsigned int>(get_width()) * static_cast<unsigned int>(get_height()) * 4u, 0);
+			meta::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 
-			glGetTextureImage(get_texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
+			glGetTextureImage(m_framebuffer.texture(), 0, GL_RGBA, GL_UNSIGNED_BYTE, static_cast<GLsizei>(pixels.size()), pixels.data());
 
 			stbi_flip_vertically_on_write(true);
 
 			int            len = 0;
-			unsigned char* png = stbi_write_png_to_mem((const unsigned char*)pixels.data(), get_width() * 4, get_width(), get_height(), 4, &len);
+			unsigned char* png = stbi_write_png_to_mem((const unsigned char*)pixels.data(), m_width * 4, m_width, m_height, 4, &len);
 
 			if (!fs.write_raw(png, len, path.string()))
 			{
@@ -108,14 +134,14 @@ namespace galaxy
 			mi_free(png);
 		}
 
-		void RenderTexture::bind(const bool clear)
+		void RenderTexture::bind(bool clear)
 		{
-			m_framebuffer.bind(clear);
+			m_framebuffer.begin(clear);
 		}
 
 		void RenderTexture::unbind()
 		{
-			m_framebuffer.unbind();
+			m_framebuffer.end();
 		}
 
 		void RenderTexture::clear()
@@ -123,35 +149,33 @@ namespace galaxy
 			m_framebuffer.clear();
 		}
 
-		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top)
+		int RenderTexture::width() const
 		{
-			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+			return m_width;
 		}
 
-		int RenderTexture::get_width() const
+		int RenderTexture::height() const
 		{
-			return m_framebuffer.get_width();
+			return m_height;
 		}
 
-		int RenderTexture::get_height() const
+		std::uint64_t RenderTexture::handle() const
 		{
-			return m_framebuffer.get_height();
+			return m_handle;
 		}
 
-		glm::mat4& RenderTexture::get_proj()
+		unsigned int RenderTexture::texture() const
 		{
-			return m_projection;
+			return m_framebuffer.texture();
 		}
 
-		Framebuffer& RenderTexture::get_framebuffer()
+		Framebuffer& RenderTexture::fbo()
 		{
 			return m_framebuffer;
 		}
-
-		unsigned int RenderTexture::get_texture() const
-		{
-			// This works since the rendertexture will only ever have 1 attachment.
-			return m_framebuffer.get_attachments()[0];
-		}
 	} // namespace graphics
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif

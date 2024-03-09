@@ -13,8 +13,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
+#include "galaxy/graphics/gl/Texture2D.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
-#include "galaxy/graphics/Texture.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
 #include "ImGuiHelpers.hpp"
@@ -173,23 +173,23 @@ namespace galaxy
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
 		}
 
-		bool imgui_imagebutton(const graphics::Texture& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)
+		bool imgui_imagebutton(const graphics::Texture2D& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)
 		{
-			const auto id     = std::to_string(texture.handle()) + std::to_string(texture.get_width()) + std::to_string(texture.get_height());
-			const auto upcast = static_cast<std::uint64_t>(texture.handle());
+			const auto id     = std::to_string(texture.id()) + std::to_string(texture.width()) + std::to_string(texture.height());
+			const auto upcast = static_cast<std::uint64_t>(texture.id());
 
 			return ImGui::ImageButton(id.c_str(), reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0}, bg_col, tint_col);
 		}
 
-		void imgui_image(const graphics::Texture& texture, const ImVec2& size)
+		void imgui_image(const graphics::Texture2D& texture, const ImVec2& size)
 		{
-			const auto upcast = static_cast<std::uint64_t>(texture.handle());
+			const auto upcast = static_cast<std::uint64_t>(texture.id());
 			ImGui::Image(reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
 		}
 
 		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size)
 		{
-			const auto upcast = static_cast<std::uint64_t>(texture.get_texture());
+			const auto upcast = static_cast<std::uint64_t>(texture.texture());
 			ImGui::Image(reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
 		}
 

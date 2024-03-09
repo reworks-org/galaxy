@@ -5,18 +5,21 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICm_RENDERER_HPP_
-#define GALAXY_GRAPHICm_RENDERER_HPP_
+#ifndef GALAXY_GRAPHICS_RENDERER_HPP_
+#define GALAXY_GRAPHICS_RENDERER_HPP_
 
-#include "galaxy/components/Transform.hpp"
-#include "galaxy/graphics/Buffer.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/gl/Shader.hpp"
+#include "galaxy/graphics/gl/ShaderStorageBuffer.hpp"
+#include "galaxy/graphics/gl/Texture2D.hpp"
+#include "galaxy/graphics/gl/VertexArray.hpp"
 #include "galaxy/graphics/PostProcess.hpp"
 #include "galaxy/graphics/RenderCommand.hpp"
-#include "galaxy/graphics/Texture.hpp"
-#include "galaxy/graphics/VertexArray.hpp"
-
-struct GLFWwindow;
+#include "galaxy/graphics/RenderTexture.hpp"
+#include "galaxy/graphics/shapes/Shape.hpp"
+#include "galaxy/graphics/text/Text.hpp"
+#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -28,137 +31,138 @@ namespace galaxy
 		class Renderer final
 		{
 		  public:
-			///
-			/// Constructor.
-			///
-			Renderer();
+			[[nodiscard]] static Renderer& ref();
 
 			///
-			/// Destructor.
+			/// Initialize renderer.
 			///
-			~Renderer();
+			void init();
 
 			///
-			/// Update the camera uniform buffer.
+			/// Cleanup renderer data.
+			///
+			void destroy();
+
+			///
+			/// Event processing method for window size change.
+			///
+			/// \param e Takes in a window resized event.
+			///
+			void on_window_resized(const events::WindowResized& e);
+
+			///
+			/// Set the camera to use when calling draw().
 			///
 			/// \param camera Camera object to buffer.
 			///
-			void buffer_camera(Camera& camera);
+			void submit_camera(Camera& camera);
 
 			///
-			/// Submit render data to renderer.
+			/// Add an entity rendering command.
 			///
-			/// \param command Data from an entity to render.
+			/// \param command Rendering command to draw.
 			///
-			void submit(RenderCommand& command);
+			void submit_cmd(RenderCommand& command);
+
+			void submit_texture(const Texture2D& texture, VertexArray& va, Transform& tf, const int layer, const float opacity);
+			void submit_text(Text& text, Transform& tf, const int layer);
+			void submit_shape(Shape* shape, Transform& tf, const int layer);
 
 			///
-			/// Draw all submitted data to screen.
+			/// \brief Draw a texture to a render texture.
 			///
-			void draw();
-
-			///
-			/// Delete any data stored by the renderer.
-			///
-			void flush();
-
-			///
-			/// Begin post processing.
-			///
-			void begin_postprocessing();
-
-			///
-			/// Finalize post processing.
-			///
-			void end_postprocessing();
-
-			///
-			/// Render post processing data.
-			///
-			void render_postprocessing();
-
-			///
-			/// Prepares to render to the default framebuffer.
-			///
-			void prepare_default();
-
-			///
-			/// Clears currently active framebuffer.
-			///
-			void clear();
-
-			///
-			/// Swap backbuffer to draw to screen.
-			///
-			void swap_buffers();
-
-			///
-			/// Resize any framebuffers the renderer uses.
-			///
-			/// \param width Viewport width.
-			/// \param height Viewport height.
-			///
-			void resize(const int width, const int height);
-
-			///
-			/// Draw a texture to a render texture.
+			/// Standalone function.
 			///
 			/// \param target Target to draw texture to.
 			/// \param texture Texture to draw to the target.
 			/// \param va Vertex array object.
-			/// \param transform Orthographic transform component.
+			/// \param transform Orthographic transform.
 			///
-			void draw_texture_to_target(RenderTexture& target, Texture& texture, VertexArray& va, components::Transform& transform);
+			void draw_texture_to_target(RenderTexture& target, Texture* texture, VertexArray& va, Transform& tf);
 
 			///
-			/// Draws a texture to the active framebuffer.
+			/// Draw all submitted render commands to screen.
 			///
-			/// \param texture OpenGL texture handlr.
-			/// \param width Width of texture.
-			/// \param height Height of texture.
+			void draw();
+
 			///
-			void draw_texture(const unsigned int texture, const int width, const int height);
+			/// Deletes all submitted render commands.
+			///
+			void flush();
+
+			///
+			/// Clears currently active framebuffer.
+			///
+			void clear_active();
+
+			///
+			/// Begin rendering to post process framebuffer.
+			///
+			void begin_post();
+
+			///
+			/// Renders effects to post processing framebuffer and rebinds to default framebuffer.
+			///
+			void end_post();
+
+			///
+			/// Renders final post processing output to active framebuffer.
+			///
+			void render_post();
+
+			///
+			/// \brief Start rendering to default framebuffer.
+			///
+			/// This should be called at the end of rendering, only rendering your final framebuffer, since afterwards we swap buffers.
+			///
+			void begin_default();
+
+			///
+			/// Swaps buffers.
+			///
+			void end_default();
 
 		  private:
 			///
-			/// Uniform buffer for camera.
+			/// Constructor.
 			///
-			std::unique_ptr<UniformBuffer> m_camera_ubo;
+			Renderer() = default;
 
 			///
-			/// 2D renderer UBO.
+			/// Destructor.
 			///
-			std::unique_ptr<UniformBuffer> m_r2d_ubo;
+			~Renderer() = default;
+
+		  private:
+			///
+			/// List of renderables to draw.
+			///
+			meta::vector<RenderCommand*> m_cmds;
 
 			///
-			/// Storage for renderables submitted.
+			/// List of non component commands.
 			///
-			meta::vector<RenderCommand> m_data;
+			meta::vector<RenderCommand> m_free_cmds;
 
 			///
-			/// Shader used when drawing with renderer.
+			/// Mono render shader.
 			///
-			graphics::Shader m_r2d_shader;
+			Shader m_r2d_shader;
 
 			///
-			/// Shader for rendering particles.
+			/// Camera buffer storage.
 			///
-			graphics::Shader m_particle_shader;
+			ShaderStorageBuffer m_camera;
 
 			///
-			/// Cache previous texture to prevent rebinding.
+			/// Uniform buffer storage.
 			///
-			int m_prev_texture;
-
-			///
-			/// Cache previous nm texture to prevent rebinding.
-			///
-			int m_prev_nm;
+			ShaderStorageBuffer m_renderdata;
 
 			///
 			/// Post processor.
 			///
-			graphics::PostProcess m_postprocess;
+			PostProcess m_post;
 
 			///
 			/// Renderer frame width.

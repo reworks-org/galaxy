@@ -11,7 +11,7 @@
 #include <miniaudio.h>
 #include <pl_mpeg.h>
 
-#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/gl/Shader.hpp"
 #include "galaxy/media/RingBuffer.hpp"
 
 namespace galaxy

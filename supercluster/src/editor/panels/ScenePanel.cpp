@@ -12,7 +12,6 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/math/Base64.hpp>
 #include <galaxy/math/ZLib.hpp>
-#include <galaxy/resource/Maps.hpp>
 #include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -110,7 +109,7 @@ namespace sc
 						ImGui::Spacing();
 						ImGui::Separator();
 						ImGui::Spacing();
-
+						/*
 						ImGui::TextUnformatted("Mapping:");
 
 						m_filter_maps.DrawWithHint("###MapSearch", ICON_MDI_MAGNIFY "Filter maps...", ImGui::GetContentRegionAvail().x);
@@ -169,17 +168,17 @@ namespace sc
 
 							ImGui::EndCombo();
 						}
-
+						*/
 						ImGui::Spacing();
 						ImGui::Separator();
 						ImGui::Spacing();
 
 						ImGui::TextUnformatted("Camera:");
-						ImGui::Text("Pos: %.2f, %.2f", scene->m_camera.get_x(), scene->m_camera.get_y());
-						ImGui::SameLine();
-						ImGui::Text("Rotation: %.1f", scene->m_camera.get_rotation());
-						ImGui::SameLine();
-						ImGui::Text("Zoom: %.1f", scene->m_camera.get_zoom());
+						// ImGui::Text("Pos: %.2f, %.2f", scene->m_camera.get_x(), scene->m_camera.get_y());
+						// ImGui::SameLine();
+						// ImGui::Text("Rotation: %.1f", scene->m_camera.get_rotation());
+						// ImGui::SameLine();
+						// ImGui::Text("Zoom: %.1f", scene->m_camera.get_scale().x);
 
 						float vp[2] = {scene->m_camera.get_viewport().x, scene->m_camera.get_viewport().y};
 						if (ImGui::InputFloat2("Viewport", vp, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
@@ -187,7 +186,7 @@ namespace sc
 							scene->m_camera.set_viewport(vp[0], vp[1]);
 						}
 
-						ImGui::Checkbox("Allow Rotation", &scene->m_camera.m_allow_rotate);
+						ImGui::Checkbox("Allow Rotation", &scene->m_camera.m_allow_rotation);
 						ImGui::InputFloat("Move Speed", &scene->m_camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
 						ImGui::InputFloat("Rotation Speed", &scene->m_camera.m_rotation_speed, 0.1f, 1.0f, "%.1f");
 

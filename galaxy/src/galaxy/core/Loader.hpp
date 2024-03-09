@@ -58,7 +58,7 @@ namespace galaxy
 			/// \param maps List of maps to load.
 			/// \param registry Entity registry to load maps into.
 			///
-			void load_maps(const std::vector<std::string>& maps, entt::registry& registry);
+			// void load_maps(const std::vector<std::string>& maps, entt::registry& registry);
 
 			///
 			/// Builds opengl resources on the main thread.

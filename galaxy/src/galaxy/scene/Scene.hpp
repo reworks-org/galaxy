@@ -9,9 +9,24 @@
 #define GALAXY_STATE_SCENE_HPP_
 
 #include <box2d/b2_world.h>
+#include <entt/entity/registry.hpp>
 
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
+#include "galaxy/components/GUI.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/Polyline.hpp"
+#include "galaxy/components/RenderCommand.hpp"
+#include "galaxy/components/RigidBody.hpp"
+#include "galaxy/components/Script.hpp"
+#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Tag.hpp"
+#include "galaxy/components/Text.hpp"
+#include "galaxy/components/Transform.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Camera.hpp"
-#include "galaxy/map/Map.hpp"
+#include "galaxy/graphics/shapes/Shape.hpp"
 #include "galaxy/systems/RenderSystem.hpp"
 
 namespace galaxy
@@ -131,14 +146,14 @@ namespace galaxy
 			///
 			/// Load maps.
 			///
-			void load_maps();
+			// void load_maps();
 
 			///
 			/// Set currently active map.
 			///
 			/// \param map Name of map to use.
 			///
-			void set_active_map(const std::string& map);
+			// void set_active_map(const std::string& map);
 
 			///
 			/// Serializes object.
@@ -224,6 +239,11 @@ namespace galaxy
 			///
 			void disable_entity(entt::registry& registry, entt::entity entity);
 
+			template<typename GraphicsComponent>
+			void construct_rendercommand(entt::registry& registry, entt::entity entity);
+
+			void destruct_rendercommand(entt::registry& registry, entt::entity entity);
+
 		  public:
 			///
 			/// Is this scene enabled.
@@ -278,12 +298,12 @@ namespace galaxy
 			///
 			/// Maps assigned to this scene.
 			///
-			std::vector<std::string> m_assigned_maps;
+			// std::vector<std::string> m_assigned_maps;
 
 			///
 			/// Currently active map.
 			///
-			std::shared_ptr<map::Map> m_map;
+			// std::shared_ptr<map::Map> m_map;
 		};
 
 		template<meta::is_system System, typename... Args>
@@ -298,6 +318,57 @@ namespace galaxy
 			}
 
 			return ptr;
+		}
+
+		template<typename GraphicsComponent>
+		inline void Scene::construct_rendercommand(entt::registry& registry, entt::entity entity)
+		{
+			auto& cmd = registry.emplace_or_replace<components::RenderCommand>(entity).m_command;
+
+			if constexpr ((std::is_same<GraphicsComponent, components::Circle>::value) || (std::is_same<GraphicsComponent, components::Ellipse>::value) ||
+						  (std::is_same<GraphicsComponent, components::Point>::value) || (std::is_same<GraphicsComponent, components::Polygon>::value) ||
+						  (std::is_same<GraphicsComponent, components::Polyline>::value))
+			{
+				graphics::Shape* shape = &registry.get<GraphicsComponent>(entity).m_shape;
+
+				cmd.count           = shape->vao().count();
+				cmd.instances       = shape->vao().instances();
+				cmd.mode            = shape->mode();
+				cmd.offset          = shape->vao().offset();
+				cmd.vao             = shape->vao().id();
+				cmd.uniforms.colour = shape->m_colour.vec4();
+				cmd.uniforms.entity = static_cast<int>(entt::to_integral(entity));
+				cmd.uniforms.handle = 0;
+				cmd.uniforms.point  = shape->mode() == GL_POINTS ? true : false;
+			}
+			else if constexpr (std::is_same<GraphicsComponent, components::Sprite>::value)
+			{
+				auto& sprite = registry.get<components::Sprite>(entity);
+
+				cmd.count           = sprite.m_vao.count();
+				cmd.instances       = sprite.m_vao.instances();
+				cmd.mode            = GL_TRIANGLES;
+				cmd.offset          = sprite.m_vao.offset();
+				cmd.vao             = sprite.m_vao.id();
+				cmd.uniforms.colour = sprite.m_tint.vec4();
+				cmd.uniforms.entity = static_cast<int>(entt::to_integral(entity));
+				cmd.uniforms.handle = sprite.get_texture()->handle();
+				cmd.uniforms.point  = false;
+			}
+			else if constexpr (std::is_same<GraphicsComponent, components::Text>::value)
+			{
+				auto& text = registry.get<components::Text>(entity);
+
+				cmd.count           = text.m_text.vao().count();
+				cmd.instances       = text.m_text.vao().instances();
+				cmd.mode            = GL_TRIANGLES;
+				cmd.offset          = text.m_text.vao().offset();
+				cmd.vao             = text.m_text.vao().id();
+				cmd.uniforms.colour = text.m_text.m_colour.vec4();
+				cmd.uniforms.entity = static_cast<int>(entt::to_integral(entity));
+				cmd.uniforms.handle = text.m_text.render_texture().handle();
+				cmd.uniforms.point  = false;
+			}
 		}
 	} // namespace scene
 } // namespace galaxy

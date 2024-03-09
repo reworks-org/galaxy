@@ -15,17 +15,19 @@
 #include <glm/vec4.hpp>
 #include <miniaudio.h>
 
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/MapData.hpp"
-#include "galaxy/components/ParticleGenerator.hpp"
-#include "galaxy/components/Primitive.hpp"
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Ellipse.hpp"
+#include "galaxy/components/GUI.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Polygon.hpp"
+#include "galaxy/components/Polyline.hpp"
+#include "galaxy/components/RenderCommand.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
-#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyChar.hpp"
@@ -56,29 +58,33 @@ namespace galaxy
 			lua.require("registry", sol::c_call<decltype(&entt_sol::open_registry), &entt_sol::open_registry>, false);
 			lua.require("dispatcher", sol::c_call<decltype(&entt_sol::open_dispatcher), &entt_sol::open_dispatcher>, false);
 
-			entt_sol::register_meta_event<events::WindowResized>();
-			entt_sol::register_meta_event<events::WindowClosed>();
-			entt_sol::register_meta_event<events::MouseWheel>();
-			entt_sol::register_meta_event<events::MouseReleased>();
-			entt_sol::register_meta_event<events::MousePressed>();
-			entt_sol::register_meta_event<events::MouseMoved>();
-			entt_sol::register_meta_event<events::MouseEnter>();
-			entt_sol::register_meta_event<events::KeyUp>();
-			entt_sol::register_meta_event<events::KeyRepeat>();
-			entt_sol::register_meta_event<events::KeyDown>();
-			entt_sol::register_meta_event<events::KeyChar>();
 			entt_sol::register_meta_event<events::ContentScale>();
-			entt_sol::register_meta_component<components::Transform>();
-			entt_sol::register_meta_component<components::Text>();
-			entt_sol::register_meta_component<components::Tag>();
-			entt_sol::register_meta_component<components::Sprite>();
-			entt_sol::register_meta_component<components::Script>();
+			entt_sol::register_meta_event<events::KeyChar>();
+			entt_sol::register_meta_event<events::KeyDown>();
+			entt_sol::register_meta_event<events::KeyRepeat>();
+			entt_sol::register_meta_event<events::KeyUp>();
+			entt_sol::register_meta_event<events::MouseEnter>();
+			entt_sol::register_meta_event<events::MouseMoved>();
+			entt_sol::register_meta_event<events::MousePressed>();
+			entt_sol::register_meta_event<events::MouseReleased>();
+			entt_sol::register_meta_event<events::MouseWheel>();
+			entt_sol::register_meta_event<events::WindowClosed>();
+			entt_sol::register_meta_event<events::WindowResized>();
+
+			entt_sol::register_meta_component<components::Circle>();
+			entt_sol::register_meta_component<components::Ellipse>();
+			entt_sol::register_meta_component<components::GUI>();
+			entt_sol::register_meta_component<components::Point>();
+			entt_sol::register_meta_component<components::Polygon>();
+			entt_sol::register_meta_component<components::Polyline>();
+			entt_sol::register_meta_component<components::RenderCommand>();
 			entt_sol::register_meta_component<components::RigidBody>();
-			entt_sol::register_meta_component<components::Primitive>();
-			entt_sol::register_meta_component<components::Animated>();
-			entt_sol::register_meta_component<components::MapData>();
-			entt_sol::register_meta_component<components::ParticleGenerator>();
-			entt_sol::register_meta_component<components::UIScript>();
+			entt_sol::register_meta_component<components::Script>();
+			entt_sol::register_meta_component<components::Sprite>();
+			entt_sol::register_meta_component<components::Tag>();
+			entt_sol::register_meta_component<components::Text>();
+			entt_sol::register_meta_component<components::Transform>();
+
 			entt_sol::register_meta_component<flags::DenySerialization>();
 			entt_sol::register_meta_component<flags::Disabled>();
 

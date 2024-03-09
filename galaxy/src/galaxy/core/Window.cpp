@@ -23,8 +23,8 @@
 #include "galaxy/events/WindowClosed.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/FontContext.hpp"
 #include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/text/FontContext.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
@@ -485,13 +485,13 @@ namespace galaxy
 						// Configure global GL state.
 						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_CULL_FACE);
-						glDisable(GL_STENCIL_TEST);
 						glDisable(GL_SCISSOR_TEST);
 
 						glEnable(GL_MULTISAMPLE);
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_DEPTH_TEST);
+						glEnable(GL_STENCIL_TEST);
 						glEnable(GL_BLEND);
 
 						// GL state function configuration.

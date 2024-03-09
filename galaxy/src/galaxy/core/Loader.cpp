@@ -12,16 +12,15 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/DefaultShaders.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
+#include "galaxy/resource/embedded/RenderTextureShader.hpp"
 #include "galaxy/resource/Fonts.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
-#include "galaxy/resource/TextureAtlas.hpp"
+#include "galaxy/resource/Textures.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 
 #include "Loader.hpp"
@@ -42,17 +41,23 @@ namespace galaxy
 
 		void Loader::load_all()
 		{
-			auto& tp       = ServiceLocator<BS::thread_pool>::ref();
-			auto& config   = ServiceLocator<Config>::ref();
-			auto& nui      = ServiceLocator<ui::NuklearUI>::ref();
-			auto& renderer = ServiceLocator<graphics::Renderer>::ref();
+			auto& tp     = ServiceLocator<BS::thread_pool>::ref();
+			auto& config = ServiceLocator<Config>::ref();
+			auto& nui    = ServiceLocator<ui::NuklearUI>::ref();
 
-			tp.detach_task(&Loader::load_user_config, this);
-			tp.detach_task(&Loader::load_window, this);
-			tp.detach_task(&Loader::load_resources, this);
+			tp.detach_task([this]() -> void {
+				this->load_user_config();
+			});
+
+			tp.detach_task([this]() -> void {
+				this->load_window();
+			});
+
+			tp.detach_task([this]() -> void {
+				this->load_resources();
+			});
 
 			nui.enable_input();
-			renderer.prepare_default();
 
 			nk_size                 current = 0;
 			constexpr const nk_size total   = 3;
@@ -65,12 +70,15 @@ namespace galaxy
 				}
 
 				glfwPollEvents();
+
+				graphics::Renderer::ref().begin_default();
+				graphics::Renderer::ref().clear_active();
+
 				nui.new_frame();
 				nui.show_loading_bar("Loading Assets...", total, current);
-
-				renderer.clear();
 				nui.render();
-				renderer.swap_buffers();
+
+				graphics::Renderer::ref().end_default();
 
 				current++;
 				// std::this_thread::sleep_for(.1s);
@@ -79,9 +87,11 @@ namespace galaxy
 			glfwPollEvents();
 			nui.new_frame();
 			nui.show_building_atlas();
-			renderer.clear();
+
+			graphics::Renderer::ref().begin_default();
+			graphics::Renderer::ref().clear_active();
 			nui.render();
-			renderer.swap_buffers();
+			graphics::Renderer::ref().end_default();
 
 			build_resources();
 			nui.disable_input();
@@ -97,7 +107,6 @@ namespace galaxy
 			ServiceLocator<resource::Fonts>::ref().load_folder(GALAXY_FONT_DIR);
 			ServiceLocator<resource::Scripts>::ref().load_folder(GALAXY_SCRIPT_DIR);
 			ServiceLocator<resource::Prefabs>::ref().load_folder(GALAXY_PREFABS_DIR);
-			ServiceLocator<resource::Maps>::ref().load_folder(GALAXY_MAPS_DIR);
 		}
 
 		void Loader::load_user_config()
@@ -144,10 +153,9 @@ namespace galaxy
 			}
 		}
 
-		void Loader::load_maps(const std::vector<std::string>& maps, entt::registry& registry)
+		/*void Loader::load_maps(const std::vector<std::string>& maps, entt::registry& registry)
 		{
 			auto& nui       = ServiceLocator<ui::NuklearUI>::ref();
-			auto& renderer  = ServiceLocator<graphics::Renderer>::ref();
 			auto& maploader = core::ServiceLocator<resource::Maps>::ref();
 
 			nui.enable_input();
@@ -169,12 +177,17 @@ namespace galaxy
 			}
 
 			nui.disable_input();
-		}
+		}*/
 
 		void Loader::build_resources()
 		{
 			auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
-			shaders.insert("RenderToTexture", std::make_shared<graphics::Shader>(shaders::render_to_texture_vert, shaders::render_to_texture_frag));
+
+			auto rtt = std::make_shared<graphics::Shader>();
+			if (rtt->parse(resource::render_texture_shader_vert, resource::render_texture_shader_vert))
+			{
+				shaders.insert("render_to_texture", rtt);
+			}
 
 			for (const auto& [key, value] : shaders.cache())
 			{
@@ -191,7 +204,12 @@ namespace galaxy
 				value->build();
 			}
 
-			core::ServiceLocator<resource::TextureAtlas>::ref().add_from_vfs();
+			auto& tex = ServiceLocator<resource::Textures>::ref();
+			tex.load_folder(GALAXY_TEXTURE_DIR);
+			for (auto& [key, value] : tex.cache())
+			{
+				value->make_bindless();
+			}
 		}
 	} // namespace core
 } // namespace galaxy

@@ -8,7 +8,7 @@
 #ifndef GALAXY_RESOURCE_SHADERS_HPP_
 #define GALAXY_RESOURCE_SHADERS_HPP_
 
-#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/gl/Shader.hpp"
 #include "galaxy/resource/Cache.hpp"
 #include "galaxy/resource/Loader.hpp"
 

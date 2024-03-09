@@ -11,16 +11,6 @@
 #include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/MapData.hpp"
-#include "galaxy/components/Primitive.hpp"
-#include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Script.hpp"
-#include "galaxy/components/Sprite.hpp"
-#include "galaxy/components/Tag.hpp"
-#include "galaxy/components/Text.hpp"
-#include "galaxy/components/Transform.hpp"
-#include "galaxy/components/UIScript.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -29,12 +19,10 @@
 #include "galaxy/graphics/RenderCommand.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
-#include "galaxy/resource/Maps.hpp"
 #include "galaxy/resource/Prefabs.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
-#include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
@@ -54,7 +42,6 @@ namespace galaxy
 			, m_b2world {nullptr}
 			, m_velocity_iterations {8}
 			, m_position_iterations {3}
-			, m_map {nullptr}
 		{
 			init();
 		}
@@ -68,7 +55,6 @@ namespace galaxy
 			, m_b2world {nullptr}
 			, m_velocity_iterations {8}
 			, m_position_iterations {3}
-			, m_map {nullptr}
 		{
 			init();
 		}
@@ -86,30 +72,79 @@ namespace galaxy
 			m_registry.on_destroy<components::RigidBody>().connect<&Scene::destroy_rigidbody>(this);
 			m_registry.on_construct<components::Script>().connect<&Scene::construct_script>(this);
 			m_registry.on_destroy<components::Script>().connect<&Scene::destruct_script>(this);
-			m_registry.on_construct<components::UIScript>().connect<&Scene::construct_nui>(this);
-			m_registry.on_destroy<components::UIScript>().connect<&Scene::construct_nui>(this);
+			m_registry.on_construct<components::GUI>().connect<&Scene::construct_nui>(this);
+			m_registry.on_destroy<components::GUI>().connect<&Scene::construct_nui>(this);
 			m_registry.on_construct<flags::Disabled>().connect<&Scene::disable_entity>(this);
 			m_registry.on_destroy<flags::Disabled>().connect<&Scene::enable_entity>(this);
 
 			// Handle incompatible components.
-			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Primitive>>();
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Circle>>();
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Ellipse>>();
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Point>>();
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Polygon>>();
+			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Polyline>>();
 			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::Text>>();
-			m_registry.on_construct<components::Sprite>().connect<&entt::registry::remove<components::MapData>>();
-			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Animated>>();
+
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Circle>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Ellipse>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Point>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Polygon>>();
+			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Polyline>>();
 			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Sprite>>();
-			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::Primitive>>();
-			m_registry.on_construct<components::Text>().connect<&entt::registry::remove<components::MapData>>();
-			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Animated>>();
-			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Sprite>>();
-			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::Text>>();
-			m_registry.on_construct<components::Primitive>().connect<&entt::registry::remove<components::MapData>>();
-			m_registry.on_construct<components::MapData>().connect<&entt::registry::remove<components::Animated>>();
-			m_registry.on_construct<components::MapData>().connect<&entt::registry::remove<components::Sprite>>();
-			m_registry.on_construct<components::MapData>().connect<&entt::registry::remove<components::Text>>();
-			m_registry.on_construct<components::MapData>().connect<&entt::registry::remove<components::Primitive>>();
+
+			m_registry.on_construct<components::Circle>().connect<&entt::registry::remove<components::Ellipse>>();
+			m_registry.on_construct<components::Circle>().connect<&entt::registry::remove<components::Point>>();
+			m_registry.on_construct<components::Circle>().connect<&entt::registry::remove<components::Polygon>>();
+			m_registry.on_construct<components::Circle>().connect<&entt::registry::remove<components::Polyline>>();
+			m_registry.on_construct<components::Circle>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Circle>().connect<&entt::registry::remove<components::Text>>();
+
+			m_registry.on_construct<components::Ellipse>().connect<&entt::registry::remove<components::Circle>>();
+			m_registry.on_construct<components::Ellipse>().connect<&entt::registry::remove<components::Point>>();
+			m_registry.on_construct<components::Ellipse>().connect<&entt::registry::remove<components::Polygon>>();
+			m_registry.on_construct<components::Ellipse>().connect<&entt::registry::remove<components::Polyline>>();
+			m_registry.on_construct<components::Ellipse>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Ellipse>().connect<&entt::registry::remove<components::Text>>();
+
+			m_registry.on_construct<components::Point>().connect<&entt::registry::remove<components::Circle>>();
+			m_registry.on_construct<components::Point>().connect<&entt::registry::remove<components::Ellipse>>();
+			m_registry.on_construct<components::Point>().connect<&entt::registry::remove<components::Polygon>>();
+			m_registry.on_construct<components::Point>().connect<&entt::registry::remove<components::Polyline>>();
+			m_registry.on_construct<components::Point>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Point>().connect<&entt::registry::remove<components::Text>>();
+
+			m_registry.on_construct<components::Polygon>().connect<&entt::registry::remove<components::Circle>>();
+			m_registry.on_construct<components::Polygon>().connect<&entt::registry::remove<components::Ellipse>>();
+			m_registry.on_construct<components::Polygon>().connect<&entt::registry::remove<components::Point>>();
+			m_registry.on_construct<components::Polygon>().connect<&entt::registry::remove<components::Polyline>>();
+			m_registry.on_construct<components::Polygon>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Polygon>().connect<&entt::registry::remove<components::Text>>();
+
+			m_registry.on_construct<components::Polyline>().connect<&entt::registry::remove<components::Circle>>();
+			m_registry.on_construct<components::Polyline>().connect<&entt::registry::remove<components::Ellipse>>();
+			m_registry.on_construct<components::Polyline>().connect<&entt::registry::remove<components::Point>>();
+			m_registry.on_construct<components::Polyline>().connect<&entt::registry::remove<components::Polygon>>();
+			m_registry.on_construct<components::Polyline>().connect<&entt::registry::remove<components::Sprite>>();
+			m_registry.on_construct<components::Polyline>().connect<&entt::registry::remove<components::Text>>();
+
+			// Handle rendercommand creation.
+			m_registry.on_construct<components::Sprite>().connect<&Scene::construct_rendercommand<components::Sprite>>(this);
+			m_registry.on_construct<components::Text>().connect<&Scene::construct_rendercommand<components::Text>>(this);
+			m_registry.on_construct<components::Circle>().connect<&Scene::construct_rendercommand<components::Circle>>(this);
+			m_registry.on_construct<components::Ellipse>().connect<&Scene::construct_rendercommand<components::Ellipse>>(this);
+			m_registry.on_construct<components::Point>().connect<&Scene::construct_rendercommand<components::Point>>(this);
+			m_registry.on_construct<components::Polygon>().connect<&Scene::construct_rendercommand<components::Polygon>>(this);
+			m_registry.on_construct<components::Polyline>().connect<&Scene::construct_rendercommand<components::Polyline>>(this);
+
+			m_registry.on_destroy<components::Sprite>().connect<&Scene::destruct_rendercommand>(this);
+			m_registry.on_destroy<components::Text>().connect<&Scene::destruct_rendercommand>(this);
+			m_registry.on_destroy<components::Circle>().connect<&Scene::destruct_rendercommand>(this);
+			m_registry.on_destroy<components::Ellipse>().connect<&Scene::destruct_rendercommand>(this);
+			m_registry.on_destroy<components::Point>().connect<&Scene::destruct_rendercommand>(this);
+			m_registry.on_destroy<components::Polygon>().connect<&Scene::destruct_rendercommand>(this);
+			m_registry.on_destroy<components::Polyline>().connect<&Scene::destruct_rendercommand>(this);
 
 			create_system<systems::ScriptSystem>();
-			create_system<systems::AnimationSystem>();
 			create_system<systems::PhysicsSystem>();
 			create_system<systems::RenderSystem>();
 
@@ -119,11 +154,7 @@ namespace galaxy
 
 		void Scene::load()
 		{
-			load_maps();
-
-			auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-			dispatcher.sink<events::KeyDown>().connect<&graphics::Camera::on_key_down>(m_camera);
-			dispatcher.sink<events::MouseWheel>().connect<&graphics::Camera::on_mouse_wheel>(m_camera);
+			// load_maps();
 		}
 
 		void Scene::unload()
@@ -137,9 +168,9 @@ namespace galaxy
 			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
 			{
 				b2BodyDef def {};
-				def.position.x    = transform->get_pos().x / GALAXY_WORLD_TO_BOX;
-				def.position.y    = transform->get_pos().y / GALAXY_WORLD_TO_BOX;
-				def.angle         = glm::radians(transform->get_rotation());
+				def.position.x    = transform->m_tf.get_pos().x / GALAXY_WORLD_TO_BOX;
+				def.position.y    = transform->m_tf.get_pos().y / GALAXY_WORLD_TO_BOX;
+				def.angle         = glm::radians(transform->m_tf.get_rotation());
 				def.type          = rigidbody->m_type;
 				def.fixedRotation = rigidbody->m_fixed_rotation;
 				def.bullet        = rigidbody->m_bullet;
@@ -170,30 +201,26 @@ namespace galaxy
 
 		void Scene::render()
 		{
-			auto& renderer = core::ServiceLocator<graphics::Renderer>::ref();
-			auto& nui      = core::ServiceLocator<ui::NuklearUI>::ref();
+			auto& nui = core::ServiceLocator<ui::NuklearUI>::ref();
 
-			renderer.buffer_camera(m_camera);
-			renderer.begin_postprocessing();
-			renderer.draw();
-			renderer.end_postprocessing();
-			renderer.prepare_default();
-			renderer.clear();
-			renderer.render_postprocessing();
+			graphics::Renderer::ref().submit_camera(m_camera);
+			graphics::Renderer::ref().draw();
+			graphics::Renderer::ref().flush();
 
 			nui.new_frame();
 			update_ui();
+			// Dont need to flush nui since it flushes itself.
 			nui.render();
 		}
 
 		void Scene::on_window_resized(const events::WindowResized& e)
 		{
-			m_camera.on_window_resized(e);
+			m_camera.set_viewport(static_cast<float>(e.width), static_cast<float>(e.height));
 		}
 
 		void Scene::update_ui()
 		{
-			const auto view = m_registry.view<components::UIScript>(entt::exclude<flags::Disabled>);
+			const auto view = m_registry.view<components::GUI>(entt::exclude<flags::Disabled>);
 			for (auto&& [entity, script] : view.each())
 			{
 				if (script.m_update.valid())
@@ -255,11 +282,14 @@ namespace galaxy
 			return true;
 		}
 
+		/*
 		void Scene::load_maps()
 		{
 			core::ServiceLocator<core::Loader>::ref().load_maps(m_assigned_maps, m_registry);
 		}
+		*/
 
+		/*
 		void Scene::set_active_map(const std::string& map)
 		{
 			if (m_map)
@@ -274,6 +304,7 @@ namespace galaxy
 				m_map->enable();
 			}
 		}
+		*/
 
 		nlohmann::json Scene::serialize()
 		{
@@ -301,8 +332,8 @@ namespace galaxy
 			physics["velocity_iterations"]   = m_velocity_iterations;
 			physics["position_iterations"]   = m_position_iterations;
 			json["name"]                     = m_name;
-			json["maps"]                     = m_assigned_maps;
-			json["active_map"]               = m_map ? m_map->get_name() : "";
+			// json["maps"]                     = m_assigned_maps;
+			//  json["active_map"]               = m_map ? m_map->get_name() : "";
 
 			return json;
 		}
@@ -341,8 +372,8 @@ namespace galaxy
 
 			m_name = json.at("name");
 
-			m_assigned_maps = json.at("maps");
-			set_active_map(json.at("active_map"));
+			// m_assigned_maps = json.at("maps");
+			// set_active_map(json.at("active_map"));
 		}
 
 		void Scene::construct_rigidbody(entt::registry& registry, entt::entity entity)
@@ -426,7 +457,7 @@ namespace galaxy
 
 		void Scene::construct_nui(entt::registry& registry, entt::entity entity)
 		{
-			auto& ui    = registry.get<components::UIScript>(entity);
+			auto& ui    = registry.get<components::GUI>(entity);
 			auto& state = core::ServiceLocator<sol::state>::ref();
 			auto& nui   = core::ServiceLocator<ui::NuklearUI>::ref();
 			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
@@ -468,7 +499,7 @@ namespace galaxy
 
 		void Scene::destruct_nui(entt::registry& registry, entt::entity entity)
 		{
-			auto& ui = registry.get<components::UIScript>(entity);
+			auto& ui = registry.get<components::GUI>(entity);
 			if (ui.m_self.valid())
 			{
 				ui.m_self.abandon();
@@ -491,6 +522,11 @@ namespace galaxy
 			{
 				rb->m_body->SetEnabled(false);
 			}
+		}
+
+		void Scene::destruct_rendercommand(entt::registry& registry, entt::entity entity)
+		{
+			registry.remove<components::RenderCommand>(entity);
 		}
 	} // namespace scene
 } // namespace galaxy

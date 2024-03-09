@@ -10,16 +10,14 @@
 
 #include <string_view>
 
-#include <glm/mat4x4.hpp>
-
-#include "galaxy/graphics/Framebuffer.hpp"
+#include "galaxy/graphics/gl/Framebuffer.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
 		///
-		/// Framebuffer + Render Target.
+		/// Draw to an opengl texture instead of the screen.
 		///
 		class RenderTexture final
 		{
@@ -28,16 +26,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			RenderTexture();
-
-			///
-			/// \brief Argument constructor.
-			///
-			/// Calls create().
-			///
-			/// \param width Width of the render target. Must be greater than 0.
-			/// \param height Height of the render target. Must be greater than 0.
-			///
-			RenderTexture(const int width, const int height);
 
 			///
 			/// Move constructor.
@@ -52,23 +40,23 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~RenderTexture() = default;
+			virtual ~RenderTexture();
 
 			///
-			/// Create the RenderTexture.
+			/// Create framebuffer and texture.
 			///
 			/// \param width Width of the render target. Must be greater than 0.
 			/// \param height Height of the render target. Must be greater than 0.
 			///
-			void create(int width, int height);
+			void create(const int width, const int height);
 
 			///
-			/// Change RenderTexture size.
+			/// Change framebuffer and texture size.
 			///
-			/// \param width Width of the RenderTexture.
-			/// \param height Height of the RenderTexture.
+			/// \param width Width of the render target. Must be greater than 0.
+			/// \param height Height of the render target. Must be greater than 0.
 			///
-			void resize(int width, int height);
+			void resize(const int width, const int height);
 
 			///
 			/// Saves texture to file on disk.
@@ -78,14 +66,14 @@ namespace galaxy
 			void save(std::string_view file);
 
 			///
-			/// Bind framebuffer and texture.
+			/// Activate context.
 			///
-			/// \param clear Should the framebuffer clear attachments.
+			/// \param clear Clear framebuffer after binding.
 			///
-			void bind(const bool clear);
+			void bind(bool clear = true);
 
 			///
-			/// Unbind framebuffer and texture.
+			/// Deactivate context.
 			///
 			void unbind();
 
@@ -95,49 +83,43 @@ namespace galaxy
 			void clear();
 
 			///
-			/// Modify projection of render texture.
+			/// \brief Get texture width.
 			///
-			/// \param left Left point of ortho perspective.
-			/// \param right Right point of ortho perspective.
-			/// \param bottom Bottom point of ortho perspective.
-			/// \param top Top point of ortho perspective.
+			/// Is cached for performance.
 			///
-			void set_projection(const float left, const float right, const float bottom, const float top);
+			/// \return Width as int.
+			///
+			[[nodiscard]] int width() const;
 
 			///
-			/// Get texture width.
+			/// \brief Get texture height.
 			///
-			/// \return Integer.
+			/// Is cached for performance.
 			///
-			[[nodiscard]] int get_width() const;
+			/// \return Height as int.
+			///
+			[[nodiscard]] int height() const;
 
 			///
-			/// Get texture height.
+			/// Gets bindless texture handle.
 			///
-			/// \return Integer.
+			/// \return 64 bit identifier.
 			///
-			[[nodiscard]] int get_height() const;
+			[[nodiscard]] std::uint64_t handle() const;
 
 			///
-			/// Get projection.
+			/// Gets framebuffer texture.
 			///
-			/// \return Reference to glm::mat4.
+			/// \return Texture ID.
 			///
-			[[nodiscard]] glm::mat4& get_proj();
+			[[nodiscard]] unsigned int texture() const;
 
 			///
 			/// Get framebuffer.
 			///
 			/// \return Reference to framebuffer.
 			///
-			[[nodiscard]] Framebuffer& get_framebuffer();
-
-			///
-			/// Get texture.
-			///
-			/// \return OpenGL texture handle.
-			///
-			[[nodiscard]] unsigned int get_texture() const;
+			[[nodiscard]] Framebuffer& fbo();
 
 		  private:
 			///
@@ -152,14 +134,24 @@ namespace galaxy
 
 		  private:
 			///
-			/// Framebuffer to draw to.
+			/// Cached width.
 			///
-			Framebuffer m_framebuffer;
+			int m_width;
 
 			///
-			/// Projection.
+			/// Cached height.
 			///
-			glm::mat4 m_projection;
+			int m_height;
+
+			///
+			/// Bindless handle.
+			///
+			std::uint64_t m_handle;
+
+			///
+			/// OpenGL framebuffer abstraction.
+			///
+			Framebuffer m_framebuffer;
 		};
 	} // namespace graphics
 } // namespace galaxy

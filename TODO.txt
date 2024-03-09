@@ -1,19 +1,24 @@
-sort out scenes vs layers vs sharing and communicating data between them.
-- might need to introduce the concept of sub scenes with their own registry and entities.
-	- integate UI.
-add mod support
-add update support
- 
-- refine Scripts to more easily "attachable" single use scripts or "trigger" scripts.
-- improve loading screen to more accurately display loading bar.
-- add support for miniaudios new fading api
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
-	- https://github.com/W4RH4WK/Anker/blob/main/code/anker/core/anker_scene_node.hpp
 
-https://github.com/skaarj1989/entt-meets-sol2/tree/main
+- improve loading screen to more accurately display loading bar.
+- rendering is completely broken, now need to handle multiple cameras and multiple scenes being submitted to renderer.
+- stop using shared pointers...they are expensive.
+
+Graphics:
+- think about pre-buffering all render 2d data for animations. so we only update texture pointer instead of vertex data.
+
+
+Signals:
+- https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
+- https://github.com/skypjack/entt/wiki/Crash-Course:-events,-signals-and-everything-in-between#signals
+
+Scripting:
+- better https://github.com/skaarj1989/entt-meets-sol2/tree/main integration.
+- refine Scripts to more easily "attachable" single use scripts or "trigger" scripts.
 
 Tilemap:
+- reenable in scene
 - https://github.com/fallahn/tmxlite/issues/131
 - https://github.com/SSBMTonberry/tileson/issues/97
 
@@ -32,46 +37,26 @@ https://github.com/Caerind/AwesomeCppGameDev#ai
 https://github.com/BehaviorTree/BehaviorTree.CPP
 
 renderer:
-https://github.com/JuanDiegoMontoya/Fwog !!!!!
+https://old.reddit.com/r/opengl/comments/3m9u36/how_to_render_using_glmultidrawarraysindirect/
 https://github.com/Authlantech/2D_Lighting
 https://www.google.com/search?q=2d+normal+mapping&bshm=rime%2F1
 https://slembcke.github.io/SuperFastSoftShadows
-https://github.com/voldien/spritebatch-library
-https://github.com/dario-loi/staplegl
 https://github.com/AntonioModer/2d-lighting-engine
 https://github.com/edgarMeinart/opengl-2d-light-example
-https://github.com/StefanKubsch/NARC
-https://github.com/zenex/skeletongl
 https://github.com/RandyGaul/cute_headers/blob/master/cute_spritebatch.h
 https://old.reddit.com/r/opengl/comments/16oo7we/2d_sprite_animation/
-https://github.com/KTStephano/StratusGFX
-https://github.com/leaf3d/leaf3d/tree/master
 https://learnopengl.com/Advanced-Lighting/Deferred-Shading
-https://github.com/grz0zrg/fbg
-https://github.com/buserror/libc3
 https://github.com/lettier/3d-game-shaders-for-beginners
 https://github.com/ands/lightmapper
-parallaxx support
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.cpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.hpp
 https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
 https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
-fix no ambient light when no lights in scene
-add instance rendering
-more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
-	 - implement b2_debugdraw?
 https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
-https://github.com/Korsreven/ion
-https://github.com/Localtings/Batch-Renderer
-https://github.com/RobLoach/pntr_tiled
-https://github.com/rbrich/xcikit
-https://github.com/vinders/pandora_toolbox
-https://github.com/Ily3s/Hexeng2D
-https://github.com/grz0zrg/fbg
-https://github.com/alxm/faur
 https://old.reddit.com/r/opengl/comments/19eqoi9/dealing_with_resolution_independence_in_a_2d_game/
 https://old.reddit.com/r/cpp/comments/19ehte1/c_final_is_truly_cool_enhancing_performance_and/
 https://github.com/miloyip/light2d
-
 https://www.geeks3d.com/shader-library/
+more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
+	 - implement b2_debugdraw?
