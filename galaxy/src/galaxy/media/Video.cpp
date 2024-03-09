@@ -145,6 +145,12 @@ namespace galaxy
 							plm_set_loop(m_plm, false);
 							plm_set_audio_stream(m_plm, 0);
 							plm_set_audio_enabled(m_plm, true);
+
+							if (!m_shader.parse(resource::video_vert_shader, resource::video_frag_shader))
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Failed to load plm video shader '{0}'.", file);
+								success = false;
+							}
 						}
 					}
 					else
