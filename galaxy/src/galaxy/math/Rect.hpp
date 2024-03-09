@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Rect() = default;
+			~Rect();
 
 			///
 			/// Does the rectangle contain the point (x, y).
@@ -191,6 +191,11 @@ namespace galaxy
 			, y {y}
 			, width {width}
 			, height {height}
+		{
+		}
+
+		template<meta::is_arithmetic Type>
+		inline Rect<Type>::~Rect()
 		{
 		}
 

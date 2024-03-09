@@ -68,6 +68,10 @@ namespace galaxy
 			return *this;
 		}
 
+		Guid::~Guid()
+		{
+		}
+
 		const std::string& Guid::to_string() const
 		{
 			return m_id;

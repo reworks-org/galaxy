@@ -28,7 +28,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Keyboard() = default;
+			virtual ~Keyboard();
 
 			///
 			/// \brief Enable window to begin processing text input.

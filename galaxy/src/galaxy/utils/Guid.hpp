@@ -50,7 +50,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Guid() = default;
+			~Guid();
 
 			///
 			/// Get the GUID as a string.

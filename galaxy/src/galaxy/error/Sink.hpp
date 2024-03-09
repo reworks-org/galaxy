@@ -23,9 +23,9 @@ namespace galaxy
 		{
 		  public:
 			///
-			/// Virtual Destructor.
+			/// Virtual destructor.
 			///
-			virtual ~Sink() = default;
+			virtual ~Sink();
 
 			///
 			/// Sink the message.

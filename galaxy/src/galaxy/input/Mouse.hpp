@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Mouse() = default;
+			virtual ~Mouse();
 
 			///
 			/// \brief Enable sticky mouse.

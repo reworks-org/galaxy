@@ -44,7 +44,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Random() = default;
+			~Random();
 
 			///
 			/// Generate a random number of type T.

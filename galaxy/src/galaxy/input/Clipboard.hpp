@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Clipboard() = default;
+			virtual ~Clipboard();
 
 			///
 			/// Set clipboard contents.

@@ -18,6 +18,10 @@ namespace galaxy
 		{
 		}
 
+		ConsoleSink::~ConsoleSink()
+		{
+		}
+
 		void ConsoleSink::sink_message(const LogMessage& message)
 		{
 			auto level_spaced = static_cast<std::string>(message.level);

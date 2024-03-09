@@ -18,6 +18,10 @@ namespace galaxy
 		{
 		}
 
+		Mouse::~Mouse()
+		{
+		}
+
 		void Mouse::enable_sticky_mouse() const
 		{
 			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);

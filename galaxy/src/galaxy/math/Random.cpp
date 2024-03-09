@@ -17,6 +17,10 @@ namespace galaxy
 		{
 		}
 
+		Random::~Random()
+		{
+		}
+
 		glm::vec2 Random::gen_vec2(const glm::vec2& min, const glm::vec2& max)
 		{
 			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y)};

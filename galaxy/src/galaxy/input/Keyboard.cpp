@@ -19,6 +19,10 @@ namespace galaxy
 		{
 		}
 
+		Keyboard::~Keyboard()
+		{
+		}
+
 		void Keyboard::begin_text_input()
 		{
 			m_text_input_enabled = true;

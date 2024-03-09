@@ -18,6 +18,10 @@ namespace galaxy
 		{
 		}
 
+		Clipboard::~Clipboard()
+		{
+		}
+
 		void Clipboard::set(const char* contents) const
 		{
 			glfwSetClipboardString(m_window, contents);

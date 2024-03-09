@@ -28,7 +28,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~ConsoleSink() = default;
+			virtual ~ConsoleSink();
 
 			///
 			/// Sink the message.
