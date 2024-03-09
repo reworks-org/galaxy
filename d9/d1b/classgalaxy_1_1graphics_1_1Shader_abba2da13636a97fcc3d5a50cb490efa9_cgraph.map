@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Shader::load" name="galaxy::graphics::Shader::load">
+<area shape="rect" id="Node000001" title="Loads an OpenGL shader." alt="" coords="5,35,187,75"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="259,5,441,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,42,245,35,246,40,187,47"/>
+<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="235,70,465,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,62,222,66,221,71,187,67"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="513,5,695,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,23,499,23,499,28,441,28"/>
+</map>

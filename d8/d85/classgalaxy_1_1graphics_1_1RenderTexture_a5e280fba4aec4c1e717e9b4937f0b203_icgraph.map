@@ -1,0 +1,21 @@
+<map id="galaxy::graphics::RenderTexture::texture" name="galaxy::graphics::RenderTexture::texture">
+<area shape="rect" id="Node000001" title="Gets framebuffer texture." alt="" coords="813,183,996,223"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e" title="Display a galaxy image with imgui." alt="" coords="549,5,727,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="883,173,834,107,802,73,764,46,726,30,728,25,767,41,805,69,839,103,887,170"/>
+<area shape="rect" id="Node000003" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="537,55,739,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="868,177,820,142,764,110,733,98,735,93,766,105,823,137,871,172"/>
+<area shape="rect" id="Node000004" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="551,119,725,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="807,183,721,162,722,157,808,177"/>
+<area shape="rect" id="Node000005" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="511,183,765,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="800,206,765,206,765,201,800,201"/>
+<area shape="rect" id="Node000006" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="540,247,736,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="808,229,722,250,721,245,807,224"/>
+<area shape="rect" id="Node000007" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="543,311,733,351"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="871,234,823,269,766,302,734,314,732,309,764,297,820,265,868,230"/>
+<area shape="rect" id="Node000008" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="531,375,745,415"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="887,237,838,302,805,337,767,366,743,378,740,373,764,361,801,333,834,299,882,233"/>
+<area shape="rect" id="Node000009" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="268,375,463,415"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="517,398,463,398,463,393,517,393"/>
+<area shape="rect" id="Node000010" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,375,220,415"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="254,398,220,398,220,393,254,393"/>
+</map>

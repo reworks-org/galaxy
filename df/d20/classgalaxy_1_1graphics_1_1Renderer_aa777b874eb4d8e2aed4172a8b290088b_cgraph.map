@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Renderer::draw" name="galaxy::graphics::Renderer::draw">
+<area shape="rect" id="Node000001" title="Draw all submitted render commands to screen." alt="" coords="5,37,200,77"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="251,5,432,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,42,236,37,237,42,201,47"/>
+<area shape="rect" id="Node000003" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a9cac5e7dfec35777fd033814b05ed423" title="Sub buffer data." alt="" coords="248,69,435,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,68,235,72,234,78,200,73"/>
+</map>

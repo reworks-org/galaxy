@@ -1,9 +1,9 @@
 <map id="galaxy/src/galaxy/scripting/JSON.hpp" name="galaxy/src/galaxy/scripting/JSON.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="190,5,387,45"/>
-<area shape="rect" id="Node000002" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,53,135,96,132,91,231,48"/>
-<area shape="rect" id="Node000003" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="199,93,378,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,59,291,93,286,93,286,59"/>
-<area shape="rect" id="Node000004" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="402,93,599,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,48,455,91,453,96,347,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="199,5,396,45"/>
+<area shape="rect" id="Node000002" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="5,93,184,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,53,140,96,138,91,239,48"/>
+<area shape="rect" id="Node000003" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="208,93,387,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="300,59,300,93,295,93,295,59"/>
+<area shape="rect" id="Node000004" href="$dc/d1d/JSON_8cpp.html" title=" " alt="" coords="411,93,608,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="357,48,464,91,462,96,355,53"/>
 </map>

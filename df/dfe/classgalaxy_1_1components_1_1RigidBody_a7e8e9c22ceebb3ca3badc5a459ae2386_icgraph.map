@@ -1,10 +1,5 @@
 <map id="galaxy::components::RigidBody::is_bullet" name="galaxy::components::RigidBody::is_bullet">
-<area shape="rect" id="Node000001" title="Is this a bullet style body." alt="" coords="620,5,779,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,5,357,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="606,25,572,24,405,24,358,25,358,20,405,19,572,19,606,19"/>
-<area shape="rect" id="Node000004" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a765876796844a5b9beeb54ab017e4707" title="Set if body is a bullet type." alt="" coords="405,33,572,73"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="607,40,573,45,572,40,606,35"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="391,42,357,38,358,32,392,37"/>
+<area shape="rect" id="Node000001" title="Is this a bullet style body." alt="" coords="220,5,379,45"/>
+<area shape="rect" id="Node000002" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a765876796844a5b9beeb54ab017e4707" title="Set if body is a bullet type." alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>

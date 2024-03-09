@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['vertex_0',['Vertex',['../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html',1,'galaxy::graphics']]],
-  ['vertexarray_1',['VertexArray',['../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html',1,'galaxy::graphics']]],
-  ['vertexbuffer_2',['VertexBuffer',['../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html',1,'galaxy::graphics']]],
-  ['video_3',['Video',['../de/d0b/classgalaxy_1_1media_1_1Video.html',1,'galaxy::media']]],
-  ['virtualfilesystem_4',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs']]],
-  ['voiceloader_5',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
+  ['zlib_0',['ZLib',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html',1,'galaxy::math']]]
 ];

@@ -19,23 +19,12 @@ var namespacegalaxy =
       [ "write", "de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a", null ]
     ] ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
-    [ "map", "d6/d4d/namespacegalaxy_1_1map.html", "d6/d4d/namespacegalaxy_1_1map" ],
     [ "math", "d1/d92/namespacegalaxy_1_1math.html", "d1/d92/namespacegalaxy_1_1math" ],
     [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", "dd/dfc/namespacegalaxy_1_1platform" ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],
-    [ "shaders", "dc/d20/namespacegalaxy_1_1shaders.html", [
-      [ "r2d_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a3986ce61a0d54da18877737d37737f3c", null ],
-      [ "r2d_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a088c0c5edb097d7da843946924f3d35d", null ],
-      [ "render_to_texture_vert", "dc/d20/namespacegalaxy_1_1shaders.html#aeb93ae4c55e1978aca934dec2597667f", null ],
-      [ "render_to_texture_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a7387a817b7df31b4d205b973a4a26c01", null ],
-      [ "video_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a35b6d1a2b26436b99b4ebb48860e28e3", null ],
-      [ "video_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a6a45c75c00c38b8c9dfc7d74621f9eb1", null ],
-      [ "particle_vert", "dc/d20/namespacegalaxy_1_1shaders.html#a2ca5b6cce17ef781bf1a9aeab8cea608", null ],
-      [ "particle_frag", "dc/d20/namespacegalaxy_1_1shaders.html#a22368fd9be33109e3564bf23bcc57088", null ]
-    ] ],
     [ "strutils", "db/d7c/namespacegalaxy_1_1strutils.html", [
       [ "split", "db/d7c/namespacegalaxy_1_1strutils.html#aa49866d6c8088279303394a48f2a8324", null ],
       [ "replace_first", "db/d7c/namespacegalaxy_1_1strutils.html#aadb96bbbbd51e3761290151baf3bcd3d", null ],

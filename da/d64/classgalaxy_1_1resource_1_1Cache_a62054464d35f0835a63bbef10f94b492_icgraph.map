@@ -1,10 +1,5 @@
 <map id="galaxy::resource::Cache::size" name="galaxy::resource::Cache::size">
-<area shape="rect" id="Node000001" title="Get amount of resources cached." alt="" coords="631,35,808,75"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="405,5,583,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="617,44,582,40,583,34,618,39"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,35,357,75"/>
-<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="617,60,583,60,405,60,358,59,358,54,405,55,583,55,617,54"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,43,358,48,357,42,391,37"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
+<area shape="rect" id="Node000001" title="Get amount of resources cached." alt="" coords="231,5,408,45"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="5,5,183,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,28,183,28,183,23,217,23"/>
 </map>

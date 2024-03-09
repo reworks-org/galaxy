@@ -1,9 +1,0 @@
-<map id="galaxy::core::World::clear" name="galaxy::core::World::clear">
-<area shape="rect" id="Node000001" title="Clears all system, component registry, and entity data." alt="" coords="415,37,561,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="225,5,362,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,46,362,39,362,34,402,40"/>
-<area shape="rect" id="Node000004" href="$da/dc8/classgalaxy_1_1core_1_1World.html#aa660c83003fa85a17bc78db1a60e64f3" title="Destructor." alt="" coords="220,69,367,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="402,74,368,80,367,75,401,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,28,172,28,172,23,211,23"/>
-</map>

@@ -1,6 +1,6 @@
 var classgalaxy_1_1input_1_1Mouse =
 [
-    [ "~Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html#a2312c5a21271f03fae6e8dc891272728", null ],
+    [ "~Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html#af2f90be3579274ded9078fc1c16e043b", null ],
     [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html#abf07a7d4bde7f080c3b427e7c95eb66b", null ],
     [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html#a281a677f02747fabc76c1d764a87df2d", null ],
     [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html#a7ceacd48658fa3a7c0430e58bf713839", null ],

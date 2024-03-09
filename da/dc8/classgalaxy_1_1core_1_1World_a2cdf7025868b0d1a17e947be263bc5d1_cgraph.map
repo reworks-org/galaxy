@@ -1,9 +1,0 @@
-<map id="galaxy::core::World::construct_nui" name="galaxy::core::World::construct_nui">
-<area shape="rect" id="Node000001" title="Function that integrates nuklear init with entt on construct event." alt="" coords="5,35,152,75"/>
-<area shape="rect" id="Node000002" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a613a9f3eb9a7649865d0c7f933b9b87c" title="Load script and set context." alt="" coords="239,5,392,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,43,225,34,225,39,152,48"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,70,431,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="152,61,195,66,194,71,152,66"/>
-<area shape="rect" id="Node000003" href="$dd/d64/classgalaxy_1_1components_1_1UIScript.html#a03066d747b8a81cd5d575a1a6d3abed1" title="Get script file path." alt="" coords="479,5,632,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,23,465,23,465,28,392,28"/>
-</map>

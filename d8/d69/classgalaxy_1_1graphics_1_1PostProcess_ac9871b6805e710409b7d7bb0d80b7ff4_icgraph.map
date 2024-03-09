@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::PostProcess::add" name="galaxy::graphics::PostProcess::add">
-<area shape="rect" id="Node000001" title="Add an effect to process." alt="" coords="248,13,495,38"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="5,5,200,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,28,200,28,200,23,234,23"/>
-</map>

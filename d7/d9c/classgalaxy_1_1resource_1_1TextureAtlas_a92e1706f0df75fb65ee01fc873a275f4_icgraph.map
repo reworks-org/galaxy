@@ -1,7 +1,0 @@
-<map id="galaxy::resource::TextureAtlas::save" name="galaxy::resource::TextureAtlas::save">
-<area shape="rect" id="Node000001" title="Save all created atlas&#39; to disk." alt="" coords="405,5,591,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,5,357,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="391,28,357,28,357,23,391,23"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-</map>

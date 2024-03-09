@@ -21,6 +21,5 @@ var searchData=
   ['smaa_5fheader_5fvert_18',['smaa_header_vert',['../d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40',1,'SMAA.cpp']]],
   ['smaa_5fneighbour_5ffrag_19',['smaa_neighbour_frag',['../d4/dad/SMAA_8cpp.html#ac37b371046f325b2d5012cdd497fa24c',1,'SMAA.cpp']]],
   ['smaa_5fneighbour_5fvert_20',['smaa_neighbour_vert',['../d4/dad/SMAA_8cpp.html#a7fad5dd0d7400c340b2aa0fba2a9e1a2',1,'SMAA.cpp']]],
-  ['smaa_5fsearch_5ftex_21',['smaa_search_tex',['../d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae',1,'SMAA.cpp']]],
-  ['start_5fend_22',['start_end',['../d7/ddc/structgalaxy_1_1components_1_1Primitive_1_1PrimitiveData.html#a6d55a4eaae0943f3bb46861118a6da95',1,'galaxy::components::Primitive::PrimitiveData']]]
+  ['smaa_5fsearch_5ftex_21',['smaa_search_tex',['../d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae',1,'SMAA.cpp']]]
 ];

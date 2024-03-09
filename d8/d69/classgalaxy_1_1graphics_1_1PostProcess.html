@@ -110,23 +110,19 @@ $(document).ready(function(){initNavTree('d8/d69/classgalaxy_1_1graphics_1_1Post
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/dde/classgalaxy_1_1graphics_1_1PostProcess__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1PostProcess_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1PostProcess_coll__map" id="agalaxy_1_1graphics_1_1PostProcess_coll__map">
-<area shape="rect" title="Manages post processing effects to apply to combined scene." alt="" coords="104,1395,311,1700"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="21,999,196,1319"/>
-<area shape="poly" title=" " alt="" coords="152,1319,167,1378,162,1379,147,1320"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="5,404,212,909"/>
-<area shape="poly" title=" " alt="" coords="111,909,111,983,106,983,106,909"/>
-<area shape="rect" title=" " alt="" coords="33,269,184,334"/>
-<area shape="poly" title=" " alt="" coords="111,335,111,388,106,388,106,335"/>
-<area shape="rect" title=" " alt="" coords="51,133,166,199"/>
-<area shape="poly" title=" " alt="" coords="111,212,111,268,106,268,106,212"/>
-<area shape="rect" title=" " alt="" coords="97,5,120,71"/>
-<area shape="poly" title=" " alt="" coords="111,71,111,117,106,117,106,71"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="221,987,394,1332"/>
-<area shape="poly" title=" " alt="" coords="265,1333,253,1379,248,1378,260,1332"/>
-<area shape="rect" title=" " alt="" coords="268,624,347,689"/>
-<area shape="poly" title=" " alt="" coords="310,690,310,970,305,970,305,690"/>
-<area shape="rect" title=" " alt="" coords="242,261,373,341"/>
-<area shape="poly" title=" " alt="" coords="310,355,310,624,305,624,305,355"/>
+<area shape="rect" title="Manages post processing effects to apply to combined scene." alt="" coords="173,1360,380,1665"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="40,857,215,1297"/>
+<area shape="poly" title=" " alt="" coords="205,1297,222,1343,216,1345,200,1298"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="5,389,249,795"/>
+<area shape="poly" title=" " alt="" coords="130,795,130,841,125,841,125,795"/>
+<area shape="rect" title=" " alt="" coords="52,261,203,327"/>
+<area shape="poly" title=" " alt="" coords="130,327,130,373,125,373,125,327"/>
+<area shape="rect" title=" " alt="" coords="70,133,185,199"/>
+<area shape="poly" title=" " alt="" coords="130,213,130,261,125,261,125,213"/>
+<area shape="rect" title=" " alt="" coords="116,5,139,71"/>
+<area shape="poly" title=" " alt="" coords="130,71,130,117,125,117,125,71"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="239,885,416,1270"/>
+<area shape="poly" title=" " alt="" coords="308,1271,299,1344,294,1343,302,1270"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -144,10 +140,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a51b82490feec0b76226ecf83e4a79008" id="r_a51b82490feec0b76226ecf83e4a79008"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008">destroy</a> ()</td></tr>
 <tr class="memdesc:a51b82490feec0b76226ecf83e4a79008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleanup used memory.  <br /></td></tr>
 <tr class="separator:a51b82490feec0b76226ecf83e4a79008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9871b6805e710409b7d7bb0d80b7ff4" id="r_ac9871b6805e710409b7d7bb0d80b7ff4"><td class="memTemplParams" colspan="2">template&lt;is_posteffect Effect, typename... Args&gt; </td></tr>
-<tr class="memitem:ac9871b6805e710409b7d7bb0d80b7ff4"><td class="memTemplItemLeft" align="right" valign="top">std::weak_ptr&lt; Effect &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4">add</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:ac9871b6805e710409b7d7bb0d80b7ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an effect to process.  <br /></td></tr>
-<tr class="separator:ac9871b6805e710409b7d7bb0d80b7ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29d6ddb1eea0802f68ff6fd4f61d74c" id="r_ac29d6ddb1eea0802f68ff6fd4f61d74c"><td class="memTemplParams" colspan="2">template&lt;is_posteffect Effect, typename... Args&gt; </td></tr>
+<tr class="memitem:ac29d6ddb1eea0802f68ff6fd4f61d74c"><td class="memTemplItemLeft" align="right" valign="top">Effect &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac29d6ddb1eea0802f68ff6fd4f61d74c">add</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ac29d6ddb1eea0802f68ff6fd4f61d74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an effect to process.  <br /></td></tr>
+<tr class="separator:ac29d6ddb1eea0802f68ff6fd4f61d74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1251591b09dec524ca3d040bc92af737" id="r_a1251591b09dec524ca3d040bc92af737"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737">bind</a> ()</td></tr>
 <tr class="memdesc:a1251591b09dec524ca3d040bc92af737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to draw to post processor framebuffer.  <br /></td></tr>
 <tr class="separator:a1251591b09dec524ca3d040bc92af737"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +168,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aa5ffdfd9f7167d210d734fb29574f36b" id="r_aa5ffdfd9f7167d210d734fb29574f36b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aa5ffdfd9f7167d210d734fb29574f36b">m_output</a></td></tr>
 <tr class="memdesc:aa5ffdfd9f7167d210d734fb29574f36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple output shader.  <br /></td></tr>
 <tr class="separator:aa5ffdfd9f7167d210d734fb29574f36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad260bd1c05a0899956042646b7257391" id="r_ad260bd1c05a0899956042646b7257391"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::shared_ptr&lt; <a class="el" href="../../d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html">PostEffect</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ad260bd1c05a0899956042646b7257391">m_effects</a></td></tr>
-<tr class="memdesc:ad260bd1c05a0899956042646b7257391"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of effects to apply in order.  <br /></td></tr>
-<tr class="separator:ad260bd1c05a0899956042646b7257391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c073366b445e0ad8aae9920136b30c3" id="r_a4c073366b445e0ad8aae9920136b30c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html">PostEffect</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a4c073366b445e0ad8aae9920136b30c3">m_effects</a></td></tr>
+<tr class="memdesc:a4c073366b445e0ad8aae9920136b30c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of effects to apply in order.  <br /></td></tr>
+<tr class="separator:a4c073366b445e0ad8aae9920136b30c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2086277094f60e5ea83a4c0b8b628dc" id="r_af2086277094f60e5ea83a4c0b8b628dc"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af2086277094f60e5ea83a4c0b8b628dc">m_screen_vbo</a></td></tr>
 <tr class="memdesc:af2086277094f60e5ea83a4c0b8b628dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple quad to draw when applying effects (buffer).  <br /></td></tr>
 <tr class="separator:af2086277094f60e5ea83a4c0b8b628dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +184,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages post processing effects to apply to combined scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a77231038649667bedeae1a5ef8871327" name="a77231038649667bedeae1a5ef8871327"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77231038649667bedeae1a5ef8871327">&#9670;&#160;</a></span>PostProcess()</h2>
@@ -207,7 +203,7 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
 
 </div>
 </div>
@@ -228,7 +224,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00059">59</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -239,8 +235,6 @@ Private Attributes</h2></td></tr>
 <area shape="rect" title="Destructor." alt="" coords="5,5,220,45"/>
 <area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="268,5,483,45"/>
 <area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="531,5,712,45"/>
-<area shape="poly" title=" " alt="" coords="483,23,517,23,517,28,483,28"/>
 </map>
 </div>
 
@@ -282,7 +276,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00064">64</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -290,28 +284,31 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_cgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_cgraph">
-<area shape="rect" title="Initialize post processor and GL buffers." alt="" coords="5,133,220,173"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="269,69,450,109"/>
-<area shape="poly" title=" " alt="" coords="190,131,268,110,269,115,191,136"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="268,133,451,173"/>
-<area shape="poly" title=" " alt="" coords="220,151,254,151,254,156,220,156"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8e8b15bb84835035804c05cc19152403" title="Loads a combined raw shader." alt="" coords="269,241,450,281"/>
-<area shape="poly" title=" " alt="" coords="160,171,301,233,299,238,158,176"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="499,5,713,45"/>
-<area shape="poly" title=" " alt="" coords="429,131,449,119,464,104,472,88,481,71,497,55,506,50,509,54,500,59,485,75,477,90,468,107,452,123,432,135"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="499,69,713,109"/>
-<area shape="poly" title=" " alt="" coords="437,131,515,110,516,115,438,136"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="499,133,713,173"/>
-<area shape="poly" title=" " alt="" coords="451,151,485,151,485,156,451,156"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="499,197,713,237"/>
-<area shape="poly" title=" " alt="" coords="438,171,516,191,515,196,437,176"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="761,13,992,38"/>
-<area shape="poly" title=" " alt="" coords="714,23,748,23,748,28,714,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="769,133,984,173"/>
-<area shape="poly" title=" " alt="" coords="714,151,756,151,756,156,714,156"/>
-<area shape="poly" title=" " alt="" coords="314,242,311,232,318,222,335,217,359,215,388,218,403,225,401,230,386,223,359,220,336,222,321,227,316,233,319,240"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab6218a2d58f67196138e097cc723cb86" title="Extract source code from a combined shader." alt="" coords="515,261,697,301"/>
-<area shape="poly" title=" " alt="" coords="450,266,502,270,501,276,450,271"/>
+<area shape="rect" title="Initialize post processor and GL buffers." alt="" coords="5,229,220,269"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into GPU mem." alt="" coords="269,165,450,205"/>
+<area shape="poly" title=" " alt="" coords="190,227,268,206,269,211,191,232"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="268,229,451,269"/>
+<area shape="poly" title=" " alt="" coords="220,247,254,247,254,252,220,252"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="269,357,450,397"/>
+<area shape="poly" title=" " alt="" coords="153,267,309,349,307,353,151,272"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="509,37,723,77"/>
+<area shape="poly" title=" " alt="" coords="433,227,449,215,461,200,468,184,471,152,476,120,483,103,497,87,502,83,505,87,501,91,488,106,481,121,477,153,473,186,466,203,453,219,437,231"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="499,101,733,141"/>
+<area shape="poly" title=" " alt="" coords="429,227,449,215,464,200,472,184,481,167,497,151,507,145,510,150,500,155,485,170,477,186,468,203,452,219,432,231"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="509,165,723,205"/>
+<area shape="poly" title=" " alt="" coords="440,227,522,206,523,211,441,232"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="525,229,707,269"/>
+<area shape="poly" title=" " alt="" coords="451,247,511,247,511,252,451,252"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="509,293,723,333"/>
+<area shape="poly" title=" " alt="" coords="441,267,523,287,522,293,440,272"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="525,357,707,397"/>
+<area shape="poly" title=" " alt="" coords="386,267,436,306,500,343,517,350,515,355,497,348,433,310,382,271"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="781,5,996,45"/>
+<area shape="poly" title=" " alt="" coords="723,42,767,37,768,42,724,47"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="781,69,996,109"/>
+<area shape="poly" title=" " alt="" coords="724,67,768,73,767,78,723,73"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="525,421,707,461"/>
+<area shape="poly" title=" " alt="" coords="441,395,523,415,522,421,440,400"/>
 </map>
 </div>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -321,9 +318,11 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_icgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_aff50aa4f34ed88707d692cc9d122e779_icgraph">
-<area shape="rect" title="Initialize post processor and GL buffers." alt="" coords="248,5,463,45"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="5,5,200,45"/>
-<area shape="poly" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
+<area shape="rect" title="Initialize post processor and GL buffers." alt="" coords="463,5,677,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,5,415,45"/>
+<area shape="poly" title=" " alt="" coords="449,28,415,28,415,23,449,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -346,38 +345,28 @@ Private Attributes</h2></td></tr>
 
 <p>Cleanup used memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00100">100</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_cgraph" alt=""/></div>
-<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_cgraph">
-<area shape="rect" title="Cleanup used memory." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="268,5,449,45"/>
-<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-</map>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_icgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a51b82490feec0b76226ecf83e4a79008_icgraph">
-<area shape="rect" title="Cleanup used memory." alt="" coords="268,37,483,77"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a8d0c143c7723243bac125c5da83a98aa" title="Destructor." alt="" coords="5,5,220,45"/>
-<area shape="poly" title=" " alt="" coords="254,45,220,41,221,36,255,40"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#abeedfed4694e8477d5d8a53bf50f90dc" title="Destructor." alt="" coords="15,69,210,109"/>
-<area shape="poly" title=" " alt="" coords="255,75,210,80,210,75,254,69"/>
+<area shape="rect" title="Cleanup used memory." alt="" coords="495,37,709,77"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Cleanup renderer data." alt="" coords="242,5,437,45"/>
+<area shape="poly" title=" " alt="" coords="481,45,437,40,437,35,481,40"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a8d0c143c7723243bac125c5da83a98aa" title="Destructor." alt="" coords="232,69,447,109"/>
+<area shape="poly" title=" " alt="" coords="482,75,447,79,447,74,481,69"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="5,13,184,38"/>
+<area shape="poly" title=" " alt="" coords="228,28,184,28,184,23,228,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ac9871b6805e710409b7d7bb0d80b7ff4" name="ac9871b6805e710409b7d7bb0d80b7ff4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9871b6805e710409b7d7bb0d80b7ff4">&#9670;&#160;</a></span>add()</h2>
+<a id="ac29d6ddb1eea0802f68ff6fd4f61d74c" name="ac29d6ddb1eea0802f68ff6fd4f61d74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29d6ddb1eea0802f68ff6fd4f61d74c">&#9670;&#160;</a></span>add()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,7 +377,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::weak_ptr&lt; Effect &gt; galaxy::graphics::PostProcess::add </td>
+          <td class="memname">Effect &amp; galaxy::graphics::PostProcess::add </td>
           <td>(</td>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -419,17 +408,19 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Weak pointer to newly created effect. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00127">127</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00129">129</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac9871b6805e710409b7d7bb0d80b7ff4_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac9871b6805e710409b7d7bb0d80b7ff4_icgraph" alt=""/></div>
-<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac9871b6805e710409b7d7bb0d80b7ff4_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac9871b6805e710409b7d7bb0d80b7ff4_icgraph">
-<area shape="rect" title="Add an effect to process." alt="" coords="248,13,495,38"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="5,5,200,45"/>
-<area shape="poly" title=" " alt="" coords="234,28,200,28,200,23,234,23"/>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac29d6ddb1eea0802f68ff6fd4f61d74c_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac29d6ddb1eea0802f68ff6fd4f61d74c_icgraph" alt=""/></div>
+<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac29d6ddb1eea0802f68ff6fd4f61d74c_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac29d6ddb1eea0802f68ff6fd4f61d74c_icgraph">
+<area shape="rect" title="Add an effect to process." alt="" coords="463,13,709,38"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,5,415,45"/>
+<area shape="poly" title=" " alt="" coords="449,28,415,28,415,23,449,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -452,24 +443,39 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Bind to draw to post processor framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00133">133</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00134">134</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_cgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_cgraph">
 <area shape="rect" title="Bind to draw to post processor framebuffer." alt="" coords="5,37,220,77"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="268,37,451,77"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="268,37,451,77"/>
 <area shape="poly" title=" " alt="" coords="220,55,254,55,254,60,220,60"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="499,5,713,45"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="499,5,713,45"/>
 <area shape="poly" title=" " alt="" coords="450,43,485,38,485,44,451,48"/>
 <area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="515,69,697,109"/>
 <area shape="poly" title=" " alt="" coords="451,67,502,73,501,78,450,72"/>
 <area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="761,37,976,77"/>
 <area shape="poly" title=" " alt="" coords="714,36,748,40,747,45,713,41"/>
+<area shape="poly" title=" " alt="" coords="820,38,817,28,825,18,842,13,869,11,899,14,915,21,913,26,898,19,869,16,843,18,828,23,822,29,825,36"/>
 <area shape="poly" title=" " alt="" coords="697,76,747,69,748,75,698,81"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_icgraph" alt=""/></div>
+<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a1251591b09dec524ca3d040bc92af737_icgraph">
+<area shape="rect" title="Bind to draw to post processor framebuffer." alt="" coords="511,5,725,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56" title="Begin rendering to post process framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="497,28,463,28,463,23,497,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
 </map>
 </div>
 
@@ -492,7 +498,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Unbind to draw to post processor framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00138">138</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -501,10 +507,24 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_cgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_cgraph">
 <area shape="rect" title="Unbind to draw to post processor framebuffer." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Unbind framebuffer and texture." alt="" coords="268,5,451,45"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Deactivate context." alt="" coords="268,5,451,45"/>
 <area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="499,5,713,45"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa92e97cb44e8f1d6bfaa59750b533aed" title="Unbind framebuffer." alt="" coords="499,13,745,38"/>
 <area shape="poly" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
+</map>
+</div>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_icgraph" alt=""/></div>
+<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_af201b3dcb03a68ddd634283fe6747edc_icgraph">
+<area shape="rect" title="Unbind to draw to post processor framebuffer." alt="" coords="511,5,725,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="497,28,463,28,463,23,497,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
 </map>
 </div>
 
@@ -527,19 +547,33 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Draw post effects to stored framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00144">144</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_cgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_cgraph">
 <area shape="rect" title="Draw post effects to stored framebuffer." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="268,5,451,45"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a5e280fba4aec4c1e717e9b4937f0b203" title="Gets framebuffer texture." alt="" coords="268,5,451,45"/>
 <area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="499,5,713,45"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="499,5,713,45"/>
 <area shape="poly" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
+</map>
+</div>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_icgraph" alt=""/></div>
+<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9fc795887dcdcfcbd547a0821fa9228c_icgraph">
+<area shape="rect" title="Draw post effects to stored framebuffer." alt="" coords="511,5,725,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="497,28,463,28,463,23,497,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
 </map>
 </div>
 
@@ -562,17 +596,31 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Draw finished post effects to default framebuffer (screen). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00159">159</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00160">160</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_cgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_cgraph">
 <area shape="rect" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a57b3a4ca378bcca15a260a3220e87233" title="Enable this shader for rendering." alt="" coords="268,5,449,45"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="268,5,449,45"/>
 <area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
+</map>
+</div>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_icgraph" alt=""/></div>
+<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_ac5b96405859083751eb4d279c6ac421d_icgraph">
+<area shape="rect" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="511,5,725,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d" title="Renders final post processing output to active framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="497,28,463,28,463,23,497,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
 </map>
 </div>
 
@@ -613,21 +661,39 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00123">123</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html#l00124">124</a> of file <a class="el" href="../../d8/d9f/PostProcess_8cpp_source.html">PostProcess.cpp</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_cgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_cgraph" alt=""/></div>
 <map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_cgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_cgraph">
-<area shape="rect" title="Resize framebuffers." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="268,5,451,45"/>
-<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="499,5,713,45"/>
-<area shape="poly" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="761,5,976,45"/>
-<area shape="poly" title=" " alt="" coords="713,23,748,23,748,28,713,28"/>
+<area shape="rect" title="Resize framebuffers." alt="" coords="5,69,220,109"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="268,69,451,109"/>
+<area shape="poly" title=" " alt="" coords="220,87,254,87,254,92,220,92"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="515,5,697,45"/>
+<area shape="poly" title=" " alt="" coords="437,67,515,46,516,51,438,72"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="499,69,713,109"/>
+<area shape="poly" title=" " alt="" coords="451,87,485,87,485,92,451,92"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="515,133,697,173"/>
+<area shape="poly" title=" " alt="" coords="438,107,516,127,515,132,437,112"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="761,37,976,77"/>
+<area shape="poly" title=" " alt="" coords="713,74,747,69,748,75,714,79"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="761,101,976,141"/>
+<area shape="poly" title=" " alt="" coords="714,100,748,104,747,109,713,105"/>
+</map>
+</div>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_icgraph.png" border="0" usemap="#ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_icgraph" alt=""/></div>
+<map name="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_icgraph" id="ad8/d69/classgalaxy_1_1graphics_1_1PostProcess_a9837e128bd5a4c30355da6650b31b390_icgraph">
+<area shape="rect" title="Resize framebuffers." alt="" coords="248,5,463,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="5,5,200,45"/>
+<area shape="poly" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
 </map>
 </div>
 
@@ -656,7 +722,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>For geometry and lighting. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 
 </div>
 </div>
@@ -682,12 +748,12 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Simple output shader. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00103">103</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ad260bd1c05a0899956042646b7257391" name="ad260bd1c05a0899956042646b7257391"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad260bd1c05a0899956042646b7257391">&#9670;&#160;</a></span>m_effects</h2>
+<a id="a4c073366b445e0ad8aae9920136b30c3" name="a4c073366b445e0ad8aae9920136b30c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c073366b445e0ad8aae9920136b30c3">&#9670;&#160;</a></span>m_effects</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -696,7 +762,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;std::shared_ptr&lt;<a class="el" href="../../d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html">PostEffect</a>&gt; &gt; galaxy::graphics::PostProcess::m_effects</td>
+          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;<a class="el" href="../../d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html">PostEffect</a>*&gt; galaxy::graphics::PostProcess::m_effects</td>
         </tr>
       </table>
   </td>
@@ -708,7 +774,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>List of effects to apply in order. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00110">110</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 
 </div>
 </div>
@@ -734,7 +800,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Simple quad to draw when applying effects (buffer). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 
 </div>
 </div>
@@ -760,7 +826,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Simple quad to draw when applying effects (array). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00120">120</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 
 </div>
 </div>
@@ -786,7 +852,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 
 <p>Output cache. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../d6/d3a/PostProcess_8hpp_source.html">PostProcess.hpp</a>.</p>
 
 </div>
 </div>
@@ -800,7 +866,7 @@ template&lt;is_posteffect Effect, typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html">PostProcess</a></li>
-    <li class="footer">Generated on Fri Feb 2 2024 00:21:50 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 15:39:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('d6/dfe/structgalaxy_1_1graphics_1_1Ren
 <p>Data to be passed to the renderer.  
  <a href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for galaxy::graphics::RenderCommand:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -109,59 +109,92 @@ $(document).ready(function(){initNavTree('d6/dfe/structgalaxy_1_1graphics_1_1Ren
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/dce/structgalaxy_1_1graphics_1_1RenderCommand__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1RenderCommand_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1RenderCommand_coll__map" id="agalaxy_1_1graphics_1_1RenderCommand_coll__map">
-<area shape="rect" title="Data to be passed to the renderer." alt="" coords="9,228,184,428"/>
-<area shape="rect" href="../../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html" title="Uniform data passed to shader from entity." alt="" coords="5,5,188,165"/>
-<area shape="poly" title=" " alt="" coords="99,166,99,212,94,212,94,166"/>
+<area shape="rect" title="Data to be passed to the renderer." alt="" coords="21,213,195,393"/>
+<area shape="rect" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html" title="Uniform data passed to shader from entity." alt="" coords="5,5,211,151"/>
+<area shape="poly" title=" " alt="" coords="111,151,111,197,105,197,105,151"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aaabca89f9f39cd3f2558018fd1f68261" id="r_aaabca89f9f39cd3f2558018fd1f68261"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aaabca89f9f39cd3f2558018fd1f68261">instances</a></td></tr>
-<tr class="memdesc:aaabca89f9f39cd3f2558018fd1f68261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of instances to render.  <br /></td></tr>
-<tr class="separator:aaabca89f9f39cd3f2558018fd1f68261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a025e64c0062f014384bf460f93aa3260" id="r_a025e64c0062f014384bf460f93aa3260"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a025e64c0062f014384bf460f93aa3260">mode</a></td></tr>
+<tr class="memitem:aab5e5f3f3bcf7a7fc78daf34172a902d" id="r_aab5e5f3f3bcf7a7fc78daf34172a902d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aab5e5f3f3bcf7a7fc78daf34172a902d">layer</a> = 0</td></tr>
+<tr class="memdesc:aab5e5f3f3bcf7a7fc78daf34172a902d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer to render on.  <br /></td></tr>
+<tr class="separator:aab5e5f3f3bcf7a7fc78daf34172a902d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44bebfa1a44c3572d6ac788687ec145" id="r_ab44bebfa1a44c3572d6ac788687ec145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html">RenderData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#ab44bebfa1a44c3572d6ac788687ec145">uniforms</a></td></tr>
+<tr class="memdesc:ab44bebfa1a44c3572d6ac788687ec145"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> uniform data.  <br /></td></tr>
+<tr class="separator:ab44bebfa1a44c3572d6ac788687ec145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c72b97ecc4dc8f549649ff0b8f6bc5" id="r_a10c72b97ecc4dc8f549649ff0b8f6bc5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a10c72b97ecc4dc8f549649ff0b8f6bc5">vao</a> = 0</td></tr>
+<tr class="memdesc:a10c72b97ecc4dc8f549649ff0b8f6bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL vertex array object.  <br /></td></tr>
+<tr class="separator:a10c72b97ecc4dc8f549649ff0b8f6bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025e64c0062f014384bf460f93aa3260" id="r_a025e64c0062f014384bf460f93aa3260"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a025e64c0062f014384bf460f93aa3260">mode</a> = 0</td></tr>
 <tr class="memdesc:a025e64c0062f014384bf460f93aa3260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to render i.e. GL_LINES, GL_TRIANGLES, etc.  <br /></td></tr>
 <tr class="separator:a025e64c0062f014384bf460f93aa3260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9361ba450c5cdd5f5bb226514d6fea48" id="r_a9361ba450c5cdd5f5bb226514d6fea48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html">Render2DUniform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a9361ba450c5cdd5f5bb226514d6fea48">uniform_data</a></td></tr>
-<tr class="memdesc:a9361ba450c5cdd5f5bb226514d6fea48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render2D shader uniform data block.  <br /></td></tr>
-<tr class="separator:a9361ba450c5cdd5f5bb226514d6fea48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a243d35d9c6cb21a5753c1eae93c7cd4f" id="r_a243d35d9c6cb21a5753c1eae93c7cd4f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a243d35d9c6cb21a5753c1eae93c7cd4f">m_vao</a></td></tr>
-<tr class="memdesc:a243d35d9c6cb21a5753c1eae93c7cd4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL vertex array object.  <br /></td></tr>
-<tr class="separator:a243d35d9c6cb21a5753c1eae93c7cd4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a681486cd92274e1488af9a55a3e37f18" id="r_a681486cd92274e1488af9a55a3e37f18"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a681486cd92274e1488af9a55a3e37f18">m_texture</a></td></tr>
-<tr class="memdesc:a681486cd92274e1488af9a55a3e37f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL texture handle.  <br /></td></tr>
-<tr class="separator:a681486cd92274e1488af9a55a3e37f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ca6d678aafabb5dd496915279ed0284" id="r_a8ca6d678aafabb5dd496915279ed0284"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a8ca6d678aafabb5dd496915279ed0284">m_index_count</a></td></tr>
-<tr class="memdesc:a8ca6d678aafabb5dd496915279ed0284"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL index (element) buffer count.  <br /></td></tr>
-<tr class="separator:a8ca6d678aafabb5dd496915279ed0284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a9618d18a2c97fd887d7078baff636e" id="r_a2a9618d18a2c97fd887d7078baff636e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a2a9618d18a2c97fd887d7078baff636e">m_layer</a></td></tr>
-<tr class="memdesc:a2a9618d18a2c97fd887d7078baff636e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer to render on.  <br /></td></tr>
-<tr class="separator:a2a9618d18a2c97fd887d7078baff636e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab97dff3a65645cba833c169257244993" id="r_ab97dff3a65645cba833c169257244993"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#ab97dff3a65645cba833c169257244993">m_particle</a></td></tr>
-<tr class="memdesc:ab97dff3a65645cba833c169257244993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this a particle?  <br /></td></tr>
-<tr class="separator:ab97dff3a65645cba833c169257244993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16deeaa49deaf28f83e513cdcd89a8dd" id="r_a16deeaa49deaf28f83e513cdcd89a8dd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a16deeaa49deaf28f83e513cdcd89a8dd">count</a> = 0</td></tr>
+<tr class="memdesc:a16deeaa49deaf28f83e513cdcd89a8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL index (element) buffer count.  <br /></td></tr>
+<tr class="separator:a16deeaa49deaf28f83e513cdcd89a8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2995095b863fd7f0d7e7d6874a993753" id="r_a2995095b863fd7f0d7e7d6874a993753"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a2995095b863fd7f0d7e7d6874a993753">offset</a> = nullptr</td></tr>
+<tr class="memdesc:a2995095b863fd7f0d7e7d6874a993753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset in vertex buffer marking beginning of element data.  <br /></td></tr>
+<tr class="separator:a2995095b863fd7f0d7e7d6874a993753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabca89f9f39cd3f2558018fd1f68261" id="r_aaabca89f9f39cd3f2558018fd1f68261"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aaabca89f9f39cd3f2558018fd1f68261">instances</a> = 1</td></tr>
+<tr class="memdesc:aaabca89f9f39cd3f2558018fd1f68261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of instances to render.  <br /></td></tr>
+<tr class="separator:aaabca89f9f39cd3f2558018fd1f68261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Data to be passed to the renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="aaabca89f9f39cd3f2558018fd1f68261" name="aaabca89f9f39cd3f2558018fd1f68261"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaabca89f9f39cd3f2558018fd1f68261">&#9670;&#160;</a></span>instances</h2>
+<a id="aab5e5f3f3bcf7a7fc78daf34172a902d" name="aab5e5f3f3bcf7a7fc78daf34172a902d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab5e5f3f3bcf7a7fc78daf34172a902d">&#9670;&#160;</a></span>layer</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int galaxy::graphics::RenderCommand::instances</td>
+          <td class="memname">int galaxy::graphics::RenderCommand::layer = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Number of instances to render. </p>
+<p>Layer to render on. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab44bebfa1a44c3572d6ac788687ec145" name="ab44bebfa1a44c3572d6ac788687ec145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab44bebfa1a44c3572d6ac788687ec145">&#9670;&#160;</a></span>uniforms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html">RenderData</a> galaxy::graphics::RenderCommand::uniforms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> uniform data. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a10c72b97ecc4dc8f549649ff0b8f6bc5" name="a10c72b97ecc4dc8f549649ff0b8f6bc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c72b97ecc4dc8f549649ff0b8f6bc5">&#9670;&#160;</a></span>vao</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int galaxy::graphics::RenderCommand::vao = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OpenGL vertex array object. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
 
 </div>
 </div>
@@ -172,127 +205,73 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int galaxy::graphics::RenderCommand::mode</td>
+          <td class="memname">unsigned int galaxy::graphics::RenderCommand::mode = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Type to render i.e. GL_LINES, GL_TRIANGLES, etc. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a9361ba450c5cdd5f5bb226514d6fea48" name="a9361ba450c5cdd5f5bb226514d6fea48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9361ba450c5cdd5f5bb226514d6fea48">&#9670;&#160;</a></span>uniform_data</h2>
+<a id="a16deeaa49deaf28f83e513cdcd89a8dd" name="a16deeaa49deaf28f83e513cdcd89a8dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16deeaa49deaf28f83e513cdcd89a8dd">&#9670;&#160;</a></span>count</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d6e/structgalaxy_1_1graphics_1_1Render2DUniform.html">Render2DUniform</a> galaxy::graphics::RenderCommand::uniform_data</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Render2D shader uniform data block. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a243d35d9c6cb21a5753c1eae93c7cd4f" name="a243d35d9c6cb21a5753c1eae93c7cd4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a243d35d9c6cb21a5753c1eae93c7cd4f">&#9670;&#160;</a></span>m_vao</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int galaxy::graphics::RenderCommand::m_vao</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>OpenGL vertex array object. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a681486cd92274e1488af9a55a3e37f18" name="a681486cd92274e1488af9a55a3e37f18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a681486cd92274e1488af9a55a3e37f18">&#9670;&#160;</a></span>m_texture</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int galaxy::graphics::RenderCommand::m_texture</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>OpenGL texture handle. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8ca6d678aafabb5dd496915279ed0284" name="a8ca6d678aafabb5dd496915279ed0284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ca6d678aafabb5dd496915279ed0284">&#9670;&#160;</a></span>m_index_count</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int galaxy::graphics::RenderCommand::m_index_count</td>
+          <td class="memname">unsigned int galaxy::graphics::RenderCommand::count = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>OpenGL index (element) buffer count. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a2a9618d18a2c97fd887d7078baff636e" name="a2a9618d18a2c97fd887d7078baff636e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a9618d18a2c97fd887d7078baff636e">&#9670;&#160;</a></span>m_layer</h2>
+<a id="a2995095b863fd7f0d7e7d6874a993753" name="a2995095b863fd7f0d7e7d6874a993753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2995095b863fd7f0d7e7d6874a993753">&#9670;&#160;</a></span>offset</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int galaxy::graphics::RenderCommand::m_layer</td>
+          <td class="memname">void* galaxy::graphics::RenderCommand::offset = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Layer to render on. </p>
+<p>Offset in vertex buffer marking beginning of element data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00060">60</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ab97dff3a65645cba833c169257244993" name="ab97dff3a65645cba833c169257244993"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab97dff3a65645cba833c169257244993">&#9670;&#160;</a></span>m_particle</h2>
+<a id="aaabca89f9f39cd3f2558018fd1f68261" name="aaabca89f9f39cd3f2558018fd1f68261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaabca89f9f39cd3f2558018fd1f68261">&#9670;&#160;</a></span>instances</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool galaxy::graphics::RenderCommand::m_particle</td>
+          <td class="memname">int galaxy::graphics::RenderCommand::instances = 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Is this a particle? </p>
+<p>Number of instances to render. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html#l00065">65</a> of file <a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>galaxy/src/galaxy/graphics/<a class="el" href="../../d4/d1f/RenderCommand_8hpp_source.html">RenderCommand.hpp</a></li>
+<li>galaxy/src/galaxy/graphics/<a class="el" href="../../db/de1/graphics_2RenderCommand_8hpp_source.html">RenderCommand.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -300,7 +279,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a></li>
-    <li class="footer">Generated on Fri Feb 2 2024 00:21:50 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 15:39:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

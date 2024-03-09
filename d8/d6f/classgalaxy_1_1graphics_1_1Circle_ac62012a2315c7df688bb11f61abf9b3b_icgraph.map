@@ -1,0 +1,11 @@
+<map id="galaxy::graphics::Circle::radius" name="galaxy::graphics::Circle::radius">
+<area shape="rect" id="Node000001" title="Get radius." alt="" coords="629,37,803,77"/>
+<area shape="rect" id="Node000002" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af386ffd1c0962008cd7b7cd2b28f58fc" title="Create the circle." alt="" coords="408,5,581,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="615,45,581,40,582,35,616,40"/>
+<area shape="rect" id="Node000005" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#a85c5901818297e73328777555e9d28f6" title="Serializes object." alt="" coords="418,69,571,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="616,74,572,81,571,76,615,69"/>
+<area shape="rect" id="Node000003" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#ad7a846e059343348188a69307f1dd050" title="Deserializes from object." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,28,360,28,360,23,394,23"/>
+<area shape="rect" id="Node000004" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#a43eef9ad826e1115fe0f5e98363d30dd" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+</map>

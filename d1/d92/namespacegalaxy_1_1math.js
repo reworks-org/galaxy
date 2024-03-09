@@ -7,14 +7,6 @@ var namespacegalaxy_1_1math =
     [ "conditional_distribution", "d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0", null ],
     [ "iRect", "d1/d92/namespacegalaxy_1_1math.html#a4205216328e42027d47d0ebbb2620d9d", null ],
     [ "fRect", "d1/d92/namespacegalaxy_1_1math.html#a1474ab75830e10ec2701f450c8715c53", null ],
-    [ "Shape", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262", [
-      [ "CIRCLE", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a0af50777920c1401ab975cab64c4d491", null ],
-      [ "ELLIPSE", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a3507764cffdfea213396f9d9eb30f870", null ],
-      [ "LINE", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262a17b8ef2c330f1430e00c9de5469fc7e7", null ],
-      [ "POINT", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aaebdbcb765394d25d6a604589a890f82", null ],
-      [ "POLYLINE", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aeaa8e11478ccd5c257fe6f8bb5591c89", null ],
-      [ "POLYGON", "d1/d92/namespacegalaxy_1_1math.html#ab18b3fbe40d4718fc891f3ed725cc262aecdc92bf56d960b73b02ee40125758bc", null ]
-    ] ],
     [ "encode_base64", "d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529", null ],
     [ "decode_base64", "d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d", null ],
     [ "fnv1a_32", "d1/d92/namespacegalaxy_1_1math.html#ae73f930703216aa88e5217af0e15c239", null ],

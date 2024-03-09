@@ -1,9 +1,5 @@
 <map id="galaxy::platform::Subprocess::terminate" name="galaxy::platform::Subprocess::terminate">
-<area shape="rect" id="Node000001" title="Terminate process, killing if alive." alt="" coords="479,37,689,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="257,5,394,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="465,45,394,36,394,31,465,40"/>
-<area shape="rect" id="Node000004" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a06cb5ae474cc488ad083d70f8d9df7c8" title="Destructor." alt="" coords="220,69,431,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="465,75,431,79,430,74,465,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,28,172,28,172,23,242,23"/>
+<area shape="rect" id="Node000001" title="Terminate process, killing if alive." alt="" coords="264,5,475,45"/>
+<area shape="rect" id="Node000002" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a06cb5ae474cc488ad083d70f8d9df7c8" title="Destructor." alt="" coords="5,5,216,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,28,216,28,216,23,250,23"/>
 </map>

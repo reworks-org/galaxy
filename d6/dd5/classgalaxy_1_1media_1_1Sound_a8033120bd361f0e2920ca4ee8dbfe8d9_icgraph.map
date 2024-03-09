@@ -1,9 +1,5 @@
 <map id="galaxy::media::Sound::stop" name="galaxy::media::Sound::stop">
-<area shape="rect" id="Node000001" title="Stop playing the sound." alt="" coords="431,37,593,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="233,5,370,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="417,46,370,38,370,33,417,40"/>
-<area shape="rect" id="Node000004" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#ab11fa86a5ec0c49ee11cc0080efd9bbc" title="Destructor." alt="" coords="220,69,383,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="417,74,383,80,382,74,417,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,28,172,28,172,23,219,23"/>
+<area shape="rect" id="Node000001" title="Stop playing the sound." alt="" coords="216,5,379,45"/>
+<area shape="rect" id="Node000002" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#ab11fa86a5ec0c49ee11cc0080efd9bbc" title="Destructor." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,28,168,28,168,23,202,23"/>
 </map>

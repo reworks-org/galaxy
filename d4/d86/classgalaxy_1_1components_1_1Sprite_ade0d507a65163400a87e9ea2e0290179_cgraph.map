@@ -1,9 +1,0 @@
-<map id="galaxy::components::Sprite::update" name="galaxy::components::Sprite::update">
-<area shape="rect" id="Node000001" title="Updates texture and internal vertex array." alt="" coords="5,27,159,67"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,5,437,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,35,204,30,205,35,159,41"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex object." alt="" coords="233,55,411,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,54,219,61,218,66,159,59"/>
-<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a8123fd3bad066afba947fcb7fa69c7ba" title="Sub&#45;buffer vertex object." alt="" coords="485,55,664,95"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="411,73,472,73,472,78,411,78"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::VertexBuffer::destroy" name="galaxy::graphics::VertexBuffer::destroy">
-<area shape="rect" id="Node000001" title="Destroy Vertex Buffer Object." alt="" coords="232,69,411,109"/>
-<area shape="rect" id="Node000002" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a43421794070cb1bf3a0bd2479ab3e771" title="Move assignment operator." alt="" coords="5,5,184,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,68,165,48,167,43,237,63"/>
-<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae50f58ab8eccb51f23687d5ec2dfc43a" title="Move constructor." alt="" coords="5,69,184,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,92,184,92,184,87,218,87"/>
-<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aca7166ab522d8d9766f9d127a7457cad" title="Destructor." alt="" coords="5,133,184,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,116,167,136,165,131,236,111"/>
-</map>

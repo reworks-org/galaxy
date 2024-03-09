@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['particlespread_0',['ParticleSpread',['../db/dab/namespacegalaxy_1_1graphics.html#a425598176d5586d75647dcaa8ff81db3',1,'galaxy::graphics']]],
-  ['primitives_1',['Primitives',['../db/dab/namespacegalaxy_1_1graphics.html#a407936cc7d3153f747b045b598fd4930',1,'galaxy::graphics']]]
+  ['soundtype_0',['SoundType',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034',1,'galaxy::media']]],
+  ['strength_1',['Strength',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3fed',1,'galaxy::graphics::GaussianBlur']]]
 ];

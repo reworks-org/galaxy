@@ -1,12 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem::exists" name="galaxy::fs::VirtualFileSystem::exists">
-<area shape="rect" id="Node000001" title="Does the file exist in the vfs." alt="" coords="732,35,940,75"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="255,5,393,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="718,51,393,32,393,27,718,45"/>
-<area shape="rect" id="Node000004" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="476,63,684,103"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="719,70,684,74,684,69,718,65"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,28,172,28,172,23,241,23"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="476,62,392,43,393,38,477,57"/>
-<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="220,69,428,109"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="463,88,428,89,428,84,463,83"/>
+<area shape="rect" id="Node000001" title="Does the file exist in the vfs." alt="" coords="517,5,725,45"/>
+<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="261,5,469,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="504,28,469,28,469,23,504,23"/>
+<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="5,5,213,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,28,213,28,213,23,248,23"/>
 </map>

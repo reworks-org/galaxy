@@ -1,0 +1,29 @@
+<map id="galaxy::components::Polyline::deserialize" name="galaxy::components::Polyline::deserialize">
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,133,167,173"/>
+<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a2aeae0f42ad74e1f9ba6b86b48b16607" title="Alpha." alt="" coords="215,9,409,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,130,154,91,213,52,248,37,250,41,216,56,157,95,110,134"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0421e40355241b6a61a4b9ce557febbd" title="Blue." alt="" coords="215,67,409,92"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,130,258,94,259,99,149,135"/>
+<area shape="rect" id="Node000006" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#a0b809635978824681737fa90992d2d55" title="List of points to create a line from." alt="" coords="218,133,406,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="167,150,204,150,204,155,167,155"/>
+<area shape="rect" id="Node000011" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a696dfb2d8438ace951f478d51e26d81c" title="Green." alt="" coords="215,229,409,255"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="138,170,267,222,265,227,136,175"/>
+<area shape="rect" id="Node000013" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a76ac2089d428592ca6974b343551bb33" title="Red." alt="" coords="217,279,407,304"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="106,171,152,219,183,244,216,265,230,272,228,276,213,270,180,248,149,223,102,175"/>
+<area shape="rect" id="Node000003" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c" title="Get alpha." alt="" coords="457,5,652,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,18,443,17,443,22,410,23"/>
+<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37" title="Get blue." alt="" coords="457,55,652,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="409,72,443,70,444,75,410,77"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="465,105,644,145"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="406,139,451,134,452,139,406,144"/>
+<area shape="rect" id="Node000010" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#aa334c55c81e523c83a19a1993f8b6b65" title="Get list of points." alt="" coords="461,169,649,209"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="407,164,447,170,447,175,406,169"/>
+<area shape="rect" id="Node000008" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="700,73,879,113"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="644,110,686,104,687,109,645,115"/>
+<area shape="rect" id="Node000009" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="700,137,879,177"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="645,134,687,140,686,145,644,139"/>
+<area shape="rect" id="Node000012" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a" title="Get green." alt="" coords="457,233,652,259"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="410,241,443,242,443,247,410,246"/>
+<area shape="rect" id="Node000014" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c" title="Get red." alt="" coords="459,283,650,308"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="408,290,445,291,445,296,407,296"/>
+</map>

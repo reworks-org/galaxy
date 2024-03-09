@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Font::Font" name="galaxy::graphics::Font::Font">
-<area shape="rect" id="Node000001" title="Memory argument constructor." alt="" coords="5,5,169,45"/>
-<area shape="rect" id="Node000002" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad39d5182cffe3d9cc5e734651f3caabc" title="Loads the font and sets up characters." alt="" coords="217,5,381,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,23,204,23,204,28,170,28"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="429,13,660,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="381,23,416,23,416,28,381,28"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::PostProcess::destroy" name="galaxy::graphics::PostProcess::destroy">
-<area shape="rect" id="Node000001" title="Cleanup used memory." alt="" coords="5,5,220,45"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="268,5,449,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-</map>

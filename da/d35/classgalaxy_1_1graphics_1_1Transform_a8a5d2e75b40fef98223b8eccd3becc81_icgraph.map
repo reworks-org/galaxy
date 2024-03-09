@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Transform::set_rotation" name="galaxy::graphics::Transform::set_rotation">
+<area shape="rect" id="Node000001" title="Set the entity rotation." alt="" coords="456,37,657,77"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="227,5,402,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,45,402,39,403,34,443,40"/>
+<area shape="rect" id="Node000004" href="$dd/d22/classgalaxy_1_1graphics_1_1CameraController.html#a5f2f261bac27a6988a2caa2ed8ca8934" title="Event processing method for input events." alt="" coords="221,69,408,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="443,75,409,80,408,74,442,70"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="5,5,173,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,28,174,28,174,23,214,23"/>
+</map>

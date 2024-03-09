@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('df/d20/classgalaxy_1_1graphics_1_1Rend
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d4/d6c/classgalaxy_1_1graphics_1_1Renderer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">galaxy::graphics::Renderer Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
@@ -110,110 +112,112 @@ $(document).ready(function(){initNavTree('df/d20/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/d85/classgalaxy_1_1graphics_1_1Renderer__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Renderer_coll__map" id="agalaxy_1_1graphics_1_1Renderer_coll__map">
-<area shape="rect" title="2D OpenGL renderer." alt="" coords="355,2052,545,2477"/>
-<area shape="rect" title=" " alt="" coords="121,551,291,631"/>
-<area shape="poly" title=" " alt="" coords="209,631,209,945,209,1838,212,1882,221,1925,235,1967,253,2008,297,2085,346,2151,342,2154,293,2088,248,2011,230,1969,216,1927,207,1883,203,1838,203,945,203,631"/>
-<area shape="rect" href="../../dd/d7e/classgalaxy_1_1graphics_1_1Buffer.html" title="Abstraction for OpenGL buffer objects." alt="" coords="5,133,172,473"/>
-<area shape="poly" title=" " alt="" coords="161,473,186,534,181,536,156,475"/>
-<area shape="rect" title=" " alt="" coords="197,271,346,336"/>
-<area shape="poly" title=" " alt="" coords="264,350,218,551,212,550,258,349"/>
-<area shape="rect" title=" " alt="" coords="337,5,360,71"/>
-<area shape="poly" title=" " alt="" coords="342,72,288,256,283,254,337,70"/>
-<area shape="rect" title=" " alt="" coords="370,271,485,336"/>
-<area shape="poly" title=" " alt="" coords="363,65,374,94,399,178,419,254,414,255,394,180,369,96,358,66"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="539,1276,713,1621"/>
-<area shape="poly" title=" " alt="" coords="625,1622,619,1716,608,1819,590,1925,566,2029,554,2066,549,2064,561,2027,585,1924,602,1818,614,1715,620,1622"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="347,1684,553,1989"/>
-<area shape="poly" title=" " alt="" coords="543,1623,532,1646,522,1670,517,1667,528,1644,538,1621"/>
-<area shape="rect" title=" " alt="" coords="587,913,665,979"/>
-<area shape="poly" title=" " alt="" coords="629,979,629,1259,623,1259,623,979"/>
-<area shape="rect" title=" " alt="" coords="561,551,691,631"/>
-<area shape="poly" title=" " alt="" coords="629,644,629,913,623,913,623,644"/>
-<area shape="poly" title=" " alt="" coords="453,1990,453,2036,447,2036,447,1990"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="340,1289,515,1609"/>
-<area shape="poly" title=" " alt="" coords="439,1609,443,1667,437,1668,434,1609"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="324,693,531,1199"/>
-<area shape="poly" title=" " alt="" coords="430,1199,430,1272,425,1272,425,1199"/>
-<area shape="rect" title=" " alt="" coords="352,558,503,623"/>
-<area shape="poly" title=" " alt="" coords="430,624,430,677,425,677,425,624"/>
-<area shape="poly" title=" " alt="" coords="430,350,430,558,425,558,425,350"/>
+<area shape="rect" title="2D OpenGL renderer." alt="" coords="213,1743,404,2128"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="5,885,183,1270"/>
+<area shape="poly" title=" " alt="" coords="64,1270,57,1364,57,1464,69,1566,79,1616,94,1664,114,1711,141,1755,171,1796,204,1834,200,1837,167,1800,137,1758,110,1713,89,1666,74,1618,63,1567,52,1464,52,1363,58,1270"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="205,1360,412,1665"/>
+<area shape="poly" title=" " alt="" coords="185,1257,229,1344,224,1347,180,1259"/>
+<area shape="rect" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html" title="Abstraction for OpenGL buffer objects." alt="" coords="437,1363,621,1663"/>
+<area shape="poly" title=" " alt="" coords="453,1664,414,1739,409,1736,448,1661"/>
+<area shape="poly" title=" " alt="" coords="311,1666,311,1726,306,1726,306,1666"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="221,857,396,1297"/>
+<area shape="poly" title=" " alt="" coords="311,1298,311,1343,306,1343,306,1298"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="187,389,431,795"/>
+<area shape="poly" title=" " alt="" coords="311,795,311,841,306,841,306,795"/>
+<area shape="rect" title=" " alt="" coords="233,261,384,327"/>
+<area shape="poly" title=" " alt="" coords="311,327,311,373,306,373,306,327"/>
+<area shape="rect" title=" " alt="" coords="251,133,366,199"/>
+<area shape="poly" title=" " alt="" coords="311,213,311,261,306,261,306,213"/>
+<area shape="rect" title=" " alt="" coords="297,5,320,71"/>
+<area shape="poly" title=" " alt="" coords="311,71,311,117,306,117,306,71"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a773aae2075e063257ad7cd9e93c55240" id="r_a773aae2075e063257ad7cd9e93c55240"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240">Renderer</a> ()</td></tr>
-<tr class="memdesc:a773aae2075e063257ad7cd9e93c55240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:a773aae2075e063257ad7cd9e93c55240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeedfed4694e8477d5d8a53bf50f90dc" id="r_abeedfed4694e8477d5d8a53bf50f90dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#abeedfed4694e8477d5d8a53bf50f90dc">~Renderer</a> ()</td></tr>
-<tr class="memdesc:abeedfed4694e8477d5d8a53bf50f90dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:abeedfed4694e8477d5d8a53bf50f90dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af46f9b3b3abaf17d7ba4449c596f75fc" id="r_af46f9b3b3abaf17d7ba4449c596f75fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af46f9b3b3abaf17d7ba4449c596f75fc">buffer_camera</a> (<a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html">Camera</a> &amp;camera)</td></tr>
-<tr class="memdesc:af46f9b3b3abaf17d7ba4449c596f75fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the camera uniform buffer.  <br /></td></tr>
-<tr class="separator:af46f9b3b3abaf17d7ba4449c596f75fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bc60c4def4bf7bd5772d5b8947060b4" id="r_a6bc60c4def4bf7bd5772d5b8947060b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6bc60c4def4bf7bd5772d5b8947060b4">submit</a> (<a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &amp;command)</td></tr>
-<tr class="memdesc:a6bc60c4def4bf7bd5772d5b8947060b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submit render data to renderer.  <br /></td></tr>
-<tr class="separator:a6bc60c4def4bf7bd5772d5b8947060b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963da01f36efc37847a2974c2a9976dd" id="r_a963da01f36efc37847a2974c2a9976dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd">init</a> ()</td></tr>
+<tr class="memdesc:a963da01f36efc37847a2974c2a9976dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize renderer.  <br /></td></tr>
+<tr class="separator:a963da01f36efc37847a2974c2a9976dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7418db4e6f75360088294d39c5627fe" id="r_ae7418db4e6f75360088294d39c5627fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe">destroy</a> ()</td></tr>
+<tr class="memdesc:ae7418db4e6f75360088294d39c5627fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleanup renderer data.  <br /></td></tr>
+<tr class="separator:ae7418db4e6f75360088294d39c5627fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3aca16711deb34a32258d98d447170" id="r_aff3aca16711deb34a32258d98d447170"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170">on_window_resized</a> (const <a class="el" href="../../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html">events::WindowResized</a> &amp;e)</td></tr>
+<tr class="memdesc:aff3aca16711deb34a32258d98d447170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event processing method for window size change.  <br /></td></tr>
+<tr class="separator:aff3aca16711deb34a32258d98d447170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c2d9e2f8097c04c5ccd05f2f962a93" id="r_a93c2d9e2f8097c04c5ccd05f2f962a93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93">submit_camera</a> (<a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html">Camera</a> &amp;camera)</td></tr>
+<tr class="memdesc:a93c2d9e2f8097c04c5ccd05f2f962a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the camera to use when calling <a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted render commands to screen.">draw()</a>.  <br /></td></tr>
+<tr class="separator:a93c2d9e2f8097c04c5ccd05f2f962a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9377e41a636f871fadaa42118add107e" id="r_a9377e41a636f871fadaa42118add107e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9377e41a636f871fadaa42118add107e">submit_cmd</a> (<a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &amp;command)</td></tr>
+<tr class="memdesc:a9377e41a636f871fadaa42118add107e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an entity rendering command.  <br /></td></tr>
+<tr class="separator:a9377e41a636f871fadaa42118add107e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422279b7b63c9e048648a231f9a358c0" id="r_a422279b7b63c9e048648a231f9a358c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0">submit_texture</a> (const <a class="el" href="../../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html">Texture2D</a> &amp;texture, <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;va, <a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;tf, const int layer, const float opacity)</td></tr>
+<tr class="separator:a422279b7b63c9e048648a231f9a358c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045fefcb4cfbb71669dcd99615a3ceed" id="r_a045fefcb4cfbb71669dcd99615a3ceed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed">submit_text</a> (<a class="el" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html">Text</a> &amp;text, <a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;tf, const int layer)</td></tr>
+<tr class="separator:a045fefcb4cfbb71669dcd99615a3ceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc59bbdee6c5600399bff90c5d12e809" id="r_adc59bbdee6c5600399bff90c5d12e809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809">submit_shape</a> (<a class="el" href="../../d9/d29/classgalaxy_1_1graphics_1_1Shape.html">Shape</a> *shape, <a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;tf, const int layer)</td></tr>
+<tr class="separator:adc59bbdee6c5600399bff90c5d12e809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87ec0ca41d29f00d5dd2393f42a0e82" id="r_ae87ec0ca41d29f00d5dd2393f42a0e82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82">draw_texture_to_target</a> (<a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;target, <a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">Texture</a> *texture, <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;va, <a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;tf)</td></tr>
+<tr class="memdesc:ae87ec0ca41d29f00d5dd2393f42a0e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture to a render texture.  <br /></td></tr>
+<tr class="separator:ae87ec0ca41d29f00d5dd2393f42a0e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa777b874eb4d8e2aed4172a8b290088b" id="r_aa777b874eb4d8e2aed4172a8b290088b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b">draw</a> ()</td></tr>
-<tr class="memdesc:aa777b874eb4d8e2aed4172a8b290088b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all submitted data to screen.  <br /></td></tr>
+<tr class="memdesc:aa777b874eb4d8e2aed4172a8b290088b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all submitted render commands to screen.  <br /></td></tr>
 <tr class="separator:aa777b874eb4d8e2aed4172a8b290088b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9074bca0e4d6d0a377a34e89573393e8" id="r_a9074bca0e4d6d0a377a34e89573393e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8">flush</a> ()</td></tr>
-<tr class="memdesc:a9074bca0e4d6d0a377a34e89573393e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete any data stored by the renderer.  <br /></td></tr>
+<tr class="memdesc:a9074bca0e4d6d0a377a34e89573393e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all submitted render commands.  <br /></td></tr>
 <tr class="separator:a9074bca0e4d6d0a377a34e89573393e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3ca66f0a511ea0318dcf6bba4606d79" id="r_aa3ca66f0a511ea0318dcf6bba4606d79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa3ca66f0a511ea0318dcf6bba4606d79">begin_postprocessing</a> ()</td></tr>
-<tr class="memdesc:aa3ca66f0a511ea0318dcf6bba4606d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin post processing.  <br /></td></tr>
-<tr class="separator:aa3ca66f0a511ea0318dcf6bba4606d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1494afd068d811122c93788e05a2c69f" id="r_a1494afd068d811122c93788e05a2c69f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a1494afd068d811122c93788e05a2c69f">end_postprocessing</a> ()</td></tr>
-<tr class="memdesc:a1494afd068d811122c93788e05a2c69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize post processing.  <br /></td></tr>
-<tr class="separator:a1494afd068d811122c93788e05a2c69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98c83b4b8ad902539c210811f9230441" id="r_a98c83b4b8ad902539c210811f9230441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a98c83b4b8ad902539c210811f9230441">render_postprocessing</a> ()</td></tr>
-<tr class="memdesc:a98c83b4b8ad902539c210811f9230441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render post processing data.  <br /></td></tr>
-<tr class="separator:a98c83b4b8ad902539c210811f9230441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c2e72ca79d46a1cb8d7e3da669bef7" id="r_ac8c2e72ca79d46a1cb8d7e3da669bef7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ac8c2e72ca79d46a1cb8d7e3da669bef7">prepare_default</a> ()</td></tr>
-<tr class="memdesc:ac8c2e72ca79d46a1cb8d7e3da669bef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares to render to the default framebuffer.  <br /></td></tr>
-<tr class="separator:ac8c2e72ca79d46a1cb8d7e3da669bef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34f06d0c75c39e4ec61ca90d0a35cc1b" id="r_a34f06d0c75c39e4ec61ca90d0a35cc1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a34f06d0c75c39e4ec61ca90d0a35cc1b">clear</a> ()</td></tr>
-<tr class="memdesc:a34f06d0c75c39e4ec61ca90d0a35cc1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears currently active framebuffer.  <br /></td></tr>
-<tr class="separator:a34f06d0c75c39e4ec61ca90d0a35cc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09d258455a47b5a351bd3580fec888b5" id="r_a09d258455a47b5a351bd3580fec888b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a09d258455a47b5a351bd3580fec888b5">swap_buffers</a> ()</td></tr>
-<tr class="memdesc:a09d258455a47b5a351bd3580fec888b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap backbuffer to draw to screen.  <br /></td></tr>
-<tr class="separator:a09d258455a47b5a351bd3580fec888b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6f91a4ba1648c2f3b6f36a3b4ca35e" id="r_a3c6f91a4ba1648c2f3b6f36a3b4ca35e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a3c6f91a4ba1648c2f3b6f36a3b4ca35e">resize</a> (const int width, const int height)</td></tr>
-<tr class="memdesc:a3c6f91a4ba1648c2f3b6f36a3b4ca35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize any framebuffers the renderer uses.  <br /></td></tr>
-<tr class="separator:a3c6f91a4ba1648c2f3b6f36a3b4ca35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6e632f13e242c22227fc2efa9302a88" id="r_af6e632f13e242c22227fc2efa9302a88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88">draw_texture_to_target</a> (<a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;target, <a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">Texture</a> &amp;texture, <a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;va, <a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a> &amp;transform)</td></tr>
-<tr class="memdesc:af6e632f13e242c22227fc2efa9302a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a texture to a render texture.  <br /></td></tr>
-<tr class="separator:af6e632f13e242c22227fc2efa9302a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70afa16b909fcb2cfc063c41ebe65763" id="r_a70afa16b909fcb2cfc063c41ebe65763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a70afa16b909fcb2cfc063c41ebe65763">draw_texture</a> (const unsigned int texture, const int width, const int height)</td></tr>
-<tr class="memdesc:a70afa16b909fcb2cfc063c41ebe65763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a texture to the active framebuffer.  <br /></td></tr>
-<tr class="separator:a70afa16b909fcb2cfc063c41ebe65763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72664de638a43afb58ee502cdea93d35" id="r_a72664de638a43afb58ee502cdea93d35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35">clear_active</a> ()</td></tr>
+<tr class="memdesc:a72664de638a43afb58ee502cdea93d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears currently active framebuffer.  <br /></td></tr>
+<tr class="separator:a72664de638a43afb58ee502cdea93d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc20dd006fbed6f129b9b209ce7cf56" id="r_a5cc20dd006fbed6f129b9b209ce7cf56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56">begin_post</a> ()</td></tr>
+<tr class="memdesc:a5cc20dd006fbed6f129b9b209ce7cf56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin rendering to post process framebuffer.  <br /></td></tr>
+<tr class="separator:a5cc20dd006fbed6f129b9b209ce7cf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71292286127682142aa01090036e8dcd" id="r_a71292286127682142aa01090036e8dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd">end_post</a> ()</td></tr>
+<tr class="memdesc:a71292286127682142aa01090036e8dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders effects to post processing framebuffer and rebinds to default framebuffer.  <br /></td></tr>
+<tr class="separator:a71292286127682142aa01090036e8dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d0f05a605da1096862562293b44081d" id="r_a5d0f05a605da1096862562293b44081d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d">render_post</a> ()</td></tr>
+<tr class="memdesc:a5d0f05a605da1096862562293b44081d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders final post processing output to active framebuffer.  <br /></td></tr>
+<tr class="separator:a5d0f05a605da1096862562293b44081d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2810f49a72158adbf57af81a1cb7191" id="r_af2810f49a72158adbf57af81a1cb7191"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af2810f49a72158adbf57af81a1cb7191">begin_default</a> ()</td></tr>
+<tr class="memdesc:af2810f49a72158adbf57af81a1cb7191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start rendering to default framebuffer.  <br /></td></tr>
+<tr class="separator:af2810f49a72158adbf57af81a1cb7191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2806053665ce85980aa67b144f604814" id="r_a2806053665ce85980aa67b144f604814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a2806053665ce85980aa67b144f604814">end_default</a> ()</td></tr>
+<tr class="memdesc:a2806053665ce85980aa67b144f604814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps buffers.  <br /></td></tr>
+<tr class="separator:a2806053665ce85980aa67b144f604814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa89d2573fbe5a5619e5ad5484329e302" id="r_aa89d2573fbe5a5619e5ad5484329e302"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302">ref</a> ()</td></tr>
+<tr class="separator:aa89d2573fbe5a5619e5ad5484329e302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:adfe968d7a87f4256c3542c05a7c00188" id="r_adfe968d7a87f4256c3542c05a7c00188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adfe968d7a87f4256c3542c05a7c00188">Renderer</a> ()=default</td></tr>
+<tr class="memdesc:adfe968d7a87f4256c3542c05a7c00188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:adfe968d7a87f4256c3542c05a7c00188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f4c60fec4166a43f28aaeddb4c7c4d0" id="r_a7f4c60fec4166a43f28aaeddb4c7c4d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a7f4c60fec4166a43f28aaeddb4c7c4d0">~Renderer</a> ()=default</td></tr>
+<tr class="memdesc:a7f4c60fec4166a43f28aaeddb4c7c4d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:a7f4c60fec4166a43f28aaeddb4c7c4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a03cb05afb6770e70d456f86961827ef2" id="r_a03cb05afb6770e70d456f86961827ef2"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a03cb05afb6770e70d456f86961827ef2">m_camera_ubo</a></td></tr>
-<tr class="memdesc:a03cb05afb6770e70d456f86961827ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform buffer for camera.  <br /></td></tr>
-<tr class="separator:a03cb05afb6770e70d456f86961827ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae00adbc8cf29256cab7c0a6263cdcc3f" id="r_ae00adbc8cf29256cab7c0a6263cdcc3f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae00adbc8cf29256cab7c0a6263cdcc3f">m_r2d_ubo</a></td></tr>
-<tr class="memdesc:ae00adbc8cf29256cab7c0a6263cdcc3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D renderer UBO.  <br /></td></tr>
-<tr class="separator:ae00adbc8cf29256cab7c0a6263cdcc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e567cd61c8a1426d17e93aac382e626" id="r_a0e567cd61c8a1426d17e93aac382e626"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a0e567cd61c8a1426d17e93aac382e626">m_data</a></td></tr>
-<tr class="memdesc:a0e567cd61c8a1426d17e93aac382e626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage for renderables submitted.  <br /></td></tr>
-<tr class="separator:a0e567cd61c8a1426d17e93aac382e626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b3832f8862899ae63ac91ec13b3ff51" id="r_a3b3832f8862899ae63ac91ec13b3ff51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">graphics::Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a3b3832f8862899ae63ac91ec13b3ff51">m_r2d_shader</a></td></tr>
-<tr class="memdesc:a3b3832f8862899ae63ac91ec13b3ff51"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs.">Shader</a> used when drawing with renderer.  <br /></td></tr>
-<tr class="separator:a3b3832f8862899ae63ac91ec13b3ff51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac336636ac5942983073e3f74a014034c" id="r_ac336636ac5942983073e3f74a014034c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">graphics::Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ac336636ac5942983073e3f74a014034c">m_particle_shader</a></td></tr>
-<tr class="memdesc:ac336636ac5942983073e3f74a014034c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs.">Shader</a> for rendering particles.  <br /></td></tr>
-<tr class="separator:ac336636ac5942983073e3f74a014034c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ca99961fb0bd47be0dd547effe10eb" id="r_a79ca99961fb0bd47be0dd547effe10eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a79ca99961fb0bd47be0dd547effe10eb">m_prev_texture</a></td></tr>
-<tr class="memdesc:a79ca99961fb0bd47be0dd547effe10eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache previous texture to prevent rebinding.  <br /></td></tr>
-<tr class="separator:a79ca99961fb0bd47be0dd547effe10eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ae47697dd8adb2500b842426703a17" id="r_af5ae47697dd8adb2500b842426703a17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af5ae47697dd8adb2500b842426703a17">m_prev_nm</a></td></tr>
-<tr class="memdesc:af5ae47697dd8adb2500b842426703a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache previous nm texture to prevent rebinding.  <br /></td></tr>
-<tr class="separator:af5ae47697dd8adb2500b842426703a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c259d1b4d274dc9ea52d704c4cc8ae6" id="r_a5c259d1b4d274dc9ea52d704c4cc8ae6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html">graphics::PostProcess</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5c259d1b4d274dc9ea52d704c4cc8ae6">m_postprocess</a></td></tr>
-<tr class="memdesc:a5c259d1b4d274dc9ea52d704c4cc8ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post processor.  <br /></td></tr>
-<tr class="separator:a5c259d1b4d274dc9ea52d704c4cc8ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab86c572c10a3bc69b60b188a303af609" id="r_ab86c572c10a3bc69b60b188a303af609"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ab86c572c10a3bc69b60b188a303af609">m_cmds</a></td></tr>
+<tr class="memdesc:ab86c572c10a3bc69b60b188a303af609"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of renderables to draw.  <br /></td></tr>
+<tr class="separator:ab86c572c10a3bc69b60b188a303af609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf7d926333d0bdff796bb6b31b2558bf" id="r_acf7d926333d0bdff796bb6b31b2558bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; <a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#acf7d926333d0bdff796bb6b31b2558bf">m_free_cmds</a></td></tr>
+<tr class="memdesc:acf7d926333d0bdff796bb6b31b2558bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of non component commands.  <br /></td></tr>
+<tr class="separator:acf7d926333d0bdff796bb6b31b2558bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4361f541c64890d16dd55a5a1261334" id="r_ad4361f541c64890d16dd55a5a1261334"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ad4361f541c64890d16dd55a5a1261334">m_r2d_shader</a></td></tr>
+<tr class="memdesc:ad4361f541c64890d16dd55a5a1261334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mono render shader.  <br /></td></tr>
+<tr class="separator:ad4361f541c64890d16dd55a5a1261334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff0e8dfb72cdb5162726ecd27b16a66d" id="r_aff0e8dfb72cdb5162726ecd27b16a66d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html">ShaderStorageBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff0e8dfb72cdb5162726ecd27b16a66d">m_camera</a></td></tr>
+<tr class="memdesc:aff0e8dfb72cdb5162726ecd27b16a66d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera.">Camera</a> buffer storage.  <br /></td></tr>
+<tr class="separator:aff0e8dfb72cdb5162726ecd27b16a66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc2423c26f91d33be221207423424bb" id="r_a6fc2423c26f91d33be221207423424bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html">ShaderStorageBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6fc2423c26f91d33be221207423424bb">m_renderdata</a></td></tr>
+<tr class="memdesc:a6fc2423c26f91d33be221207423424bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform buffer storage.  <br /></td></tr>
+<tr class="separator:a6fc2423c26f91d33be221207423424bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d8199d3bbaffe0bf92e99e0cb2e199" id="r_a76d8199d3bbaffe0bf92e99e0cb2e199"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html">PostProcess</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a76d8199d3bbaffe0bf92e99e0cb2e199">m_post</a></td></tr>
+<tr class="memdesc:a76d8199d3bbaffe0bf92e99e0cb2e199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post processor.  <br /></td></tr>
+<tr class="separator:a76d8199d3bbaffe0bf92e99e0cb2e199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19daa48f69a3c245f8f2a4585b0402d4" id="r_a19daa48f69a3c245f8f2a4585b0402d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a19daa48f69a3c245f8f2a4585b0402d4">m_width</a></td></tr>
 <tr class="memdesc:a19daa48f69a3c245f8f2a4585b0402d4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html" title="2D OpenGL renderer.">Renderer</a> frame width.  <br /></td></tr>
 <tr class="separator:a19daa48f69a3c245f8f2a4585b0402d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -224,13 +228,16 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2D OpenGL renderer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a773aae2075e063257ad7cd9e93c55240" name="a773aae2075e063257ad7cd9e93c55240"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a773aae2075e063257ad7cd9e93c55240">&#9670;&#160;</a></span>Renderer()</h2>
+<a id="adfe968d7a87f4256c3542c05a7c00188" name="adfe968d7a87f4256c3542c05a7c00188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe968d7a87f4256c3542c05a7c00188">&#9670;&#160;</a></span>Renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">galaxy::graphics::Renderer::Renderer </td>
@@ -239,57 +246,25 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a773aae2075e063257ad7cd9e93c55240_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a773aae2075e063257ad7cd9e93c55240_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a773aae2075e063257ad7cd9e93c55240_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a773aae2075e063257ad7cd9e93c55240_cgraph">
-<area shape="rect" title="Constructor." alt="" coords="5,161,200,201"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac9871b6805e710409b7d7bb0d80b7ff4" title="Add an effect to process." alt="" coords="248,61,495,86"/>
-<area shape="poly" title=" " alt="" coords="135,159,187,130,247,103,296,87,298,92,249,108,189,135,138,164"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into OpenGL." alt="" coords="543,89,725,129"/>
-<area shape="poly" title=" " alt="" coords="186,159,248,147,395,127,529,114,530,119,396,132,248,152,187,164"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="264,161,479,201"/>
-<area shape="poly" title=" " alt="" coords="200,179,250,179,250,184,200,184"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="1036,233,1267,258"/>
-<area shape="poly" title=" " alt="" coords="138,199,189,226,249,249,452,309,536,329,615,341,695,345,780,342,876,331,987,311,1056,289,1115,262,1117,267,1058,294,989,316,877,336,780,348,695,351,615,346,535,334,451,314,247,255,187,231,136,204"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8e8b15bb84835035804c05cc19152403" title="Loads a combined raw shader." alt="" coords="543,241,725,281"/>
-<area shape="poly" title=" " alt="" coords="188,199,248,211,396,233,530,249,529,254,395,238,248,216,187,204"/>
-<area shape="poly" title=" " alt="" coords="444,159,547,130,548,136,446,164"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="543,153,725,193"/>
-<area shape="poly" title=" " alt="" coords="479,175,529,174,529,179,479,181"/>
-<area shape="poly" title=" " alt="" coords="439,199,555,235,554,240,437,204"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="773,133,988,173"/>
-<area shape="poly" title=" " alt="" coords="725,163,759,160,760,166,726,169"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="773,197,988,237"/>
-<area shape="poly" title=" " alt="" coords="726,187,760,193,759,198,725,192"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="773,5,988,45"/>
-<area shape="poly" title=" " alt="" coords="706,151,724,139,740,119,747,98,754,77,772,55,778,50,782,55,775,59,759,79,752,100,744,122,727,143,709,155"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="773,69,988,109"/>
-<area shape="poly" title=" " alt="" coords="692,151,724,139,772,119,795,111,797,116,774,124,726,144,694,156"/>
-<area shape="poly" title=" " alt="" coords="951,171,989,183,1106,225,1104,230,987,188,950,176"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="1044,5,1259,45"/>
-<area shape="poly" title=" " alt="" coords="988,23,1030,23,1030,28,988,28"/>
-<area shape="poly" title=" " alt="" coords="588,242,586,232,593,222,609,217,634,215,663,218,678,225,676,230,661,223,634,220,610,222,596,227,591,233,593,240"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab6218a2d58f67196138e097cc723cb86" title="Extract source code from a combined shader." alt="" coords="790,261,971,301"/>
-<area shape="poly" title=" " alt="" coords="725,266,777,270,776,276,725,271"/>
-</map>
-</div>
-
 </div>
 </div>
-<a id="abeedfed4694e8477d5d8a53bf50f90dc" name="abeedfed4694e8477d5d8a53bf50f90dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeedfed4694e8477d5d8a53bf50f90dc">&#9670;&#160;</a></span>~Renderer()</h2>
+<a id="a7f4c60fec4166a43f28aaeddb4c7c4d0" name="a7f4c60fec4166a43f28aaeddb4c7c4d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f4c60fec4166a43f28aaeddb4c7c4d0">&#9670;&#160;</a></span>~Renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">galaxy::graphics::Renderer::~Renderer </td>
@@ -298,38 +273,253 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_abeedfed4694e8477d5d8a53bf50f90dc_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_abeedfed4694e8477d5d8a53bf50f90dc_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_abeedfed4694e8477d5d8a53bf50f90dc_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_abeedfed4694e8477d5d8a53bf50f90dc_cgraph">
-<area shape="rect" title="Destructor." alt="" coords="5,35,200,75"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="248,5,463,45"/>
-<area shape="poly" title=" " alt="" coords="200,41,234,37,235,42,201,46"/>
-<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Free up resources used by shader." alt="" coords="511,35,692,75"/>
-<area shape="poly" title=" " alt="" coords="200,54,248,55,463,55,497,54,497,60,463,60,248,60,200,59"/>
-<area shape="poly" title=" " alt="" coords="463,35,497,40,496,45,462,41"/>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa89d2573fbe5a5619e5ad5484329e302" name="aa89d2573fbe5a5619e5ad5484329e302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa89d2573fbe5a5619e5ad5484329e302">&#9670;&#160;</a></span>ref()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a> &amp; galaxy::graphics::Renderer::ref </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_aa89d2573fbe5a5619e5ad5484329e302_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa89d2573fbe5a5619e5ad5484329e302_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa89d2573fbe5a5619e5ad5484329e302_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa89d2573fbe5a5619e5ad5484329e302_icgraph">
+<area shape="rect" title=" " alt="" coords="284,159,505,184"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="37,5,204,31"/>
+<area shape="poly" title=" " alt="" coords="370,150,312,97,275,69,235,46,201,33,203,28,237,41,278,65,316,93,374,147"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="44,55,197,95"/>
+<area shape="poly" title=" " alt="" coords="351,156,235,110,197,98,199,93,237,105,353,151"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="41,119,200,159"/>
+<area shape="poly" title=" " alt="" coords="272,160,200,151,201,146,273,154"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="13,183,228,223"/>
+<area shape="poly" title=" " alt="" coords="273,188,228,193,228,188,272,183"/>
+<area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,247,236,287"/>
+<area shape="poly" title=" " alt="" coords="353,192,237,238,199,250,198,245,235,233,351,187"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="31,312,210,337"/>
+<area shape="poly" title=" " alt="" coords="374,196,316,250,278,278,237,302,203,314,201,309,235,297,275,274,312,246,370,192"/>
 </map>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="af46f9b3b3abaf17d7ba4449c596f75fc" name="af46f9b3b3abaf17d7ba4449c596f75fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af46f9b3b3abaf17d7ba4449c596f75fc">&#9670;&#160;</a></span>buffer_camera()</h2>
+<a id="a963da01f36efc37847a2974c2a9976dd" name="a963da01f36efc37847a2974c2a9976dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963da01f36efc37847a2974c2a9976dd">&#9670;&#160;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::Renderer::buffer_camera </td>
+          <td class="memname">void galaxy::graphics::Renderer::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize renderer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_cgraph">
+<area shape="rect" title="Initialize renderer." alt="" coords="5,201,200,241"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac29d6ddb1eea0802f68ff6fd4f61d74c" title="Add an effect to process." alt="" coords="248,65,495,90"/>
+<area shape="poly" title=" " alt="" coords="121,199,174,149,209,122,247,100,268,92,270,97,249,105,212,127,177,153,124,203"/>
+<area shape="rect" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a0ff1f3823ba0186908335277d6b90e29" title="Buffer data." alt="" coords="281,115,462,155"/>
+<area shape="poly" title=" " alt="" coords="163,199,247,171,292,156,294,161,249,176,164,204"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into GPU mem." alt="" coords="543,165,725,205"/>
+<area shape="poly" title=" " alt="" coords="200,212,529,190,530,195,201,217"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="264,229,479,269"/>
+<area shape="poly" title=" " alt="" coords="200,229,251,234,250,239,200,234"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="543,293,725,333"/>
+<area shape="poly" title=" " alt="" coords="144,239,193,261,249,279,321,293,395,303,530,311,529,316,394,308,320,298,247,284,191,266,142,244"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="256,345,487,370"/>
+<area shape="poly" title=" " alt="" coords="128,239,181,282,214,304,249,323,291,338,289,343,247,328,212,308,178,286,125,244"/>
+<area shape="poly" title=" " alt="" coords="454,227,537,206,539,211,455,232"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="543,229,725,269"/>
+<area shape="poly" title=" " alt="" coords="479,247,529,247,529,252,479,252"/>
+<area shape="poly" title=" " alt="" coords="455,267,539,287,537,293,454,272"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="783,37,998,77"/>
+<area shape="poly" title=" " alt="" coords="708,227,723,215,736,200,742,184,746,152,750,120,758,103,771,87,776,83,780,87,775,91,762,106,756,121,751,153,747,186,740,203,727,219,711,231"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="773,101,1008,141"/>
+<area shape="poly" title=" " alt="" coords="704,227,724,215,739,200,747,184,755,167,772,151,781,145,784,150,775,155,760,170,751,186,743,203,727,219,707,231"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="783,165,998,205"/>
+<area shape="poly" title=" " alt="" coords="714,227,796,206,798,211,716,232"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="799,229,982,269"/>
+<area shape="poly" title=" " alt="" coords="726,247,785,247,785,252,726,252"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="783,293,998,333"/>
+<area shape="poly" title=" " alt="" coords="716,267,798,287,796,293,714,272"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="799,357,982,397"/>
+<area shape="poly" title=" " alt="" coords="707,267,727,279,743,296,751,313,760,328,775,343,788,351,786,356,772,347,755,331,747,315,739,299,724,283,704,272"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1056,5,1271,45"/>
+<area shape="poly" title=" " alt="" coords="998,42,1042,37,1043,42,999,47"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1056,69,1271,109"/>
+<area shape="poly" title=" " alt="" coords="999,67,1043,73,1042,78,998,73"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="800,421,981,461"/>
+<area shape="poly" title=" " alt="" coords="660,331,711,370,775,407,791,414,789,419,772,412,708,374,657,335"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a963da01f36efc37847a2974c2a9976dd_icgraph">
+<area shape="rect" title="Initialize renderer." alt="" coords="220,5,415,45"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae7418db4e6f75360088294d39c5627fe" name="ae7418db4e6f75360088294d39c5627fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7418db4e6f75360088294d39c5627fe">&#9670;&#160;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cleanup renderer data. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_cgraph">
+<area shape="rect" title="Cleanup renderer data." alt="" coords="5,69,200,109"/>
+<area shape="rect" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a17f84808231d0a3c46b6538f22a56754" title="Clears data from buffer." alt="" coords="265,5,446,45"/>
+<area shape="poly" title=" " alt="" coords="182,67,262,46,263,51,183,72"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Destroys shader program." alt="" coords="265,69,446,109"/>
+<area shape="poly" title=" " alt="" coords="200,87,251,87,251,92,200,92"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="248,133,463,173"/>
+<area shape="poly" title=" " alt="" coords="183,107,263,127,262,133,182,112"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae7418db4e6f75360088294d39c5627fe_icgraph">
+<area shape="rect" title="Cleanup renderer data." alt="" coords="232,5,427,45"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="5,13,184,38"/>
+<area shape="poly" title=" " alt="" coords="219,28,184,28,184,23,219,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aff3aca16711deb34a32258d98d447170" name="aff3aca16711deb34a32258d98d447170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3aca16711deb34a32258d98d447170">&#9670;&#160;</a></span>on_window_resized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::on_window_resized </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html">events::WindowResized</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Event processing method for window size change. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Takes in a window resized event. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00064">64</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_aff3aca16711deb34a32258d98d447170_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_aff3aca16711deb34a32258d98d447170_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aff3aca16711deb34a32258d98d447170_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aff3aca16711deb34a32258d98d447170_cgraph">
+<area shape="rect" title="Event processing method for window size change." alt="" coords="5,69,200,109"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="248,69,463,109"/>
+<area shape="poly" title=" " alt="" coords="200,87,234,87,234,92,200,92"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="511,69,693,109"/>
+<area shape="poly" title=" " alt="" coords="463,87,497,87,497,92,463,92"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="757,5,940,45"/>
+<area shape="poly" title=" " alt="" coords="679,67,757,46,759,51,681,72"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="741,69,956,109"/>
+<area shape="poly" title=" " alt="" coords="693,87,728,87,728,92,693,92"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="757,133,940,173"/>
+<area shape="poly" title=" " alt="" coords="681,107,759,127,757,132,679,112"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1004,37,1219,77"/>
+<area shape="poly" title=" " alt="" coords="956,74,990,69,991,75,956,79"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1004,101,1219,141"/>
+<area shape="poly" title=" " alt="" coords="956,100,991,104,990,109,956,105"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a93c2d9e2f8097c04c5ccd05f2f962a93" name="a93c2d9e2f8097c04c5ccd05f2f962a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c2d9e2f8097c04c5ccd05f2f962a93">&#9670;&#160;</a></span>submit_camera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::submit_camera </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html">Camera</a> &amp;&#160;</td>
           <td class="paramname"><em>camera</em></td><td>)</td>
@@ -338,7 +528,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Update the camera uniform buffer. </p>
+<p>Set the camera to use when calling <a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted render commands to screen.">draw()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">camera</td><td><a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera.">Camera</a> object to buffer. </td></tr>
@@ -346,32 +536,51 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af46f9b3b3abaf17d7ba4449c596f75fc_cgraph">
-<area shape="rect" title="Update the camera uniform buffer." alt="" coords="5,5,200,45"/>
-<area shape="rect" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="248,5,435,45"/>
-<area shape="poly" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
-<area shape="rect" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="483,5,669,45"/>
-<area shape="poly" title=" " alt="" coords="435,23,469,23,469,28,435,28"/>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_cgraph">
+<area shape="rect" title="Set the camera to use when calling draw()." alt="" coords="5,61,200,101"/>
+<area shape="rect" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="248,29,435,69"/>
+<area shape="poly" title=" " alt="" coords="200,66,234,61,235,66,201,71"/>
+<area shape="rect" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a9cac5e7dfec35777fd033814b05ed423" title="Sub buffer data." alt="" coords="248,93,435,133"/>
+<area shape="poly" title=" " alt="" coords="201,92,235,96,234,102,200,97"/>
+<area shape="rect" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="483,29,669,69"/>
+<area shape="poly" title=" " alt="" coords="435,47,469,47,469,52,435,52"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="717,29,919,69"/>
+<area shape="poly" title=" " alt="" coords="670,47,704,47,704,52,670,52"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="967,29,1168,69"/>
+<area shape="poly" title=" " alt="" coords="919,47,953,47,953,52,919,52"/>
+<area shape="poly" title=" " alt="" coords="1021,30,1018,20,1026,10,1042,5,1067,3,1096,6,1112,13,1110,18,1095,11,1067,8,1043,10,1029,15,1024,21,1026,28"/>
+</map>
+</div>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a93c2d9e2f8097c04c5ccd05f2f962a93_icgraph">
+<area shape="rect" title="Set the camera to use when calling draw()." alt="" coords="212,5,407,45"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
+<area shape="poly" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6bc60c4def4bf7bd5772d5b8947060b4" name="a6bc60c4def4bf7bd5772d5b8947060b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bc60c4def4bf7bd5772d5b8947060b4">&#9670;&#160;</a></span>submit()</h2>
+<a id="a9377e41a636f871fadaa42118add107e" name="a9377e41a636f871fadaa42118add107e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9377e41a636f871fadaa42118add107e">&#9670;&#160;</a></span>submit_cmd()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::Renderer::submit </td>
+          <td class="memname">void galaxy::graphics::Renderer::submit_cmd </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a> &amp;&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
@@ -380,15 +589,353 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Submit render data to renderer. </p>
+<p>Add an entity rendering command. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>Data from an entity to render. </td></tr>
+    <tr><td class="paramname">command</td><td>Rendering command to draw. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00077">77</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a9377e41a636f871fadaa42118add107e_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9377e41a636f871fadaa42118add107e_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9377e41a636f871fadaa42118add107e_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9377e41a636f871fadaa42118add107e_icgraph">
+<area shape="rect" title="Add an entity rendering command." alt="" coords="284,101,479,141"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title=" " alt="" coords="23,5,218,45"/>
+<area shape="poly" title=" " alt="" coords="326,98,235,60,198,48,200,43,237,55,328,93"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title=" " alt="" coords="23,69,218,109"/>
+<area shape="poly" title=" " alt="" coords="270,110,218,104,218,99,271,105"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title=" " alt="" coords="23,133,218,173"/>
+<area shape="poly" title=" " alt="" coords="271,138,218,144,218,139,270,132"/>
+<area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,197,236,237"/>
+<area shape="poly" title=" " alt="" coords="328,150,237,188,200,200,198,195,235,183,326,145"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a422279b7b63c9e048648a231f9a358c0" name="a422279b7b63c9e048648a231f9a358c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a422279b7b63c9e048648a231f9a358c0">&#9670;&#160;</a></span>submit_texture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::submit_texture </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html">Texture2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>va</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>tf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>opacity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a422279b7b63c9e048648a231f9a358c0_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a422279b7b63c9e048648a231f9a358c0_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a422279b7b63c9e048648a231f9a358c0_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a422279b7b63c9e048648a231f9a358c0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,215,200,255"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="259,17,438,57"/>
+<area shape="poly" title=" " alt="" coords="115,213,167,145,205,106,246,72,267,61,269,65,250,77,208,110,172,149,119,216"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="248,87,449,127"/>
+<area shape="poly" title=" " alt="" coords="128,212,181,174,247,136,263,129,265,134,249,141,184,179,131,216"/>
+<area shape="rect" href="../../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#a103b52496d50c9891668640097c06698" title="Gets bindless handle." alt="" coords="253,151,445,191"/>
+<area shape="poly" title=" " alt="" coords="180,212,257,192,259,197,181,217"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get vertex array handle." alt="" coords="259,215,438,255"/>
+<area shape="poly" title=" " alt="" coords="200,232,245,232,245,237,200,237"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa1cca28d2184feaee04cbfb509b2ebaa" title="Number of instances to render." alt="" coords="259,279,438,319"/>
+<area shape="poly" title=" " alt="" coords="181,252,259,273,257,278,180,257"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa17c4702246caa9ee7cb78cf84ad893f" title="Gets index offset." alt="" coords="259,343,438,383"/>
+<area shape="poly" title=" " alt="" coords="131,253,184,291,249,328,265,335,263,340,247,333,181,295,128,257"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9377e41a636f871fadaa42118add107e" title="Add an entity rendering command." alt="" coords="251,407,446,447"/>
+<area shape="poly" title=" " alt="" coords="119,253,171,322,208,360,250,392,260,398,257,403,246,397,204,364,167,325,115,257"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae3bf03d205fe047ced065d377cbf8b65" title="Get the index count." alt="" coords="509,5,687,45"/>
+<area shape="poly" title=" " alt="" coords="438,30,495,28,495,33,438,36"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="497,93,699,133"/>
+<area shape="poly" title=" " alt="" coords="450,107,483,108,483,113,450,112"/>
+<area shape="poly" title=" " alt="" coords="552,94,549,84,557,74,573,69,598,67,627,70,643,77,640,82,625,75,598,72,574,74,560,79,554,85,557,92"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ad904479a9d8ede7880d36aab61fb9339" title="Gets index offset." alt="" coords="509,343,687,383"/>
+<area shape="poly" title=" " alt="" coords="438,360,495,360,495,365,438,365"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a045fefcb4cfbb71669dcd99615a3ceed" name="a045fefcb4cfbb71669dcd99615a3ceed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a045fefcb4cfbb71669dcd99615a3ceed">&#9670;&#160;</a></span>submit_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::submit_text </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html">Text</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>tf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00101">101</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a045fefcb4cfbb71669dcd99615a3ceed_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a045fefcb4cfbb71669dcd99615a3ceed_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a045fefcb4cfbb71669dcd99615a3ceed_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a045fefcb4cfbb71669dcd99615a3ceed_cgraph">
+<area shape="rect" title=" " alt="" coords="5,311,200,351"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="259,11,438,51"/>
+<area shape="poly" title=" " alt="" coords="108,310,125,262,154,200,194,133,219,101,246,73,271,55,274,59,250,77,223,105,199,136,159,202,130,265,113,311"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="248,87,449,127"/>
+<area shape="poly" title=" " alt="" coords="111,309,131,273,161,226,200,178,246,137,255,131,258,135,250,141,204,182,166,229,136,275,116,312"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a491b5fa3b4e8fee87cb03e3ffef47b22" title="Gets bindless texture handle." alt="" coords="257,151,440,191"/>
+<area shape="poly" title=" " alt="" coords="120,309,173,255,208,226,247,200,259,194,262,199,249,205,212,230,177,259,123,312"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get vertex array handle." alt="" coords="259,215,438,255"/>
+<area shape="poly" title=" " alt="" coords="145,308,247,264,268,257,270,262,249,269,147,313"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa1cca28d2184feaee04cbfb509b2ebaa" title="Number of instances to render." alt="" coords="259,279,438,319"/>
+<area shape="poly" title=" " alt="" coords="200,315,245,309,246,315,201,321"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa17c4702246caa9ee7cb78cf84ad893f" title="Gets index offset." alt="" coords="259,343,438,383"/>
+<area shape="poly" title=" " alt="" coords="201,341,246,347,245,352,200,346"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6e9724df1d1170e1772f5da8abf5504c" title="Get render texture." alt="" coords="267,407,430,447"/>
+<area shape="poly" title=" " alt="" coords="147,348,249,392,270,400,268,405,247,397,145,353"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9377e41a636f871fadaa42118add107e" title="Add an entity rendering command." alt="" coords="251,471,446,511"/>
+<area shape="poly" title=" " alt="" coords="123,349,177,402,212,431,249,456,262,463,259,468,247,461,208,435,173,406,120,353"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#adb244bd164a157e18a94be9f08cb6d37" title="Get vertex array." alt="" coords="251,535,446,561"/>
+<area shape="poly" title=" " alt="" coords="116,350,135,387,165,433,203,481,250,520,262,528,260,532,246,525,199,484,161,436,131,390,111,352"/>
+<area shape="rect" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560" title="Get vec4." alt="" coords="259,585,438,625"/>
+<area shape="poly" title=" " alt="" coords="113,350,130,396,159,455,198,518,223,546,250,571,256,576,253,580,246,575,219,550,194,521,154,458,125,398,108,352"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae3bf03d205fe047ced065d377cbf8b65" title="Get the index count." alt="" coords="509,5,687,45"/>
+<area shape="poly" title=" " alt="" coords="438,26,495,25,495,30,438,31"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="497,93,699,133"/>
+<area shape="poly" title=" " alt="" coords="450,107,483,108,483,113,450,112"/>
+<area shape="poly" title=" " alt="" coords="552,94,549,84,557,74,573,69,598,67,627,70,643,77,640,82,625,75,598,72,574,74,560,79,554,85,557,92"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ad904479a9d8ede7880d36aab61fb9339" title="Gets index offset." alt="" coords="509,343,687,383"/>
+<area shape="poly" title=" " alt="" coords="438,360,495,360,495,365,438,365"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adc59bbdee6c5600399bff90c5d12e809" name="adc59bbdee6c5600399bff90c5d12e809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc59bbdee6c5600399bff90c5d12e809">&#9670;&#160;</a></span>submit_shape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::submit_shape </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d29/classgalaxy_1_1graphics_1_1Shape.html">Shape</a> *&#160;</td>
+          <td class="paramname"><em>shape</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>tf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00120">120</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_adc59bbdee6c5600399bff90c5d12e809_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_adc59bbdee6c5600399bff90c5d12e809_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_adc59bbdee6c5600399bff90c5d12e809_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_adc59bbdee6c5600399bff90c5d12e809_cgraph">
+<area shape="rect" title=" " alt="" coords="5,279,200,319"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="263,11,441,51"/>
+<area shape="poly" title=" " alt="" coords="110,277,129,236,158,181,198,124,246,73,274,55,277,59,250,77,202,127,163,184,134,238,114,280"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="251,87,453,127"/>
+<area shape="poly" title=" " alt="" coords="115,277,167,208,204,170,247,136,257,130,260,135,249,141,208,174,171,212,119,280"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get vertex array handle." alt="" coords="263,151,441,191"/>
+<area shape="poly" title=" " alt="" coords="128,276,181,238,247,200,264,193,266,198,249,205,184,243,131,281"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa1cca28d2184feaee04cbfb509b2ebaa" title="Number of instances to render." alt="" coords="263,215,441,255"/>
+<area shape="poly" title=" " alt="" coords="181,276,260,255,261,261,182,281"/>
+<area shape="rect" href="../../d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a7de0c2ae3bfe82182e945bdc10e24f04" title="Get OpenGL rendering mode." alt="" coords="264,279,440,319"/>
+<area shape="poly" title=" " alt="" coords="200,296,250,296,250,301,200,301"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa17c4702246caa9ee7cb78cf84ad893f" title="Gets index offset." alt="" coords="263,343,441,383"/>
+<area shape="poly" title=" " alt="" coords="182,316,261,337,260,342,181,321"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9377e41a636f871fadaa42118add107e" title="Add an entity rendering command." alt="" coords="255,407,449,447"/>
+<area shape="poly" title=" " alt="" coords="131,317,184,354,249,392,266,399,264,404,247,397,181,359,128,321"/>
+<area shape="rect" href="../../d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a75140eb8460d3dd95f59a613e2429fbf" title="Get vertex array object." alt="" coords="248,471,456,497"/>
+<area shape="poly" title=" " alt="" coords="118,317,170,386,207,424,249,456,265,464,262,469,247,461,203,428,166,390,114,320"/>
+<area shape="rect" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560" title="Get vec4." alt="" coords="263,521,441,561"/>
+<area shape="poly" title=" " alt="" coords="115,318,134,358,163,409,202,462,250,507,257,512,254,517,246,511,198,465,158,412,129,360,110,320"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae3bf03d205fe047ced065d377cbf8b65" title="Get the index count." alt="" coords="515,5,694,45"/>
+<area shape="poly" title=" " alt="" coords="441,26,501,25,502,30,442,31"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="504,93,705,133"/>
+<area shape="poly" title=" " alt="" coords="453,107,490,108,490,113,453,112"/>
+<area shape="poly" title=" " alt="" coords="558,94,555,84,563,74,579,69,605,67,634,70,650,77,647,82,632,75,605,72,580,74,566,79,560,85,563,92"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ad904479a9d8ede7880d36aab61fb9339" title="Gets index offset." alt="" coords="515,343,694,383"/>
+<area shape="poly" title=" " alt="" coords="441,360,502,360,502,365,441,365"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae87ec0ca41d29f00d5dd2393f42a0e82" name="ae87ec0ca41d29f00d5dd2393f42a0e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae87ec0ca41d29f00d5dd2393f42a0e82">&#9670;&#160;</a></span>draw_texture_to_target()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::draw_texture_to_target </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>va</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>tf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a texture to a render texture. </p>
+<p>Standalone function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>Target to draw texture to. </td></tr>
+    <tr><td class="paramname">texture</td><td><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> to draw to the target. </td></tr>
+    <tr><td class="paramname">va</td><td><a class="el" href="../../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html" title="Represents a single vertex point.">Vertex</a> array object. </td></tr>
+    <tr><td class="paramname">transform</td><td>Orthographic transform. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_ae87ec0ca41d29f00d5dd2393f42a0e82_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae87ec0ca41d29f00d5dd2393f42a0e82_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae87ec0ca41d29f00d5dd2393f42a0e82_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_ae87ec0ca41d29f00d5dd2393f42a0e82_cgraph">
+<area shape="rect" title="Draw a texture to a render texture." alt="" coords="5,261,200,301"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array." alt="" coords="274,5,453,45"/>
+<area shape="poly" title=" " alt="" coords="109,260,127,217,156,162,196,104,220,78,246,55,260,47,263,51,250,59,223,82,200,108,160,165,132,220,114,262"/>
+<area shape="rect" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a854145548a7ed7c59ea31e83ae95de45" title="Activate context." alt="" coords="271,69,455,109"/>
+<area shape="poly" title=" " alt="" coords="114,260,166,191,204,152,247,119,258,113,260,117,249,124,207,156,170,194,119,263"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="272,133,455,173"/>
+<area shape="poly" title=" " alt="" coords="128,259,181,221,247,183,265,175,267,180,249,188,184,225,131,263"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="274,197,453,237"/>
+<area shape="poly" title=" " alt="" coords="184,259,268,238,269,243,186,264"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="263,261,464,301"/>
+<area shape="poly" title=" " alt="" coords="200,279,249,279,249,284,200,284"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="272,325,455,365"/>
+<area shape="poly" title=" " alt="" coords="186,299,269,319,268,325,184,304"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa17c4702246caa9ee7cb78cf84ad893f" title="Gets index offset." alt="" coords="274,389,453,429"/>
+<area shape="poly" title=" " alt="" coords="131,299,184,338,249,375,267,382,265,387,247,380,181,342,128,304"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="248,454,479,479"/>
+<area shape="poly" title=" " alt="" coords="118,300,170,369,207,407,249,439,265,447,263,452,247,444,203,411,166,373,114,303"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="272,504,455,544"/>
+<area shape="poly" title=" " alt="" coords="115,301,133,341,162,392,201,445,224,469,250,490,261,497,258,501,246,494,221,473,197,448,158,395,129,343,110,303"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="527,69,741,109"/>
+<area shape="poly" title=" " alt="" coords="448,131,535,110,536,115,449,136"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="543,133,725,173"/>
+<area shape="poly" title=" " alt="" coords="455,151,529,151,529,156,455,156"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="789,101,1004,141"/>
+<area shape="poly" title=" " alt="" coords="742,100,776,104,775,109,741,105"/>
+<area shape="poly" title=" " alt="" coords="848,102,845,92,853,82,870,77,897,75,927,78,943,85,941,90,926,83,897,80,871,82,856,87,850,93,853,100"/>
+<area shape="poly" title=" " alt="" coords="725,140,775,133,776,139,726,145"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae3bf03d205fe047ced065d377cbf8b65" title="Get the index count." alt="" coords="545,197,723,237"/>
+<area shape="poly" title=" " alt="" coords="453,215,531,215,531,220,453,220"/>
+<area shape="rect" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="533,285,735,325"/>
+<area shape="poly" title=" " alt="" coords="464,288,520,293,519,298,464,293"/>
+<area shape="poly" title=" " alt="" coords="586,286,583,276,590,266,608,261,634,259,664,262,681,269,679,274,663,267,634,264,609,266,593,271,588,277,591,284"/>
+<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ad904479a9d8ede7880d36aab61fb9339" title="Gets index offset." alt="" coords="545,389,723,429"/>
+<area shape="poly" title=" " alt="" coords="453,407,531,407,531,412,453,412"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -407,9 +954,35 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw all submitted data to screen. </p>
+<p>Draw all submitted render commands to screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00071">71</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00162">162</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_cgraph">
+<area shape="rect" title="Draw all submitted render commands to screen." alt="" coords="5,37,200,77"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="251,5,432,45"/>
+<area shape="poly" title=" " alt="" coords="200,42,236,37,237,42,201,47"/>
+<area shape="rect" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a9cac5e7dfec35777fd033814b05ed423" title="Sub buffer data." alt="" coords="248,69,435,109"/>
+<area shape="poly" title=" " alt="" coords="201,68,235,72,234,78,200,73"/>
+</map>
+</div>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_aa777b874eb4d8e2aed4172a8b290088b_icgraph">
+<area shape="rect" title="Draw all submitted render commands to screen." alt="" coords="212,5,407,45"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
+<area shape="poly" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -428,104 +1001,32 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Delete any data stored by the renderer. </p>
+<p>Deletes all submitted render commands. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00119">119</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00180">180</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a9074bca0e4d6d0a377a34e89573393e8_icgraph">
+<area shape="rect" title="Deletes all submitted render commands." alt="" coords="212,5,407,45"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
+<area shape="poly" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="aa3ca66f0a511ea0318dcf6bba4606d79" name="aa3ca66f0a511ea0318dcf6bba4606d79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3ca66f0a511ea0318dcf6bba4606d79">&#9670;&#160;</a></span>begin_postprocessing()</h2>
+<a id="a72664de638a43afb58ee502cdea93d35" name="a72664de638a43afb58ee502cdea93d35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72664de638a43afb58ee502cdea93d35">&#9670;&#160;</a></span>clear_active()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::Renderer::begin_postprocessing </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Begin post processing. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00124">124</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a1494afd068d811122c93788e05a2c69f" name="a1494afd068d811122c93788e05a2c69f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1494afd068d811122c93788e05a2c69f">&#9670;&#160;</a></span>end_postprocessing()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::end_postprocessing </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finalize post processing. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00129">129</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a98c83b4b8ad902539c210811f9230441" name="a98c83b4b8ad902539c210811f9230441"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98c83b4b8ad902539c210811f9230441">&#9670;&#160;</a></span>render_postprocessing()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::render_postprocessing </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Render post processing data. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00134">134</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ac8c2e72ca79d46a1cb8d7e3da669bef7" name="ac8c2e72ca79d46a1cb8d7e3da669bef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8c2e72ca79d46a1cb8d7e3da669bef7">&#9670;&#160;</a></span>prepare_default()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::prepare_default </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prepares to render to the default framebuffer. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a34f06d0c75c39e4ec61ca90d0a35cc1b" name="a34f06d0c75c39e4ec61ca90d0a35cc1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34f06d0c75c39e4ec61ca90d0a35cc1b">&#9670;&#160;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::clear </td>
+          <td class="memname">void galaxy::graphics::Renderer::clear_active </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -535,18 +1036,34 @@ Private Attributes</h2></td></tr>
 
 <p>Clears currently active framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00149">149</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00186">186</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a72664de638a43afb58ee502cdea93d35_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a72664de638a43afb58ee502cdea93d35_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a72664de638a43afb58ee502cdea93d35_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a72664de638a43afb58ee502cdea93d35_icgraph">
+<area shape="rect" title="Clears currently active framebuffer." alt="" coords="511,37,705,77"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="289,5,442,45"/>
+<area shape="poly" title=" " alt="" coords="497,45,442,38,443,33,497,40"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d" title="Renders final post processing output to active framebuffer." alt="" coords="268,69,463,109"/>
+<area shape="poly" title=" " alt="" coords="497,75,463,79,463,74,497,69"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,69,220,109"/>
+<area shape="poly" title=" " alt="" coords="254,92,220,92,220,87,254,87"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a09d258455a47b5a351bd3580fec888b5" name="a09d258455a47b5a351bd3580fec888b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09d258455a47b5a351bd3580fec888b5">&#9670;&#160;</a></span>swap_buffers()</h2>
+<a id="a5cc20dd006fbed6f129b9b209ce7cf56" name="a5cc20dd006fbed6f129b9b209ce7cf56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc20dd006fbed6f129b9b209ce7cf56">&#9670;&#160;</a></span>begin_post()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::Renderer::swap_buffers </td>
+          <td class="memname">void galaxy::graphics::Renderer::begin_post </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -554,211 +1071,224 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Swap backbuffer to draw to screen. </p>
+<p>Begin rendering to post process framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00155">155</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00192">192</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_cgraph">
+<area shape="rect" title="Begin rendering to post process framebuffer." alt="" coords="5,37,200,77"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="248,37,463,77"/>
+<area shape="poly" title=" " alt="" coords="200,55,234,55,234,60,200,60"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="511,37,693,77"/>
+<area shape="poly" title=" " alt="" coords="463,55,497,55,497,60,463,60"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="741,5,956,45"/>
+<area shape="poly" title=" " alt="" coords="693,43,727,38,728,44,694,48"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="757,69,940,109"/>
+<area shape="poly" title=" " alt="" coords="694,67,744,73,743,78,693,72"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="1004,37,1219,77"/>
+<area shape="poly" title=" " alt="" coords="956,36,991,40,990,45,956,41"/>
+<area shape="poly" title=" " alt="" coords="1063,38,1060,28,1068,18,1085,13,1111,11,1142,14,1158,21,1156,26,1140,19,1111,16,1086,18,1071,23,1065,29,1068,36"/>
+<area shape="poly" title=" " alt="" coords="940,76,990,69,991,75,941,81"/>
+</map>
 </div>
-<a id="a3c6f91a4ba1648c2f3b6f36a3b4ca35e" name="a3c6f91a4ba1648c2f3b6f36a3b4ca35e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c6f91a4ba1648c2f3b6f36a3b4ca35e">&#9670;&#160;</a></span>resize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::resize </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Resize any framebuffers the renderer uses. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">width</td><td>Viewport width. </td></tr>
-    <tr><td class="paramname">height</td><td>Viewport height. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00160">160</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-</div>
-<a id="af6e632f13e242c22227fc2efa9302a88" name="af6e632f13e242c22227fc2efa9302a88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6e632f13e242c22227fc2efa9302a88">&#9670;&#160;</a></span>draw_texture_to_target()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::graphics::Renderer::draw_texture_to_target </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">Texture</a> &amp;&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html">VertexArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>va</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a> &amp;&#160;</td>
-          <td class="paramname"><em>transform</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Draw a texture to a render texture. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target</td><td>Target to draw texture to. </td></tr>
-    <tr><td class="paramname">texture</td><td><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> to draw to the target. </td></tr>
-    <tr><td class="paramname">va</td><td><a class="el" href="../../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html" title="Represents a single vertex point.">Vertex</a> array object. </td></tr>
-    <tr><td class="paramname">transform</td><td>Orthographic transform component. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00168">168</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af6e632f13e242c22227fc2efa9302a88_cgraph">
-<area shape="rect" title="Draw a texture to a render texture." alt="" coords="5,165,200,205"/>
-<area shape="rect" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aaade16e4973e304e334efa12d509cec9" title="Activate texture context." alt="" coords="271,5,455,45"/>
-<area shape="poly" title=" " alt="" coords="120,163,173,109,208,80,247,55,261,48,263,53,249,60,211,84,176,113,123,167"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array to current GL context." alt="" coords="274,69,453,109"/>
-<area shape="poly" title=" " alt="" coords="144,163,247,119,271,111,273,116,249,124,146,168"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117" title="Get projection." alt="" coords="272,133,455,173"/>
-<area shape="poly" title=" " alt="" coords="200,171,258,164,258,169,200,176"/>
-<area shape="rect" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="266,197,461,237"/>
-<area shape="poly" title=" " alt="" coords="200,195,253,201,252,206,200,200"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="274,261,453,301"/>
-<area shape="poly" title=" " alt="" coords="146,203,249,247,273,255,271,260,247,252,144,208"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="248,326,479,351"/>
-<area shape="poly" title=" " alt="" coords="123,204,175,258,211,287,249,311,268,319,266,324,247,316,208,291,172,262,119,208"/>
-<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="527,261,737,301"/>
-<area shape="poly" title=" " alt="" coords="453,279,513,279,513,284,453,284"/>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5cc20dd006fbed6f129b9b209ce7cf56_icgraph">
+<area shape="rect" title="Begin rendering to post process framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a70afa16b909fcb2cfc063c41ebe65763" name="a70afa16b909fcb2cfc063c41ebe65763"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70afa16b909fcb2cfc063c41ebe65763">&#9670;&#160;</a></span>draw_texture()</h2>
+<a id="a71292286127682142aa01090036e8dcd" name="a71292286127682142aa01090036e8dcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71292286127682142aa01090036e8dcd">&#9670;&#160;</a></span>end_post()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::Renderer::draw_texture </td>
+          <td class="memname">void galaxy::graphics::Renderer::end_post </td>
           <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draws a texture to the active framebuffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">texture</td><td>OpenGL texture handlr. </td></tr>
-    <tr><td class="paramname">width</td><td>Width of texture. </td></tr>
-    <tr><td class="paramname">height</td><td>Height of texture. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Renders effects to post processing framebuffer and rebinds to default framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00187">187</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00197">197</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph" alt=""/></div>
-<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a70afa16b909fcb2cfc063c41ebe65763_cgraph">
-<area shape="rect" title="Draws a texture to the active framebuffer." alt="" coords="5,225,200,265"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b" title="Bind this vertex array to current GL context." alt="" coords="274,33,453,73"/>
-<area shape="poly" title=" " alt="" coords="114,224,166,155,204,116,247,83,260,76,263,80,249,88,207,120,170,158,119,227"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="274,97,453,137"/>
-<area shape="poly" title=" " alt="" coords="128,223,181,185,247,147,265,139,267,144,249,152,184,189,131,227"/>
-<area shape="rect" href="../../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a2a63886dc9055942bfb4f424fe28f404" title="Generate some default verticies." alt="" coords="274,161,453,201"/>
-<area shape="poly" title=" " alt="" coords="184,223,268,202,269,207,186,228"/>
-<area shape="rect" href="../../d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="274,225,453,265"/>
-<area shape="poly" title=" " alt="" coords="200,243,260,243,260,248,200,248"/>
-<area shape="rect" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html#aacdd0ac1c22466f917b0e1b16be648ac" title="Retrieve internal transformation matrix." alt="" coords="266,289,461,329"/>
-<area shape="poly" title=" " alt="" coords="186,263,269,283,268,289,184,268"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="274,353,453,393"/>
-<area shape="poly" title=" " alt="" coords="131,263,184,302,249,339,267,346,265,351,247,344,181,306,128,268"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="248,418,479,443"/>
-<area shape="poly" title=" " alt="" coords="118,264,170,333,207,371,249,403,265,411,263,416,247,408,203,375,166,337,114,267"/>
-<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="537,5,747,45"/>
-<area shape="poly" title=" " alt="" coords="445,95,478,83,501,69,526,55,545,47,547,52,528,60,504,74,480,88,447,100"/>
-<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="553,69,731,109"/>
-<area shape="poly" title=" " alt="" coords="452,106,539,97,539,102,453,111"/>
-<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="527,134,757,159"/>
-<area shape="poly" title=" " alt="" coords="453,124,513,130,513,136,452,129"/>
-<area shape="rect" href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="553,184,731,224"/>
-<area shape="poly" title=" " alt="" coords="443,135,480,147,528,168,554,177,552,182,526,173,478,152,441,140"/>
-<area shape="rect" href="../../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="537,353,747,393"/>
-<area shape="poly" title=" " alt="" coords="453,371,523,371,523,376,453,376"/>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_cgraph">
+<area shape="rect" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="5,37,200,77"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="248,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="200,42,234,38,235,43,201,48"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="248,69,463,109"/>
+<area shape="poly" title=" " alt="" coords="201,67,235,71,234,77,200,72"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a5e280fba4aec4c1e717e9b4937f0b203" title="Gets framebuffer texture." alt="" coords="511,5,693,45"/>
+<area shape="poly" title=" " alt="" coords="463,23,497,23,497,28,463,28"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="757,5,972,45"/>
+<area shape="poly" title=" " alt="" coords="694,23,744,23,744,28,694,28"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Deactivate context." alt="" coords="511,69,693,109"/>
+<area shape="poly" title=" " alt="" coords="463,87,497,87,497,92,463,92"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa92e97cb44e8f1d6bfaa59750b533aed" title="Unbind framebuffer." alt="" coords="741,77,988,102"/>
+<area shape="poly" title=" " alt="" coords="694,87,728,87,728,92,694,92"/>
+</map>
+</div>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a71292286127682142aa01090036e8dcd_icgraph">
+<area shape="rect" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5d0f05a605da1096862562293b44081d" name="a5d0f05a605da1096862562293b44081d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d0f05a605da1096862562293b44081d">&#9670;&#160;</a></span>render_post()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::render_post </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders final post processing output to active framebuffer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00203">203</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_cgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_cgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_cgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_cgraph">
+<area shape="rect" title="Renders final post processing output to active framebuffer." alt="" coords="5,37,200,77"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35" title="Clears currently active framebuffer." alt="" coords="258,5,453,45"/>
+<area shape="poly" title=" " alt="" coords="200,42,244,37,245,42,201,48"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="248,69,463,109"/>
+<area shape="poly" title=" " alt="" coords="201,67,235,71,234,77,200,72"/>
+<area shape="rect" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="511,69,692,109"/>
+<area shape="poly" title=" " alt="" coords="463,87,497,87,497,92,463,92"/>
+</map>
+</div>
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a5d0f05a605da1096862562293b44081d_icgraph">
+<area shape="rect" title="Renders final post processing output to active framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af2810f49a72158adbf57af81a1cb7191" name="af2810f49a72158adbf57af81a1cb7191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2810f49a72158adbf57af81a1cb7191">&#9670;&#160;</a></span>begin_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::begin_default </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start rendering to default framebuffer. </p>
+<p>This should be called at the end of rendering, only rendering your final framebuffer, since afterwards we swap buffers. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_af2810f49a72158adbf57af81a1cb7191_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_af2810f49a72158adbf57af81a1cb7191_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af2810f49a72158adbf57af81a1cb7191_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_af2810f49a72158adbf57af81a1cb7191_icgraph">
+<area shape="rect" title="Start rendering to default framebuffer." alt="" coords="268,37,463,77"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="36,5,189,45"/>
+<area shape="poly" title=" " alt="" coords="254,46,189,38,190,32,255,41"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,69,220,109"/>
+<area shape="poly" title=" " alt="" coords="255,74,221,78,220,73,254,69"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2806053665ce85980aa67b144f604814" name="a2806053665ce85980aa67b144f604814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2806053665ce85980aa67b144f604814">&#9670;&#160;</a></span>end_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::graphics::Renderer::end_default </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Swaps buffers. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00219">219</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d20/classgalaxy_1_1graphics_1_1Renderer_a2806053665ce85980aa67b144f604814_icgraph.png" border="0" usemap="#adf/d20/classgalaxy_1_1graphics_1_1Renderer_a2806053665ce85980aa67b144f604814_icgraph" alt=""/></div>
+<map name="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a2806053665ce85980aa67b144f604814_icgraph" id="adf/d20/classgalaxy_1_1graphics_1_1Renderer_a2806053665ce85980aa67b144f604814_icgraph">
+<area shape="rect" title="Swaps buffers." alt="" coords="268,37,463,77"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="36,5,189,45"/>
+<area shape="poly" title=" " alt="" coords="254,46,189,38,190,32,255,41"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,69,220,109"/>
+<area shape="poly" title=" " alt="" coords="255,74,221,78,220,73,254,69"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a03cb05afb6770e70d456f86961827ef2" name="a03cb05afb6770e70d456f86961827ef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03cb05afb6770e70d456f86961827ef2">&#9670;&#160;</a></span>m_camera_ubo</h2>
+<a id="ab86c572c10a3bc69b60b188a303af609" name="ab86c572c10a3bc69b60b188a303af609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab86c572c10a3bc69b60b188a303af609">&#9670;&#160;</a></span>m_cmds</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -767,7 +1297,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b">UniformBuffer</a>&gt; galaxy::graphics::Renderer::m_camera_ubo</td>
+          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;<a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a>*&gt; galaxy::graphics::Renderer::m_cmds</td>
         </tr>
       </table>
   </td>
@@ -777,14 +1307,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Uniform buffer for camera. </p>
+<p>List of renderables to draw. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00126">126</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00140">140</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ae00adbc8cf29256cab7c0a6263cdcc3f" name="ae00adbc8cf29256cab7c0a6263cdcc3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae00adbc8cf29256cab7c0a6263cdcc3f">&#9670;&#160;</a></span>m_r2d_ubo</h2>
+<a id="acf7d926333d0bdff796bb6b31b2558bf" name="acf7d926333d0bdff796bb6b31b2558bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf7d926333d0bdff796bb6b31b2558bf">&#9670;&#160;</a></span>m_free_cmds</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -793,7 +1323,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#abdc5bda711710b03d7bdbed68635d55b">UniformBuffer</a>&gt; galaxy::graphics::Renderer::m_r2d_ubo</td>
+          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;<a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a>&gt; galaxy::graphics::Renderer::m_free_cmds</td>
         </tr>
       </table>
   </td>
@@ -803,14 +1333,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>2D renderer UBO. </p>
+<p>List of non component commands. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0e567cd61c8a1426d17e93aac382e626" name="a0e567cd61c8a1426d17e93aac382e626"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e567cd61c8a1426d17e93aac382e626">&#9670;&#160;</a></span>m_data</h2>
+<a id="ad4361f541c64890d16dd55a5a1261334" name="ad4361f541c64890d16dd55a5a1261334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4361f541c64890d16dd55a5a1261334">&#9670;&#160;</a></span>m_r2d_shader</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -819,7 +1349,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt;<a class="el" href="../../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html">RenderCommand</a>&gt; galaxy::graphics::Renderer::m_data</td>
+          <td class="memname"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">Shader</a> galaxy::graphics::Renderer::m_r2d_shader</td>
         </tr>
       </table>
   </td>
@@ -829,14 +1359,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Storage for renderables submitted. </p>
+<p>Mono render shader. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00150">150</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a3b3832f8862899ae63ac91ec13b3ff51" name="a3b3832f8862899ae63ac91ec13b3ff51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b3832f8862899ae63ac91ec13b3ff51">&#9670;&#160;</a></span>m_r2d_shader</h2>
+<a id="aff0e8dfb72cdb5162726ecd27b16a66d" name="aff0e8dfb72cdb5162726ecd27b16a66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff0e8dfb72cdb5162726ecd27b16a66d">&#9670;&#160;</a></span>m_camera</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -845,7 +1375,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">graphics::Shader</a> galaxy::graphics::Renderer::m_r2d_shader</td>
+          <td class="memname"><a class="el" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html">ShaderStorageBuffer</a> galaxy::graphics::Renderer::m_camera</td>
         </tr>
       </table>
   </td>
@@ -855,14 +1385,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs.">Shader</a> used when drawing with renderer. </p>
+<p><a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera.">Camera</a> buffer storage. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00141">141</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00155">155</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac336636ac5942983073e3f74a014034c" name="ac336636ac5942983073e3f74a014034c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac336636ac5942983073e3f74a014034c">&#9670;&#160;</a></span>m_particle_shader</h2>
+<a id="a6fc2423c26f91d33be221207423424bb" name="a6fc2423c26f91d33be221207423424bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc2423c26f91d33be221207423424bb">&#9670;&#160;</a></span>m_renderdata</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -871,7 +1401,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">graphics::Shader</a> galaxy::graphics::Renderer::m_particle_shader</td>
+          <td class="memname"><a class="el" href="../../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html">ShaderStorageBuffer</a> galaxy::graphics::Renderer::m_renderdata</td>
         </tr>
       </table>
   </td>
@@ -881,14 +1411,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs.">Shader</a> for rendering particles. </p>
+<p>Uniform buffer storage. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00146">146</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00160">160</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a79ca99961fb0bd47be0dd547effe10eb" name="a79ca99961fb0bd47be0dd547effe10eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79ca99961fb0bd47be0dd547effe10eb">&#9670;&#160;</a></span>m_prev_texture</h2>
+<a id="a76d8199d3bbaffe0bf92e99e0cb2e199" name="a76d8199d3bbaffe0bf92e99e0cb2e199"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d8199d3bbaffe0bf92e99e0cb2e199">&#9670;&#160;</a></span>m_post</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -897,59 +1427,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int galaxy::graphics::Renderer::m_prev_texture</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Cache previous texture to prevent rebinding. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00151">151</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af5ae47697dd8adb2500b842426703a17" name="af5ae47697dd8adb2500b842426703a17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5ae47697dd8adb2500b842426703a17">&#9670;&#160;</a></span>m_prev_nm</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int galaxy::graphics::Renderer::m_prev_nm</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Cache previous nm texture to prevent rebinding. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00156">156</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5c259d1b4d274dc9ea52d704c4cc8ae6" name="a5c259d1b4d274dc9ea52d704c4cc8ae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c259d1b4d274dc9ea52d704c4cc8ae6">&#9670;&#160;</a></span>m_postprocess</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html">graphics::PostProcess</a> galaxy::graphics::Renderer::m_postprocess</td>
+          <td class="memname"><a class="el" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html">PostProcess</a> galaxy::graphics::Renderer::m_post</td>
         </tr>
       </table>
   </td>
@@ -961,7 +1439,7 @@ Private Attributes</h2></td></tr>
 
 <p>Post processor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00161">161</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00165">165</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -987,7 +1465,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html" title="2D OpenGL renderer.">Renderer</a> frame width. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00166">166</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00170">170</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +1491,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html" title="2D OpenGL renderer.">Renderer</a> frame height. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00171">171</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db8/Renderer_8hpp_source.html#l00175">175</a> of file <a class="el" href="../../dd/db8/Renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -1027,7 +1505,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Fri Feb 2 2024 00:21:50 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 15:39:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

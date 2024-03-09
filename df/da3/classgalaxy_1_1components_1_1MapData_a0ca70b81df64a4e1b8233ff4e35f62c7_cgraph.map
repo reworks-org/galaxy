@@ -1,5 +1,0 @@
-<map id="galaxy::components::MapData::get_count" name="galaxy::components::MapData::get_count">
-<area shape="rect" id="Node000001" title="Get index (element) buffer count." alt="" coords="5,5,167,45"/>
-<area shape="rect" id="Node000002" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a1ae66e0c281af933fc5317ad9624cd24" title="Get index count." alt="" coords="215,5,389,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,23,201,23,201,28,167,28"/>
-</map>

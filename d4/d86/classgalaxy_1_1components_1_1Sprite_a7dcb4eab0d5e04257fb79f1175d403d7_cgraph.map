@@ -1,21 +1,35 @@
 <map id="galaxy::components::Sprite::Sprite" name="galaxy::components::Sprite::Sprite">
-<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,163,159,203"/>
-<area shape="rect" id="Node000002" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="207,163,360,203"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,180,193,180,193,185,159,185"/>
-<area shape="rect" id="Node000003" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2051b323d731805e24065f1720cf8dda" title="Creates the internal vertex array." alt="" coords="408,163,561,203"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,180,394,180,394,185,360,185"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a04fa8b4c1f8f35d24213faa4b874cce3" title="Create vertex array." alt="" coords="635,99,814,139"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="560,160,635,140,637,145,561,165"/>
-<area shape="rect" id="Node000009" href="$d9/d6c/classgalaxy_1_1graphics_1_1Vertex.html#a7533adfcff3fc58a18a3e5c0a23a8d1c" title="Generate some default indicies." alt="" coords="635,163,814,203"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="562,180,621,180,621,185,562,185"/>
-<area shape="rect" id="Node000010" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="609,227,840,253"/>
-<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="562,200,610,212,652,222,650,227,609,217,561,205"/>
-<area shape="rect" id="Node000005" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a454db32fd09b15c754c78a257921a914" title="Create index buffer object." alt="" coords="898,5,1109,45"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="775,96,887,55,913,47,915,52,889,60,777,101"/>
-<area shape="rect" id="Node000006" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a134ea401aeaad0768015e19997502de6" title="Create vertex buffer object." alt="" coords="914,69,1093,109"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="814,107,900,97,901,103,814,112"/>
-<area shape="rect" id="Node000007" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#add85ab703bd98ae14472ec654c19e8b6" title="Get OpenGL handle." alt="" coords="888,134,1119,159"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="814,125,874,131,874,136,814,130"/>
-<area shape="rect" id="Node000008" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="914,184,1093,224"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="804,136,841,148,889,170,913,178,911,183,887,174,839,153,802,141"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,97,159,137"/>
+<area shape="rect" id="Node000002" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="207,97,360,137"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,114,193,114,193,119,159,119"/>
+<area shape="rect" id="Node000003" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a2aeae0f42ad74e1f9ba6b86b48b16607" title="Alpha." alt="" coords="408,5,603,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,94,355,66,407,40,428,32,430,37,409,44,357,71,314,99"/>
+<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0421e40355241b6a61a4b9ce557febbd" title="Blue." alt="" coords="408,55,603,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="360,97,433,80,435,86,361,102"/>
+<area shape="rect" id="Node000007" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a696dfb2d8438ace951f478d51e26d81c" title="Green." alt="" coords="408,104,603,129"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="360,114,394,114,394,119,360,119"/>
+<area shape="rect" id="Node000009" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a76ac2089d428592ca6974b343551bb33" title="Red." alt="" coords="410,153,601,179"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="361,131,435,148,433,153,360,136"/>
+<area shape="rect" id="Node000011" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="429,267,582,307"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="312,135,469,257,466,261,309,139"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c" title="Get alpha." alt="" coords="669,5,863,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="603,15,655,15,655,21,603,21"/>
+<area shape="rect" id="Node000006" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37" title="Get blue." alt="" coords="669,55,863,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="603,65,655,65,655,70,603,70"/>
+<area shape="rect" id="Node000008" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a" title="Get green." alt="" coords="669,104,863,129"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="603,114,655,114,655,119,603,119"/>
+<area shape="rect" id="Node000010" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c" title="Get red." alt="" coords="671,153,861,179"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="601,163,657,163,657,169,601,169"/>
+<area shape="rect" id="Node000012" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="677,203,855,243"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="582,266,670,244,671,249,583,271"/>
+<area shape="rect" id="Node000015" href="$db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867" title="Generate some default indicies." alt="" coords="686,267,846,307"/>
+<area shape="poly" id="edge14_Node000011_Node000015" title=" " alt="" coords="582,285,673,285,673,290,582,290"/>
+<area shape="rect" id="Node000016" href="$db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0" title="Generate some default verticies." alt="" coords="686,331,846,371"/>
+<area shape="poly" id="edge15_Node000011_Node000016" title=" " alt="" coords="583,304,674,326,672,331,582,309"/>
+<area shape="rect" id="Node000017" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="651,396,881,421"/>
+<area shape="poly" id="edge16_Node000011_Node000017" title=" " alt="" coords="533,306,585,344,652,381,676,390,674,395,650,386,583,349,529,310"/>
+<area shape="rect" id="Node000013" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="929,171,1108,211"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="855,209,915,202,916,207,856,215"/>
+<area shape="rect" id="Node000014" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="929,235,1108,275"/>
+<area shape="poly" id="edge13_Node000012_Node000014" title=" " alt="" coords="856,232,916,240,915,245,855,237"/>
 </map>

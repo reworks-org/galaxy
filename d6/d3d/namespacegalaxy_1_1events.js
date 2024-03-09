@@ -11,7 +11,5 @@ var namespacegalaxy_1_1events =
     [ "MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", "dc/d78/structgalaxy_1_1events_1_1MouseReleased" ],
     [ "MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", "d6/d70/structgalaxy_1_1events_1_1MouseWheel" ],
     [ "WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],
-    [ "WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", "d9/dd9/structgalaxy_1_1events_1_1WindowResized" ],
-    [ "Variant", "d6/d3d/namespacegalaxy_1_1events.html#a2503685c4466dcacd33f811e7e6a9c43", null ],
-    [ "Queue", "d6/d3d/namespacegalaxy_1_1events.html#afcf0d7233ab9b560af4b68bd70405401", null ]
+    [ "WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", "d9/dd9/structgalaxy_1_1events_1_1WindowResized" ]
 ];

@@ -1,21 +1,17 @@
 <map id="galaxy::graphics::FilmicGrain" name="galaxy::graphics::FilmicGrain">
-<area shape="rect" id="Node000001" title="Film grain effect." alt="" coords="227,1395,393,1595"/>
-<area shape="rect" id="Node000002" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,1047,199,1272"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,1283,250,1393,246,1396,177,1285"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="Class for managing OpenGL shader programs." alt="" coords="223,987,397,1332"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,1332,313,1378,307,1378,307,1332"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="271,624,349,689"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,690,313,970,307,970,307,690"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="245,261,375,341"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="313,355,313,624,307,624,307,355"/>
-<area shape="rect" id="Node000006" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target." alt="" coords="421,999,596,1319"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="423,1317,391,1372,385,1382,380,1379,386,1369,419,1315"/>
-<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="405,404,612,909"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="511,909,511,983,506,983,506,909"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="433,269,584,334"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="511,335,511,388,506,388,506,335"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="451,133,566,199"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="511,212,511,268,506,268,506,212"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="497,5,520,71"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="511,71,511,117,506,117,506,71"/>
+<area shape="rect" id="Node000001" title="Film grain effect." alt="" coords="228,1360,395,1560"/>
+<area shape="rect" id="Node000002" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,965,199,1190"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,1201,214,1296,250,1358,246,1361,209,1299,159,1204"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="223,885,400,1270"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="314,1270,314,1344,309,1344,309,1270"/>
+<area shape="rect" id="Node000004" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="424,857,599,1297"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="426,1276,415,1299,392,1337,386,1347,382,1345,388,1335,410,1296,421,1274"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="389,389,633,795"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="514,795,514,841,509,841,509,795"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="436,261,587,327"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="514,327,514,373,509,373,509,327"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="454,133,569,199"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="514,213,514,261,509,261,509,213"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="500,5,523,71"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="514,71,514,117,509,117,509,71"/>
 </map>

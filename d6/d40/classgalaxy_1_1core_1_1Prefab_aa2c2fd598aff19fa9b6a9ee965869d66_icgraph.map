@@ -1,11 +1,7 @@
 <map id="galaxy::core::Prefab::from_json" name="galaxy::core::Prefab::from_json">
-<area shape="rect" id="Node000001" title="Creates the prefab from a json object." alt="" coords="419,69,569,109"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="227,5,364,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="417,68,357,48,359,43,419,63"/>
-<area shape="rect" id="Node000004" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="220,69,371,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="405,92,371,92,371,87,405,87"/>
-<area shape="rect" id="Node000005" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#af297078bae7d05b1056a431e526679e5" title="JSON constructor." alt="" coords="220,133,371,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="419,116,359,136,357,131,417,111"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,28,172,28,172,23,213,23"/>
+<area shape="rect" id="Node000001" title="Creates the prefab from a json object." alt="" coords="204,37,355,77"/>
+<area shape="rect" id="Node000002" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,46,156,40,157,35,191,40"/>
+<area shape="rect" id="Node000003" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#af297078bae7d05b1056a431e526679e5" title="JSON constructor." alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,74,157,80,156,75,190,69"/>
 </map>

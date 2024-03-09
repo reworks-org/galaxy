@@ -1,0 +1,30 @@
+<map id="galaxy::graphics::Renderer::submit_text" name="galaxy::graphics::Renderer::submit_text">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,311,200,351"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="259,11,438,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,310,125,262,154,200,194,133,219,101,246,73,271,55,274,59,250,77,223,105,199,136,159,202,130,265,113,311"/>
+<area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="248,87,449,127"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="111,309,131,273,161,226,200,178,246,137,255,131,258,135,250,141,204,182,166,229,136,275,116,312"/>
+<area shape="rect" id="Node000006" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a491b5fa3b4e8fee87cb03e3ffef47b22" title="Gets bindless texture handle." alt="" coords="257,151,440,191"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="120,309,173,255,208,226,247,200,259,194,262,199,249,205,212,230,177,259,123,312"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get vertex array handle." alt="" coords="259,215,438,255"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="145,308,247,264,268,257,270,262,249,269,147,313"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa1cca28d2184feaee04cbfb509b2ebaa" title="Number of instances to render." alt="" coords="259,279,438,319"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="200,315,245,309,246,315,201,321"/>
+<area shape="rect" id="Node000009" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa17c4702246caa9ee7cb78cf84ad893f" title="Gets index offset." alt="" coords="259,343,438,383"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="201,341,246,347,245,352,200,346"/>
+<area shape="rect" id="Node000011" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6e9724df1d1170e1772f5da8abf5504c" title="Get render texture." alt="" coords="267,407,430,447"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="147,348,249,392,270,400,268,405,247,397,145,353"/>
+<area shape="rect" id="Node000012" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9377e41a636f871fadaa42118add107e" title="Add an entity rendering command." alt="" coords="251,471,446,511"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="123,349,177,402,212,431,249,456,262,463,259,468,247,461,208,435,173,406,120,353"/>
+<area shape="rect" id="Node000013" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#adb244bd164a157e18a94be9f08cb6d37" title="Get vertex array." alt="" coords="251,535,446,561"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="116,350,135,387,165,433,203,481,250,520,262,528,260,532,246,525,199,484,161,436,131,390,111,352"/>
+<area shape="rect" id="Node000014" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560" title="Get vec4." alt="" coords="259,585,438,625"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="113,350,130,396,159,455,198,518,223,546,250,571,256,576,253,580,246,575,219,550,194,521,154,458,125,398,108,352"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ae3bf03d205fe047ced065d377cbf8b65" title="Get the index count." alt="" coords="509,5,687,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,26,495,25,495,30,438,31"/>
+<area shape="rect" id="Node000005" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="497,93,699,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="450,107,483,108,483,113,450,112"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="552,94,549,84,557,74,573,69,598,67,627,70,643,77,640,82,625,75,598,72,574,74,560,79,554,85,557,92"/>
+<area shape="rect" id="Node000010" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#ad904479a9d8ede7880d36aab61fb9339" title="Gets index offset." alt="" coords="509,343,687,383"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="438,360,495,360,495,365,438,365"/>
+</map>

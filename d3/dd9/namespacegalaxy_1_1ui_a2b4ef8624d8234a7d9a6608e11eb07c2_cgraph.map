@@ -1,0 +1,9 @@
+<map id="galaxy::ui::imgui_imagebutton" name="galaxy::ui::imgui_imagebutton">
+<area shape="rect" id="Node000001" title="Render an imgui image button with a galaxy texture." alt="" coords="5,70,225,95"/>
+<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a8223f419eb7a8cd8f1be25592544d954" title="Get texture height." alt="" coords="283,5,467,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,67,271,46,272,51,174,73"/>
+<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a64eb40ad366589b68ee22d0c0b862ba8" title="Gets opengl handle." alt="" coords="273,70,477,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,80,259,80,259,85,225,85"/>
+<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a5961fcc6224b3525f8639fcdbc8aceb3" title="Get texture width." alt="" coords="283,120,467,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,93,272,114,271,120,173,98"/>
+</map>

@@ -1,19 +1,14 @@
 <map id="galaxy::resource::Cache::hash" name="galaxy::resource::Cache::hash">
-<area shape="rect" id="Node000001" title="Hashes the key into an integer for faster map lookup time." alt="" coords="701,77,879,117"/>
-<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="831,65,816,58,790,55,767,57,753,62,748,68,750,76,745,77,743,67,750,58,766,52,790,50,818,53,833,60"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a70d4bf65a339b7c4fd24cd07e9561ff8" title="Retrieve a resource." alt="" coords="446,5,653,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,74,653,45,611,33,613,28,654,39,732,69"/>
-<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="445,55,653,80"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="687,87,653,83,654,77,688,82"/>
-<area shape="rect" id="Node000006" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9ac1d216c062d72ce16fd5f752ddc7c2" title="Insert a resource directly into the cache." alt="" coords="461,105,638,145"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="688,111,638,117,638,112,687,106"/>
-<area shape="rect" id="Node000007" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="461,169,638,209"/>
-<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="735,125,654,159,620,171,618,166,652,154,733,120"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="240,23,377,63"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,33,378,39,377,33,432,28"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,31,172,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="226,46,172,46,172,41,226,41"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="431,58,377,53,378,47,432,53"/>
-<area shape="rect" id="Node000008" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="220,169,397,209"/>
-<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="447,191,397,191,397,186,447,186"/>
+<area shape="rect" id="Node000001" title="Hashes the key into an integer for faster map lookup time." alt="" coords="487,77,664,117"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="616,65,602,58,575,55,552,57,538,62,533,68,536,76,531,77,528,67,535,58,551,52,575,50,603,53,618,60"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a70d4bf65a339b7c4fd24cd07e9561ff8" title="Retrieve a resource." alt="" coords="231,5,438,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="515,74,438,45,397,33,398,28,439,39,517,69"/>
+<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="231,55,439,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="473,87,438,83,439,77,473,82"/>
+<area shape="rect" id="Node000004" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9ac1d216c062d72ce16fd5f752ddc7c2" title="Insert a resource directly into the cache." alt="" coords="246,105,423,145"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="473,111,424,117,423,112,472,106"/>
+<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="246,169,423,209"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="521,125,440,159,405,171,403,166,438,154,519,120"/>
+<area shape="rect" id="Node000006" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="5,169,183,209"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="232,191,183,191,183,186,232,186"/>
 </map>

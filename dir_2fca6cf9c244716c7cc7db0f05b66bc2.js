@@ -13,7 +13,5 @@ var dir_2fca6cf9c244716c7cc7db0f05b66bc2 =
     [ "Window.cpp", "d2/d84/Window_8cpp.html", "d2/d84/Window_8cpp" ],
     [ "Window.hpp", "d0/de3/Window_8hpp.html", "d0/de3/Window_8hpp" ],
     [ "WindowSettings.cpp", "d5/da4/WindowSettings_8cpp.html", null ],
-    [ "WindowSettings.hpp", "df/da8/WindowSettings_8hpp.html", "df/da8/WindowSettings_8hpp" ],
-    [ "World.cpp", "d7/dfe/World_8cpp.html", null ],
-    [ "World.hpp", "d0/dbb/World_8hpp.html", "d0/dbb/World_8hpp" ]
+    [ "WindowSettings.hpp", "df/da8/WindowSettings_8hpp.html", "df/da8/WindowSettings_8hpp" ]
 ];

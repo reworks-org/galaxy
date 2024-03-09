@@ -1,13 +1,5 @@
 <map id="galaxy::graphics::VertexBuffer::clear" name="galaxy::graphics::VertexBuffer::clear">
-<area shape="rect" id="Node000001" title="Clear all data from VBO." alt="" coords="677,69,856,109"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a" title="Clear all data from the vertex buffer array." alt="" coords="451,69,629,109"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="663,92,630,92,630,87,663,87"/>
-<area shape="rect" id="Node000003" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#acf7ddb198b4ac9d78294d131138224b9" title="Clears out vertex buffer." alt="" coords="228,69,403,109"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,92,403,92,403,87,437,87"/>
-<area shape="rect" id="Node000004" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a8523005a3790ae7ce2f48c46a4b994d4" title="Buffer data into vertex object." alt="" coords="5,5,180,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="231,68,162,48,164,43,233,63"/>
-<area shape="rect" id="Node000005" href="$df/da3/classgalaxy_1_1components_1_1MapData.html#a60ab7aa0a9598e39ec154432407f17ea" title="Destructor." alt="" coords="9,69,176,109"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="214,92,176,92,176,87,214,87"/>
-<area shape="rect" id="Node000006" href="$dc/d18/classgalaxy_1_1graphics_1_1SpriteBatch.html#a06aa60512fec17a4c21e54ee4e2d2e0c" title="Destructor." alt="" coords="5,133,180,173"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="233,116,164,136,162,131,231,111"/>
+<area shape="rect" id="Node000001" title="Clear buffer data." alt="" coords="232,5,411,45"/>
+<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a286bd56097fd2fefe47c8942106b4777" title="Clears out vertex buffer." alt="" coords="5,5,184,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,28,184,28,184,23,218,23"/>
 </map>

@@ -1,11 +1,7 @@
 <map id="galaxy::core::Config::has" name="galaxy::core::Config::has">
-<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="419,77,600,102"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="227,5,364,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="452,75,362,48,364,43,454,70"/>
-<area shape="rect" id="Node000004" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3" title="Sets a new setting, only if key or value is missing." alt="" coords="220,69,371,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="405,92,371,92,371,87,405,87"/>
-<area shape="rect" id="Node000005" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="220,133,371,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="454,109,364,136,362,131,452,104"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,28,172,28,172,23,213,23"/>
+<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="204,45,385,70"/>
+<area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3" title="Sets a new setting, only if key or value is missing." alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,45,156,39,157,34,196,40"/>
+<area shape="rect" id="Node000003" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,75,157,81,156,75,196,69"/>
 </map>

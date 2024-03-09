@@ -1,12 +1,7 @@
 <map id="galaxy::math::Rect::get_bottom" name="galaxy::math::Rect::get_bottom">
-<area shape="rect" id="Node000001" title="Get bottom left corner." alt="" coords="597,63,741,103"/>
-<area shape="rect" id="Node000002" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a7291506e7c13858e830c94896dd17462" title="Does the rectangle contain another rectangle." alt="" coords="405,5,549,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,61,544,48,546,43,589,56"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,92,357,132"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="583,92,358,109,357,104,583,87"/>
-<area shape="rect" id="Node000005" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a50acec48622dbee3790ab9819dac677a" title="Do two rectangles intersect." alt="" coords="405,120,549,160"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="589,109,546,122,544,117,588,104"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,99,172,125"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,115,172,115,172,109,206,109"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="391,130,357,125,358,120,392,125"/>
+<area shape="rect" id="Node000001" title="Get bottom left corner." alt="" coords="197,37,341,77"/>
+<area shape="rect" id="Node000002" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a7291506e7c13858e830c94896dd17462" title="Does the rectangle contain another rectangle." alt="" coords="5,5,149,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,46,149,40,150,35,184,40"/>
+<area shape="rect" id="Node000003" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a50acec48622dbee3790ab9819dac677a" title="Do two rectangles intersect." alt="" coords="5,69,149,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,74,150,80,149,75,183,69"/>
 </map>

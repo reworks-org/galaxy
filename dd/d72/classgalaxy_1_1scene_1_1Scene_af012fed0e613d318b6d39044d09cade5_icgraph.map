@@ -1,9 +1,0 @@
-<map id="galaxy::scene::Scene::load_maps" name="galaxy::scene::Scene::load_maps">
-<area shape="rect" id="Node000001" title="Load maps." alt="" coords="427,37,585,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="231,5,368,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="412,46,368,39,369,33,413,40"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4" title="When scene is loaded and made active." alt="" coords="220,69,379,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="413,74,379,80,378,74,413,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,28,172,28,172,23,217,23"/>
-</map>

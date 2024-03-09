@@ -1,9 +1,0 @@
-<map id="galaxy/src/galaxy/graphics/IndexBuffer.hpp" name="galaxy/src/galaxy/graphics/IndexBuffer.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="19,5,215,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,59,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,48,57,86,53,82,95,44"/>
-<area shape="rect" id="Node000003" href="$d6/d9c/StorageFlags_8hpp.html" title=" " alt="" coords="83,93,325,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,44,183,82,179,86,137,48"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="157,167,251,192"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="207,119,207,153,201,153,201,119"/>
-</map>

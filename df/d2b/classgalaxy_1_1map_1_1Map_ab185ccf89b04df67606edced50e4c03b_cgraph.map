@@ -1,7 +1,0 @@
-<map id="galaxy::map::Map::load" name="galaxy::map::Map::load">
-<area shape="rect" id="Node000001" title="Load and parse tiled map." alt="" coords="5,31,180,56"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#adfb43e6f636610e929cee8bd6eb4343c" title="Destroy map and entities." alt="" coords="246,5,441,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,32,232,27,233,32,180,37"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="228,55,459,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,49,214,52,214,58,180,54"/>
-</map>

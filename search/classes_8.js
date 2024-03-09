@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['indexbuffer_0',['IndexBuffer',['../d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html',1,'galaxy::graphics']]],
-  ['info_1',['Info',['../d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html',1,'galaxy::resource::TextureAtlas']]],
-  ['input_2',['Input',['../db/df9/classgalaxy_1_1input_1_1Input.html',1,'galaxy::input']]],
-  ['inputdevice_3',['InputDevice',['../da/def/classgalaxy_1_1input_1_1InputDevice.html',1,'galaxy::input']]]
+  ['keyboard_0',['Keyboard',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html',1,'galaxy::input']]],
+  ['keychar_1',['KeyChar',['../dc/d97/structgalaxy_1_1events_1_1KeyChar.html',1,'galaxy::events']]],
+  ['keydown_2',['KeyDown',['../d7/d91/structgalaxy_1_1events_1_1KeyDown.html',1,'galaxy::events']]],
+  ['keyrepeat_3',['KeyRepeat',['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html',1,'galaxy::events']]],
+  ['keyup_4',['KeyUp',['../d1/d16/structgalaxy_1_1events_1_1KeyUp.html',1,'galaxy::events']]]
 ];

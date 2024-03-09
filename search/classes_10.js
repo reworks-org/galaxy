@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['tag_0',['Tag',['../d8/d96/classgalaxy_1_1components_1_1Tag.html',1,'galaxy::components']]],
-  ['texelregion_1',['TexelRegion',['../de/df9/classgalaxy_1_1graphics_1_1TexelRegion.html',1,'galaxy::graphics']]],
-  ['text_2',['Text',['../d2/d81/classgalaxy_1_1components_1_1Text.html',1,'galaxy::components']]],
-  ['texture_3',['Texture',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html',1,'galaxy::graphics']]],
-  ['textureatlas_4',['TextureAtlas',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html',1,'galaxy::resource']]],
-  ['tileanimation_5',['TileAnimation',['../db/da2/classgalaxy_1_1map_1_1TileAnimation.html',1,'galaxy::map']]],
-  ['timer_6',['Timer',['../da/d6d/classgalaxy_1_1async_1_1Timer.html',1,'galaxy::async']]],
-  ['transform_7',['Transform',['../d8/d8a/classgalaxy_1_1components_1_1Transform.html',1,'galaxy::components']]]
+  ['vertex_0',['Vertex',['../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html',1,'galaxy::graphics']]],
+  ['vertexarray_1',['VertexArray',['../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html',1,'galaxy::graphics']]],
+  ['vertexbatch_2',['VertexBatch',['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html',1,'galaxy::graphics']]],
+  ['vertexbuffer_3',['VertexBuffer',['../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html',1,'galaxy::graphics']]],
+  ['video_4',['Video',['../de/d0b/classgalaxy_1_1media_1_1Video.html',1,'galaxy::media']]],
+  ['virtualfilesystem_5',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs']]],
+  ['voiceloader_6',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
 ];

@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Texture::height" name="galaxy::graphics::Texture::height">
+<area shape="rect" id="Node000001" title="Get texture height." alt="" coords="273,35,457,75"/>
+<area shape="rect" id="Node000002" href="$dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html#ab50d4a753fec5fa49577b959aea35091" title="Creates the array texture." alt="" coords="23,5,207,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,45,207,39,208,33,260,40"/>
+<area shape="rect" id="Node000003" href="$d3/dd9/namespacegalaxy_1_1ui.html#a2b4ef8624d8234a7d9a6608e11eb07c2" title="Render an imgui image button with a galaxy texture." alt="" coords="5,70,225,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,69,226,73,225,68,260,64"/>
+</map>

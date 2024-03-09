@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::Vertex" name="galaxy::graphics::Vertex">
-<area shape="rect" id="Node000001" title="Represents a single vertex point." alt="" coords="9,353,179,619"/>
-<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="5,5,183,291"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,291,97,337,91,337,91,291"/>
-</map>

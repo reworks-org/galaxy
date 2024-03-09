@@ -1,0 +1,11 @@
+<map id="galaxy::graphics::TextureArray::build_from_tileset" name="galaxy::graphics::TextureArray::build_from_tileset">
+<area shape="rect" id="Node000001" title="Creates an array texture from a tileset." alt="" coords="5,101,189,141"/>
+<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a3aa4307076d4929453eb8ca27f260ee2" title="Get current anisotropy level." alt="" coords="261,5,445,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,99,236,55,259,47,261,52,238,60,139,104"/>
+<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aeb2485daf7ad649d9180d102ce5c6e92" title="Get texture filter." alt="" coords="261,69,445,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,107,246,100,247,105,190,112"/>
+<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc" title="Get texture mode." alt="" coords="261,133,445,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,130,247,137,246,143,189,135"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="237,198,468,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="138,139,185,162,238,183,270,192,269,197,236,188,183,167,135,144"/>
+</map>

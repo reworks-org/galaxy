@@ -1,0 +1,31 @@
+<map id="galaxy::components::Point::Point" name="galaxy::components::Point::Point">
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,127,159,167"/>
+<area shape="rect" id="Node000002" href="$d4/d0e/classgalaxy_1_1components_1_1Point.html#aa7ad0aadbdda4dcfb4daa962c6b42205" title="Deserializes from object." alt="" coords="207,127,360,167"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,145,193,145,193,150,159,150"/>
+<area shape="rect" id="Node000003" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a2aeae0f42ad74e1f9ba6b86b48b16607" title="Alpha." alt="" coords="408,9,603,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,125,350,87,407,50,439,37,441,41,409,55,353,92,308,129"/>
+<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0421e40355241b6a61a4b9ce557febbd" title="Blue." alt="" coords="408,65,603,91"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="347,125,450,92,452,97,349,130"/>
+<area shape="rect" id="Node000007" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#a6f71373fa2b2940c76439a1c467e1fc3" title="Initial point positon." alt="" coords="421,127,590,167"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="360,145,407,145,407,150,360,150"/>
+<area shape="rect" id="Node000012" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a696dfb2d8438ace951f478d51e26d81c" title="Green." alt="" coords="408,216,603,241"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="340,165,458,209,456,214,338,170"/>
+<area shape="rect" id="Node000014" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a76ac2089d428592ca6974b343551bb33" title="Red." alt="" coords="410,265,601,291"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="304,166,349,209,378,232,409,252,424,258,422,263,407,256,375,237,346,213,300,169"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c" title="Get alpha." alt="" coords="653,5,848,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="603,18,639,17,640,22,603,23"/>
+<area shape="rect" id="Node000006" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37" title="Get blue." alt="" coords="653,55,848,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="603,71,639,69,640,75,603,76"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="661,105,840,145"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="590,137,647,132,648,137,590,142"/>
+<area shape="rect" id="Node000011" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="651,169,851,195"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="591,157,647,165,646,170,590,162"/>
+<area shape="rect" id="Node000009" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="899,73,1077,113"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="840,110,885,104,885,109,840,115"/>
+<area shape="rect" id="Node000010" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="899,137,1077,177"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="840,134,885,140,885,145,840,139"/>
+<area shape="rect" id="Node000013" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a" title="Get green." alt="" coords="653,219,848,244"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="603,227,640,227,639,233,603,232"/>
+<area shape="rect" id="Node000015" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c" title="Get red." alt="" coords="655,268,846,293"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="601,276,642,277,642,282,601,282"/>
+</map>

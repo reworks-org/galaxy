@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Text::vao" name="galaxy::graphics::Text::vao">
+<area shape="rect" id="Node000001" title="Get vertex array." alt="" coords="257,45,452,70"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title=" " alt="" coords="5,5,209,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,46,209,41,210,36,244,40"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title=" " alt="" coords="10,69,205,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,74,205,79,205,74,243,69"/>
+</map>

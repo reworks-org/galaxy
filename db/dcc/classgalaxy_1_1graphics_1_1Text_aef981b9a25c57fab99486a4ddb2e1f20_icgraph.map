@@ -1,0 +1,17 @@
+<map id="galaxy::graphics::Text::update" name="galaxy::graphics::Text::update">
+<area shape="rect" id="Node000001" title="Update the rendered text." alt="" coords="216,197,379,237"/>
+<area shape="rect" id="Node000002" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,187,230,123,200,89,166,59,147,48,150,43,170,55,204,85,234,119,280,184"/>
+<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="5,69,168,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,191,217,157,167,124,142,112,145,107,169,119,221,152,265,187"/>
+<area shape="rect" id="Node000004" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="5,133,168,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="217,196,152,176,154,171,218,191"/>
+<area shape="rect" id="Node000005" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="5,197,168,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="202,220,168,220,168,215,202,215"/>
+<area shape="rect" id="Node000006" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="5,261,168,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="218,244,154,264,152,259,217,239"/>
+<area shape="rect" id="Node000007" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="5,325,168,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="265,248,221,282,169,316,145,328,142,323,167,311,217,278,261,244"/>
+<area shape="rect" id="Node000008" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="5,389,168,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="280,251,234,315,204,349,170,379,150,391,147,387,166,375,200,346,230,312,275,248"/>
+</map>

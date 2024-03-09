@@ -1,13 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem::write_raw" name="galaxy::fs::VirtualFileSystem::write_raw">
-<area shape="rect" id="Node000001" title="Raw data writing." alt="" coords="661,26,869,66"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="220,26,357,66"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="671,26,613,17,509,8,406,17,351,29,350,23,405,11,509,3,614,11,672,21"/>
-<area shape="rect" id="Node000004" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a62ac56b58a8bb758011b1b50a75ee2d8" title="Writes a file to disk." alt="" coords="405,26,613,66"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="648,49,613,49,613,43,648,43"/>
-<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9370906700c846b004d8ca9f9c22ad74" title="Writes a binary file to disk." alt="" coords="405,90,613,130"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="672,72,590,93,589,87,671,67"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,33,172,59"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,49,172,49,172,43,206,43"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="391,49,357,49,357,43,391,43"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="426,89,357,68,358,63,427,83"/>
+<area shape="rect" id="Node000001" title="Raw data writing." alt="" coords="261,37,469,77"/>
+<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a62ac56b58a8bb758011b1b50a75ee2d8" title="Writes a file to disk." alt="" coords="5,5,213,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,45,213,41,214,36,248,40"/>
+<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9370906700c846b004d8ca9f9c22ad74" title="Writes a binary file to disk." alt="" coords="5,69,213,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="248,75,214,79,213,74,248,69"/>
 </map>

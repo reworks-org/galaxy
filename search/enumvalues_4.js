@@ -8,5 +8,5 @@ var searchData=
   ['delete_5',['DELETE',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea32f68a60cef40faedbc6af20298c1a1e',1,'galaxy::input']]],
   ['down_6',['DOWN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac4e0e4e3118472beeb2ae75827450f1f',1,'galaxy::input']]],
   ['dracula_7',['DRACULA',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d',1,'galaxy::ui']]],
-  ['dynamic_5fdraw_8',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#aad45da8135ffda874b1aaba7dca7d66ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
+  ['dynamic_5fdraw_8',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
 ];

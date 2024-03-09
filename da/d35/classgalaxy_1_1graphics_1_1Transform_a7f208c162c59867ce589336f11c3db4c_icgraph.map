@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Transform::get_scale" name="galaxy::graphics::Transform::get_scale">
+<area shape="rect" id="Node000001" title="Get stored scale." alt="" coords="260,37,461,77"/>
+<area shape="rect" id="Node000002" href="$dd/d22/classgalaxy_1_1graphics_1_1CameraController.html#a86abd053d74c90bfb9f854388abaa0fa" title="Event processing method for scroll events." alt="" coords="5,5,212,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,45,212,41,213,36,247,40"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#af99221c730584c670ba61f6fa7cf593e" title="Serializes object." alt="" coords="29,69,188,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,74,189,82,188,77,246,69"/>
+</map>

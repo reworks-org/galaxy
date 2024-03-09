@@ -1,0 +1,15 @@
+<map id="galaxy::components::Sprite::set_texture" name="galaxy::components::Sprite::set_texture">
+<area shape="rect" id="Node000001" title="Sets the texture and vertex data." alt="" coords="5,133,159,173"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="233,37,411,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,131,158,108,206,87,227,79,229,84,208,92,161,113,119,136"/>
+<area shape="rect" id="Node000005" href="$db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867" title="Generate some default indicies." alt="" coords="242,101,402,141"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="159,140,228,131,229,136,159,146"/>
+<area shape="rect" id="Node000006" href="$db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0" title="Generate some default verticies." alt="" coords="242,165,402,205"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="159,161,229,170,228,176,159,166"/>
+<area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="207,230,437,255"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="118,171,160,194,208,215,238,224,236,229,206,220,157,199,115,176"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="485,5,664,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,43,471,36,472,41,412,49"/>
+<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="485,69,664,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="412,66,472,74,471,79,411,71"/>
+</map>

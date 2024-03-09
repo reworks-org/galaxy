@@ -1,11 +1,11 @@
 <map id="galaxy::graphics::VertexArray::id" name="galaxy::graphics::VertexArray::id">
-<area shape="rect" id="Node000001" title="Get VAO GL id." alt="" coords="207,101,385,141"/>
-<area shape="rect" id="Node000002" href="$df/da3/classgalaxy_1_1components_1_1MapData.html#a0094701c6e8d23f4b5e7d85045720a18" title="Get vertex array object." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,98,158,60,130,48,132,43,160,55,242,93"/>
-<area shape="rect" id="Node000003" href="$dc/d90/classgalaxy_1_1components_1_1Primitive.html#a19b98966499a85db0f68508bb3c7bf86" title="Get vertex array object." alt="" coords="5,69,159,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,109,159,103,160,98,193,103"/>
-<area shape="rect" id="Node000004" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2913e546f85fbc86a7242893b01ae9c1" title="Get vertex array object." alt="" coords="5,133,159,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="193,139,160,144,159,139,193,134"/>
-<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a1204c3c56979e6d2ebba8cb7d96bc6e6" title="Get vertex array object." alt="" coords="5,197,159,237"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="242,150,160,188,132,200,130,195,158,183,240,145"/>
+<area shape="rect" id="Node000001" title="Get vertex array handle." alt="" coords="257,101,436,141"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title=" " alt="" coords="5,5,209,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,98,208,60,175,48,177,43,210,55,295,93"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title=" " alt="" coords="10,69,205,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,110,204,105,205,100,244,105"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title=" " alt="" coords="10,133,205,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="244,138,205,143,204,138,243,132"/>
+<area shape="rect" id="Node000005" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title=" " alt="" coords="10,197,205,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="295,150,210,188,177,200,175,195,208,183,293,145"/>
 </map>

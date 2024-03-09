@@ -1,0 +1,8 @@
+<map id="galaxy::graphics::Camera::recalculate" name="galaxy::graphics::Camera::recalculate">
+<area shape="rect" id="Node000001" title="Recalculates the model view matrix." alt="" coords="5,29,192,69"/>
+<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="240,29,441,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,47,226,47,226,52,192,52"/>
+<area shape="rect" id="Node000003" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="489,29,691,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="442,47,475,47,475,52,442,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="544,30,541,20,549,10,565,5,590,3,619,6,635,13,632,18,617,11,590,8,566,10,552,15,546,21,549,28"/>
+</map>

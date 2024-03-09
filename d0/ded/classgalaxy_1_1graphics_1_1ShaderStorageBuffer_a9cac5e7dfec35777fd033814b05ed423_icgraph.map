@@ -1,0 +1,10 @@
+<map id="galaxy::graphics::ShaderStorageBuffer::sub_buffer" name="galaxy::graphics::ShaderStorageBuffer::sub_buffer">
+<area shape="rect" id="Node000001" title="Sub buffer data." alt="" coords="455,37,641,77"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted render commands to screen." alt="" coords="212,5,407,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="441,46,406,41,407,36,441,40"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="212,69,407,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="441,74,407,79,406,74,441,69"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,37,164,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="199,44,165,49,164,43,198,38"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="198,76,164,71,165,66,199,71"/>
+</map>

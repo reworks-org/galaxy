@@ -1,5 +1,0 @@
-<map id="galaxy::core::Window::poll_events" name="galaxy::core::Window::poll_events">
-<area shape="rect" id="Node000001" title="Poll for events." alt="" coords="5,5,167,45"/>
-<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a8ebf880169d49f75d1ebe47ffdbe076f" title="Pop all queued events." alt="" coords="215,5,376,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,23,201,23,201,28,167,28"/>
-</map>

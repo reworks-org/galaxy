@@ -1,7 +1,0 @@
-<map id="galaxy::components::Primitive::get_count" name="galaxy::components::Primitive::get_count">
-<area shape="rect" id="Node000001" title="Get index (element) buffer count." alt="" coords="5,5,167,45"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a7614b481429efc8173e59bcf103ee601" title="Get the count of indicies in the index buffer." alt="" coords="215,5,393,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,23,201,23,201,28,167,28"/>
-<area shape="rect" id="Node000003" href="$d5/d31/classgalaxy_1_1graphics_1_1IndexBuffer.html#a7e8c6950c4575630983b36049992c8d6" title="Get the count of indicies in the index buffer." alt="" coords="441,5,652,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="393,23,428,23,428,28,393,28"/>
-</map>

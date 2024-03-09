@@ -1,0 +1,15 @@
+<map id="galaxy::graphics::Renderer::ref" name="galaxy::graphics::Renderer::ref">
+<area shape="rect" id="Node000001" title=" " alt="" coords="284,159,505,184"/>
+<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="37,5,204,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="370,150,312,97,275,69,235,46,201,33,203,28,237,41,278,65,316,93,374,147"/>
+<area shape="rect" id="Node000003" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="44,55,197,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="351,156,235,110,197,98,199,93,237,105,353,151"/>
+<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="41,119,200,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="272,160,200,151,201,146,273,154"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="13,183,228,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="273,188,228,193,228,188,272,183"/>
+<area shape="rect" id="Node000006" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,247,236,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="353,192,237,238,199,250,198,245,235,233,351,187"/>
+<area shape="rect" id="Node000007" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="31,312,210,337"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="374,196,316,250,278,278,237,302,203,314,201,309,235,297,275,274,312,246,370,192"/>
+</map>

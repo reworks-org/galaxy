@@ -1,8 +1,6 @@
 var classgalaxy_1_1graphics_1_1Font =
 [
     [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html#a9409f58de37de6230b37b241711516b9", null ],
-    [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ab594a1bd16871a0d3af9ff7c326a2d81", null ],
-    [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ac0f3cdfc16788339b3c28310255a5963", null ],
     [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html#a99f0c68cdf41b3f1c65f009343c01bc1", null ],
     [ "~Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad81c9b0caa75f542361947fefb087e91", null ],
     [ "operator=", "d1/d70/classgalaxy_1_1graphics_1_1Font.html#a104468d04755349ab0855b5d3e2b8bd2", null ],

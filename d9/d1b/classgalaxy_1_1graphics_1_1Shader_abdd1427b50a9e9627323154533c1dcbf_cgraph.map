@@ -1,12 +1,11 @@
 <map id="galaxy::graphics::Shader::Shader" name="galaxy::graphics::Shader::Shader">
-<area shape="rect" id="Node000001" title="JSON Constructor." alt="" coords="5,59,187,99"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac21182a86bbd5f2a78d509912d16d350" title="Loads a shader into OpenGL from source." alt="" coords="235,59,416,99"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,76,221,76,221,81,187,81"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a8e8b15bb84835035804c05cc19152403" title="Loads a combined raw shader." alt="" coords="489,29,670,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,66,475,59,475,64,417,71"/>
-<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="464,94,695,119"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="417,86,451,90,450,95,416,91"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="532,30,529,20,537,10,554,5,579,3,609,6,625,13,623,18,607,11,579,8,555,10,540,15,535,21,537,28"/>
-<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ab6218a2d58f67196138e097cc723cb86" title="Extract source code from a combined shader." alt="" coords="743,29,924,69"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="670,47,728,47,728,52,670,52"/>
+<area shape="rect" id="Node000001" title="JSON Constructor." alt="" coords="5,35,187,75"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac21182a86bbd5f2a78d509912d16d350" title="Loads a combined shader." alt="" coords="235,35,416,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,52,221,52,221,57,187,57"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="489,5,670,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,42,475,35,475,40,417,47"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="464,70,695,95"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="417,62,451,66,450,71,416,67"/>
+<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="743,5,924,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="670,23,728,23,728,28,670,28"/>
 </map>

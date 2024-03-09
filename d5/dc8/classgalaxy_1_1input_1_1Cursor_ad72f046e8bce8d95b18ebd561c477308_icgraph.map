@@ -1,11 +1,7 @@
 <map id="galaxy::input::Cursor::toggle" name="galaxy::input::Cursor::toggle">
-<area shape="rect" id="Node000001" title="Set cursor visibility." alt="" coords="421,37,577,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,5,365,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,46,365,39,366,34,408,40"/>
-<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5" title="Only loads the window settings." alt="" coords="220,69,373,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="408,74,374,80,373,75,407,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,28,172,28,172,23,214,23"/>
-<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="12,69,165,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,166,92,166,87,206,87"/>
+<area shape="rect" id="Node000001" title="Set cursor visibility." alt="" coords="408,5,564,45"/>
+<area shape="rect" id="Node000002" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5" title="Only loads the window settings." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="395,28,360,28,360,23,395,23"/>
+<area shape="rect" id="Node000003" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

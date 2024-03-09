@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::CameraController::on_mouse_wheel" name="galaxy::graphics::CameraController::on_mouse_wheel">
+<area shape="rect" id="Node000001" title="Event processing method for scroll events." alt="" coords="5,37,212,77"/>
+<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a7f208c162c59867ce589336f11c3db4c" title="Get stored scale." alt="" coords="260,5,461,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,42,246,37,247,42,212,47"/>
+<area shape="rect" id="Node000003" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a1e144ac03b4009348ca59a73bf5d6cc4" title="Set entity scale." alt="" coords="260,69,461,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,68,247,72,246,77,212,73"/>
+</map>

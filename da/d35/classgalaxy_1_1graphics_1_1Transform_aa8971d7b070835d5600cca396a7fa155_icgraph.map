@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Transform::set_scale_horizontal" name="galaxy::graphics::Transform::set_scale_horizontal">
+<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="444,5,645,45"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="221,5,396,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="430,28,396,28,396,23,430,23"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="5,5,173,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="208,28,173,28,173,23,208,23"/>
+</map>

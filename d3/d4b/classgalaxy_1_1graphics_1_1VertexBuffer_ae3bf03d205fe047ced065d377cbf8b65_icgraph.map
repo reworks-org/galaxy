@@ -1,0 +1,15 @@
+<map id="galaxy::graphics::VertexBuffer::count" name="galaxy::graphics::VertexBuffer::count">
+<area shape="rect" id="Node000001" title="Get the index count." alt="" coords="484,133,663,173"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="257,133,436,173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="470,156,436,156,436,151,470,151"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title=" " alt="" coords="5,5,209,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,127,263,92,208,60,180,48,182,43,211,55,266,88,313,123"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="10,69,205,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="257,132,182,112,183,107,259,127"/>
+<area shape="rect" id="Node000005" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title=" " alt="" coords="10,133,205,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="244,156,205,156,205,151,244,151"/>
+<area shape="rect" id="Node000006" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title=" " alt="" coords="10,197,205,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="259,180,183,200,182,195,257,174"/>
+<area shape="rect" id="Node000007" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title=" " alt="" coords="10,261,205,301"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="313,184,266,219,211,252,182,264,180,259,208,247,263,214,310,180"/>
+</map>

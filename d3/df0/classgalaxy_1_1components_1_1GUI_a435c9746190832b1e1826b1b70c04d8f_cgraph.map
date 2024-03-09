@@ -1,0 +1,7 @@
+<map id="galaxy::components::GUI::deserialize" name="galaxy::components::GUI::deserialize">
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,5,159,45"/>
+<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a5bf9d4c6e37cefe4607dda3d6d31f158" title="Load script and set context." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
+<area shape="rect" id="Node000003" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a2b758d3afc26f45d89871a1380c71641" title="Get script file path." alt="" coords="408,5,561,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,23,394,23,394,28,360,28"/>
+</map>

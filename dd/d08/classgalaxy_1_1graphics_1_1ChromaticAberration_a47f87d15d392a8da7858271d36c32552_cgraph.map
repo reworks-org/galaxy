@@ -1,9 +1,15 @@
 <map id="galaxy::graphics::ChromaticAberration::resize" name="galaxy::graphics::ChromaticAberration::resize">
-<area shape="rect" id="Node000001" title="Resize framebuffers." alt="" coords="5,5,208,45"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706" title="Change RenderTexture size." alt="" coords="256,5,439,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,23,242,23,242,28,208,28"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="487,5,701,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,23,473,23,473,28,439,28"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="749,5,964,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="701,23,736,23,736,28,701,28"/>
+<area shape="rect" id="Node000001" title="Resize framebuffers." alt="" coords="5,69,208,109"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="256,69,439,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,87,242,87,242,92,208,92"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="503,5,685,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="425,67,503,46,504,51,426,72"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="487,69,701,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="439,87,473,87,473,92,439,92"/>
+<area shape="rect" id="Node000007" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="503,133,685,173"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="426,107,504,127,503,132,425,112"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="749,37,964,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="701,74,735,69,736,75,702,79"/>
+<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="749,101,964,141"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="702,100,736,104,735,109,701,105"/>
 </map>

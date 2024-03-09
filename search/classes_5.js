@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['filesink_0',['FileSink',['../de/d18/classgalaxy_1_1error_1_1FileSink.html',1,'galaxy::error']]],
-  ['filmicgrain_1',['FilmicGrain',['../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html',1,'galaxy::graphics']]],
-  ['font_2',['Font',['../d1/d70/classgalaxy_1_1graphics_1_1Font.html',1,'galaxy::graphics']]],
-  ['fontcontext_3',['FontContext',['../dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html',1,'galaxy::graphics']]],
-  ['frame_4',['Frame',['../de/d57/classgalaxy_1_1graphics_1_1Frame.html',1,'galaxy::graphics']]],
-  ['framebuffer_5',['Framebuffer',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html',1,'galaxy::graphics']]]
+  ['gammacorrection_0',['GammaCorrection',['../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html',1,'galaxy::graphics']]],
+  ['gaussianblur_1',['GaussianBlur',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html',1,'galaxy::graphics']]],
+  ['gui_2',['GUI',['../d3/df0/classgalaxy_1_1components_1_1GUI.html',1,'galaxy::components']]],
+  ['guid_3',['Guid',['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html',1,'galaxy::utils']]]
 ];

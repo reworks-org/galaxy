@@ -16,7 +16,6 @@ var structgalaxy_1_1DoNotUseReferToMacros =
     [ "assets_script", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ae536faef50a95b2855483ac506e74d0a", null ],
     [ "assets_shader", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a9524600ed44a86545ed3cec045cd9869", null ],
     [ "assets_texture", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a4814e359deb60f9d9488fcf226ddb5ce", null ],
-    [ "assets_atlas", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a7befcd88c130324e72516481e1ab8de3", null ],
     [ "assets_lang", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#af45c4e4e7455627c8e5808f8f5e3d051", null ],
     [ "assets_prefabs", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a7c7e3b0b5fab4383f0447c43cd69efea", null ],
     [ "assets_maps", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a7974aa9e37f730320383647508310d33", null ],

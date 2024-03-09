@@ -1,0 +1,17 @@
+<map id="galaxy::graphics::Renderer::on_window_resized" name="galaxy::graphics::Renderer::on_window_resized">
+<area shape="rect" id="Node000001" title="Event processing method for window size change." alt="" coords="5,69,200,109"/>
+<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="248,69,463,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,87,234,87,234,92,200,92"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="511,69,693,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="463,87,497,87,497,92,463,92"/>
+<area shape="rect" id="Node000004" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="757,5,940,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="679,67,757,46,759,51,681,72"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="741,69,956,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="693,87,728,87,728,92,693,92"/>
+<area shape="rect" id="Node000008" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="757,133,940,173"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="681,107,759,127,757,132,679,112"/>
+<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1004,37,1219,77"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="956,74,990,69,991,75,956,79"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1004,101,1219,141"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="956,100,991,104,990,109,956,105"/>
+</map>

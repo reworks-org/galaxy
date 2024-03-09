@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['gammacorrection_0',['GammaCorrection',['../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html',1,'galaxy::graphics']]],
-  ['gaussianblur_1',['GaussianBlur',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html',1,'galaxy::graphics']]],
-  ['guid_2',['Guid',['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html',1,'galaxy::utils']]]
+  ['hash_3c_20galaxy_3a_3autils_3a_3aguid_20_3e_0',['hash&lt; galaxy::utils::Guid &gt;',['../d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html',1,'std']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['hash_3c_20galaxy_3a_3autils_3a_3aguid_20_3e_0',['hash&lt; galaxy::utils::Guid &gt;',['../d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html',1,'std']]]
+  ['input_0',['Input',['../db/df9/classgalaxy_1_1input_1_1Input.html',1,'galaxy::input']]],
+  ['inputdevice_1',['InputDevice',['../da/def/classgalaxy_1_1input_1_1InputDevice.html',1,'galaxy::input']]],
+  ['instancebuffer_2',['InstanceBuffer',['../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html',1,'galaxy::graphics']]]
 ];

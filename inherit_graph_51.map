@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$db/df9/classgalaxy_1_1input_1_1Input.html" title=" " alt="" coords="5,5,152,31"/>
+<area shape="rect" id="Node000000" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="5,80,197,105"/>
+<area shape="rect" id="Node000001" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="245,5,421,31"/>
+<area shape="poly" id="edge35_Node000000_Node000001" title=" " alt="" coords="148,73,245,39,283,28,284,33,246,45,150,78"/>
+<area shape="rect" id="Node000002" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html" title="Implementation of the mouse cursor and state management." alt="" coords="255,55,411,80"/>
+<area shape="poly" id="edge36_Node000000_Node000002" title=" " alt="" coords="211,78,255,73,255,78,212,83"/>
+<area shape="rect" id="Node000003" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="246,104,421,129"/>
+<area shape="poly" id="edge37_Node000000_Node000003" title=" " alt="" coords="212,101,246,105,246,110,211,107"/>
+<area shape="rect" id="Node000004" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="255,153,412,179"/>
+<area shape="poly" id="edge38_Node000000_Node000004" title=" " alt="" coords="153,107,246,138,288,151,287,156,245,143,151,112"/>
 </map>

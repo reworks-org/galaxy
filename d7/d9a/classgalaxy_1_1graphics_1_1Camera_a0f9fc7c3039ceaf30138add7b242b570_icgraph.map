@@ -1,17 +1,5 @@
 <map id="galaxy::graphics::Camera::set_viewport" name="galaxy::graphics::Camera::set_viewport">
-<area shape="rect" id="Node000001" title="Set Viewport." alt="" coords="475,129,661,169"/>
-<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="240,65,427,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,128,406,108,408,103,482,123"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="265,129,402,169"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="461,152,402,152,402,147,461,147"/>
-<area shape="rect" id="Node000007" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9fdb7fa5c572a31d50e2c9e4eda4ddbf" title="Event processing method for window size change." alt="" coords="240,193,427,233"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="482,176,408,196,406,191,480,170"/>
-<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9aaea1dbd55a7f3105756f45b4492d73" title="JSON constructor." alt="" coords="5,5,192,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,64,177,48,178,43,241,59"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="19,69,178,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="226,90,178,91,178,85,226,84"/>
-<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="15,137,182,162"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="251,152,182,152,182,147,251,147"/>
-<area shape="rect" id="Node000008" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac6142bd7410789dd0c94346ad4c12bb8" title="Event processing method for window size change." alt="" coords="19,193,178,233"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="226,216,178,216,178,211,226,211"/>
+<area shape="rect" id="Node000001" title="Set Viewport." alt="" coords="212,5,399,45"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac6142bd7410789dd0c94346ad4c12bb8" title="Event processing method for window size change." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>

@@ -1,5 +1,0 @@
-<map id="galaxy::components::Text::get_mode" name="galaxy::components::Text::get_mode">
-<area shape="rect" id="Node000001" title="Get OpenGL rendering mode." alt="" coords="5,5,159,45"/>
-<area shape="rect" id="Node000002" href="$db/dab/namespacegalaxy_1_1graphics.html#a5f8c433419059375e3d84deeaa3b0092" title="Convert a primitive enum to OpenGL draw type." alt="" coords="207,5,401,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
-</map>

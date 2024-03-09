@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::Animation::current_frame" name="galaxy::graphics::Animation::current_frame">
-<area shape="rect" id="Node000001" title="Get currently active frame." alt="" coords="471,37,673,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="253,5,390,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="457,45,390,37,390,31,457,40"/>
-<area shape="rect" id="Node000004" href="$d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="220,69,423,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="457,75,423,79,422,74,457,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,28,172,28,172,23,238,23"/>
-</map>

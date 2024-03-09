@@ -234,7 +234,7 @@ $(document).ready(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (async)</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            {</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                <span class="keyword">auto</span>&amp; tp = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;BS::thread_pool&gt;::ref</a>();</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                m_handle = tp.submit([&amp;]() {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                m_handle = tp.submit_task([&amp;]() {</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                    <span class="keywordflow">do</span></div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                    {</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                        <span class="keywordflow">if</span> (!m_paused)</div>
@@ -339,7 +339,7 @@ $(document).ready(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aGlobals_8hpp_html"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html">Globals.hpp</a></div></div>
-<div class="ttc" id="aGlobals_8hpp_html_a18e2a994bddbee1da721d788b3008146"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146">GALAXY_DT</a></div><div class="ttdeci">#define GALAXY_DT</div><div class="ttdoc">Galaxy Delta-Time.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00074">Globals.hpp:74</a></div></div>
+<div class="ttc" id="aGlobals_8hpp_html_a18e2a994bddbee1da721d788b3008146"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146">GALAXY_DT</a></div><div class="ttdeci">#define GALAXY_DT</div><div class="ttdoc">Galaxy Delta-Time.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00073">Globals.hpp:73</a></div></div>
 <div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html">galaxy::async::Timer</a></div><div class="ttdoc">(A)synchronous timer class.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00033">Timer.hpp:34</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a031fddb9de91bc171d1f960807505c7a"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a031fddb9de91bc171d1f960807505c7a">galaxy::async::Timer::m_paused</a></div><div class="ttdeci">std::atomic_bool m_paused</div><div class="ttdoc">Is timer paused.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00130">Timer.hpp:130</a></div></div>
@@ -364,14 +364,14 @@ $(document).ready(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_aed2c1d6f97d0e3f2a598841b87265922"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#aed2c1d6f97d0e3f2a598841b87265922">galaxy::async::Timer::operator=</a></div><div class="ttdeci">Timer &amp; operator=(const Timer &amp;)=delete</div><div class="ttdoc">Copy assignment operator.</div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1async_html_af53249875dcfe3dbb83c1bd8afb1eba4"><div class="ttname"><a href="../../d0/d7f/namespacegalaxy_1_1async.html#af53249875dcfe3dbb83c1bd8afb1eba4">galaxy::async::TimerCallback</a></div><div class="ttdeci">std::function&lt; void(void)&gt; TimerCallback</div><div class="ttdoc">Timer callback type.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00025">Timer.hpp:25</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Circle.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></li>
-    <li class="footer">Generated on Fri Feb 2 2024 00:21:50 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 15:39:06 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

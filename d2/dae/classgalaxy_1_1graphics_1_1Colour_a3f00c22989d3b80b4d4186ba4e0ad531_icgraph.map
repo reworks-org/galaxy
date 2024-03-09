@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Colour::array" name="galaxy::graphics::Colour::array">
+<area shape="rect" id="Node000001" title="Get integer array." alt="" coords="232,69,411,109"/>
+<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a09a54d5f286ee93716b6fb8f1cb72954" title="Move constructor." alt="" coords="5,5,184,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,68,165,48,167,43,237,63"/>
+<area shape="rect" id="Node000003" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff" title="Move assignment operator." alt="" coords="5,69,184,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,92,184,92,184,87,218,87"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6a6ecc0def703f7447c6fceca355e4d2" title="Copy assignment operator." alt="" coords="5,133,184,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,116,167,136,165,131,236,111"/>
+</map>

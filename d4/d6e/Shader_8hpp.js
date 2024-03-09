@@ -1,6 +1,7 @@
 var Shader_8hpp =
 [
     [ "galaxy::graphics::Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
+    [ "Shader::set_uniform< std::uint64_t >", "d4/d6e/Shader_8hpp.html#a0ca55519659bd7fb510efa0ec3167e17", null ],
     [ "Shader::set_uniform< glm::mat3 >", "d4/d6e/Shader_8hpp.html#ad8a63088a93168a7ea4e4ca2beac9b96", null ],
     [ "Shader::set_uniform< glm::mat4 >", "d4/d6e/Shader_8hpp.html#af93070a213485d139ed3f27c0d2f82c0", null ],
     [ "Shader::set_uniform< glm::vec2 >", "d4/d6e/Shader_8hpp.html#a347d8a5b45d7013ed1c153257377590e", null ],

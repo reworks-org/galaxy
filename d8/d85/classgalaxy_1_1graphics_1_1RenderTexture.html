@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('d8/d85/classgalaxy_1_1graphics_1_1Rend
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> + Render Target.  
+<p>Draw to an opengl texture instead of the screen.  
  <a href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>&gt;</code></p>
@@ -111,15 +111,15 @@ $(document).ready(function(){initNavTree('d8/d85/classgalaxy_1_1graphics_1_1Rend
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/de2/classgalaxy_1_1graphics_1_1RenderTexture__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1RenderTexture_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1RenderTexture_coll__map" id="agalaxy_1_1graphics_1_1RenderTexture_coll__map">
-<area shape="rect" title="Framebuffer + Render Target." alt="" coords="21,957,196,1277"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title=" " alt="" coords="5,389,212,895"/>
-<area shape="poly" title=" " alt="" coords="111,895,111,941,106,941,106,895"/>
-<area shape="rect" title=" " alt="" coords="33,261,184,327"/>
-<area shape="poly" title=" " alt="" coords="111,327,111,373,106,373,106,327"/>
-<area shape="rect" title=" " alt="" coords="51,133,166,199"/>
-<area shape="poly" title=" " alt="" coords="111,213,111,261,106,261,106,213"/>
-<area shape="rect" title=" " alt="" coords="97,5,120,71"/>
-<area shape="poly" title=" " alt="" coords="111,71,111,117,106,117,106,71"/>
+<area shape="rect" title="Draw to an opengl texture instead of the screen." alt="" coords="40,857,215,1297"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="5,389,249,795"/>
+<area shape="poly" title=" " alt="" coords="130,795,130,841,125,841,125,795"/>
+<area shape="rect" title=" " alt="" coords="52,261,203,327"/>
+<area shape="poly" title=" " alt="" coords="130,327,130,373,125,373,125,327"/>
+<area shape="rect" title=" " alt="" coords="70,133,185,199"/>
+<area shape="poly" title=" " alt="" coords="130,213,130,261,125,261,125,213"/>
+<area shape="rect" title=" " alt="" coords="116,5,139,71"/>
+<area shape="poly" title=" " alt="" coords="130,71,130,117,125,117,125,71"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -128,54 +128,48 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e0cc9d51989c52a93bbeb7c2105bd22" id="r_a4e0cc9d51989c52a93bbeb7c2105bd22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a4e0cc9d51989c52a93bbeb7c2105bd22">RenderTexture</a> ()</td></tr>
 <tr class="memdesc:a4e0cc9d51989c52a93bbeb7c2105bd22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:a4e0cc9d51989c52a93bbeb7c2105bd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686fd76f52864e436f2660d07eae5d7a" id="r_a686fd76f52864e436f2660d07eae5d7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a686fd76f52864e436f2660d07eae5d7a">RenderTexture</a> (const int width, const int height)</td></tr>
-<tr class="memdesc:a686fd76f52864e436f2660d07eae5d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Argument constructor.  <br /></td></tr>
-<tr class="separator:a686fd76f52864e436f2660d07eae5d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf46456aad2c3a212961be310e37bace" id="r_aaf46456aad2c3a212961be310e37bace"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aaf46456aad2c3a212961be310e37bace">RenderTexture</a> (<a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;&amp;)</td></tr>
 <tr class="memdesc:aaf46456aad2c3a212961be310e37bace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
 <tr class="separator:aaf46456aad2c3a212961be310e37bace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6705e5a75e2d4479a82275fd7a990f55" id="r_a6705e5a75e2d4479a82275fd7a990f55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6705e5a75e2d4479a82275fd7a990f55">operator=</a> (<a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a> &amp;&amp;)</td></tr>
 <tr class="memdesc:a6705e5a75e2d4479a82275fd7a990f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
 <tr class="separator:a6705e5a75e2d4479a82275fd7a990f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af30d8cdde3bee2298566f6caecdd9bbe" id="r_af30d8cdde3bee2298566f6caecdd9bbe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af30d8cdde3bee2298566f6caecdd9bbe">~RenderTexture</a> ()=default</td></tr>
-<tr class="memdesc:af30d8cdde3bee2298566f6caecdd9bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:af30d8cdde3bee2298566f6caecdd9bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c29c008339984f1df68e017cdbb6c7d" id="r_a7c29c008339984f1df68e017cdbb6c7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d">create</a> (int width, int height)</td></tr>
-<tr class="memdesc:a7c29c008339984f1df68e017cdbb6c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target.">RenderTexture</a>.  <br /></td></tr>
-<tr class="separator:a7c29c008339984f1df68e017cdbb6c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af43115257f84854609e4e9749609f706" id="r_af43115257f84854609e4e9749609f706"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af43115257f84854609e4e9749609f706">resize</a> (int width, int height)</td></tr>
-<tr class="memdesc:af43115257f84854609e4e9749609f706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target.">RenderTexture</a> size.  <br /></td></tr>
-<tr class="separator:af43115257f84854609e4e9749609f706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0f024b105a5ecb7b5ce16c5ebdb7588" id="r_af0f024b105a5ecb7b5ce16c5ebdb7588"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af0f024b105a5ecb7b5ce16c5ebdb7588">~RenderTexture</a> ()</td></tr>
+<tr class="memdesc:af0f024b105a5ecb7b5ce16c5ebdb7588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:af0f024b105a5ecb7b5ce16c5ebdb7588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430bdcb36b0d3b4a6e03a382e600bc36" id="r_a430bdcb36b0d3b4a6e03a382e600bc36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36">create</a> (const int <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8">width</a>, const int <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85">height</a>)</td></tr>
+<tr class="memdesc:a430bdcb36b0d3b4a6e03a382e600bc36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create framebuffer and texture.  <br /></td></tr>
+<tr class="separator:a430bdcb36b0d3b4a6e03a382e600bc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9b89e211375cb8a97e0bf4ce9561392" id="r_ad9b89e211375cb8a97e0bf4ce9561392"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392">resize</a> (const int <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8">width</a>, const int <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85">height</a>)</td></tr>
+<tr class="memdesc:ad9b89e211375cb8a97e0bf4ce9561392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change framebuffer and texture size.  <br /></td></tr>
+<tr class="separator:ad9b89e211375cb8a97e0bf4ce9561392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a440ab2bccbe20da4782c6558d2b453e6" id="r_a440ab2bccbe20da4782c6558d2b453e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a440ab2bccbe20da4782c6558d2b453e6">save</a> (std::string_view file)</td></tr>
 <tr class="memdesc:a440ab2bccbe20da4782c6558d2b453e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves texture to file on disk.  <br /></td></tr>
 <tr class="separator:a440ab2bccbe20da4782c6558d2b453e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade575dd6321ee406187fba516409856f" id="r_ade575dd6321ee406187fba516409856f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f">bind</a> (const bool <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5">clear</a>)</td></tr>
-<tr class="memdesc:ade575dd6321ee406187fba516409856f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind framebuffer and texture.  <br /></td></tr>
-<tr class="separator:ade575dd6321ee406187fba516409856f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a70c8fba7ff0f3f493ea1df8d30aad" id="r_af3a70c8fba7ff0f3f493ea1df8d30aad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad">bind</a> (bool <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5">clear</a>=true)</td></tr>
+<tr class="memdesc:af3a70c8fba7ff0f3f493ea1df8d30aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activate context.  <br /></td></tr>
+<tr class="separator:af3a70c8fba7ff0f3f493ea1df8d30aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d0058534f313fc7c871612867a28464" id="r_a1d0058534f313fc7c871612867a28464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464">unbind</a> ()</td></tr>
-<tr class="memdesc:a1d0058534f313fc7c871612867a28464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind framebuffer and texture.  <br /></td></tr>
+<tr class="memdesc:a1d0058534f313fc7c871612867a28464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivate context.  <br /></td></tr>
 <tr class="separator:a1d0058534f313fc7c871612867a28464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac483154c72921badaa1e38da077f9db5" id="r_ac483154c72921badaa1e38da077f9db5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5">clear</a> ()</td></tr>
 <tr class="memdesc:ac483154c72921badaa1e38da077f9db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear framebuffer attachments.  <br /></td></tr>
 <tr class="separator:ac483154c72921badaa1e38da077f9db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a021358a015aa668d5c844ad67bc1de9d" id="r_a021358a015aa668d5c844ad67bc1de9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a021358a015aa668d5c844ad67bc1de9d">set_projection</a> (const float left, const float right, const float bottom, const float top)</td></tr>
-<tr class="memdesc:a021358a015aa668d5c844ad67bc1de9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify projection of render texture.  <br /></td></tr>
-<tr class="separator:a021358a015aa668d5c844ad67bc1de9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a360fddc8f8c468091a2d0f5a6818d86e" id="r_a360fddc8f8c468091a2d0f5a6818d86e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e">get_width</a> () const</td></tr>
-<tr class="memdesc:a360fddc8f8c468091a2d0f5a6818d86e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get texture width.  <br /></td></tr>
-<tr class="separator:a360fddc8f8c468091a2d0f5a6818d86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f4985575fc2054a0afcce3c26eb0aa" id="r_ae4f4985575fc2054a0afcce3c26eb0aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ae4f4985575fc2054a0afcce3c26eb0aa">get_height</a> () const</td></tr>
-<tr class="memdesc:ae4f4985575fc2054a0afcce3c26eb0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get texture height.  <br /></td></tr>
-<tr class="separator:ae4f4985575fc2054a0afcce3c26eb0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6ee4f796c587ce66f7af7f7739a0117" id="r_af6ee4f796c587ce66f7af7f7739a0117"><td class="memItemLeft" align="right" valign="top">glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af6ee4f796c587ce66f7af7f7739a0117">get_proj</a> ()</td></tr>
-<tr class="memdesc:af6ee4f796c587ce66f7af7f7739a0117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get projection.  <br /></td></tr>
-<tr class="separator:af6ee4f796c587ce66f7af7f7739a0117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6d986ea1af9c3943bf0f1caccc27e64" id="r_ad6d986ea1af9c3943bf0f1caccc27e64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad6d986ea1af9c3943bf0f1caccc27e64">get_framebuffer</a> ()</td></tr>
-<tr class="memdesc:ad6d986ea1af9c3943bf0f1caccc27e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get framebuffer.  <br /></td></tr>
-<tr class="separator:ad6d986ea1af9c3943bf0f1caccc27e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6da7e43f64f97cc542ef0e03e8791716" id="r_a6da7e43f64f97cc542ef0e03e8791716"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716">get_texture</a> () const</td></tr>
-<tr class="memdesc:a6da7e43f64f97cc542ef0e03e8791716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get texture.  <br /></td></tr>
-<tr class="separator:a6da7e43f64f97cc542ef0e03e8791716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8bfee0fd6ab8d7a57d8c42432ad88a8" id="r_af8bfee0fd6ab8d7a57d8c42432ad88a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8">width</a> () const</td></tr>
+<tr class="memdesc:af8bfee0fd6ab8d7a57d8c42432ad88a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get texture width.  <br /></td></tr>
+<tr class="separator:af8bfee0fd6ab8d7a57d8c42432ad88a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f00391982f6990bd5cfc226c556b85" id="r_a01f00391982f6990bd5cfc226c556b85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85">height</a> () const</td></tr>
+<tr class="memdesc:a01f00391982f6990bd5cfc226c556b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get texture height.  <br /></td></tr>
+<tr class="separator:a01f00391982f6990bd5cfc226c556b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491b5fa3b4e8fee87cb03e3ffef47b22" id="r_a491b5fa3b4e8fee87cb03e3ffef47b22"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a491b5fa3b4e8fee87cb03e3ffef47b22">handle</a> () const</td></tr>
+<tr class="memdesc:a491b5fa3b4e8fee87cb03e3ffef47b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets bindless texture handle.  <br /></td></tr>
+<tr class="separator:a491b5fa3b4e8fee87cb03e3ffef47b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e280fba4aec4c1e717e9b4937f0b203" id="r_a5e280fba4aec4c1e717e9b4937f0b203"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a5e280fba4aec4c1e717e9b4937f0b203">texture</a> () const</td></tr>
+<tr class="memdesc:a5e280fba4aec4c1e717e9b4937f0b203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets framebuffer texture.  <br /></td></tr>
+<tr class="separator:a5e280fba4aec4c1e717e9b4937f0b203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec48065727a4305b9dd2358f6cc4863a" id="r_aec48065727a4305b9dd2358f6cc4863a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aec48065727a4305b9dd2358f6cc4863a">fbo</a> ()</td></tr>
+<tr class="memdesc:aec48065727a4305b9dd2358f6cc4863a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get framebuffer.  <br /></td></tr>
+<tr class="separator:aec48065727a4305b9dd2358f6cc4863a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -188,20 +182,26 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:afebc3eb8f1f9649c4a11f88f39093421" id="r_afebc3eb8f1f9649c4a11f88f39093421"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#afebc3eb8f1f9649c4a11f88f39093421">m_width</a></td></tr>
+<tr class="memdesc:afebc3eb8f1f9649c4a11f88f39093421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached width.  <br /></td></tr>
+<tr class="separator:afebc3eb8f1f9649c4a11f88f39093421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2ce7973fa74453d3ca0d5eb73b1124" id="r_a6d2ce7973fa74453d3ca0d5eb73b1124"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6d2ce7973fa74453d3ca0d5eb73b1124">m_height</a></td></tr>
+<tr class="memdesc:a6d2ce7973fa74453d3ca0d5eb73b1124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached height.  <br /></td></tr>
+<tr class="separator:a6d2ce7973fa74453d3ca0d5eb73b1124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac23147e82c8a7ddd7bb882ded42a3b" id="r_aaac23147e82c8a7ddd7bb882ded42a3b"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aaac23147e82c8a7ddd7bb882ded42a3b">m_handle</a></td></tr>
+<tr class="memdesc:aaac23147e82c8a7ddd7bb882ded42a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bindless handle.  <br /></td></tr>
+<tr class="separator:aaac23147e82c8a7ddd7bb882ded42a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023a2bde147de7fcc90dd877b5433e3e" id="r_a023a2bde147de7fcc90dd877b5433e3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a023a2bde147de7fcc90dd877b5433e3e">m_framebuffer</a></td></tr>
-<tr class="memdesc:a023a2bde147de7fcc90dd877b5433e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> to draw to.  <br /></td></tr>
+<tr class="memdesc:a023a2bde147de7fcc90dd877b5433e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL framebuffer abstraction.  <br /></td></tr>
 <tr class="separator:a023a2bde147de7fcc90dd877b5433e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a265be4b49e74741c7a98f6932c34e08a" id="r_a265be4b49e74741c7a98f6932c34e08a"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a265be4b49e74741c7a98f6932c34e08a">m_projection</a></td></tr>
-<tr class="memdesc:a265be4b49e74741c7a98f6932c34e08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projection.  <br /></td></tr>
-<tr class="separator:a265be4b49e74741c7a98f6932c34e08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> + Render Target. </p>
+<div class="textblock"><p>Draw to an opengl texture instead of the screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4e0cc9d51989c52a93bbeb7c2105bd22" name="a4e0cc9d51989c52a93bbeb7c2105bd22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e0cc9d51989c52a93bbeb7c2105bd22">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e0cc9d51989c52a93bbeb7c2105bd22">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,76 +217,12 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a686fd76f52864e436f2660d07eae5d7a" name="a686fd76f52864e436f2660d07eae5d7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a686fd76f52864e436f2660d07eae5d7a">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">galaxy::graphics::RenderTexture::RenderTexture </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Argument constructor. </p>
-<p>Calls <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture.">create()</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">width</td><td>Width of the render target. Must be greater than 0. </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the render target. Must be greater than 0. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a686fd76f52864e436f2660d07eae5d7a_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a686fd76f52864e436f2660d07eae5d7a_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a686fd76f52864e436f2660d07eae5d7a_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a686fd76f52864e436f2660d07eae5d7a_cgraph">
-<area shape="rect" title="Argument constructor." alt="" coords="5,101,188,141"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a7c29c008339984f1df68e017cdbb6c7d" title="Create the RenderTexture." alt="" coords="236,101,419,141"/>
-<area shape="poly" title=" " alt="" coords="188,119,222,119,222,124,188,124"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="467,5,681,45"/>
-<area shape="poly" title=" " alt="" coords="367,99,466,55,487,47,489,52,468,60,370,103"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="467,69,681,109"/>
-<area shape="poly" title=" " alt="" coords="418,107,453,102,453,108,419,112"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="467,133,681,173"/>
-<area shape="poly" title=" " alt="" coords="419,131,453,135,453,140,418,136"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="467,197,681,237"/>
-<area shape="poly" title=" " alt="" coords="370,139,468,183,489,190,487,195,466,188,367,144"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="729,13,960,38"/>
-<area shape="poly" title=" " alt="" coords="682,23,716,23,716,28,682,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="737,133,952,173"/>
-<area shape="poly" title=" " alt="" coords="682,151,724,151,724,156,682,156"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aaf46456aad2c3a212961be310e37bace" name="aaf46456aad2c3a212961be310e37bace"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf46456aad2c3a212961be310e37bace">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf46456aad2c3a212961be310e37bace">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,12 +239,12 @@ Private Attributes</h2></td></tr>
 
 <p>Move constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
 
 </div>
 </div>
-<a id="af30d8cdde3bee2298566f6caecdd9bbe" name="af30d8cdde3bee2298566f6caecdd9bbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af30d8cdde3bee2298566f6caecdd9bbe">&#9670;&#160;</a></span>~RenderTexture()</h2>
+<a id="af0f024b105a5ecb7b5ce16c5ebdb7588" name="af0f024b105a5ecb7b5ce16c5ebdb7588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f024b105a5ecb7b5ce16c5ebdb7588">&#9670;&#160;</a></span>~RenderTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,17 +261,19 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
 
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a14a55a79e253551d1e2798b09e9a707a" name="a14a55a79e253551d1e2798b09e9a707a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14a55a79e253551d1e2798b09e9a707a">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a55a79e253551d1e2798b09e9a707a">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,12 +319,12 @@ Private Attributes</h2></td></tr>
 
 <p>Move assignment operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a7c29c008339984f1df68e017cdbb6c7d" name="a7c29c008339984f1df68e017cdbb6c7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c29c008339984f1df68e017cdbb6c7d">&#9670;&#160;</a></span>create()</h2>
+<a id="a430bdcb36b0d3b4a6e03a382e600bc36" name="a430bdcb36b0d3b4a6e03a382e600bc36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430bdcb36b0d3b4a6e03a382e600bc36">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,13 +332,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::graphics::RenderTexture::create </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>width</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>height</em>&#160;</td>
         </tr>
         <tr>
@@ -411,7 +349,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create the <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target.">RenderTexture</a>. </p>
+<p>Create framebuffer and texture. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">width</td><td>Width of the render target. Must be greater than 0. </td></tr>
@@ -420,70 +358,70 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00076">76</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_cgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_cgraph">
+<area shape="rect" title="Create framebuffer and texture." alt="" coords="5,197,188,237"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="246,37,461,77"/>
+<area shape="poly" title=" " alt="" coords="112,195,163,141,197,112,235,87,248,80,251,85,237,92,200,116,167,145,116,199"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="236,101,471,141"/>
+<area shape="poly" title=" " alt="" coords="136,195,235,151,258,143,260,148,237,156,138,200"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="246,165,461,205"/>
+<area shape="poly" title=" " alt="" coords="188,203,232,198,233,203,189,209"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="262,229,445,269"/>
+<area shape="poly" title=" " alt="" coords="189,226,248,234,248,239,188,231"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="246,293,461,333"/>
+<area shape="poly" title=" " alt="" coords="138,235,237,279,260,287,258,292,235,284,136,240"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="262,357,445,397"/>
+<area shape="poly" title=" " alt="" coords="116,236,167,289,200,318,237,343,251,350,248,355,235,348,197,323,163,293,112,239"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="519,5,733,45"/>
+<area shape="poly" title=" " alt="" coords="461,42,505,37,505,42,461,47"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="519,69,733,109"/>
+<area shape="poly" title=" " alt="" coords="461,67,505,73,505,78,461,73"/>
+</map>
+</div>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_cgraph">
-<area shape="rect" title="Create the RenderTexture." alt="" coords="5,101,188,141"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ab23d91b63e08eab679b214b98f3319ee" title="Add a colour attachment to the framebuffer." alt="" coords="236,5,451,45"/>
-<area shape="poly" title=" " alt="" coords="137,99,235,55,256,47,258,52,237,60,139,103"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae66231a278e5d0ffc4974c90f335dc30" title="Add a depth renderbuffer to the framebuffer." alt="" coords="236,69,451,109"/>
-<area shape="poly" title=" " alt="" coords="188,107,222,102,223,108,189,112"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="236,133,451,173"/>
-<area shape="poly" title=" " alt="" coords="189,131,223,135,222,140,188,136"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a754b62ebd5323638098ce5640b7bb37e" title="Init framebuffer data." alt="" coords="236,197,451,237"/>
-<area shape="poly" title=" " alt="" coords="139,139,237,183,258,190,256,195,235,188,137,144"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="499,13,729,38"/>
-<area shape="poly" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="507,133,721,173"/>
-<area shape="poly" title=" " alt="" coords="451,151,493,151,493,156,451,156"/>
-</map>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a7c29c008339984f1df68e017cdbb6c7d_icgraph">
-<area shape="rect" title="Create the RenderTexture." alt="" coords="765,229,948,269"/>
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a430bdcb36b0d3b4a6e03a382e600bc36_icgraph">
+<area shape="rect" title="Create framebuffer and texture." alt="" coords="765,197,948,237"/>
 <area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="473,5,707,45"/>
-<area shape="poly" title=" " alt="" coords="838,218,819,181,791,138,757,95,716,60,694,48,697,43,719,55,761,91,796,134,823,178,843,215"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="513,69,667,109"/>
-<area shape="poly" title=" " alt="" coords="829,221,780,170,749,145,716,124,666,105,668,100,719,119,752,141,783,166,832,217"/>
+<area shape="poly" title=" " alt="" coords="834,187,786,122,753,88,716,60,692,48,695,43,719,55,757,84,790,118,839,184"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="509,69,671,109"/>
+<area shape="poly" title=" " alt="" coords="820,191,772,156,716,124,671,108,672,103,718,119,775,151,823,186"/>
 <area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="503,133,677,173"/>
-<area shape="poly" title=" " alt="" coords="804,226,716,188,677,175,678,170,718,183,806,221"/>
+<area shape="poly" title=" " alt="" coords="759,197,673,176,674,171,760,191"/>
 <area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="463,197,717,237"/>
-<area shape="poly" title=" " alt="" coords="751,239,717,235,718,230,752,234"/>
+<area shape="poly" title=" " alt="" coords="752,220,717,220,717,215,752,215"/>
 <area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="492,261,688,301"/>
-<area shape="poly" title=" " alt="" coords="752,265,689,272,688,267,751,259"/>
+<area shape="poly" title=" " alt="" coords="760,243,674,264,673,259,759,238"/>
 <area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="483,325,697,365"/>
-<area shape="poly" title=" " alt="" coords="806,278,718,316,680,328,678,323,716,311,804,273"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a686fd76f52864e436f2660d07eae5d7a" title="Argument constructor." alt="" coords="499,389,681,429"/>
-<area shape="poly" title=" " alt="" coords="832,282,783,332,752,358,719,380,683,395,681,390,716,375,749,354,780,328,829,278"/>
-<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="495,453,685,493"/>
-<area shape="poly" title=" " alt="" coords="843,283,823,321,796,364,761,407,719,444,686,460,684,455,716,439,757,404,791,361,819,318,838,281"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="241,37,394,77"/>
-<area shape="poly" title=" " alt="" coords="499,81,394,69,395,64,500,76"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="249,101,386,141"/>
-<area shape="poly" title=" " alt="" coords="500,103,387,116,386,111,499,97"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,37,165,77"/>
-<area shape="poly" title=" " alt="" coords="226,60,166,60,166,55,226,55"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,109,172,134"/>
-<area shape="poly" title=" " alt="" coords="234,124,172,124,172,119,234,119"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a773aae2075e063257ad7cd9e93c55240" title="Constructor." alt="" coords="220,325,415,365"/>
+<area shape="poly" title=" " alt="" coords="823,248,775,283,718,316,687,328,685,323,716,311,772,279,820,244"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="495,389,685,429"/>
+<area shape="poly" title=" " alt="" coords="839,251,790,316,757,351,719,380,686,395,684,390,716,375,753,347,786,313,834,247"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="241,69,394,109"/>
+<area shape="poly" title=" " alt="" coords="495,92,394,92,394,87,495,87"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,69,165,109"/>
+<area shape="poly" title=" " alt="" coords="226,92,166,92,166,87,226,87"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,325,415,365"/>
 <area shape="poly" title=" " alt="" coords="469,348,415,348,415,343,469,343"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,333,172,358"/>
+<area shape="poly" title=" " alt="" coords="206,348,172,348,172,343,206,343"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="af43115257f84854609e4e9749609f706" name="af43115257f84854609e4e9749609f706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af43115257f84854609e4e9749609f706">&#9670;&#160;</a></span>resize()</h2>
+<a id="ad9b89e211375cb8a97e0bf4ce9561392" name="ad9b89e211375cb8a97e0bf4ce9561392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9b89e211375cb8a97e0bf4ce9561392">&#9670;&#160;</a></span>resize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -491,13 +429,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::graphics::RenderTexture::resize </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>width</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>height</em>&#160;</td>
         </tr>
         <tr>
@@ -508,70 +446,74 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Change <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target.">RenderTexture</a> size. </p>
+<p>Change framebuffer and texture size. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">width</td><td>Width of the <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target.">RenderTexture</a>. </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the <a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Framebuffer + Render Target.">RenderTexture</a>. </td></tr>
+    <tr><td class="paramname">width</td><td>Width of the render target. Must be greater than 0. </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the render target. Must be greater than 0. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00065">65</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00091">91</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_cgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_cgraph">
+<area shape="rect" title="Change framebuffer and texture size." alt="" coords="5,69,188,109"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="252,5,435,45"/>
+<area shape="poly" title=" " alt="" coords="174,67,252,46,253,51,175,72"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="236,69,451,109"/>
+<area shape="poly" title=" " alt="" coords="188,87,222,87,222,92,188,92"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="252,133,435,173"/>
+<area shape="poly" title=" " alt="" coords="175,107,253,127,252,132,174,112"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="499,37,713,77"/>
+<area shape="poly" title=" " alt="" coords="450,74,485,69,485,75,451,79"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="499,101,713,141"/>
+<area shape="poly" title=" " alt="" coords="451,100,485,104,485,109,450,105"/>
+</map>
+</div>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_cgraph">
-<area shape="rect" title="Change RenderTexture size." alt="" coords="5,5,188,45"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="236,5,451,45"/>
-<area shape="poly" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a69b0a034eb8a46bfb777bde12658201e" title="Add drawbuffers to framebuffer." alt="" coords="499,5,713,45"/>
-<area shape="poly" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
-</map>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af43115257f84854609e4e9749609f706_icgraph">
-<area shape="rect" title="Change RenderTexture size." alt="" coords="724,197,907,237"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="441,5,656,45"/>
-<area shape="poly" title=" " alt="" coords="793,187,745,122,712,88,675,60,651,48,653,43,677,55,715,84,749,118,797,184"/>
-<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="447,69,650,109"/>
-<area shape="poly" title=" " alt="" coords="778,191,731,156,675,124,644,112,645,107,677,119,734,151,782,186"/>
-<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9376a7a3e506174d847bfebc76b11f92" title="Resize framebuffers." alt="" coords="461,133,636,173"/>
-<area shape="poly" title=" " alt="" coords="717,197,632,176,633,171,719,191"/>
-<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="421,197,676,237"/>
-<area shape="poly" title=" " alt="" coords="710,220,676,220,676,215,710,215"/>
-<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="451,261,647,301"/>
-<area shape="poly" title=" " alt="" coords="719,243,633,264,632,259,717,238"/>
-<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="454,325,643,365"/>
-<area shape="poly" title=" " alt="" coords="782,248,734,283,677,316,644,328,643,323,675,311,731,279,778,244"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="472,389,625,429"/>
-<area shape="poly" title=" " alt="" coords="797,251,749,316,715,351,677,380,653,392,626,401,625,396,651,387,675,375,712,347,745,313,793,247"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,165,365,205"/>
-<area shape="poly" title=" " alt="" coords="458,402,437,393,419,379,404,359,396,339,393,299,392,259,385,239,371,219,357,208,361,203,375,216,390,237,397,258,398,299,401,338,408,357,423,375,440,388,460,397"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="220,229,373,269"/>
-<area shape="poly" title=" " alt="" coords="458,400,420,379,401,356,394,331,388,307,371,283,355,272,358,267,375,279,393,305,399,330,405,353,423,375,460,395"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="220,293,373,333"/>
-<area shape="poly" title=" " alt="" coords="458,394,420,380,396,364,372,348,348,336,350,331,375,343,398,360,423,375,460,389"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="220,357,373,397"/>
-<area shape="poly" title=" " alt="" coords="458,401,373,390,374,384,459,395"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="220,421,373,461"/>
-<area shape="poly" title=" " alt="" coords="459,423,374,434,373,429,458,418"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="220,485,373,525"/>
-<area shape="poly" title=" " alt="" coords="483,437,351,488,349,483,481,432"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="220,549,373,589"/>
-<area shape="poly" title=" " alt="" coords="515,440,451,489,375,540,351,552,349,547,372,535,448,485,511,436"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="220,613,373,653"/>
-<area shape="poly" title=" " alt="" coords="528,442,464,521,422,565,375,604,354,616,352,611,372,599,418,561,460,518,524,439"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,173,172,198"/>
-<area shape="poly" title=" " alt="" coords="214,188,172,188,172,183,214,183"/>
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ad9b89e211375cb8a97e0bf4ce9561392_icgraph">
+<area shape="rect" title="Change framebuffer and texture size." alt="" coords="551,197,733,237"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="268,5,483,45"/>
+<area shape="poly" title=" " alt="" coords="620,187,571,122,538,88,501,60,477,48,480,43,504,55,542,84,575,118,624,184"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="274,69,477,109"/>
+<area shape="poly" title=" " alt="" coords="605,191,558,156,502,124,470,112,472,107,504,119,560,151,608,186"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9376a7a3e506174d847bfebc76b11f92" title="Resize framebuffers." alt="" coords="288,133,463,173"/>
+<area shape="poly" title=" " alt="" coords="544,197,459,176,460,171,545,191"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="248,197,503,237"/>
+<area shape="poly" title=" " alt="" coords="537,220,503,220,503,215,537,215"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="277,261,473,301"/>
+<area shape="poly" title=" " alt="" coords="545,243,460,264,459,259,544,238"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="281,325,470,365"/>
+<area shape="poly" title=" " alt="" coords="608,248,560,283,504,316,471,328,469,323,502,311,558,279,605,244"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="294,389,457,429"/>
+<area shape="poly" title=" " alt="" coords="624,251,575,316,542,351,504,380,458,399,456,394,501,375,538,347,571,313,620,247"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="5,5,200,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,200,28,200,23,254,23"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="21,197,184,237"/>
+<area shape="poly" title=" " alt="" coords="280,399,246,379,232,363,225,347,221,314,217,282,210,267,198,251,182,239,185,235,202,247,215,264,222,281,226,314,230,345,237,360,250,375,282,395"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="21,261,184,301"/>
+<area shape="poly" title=" " alt="" coords="280,396,246,380,230,364,221,347,213,331,198,315,178,304,181,299,202,311,218,328,226,345,234,360,250,375,282,391"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="21,325,184,365"/>
+<area shape="poly" title=" " alt="" coords="280,390,184,367,185,362,281,385"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="21,389,184,429"/>
+<area shape="poly" title=" " alt="" coords="280,412,184,412,184,407,280,407"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="21,453,184,493"/>
+<area shape="poly" title=" " alt="" coords="281,434,185,457,184,452,280,429"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="21,517,184,557"/>
+<area shape="poly" title=" " alt="" coords="331,439,270,473,201,508,171,520,169,515,199,503,268,469,329,434"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="21,581,184,621"/>
+<area shape="poly" title=" " alt="" coords="350,442,287,507,246,541,201,572,177,584,175,579,199,567,242,537,283,503,346,438"/>
 </map>
 </div>
 
@@ -601,36 +543,26 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00100">100</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a440ab2bccbe20da4782c6558d2b453e6_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a440ab2bccbe20da4782c6558d2b453e6_cgraph" alt=""/></div>
 <map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a440ab2bccbe20da4782c6558d2b453e6_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a440ab2bccbe20da4782c6558d2b453e6_cgraph">
-<area shape="rect" title="Saves texture to file on disk." alt="" coords="5,101,188,141"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ae4f4985575fc2054a0afcce3c26eb0aa" title="Get texture height." alt="" coords="260,5,443,45"/>
-<area shape="poly" title=" " alt="" coords="136,99,235,55,258,47,260,52,237,60,138,104"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6da7e43f64f97cc542ef0e03e8791716" title="Get texture." alt="" coords="260,69,443,109"/>
-<area shape="poly" title=" " alt="" coords="188,107,246,100,247,105,189,113"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a360fddc8f8c468091a2d0f5a6818d86e" title="Get texture width." alt="" coords="260,133,443,173"/>
-<area shape="poly" title=" " alt="" coords="189,130,247,138,246,143,188,135"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,198,467,223"/>
-<area shape="poly" title=" " alt="" coords="137,139,184,162,237,183,269,192,267,197,235,188,182,167,135,144"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4" title="Get height." alt="" coords="515,5,729,45"/>
-<area shape="poly" title=" " alt="" coords="443,23,501,23,501,28,443,28"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="515,69,729,109"/>
-<area shape="poly" title=" " alt="" coords="443,87,501,87,501,92,443,92"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a" title="Get width." alt="" coords="515,133,729,173"/>
-<area shape="poly" title=" " alt="" coords="443,151,501,151,501,156,443,156"/>
+<area shape="rect" title="Saves texture to file on disk." alt="" coords="5,27,188,67"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,5,467,31"/>
+<area shape="poly" title=" " alt="" coords="188,34,227,30,228,35,189,39"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="244,55,459,95"/>
+<area shape="poly" title=" " alt="" coords="189,55,230,59,230,65,188,60"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ade575dd6321ee406187fba516409856f" name="ade575dd6321ee406187fba516409856f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade575dd6321ee406187fba516409856f">&#9670;&#160;</a></span>bind()</h2>
+<a id="af3a70c8fba7ff0f3f493ea1df8d30aad" name="af3a70c8fba7ff0f3f493ea1df8d30aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a70c8fba7ff0f3f493ea1df8d30aad">&#9670;&#160;</a></span>bind()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -638,86 +570,88 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::graphics::RenderTexture::bind </td>
           <td>(</td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>clear</em></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Bind framebuffer and texture. </p>
+<p>Activate context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clear</td><td>Should the framebuffer clear attachments. </td></tr>
+    <tr><td class="paramname">clear</td><td>Clear framebuffer after binding. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00111">111</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00137">137</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_cgraph">
-<area shape="rect" title="Bind framebuffer and texture." alt="" coords="5,37,188,77"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad936ac9b62daf5e78265f020173596c8" title="Bind framebuffer for rendering to." alt="" coords="236,5,451,45"/>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_cgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_cgraph">
+<area shape="rect" title="Activate context." alt="" coords="5,37,188,77"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="236,5,451,45"/>
 <area shape="poly" title=" " alt="" coords="188,43,222,38,223,44,189,48"/>
 <area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="252,69,435,109"/>
 <area shape="poly" title=" " alt="" coords="189,67,239,73,238,78,188,72"/>
 <area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="499,37,713,77"/>
 <area shape="poly" title=" " alt="" coords="451,36,485,40,485,45,450,41"/>
+<area shape="poly" title=" " alt="" coords="558,38,555,28,562,18,580,13,606,11,636,14,653,21,651,26,635,19,606,16,581,18,565,23,560,29,563,36"/>
 <area shape="poly" title=" " alt="" coords="435,76,485,69,485,75,435,81"/>
 </map>
 </div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ade575dd6321ee406187fba516409856f_icgraph">
-<area shape="rect" title="Bind framebuffer and texture." alt="" coords="724,229,907,269"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="441,5,656,45"/>
-<area shape="poly" title=" " alt="" coords="797,218,777,181,750,138,716,95,674,60,653,48,656,43,678,55,719,91,754,134,782,178,802,215"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="472,69,625,109"/>
-<area shape="poly" title=" " alt="" coords="787,221,738,170,708,145,675,124,625,105,627,100,677,119,711,141,742,166,791,217"/>
-<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="447,133,650,173"/>
-<area shape="poly" title=" " alt="" coords="762,226,675,188,637,176,639,171,677,183,765,221"/>
-<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="461,197,636,237"/>
-<area shape="poly" title=" " alt="" coords="710,239,636,230,636,225,711,234"/>
-<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="421,261,676,301"/>
-<area shape="poly" title=" " alt="" coords="711,265,676,269,676,263,710,259"/>
-<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="451,325,647,365"/>
-<area shape="poly" title=" " alt="" coords="765,278,677,316,639,328,637,323,675,311,762,273"/>
-<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="454,389,643,429"/>
-<area shape="poly" title=" " alt="" coords="791,282,742,332,711,358,677,380,645,394,642,389,675,375,708,354,738,328,787,278"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="472,453,625,493"/>
-<area shape="poly" title=" " alt="" coords="802,283,782,321,754,364,719,407,678,444,653,457,626,466,625,461,651,452,674,439,716,404,750,361,777,318,797,281"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="220,69,373,109"/>
-<area shape="poly" title=" " alt="" coords="458,92,374,92,374,87,458,87"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,165,365,205"/>
-<area shape="poly" title=" " alt="" coords="460,112,422,124,375,145,333,168,330,163,373,140,420,119,458,107"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,69,165,109"/>
-<area shape="poly" title=" " alt="" coords="206,92,166,92,166,87,206,87"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,173,172,198"/>
-<area shape="poly" title=" " alt="" coords="214,188,172,188,172,183,214,183"/>
-<area shape="poly" title=" " alt="" coords="458,466,437,457,419,443,401,420,392,396,388,373,389,350,389,302,384,277,371,251,351,227,328,208,332,203,355,223,376,248,389,276,394,302,394,350,394,373,397,395,406,417,423,439,440,452,460,461"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="220,261,373,301"/>
-<area shape="poly" title=" " alt="" coords="457,465,437,456,420,443,406,427,398,411,393,379,390,347,383,331,371,315,357,304,360,299,375,311,388,328,395,345,399,378,403,410,410,425,423,439,440,451,460,460"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="220,325,373,365"/>
-<area shape="poly" title=" " alt="" coords="458,462,420,444,403,428,394,411,386,395,372,379,353,368,356,363,375,375,391,392,399,409,407,424,423,439,460,457"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="220,389,373,429"/>
-<area shape="poly" title=" " alt="" coords="458,453,421,444,373,432,374,426,422,439,459,448"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="220,453,373,493"/>
-<area shape="poly" title=" " alt="" coords="458,476,374,476,374,471,458,471"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="220,517,373,557"/>
-<area shape="poly" title=" " alt="" coords="460,499,374,520,373,515,458,493"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="220,581,373,621"/>
-<area shape="poly" title=" " alt="" coords="503,503,375,572,348,584,346,579,372,567,500,498"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="220,645,373,685"/>
-<area shape="poly" title=" " alt="" coords="523,505,459,569,418,604,375,636,353,647,351,643,372,631,415,600,455,565,519,502"/>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af3a70c8fba7ff0f3f493ea1df8d30aad_icgraph">
+<area shape="rect" title="Activate context." alt="" coords="813,261,996,301"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="531,5,745,45"/>
+<area shape="poly" title=" " alt="" coords="890,250,872,206,845,154,809,103,787,80,764,60,744,48,747,43,767,55,791,76,813,99,849,152,877,204,895,248"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="557,69,719,109"/>
+<area shape="poly" title=" " alt="" coords="882,251,834,186,801,152,764,124,719,104,721,99,767,119,805,148,838,182,887,248"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="541,133,735,173"/>
+<area shape="poly" title=" " alt="" coords="868,255,820,220,764,188,733,176,735,171,766,183,823,215,871,250"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="537,197,739,237"/>
+<area shape="poly" title=" " alt="" coords="807,261,721,240,722,235,808,255"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="551,261,725,301"/>
+<area shape="poly" title=" " alt="" coords="800,284,725,284,725,279,800,279"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="511,325,765,365"/>
+<area shape="poly" title=" " alt="" coords="808,307,722,328,721,323,807,302"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="540,389,736,429"/>
+<area shape="poly" title=" " alt="" coords="871,312,823,347,766,380,735,392,733,387,764,375,820,343,868,308"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="543,453,733,493"/>
+<area shape="poly" title=" " alt="" coords="887,315,838,380,805,415,767,444,734,459,732,454,764,439,801,411,834,377,882,311"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="557,517,719,557"/>
+<area shape="poly" title=" " alt="" coords="895,315,877,359,849,411,813,463,791,487,767,508,745,520,720,529,719,524,742,516,764,503,787,483,809,460,845,408,872,357,890,313"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56" title="Begin rendering to post process framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="517,28,463,28,463,23,517,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="289,69,442,109"/>
+<area shape="poly" title=" " alt="" coords="543,92,442,92,442,87,543,87"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="36,69,189,109"/>
+<area shape="poly" title=" " alt="" coords="275,92,190,92,190,87,275,87"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="284,325,447,365"/>
+<area shape="poly" title=" " alt="" coords="542,527,509,507,495,491,488,475,483,442,480,410,473,395,461,379,445,367,448,363,465,375,478,392,485,409,489,442,493,473,500,488,512,503,545,523"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="284,389,447,429"/>
+<area shape="poly" title=" " alt="" coords="543,524,509,508,493,492,484,475,476,459,461,443,441,432,444,427,464,439,480,456,489,473,497,488,512,503,545,519"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="284,453,447,493"/>
+<area shape="poly" title=" " alt="" coords="543,518,446,495,448,490,544,513"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="284,517,447,557"/>
+<area shape="poly" title=" " alt="" coords="543,540,447,540,447,535,543,535"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="284,581,447,621"/>
+<area shape="poly" title=" " alt="" coords="544,562,448,585,446,580,543,557"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="284,645,447,685"/>
+<area shape="poly" title=" " alt="" coords="594,567,533,601,464,636,433,648,431,643,462,631,531,597,591,562"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="284,709,447,749"/>
+<area shape="poly" title=" " alt="" coords="613,570,549,635,508,669,464,700,440,712,437,707,461,695,505,665,546,631,609,566"/>
 </map>
 </div>
 
@@ -738,58 +672,57 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Unbind framebuffer and texture. </p>
+<p>Deactivate context. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00142">142</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_cgraph" alt=""/></div>
 <map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_cgraph">
-<area shape="rect" title="Unbind framebuffer and texture." alt="" coords="5,5,188,45"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="236,5,451,45"/>
+<area shape="rect" title="Deactivate context." alt="" coords="5,5,188,45"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa92e97cb44e8f1d6bfaa59750b533aed" title="Unbind framebuffer." alt="" coords="236,13,483,38"/>
 <area shape="poly" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
 </map>
 </div>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_icgraph" alt=""/></div>
 <map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a1d0058534f313fc7c871612867a28464_icgraph">
-<area shape="rect" title="Unbind framebuffer and texture." alt="" coords="684,165,867,205"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="452,69,605,109"/>
-<area shape="poly" title=" " alt="" coords="709,163,580,112,582,107,711,158"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="421,165,636,205"/>
-<area shape="poly" title=" " alt="" coords="670,188,636,188,636,183,670,183"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="452,261,605,301"/>
-<area shape="poly" title=" " alt="" coords="711,213,582,264,580,259,709,208"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="220,5,373,45"/>
-<area shape="poly" title=" " alt="" coords="442,68,369,48,370,43,443,63"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,69,365,109"/>
-<area shape="poly" title=" " alt="" coords="438,92,366,92,366,87,438,87"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,5,165,45"/>
-<area shape="poly" title=" " alt="" coords="206,28,166,28,166,23,206,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" title=" " alt="" coords="214,92,172,92,172,87,214,87"/>
-<area shape="poly" title=" " alt="" coords="469,257,443,240,419,219,403,193,396,169,389,146,371,123,355,112,358,107,375,119,393,144,401,168,407,191,423,216,446,236,472,253"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="220,133,373,173"/>
-<area shape="poly" title=" " alt="" coords="480,256,420,220,372,188,348,176,350,171,375,183,423,215,483,252"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="220,197,373,237"/>
-<area shape="poly" title=" " alt="" coords="442,260,369,240,370,235,443,255"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="220,261,373,301"/>
-<area shape="poly" title=" " alt="" coords="438,284,374,284,374,279,438,279"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="220,325,373,365"/>
-<area shape="poly" title=" " alt="" coords="443,308,370,328,369,323,442,302"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="220,389,373,429"/>
-<area shape="poly" title=" " alt="" coords="488,311,435,345,375,380,349,392,347,387,372,375,432,341,485,307"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="220,453,373,493"/>
-<area shape="poly" title=" " alt="" coords="506,314,450,378,414,413,375,444,354,456,351,451,372,439,411,409,446,374,502,310"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="220,517,373,557"/>
-<area shape="poly" title=" " alt="" coords="515,315,492,358,461,409,422,461,375,507,357,519,354,515,372,503,418,458,457,406,488,355,510,313"/>
+<area shape="rect" title="Deactivate context." alt="" coords="773,69,956,109"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="537,5,699,45"/>
+<area shape="poly" title=" " alt="" coords="773,68,695,48,696,43,774,63"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="511,69,725,109"/>
+<area shape="poly" title=" " alt="" coords="760,92,726,92,726,87,760,87"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="537,293,699,333"/>
+<area shape="poly" title=" " alt="" coords="833,121,643,295,639,291,829,117"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="289,5,442,45"/>
+<area shape="poly" title=" " alt="" coords="523,28,442,28,442,23,523,23"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="36,5,189,45"/>
+<area shape="poly" title=" " alt="" coords="275,28,190,28,190,23,275,23"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="268,69,463,109"/>
+<area shape="poly" title=" " alt="" coords="497,92,463,92,463,87,497,87"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,69,220,109"/>
+<area shape="poly" title=" " alt="" coords="254,92,220,92,220,87,254,87"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="284,133,447,173"/>
+<area shape="poly" title=" " alt="" coords="586,286,531,236,497,210,461,188,436,176,438,171,464,183,500,206,534,232,590,282"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="284,197,447,237"/>
+<area shape="poly" title=" " alt="" coords="558,291,462,252,428,240,430,235,464,247,560,286"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="284,261,447,301"/>
+<area shape="poly" title=" " alt="" coords="523,304,446,294,447,289,524,299"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="284,325,447,365"/>
+<area shape="poly" title=" " alt="" coords="524,328,447,338,446,332,523,323"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="284,389,447,429"/>
+<area shape="poly" title=" " alt="" coords="560,341,464,380,430,392,428,387,462,375,558,336"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="284,453,447,493"/>
+<area shape="poly" title=" " alt="" coords="590,345,534,395,500,421,464,444,438,456,436,451,461,439,497,416,531,391,586,341"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="284,517,447,557"/>
+<area shape="poly" title=" " alt="" coords="601,347,578,384,547,427,508,470,464,508,443,519,440,515,461,503,505,466,542,424,573,381,597,344"/>
 </map>
 </div>
 
@@ -812,134 +745,83 @@ Private Attributes</h2></td></tr>
 
 <p>Clear framebuffer attachments. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00121">121</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00147">147</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph">
+<area shape="rect" title="Clear framebuffer attachments." alt="" coords="5,29,188,69"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="236,29,451,69"/>
+<area shape="poly" title=" " alt="" coords="188,47,222,47,222,52,188,52"/>
+<area shape="poly" title=" " alt="" coords="298,30,295,20,302,10,319,5,343,3,372,6,387,13,385,18,370,11,343,8,320,10,305,15,300,21,303,28"/>
+</map>
+</div>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_cgraph">
-<area shape="rect" title="Clear framebuffer attachments." alt="" coords="5,5,188,45"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="236,5,451,45"/>
-<area shape="poly" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
-</map>
-</div>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_icgraph" alt=""/></div>
 <map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ac483154c72921badaa1e38da077f9db5_icgraph">
-<area shape="rect" title="Clear framebuffer attachments." alt="" coords="955,229,1137,269"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ade575dd6321ee406187fba516409856f" title="Bind framebuffer and texture." alt="" coords="724,229,907,269"/>
-<area shape="poly" title=" " alt="" coords="941,252,907,252,907,247,941,247"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="441,5,656,45"/>
-<area shape="poly" title=" " alt="" coords="797,218,777,181,750,138,716,95,674,60,653,48,656,43,678,55,719,91,754,134,782,178,802,215"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="472,69,625,109"/>
-<area shape="poly" title=" " alt="" coords="787,221,738,170,708,145,675,124,625,105,627,100,677,119,711,141,742,166,791,217"/>
-<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="447,133,650,173"/>
-<area shape="poly" title=" " alt="" coords="762,226,675,188,637,176,639,171,677,183,765,221"/>
-<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="461,197,636,237"/>
-<area shape="poly" title=" " alt="" coords="710,239,636,230,636,225,711,234"/>
-<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="421,261,676,301"/>
-<area shape="poly" title=" " alt="" coords="711,265,676,269,676,263,710,259"/>
-<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="451,325,647,365"/>
-<area shape="poly" title=" " alt="" coords="765,278,677,316,639,328,637,323,675,311,762,273"/>
-<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="454,389,643,429"/>
-<area shape="poly" title=" " alt="" coords="791,282,742,332,711,358,677,380,645,394,642,389,675,375,708,354,738,328,787,278"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="472,453,625,493"/>
-<area shape="poly" title=" " alt="" coords="802,283,782,321,754,364,719,407,678,444,653,457,626,466,625,461,651,452,674,439,716,404,750,361,777,318,797,281"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="220,69,373,109"/>
-<area shape="poly" title=" " alt="" coords="458,92,374,92,374,87,458,87"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,165,365,205"/>
-<area shape="poly" title=" " alt="" coords="460,112,422,124,375,145,333,168,330,163,373,140,420,119,458,107"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,69,165,109"/>
-<area shape="poly" title=" " alt="" coords="206,92,166,92,166,87,206,87"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,173,172,198"/>
-<area shape="poly" title=" " alt="" coords="214,188,172,188,172,183,214,183"/>
-<area shape="poly" title=" " alt="" coords="458,466,437,457,419,443,401,420,392,396,388,373,389,350,389,302,384,277,371,251,351,227,328,208,332,203,355,223,376,248,389,276,394,302,394,350,394,373,397,395,406,417,423,439,440,452,460,461"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="220,261,373,301"/>
-<area shape="poly" title=" " alt="" coords="457,465,437,456,420,443,406,427,398,411,393,379,390,347,383,331,371,315,357,304,360,299,375,311,388,328,395,345,399,378,403,410,410,425,423,439,440,451,460,460"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="220,325,373,365"/>
-<area shape="poly" title=" " alt="" coords="458,462,420,444,403,428,394,411,386,395,372,379,353,368,356,363,375,375,391,392,399,409,407,424,423,439,460,457"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="220,389,373,429"/>
-<area shape="poly" title=" " alt="" coords="458,453,421,444,373,432,374,426,422,439,459,448"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="220,453,373,493"/>
-<area shape="poly" title=" " alt="" coords="458,476,374,476,374,471,458,471"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="220,517,373,557"/>
-<area shape="poly" title=" " alt="" coords="460,499,374,520,373,515,458,493"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="220,581,373,621"/>
-<area shape="poly" title=" " alt="" coords="503,503,375,572,348,584,346,579,372,567,500,498"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="220,645,373,685"/>
-<area shape="poly" title=" " alt="" coords="523,505,459,569,418,604,375,636,353,647,351,643,372,631,415,600,455,565,519,502"/>
+<area shape="rect" title="Clear framebuffer attachments." alt="" coords="1044,261,1227,301"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="813,261,996,301"/>
+<area shape="poly" title=" " alt="" coords="1031,284,996,284,996,279,1031,279"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="531,5,745,45"/>
+<area shape="poly" title=" " alt="" coords="890,250,872,206,845,154,809,103,787,80,764,60,744,48,747,43,767,55,791,76,813,99,849,152,877,204,895,248"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="557,69,719,109"/>
+<area shape="poly" title=" " alt="" coords="882,251,834,186,801,152,764,124,719,104,721,99,767,119,805,148,838,182,887,248"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="541,133,735,173"/>
+<area shape="poly" title=" " alt="" coords="868,255,820,220,764,188,733,176,735,171,766,183,823,215,871,250"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="537,197,739,237"/>
+<area shape="poly" title=" " alt="" coords="807,261,721,240,722,235,808,255"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="551,261,725,301"/>
+<area shape="poly" title=" " alt="" coords="800,284,725,284,725,279,800,279"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="511,325,765,365"/>
+<area shape="poly" title=" " alt="" coords="808,307,722,328,721,323,807,302"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="540,389,736,429"/>
+<area shape="poly" title=" " alt="" coords="871,312,823,347,766,380,735,392,733,387,764,375,820,343,868,308"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="543,453,733,493"/>
+<area shape="poly" title=" " alt="" coords="887,315,838,380,805,415,767,444,734,459,732,454,764,439,801,411,834,377,882,311"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="557,517,719,557"/>
+<area shape="poly" title=" " alt="" coords="895,315,877,359,849,411,813,463,791,487,767,508,745,520,720,529,719,524,742,516,764,503,787,483,809,460,845,408,872,357,890,313"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56" title="Begin rendering to post process framebuffer." alt="" coords="268,5,463,45"/>
+<area shape="poly" title=" " alt="" coords="517,28,463,28,463,23,517,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="289,69,442,109"/>
+<area shape="poly" title=" " alt="" coords="543,92,442,92,442,87,543,87"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="36,69,189,109"/>
+<area shape="poly" title=" " alt="" coords="275,92,190,92,190,87,275,87"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="284,325,447,365"/>
+<area shape="poly" title=" " alt="" coords="542,527,509,507,495,491,488,475,483,442,480,410,473,395,461,379,445,367,448,363,465,375,478,392,485,409,489,442,493,473,500,488,512,503,545,523"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="284,389,447,429"/>
+<area shape="poly" title=" " alt="" coords="543,524,509,508,493,492,484,475,476,459,461,443,441,432,444,427,464,439,480,456,489,473,497,488,512,503,545,519"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="284,453,447,493"/>
+<area shape="poly" title=" " alt="" coords="543,518,446,495,448,490,544,513"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="284,517,447,557"/>
+<area shape="poly" title=" " alt="" coords="543,540,447,540,447,535,543,535"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="284,581,447,621"/>
+<area shape="poly" title=" " alt="" coords="544,562,448,585,446,580,543,557"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="284,645,447,685"/>
+<area shape="poly" title=" " alt="" coords="594,567,533,601,464,636,433,648,431,643,462,631,531,597,591,562"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="284,709,447,749"/>
+<area shape="poly" title=" " alt="" coords="613,570,549,635,508,669,464,700,440,712,437,707,461,695,505,665,546,631,609,566"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a021358a015aa668d5c844ad67bc1de9d" name="a021358a015aa668d5c844ad67bc1de9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a021358a015aa668d5c844ad67bc1de9d">&#9670;&#160;</a></span>set_projection()</h2>
+<a id="af8bfee0fd6ab8d7a57d8c42432ad88a8" name="af8bfee0fd6ab8d7a57d8c42432ad88a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8bfee0fd6ab8d7a57d8c42432ad88a8">&#9670;&#160;</a></span>width()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::graphics::RenderTexture::set_projection </td>
-          <td>(</td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>top</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Modify projection of render texture. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">left</td><td>Left point of ortho perspective. </td></tr>
-    <tr><td class="paramname">right</td><td>Right point of ortho perspective. </td></tr>
-    <tr><td class="paramname">bottom</td><td>Bottom point of ortho perspective. </td></tr>
-    <tr><td class="paramname">top</td><td>Top point of ortho perspective. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00126">126</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a360fddc8f8c468091a2d0f5a6818d86e" name="a360fddc8f8c468091a2d0f5a6818d86e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a360fddc8f8c468091a2d0f5a6818d86e">&#9670;&#160;</a></span>get_width()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int galaxy::graphics::RenderTexture::get_width </td>
+          <td class="memname">int galaxy::graphics::RenderTexture::width </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -948,44 +830,93 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get texture width. </p>
-<dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
+<p>Is cached for performance.</p>
+<dl class="section return"><dt>Returns</dt><dd>Width as int. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00131">131</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00152">152</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_cgraph">
-<area shape="rect" title="Get texture width." alt="" coords="5,5,188,45"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8a2eb1cc1817390f77451b3be1b59e6a" title="Get width." alt="" coords="236,5,451,45"/>
-<area shape="poly" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af8bfee0fd6ab8d7a57d8c42432ad88a8_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af8bfee0fd6ab8d7a57d8c42432ad88a8_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af8bfee0fd6ab8d7a57d8c42432ad88a8_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af8bfee0fd6ab8d7a57d8c42432ad88a8_icgraph">
+<area shape="rect" title="Get texture width." alt="" coords="1008,389,1191,429"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="771,229,954,269"/>
+<area shape="poly" title=" " alt="" coords="1056,384,892,272,895,267,1059,379"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="765,357,960,397"/>
+<area shape="poly" title=" " alt="" coords="994,398,960,393,961,388,995,393"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="771,613,954,653"/>
+<area shape="poly" title=" " alt="" coords="1068,441,887,615,883,611,1065,437"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#ad35700421ee8300696e219698c2cc4a6" title="Get text width." alt="" coords="781,421,944,461"/>
+<area shape="poly" title=" " alt="" coords="995,426,945,433,944,428,994,421"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="473,133,707,173"/>
+<area shape="poly" title=" " alt="" coords="808,226,716,188,678,176,679,171,718,183,810,221"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="509,389,671,429"/>
+<area shape="poly" title=" " alt="" coords="833,281,772,338,719,380,672,398,670,393,716,375,769,334,829,277"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="503,197,677,237"/>
+<area shape="poly" title=" " alt="" coords="757,240,677,230,678,225,758,234"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="463,261,717,301"/>
+<area shape="poly" title=" " alt="" coords="758,264,718,269,717,264,757,259"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="492,325,688,365"/>
+<area shape="poly" title=" " alt="" coords="810,278,718,316,679,328,678,323,716,311,808,273"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="483,5,697,45"/>
+<area shape="poly" title=" " alt="" coords="843,218,823,181,794,138,758,95,716,60,694,48,696,43,719,55,762,91,798,134,827,178,848,215"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="495,69,685,109"/>
+<area shape="poly" title=" " alt="" coords="834,221,782,171,750,145,716,124,684,110,686,105,719,119,753,141,786,167,837,217"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="241,197,394,237"/>
+<area shape="poly" title=" " alt="" coords="494,399,461,379,447,363,440,347,435,314,432,282,425,267,413,251,393,237,396,233,416,247,430,264,437,281,441,314,445,345,452,360,464,375,497,395"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,197,165,237"/>
+<area shape="poly" title=" " alt="" coords="226,220,166,220,166,215,226,215"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,5,415,45"/>
+<area shape="poly" title=" " alt="" coords="469,28,415,28,415,23,469,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="483,581,697,621"/>
+<area shape="poly" title=" " alt="" coords="757,624,697,617,698,611,758,618"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="489,709,691,749"/>
+<area shape="poly" title=" " alt="" coords="810,662,718,700,679,712,678,707,716,695,808,657"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9376a7a3e506174d847bfebc76b11f92" title="Resize framebuffers." alt="" coords="503,773,677,813"/>
+<area shape="poly" title=" " alt="" coords="837,665,786,716,753,742,719,764,678,780,676,775,716,759,750,737,782,712,834,662"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="463,837,717,877"/>
+<area shape="poly" title=" " alt="" coords="848,667,827,705,798,748,762,791,719,828,696,840,694,835,716,823,758,788,794,745,823,702,843,665"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="492,517,688,557"/>
+<area shape="poly" title=" " alt="" coords="808,610,716,572,678,560,679,555,718,567,810,605"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="495,645,685,685"/>
+<area shape="poly" title=" " alt="" coords="758,648,685,657,684,652,757,643"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="509,453,671,493"/>
+<area shape="poly" title=" " alt="" coords="834,605,782,555,750,529,716,508,670,490,672,485,719,503,753,525,786,551,837,601"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="220,709,415,749"/>
+<area shape="poly" title=" " alt="" coords="474,630,464,635,449,650,441,666,432,683,416,699,396,711,393,707,413,695,428,680,436,664,445,647,461,631,471,625"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="236,453,399,493"/>
+<area shape="poly" title=" " alt="" coords="495,476,399,476,399,471,495,471"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="236,517,399,557"/>
+<area shape="poly" title=" " alt="" coords="496,498,400,521,398,516,495,493"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="236,581,399,621"/>
+<area shape="poly" title=" " alt="" coords="497,492,464,508,449,522,441,538,432,555,416,571,396,583,393,579,413,567,428,552,436,536,445,519,461,503,495,487"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="236,645,399,685"/>
+<area shape="poly" title=" " alt="" coords="497,488,464,507,452,522,445,537,441,569,437,602,430,619,417,635,400,647,397,643,413,631,425,616,432,601,435,568,440,536,447,519,461,503,494,484"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="236,261,399,301"/>
+<area shape="poly" title=" " alt="" coords="494,463,461,443,447,427,440,411,435,378,432,346,425,331,413,315,397,303,400,299,417,311,430,328,437,345,441,378,445,409,452,424,464,439,497,459"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="236,325,399,365"/>
+<area shape="poly" title=" " alt="" coords="495,460,461,444,445,428,436,411,428,395,413,379,393,368,396,363,416,375,432,392,441,409,449,424,464,439,497,455"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="236,389,399,429"/>
+<area shape="poly" title=" " alt="" coords="495,454,398,431,400,426,496,449"/>
+<area shape="poly" title=" " alt="" coords="767,433,671,422,672,416,768,428"/>
+<area shape="poly" title=" " alt="" coords="768,455,672,466,671,461,767,450"/>
 </map>
 </div>
-<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a360fddc8f8c468091a2d0f5a6818d86e_icgraph">
-<area shape="rect" title="Get texture width." alt="" coords="236,5,419,45"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a440ab2bccbe20da4782c6558d2b453e6" title="Saves texture to file on disk." alt="" coords="5,5,188,45"/>
-<area shape="poly" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
-</map>
-</div>
 
 </div>
 </div>
-<a id="ae4f4985575fc2054a0afcce3c26eb0aa" name="ae4f4985575fc2054a0afcce3c26eb0aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4f4985575fc2054a0afcce3c26eb0aa">&#9670;&#160;</a></span>get_height()</h2>
+<a id="a01f00391982f6990bd5cfc226c556b85" name="a01f00391982f6990bd5cfc226c556b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01f00391982f6990bd5cfc226c556b85">&#9670;&#160;</a></span>height()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int galaxy::graphics::RenderTexture::get_height </td>
+          <td class="memname">int galaxy::graphics::RenderTexture::height </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -994,18 +925,147 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get texture height. </p>
-<dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
+<p>Is cached for performance.</p>
+<dl class="section return"><dt>Returns</dt><dd>Height as int. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00136">136</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00157">157</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a01f00391982f6990bd5cfc226c556b85_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a01f00391982f6990bd5cfc226c556b85_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a01f00391982f6990bd5cfc226c556b85_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a01f00391982f6990bd5cfc226c556b85_icgraph">
+<area shape="rect" title="Get texture height." alt="" coords="1008,389,1191,429"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="771,229,954,269"/>
+<area shape="poly" title=" " alt="" coords="1056,384,892,272,895,267,1059,379"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="765,357,960,397"/>
+<area shape="poly" title=" " alt="" coords="994,398,960,393,961,388,995,393"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a7709eb53870e034eb192b0472f5f9881" title="Get text height." alt="" coords="781,421,944,461"/>
+<area shape="poly" title=" " alt="" coords="995,426,945,433,944,428,994,421"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="771,613,954,653"/>
+<area shape="poly" title=" " alt="" coords="1068,441,887,615,883,611,1065,437"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="473,133,707,173"/>
+<area shape="poly" title=" " alt="" coords="808,226,716,188,678,176,679,171,718,183,810,221"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="509,389,671,429"/>
+<area shape="poly" title=" " alt="" coords="833,281,772,338,719,380,672,398,670,393,716,375,769,334,829,277"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="503,197,677,237"/>
+<area shape="poly" title=" " alt="" coords="757,240,677,230,678,225,758,234"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="463,261,717,301"/>
+<area shape="poly" title=" " alt="" coords="758,264,718,269,717,264,757,259"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="492,325,688,365"/>
+<area shape="poly" title=" " alt="" coords="810,278,718,316,679,328,678,323,716,311,808,273"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="483,5,697,45"/>
+<area shape="poly" title=" " alt="" coords="843,218,823,181,794,138,758,95,716,60,694,48,696,43,719,55,762,91,798,134,827,178,848,215"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="495,69,685,109"/>
+<area shape="poly" title=" " alt="" coords="834,221,782,171,750,145,716,124,684,110,686,105,719,119,753,141,786,167,837,217"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="241,197,394,237"/>
+<area shape="poly" title=" " alt="" coords="494,399,461,379,447,363,440,347,435,314,432,282,425,267,413,251,393,237,396,233,416,247,430,264,437,281,441,314,445,345,452,360,464,375,497,395"/>
+<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,197,165,237"/>
+<area shape="poly" title=" " alt="" coords="226,220,166,220,166,215,226,215"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,5,415,45"/>
+<area shape="poly" title=" " alt="" coords="469,28,415,28,415,23,469,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="poly" title=" " alt="" coords="767,433,671,422,672,416,768,428"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="509,453,671,493"/>
+<area shape="poly" title=" " alt="" coords="768,455,672,466,671,461,767,450"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="236,453,399,493"/>
+<area shape="poly" title=" " alt="" coords="495,476,399,476,399,471,495,471"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="236,517,399,557"/>
+<area shape="poly" title=" " alt="" coords="496,498,400,521,398,516,495,493"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="236,581,399,621"/>
+<area shape="poly" title=" " alt="" coords="497,492,464,508,449,522,441,538,432,555,416,571,396,583,393,579,413,567,428,552,436,536,445,519,461,503,495,487"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="236,645,399,685"/>
+<area shape="poly" title=" " alt="" coords="497,488,464,507,452,522,445,537,441,569,437,602,430,619,417,635,400,647,397,643,413,631,425,616,432,601,435,568,440,536,447,519,461,503,494,484"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="236,261,399,301"/>
+<area shape="poly" title=" " alt="" coords="494,463,461,443,447,427,440,411,435,378,432,346,425,331,413,315,397,303,400,299,417,311,430,328,437,345,441,378,445,409,452,424,464,439,497,459"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="236,325,399,365"/>
+<area shape="poly" title=" " alt="" coords="495,460,461,444,445,428,436,411,428,395,413,379,393,368,396,363,416,375,432,392,441,409,449,424,464,439,497,455"/>
+<area shape="rect" href="../../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="236,389,399,429"/>
+<area shape="poly" title=" " alt="" coords="495,454,398,431,400,426,496,449"/>
+<area shape="poly" title=" " alt="" coords="834,605,782,555,750,529,716,508,670,490,672,485,719,503,753,525,786,551,837,601"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="483,645,697,685"/>
+<area shape="poly" title=" " alt="" coords="758,648,698,655,697,650,757,643"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="489,709,691,749"/>
+<area shape="poly" title=" " alt="" coords="810,662,718,700,679,712,678,707,716,695,808,657"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9376a7a3e506174d847bfebc76b11f92" title="Resize framebuffers." alt="" coords="503,773,677,813"/>
+<area shape="poly" title=" " alt="" coords="837,665,786,716,753,742,719,764,678,780,676,775,716,759,750,737,782,712,834,662"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ae85c0b9f9c303bb743a7b10509581009" title="Resize framebuffers." alt="" coords="463,837,717,877"/>
+<area shape="poly" title=" " alt="" coords="848,667,827,705,798,748,762,791,719,828,696,840,694,835,716,823,758,788,794,745,823,702,843,665"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959" title="Resize framebuffers." alt="" coords="492,517,688,557"/>
+<area shape="poly" title=" " alt="" coords="808,610,716,572,678,560,679,555,718,567,810,605"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#aba50fbbc9194a02a004436599d9a95a8" title="Resize framebuffers." alt="" coords="495,581,685,621"/>
+<area shape="poly" title=" " alt="" coords="757,624,684,615,685,610,758,618"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="220,709,415,749"/>
+<area shape="poly" title=" " alt="" coords="492,691,404,712,402,707,490,686"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a491b5fa3b4e8fee87cb03e3ffef47b22" name="a491b5fa3b4e8fee87cb03e3ffef47b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491b5fa3b4e8fee87cb03e3ffef47b22">&#9670;&#160;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint64_t galaxy::graphics::RenderTexture::handle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets bindless texture handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>64 bit identifier. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00162">162</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a491b5fa3b4e8fee87cb03e3ffef47b22_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a491b5fa3b4e8fee87cb03e3ffef47b22_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a491b5fa3b4e8fee87cb03e3ffef47b22_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a491b5fa3b4e8fee87cb03e3ffef47b22_icgraph">
+<area shape="rect" title="Gets bindless texture handle." alt="" coords="248,5,431,45"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title=" " alt="" coords="5,5,200,45"/>
+<area shape="poly" title=" " alt="" coords="234,28,200,28,200,23,234,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5e280fba4aec4c1e717e9b4937f0b203" name="a5e280fba4aec4c1e717e9b4937f0b203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e280fba4aec4c1e717e9b4937f0b203">&#9670;&#160;</a></span>texture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int galaxy::graphics::RenderTexture::texture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets framebuffer texture. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> ID. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00167">167</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
 <div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_cgraph">
-<area shape="rect" title="Get texture height." alt="" coords="5,5,188,45"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa55f02f36363d231efaa4a9aacde03a4" title="Get height." alt="" coords="236,5,451,45"/>
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_cgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_cgraph">
+<area shape="rect" title="Gets framebuffer texture." alt="" coords="5,5,188,45"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="236,5,451,45"/>
 <area shape="poly" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
 </map>
 </div>
@@ -1014,85 +1074,40 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-16-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_ae4f4985575fc2054a0afcce3c26eb0aa_icgraph">
-<area shape="rect" title="Get texture height." alt="" coords="236,5,419,45"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a440ab2bccbe20da4782c6558d2b453e6" title="Saves texture to file on disk." alt="" coords="5,5,188,45"/>
-<area shape="poly" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
+<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_icgraph" alt=""/></div>
+<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a5e280fba4aec4c1e717e9b4937f0b203_icgraph">
+<area shape="rect" title="Gets framebuffer texture." alt="" coords="813,183,996,223"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e" title="Display a galaxy image with imgui." alt="" coords="549,5,727,31"/>
+<area shape="poly" title=" " alt="" coords="883,173,834,107,802,73,764,46,726,30,728,25,767,41,805,69,839,103,887,170"/>
+<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="537,55,739,95"/>
+<area shape="poly" title=" " alt="" coords="868,177,820,142,764,110,733,98,735,93,766,105,823,137,871,172"/>
+<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="551,119,725,159"/>
+<area shape="poly" title=" " alt="" coords="807,183,721,162,722,157,808,177"/>
+<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="511,183,765,223"/>
+<area shape="poly" title=" " alt="" coords="800,206,765,206,765,201,800,201"/>
+<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="540,247,736,287"/>
+<area shape="poly" title=" " alt="" coords="808,229,722,250,721,245,807,224"/>
+<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="543,311,733,351"/>
+<area shape="poly" title=" " alt="" coords="871,234,823,269,766,302,734,314,732,309,764,297,820,265,868,230"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="531,375,745,415"/>
+<area shape="poly" title=" " alt="" coords="887,237,838,302,805,337,767,366,743,378,740,373,764,361,801,333,834,299,882,233"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="268,375,463,415"/>
+<area shape="poly" title=" " alt="" coords="517,398,463,398,463,393,517,393"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="5,375,220,415"/>
+<area shape="poly" title=" " alt="" coords="254,398,220,398,220,393,254,393"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="af6ee4f796c587ce66f7af7f7739a0117" name="af6ee4f796c587ce66f7af7f7739a0117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6ee4f796c587ce66f7af7f7739a0117">&#9670;&#160;</a></span>get_proj()</h2>
+<a id="aec48065727a4305b9dd2358f6cc4863a" name="aec48065727a4305b9dd2358f6cc4863a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec48065727a4305b9dd2358f6cc4863a">&#9670;&#160;</a></span>fbo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 &amp; galaxy::graphics::RenderTexture::get_proj </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get projection. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to glm::mat4. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00141">141</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af6ee4f796c587ce66f7af7f7739a0117_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af6ee4f796c587ce66f7af7f7739a0117_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af6ee4f796c587ce66f7af7f7739a0117_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_af6ee4f796c587ce66f7af7f7739a0117_icgraph">
-<area shape="rect" title="Get projection." alt="" coords="664,165,847,205"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="442,69,595,109"/>
-<area shape="poly" title=" " alt="" coords="691,162,568,112,570,107,693,158"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af6e632f13e242c22227fc2efa9302a88" title="Draw a texture to a render texture." alt="" coords="421,165,616,205"/>
-<area shape="poly" title=" " alt="" coords="650,188,616,188,616,183,650,183"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#abedcd52569db373d134030c5e8292de1" title="Update the rendered text." alt="" coords="442,261,595,301"/>
-<area shape="poly" title=" " alt="" coords="693,213,570,264,568,259,691,208"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="220,5,373,45"/>
-<area shape="poly" title=" " alt="" coords="435,68,366,48,367,43,436,63"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,69,365,109"/>
-<area shape="poly" title=" " alt="" coords="428,92,366,92,366,87,428,87"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,5,165,45"/>
-<area shape="poly" title=" " alt="" coords="206,28,166,28,166,23,206,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" title=" " alt="" coords="214,92,172,92,172,87,214,87"/>
-<area shape="poly" title=" " alt="" coords="464,256,441,239,419,219,403,193,396,169,389,146,371,123,355,112,358,107,375,119,393,144,401,167,408,191,423,216,444,235,468,252"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a180fed7974e53add4daa183c2f8edc5e" title="Update the rendered text." alt="" coords="220,133,373,173"/>
-<area shape="poly" title=" " alt="" coords="474,256,372,188,348,176,350,171,375,183,477,251"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a9eb266c196b1517690ca37243132edc2" title="Update the rendered text." alt="" coords="220,197,373,237"/>
-<area shape="poly" title=" " alt="" coords="435,260,366,240,367,235,436,255"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a143a8ad85167042e95d68c73a42e9347" title="Update the rendered text." alt="" coords="220,261,373,301"/>
-<area shape="poly" title=" " alt="" coords="428,284,374,284,374,279,428,279"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a17c0719e8e83fc3571589ef5f15df152" title="Update the rendered text." alt="" coords="220,325,373,365"/>
-<area shape="poly" title=" " alt="" coords="436,308,367,328,366,323,435,303"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a0becdad8b49a8187d0b3279bb5b403af" title="Update the rendered text." alt="" coords="220,389,373,429"/>
-<area shape="poly" title=" " alt="" coords="481,312,431,346,375,380,350,392,348,387,372,375,428,341,478,307"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a6a28ee2e56594284c5ace712d9e240d2" title="Update the rendered text." alt="" coords="220,453,373,493"/>
-<area shape="poly" title=" " alt="" coords="498,314,446,378,412,413,375,444,354,456,352,451,372,439,408,409,442,375,494,311"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a674644a56614d7eadbe2295ef9532c71" title="Update the rendered text." alt="" coords="220,517,373,557"/>
-<area shape="poly" title=" " alt="" coords="506,315,486,358,457,409,420,461,375,507,357,519,354,515,372,503,416,458,452,406,481,355,502,313"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ad6d986ea1af9c3943bf0f1caccc27e64" name="ad6d986ea1af9c3943bf0f1caccc27e64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6d986ea1af9c3943bf0f1caccc27e64">&#9670;&#160;</a></span>get_framebuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> &amp; galaxy::graphics::RenderTexture::get_framebuffer </td>
+          <td class="memname"><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> &amp; galaxy::graphics::RenderTexture::fbo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1103,77 +1118,7 @@ Private Attributes</h2></td></tr>
 <p>Get framebuffer. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to framebuffer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00146">146</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a6da7e43f64f97cc542ef0e03e8791716" name="a6da7e43f64f97cc542ef0e03e8791716"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6da7e43f64f97cc542ef0e03e8791716">&#9670;&#160;</a></span>get_texture()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int galaxy::graphics::RenderTexture::get_texture </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get texture. </p>
-<dl class="section return"><dt>Returns</dt><dd>OpenGL texture handle. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00151">151</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_cgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_cgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_cgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_cgraph">
-<area shape="rect" title="Get texture." alt="" coords="5,5,188,45"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a753755a41ab16f97d6229eaafd86c4ef" title="Get all attachments." alt="" coords="236,5,451,45"/>
-<area shape="poly" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
-</map>
-</div>
-<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_icgraph.png" border="0" usemap="#ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_icgraph" alt=""/></div>
-<map name="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_icgraph" id="ad8/d85/classgalaxy_1_1graphics_1_1RenderTexture_a6da7e43f64f97cc542ef0e03e8791716_icgraph">
-<area shape="rect" title="Get texture." alt="" coords="724,280,907,320"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#ae1ef499c77492f2b35a6feb146cff432" title="Creates the rendered text." alt="" coords="472,37,625,77"/>
-<area shape="poly" title=" " alt="" coords="799,268,780,228,753,180,718,133,674,93,651,80,625,70,627,65,653,75,678,89,722,129,757,177,785,225,804,266"/>
-<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#adfdf080efa51bb15e233bab502ffd26e" title="Display a galaxy image with imgui." alt="" coords="459,102,638,127"/>
-<area shape="poly" title=" " alt="" coords="793,269,745,204,712,170,675,142,637,127,639,122,677,138,716,166,749,200,798,266"/>
-<area shape="rect" href="../../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="447,152,650,192"/>
-<area shape="poly" title=" " alt="" coords="778,273,731,238,675,206,644,195,645,190,677,202,734,234,782,269"/>
-<area shape="rect" href="../../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="461,216,636,256"/>
-<area shape="poly" title=" " alt="" coords="717,279,632,259,633,253,719,274"/>
-<area shape="rect" href="../../d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="421,280,676,320"/>
-<area shape="poly" title=" " alt="" coords="710,303,676,303,676,297,710,297"/>
-<area shape="rect" href="../../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="451,344,647,384"/>
-<area shape="poly" title=" " alt="" coords="719,326,633,347,632,341,717,321"/>
-<area shape="rect" href="../../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="454,408,643,448"/>
-<area shape="poly" title=" " alt="" coords="782,331,734,366,677,398,644,411,643,406,675,394,731,362,778,327"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="441,472,656,512"/>
-<area shape="poly" title=" " alt="" coords="797,333,749,399,715,433,677,462,653,474,651,470,675,458,712,429,745,396,793,330"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a440ab2bccbe20da4782c6558d2b453e6" title="Saves texture to file on disk." alt="" coords="457,536,640,576"/>
-<area shape="poly" title=" " alt="" coords="805,334,787,378,760,430,724,482,702,506,677,526,642,544,639,540,675,522,698,502,720,479,756,427,782,375,801,332"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="220,5,373,45"/>
-<area shape="poly" title=" " alt="" coords="458,49,373,38,374,32,459,43"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a03582a475a6a2ab16e13440fd373d759" title="Registers galaxy_engine into Lua." alt="" coords="228,69,365,109"/>
-<area shape="poly" title=" " alt="" coords="459,71,366,83,365,78,458,66"/>
-<area shape="rect" href="../../d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="12,5,165,45"/>
-<area shape="poly" title=" " alt="" coords="206,28,166,28,166,23,206,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" title=" " alt="" coords="214,92,172,92,172,87,214,87"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html#l00172">172</a> of file <a class="el" href="../../d6/dfc/RenderTexture_8cpp_source.html">RenderTexture.cpp</a>.</p>
 
 </div>
 </div>
@@ -1206,6 +1151,84 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="afebc3eb8f1f9649c4a11f88f39093421" name="afebc3eb8f1f9649c4a11f88f39093421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afebc3eb8f1f9649c4a11f88f39093421">&#9670;&#160;</a></span>m_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::graphics::RenderTexture::m_width</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cached width. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00139">139</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6d2ce7973fa74453d3ca0d5eb73b1124" name="a6d2ce7973fa74453d3ca0d5eb73b1124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d2ce7973fa74453d3ca0d5eb73b1124">&#9670;&#160;</a></span>m_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::graphics::RenderTexture::m_height</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cached height. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aaac23147e82c8a7ddd7bb882ded42a3b" name="aaac23147e82c8a7ddd7bb882ded42a3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac23147e82c8a7ddd7bb882ded42a3b">&#9670;&#160;</a></span>m_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint64_t galaxy::graphics::RenderTexture::m_handle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bindless handle. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a023a2bde147de7fcc90dd877b5433e3e" name="a023a2bde147de7fcc90dd877b5433e3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a023a2bde147de7fcc90dd877b5433e3e">&#9670;&#160;</a></span>m_framebuffer</h2>
 
@@ -1226,35 +1249,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html">Framebuffer</a> to draw to. </p>
+<p>OpenGL framebuffer abstraction. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00157">157</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a265be4b49e74741c7a98f6932c34e08a" name="a265be4b49e74741c7a98f6932c34e08a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a265be4b49e74741c7a98f6932c34e08a">&#9670;&#160;</a></span>m_projection</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::mat4 galaxy::graphics::RenderTexture::m_projection</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Projection. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00162">162</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html#l00154">154</a> of file <a class="el" href="../../d7/dc3/RenderTexture_8hpp_source.html">RenderTexture.hpp</a>.</p>
 
 </div>
 </div>
@@ -1268,7 +1265,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html">RenderTexture</a></li>
-    <li class="footer">Generated on Fri Feb 2 2024 00:21:50 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Mar 9 2024 15:39:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

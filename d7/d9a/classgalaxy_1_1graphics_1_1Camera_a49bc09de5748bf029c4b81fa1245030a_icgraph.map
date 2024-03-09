@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Camera::serialize" name="galaxy::graphics::Camera::serialize">
 <area shape="rect" id="Node000001" title="Serializes object." alt="" coords="212,5,399,45"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388" title="Serializes object." alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388" title="Load maps." alt="" coords="5,5,164,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>

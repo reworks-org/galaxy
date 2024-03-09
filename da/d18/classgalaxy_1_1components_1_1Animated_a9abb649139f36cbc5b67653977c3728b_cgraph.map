@@ -1,9 +1,0 @@
-<map id="galaxy::components::Animated::deserialize" name="galaxy::components::Animated::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,37,177,77"/>
-<area shape="rect" id="Node000002" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#a62b5eb7bf0768bc6f4ec8556a2195163" title="Play the animation." alt="" coords="225,5,379,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,42,211,36,212,42,178,47"/>
-<area shape="rect" id="Node000003" href="$da/d18/classgalaxy_1_1components_1_1Animated.html#ab921f3413dabc0e52edb15f69054ee77" title="Change the current animation." alt="" coords="225,69,379,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,68,212,73,211,78,177,73"/>
-<area shape="rect" id="Node000004" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#ad243a4dd7312ee00476e43e9792d1491" title="Restart animation from beginning." alt="" coords="427,69,629,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="379,87,413,87,413,92,379,92"/>
-</map>

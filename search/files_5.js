@@ -12,8 +12,6 @@ var searchData=
   ['fontcontext_2ehpp_9',['FontContext.hpp',['../d2/d0d/FontContext_8hpp.html',1,'']]],
   ['fonts_2ecpp_10',['Fonts.cpp',['../db/d4b/Fonts_8cpp.html',1,'']]],
   ['fonts_2ehpp_11',['Fonts.hpp',['../d9/d7d/Fonts_8hpp.html',1,'']]],
-  ['frame_2ecpp_12',['Frame.cpp',['../d5/de0/Frame_8cpp.html',1,'']]],
-  ['frame_2ehpp_13',['Frame.hpp',['../d3/dae/Frame_8hpp.html',1,'']]],
-  ['framebuffer_2ecpp_14',['Framebuffer.cpp',['../d2/dad/Framebuffer_8cpp.html',1,'']]],
-  ['framebuffer_2ehpp_15',['Framebuffer.hpp',['../d9/d2c/Framebuffer_8hpp.html',1,'']]]
+  ['framebuffer_2ecpp_12',['Framebuffer.cpp',['../d2/dad/Framebuffer_8cpp.html',1,'']]],
+  ['framebuffer_2ehpp_13',['Framebuffer.hpp',['../d9/d2c/Framebuffer_8hpp.html',1,'']]]
 ];

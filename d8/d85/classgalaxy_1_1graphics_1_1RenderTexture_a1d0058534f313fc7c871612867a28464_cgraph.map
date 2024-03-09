@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::RenderTexture::unbind" name="galaxy::graphics::RenderTexture::unbind">
-<area shape="rect" id="Node000001" title="Unbind framebuffer and texture." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad39873e2695d99376047045ddac924fb" title="Unbind framebuffer." alt="" coords="236,5,451,45"/>
+<area shape="rect" id="Node000001" title="Deactivate context." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa92e97cb44e8f1d6bfaa59750b533aed" title="Unbind framebuffer." alt="" coords="236,13,483,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
 </map>

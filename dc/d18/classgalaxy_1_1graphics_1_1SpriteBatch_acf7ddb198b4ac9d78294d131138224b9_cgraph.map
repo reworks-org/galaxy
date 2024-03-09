@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::SpriteBatch::flush" name="galaxy::graphics::SpriteBatch::flush">
-<area shape="rect" id="Node000001" title="Clears out vertex buffer." alt="" coords="5,5,180,45"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a06a39ca5e0b231d8b78583323160d52a" title="Clear all data from the vertex buffer array." alt="" coords="228,5,407,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,23,214,23,214,28,180,28"/>
-<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a08634dd8270cd5b12287a3ec34d61d87" title="Clear all data from VBO." alt="" coords="455,5,633,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,23,441,23,441,28,407,28"/>
-</map>

@@ -2,7 +2,7 @@ var classgalaxy_1_1math_1_1Rect =
 [
     [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#a7adc2a98f00fbf3dd5cb2c267b7d7901", null ],
     [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#a1156faa2831f61bb5a45314c7701cc60", null ],
-    [ "~Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#ab662e543337276691e0044e933000091", null ],
+    [ "~Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#a856f6f390c7f4b7a1f004fc4cb3943fe", null ],
     [ "contains", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#a2db4cf58346594e112cb539965bdd326", null ],
     [ "contains", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#a7291506e7c13858e830c94896dd17462", null ],
     [ "overlaps", "d5/dcc/classgalaxy_1_1math_1_1Rect.html#ad1370fc9c5c660d93c6ff2728f0b3f75", null ],

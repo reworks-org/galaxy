@@ -1,8 +1,0 @@
-<map id="galaxy::components::ParticleGenerator::regenerate" name="galaxy::components::ParticleGenerator::regenerate">
-<area shape="rect" id="Node000001" title="Re&#45;generates particles from existing config." alt="" coords="5,57,159,112"/>
-<area shape="rect" id="Node000002" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#acff5de79c179bd12b653c1b5652790de" title="Create initial opengl buffers." alt="" coords="207,5,360,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,62,193,53,194,58,160,67"/>
-<area shape="rect" id="Node000003" href="$dc/d52/classgalaxy_1_1components_1_1ParticleGenerator.html#aaaf25a2164ae5fd314754433ddac249b" title="Reset all particle lifetime and positions." alt="" coords="207,108,360,163"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,101,194,110,193,115,158,107"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="244,108,244,98,251,89,264,83,283,81,306,84,319,92,316,97,304,89,283,87,266,89,254,93,249,100,249,108"/>
-</map>
