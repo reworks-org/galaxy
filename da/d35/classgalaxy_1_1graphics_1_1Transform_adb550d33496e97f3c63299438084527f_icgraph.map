@@ -4,11 +4,11 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="993,127,942,93,883,60,854,48,857,43,885,55,944,88,996,123"/>
 <area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="693,69,880,109"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="941,132,863,112,865,107,943,127"/>
-<area shape="rect" id="Node000009" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title=" " alt="" coords="689,133,884,173"/>
+<area shape="rect" id="Node000009" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="689,133,884,173"/>
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="918,156,884,156,884,151,918,151"/>
-<area shape="rect" id="Node000010" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title=" " alt="" coords="689,197,884,237"/>
+<area shape="rect" id="Node000010" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="689,197,884,237"/>
 <area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="943,179,865,200,863,195,941,174"/>
-<area shape="rect" id="Node000011" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title=" " alt="" coords="689,261,884,301"/>
+<area shape="rect" id="Node000011" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="689,261,884,301"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="996,184,944,218,885,252,857,264,854,259,883,247,942,214,993,179"/>
 <area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="455,5,641,45"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="698,68,622,48,624,43,699,63"/>

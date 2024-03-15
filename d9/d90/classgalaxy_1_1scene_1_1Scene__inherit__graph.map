@@ -1,5 +1,5 @@
 <map id="galaxy::scene::Scene" name="galaxy::scene::Scene">
-<area shape="rect" id="Node000001" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="5,219,219,884"/>
+<area shape="rect" id="Node000001" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="5,219,219,864"/>
 <area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="31,5,193,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,185,115,218,109,218,109,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,184,115,218,109,218,109,184"/>
 </map>

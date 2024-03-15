@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Texture2D::handle" name="galaxy::graphics::Texture2D::handle">
 <area shape="rect" id="Node000001" title="Gets bindless handle." alt="" coords="248,5,440,45"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title=" " alt="" coords="5,5,200,45"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="5,5,200,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
 </map>

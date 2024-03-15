@@ -1,7 +1,9 @@
 <map id="galaxy::graphics::Renderer::begin_post" name="galaxy::graphics::Renderer::begin_post">
-<area shape="rect" id="Node000001" title="Begin rendering to post process framebuffer." alt="" coords="5,37,200,77"/>
+<area shape="rect" id="Node000001" title="Begin rendering to post process framebuffer." alt="" coords="5,69,200,109"/>
 <area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="248,37,463,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,55,234,55,234,60,200,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,74,234,70,235,75,201,80"/>
+<area shape="rect" id="Node000007" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35" title="Clears currently active framebuffer." alt="" coords="258,101,453,141"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="201,99,245,105,244,110,200,104"/>
 <area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="511,37,693,77"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="463,55,497,55,497,60,463,60"/>
 <area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="741,5,956,45"/>

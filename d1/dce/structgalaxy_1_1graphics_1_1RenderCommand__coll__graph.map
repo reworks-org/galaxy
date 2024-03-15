@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::RenderCommand" name="galaxy::graphics::RenderCommand">
-<area shape="rect" id="Node000001" title="Data to be passed to the renderer." alt="" coords="21,213,195,393"/>
-<area shape="rect" id="Node000002" href="$de/df1/structgalaxy_1_1graphics_1_1RenderData.html" title="Uniform data passed to shader from entity." alt="" coords="5,5,211,151"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,151,111,197,105,197,105,151"/>
+<area shape="rect" id="Node000001" title="Data to be passed to the renderer." alt="" coords="21,233,195,413"/>
+<area shape="rect" id="Node000002" href="$de/df1/structgalaxy_1_1graphics_1_1RenderData.html" title="Uniform data passed to shader from entity." alt="" coords="5,5,211,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,171,111,217,105,217,105,171"/>
 </map>

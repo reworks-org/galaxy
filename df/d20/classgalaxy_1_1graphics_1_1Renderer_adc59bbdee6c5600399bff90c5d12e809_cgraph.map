@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Renderer::submit_shape" name="galaxy::graphics::Renderer::submit_shape">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,279,200,319"/>
+<area shape="rect" id="Node000001" title="Submit a standalone shape to be rendered." alt="" coords="5,279,200,319"/>
 <area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="263,11,441,51"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,277,129,236,158,181,198,124,246,73,274,55,277,59,250,77,202,127,163,184,134,238,114,280"/>
 <area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="251,87,453,127"/>

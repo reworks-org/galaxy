@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Renderer::begin_default" name="galaxy::graphics::Renderer::begin_default">
+<area shape="rect" id="Node000001" title="Start rendering to default framebuffer." alt="" coords="5,5,200,45"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35" title="Clears currently active framebuffer." alt="" coords="248,5,443,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
+</map>

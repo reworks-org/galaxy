@@ -64,24 +64,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html",
+"d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a0ff1f3823ba0186908335277d6b90e29",
 "d2/d81/classgalaxy_1_1components_1_1Text.html#a486427a74315afbc8b1380a8d87ca238",
-"d3/dd7/FilmicGrain_8cpp.html#ae61e95b6fdd0c123b36b5ccda96b0d94",
-"d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#ad3f3850f8002d993288ec5a2597ce7f1",
-"d5/d25/classgalaxy_1_1core_1_1Window.html#a0d09c162a014faea948ce68ed15247fe",
+"d3/dd7/FilmicGrain_8cpp_source.html",
+"d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#adf1b162870d2fcee93425bea7fba7f0e",
+"d5/d25/classgalaxy_1_1core_1_1Window.html#a0d5b307ea436ec9f7eb18a352ed69e9b",
 "d5/dcc/classgalaxy_1_1math_1_1Rect.html#aae57f25360526a6fba3d8322db411863",
-"d6/da7/LogMessage_8hpp_source.html",
-"d7/d23/ImGuiHelpers_8hpp.html#a7ff5e05d5cf8281ac3a5fd5805dec67e",
-"d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#a331f8c20f6eef5ba246742fbdc25f845",
-"d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a64c61479834c6f86cc1f20c535022e1c",
-"da/d35/classgalaxy_1_1graphics_1_1Transform.html#a992b43f279fa08b46e595abe6bc6f993",
-"db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a68126026ad646200f1025165708abcaf",
-"db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html",
-"dd/d1c/VertexArray_8hpp.html",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab1a326c06d88bf042f73d70f50197905",
-"dd/de2/Enums_8hpp.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d",
-"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b",
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a715d816afa29da4183580734fd214a7b"
+"d6/db0/Vertex_8hpp.html#ad0e8e66b043f4f31d9b1eb00f6296867",
+"d7/d23/ImGuiHelpers_8hpp.html#adb971134dd0fbb688645b10be3b9e28e",
+"d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#ac62012a2315c7df688bb11f61abf9b3b",
+"d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a8ddb97e33630e6aee07a7a45cd16b062",
+"da/d35/classgalaxy_1_1graphics_1_1Transform.html#aa8971d7b070835d5600cca396a7fa155",
+"db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#a7c7e3b0b5fab4383f0447c43cd69efea",
+"db/df1/LogMessage_8cpp_source.html",
+"dd/d22/classgalaxy_1_1graphics_1_1CameraController.html",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac4e0e4e3118472beeb2ae75827450f1f",
+"dd/de2/Enums_8hpp.html#a69bd18023f591ef28d99e70ea78285aaa2ca5e5f343aeb8dea3bc466ba43ee783",
+"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa7dacd634bf7dcbb00fa507f6aace5c2",
+"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a765876796844a5b9beeb54ab017e4707"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

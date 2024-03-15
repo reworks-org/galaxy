@@ -1,5 +1,5 @@
 <map id="galaxy::scene::Scene::construct_rendercommand" name="galaxy::scene::Scene::construct_rendercommand">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,229,209,269"/>
+<area shape="rect" id="Node000001" title="Adds a renderable object to the registry." alt="" coords="5,229,209,269"/>
 <area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a976a1e6483ae8e14057ffe0de78fd5f4" title="Get the index count." alt="" coords="272,5,451,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,228,137,191,168,145,208,97,256,55,265,49,268,54,259,59,212,100,173,148,142,194,121,231"/>
 <area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aeaefdbc184d26a1f52e5151b5b472baf" title="Get vertex array handle." alt="" coords="272,69,451,109"/>

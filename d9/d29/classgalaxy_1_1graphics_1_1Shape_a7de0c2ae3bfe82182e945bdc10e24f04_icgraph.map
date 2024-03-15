@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::Shape::mode" name="galaxy::graphics::Shape::mode">
 <area shape="rect" id="Node000001" title="Get OpenGL rendering mode." alt="" coords="257,37,433,77"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title=" " alt="" coords="5,5,209,45"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title="Adds a renderable object to the registry." alt="" coords="5,5,209,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,46,209,42,210,36,244,41"/>
-<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title=" " alt="" coords="10,69,205,109"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="10,69,205,109"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,74,205,79,204,74,243,68"/>
 </map>

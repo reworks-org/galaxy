@@ -1,9 +1,7 @@
 <map id="galaxy::graphics::Renderer::render_post" name="galaxy::graphics::Renderer::render_post">
-<area shape="rect" id="Node000001" title="Renders final post processing output to active framebuffer." alt="" coords="5,37,200,77"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35" title="Clears currently active framebuffer." alt="" coords="258,5,453,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,42,244,37,245,42,201,48"/>
-<area shape="rect" id="Node000003" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="248,69,463,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,67,235,71,234,77,200,72"/>
-<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="511,69,692,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="463,87,497,87,497,92,463,92"/>
+<area shape="rect" id="Node000001" title="Renders final post processing output to active framebuffer." alt="" coords="5,5,200,45"/>
+<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="248,5,463,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="511,5,692,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="463,23,497,23,497,28,463,28"/>
 </map>

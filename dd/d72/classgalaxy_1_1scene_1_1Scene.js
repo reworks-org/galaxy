@@ -16,6 +16,9 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "create_from_prefab", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a176c4b09d9eea8731fd069fdcba858ad", null ],
     [ "is_valid", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a17ed9580c2fb8f74a0646bebbe7b64d4", null ],
     [ "create_system", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1591042243b889a2000f881a002499dd", null ],
+    [ "enable", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae8e3a7a62ad2916277f0094879be1bda", null ],
+    [ "disable", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a777887fbdaeedd3093f9c24cd90bac87", null ],
+    [ "enabled", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ac7ed2820f41f3167bf3c24e84f21e867", null ],
     [ "serialize", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388", null ],
     [ "deserialize", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c", null ],
     [ "init", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2f35a6028b621a3b2a8964b301a48e40", null ],
@@ -28,8 +31,6 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "enable_entity", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#ab73bab20572dc82a0ce4b4c4a9b2f4a9", null ],
     [ "disable_entity", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a461701cceb4f0b36a378dda1cdcf913e", null ],
     [ "construct_rendercommand", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c", null ],
-    [ "destruct_rendercommand", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#aea5c447d0d43f0b21b8bdb133ce0fed6", null ],
-    [ "m_enabled", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a6d0b1544b6fe167cb82c9301505be385", null ],
     [ "m_name", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258", null ],
     [ "m_camera", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8985184d1c1ad3e0b7b997122d74a69a", null ],
     [ "m_registry", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a101494bc7ed7e407d65c67c01dc703db", null ],
@@ -38,5 +39,6 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "m_b2world", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a485fbac0e3fb3073e2a9391b211b0d37", null ],
     [ "m_velocity_iterations", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#afba795caed6a74f42dff044864da49d2", null ],
     [ "m_position_iterations", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a877a8a2960d55d4d3c79a7acfaf1e5d3", null ],
-    [ "m_bodies_to_construct", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#afb08e3e651664979df2cd67abe9d8fbc", null ]
+    [ "m_bodies_to_construct", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#afb08e3e651664979df2cd67abe9d8fbc", null ],
+    [ "m_enabled", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a6d0b1544b6fe167cb82c9301505be385", null ]
 ];

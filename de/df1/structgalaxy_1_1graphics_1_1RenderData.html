@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('de/df1/structgalaxy_1_1graphics_1_1Ren
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d2/d24/structgalaxy_1_1graphics_1_1RenderData__coll__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1RenderData_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1graphics_1_1RenderData_coll__map" id="agalaxy_1_1graphics_1_1RenderData_coll__map">
-<area shape="rect" title="Uniform data passed to shader from entity." alt="" coords="5,5,211,151"/>
+<area shape="rect" title="Uniform data passed to shader from entity." alt="" coords="5,5,211,171"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -127,8 +127,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a87c34c27c5bcf096afb9ac4e97e8c7c8" id="r_a87c34c27c5bcf096afb9ac4e97e8c7c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html#a87c34c27c5bcf096afb9ac4e97e8c7c8">point</a></td></tr>
 <tr class="memdesc:a87c34c27c5bcf096afb9ac4e97e8c7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this being rendered with GL_POINTS.  <br /></td></tr>
 <tr class="separator:a87c34c27c5bcf096afb9ac4e97e8c7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a4cdff732d8c9af47ff17dc832fa46" id="r_a60a4cdff732d8c9af47ff17dc832fa46"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html#a60a4cdff732d8c9af47ff17dc832fa46">textured</a></td></tr>
+<tr class="memdesc:a60a4cdff732d8c9af47ff17dc832fa46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are we rendering as a texture.  <br /></td></tr>
+<tr class="separator:a60a4cdff732d8c9af47ff17dc832fa46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a342e4fc9f54ae063669de1b90ebf4593" id="r_a342e4fc9f54ae063669de1b90ebf4593"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html#a342e4fc9f54ae063669de1b90ebf4593">handle</a></td></tr>
-<tr class="memdesc:a342e4fc9f54ae063669de1b90ebf4593"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> handle. 0 if not rendering with a texture.  <br /></td></tr>
+<tr class="memdesc:a342e4fc9f54ae063669de1b90ebf4593"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> handle.  <br /></td></tr>
 <tr class="separator:a342e4fc9f54ae063669de1b90ebf4593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -208,6 +211,24 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a60a4cdff732d8c9af47ff17dc832fa46" name="a60a4cdff732d8c9af47ff17dc832fa46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a4cdff732d8c9af47ff17dc832fa46">&#9670;&#160;</a></span>textured</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::graphics::RenderData::textured</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Are we rendering as a texture. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d32/RenderData_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../df/d32/RenderData_8hpp_source.html">RenderData.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a342e4fc9f54ae063669de1b90ebf4593" name="a342e4fc9f54ae063669de1b90ebf4593"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a342e4fc9f54ae063669de1b90ebf4593">&#9670;&#160;</a></span>handle</h2>
 
@@ -220,9 +241,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> handle. 0 if not rendering with a texture. </p>
+<p><a class="el" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture.">Texture</a> handle. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d32/RenderData_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../df/d32/RenderData_8hpp_source.html">RenderData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d32/RenderData_8hpp_source.html#l00058">58</a> of file <a class="el" href="../../df/d32/RenderData_8hpp_source.html">RenderData.hpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +256,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../de/df1/structgalaxy_1_1graphics_1_1RenderData.html">RenderData</a></li>
-    <li class="footer">Generated on Sat Mar 9 2024 15:39:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Mar 15 2024 10:13:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
