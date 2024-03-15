@@ -184,7 +184,9 @@ namespace galaxy
 
 			if (!m_scenes.contains(hash))
 			{
-				auto child     = std::make_shared<T>(name);
+				auto child = std::make_shared<T>(name);
+
+				m_order.push_back(child);
 				m_scenes[hash] = std::static_pointer_cast<Scene>(child);
 
 				return child;

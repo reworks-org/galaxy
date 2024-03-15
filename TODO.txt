@@ -58,5 +58,6 @@ https://old.reddit.com/r/opengl/comments/19eqoi9/dealing_with_resolution_indepen
 https://old.reddit.com/r/cpp/comments/19ehte1/c_final_is_truly_cool_enhancing_performance_and/
 https://github.com/miloyip/light2d
 https://www.geeks3d.com/shader-library/
-more flexible renderer -> able to render arbitrary stuff by having some prebaked quads and stuff.
-	 - implement b2_debugdraw?
+custom shaders for objects/entities?
+	- https://lettier.github.io/3d-game-shaders-for-beginners/posterization.html
+	- https://lettier.github.io/3d-game-shaders-for-beginners/pixelization.html

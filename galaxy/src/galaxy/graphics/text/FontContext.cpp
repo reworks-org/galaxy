@@ -16,7 +16,7 @@ namespace galaxy
 		FontContext::FontContext()
 			: m_context {nullptr}
 		{
-			m_context = msdfgl_create_context("460 core");
+			m_context = msdfgl_create_context(nullptr);
 			if (!m_context)
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to create font context.");

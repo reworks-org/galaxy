@@ -77,7 +77,7 @@ namespace galaxy
 				std::filesystem::create_directory(log_dir);
 			}
 
-			GALAXY_LOG_INIT();
+			// GALAXY_LOG_INIT();
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
 			GALAXY_LOG(GALAXY_INFO, "App started.");
@@ -122,6 +122,20 @@ namespace galaxy
 			config.save();
 
 			//
+			// VIRTUAL FILE SYSTEM.
+			//
+			auto& fs = ServiceLocator<fs::VirtualFileSystem>::make();
+
+			// Generate default language file.
+			if (!fs.exists("en_au.lang"))
+			{
+				if (!fs.write("region='en_au'\ndata={}", "lang/en_au.lang"))
+				{
+					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
+				}
+			}
+
+			//
 			// Window Settings.
 			// clang-format off
 			//
@@ -141,26 +155,20 @@ namespace galaxy
 			// Construct window and init glfw and OpenGL.
 			//
 			auto& window = ServiceLocator<Window>::make(window_settings);
+
+			///
+			/// Renderer init.
+			///
 			graphics::Renderer::ref().init();
-
-			//
-			// VIRTUAL FILE SYSTEM.
-			//
-			auto& fs = ServiceLocator<fs::VirtualFileSystem>::make();
-
-			// Generate default language file.
-			if (!fs.exists("en_au.lang"))
-			{
-				if (!fs.write("region='en_au'\ndata={}", "lang/en_au.lang"))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to save default language file.");
-				}
-			}
 
 			//
 			// Nuklear UI.
 			//
 			auto& nui = ServiceLocator<ui::NuklearUI>::make();
+
+			///
+			/// Loader.
+			///
 			ServiceLocator<Loader>::make();
 
 			//
@@ -259,21 +267,21 @@ namespace galaxy
 			ServiceLocator<resource::Textures>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
-			ServiceLocator<resource::SoundCache>::del();
-			ServiceLocator<resource::MusicCache>::del();
-			ServiceLocator<resource::VoiceCache>::del();
 			ServiceLocator<resource::VideoCache>::del();
-			ServiceLocator<media::SoundEngine>::del();
-			ServiceLocator<media::MusicEngine>::del();
+			ServiceLocator<resource::VoiceCache>::del();
+			ServiceLocator<resource::MusicCache>::del();
+			ServiceLocator<resource::SoundCache>::del();
 			ServiceLocator<media::VoiceEngine>::del();
+			ServiceLocator<media::MusicEngine>::del();
+			ServiceLocator<media::SoundEngine>::del();
 			ServiceLocator<sol::state>::del();
 			ServiceLocator<meta::EntityMeta>::del();
 			ServiceLocator<graphics::FontContext>::del();
-			ServiceLocator<ui::NuklearUI>::del();
-			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Loader>::del();
+			ServiceLocator<ui::NuklearUI>::del();
 			graphics::Renderer::ref().destroy();
 			ServiceLocator<Window>::del();
+			ServiceLocator<fs::VirtualFileSystem>::del();
 			ServiceLocator<Config>::del();
 
 			GALAXY_LOG(GALAXY_INFO, "Application closed.");

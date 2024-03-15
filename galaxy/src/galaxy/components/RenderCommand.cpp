@@ -37,6 +37,7 @@ namespace galaxy
 			this->m_command.uniforms.entity    = r.m_command.uniforms.entity;
 			this->m_command.uniforms.handle    = r.m_command.uniforms.handle;
 			this->m_command.uniforms.point     = r.m_command.uniforms.point;
+			this->m_command.uniforms.textured  = r.m_command.uniforms.textured;
 			this->m_command.uniforms.transform = std::move(r.m_command.uniforms.transform);
 		}
 
@@ -54,6 +55,7 @@ namespace galaxy
 				this->m_command.uniforms.entity    = r.m_command.uniforms.entity;
 				this->m_command.uniforms.handle    = r.m_command.uniforms.handle;
 				this->m_command.uniforms.point     = r.m_command.uniforms.point;
+				this->m_command.uniforms.textured  = r.m_command.uniforms.textured;
 				this->m_command.uniforms.transform = std::move(r.m_command.uniforms.transform);
 			}
 

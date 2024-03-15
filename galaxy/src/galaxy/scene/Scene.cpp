@@ -37,7 +37,7 @@ namespace galaxy
 			: Serializable {}
 			, m_enabled {false}
 			, m_name {"Untitled"}
-			, m_camera {false}
+			, m_camera {}
 			, m_rendersystem_index {0}
 			, m_b2world {nullptr}
 			, m_velocity_iterations {8}
@@ -50,7 +50,7 @@ namespace galaxy
 			: Serializable {}
 			, m_enabled {false}
 			, m_name {"Untitled"}
-			, m_camera {false}
+			, m_camera {}
 			, m_rendersystem_index {0}
 			, m_b2world {nullptr}
 			, m_velocity_iterations {8}
@@ -136,14 +136,6 @@ namespace galaxy
 			m_registry.on_construct<components::Polygon>().connect<&Scene::construct_rendercommand<components::Polygon>>(this);
 			m_registry.on_construct<components::Polyline>().connect<&Scene::construct_rendercommand<components::Polyline>>(this);
 
-			m_registry.on_destroy<components::Sprite>().connect<&Scene::destruct_rendercommand>(this);
-			m_registry.on_destroy<components::Text>().connect<&Scene::destruct_rendercommand>(this);
-			m_registry.on_destroy<components::Circle>().connect<&Scene::destruct_rendercommand>(this);
-			m_registry.on_destroy<components::Ellipse>().connect<&Scene::destruct_rendercommand>(this);
-			m_registry.on_destroy<components::Point>().connect<&Scene::destruct_rendercommand>(this);
-			m_registry.on_destroy<components::Polygon>().connect<&Scene::destruct_rendercommand>(this);
-			m_registry.on_destroy<components::Polyline>().connect<&Scene::destruct_rendercommand>(this);
-
 			create_system<systems::ScriptSystem>();
 			create_system<systems::PhysicsSystem>();
 			create_system<systems::RenderSystem>();
@@ -159,7 +151,7 @@ namespace galaxy
 
 		void Scene::unload()
 		{
-			core::ServiceLocator<sol::state>::ref().collect_garbage();
+			// core::ServiceLocator<sol::state>::ref().collect_garbage();
 			core::ServiceLocator<entt::dispatcher>::ref().disconnect(m_camera);
 		}
 
@@ -305,6 +297,23 @@ namespace galaxy
 			}
 		}
 		*/
+
+		void Scene::enable()
+		{
+			m_enabled = true;
+			load();
+		}
+
+		void Scene::disable()
+		{
+			m_enabled = false;
+			unload();
+		}
+
+		bool Scene::enabled() const
+		{
+			return m_enabled;
+		}
 
 		nlohmann::json Scene::serialize()
 		{
@@ -522,11 +531,6 @@ namespace galaxy
 			{
 				rb->m_body->SetEnabled(false);
 			}
-		}
-
-		void Scene::destruct_rendercommand(entt::registry& registry, entt::entity entity)
-		{
-			registry.remove<components::RenderCommand>(entity);
 		}
 	} // namespace scene
 } // namespace galaxy

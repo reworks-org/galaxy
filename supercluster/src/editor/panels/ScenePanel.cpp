@@ -84,18 +84,18 @@ namespace sc
 
 					if (is_open)
 					{
-						if (scene->m_enabled)
+						if (scene->enabled())
 						{
 							if (ImGui::Button("Disable"))
 							{
-								scene->m_enabled = false;
+								scene->disable();
 							}
 						}
 						else
 						{
 							if (ImGui::Button("Enable"))
 							{
-								scene->m_enabled = true;
+								scene->enable();
 							}
 						}
 

@@ -79,8 +79,7 @@ constexpr const char* const filmicgrain_frag = R"(
 
 		float intensity = fract(10000 * sin((gl_FragCoord.x + gl_FragCoord.y * u_time) * PI));
 
-		amount *= intensity;
-		colour.rgb += amount;
+		colour.rgb += (u_amount * intensity);
 		
 		io_frag_colour = colour;
 	}

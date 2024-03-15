@@ -22,7 +22,6 @@
 #include <galaxy/utils/Globals.hpp>
 
 #include "scenes/Editor.hpp"
-#include "scenes/Menu.hpp"
 
 using namespace galaxy;
 
@@ -97,12 +96,9 @@ int main(int argsc, char* argsv[])
 					}
 				}
 
-				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-
-				auto menu = sm.add_custom<sc::Menu>("sc_menu");
-				sm.add_custom<sc::Editor>("sc_editor");
-
-				menu->m_enabled = true;
+				auto& sm    = core::ServiceLocator<scene::SceneManager>::ref();
+				auto  scene = sm.add_custom<sc::Editor>("sc_editor");
+				scene->enable();
 			}
 
 			supercluster.run();
@@ -113,6 +109,7 @@ int main(int argsc, char* argsv[])
 			std::cout << "======================" << std::endl;
 			std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
 			std::cout << "======================" << std::endl;
+			std::cin.get();
 		}
 	} while (GALAXY_RESTART);
 

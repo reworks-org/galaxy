@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\scenes\Editor.cpp" />
-    <ClCompile Include="src\scenes\Menu.cpp" />
     <ClCompile Include="src\editor\panels\LogConsole.cpp" />
     <ClCompile Include="src\editor\EditorSink.cpp" />
     <ClCompile Include="src\editor\panels\LuaConsole.cpp" />
@@ -18,7 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\Editor.hpp" />
-    <ClInclude Include="src\scenes\Menu.hpp" />
     <ClInclude Include="src\editor\panels\LogConsole.hpp" />
     <ClInclude Include="src\editor\EditorSink.hpp" />
     <ClInclude Include="src\editor\panels\LuaConsole.hpp" />

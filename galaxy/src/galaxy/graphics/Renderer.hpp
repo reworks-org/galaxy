@@ -64,8 +64,33 @@ namespace galaxy
 			///
 			void submit_cmd(RenderCommand& command);
 
+			///
+			/// Submit a standalone texture to be rendered.
+			///
+			/// \param texture Texture to use when drawing.
+			/// \param va Vertex data to use when drawing.
+			/// \param tf Object transformation.
+			/// \param layer Rendering z-level layer.
+			/// \param opacity Object opacity.
+			///
 			void submit_texture(const Texture2D& texture, VertexArray& va, Transform& tf, const int layer, const float opacity);
+
+			///
+			/// Submit standalone text to be rendered.
+			///
+			/// \param text Text to draw.
+			/// \param tf Object transformation.
+			/// \param layer Rendering z-level layer.
+			///
 			void submit_text(Text& text, Transform& tf, const int layer);
+
+			///
+			/// Submit a standalone shape to be rendered.
+			///
+			/// \param shape Polymorphic shape to render.
+			/// \param tf Object transformation.
+			/// \param layer Rendering z-level layer.
+			///
 			void submit_shape(Shape* shape, Transform& tf, const int layer);
 
 			///

@@ -38,7 +38,7 @@ namespace sc
 
 	Editor::Editor(const std::string& name)
 		: Scene(name)
-		, m_editor_camera {true}
+		, m_editor_camera {}
 	{
 		scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_ASSET_DIR).string());
 

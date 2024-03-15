@@ -85,7 +85,7 @@ namespace galaxy
 			m_framebuffer.create();
 
 			m_handle = glGetTextureHandleARB(m_framebuffer.texture());
-			glMakeTextureHandleResidentARB(m_framebuffer.texture());
+			glMakeTextureHandleResidentARB(m_handle);
 		}
 
 		void RenderTexture::resize(const int width, const int height)

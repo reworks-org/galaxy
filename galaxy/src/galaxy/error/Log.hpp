@@ -12,22 +12,20 @@
 #include <source_location>
 
 #include <magic_enum/magic_enum.hpp>
-#include <readerwriterqueue.h>
 
 #include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"
-#include "galaxy/meta/Memory.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #define GALAXY_INFO                     galaxy::error::LogLevel::INFO
 #define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
 #define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
 #define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR
 #define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
-#define GALAXY_LOG_INIT                 galaxy::error::Log::handle().init
-#define GALAXY_LOG_FINISH               galaxy::error::Log::handle().finish
-#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::handle().set_min_level<level>()
-#define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::handle().add_sink<sink>(__VA_ARGS__)
-#define GALAXY_LOG(level, msg, ...)     galaxy::error::Log::handle().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
+#define GALAXY_LOG_FINISH               galaxy::error::Log::ref().finish
+#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::ref().set_min_level<level>()
+#define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::ref().add_sink<sink>(__VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...)     galaxy::error::Log::ref().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
 
 namespace galaxy
 {
@@ -51,15 +49,10 @@ namespace galaxy
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[nodiscard]] static Log& handle();
+			[[nodiscard]] static Log& ref();
 
 			///
-			/// Initialize logging resources.
-			///
-			void init();
-
-			///
-			/// Cleanup any static resources and prepare to close threads.
+			/// Cleanup any static resources.
 			///
 			void finish();
 
@@ -127,16 +120,6 @@ namespace galaxy
 
 		  private:
 			///
-			/// Keeps logging thread alive.
-			///
-			std::atomic_bool m_active;
-
-			///
-			/// Lock-free queue for single producer/consumer.
-			///
-			moodycamel::ReaderWriterQueue<LogMessage> m_queue;
-
-			///
 			/// Minimum level for a message to be logged.
 			///
 			LogLevel m_min_level;
@@ -191,7 +174,10 @@ namespace galaxy
 					lm.colour = "\x1B[31m";
 				}
 
-				m_queue.enqueue(lm);
+				for (const auto& sink : m_sinks)
+				{
+					sink->sink_message(lm);
+				}
 
 				if constexpr (level == LogLevel::FATAL)
 				{

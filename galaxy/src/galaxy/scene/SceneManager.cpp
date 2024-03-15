@@ -49,6 +49,8 @@ namespace galaxy
 			if (!m_scenes.contains(hash))
 			{
 				m_scenes[hash] = std::make_shared<Scene>(name);
+				m_order.push_back(m_scenes[hash]);
+
 				return m_scenes[hash];
 			}
 			else
@@ -80,7 +82,8 @@ namespace galaxy
 				[&](auto&& scene) -> bool {
 					return scene->m_name == name;
 				}), 
-				m_order.end());
+				m_order.end()
+			);
 			// clang-format on
 
 			m_scenes.erase(math::fnv1a_64(name.c_str()));
@@ -144,7 +147,7 @@ namespace galaxy
 		{
 			for (auto&& scene : m_order)
 			{
-				if (scene->m_enabled)
+				if (scene->enabled())
 				{
 					scene->update();
 				}
@@ -157,15 +160,15 @@ namespace galaxy
 
 			for (auto&& scene : m_order)
 			{
-				if (scene->m_enabled)
+				if (scene->enabled())
 				{
 					scene->render();
 				}
 			}
 
-			graphics::Renderer::ref().end_post();
-			graphics::Renderer::ref().begin_default();
-			graphics::Renderer::ref().render_post();
+			// graphics::Renderer::ref().end_post();
+			// graphics::Renderer::ref().begin_default();
+			// graphics::Renderer::ref().render_post();
 			graphics::Renderer::ref().end_default();
 		}
 
@@ -173,7 +176,7 @@ namespace galaxy
 		{
 			for (auto&& scene : m_order)
 			{
-				if (scene->m_enabled)
+				if (scene->enabled())
 				{
 					scene->update_ui();
 				}
@@ -184,7 +187,7 @@ namespace galaxy
 		{
 			for (auto&& scene : m_order)
 			{
-				if (scene->m_enabled)
+				if (scene->enabled())
 				{
 					scene->update_rendering();
 				}

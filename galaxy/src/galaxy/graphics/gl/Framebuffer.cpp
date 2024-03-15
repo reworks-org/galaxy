@@ -139,13 +139,13 @@ namespace galaxy
 
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_colour);
 			glTextureStorage2D(m_colour, 1, GL_RGBA8, m_width, m_height);
-			glTextureSubImage2D(m_colour, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+			// glTextureSubImage2D(m_colour, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 			glTextureParameteri(m_colour, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTextureParameteri(m_colour, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glTextureParameteri(m_colour, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 			glTextureParameteri(m_colour, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTextureParameteri(m_colour, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-			glTextureParameterf(m_colour, GL_TEXTURE_MAX_ANISOTROPY, 0.0f);
+			glTextureParameterf(m_colour, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 
 			static auto s_fbo = 0;
 			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_fbo);
@@ -185,13 +185,13 @@ namespace galaxy
 
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_storageattach);
 			glTextureStorage2D(m_storageattach, 1, GL_R32I, m_width, m_height);
-			glTextureSubImage2D(m_storageattach, 0, 0, 0, m_width, m_height, GL_RED_INTEGER, GL_INT, nullptr);
+			// glTextureSubImage2D(m_storageattach, 0, 0, 0, m_width, m_height, GL_RED_INTEGER, GL_INT, nullptr);
 			glTextureParameteri(m_storageattach, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 			glTextureParameteri(m_storageattach, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 			glTextureParameteri(m_storageattach, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 			glTextureParameteri(m_storageattach, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTextureParameteri(m_storageattach, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-			glTextureParameterf(m_storageattach, GL_TEXTURE_MAX_ANISOTROPY, 0.0f);
+			glTextureParameterf(m_storageattach, GL_TEXTURE_MAX_ANISOTROPY, 1.0f);
 
 			static auto s_fbo = 0;
 			glGetIntegerv(GL_FRAMEBUFFER_BINDING, &s_fbo);
@@ -207,12 +207,12 @@ namespace galaxy
 
 			if (m_colour > 0)
 			{
-				used.push_back(m_colour);
+				used.push_back(GL_COLOR_ATTACHMENT0);
 			}
 
 			if (m_storageattach > 0)
 			{
-				used.push_back(m_storageattach);
+				used.push_back(GL_COLOR_ATTACHMENT1);
 			}
 
 			glNamedFramebufferDrawBuffers(m_id, static_cast<GLsizei>(used.size()), used.data());
@@ -294,7 +294,7 @@ namespace galaxy
 			if (m_colour != 0)
 			{
 				glTextureStorage2D(m_colour, 1, GL_RGBA8, m_width, m_height);
-				glTextureSubImage2D(m_colour, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+				// glTextureSubImage2D(m_colour, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 			}
 
 			if (m_renderbuffer != 0)
@@ -307,7 +307,7 @@ namespace galaxy
 			if (m_storageattach != 0)
 			{
 				glTextureStorage2D(m_storageattach, 1, GL_R32I, m_width, m_height);
-				glTextureSubImage2D(m_storageattach, 0, 0, 0, m_width, m_height, GL_RED_INTEGER, GL_INT, nullptr);
+				// glTextureSubImage2D(m_storageattach, 0, 0, 0, m_width, m_height, GL_RED_INTEGER, GL_INT, nullptr);
 			}
 		}
 

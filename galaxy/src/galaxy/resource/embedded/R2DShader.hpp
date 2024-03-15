@@ -38,7 +38,8 @@ namespace galaxy
 				vec4 u_colour;
 				int u_entity;
 				bool u_point;
-				sampler2d u_handle;
+				bool u_textured;
+				sampler2D u_handle;
 			};
 
 			out vec2 io_texels;
@@ -79,7 +80,8 @@ namespace galaxy
 				vec4 u_colour;
 				int u_entity;
 				bool u_point;
-				sampler2d u_handle;
+				bool u_textured;
+				sampler2D u_handle;
 			};
 
 			in vec2 io_texels;
@@ -89,7 +91,7 @@ namespace galaxy
 
 			void main()
 			{
-				if (u_handle != 0)
+				if (u_textured)
 				{
 					vec3 diffuse_colour = texture(u_handle, io_texels).rgb * u_colour.rgb;
 					io_frag_colour = vec4(diffuse_colour, u_colour.a);

@@ -93,6 +93,7 @@ namespace galaxy
 			cmd.uniforms.entity    = -1;
 			cmd.uniforms.handle    = texture.handle();
 			cmd.uniforms.point     = false;
+			cmd.uniforms.textured  = true;
 			cmd.uniforms.transform = tf.get_transform();
 
 			submit_cmd(cmd);
@@ -112,6 +113,7 @@ namespace galaxy
 			cmd.uniforms.entity    = -1;
 			cmd.uniforms.handle    = text.render_texture().handle();
 			cmd.uniforms.point     = false;
+			cmd.uniforms.textured  = true;
 			cmd.uniforms.transform = tf.get_transform();
 
 			submit_cmd(cmd);
@@ -131,6 +133,7 @@ namespace galaxy
 			cmd.uniforms.entity    = -1;
 			cmd.uniforms.handle    = 0;
 			cmd.uniforms.point     = shape->mode() == GL_POINTS ? true : false;
+			cmd.uniforms.textured  = false;
 			cmd.uniforms.transform = tf.get_transform();
 
 			submit_cmd(cmd);
@@ -192,6 +195,7 @@ namespace galaxy
 		void Renderer::begin_post()
 		{
 			m_post.bind();
+			clear_active();
 		}
 
 		void Renderer::end_post()
@@ -202,7 +206,6 @@ namespace galaxy
 
 		void Renderer::render_post()
 		{
-			clear_active();
 			m_post.render_output();
 
 			// glBindVertexArray(0);
@@ -214,6 +217,7 @@ namespace galaxy
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glViewport(0, 0, m_width, m_height);
+			clear_active();
 		}
 
 		void Renderer::end_default()

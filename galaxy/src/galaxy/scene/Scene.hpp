@@ -156,6 +156,27 @@ namespace galaxy
 			// void set_active_map(const std::string& map);
 
 			///
+			/// \brief Enable scene.
+			///
+			/// Calls load().
+			///
+			void enable();
+
+			///
+			/// \brief Disable scene.
+			///
+			/// Calls unload().
+			///
+			void disable();
+
+			///
+			/// Check if scene is loaded.
+			///
+			/// \return True if loaded.
+			///
+			[[nodiscard]] bool enabled() const;
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -239,17 +260,18 @@ namespace galaxy
 			///
 			void disable_entity(entt::registry& registry, entt::entity entity);
 
+			///
+			/// Adds a renderable object to the registry.
+			///
+			/// \tparam GraphicsComponent Component that can be rendered.
+			///
+			/// \param registry Registry component belongs to.
+			/// \param entity Entity component belongs to.
+			///
 			template<typename GraphicsComponent>
 			void construct_rendercommand(entt::registry& registry, entt::entity entity);
 
-			void destruct_rendercommand(entt::registry& registry, entt::entity entity);
-
 		  public:
-			///
-			/// Is this scene enabled.
-			///
-			bool m_enabled;
-
 			///
 			/// Scene name for debug purposes.
 			///
@@ -304,6 +326,12 @@ namespace galaxy
 			/// Currently active map.
 			///
 			// std::shared_ptr<map::Map> m_map;
+
+		  protected:
+			///
+			/// Is this scene enabled.
+			///
+			bool m_enabled;
 		};
 
 		template<meta::is_system System, typename... Args>
@@ -331,43 +359,46 @@ namespace galaxy
 			{
 				graphics::Shape* shape = &registry.get<GraphicsComponent>(entity).m_shape;
 
-				cmd.count           = shape->vao().count();
-				cmd.instances       = shape->vao().instances();
-				cmd.mode            = shape->mode();
-				cmd.offset          = shape->vao().offset();
-				cmd.vao             = shape->vao().id();
-				cmd.uniforms.colour = shape->m_colour.vec4();
-				cmd.uniforms.entity = static_cast<int>(entt::to_integral(entity));
-				cmd.uniforms.handle = 0;
-				cmd.uniforms.point  = shape->mode() == GL_POINTS ? true : false;
+				cmd.count             = shape->vao().count();
+				cmd.instances         = shape->vao().instances();
+				cmd.mode              = shape->mode();
+				cmd.offset            = shape->vao().offset();
+				cmd.vao               = shape->vao().id();
+				cmd.uniforms.colour   = shape->m_colour.vec4();
+				cmd.uniforms.entity   = static_cast<int>(entt::to_integral(entity));
+				cmd.uniforms.handle   = 0;
+				cmd.uniforms.textured = false;
+				cmd.uniforms.point    = shape->mode() == GL_POINTS ? true : false;
 			}
 			else if constexpr (std::is_same<GraphicsComponent, components::Sprite>::value)
 			{
 				auto& sprite = registry.get<components::Sprite>(entity);
 
-				cmd.count           = sprite.m_vao.count();
-				cmd.instances       = sprite.m_vao.instances();
-				cmd.mode            = GL_TRIANGLES;
-				cmd.offset          = sprite.m_vao.offset();
-				cmd.vao             = sprite.m_vao.id();
-				cmd.uniforms.colour = sprite.m_tint.vec4();
-				cmd.uniforms.entity = static_cast<int>(entt::to_integral(entity));
-				cmd.uniforms.handle = sprite.get_texture()->handle();
-				cmd.uniforms.point  = false;
+				cmd.count             = sprite.m_vao.count();
+				cmd.instances         = sprite.m_vao.instances();
+				cmd.mode              = GL_TRIANGLES;
+				cmd.offset            = sprite.m_vao.offset();
+				cmd.vao               = sprite.m_vao.id();
+				cmd.uniforms.colour   = sprite.m_tint.vec4();
+				cmd.uniforms.entity   = static_cast<int>(entt::to_integral(entity));
+				cmd.uniforms.handle   = sprite.get_texture()->handle();
+				cmd.uniforms.textured = true;
+				cmd.uniforms.point    = false;
 			}
 			else if constexpr (std::is_same<GraphicsComponent, components::Text>::value)
 			{
 				auto& text = registry.get<components::Text>(entity);
 
-				cmd.count           = text.m_text.vao().count();
-				cmd.instances       = text.m_text.vao().instances();
-				cmd.mode            = GL_TRIANGLES;
-				cmd.offset          = text.m_text.vao().offset();
-				cmd.vao             = text.m_text.vao().id();
-				cmd.uniforms.colour = text.m_text.m_colour.vec4();
-				cmd.uniforms.entity = static_cast<int>(entt::to_integral(entity));
-				cmd.uniforms.handle = text.m_text.render_texture().handle();
-				cmd.uniforms.point  = false;
+				cmd.count             = text.m_text.vao().count();
+				cmd.instances         = text.m_text.vao().instances();
+				cmd.mode              = GL_TRIANGLES;
+				cmd.offset            = text.m_text.vao().offset();
+				cmd.vao               = text.m_text.vao().id();
+				cmd.uniforms.colour   = text.m_text.m_colour.vec4();
+				cmd.uniforms.entity   = static_cast<int>(entt::to_integral(entity));
+				cmd.uniforms.handle   = text.m_text.render_texture().handle();
+				cmd.uniforms.textured = true;
+				cmd.uniforms.point    = false;
 			}
 		}
 	} // namespace scene

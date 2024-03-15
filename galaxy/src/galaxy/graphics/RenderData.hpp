@@ -48,7 +48,12 @@ namespace galaxy
 			bool point;
 
 			///
-			/// Texture handle. 0 if not rendering with a texture.
+			/// Are we rendering as a texture.
+			///
+			bool textured;
+
+			///
+			/// Texture handle.
 			///
 			std::uint64_t handle;
 		};
