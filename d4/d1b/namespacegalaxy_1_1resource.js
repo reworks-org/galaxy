@@ -14,10 +14,14 @@ var namespacegalaxy_1_1resource =
     [ "Scripts", "d4/d1b/namespacegalaxy_1_1resource.html#ab5df05b97ef8782901d03feb98628888", null ],
     [ "Shaders", "d4/d1b/namespacegalaxy_1_1resource.html#ad8ea65630b5b050b7bd4d2a487ae3f31", null ],
     [ "Textures", "d4/d1b/namespacegalaxy_1_1resource.html#a88cee9c2e749d659c968015f94726427", null ],
+    [ "lua_middleclass", "d4/d1b/namespacegalaxy_1_1resource.html#afa9fa3a0aa8af25fecb9fa25d3e4695d", null ],
     [ "r2d_vert_shader", "d4/d1b/namespacegalaxy_1_1resource.html#ac3dd11f130e2f49c094529b33492f0ed", null ],
     [ "r2d_frag_shader", "d4/d1b/namespacegalaxy_1_1resource.html#aa560679f9b251c17624f6ff5378327db", null ],
     [ "render_texture_shader_vert", "d4/d1b/namespacegalaxy_1_1resource.html#a6286366ad0ea9df0086a6bbca8632e07", null ],
     [ "render_texture_shader_frag", "d4/d1b/namespacegalaxy_1_1resource.html#a25306ff215c5d7c55430a4917db20529", null ],
+    [ "roboto_light", "d4/d1b/namespacegalaxy_1_1resource.html#a0a558b76b83408eb125523a657eafe89", null ],
+    [ "roboto_light_len", "d4/d1b/namespacegalaxy_1_1resource.html#ac8745a7514bb448e74099e5994548aa0", null ],
+    [ "lua_serpent", "d4/d1b/namespacegalaxy_1_1resource.html#af4ff465162fb5b03650766541ea0108c", null ],
     [ "video_vert_shader", "d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d", null ],
     [ "video_frag_shader", "d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6", null ]
 ];

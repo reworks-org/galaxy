@@ -3,10 +3,6 @@ var namespacegalaxy =
     [ "async", "d0/d7f/namespacegalaxy_1_1async.html", "d0/d7f/namespacegalaxy_1_1async" ],
     [ "components", "d3/db5/namespacegalaxy_1_1components.html", "d3/db5/namespacegalaxy_1_1components" ],
     [ "core", "d1/dcb/namespacegalaxy_1_1core.html", "d1/dcb/namespacegalaxy_1_1core" ],
-    [ "embedded", "d0/d0a/namespacegalaxy_1_1embedded.html", [
-      [ "roboto_light", "d0/d0a/namespacegalaxy_1_1embedded.html#a4712f2298464f90261c76f90b267418c", null ],
-      [ "roboto_light_len", "d0/d0a/namespacegalaxy_1_1embedded.html#aebf40663131328e28a1f5803be080eac", null ]
-    ] ],
     [ "error", "d3/d81/namespacegalaxy_1_1error.html", "d3/d81/namespacegalaxy_1_1error" ],
     [ "events", "d6/d3d/namespacegalaxy_1_1events.html", "d6/d3d/namespacegalaxy_1_1events" ],
     [ "flags", "df/d31/namespacegalaxy_1_1flags.html", "df/d31/namespacegalaxy_1_1flags" ],

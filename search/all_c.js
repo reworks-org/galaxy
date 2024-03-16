@@ -27,7 +27,7 @@ var searchData=
   ['loader_2ecpp_24',['loader.cpp',['../d0/dd0/core_2Loader_8cpp.html',1,'(Global Namespace)'],['../d6/dd7/resource_2Loader_8cpp.html',1,'(Global Namespace)']]],
   ['loader_2ehpp_25',['loader.hpp',['../d9/d16/core_2Loader_8hpp.html',1,'(Global Namespace)'],['../dc/d7c/resource_2Loader_8hpp.html',1,'(Global Namespace)']]],
   ['loader_3c_20media_3a_3asound_20_3e_26',['Loader&lt; media::Sound &gt;',['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource']]],
-  ['log_27',['log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html',1,'galaxy::error::Log'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a878d9ce48fa43d87c25f57acda8e594d',1,'galaxy::error::Log::Log()'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad50724ca2a0799596ca7af31c1ad0b47',1,'galaxy::error::Log::Log(const Log &amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a40f59d4ab119f8d734c1672a926975d6',1,'galaxy::error::Log::Log(Log &amp;&amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f',1,'galaxy::error::Log::log(const std::source_location &amp;loc, std::string_view message, const MsgInputs &amp;... args)']]],
+  ['log_27',['log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a40f59d4ab119f8d734c1672a926975d6',1,'galaxy::error::Log::Log()'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html',1,'galaxy::error::Log'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f',1,'galaxy::error::Log::log(const std::source_location &amp;loc, std::string_view message, const MsgInputs &amp;... args)'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad50724ca2a0799596ca7af31c1ad0b47',1,'galaxy::error::Log::Log(const Log &amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a878d9ce48fa43d87c25f57acda8e594d',1,'galaxy::error::Log::Log()']]],
   ['log_2ecpp_28',['Log.cpp',['../d4/d88/Log_8cpp.html',1,'']]],
   ['log_2ehpp_29',['Log.hpp',['../d0/d82/Log_8hpp.html',1,'']]],
   ['log_5fwrapper_30',['log_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#ae6e69f0c5e5575aa352f2eea4e819eb3',1,'galaxy::lua']]],
@@ -40,9 +40,11 @@ var searchData=
   ['low_37',['LOW',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda41bc94cbd8eebea13ce0491b2ac11b88',1,'galaxy::graphics::GaussianBlur']]],
   ['ltrim_38',['ltrim',['../db/d7c/namespacegalaxy_1_1strutils.html#afff4d4bc591e6b700b5065afb2144125',1,'galaxy::strutils']]],
   ['lua_2ehpp_39',['Lua.hpp',['../de/d92/Lua_8hpp.html',1,'']]],
-  ['luadependencies_2ecpp_40',['LuaDependencies.cpp',['../df/d09/LuaDependencies_8cpp.html',1,'']]],
-  ['luaexternalmodules_2ecpp_41',['LuaExternalModules.cpp',['../d8/dbe/LuaExternalModules_8cpp.html',1,'']]],
-  ['luagalaxy_2ecpp_42',['LuaGalaxy.cpp',['../db/dac/LuaGalaxy_8cpp.html',1,'']]],
-  ['luanuklear_2ecpp_43',['LuaNuklear.cpp',['../d9/d2b/LuaNuklear_8cpp.html',1,'']]],
-  ['luaservices_2ecpp_44',['LuaServices.cpp',['../d1/d50/LuaServices_8cpp.html',1,'']]]
+  ['lua_5fmiddleclass_40',['lua_middleclass',['../d4/d1b/namespacegalaxy_1_1resource.html#afa9fa3a0aa8af25fecb9fa25d3e4695d',1,'galaxy::resource']]],
+  ['lua_5fserpent_41',['lua_serpent',['../d4/d1b/namespacegalaxy_1_1resource.html#af4ff465162fb5b03650766541ea0108c',1,'galaxy::resource']]],
+  ['luadependencies_2ecpp_42',['LuaDependencies.cpp',['../df/d09/LuaDependencies_8cpp.html',1,'']]],
+  ['luaexternalmodules_2ecpp_43',['LuaExternalModules.cpp',['../d8/dbe/LuaExternalModules_8cpp.html',1,'']]],
+  ['luagalaxy_2ecpp_44',['LuaGalaxy.cpp',['../db/dac/LuaGalaxy_8cpp.html',1,'']]],
+  ['luanuklear_2ecpp_45',['LuaNuklear.cpp',['../d9/d2b/LuaNuklear_8cpp.html',1,'']]],
+  ['luaservices_2ecpp_46',['LuaServices.cpp',['../d1/d50/LuaServices_8cpp.html',1,'']]]
 ];

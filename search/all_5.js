@@ -29,7 +29,7 @@ var searchData=
   ['enums_2ecpp_26',['Enums.cpp',['../d5/d75/Enums_8cpp.html',1,'']]],
   ['enums_2ehpp_27',['Enums.hpp',['../dd/de2/Enums_8hpp.html',1,'']]],
   ['equal_28',['EQUAL',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea969f331a87d8c958473c32b4d0e61a44',1,'galaxy::input']]],
-  ['error_29',['error',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy::fs::error'],['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefdabb1ca97ec761fc37101737ba0aa2e7c5',1,'galaxy::error::ERROR']]],
+  ['error_29',['error',['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefdabb1ca97ec761fc37101737ba0aa2e7c5',1,'galaxy::error::ERROR'],['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy::fs::error']]],
   ['escape_30',['ESCAPE',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eadaaedac409335b869929ea43fa44be5d',1,'galaxy::input']]],
   ['exists_31',['exists',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ad5ffea521344ba9318bb8c865ca7b7d5',1,'galaxy::fs::VirtualFileSystem']]]
 ];

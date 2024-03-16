@@ -3,7 +3,6 @@ var dir_719a66e699117833dd2aa990b86b1834 =
     [ "async", "dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html", "dir_5f96bc83f9c3b09ebca36e7cfb485d9f" ],
     [ "components", "dir_2b954ff381b9b3885b7442a3ec8b9d3a.html", "dir_2b954ff381b9b3885b7442a3ec8b9d3a" ],
     [ "core", "dir_2fca6cf9c244716c7cc7db0f05b66bc2.html", "dir_2fca6cf9c244716c7cc7db0f05b66bc2" ],
-    [ "embedded", "dir_2782aba0da7477f1dcb5c46bf9cd4725.html", "dir_2782aba0da7477f1dcb5c46bf9cd4725" ],
     [ "error", "dir_48f77a4e21c16676ac8bbd98db82dd44.html", "dir_48f77a4e21c16676ac8bbd98db82dd44" ],
     [ "events", "dir_e4e12536003b5868dacffd6be6350da8.html", "dir_e4e12536003b5868dacffd6be6350da8" ],
     [ "flags", "dir_60164f82669d2ed8563493f0686c0452.html", "dir_60164f82669d2ed8563493f0686c0452" ],
