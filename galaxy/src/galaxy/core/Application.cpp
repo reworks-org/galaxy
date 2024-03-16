@@ -24,7 +24,6 @@
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
-#include "galaxy/embedded/RobotoLight.hpp"
 #include "galaxy/error/ConsoleSink.hpp"
 #include "galaxy/error/FileSink.hpp"
 #include "galaxy/flags/DenySerialization.hpp"

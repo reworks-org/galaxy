@@ -2,11 +2,7 @@
 	- scene heirarchy / scene tree thingy?
 
 - improve loading screen to more accurately display loading bar.
-- rendering is completely broken, now need to handle multiple cameras and multiple scenes being submitted to renderer.
 - stop using shared pointers...they are expensive.
-
-Graphics:
-- think about pre-buffering all render 2d data for animations. so we only update texture pointer instead of vertex data.
 
 
 Signals:
@@ -27,7 +23,7 @@ https://github.com/Green-Sky/imgui_entt_entity_editor
 https://github.com/scottmudge/imgui_tabs
 
 animation:
-improve animation system
+- Pre-buffering all render 2d data for animations. so we only update texture pointer instead of vertex data.
 https://github.com/sansumbrella/Choreograph
 https://github.com/mobius3/tweeny
 

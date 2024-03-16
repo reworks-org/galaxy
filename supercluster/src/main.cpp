@@ -15,7 +15,7 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
-#include <galaxy/embedded/RobotoLight.hpp>
+#include <galaxy/resource/embedded/RobotoLight.hpp>
 #include <galaxy/scene/SceneManager.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
@@ -56,7 +56,7 @@ int main(int argsc, char* argsv[])
 				font_cfg.OversampleH           = 1;
 				font_cfg.OversampleV           = 1;
 				font_cfg.FontBuilderFlags     |= ImGuiFreeTypeBuilderFlags_LoadColor;
-				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&embedded::roboto_light), embedded::roboto_light_len, 16.0f, &font_cfg);
+				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&resource::roboto_light), resource::roboto_light_len, 16.0f, &font_cfg);
 				ImGui::MergeIconsWithLatestFont(16.0f, false);
 
 				auto& config = core::ServiceLocator<core::Config>::ref();

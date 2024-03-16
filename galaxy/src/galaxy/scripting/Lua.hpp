@@ -13,20 +13,6 @@ namespace galaxy
 	namespace lua
 	{
 		///
-		/// Object-orientation for Lua.
-		///
-		constexpr const auto middleclass =
-#include "lua/middleclass.lua"
-			;
-
-		///
-		/// Lua serializer and pretty printer.
-		///
-		constexpr const auto serpent =
-#include "lua/serpent.lua"
-			;
-
-		///
 		/// Load some provided external libs into lua.
 		///
 		void inject_external_modules();

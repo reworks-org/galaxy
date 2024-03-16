@@ -59,7 +59,7 @@
     <ClCompile Include="src\galaxy\media\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\media\Sound.cpp" />
     <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
-    <ClCompile Include="src\galaxy\embedded\RobotoLight.cpp" />
+    <ClCompile Include="src\galaxy\resource\embedded\RobotoLight.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
     <ClCompile Include="src\galaxy\media\Video.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
@@ -148,6 +148,8 @@
     <ClCompile Include="src\galaxy\graphics\post\GaussianBlur.cpp" />
     <ClCompile Include="src\galaxy\graphics\post\Sharpen.cpp" />
     <ClCompile Include="src\galaxy\graphics\post\SMAA.cpp" />
+    <ClCompile Include="src\galaxy\resource\embedded\Serpent.cpp" />
+    <ClCompile Include="src\galaxy\resource\embedded\MiddleClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -208,7 +210,7 @@
     <ClInclude Include="src\galaxy\media\AudioEngine.hpp" />
     <ClInclude Include="src\galaxy\media\Sound.hpp" />
     <ClInclude Include="src\galaxy\events\ContentScale.hpp" />
-    <ClInclude Include="src\galaxy\embedded\RobotoLight.hpp" />
+    <ClInclude Include="src\galaxy\resource\embedded\RobotoLight.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
     <ClInclude Include="src\galaxy\media\Video.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
@@ -294,5 +296,7 @@
     <ClInclude Include="src\galaxy\graphics\post\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\GaussianBlur.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\Sharpen.hpp" />
+    <ClInclude Include="src\galaxy\resource\embedded\MiddleClass.hpp" />
+    <ClInclude Include="src\galaxy\resource\embedded\Serpent.hpp" />
   </ItemGroup>
 </Project>
