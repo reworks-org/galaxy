@@ -120,6 +120,11 @@ namespace galaxy
 			void clear(const unsigned int index);
 
 			///
+			/// Completely delete objects.
+			///
+			void reset();
+
+			///
 			/// Get width.
 			///
 			/// \return Integer.

@@ -106,25 +106,7 @@ namespace galaxy
 
 		Framebuffer::~Framebuffer()
 		{
-			if (m_id != 0)
-			{
-				glDeleteFramebuffers(1, &m_id);
-			}
-
-			if (m_colour != 0)
-			{
-				glDeleteTextures(1, &m_colour);
-			}
-
-			if (m_renderbuffer != 0)
-			{
-				glDeleteRenderbuffers(1, &m_renderbuffer);
-			}
-
-			if (m_storageattach != 0)
-			{
-				glDeleteTextures(1, &m_storageattach);
-			}
+			reset();
 		}
 
 		void Framebuffer::add_colour_attachment(const int width, const int height)
@@ -350,6 +332,29 @@ namespace galaxy
 		void Framebuffer::clear(const unsigned int index)
 		{
 			glClearNamedFramebufferfv(m_id, GL_COLOR, index, m_clear_colour.data());
+		}
+
+		void Framebuffer::reset()
+		{
+			if (m_id != 0)
+			{
+				glDeleteFramebuffers(1, &m_id);
+			}
+
+			if (m_colour != 0)
+			{
+				glDeleteTextures(1, &m_colour);
+			}
+
+			if (m_renderbuffer != 0)
+			{
+				glDeleteRenderbuffers(1, &m_renderbuffer);
+			}
+
+			if (m_storageattach != 0)
+			{
+				glDeleteTextures(1, &m_storageattach);
+			}
 		}
 
 		int Framebuffer::width() const
