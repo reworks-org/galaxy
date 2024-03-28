@@ -51,6 +51,16 @@ namespace galaxy
 			void create(const int width, const int height);
 
 			///
+			/// \brief Destroy and re-create framebuffer.
+			///
+			/// You will need to mark it bindless again.
+			///
+			/// \param width Optional. Will use existing size otherwise. Width of the render target. Must be greater than 0.
+			/// \param height Optional. Will use existing size otherwise. Height of the render target. Must be greater than 0.
+			///
+			void recreate(const int width = -1, const int height = -1);
+
+			///
 			/// Change framebuffer and texture size.
 			///
 			/// \param width Width of the render target. Must be greater than 0.
@@ -81,6 +91,13 @@ namespace galaxy
 			/// Clear framebuffer attachments.
 			///
 			void clear();
+
+			///
+			/// \brief Makes this texture bindless.
+			///
+			/// WARNING: YOU CANNOT MODIFY THE TEXTURE AFTER CALLING THIS.
+			///
+			void make_bindless();
 
 			///
 			/// \brief Get texture width.

@@ -83,9 +83,19 @@ namespace galaxy
 			m_framebuffer.add_colour_attachment(width, height);
 			m_framebuffer.add_depth_stencil_renderbuffer();
 			m_framebuffer.create();
+		}
 
-			m_handle = glGetTextureHandleARB(m_framebuffer.texture());
-			glMakeTextureHandleResidentARB(m_handle);
+		void RenderTexture::recreate(const int width, const int height)
+		{
+			m_framebuffer.reset();
+
+			if (width > 0 || height > 0)
+			{
+				m_width  = width;
+				m_height = height;
+			}
+
+			create(m_width, m_height);
 		}
 
 		void RenderTexture::resize(const int width, const int height)
@@ -147,6 +157,12 @@ namespace galaxy
 		void RenderTexture::clear()
 		{
 			m_framebuffer.clear();
+		}
+
+		void RenderTexture::make_bindless()
+		{
+			m_handle = glGetTextureHandleARB(m_framebuffer.texture());
+			glMakeTextureHandleResidentARB(m_handle);
 		}
 
 		int RenderTexture::width() const

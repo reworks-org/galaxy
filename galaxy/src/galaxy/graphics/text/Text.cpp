@@ -128,6 +128,8 @@ namespace galaxy
 
 				auto vertices = graphics::gen_quad_vertices(width, height);
 				m_vao.sub_buffer(0, vertices);
+
+				m_rt.make_bindless();
 			}
 			else
 			{
@@ -149,7 +151,11 @@ namespace galaxy
 				const auto width  = vec.x;
 				const auto height = vec.y;
 
-				m_rt.resize(static_cast<int>(width), static_cast<int>(height));
+				if (width > m_rt.width() || height > m_rt.height())
+				{
+					m_rt.recreate(static_cast<int>(width), static_cast<int>(height));
+				}
+
 				m_rt.bind();
 
 				std::size_t start = 0;
@@ -192,6 +198,8 @@ namespace galaxy
 
 				auto vertices = graphics::gen_quad_vertices(width, height);
 				m_vao.sub_buffer(0, vertices);
+
+				m_rt.make_bindless();
 			}
 			else
 			{
