@@ -95,7 +95,7 @@ namespace galaxy
 
 		void GammaCorrection::resize(const int width, const int height)
 		{
-			m_fb.resize(width, height);
+			m_fb.recreate(width, height);
 		}
 
 		unsigned int GammaCorrection::render(const unsigned int input)

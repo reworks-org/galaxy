@@ -108,7 +108,7 @@ namespace galaxy
 
 		void Sharpen::resize(const int width, const int height)
 		{
-			m_fb.resize(width, height);
+			m_fb.recreate(width, height);
 		}
 
 		unsigned int Sharpen::render(const unsigned int input)

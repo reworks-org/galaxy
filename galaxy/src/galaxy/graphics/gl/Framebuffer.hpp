@@ -88,14 +88,6 @@ namespace galaxy
 			void set_clear_colour(const graphics::Colour& col);
 
 			///
-			/// Resize framebuffer.
-			///
-			/// \param width Usually screen width.
-			/// \param height Usually screen height.
-			///
-			void resize(const int width, const int height);
-
-			///
 			/// Bind framebuffer for rendering to.
 			///
 			/// \param clear Should the framebuffer clear attachments.

@@ -98,15 +98,6 @@ namespace galaxy
 			create(m_width, m_height);
 		}
 
-		void RenderTexture::resize(const int width, const int height)
-		{
-			m_width  = std::max(1, width);
-			m_height = std::max(1, height);
-
-			// m_projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, -1.0f, 1.0f);
-			m_framebuffer.resize(width, height);
-		}
-
 		void RenderTexture::save(std::string_view file)
 		{
 			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();

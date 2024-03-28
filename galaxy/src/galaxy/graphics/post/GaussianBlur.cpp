@@ -130,8 +130,8 @@ namespace galaxy
 
 		void GaussianBlur::resize(const int width, const int height)
 		{
-			m_horizontal.resize(width, height);
-			m_vertical.resize(width, height);
+			m_horizontal.recreate(width, height);
+			m_vertical.recreate(width, height);
 		}
 
 		unsigned int GaussianBlur::render(const unsigned int input)

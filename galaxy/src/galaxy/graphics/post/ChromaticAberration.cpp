@@ -104,7 +104,7 @@ namespace galaxy
 
 		void ChromaticAberration::resize(const int width, const int height)
 		{
-			m_fb.resize(width, height);
+			m_fb.recreate(width, height);
 		}
 
 		unsigned int ChromaticAberration::render(const unsigned int input)

@@ -61,14 +61,6 @@ namespace galaxy
 			void recreate(const int width = -1, const int height = -1);
 
 			///
-			/// Change framebuffer and texture size.
-			///
-			/// \param width Width of the render target. Must be greater than 0.
-			/// \param height Height of the render target. Must be greater than 0.
-			///
-			void resize(const int width, const int height);
-
-			///
 			/// Saves texture to file on disk.
 			///
 			/// \param file Path and filename to save texture to. Does not need extension (it will be ignored).

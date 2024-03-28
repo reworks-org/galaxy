@@ -106,7 +106,25 @@ namespace galaxy
 
 		Framebuffer::~Framebuffer()
 		{
-			reset();
+			if (m_id != 0)
+			{
+				glDeleteFramebuffers(1, &m_id);
+			}
+
+			if (m_colour != 0)
+			{
+				glDeleteTextures(1, &m_colour);
+			}
+
+			if (m_renderbuffer != 0)
+			{
+				glDeleteRenderbuffers(1, &m_renderbuffer);
+			}
+
+			if (m_storageattach != 0)
+			{
+				glDeleteTextures(1, &m_storageattach);
+			}
 		}
 
 		void Framebuffer::add_colour_attachment(const int width, const int height)
@@ -268,31 +286,6 @@ namespace galaxy
 			m_clear_colour[3] = vec.w;
 		}
 
-		void Framebuffer::resize(const int width, const int height)
-		{
-			m_width  = width;
-			m_height = height;
-
-			if (m_colour != 0)
-			{
-				glTextureStorage2D(m_colour, 1, GL_RGBA8, m_width, m_height);
-				// glTextureSubImage2D(m_colour, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
-			}
-
-			if (m_renderbuffer != 0)
-			{
-				glBindRenderbuffer(GL_RENDERBUFFER, m_renderbuffer);
-				glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_width, m_height);
-				glBindRenderbuffer(GL_RENDERBUFFER, 0);
-			}
-
-			if (m_storageattach != 0)
-			{
-				glTextureStorage2D(m_storageattach, 1, GL_R32I, m_width, m_height);
-				// glTextureSubImage2D(m_storageattach, 0, 0, 0, m_width, m_height, GL_RED_INTEGER, GL_INT, nullptr);
-			}
-		}
-
 		void Framebuffer::begin(const bool clear)
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_id);
@@ -336,10 +329,7 @@ namespace galaxy
 
 		void Framebuffer::reset()
 		{
-			if (m_id != 0)
-			{
-				glDeleteFramebuffers(1, &m_id);
-			}
+			glDeleteFramebuffers(1, &m_id);
 
 			if (m_colour != 0)
 			{
@@ -355,6 +345,8 @@ namespace galaxy
 			{
 				glDeleteTextures(1, &m_storageattach);
 			}
+
+			glCreateFramebuffers(1, &m_id);
 		}
 
 		int Framebuffer::width() const

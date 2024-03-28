@@ -106,7 +106,7 @@ namespace galaxy
 
 		void FilmicGrain::resize(const int width, const int height)
 		{
-			m_fb.resize(width, height);
+			m_fb.recreate(width, height);
 		}
 
 		unsigned int FilmicGrain::render(const unsigned int input)

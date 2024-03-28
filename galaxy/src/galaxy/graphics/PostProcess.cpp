@@ -123,7 +123,7 @@ namespace galaxy
 
 		void PostProcess::resize(const int width, const int height)
 		{
-			m_fb.resize(width, height);
+			m_fb.recreate(width, height);
 
 			for (auto&& effect : m_effects)
 			{
