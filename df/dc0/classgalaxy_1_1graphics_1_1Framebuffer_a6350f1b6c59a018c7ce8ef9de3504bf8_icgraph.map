@@ -1,6 +1,6 @@
-<map id="galaxy::graphics::Framebuffer::resize" name="galaxy::graphics::Framebuffer::resize">
-<area shape="rect" id="Node000001" title="Resize framebuffer." alt="" coords="781,197,996,237"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="551,197,733,237"/>
+<map id="galaxy::graphics::Framebuffer::reset" name="galaxy::graphics::Framebuffer::reset">
+<area shape="rect" id="Node000001" title="Completely delete objects." alt="" coords="781,197,996,237"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="551,197,733,237"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="768,220,734,220,734,215,768,215"/>
 <area shape="rect" id="Node000003" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="268,5,483,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="620,187,571,122,538,88,501,60,477,48,480,43,504,55,542,84,575,118,624,184"/>

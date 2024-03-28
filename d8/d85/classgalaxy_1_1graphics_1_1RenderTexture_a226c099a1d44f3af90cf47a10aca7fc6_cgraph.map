@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::RenderTexture::make_bindless" name="galaxy::graphics::RenderTexture::make_bindless">
+<area shape="rect" id="Node000001" title="Makes this texture bindless." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="236,5,451,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
+</map>

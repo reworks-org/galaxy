@@ -1,5 +1,5 @@
-<map id="galaxy::graphics::RenderTexture::resize" name="galaxy::graphics::RenderTexture::resize">
-<area shape="rect" id="Node000001" title="Change framebuffer and texture size." alt="" coords="551,197,733,237"/>
+<map id="galaxy::graphics::RenderTexture::recreate" name="galaxy::graphics::RenderTexture::recreate">
+<area shape="rect" id="Node000001" title="Destroy and re&#45;create framebuffer." alt="" coords="551,197,733,237"/>
 <area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="268,5,483,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="620,187,571,122,538,88,501,60,477,48,480,43,504,55,542,84,575,118,624,184"/>
 <area shape="rect" id="Node000004" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a47f87d15d392a8da7858271d36c32552" title="Resize framebuffers." alt="" coords="274,69,477,109"/>

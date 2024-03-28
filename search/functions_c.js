@@ -1,7 +1,7 @@
 var searchData=
 [
   ['make_0',['make',['../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#a41ae55a766bcb74e8031f88fbfbd4f8c',1,'galaxy::core::ServiceLocator']]],
-  ['make_5fbindless_1',['make_bindless',['../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#adf1b162870d2fcee93425bea7fba7f0e',1,'galaxy::graphics::Texture2D']]],
+  ['make_5fbindless_1',['make_bindless',['../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#adf1b162870d2fcee93425bea7fba7f0e',1,'galaxy::graphics::Texture2D::make_bindless()'],['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a226c099a1d44f3af90cf47a10aca7fc6',1,'galaxy::graphics::RenderTexture::make_bindless()']]],
   ['make_5fsingle_5fspaced_2',['make_single_spaced',['../db/d7c/namespacegalaxy_1_1strutils.html#a22d4d4217db71614abc57b1d4aa3a9a0',1,'galaxy::strutils']]],
   ['make_5fview_3',['make_view',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad7fbb0a9f6ef7d47e7c3032f36c1e962',1,'galaxy::graphics::Texture']]],
   ['map_4',['map',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae8929b0b704e5ddfaefc920f3a016d1e',1,'galaxy::scene::SceneManager']]],

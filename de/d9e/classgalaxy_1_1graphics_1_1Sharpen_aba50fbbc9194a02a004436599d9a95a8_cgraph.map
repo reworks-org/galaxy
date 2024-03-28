@@ -1,15 +1,25 @@
 <map id="galaxy::graphics::Sharpen::resize" name="galaxy::graphics::Sharpen::resize">
-<area shape="rect" id="Node000001" title="Resize framebuffers." alt="" coords="5,69,195,109"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ad9b89e211375cb8a97e0bf4ce9561392" title="Change framebuffer and texture size." alt="" coords="243,69,425,109"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,87,229,87,229,92,195,92"/>
-<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="489,5,672,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,67,489,46,491,51,413,72"/>
-<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a751be5b873be03ab422bc5281da3c188" title="Resize framebuffer." alt="" coords="473,69,688,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="425,87,460,87,460,92,425,92"/>
-<area shape="rect" id="Node000007" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="489,133,672,173"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="413,107,491,127,489,132,411,112"/>
-<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="736,37,951,77"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="688,74,722,69,723,75,688,79"/>
-<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="736,101,951,141"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="688,100,723,104,722,109,688,105"/>
+<area shape="rect" id="Node000001" title="Resize framebuffers." alt="" coords="5,255,195,295"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="243,255,425,295"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,272,229,272,229,277,195,277"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="489,169,672,209"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,252,508,211,510,216,393,257"/>
+<area shape="rect" id="Node000009" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="762,229,945,269"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="426,268,748,252,748,257,426,273"/>
+<area shape="rect" id="Node000010" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="762,293,945,333"/>
+<area shape="poly" id="edge12_Node000002_Node000010" title=" " alt="" coords="426,279,749,303,748,308,426,284"/>
+<area shape="rect" id="Node000011" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6350f1b6c59a018c7ce8ef9de3504bf8" title="Completely delete objects." alt="" coords="473,337,688,377"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="395,292,508,330,506,335,394,297"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="746,37,961,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="606,167,663,127,735,87,753,79,755,84,737,92,666,131,609,171"/>
+<area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="736,101,971,141"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="661,167,759,142,760,147,662,172"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="746,165,961,205"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="672,185,732,184,732,190,672,191"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="673,207,749,224,748,229,672,212"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="612,207,668,243,737,279,757,286,755,291,735,284,666,248,609,212"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1019,5,1233,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="961,42,1005,37,1005,42,961,47"/>
+<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1019,69,1233,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="961,67,1005,73,1005,78,961,73"/>
 </map>

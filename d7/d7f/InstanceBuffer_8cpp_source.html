@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('d7/d7f/InstanceBuffer_8cpp_source.html
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a9b0f8008b590344d05f7b8867f8e4796">   53</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a9b0f8008b590344d05f7b8867f8e4796">InstanceBuffer::buffer</a>(std::span&lt;glm::mat4&gt; transforms)</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <a class="code hl_variable" href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a6d353d15ab8f42ab9153af4cf28bf1fd">m_amount</a> = transforms.size();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <a class="code hl_variable" href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a6d353d15ab8f42ab9153af4cf28bf1fd">m_amount</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(transforms.size());</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            glNamedBufferData(<a class="code hl_variable" href="../../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#af6d8b0c082926be69f9bccb503a88225">m_id</a>, transforms.size_bytes(), transforms.data(), GL_DYNAMIC_DRAW);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
 </div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('d7/d7f/InstanceBuffer_8cpp_source.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../d7/d7f/InstanceBuffer_8cpp.html">InstanceBuffer.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 16 2024 03:50:46 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Mar 28 2024 13:45:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
