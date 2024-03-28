@@ -160,6 +160,42 @@
     <ClInclude Include="entt_sol\entt_sol\meta_helper.hpp" />
     <ClInclude Include="entt_sol\entt_sol\registry.hpp" />
     <ClInclude Include="entt_sol\entt_sol\script_process.hpp" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\FiraCode\FiraCode-Regular.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\Inter\Inter.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryFinder.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\panels\DirectoryTreeView.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\panels\FileTextEdit.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\FontManager.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\ImGuiController.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\PathUtils.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\portable-file-dialogs.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\TextEditor.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\Trie.h" />
+    <ClInclude Include="imgui\imgui_addons\code_editor\Utils.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_markdown.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_notify.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_offset_rect.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_math.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_palette.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_presets.h" />
+    <ClInclude Include="imgui\imgui_addons\imgui_toggle_renderer.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes.h" />
+    <ClInclude Include="imgui\imgui_addons\imnodes_internal.h" />
+    <ClInclude Include="imgui\imgui_addons\ImTween.h" />
+    <ClInclude Include="imgui\imgui_addons\material_design_icons.h" />
+    <ClInclude Include="imgui\imgui_addons\material_design_icons_ttf.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_freetype.h" />
+    <ClInclude Include="imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imgui_stdlib.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

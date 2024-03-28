@@ -41,14 +41,14 @@
         "window": {
             "cursor_icon": "",
             "debug": true,
-            "height": 512,
+            "height": 1080,
             "icon": "",
             "maximized": false,
             "scale_to_monitor": true,
             "title": "supercluster",
             "visible_cursor": true,
             "vsync": false,
-            "width": 512
+            "width": 1920
         }
     }
 }

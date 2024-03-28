@@ -56,7 +56,7 @@ namespace galaxy
 		{
 			const auto ind_len = indicies.size_bytes();
 			m_offset           = vertices.size_bytes();
-			m_count            = indicies.size();
+			m_count            = static_cast<int>(indicies.size());
 
 			glNamedBufferData(m_id, ind_len + m_offset, nullptr, GL_DYNAMIC_DRAW);
 			glNamedBufferSubData(m_id, m_offset, ind_len, indicies.data());
@@ -67,7 +67,7 @@ namespace galaxy
 		{
 			const auto ind_len = indicies.size_bytes();
 			m_offset           = vertex_count * sizeof(Vertex);
-			m_count            = indicies.size();
+			m_count            = static_cast<int>(indicies.size());
 
 			glNamedBufferData(m_id, ind_len + m_offset, nullptr, GL_DYNAMIC_DRAW);
 			glNamedBufferSubData(m_id, m_offset, ind_len, indicies.data());

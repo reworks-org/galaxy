@@ -52,7 +52,7 @@ namespace galaxy
 
 		void InstanceBuffer::buffer(std::span<glm::mat4> transforms)
 		{
-			m_amount = transforms.size();
+			m_amount = static_cast<int>(transforms.size());
 			glNamedBufferData(m_id, transforms.size_bytes(), transforms.data(), GL_DYNAMIC_DRAW);
 		}
 
