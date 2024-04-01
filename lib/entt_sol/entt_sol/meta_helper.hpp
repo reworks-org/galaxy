@@ -6,7 +6,7 @@
 
 namespace entt_sol
 {
-	[[nodiscard]] entt::id_type get_type_id(const sol::table& obj)
+	[[nodiscard]] inline entt::id_type get_type_id(const sol::table& obj)
 	{
 		const auto f = obj["type_id"].get<sol::function>();
 		assert(f.valid() && "type_id not exposed to lua!");
@@ -14,7 +14,7 @@ namespace entt_sol
 	}
 
 	template<typename T>
-	[[nodiscard]] entt::id_type deduce_type(T&& obj)
+	[[nodiscard]] inline entt::id_type deduce_type(T&& obj)
 	{
 		switch (obj.get_type())
 		{

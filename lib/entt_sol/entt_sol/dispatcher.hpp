@@ -5,9 +5,8 @@
 
 namespace entt_sol
 {
-
 	template<typename Event>
-	auto connect_listener(entt::dispatcher* dispatcher, const sol::function& f)
+	inline auto connect_listener(entt::dispatcher* dispatcher, const sol::function& f)
 	{
 		assert(dispatcher && f.valid());
 
@@ -47,35 +46,35 @@ namespace entt_sol
 	}
 
 	template<typename Event>
-	void trigger_event(entt::dispatcher* dispatcher, const sol::table& evt)
+	inline void trigger_event(entt::dispatcher* dispatcher, const sol::table& evt)
 	{
 		assert(dispatcher && evt.valid());
 		dispatcher->trigger(evt.as<Event>());
 	}
 
 	template<typename Event>
-	void enqueue_event(entt::dispatcher* dispatcher, const sol::table& evt)
+	inline void enqueue_event(entt::dispatcher* dispatcher, const sol::table& evt)
 	{
 		assert(dispatcher && evt.valid());
 		dispatcher->enqueue(evt.as<Event>());
 	}
 
 	template<typename Event>
-	void clear_event(entt::dispatcher* dispatcher)
+	inline void clear_event(entt::dispatcher* dispatcher)
 	{
 		assert(dispatcher);
 		dispatcher->clear<Event>();
 	}
 
 	template<typename Event>
-	void update_event(entt::dispatcher* dispatcher)
+	inline void update_event(entt::dispatcher* dispatcher)
 	{
 		assert(dispatcher);
 		dispatcher->update<Event>();
 	}
 
 	template<typename Event>
-	void register_meta_event()
+	inline void register_meta_event()
 	{
 		using namespace entt::literals;
 
@@ -87,7 +86,7 @@ namespace entt_sol
 			.template func<&update_event<Event>>("update_event"_hs);
 	}
 
-	[[nodiscard]] sol::table open_dispatcher(sol::this_state s)
+	[[nodiscard]] inline sol::table open_dispatcher(sol::this_state s)
 	{
 		// To create a dispatcher in a script: entt.dispatcher.new()
 
