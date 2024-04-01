@@ -1,0 +1,5 @@
+<map id="galaxy::math::Random::gen" name="galaxy::math::Random::gen">
+<area shape="rect" id="Node000001" title="Generate a random number of type T." alt="" coords="192,13,393,38"/>
+<area shape="rect" id="Node000002" href="$d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f" title="Constructor." alt="" coords="5,5,144,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,28,144,28,144,23,178,23"/>
+</map>

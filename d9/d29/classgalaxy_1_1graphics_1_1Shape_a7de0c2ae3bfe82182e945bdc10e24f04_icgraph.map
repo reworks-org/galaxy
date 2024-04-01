@@ -1,7 +1,13 @@
 <map id="galaxy::graphics::Shape::mode" name="galaxy::graphics::Shape::mode">
-<area shape="rect" id="Node000001" title="Get OpenGL rendering mode." alt="" coords="257,37,433,77"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title="Adds a renderable object to the registry." alt="" coords="5,5,209,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,46,209,42,210,36,244,41"/>
-<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="10,69,205,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,74,205,79,204,74,243,68"/>
+<area shape="rect" id="Node000001" title="Get OpenGL rendering mode." alt="" coords="657,69,833,109"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title="Adds a renderable object to the registry." alt="" coords="405,5,609,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="656,68,582,48,583,43,658,63"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="439,69,576,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="643,92,576,92,576,87,643,87"/>
+<area shape="rect" id="Node000006" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="410,133,605,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="658,116,583,136,582,131,656,110"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,77,357,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="425,92,358,92,358,87,425,87"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,172,92,172,87,206,87"/>
 </map>

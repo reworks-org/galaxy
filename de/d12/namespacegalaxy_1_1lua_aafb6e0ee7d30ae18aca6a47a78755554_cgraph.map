@@ -1,5 +1,14 @@
 <map id="galaxy::lua::inject_nuklear" name="galaxy::lua::inject_nuklear">
-<area shape="rect" id="Node000001" title="Load nuklear ui into lua." alt="" coords="5,5,143,45"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="191,13,421,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,23,177,23,177,28,143,28"/>
+<area shape="rect" id="Node000001" title="Load nuklear ui into lua." alt="" coords="5,106,143,146"/>
+<area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="469,111,656,136"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,104,131,63,159,43,190,27,253,8,305,3,358,10,422,27,456,41,489,60,540,99,536,103,486,64,454,46,420,32,357,15,305,8,254,14,192,32,162,47,135,67,93,108"/>
+<area shape="rect" id="Node000003" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a975c17d399451f6fa3acbf4af32d97bf" title="Disables nuklear input." alt="" coords="227,42,385,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,104,219,83,220,88,144,110"/>
+<area shape="rect" id="Node000004" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a54512250c55b600300d55aaf3dd0dc8f" title="Enables nuklear input." alt="" coords="227,106,385,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,123,213,123,213,129,143,129"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="191,171,421,196"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="144,143,191,155,232,165,231,170,190,160,142,148"/>
+<area shape="rect" id="Node000006" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#af380f4368758244de1504b1d6fee76e9" title="Change the active font." alt="" coords="227,221,385,261"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="101,144,142,175,192,205,214,214,212,219,189,210,139,180,97,148"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="385,218,420,205,480,173,531,141,534,146,483,178,422,210,386,223"/>
 </map>

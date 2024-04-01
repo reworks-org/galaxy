@@ -1,0 +1,9 @@
+<map id="galaxy::components::RigidBody::set_restitution_threshold" name="galaxy::components::RigidBody::set_restitution_threshold">
+<area shape="rect" id="Node000001" title="Set restitution threshold." alt="" coords="591,5,788,60"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title=" " alt="" coords="405,13,543,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,35,543,35,543,30,577,30"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,20,357,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,35,358,35,358,30,392,30"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,20,172,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,35,172,35,172,30,206,30"/>
+</map>

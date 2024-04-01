@@ -1,59 +1,56 @@
 <map id="galaxy/src/galaxy/input/InputMods.hpp" name="galaxy/src/galaxy/input/InputMods.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="791,5,965,45"/>
-<area shape="rect" id="Node000002" href="$d2/d84/Window_8cpp.html" title=" " alt="" coords="539,181,708,221"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="837,55,774,96,722,135,653,183,650,179,719,131,771,91,834,50"/>
-<area shape="rect" id="Node000003" href="$d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="315,93,500,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="778,48,501,98,500,93,777,42"/>
-<area shape="rect" id="Node000008" href="$d2/dd7/KeyRepeat_8hpp.html" title=" " alt="" coords="524,93,709,133"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="808,52,675,96,673,91,807,47"/>
-<area shape="rect" id="Node000010" href="$d9/df2/KeyUp_8hpp.html" title=" " alt="" coords="997,93,1183,133"/>
-<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="938,48,1045,91,1043,96,936,53"/>
-<area shape="rect" id="Node000012" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="1207,93,1392,133"/>
-<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="979,44,1207,91,1206,96,978,50"/>
-<area shape="rect" id="Node000020" href="$df/dd4/MouseReleased_8hpp.html" title=" " alt="" coords="785,93,971,133"/>
-<area shape="poly" id="edge30_Node000001_Node000020" title=" " alt="" coords="881,59,881,93,875,93,875,59"/>
-<area shape="rect" id="Node000022" href="$dc/d8e/InputMods_8cpp.html" title=" " alt="" coords="1416,93,1591,133"/>
-<area shape="poly" id="edge35_Node000001_Node000022" title=" " alt="" coords="979,35,1176,59,1405,91,1416,92,1415,98,1404,96,1176,64,978,40"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="468,136,577,179,575,184,466,141"/>
-<area shape="rect" id="Node000004" href="$d5/de6/CameraController_8hpp.html" title=" " alt="" coords="5,181,201,221"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="328,140,171,184,169,179,326,135"/>
-<area shape="rect" id="Node000006" href="$df/d09/LuaDependencies_8cpp.html" title=" " alt="" coords="994,181,1191,221"/>
-<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="514,131,646,147,750,155,852,164,982,179,994,180,993,186,982,184,852,169,749,161,646,152,513,136"/>
-<area shape="rect" id="Node000007" href="$db/dac/LuaGalaxy_8cpp.html" title=" " alt="" coords="871,269,1069,309"/>
-<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="335,141,300,157,271,177,263,187,258,197,259,208,266,219,296,234,351,247,514,266,704,277,871,283,871,289,704,283,514,271,350,252,294,239,263,223,254,210,253,197,258,184,268,173,297,153,333,136"/>
-<area shape="rect" id="Node000005" href="$d0/dd3/CameraController_8cpp.html" title=" " alt="" coords="5,269,201,309"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="106,235,106,269,101,269,101,235"/>
-<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="622,147,625,181,619,181,617,147"/>
-<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="723,131,994,180,993,185,722,136"/>
-<area shape="poly" id="edge12_Node000008_Node000007" title=" " alt="" coords="571,143,547,161,529,180,521,201,522,210,528,220,550,236,583,250,624,261,671,270,774,280,871,285,871,290,774,286,671,275,623,266,581,255,547,241,524,223,517,212,516,200,524,178,544,157,568,139"/>
-<area shape="rect" id="Node000009" href="$d7/d24/KeyRepeat_8cpp.html" title=" " alt="" coords="277,181,463,221"/>
-<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="550,140,425,184,423,179,549,135"/>
-<area shape="poly" id="edge14_Node000010_Node000002" title=" " alt="" coords="985,137,709,187,708,182,984,131"/>
-<area shape="poly" id="edge16_Node000010_Node000006" title=" " alt="" coords="1094,147,1095,181,1089,181,1088,147"/>
-<area shape="poly" id="edge17_Node000010_Node000007" title=" " alt="" coords="1197,132,1339,161,1416,179,1425,201,1416,223,1393,241,1359,255,1317,266,1269,275,1166,286,1069,290,1069,285,1166,280,1269,270,1316,261,1357,250,1390,236,1412,220,1420,201,1412,183,1338,166,1196,138"/>
-<area shape="rect" id="Node000011" href="$db/dfd/KeyUp_8cpp.html" title=" " alt="" coords="1216,181,1401,221"/>
-<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="1152,136,1262,179,1260,184,1150,141"/>
-<area shape="poly" id="edge19_Node000012_Node000002" title=" " alt="" coords="1193,136,981,162,772,184,709,192,708,186,771,179,980,157,1192,131"/>
-<area shape="poly" id="edge21_Node000012_Node000006" title=" " alt="" coords="1242,141,1139,184,1137,179,1240,136"/>
-<area shape="poly" id="edge22_Node000012_Node000007" title=" " alt="" coords="1371,136,1405,153,1434,173,1443,184,1448,197,1447,210,1439,223,1420,234,1388,243,1293,260,1069,283,1069,278,1292,255,1387,238,1418,229,1435,219,1441,208,1442,197,1438,187,1430,177,1403,157,1368,141"/>
-<area shape="rect" id="Node000013" href="$da/d9f/MousePressed_8cpp.html" title=" " alt="" coords="1528,181,1713,221"/>
-<area shape="poly" id="edge20_Node000012_Node000013" title=" " alt="" coords="1383,134,1551,179,1550,184,1382,139"/>
-<area shape="rect" id="Node000014" href="$d2/dc1/NuklearUI_8hpp.html" title=" " alt="" coords="1737,181,1891,221"/>
-<area shape="poly" id="edge23_Node000012_Node000014" title=" " alt="" coords="1406,131,1568,154,1726,179,1738,181,1737,186,1726,184,1568,159,1405,136"/>
-<area shape="poly" id="edge27_Node000014_Node000007" title=" " alt="" coords="1724,224,1540,248,1359,265,1069,286,1069,280,1359,260,1539,242,1724,219"/>
-<area shape="rect" id="Node000015" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="2115,269,2284,309"/>
-<area shape="poly" id="edge24_Node000014_Node000015" title=" " alt="" coords="1905,220,2115,267,2114,272,1904,225"/>
-<area shape="rect" id="Node000016" href="$d0/dd0/core_2Loader_8cpp.html" title=" " alt="" coords="1319,269,1488,309"/>
-<area shape="poly" id="edge25_Node000014_Node000016" title=" " alt="" coords="1724,224,1489,273,1488,268,1723,219"/>
-<area shape="rect" id="Node000017" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="1513,269,1691,309"/>
-<area shape="poly" id="edge26_Node000014_Node000017" title=" " alt="" coords="1756,229,1649,272,1647,267,1754,224"/>
-<area shape="rect" id="Node000018" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="1715,269,1913,309"/>
-<area shape="poly" id="edge28_Node000014_Node000018" title=" " alt="" coords="1817,235,1817,269,1811,269,1811,235"/>
-<area shape="rect" id="Node000019" href="$d8/d99/NuklearUI_8cpp.html" title=" " alt="" coords="1937,269,2091,309"/>
-<area shape="poly" id="edge29_Node000014_Node000019" title=" " alt="" coords="1872,224,1971,267,1969,272,1869,229"/>
-<area shape="poly" id="edge31_Node000020_Node000002" title=" " alt="" coords="810,140,680,184,678,179,808,135"/>
-<area shape="poly" id="edge33_Node000020_Node000006" title=" " alt="" coords="939,136,1047,179,1045,184,937,141"/>
-<area shape="poly" id="edge34_Node000020_Node000007" title=" " alt="" coords="817,142,792,160,774,183,767,202,774,220,793,241,817,257,844,268,872,276,870,282,842,273,815,261,790,245,769,223,762,202,769,180,789,156,814,138"/>
-<area shape="rect" id="Node000021" href="$d9/dd1/MouseReleased_8cpp.html" title=" " alt="" coords="784,181,969,221"/>
-<area shape="poly" id="edge32_Node000020_Node000021" title=" " alt="" coords="880,147,880,181,874,181,875,147"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="745,5,920,45"/>
+<area shape="rect" id="Node000002" href="$d2/d84/Window_8cpp.html" title=" " alt="" coords="435,181,604,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="732,33,583,40,418,53,278,71,231,82,206,95,201,104,199,113,206,131,287,151,435,181,434,186,286,156,203,135,193,113,196,102,203,91,229,77,277,66,418,47,583,35,732,27"/>
+<area shape="rect" id="Node000003" href="$d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="427,93,612,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="751,52,589,96,587,91,750,46"/>
+<area shape="rect" id="Node000007" href="$d2/dd7/KeyRepeat_8hpp.html" title=" " alt="" coords="217,93,403,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="732,45,414,96,403,98,403,93,414,91,731,40"/>
+<area shape="rect" id="Node000009" href="$d9/df2/KeyUp_8hpp.html" title=" " alt="" coords="636,93,821,133"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="801,56,753,95,750,91,797,52"/>
+<area shape="rect" id="Node000011" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="1055,93,1240,133"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="916,46,1079,91,1078,96,914,52"/>
+<area shape="rect" id="Node000020" href="$df/dd4/MouseReleased_8hpp.html" title=" " alt="" coords="845,93,1031,133"/>
+<area shape="poly" id="edge26_Node000001_Node000020" title=" " alt="" coords="868,52,916,91,913,95,865,56"/>
+<area shape="rect" id="Node000022" href="$dc/d8e/InputMods_8cpp.html" title=" " alt="" coords="1264,93,1439,133"/>
+<area shape="poly" id="edge30_Node000001_Node000022" title=" " alt="" coords="934,39,1253,91,1264,93,1263,98,1252,96,933,44"/>
+<area shape="rect" id="Node000023" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="1463,93,1661,133"/>
+<area shape="poly" id="edge31_Node000001_Node000023" title=" " alt="" coords="934,33,1171,57,1452,91,1463,92,1463,98,1451,96,1170,62,934,38"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="522,147,522,181,517,181,517,147"/>
+<area shape="rect" id="Node000004" href="$d5/de6/CameraController_8hpp.html" title=" " alt="" coords="215,181,411,221"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="462,141,359,184,357,179,460,136"/>
+<area shape="rect" id="Node000006" href="$df/d33/LuaEvents_8cpp.html" title=" " alt="" coords="629,181,826,221"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="579,136,683,179,681,184,577,141"/>
+<area shape="rect" id="Node000005" href="$d0/dd3/CameraController_8cpp.html" title=" " alt="" coords="215,269,411,309"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="315,235,315,269,310,269,310,235"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="370,136,475,179,472,184,368,141"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="415,134,636,179,635,184,414,139"/>
+<area shape="rect" id="Node000008" href="$d7/d24/KeyRepeat_8cpp.html" title=" " alt="" coords="5,181,191,221"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="252,141,145,184,143,179,250,136"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="671,141,566,184,564,179,669,136"/>
+<area shape="poly" id="edge14_Node000009_Node000006" title=" " alt="" coords="731,147,730,181,725,181,725,147"/>
+<area shape="rect" id="Node000010" href="$db/dfd/KeyUp_8cpp.html" title=" " alt="" coords="851,181,1036,221"/>
+<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="789,136,897,179,895,184,787,141"/>
+<area shape="poly" id="edge16_Node000011_Node000002" title=" " alt="" coords="1041,136,921,151,827,160,735,168,617,184,605,186,604,181,616,179,734,163,827,154,921,146,1041,131"/>
+<area shape="poly" id="edge18_Node000011_Node000006" title=" " alt="" coords="1042,139,820,184,819,179,1041,134"/>
+<area shape="rect" id="Node000012" href="$da/d9f/MousePressed_8cpp.html" title=" " alt="" coords="1269,181,1455,221"/>
+<area shape="poly" id="edge17_Node000011_Node000012" title=" " alt="" coords="1208,136,1316,179,1314,184,1206,141"/>
+<area shape="rect" id="Node000013" href="$d2/dc1/NuklearUI_8hpp.html" title=" " alt="" coords="1479,181,1632,221"/>
+<area shape="poly" id="edge19_Node000011_Node000013" title=" " alt="" coords="1251,134,1468,179,1479,181,1478,186,1467,184,1250,139"/>
+<area shape="rect" id="Node000014" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="1563,269,1732,309"/>
+<area shape="poly" id="edge20_Node000013_Node000014" title=" " alt="" coords="1587,229,1629,267,1625,271,1584,233"/>
+<area shape="rect" id="Node000015" href="$d0/dd0/core_2Loader_8cpp.html" title=" " alt="" coords="1756,269,1925,309"/>
+<area shape="poly" id="edge21_Node000013_Node000015" title=" " alt="" coords="1632,223,1779,267,1777,272,1630,228"/>
+<area shape="rect" id="Node000016" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="1950,269,2129,309"/>
+<area shape="poly" id="edge22_Node000013_Node000016" title=" " alt="" coords="1646,216,1938,267,1950,269,1949,274,1938,272,1645,221"/>
+<area shape="rect" id="Node000017" href="$d9/d2b/LuaNuklear_8cpp.html" title=" " alt="" coords="942,269,1139,309"/>
+<area shape="poly" id="edge23_Node000013_Node000017" title=" " alt="" coords="1466,224,1307,249,1152,272,1140,274,1139,269,1151,267,1306,244,1465,219"/>
+<area shape="rect" id="Node000018" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="1163,269,1361,309"/>
+<area shape="poly" id="edge24_Node000013_Node000018" title=" " alt="" coords="1479,228,1327,272,1325,267,1477,223"/>
+<area shape="rect" id="Node000019" href="$d8/d99/NuklearUI_8cpp.html" title=" " alt="" coords="1385,269,1539,309"/>
+<area shape="poly" id="edge25_Node000013_Node000019" title=" " alt="" coords="1526,233,1484,271,1481,267,1523,229"/>
+<area shape="poly" id="edge27_Node000020_Node000002" title=" " alt="" coords="833,139,605,185,604,180,832,134"/>
+<area shape="poly" id="edge29_Node000020_Node000006" title=" " alt="" coords="880,141,774,184,772,179,878,136"/>
+<area shape="rect" id="Node000021" href="$d9/dd1/MouseReleased_8cpp.html" title=" " alt="" coords="1060,181,1245,221"/>
+<area shape="poly" id="edge28_Node000020_Node000021" title=" " alt="" coords="999,136,1107,179,1105,184,997,141"/>
 </map>

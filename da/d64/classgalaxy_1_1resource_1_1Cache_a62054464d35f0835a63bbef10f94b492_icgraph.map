@@ -1,5 +1,12 @@
 <map id="galaxy::resource::Cache::size" name="galaxy::resource::Cache::size">
-<area shape="rect" id="Node000001" title="Get amount of resources cached." alt="" coords="231,5,408,45"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="5,5,183,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,28,183,28,183,23,217,23"/>
+<area shape="rect" id="Node000001" title="Get amount of resources cached." alt="" coords="816,35,993,75"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="591,5,768,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="802,44,768,40,768,34,803,39"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,35,543,75"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="802,60,768,60,591,60,543,59,543,54,591,55,768,55,802,54"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="577,43,543,48,543,42,576,37"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,42,357,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,57,358,57,358,52,392,52"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
 </map>

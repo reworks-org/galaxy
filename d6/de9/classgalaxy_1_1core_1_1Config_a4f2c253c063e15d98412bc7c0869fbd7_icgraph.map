@@ -1,7 +1,13 @@
 <map id="galaxy::core::Config::has" name="galaxy::core::Config::has">
-<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="204,45,385,70"/>
-<area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3" title="Sets a new setting, only if key or value is missing." alt="" coords="5,5,156,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,45,156,39,157,34,196,40"/>
-<area shape="rect" id="Node000003" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="5,69,156,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,75,157,81,156,75,196,69"/>
+<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="625,63,807,88"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="405,5,577,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="652,62,541,33,542,28,653,57"/>
+<area shape="rect" id="Node000005" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3" title="Sets a new setting, only if key or value is missing." alt="" coords="416,55,567,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="611,78,567,78,567,73,611,73"/>
+<area shape="rect" id="Node000006" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="416,119,567,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="658,94,563,122,562,117,657,89"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,5,357,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,21,357,21,357,15,392,15"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,5,172,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,21,172,21,172,15,206,15"/>
 </map>

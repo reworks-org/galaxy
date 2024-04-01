@@ -1,4 +1,4 @@
-<map id="galaxy/src/galaxy/scripting/LuaServices.cpp" name="galaxy/src/galaxy/scripting/LuaServices.cpp">
+<map id="galaxy/src/galaxy/scripting/lua/LuaServices.cpp" name="galaxy/src/galaxy/scripting/lua/LuaServices.cpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="1469,5,1667,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="305,93,495,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1469,34,1054,58,515,96,510,96,509,91,514,91,1053,53,1469,29"/>

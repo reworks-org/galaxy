@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/scripting/LuaServices.cpp Source File</title>
+<title>galaxy: galaxy/src/galaxy/scripting/lua/LuaServices.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -152,10 +152,11 @@ $(document).ready(function(){initNavTree('d1/d50/LuaServices_8cpp_source.html','
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            lua[<span class="stringliteral">&quot;galaxy_scripts&quot;</span>]     = std::ref(<a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;resource::Scripts&gt;::ref</a>());</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            lua[<span class="stringliteral">&quot;galaxy_dispatcher&quot;</span>]  = std::ref(<a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;entt::dispatcher&gt;::ref</a>());</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            lua[<span class="stringliteral">&quot;galaxy_scenes&quot;</span>]      = std::ref(<a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;scene::SceneManager&gt;::ref</a>());</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            lua[<span class="stringliteral">&quot;galaxy_fontcontext&quot;</span>] = std::ref(<a class="code hl_class" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html">core::ServiceLocator&lt;graphics::FontContext&gt;::ref</a>());</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    } <span class="comment">// namespace lua</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    } <span class="comment">// namespace lua</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aAudioEngine_8hpp_html"><div class="ttname"><a href="../../d4/d92/AudioEngine_8hpp.html">AudioEngine.hpp</a></div></div>
 <div class="ttc" id="aConfig_8hpp_html"><div class="ttname"><a href="../../df/db4/Config_8hpp.html">Config.hpp</a></div></div>
 <div class="ttc" id="aEntityMeta_8hpp_html"><div class="ttname"><a href="../../d4/d95/EntityMeta_8hpp.html">EntityMeta.hpp</a></div></div>
@@ -179,8 +180,8 @@ $(document).ready(function(){initNavTree('d1/d50/LuaServices_8cpp_source.html','
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../d1/d50/LuaServices_8cpp.html">LuaServices.cpp</a></li>
-    <li class="footer">Generated on Thu Mar 28 2024 13:45:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dir_5166590be04beeb03b821b2adcb9d01a.html">lua</a></li><li class="navelem"><a class="el" href="../../d1/d50/LuaServices_8cpp.html">LuaServices.cpp</a></li>
+    <li class="footer">Generated on Mon Apr 1 2024 06:57:04 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

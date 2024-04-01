@@ -1,0 +1,64 @@
+<map id="galaxy::lua::inject_input" name="galaxy::lua::inject_input">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,920,143,960"/>
+<area shape="rect" id="Node000002" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0" title="Enable window to begin processing text input." alt="" coords="206,5,381,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,920,74,754,78,631,87,495,101,359,122,233,135,177,150,128,168,87,189,56,193,51,197,55,193,59,173,90,155,130,140,178,127,234,106,359,92,496,84,631,79,754,78,920"/>
+<area shape="rect" id="Node000003" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clean up custom cursor." alt="" coords="215,69,371,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,920,76,765,91,525,105,399,125,283,153,186,169,149,189,120,202,108,205,112,193,123,174,151,158,188,130,284,110,400,96,526,81,765,78,920"/>
+<area shape="rect" id="Node000004" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d" title="Disable sticky keys." alt="" coords="206,133,381,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="73,920,78,775,94,555,109,439,129,333,155,245,171,210,189,184,193,179,197,183,193,187,175,213,160,246,134,334,114,440,100,555,83,776,78,920"/>
+<area shape="rect" id="Node000005" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#adf98facfb24d4602c169023bab725688" title="Disable sticky mouse." alt="" coords="207,197,380,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="73,920,80,786,98,585,113,480,132,383,157,303,172,272,189,248,194,242,197,246,193,251,177,274,162,305,138,384,118,481,103,585,85,787,79,920"/>
+<area shape="rect" id="Node000006" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366" title="Enable sticky keys." alt="" coords="206,261,381,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="74,919,82,796,102,614,117,520,136,433,160,361,174,333,189,312,193,307,197,311,193,315,178,336,165,363,141,434,122,521,107,615,87,797,79,920"/>
+<area shape="rect" id="Node000007" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf" title="Enable sticky mouse." alt="" coords="208,325,379,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="74,919,84,808,106,645,121,561,140,484,162,420,175,395,189,376,195,370,198,373,193,379,179,397,167,422,145,485,126,562,111,646,90,809,79,920"/>
+<area shape="rect" id="Node000008" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197" title="Disable text input." alt="" coords="206,389,381,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="75,919,87,819,110,676,125,602,143,534,165,478,189,440,193,436,196,439,193,443,169,480,148,536,130,603,115,677,92,820,80,920"/>
+<area shape="rect" id="Node000009" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html#a7922bca6ef5215174ed6669c94a4a122" title="Get clipboard contents." alt="" coords="191,454,396,479"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="75,919,88,828,112,699,127,633,145,573,166,524,189,490,195,485,199,489,193,494,171,526,151,575,133,634,117,700,94,829,80,920"/>
+<area shape="rect" id="Node000010" href="$db/df9/classgalaxy_1_1input_1_1Input.html#a019aa9534ba54cd79e0c71b262bd28b0" title="Get current cursor position." alt="" coords="220,504,367,544"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="73,919,76,851,92,753,106,700,126,647,154,598,189,554,206,541,209,545,193,558,158,601,131,649,111,701,97,754,82,851,78,920"/>
+<area shape="rect" id="Node000011" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a87e26a18b74d05110d1de9b08506c475" title="Get key name." alt="" coords="206,568,381,608"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="74,920,81,861,100,780,114,737,134,694,158,654,189,618,194,614,197,618,193,622,163,657,138,696,119,739,105,782,87,862,79,920"/>
+<area shape="rect" id="Node000012" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="215,632,372,672"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="76,919,87,871,108,807,141,740,163,709,189,682,201,673,204,677,192,686,167,713,146,743,113,809,92,873,81,920"/>
+<area shape="rect" id="Node000013" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a61fc7b6066ccce21c96f7b51574287b9" title="Get key scancode." alt="" coords="206,696,381,736"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="79,919,94,882,117,836,149,787,189,746,196,741,200,745,192,750,153,791,122,838,99,884,84,921"/>
+<area shape="rect" id="Node000014" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4" title="Get key name." alt="" coords="206,760,381,800"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="86,918,128,864,157,835,189,810,200,803,203,808,192,814,160,839,132,868,91,921"/>
+<area shape="rect" id="Node000015" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="228,824,359,864"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="106,918,190,874,214,864,216,869,192,878,109,922"/>
+<area shape="rect" id="Node000016" href="$dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4" title="Converts an integer to a key modifier enum." alt="" coords="228,888,359,928"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="142,927,214,917,215,922,143,933"/>
+<area shape="rect" id="Node000017" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b" title="Check if window is in text input mode." alt="" coords="206,952,381,992"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="143,947,193,955,192,960,142,953"/>
+<area shape="rect" id="Node000018" href="$db/df9/classgalaxy_1_1input_1_1Input.html#a71b0cbd6fd83f4f279d50599fca1a06e" title="See if a key is being held down." alt="" coords="220,1016,367,1056"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="109,958,192,1002,210,1009,208,1014,190,1006,106,962"/>
+<area shape="rect" id="Node000019" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a7413b89aa62060f109c520eab7c25716" title="Load custom cursor data." alt="" coords="215,1080,371,1120"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="91,959,132,1012,160,1041,192,1066,204,1073,202,1077,189,1070,157,1045,128,1016,86,962"/>
+<area shape="rect" id="Node000020" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="444,1117,675,1142"/>
+<area shape="poly" id="edge22_Node000001_Node000020" title=" " alt="" coords="83,960,96,999,117,1046,149,1093,169,1114,192,1130,230,1147,271,1158,313,1163,356,1164,436,1157,503,1143,504,1148,437,1162,356,1170,313,1169,270,1163,228,1152,189,1134,166,1118,145,1097,113,1049,91,1000,78,961"/>
+<area shape="rect" id="Node000021" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#af1fe90b437cd8a043f17e5165e159c1b" title="Load custom cursor data." alt="" coords="215,1195,371,1235"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="82,959,95,1003,117,1061,149,1121,169,1149,192,1174,208,1186,205,1190,189,1178,165,1153,144,1124,112,1063,90,1005,77,961"/>
+<area shape="rect" id="Node000022" href="$db/df9/classgalaxy_1_1input_1_1Input.html#ac44a87c102404353baa9ebfc004fc8e1" title="Check if a mouse button was pressed." alt="" coords="211,1259,376,1299"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="80,960,88,1016,106,1093,121,1134,140,1174,164,1212,193,1245,200,1251,197,1255,189,1249,159,1215,135,1177,116,1136,101,1094,82,1017,74,960"/>
+<area shape="rect" id="Node000023" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html#af5da3a2666b5cd027011b8dac64f3a89" title="Set clipboard contents." alt="" coords="191,1323,395,1349"/>
+<area shape="poly" id="edge23_Node000001_Node000023" title=" " alt="" coords="78,960,82,1027,97,1122,111,1172,131,1222,158,1268,193,1309,199,1314,195,1318,189,1313,154,1272,127,1224,106,1174,92,1123,76,1028,73,961"/>
+<area shape="rect" id="Node000024" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="215,1373,371,1413"/>
+<area shape="poly" id="edge24_Node000001_Node000024" title=" " alt="" coords="77,960,79,1034,93,1141,107,1199,128,1256,156,1310,193,1358,205,1368,202,1373,189,1362,151,1313,123,1258,102,1200,88,1142,74,1035,72,960"/>
+<area shape="rect" id="Node000025" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#add11ffc8f98140f7a081ef2c46987240" title="OS default cross pointer." alt="" coords="215,1437,371,1477"/>
+<area shape="poly" id="edge25_Node000001_Node000025" title=" " alt="" coords="80,960,93,1058,116,1197,131,1269,149,1334,170,1387,193,1424,205,1434,201,1438,189,1427,165,1390,144,1336,126,1270,110,1198,87,1058,75,961"/>
+<area shape="rect" id="Node000026" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a674d16dccffec7705b060f8ca13f5a5d" title="Set cursor to custom cursor if loaded." alt="" coords="215,1501,371,1541"/>
+<area shape="poly" id="edge26_Node000001_Node000026" title=" " alt="" coords="80,960,90,1069,112,1228,127,1310,146,1384,167,1446,193,1488,205,1498,202,1502,189,1491,163,1448,141,1386,122,1311,106,1229,85,1070,74,961"/>
+<area shape="rect" id="Node000027" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab2b4fd213896f2ffbf8196c36c07fa88" title="Uses custom cursor if available, otherwise uses default OS pointer." alt="" coords="196,1565,391,1605"/>
+<area shape="poly" id="edge27_Node000001_Node000027" title=" " alt="" coords="79,960,88,1080,108,1258,123,1350,142,1435,165,1505,178,1531,193,1552,196,1555,192,1558,189,1555,174,1534,160,1507,137,1436,118,1351,103,1259,83,1081,74,960"/>
+<area shape="rect" id="Node000028" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a1f5f51125f8657cd56867fe5af44723d" title="OS default hand pointer." alt="" coords="215,1629,371,1669"/>
+<area shape="poly" id="edge28_Node000001_Node000028" title=" " alt="" coords="79,960,86,1091,104,1288,119,1391,138,1485,163,1563,177,1593,193,1616,205,1627,202,1631,189,1619,172,1596,158,1565,133,1487,114,1392,99,1289,80,1092,73,960"/>
+<area shape="rect" id="Node000029" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5101c7ba2fb0c162d2125ba57eb10c60" title="OS default pointer." alt="" coords="215,1693,371,1733"/>
+<area shape="poly" id="edge29_Node000001_Node000029" title=" " alt="" coords="78,960,84,1102,100,1318,115,1431,135,1536,161,1621,176,1655,193,1680,205,1691,202,1695,189,1683,171,1657,156,1623,130,1537,110,1432,95,1319,78,1102,73,960"/>
+<area shape="rect" id="Node000030" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad9d8ae2e759528dd126a4c7cd3b20926" title="OS default I&#45;Beam cursor." alt="" coords="215,1757,371,1797"/>
+<area shape="poly" id="edge30_Node000001_Node000030" title=" " alt="" coords="78,960,82,1113,97,1348,111,1472,131,1586,158,1680,174,1716,193,1744,205,1755,202,1759,189,1747,170,1719,153,1682,126,1587,106,1473,91,1349,76,1113,73,960"/>
+<area shape="rect" id="Node000031" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a5fd1af46c2ce9976895cd4898ad26740" title="Checks if cursor is within window." alt="" coords="215,1821,371,1861"/>
+<area shape="poly" id="edge31_Node000001_Node000031" title=" " alt="" coords="78,960,80,1124,84,1245,93,1378,107,1512,128,1636,156,1738,173,1778,193,1808,205,1819,202,1823,189,1811,168,1780,151,1740,122,1637,102,1513,88,1379,79,1245,74,1124,73,960"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="372,1106,430,1112,430,1118,371,1111"/>
+</map>

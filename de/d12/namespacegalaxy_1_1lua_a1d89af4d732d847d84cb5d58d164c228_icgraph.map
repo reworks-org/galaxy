@@ -1,5 +1,0 @@
-<map id="galaxy::lua::inject_external_modules" name="galaxy::lua::inject_external_modules">
-<area shape="rect" id="Node000001" title="Load some provided external libs into lua." alt="" coords="220,5,367,45"/>
-<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-</map>

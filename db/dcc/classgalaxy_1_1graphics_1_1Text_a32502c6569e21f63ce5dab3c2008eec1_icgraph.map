@@ -1,7 +1,13 @@
 <map id="galaxy::graphics::Text::create" name="galaxy::graphics::Text::create">
-<area shape="rect" id="Node000001" title="Creates the rendered text." alt="" coords="408,5,571,45"/>
-<area shape="rect" id="Node000002" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="207,5,360,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,28,360,28,360,23,394,23"/>
-<area shape="rect" id="Node000003" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="rect" id="Node000001" title="Creates the rendered text." alt="" coords="623,37,785,77"/>
+<area shape="rect" id="Node000002" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="421,5,575,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="609,45,575,40,576,35,609,40"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="429,69,567,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="609,75,568,81,567,76,609,69"/>
+<area shape="rect" id="Node000003" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="220,5,373,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,28,373,28,373,23,407,23"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="228,77,365,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="415,92,366,92,366,87,415,87"/>
+<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="214,92,172,92,172,87,214,87"/>
 </map>
