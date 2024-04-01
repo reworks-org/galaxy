@@ -248,12 +248,9 @@ namespace galaxy
 			// Inject all configured galaxy into Lua.
 			// Add engine services to lua.
 			//
-			lua::inject_external_modules();
-			lua::inject_dependencies();
-			lua::inject_nuklear();
-			lua::inject_galaxy();
-			lua::inject_services();
+			lua::inject();
 
+			// Load game assets.
 			core::ServiceLocator<core::Loader>::ref().load_all();
 		}
 

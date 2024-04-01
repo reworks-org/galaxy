@@ -5,10 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <Nuklear.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Lua.hpp"
 
@@ -19,6 +19,12 @@ namespace galaxy
 		void inject_nuklear()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			auto nui_type             = lua.new_usertype<ui::NuklearUI>("NuklearUI", sol::no_constructor);
+			nui_type["ctx"]           = &ui::NuklearUI::ctx;
+			nui_type["disable_input"] = &ui::NuklearUI::disable_input;
+			nui_type["enable_input"]  = &ui::NuklearUI::enable_input;
+			nui_type["set_font"]      = &ui::NuklearUI::set_font;
 
 			// clang-format off
 			lua.new_enum<nk_heading>("nk_heading",

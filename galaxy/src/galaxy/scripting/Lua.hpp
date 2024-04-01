@@ -13,14 +13,29 @@ namespace galaxy
 	namespace lua
 	{
 		///
-		/// Load some provided external libs into lua.
+		/// Inject everything into lua.
 		///
-		void inject_external_modules();
+		void inject();
 
 		///
-		/// Load the dependencies galaxy uses into lua.
 		///
-		void inject_dependencies();
+		///
+		void inject_miniaudio();
+
+		///
+		///
+		///
+		void inject_glm();
+
+		///
+		///
+		///
+		void inject_entt();
+
+		///
+		///
+		///
+		void inject_box2d();
 
 		///
 		/// Load nuklear ui into lua.
@@ -28,9 +43,73 @@ namespace galaxy
 		void inject_nuklear();
 
 		///
-		/// Registers galaxy_engine into Lua.
 		///
-		void inject_galaxy();
+		///
+		void inject_components();
+
+		///
+		///
+		///
+		void inject_core();
+
+		///
+		///
+		///
+		void inject_error();
+
+		///
+		///
+		///
+		void inject_events();
+
+		///
+		///
+		///
+		void inject_flags();
+
+		///
+		///
+		///
+		void inject_fs();
+
+		///
+		///
+		///
+		void inject_graphics();
+
+		///
+		///
+		///
+		void inject_input();
+
+		///
+		///
+		///
+		void inject_math();
+
+		///
+		///
+		///
+		void inject_media();
+
+		///
+		///
+		///
+		void inject_resources();
+
+		///
+		///
+		///
+		void inject_scenes();
+
+		///
+		///
+		///
+		void inject_utils();
+
+		///
+		///
+		///
 
 		///
 		/// Regsiter static engine services into lua.

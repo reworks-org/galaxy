@@ -55,7 +55,6 @@
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\core\Prefab.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaExternalModules.cpp" />
     <ClCompile Include="src\galaxy\media\AudioEngine.cpp" />
     <ClCompile Include="src\galaxy\media\Sound.cpp" />
     <ClCompile Include="src\galaxy\events\ContentScale.cpp" />
@@ -64,11 +63,10 @@
     <ClCompile Include="src\galaxy\media\Video.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityMeta.cpp" />
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaGalaxy.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaDependencies.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaServices.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaBox2D.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaServices.cpp" />
     <ClCompile Include="src\galaxy\ui\NuklearUI.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaNuklear.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaNuklear.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
@@ -148,8 +146,23 @@
     <ClCompile Include="src\galaxy\graphics\post\GaussianBlur.cpp" />
     <ClCompile Include="src\galaxy\graphics\post\Sharpen.cpp" />
     <ClCompile Include="src\galaxy\graphics\post\SMAA.cpp" />
-    <ClCompile Include="src\galaxy\resource\embedded\Serpent.cpp" />
-    <ClCompile Include="src\galaxy\resource\embedded\MiddleClass.cpp" />
+    <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaEntt.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaGLM.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMiniAudio.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaComponents.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaCore.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaError.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaEvents.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaFlags.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaFS.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaGraphics.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaInput.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMath.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMedia.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaResource.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaScenes.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -296,7 +309,5 @@
     <ClInclude Include="src\galaxy\graphics\post\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\GaussianBlur.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\Sharpen.hpp" />
-    <ClInclude Include="src\galaxy\resource\embedded\MiddleClass.hpp" />
-    <ClInclude Include="src\galaxy\resource\embedded\Serpent.hpp" />
   </ItemGroup>
 </Project>
