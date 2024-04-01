@@ -20,11 +20,13 @@ namespace galaxy
 		Guid::Guid()
 			: m_id {""}
 		{
-			m_id += s_chars[static_cast<int>(std::floor(math::random<float>(0.0f, 1.0f) * 6))];
+			math::Random rng;
+
+			m_id += s_chars[static_cast<int>(std::floor(rng.gen<float>(0.0f, 1.0f) * 6))];
 
 			for (auto i = 1; i < 32; i++)
 			{
-				const auto random = static_cast<int>(math::random<float>(0.0f, 1.0f) * 16);
+				const auto random = static_cast<int>(rng.gen<float>(0.0f, 1.0f) * 16);
 
 				if (i == 8 || i == 12 || i == 16 || i == 20)
 				{

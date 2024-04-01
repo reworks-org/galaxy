@@ -107,27 +107,6 @@ namespace galaxy
 			conditional_distribution<Type> dist {min, max};
 			return dist(m_mt);
 		}
-
-		///
-		/// Generate a random number of type T.
-		///
-		/// \tparam Type The type of number to return. Must be arithmetic.
-		///
-		/// \param min Minimum number inclusive.
-		/// \param max Maximum number inclusive.
-		///
-		/// \return Returns number of the same type as inputs.
-		///
-		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline Type random(const Type min, const Type max)
-		{
-			std::random_device rd;
-			std::mt19937_64    mt {rd()};
-
-			conditional_distribution<Type> dist {min, max};
-
-			return dist(mt);
-		}
 	} // namespace math
 } // namespace galaxy
 
