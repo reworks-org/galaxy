@@ -8,6 +8,7 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/input/CameraController.hpp"
 #include "galaxy/input/Clipboard.hpp"
 #include "galaxy/input/Cursor.hpp"
 #include "galaxy/input/Input.hpp"
@@ -24,6 +25,12 @@ namespace galaxy
 		void inject_input()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			auto camera_controller =
+				lua.new_usertype<input::CameraController>("CameraController", sol::constructors<input::CameraController(graphics::Camera&)>());
+			camera_controller["camera"]         = &input::CameraController::m_camera;
+			camera_controller["on_key_down"]    = &input::CameraController::on_key_down;
+			camera_controller["on_mouse_wheel"] = &input::CameraController::on_mouse_wheel;
 
 			auto clipboard_type   = lua.new_usertype<input::Clipboard>("Clipboard", sol::no_constructor);
 			clipboard_type["set"] = &input::Clipboard::set;
@@ -46,13 +53,12 @@ namespace galaxy
 			lua.set_function("galaxy_input_mouse_down", &input::Input::mouse_button_down);
 			lua.set_function("galaxy_input_cursor_pos", &input::Input::get_cursor_pos);
 
-			/*auto camerakeys_type            = lua.new_usertype<input::CameraKeys>("CameraKeys", sol::no_constructor);
-			camerakeys_type["BACKWARD"]     = &input::CameraKeys::BACKWARD;
-			camerakeys_type["FORWARD"]      = &input::CameraKeys::FORWARD;
-			camerakeys_type["LEFT"]         = &input::CameraKeys::LEFT;
-			camerakeys_type["RIGHT"]        = &input::CameraKeys::RIGHT;
-			camerakeys_type["ROTATE_LEFT"]  = &input::CameraKeys::ROTATE_LEFT;
-			camerakeys_type["ROTATE_RIGHT"] = &input::CameraKeys::ROTATE_RIGHT;*/
+			lua.set("galaxy_camera_forward", &input::CameraKeys::FORWARD);
+			lua.set("galaxy_camera_backward", &input::CameraKeys::BACKWARD);
+			lua.set("galaxy_camera_left", &input::CameraKeys::LEFT);
+			lua.set("galaxy_camera_right", &input::CameraKeys::RIGHT);
+			lua.set("galaxy_camera_rotate_left", &input::CameraKeys::ROTATE_LEFT);
+			lua.set("galaxy_camera_rotate_right", &input::CameraKeys::ROTATE_RIGHT);
 
 			// clang-format off
 			lua.new_enum<input::InputMods>("InputMods",

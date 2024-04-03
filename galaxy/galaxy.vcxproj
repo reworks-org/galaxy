@@ -27,7 +27,7 @@
     <ClCompile Include="src\galaxy\error\LogMessage.cpp" />
     <ClCompile Include="src\galaxy\error\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera.cpp" />
-    <ClCompile Include="src\galaxy\graphics\CameraController.cpp" />
+    <ClCompile Include="src\galaxy\input\CameraController.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
     <ClCompile Include="src\galaxy\graphics\post\ChromaticAberration.cpp" />
@@ -96,7 +96,7 @@
     <ClInclude Include="src\galaxy\error\LogMessage.hpp" />
     <ClInclude Include="src\galaxy\error\PhysFSError.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera.hpp" />
-    <ClInclude Include="src\galaxy\graphics\CameraController.hpp" />
+    <ClInclude Include="src\galaxy\input\CameraController.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\ChromaticAberration.hpp" />

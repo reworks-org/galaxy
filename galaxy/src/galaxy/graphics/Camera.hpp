@@ -14,6 +14,11 @@
 
 namespace galaxy
 {
+	namespace input
+	{
+		class CameraController;
+	} // namespace input
+
 	namespace graphics
 	{
 		///
@@ -21,7 +26,7 @@ namespace galaxy
 		///
 		class Camera final : public Transform, fs::Serializable
 		{
-			friend class CameraController;
+			friend class input::CameraController;
 
 		  public:
 			///
