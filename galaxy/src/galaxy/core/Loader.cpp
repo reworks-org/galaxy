@@ -45,6 +45,9 @@ namespace galaxy
 			auto& config = ServiceLocator<Config>::ref();
 			auto& nui    = ServiceLocator<ui::NuklearUI>::ref();
 
+			nk_size                 current = 0;
+			constexpr const nk_size total   = 10;
+
 			tp.detach_task([this]() -> void {
 				this->load_user_config();
 			});
@@ -53,21 +56,13 @@ namespace galaxy
 				this->load_window();
 			});
 
-			tp.detach_task([this]() -> void {
-				this->load_resources();
-			});
+			load_resources();
 
 			nui.enable_input();
 
-			nk_size                 current = 0;
-			constexpr const nk_size total   = 3;
-
 			do
 			{
-				if (tp.get_tasks_total() == 0)
-				{
-					current = total;
-				}
+				current = total - tp.get_tasks_total();
 
 				glfwPollEvents();
 
@@ -79,9 +74,7 @@ namespace galaxy
 				nui.render();
 
 				graphics::Renderer::ref().end_default();
-
-				current++;
-				// std::this_thread::sleep_for(.1s);
+				std::this_thread::sleep_for(1ms);
 			} while (tp.get_tasks_total() > 0);
 
 			glfwPollEvents();
@@ -99,14 +92,39 @@ namespace galaxy
 
 		void Loader::load_resources()
 		{
-			ServiceLocator<resource::SoundCache>::ref().load_folder(GALAXY_SFX_DIR);
-			ServiceLocator<resource::MusicCache>::ref().load_folder(GALAXY_MUSIC_DIR);
-			ServiceLocator<resource::VoiceCache>::ref().load_folder(GALAXY_VOICE_DIR);
-			ServiceLocator<resource::VideoCache>::ref().load_folder(GALAXY_VIDEO_DIR);
-			ServiceLocator<resource::Shaders>::ref().load_folder(GALAXY_SHADER_DIR);
-			ServiceLocator<resource::Fonts>::ref().load_folder(GALAXY_FONT_DIR);
-			ServiceLocator<resource::Scripts>::ref().load_folder(GALAXY_SCRIPT_DIR);
-			ServiceLocator<resource::Prefabs>::ref().load_folder(GALAXY_PREFABS_DIR);
+			auto& tp = ServiceLocator<BS::thread_pool>::ref();
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::SoundCache>::ref().load_folder(GALAXY_SFX_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::MusicCache>::ref().load_folder(GALAXY_MUSIC_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::VoiceCache>::ref().load_folder(GALAXY_VOICE_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::VideoCache>::ref().load_folder(GALAXY_VIDEO_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::Shaders>::ref().load_folder(GALAXY_SHADER_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::Fonts>::ref().load_folder(GALAXY_FONT_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::Scripts>::ref().load_folder(GALAXY_SCRIPT_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::Prefabs>::ref().load_folder(GALAXY_PREFABS_DIR);
+			});
 		}
 
 		void Loader::load_user_config()

@@ -1,7 +1,9 @@
+- integrate camera controller
+
+
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
 
-- improve loading screen to more accurately display loading bar.
 - stop using shared pointers...they are expensive.
 
 
