@@ -1,6 +1,5 @@
 - integrate camera controller
 
-
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
 
@@ -26,8 +25,8 @@ https://github.com/scottmudge/imgui_tabs
 
 animation:
 - Pre-buffering all render 2d data for animations. so we only update texture pointer instead of vertex data.
-https://github.com/sansumbrella/Choreograph
-https://github.com/mobius3/tweeny
+- need to wire up state management to input and animation in the ECS using messages/events?
+	- maybe using lua?
 
 AI:
 https://github.com/linkdd/aitoolkit

@@ -103,13 +103,14 @@ namespace galaxy
 		void inject_scenes();
 
 		///
+		/// Injects galaxy state machine into lua.
 		///
-		///
-		void inject_utils();
+		void inject_states();
 
 		///
+		/// Injects misc galaxy utils into lua.
 		///
-		///
+		void inject_utils();
 
 		///
 		/// Regsiter static engine services in lua.

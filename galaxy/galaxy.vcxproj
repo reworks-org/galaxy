@@ -182,6 +182,7 @@
     <ClCompile Include="src\galaxy\scripting\lua\LuaMiniAudio.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaResource.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaScenes.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaState.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaBox2D.cpp" />
@@ -231,6 +232,8 @@
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
+    <ClCompile Include="src\galaxy\state\State.cpp" />
+    <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
     <ClCompile Include="src\galaxy\systems\PhysicsSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
@@ -305,6 +308,8 @@
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
+    <ClInclude Include="src\galaxy\state\State.hpp" />
+    <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
     <ClInclude Include="src\galaxy\systems\PhysicsSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />

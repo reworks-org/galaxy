@@ -163,6 +163,9 @@
     <ClCompile Include="src\galaxy\scripting\lua\LuaResource.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaScenes.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\state\State.cpp" />
+    <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -309,5 +312,7 @@
     <ClInclude Include="src\galaxy\graphics\post\GammaCorrection.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\GaussianBlur.hpp" />
     <ClInclude Include="src\galaxy\graphics\post\Sharpen.hpp" />
+    <ClInclude Include="src\galaxy\state\State.hpp" />
+    <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
   </ItemGroup>
 </Project>

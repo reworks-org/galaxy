@@ -30,6 +30,7 @@ namespace galaxy
 			lua::inject_media();
 			lua::inject_resources();
 			lua::inject_scenes();
+			lua::inject_states();
 			lua::inject_utils();
 			lua::inject_services();
 		}
