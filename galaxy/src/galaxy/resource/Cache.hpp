@@ -29,7 +29,7 @@ namespace galaxy
 		// requires meta::is_class < Resource>&& meta::is_loader < Loader, Resource>
 		class Cache final
 		{
-			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::shared_ptr<Resource>>;
+			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::unique_ptr<Resource>>;
 
 		  public:
 			///
@@ -55,7 +55,7 @@ namespace galaxy
 			inline void load(const std::string& file)
 			{
 				m_keys.push_back(file);
-				m_cache.emplace(hash(file), m_loader(file));
+				m_cache[hash(file)] = std::move(m_loader(file));
 			}
 
 			///
@@ -79,12 +79,12 @@ namespace galaxy
 			/// \param id Key to use to access resource.
 			/// \param resource Pointer to resource to take ownership of.
 			///
-			inline void insert(std::string_view id, std::shared_ptr<Resource> resource)
+			inline void insert(std::string_view id, std::unique_ptr<Resource>& resource)
 			{
 				const auto hashed = hash(id);
 				if (!m_cache.contains(hashed))
 				{
-					m_cache[hashed] = resource;
+					m_cache[hashed] = std::move(resource);
 				}
 				else
 				{
@@ -99,13 +99,13 @@ namespace galaxy
 			///
 			/// \return Returns a shared pointer to the resource.
 			///
-			[[nodiscard]] inline std::shared_ptr<Resource> get(std::string_view id)
+			[[nodiscard]] inline Resource* get(std::string_view id)
 			{
 				const auto hashed = hash(id);
 
 				if (m_cache.contains(hashed))
 				{
-					return m_cache[hashed];
+					return m_cache[hashed].get();
 				}
 
 				return nullptr;

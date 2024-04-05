@@ -18,11 +18,13 @@ namespace galaxy
 	{
 		Sprite::Sprite()
 			: Serializable {}
+			, m_texture {nullptr}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
 			: Serializable {}
+			, m_texture {nullptr}
 		{
 			deserialize(json);
 		}
@@ -55,6 +57,7 @@ namespace galaxy
 
 		Sprite::~Sprite()
 		{
+			m_texture = nullptr;
 		}
 
 		void Sprite::set_texture(const std::string& texture)
@@ -122,7 +125,7 @@ namespace galaxy
 
 		graphics::Texture2D* Sprite::get_texture()
 		{
-			return m_texture.get();
+			return m_texture;
 		}
 
 		nlohmann::json Sprite::serialize()

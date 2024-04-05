@@ -11,9 +11,9 @@ namespace galaxy
 {
 	namespace resource
 	{
-		std::shared_ptr<media::Sound> SoundLoader::operator()(const std::string& file)
+		std::unique_ptr<media::Sound> SoundLoader::operator()(const std::string& file)
 		{
-			auto resource = std::make_shared<media::Sound>();
+			auto resource = std::make_unique<media::Sound>();
 			if (!resource->load(media::SoundType::SFX, file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
@@ -23,9 +23,9 @@ namespace galaxy
 			return resource;
 		}
 
-		std::shared_ptr<media::Sound> MusicLoader::operator()(const std::string& file)
+		std::unique_ptr<media::Sound> MusicLoader::operator()(const std::string& file)
 		{
-			auto resource = std::make_shared<media::Sound>();
+			auto resource = std::make_unique<media::Sound>();
 			if (!resource->load(media::SoundType::MUSIC, file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
@@ -35,9 +35,9 @@ namespace galaxy
 			return resource;
 		}
 
-		std::shared_ptr<media::Sound> VoiceLoader::operator()(const std::string& file)
+		std::unique_ptr<media::Sound> VoiceLoader::operator()(const std::string& file)
 		{
-			auto resource = std::make_shared<media::Sound>();
+			auto resource = std::make_unique<media::Sound>();
 			if (!resource->load(media::SoundType::VOICE, file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);

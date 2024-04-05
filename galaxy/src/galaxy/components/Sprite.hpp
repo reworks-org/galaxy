@@ -113,7 +113,7 @@ namespace galaxy
 			///
 			/// Texture.
 			///
-			std::shared_ptr<graphics::Texture2D> m_texture;
+			graphics::Texture2D* m_texture;
 
 			///
 			/// Texture debug name.

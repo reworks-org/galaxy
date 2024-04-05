@@ -201,7 +201,7 @@ namespace galaxy
 		{
 			auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
 
-			auto rtt = std::make_shared<graphics::Shader>();
+			auto rtt = std::make_unique<graphics::Shader>();
 			if (rtt->parse(resource::render_texture_shader_vert, resource::render_texture_shader_frag))
 			{
 				shaders.insert("render_to_texture", rtt);

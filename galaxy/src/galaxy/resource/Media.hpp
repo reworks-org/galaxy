@@ -31,7 +31,7 @@ namespace galaxy
 			///
 			/// \return Handle to created resource.
 			///
-			std::shared_ptr<media::Sound> operator()(const std::string& file);
+			std::unique_ptr<media::Sound> operator()(const std::string& file);
 		};
 
 		///
@@ -48,7 +48,7 @@ namespace galaxy
 			///
 			/// \return Handle to created resource.
 			///
-			std::shared_ptr<media::Sound> operator()(const std::string& file);
+			std::unique_ptr<media::Sound> operator()(const std::string& file);
 		};
 
 		///
@@ -65,7 +65,7 @@ namespace galaxy
 			///
 			/// \return Handle to created resource.
 			///
-			std::shared_ptr<media::Sound> operator()(const std::string& file);
+			std::unique_ptr<media::Sound> operator()(const std::string& file);
 		};
 
 		///

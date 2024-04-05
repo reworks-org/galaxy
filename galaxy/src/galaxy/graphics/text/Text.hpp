@@ -232,7 +232,7 @@ namespace galaxy
 			///
 			/// Pointer to font resource.
 			///
-			std::shared_ptr<graphics::Font> m_font;
+			graphics::Font* m_font;
 
 			///
 			/// Text.

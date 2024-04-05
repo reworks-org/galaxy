@@ -30,9 +30,9 @@ namespace galaxy
 			///
 			/// \return Handle to created resource.
 			///
-			inline std::shared_ptr<Resource> operator()(const std::string& file)
+			inline std::unique_ptr<Resource> operator()(const std::string& file)
 			{
-				auto resource = std::make_shared<Resource>();
+				auto resource = std::make_unique<Resource>();
 				if (!resource->load(file))
 				{
 					GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
