@@ -63,7 +63,7 @@ namespace galaxy
 			/// \return Weak pointer to newly created effect.
 			///
 			template<is_posteffect Effect, typename... Args>
-			[[maybe_unused]] Effect& add(Args&&... args);
+			[[maybe_unused]] Effect* add(Args&&... args);
 
 			///
 			/// Bind to draw to post processor framebuffer.
@@ -107,7 +107,7 @@ namespace galaxy
 			///
 			/// List of effects to apply in order.
 			///
-			meta::vector<PostEffect*> m_effects;
+			meta::vector<std::unique_ptr<graphics::PostEffect>> m_effects;
 
 			///
 			/// Simple quad to draw when applying effects (buffer).
@@ -126,12 +126,10 @@ namespace galaxy
 		};
 
 		template<is_posteffect Effect, typename... Args>
-		inline Effect& PostProcess::add(Args&&... args)
+		inline Effect* PostProcess::add(Args&&... args)
 		{
-			Effect* effect = new Effect(std::forward<Args>(args)...);
-
-			m_effects.emplace_back(static_cast<PostEffect*>(effect));
-			return *effect;
+			m_effects.push_back(std::make_unique<Effect>(std::forward<Args>(args)...));
+			return dynamic_cast<Effect*>(m_effects.back().get());
 		}
 	} // namespace graphics
 } // namespace galaxy

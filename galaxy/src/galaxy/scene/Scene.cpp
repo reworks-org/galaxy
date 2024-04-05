@@ -27,6 +27,11 @@
 #include "galaxy/systems/ScriptSystem.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26487)
+#endif
+
 #include "Scene.hpp"
 
 namespace galaxy
@@ -534,3 +539,7 @@ namespace galaxy
 		}
 	} // namespace scene
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif

@@ -114,11 +114,6 @@ namespace galaxy
 			}
 
 			m_output_fb = 0;
-
-			for (PostEffect* effect : m_effects)
-			{
-				delete effect;
-			}
 		}
 
 		void PostProcess::resize(const int width, const int height)

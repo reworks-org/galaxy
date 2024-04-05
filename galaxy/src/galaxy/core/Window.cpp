@@ -32,6 +32,11 @@
 
 #include "Window.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26462)
+#endif
+
 void* glfw_alloc(size_t size, void* user)
 {
 	return mi_malloc(size);
@@ -687,3 +692,7 @@ namespace galaxy
 		}
 	} // namespace core
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif
