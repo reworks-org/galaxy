@@ -69,17 +69,8 @@ namespace sc
 		{
 			if (!m_loaded)
 			{
-				const auto json_opt = json::read(file);
-				if (json_opt == std::nullopt)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to create parse/load json file: {0}, for JSONEditor panel.", file);
-					m_loaded = false;
-				}
-				else
-				{
-					m_root   = json_opt.value();
-					m_loaded = true;
-				}
+				m_root   = json::read(file);
+				m_loaded = true;
 			}
 		}
 

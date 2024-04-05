@@ -16,19 +16,17 @@ namespace galaxy
 {
 	namespace json
 	{
-		std::optional<nlohmann::json> read(const std::string& entry)
+		nlohmann::json read(const std::string& entry)
 		{
 			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 			auto  data = fs.read(entry);
 
-			nlohmann::json json = nlohmann::json::parse(data);
-			return std::make_optional(json);
+			return nlohmann::json::parse(data);
 		}
 
-		std::optional<nlohmann::json> read_raw(const std::string& json)
+		nlohmann::json read_raw(const std::string& json)
 		{
-			nlohmann::json parsed = nlohmann::json::parse(json);
-			return std::make_optional(parsed);
+			return nlohmann::json::parse(json);
 		}
 
 		bool write(const std::string& entry, const nlohmann::json& json)

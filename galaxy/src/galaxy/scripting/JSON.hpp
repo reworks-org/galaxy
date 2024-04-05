@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		/// \return Fully parsed json object.
 		///
-		[[nodiscard]] std::optional<nlohmann::json> read(const std::string& entry);
+		[[nodiscard]] nlohmann::json read(const std::string& entry);
 
 		///
 		/// Read raw json string.
@@ -30,7 +30,7 @@ namespace galaxy
 		///
 		/// \return Fully parsed json object.
 		///
-		[[nodiscard]] std::optional<nlohmann::json> read_raw(const std::string& json);
+		[[nodiscard]] nlohmann::json read_raw(const std::string& json);
 
 		///
 		/// Write json to vfs.

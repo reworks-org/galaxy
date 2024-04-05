@@ -213,9 +213,9 @@ namespace sc
 
 			auto json = json::read_raw(data);
 
-			if (json.has_value())
+			if (!json.empty())
 			{
-				const auto& scenes = json.value().at("app_data");
+				const auto& scenes = json.at("app_data");
 
 				m_project_sm.deserialize(scenes);
 				core::ServiceLocator<core::Window>::ref().set_title(fs_path.stem().string().c_str());
