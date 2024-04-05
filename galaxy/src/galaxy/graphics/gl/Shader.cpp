@@ -14,6 +14,11 @@
 
 #include "Shader.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26414)
+#endif
+
 namespace galaxy
 {
 	namespace graphics
@@ -295,3 +300,7 @@ namespace galaxy
 		}
 	} // namespace graphics
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif

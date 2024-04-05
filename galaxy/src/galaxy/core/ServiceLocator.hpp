@@ -132,7 +132,8 @@ namespace galaxy
 		{
 			if (m_service == nullptr)
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", typeid(Service).name());
+				const std::type_info& type = typeid(Service);
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to access undefined reference for service: {0}.", type.name());
 			}
 
 			return *m_service;

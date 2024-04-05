@@ -192,12 +192,12 @@ namespace galaxy
 			///
 			/// Renderer frame width.
 			///
-			int m_width;
+			int m_width = 1;
 
 			///
 			/// Renderer frame height.
 			///
-			int m_height;
+			int m_height = 1;
 		};
 	} // namespace graphics
 } // namespace galaxy
