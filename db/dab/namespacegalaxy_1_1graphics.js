@@ -1,7 +1,6 @@
 var namespacegalaxy_1_1graphics =
 [
     [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
-    [ "CameraController", "dd/d22/classgalaxy_1_1graphics_1_1CameraController.html", "dd/d22/classgalaxy_1_1graphics_1_1CameraController" ],
     [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
     [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
     [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ],

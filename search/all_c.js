@@ -2,7 +2,7 @@ var searchData=
 [
   ['l_0',['L',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ead20caec3b48a1eef164cb4ca81ba2587',1,'galaxy::input']]],
   ['layer_1',['layer',['../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aab5e5f3f3bcf7a7fc78daf34172a902d',1,'galaxy::graphics::RenderCommand']]],
-  ['left_2',['left',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a4630d6212d38d89df496b5d5c2bbb115',1,'galaxy::input::CameraKeys::LEFT'],['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a684d325a7303f52e64011467ff5c5758',1,'galaxy::graphics::Text::LEFT'],['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea684d325a7303f52e64011467ff5c5758',1,'galaxy::input::LEFT']]],
+  ['left_2',['left',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a4630d6212d38d89df496b5d5c2bbb115',1,'galaxy::input::CameraKeys::LEFT'],['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea684d325a7303f52e64011467ff5c5758',1,'galaxy::input::LEFT'],['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a684d325a7303f52e64011467ff5c5758',1,'galaxy::graphics::Text::LEFT']]],
   ['left_5falt_3',['LEFT_ALT',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea3a92f3bbf26e4ea5ea7ce7db2f432c56',1,'galaxy::input']]],
   ['left_5fbracket_4',['LEFT_BRACKET',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea0c2629e56daed25c9df918961d0cc03f',1,'galaxy::input']]],
   ['left_5fcontrol_5',['LEFT_CONTROL',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaddf133566f544b297f2f84874c283589',1,'galaxy::input']]],
@@ -27,7 +27,7 @@ var searchData=
   ['loader_2ecpp_24',['loader.cpp',['../d0/dd0/core_2Loader_8cpp.html',1,'(Global Namespace)'],['../d6/dd7/resource_2Loader_8cpp.html',1,'(Global Namespace)']]],
   ['loader_2ehpp_25',['loader.hpp',['../d9/d16/core_2Loader_8hpp.html',1,'(Global Namespace)'],['../dc/d7c/resource_2Loader_8hpp.html',1,'(Global Namespace)']]],
   ['loader_3c_20media_3a_3asound_20_3e_26',['Loader&lt; media::Sound &gt;',['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource']]],
-  ['log_27',['log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f',1,'galaxy::error::Log::log()'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html',1,'galaxy::error::Log'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a878d9ce48fa43d87c25f57acda8e594d',1,'galaxy::error::Log::Log()'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad50724ca2a0799596ca7af31c1ad0b47',1,'galaxy::error::Log::Log(const Log &amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a40f59d4ab119f8d734c1672a926975d6',1,'galaxy::error::Log::Log(Log &amp;&amp;)=delete']]],
+  ['log_27',['log',['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a878d9ce48fa43d87c25f57acda8e594d',1,'galaxy::error::Log::Log()'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html',1,'galaxy::error::Log'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#ad50724ca2a0799596ca7af31c1ad0b47',1,'galaxy::error::Log::Log(const Log &amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a40f59d4ab119f8d734c1672a926975d6',1,'galaxy::error::Log::Log(Log &amp;&amp;)=delete'],['../d6/d5b/classgalaxy_1_1error_1_1Log.html#a01a241ba77fe45a379993e7ed2f69f9f',1,'galaxy::error::Log::log(const std::source_location &amp;loc, std::string_view message, const MsgInputs &amp;... args)']]],
   ['log_2ecpp_28',['Log.cpp',['../d4/d88/Log_8cpp.html',1,'']]],
   ['log_2ehpp_29',['Log.hpp',['../d0/d82/Log_8hpp.html',1,'']]],
   ['log_5fwrapper_30',['log_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#ae6e69f0c5e5575aa352f2eea4e819eb3',1,'galaxy::lua']]],
@@ -59,5 +59,6 @@ var searchData=
   ['luaresource_2ecpp_56',['LuaResource.cpp',['../d6/de5/LuaResource_8cpp.html',1,'']]],
   ['luascenes_2ecpp_57',['LuaScenes.cpp',['../d9/dc5/LuaScenes_8cpp.html',1,'']]],
   ['luaservices_2ecpp_58',['LuaServices.cpp',['../d1/d50/LuaServices_8cpp.html',1,'']]],
-  ['luautils_2ecpp_59',['LuaUtils.cpp',['../da/dd6/LuaUtils_8cpp.html',1,'']]]
+  ['luastate_2ecpp_59',['LuaState.cpp',['../db/d27/LuaState_8cpp.html',1,'']]],
+  ['luautils_2ecpp_60',['LuaUtils.cpp',['../da/dd6/LuaUtils_8cpp.html',1,'']]]
 ];

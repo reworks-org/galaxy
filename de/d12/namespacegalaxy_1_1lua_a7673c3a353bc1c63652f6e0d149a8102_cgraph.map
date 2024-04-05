@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_core" name="galaxy::lua::inject_core">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,120,177,145"/>
+<area shape="rect" id="Node000001" title="Inject galaxy core services into lua." alt="" coords="5,120,177,145"/>
 <area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4f2c253c063e15d98412bc7c0869fbd7" title="Check if the config file actually has a value." alt="" coords="228,5,409,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,118,157,80,224,41,246,32,248,37,226,46,160,85,110,122"/>
 <area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a401a63be2d5613d1f565276a35c78663" title=" " alt="" coords="231,55,406,95"/>

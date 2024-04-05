@@ -16,6 +16,8 @@ var searchData=
   ['sound_13',['Sound',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html',1,'galaxy::media']]],
   ['soundloader_14',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],
   ['sprite_15',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],
-  ['subprocess_16',['Subprocess',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html',1,'galaxy::platform']]],
-  ['system_17',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html',1,'galaxy::systems']]]
+  ['state_16',['State',['../db/d6a/classgalaxy_1_1state_1_1State.html',1,'galaxy::state']]],
+  ['statemachine_17',['StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html',1,'galaxy::state']]],
+  ['subprocess_18',['Subprocess',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html',1,'galaxy::platform']]],
+  ['system_19',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html',1,'galaxy::systems']]]
 ];

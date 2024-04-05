@@ -1,5 +1,5 @@
-<map id="galaxy/src/galaxy/graphics/CameraController.hpp" name="galaxy/src/galaxy/graphics/CameraController.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="427,5,623,45"/>
+<map id="galaxy/src/galaxy/input/CameraController.hpp" name="galaxy/src/galaxy/input/CameraController.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="437,5,612,45"/>
 <area shape="rect" id="Node000002" href="$d6/daf/KeyDown_8hpp.html" title=" " alt="" coords="179,93,385,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="467,48,331,92,330,86,466,43"/>
 <area shape="rect" id="Node000005" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="409,93,640,119"/>

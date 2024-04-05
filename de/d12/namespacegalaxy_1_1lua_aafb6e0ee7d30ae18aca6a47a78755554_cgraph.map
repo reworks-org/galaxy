@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_nuklear" name="galaxy::lua::inject_nuklear">
-<area shape="rect" id="Node000001" title="Load nuklear ui into lua." alt="" coords="5,106,143,146"/>
+<area shape="rect" id="Node000001" title="Inject Nuklear into Lua." alt="" coords="5,106,143,146"/>
 <area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="469,111,656,136"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,104,131,63,159,43,190,27,253,8,305,3,358,10,422,27,456,41,489,60,540,99,536,103,486,64,454,46,420,32,357,15,305,8,254,14,192,32,162,47,135,67,93,108"/>
 <area shape="rect" id="Node000003" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a975c17d399451f6fa3acbf4af32d97bf" title="Disables nuklear input." alt="" coords="227,42,385,82"/>

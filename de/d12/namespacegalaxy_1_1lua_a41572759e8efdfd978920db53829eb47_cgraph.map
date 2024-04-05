@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_scenes" name="galaxy::lua::inject_scenes">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,857,143,897"/>
+<area shape="rect" id="Node000001" title="Injects galaxy scene management into lua." alt="" coords="5,857,143,897"/>
 <area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad0b72808539a181e2f55bbae667db790" title="Add a new scene." alt="" coords="716,191,963,216"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,856,87,751,110,597,125,518,144,444,165,383,188,341,214,312,243,287,306,247,377,219,451,199,526,188,599,184,728,187,728,192,599,189,526,194,452,205,378,224,309,252,246,292,218,316,193,344,170,386,149,446,131,519,115,598,92,751,80,857"/>
 <area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="191,793,405,833"/>

@@ -2,7 +2,7 @@ var searchData=
 [
   ['cache_0',['Cache',['../da/d64/classgalaxy_1_1resource_1_1Cache.html',1,'galaxy::resource']]],
   ['camera_1',['Camera',['../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html',1,'galaxy::graphics']]],
-  ['cameracontroller_2',['CameraController',['../dd/d22/classgalaxy_1_1graphics_1_1CameraController.html',1,'galaxy::graphics']]],
+  ['cameracontroller_2',['CameraController',['../d0/d15/classgalaxy_1_1input_1_1CameraController.html',1,'galaxy::input']]],
   ['camerakeys_3',['CameraKeys',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html',1,'galaxy::input']]],
   ['chromaticaberration_4',['ChromaticAberration',['../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html',1,'galaxy::graphics']]],
   ['circle_5',['circle',['../da/d0d/classgalaxy_1_1components_1_1Circle.html',1,'galaxy::components::Circle'],['../d8/d6f/classgalaxy_1_1graphics_1_1Circle.html',1,'galaxy::graphics::Circle']]],

@@ -1,0 +1,17 @@
+<map id="galaxy::lua::inject_states" name="galaxy::lua::inject_states">
+<area shape="rect" id="Node000001" title="Injects galaxy state machine into lua." alt="" coords="5,184,143,224"/>
+<area shape="rect" id="Node000002" href="$db/d6a/classgalaxy_1_1state_1_1State.html#a35f29471b5fc7c75d5d35e77bcc08892" title="Triggered when state is popped off the stack." alt="" coords="234,5,382,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,182,124,119,154,85,189,55,220,40,222,45,192,60,158,88,128,122,88,185"/>
+<area shape="rect" id="Node000003" href="$db/d6a/classgalaxy_1_1state_1_1State.html#a64537135293a71e91f3aa39ae77fbdb8" title="Triggered when state is pushed onto the stack." alt="" coords="234,69,382,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,182,138,150,189,119,219,107,221,112,192,124,141,154,100,186"/>
+<area shape="rect" id="Node000004" href="$d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a13f009d44a7185c2233a9bd00835bd8a" title="Pop the topmost state off the top of the stack." alt="" coords="191,134,425,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,182,190,169,231,160,233,165,191,175,144,187"/>
+<area shape="rect" id="Node000005" href="$d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a060132418903cef79f1c8859e39f240d" title="Push a new state onto the stack." alt="" coords="207,184,409,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="143,201,193,201,193,207,143,207"/>
+<area shape="rect" id="Node000006" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="193,249,423,274"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="144,221,191,233,233,243,231,248,190,239,142,226"/>
+<area shape="rect" id="Node000007" href="$d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a81f95bc20e520f790047a684370b64e8" title="Update topmost state." alt="" coords="207,299,409,339"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="101,222,142,253,192,283,212,292,210,296,189,288,139,258,97,226"/>
+<area shape="rect" id="Node000008" href="$db/d6a/classgalaxy_1_1state_1_1State.html#a0f0f21cf829381d54fc7ae5e666b63c7" title="Handle state events / update state data." alt="" coords="234,363,382,403"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="88,223,128,286,158,320,192,348,222,363,220,368,189,353,154,323,124,289,84,226"/>
+</map>

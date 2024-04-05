@@ -1,12 +1,12 @@
 <map id="galaxy::components::RigidBody::is_bullet" name="galaxy::components::RigidBody::is_bullet">
-<area shape="rect" id="Node000001" title="Is this a bullet style body." alt="" coords="805,5,964,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="792,25,757,24,591,24,543,25,543,20,591,19,757,19,792,19"/>
-<area shape="rect" id="Node000005" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a765876796844a5b9beeb54ab017e4707" title="Set if body is a bullet type." alt="" coords="591,33,757,73"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="792,40,758,45,757,40,792,35"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="576,42,543,38,544,32,577,37"/>
+<area shape="rect" id="Node000001" title="Is this a bullet style body." alt="" coords="792,5,951,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="778,25,744,24,577,24,530,25,530,20,577,19,744,19,778,19"/>
+<area shape="rect" id="Node000005" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a765876796844a5b9beeb54ab017e4707" title="Set if body is a bullet type." alt="" coords="577,33,744,73"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="779,40,745,45,744,40,778,35"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="563,42,529,38,530,32,564,37"/>
 </map>

@@ -6,8 +6,6 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "text", "dir_b17ffddb03673327e70de50848ad0375.html", "dir_b17ffddb03673327e70de50848ad0375" ],
     [ "Camera.cpp", "da/d8c/Camera_8cpp.html", "da/d8c/Camera_8cpp" ],
     [ "Camera.hpp", "d6/d80/Camera_8hpp.html", "d6/d80/Camera_8hpp" ],
-    [ "CameraController.cpp", "d0/dd3/CameraController_8cpp.html", null ],
-    [ "CameraController.hpp", "d5/de6/CameraController_8hpp.html", "d5/de6/CameraController_8hpp" ],
     [ "Colour.cpp", "dd/db2/Colour_8cpp.html", "dd/db2/Colour_8cpp" ],
     [ "Colour.hpp", "db/dd2/Colour_8hpp.html", "db/dd2/Colour_8hpp" ],
     [ "PostEffect.cpp", "de/d66/PostEffect_8cpp.html", null ],

@@ -18,6 +18,7 @@ var Lua_8hpp =
     [ "inject_media", "de/d92/Lua_8hpp.html#add53ba093ede88cbd1be6056c4e20731", null ],
     [ "inject_resources", "de/d92/Lua_8hpp.html#a6fe84993c5ef6fdb14659b5898c487d5", null ],
     [ "inject_scenes", "de/d92/Lua_8hpp.html#a41572759e8efdfd978920db53829eb47", null ],
+    [ "inject_states", "de/d92/Lua_8hpp.html#ab275a55a81ed4fd840cd1abc4a75377b", null ],
     [ "inject_utils", "de/d92/Lua_8hpp.html#a3e70c78c95de9ab1b596a87f35e574d3", null ],
     [ "inject_services", "de/d92/Lua_8hpp.html#a59f23ce23f852638e16b61a663a83005", null ]
 ];

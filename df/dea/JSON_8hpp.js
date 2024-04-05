@@ -1,6 +1,6 @@
 var JSON_8hpp =
 [
-    [ "read", "df/dea/JSON_8hpp.html#aaf01bc3e874285b88161d7c6b9b26bcb", null ],
-    [ "read_raw", "df/dea/JSON_8hpp.html#aa31b660b1d3dee00d3c6910ecc4db4cf", null ],
+    [ "read", "df/dea/JSON_8hpp.html#aef84997e096a889464b801a4e502f73d", null ],
+    [ "read_raw", "df/dea/JSON_8hpp.html#a16ec2f8525e7b1b49b84f8c6dfe5d707", null ],
     [ "write", "df/dea/JSON_8hpp.html#a9075672b169d5ecfcfea1e4be935fd3a", null ]
 ];

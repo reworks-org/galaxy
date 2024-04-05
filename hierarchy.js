@@ -3,7 +3,7 @@ var hierarchy =
     [ "galaxy::core::App", "d5/d5a/classgalaxy_1_1core_1_1App.html", null ],
     [ "galaxy::media::AudioEngine< type >", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::resource::Cache< Resource, Loader >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
-    [ "galaxy::graphics::CameraController", "dd/d22/classgalaxy_1_1graphics_1_1CameraController.html", null ],
+    [ "galaxy::input::CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", null ],
     [ "galaxy::input::CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", null ],
     [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ],
     [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
@@ -98,6 +98,8 @@ var hierarchy =
       [ "galaxy::error::FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", null ]
     ] ],
     [ "galaxy::media::Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", null ],
+    [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],
+    [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
     [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],

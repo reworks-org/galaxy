@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_media" name="galaxy::lua::inject_media">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,2485,143,2525"/>
+<area shape="rect" id="Node000001" title="Injects video and audio support into lua." alt="" coords="5,2485,143,2525"/>
 <area shape="rect" id="Node000002" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a2b07380cb1b31f12defa395debb9c18f" title="Build opengl data." alt="" coords="227,5,386,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,2485,81,2023,102,1223,117,809,137,447,160,181,174,98,188,56,213,36,216,41,193,59,179,99,165,181,142,447,123,809,107,1223,86,2023,78,2485"/>
 <area shape="rect" id="Node000005" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#ad090456ed2718db937e8676c737d39fb" title="Fade sound in." alt="" coords="225,69,388,109"/>

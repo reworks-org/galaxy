@@ -132,12 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a96a568e39a57141aba45285e0a644506" id="r_a96a568e39a57141aba45285e0a644506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506">load_folder</a> (const std::string &amp;dir)</td></tr>
 <tr class="memdesc:a96a568e39a57141aba45285e0a644506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load resources of a specific type.  <br /></td></tr>
 <tr class="separator:a96a568e39a57141aba45285e0a644506"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac1d216c062d72ce16fd5f752ddc7c2" id="r_a9ac1d216c062d72ce16fd5f752ddc7c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9ac1d216c062d72ce16fd5f752ddc7c2">insert</a> (std::string_view id, std::shared_ptr&lt; Resource &gt; resource)</td></tr>
-<tr class="memdesc:a9ac1d216c062d72ce16fd5f752ddc7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a resource directly into the cache.  <br /></td></tr>
-<tr class="separator:a9ac1d216c062d72ce16fd5f752ddc7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70d4bf65a339b7c4fd24cd07e9561ff8" id="r_a70d4bf65a339b7c4fd24cd07e9561ff8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a70d4bf65a339b7c4fd24cd07e9561ff8">get</a> (std::string_view id)</td></tr>
-<tr class="memdesc:a70d4bf65a339b7c4fd24cd07e9561ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a resource.  <br /></td></tr>
-<tr class="separator:a70d4bf65a339b7c4fd24cd07e9561ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a923c9c7dbc1dc364cff1437795022ce8" id="r_a923c9c7dbc1dc364cff1437795022ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8">insert</a> (std::string_view id, std::unique_ptr&lt; Resource &gt; &amp;resource)</td></tr>
+<tr class="memdesc:a923c9c7dbc1dc364cff1437795022ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a resource directly into the cache.  <br /></td></tr>
+<tr class="separator:a923c9c7dbc1dc364cff1437795022ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac47053ba88ade10e8345dc90d6c6a84d" id="r_ac47053ba88ade10e8345dc90d6c6a84d"><td class="memItemLeft" align="right" valign="top">Resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ac47053ba88ade10e8345dc90d6c6a84d">get</a> (std::string_view id)</td></tr>
+<tr class="memdesc:ac47053ba88ade10e8345dc90d6c6a84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a resource.  <br /></td></tr>
+<tr class="separator:ac47053ba88ade10e8345dc90d6c6a84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d82589d0227945ced2656854b671a36" id="r_a0d82589d0227945ced2656854b671a36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a0d82589d0227945ced2656854b671a36">clear</a> ()</td></tr>
 <tr class="memdesc:a0d82589d0227945ced2656854b671a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy resources.  <br /></td></tr>
 <tr class="separator:a0d82589d0227945ced2656854b671a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +150,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a62054464d35f0835a63bbef10f94b492" id="r_a62054464d35f0835a63bbef10f94b492"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a62054464d35f0835a63bbef10f94b492">size</a> () const</td></tr>
 <tr class="memdesc:a62054464d35f0835a63bbef10f94b492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get amount of resources cached.  <br /></td></tr>
 <tr class="separator:a62054464d35f0835a63bbef10f94b492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc423d92f4f7b8fa38c5392ec554d33b" id="r_abc423d92f4f7b8fa38c5392ec554d33b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a881d20bd0e919e129e3116ed0ad94a32">CacheType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#abc423d92f4f7b8fa38c5392ec554d33b">cache</a> () const</td></tr>
+<tr class="memitem:abc423d92f4f7b8fa38c5392ec554d33b" id="r_abc423d92f4f7b8fa38c5392ec554d33b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad9cc7f141261b63f691865c6134eb16b">CacheType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#abc423d92f4f7b8fa38c5392ec554d33b">cache</a> () const</td></tr>
 <tr class="memdesc:abc423d92f4f7b8fa38c5392ec554d33b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get entire resource cache.  <br /></td></tr>
 <tr class="separator:abc423d92f4f7b8fa38c5392ec554d33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf4efd74aac7b3775f0f9695f1b0da53" id="r_acf4efd74aac7b3775f0f9695f1b0da53"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#acf4efd74aac7b3775f0f9695f1b0da53">keys</a> ()</td></tr>
@@ -159,8 +159,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:a881d20bd0e919e129e3116ed0ad94a32" id="r_a881d20bd0e919e129e3116ed0ad94a32"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a881d20bd0e919e129e3116ed0ad94a32">CacheType</a> = robin_hood::unordered_node_map&lt; std::uint64_t, std::shared_ptr&lt; Resource &gt; &gt;</td></tr>
-<tr class="separator:a881d20bd0e919e129e3116ed0ad94a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9cc7f141261b63f691865c6134eb16b" id="r_ad9cc7f141261b63f691865c6134eb16b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad9cc7f141261b63f691865c6134eb16b">CacheType</a> = robin_hood::unordered_node_map&lt; std::uint64_t, std::unique_ptr&lt; Resource &gt; &gt;</td></tr>
+<tr class="separator:ad9cc7f141261b63f691865c6134eb16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -185,7 +185,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a3a99066b3619cb0d297c9d794b6fcc6b" id="r_a3a99066b3619cb0d297c9d794b6fcc6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a3a99066b3619cb0d297c9d794b6fcc6b">m_loader</a></td></tr>
 <tr class="memdesc:a3a99066b3619cb0d297c9d794b6fcc6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to load a resource into the cache. Allows for flexiblity.  <br /></td></tr>
 <tr class="separator:a3a99066b3619cb0d297c9d794b6fcc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c853e0d3946df04109e27d29f1fcf68" id="r_a6c853e0d3946df04109e27d29f1fcf68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a881d20bd0e919e129e3116ed0ad94a32">CacheType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6c853e0d3946df04109e27d29f1fcf68">m_cache</a></td></tr>
+<tr class="memitem:a6c853e0d3946df04109e27d29f1fcf68" id="r_a6c853e0d3946df04109e27d29f1fcf68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad9cc7f141261b63f691865c6134eb16b">CacheType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a6c853e0d3946df04109e27d29f1fcf68">m_cache</a></td></tr>
 <tr class="memdesc:a6c853e0d3946df04109e27d29f1fcf68"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual data store.  <br /></td></tr>
 <tr class="separator:a6c853e0d3946df04109e27d29f1fcf68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fab39c8a27ff2691afc9d841e4f6dde" id="r_a1fab39c8a27ff2691afc9d841e4f6dde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a1fab39c8a27ff2691afc9d841e4f6dde">m_keys</a></td></tr>
@@ -205,8 +205,8 @@ class galaxy::resource::Cache&lt; Resource, Loader &gt;</div><p><a class="el" hr
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d1e/Cache_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../d4/d1e/Cache_8hpp_source.html">Cache.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a881d20bd0e919e129e3116ed0ad94a32" name="a881d20bd0e919e129e3116ed0ad94a32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a881d20bd0e919e129e3116ed0ad94a32">&#9670;&#160;</a></span>CacheType</h2>
+<a id="ad9cc7f141261b63f691865c6134eb16b" name="ad9cc7f141261b63f691865c6134eb16b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9cc7f141261b63f691865c6134eb16b">&#9670;&#160;</a></span>CacheType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +217,7 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::CacheType =  robin_hood::unordered_node_map&lt;std::uint64_t, std::shared_ptr&lt;Resource&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::CacheType =  robin_hood::unordered_node_map&lt;std::uint64_t, std::unique_ptr&lt;Resource&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -425,16 +425,16 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a5997cc9e94dd886ddc447cb618d7b3e5_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a5997cc9e94dd886ddc447cb618d7b3e5_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a5997cc9e94dd886ddc447cb618d7b3e5_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a5997cc9e94dd886ddc447cb618d7b3e5_icgraph">
-<area shape="rect" title="Load a resource." alt="" coords="816,5,993,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="802,25,768,24,591,24,543,25,543,20,591,19,768,19,802,19"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="591,33,768,73"/>
-<area shape="poly" title=" " alt="" coords="803,41,768,45,768,40,802,35"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-<area shape="poly" title=" " alt="" coords="576,42,543,37,543,32,577,37"/>
+<area shape="rect" title="Load a resource." alt="" coords="803,5,980,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="789,25,755,24,577,24,530,25,530,20,577,19,755,19,789,19"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="577,33,755,73"/>
+<area shape="poly" title=" " alt="" coords="790,41,755,45,754,40,789,35"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="poly" title=" " alt="" coords="563,42,529,37,530,32,564,37"/>
 </map>
 </div>
 
@@ -504,20 +504,20 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a96a568e39a57141aba45285e0a644506_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a96a568e39a57141aba45285e0a644506_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a96a568e39a57141aba45285e0a644506_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a96a568e39a57141aba45285e0a644506_icgraph">
-<area shape="rect" title="Load resources of a specific type." alt="" coords="591,5,768,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" title="Load resources of a specific type." alt="" coords="577,5,755,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="564,28,530,28,530,23,564,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a9ac1d216c062d72ce16fd5f752ddc7c2" name="a9ac1d216c062d72ce16fd5f752ddc7c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ac1d216c062d72ce16fd5f752ddc7c2">&#9670;&#160;</a></span>insert()</h2>
+<a id="a923c9c7dbc1dc364cff1437795022ce8" name="a923c9c7dbc1dc364cff1437795022ce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a923c9c7dbc1dc364cff1437795022ce8">&#9670;&#160;</a></span>insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -536,7 +536,7 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; Resource &gt;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; Resource &gt; &amp;&#160;</td>
           <td class="paramname"><em>resource</em>&#160;</td>
         </tr>
         <tr>
@@ -567,8 +567,8 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_cgraph" alt=""/></div>
-<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_cgraph">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_cgraph">
 <area shape="rect" title="Insert a resource directly into the cache." alt="" coords="5,29,183,69"/>
 <area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="231,29,408,69"/>
 <area shape="poly" title=" " alt="" coords="183,47,217,47,217,52,183,52"/>
@@ -583,22 +583,22 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_icgraph" alt=""/></div>
-<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a9ac1d216c062d72ce16fd5f752ddc7c2_icgraph">
-<area shape="rect" title="Insert a resource directly into the cache." alt="" coords="591,5,768,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a923c9c7dbc1dc364cff1437795022ce8_icgraph">
+<area shape="rect" title="Insert a resource directly into the cache." alt="" coords="577,5,755,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="564,28,530,28,530,23,564,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a70d4bf65a339b7c4fd24cd07e9561ff8" name="a70d4bf65a339b7c4fd24cd07e9561ff8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70d4bf65a339b7c4fd24cd07e9561ff8">&#9670;&#160;</a></span>get()</h2>
+<a id="ac47053ba88ade10e8345dc90d6c6a84d" name="ac47053ba88ade10e8345dc90d6c6a84d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac47053ba88ade10e8345dc90d6c6a84d">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -609,7 +609,7 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; Resource &gt; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::get </td>
+          <td class="memname">Resource * <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::get </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -638,8 +638,8 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_cgraph" alt=""/></div>
-<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_cgraph">
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_cgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_cgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_cgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_cgraph">
 <area shape="rect" title="Retrieve a resource." alt="" coords="5,37,212,62"/>
 <area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="260,29,437,69"/>
 <area shape="poly" title=" " alt="" coords="212,47,246,47,246,52,212,52"/>
@@ -654,15 +654,15 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_icgraph" alt=""/></div>
-<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a70d4bf65a339b7c4fd24cd07e9561ff8_icgraph">
-<area shape="rect" title="Retrieve a resource." alt="" coords="591,13,797,38"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_icgraph" alt=""/></div>
+<map name="ada/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_ac47053ba88ade10e8345dc90d6c6a84d_icgraph">
+<area shape="rect" title="Retrieve a resource." alt="" coords="577,13,784,38"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="563,28,530,28,530,23,563,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
 </div>
 
@@ -703,18 +703,18 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a0d82589d0227945ced2656854b671a36_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a0d82589d0227945ced2656854b671a36_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a0d82589d0227945ced2656854b671a36_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a0d82589d0227945ced2656854b671a36_icgraph">
-<area shape="rect" title="Destroy resources." alt="" coords="816,33,993,73"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="819,33,768,24,718,20,680,20,591,24,543,25,543,20,591,19,679,15,718,15,768,19,819,28"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="591,33,768,73"/>
-<area shape="poly" title=" " alt="" coords="803,56,768,56,768,51,803,51"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa72ede435c24df982931ba59882379f1" title="Destructor." alt="" coords="591,97,768,137"/>
-<area shape="poly" title=" " alt="" coords="821,80,751,100,750,95,819,75"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-<area shape="poly" title=" " alt="" coords="576,42,543,37,543,32,577,37"/>
+<area shape="rect" title="Destroy resources." alt="" coords="803,33,980,73"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="805,33,754,24,705,20,666,20,577,24,530,25,530,20,577,19,666,15,705,15,755,19,806,28"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="577,33,755,73"/>
+<area shape="poly" title=" " alt="" coords="789,56,755,56,755,51,789,51"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa72ede435c24df982931ba59882379f1" title="Destructor." alt="" coords="577,97,755,137"/>
+<area shape="poly" title=" " alt="" coords="808,80,738,100,736,95,806,75"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="poly" title=" " alt="" coords="563,42,529,37,530,32,564,37"/>
 </map>
 </div>
 
@@ -779,13 +779,13 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_abe5872e92439c94f1305f6de2f82b86f_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_abe5872e92439c94f1305f6de2f82b86f_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_abe5872e92439c94f1305f6de2f82b86f_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_abe5872e92439c94f1305f6de2f82b86f_icgraph">
-<area shape="rect" title="Check if a resource exists." alt="" coords="591,13,799,38"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" title="Check if a resource exists." alt="" coords="577,13,785,38"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="563,28,529,28,529,23,563,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
 </div>
 
@@ -839,13 +839,13 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_ae3aae79de5281df1258e5fe95e9ba743_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_ae3aae79de5281df1258e5fe95e9ba743_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_ae3aae79de5281df1258e5fe95e9ba743_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_ae3aae79de5281df1258e5fe95e9ba743_icgraph">
-<area shape="rect" title="Does the cache have any resources." alt="" coords="591,5,768,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" title="Does the cache have any resources." alt="" coords="577,5,755,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="564,28,530,28,530,23,564,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
 </div>
 
@@ -886,16 +886,16 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a62054464d35f0835a63bbef10f94b492_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a62054464d35f0835a63bbef10f94b492_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a62054464d35f0835a63bbef10f94b492_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a62054464d35f0835a63bbef10f94b492_icgraph">
-<area shape="rect" title="Get amount of resources cached." alt="" coords="816,35,993,75"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="591,5,768,45"/>
-<area shape="poly" title=" " alt="" coords="802,44,768,40,768,34,803,39"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,35,543,75"/>
-<area shape="poly" title=" " alt="" coords="802,60,768,60,591,60,543,59,543,54,591,55,768,55,802,54"/>
-<area shape="poly" title=" " alt="" coords="577,43,543,48,543,42,576,37"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,42,357,67"/>
-<area shape="poly" title=" " alt="" coords="392,57,358,57,358,52,392,52"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
-<area shape="poly" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
+<area shape="rect" title="Get amount of resources cached." alt="" coords="803,35,980,75"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="577,5,755,45"/>
+<area shape="poly" title=" " alt="" coords="789,44,754,40,755,34,790,39"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,35,529,75"/>
+<area shape="poly" title=" " alt="" coords="789,60,755,60,577,60,530,59,530,54,577,55,755,55,789,54"/>
+<area shape="poly" title=" " alt="" coords="564,43,530,48,529,42,563,37"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,42,344,67"/>
+<area shape="poly" title=" " alt="" coords="378,57,344,57,344,52,378,52"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,35,159,75"/>
+<area shape="poly" title=" " alt="" coords="193,57,159,57,159,52,193,52"/>
 </map>
 </div>
 
@@ -913,7 +913,7 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a881d20bd0e919e129e3116ed0ad94a32">CacheType</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::cache </td>
+          <td class="memname">const <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad9cc7f141261b63f691865c6134eb16b">CacheType</a> &amp; <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::cache </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -969,13 +969,13 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_acf4efd74aac7b3775f0f9695f1b0da53_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_acf4efd74aac7b3775f0f9695f1b0da53_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_acf4efd74aac7b3775f0f9695f1b0da53_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_acf4efd74aac7b3775f0f9695f1b0da53_icgraph">
-<area shape="rect" title="Get a list of keys in the cache." alt="" coords="591,5,768,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,5,543,45"/>
-<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" title="Get a list of keys in the cache." alt="" coords="577,5,755,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" title=" " alt="" coords="564,28,530,28,530,23,564,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
 </div>
 
@@ -1091,28 +1091,28 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d64/classgalaxy_1_1resource_1_1Cache_a974fd20c89bc84c92b1239cbd0aaeead_icgraph.png" border="0" usemap="#ada/d64/classgalaxy_1_1resource_1_1Cache_a974fd20c89bc84c92b1239cbd0aaeead_icgraph" alt=""/></div>
 <map name="ada/d64/classgalaxy_1_1resource_1_1Cache_a974fd20c89bc84c92b1239cbd0aaeead_icgraph" id="ada/d64/classgalaxy_1_1resource_1_1Cache_a974fd20c89bc84c92b1239cbd0aaeead_icgraph">
-<area shape="rect" title="Hashes the key into an integer for faster map lookup time." alt="" coords="1072,78,1249,118"/>
-<area shape="poly" title=" " alt="" coords="1199,66,1185,59,1161,57,1139,59,1126,63,1121,69,1124,77,1119,78,1116,68,1123,59,1138,53,1161,51,1187,54,1201,61"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a70d4bf65a339b7c4fd24cd07e9561ff8" title="Retrieve a resource." alt="" coords="591,5,798,31"/>
-<area shape="poly" title=" " alt="" coords="1066,78,1024,69,798,33,799,28,1024,63,1067,72"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="591,56,799,81"/>
-<area shape="poly" title=" " alt="" coords="1058,94,799,78,799,73,1058,89"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a9ac1d216c062d72ce16fd5f752ddc7c2" title="Insert a resource directly into the cache." alt="" coords="847,106,1024,146"/>
-<area shape="poly" title=" " alt="" coords="1059,113,1024,118,1024,112,1058,108"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="847,170,1024,210"/>
-<area shape="poly" title=" " alt="" coords="1105,126,1025,160,994,172,992,167,1023,156,1102,121"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="405,99,543,139"/>
-<area shape="poly" title=" " alt="" coords="616,37,592,46,543,73,502,101,499,97,540,68,590,41,614,32"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,107,357,132"/>
-<area shape="poly" title=" " alt="" coords="392,122,358,122,358,117,392,117"/>
-<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,107,172,132"/>
-<area shape="poly" title=" " alt="" coords="206,122,172,122,172,117,206,117"/>
-<area shape="poly" title=" " alt="" coords="626,87,543,106,542,101,624,82"/>
-<area shape="poly" title=" " alt="" coords="833,127,543,123,543,118,833,122"/>
-<area shape="poly" title=" " alt="" coords="833,177,543,132,543,127,834,172"/>
-<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="606,207,783,247"/>
-<area shape="poly" title=" " alt="" coords="833,209,784,216,783,211,832,203"/>
-<area shape="poly" title=" " alt="" coords="621,205,589,191,504,142,507,137,592,186,623,200"/>
+<area shape="rect" title="Hashes the key into an integer for faster map lookup time." alt="" coords="1059,78,1236,118"/>
+<area shape="poly" title=" " alt="" coords="1185,66,1172,59,1147,57,1126,59,1113,63,1108,69,1111,77,1105,78,1103,68,1110,59,1125,53,1147,51,1173,54,1188,61"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ac47053ba88ade10e8345dc90d6c6a84d" title="Retrieve a resource." alt="" coords="578,5,785,31"/>
+<area shape="poly" title=" " alt="" coords="1053,78,1010,69,785,33,785,28,1011,63,1054,72"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="577,56,785,81"/>
+<area shape="poly" title=" " alt="" coords="1045,94,785,78,786,73,1045,89"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8" title="Insert a resource directly into the cache." alt="" coords="833,106,1011,146"/>
+<area shape="poly" title=" " alt="" coords="1046,113,1011,118,1010,112,1045,108"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="833,170,1011,210"/>
+<area shape="poly" title=" " alt="" coords="1091,126,1012,160,981,172,979,167,1010,156,1089,121"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,99,529,139"/>
+<area shape="poly" title=" " alt="" coords="602,37,578,46,530,73,489,101,486,97,527,68,576,41,600,32"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,107,344,132"/>
+<area shape="poly" title=" " alt="" coords="378,122,344,122,344,117,378,117"/>
+<area shape="rect" href="../../dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,99,159,139"/>
+<area shape="poly" title=" " alt="" coords="193,122,159,122,159,117,193,117"/>
+<area shape="poly" title=" " alt="" coords="612,87,530,106,529,101,611,82"/>
+<area shape="poly" title=" " alt="" coords="819,127,530,123,530,118,820,122"/>
+<area shape="poly" title=" " alt="" coords="820,177,529,132,530,127,820,172"/>
+<area shape="rect" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="593,207,770,247"/>
+<area shape="poly" title=" " alt="" coords="820,209,771,216,770,211,819,203"/>
+<area shape="poly" title=" " alt="" coords="607,205,576,191,491,142,493,137,579,186,609,200"/>
 </map>
 </div>
 
@@ -1159,7 +1159,7 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#a881d20bd0e919e129e3116ed0ad94a32">CacheType</a> <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::m_cache</td>
+          <td class="memname"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html#ad9cc7f141261b63f691865c6134eb16b">CacheType</a> <a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">galaxy::resource::Cache</a>&lt; Resource, <a class="el" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a> &gt;::m_cache</td>
         </tr>
       </table>
   </td>
@@ -1212,7 +1212,7 @@ template&lt;meta::not_memory Resource, meta::not_memory Loader&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d4/d1b/namespacegalaxy_1_1resource.html">resource</a></li><li class="navelem"><a class="el" href="../../da/d64/classgalaxy_1_1resource_1_1Cache.html">Cache</a></li>
-    <li class="footer">Generated on Mon Apr 1 2024 06:57:05 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Apr 5 2024 15:55:37 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

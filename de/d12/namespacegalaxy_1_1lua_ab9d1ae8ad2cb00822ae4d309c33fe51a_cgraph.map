@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_math" name="galaxy::lua::inject_math">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,831,184,857"/>
+<area shape="rect" id="Node000001" title="Injects math stuff into lua." alt="" coords="5,831,184,857"/>
 <area shape="rect" id="Node000002" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae6dbbd4ee6545ec94dc9dbcea79afc81" title="Clear all data." alt="" coords="260,5,435,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,831,101,687,122,454,139,330,163,215,193,120,210,84,230,56,246,42,249,47,234,59,215,86,198,122,168,217,145,331,127,455,106,688,99,831"/>
 <area shape="rect" id="Node000003" href="$d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a9a42fb1d47362f45425639bc6d2c931e" title="Compresses string." alt="" coords="276,69,419,109"/>

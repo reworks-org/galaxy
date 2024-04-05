@@ -1,18 +1,18 @@
 <map id="galaxy::graphics::Polygon::points" name="galaxy::graphics::Polygon::points">
-<area shape="rect" id="Node000001" title="Get list of points." alt="" coords="867,69,1055,109"/>
-<area shape="rect" id="Node000002" href="$d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html#a82adbbe3e26417ede6940c39d21d3192" title="Create shape." alt="" coords="631,12,819,52"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="864,69,807,55,808,49,865,64"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="433,69,571,109"/>
-<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="853,92,571,92,571,87,853,87"/>
-<area shape="rect" id="Node000008" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#aa7dbaf0111c864e03674f4046e4a0f31" title="Serializes object." alt="" coords="648,127,801,167"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="865,115,802,131,801,125,864,110"/>
-<area shape="rect" id="Node000003" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#ae7967aad72b2c215788e8e2b85589f8f" title="Deserializes from object." alt="" coords="421,5,583,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="616,31,583,30,583,25,616,26"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="634,58,571,74,570,69,632,53"/>
-<area shape="rect" id="Node000004" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#a8eec702b97507870c99e33b90e4bc16d" title="JSON constructor." alt="" coords="220,5,373,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="408,28,374,28,374,23,408,23"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="228,77,365,102"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="420,92,366,92,366,87,420,87"/>
-<area shape="rect" id="Node000007" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="214,92,172,92,172,87,214,87"/>
+<area shape="rect" id="Node000001" title="Get list of points." alt="" coords="853,69,1041,109"/>
+<area shape="rect" id="Node000002" href="$d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html#a82adbbe3e26417ede6940c39d21d3192" title="Create shape." alt="" coords="617,12,805,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="851,69,794,55,795,49,852,64"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="420,69,557,109"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="839,92,558,92,558,87,839,87"/>
+<area shape="rect" id="Node000008" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#aa7dbaf0111c864e03674f4046e4a0f31" title="Serializes object." alt="" coords="635,127,788,167"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="852,115,789,131,788,125,850,110"/>
+<area shape="rect" id="Node000003" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#ae7967aad72b2c215788e8e2b85589f8f" title="Deserializes from object." alt="" coords="408,5,569,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="603,31,569,30,570,25,603,26"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="620,58,558,74,557,69,619,53"/>
+<area shape="rect" id="Node000004" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#a8eec702b97507870c99e33b90e4bc16d" title="JSON constructor." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="394,28,361,28,361,23,394,23"/>
+<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="215,77,352,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="406,92,352,92,352,87,406,87"/>
+<area shape="rect" id="Node000007" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,69,159,109"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="201,92,159,92,159,87,201,87"/>
 </map>

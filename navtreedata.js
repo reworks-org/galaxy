@@ -64,24 +64,25 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a17f84808231d0a3c46b6538f22a56754",
-"d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976",
-"d3/dd7/FilmicGrain_8cpp.html#a2451141456d364ea5c221cc5b893c59c",
-"d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#a86d89666dd6992dd8f453d8c279e411e",
-"d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded",
-"d5/dcc/classgalaxy_1_1math_1_1Rect.html#a8efd85ec3b45feef33b64781077949fc",
-"d6/da7/LogMessage_8hpp_source.html",
-"d7/d23/ImGuiHelpers_8hpp.html#a07ea7645484387d4e690f8efc3a9b8e4",
-"d8/d6b/ServiceLocator_8cpp_source.html",
-"d9/d28/classgalaxy_1_1graphics_1_1TextureView.html#aa63880f616a10bc9ea1173ee2ad1fad9",
-"da/d35/classgalaxy_1_1graphics_1_1Transform.html#a32b8b037a3779788257fd236c3ffe8a2",
-"db/d40/classgalaxy_1_1components_1_1Script.html#ae1405ba32bf4fc39ed6ecbf75dafd13a",
-"db/de1/classgalaxy_1_1graphics_1_1Point.html#a4fe632836b24881775592081310d0451",
-"dd/d0e/ContentScale_8hpp_source.html",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea710533dd879dd1202e5c73b27705bf02",
-"dd/db2/Colour_8cpp_source.html",
-"de/dd6/namespacegalaxy_1_1json.html#aa31b660b1d3dee00d3c6910ecc4db4cf",
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa1cca28d2184feaee04cbfb509b2ebaa"
+"d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html#acbad1739d9dff2c800b63a443f4dbd23",
+"d2/d54/classgalaxy_1_1fs_1_1Serializable.html#a87464e16c184605735a79f9d18d17c74",
+"d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3",
+"d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html",
+"d5/d15/structgalaxy_1_1events_1_1MousePressed.html#a83fb88de94208cce00554767a663ce25",
+"d5/dcc/classgalaxy_1_1math_1_1Rect.html#a2e928ce29605f5dc2b28653ebb5dfe0d",
+"d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#af5c666c48723c89011a6750427beacd2",
+"d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html",
+"d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a77231038649667bedeae1a5ef8871327",
+"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#af2179b5f68f30fe6c18399fc2eb57c3a",
+"da/d0d/classgalaxy_1_1components_1_1Circle.html#a019272572b3f29863fb47d3bf424c4f6",
+"db/d0b/classgalaxy_1_1input_1_1Clipboard.html#af5da3a2666b5cd027011b8dac64f3a89",
+"db/dcc/classgalaxy_1_1graphics_1_1Text.html#a4d95ad6e29676c5319099fae452deaff",
+"dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html#af3ff0d138e0940cdc124f9dff62fa328",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea02129bb861061d1a052c592e2dc6b383",
+"dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae401cdafc40cc08be904b27fd141b9b5",
+"de/d92/Lua_8hpp.html#aae1b2e7d234872e09741019794409f3c",
+"df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a97a63074e2cbc37d2b47a81c3381c596",
+"functions_vars_n.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::Renderer::init" name="galaxy::graphics::Renderer::init">
 <area shape="rect" id="Node000001" title="Initialize renderer." alt="" coords="5,169,200,209"/>
-<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac29d6ddb1eea0802f68ff6fd4f61d74c" title="Add an effect to process." alt="" coords="248,33,495,58"/>
+<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a867d768ed5c6e1ab96341bbe29058734" title="Add an effect to process." alt="" coords="248,33,495,58"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,167,174,117,209,90,247,68,268,60,270,65,249,73,212,95,177,121,124,171"/>
 <area shape="rect" id="Node000003" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a0ff1f3823ba0186908335277d6b90e29" title="Buffer data." alt="" coords="281,83,462,123"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,167,247,139,292,124,294,129,249,144,164,172"/>

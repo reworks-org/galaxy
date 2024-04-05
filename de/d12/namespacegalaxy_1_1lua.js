@@ -19,6 +19,7 @@ var namespacegalaxy_1_1lua =
     [ "inject_media", "de/d12/namespacegalaxy_1_1lua.html#add53ba093ede88cbd1be6056c4e20731", null ],
     [ "inject_resources", "de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5", null ],
     [ "inject_scenes", "de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47", null ],
+    [ "inject_states", "de/d12/namespacegalaxy_1_1lua.html#ab275a55a81ed4fd840cd1abc4a75377b", null ],
     [ "inject_utils", "de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3", null ],
     [ "inject_services", "de/d12/namespacegalaxy_1_1lua.html#a59f23ce23f852638e16b61a663a83005", null ],
     [ "load_config_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a401a63be2d5613d1f565276a35c78663", null ],

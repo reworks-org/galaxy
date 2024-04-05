@@ -17,7 +17,7 @@ var classgalaxy_1_1graphics_1_1Camera =
     [ "deserialize", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f", null ],
     [ "set_projection", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d", null ],
     [ "recalculate", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34", null ],
-    [ "CameraController", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a1587a298d3ce376987e78dec79ed4adf", null ],
+    [ "input::CameraController", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a61131e61ed1c8a7bd9300cb40f77afa1", null ],
     [ "m_allow_rotation", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#af96d32e06e3199213855e12668356649", null ],
     [ "m_translation_speed", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a21dd284f9fe03e14a8ae4799784bdfe0", null ],
     [ "m_rotation_speed", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#afcf154ac8426b3d20b7de205a2b47c9c", null ],

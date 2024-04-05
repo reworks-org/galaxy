@@ -18,8 +18,9 @@ var searchData=
   ['galaxy_3a_3aplatform_15',['platform',['../dd/dfc/namespacegalaxy_1_1platform.html',1,'galaxy']]],
   ['galaxy_3a_3aresource_16',['resource',['../d4/d1b/namespacegalaxy_1_1resource.html',1,'galaxy']]],
   ['galaxy_3a_3ascene_17',['scene',['../de/d3c/namespacegalaxy_1_1scene.html',1,'galaxy']]],
-  ['galaxy_3a_3astrutils_18',['strutils',['../db/d7c/namespacegalaxy_1_1strutils.html',1,'galaxy']]],
-  ['galaxy_3a_3asystems_19',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
-  ['galaxy_3a_3aui_20',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]],
-  ['galaxy_3a_3autils_21',['utils',['../d2/d10/namespacegalaxy_1_1utils.html',1,'galaxy']]]
+  ['galaxy_3a_3astate_18',['state',['../df/dcc/namespacegalaxy_1_1state.html',1,'galaxy']]],
+  ['galaxy_3a_3astrutils_19',['strutils',['../db/d7c/namespacegalaxy_1_1strutils.html',1,'galaxy']]],
+  ['galaxy_3a_3asystems_20',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
+  ['galaxy_3a_3aui_21',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]],
+  ['galaxy_3a_3autils_22',['utils',['../d2/d10/namespacegalaxy_1_1utils.html',1,'galaxy']]]
 ];

@@ -14,6 +14,6 @@ var classgalaxy_1_1components_1_1Sprite =
     [ "operator=", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a19f7039aa3d2c8dcd5bb5d11a4050678", null ],
     [ "m_vao", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a754aec52224f994dff67c001cfdcc249", null ],
     [ "m_tint", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2fce185ed2f4fe8ad10c8e97afc87b1a", null ],
-    [ "m_texture", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#adaa0f553774268e72c8d274b82c5ad10", null ],
+    [ "m_texture", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#afdf942709f094caef8087cabd95e0ca0", null ],
     [ "m_name", "d4/d86/classgalaxy_1_1components_1_1Sprite.html#ad33fc82426aee8af0a62ceff3bfafa62", null ]
 ];

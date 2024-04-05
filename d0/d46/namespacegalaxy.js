@@ -10,8 +10,8 @@ var namespacegalaxy =
     [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", "db/dab/namespacegalaxy_1_1graphics" ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", "dd/d59/namespacegalaxy_1_1input" ],
     [ "json", "de/dd6/namespacegalaxy_1_1json.html", [
-      [ "read", "de/dd6/namespacegalaxy_1_1json.html#aaf01bc3e874285b88161d7c6b9b26bcb", null ],
-      [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#aa31b660b1d3dee00d3c6910ecc4db4cf", null ],
+      [ "read", "de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d", null ],
+      [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707", null ],
       [ "write", "de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a", null ]
     ] ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
@@ -21,6 +21,7 @@ var namespacegalaxy =
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", "dd/dfc/namespacegalaxy_1_1platform" ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],
+    [ "state", "df/dcc/namespacegalaxy_1_1state.html", "df/dcc/namespacegalaxy_1_1state" ],
     [ "strutils", "db/d7c/namespacegalaxy_1_1strutils.html", [
       [ "split", "db/d7c/namespacegalaxy_1_1strutils.html#aa49866d6c8088279303394a48f2a8324", null ],
       [ "replace_first", "db/d7c/namespacegalaxy_1_1strutils.html#aadb96bbbbd51e3761290151baf3bcd3d", null ],

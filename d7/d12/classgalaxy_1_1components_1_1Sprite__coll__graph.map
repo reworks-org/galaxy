@@ -1,30 +1,25 @@
 <map id="galaxy::components::Sprite" name="galaxy::components::Sprite">
-<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="399,1841,544,2141"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,1486,167,1651"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,1663,146,1722,181,1777,232,1830,289,1877,347,1917,400,1949,397,1954,344,1922,286,1881,228,1834,177,1780,141,1725,114,1666"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="191,1359,362,1779"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="364,1753,398,1825,393,1828,360,1755"/>
-<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="181,936,351,1296"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="273,1296,274,1342,269,1342,268,1297"/>
-<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="386,1416,557,1721"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="474,1722,474,1825,469,1825,469,1722"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="375,1076,527,1156"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="456,1156,467,1399,461,1399,450,1156"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="394,683,509,749"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="454,763,454,1076,449,1076,449,763"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="512,225,535,291"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="520,291,479,535,460,667,455,666,474,534,515,290"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="533,683,682,749"/>
-<area shape="poly" id="edge12_Node000012_Node000008" title=" " alt="" coords="532,291,601,667,596,668,527,291"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="551,1076,722,1156"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="640,1156,638,1265,629,1420,609,1599,592,1691,571,1779,553,1834,548,1833,566,1778,587,1690,603,1599,624,1420,633,1265,634,1156"/>
-<area shape="rect" id="Node000010" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="Standard opengl texture." alt="" coords="706,573,901,859"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="776,860,755,913,746,926,736,938,698,1002,665,1063,661,1060,693,999,732,934,742,923,750,911,771,858"/>
-<area shape="rect" id="Node000011" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture." alt="" coords="715,5,891,511"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="806,524,806,573,801,573,801,524"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="613,762,636,1075,631,1076,608,763"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="745,1536,824,1601"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="779,1602,750,1686,727,1734,700,1780,668,1821,632,1860,559,1927,555,1923,629,1856,664,1818,696,1777,723,1732,745,1684,774,1601"/>
-<area shape="rect" id="Node000014" title=" " alt="" coords="746,1076,877,1156"/>
-<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="811,1170,789,1536,784,1536,806,1170"/>
+<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="399,1312,544,1612"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,957,167,1122"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,1134,146,1193,181,1248,232,1301,289,1348,347,1388,400,1420,397,1425,344,1392,286,1352,228,1305,177,1251,141,1195,114,1136"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="191,829,362,1249"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="364,1224,398,1296,393,1298,360,1226"/>
+<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="191,334,362,694"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="279,694,279,813,274,813,274,694"/>
+<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="386,887,557,1192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="474,1192,474,1296,469,1296,469,1192"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="395,474,547,554"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="474,554,474,870,469,870,469,554"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="414,133,529,199"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="474,213,474,474,469,474,469,213"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="460,5,483,71"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="474,71,474,117,469,117,469,71"/>
+<area shape="rect" id="Node000009" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="Standard opengl texture." alt="" coords="581,897,775,1182"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="611,1183,554,1299,549,1297,606,1181"/>
+<area shape="rect" id="Node000010" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture." alt="" coords="586,261,762,767"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="679,780,680,896,674,896,673,780"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="808,1007,887,1072"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="848,1073,842,1111,832,1158,815,1206,789,1251,739,1307,680,1355,618,1395,560,1426,558,1421,615,1390,676,1351,735,1303,785,1248,810,1204,827,1156,837,1110,842,1072"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="786,474,917,554"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="854,568,850,1006,845,1006,848,568"/>
 </map>

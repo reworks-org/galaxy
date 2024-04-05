@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_fs" name="galaxy::lua::inject_fs">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,489,161,514"/>
+<area shape="rect" id="Node000001" title="Injects VFS support into lua." alt="" coords="5,489,161,514"/>
 <area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a299c506384a5704e1b2ffa48cbf5c44e" title="Trigger a standard filesystem audio alert." alt="" coords="221,5,429,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,488,84,416,89,362,98,302,113,239,136,175,167,115,207,62,221,50,225,54,211,66,171,118,141,177,119,240,103,303,94,363,89,416,87,489"/>
 <area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ad5ffea521344ba9318bb8c865ca7b7d5" title="Does the file exist in the vfs." alt="" coords="488,52,696,92"/>

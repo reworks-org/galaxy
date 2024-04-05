@@ -1,16 +1,16 @@
 <map id="galaxy::lua::inject_resources" name="galaxy::lua::inject_resources">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,230,143,270"/>
+<area shape="rect" id="Node000001" title="Injects galaxy resource caches into lua." alt="" coords="5,230,143,270"/>
 <area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a0d82589d0227945ced2656854b671a36" title="Destroy resources." alt="" coords="473,148,651,188"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,229,190,218,331,194,459,177,460,182,331,200,191,224,143,235"/>
 <area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="206,428,383,468"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,269,128,337,157,374,192,407,212,419,209,424,189,411,153,378,123,340,83,272"/>
 <area shape="rect" id="Node000004" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a62054464d35f0835a63bbef10f94b492" title="Get amount of resources cached." alt="" coords="473,398,651,438"/>
 <area shape="poly" id="edge21_Node000001_Node000004" title=" " alt="" coords="91,269,132,317,160,342,192,363,240,378,308,391,460,408,459,414,307,396,238,383,190,367,157,347,129,321,87,272"/>
-<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a70d4bf65a339b7c4fd24cd07e9561ff8" title="Retrieve a resource." alt="" coords="459,15,665,40"/>
+<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ac47053ba88ade10e8345dc90d6c6a84d" title="Retrieve a resource." alt="" coords="459,15,665,40"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="78,229,90,190,112,140,145,90,165,68,189,49,225,31,262,18,302,10,341,5,418,4,485,10,485,16,418,9,342,10,303,15,264,23,227,36,192,54,169,72,149,93,117,142,95,191,83,231"/>
 <area shape="rect" id="Node000008" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="191,263,399,288"/>
 <area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="143,256,177,259,177,265,143,261"/>
-<area shape="rect" id="Node000009" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a9ac1d216c062d72ce16fd5f752ddc7c2" title="Insert a resource directly into the cache." alt="" coords="206,313,383,353"/>
+<area shape="rect" id="Node000009" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8" title="Insert a resource directly into the cache." alt="" coords="206,313,383,353"/>
 <area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="119,268,192,299,213,306,211,311,190,304,117,273"/>
 <area shape="rect" id="Node000010" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#acf4efd74aac7b3775f0f9695f1b0da53" title="Get a list of keys in the cache." alt="" coords="206,492,383,532"/>
 <area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="82,270,95,313,116,369,149,428,169,454,192,478,199,482,195,487,189,482,165,458,144,430,111,371,90,315,77,271"/>

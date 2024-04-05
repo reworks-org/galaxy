@@ -1,12 +1,12 @@
 <map id="galaxy::error::gl_errcode_as_string" name="galaxy::error::gl_errcode_as_string">
-<area shape="rect" id="Node000001" title="Convert a GL error code to a string." alt="" coords="791,35,971,75"/>
-<area shape="rect" id="Node000002" href="$d3/d81/namespacegalaxy_1_1error.html#a169a2b466fbd10d41637d1627e48f1e5" title="Returns all GL errors on stack." alt="" coords="591,5,743,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="777,43,743,38,743,33,777,38"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a54ef670f077e6a24aa8f3621cc976849" title=" " alt="" coords="405,35,543,75"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="777,60,743,60,591,60,543,59,543,54,591,55,743,55,777,54"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="577,42,544,47,543,42,577,36"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,42,357,67"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,57,358,57,358,52,392,52"/>
-<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
+<area shape="rect" id="Node000001" title="Convert a GL error code to a string." alt="" coords="777,35,957,75"/>
+<area shape="rect" id="Node000002" href="$d3/d81/namespacegalaxy_1_1error.html#a169a2b466fbd10d41637d1627e48f1e5" title="Returns all GL errors on stack." alt="" coords="577,5,729,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="763,43,729,38,730,33,764,38"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a54ef670f077e6a24aa8f3621cc976849" title="Injects error handling into lua." alt="" coords="392,35,529,75"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="764,60,729,60,577,60,530,59,530,54,577,55,729,55,764,54"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="564,42,530,47,529,42,563,36"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,42,344,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="378,57,344,57,344,52,378,52"/>
+<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,35,159,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="193,57,159,57,159,52,193,52"/>
 </map>

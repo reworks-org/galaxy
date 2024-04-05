@@ -1,5 +1,6 @@
 var namespacegalaxy_1_1input =
 [
+    [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ],
     [ "CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", "d0/d71/structgalaxy_1_1input_1_1CameraKeys" ],
     [ "Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html", "db/d0b/classgalaxy_1_1input_1_1Clipboard" ],
     [ "Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html", "d5/dc8/classgalaxy_1_1input_1_1Cursor" ],

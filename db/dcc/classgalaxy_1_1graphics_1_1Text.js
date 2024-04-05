@@ -32,7 +32,7 @@ var classgalaxy_1_1graphics_1_1Text =
     [ "m_vao", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa9eadfed1689c02ed3cf9c3cc8dcd33d", null ],
     [ "m_rt", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef2ee1ce74554467146a63e3a17e84d1", null ],
     [ "m_font_name", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#a61445820fcfe86ebb2bac11aedf13605", null ],
-    [ "m_font", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#ac0614ad3a0b77a3a0de451751ff7bfdd", null ],
+    [ "m_font", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#a71cf3f743ccf176e11c090d83f8d1097", null ],
     [ "m_text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#abc9dd14bef8ebf6bacdfc1169e74f70d", null ],
     [ "m_size", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#a37eb70c4f3a408b166eed4ee3f5098c5", null ],
     [ "m_alignment", "db/dcc/classgalaxy_1_1graphics_1_1Text.html#aada2a265273e753ac5e500d0d12a65a8", null ]

@@ -59,7 +59,6 @@ var annotated_dup =
       ] ],
       [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
         [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
-        [ "CameraController", "dd/d22/classgalaxy_1_1graphics_1_1CameraController.html", "dd/d22/classgalaxy_1_1graphics_1_1CameraController" ],
         [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
         [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
         [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ],
@@ -97,6 +96,7 @@ var annotated_dup =
         [ "VertexBuffer", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
+        [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ],
         [ "CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", "d0/d71/structgalaxy_1_1input_1_1CameraKeys" ],
         [ "Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html", "db/d0b/classgalaxy_1_1input_1_1Clipboard" ],
         [ "Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html", "d5/dc8/classgalaxy_1_1input_1_1Cursor" ],
@@ -136,6 +136,10 @@ var annotated_dup =
       [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
         [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],
         [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", "d4/d92/classgalaxy_1_1scene_1_1SceneManager" ]
+      ] ],
+      [ "state", "df/dcc/namespacegalaxy_1_1state.html", [
+        [ "State", "db/d6a/classgalaxy_1_1state_1_1State.html", "db/d6a/classgalaxy_1_1state_1_1State" ],
+        [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
       ] ],
       [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", [
         [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],

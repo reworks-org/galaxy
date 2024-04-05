@@ -1,5 +1,7 @@
 var dir_b44bae1181d28134d9654f6dd7c8beaa =
 [
+    [ "CameraController.cpp", "d0/dd3/CameraController_8cpp.html", null ],
+    [ "CameraController.hpp", "d5/de6/CameraController_8hpp.html", "d5/de6/CameraController_8hpp" ],
     [ "Clipboard.cpp", "df/d0a/Clipboard_8cpp.html", null ],
     [ "Clipboard.hpp", "db/d20/Clipboard_8hpp.html", "db/d20/Clipboard_8hpp" ],
     [ "Cursor.cpp", "d3/d37/Cursor_8cpp.html", null ],

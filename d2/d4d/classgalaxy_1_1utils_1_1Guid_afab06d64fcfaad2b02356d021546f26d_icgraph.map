@@ -1,11 +1,11 @@
 <map id="galaxy::utils::Guid::to_string" name="galaxy::utils::Guid::to_string">
-<area shape="rect" id="Node000001" title="Get the GUID as a string." alt="" coords="629,37,768,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title=" " alt="" coords="425,5,562,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="615,47,562,39,563,33,616,42"/>
-<area shape="rect" id="Node000005" href="$d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html#a8ed67cf52598a7c589878d5f9146d107" title="Hash specialization function for Guid." alt="" coords="405,69,581,109"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="616,73,582,78,581,73,615,68"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,28,358,28,358,23,410,23"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" id="Node000001" title="Get the GUID as a string." alt="" coords="616,37,755,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="411,5,549,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="602,47,548,39,549,33,603,42"/>
+<area shape="rect" id="Node000005" href="$d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html#a8ed67cf52598a7c589878d5f9146d107" title="Hash specialization function for Guid." alt="" coords="392,69,568,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="603,73,569,78,568,73,602,68"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,28,344,28,344,23,397,23"/>
+<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>
