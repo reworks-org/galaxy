@@ -1,13 +1,13 @@
 <map id="galaxy::graphics::Ellipse::create" name="galaxy::graphics::Ellipse::create">
-<area shape="rect" id="Node000001" title="Create the ellipse." alt="" coords="609,37,788,77"/>
-<area shape="rect" id="Node000002" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630" title="Deserializes from object." alt="" coords="408,5,561,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,45,562,39,562,34,596,39"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="416,69,553,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="596,75,554,82,553,76,595,70"/>
-<area shape="rect" id="Node000003" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a4b4a8a8c30470f6e94c2cf31d590c64b" title="JSON constructor." alt="" coords="207,5,360,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,28,360,28,360,23,394,23"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="215,77,352,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="402,92,352,92,352,87,402,87"/>
-<area shape="rect" id="Node000006" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,69,159,109"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="201,92,159,92,159,87,201,87"/>
+<area shape="rect" id="Node000001" title="Create the ellipse." alt="" coords="623,37,801,77"/>
+<area shape="rect" id="Node000002" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630" title="Deserializes from object." alt="" coords="421,5,575,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="609,45,575,39,576,34,609,39"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="429,69,567,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="609,75,567,82,566,76,608,70"/>
+<area shape="rect" id="Node000003" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a4b4a8a8c30470f6e94c2cf31d590c64b" title="JSON constructor." alt="" coords="220,5,373,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,28,373,28,373,23,407,23"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="228,77,365,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="415,92,366,92,366,87,415,87"/>
+<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="214,92,172,92,172,87,214,87"/>
 </map>

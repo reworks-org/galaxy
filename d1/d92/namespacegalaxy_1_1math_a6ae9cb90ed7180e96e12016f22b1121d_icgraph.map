@@ -1,16 +1,16 @@
 <map id="galaxy::math::decode_base64" name="galaxy::math::decode_base64">
-<area shape="rect" id="Node000001" title="Decompresses string into Base64." alt="" coords="881,39,1044,79"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="392,5,571,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="879,39,833,30,695,19,571,18,571,12,696,14,834,25,880,33"/>
-<area shape="rect" id="Node000005" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="651,39,801,79"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="867,62,802,62,802,57,867,57"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="619,103,833,143"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="876,86,801,106,800,101,874,80"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,51,344,76"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,36,334,53,333,48,409,31"/>
-<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,43,159,83"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,66,159,66,159,61,193,61"/>
-<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="413,71,550,111"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="604,110,550,103,550,98,605,105"/>
-<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="398,83,344,75,344,70,399,77"/>
+<area shape="rect" id="Node000001" title="Decompresses string into Base64." alt="" coords="895,39,1057,79"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="405,5,584,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="892,39,846,30,709,19,584,18,584,12,709,14,847,25,893,33"/>
+<area shape="rect" id="Node000005" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="664,39,815,79"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="881,62,815,62,815,57,881,57"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="632,103,847,143"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="889,86,815,106,813,101,888,80"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,51,357,76"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,36,348,53,347,48,423,31"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,51,172,76"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,66,172,66,172,61,206,61"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="426,71,563,111"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="618,110,563,103,564,98,619,105"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="412,83,357,75,358,70,412,77"/>
 </map>

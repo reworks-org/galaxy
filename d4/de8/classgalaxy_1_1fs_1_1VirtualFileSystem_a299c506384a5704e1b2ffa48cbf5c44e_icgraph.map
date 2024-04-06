@@ -1,9 +1,9 @@
 <map id="galaxy::fs::VirtualFileSystem::alert" name="galaxy::fs::VirtualFileSystem::alert">
-<area shape="rect" id="Node000001" title="Trigger a standard filesystem audio alert." alt="" coords="596,5,804,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="392,13,548,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="582,28,548,28,548,23,582,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
-<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="rect" id="Node000001" title="Trigger a standard filesystem audio alert." alt="" coords="609,5,817,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="405,13,561,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,28,561,28,561,23,595,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="391,28,358,28,358,23,391,23"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>

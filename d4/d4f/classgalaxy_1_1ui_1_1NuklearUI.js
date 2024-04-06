@@ -17,5 +17,5 @@ var classgalaxy_1_1ui_1_1NuklearUI =
     [ "m_ctx", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abff213095d3b02b4ba14a7b50e4f58d2", null ],
     [ "m_atlas", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab8205c5f9164608179eb5842f0a8eedc", null ],
     [ "m_viewport_backup", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#adc8828175fe38b28a82e94305e92cf4a", null ],
-    [ "m_fonts", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a9f796cd394497344447c75b4900fe50e", null ]
+    [ "m_fonts", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abdf38b543566eae80f36356eae5a906c", null ]
 ];

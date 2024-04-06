@@ -1,15 +1,13 @@
 <map id="galaxy/src/galaxy/error/ConsoleSink.cpp" name="galaxy/src/galaxy/error/ConsoleSink.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="50,5,222,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,72,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,48,65,87,62,82,111,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="96,93,176,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,46,139,79,133,79,133,46"/>
-<area shape="rect" id="Node000004" href="$d9/d4b/ConsoleSink_8hpp.html" title=" " alt="" coords="200,93,331,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,43,236,84,233,88,166,48"/>
-<area shape="rect" id="Node000005" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="185,167,346,192"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,119,268,153,263,153,263,119"/>
-<area shape="rect" id="Node000006" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="158,240,373,265"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="268,192,268,226,263,226,263,192"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="236,313,295,339"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="268,266,268,300,263,300,263,266"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,177,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,93,60,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,47,53,84,49,80,75,44"/>
+<area shape="rect" id="Node000003" href="$d9/d4b/ConsoleSink_8hpp.html" title=" " alt="" coords="85,93,215,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,44,135,80,131,84,103,47"/>
+<area shape="rect" id="Node000004" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="69,167,231,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="153,119,153,153,147,153,147,119"/>
+<area shape="rect" id="Node000005" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="43,240,257,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="153,192,153,226,147,226,147,192"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="121,313,179,339"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="153,266,153,300,147,300,147,266"/>
 </map>

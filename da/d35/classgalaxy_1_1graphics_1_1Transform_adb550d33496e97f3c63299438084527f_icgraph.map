@@ -1,32 +1,32 @@
 <map id="galaxy::graphics::Transform::get_transform" name="galaxy::graphics::Transform::get_transform">
-<area shape="rect" id="Node000001" title="Retrieve internal transformation matrix." alt="" coords="1133,152,1335,192"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="891,5,1085,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1197,145,1145,106,1084,66,1045,48,1047,43,1087,62,1148,101,1200,141"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="442,152,579,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1185,148,1137,127,1085,111,965,89,871,81,776,88,657,111,598,130,547,154,545,150,596,125,655,105,775,83,871,76,966,83,1086,105,1139,122,1187,143"/>
-<area shape="rect" id="Node000006" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="895,120,1081,160"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1119,160,1081,155,1082,149,1120,155"/>
-<area shape="rect" id="Node000012" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="891,184,1085,224"/>
-<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="1120,189,1086,194,1085,189,1119,184"/>
-<area shape="rect" id="Node000013" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="891,248,1085,288"/>
-<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="1178,200,1086,238,1053,250,1051,245,1084,234,1176,195"/>
-<area shape="rect" id="Node000014" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="891,312,1085,352"/>
-<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="1207,204,1154,254,1121,280,1087,302,1062,314,1059,309,1084,298,1118,275,1151,250,1203,200"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="217,159,355,185"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="428,175,355,175,355,169,428,169"/>
-<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,152,159,192"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="204,175,159,175,159,169,204,169"/>
-<area shape="rect" id="Node000007" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="656,248,843,288"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="901,169,892,174,877,189,869,205,860,222,844,238,823,250,821,246,841,234,856,219,864,203,873,186,889,170,898,164"/>
-<area shape="rect" id="Node000010" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#afa551efad877408657389867dcf04fca" title="Retrieve internal transformation matrix." alt="" coords="656,120,843,160"/>
-<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="881,143,843,143,843,137,881,137"/>
-<area shape="rect" id="Node000011" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299" title="Get the Camera projection." alt="" coords="656,184,843,224"/>
-<area shape="poly" id="edge12_Node000006_Node000011" title=" " alt="" coords="900,166,825,187,824,181,899,161"/>
-<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="674,246,655,238,554,195,556,190,657,234,676,241"/>
-<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="413,248,608,288"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="642,271,608,271,608,265,642,265"/>
-<area shape="rect" id="Node000009" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="207,248,365,288"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="400,271,366,271,366,265,400,265"/>
-<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="643,157,580,166,579,160,642,152"/>
-<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="642,192,579,184,580,178,643,187"/>
+<area shape="rect" id="Node000001" title="Retrieve internal transformation matrix." alt="" coords="1147,152,1348,192"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="904,5,1099,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1210,145,1158,106,1097,66,1058,48,1061,43,1100,62,1161,101,1214,141"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="455,152,593,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1198,148,1151,127,1098,111,979,89,884,81,789,88,670,111,611,130,561,154,558,150,609,125,669,105,789,83,884,76,979,83,1099,105,1152,122,1200,143"/>
+<area shape="rect" id="Node000006" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="908,120,1095,160"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1133,160,1094,155,1095,149,1133,155"/>
+<area shape="rect" id="Node000012" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="904,184,1099,224"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="1133,189,1099,194,1099,189,1133,184"/>
+<area shape="rect" id="Node000013" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="904,248,1099,288"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="1191,200,1100,238,1066,250,1065,245,1098,234,1189,195"/>
+<area shape="rect" id="Node000014" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="904,312,1099,352"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="1220,204,1167,254,1135,280,1100,302,1075,314,1073,309,1097,298,1132,275,1164,250,1217,200"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="231,159,368,185"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="441,175,368,175,368,169,441,169"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,159,172,185"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="217,175,172,175,172,169,217,169"/>
+<area shape="rect" id="Node000007" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="669,248,856,288"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="914,169,906,174,891,189,882,205,874,222,858,238,837,250,834,246,854,234,869,219,878,203,886,186,902,170,911,164"/>
+<area shape="rect" id="Node000010" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#afa551efad877408657389867dcf04fca" title="Retrieve internal transformation matrix." alt="" coords="669,120,856,160"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="894,143,856,143,856,137,894,137"/>
+<area shape="rect" id="Node000011" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299" title="Get the Camera projection." alt="" coords="669,184,856,224"/>
+<area shape="poly" id="edge12_Node000006_Node000011" title=" " alt="" coords="914,166,838,187,837,181,912,161"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="688,246,668,238,567,195,569,190,670,234,690,241"/>
+<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="427,248,621,288"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="655,271,621,271,621,265,655,265"/>
+<area shape="rect" id="Node000009" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="220,248,379,288"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="413,271,379,271,379,265,413,265"/>
+<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="656,157,593,166,592,160,655,152"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="655,192,592,184,593,178,656,187"/>
 </map>

@@ -8,5 +8,5 @@ var classgalaxy_1_1state_1_1StateMachine =
     [ "pop", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a13f009d44a7185c2233a9bd00835bd8a", null ],
     [ "update", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a81f95bc20e520f790047a684370b64e8", null ],
     [ "m_stack", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a79cbceedc9c9c4a1d2db45e7be515fa1", null ],
-    [ "m_states", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a9d73fe3aeba1f2ee8505cdd8fafcf742", null ]
+    [ "m_states", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad089b7fbec2274ab2252468e18c9a4e6", null ]
 ];

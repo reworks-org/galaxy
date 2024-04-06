@@ -1,43 +1,43 @@
 <map id="galaxy::graphics::VertexBuffer::sub_buffer" name="galaxy::graphics::VertexBuffer::sub_buffer">
-<area shape="rect" id="Node000001" title="Sub&#45;buffer vertex object." alt="" coords="1072,293,1251,333"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex array." alt="" coords="845,293,1024,333"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1058,316,1024,316,1024,311,1058,311"/>
-<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="627,133,789,173"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="892,287,736,176,739,171,895,283"/>
-<area shape="rect" id="Node000009" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a7686ca85841b9ab9e5a3c3dc42296255" title="Buffer some vertices into the spritebatch." alt="" coords="619,357,797,397"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="850,340,780,360,779,355,849,335"/>
-<area shape="rect" id="Node000010" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3f6f7afd6d2f8579c79adb9113bfcaa6" title="Set texture clip." alt="" coords="631,37,785,77"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="913,283,864,207,831,163,795,123,769,100,741,80,744,75,772,95,799,119,835,160,868,203,917,280"/>
-<area shape="rect" id="Node000012" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#abb1cd3351fcca4eba0fba79ffa660251" title="Sub&#45;buffer vertex object." alt="" coords="619,421,797,461"/>
-<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="900,344,853,378,799,412,772,424,770,419,796,407,850,374,897,340"/>
-<area shape="rect" id="Node000013" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="627,293,789,333"/>
-<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="831,316,790,316,790,311,831,311"/>
-<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="413,69,566,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="625,132,557,112,559,107,627,127"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="421,133,558,173"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="612,156,558,156,558,151,612,151"/>
-<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="207,69,360,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="399,92,360,92,360,87,399,87"/>
-<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="215,17,352,42"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="414,129,406,123,390,107,382,90,373,75,358,59,331,44,333,40,362,55,378,72,386,88,395,104,410,119,417,124"/>
-<area shape="rect" id="Node000008" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,9,159,49"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="201,32,159,32,159,27,201,27"/>
-<area shape="rect" id="Node000011" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into lua." alt="" coords="421,5,558,45"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="617,47,558,38,559,33,618,41"/>
-<area shape="poly" id="edge11_Node000011_Node000007" title=" " alt="" coords="407,30,352,31,352,25,407,24"/>
-<area shape="poly" id="edge14_Node000013_Node000006" title=" " alt="" coords="679,285,630,236,569,188,547,176,550,171,572,183,634,232,683,281"/>
-<area shape="rect" id="Node000014" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="408,325,571,365"/>
-<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="613,330,571,336,570,331,613,325"/>
-<area shape="rect" id="Node000015" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="408,389,571,429"/>
-<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="634,341,620,348,596,363,572,380,546,392,544,387,569,375,593,359,617,343,631,336"/>
-<area shape="rect" id="Node000016" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="408,453,571,493"/>
-<area shape="poly" id="edge17_Node000013_Node000016" title=" " alt="" coords="626,343,621,347,603,370,597,394,590,418,573,443,556,455,552,451,569,439,586,416,592,392,599,368,617,343,622,339"/>
-<area shape="rect" id="Node000017" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="408,517,571,557"/>
-<area shape="poly" id="edge18_Node000013_Node000017" title=" " alt="" coords="624,344,621,347,606,367,599,386,597,425,595,465,587,486,573,507,558,519,555,515,569,504,583,484,590,464,592,425,594,385,602,364,617,344,621,340"/>
-<area shape="rect" id="Node000018" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="408,581,571,621"/>
-<area shape="poly" id="edge19_Node000013_Node000018" title=" " alt="" coords="624,344,621,347,603,375,595,402,594,429,597,457,600,484,599,513,591,542,573,571,559,583,555,579,569,568,586,539,594,512,594,485,592,457,589,430,590,401,598,373,617,344,620,340"/>
-<area shape="rect" id="Node000019" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="408,197,571,237"/>
-<area shape="poly" id="edge20_Node000013_Node000019" title=" " alt="" coords="652,290,570,252,541,240,543,235,572,247,654,285"/>
-<area shape="rect" id="Node000020" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="408,261,571,301"/>
-<area shape="poly" id="edge21_Node000013_Node000020" title=" " alt="" coords="613,302,570,296,571,291,613,297"/>
+<area shape="rect" id="Node000001" title="Sub&#45;buffer vertex object." alt="" coords="1085,293,1264,333"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adc986ea703cab53f3ac8fa19eda821c5" title="Sub&#45;buffer vertex array." alt="" coords="859,293,1037,333"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1071,316,1038,316,1038,311,1071,311"/>
+<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="640,133,803,173"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="905,287,749,176,752,171,909,283"/>
+<area shape="rect" id="Node000009" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a7686ca85841b9ab9e5a3c3dc42296255" title="Buffer some vertices into the spritebatch." alt="" coords="632,357,811,397"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="864,340,793,360,792,355,862,335"/>
+<area shape="rect" id="Node000010" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3f6f7afd6d2f8579c79adb9113bfcaa6" title="Set texture clip." alt="" coords="645,37,798,77"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="926,283,877,207,845,163,809,123,782,100,754,80,757,75,785,95,813,119,849,160,881,203,931,280"/>
+<area shape="rect" id="Node000012" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#abb1cd3351fcca4eba0fba79ffa660251" title="Sub&#45;buffer vertex object." alt="" coords="632,421,811,461"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="913,344,866,378,812,412,786,424,784,419,809,407,863,374,910,340"/>
+<area shape="rect" id="Node000013" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="640,293,803,333"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="845,316,803,316,803,311,845,311"/>
+<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="426,69,579,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="639,132,571,112,572,107,640,127"/>
+<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="434,133,571,173"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="626,156,571,156,571,151,626,151"/>
+<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="220,69,373,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="412,92,373,92,373,87,412,87"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="228,17,365,42"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="427,129,420,123,404,107,395,90,387,75,372,59,344,44,346,40,375,55,391,72,400,88,408,104,423,119,430,124"/>
+<area shape="rect" id="Node000008" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,17,172,42"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="214,32,172,32,172,27,214,27"/>
+<area shape="rect" id="Node000011" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into lua." alt="" coords="434,5,571,45"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="631,47,571,38,572,33,631,41"/>
+<area shape="poly" id="edge11_Node000011_Node000007" title=" " alt="" coords="420,30,365,31,365,25,420,24"/>
+<area shape="poly" id="edge14_Node000013_Node000006" title=" " alt="" coords="692,285,644,236,583,188,560,176,563,171,585,183,647,232,696,281"/>
+<area shape="rect" id="Node000014" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8bdc401e406e43a34a89414edb6eeffa" title="Update the rendered text." alt="" coords="421,325,584,365"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="627,330,585,336,584,331,626,325"/>
+<area shape="rect" id="Node000015" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aa5b45a9fc2aa4b565ed6a832c9d007aa" title="Update the rendered text." alt="" coords="421,389,584,429"/>
+<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="647,341,633,348,609,363,585,380,560,392,557,387,583,375,606,359,631,343,645,336"/>
+<area shape="rect" id="Node000016" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a6da0e4133c58b5b8effbaa6f55da6fd3" title="Update the rendered text." alt="" coords="421,453,584,493"/>
+<area shape="poly" id="edge17_Node000013_Node000016" title=" " alt="" coords="639,343,634,347,617,370,610,394,604,418,586,443,569,455,566,451,582,439,599,416,605,392,612,368,630,343,636,339"/>
+<area shape="rect" id="Node000017" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a9c3a437f668fc2fa31bd0bee35a37b3e" title="Update the rendered text." alt="" coords="421,517,584,557"/>
+<area shape="poly" id="edge18_Node000013_Node000017" title=" " alt="" coords="638,344,634,347,620,367,613,386,610,425,608,465,601,486,586,507,571,519,568,515,582,504,596,484,603,464,605,425,607,385,615,364,630,344,634,340"/>
+<area shape="rect" id="Node000018" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a8116078909fb5d521b9e9c9fc4df3476" title="Update the rendered text." alt="" coords="421,581,584,621"/>
+<area shape="poly" id="edge19_Node000013_Node000018" title=" " alt="" coords="637,344,634,347,616,375,608,402,607,429,610,457,613,484,612,513,605,542,586,571,572,583,569,579,582,568,600,539,607,512,608,485,605,457,602,430,603,401,611,373,630,344,633,340"/>
+<area shape="rect" id="Node000019" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#af45b6b70fe0851fccab1646a5faccf75" title="Update the rendered text." alt="" coords="421,197,584,237"/>
+<area shape="poly" id="edge20_Node000013_Node000019" title=" " alt="" coords="665,290,583,252,554,240,556,235,585,247,668,285"/>
+<area shape="rect" id="Node000020" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a50ce0db36a70f622fde76a09177e265f" title="Update the rendered text." alt="" coords="421,261,584,301"/>
+<area shape="poly" id="edge21_Node000013_Node000020" title=" " alt="" coords="626,302,584,296,585,291,627,297"/>
 </map>

@@ -1,14 +1,14 @@
 <map id="galaxy::fs::VirtualFileSystem::exists" name="galaxy::fs::VirtualFileSystem::exists">
-<area shape="rect" id="Node000001" title="Does the file exist in the vfs." alt="" coords="904,35,1112,75"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="418,13,574,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="890,51,574,32,574,27,890,45"/>
-<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="648,63,856,103"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="891,70,856,74,856,69,890,65"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,28,344,28,344,23,404,23"/>
-<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="648,62,553,41,554,35,649,57"/>
-<area shape="rect" id="Node000006" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="392,63,600,103"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="635,85,600,85,600,80,635,80"/>
+<area shape="rect" id="Node000001" title="Does the file exist in the vfs." alt="" coords="917,27,1125,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="431,5,587,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="903,43,587,25,588,20,904,38"/>
+<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="661,55,869,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="904,63,870,67,869,61,904,58"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,5,357,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,21,357,21,357,15,417,15"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,5,172,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,21,172,21,172,15,206,15"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="662,55,566,33,567,28,663,50"/>
+<area shape="rect" id="Node000006" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="405,55,613,95"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="648,78,613,78,613,73,648,73"/>
 </map>

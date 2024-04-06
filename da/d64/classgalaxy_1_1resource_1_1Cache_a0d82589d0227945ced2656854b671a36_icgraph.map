@@ -1,14 +1,14 @@
 <map id="galaxy::resource::Cache::clear" name="galaxy::resource::Cache::clear">
-<area shape="rect" id="Node000001" title="Destroy resources." alt="" coords="803,33,980,73"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="392,5,529,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="805,33,754,24,705,20,666,20,577,24,530,25,530,20,577,19,666,15,705,15,755,19,806,28"/>
-<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="577,33,755,73"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="789,56,755,56,755,51,789,51"/>
-<area shape="rect" id="Node000006" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#aa72ede435c24df982931ba59882379f1" title="Destructor." alt="" coords="577,97,755,137"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="808,80,738,100,736,95,806,75"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
-<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="563,42,529,37,530,32,564,37"/>
+<area shape="rect" id="Node000001" title="Destroy resources." alt="" coords="816,33,993,73"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="819,33,768,24,718,20,680,20,591,24,543,25,543,20,591,19,679,15,718,15,768,19,819,28"/>
+<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="591,33,768,73"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="803,56,768,56,768,51,803,51"/>
+<area shape="rect" id="Node000006" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#aa72ede435c24df982931ba59882379f1" title="Destructor." alt="" coords="591,97,768,137"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="821,80,751,100,750,95,819,75"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="576,42,543,37,543,32,577,37"/>
 </map>
