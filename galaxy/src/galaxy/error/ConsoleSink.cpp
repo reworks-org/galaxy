@@ -23,7 +23,7 @@ namespace galaxy
 
 		void ConsoleSink::sink_message(const LogMessage& message)
 		{
-			std::println("{0}[{1}] [{3}, Ln {4}] {2}: {5}", message.colour, message.time, message.level, message.file, message.line, message.message);
+			std::println("{0}[{1}] [{3}, Ln {4}] {2}: {5}\x1b[0m", message.colour, message.time, message.level, message.file, message.line, message.message);
 		}
 	} // namespace error
 } // namespace galaxy

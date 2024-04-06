@@ -167,11 +167,11 @@ namespace galaxy
 
 				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
 				{
-					lm.colour = "\x1b[33m";
+					lm.colour = "\x1b[1m\x1b[33m";
 				}
 				else if constexpr (level == LogLevel::WARNING)
 				{
-					lm.colour = "\x1b[31m";
+					lm.colour = "\x1b[1m\x1b[31m";
 				}
 				else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
 				{
