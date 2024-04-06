@@ -19,12 +19,12 @@ namespace galaxy
 		Sprite::Sprite()
 			: Serializable {}
 			, m_texture {nullptr}
+		//, m_mapped_vbo {nullptr}
 		{
 		}
 
 		Sprite::Sprite(const nlohmann::json& json)
 			: Serializable {}
-			, m_texture {nullptr}
 		{
 			deserialize(json);
 		}
@@ -32,26 +32,40 @@ namespace galaxy
 		Sprite::Sprite(Sprite&& s)
 			: Serializable {}
 		{
+			/*if (this->m_mapped_vbo != nullptr)
+				{
+					glUnmapNamedBuffer(this->m_vao.vbo().id());
+				}*/
+
 			this->m_texture  = s.m_texture;
 			this->m_vao      = std::move(s.m_vao);
 			this->m_tint     = std::move(s.m_tint);
 			this->m_name     = std::move(s.m_name);
 			this->m_vertices = std::move(s.m_vertices);
+			// this->m_mapped_vbo = std::move(s.m_mapped_vbo);
 
 			s.m_texture = nullptr;
+			// s.m_mapped_vbo = nullptr;
 		}
 
 		Sprite& Sprite::operator=(Sprite&& s)
 		{
 			if (this != &s)
 			{
+				/*if (this->m_mapped_vbo != nullptr)
+				{
+					glUnmapNamedBuffer(this->m_vao.vbo().id());
+				}*/
+
 				this->m_texture  = s.m_texture;
 				this->m_vao      = std::move(s.m_vao);
 				this->m_tint     = std::move(s.m_tint);
 				this->m_name     = std::move(s.m_name);
 				this->m_vertices = std::move(s.m_vertices);
+				// this->m_mapped_vbo = std::move(s.m_mapped_vbo);
 
 				s.m_texture = nullptr;
+				// s.m_mapped_vbo = nullptr;
 			}
 
 			return *this;
@@ -59,7 +73,10 @@ namespace galaxy
 
 		Sprite::~Sprite()
 		{
-			m_texture = nullptr;
+			/*if (m_mapped_vbo != nullptr)
+			{
+				glUnmapNamedBuffer(m_vao.vbo().id());
+			}*/
 		}
 
 		void Sprite::set_texture(const std::string& texture)
@@ -69,6 +86,11 @@ namespace galaxy
 
 			if (tex)
 			{
+				/*if (m_mapped_vbo != nullptr)
+				{
+					glUnmapNamedBuffer(m_vao.vbo().id());
+				}*/
+
 				m_name    = texture;
 				m_texture = tex;
 
@@ -76,6 +98,10 @@ namespace galaxy
 				auto indices = graphics::gen_default_indices();
 
 				m_vao.buffer(m_vertices, indices);
+				/*m_mapped_vbo = glMapNamedBufferRange(m_vao.vbo().id(),
+					0,
+					m_vertices.size() * sizeof(graphics::Vertex),
+					GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_FLUSH_EXPLICIT_BIT | GL_MAP_INVALIDATE_RANGE_BIT);*/
 			}
 			else
 			{
@@ -90,6 +116,11 @@ namespace galaxy
 
 			if (tex)
 			{
+				/*if (m_mapped_vbo != nullptr)
+				{
+					glUnmapNamedBuffer(m_vao.vbo().id());
+				}*/
+
 				m_name    = texture;
 				m_texture = tex;
 
@@ -116,6 +147,10 @@ namespace galaxy
 				auto indices = graphics::gen_default_indices();
 
 				m_vao.buffer(m_vertices, indices);
+				/*m_mapped_vbo = glMapNamedBufferRange(m_vao.vbo().id(),
+					0,
+					m_vertices.size() * sizeof(graphics::Vertex),
+					GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_FLUSH_EXPLICIT_BIT | GL_MAP_INVALIDATE_RANGE_BIT);*/
 			}
 			else
 			{
@@ -125,6 +160,8 @@ namespace galaxy
 
 		void Sprite::set_clip(const math::fRect& rect)
 		{
+			// if (m_mapped_vbo)
+			//{
 			m_vertices[0].m_pos.x    = 0.0f;
 			m_vertices[0].m_pos.y    = 0.0f;
 			m_vertices[0].m_texels.x = graphics::map_x_texel(rect.x, m_texture->width());
@@ -146,6 +183,9 @@ namespace galaxy
 			m_vertices[3].m_texels.y = graphics::map_y_texel(rect.y + rect.height, m_texture->height());
 
 			m_vao.sub_buffer(0, m_vertices);
+			// std::memcpy(m_mapped_vbo, m_vertices.data(), m_vertices.size() * sizeof(graphics::Vertex));
+			// glFlushMappedNamedBufferRange(m_vao.vbo().id(), 0, m_vertices.size() * sizeof(graphics::Vertex));
+			//}
 		}
 
 		graphics::Texture2D* Sprite::get_texture()

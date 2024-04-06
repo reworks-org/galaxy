@@ -131,6 +131,11 @@ namespace galaxy
 			/// Vertex data.
 			///
 			std::array<graphics::Vertex, 4> m_vertices;
+
+			///
+			/// Pointer to vertex data memory. Faster than upload.
+			///
+			// void* m_mapped_vbo;
 		};
 	} // namespace components
 } // namespace galaxy
