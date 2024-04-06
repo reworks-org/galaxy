@@ -8,7 +8,7 @@
 	<a href="./LICENSE.txt"><img src="https://img.shields.io/badge/license-apache-blue.svg" /></a>
 </div>
 
-Real-Time C++20 Game/App Engine. Built on data-driven design principles and agile software engineering. 
+Real-Time C++23 Game/App Engine. Built on data-driven design principles and agile software engineering. 
 
 ![galaxy](logo.png?raw=true "galaxy")
 

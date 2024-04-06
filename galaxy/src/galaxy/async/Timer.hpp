@@ -257,7 +257,7 @@ namespace galaxy
 		{
 			if constexpr (async)
 			{
-				assert("Cannot call update() when timer is async.");
+				std::unreachable();
 			}
 			else
 			{

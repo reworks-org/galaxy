@@ -16,7 +16,6 @@ namespace entt_sol
 				: callback {f}
 			{
 				connection = dispatcher.sink<Event>().template connect<&script_listener::receive>(*this);
-				std::cout << "Registered lua listener: " << callback.pointer() << std::endl;
 			}
 
 			script_listener(const script_listener&)     = delete;
@@ -25,7 +24,6 @@ namespace entt_sol
 			~script_listener()
 			{
 				connection.release();
-				std::cout << "Unregistered lua listener: " << callback.pointer() << std::endl;
 				callback.abandon();
 			}
 

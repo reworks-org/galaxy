@@ -1,26 +1,27 @@
 #include "DirectoryFinder.h"
 
 #include <filesystem>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
-#include "../Utils.h"
 #include "../FontManager.h"
+#include "../Utils.h"
 
 DirectoryFinder::DirectoryFinder(const std::string& folderPath,
-	OnResultClickCallback onResultClickCallback,
-	OnResultFoundCallback onResultFoundCallback,
-	OnSearchFinishedCallback onSearchFinishedCallback,
-	OnFocusedCallback onFocusedCallback,
-	int id, int createdFromFolderView)
+	OnResultClickCallback                           onResultClickCallback,
+	OnResultFoundCallback                           onResultFoundCallback,
+	OnSearchFinishedCallback                        onSearchFinishedCallback,
+	OnFocusedCallback                               onFocusedCallback,
+	int                                             id,
+	int                                             createdFromFolderView)
 {
-	this->id = id;
-	this->createdFromFolderView = createdFromFolderView;
-	this->onResultClickCallback = onResultClickCallback;
-	this->onResultFoundCallback = onResultFoundCallback;
+	this->id                       = id;
+	this->createdFromFolderView    = createdFromFolderView;
+	this->onResultClickCallback    = onResultClickCallback;
+	this->onResultFoundCallback    = onResultFoundCallback;
 	this->onSearchFinishedCallback = onSearchFinishedCallback;
-	this->onFocusedCallback = onFocusedCallback;
-	panelName = "Folder search##" + std::to_string((int)this);
+	this->onFocusedCallback        = onFocusedCallback;
+	panelName                      = "Folder search##" + std::to_string((int)this);
 	strcpy(directoryPath, folderPath.c_str());
 	directoryPath[folderPath.length()] = '\0';
 }
@@ -64,7 +65,7 @@ bool DirectoryFinder::OnImGui()
 				for (int j = 0; j < file.results.size(); j++)
 				{
 					DirectoryFinderSearchResult& res = file.results[j];
-					std::smatch resultFilterMatch;
+					std::smatch                  resultFilterMatch;
 					if (resultFilter[0] == '\0' || std::regex_search(res.displayText, resultFilterMatch, resultFilterRegex))
 						resultsInFile.push_back(&res);
 				}
@@ -73,11 +74,13 @@ bool DirectoryFinder::OnImGui()
 				{
 					ImGui::Separator();
 					ImGui::TextUnformatted(file.fileName.c_str());
-					if (codeFont != nullptr) ImGui::PushFont(codeFont);
+					if (codeFont != nullptr)
+						ImGui::PushFont(codeFont);
 					for (DirectoryFinderSearchResult* res : resultsInFile)
 						if (ImGui::Selectable(res->displayText.c_str()) && onResultClickCallback != nullptr)
 							onResultClickCallback(file.filePath, *res, createdFromFolderView);
-					if (codeFont != nullptr) ImGui::PopFont();
+					if (codeFont != nullptr)
+						ImGui::PopFont();
 				}
 			}
 		}
@@ -87,7 +90,7 @@ bool DirectoryFinder::OnImGui()
 	if (!windowIsOpen && finderThread != nullptr)
 	{
 		std::thread* threadToJoin = finderThread;
-		finderThread = nullptr;
+		finderThread              = nullptr;
 		threadToJoin->join();
 	}
 	return windowIsOpen;
@@ -96,14 +99,21 @@ bool DirectoryFinder::OnImGui()
 void DirectoryFinder::Find()
 {
 	// validate
-	std::string toFindAsStdString = std::string(toFind);
-	std::regex toIncludeAsPattern = std::regex(toInclude);
-	std::regex toExcludeAsPattern = std::regex(toExclude);
-	std::regex toFindAsPattern;
+	std::string toFindAsStdString  = std::string(toFind);
+	std::regex  toIncludeAsPattern = std::regex(toInclude);
+	std::regex  toExcludeAsPattern = std::regex(toExclude);
+	std::regex  toFindAsPattern;
 	if (regexEnabled)
 	{
-		try { toFindAsPattern = caseSensitiveEnabled ? std::regex(toFind) : std::regex(toFind, std::regex_constants::icase); }
-		catch (...) { std::cout << "[DirectoryFinder] Invalid regex given\n"; finderThread = nullptr; return; }
+		try
+		{
+			toFindAsPattern = caseSensitiveEnabled ? std::regex(toFind) : std::regex(toFind, std::regex_constants::icase);
+		}
+		catch (...)
+		{
+			finderThread = nullptr;
+			return;
+		}
 	}
 
 	// start work
@@ -133,7 +143,7 @@ void DirectoryFinder::Find()
 		std::ifstream fileInput;
 		fileInput.open(Utils::Utf8ToWstring(filePath));
 		std::string line;
-		int curLine = 0;
+		int         curLine = 0;
 		while (std::getline(fileInput, line))
 		{
 			if (finderThread == nullptr)
@@ -149,31 +159,34 @@ void DirectoryFinder::Find()
 						std::lock_guard<std::mutex> guard(finderThreadMutex);
 						if (!foundInFile)
 						{
-							resultFiles.push_back({ filePath, fileName, {} });
+							resultFiles.push_back({filePath, fileName, {}});
 							foundInFile = true;
 						}
-						resultFiles.back().results.push_back({ std::to_string(curLine) + ": " + line, curLine, startChar, startChar + (int)toFindAsStdString.length()});
-						if (onResultFoundCallback != nullptr) onResultFoundCallback();
+						resultFiles.back().results.push_back(
+							{std::to_string(curLine) + ": " + line, curLine, startChar, startChar + (int)toFindAsStdString.length()});
+						if (onResultFoundCallback != nullptr)
+							onResultFoundCallback();
 					}
 				}
 				else // caseSensitiveEnabled
 				{
-					auto it = std::search(
-						line.begin(), line.end(),
-						toFindAsStdString.begin(), toFindAsStdString.end(),
-						[](unsigned char ch1, unsigned char ch2) { return std::toupper(ch1) == std::toupper(ch2); }
-					);
+					auto it =
+						std::search(line.begin(), line.end(), toFindAsStdString.begin(), toFindAsStdString.end(), [](unsigned char ch1, unsigned char ch2) {
+							return std::toupper(ch1) == std::toupper(ch2);
+						});
 					if (it != line.end())
 					{
 						std::lock_guard<std::mutex> guard(finderThreadMutex);
-						int startChar = it - line.begin();
+						int                         startChar = it - line.begin();
 						if (!foundInFile)
 						{
-							resultFiles.push_back({ filePath, fileName, {} });
+							resultFiles.push_back({filePath, fileName, {}});
 							foundInFile = true;
 						}
-						resultFiles.back().results.push_back({ std::to_string(curLine) + ": " + line, curLine, startChar, startChar + (int)toFindAsStdString.length() });
-						if (onResultFoundCallback != nullptr) onResultFoundCallback();
+						resultFiles.back().results.push_back(
+							{std::to_string(curLine) + ": " + line, curLine, startChar, startChar + (int)toFindAsStdString.length()});
+						if (onResultFoundCallback != nullptr)
+							onResultFoundCallback();
 					}
 				}
 			}
@@ -185,11 +198,13 @@ void DirectoryFinder::Find()
 					std::lock_guard<std::mutex> guard(finderThreadMutex);
 					if (!foundInFile)
 					{
-						resultFiles.push_back({ filePath, fileName, {} });
+						resultFiles.push_back({filePath, fileName, {}});
 						foundInFile = true;
 					}
-					resultFiles.back().results.push_back({ std::to_string(curLine) + ": " + line, curLine, (int)lineMatch.position(), (int)(lineMatch.position() + lineMatch.length()) });
-					if (onResultFoundCallback != nullptr) onResultFoundCallback();
+					resultFiles.back().results.push_back(
+						{std::to_string(curLine) + ": " + line, curLine, (int)lineMatch.position(), (int)(lineMatch.position() + lineMatch.length())});
+					if (onResultFoundCallback != nullptr)
+						onResultFoundCallback();
 				}
 			}
 		}
@@ -197,5 +212,6 @@ void DirectoryFinder::Find()
 	}
 
 	finderThread = nullptr;
-	if (onSearchFinishedCallback != nullptr) onSearchFinishedCallback();
+	if (onSearchFinishedCallback != nullptr)
+		onSearchFinishedCallback();
 }

@@ -55,15 +55,8 @@ namespace galaxy
 
 		void FileSink::sink_message(const LogMessage& message)
 		{
-			auto level_spaced = static_cast<std::string>(message.level);
-			level_spaced.push_back(':');
-			while (level_spaced.length() < 9)
-			{
-				level_spaced.push_back(' ');
-			}
-
 			m_file_stream
-				<< std::format("[{0}] {1}[{2}] {3}\n", message.time, level_spaced, std::format("{0}, Ln {1}", message.file, message.line), message.message);
+				<< std::format("[{0}] [{2}, Ln {3}] {1}: {4}\n{5}\n", message.time, message.level, message.file, message.line, message.message, message.trace);
 		}
 	} // namespace error
 } // namespace galaxy

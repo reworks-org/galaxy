@@ -181,7 +181,7 @@ namespace galaxy
 		template<>
 		inline void Shader::set_uniform(const std::string& name)
 		{
-			static_assert(true, "Failed to find correct overload for shader.");
+			std::unreachable();
 		}
 
 		template<>

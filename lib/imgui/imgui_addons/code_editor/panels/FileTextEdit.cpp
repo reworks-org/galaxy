@@ -341,9 +341,7 @@ void FileTextEdit::OnReloadCommand()
 void FileTextEdit::OnLoadFromCommand()
 {
 	std::vector<std::string> selection = pfd::open_file("Open file", "", {"Any file", "*"}).result();
-	if (selection.size() == 0)
-		std::cout << "File not loaded\n";
-	else
+	if (selection.size() != 0)
 	{
 		std::ifstream t(Utils::Utf8ToWstring(selection[0]));
 		std::string   str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
@@ -353,6 +351,7 @@ void FileTextEdit::OnLoadFromCommand()
 		if (lang != extensionToLanguageDefinition.end())
 			editor->SetLanguageDefinition(extensionToLanguageDefinition[pathObject.extension().string()]);
 	}
+
 	undoIndexInDisk = -1; // assume they are loading text from some other file
 }
 

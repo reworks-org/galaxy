@@ -40,12 +40,10 @@ ImFont* FontManager::GetCodeFont(int desiredSize)
 {
 	if (desiredSize > MAX_CODE_FONT_SIZE)
 	{
-		std::cout << "[FontManager] Clamping font size. Desired font size greater than max: " << desiredSize << " > " << MAX_CODE_FONT_SIZE << std::endl;
 		desiredSize = MAX_CODE_FONT_SIZE;
 	}
 	else if (desiredSize < MIN_CODE_FONT_SIZE)
 	{
-		std::cout << "[FontManager] Clamping font size. Desired font size smaller than min: " << desiredSize << " < " << MIN_CODE_FONT_SIZE << std::endl;
 		desiredSize = MIN_CODE_FONT_SIZE;
 	}
 	return codeFonts[desiredSize];

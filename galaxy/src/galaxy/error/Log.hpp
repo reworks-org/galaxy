@@ -10,6 +10,7 @@
 
 #include <filesystem>
 #include <source_location>
+#include <stacktrace>
 
 #include <magic_enum/magic_enum.hpp>
 
@@ -149,13 +150,16 @@ namespace galaxy
 		{
 			if (level >= m_min_level)
 			{
+				auto trace = std::stacktrace::current();
+
 				// clang-format off
 				LogMessage lm
 				{
 					.time    = std::format("{0:%r}", std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time()),
-					.file     = loc.file_name(),
+					.file     = std::filesystem::path(loc.file_name()).filename().string(),
 					.line    = std::to_string(loc.line()),
-					.message = std::vformat(message, std::make_format_args(args...))
+					.message = std::vformat(message, std::make_format_args(args...)),
+					.trace = std::to_string(trace)
 				};
 				// clang-format on
 
@@ -163,15 +167,15 @@ namespace galaxy
 
 				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
 				{
-					lm.colour = "\x1B[37m";
+					lm.colour = "\x1b[33m";
 				}
 				else if constexpr (level == LogLevel::WARNING)
 				{
-					lm.colour = "\x1B[33m";
+					lm.colour = "\x1b[31m";
 				}
 				else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
 				{
-					lm.colour = "\x1B[31m";
+					lm.colour = "\x1b[41m\x1b[37m";
 				}
 
 				for (const auto& sink : m_sinks)
@@ -181,7 +185,7 @@ namespace galaxy
 
 				if constexpr (level == LogLevel::FATAL)
 				{
-					throw std::runtime_error(lm.message);
+					throw std::runtime_error(std::to_string(trace));
 				}
 			}
 		}

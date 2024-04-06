@@ -48,6 +48,11 @@ namespace galaxy
 			/// The actual message to record.
 			///
 			std::string message;
+
+			///
+			/// Stack trace.
+			///
+			std::string trace;
 		};
 	} // namespace error
 } // namespace galaxy
