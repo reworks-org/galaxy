@@ -1,0 +1,16 @@
+<map id="galaxy/src/galaxy/graphics/anim" name="galaxy/src/galaxy/graphics/anim">
+<area shape="rect" id="node1" href="dir_f26fe48c2a3dc8da6d37ea6e011d9d6c.html" title="anim" alt="" coords="129,52,183,77"/>
+<area shape="rect" id="node2" href="dir_48f77a4e21c16676ac8bbd98db82dd44.html" title="error" alt="" coords="5,125,59,151"/>
+<area shape="poly" id="edge1" href="dir_000000_000005.html" alt="" coords="137,80,65,121,63,116,135,75"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000000_000005.html" title="1" alt="" coords="68,116,77,131"/>
+<area shape="rect" id="node3" href="dir_5adffbad0d676b36ea4ec849c81f774b.html" title="math" alt="" coords="83,125,139,151"/>
+<area shape="poly" id="edge2" href="dir_000000_000015.html" alt="" coords="151,79,128,115,123,112,146,76"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000000_000015.html" title="1" alt="" coords="130,107,140,122"/>
+<area shape="rect" id="node4" href="dir_7eba3ad153a44eced68a1cf247fff29c.html" title="scripting" alt="" coords="163,125,242,151"/>
+<area shape="poly" id="edge3" href="dir_000000_000022.html" alt="" coords="166,76,190,112,185,115,161,79"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000000_000022.html" title="1" alt="" coords="188,98,197,113"/>
+<area shape="rect" id="node5" href="dir_7f735fbad00ad2f3f96d935c571f321a.html" title="meta" alt="" coords="267,125,323,151"/>
+<area shape="poly" id="edge4" href="dir_000000_000017.html" alt="" coords="179,75,261,117,259,121,177,80"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000000_000017.html" title="1" alt="" coords="255,102,264,117"/>
+<area shape="rect" id="clust1" href="dir_99aa8610175742e789e9b97044e8bb7a.html" title="graphics" alt="" coords="117,16,195,88"/>
+</map>

@@ -1,5 +1,5 @@
 <map id="galaxy::components::Sprite" name="galaxy::components::Sprite">
-<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="13,219,159,579"/>
+<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="13,219,159,619"/>
 <area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,167,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,185,89,218,83,218,83,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,184,89,218,83,218,83,184"/>
 </map>

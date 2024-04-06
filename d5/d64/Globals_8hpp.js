@@ -30,6 +30,7 @@ var Globals_8hpp =
     [ "GALAXY_FONT_DIR", "d5/d64/Globals_8hpp.html#a78c3ac5e6f704f69b46fa9ec3d4c6539", null ],
     [ "GALAXY_SCRIPT_DIR", "d5/d64/Globals_8hpp.html#a2ef3605a806655843baf2da5b1b2d51c", null ],
     [ "GALAXY_SHADER_DIR", "d5/d64/Globals_8hpp.html#ad5059a66cd32fef98d84587ebd1104f4", null ],
+    [ "GALAXY_ANIM_DIR", "d5/d64/Globals_8hpp.html#aa06ccc51518bd5ea33974a2c2114038d", null ],
     [ "GALAXY_TEXTURE_DIR", "d5/d64/Globals_8hpp.html#a64921ed69d7e6c2278899485465cc083", null ],
     [ "GALAXY_LANG_DIR", "d5/d64/Globals_8hpp.html#ab61c9cccc68cb91575ace681a248cf20", null ],
     [ "GALAXY_PREFABS_DIR", "d5/d64/Globals_8hpp.html#ae49fe5cc91c8dee17f399bf770c8ffb0", null ],

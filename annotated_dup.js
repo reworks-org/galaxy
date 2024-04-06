@@ -5,6 +5,7 @@ var annotated_dup =
         [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ]
       ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
+        [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
         [ "Ellipse", "d9/ddf/classgalaxy_1_1components_1_1Ellipse.html", "d9/ddf/classgalaxy_1_1components_1_1Ellipse" ],
         [ "GUI", "d3/df0/classgalaxy_1_1components_1_1GUI.html", "d3/df0/classgalaxy_1_1components_1_1GUI" ],
@@ -58,6 +59,7 @@ var annotated_dup =
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
       [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
+        [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
         [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
         [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
         [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
@@ -66,6 +68,7 @@ var annotated_dup =
         [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
         [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", "d1/d70/classgalaxy_1_1graphics_1_1Font" ],
         [ "FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext" ],
+        [ "Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", "d8/dad/structgalaxy_1_1graphics_1_1Frame" ],
         [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer" ],
         [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
         [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],
@@ -142,6 +145,7 @@ var annotated_dup =
         [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
       ] ],
       [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", [
+        [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],
         [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],

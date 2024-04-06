@@ -1,5 +1,6 @@
 var namespacegalaxy_1_1graphics =
 [
+    [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
     [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
     [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
     [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
@@ -8,6 +9,7 @@ var namespacegalaxy_1_1graphics =
     [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
     [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", "d1/d70/classgalaxy_1_1graphics_1_1Font" ],
     [ "FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext" ],
+    [ "Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", "d8/dad/structgalaxy_1_1graphics_1_1Frame" ],
     [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer" ],
     [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
     [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],

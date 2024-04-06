@@ -1,6 +1,8 @@
 var dir_6861e931fb99faa1379ff4c0e1a1bd9e =
 [
     [ "embedded", "dir_cf8be6e3585561960f1efa7164eec819.html", "dir_cf8be6e3585561960f1efa7164eec819" ],
+    [ "Animations.cpp", "d7/d66/Animations_8cpp.html", null ],
+    [ "Animations.hpp", "dc/d1a/Animations_8hpp.html", "dc/d1a/Animations_8hpp" ],
     [ "Cache.cpp", "dd/df4/Cache_8cpp.html", null ],
     [ "Cache.hpp", "d4/d1e/Cache_8hpp.html", "d4/d1e/Cache_8hpp" ],
     [ "Fonts.cpp", "db/d4b/Fonts_8cpp.html", null ],

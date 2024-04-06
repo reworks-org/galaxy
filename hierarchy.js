@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
     [ "galaxy::core::App", "d5/d5a/classgalaxy_1_1core_1_1App.html", null ],
     [ "galaxy::media::AudioEngine< type >", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::resource::Cache< Resource, Loader >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
@@ -14,6 +15,7 @@ var hierarchy =
     [ "galaxy::meta::EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", null ],
     [ "galaxy::graphics::Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", null ],
     [ "galaxy::graphics::FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", null ],
+    [ "galaxy::graphics::Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", null ],
     [ "galaxy::graphics::Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", null ],
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
@@ -64,6 +66,7 @@ var hierarchy =
     [ "galaxy::media::RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", null ],
     [ "galaxy::lua::Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
+      [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
       [ "galaxy::components::Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", null ],
       [ "galaxy::components::Ellipse", "d9/ddf/classgalaxy_1_1components_1_1Ellipse.html", null ],
       [ "galaxy::components::GUI", "d3/df0/classgalaxy_1_1components_1_1GUI.html", null ],
@@ -102,6 +105,7 @@ var hierarchy =
     [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
     [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
+      [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
       [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]

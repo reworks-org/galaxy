@@ -40,16 +40,17 @@ var searchData=
   ['postprocess_2ehpp_37',['PostProcess.hpp',['../d6/d3a/PostProcess_8hpp.html',1,'']]],
   ['pragma_2ecpp_38',['Pragma.cpp',['../d7/dd6/Pragma_8cpp.html',1,'']]],
   ['pragma_2ehpp_39',['Pragma.hpp',['../d5/ddd/Pragma_8hpp.html',1,'']]],
-  ['prefab_40',['prefab',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#af297078bae7d05b1056a431e526679e5',1,'galaxy::core::Prefab::Prefab(const nlohmann::json &amp;json)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ac9be6bed2d350352aa9bce8f27ad155c',1,'galaxy::core::Prefab::Prefab(const Prefab &amp;)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a5b515c3651d75e912185b2df406fd717',1,'galaxy::core::Prefab::Prefab(Prefab &amp;&amp;)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a93fd128b9da57d04d716b2b5e6aaa664',1,'galaxy::core::Prefab::Prefab()'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html',1,'galaxy::core::Prefab'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af',1,'galaxy::core::Prefab::Prefab()']]],
+  ['prefab_40',['prefab',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#af297078bae7d05b1056a431e526679e5',1,'galaxy::core::Prefab::Prefab(const nlohmann::json &amp;json)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#ac9be6bed2d350352aa9bce8f27ad155c',1,'galaxy::core::Prefab::Prefab(const Prefab &amp;)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a5b515c3651d75e912185b2df406fd717',1,'galaxy::core::Prefab::Prefab(Prefab &amp;&amp;)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af',1,'galaxy::core::Prefab::Prefab(entt::entity entity, entt::registry &amp;registry)'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a93fd128b9da57d04d716b2b5e6aaa664',1,'galaxy::core::Prefab::Prefab()'],['../d6/d40/classgalaxy_1_1core_1_1Prefab.html',1,'galaxy::core::Prefab']]],
   ['prefab_2ecpp_41',['Prefab.cpp',['../d7/de1/Prefab_8cpp.html',1,'']]],
   ['prefab_2ehpp_42',['Prefab.hpp',['../d1/d98/Prefab_8hpp.html',1,'']]],
   ['prefabs_43',['Prefabs',['../d4/d1b/namespacegalaxy_1_1resource.html#a42340fa1e12b564ac33cda91bc293949',1,'galaxy::resource']]],
   ['prefabs_2ecpp_44',['Prefabs.cpp',['../dc/d7a/Prefabs_8cpp.html',1,'']]],
   ['prefabs_2ehpp_45',['Prefabs.hpp',['../d3/d96/Prefabs_8hpp.html',1,'']]],
   ['preprocess_46',['preprocess',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d',1,'galaxy::graphics::Shader']]],
-  ['prime_5f32_5fconst_47',['prime_32_const',['../d1/d92/namespacegalaxy_1_1math.html#a1d787204f925d8dfbffdc89ad0522e99',1,'galaxy::math']]],
-  ['prime_5f64_5fconst_48',['prime_64_const',['../d1/d92/namespacegalaxy_1_1math.html#afcef1d71a1d37b4bf17ed1053d42c07d',1,'galaxy::math']]],
-  ['print_5fscreen_49',['PRINT_SCREEN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea853f8ded7a96b5a765704974e6a3ca96',1,'galaxy::input']]],
-  ['priority_5fqueue_50',['priority_queue',['../d3/d12/namespacegalaxy_1_1meta.html#a8410a7124227ca73499f165a96e7df24',1,'galaxy::meta']]],
-  ['push_51',['push',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a060132418903cef79f1c8859e39f240d',1,'galaxy::state::StateMachine::push()'],['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a7686ca85841b9ab9e5a3c3dc42296255',1,'galaxy::graphics::VertexBatch::push()']]]
+  ['prev_47',['prev',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a10fd8eaed95108746ddf4600772988ea',1,'galaxy::graphics::Animation']]],
+  ['prime_5f32_5fconst_48',['prime_32_const',['../d1/d92/namespacegalaxy_1_1math.html#a1d787204f925d8dfbffdc89ad0522e99',1,'galaxy::math']]],
+  ['prime_5f64_5fconst_49',['prime_64_const',['../d1/d92/namespacegalaxy_1_1math.html#afcef1d71a1d37b4bf17ed1053d42c07d',1,'galaxy::math']]],
+  ['print_5fscreen_50',['PRINT_SCREEN',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea853f8ded7a96b5a765704974e6a3ca96',1,'galaxy::input']]],
+  ['priority_5fqueue_51',['priority_queue',['../d3/d12/namespacegalaxy_1_1meta.html#a8410a7124227ca73499f165a96e7df24',1,'galaxy::meta']]],
+  ['push_52',['push',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a060132418903cef79f1c8859e39f240d',1,'galaxy::state::StateMachine::push()'],['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a7686ca85841b9ab9e5a3c3dc42296255',1,'galaxy::graphics::VertexBatch::push()']]]
 ];

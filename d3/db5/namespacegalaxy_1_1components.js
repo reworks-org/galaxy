@@ -1,5 +1,6 @@
 var namespacegalaxy_1_1components =
 [
+    [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
     [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
     [ "Ellipse", "d9/ddf/classgalaxy_1_1components_1_1Ellipse.html", "d9/ddf/classgalaxy_1_1components_1_1Ellipse" ],
     [ "GUI", "d3/df0/classgalaxy_1_1components_1_1GUI.html", "d3/df0/classgalaxy_1_1components_1_1GUI" ],

@@ -1,0 +1,11 @@
+<map id="galaxy::json::read" name="galaxy::json::read">
+<area shape="rect" id="Node000001" title="Read a json file in the vfs." alt="" coords="828,13,965,38"/>
+<area shape="rect" id="Node000002" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#a52134ecb66e64746e257ce4c9358dc6c" title="Load a json file from VFS and set frames from that." alt="" coords="577,5,780,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="814,28,780,28,780,23,814,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="392,5,529,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="564,28,530,28,530,23,564,23"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="207,13,344,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="378,28,344,28,344,23,378,23"/>
+<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+</map>

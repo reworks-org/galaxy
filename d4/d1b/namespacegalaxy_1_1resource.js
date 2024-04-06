@@ -5,6 +5,7 @@ var namespacegalaxy_1_1resource =
     [ "MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
     [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
     [ "VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader" ],
+    [ "Animations", "d4/d1b/namespacegalaxy_1_1resource.html#ad32b00962814d0596ff6b35ae5cd76c5", null ],
     [ "Fonts", "d4/d1b/namespacegalaxy_1_1resource.html#a56414a40078824089e13bbd5038017a0", null ],
     [ "SoundCache", "d4/d1b/namespacegalaxy_1_1resource.html#a1b3d78334f125c2160588db464f4dd7d", null ],
     [ "MusicCache", "d4/d1b/namespacegalaxy_1_1resource.html#ab6faf1427a48967ef8391df410bf02e0", null ],
