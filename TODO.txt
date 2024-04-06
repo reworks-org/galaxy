@@ -3,6 +3,9 @@
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
 
+- fix nuklearui input.
+- update imgui at some point.
+
 Signals:
 - https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
 - https://github.com/skypjack/entt/wiki/Crash-Course:-events,-signals-and-everything-in-between#signals

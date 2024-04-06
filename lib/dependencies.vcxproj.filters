@@ -197,6 +197,9 @@
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="dense\include\ankerl\unordered_dense.h" />
+    <ClInclude Include="nuklear\nuklear.h" />
+    <ClInclude Include="nuklear\Nuklear.hpp" />
+    <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

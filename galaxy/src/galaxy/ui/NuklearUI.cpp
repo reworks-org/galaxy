@@ -104,12 +104,12 @@ namespace galaxy
 
 		void NuklearUI::enable_input()
 		{
-			m_ctx->is_input_allowed = true;
+			// m_ctx->is_input_allowed = true;
 		}
 
 		void NuklearUI::disable_input()
 		{
-			m_ctx->is_input_allowed = false;
+			// m_ctx->is_input_allowed = false;
 		}
 
 		void NuklearUI::show_loading_bar(const char* text, nk_size total, nk_size current)
