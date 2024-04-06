@@ -37,6 +37,7 @@ namespace galaxy
 		inline static const std::string assets_font {"fonts/"};
 		inline static const std::string assets_script {"scripts/"};
 		inline static const std::string assets_shader {"shaders/"};
+		inline static const std::string assets_animation {"animations/"};
 		inline static const std::string assets_texture {"textures/"};
 		inline static const std::string assets_lang {"lang/"};
 		inline static const std::string assets_prefabs {"prefabs/"};
@@ -192,6 +193,11 @@ namespace galaxy
 /// Shader asset location.
 ///
 #define GALAXY_SHADER_DIR galaxy::DoNotUseReferToMacros::assets_shader
+
+///
+/// Animation data location.
+///
+#define GALAXY_ANIM_DIR galaxy::DoNotUseReferToMacros::assets_animation
 
 ///
 /// Texture asset location.

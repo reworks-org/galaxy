@@ -8,6 +8,7 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/resource/Animations.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
@@ -24,6 +25,17 @@ namespace galaxy
 		void inject_resources()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			auto anims_type           = lua.new_usertype<resource::Animations>("Animations", sol::no_constructor);
+			anims_type["clear"]       = &resource::Animations::clear;
+			anims_type["empty"]       = &resource::Animations::empty;
+			anims_type["get"]         = &resource::Animations::get;
+			anims_type["has"]         = &resource::Animations::has;
+			anims_type["keys"]        = &resource::Animations::keys;
+			anims_type["size"]        = &resource::Animations::size;
+			anims_type["insert"]      = &resource::Animations::insert;
+			anims_type["load"]        = &resource::Animations::load;
+			anims_type["load_folder"] = &resource::Animations::load_folder;
 
 			auto fonts_type           = lua.new_usertype<resource::Fonts>("Fonts", sol::no_constructor);
 			fonts_type["clear"]       = &resource::Fonts::clear;

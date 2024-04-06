@@ -64,7 +64,14 @@ namespace galaxy
 			/// \param texture Texture file in VFS.
 			/// \param rect Custom region on a texture to render from.
 			///
-			void set_texture(const std::string& texture, const math::iRect& rect);
+			void set_texture(const std::string& texture, const math::fRect& rect);
+
+			///
+			/// Set texture clip.
+			///
+			/// \param rect Coords on sprite to clip to.
+			///
+			void set_clip(const math::fRect& rect);
 
 			///
 			/// Get texture.
@@ -119,6 +126,11 @@ namespace galaxy
 			/// Texture debug name.
 			///
 			std::string m_name;
+
+			///
+			/// Vertex data.
+			///
+			std::array<graphics::Vertex, 4> m_vertices;
 		};
 	} // namespace components
 } // namespace galaxy

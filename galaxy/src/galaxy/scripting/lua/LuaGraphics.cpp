@@ -8,6 +8,7 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/graphics/anim/Animation.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/RenderCommand.hpp"
@@ -27,6 +28,23 @@ namespace galaxy
 		void inject_graphics()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			auto animation_type       = lua.new_usertype<graphics::Animation>("Animation", sol::constructors<graphics::Animation()>());
+			animation_type["current"] = &graphics::Animation::current;
+			animation_type["frames"]  = &graphics::Animation::frames;
+			animation_type["index"]   = &graphics::Animation::index;
+			animation_type["load"]    = &graphics::Animation::load;
+			animation_type["name"]    = &graphics::Animation::m_name;
+			animation_type["speed"]   = &graphics::Animation::m_speed;
+			animation_type["next"]    = &graphics::Animation::next;
+			animation_type["prev"]    = &graphics::Animation::prev;
+			animation_type["restart"] = &graphics::Animation::restart;
+			// animation_type["set_frames"] = &graphics::Animation::set_frames;
+			animation_type["total"] = &graphics::Animation::total;
+
+			auto frame_type        = lua.new_usertype<graphics::Frame>("Frame", sol::constructors<graphics::Frame()>());
+			frame_type["bounds"]   = &graphics::Frame::m_bounds;
+			frame_type["duration"] = &graphics::Frame::m_duration;
 
 			auto cameradata_type          = lua.new_usertype<graphics::Camera::Data>("CameraData", sol::no_constructor);
 			cameradata_type["model_view"] = &graphics::Camera::Data::m_model_view;

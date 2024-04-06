@@ -64,6 +64,7 @@ namespace galaxy
 					mkdir(GALAXY_FONT_DIR);
 					mkdir(GALAXY_SCRIPT_DIR);
 					mkdir(GALAXY_SHADER_DIR);
+					mkdir(GALAXY_ANIM_DIR);
 					mkdir(GALAXY_TEXTURE_DIR);
 					mkdir(GALAXY_LANG_DIR);
 					mkdir(GALAXY_PREFABS_DIR);

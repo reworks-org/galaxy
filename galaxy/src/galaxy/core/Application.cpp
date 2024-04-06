@@ -7,6 +7,7 @@
 
 #include <BS_thread_pool.hpp>
 
+#include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/GUI.hpp"
@@ -35,6 +36,7 @@
 #include "galaxy/media/AudioEngine.hpp"
 #include "galaxy/meta/EntityMeta.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/resource/Animations.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Media.hpp"
 #include "galaxy/resource/Prefabs.hpp"
@@ -63,7 +65,9 @@ namespace galaxy
 			//
 			// Threadpool.
 			//
-			ServiceLocator<BS::thread_pool>::make(4);
+			// Use half of available cores minus 2 for audio and main thread.
+			const auto cores = (std::thread::hardware_concurrency() / 2) - 2;
+			ServiceLocator<BS::thread_pool>::make(cores);
 
 			//
 			// LOGGING.
@@ -178,6 +182,7 @@ namespace galaxy
 			// Set up entity metadata.
 			//
 			auto& em = ServiceLocator<meta::EntityMeta>::make();
+			em.register_component<components::Animated>("Animated");
 			em.register_component<components::Circle>("Circle");
 			em.register_component<components::Ellipse>("Ellipse");
 			em.register_component<components::GUI>("GUI");
@@ -194,6 +199,7 @@ namespace galaxy
 			em.register_component<flags::DenySerialization>("DenySerialization");
 			em.register_component<flags::Disabled>("Disabled");
 
+			em.register_dependencies<components::Animated, components::Sprite>();
 			em.register_dependencies<components::Circle, components::Transform>();
 			em.register_dependencies<components::Ellipse, components::Transform>();
 			em.register_dependencies<components::Point, components::Transform>();
@@ -228,6 +234,7 @@ namespace galaxy
 			ServiceLocator<resource::MusicCache>::make();
 			ServiceLocator<resource::VoiceCache>::make();
 			ServiceLocator<resource::VideoCache>::make();
+			ServiceLocator<resource::Animations>::make();
 			ServiceLocator<resource::Shaders>::make();
 			ServiceLocator<resource::Fonts>::make();
 			ServiceLocator<resource::Textures>::make();
@@ -255,6 +262,7 @@ namespace galaxy
 			ServiceLocator<resource::Textures>::del();
 			ServiceLocator<resource::Fonts>::del();
 			ServiceLocator<resource::Shaders>::del();
+			ServiceLocator<resource::Animations>::del();
 			ServiceLocator<resource::VideoCache>::del();
 			ServiceLocator<resource::VoiceCache>::del();
 			ServiceLocator<resource::MusicCache>::del();

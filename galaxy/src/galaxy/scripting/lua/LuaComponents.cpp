@@ -7,6 +7,7 @@
 
 #include <entt_sol/registry.hpp>
 
+#include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Ellipse.hpp"
 #include "galaxy/components/GUI.hpp"
@@ -31,6 +32,14 @@ namespace galaxy
 		void inject_components()
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
+
+			auto animated_type         = lua.new_usertype<components::Animated>("Animated",
+                sol::constructors<components::Animated()>(),
+                "type_id",
+                &entt::type_hash<components::Animated>::value);
+			animated_type["animation"] = &components::Animated::m_anim;
+			animated_type["duration"]  = &components::Animated::m_duration;
+			animated_type["paused"]    = &components::Animated::m_paused;
 
 			auto circle_type     = lua.new_usertype<components::Circle>("Circle",
                 sol::constructors<components::Circle()>(),
@@ -107,7 +116,8 @@ namespace galaxy
                 &entt::type_hash<components::Sprite>::value);
 			sprite_type["tint"]                  = &components::Sprite::m_tint;
 			sprite_type["set_texture"]           = sol::resolve<void(const std::string&)>(&components::Sprite::set_texture);
-			sprite_type["set_texture_with_rect"] = sol::resolve<void(const std::string&, const math::iRect&)>(&components::Sprite::set_texture);
+			sprite_type["set_texture_with_rect"] = sol::resolve<void(const std::string&, const math::fRect&)>(&components::Sprite::set_texture);
+			sprite_type["set_clip"]              = &components::Sprite::set_clip;
 
 			auto tag_type =
 				lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);
@@ -123,6 +133,7 @@ namespace galaxy
                 &entt::type_hash<components::Transform>::value);
 			transform_type["tf"] = &components::Transform::m_tf;
 
+			entt_sol::register_meta_component<components::Animated>();
 			entt_sol::register_meta_component<components::Circle>();
 			entt_sol::register_meta_component<components::Ellipse>();
 			entt_sol::register_meta_component<components::GUI>();

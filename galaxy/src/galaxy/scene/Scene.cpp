@@ -23,16 +23,17 @@
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
+#include "galaxy/systems/AnimationSystem.hpp"
 #include "galaxy/systems/PhysicsSystem.hpp"
 #include "galaxy/systems/ScriptSystem.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
+
+#include "Scene.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 #pragma warning(push)
 #pragma warning(disable : 26487)
 #endif
-
-#include "Scene.hpp"
 
 namespace galaxy
 {
@@ -143,6 +144,7 @@ namespace galaxy
 
 			create_system<systems::ScriptSystem>();
 			create_system<systems::PhysicsSystem>();
+			create_system<systems::AnimationSystem>();
 			create_system<systems::RenderSystem>();
 
 			auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();

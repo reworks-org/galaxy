@@ -15,6 +15,7 @@
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/input/Input.hpp"
 #include "galaxy/media/AudioEngine.hpp"
+#include "galaxy/resource/Animations.hpp"
 #include "galaxy/resource/embedded/RenderTextureShader.hpp"
 #include "galaxy/resource/Fonts.hpp"
 #include "galaxy/resource/Prefabs.hpp"
@@ -47,7 +48,7 @@ namespace galaxy
 			auto& nui    = ServiceLocator<ui::NuklearUI>::ref();
 
 			nk_size                 current = 0;
-			constexpr const nk_size total   = 11;
+			constexpr const nk_size total   = 12;
 
 			tp.detach_task([this]() -> void {
 				this->load_user_config();
@@ -118,6 +119,10 @@ namespace galaxy
 
 			tp.detach_task([]() -> void {
 				ServiceLocator<resource::VideoCache>::ref().load_folder(GALAXY_VIDEO_DIR);
+			});
+
+			tp.detach_task([]() -> void {
+				ServiceLocator<resource::Animations>::ref().load_folder(GALAXY_ANIM_DIR);
 			});
 
 			tp.detach_task([]() -> void {

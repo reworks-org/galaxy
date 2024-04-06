@@ -21,9 +21,10 @@ https://github.com/Green-Sky/imgui_entt_entity_editor
 https://github.com/scottmudge/imgui_tabs
 
 animation:
-- Pre-buffering all render 2d data for animations. so we only update texture pointer instead of vertex data.
 - need to wire up state management to input and animation in the ECS using messages/events?
 	- maybe using lua?
+- animation editor in console...
+- https://github.com/Rikora/SpriteAnimator
 
 AI:
 https://github.com/linkdd/aitoolkit
