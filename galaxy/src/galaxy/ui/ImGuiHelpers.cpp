@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <ankerl/unordered_dense.h>
 #include <glad/glad.h>
 #include <glfw/glfw3.h>
 #include <imgui_addons/imgui_notify.h>
@@ -24,8 +25,8 @@
 #pragma warning(disable : 4312)
 #endif
 
-constexpr const ImVec2                            mid = {0.5f, 0.5f};
-robin_hood::unordered_flat_map<const char*, bool> popup_state;
+constexpr const ImVec2                          mid = {0.5f, 0.5f};
+ankerl::unordered_dense::map<const char*, bool> popup_state;
 
 namespace galaxy
 {

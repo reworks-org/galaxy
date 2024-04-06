@@ -8,6 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_PANELS_ASSETPANEL_HPP_
 #define SUPERCLUSTER_EDITOR_PANELS_ASSETPANEL_HPP_
 
+#include <ankerl/unordered_dense.h>
 #include <galaxy/graphics/gl/Texture2D.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
@@ -86,8 +87,8 @@ namespace sc
 
 			graphics::Texture2D* m_icon;
 
-			robin_hood::unordered_map<std::string, FileType>         m_ext_map;
-			robin_hood::unordered_map<FileType, graphics::Texture2D> m_tex_map;
+			ankerl::unordered_dense::map<std::string, FileType>         m_ext_map;
+			ankerl::unordered_dense::map<FileType, graphics::Texture2D> m_tex_map;
 
 			std::vector<std::filesystem::path> m_directories;
 		};

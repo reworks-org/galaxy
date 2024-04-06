@@ -8,7 +8,7 @@
 #ifndef GALAXY_RESOURCE_CACHE_HPP_
 #define GALAXY_RESOURCE_CACHE_HPP_
 
-#include <robin_hood.h>
+#include <ankerl/unordered_dense.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -29,7 +29,7 @@ namespace galaxy
 		// requires meta::is_class < Resource>&& meta::is_loader < Loader, Resource>
 		class Cache final
 		{
-			using CacheType = robin_hood::unordered_node_map<std::uint64_t, std::unique_ptr<Resource>>;
+			using CacheType = ankerl::unordered_dense::map<std::uint64_t, std::unique_ptr<Resource>>;
 
 		  public:
 			///

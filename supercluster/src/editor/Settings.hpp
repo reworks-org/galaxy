@@ -10,8 +10,8 @@
 
 #include <span>
 
+#include <ankerl/unordered_dense.h>
 #include <nlohmann/json.hpp>
-#include <robin_hood.h>
 
 namespace sc
 {

@@ -8,8 +8,8 @@
 #ifndef GALAXY_UI_NUKLEARUI_HPP_
 #define GALAXY_UI_NUKLEARUI_HPP_
 
+#include <ankerl/unordered_dense.h>
 #include <Nuklear.hpp>
-#include <robin_hood.h>
 
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -131,7 +131,7 @@ namespace galaxy
 			///
 			/// Fonts used by nuklear.
 			///
-			robin_hood::unordered_flat_map<std::string, nk_font*> m_fonts;
+			ankerl::unordered_dense::map<std::string, nk_font*> m_fonts;
 		};
 	} // namespace ui
 } // namespace galaxy

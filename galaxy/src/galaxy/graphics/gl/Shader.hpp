@@ -8,11 +8,11 @@
 #ifndef GALAXY_GRAPHICS_GL_SHADER_HPP_
 #define GALAXY_GRAPHICS_GL_SHADER_HPP_
 
+#include <ankerl/unordered_dense.h>
 #include <entt/core/compressed_pair.hpp>
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <nlohmann/json_fwd.hpp>
-#include <robin_hood.h>
 
 #include "galaxy/graphics/Colour.hpp"
 
@@ -170,7 +170,7 @@ namespace galaxy
 			///
 			/// Cache of uniforms for better performance.
 			///
-			robin_hood::unordered_flat_map<std::string, int> m_cache;
+			ankerl::unordered_dense::map<std::string, int> m_cache;
 
 			///
 			/// Shader source code.

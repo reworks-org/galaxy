@@ -9,9 +9,8 @@
 #define GALAXY_META_CONCEPTS_HPP_
 
 #include <concepts>
+#include <string>
 #include <type_traits>
-
-#include <robin_hood.h>
 
 namespace galaxy
 {

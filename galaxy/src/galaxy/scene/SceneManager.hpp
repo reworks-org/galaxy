@@ -8,6 +8,8 @@
 #ifndef GALAXY_STATE_SCENEMANAGER_HPP_
 #define GALAXY_STATE_SCENEMANAGER_HPP_
 
+#include <ankerl/unordered_dense.h>
+
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/scene/Scene.hpp"
 
@@ -20,7 +22,7 @@ namespace galaxy
 		///
 		class SceneManager final : public fs::Serializable
 		{
-			using Map  = robin_hood::unordered_flat_map<std::uint64_t, std::shared_ptr<Scene>>;
+			using Map  = ankerl::unordered_dense::map<std::uint64_t, std::shared_ptr<Scene>>;
 			using List = meta::vector<std::shared_ptr<Scene>>;
 
 		  public:

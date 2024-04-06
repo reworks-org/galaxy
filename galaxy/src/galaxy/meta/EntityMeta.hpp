@@ -8,9 +8,9 @@
 #ifndef GALAXY_META_ENTITYMETA_HPP_
 #define GALAXY_META_ENTITYMETA_HPP_
 
+#include <ankerl/unordered_dense.h>
 #include <entt/entt.hpp>
 #include <nlohmann/json.hpp>
-#include <robin_hood.h>
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/Serializable.hpp"
@@ -40,11 +40,11 @@ namespace galaxy
 				nlohmann::json json;
 			};
 
-			using Validations = robin_hood::unordered_flat_map<entt::id_type, std::function<bool(const entt::entity, entt::registry&)>>;
+			using Validations = ankerl::unordered_dense::map<entt::id_type, std::function<bool(const entt::entity, entt::registry&)>>;
 			using ComponentJSONFactory =
-				robin_hood::unordered_flat_map<std::string, std::function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
-			using AnyJSONFactory   = robin_hood::unordered_flat_map<std::string, std::function<entt::any(const nlohmann::json&)>>;
-			using SerializeFactory = robin_hood::unordered_flat_map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
+				ankerl::unordered_dense::map<std::string, std::function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
+			using AnyJSONFactory   = ankerl::unordered_dense::map<std::string, std::function<entt::any(const nlohmann::json&)>>;
+			using SerializeFactory = ankerl::unordered_dense::map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
 
 		  public:
 			///
@@ -144,12 +144,12 @@ namespace galaxy
 			///
 			/// Maps an entt type id to a string.
 			///
-			robin_hood::unordered_flat_map<entt::id_type, std::string> m_id_to_name;
+			ankerl::unordered_dense::map<entt::id_type, std::string> m_id_to_name;
 
 			///
 			/// Maps a string name to an entt id.
 			///
-			robin_hood::unordered_flat_map<std::string, entt::id_type> m_name_to_id;
+			ankerl::unordered_dense::map<std::string, entt::id_type> m_name_to_id;
 
 			///
 			/// Used to allow for component creation from json.

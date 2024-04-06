@@ -8,7 +8,7 @@
 #ifndef GALAXY_STATE_STATEMACHINE_HPP_
 #define GALAXY_STATE_STATEMACHINE_HPP_
 
-#include <robin_hood.h>
+#include <ankerl/unordered_dense.h>
 
 #include "galaxy/meta/Memory.hpp"
 #include "galaxy/state/State.hpp"
@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// State cache.
 			///
-			robin_hood::unordered_node_map<std::string, std::unique_ptr<State>> m_states;
+			ankerl::unordered_dense::map<std::string, std::unique_ptr<State>> m_states;
 		};
 
 		template<std::derived_from<State> Type, typename... Args>
