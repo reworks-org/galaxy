@@ -22,7 +22,6 @@
 #include "galaxy/resource/Scripts.hpp"
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Textures.hpp"
-#include "galaxy/scripting/Lua.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 
 #include "Loader.hpp"
@@ -48,7 +47,7 @@ namespace galaxy
 			auto& nui    = ServiceLocator<ui::NuklearUI>::ref();
 
 			nk_size                 current = 0;
-			constexpr const nk_size total   = 12;
+			constexpr const nk_size total   = 11;
 
 			tp.detach_task([this]() -> void {
 				this->load_user_config();
@@ -56,15 +55,6 @@ namespace galaxy
 
 			tp.detach_task([this]() -> void {
 				this->load_window();
-			});
-
-			tp.detach_task([this]() -> void {
-				//
-				// Add external libraries to Lua.
-				// Inject all configured galaxy into Lua.
-				// Add engine services to lua.
-				//
-				lua::inject();
 			});
 
 			load_resources();

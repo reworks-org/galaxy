@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Time to spend on this frame in milliseconds.
 			///
-			double m_duration;
+			double m_duration = 200;
 		};
 	} // namespace graphics
 } // namespace galaxy

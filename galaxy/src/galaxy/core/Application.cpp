@@ -44,6 +44,7 @@
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Textures.hpp"
 #include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/scripting/Lua.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
 #include "galaxy/ui/ImGuiTheme.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
@@ -248,6 +249,13 @@ namespace galaxy
 			dispatcher.sink<events::MousePressed>().connect<&ui::NuklearUI::on_mouse_pressed>(nui);
 			dispatcher.sink<events::MouseWheel>().connect<&ui::NuklearUI::on_mouse_wheel>(nui);
 			dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
+
+			//
+			// Add external libraries to Lua.
+			// Inject all configured galaxy into Lua.
+			// Add engine services to lua.
+			//
+			lua::inject();
 
 			// Load game assets.
 			core::ServiceLocator<core::Loader>::ref().load_all();
