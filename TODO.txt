@@ -6,6 +6,8 @@
 - fix nuklearui input.
 - update imgui at some point.
 
+- investigate other c++23 stuff.
+
 Signals:
 - https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
 - https://github.com/skypjack/entt/wiki/Crash-Course:-events,-signals-and-everything-in-between#signals
