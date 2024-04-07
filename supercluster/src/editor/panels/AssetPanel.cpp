@@ -5,9 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_addons/code_editor/ImGuiController.h>
-#include <imgui_addons/material_design_icons.h>
-#include <imgui_internal.h>
+#include <imgui/imgui_internal.h>
+#include <imgui/imnotify/material_design_icons.h>
 
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
@@ -550,7 +549,7 @@ namespace sc
 
 		void AssetPanel::load_lua_script()
 		{
-			scex::ImGuiController::Load(m_selected.m_path.string());
+			// scex::ImGuiController::Load(m_selected.m_path.string());
 		}
 
 		void AssetPanel::load_preview()

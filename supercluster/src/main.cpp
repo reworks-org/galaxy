@@ -7,9 +7,11 @@
 
 #include <iostream>
 
-#include <imgui_addons/imgui_notify.h>
-#include <imgui_freetype.h>
 #include <mimalloc-new-delete.h>
+
+#include <imgui/imgui_freetype.h>
+#include <imgui/imnotify/material_design_icons.h>
+#include <imgui/imnotify/material_design_icons_ttf.h>
 
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/Config.hpp>
@@ -57,7 +59,12 @@ int main(int argsc, char* argsv[])
 				font_cfg.OversampleV           = 1;
 				font_cfg.FontBuilderFlags     |= ImGuiFreeTypeBuilderFlags_LoadColor;
 				io.FontDefault = io.Fonts->AddFontFromMemoryTTF(reinterpret_cast<void*>(&resource::roboto_light), resource::roboto_light_len, 16.0f, &font_cfg);
-				ImGui::MergeIconsWithLatestFont(16.0f, false);
+
+				static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
+				ImFontConfig         md_icons_cfg;
+				md_icons_cfg.MergeMode  = true;
+				md_icons_cfg.PixelSnapH = true;
+				ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)materialdesignicons_ttf, sizeof(materialdesignicons_ttf), 16.0f, &md_icons_cfg, icons_ranges);
 
 				auto& config = core::ServiceLocator<core::Config>::ref();
 				config.restore<std::string>("theme", "DARK", "editor");

@@ -9,9 +9,8 @@
 
 #include <BS_thread_pool.hpp>
 #include <entt/signal/dispatcher.hpp>
-#include <imgui_addons/code_editor/ImGuiController.h>
-#include <imgui_addons/imgui_notify.h>
-#include <imgui_impl_glfw.h>
+#include <imgui/imgui_impl_glfw.h>
+#include <imgui/imnotify/ImGuiNotify.hpp>
 #include <nlohmann/json.hpp>
 
 #include <galaxy/core/Config.hpp>
@@ -40,7 +39,7 @@ namespace sc
 		: Scene(name)
 		, m_editor_camera {}
 	{
-		scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_ASSET_DIR).string());
+		// scex::ImGuiController::Setup((GALAXY_ROOT_DIR / GALAXY_ASSET_DIR).string());
 
 		auto& sink = GALAXY_ADD_SINK(EditorSink);
 		m_log_console.set_sink(&sink);
@@ -112,7 +111,7 @@ namespace sc
 
 			if (input::Input::key_down(input::Keys::KEY_LEFT_SHIFT) && input::Input::key_down(input::Keys::KEY_TAB))
 			{
-				ImGui_ImplGlfw_ToggleInput(false);
+				// ImGui_ImplGlfw_ToggleInput(false);
 
 				m_update_stack.push_back([&]() {
 					ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
@@ -604,7 +603,7 @@ namespace sc
 				{
 					if (!m_project_sm.empty())
 					{
-						ImGui_ImplGlfw_ToggleInput(true);
+						// ImGui_ImplGlfw_ToggleInput(true);
 
 						m_backup  = m_project_sm.serialize();
 						m_stopped = false;
@@ -619,7 +618,7 @@ namespace sc
 			{
 				if (ImGui::Button(ICON_MDI_STOP, m_icon_size))
 				{
-					ImGui_ImplGlfw_ToggleInput(false);
+					// ImGui_ImplGlfw_ToggleInput(false);
 
 					m_stopped = true;
 					m_update_stack.push_back([&]() {
@@ -632,7 +631,7 @@ namespace sc
 			{
 				if (!m_project_sm.empty())
 				{
-					ImGui_ImplGlfw_ToggleInput(true);
+					// ImGui_ImplGlfw_ToggleInput(true);
 
 					m_game_mode = true;
 					m_backup    = m_project_sm.serialize();
@@ -777,7 +776,7 @@ namespace sc
 
 		if (m_show_codeeditor)
 		{
-			scex::ImGuiController::Tick(GALAXY_DT);
+			// scex::ImGuiController::Tick(GALAXY_DT);
 		}
 
 		if (m_show_viewport)
@@ -869,11 +868,11 @@ namespace sc
 
 		ImGui::End();
 
-		static constexpr const auto s_notification_size = ImVec4(43.f / 255.f, 43.f / 255.f, 43.f / 255.f, 100.f / 255.f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 5.f);
-		ImGui::PushStyleColor(ImGuiCol_WindowBg, s_notification_size);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.f);
+		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.10f, 0.10f, 0.10f, 1.00f));
 		ImGui::RenderNotifications();
-		ImGui::PopStyleVar(1);
+		ImGui::PopStyleVar(2);
 		ImGui::PopStyleColor(1);
 
 		ui::imgui_render();

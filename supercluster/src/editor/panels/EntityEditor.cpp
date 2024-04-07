@@ -6,7 +6,7 @@
 ///
 
 #include <entt/entity/registry.hpp>
-#include <imgui_stdlib.h>
+#include <imgui/imgui_stdlib.h>
 #include <magic_enum/magic_enum.hpp>
 
 #include <galaxy/components/RigidBody.hpp>

@@ -10,9 +10,9 @@
 #include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/scripting/JSON.hpp>
 
-#include <imgui_addons/imgui_toggle.h>
-#include <imgui_addons/material_design_icons.h>
-#include <imgui_stdlib.h>
+#include <imgui/imgui_stdlib.h>
+#include <imgui/imnotify/material_design_icons.h>
+#include <imgui/toggle/imgui_toggle.h>
 
 #include "JSONEditor.hpp"
 

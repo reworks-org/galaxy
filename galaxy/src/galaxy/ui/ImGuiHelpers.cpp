@@ -7,10 +7,9 @@
 
 #include <ankerl/unordered_dense.h>
 #include <glad/glad.h>
-#include <glfw/glfw3.h>
-#include <imgui_addons/imgui_notify.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
+#include <imgui/imgui_impl_glfw.h>
+#include <imgui/imgui_impl_opengl3.h>
+#include <imgui/imnotify/ImGuiNotify.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
@@ -168,6 +167,31 @@ namespace galaxy
 			}
 		}
 
+		void draw_rows_background(int row_count, float line_height, float x1, float x2, float y_offset, ImU32 col_even, ImU32 col_odd)
+		{
+			// https://github.com/ocornut/imgui/issues/2668#issuecomment-1900456751
+
+			ImDrawList* draw_list = ImGui::GetWindowDrawList();
+			float       y0        = ImGui::GetCursorScreenPos().y + (float)(int)y_offset;
+
+			const auto       pos = ImGui::GetCursorPos();
+			ImGuiListClipper clipper;
+			clipper.Begin(row_count, line_height);
+			while (clipper.Step())
+			{
+				for (int row_n = clipper.DisplayStart; row_n < clipper.DisplayEnd; ++row_n)
+				{
+					ImU32 col = (row_n & 1) ? col_odd : col_even;
+					if ((col & IM_COL32_A_MASK) == 0)
+						continue;
+					float y1 = y0 + (line_height * static_cast<float>(row_n));
+					float y2 = y1 + line_height;
+					draw_list->AddRectFilled(ImVec2(x1, y1), ImVec2(x2, y2), col);
+				}
+			}
+			ImGui::SetCursorPos(pos);
+		}
+
 		void imgui_center_next_window()
 		{
 			const auto center = ImGui::GetMainViewport()->GetCenter();
@@ -196,22 +220,22 @@ namespace galaxy
 
 		void imgui_notify_success(const char* msg)
 		{
-			ImGui::InsertNotification({ImGuiToastType_Success, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType::Warning, 2000, msg});
 		}
 
 		void imgui_notify_info(const char* msg)
 		{
-			ImGui::InsertNotification({ImGuiToastType_Info, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType::Info, 2000, msg});
 		}
 
 		void imgui_notify_warning(const char* msg)
 		{
-			ImGui::InsertNotification({ImGuiToastType_Warning, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType::Warning, 2000, msg});
 		}
 
 		void imgui_notify_error(const char* msg)
 		{
-			ImGui::InsertNotification({ImGuiToastType_Error, 2000, msg});
+			ImGui::InsertNotification({ImGuiToastType::Error, 2000, msg});
 		}
 
 		bool imgui_glm_vec2(const char* label, glm::vec2& vec)

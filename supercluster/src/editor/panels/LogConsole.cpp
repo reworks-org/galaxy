@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_addons/material_design_icons.h>
+#include <imgui/imnotify/material_design_icons.h>
 
 #include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/utils/StringUtils.hpp>

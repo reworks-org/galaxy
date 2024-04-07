@@ -13,7 +13,7 @@
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
-#include <imgui_stdlib.h>
+#include <imgui/imgui_stdlib.h>
 
 namespace galaxy
 {
@@ -62,6 +62,28 @@ namespace galaxy
 		/// \param no Callback if user selects the no option.
 		///
 		void imgui_confirm(const char* popup, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {});
+
+		///
+		///
+		///
+
+		/*
+		ImGui::Begin("Manual Row background Test");
+		ImGui::Text("Some text before..");
+
+		float x1 = ImGui::GetCurrentWindow()->WorkRect.Min.x;
+		float x2 = ImGui::GetCurrentWindow()->WorkRect.Max.x;
+		float item_spacing_y = ImGui::GetStyle().ItemSpacing.y;
+		float item_offset_y = -item_spacing_y * 0.5f;
+		float line_height = ImGui::GetTextLineHeight() + item_spacing_y;
+		DrawRowsBackground(50, line_height, x1, x2, item_offset_y, 0, ImGui::GetColorU32(ImVec4(0.4f, 0.4f, 0.4f, 0.5f)));
+
+		for (int n = 0; n < 50; n++)
+			ImGui::Text("Item %03d", n);
+
+		ImGui::End();
+*/
+		void draw_rows_background(int row_count, float line_height, float x1, float x2, float y_offset, ImU32 col_even, ImU32 col_odd);
 
 		///
 		/// Make sure the next window opened is centered on the monitor.

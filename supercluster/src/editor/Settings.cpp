@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_addons/imgui_toggle.h>
-#include <imgui_stdlib.h>
+#include <imgui/imgui_stdlib.h>
+#include <imgui/toggle/imgui_toggle.h>
 
 #include "Settings.hpp"
 
