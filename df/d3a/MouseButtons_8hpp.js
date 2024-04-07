@@ -14,5 +14,7 @@ var MouseButtons_8hpp =
       [ "BTN_LEFT", "df/d3a/MouseButtons_8hpp.html#aa7bf4d7514cc2b0eb1945a646daaab3faa524b345bd3a0c0a1c46c82174e6356d", null ],
       [ "BTN_RIGHT", "df/d3a/MouseButtons_8hpp.html#aa7bf4d7514cc2b0eb1945a646daaab3fa5d26ae01f20c4c990920b6ff71f7fc5e", null ],
       [ "BTN_MIDDLE", "df/d3a/MouseButtons_8hpp.html#aa7bf4d7514cc2b0eb1945a646daaab3fa95f07cbd4d5d01eae86a508af53b491d", null ]
-    ] ]
+    ] ],
+    [ "int_to_mouse", "df/d3a/MouseButtons_8hpp.html#a0f59cb0a75a074f9c2cb5dc907142413", null ],
+    [ "mouse_to_int", "df/d3a/MouseButtons_8hpp.html#af1118c564aadc9192de8e4f371c1cc96", null ]
 ];

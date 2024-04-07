@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['t_0',['T',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab9ece18c950afbfa6b0fdbfa4ff731d3',1,'galaxy::input']]],
-  ['tab_1',['TAB',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaf684bf05fa3e81528c84d1d281d839f1',1,'galaxy::input']]],
-  ['texel_5fpoint_2',['TEXEL_POINT',['../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d',1,'galaxy::graphics']]],
-  ['trilinear_3',['TRILINEAR',['../db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaa2ca5e5f343aeb8dea3bc466ba43ee783',1,'galaxy::graphics']]]
+  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0a5c5cb337bb234e240912dc139048038c',1,'galaxy::fs']]],
+  ['yesno_1',['yesno',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455acc74e9b9aaac7367488cc146dfb078db',1,'galaxy::fs']]],
+  ['yesnocancel_2',['yesnocancel',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455a30cea79617be1bdc188511fdf0d582bd',1,'galaxy::fs']]]
 ];

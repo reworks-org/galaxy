@@ -1,0 +1,7 @@
+<map id="galaxy::ui::NuklearUI::on_key_press" name="galaxy::ui::NuklearUI::on_key_press">
+<area shape="rect" id="Node000001" title="On keyboad press event." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000002" href="$dd/d59/namespacegalaxy_1_1input.html#ad664020dee94341f914b77384f3f4a4d" title="Converts a key enum to an int." alt="" coords="215,5,352,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,42,200,36,201,41,164,47"/>
+<area shape="rect" id="Node000003" href="$dd/d59/namespacegalaxy_1_1input.html#a4fcee35b9edb521d4a4ad60afa81a031" title="Converts a input mod to an int." alt="" coords="212,69,355,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,67,199,73,198,78,164,73"/>
+</map>

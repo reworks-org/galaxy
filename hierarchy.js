@@ -28,9 +28,8 @@ var hierarchy =
     ] ],
     [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
     [ "galaxy::events::KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", null ],
-    [ "galaxy::events::KeyDown", "d7/d91/structgalaxy_1_1events_1_1KeyDown.html", null ],
+    [ "galaxy::events::KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", null ],
     [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", null ],
-    [ "galaxy::events::KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", null ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::resource::Loader< Resource >", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", null ],
     [ "galaxy::resource::Loader< media::Sound >", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", [

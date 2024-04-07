@@ -1,0 +1,13 @@
+<map id="galaxy::input::int_to_mouse" name="galaxy::input::int_to_mouse">
+<area shape="rect" id="Node000001" title="Converts an int to a mouse button." alt="" coords="639,37,769,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7" title="Injects input handling into lua." alt="" coords="441,5,579,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="625,47,579,39,579,34,626,42"/>
+<area shape="rect" id="Node000005" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="429,69,591,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="626,73,591,79,590,73,625,68"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="232,13,369,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,28,369,28,369,23,427,23"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="218,28,172,28,172,23,218,23"/>
+<area shape="rect" id="Node000006" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="220,69,381,109"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="415,92,381,92,381,87,415,87"/>
+</map>

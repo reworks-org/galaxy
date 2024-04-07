@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['q_0',['Q',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaf09564c9ca56850d4cd6b3319e541aee',1,'galaxy::input']]],
-  ['question_1',['question',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13a5494af1f14a8c19939968c3e9e2d4f79',1,'galaxy::fs']]]
+  ['unknown_0',['unknown',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3',1,'galaxy::input::UNKNOWN'],['../dd/d59/namespacegalaxy_1_1input.html#aa7bf4d7514cc2b0eb1945a646daaab3fa696b031073e74bf2cb98e5ef201d4aa3',1,'galaxy::input::UNKNOWN']]]
 ];

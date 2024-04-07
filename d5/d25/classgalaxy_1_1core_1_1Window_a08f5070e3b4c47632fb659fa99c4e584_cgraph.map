@@ -1,13 +1,15 @@
 <map id="galaxy::core::Window::open" name="galaxy::core::Window::open">
-<area shape="rect" id="Node000001" title="Construct a Window." alt="" coords="5,133,167,173"/>
+<area shape="rect" id="Node000001" title="Construct a Window." alt="" coords="5,165,167,205"/>
 <area shape="rect" id="Node000002" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="252,5,408,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,131,154,93,213,55,238,45,240,50,216,60,157,97,110,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,164,146,110,178,80,213,55,238,43,240,48,216,60,181,84,150,113,104,167"/>
 <area shape="rect" id="Node000003" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="265,69,395,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,131,251,107,252,112,164,136"/>
-<area shape="rect" id="Node000004" href="$dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4" title="Converts an integer to a key modifier enum." alt="" coords="265,133,395,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,151,251,151,251,156,167,156"/>
-<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="215,198,445,223"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="166,171,215,183,257,192,256,198,214,188,165,176"/>
-<area shape="rect" id="Node000006" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="234,248,426,288"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="115,171,161,202,216,232,237,241,235,246,214,237,158,207,112,176"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,163,214,119,251,106,253,111,216,124,124,168"/>
+<area shape="rect" id="Node000004" href="$dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc" title="Converts an int to an input mod." alt="" coords="265,133,395,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,172,251,161,252,166,167,177"/>
+<area shape="rect" id="Node000005" href="$dd/d59/namespacegalaxy_1_1input.html#a0f59cb0a75a074f9c2cb5dc907142413" title="Converts an int to a mouse button." alt="" coords="265,197,395,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="167,193,252,204,251,210,166,198"/>
+<area shape="rect" id="Node000006" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="215,262,445,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="123,203,166,226,216,247,246,256,245,261,214,252,164,231,120,208"/>
+<area shape="rect" id="Node000007" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="234,312,426,352"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="107,204,153,250,183,275,216,296,233,304,230,309,213,301,180,279,150,254,103,207"/>
 </map>

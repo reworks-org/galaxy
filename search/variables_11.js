@@ -4,7 +4,7 @@ var searchData=
   ['s_5fcursor_5fpos_1',['s_cursor_pos',['../db/df9/classgalaxy_1_1input_1_1Input.html#a76025e0de20016cdd29e717ccad66cad',1,'galaxy::input::Input']]],
   ['s_5fwindow_2',['s_window',['../db/df9/classgalaxy_1_1input_1_1Input.html#a047a0c3a211e8ccec255c57be0e91186',1,'galaxy::input::Input']]],
   ['scale_5fto_5fmonitor_3',['scale_to_monitor',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#af4841eaa81db03f33fc75c3d0632a09f',1,'galaxy::core::WindowSettings']]],
-  ['scancode_4',['scancode',['../d7/d91/structgalaxy_1_1events_1_1KeyDown.html#a159fd52a6534229d3397f41c65491a93',1,'galaxy::events::KeyDown::scancode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#afe95375d94754e1b60f3c65d72763569',1,'galaxy::events::KeyRepeat::scancode'],['../d1/d16/structgalaxy_1_1events_1_1KeyUp.html#ab82368a920337bb733860d0c48ef599a',1,'galaxy::events::KeyUp::scancode']]],
+  ['scancode_4',['scancode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a77300939739fec91c09a401d95b375ef',1,'galaxy::events::KeyPress::scancode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#afe95375d94754e1b60f3c65d72763569',1,'galaxy::events::KeyRepeat::scancode']]],
   ['sharpen_5ffrag_5',['sharpen_frag',['../d2/d44/Sharpen_8cpp.html#a51a8562e7b1ca4ee31eb33bbda648074',1,'Sharpen.cpp']]],
   ['sharpen_5fvert_6',['sharpen_vert',['../d2/d44/Sharpen_8cpp.html#aa4c1b78d973941eab9aca355e8430419',1,'Sharpen.cpp']]],
   ['smaa_5farea_5ftex_7',['smaa_area_tex',['../d4/dad/SMAA_8cpp.html#ade83426ad41bac14affedd95865fc3f6',1,'SMAA.cpp']]],

@@ -104,40 +104,49 @@ $(document).ready(function(){initNavTree('d4/d98/InputMods_8hpp_source.html','..
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_INPUT_INPUTMODS_HPP_</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_INPUT_INPUTMODS_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">namespace </span>input</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">   20</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">InputMods</a> : <span class="keywordtype">int</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = 0x0000,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c">SHIFT</a> = 0x0001,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130">CONTROL</a> = 0x0002,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e">ALT</a> = 0x0004,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea">SUPER</a> = 0x0008,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2">CAPS_LOCK</a> = 0x0010,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaacb0d0bf9279e78f982deba761110e434">NUM_LOCK</a> = 0x0020</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        };</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">namespace </span>input</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">   22</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">InputMods</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = -1,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c">SHIFT</a> = GLFW_MOD_SHIFT,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130">CONTROL</a> = GLFW_MOD_CONTROL,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e">ALT</a> = GLFW_MOD_ALT,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea">SUPER</a> = GLFW_MOD_SUPER,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2">CAPS_LOCK</a> = GLFW_MOD_CAPS_LOCK,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <a class="code hl_enumvalue" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaacb0d0bf9279e78f982deba761110e434">NUM_LOCK</a> = GLFW_MOD_NUM_LOCK</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        };</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4">   65</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">input::InputMods</a> <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4">int_to_keymod</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> mod)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">input::InputMods</a><span class="keyword">&gt;</span>(mod);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc">   67</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">input::InputMods</a> <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc">int_to_mod</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> mod)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">input::InputMods</a><span class="keyword">&gt;</span>(mod);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    } <span class="comment">// namespace input</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75ea"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">galaxy::input::InputMods</a></div><div class="ttdeci">InputMods</div><div class="ttdoc">Modifier key mappings.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d98/InputMods_8hpp_source.html#l00020">InputMods.hpp:21</a></div></div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../dd/d59/namespacegalaxy_1_1input.html#a4fcee35b9edb521d4a4ad60afa81a031">   79</a></span>        [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="../../dd/d59/namespacegalaxy_1_1input.html#a4fcee35b9edb521d4a4ad60afa81a031">mod_to_int</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">input::InputMods</a> mod)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(mod);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    } <span class="comment">// namespace input</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75ea"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea">galaxy::input::InputMods</a></div><div class="ttdeci">InputMods</div><div class="ttdoc">Modifier key mappings.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d98/InputMods_8hpp_source.html#l00022">InputMods.hpp:23</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa46afff2b309b8b16a46d812172a9235c">galaxy::input::InputMods::SHIFT</a></div><div class="ttdeci">@ SHIFT</div><div class="ttdoc">If this bit is set one or more Shift keys were held down.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3">galaxy::input::InputMods::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div><div class="ttdoc">Represents an unknown input modifier.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaac861cd34025f9002df5912d623326130">galaxy::input::InputMods::CONTROL</a></div><div class="ttdeci">@ CONTROL</div><div class="ttdoc">If this bit is set one or more Control keys were held down.</div></div>
@@ -145,7 +154,8 @@ $(document).ready(function(){initNavTree('d4/d98/InputMods_8hpp_source.html','..
 <div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e">galaxy::input::InputMods::ALT</a></div><div class="ttdeci">@ ALT</div><div class="ttdoc">If this bit is set one or more Alt keys were held down.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaae40af1d5cc55c55ae0bb25953f7a7ee2">galaxy::input::InputMods::CAPS_LOCK</a></div><div class="ttdeci">@ CAPS_LOCK</div><div class="ttdoc">If this bit is set then the Caps Lock key is enabled.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1input_html_a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaafc91b14eef9c58c4cad8fdf87b4c0bea">galaxy::input::InputMods::SUPER</a></div><div class="ttdeci">@ SUPER</div><div class="ttdoc">If this bit is set one or more Super keys were held down.</div></div>
-<div class="ttc" id="anamespacegalaxy_1_1input_html_aed1be1118092a434dfe240a2de982fb4"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#aed1be1118092a434dfe240a2de982fb4">galaxy::input::int_to_keymod</a></div><div class="ttdeci">constexpr input::InputMods int_to_keymod(const int mod)</div><div class="ttdoc">Converts an integer to a key modifier enum.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d98/InputMods_8hpp_source.html#l00065">InputMods.hpp:65</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_html_a1c18b359dd947b3a1baf3b9a8bd6f2cc"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc">galaxy::input::int_to_mod</a></div><div class="ttdeci">constexpr input::InputMods int_to_mod(const int mod)</div><div class="ttdoc">Converts an int to an input mod.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d98/InputMods_8hpp_source.html#l00067">InputMods.hpp:67</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_html_a4fcee35b9edb521d4a4ad60afa81a031"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a4fcee35b9edb521d4a4ad60afa81a031">galaxy::input::mod_to_int</a></div><div class="ttdeci">constexpr int mod_to_int(const input::InputMods mod)</div><div class="ttdoc">Converts a input mod to an int.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d98/InputMods_8hpp_source.html#l00079">InputMods.hpp:79</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -153,7 +163,7 @@ $(document).ready(function(){initNavTree('d4/d98/InputMods_8hpp_source.html','..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../d4/d98/InputMods_8hpp.html">InputMods.hpp</a></li>
-    <li class="footer">Generated on Sat Apr 6 2024 13:38:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sun Apr 7 2024 09:08:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

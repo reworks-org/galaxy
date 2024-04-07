@@ -1,31 +1,5 @@
 var searchData=
 [
-  ['f_0',['F',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea800618943025315f869e4e1f09471012',1,'galaxy::input']]],
-  ['f1_1',['F1',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eae1dffc8709f31a4987c8a88334107e89',1,'galaxy::input']]],
-  ['f10_2',['F10',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eab213ce22ca6ad4eda8db82966b9b6e5a',1,'galaxy::input']]],
-  ['f11_3',['F11',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea643b0662422d1d0dffa3fca2e2bf28a8',1,'galaxy::input']]],
-  ['f12_4',['F12',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eae902674982fc99aa343cdd94da7476c3',1,'galaxy::input']]],
-  ['f13_5',['F13',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea95dfde4807d4d6a9eec499203b3c24a0',1,'galaxy::input']]],
-  ['f14_6',['F14',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea2468649b6215c4cdd2aef5095b3f5932',1,'galaxy::input']]],
-  ['f15_7',['F15',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eae53b55851b9ff4979f2c3ff434a4a138',1,'galaxy::input']]],
-  ['f16_8',['F16',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea56d8353718e6fdc78b8d69078a2cdb94',1,'galaxy::input']]],
-  ['f17_9',['F17',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaffa5882d1ddcf903bf0d0dbc30bfc604',1,'galaxy::input']]],
-  ['f18_10',['F18',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea810b30cdfc07fd7fff553a94b828ff78',1,'galaxy::input']]],
-  ['f19_11',['F19',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eacd7c2a221ef5d0a34acc0bcd679b2054',1,'galaxy::input']]],
-  ['f2_12',['F2',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eafe5c3684dce76cdd9f7f42430868aa74',1,'galaxy::input']]],
-  ['f20_13',['F20',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eafc335adb3d69d3d8270769e1923ea4dc',1,'galaxy::input']]],
-  ['f21_14',['F21',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea77e9eee7c579eef5f3731ecf1053c02e',1,'galaxy::input']]],
-  ['f22_15',['F22',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea7fa06ead699fcbd63132370ffe13335a',1,'galaxy::input']]],
-  ['f23_16',['F23',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea889645d530078147e7dc69a9caadc31e',1,'galaxy::input']]],
-  ['f24_17',['F24',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaebd7820c520d05eca2d775c37d141273',1,'galaxy::input']]],
-  ['f25_18',['F25',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eaabf9846f265ae3dea4bf9d740f5cb1aa',1,'galaxy::input']]],
-  ['f3_19',['F3',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea4b6bf4b531770872d4328ce69bef5627',1,'galaxy::input']]],
-  ['f4_20',['F4',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eae7e0e72401a9f2718ed0f39f2861d702',1,'galaxy::input']]],
-  ['f5_21',['F5',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea37f438df6a6d5ba4c17ef8ca58562f00',1,'galaxy::input']]],
-  ['f6_22',['F6',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea1faf42f2823f184eb2c9f0dffe5d73f2',1,'galaxy::input']]],
-  ['f7_23',['F7',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea47489eb597b7db34caa24b1fc78fc839',1,'galaxy::input']]],
-  ['f8_24',['F8',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea4787509ad9f9d747a81a30e9dde3d4a7',1,'galaxy::input']]],
-  ['f9_25',['F9',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea892a245e287c163080b23db737d3c4c9',1,'galaxy::input']]],
-  ['fancy_5fdark_26',['FANCY_DARK',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ea0d515c5fb3a08473299741def918fa8c',1,'galaxy::ui']]],
-  ['fatal_27',['FATAL',['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda19da7170bea36556dde582519795f3fc',1,'galaxy::error']]]
+  ['info_0',['info',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acaf9b6b99962bf5c2264824231d7a40c',1,'galaxy::fs::info'],['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefda551b723eafd6a31d444fcb2f5920fbd3',1,'galaxy::error::INFO']]],
+  ['instance_5fbuffer_5fpoint_1',['INSTANCE_BUFFER_POINT',['../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba2e37e7b71c4223dcf4ab61621653b3a8',1,'galaxy::graphics']]]
 ];

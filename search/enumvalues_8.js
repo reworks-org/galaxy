@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['h_0',['H',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac1d9f50f86825a1a2302ec2449c17196',1,'galaxy::input']]],
-  ['home_1',['HOME',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142ea710533dd879dd1202e5c73b27705bf02',1,'galaxy::input']]]
+  ['left_0',['LEFT',['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a684d325a7303f52e64011467ff5c5758',1,'galaxy::graphics::Text']]],
+  ['low_1',['LOW',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda41bc94cbd8eebea13ce0491b2ac11b88',1,'galaxy::graphics::GaussianBlur']]]
 ];

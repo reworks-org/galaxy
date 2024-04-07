@@ -39,9 +39,8 @@ var annotated_dup =
       [ "events", "d6/d3d/namespacegalaxy_1_1events.html", [
         [ "ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", "d8/d2a/structgalaxy_1_1events_1_1ContentScale" ],
         [ "KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", "dc/d97/structgalaxy_1_1events_1_1KeyChar" ],
-        [ "KeyDown", "d7/d91/structgalaxy_1_1events_1_1KeyDown.html", "d7/d91/structgalaxy_1_1events_1_1KeyDown" ],
+        [ "KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", "d0/d92/structgalaxy_1_1events_1_1KeyPress" ],
         [ "KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat" ],
-        [ "KeyUp", "d1/d16/structgalaxy_1_1events_1_1KeyUp.html", "d1/d16/structgalaxy_1_1events_1_1KeyUp" ],
         [ "MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", "d0/d34/structgalaxy_1_1events_1_1MouseEnter" ],
         [ "MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", "db/da7/structgalaxy_1_1events_1_1MouseMoved" ],
         [ "MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", "d5/d15/structgalaxy_1_1events_1_1MousePressed" ],

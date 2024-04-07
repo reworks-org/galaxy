@@ -1,0 +1,12 @@
+<map id="galaxy::input::key_to_int" name="galaxy::input::key_to_int">
+<area shape="rect" id="Node000001" title="Converts a key enum to an int." alt="" coords="612,29,749,69"/>
+<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,7,172,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="605,28,564,20,458,11,353,8,172,15,172,10,353,3,459,5,564,15,606,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7" title="Injects input handling into lua." alt="" coords="416,29,553,69"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="598,52,554,52,554,47,598,47"/>
+<area shape="rect" id="Node000005" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a287da28c7db0370a29ca294f033478e6" title="On keyboad press event." alt="" coords="405,93,564,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="607,76,547,96,546,91,605,71"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,33,357,58"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="402,50,358,49,358,44,402,45"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="206,38,172,33,172,28,207,32"/>
+</map>
