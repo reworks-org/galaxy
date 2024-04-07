@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Keycode for the key that was released.
 			///
-			input::Keys keycode = input::Keys::UNKNOWN;
+			input::Keys keycode = input::Keys::KEY_UNKNOWN;
 
 			///
 			/// Modifier Key.

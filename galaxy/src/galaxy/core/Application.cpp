@@ -115,12 +115,12 @@ namespace galaxy
 			config.restore<bool>("chromatic_abberation", false, "graphics.effects");
 			config.restore<bool>("gaussian_blur", false, "graphics.effects");
 			config.restore<bool>("film_grain", false, "graphics.effects");
-			config.restore<int>("camera_foward", static_cast<int>(input::Keys::W), "input");
-			config.restore<int>("camera_backward", static_cast<int>(input::Keys::S), "input");
-			config.restore<int>("camera_left", static_cast<int>(input::Keys::A), "input");
-			config.restore<int>("camera_right", static_cast<int>(input::Keys::D), "input");
-			config.restore<int>("camera_rotate_left", static_cast<int>(input::Keys::Q), "input");
-			config.restore<int>("camera_rotate_right", static_cast<int>(input::Keys::E), "input");
+			config.restore<int>("camera_foward", input::key_to_int(input::Keys::KEY_W), "input");
+			config.restore<int>("camera_backward", input::key_to_int(input::Keys::KEY_S), "input");
+			config.restore<int>("camera_left", input::key_to_int(input::Keys::KEY_A), "input");
+			config.restore<int>("camera_right", input::key_to_int(input::Keys::KEY_D), "input");
+			config.restore<int>("camera_rotate_left", input::key_to_int(input::Keys::KEY_Q), "input");
+			config.restore<int>("camera_rotate_right", input::key_to_int(input::Keys::KEY_E), "input");
 
 			config.save();
 

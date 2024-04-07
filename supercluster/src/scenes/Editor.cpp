@@ -110,7 +110,7 @@ namespace sc
 			m_nui->enable_input();
 			m_project_sm.update();
 
-			if (input::Input::key_down(input::Keys::LEFT_SHIFT) && input::Input::key_down(input::Keys::TAB))
+			if (input::Input::key_down(input::Keys::KEY_LEFT_SHIFT) && input::Input::key_down(input::Keys::KEY_TAB))
 			{
 				ImGui_ImplGlfw_ToggleInput(false);
 

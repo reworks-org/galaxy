@@ -6,6 +6,7 @@
 ///
 
 #include <entt/signal/dispatcher.hpp>
+#include <glad/glad.h>
 #include <stb_image.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -262,7 +263,7 @@ namespace galaxy
 									events::KeyDown kd
 									{
 										.keycode = input::int_to_key(key),
-										.mod = input::int_to_keymod(mods),
+										.mod = input::int_to_mod(mods),
 										.scancode = scancode
 									};
 								
@@ -275,7 +276,7 @@ namespace galaxy
 									events::KeyRepeat kr
 									{
 										.keycode = input::int_to_key(key),
-										.mod = input::int_to_keymod(mods),
+										.mod = input::int_to_mod(mods),
 										.scancode = scancode
 									};
 								
@@ -288,7 +289,7 @@ namespace galaxy
 									events::KeyUp ku
 									{
 										.keycode = input::int_to_key(key),
-										.mod = input::int_to_keymod(mods),
+										.mod = input::int_to_mod(mods),
 										.scancode = scancode
 									};
 								
@@ -362,8 +363,8 @@ namespace galaxy
 								{
 									.xpos = pos.x,
 									.ypos = pos.y,
-									.button = static_cast<input::MouseButtons>(button),
-									.mod = input::int_to_keymod(mods)
+									.button = input::int_to_mouse(button),
+									.mod = input::int_to_mod(mods)
 								};
 								
 								dispatcher.trigger(mp);
@@ -376,8 +377,8 @@ namespace galaxy
 								{
 									.xpos = pos.x,
 									.ypos = pos.y,
-									.button = static_cast<input::MouseButtons>(button),
-									.mod = input::int_to_keymod(mods)
+									.button = input::int_to_mouse(button),
+									.mod = input::int_to_mod(mods)
 								};
 								
 								dispatcher.trigger(mr);
