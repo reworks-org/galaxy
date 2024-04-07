@@ -8,7 +8,7 @@
 #ifndef GALAXY_INPUT_CAMERACONTROLLER_HPP_
 #define GALAXY_INPUT_CAMERACONTROLLER_HPP_
 
-#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyPress.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/graphics/Camera.hpp"
 
@@ -37,9 +37,9 @@ namespace galaxy
 			///
 			/// Event processing method for input events.
 			///
-			/// \param e Takes in a key down event.
+			/// \param e Takes in a key press event.
 			///
-			void on_key_down(events::KeyDown& e);
+			void on_key_press(events::KeyPress& e);
 
 			///
 			/// Event processing method for scroll events.

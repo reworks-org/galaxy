@@ -218,9 +218,8 @@
     <ClCompile Include="src\galaxy\error\OpenGLError.cpp" />
     <ClCompile Include="src\galaxy\error\Sink.cpp" />
     <ClCompile Include="src\galaxy\events\KeyChar.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyDown.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyPress.cpp" />
     <ClCompile Include="src\galaxy\events\KeyRepeat.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyUp.cpp" />
     <ClCompile Include="src\galaxy\events\MouseMoved.cpp" />
     <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
     <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
@@ -295,9 +294,8 @@
     <ClInclude Include="src\galaxy\error\OpenGLError.hpp" />
     <ClInclude Include="src\galaxy\error\Sink.hpp" />
     <ClInclude Include="src\galaxy\events\KeyChar.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyDown.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyPress.hpp" />
     <ClInclude Include="src\galaxy\events\KeyRepeat.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyUp.hpp" />
     <ClInclude Include="src\galaxy\events\MouseMoved.hpp" />
     <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
     <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />

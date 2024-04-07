@@ -24,9 +24,9 @@ namespace galaxy
 		{
 		}
 
-		void CameraController::on_key_down(events::KeyDown& e)
+		void CameraController::on_key_press(events::KeyPress& e)
 		{
-			if (!e.handled)
+			if (!e.handled && e.pressed)
 			{
 				auto& camera = m_camera.get();
 

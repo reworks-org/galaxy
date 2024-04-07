@@ -10,9 +10,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyChar.hpp"
-#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyPress.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
-#include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseEnter.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -41,12 +40,14 @@ namespace galaxy
 			keychar_type["codepoint"] = &events::KeyChar::codepoint;
 			keychar_type["handled"]   = &events::KeyChar::handled;
 
-			auto keydown_type        = lua.new_usertype<events::KeyDown>("KeyDown", sol::constructors<events::KeyDown()>());
-			keydown_type["type_id"]  = &entt::type_hash<events::KeyDown>::value;
-			keydown_type["keycode"]  = &events::KeyDown::keycode;
-			keydown_type["mod"]      = &events::KeyDown::mod;
-			keydown_type["scancode"] = &events::KeyDown::scancode;
-			keydown_type["handled"]  = &events::KeyDown::handled;
+			auto keypress_type        = lua.new_usertype<events::KeyPress>("KeyPress", sol::constructors<events::KeyPress()>());
+			keypress_type["type_id"]  = &entt::type_hash<events::KeyPress>::value;
+			keypress_type["keycode"]  = &events::KeyPress::keycode;
+			keypress_type["mod"]      = &events::KeyPress::mod;
+			keypress_type["scancode"] = &events::KeyPress::scancode;
+			keypress_type["handled"]  = &events::KeyPress::handled;
+			keypress_type["pressed"]  = &events::KeyPress::pressed;
+			keypress_type["repeat"]   = &events::KeyPress::repeat;
 
 			auto keyrepeat_type        = lua.new_usertype<events::KeyRepeat>("KeyRepeat", sol::constructors<events::KeyRepeat()>());
 			keyrepeat_type["type_id"]  = &entt::type_hash<events::KeyRepeat>::value;
@@ -54,13 +55,6 @@ namespace galaxy
 			keyrepeat_type["mod"]      = &events::KeyRepeat::mod;
 			keyrepeat_type["scancode"] = &events::KeyRepeat::scancode;
 			keyrepeat_type["handled"]  = &events::KeyRepeat::handled;
-
-			auto keyup_type        = lua.new_usertype<events::KeyUp>("KeyUp", sol::constructors<events::KeyUp()>());
-			keyup_type["type_id"]  = &entt::type_hash<events::KeyUp>::value;
-			keyup_type["keycode"]  = &events::KeyUp::keycode;
-			keyup_type["mod"]      = &events::KeyUp::mod;
-			keyup_type["scancode"] = &events::KeyUp::scancode;
-			keyup_type["handled"]  = &events::KeyUp::handled;
 
 			auto mouseentered_type       = lua.new_usertype<events::MouseEnter>("MouseEnter", sol::constructors<events::MouseEnter()>());
 			mouseentered_type["type_id"] = &entt::type_hash<events::MouseEnter>::value;
@@ -105,9 +99,8 @@ namespace galaxy
 
 			entt_sol::register_meta_event<events::ContentScale>();
 			entt_sol::register_meta_event<events::KeyChar>();
-			entt_sol::register_meta_event<events::KeyDown>();
+			entt_sol::register_meta_event<events::KeyPress>();
 			entt_sol::register_meta_event<events::KeyRepeat>();
-			entt_sol::register_meta_event<events::KeyUp>();
 			entt_sol::register_meta_event<events::MouseEnter>();
 			entt_sol::register_meta_event<events::MouseMoved>();
 			entt_sol::register_meta_event<events::MousePressed>();

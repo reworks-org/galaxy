@@ -28,9 +28,7 @@ namespace galaxy
 
 			auto camera_controller =
 				lua.new_usertype<input::CameraController>("CameraController", sol::constructors<input::CameraController(graphics::Camera&)>());
-			camera_controller["camera"]         = &input::CameraController::m_camera;
-			camera_controller["on_key_down"]    = &input::CameraController::on_key_down;
-			camera_controller["on_mouse_wheel"] = &input::CameraController::on_mouse_wheel;
+			camera_controller["camera"] = &input::CameraController::m_camera;
 
 			auto clipboard_type   = lua.new_usertype<input::Clipboard>("Clipboard", sol::no_constructor);
 			clipboard_type["set"] = &input::Clipboard::set;

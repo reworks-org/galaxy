@@ -13,9 +13,8 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyChar.hpp"
-#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyPress.hpp"
 #include "galaxy/events/KeyRepeat.hpp"
-#include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/MouseEnter.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -256,50 +255,17 @@ namespace galaxy
 						if (!win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
-							switch (action)
+							events::KeyPress kp
 							{
-								case GLFW_PRESS:
-								{
-									events::KeyDown kd
-									{
-										.keycode = input::int_to_key(key),
-										.mod = input::int_to_mod(mods),
-										.scancode = scancode
-									};
-								
-									dispatcher.trigger(kd);
-								}
-								break;
-
-								case GLFW_REPEAT:
-								{
-									events::KeyRepeat kr
-									{
-										.keycode = input::int_to_key(key),
-										.mod = input::int_to_mod(mods),
-										.scancode = scancode
-									};
-								
-									dispatcher.trigger(kr);
-								}
-								break;
-
-								case GLFW_RELEASE:
-								{
-									events::KeyUp ku
-									{
-										.keycode = input::int_to_key(key),
-										.mod = input::int_to_mod(mods),
-										.scancode = scancode
-									};
-								
-									dispatcher.trigger(ku);
-								}
-								break;
-
-								default:break;
-							}
+								.keycode  = input::int_to_key(key),
+								.mod      = input::int_to_mod(mods),
+								.scancode = scancode,
+								.pressed  = action == GLFW_PRESS,
+								.repeat   = action == GLFW_REPEAT
+							};
 							// clang-format on
+
+							dispatcher.trigger(kp);
 						}
 					});
 
