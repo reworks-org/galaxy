@@ -20,11 +20,16 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			auto nui_type             = lua.new_usertype<ui::NuklearUI>("NuklearUI", sol::no_constructor);
-			nui_type["ctx"]           = &ui::NuklearUI::ctx;
-			nui_type["disable_input"] = &ui::NuklearUI::disable_input;
-			nui_type["enable_input"]  = &ui::NuklearUI::enable_input;
-			nui_type["set_font"]      = &ui::NuklearUI::set_font;
+			auto nui_type                   = lua.new_usertype<ui::NuklearUI>("NuklearUI", sol::no_constructor);
+			nui_type["ctx"]                 = &ui::NuklearUI::ctx;
+			nui_type["toggle_input"]        = &ui::NuklearUI::toggle_input;
+			nui_type["set_font"]            = &ui::NuklearUI::set_font;
+			nui_type["begin_input"]         = &ui::NuklearUI::begin_input;
+			nui_type["end_input"]           = &ui::NuklearUI::end_input;
+			nui_type["poll_input"]          = &ui::NuklearUI::poll_input;
+			nui_type["show_building_atlas"] = &ui::NuklearUI::show_building_atlas;
+			nui_type["show_loading_bar"]    = &ui::NuklearUI::show_loading_bar;
+			nui_type["show_loading_maps"]   = &ui::NuklearUI::show_loading_maps;
 
 			// clang-format off
 			lua.new_enum<nk_heading>("nk_heading",

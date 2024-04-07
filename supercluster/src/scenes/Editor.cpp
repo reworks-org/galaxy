@@ -107,7 +107,7 @@ namespace sc
 
 		if (m_game_mode || !m_stopped)
 		{
-			m_nui->enable_input();
+			// m_nui->enable_input();
 			m_project_sm.update();
 
 			if (input::Input::key_down(input::Keys::KEY_LEFT_SHIFT) && input::Input::key_down(input::Keys::KEY_TAB))
@@ -124,7 +124,7 @@ namespace sc
 		}
 		else
 		{
-			m_nui->disable_input();
+			// m_nui->disable_input();
 			m_autosave.update();
 
 			m_project_sm.update_rendering();
@@ -365,11 +365,11 @@ namespace sc
 
 			graphics::Renderer::ref().draw();
 
-			m_nui->enable_input();
+			// m_nui->enable_input();
 			m_nui->new_frame();
 			m_project_sm.update_ui();
 			m_nui->render();
-			m_nui->disable_input();
+			// m_nui->disable_input();
 		}
 
 		graphics::Renderer::ref().begin_default();

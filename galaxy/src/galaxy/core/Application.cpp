@@ -249,6 +249,7 @@ namespace galaxy
 			dispatcher.sink<events::MousePressed>().connect<&ui::NuklearUI::on_mouse_pressed>(nui);
 			dispatcher.sink<events::MouseWheel>().connect<&ui::NuklearUI::on_mouse_wheel>(nui);
 			dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
+			dispatcher.sink<events::KeyPress>().connect<&ui::NuklearUI::on_key_press>(nui);
 
 			//
 			// Add external libraries to Lua.

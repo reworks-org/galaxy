@@ -31,6 +31,7 @@ namespace galaxy
 			auto& config = core::ServiceLocator<core::Config>::ref();
 
 			m_ctx = nk_glfw3_init(window.handle(), NK_GLFW3_DEFAULT, NK_MAX_VERTEX_BUFFER, NK_MAX_ELEMENT_BUFFER);
+			toggle_input(false);
 
 			nk_glfw3_font_stash_begin(&m_atlas);
 
@@ -58,20 +59,89 @@ namespace galaxy
 
 		void NuklearUI::on_mouse_pressed(events::MousePressed& e)
 		{
-			nk_glfw3_mouse_button_callback(core::ServiceLocator<core::Window>::ref().handle(), static_cast<int>(e.button), GLFW_PRESS, static_cast<int>(e.mod));
-			e.handled = true;
+			if (!e.handled)
+			{
+				nk_glfw3_mouse_button_callback(nullptr, static_cast<int>(e.button), GLFW_PRESS, static_cast<int>(e.mod));
+				e.handled = true;
+			}
 		}
 
 		void NuklearUI::on_mouse_wheel(events::MouseWheel& e)
 		{
-			nk_gflw3_scroll_callback(core::ServiceLocator<core::Window>::ref().handle(), e.xoff, e.yoff);
-			e.handled = true;
+			if (!e.handled)
+			{
+				nk_gflw3_scroll_callback(nullptr, e.xoff, e.yoff);
+				e.handled = true;
+			}
 		}
 
 		void NuklearUI::on_key_char(events::KeyChar& e)
 		{
-			nk_glfw3_char_callback(core::ServiceLocator<core::Window>::ref().handle(), e.codepoint);
-			e.handled = true;
+			if (!e.handled)
+			{
+				nk_glfw3_char_callback(nullptr, e.codepoint);
+				e.handled = true;
+			}
+		}
+
+		void NuklearUI::on_key_press(events::KeyPress& e)
+		{
+			if (!e.handled)
+			{
+				int action = GLFW_RELEASE;
+
+				if (e.pressed == true)
+				{
+					action = GLFW_PRESS;
+				}
+				else if (e.repeat == true)
+				{
+					action = GLFW_REPEAT;
+				}
+
+				nk_glfw3_key_button_callback(nullptr, input::key_to_int(e.keycode), e.scancode, action, input::mod_to_int(e.mod));
+				e.handled = true;
+			}
+		}
+
+		void NuklearUI::begin_input() const
+		{
+			if (glfw.do_input)
+			{
+				nk_input_begin(ctx());
+			}
+		}
+
+		void NuklearUI::end_input() const
+		{
+			if (glfw.do_input)
+			{
+				for (auto i = 0; i < glfw.text_len; ++i)
+				{
+					nk_input_unicode(&glfw.ctx, glfw.text[i]);
+				}
+
+				double x = 0.0, y = 0.0;
+				glfwGetCursorPos(glfw.win, &x, &y);
+				nk_input_motion(&glfw.ctx, static_cast<int>(x), static_cast<int>(y));
+
+				nk_input_button(&glfw.ctx,
+					NK_BUTTON_DOUBLE,
+					static_cast<int>(glfw.double_click_pos.x),
+					static_cast<int>(glfw.double_click_pos.y),
+					glfw.is_double_click_down);
+				nk_input_scroll(&glfw.ctx, glfw.scroll);
+				nk_input_end(ctx());
+				glfw.text_len = 0;
+				glfw.scroll   = nk_vec2(0, 0);
+			}
+		}
+
+		void NuklearUI::poll_input() const
+		{
+			begin_input();
+			glfwPollEvents();
+			end_input();
 		}
 
 		void NuklearUI::new_frame()
@@ -102,14 +172,14 @@ namespace galaxy
 			}
 		}
 
-		void NuklearUI::enable_input()
+		void NuklearUI::toggle_input(const bool enable)
 		{
-			// m_ctx->is_input_allowed = true;
-		}
+			m_ctx->do_input = enable;
 
-		void NuklearUI::disable_input()
-		{
-			// m_ctx->is_input_allowed = false;
+			if (!enable)
+			{
+				m_ctx->mod_held = false;
+			}
 		}
 
 		void NuklearUI::show_loading_bar(const char* text, nk_size total, nk_size current)

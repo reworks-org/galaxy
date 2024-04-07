@@ -12,6 +12,7 @@
 #include <Nuklear.hpp>
 
 #include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/KeyPress.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 
@@ -57,6 +58,28 @@ namespace galaxy
 			void on_key_char(events::KeyChar& e);
 
 			///
+			/// On keyboad press event.
+			///
+			/// \param e Takes in a key press event.
+			///
+			void on_key_press(events::KeyPress& e);
+
+			///
+			/// Called before glfwPollEvents.
+			///
+			void begin_input() const;
+
+			///
+			/// Called after glfwPollEvents.
+			///
+			void end_input() const;
+
+			///
+			/// Calls begin, end and glfwPollEvents.
+			///
+			void poll_input() const;
+
+			///
 			/// Called before any nuklear code.
 			///
 			void new_frame();
@@ -74,14 +97,11 @@ namespace galaxy
 			void set_font(const std::string& id);
 
 			///
-			/// Enables nuklear input.
+			/// Control the input.
 			///
-			void enable_input();
-
+			/// \param enable True to allow input to nuklear ui.
 			///
-			/// Disables nuklear input.
-			///
-			void disable_input();
+			void toggle_input(const bool enable);
 
 			///
 			/// Shows a progress bar for loading screens.

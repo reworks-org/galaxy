@@ -3,10 +3,7 @@
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
 
-- fix nuklearui input.
-- update imgui at some point.
-
-- investigate other c++23 stuff.
+- fix event priority.
 
 Signals:
 - https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
@@ -30,6 +27,8 @@ animation:
 	- maybe using lua?
 - animation editor in console...
 - https://github.com/Rikora/SpriteAnimator
+- https://gamedev.stackexchange.com/questions/40672/how-to-update-entity-states-and-animations-in-a-component-based-game
+- https://michaelbitzos.com/devblog/fsm-player-controllers
 
 AI:
 https://github.com/linkdd/aitoolkit

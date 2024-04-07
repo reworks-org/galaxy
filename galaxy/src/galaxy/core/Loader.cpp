@@ -59,13 +59,11 @@ namespace galaxy
 
 			load_resources();
 
-			nui.enable_input();
-
 			do
 			{
 				current = total - tp.get_tasks_total();
 
-				glfwPollEvents();
+				nui.poll_input();
 
 				graphics::Renderer::ref().begin_default();
 				graphics::Renderer::ref().clear_active();
@@ -78,7 +76,7 @@ namespace galaxy
 				std::this_thread::sleep_for(1ms);
 			} while (tp.get_tasks_total() > 0);
 
-			glfwPollEvents();
+			nui.poll_input();
 			nui.new_frame();
 			nui.show_building_atlas();
 
@@ -88,7 +86,6 @@ namespace galaxy
 			graphics::Renderer::ref().end_default();
 
 			build_resources();
-			nui.disable_input();
 		}
 
 		void Loader::load_resources()
@@ -181,7 +178,6 @@ namespace galaxy
 			auto& nui       = ServiceLocator<ui::NuklearUI>::ref();
 			auto& maploader = core::ServiceLocator<resource::Maps>::ref();
 
-			nui.enable_input();
 			renderer.prepare_default();
 
 			int cur = 0;
