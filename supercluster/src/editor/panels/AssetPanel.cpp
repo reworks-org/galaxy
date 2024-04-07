@@ -92,65 +92,65 @@ namespace sc
 			m_ext_map.emplace(".tmj", FileType::MAP);
 			m_ext_map.emplace(".gprefab", FileType::PREFAB);
 
-			m_tex_map.try_emplace(FileType::AUDIO);
-			m_tex_map.try_emplace(FileType::FONT);
-			m_tex_map.try_emplace(FileType::SHADER);
-			m_tex_map.try_emplace(FileType::JSON);
-			m_tex_map.try_emplace(FileType::LANG);
-			m_tex_map.try_emplace(FileType::LUA);
-			m_tex_map.try_emplace(FileType::PROJ);
-			m_tex_map.try_emplace(FileType::TEXTURE);
-			m_tex_map.try_emplace(FileType::MAP);
-			m_tex_map.try_emplace(FileType::PREFAB);
+			m_tex_map.try_emplace(FileType::AUDIO, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::FONT, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::SHADER, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::JSON, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::LANG, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::LUA, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::PROJ, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::TEXTURE, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::MAP, std::make_unique<graphics::Texture2D>());
+			m_tex_map.try_emplace(FileType::PREFAB, std::make_unique<graphics::Texture2D>());
 
-			if (m_tex_map[FileType::AUDIO].load("icons/audio.png"))
+			if (m_tex_map[FileType::AUDIO]->load("icons/audio.png"))
 			{
-				m_tex_map[FileType::AUDIO].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::AUDIO]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::FONT].load("icons/font.png"))
+			if (m_tex_map[FileType::FONT]->load("icons/font.png"))
 			{
-				m_tex_map[FileType::FONT].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::FONT]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::SHADER].load("icons/glsl.png"))
+			if (m_tex_map[FileType::SHADER]->load("icons/glsl.png"))
 			{
-				m_tex_map[FileType::SHADER].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::SHADER]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::JSON].load("icons/json.png"))
+			if (m_tex_map[FileType::JSON]->load("icons/json.png"))
 			{
-				m_tex_map[FileType::JSON].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::JSON]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::LANG].load("icons/lang.png"))
+			if (m_tex_map[FileType::LANG]->load("icons/lang.png"))
 			{
-				m_tex_map[FileType::LANG].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::LANG]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::LUA].load("icons/lua.png"))
+			if (m_tex_map[FileType::LUA]->load("icons/lua.png"))
 			{
-				m_tex_map[FileType::LUA].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::LUA]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::PROJ].load("icons/proj.png"))
+			if (m_tex_map[FileType::PROJ]->load("icons/proj.png"))
 			{
-				m_tex_map[FileType::PROJ].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::PROJ]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::TEXTURE].load("icons/texture.png"))
+			if (m_tex_map[FileType::TEXTURE]->load("icons/texture.png"))
 			{
-				m_tex_map[FileType::TEXTURE].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::TEXTURE]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::MAP].load("icons/map.png"))
+			if (m_tex_map[FileType::MAP]->load("icons/map.png"))
 			{
-				m_tex_map[FileType::MAP].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::MAP]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 
-			if (m_tex_map[FileType::PREFAB].load("icons/prefab.png"))
+			if (m_tex_map[FileType::PREFAB]->load("icons/prefab.png"))
 			{
-				m_tex_map[FileType::PREFAB].filter(graphics::TextureFilter::TRILINEAR);
+				m_tex_map[FileType::PREFAB]->filter(graphics::TextureFilter::TRILINEAR);
 			}
 		}
 
@@ -329,7 +329,7 @@ namespace sc
 						{
 							if (m_ext_map.contains(ext))
 							{
-								m_icon = &m_tex_map[m_ext_map[ext]];
+								m_icon = m_tex_map[m_ext_map[ext]].get();
 							}
 							else
 							{

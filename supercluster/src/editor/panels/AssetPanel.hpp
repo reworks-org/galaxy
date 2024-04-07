@@ -87,8 +87,8 @@ namespace sc
 
 			graphics::Texture2D* m_icon;
 
-			ankerl::unordered_dense::map<std::string, FileType>         m_ext_map;
-			ankerl::unordered_dense::map<FileType, graphics::Texture2D> m_tex_map;
+			ankerl::unordered_dense::map<std::string, FileType>                          m_ext_map;
+			ankerl::unordered_dense::map<FileType, std::unique_ptr<graphics::Texture2D>> m_tex_map;
 
 			std::vector<std::filesystem::path> m_directories;
 		};
