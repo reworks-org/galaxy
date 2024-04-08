@@ -37,3 +37,6 @@
 [submodule "lib/dense"]
 	path = lib/dense
 	url = https://github.com/martinus/unordered_dense.git
+[submodule "lib/ldtkloader"]
+	path = lib/ldtkloader
+	url = https://github.com/Madour/LDtkLoader.git

@@ -14,9 +14,10 @@ Scripting:
 - refine Scripts to more easily "attachable" single use scripts or "trigger" scripts.
 
 Tilemap:
-- reenable in scene
-- https://github.com/fallahn/tmxlite/issues/131
-- https://github.com/SSBMTonberry/tileson/issues/97
+- https://github.com/Madour/LDtkLoader
+- https://github.com/Madour/LDtkViewer
+- https://github.com/Madour/LDtk-SFML-Game
+- https://github.com/deepnight/ldtk/issues/119
 
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor
