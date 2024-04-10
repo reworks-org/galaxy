@@ -60,6 +60,7 @@ namespace galaxy
 			: m_window {nullptr}
 			, m_width {1}
 			, m_height {1}
+			, m_dispatcher {nullptr}
 		{
 			m_glfw_allocator.allocate   = &glfw_alloc;
 			m_glfw_allocator.reallocate = &glfw_realloc;
@@ -70,6 +71,7 @@ namespace galaxy
 			: m_window {nullptr}
 			, m_width {1}
 			, m_height {1}
+			, m_dispatcher {nullptr}
 		{
 			m_glfw_allocator.allocate   = &glfw_alloc;
 			m_glfw_allocator.reallocate = &glfw_realloc;
@@ -215,44 +217,52 @@ namespace galaxy
 
 					// Set close callback.
 					glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window) {
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-						dispatcher.trigger<events::WindowClosed>();
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
+						{
+							win->m_dispatcher->trigger<events::WindowClosed>();
+						}
 					});
 
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int width, int height) {
-						// clang-format off
-						events::WindowResized wr
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
 						{
-							.width = width,
-							.height = height
-						};
-						// clang-format on
+							// clang-format off
+							events::WindowResized wr
+							{
+								.width = width,
+								.height = height
+							};
+							// clang-format on
 
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-						dispatcher.trigger(wr);
+							graphics::Renderer::ref().on_window_resized(wr);
+							win->m_dispatcher->trigger(wr);
+						}
 					});
 
 					// Content scale callback.
 					glfwSetWindowContentScaleCallback(m_window, [](GLFWwindow* window, float xscale, float yscale) {
-						// clang-format off
-						events::ContentScale sc
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
 						{
-							.xscale = xscale,
-							.yscale = yscale
-						};
-						// clang-format on
+							// clang-format off
+							events::ContentScale sc
+							{
+								.xscale = xscale,
+								.yscale = yscale
+							};
+							// clang-format on
 
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-						dispatcher.trigger(sc);
+							win->m_dispatcher->trigger(sc);
+						}
 					});
 
 					// Key input callback.
 					glfwSetKeyCallback(m_window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-						auto* win        = static_cast<Window*>(glfwGetWindowUserPointer(window));
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-
-						if (!win->m_keyboard.is_text_input_enabled())
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher && !win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
 							events::KeyPress kp
@@ -265,14 +275,14 @@ namespace galaxy
 							};
 							// clang-format on
 
-							dispatcher.trigger(kp);
+							win->m_dispatcher->trigger(kp);
 						}
 					});
 
 					// Text input callback.
 					glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int codepoint) {
 						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
-						if (win->m_keyboard.is_text_input_enabled())
+						if (win->m_dispatcher && win->m_keyboard.is_text_input_enabled())
 						{
 							// clang-format off
 							events::KeyChar kc
@@ -281,93 +291,103 @@ namespace galaxy
 							};
 							// clang-format on
 
-							auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-							dispatcher.trigger(kc);
+							win->m_dispatcher->trigger(kc);
 						}
 					});
 
 					// Mouse entered callback.
 					glfwSetCursorEnterCallback(m_window, [](GLFWwindow* window, int entered) {
-						// clang-format off
-						events::MouseEnter me
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
 						{
-							.entered = static_cast<bool>(entered)
-						};
-						// clang-format on
+							// clang-format off
+							events::MouseEnter me
+							{
+								.entered = static_cast<bool>(entered)
+							};
+							// clang-format on
 
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-						dispatcher.trigger(me);
+							win->m_dispatcher->trigger(me);
+						}
 					});
 
 					// Mouse movement callback.
 					glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double xpos, double ypos) {
-						// clang-format off
-						events::MouseMoved mm
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
 						{
-							.xpos = xpos,
-							.ypos = ypos
-						};
-						// clang-format on
+							// clang-format off
+							events::MouseMoved mm
+							{
+								.xpos = xpos,
+								.ypos = ypos
+							};
+							// clang-format on
 
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-						dispatcher.trigger(mm);
+							win->m_dispatcher->trigger(mm);
+						}
 					});
 
 					// Mouse button callback.
 					glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
-						auto* win        = static_cast<Window*>(glfwGetWindowUserPointer(window));
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-
-						const auto pos = win->m_mouse.get_pos();
-
-						// clang-format off
-						switch (action)
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
 						{
-							case GLFW_PRESS:
-							{
-								events::MousePressed mp
-								{
-									.xpos = pos.x,
-									.ypos = pos.y,
-									.button = input::int_to_mouse(button),
-									.mod = input::int_to_mod(mods)
-								};
-								
-								dispatcher.trigger(mp);
-							}
-							break;
+							const auto pos = win->m_mouse.get_pos();
 
-							case GLFW_RELEASE:
+							// clang-format off
+							switch (action)
 							{
-								events::MouseReleased mr
+								case GLFW_PRESS:
 								{
-									.xpos = pos.x,
-									.ypos = pos.y,
-									.button = input::int_to_mouse(button),
-									.mod = input::int_to_mod(mods)
-								};
+									events::MousePressed mp
+									{
+										.xpos = pos.x,
+										.ypos = pos.y,
+										.button = input::int_to_mouse(button),
+										.mod = input::int_to_mod(mods)
+									};
 								
-								dispatcher.trigger(mr);
-							}
-							break;
+									win->m_dispatcher->trigger(mp);
+								}
+								break;
 
-							default:break;
+								case GLFW_RELEASE:
+								{
+									events::MouseReleased mr
+									{
+										.xpos = pos.x,
+										.ypos = pos.y,
+										.button = input::int_to_mouse(button),
+										.mod = input::int_to_mod(mods)
+									};
+								
+									win->m_dispatcher->trigger(mr);
+								}
+								break;
+
+								default:
+									break;
+							}
+							// clang-format on
 						}
-						// clang-format on
 					});
 
 					// Set scroll wheel callback.
 					glfwSetScrollCallback(m_window, [](GLFWwindow* window, double xoffset, double yoffset) {
-						// clang-format off
-						events::MouseWheel mw
+						auto* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+						if (win->m_dispatcher)
 						{
-							.xoff = xoffset,
-							.yoff = yoffset
-						};
-						// clang-format on
+							// clang-format off
+							events::MouseWheel mw
+							{
+								.xoff = xoffset,
+								.yoff = yoffset
+							};
+							// clang-format on
 
-						auto& dispatcher = core::ServiceLocator<entt::dispatcher>::ref();
-						dispatcher.trigger(mw);
+							win->m_dispatcher->trigger(mw);
+						}
 					});
 
 					// clang-format off
@@ -546,6 +566,11 @@ namespace galaxy
 
 				stbi_image_free(img.pixels);
 			}
+		}
+
+		void Window::set_dispatcher(entt::dispatcher* dispatcher)
+		{
+			m_dispatcher = dispatcher;
 		}
 
 		bool Window::is_open() const

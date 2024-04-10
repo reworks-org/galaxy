@@ -29,6 +29,7 @@ namespace galaxy
 			, m_bullet {false}
 			, m_fixed_rotation {true}
 			, m_body {nullptr}
+			, m_world {nullptr}
 		{
 		}
 
@@ -50,8 +51,10 @@ namespace galaxy
 			this->m_bullet                = rb.m_bullet;
 			this->m_fixed_rotation        = rb.m_fixed_rotation;
 			this->m_body                  = rb.m_body;
+			this->m_world                 = rb.m_world;
 
-			rb.m_body = nullptr;
+			rb.m_body  = nullptr;
+			rb.m_world = nullptr;
 		}
 
 		RigidBody& RigidBody::operator=(RigidBody&& rb)
@@ -67,8 +70,10 @@ namespace galaxy
 				this->m_bullet                = rb.m_bullet;
 				this->m_fixed_rotation        = rb.m_fixed_rotation;
 				this->m_body                  = rb.m_body;
+				this->m_world                 = rb.m_world;
 
-				rb.m_body = nullptr;
+				rb.m_body  = nullptr;
+				rb.m_world = nullptr;
 			}
 
 			return *this;

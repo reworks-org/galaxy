@@ -1,18 +1,14 @@
 Resources are designed to be loaded up front. This is fine since we aren't using the level of assets of i.e. a 3D game.
 - This is similar in style to how games like minecraft and factorio loads its data.
 
-A game will have a scene. This is usually for dividing up the game into something like photoshop layers.
-I.e. you could have one for the menu, the game, the game hud.
-	- Shared assets.
-	- Communication is done through events or signals.
-	- Separate entities, systems, ui, event handler, etc.
-	- https://coffeebraingames.wordpress.com/2017/10/15/multi-scene-development-in-unity/
+Scenes:
+- Each scene has its own events, entities, ui, etc.
+- But shared systems, like rendersystem / playercontroller, assets and resources.
+- You might have a scene for a fullscreen map, menu, game, battle, etc.
+- scenemanager would probably have some kind of playercontroller -> stores things like current terrain, current party, etc.
+- on scene load would create entities or other stuff for current battle in a battle scene for example.
+- individual scenes of different types? or a script call to lua that does stuff for you on scene load/unload.
+- attach a script to a scene on construction -> register with lua as an event that can be called on (un)load.
 
-
-https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/2d/CCScene.h
-https://github.com/cocos2d/cocos2d-x/blob/v4/cocos/2d/CCNode.h
-https://github.com/cocos2d/cocos2d-x/tree/v4/cocos/renderer
-https://github.com/W4RH4WK/Anker/blob/main/code/anker/core/anker_scene_node.hpp
-
-
-Editor needs to be an "overlay": i.e. editor stores a copy of the system i.e. scenemanager, and only during "run" do we copy it over.
+Editor:
+- Editor needs to be an "overlay": i.e. editor stores a copy of the system i.e. scenemanager, and only during "run" do we copy it over.

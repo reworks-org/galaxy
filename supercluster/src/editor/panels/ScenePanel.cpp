@@ -195,40 +195,36 @@ namespace sc
 						ImGui::Spacing();
 
 						ImGui::TextUnformatted("Physics:");
-						if (scene->m_b2world)
+						if (ImGui::Button("Dump"))
 						{
-							auto* b2 = scene->m_b2world.get();
-							if (ImGui::Button("Dump"))
-							{
-								b2->Dump();
-							}
-
-							float gravity[2] = {b2->GetGravity().x, b2->GetGravity().y};
-							if (ImGui::InputFloat2("Gravity",
-									&gravity[0],
-									"%.2f",
-									ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-							{
-								b2->SetGravity({gravity[0], gravity[1]});
-							}
-
-							auto allow_sleeping = b2->GetAllowSleeping();
-							if (ImGui::Checkbox("Allow Sleeping", &allow_sleeping))
-							{
-								b2->SetAllowSleeping(allow_sleeping);
-							}
-
-							ImGui::SameLine();
-
-							auto allow_autoclear = b2->GetAutoClearForces();
-							if (ImGui::Checkbox("Auto Clear Forces", &allow_autoclear))
-							{
-								b2->SetAutoClearForces(allow_autoclear);
-							}
-
-							ImGui::SliderInt("Position Iterations", &scene->m_velocity_iterations, 1, 10);
-							ImGui::SliderInt("Velocity Iterations", &scene->m_position_iterations, 1, 10);
+							scene->m_b2world.Dump();
 						}
+
+						float gravity[2] = {scene->m_b2world.GetGravity().x, scene->m_b2world.GetGravity().y};
+						if (ImGui::InputFloat2("Gravity",
+								&gravity[0],
+								"%.2f",
+								ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+						{
+							scene->m_b2world.SetGravity({gravity[0], gravity[1]});
+						}
+
+						auto allow_sleeping = scene->m_b2world.GetAllowSleeping();
+						if (ImGui::Checkbox("Allow Sleeping", &allow_sleeping))
+						{
+							scene->m_b2world.SetAllowSleeping(allow_sleeping);
+						}
+
+						ImGui::SameLine();
+
+						auto allow_autoclear = scene->m_b2world.GetAutoClearForces();
+						if (ImGui::Checkbox("Auto Clear Forces", &allow_autoclear))
+						{
+							scene->m_b2world.SetAutoClearForces(allow_autoclear);
+						}
+
+						ImGui::SliderInt("Position Iterations", &scene->m_velocity_iterations, 1, 10);
+						ImGui::SliderInt("Velocity Iterations", &scene->m_position_iterations, 1, 10);
 
 						ImGui::Spacing();
 						ImGui::Separator();

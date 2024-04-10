@@ -9,6 +9,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/ui/NuklearUI.hpp"
 
 #include "GUI.hpp"
 
@@ -46,27 +47,72 @@ namespace galaxy
 
 		GUI::~GUI()
 		{
+			if (m_self.valid())
+			{
+				m_self.abandon();
+			}
+		}
+
+		void GUI::load(const std::string& file)
+		{
+			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			auto script = fs.read(file);
+			if (!script.empty())
+			{
+				if (m_self.valid())
+				{
+					m_self.abandon();
+				}
+
+				m_file = file;
+
+				auto& state = core::ServiceLocator<sol::state>::ref();
+				auto& nui   = core::ServiceLocator<ui::NuklearUI>::ref();
+				auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+				if (!script.empty())
+				{
+					auto result = state.load(script);
+
+					if (result.valid())
+					{
+						m_self = result.call();
+
+						if (m_self.valid())
+						{
+							m_self["ctx"] = nui.ctx();
+							m_update      = m_self["do_ui"];
+
+							if (!m_update.valid())
+							{
+								GALAXY_LOG(GALAXY_ERROR, "Update function not present in ui script '{0}'.", m_file);
+							}
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to validate ui script '{0}'. Make sure its in the correct format.", m_file);
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to load ui script '{0}' because '{1}'.", m_file, magic_enum::enum_name(result.status()));
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read script '{0}'.", m_file);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to find ui script '{0}'.", m_file);
+			}
 		}
 
 		const std::string& GUI::file() const
 		{
 			return m_file;
-		}
-
-		void GUI::load(const std::string& file)
-		{
-			if (m_self.valid())
-			{
-				m_self.abandon();
-			}
-
-			m_file = file;
-
-			if (!core::ServiceLocator<fs::VirtualFileSystem>::ref().exists(m_file))
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find ui script '{0}'.", m_file);
-				m_file = {};
-			}
 		}
 
 		nlohmann::json GUI::serialize()

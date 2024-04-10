@@ -126,7 +126,7 @@ namespace sc
 			// m_nui->disable_input();
 			m_autosave.update();
 
-			m_project_sm.update_rendering();
+			// m_project_sm.update_rendering();
 
 			if (m_viewport_focused && m_viewport_hovered)
 			{
@@ -365,10 +365,10 @@ namespace sc
 			graphics::Renderer::ref().draw();
 
 			// m_nui->enable_input();
-			m_nui->new_frame();
-			m_project_sm.update_ui();
-			m_nui->render();
-			// m_nui->disable_input();
+			// m_nui->new_frame();
+			// m_project_sm.update_ui();
+			// m_nui->render();
+			/// m_nui->disable_input();
 		}
 
 		graphics::Renderer::ref().begin_default();

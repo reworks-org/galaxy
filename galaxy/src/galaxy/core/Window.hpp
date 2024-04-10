@@ -8,6 +8,7 @@
 #ifndef GALAXY_CORE_WINDOW_HPP_
 #define GALAXY_CORE_WINDOW_HPP_
 
+#include <entt/signal/fwd.hpp>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -141,6 +142,13 @@ namespace galaxy
 			void set_icon(std::span<std::uint8_t> buffer);
 
 			///
+			/// Set current event dispatcher to use.
+			///
+			/// \param dispatcher Event dispatcher to use for processing input, etc.
+			///
+			void set_dispatcher(entt::dispatcher* dispatcher);
+
+			///
 			/// Check if windows is in focus.
 			///
 			/// \return True if window is in input focus.
@@ -272,6 +280,11 @@ namespace galaxy
 			/// Cache of last dropped paths.
 			///
 			meta::vector<std::string> m_drop_paths;
+
+			///
+			/// Currently active event dispatcher.
+			///
+			entt::dispatcher* m_dispatcher;
 		};
 
 		template<meta::is_input_device Device>

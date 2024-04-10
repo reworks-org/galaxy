@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <entt/signal/dispatcher.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
@@ -55,7 +54,6 @@ namespace galaxy
 			lua["galaxy_textures"]    = std::ref(core::ServiceLocator<resource::Textures>::ref());
 			lua["galaxy_prefabs"]     = std::ref(core::ServiceLocator<resource::Prefabs>::ref());
 			lua["galaxy_scripts"]     = std::ref(core::ServiceLocator<resource::Scripts>::ref());
-			lua["galaxy_dispatcher"]  = std::ref(core::ServiceLocator<entt::dispatcher>::ref());
 			lua["galaxy_scenes"]      = std::ref(core::ServiceLocator<scene::SceneManager>::ref());
 			lua["galaxy_fontcontext"] = std::ref(core::ServiceLocator<graphics::FontContext>::ref());
 		}

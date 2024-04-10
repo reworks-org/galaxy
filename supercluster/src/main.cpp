@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <galaxy/utils/Globals.hpp>
+
+/*
 #include <iostream>
 
 #include <mimalloc-new-delete.h>
@@ -21,14 +24,16 @@
 #include <galaxy/scene/SceneManager.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 #include <galaxy/ui/ImGuiTheme.hpp>
-#include <galaxy/utils/Globals.hpp>
+
 
 #include "scenes/Editor.hpp"
+*/
 
 using namespace galaxy;
 
 int main(int argsc, char* argsv[])
 {
+	/*
 	GALAXY_UNUSED(argsc);
 	GALAXY_UNUSED(argsv);
 
@@ -119,6 +124,6 @@ int main(int argsc, char* argsv[])
 			std::cin.get();
 		}
 	} while (GALAXY_RESTART);
-
+	*/
 	return GALAXY_EXIT_SUCCESS;
 }

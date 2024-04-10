@@ -22,8 +22,8 @@ namespace galaxy
 		///
 		class SceneManager final : public fs::Serializable
 		{
-			using Map  = ankerl::unordered_dense::map<std::uint64_t, std::shared_ptr<Scene>>;
-			using List = meta::vector<std::shared_ptr<Scene>>;
+			using Map             = ankerl::unordered_dense::map<std::uint64_t, std::unique_ptr<Scene>>;
+			using SystemContainer = meta::vector<std::unique_ptr<systems::System>>;
 
 		  public:
 			///
@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			/// \return Pointer to added scene.
 			///
-			[[maybe_unused]] std::shared_ptr<Scene> add(const std::string& name);
+			[[maybe_unused]] Scene* add(const std::string& name);
 
 			///
 			/// Add a custom scene.
@@ -52,10 +52,8 @@ namespace galaxy
 			///
 			/// \param name Scene name to assign.
 			///
-			/// \return Pointer to added scene.
-			///
-			template<typename T>
-			[[maybe_unused]] std::shared_ptr<T> add_custom(const std::string& name);
+			template<std::derived_from<Scene> Custom>
+			[[maybe_unused]] Custom* add_custom(const std::string& name);
 
 			///
 			/// Get a specific scene.
@@ -64,7 +62,7 @@ namespace galaxy
 			///
 			/// \return Reference to requested scene.
 			///
-			[[nodiscard]] std::shared_ptr<Scene> get(const std::string& name);
+			[[nodiscard]] Scene* get(const std::string& name);
 
 			///
 			/// \brief Remove a specific scene.
@@ -83,6 +81,19 @@ namespace galaxy
 			/// \return True if exists.
 			///
 			[[nodiscard]] bool has(const std::string& name);
+
+			///
+			/// \brief Add a system to the manager.
+			///
+			/// \tparam System Type of system to create.
+			/// \tparam Args Constructor arguments for system.
+			///
+			/// Systems will be updated in the order in which they are created.
+			///
+			/// \param args Constructor arguments for system.
+			///
+			template<meta::is_system System, typename... Args>
+			void create_system(Args&&... args);
 
 			///
 			/// \brief Load app data file into scene manager.
@@ -106,19 +117,19 @@ namespace galaxy
 			void update();
 
 			///
-			/// Handle rendering.
-			///
-			void render();
-
-			///
 			/// Only update ui.
 			///
-			void update_ui();
+			void only_update_ui();
 
 			///
 			/// Only update rendering.
 			///
-			void update_rendering();
+			void only_update_rendering();
+
+			///
+			/// Handle rendering.
+			///
+			void render();
 
 			///
 			/// Deletes all scene data.
@@ -131,20 +142,6 @@ namespace galaxy
 			/// \return Reference to scene object.
 			///
 			[[nodiscard]] const Map& map() const;
-
-			///
-			/// Get scene order.
-			///
-			/// \return Reference to scene object.
-			///
-			[[nodiscard]] const List& list() const;
-
-			///
-			/// Get number of scenes.
-			///
-			/// \return Number of scenes.
-			///
-			[[nodiscard]] std::size_t size() const;
 
 			///
 			/// Are there any scenes.
@@ -174,29 +171,47 @@ namespace galaxy
 			Map m_scenes;
 
 			///
-			/// Scene execution order.
+			/// Current scene.
 			///
-			List m_order;
+			scene::Scene* m_current;
+
+			///
+			/// Stores systems.
+			///
+			SystemContainer m_systems;
+
+			///
+			/// Rendersystem index.
+			///
+			std::size_t m_rendersystem_index;
 		};
 
-		template<typename T>
-		inline std::shared_ptr<T> SceneManager::add_custom(const std::string& name)
+		template<std::derived_from<Scene> Custom>
+		inline Custom* SceneManager::add_custom(const std::string& name)
 		{
 			const auto hash = math::fnv1a_64(name.c_str());
 
 			if (!m_scenes.contains(hash))
 			{
-				auto child = std::make_shared<T>(name);
-
-				m_order.push_back(child);
-				m_scenes[hash] = std::static_pointer_cast<Scene>(child);
-
-				return child;
+				m_scenes[hash] = std::make_unique<Custom>(name);
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Tried to add a duplicate scene '{0}'.", name);
-				return std::static_pointer_cast<T>(m_scenes[hash]);
+			}
+
+			return static_cast<Custom*>(m_scenes[hash].get());
+		}
+
+		template<meta::is_system System, typename... Args>
+		inline void SceneManager::create_system(Args&&... args)
+		{
+			auto ptr = std::make_unique<System>(std::forward<Args>(args)...);
+			m_systems.emplace_back(std::move(ptr));
+
+			if constexpr (std::is_same<System, systems::RenderSystem>::value)
+			{
+				m_rendersystem_index = m_systems.size() - 1;
 			}
 		}
 	} // namespace scene

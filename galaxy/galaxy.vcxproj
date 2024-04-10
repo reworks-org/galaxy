@@ -25,6 +25,7 @@
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
     <ClCompile Include="src\galaxy\components\GUI.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
+    <ClCompile Include="src\galaxy\core\Registry.cpp" />
     <ClCompile Include="src\galaxy\error\LogMessage.cpp" />
     <ClCompile Include="src\galaxy\error\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\graphics\anim\Animation.cpp" />
@@ -98,6 +99,7 @@
     <ClInclude Include="src\galaxy\components\Text.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
     <ClInclude Include="src\galaxy\components\GUI.hpp" />
+    <ClInclude Include="src\galaxy\core\Registry.hpp" />
     <ClInclude Include="src\galaxy\error\LogMessage.hpp" />
     <ClInclude Include="src\galaxy\error\PhysFSError.hpp" />
     <ClInclude Include="src\galaxy\graphics\anim\Animation.hpp" />

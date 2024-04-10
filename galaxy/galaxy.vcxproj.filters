@@ -170,6 +170,7 @@
     <ClCompile Include="src\galaxy\graphics\anim\Frame.cpp" />
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
     <ClCompile Include="src\galaxy\resource\Animations.cpp" />
+    <ClCompile Include="src\galaxy\core\Registry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -322,5 +323,6 @@
     <ClInclude Include="src\galaxy\graphics\anim\Frame.hpp" />
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
     <ClInclude Include="src\galaxy\resource\Animations.hpp" />
+    <ClInclude Include="src\galaxy\core\Registry.hpp" />
   </ItemGroup>
 </Project>

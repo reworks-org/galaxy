@@ -2,31 +2,5 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\scenes\Editor.cpp" />
-    <ClCompile Include="src\editor\panels\LogConsole.cpp" />
-    <ClCompile Include="src\editor\EditorSink.cpp" />
-    <ClCompile Include="src\editor\panels\LuaConsole.cpp" />
-    <ClCompile Include="src\editor\panels\JSONEditor.cpp" />
-    <ClCompile Include="src\editor\panels\ScenePanel.cpp" />
-    <ClCompile Include="src\editor\UpdateStack.cpp" />
-    <ClCompile Include="src\editor\panels\EntityEditor.cpp" />
-    <ClCompile Include="src\editor\Selected.cpp" />
-    <ClCompile Include="src\editor\panels\AssetPanel.cpp" />
-    <ClCompile Include="src\editor\Settings.cpp" />
-    <ClCompile Include="src\editor\SelectedAsset.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\scenes\Editor.hpp" />
-    <ClInclude Include="src\editor\panels\LogConsole.hpp" />
-    <ClInclude Include="src\editor\EditorSink.hpp" />
-    <ClInclude Include="src\editor\panels\LuaConsole.hpp" />
-    <ClInclude Include="src\editor\panels\JSONEditor.hpp" />
-    <ClInclude Include="src\editor\panels\ScenePanel.hpp" />
-    <ClInclude Include="src\editor\UpdateStack.hpp" />
-    <ClInclude Include="src\editor\panels\EntityEditor.hpp" />
-    <ClInclude Include="src\editor\Selected.hpp" />
-    <ClInclude Include="src\editor\panels\AssetPanel.hpp" />
-    <ClInclude Include="src\editor\Settings.hpp" />
-    <ClInclude Include="src\editor\SelectedAsset.hpp" />
   </ItemGroup>
 </Project>

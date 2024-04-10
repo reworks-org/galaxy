@@ -4,6 +4,7 @@
 	- scene heirarchy / scene tree thingy?
 
 - fix event priority.
+- fix registry only calling construction of script when its created from json, not blank.
 
 Signals:
 - https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/

@@ -27,7 +27,9 @@ namespace galaxy
 
 		void RenderSystem::update(scene::Scene* scene)
 		{
-			const auto cmds = scene->m_registry.group<components::RenderCommand>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
+			graphics::Renderer::ref().flush();
+
+			const auto cmds = scene->m_registry.m_entt.group<components::RenderCommand>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
 
 			for (auto&& [entity, cmd, tf] : cmds.each())
 			{

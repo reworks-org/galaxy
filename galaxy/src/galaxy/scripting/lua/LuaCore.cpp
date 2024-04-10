@@ -10,6 +10,7 @@
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
 #include "galaxy/core/Prefab.hpp"
+#include "galaxy/core/Registry.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
 #include "Lua.hpp"
@@ -48,6 +49,13 @@ namespace galaxy
 
 			lua.set_function("galaxy_load_user_config", &load_config_wrapper);
 			lua.set_function("galaxy_load_window_config", &load_window_wrapper);
+
+			auto registry_type                  = lua.new_usertype<core::Registry>("Registry", sol::constructors<core::Registry()>());
+			registry_type["clear"]              = &core::Registry::clear;
+			registry_type["create"]             = &core::Registry::create;
+			registry_type["create_from_prefab"] = &core::Registry::create_from_prefab;
+			registry_type["is_valid"]           = &core::Registry::is_valid;
+			registry_type["entt"]               = &core::Registry::m_entt;
 
 			/*auto prefab_type =
 				lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab(entt::entity, entt::registry&), core::Prefab(const nlohmann::json&)>());

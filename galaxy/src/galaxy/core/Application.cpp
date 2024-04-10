@@ -241,15 +241,8 @@ namespace galaxy
 			ServiceLocator<resource::Textures>::make();
 			ServiceLocator<resource::Prefabs>::make();
 			ServiceLocator<resource::Scripts>::make();
-			auto& dispatcher = ServiceLocator<entt::dispatcher>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
-			// Late event subscribing.
-			dispatcher.sink<events::WindowResized>().connect<&graphics::Renderer::on_window_resized>(graphics::Renderer::ref());
-			dispatcher.sink<events::MousePressed>().connect<&ui::NuklearUI::on_mouse_pressed>(nui);
-			dispatcher.sink<events::MouseWheel>().connect<&ui::NuklearUI::on_mouse_wheel>(nui);
-			dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
-			dispatcher.sink<events::KeyPress>().connect<&ui::NuklearUI::on_key_press>(nui);
 
 			//
 			// Add external libraries to Lua.
@@ -265,7 +258,6 @@ namespace galaxy
 		App::~App()
 		{
 			ServiceLocator<scene::SceneManager>::del();
-			ServiceLocator<entt::dispatcher>::del();
 			ServiceLocator<resource::Scripts>::del();
 			ServiceLocator<resource::Prefabs>::del();
 			ServiceLocator<resource::Textures>::del();
@@ -340,11 +332,12 @@ namespace galaxy
 
 				while (accumulator >= GALAXY_UPS)
 				{
+					nui.begin_input();
 					window.poll_events();
+					nui.end_input();
 					manager.update();
 
 					accumulator -= ups_as_nano;
-
 					updates++;
 				}
 

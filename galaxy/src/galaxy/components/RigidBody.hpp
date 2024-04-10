@@ -15,10 +15,10 @@
 
 namespace galaxy
 {
-	namespace scene
+	namespace core
 	{
-		class Scene;
-	} // namespace scene
+		class Registry;
+	} // namespace core
 
 	namespace systems
 	{
@@ -32,7 +32,7 @@ namespace galaxy
 		///
 		class RigidBody final : public fs::Serializable
 		{
-			friend class scene::Scene;
+			friend class core::Registry;
 			friend class systems::PhysicsSystem;
 
 		  public:
@@ -246,6 +246,11 @@ namespace galaxy
 			/// Pointer to Box2D body.
 			///
 			b2Body* m_body;
+
+			///
+			/// Pointer to the Box2D world.
+			///
+			b2World* m_world;
 		};
 	} // namespace components
 } // namespace galaxy

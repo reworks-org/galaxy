@@ -50,7 +50,14 @@ namespace galaxy
 			virtual ~GUI();
 
 			///
-			/// Get script file path.
+			/// Load script and set context.
+			///
+			/// \param file Script file to load.
+			///
+			void load(const std::string& file);
+
+			///
+			/// Get script file.
 			///
 			/// \return Const string reference.
 			///
@@ -71,13 +78,6 @@ namespace galaxy
 			void deserialize(const nlohmann::json& json) override;
 
 		  private:
-			///
-			/// Load script and set context.
-			///
-			/// \param file Script file to load.
-			///
-			void load(const std::string& file);
-
 			///
 			/// Copy assignment operator.
 			///
