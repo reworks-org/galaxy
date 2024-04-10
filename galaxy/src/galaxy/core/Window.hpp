@@ -118,14 +118,14 @@ namespace galaxy
 			///
 			/// \param title New title to set window to.
 			///
-			void set_title(const char* title);
+			void set_title(const std::string& title);
 
 			///
-			/// Set window title.
+			/// Append to window title.
 			///
-			/// \param title New title to set window to.
+			/// \param append Appends to existing title, does not preserve last append when called again.
 			///
-			void set_title(const std::string& title);
+			void append_title(const std::string& append);
 
 			///
 			/// Set window icon.
@@ -236,6 +236,11 @@ namespace galaxy
 			Window& operator=(Window&&) = delete;
 
 		  private:
+			///
+			/// Window title.
+			///
+			std::string m_title;
+
 			///
 			/// Custom GLFW window allocator.
 			///

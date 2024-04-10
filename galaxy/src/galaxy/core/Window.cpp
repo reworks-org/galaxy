@@ -144,7 +144,8 @@ namespace galaxy
 				}
 
 				// Create the window from input, ensuring it is centered in the screen.
-				m_window = glfwCreateWindow(settings.width, settings.height, settings.title.c_str(), nullptr, nullptr);
+				m_title  = settings.title;
+				m_window = glfwCreateWindow(settings.width, settings.height, m_title.c_str(), nullptr, nullptr);
 				if (m_window)
 				{
 					// Center window.
@@ -500,13 +501,14 @@ namespace galaxy
 			}
 		}
 
-		void Window::set_title(const char* title)
-		{
-			glfwSetWindowTitle(m_window, title);
-		}
-
 		void Window::set_title(const std::string& title)
 		{
+			glfwSetWindowTitle(m_window, title.c_str());
+		}
+
+		void Window::append_title(const std::string& append)
+		{
+			auto title = m_title + append;
 			glfwSetWindowTitle(m_window, title.c_str());
 		}
 

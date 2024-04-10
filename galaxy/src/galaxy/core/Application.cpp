@@ -90,7 +90,6 @@ namespace galaxy
 			//
 			auto& config = ServiceLocator<Config>::make(config_file);
 			config.restore<bool>("use_loose_assets", true);
-			config.restore<bool>("log_performance", true);
 			config.restore<std::string>("default_lang", "en_au");
 			config.restore<std::string>("title", "Title", "window");
 			config.restore<std::string>("icon", "", "window");
@@ -243,7 +242,6 @@ namespace galaxy
 			ServiceLocator<resource::Scripts>::make();
 			ServiceLocator<scene::SceneManager>::make();
 
-
 			//
 			// Add external libraries to Lua.
 			// Inject all configured galaxy into Lua.
@@ -301,12 +299,9 @@ namespace galaxy
 			GALAXY_CUR_UPS = 0;
 			GALAXY_CUR_FPS = 0;
 
-			auto& config  = ServiceLocator<Config>::ref();
 			auto& window  = ServiceLocator<Window>::ref();
 			auto& manager = ServiceLocator<scene::SceneManager>::ref();
 			auto& nui     = ServiceLocator<ui::NuklearUI>::ref();
-
-			const auto log_perf = config.get<bool>("log_performance");
 
 			unsigned int frames  = 0u;
 			unsigned int updates = 0u;
@@ -347,13 +342,9 @@ namespace galaxy
 
 				if (perf_counter >= one_second)
 				{
-					if (log_perf)
-					{
-						GALAXY_LOG(GALAXY_INFO, "FPS: {0} | UPS: {1}.", frames, updates);
-					}
-
 					GALAXY_CUR_UPS = updates;
 					GALAXY_CUR_FPS = frames;
+					window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
 
 					frames       = 0;
 					updates      = 0;
