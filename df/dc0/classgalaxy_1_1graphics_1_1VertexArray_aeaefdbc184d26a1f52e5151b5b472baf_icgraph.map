@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::VertexArray::id" name="galaxy::graphics::VertexArray::id">
 <area shape="rect" id="Node000001" title="Get vertex array handle." alt="" coords="257,101,436,141"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title="Adds a renderable object to the registry." alt="" coords="5,5,209,45"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#acc9fe699f6bc1fcd4bd3bbabe73672ad" title="Adds a renderable object to the registry." alt="" coords="5,5,209,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,98,208,60,175,48,177,43,210,55,295,93"/>
 <area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="10,69,205,109"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,110,204,105,205,100,244,105"/>

@@ -8,5 +8,5 @@ var searchData=
   ['soundengine_5',['SoundEngine',['../dc/d80/namespacegalaxy_1_1media.html#a95ded79e8ddbb47f6f62890cbe692da0',1,'galaxy::media']]],
   ['stack_6',['stack',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a6c024a1b78bdf870aba8d162c4160f6a',1,'galaxy::state::StateMachine::Stack'],['../d3/d12/namespacegalaxy_1_1meta.html#aa26abbeaeafa4180322490b3abbf0937',1,'galaxy::meta::stack']]],
   ['subprocess_7',['subprocess',['../d8/d31/Subprocess_8hpp.html#a66f186e3667c8b27629c8654bf38e242',1,'Subprocess.hpp']]],
-  ['systemcontainer_8',['SystemContainer',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#ae401cdafc40cc08be904b27fd141b9b5',1,'galaxy::scene::Scene']]]
+  ['systemcontainer_8',['SystemContainer',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aab67f81bd8cea798a80f4b2b36643985',1,'galaxy::scene::SceneManager']]]
 ];

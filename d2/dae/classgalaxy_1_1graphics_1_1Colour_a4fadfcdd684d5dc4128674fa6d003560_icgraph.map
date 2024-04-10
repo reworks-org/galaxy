@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::Colour::vec4" name="galaxy::graphics::Colour::vec4">
 <area shape="rect" id="Node000001" title="Get vec4." alt="" coords="268,133,447,173"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a4d32e2e2e2595c4314556d4e9661a65c" title="Adds a renderable object to the registry." alt="" coords="11,5,215,45"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#acc9fe699f6bc1fcd4bd3bbabe73672ad" title="Adds a renderable object to the registry." alt="" coords="11,5,215,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,127,274,92,219,60,190,48,192,43,221,55,276,88,323,122"/>
 <area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af7ef3204ccfa4602c6a27253150e3295" title="Set clear colour." alt="" coords="5,69,220,109"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="266,132,189,112,190,107,268,127"/>

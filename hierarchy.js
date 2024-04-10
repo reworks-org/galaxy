@@ -58,6 +58,7 @@ var hierarchy =
     [ "galaxy::math::Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", null ],
     [ "galaxy::math::Rect< Type >", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", null ],
     [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
+    [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", null ],
     [ "galaxy::graphics::RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", null ],
     [ "galaxy::graphics::RenderData", "de/df1/structgalaxy_1_1graphics_1_1RenderData.html", null ],
     [ "galaxy::graphics::Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", null ],

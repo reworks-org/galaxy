@@ -12,9 +12,8 @@ var searchData=
   ['minimize_9',['minimize',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a39b3e5f64848d946d5a4b785cc5a7166',1,'galaxy::core::Window']]],
   ['mkdir_10',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4',1,'galaxy::fs::VirtualFileSystem']]],
   ['mod_5fto_5fint_11',['mod_to_int',['../dd/d59/namespacegalaxy_1_1input.html#a4fcee35b9edb521d4a4ad60afa81a031',1,'galaxy::input']]],
-  ['mode_12',['mode',['../d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a7de0c2ae3bfe82182e945bdc10e24f04',1,'galaxy::graphics::Shape::mode()'],['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc',1,'galaxy::graphics::Texture::mode() const'],['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a97572eca426bc6f017245979225fbdbf',1,'galaxy::graphics::Texture::mode(const TextureMode mode)']]],
+  ['mode_12',['mode',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc',1,'galaxy::graphics::Texture::mode()'],['../d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a7de0c2ae3bfe82182e945bdc10e24f04',1,'galaxy::graphics::Shape::mode()'],['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a97572eca426bc6f017245979225fbdbf',1,'galaxy::graphics::Texture::mode()']]],
   ['mouse_13',['mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a7ceacd48658fa3a7c0430e58bf713839',1,'galaxy::input::Mouse::Mouse(const Mouse &amp;)=delete'],['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a281a677f02747fabc76c1d764a87df2d',1,'galaxy::input::Mouse::Mouse(Mouse &amp;&amp;)=delete'],['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#abf07a7d4bde7f080c3b427e7c95eb66b',1,'galaxy::input::Mouse::Mouse()']]],
   ['mouse_5fbutton_5fdown_14',['mouse_button_down',['../db/df9/classgalaxy_1_1input_1_1Input.html#ac44a87c102404353baa9ebfc004fc8e1',1,'galaxy::input::Input']]],
-  ['mouse_5fto_5fint_15',['mouse_to_int',['../dd/d59/namespacegalaxy_1_1input.html#af1118c564aadc9192de8e4f371c1cc96',1,'galaxy::input']]],
-  ['move_16',['move',['../da/d2c/SceneManager_8cpp.html#a75d8b7306f79c7a27323675edd11c5de',1,'SceneManager.cpp']]]
+  ['mouse_5fto_5fint_15',['mouse_to_int',['../dd/d59/namespacegalaxy_1_1input.html#af1118c564aadc9192de8e4f371c1cc96',1,'galaxy::input']]]
 ];

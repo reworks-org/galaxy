@@ -1,10 +1,12 @@
 <map id="galaxy::scene::Scene::deserialize" name="galaxy::scene::Scene::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,59,164,99"/>
-<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="234,29,421,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,66,220,60,221,65,165,72"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,94,443,119"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="165,85,204,90,204,95,164,90"/>
-<area shape="rect" id="Node000003" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="491,29,692,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,47,477,47,477,52,421,52"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="542,30,539,20,547,10,565,5,591,3,622,5,639,13,636,18,621,11,591,8,566,10,550,15,545,21,547,28"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,69,164,109"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a0d6c119110845b828a8dd3cf0bf962a3" title="Clear any pending data." alt="" coords="246,5,409,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,67,237,46,239,51,162,72"/>
+<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="234,69,421,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,87,220,87,220,92,165,92"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,134,443,159"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="164,107,213,119,255,128,254,134,211,124,163,112"/>
+<area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="491,69,692,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="421,87,477,87,477,92,421,92"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="542,70,539,60,547,50,565,45,591,43,622,45,639,53,636,58,621,51,591,48,566,50,550,55,545,61,547,68"/>
 </map>

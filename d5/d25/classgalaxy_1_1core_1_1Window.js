@@ -16,10 +16,11 @@ var classgalaxy_1_1core_1_1Window =
     [ "maximize", "d5/d25/classgalaxy_1_1core_1_1Window.html#af2c221cb19cdfe08408b8b880c517022", null ],
     [ "restore", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0d5b307ea436ec9f7eb18a352ed69e9b", null ],
     [ "minimize", "d5/d25/classgalaxy_1_1core_1_1Window.html#a39b3e5f64848d946d5a4b785cc5a7166", null ],
-    [ "set_title", "d5/d25/classgalaxy_1_1core_1_1Window.html#a73fb0e92b1dae7e5faba3001c6a7eb66", null ],
     [ "set_title", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744", null ],
+    [ "append_title", "d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35", null ],
     [ "set_icon", "d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21", null ],
     [ "set_icon", "d5/d25/classgalaxy_1_1core_1_1Window.html#a6cd4bfb58a19005a84e1e4d9593c504d", null ],
+    [ "set_dispatcher", "d5/d25/classgalaxy_1_1core_1_1Window.html#ac5280505e889c1e04ed72cfa5b31fcdd", null ],
     [ "is_focused", "d5/d25/classgalaxy_1_1core_1_1Window.html#a70257eb1e20eb1dde82208235197d494", null ],
     [ "get_input", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0d09c162a014faea948ce68ed15247fe", null ],
     [ "get_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#ad7445809ef2e4602650665bc3894a553", null ],
@@ -31,6 +32,7 @@ var classgalaxy_1_1core_1_1Window =
     [ "handle", "d5/d25/classgalaxy_1_1core_1_1Window.html#ad37f2fa07bf5cbb2290d66b4329df371", null ],
     [ "operator=", "d5/d25/classgalaxy_1_1core_1_1Window.html#a6a7b3ede18d9d4986d10ae10bc6e8325", null ],
     [ "operator=", "d5/d25/classgalaxy_1_1core_1_1Window.html#a85008dc97b77936129a1a1a0a589c48f", null ],
+    [ "m_title", "d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086", null ],
     [ "m_glfw_allocator", "d5/d25/classgalaxy_1_1core_1_1Window.html#af7220bf000331426832487374b4d2f76", null ],
     [ "m_window", "d5/d25/classgalaxy_1_1core_1_1Window.html#aa64f75342c0e93c7c27925d2d47d5a5d", null ],
     [ "m_width", "d5/d25/classgalaxy_1_1core_1_1Window.html#aa132f7a8100877e8e2a08314e8f2ecf2", null ],
@@ -39,5 +41,6 @@ var classgalaxy_1_1core_1_1Window =
     [ "m_mouse", "d5/d25/classgalaxy_1_1core_1_1Window.html#aa8b93def4be190b82a6648334c623ee0", null ],
     [ "m_cursor", "d5/d25/classgalaxy_1_1core_1_1Window.html#a29dc00216d7c2206f7fb35d15c0bbe77", null ],
     [ "m_clipboard", "d5/d25/classgalaxy_1_1core_1_1Window.html#a1f34f6a4f8233dd5ff5ff5d7ad332c4a", null ],
-    [ "m_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0b2da29ced012f536464f3f3c9585c69", null ]
+    [ "m_drop_paths", "d5/d25/classgalaxy_1_1core_1_1Window.html#a0b2da29ced012f536464f3f3c9585c69", null ],
+    [ "m_dispatcher", "d5/d25/classgalaxy_1_1core_1_1Window.html#a91356a3eeb41496433d87df32d003a16", null ]
 ];

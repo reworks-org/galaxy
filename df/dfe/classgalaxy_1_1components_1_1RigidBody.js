@@ -25,7 +25,7 @@ var classgalaxy_1_1components_1_1RigidBody =
     [ "serialize", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbfb53090abafd31987dda8ff8123ec0", null ],
     [ "deserialize", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aa8156f6136a80ec21225119bd7f79529", null ],
     [ "operator=", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a4e54b9e43d624269a88879ae8af29f85", null ],
-    [ "scene::Scene", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a321c0f29aa2149c1de53306f3e0e2d93", null ],
+    [ "core::Registry", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a05049b45e7785ffb23f4c4066a2b2de2", null ],
     [ "systems::PhysicsSystem", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#ac34f3cbda64ea88f30ac382dc70efe59", null ],
     [ "m_shape", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a5ea2bd53ff1a8b4b79346de838d6cc8c", null ],
     [ "m_type", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a37cec10a47a761e8ac3b84a272550d33", null ],
@@ -35,5 +35,6 @@ var classgalaxy_1_1components_1_1RigidBody =
     [ "m_restitution_threshold", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aeda247aedcabb8aad1ff8f8f8f74abaa", null ],
     [ "m_bullet", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#aa951cc88a9196f7713cbba3c4f49bf79", null ],
     [ "m_fixed_rotation", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a4480410ad063f38007dae3129f2662a2", null ],
-    [ "m_body", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a414fddc8816ea245bc17adfb2bdb3e1d", null ]
+    [ "m_body", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a414fddc8816ea245bc17adfb2bdb3e1d", null ],
+    [ "m_world", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html#acabb1518fc6fdedd6a451b33dbdb5dc3", null ]
 ];

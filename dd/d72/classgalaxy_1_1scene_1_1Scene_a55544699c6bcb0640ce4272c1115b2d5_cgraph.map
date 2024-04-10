@@ -1,8 +1,0 @@
-<map id="galaxy::scene::Scene::construct_script" name="galaxy::scene::Scene::construct_script">
-<area shape="rect" id="Node000001" title="Function that integrates lua init with entt on construct event." alt="" coords="5,35,164,75"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a2f35a6028b621a3b2a8964b301a48e40" title="Shared init function for constructors." alt="" coords="212,5,371,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,41,198,36,199,41,165,46"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="419,42,649,67"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="164,54,212,55,371,55,405,54,405,60,371,60,212,60,164,59"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="372,32,416,38,415,43,371,38"/>
-</map>

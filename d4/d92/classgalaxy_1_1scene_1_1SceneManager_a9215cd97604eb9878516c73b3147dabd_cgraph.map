@@ -7,11 +7,10 @@
 <area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="276,120,491,160"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="221,120,263,125,262,130,220,126"/>
 <area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,185,499,210"/>
-<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="161,130,269,169,304,179,302,184,267,175,159,135"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad0b72808539a181e2f55bbae667db790" title="Add a new scene." alt="" coords="547,102,793,127"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="491,128,533,124,533,129,491,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="161,130,269,169,304,179,302,184,267,175,159,135"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="547,127,793,153"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="491,137,533,137,533,143,491,143"/>
 <area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="841,127,1016,153"/>
-<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="491,137,827,137,827,143,491,143"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="794,124,828,127,827,133,793,129"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="793,137,827,137,827,143,793,143"/>
 <area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="887,129,878,119,882,109,900,103,929,101,965,105,975,109,979,115,975,118,972,113,964,110,929,106,901,108,886,113,883,118,891,125"/>
 </map>

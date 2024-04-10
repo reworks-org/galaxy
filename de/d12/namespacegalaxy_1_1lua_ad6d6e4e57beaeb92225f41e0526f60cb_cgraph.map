@@ -1,6 +1,6 @@
 <map id="galaxy::lua::inject_components" name="galaxy::lua::inject_components">
 <area shape="rect" id="Node000001" title="Inject galaxy components into lua." alt="" coords="5,648,143,688"/>
-<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a2b758d3afc26f45d89871a1380c71641" title="Get script file path." alt="" coords="219,5,373,45"/>
+<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a2b758d3afc26f45d89871a1380c71641" title="Get script file." alt="" coords="219,5,373,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,648,83,528,103,351,118,258,137,174,160,104,174,76,189,56,205,42,209,46,193,59,178,79,165,106,142,175,123,259,108,351,88,529,79,648"/>
 <area shape="rect" id="Node000003" href="$db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b" title="Get script file path." alt="" coords="219,69,373,109"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="74,647,85,539,106,381,122,299,141,224,163,162,189,120,205,106,209,110,193,123,167,164,146,226,127,300,112,381,90,539,80,648"/>

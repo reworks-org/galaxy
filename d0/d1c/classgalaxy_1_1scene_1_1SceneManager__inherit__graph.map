@@ -1,5 +1,5 @@
 <map id="galaxy::scene::SceneManager" name="galaxy::scene::SceneManager">
-<area shape="rect" id="Node000001" title="Scene saving/loading, creation, changing and loading." alt="" coords="5,219,212,504"/>
+<area shape="rect" id="Node000001" title="Scene saving/loading, creation, changing and loading." alt="" coords="5,219,212,544"/>
 <area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="28,5,189,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,184,111,218,106,218,106,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,184,111,219,106,219,106,184"/>
 </map>

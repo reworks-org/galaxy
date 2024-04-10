@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['list_0',['list',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a39fa9bc8b90cf5837997dba35fa68383',1,'galaxy::scene::SceneManager::List'],['../d3/d12/namespacegalaxy_1_1meta.html#a74c1c9eb06de198b067dff9eec2c59f9',1,'galaxy::meta::list']]]
+  ['list_0',['list',['../d3/d12/namespacegalaxy_1_1meta.html#a74c1c9eb06de198b067dff9eec2c59f9',1,'galaxy::meta']]]
 ];

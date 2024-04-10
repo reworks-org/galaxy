@@ -1,5 +1,5 @@
 <map id="galaxy::graphics::Renderer::flush" name="galaxy::graphics::Renderer::flush">
-<area shape="rect" id="Node000001" title="Deletes all submitted render commands." alt="" coords="212,5,407,45"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="5,5,164,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
+<area shape="rect" id="Node000001" title="Deletes all submitted render commands." alt="" coords="284,5,479,45"/>
+<area shape="rect" id="Node000002" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,28,236,28,236,23,270,23"/>
 </map>

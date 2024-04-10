@@ -1,7 +1,7 @@
 var searchData=
 [
   ['b_0',['b',['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0421e40355241b6a61a4b9ce557febbd',1,'galaxy::graphics::Colour::b(const std::uint8_t b)'],['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a170c4564299405191b353f766db878de',1,'galaxy::graphics::Colour::b(const float b)'],['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37',1,'galaxy::graphics::Colour::b() const'],['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ad4e4a1fcf9ff307d27f07af83a119d11',1,'galaxy::graphics::Colour::b() const'],['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#adb7cd724dea18eb6e9bc3c1a5b0b37c6',1,'galaxy::graphics::Colour::b() const']]],
-  ['b2bodyfactory_1',['B2BodyFactory',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a29140cb9e067ff415d06a868e20a8f0f',1,'galaxy::scene::Scene']]],
+  ['b2bodyconstruction_1',['B2BodyConstruction',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#ad3515d22a6df50fb64a5daee936c7f96',1,'galaxy::core::Registry']]],
   ['backward_2',['BACKWARD',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab02df063fe794f660ab97aea7cb898b0',1,'galaxy::input::CameraKeys']]],
   ['base64_2ecpp_3',['Base64.cpp',['../d4/de5/Base64_8cpp.html',1,'']]],
   ['base64_2ehpp_4',['Base64.hpp',['../d0/d79/Base64_8hpp.html',1,'']]],

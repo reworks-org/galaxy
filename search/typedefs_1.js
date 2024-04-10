@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b2bodyfactory_0',['B2BodyFactory',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a29140cb9e067ff415d06a868e20a8f0f',1,'galaxy::scene::Scene']]]
+  ['b2bodyconstruction_0',['B2BodyConstruction',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#ad3515d22a6df50fb64a5daee936c7f96',1,'galaxy::core::Registry']]]
 ];
