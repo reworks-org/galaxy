@@ -173,31 +173,6 @@ namespace galaxy
 			}
 		}
 
-		/*void Loader::load_maps(const std::vector<std::string>& maps, entt::registry& registry)
-		{
-			auto& nui       = ServiceLocator<ui::NuklearUI>::ref();
-			auto& maploader = core::ServiceLocator<resource::Maps>::ref();
-
-			renderer.prepare_default();
-
-			int cur = 0;
-			for (auto& map : maps)
-			{
-				cur++;
-
-				glfwPollEvents();
-				nui.new_frame();
-				nui.show_loading_maps(cur, static_cast<int>(maps.size()));
-				renderer.clear();
-				nui.render();
-				renderer.swap_buffers();
-
-				maploader.get(map)->create(registry);
-			}
-
-			nui.disable_input();
-		}*/
-
 		void Loader::build_resources()
 		{
 			auto& shaders = core::ServiceLocator<resource::Shaders>::ref();
@@ -225,7 +200,7 @@ namespace galaxy
 
 			auto& tex = ServiceLocator<resource::Textures>::ref();
 			tex.load_folder(GALAXY_TEXTURE_DIR);
-			for (auto& [key, value] : tex.cache())
+			for (auto&& [key, value] : tex.cache())
 			{
 				value->make_bindless();
 			}

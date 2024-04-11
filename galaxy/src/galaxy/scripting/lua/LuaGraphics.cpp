@@ -77,9 +77,7 @@ namespace galaxy
 			lua.set("galaxy_colour_opaque", graphics::Colour::OPAQUE);
 			lua.set("galaxy_colour_transparent", graphics::Colour::TRANSPARENT);
 
-			auto colour_type = lua.new_usertype<graphics::Colour>("Colour", sol::constructors<graphics::Colour()>());
-			// colour_type["array"]  = &graphics::Colour::array;
-			// colour_type["vec4"] = &graphics::Colour::vec4;
+			auto colour_type           = lua.new_usertype<graphics::Colour>("Colour", sol::constructors<graphics::Colour()>());
 			colour_type["get_red"]     = &graphics::Colour::r<std::uint8_t>;
 			colour_type["get_green"]   = &graphics::Colour::g<std::uint8_t>;
 			colour_type["get_blue"]    = &graphics::Colour::b<std::uint8_t>;
@@ -88,14 +86,10 @@ namespace galaxy
 			colour_type["get_green_f"] = &graphics::Colour::g<float>;
 			colour_type["get_blue_f"]  = &graphics::Colour::b<float>;
 			colour_type["get_alpha_f"] = &graphics::Colour::a<float>;
-			/*colour_type["set_r"]       = sol::resolve<void(const std::uint8_t)>(&graphics::Colour::r);
-			colour_type["set_g"]       = sol::resolve<void(const std::uint8_t)>(&graphics::Colour::g);
-			colour_type["set_b"]       = sol::resolve<void(const std::uint8_t)>(&graphics::Colour::b);
-			colour_type["set_a"]       = sol::resolve<void(const std::uint8_t)>(&graphics::Colour::a);
-			colour_type["set_red_f"]   = sol::resolve<void(const float)>(&graphics::Colour::r);
-			colour_type["set_green_f"] = sol::resolve<void(const float)>(&graphics::Colour::g);
-			colour_type["set_blue_f"]  = sol::resolve<void(const float)>(&graphics::Colour::b);
-			colour_type["set_alpha_f"] = sol::resolve<void(const float)>(&graphics::Colour::a);*/
+			colour_type["set_r"]       = &graphics::Colour::set_r;
+			colour_type["set_g"]       = &graphics::Colour::set_g;
+			colour_type["set_b"]       = &graphics::Colour::set_b;
+			colour_type["set_a"]       = &graphics::Colour::set_a;
 
 			auto rendercommand_type         = lua.new_usertype<graphics::RenderCommand>("RenderCommand", sol::constructors<graphics::RenderCommand()>());
 			rendercommand_type["count"]     = &graphics::RenderCommand::count;

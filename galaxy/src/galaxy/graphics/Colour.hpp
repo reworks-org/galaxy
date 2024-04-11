@@ -72,56 +72,28 @@ namespace galaxy
 			///
 			/// \param r 0 - 255.
 			///
-			void r(const std::uint8_t r);
-
-			///
-			/// Red.
-			///
-			/// \param r 0 - 1.
-			///
-			void r(const float r);
+			void set_r(const std::uint8_t r);
 
 			///
 			/// Green.
 			///
 			/// \param g 0 - 255.
 			///
-			void g(const std::uint8_t g);
-
-			///
-			/// Green.
-			///
-			/// \param g 0 - 1.
-			///
-			void g(const float g);
+			void set_g(const std::uint8_t g);
 
 			///
 			/// Blue.
 			///
 			/// \param b 0 - 255.
 			///
-			void b(const std::uint8_t b);
-
-			///
-			/// Blue.
-			///
-			/// \param b 0 - 1.
-			///
-			void b(const float b);
+			void set_b(const std::uint8_t b);
 
 			///
 			/// Alpha.
 			///
 			/// \param a 0 - 255.
 			///
-			void a(const std::uint8_t a);
-
-			///
-			/// Alpha.
-			///
-			/// \param a 0 - 1.
-			///
-			void a(const float a);
+			void set_a(const std::uint8_t a);
 
 			///
 			/// Get red.

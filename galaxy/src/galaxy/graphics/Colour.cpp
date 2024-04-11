@@ -64,7 +64,7 @@ namespace galaxy
 		{
 		}
 
-		void Colour::r(const std::uint8_t r)
+		void Colour::set_r(const std::uint8_t r)
 		{
 			m_array[0] = r;
 
@@ -82,13 +82,7 @@ namespace galaxy
 			}
 		}
 
-		void Colour::r(const float r)
-		{
-			m_vec4.x   = std::clamp(r, 0.0f, 1.0f);
-			m_array[0] = static_cast<std::uint8_t>(m_vec4.x * COLOUR_OFFSET);
-		}
-
-		void Colour::g(const std::uint8_t g)
+		void Colour::set_g(const std::uint8_t g)
 		{
 			m_array[1] = g;
 
@@ -106,13 +100,7 @@ namespace galaxy
 			}
 		}
 
-		void Colour::g(const float g)
-		{
-			m_vec4.y   = std::clamp(g, 0.0f, 1.0f);
-			m_array[1] = static_cast<std::uint8_t>(m_vec4.y * COLOUR_OFFSET);
-		}
-
-		void Colour::b(const std::uint8_t b)
+		void Colour::set_b(const std::uint8_t b)
 		{
 			m_array[2] = b;
 
@@ -130,13 +118,7 @@ namespace galaxy
 			}
 		}
 
-		void Colour::b(const float b)
-		{
-			m_vec4.z   = std::clamp(b, 0.0f, 1.0f);
-			m_array[2] = static_cast<std::uint8_t>(m_vec4.z * COLOUR_OFFSET);
-		}
-
-		void Colour::a(const std::uint8_t a)
+		void Colour::set_a(const std::uint8_t a)
 		{
 			m_array[3] = a;
 
@@ -152,12 +134,6 @@ namespace galaxy
 			{
 				m_vec4.w = static_cast<float>(a) / COLOUR_OFFSET;
 			}
-		}
-
-		void Colour::a(const float a)
-		{
-			m_vec4.w   = std::clamp(a, 0.0f, 1.0f);
-			m_array[3] = static_cast<std::uint8_t>(m_vec4.w * COLOUR_OFFSET);
 		}
 
 		std::array<std::uint8_t, 4>& Colour::array()

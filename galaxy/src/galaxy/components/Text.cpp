@@ -67,10 +67,10 @@ namespace galaxy
 			graphics::Colour colour;
 			const auto&      colson = json.at("colour");
 
-			m_text.m_colour.r(colson.at("r").get<std::uint8_t>());
-			m_text.m_colour.g(colson.at("g").get<std::uint8_t>());
-			m_text.m_colour.b(colson.at("b").get<std::uint8_t>());
-			m_text.m_colour.a(colson.at("a").get<std::uint8_t>());
+			m_text.m_colour.set_r(colson.at("r").get<std::uint8_t>());
+			m_text.m_colour.set_g(colson.at("g").get<std::uint8_t>());
+			m_text.m_colour.set_b(colson.at("b").get<std::uint8_t>());
+			m_text.m_colour.set_a(colson.at("a").get<std::uint8_t>());
 
 			const int alignment = json.at("alignment");
 			m_text.create(json.at("text"), json.at("size"), json.at("font"), colour, static_cast<graphics::Text::Alignment>(alignment));

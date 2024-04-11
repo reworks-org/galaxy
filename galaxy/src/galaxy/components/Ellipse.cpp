@@ -62,10 +62,10 @@ namespace galaxy
 		void Ellipse::deserialize(const nlohmann::json& json)
 		{
 			const auto& col = json.at("colour");
-			m_shape.m_colour.r(col.at("r").get<std::uint8_t>());
-			m_shape.m_colour.g(col.at("g").get<std::uint8_t>());
-			m_shape.m_colour.b(col.at("b").get<std::uint8_t>());
-			m_shape.m_colour.a(col.at("a").get<std::uint8_t>());
+			m_shape.m_colour.set_r(col.at("r").get<std::uint8_t>());
+			m_shape.m_colour.set_g(col.at("g").get<std::uint8_t>());
+			m_shape.m_colour.set_b(col.at("b").get<std::uint8_t>());
+			m_shape.m_colour.set_a(col.at("a").get<std::uint8_t>());
 
 			glm::vec2   radii;
 			const auto& rad = json.at("radii");

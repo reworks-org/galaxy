@@ -48,16 +48,16 @@ namespace galaxy
 			fonts_type["load"]        = &resource::Fonts::load;
 			fonts_type["load_folder"] = &resource::Fonts::load_folder;
 
-			auto soundCache_type           = lua.new_usertype<resource::SoundCache>("SoundCaches", sol::no_constructor);
-			soundCache_type["clear"]       = &resource::SoundCache::clear;
-			soundCache_type["empty"]       = &resource::SoundCache::empty;
-			soundCache_type["get"]         = &resource::SoundCache::get;
-			soundCache_type["has"]         = &resource::SoundCache::has;
-			soundCache_type["keys"]        = &resource::SoundCache::keys;
-			soundCache_type["size"]        = &resource::SoundCache::size;
-			soundCache_type["insert"]      = &resource::SoundCache::insert;
-			soundCache_type["load"]        = &resource::SoundCache::load;
-			soundCache_type["load_folder"] = &resource::SoundCache::load_folder;
+			auto soundcache_type           = lua.new_usertype<resource::SoundCache>("SoundCaches", sol::no_constructor);
+			soundcache_type["clear"]       = &resource::SoundCache::clear;
+			soundcache_type["empty"]       = &resource::SoundCache::empty;
+			soundcache_type["get"]         = &resource::SoundCache::get;
+			soundcache_type["has"]         = &resource::SoundCache::has;
+			soundcache_type["keys"]        = &resource::SoundCache::keys;
+			soundcache_type["size"]        = &resource::SoundCache::size;
+			soundcache_type["insert"]      = &resource::SoundCache::insert;
+			soundcache_type["load"]        = &resource::SoundCache::load;
+			soundcache_type["load_folder"] = &resource::SoundCache::load_folder;
 
 			auto musiccache_type           = lua.new_usertype<resource::MusicCache>("MusicCache", sol::no_constructor);
 			musiccache_type["clear"]       = &resource::MusicCache::clear;

@@ -10,7 +10,6 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/utils/Globals.hpp"
 #include "galaxy/utils/Guid.hpp"
-#include "galaxy/utils/StringUtils.hpp"
 
 #include "Lua.hpp"
 
@@ -58,15 +57,6 @@ namespace galaxy
 			auto guid_type         = lua.new_usertype<utils::Guid>("Guid", sol::constructors<utils::Guid()>());
 			guid_type["as_string"] = &utils::Guid::to_string;
 			guid_type["is_empty"]  = &utils::Guid::is_empty;
-
-			/*lua.set_function("galaxy_str_split", &strutils::split);
-			lua.set_function("galaxy_str_replace_first", &strutils::replace_first);
-			lua.set_function("galaxy_str_replace_all", &strutils::replace_all);
-			lua.set_function("galaxy_str_begins_with", &strutils::begins_with);
-			lua.set_function("galaxy_str_rtrim", &strutils::rtrim);
-			lua.set_function("galaxy_str_ltrim", &strutils::ltrim);
-			lua.set_function("galaxy_str_trim", &strutils::trim);
-			lua.set_function("galaxy_str_make_single_spaced", &strutils::make_single_spaced);*/
 		}
 	} // namespace lua
 } // namespace galaxy

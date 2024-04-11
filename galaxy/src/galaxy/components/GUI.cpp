@@ -69,7 +69,6 @@ namespace galaxy
 
 				auto& state = core::ServiceLocator<sol::state>::ref();
 				auto& nui   = core::ServiceLocator<ui::NuklearUI>::ref();
-				auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
 
 				if (!script.empty())
 				{

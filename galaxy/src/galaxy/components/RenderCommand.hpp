@@ -16,7 +16,7 @@ namespace galaxy
 	namespace components
 	{
 		///
-		/// RenderCommand an entity.
+		/// Controls how an entity should be rendered.
 		///
 		class RenderCommand final : public fs::Serializable
 		{

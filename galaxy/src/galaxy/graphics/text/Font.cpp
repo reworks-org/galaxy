@@ -118,7 +118,7 @@ namespace galaxy
 				msdfgl_generate_ascii_ext(m_font);
 			}
 
-			/* NOW OWNED BY MSDFGL */
+			// NOW OWNED BY MSDFGL
 			m_face = nullptr;
 		}
 

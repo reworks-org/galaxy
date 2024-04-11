@@ -57,13 +57,13 @@ namespace galaxy
 			registry_type["is_valid"]           = &core::Registry::is_valid;
 			registry_type["entt"]               = &core::Registry::m_entt;
 
-			/*auto prefab_type =
+			auto prefab_type =
 				lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab(entt::entity, entt::registry&), core::Prefab(const nlohmann::json&)>());
 			prefab_type["from_entity"] = &core::Prefab::from_entity;
-			prefab_type["from_json"] = &core::Prefab::from_json;
-			prefab_type["to_entity"] = &core::Prefab::to_entity;
-			prefab_type["to_json"] = &core::Prefab::to_json;
-			prefab_type["load"]    = &core::Prefab::load;*/
+			prefab_type["from_json"]   = &core::Prefab::from_json;
+			prefab_type["to_entity"]   = &core::Prefab::to_entity;
+			prefab_type["to_json"]     = &core::Prefab::to_json;
+			prefab_type["load"]        = &core::Prefab::load;
 		}
 	} // namespace lua
 } // namespace galaxy

@@ -208,10 +208,10 @@ namespace galaxy
 		void Sprite::deserialize(const nlohmann::json& json)
 		{
 			const auto& tint = json.at("tint");
-			m_tint.r(tint.at("r").get<std::uint8_t>());
-			m_tint.g(tint.at("g").get<std::uint8_t>());
-			m_tint.b(tint.at("b").get<std::uint8_t>());
-			m_tint.a(tint.at("a").get<std::uint8_t>());
+			m_tint.set_r(tint.at("r").get<std::uint8_t>());
+			m_tint.set_g(tint.at("g").get<std::uint8_t>());
+			m_tint.set_b(tint.at("b").get<std::uint8_t>());
+			m_tint.set_a(tint.at("a").get<std::uint8_t>());
 
 			set_texture(json.at("texture"));
 		}

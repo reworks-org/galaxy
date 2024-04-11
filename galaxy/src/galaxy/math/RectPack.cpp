@@ -36,7 +36,7 @@ namespace galaxy
 			std::optional<iRect> result = std::nullopt;
 
 			// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
-			for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend(); /* ++rit*/)
+			for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend();)
 			{
 				auto& space = *rit;
 

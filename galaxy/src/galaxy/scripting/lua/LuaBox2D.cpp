@@ -21,7 +21,6 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			/* Box2D */
 			// clang-format off
 			lua.new_enum<b2BodyType>("b2BodyType",
 			{
