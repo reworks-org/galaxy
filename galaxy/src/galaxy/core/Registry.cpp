@@ -96,6 +96,23 @@ namespace galaxy
 			m_entt.on_construct<components::Polyline>().connect<&Registry::construct_rendercommand<components::Polyline>>(this);
 		}
 
+		Registry::Registry(Registry&& r)
+		{
+			this->m_bodies_to_construct = std::move(r.m_bodies_to_construct);
+			this->m_entt                = std::move(r.m_entt);
+		}
+
+		Registry& Registry::operator=(Registry&& r)
+		{
+			if (this != &r)
+			{
+				this->m_bodies_to_construct = std::move(r.m_bodies_to_construct);
+				this->m_entt                = std::move(r.m_entt);
+			}
+
+			return *this;
+		}
+
 		Registry::~Registry()
 		{
 		}

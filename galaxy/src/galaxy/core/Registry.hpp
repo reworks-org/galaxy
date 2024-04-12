@@ -49,6 +49,16 @@ namespace galaxy
 			Registry();
 
 			///
+			/// Move constructor.
+			///
+			Registry(Registry&&);
+
+			///
+			/// Move assignment operator.
+			///
+			Registry& operator=(Registry&&);
+
+			///
 			/// Destructor.
 			///
 			~Registry();
@@ -93,6 +103,16 @@ namespace galaxy
 			void clear();
 
 		  private:
+			///
+			/// Copy constructor.
+			///
+			Registry(const Registry&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Registry& operator=(const Registry&) = delete;
+
 			///
 			/// Function that integrates a box2d construction with entt.
 			///

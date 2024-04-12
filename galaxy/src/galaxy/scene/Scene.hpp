@@ -125,9 +125,6 @@ namespace galaxy
 			/// Box2d world position iterations.
 			///
 			int m_position_iterations;
-
-			///
-			///
 		};
 	} // namespace scene
 } // namespace galaxy

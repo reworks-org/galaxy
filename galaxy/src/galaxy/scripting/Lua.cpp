@@ -13,26 +13,26 @@ namespace galaxy
 	{
 		void inject()
 		{
-			lua::inject_miniaudio();
-			lua::inject_glm();
-			lua::inject_entt();
-			lua::inject_box2d();
-			lua::inject_nuklear();
-			lua::inject_components();
-			lua::inject_core();
-			lua::inject_error();
-			lua::inject_events();
-			lua::inject_flags();
-			lua::inject_fs();
-			lua::inject_graphics();
-			lua::inject_input();
-			lua::inject_math();
-			lua::inject_media();
-			lua::inject_resources();
-			lua::inject_scenes();
-			lua::inject_states();
-			lua::inject_utils();
-			lua::inject_services();
+			inject_miniaudio();
+			inject_glm();
+			inject_entt();
+			inject_box2d();
+			inject_nuklear();
+			inject_components();
+			inject_core();
+			inject_error();
+			inject_events();
+			inject_flags();
+			inject_fs();
+			inject_graphics();
+			inject_input();
+			inject_math();
+			inject_media();
+			inject_resources();
+			inject_scenes();
+			inject_states();
+			inject_utils();
+			inject_services();
 		}
 	} // namespace lua
 } // namespace galaxy

@@ -105,7 +105,7 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture atlas for '{0}'.", texture);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to query texture storage for '{0}'.", texture);
 			}
 		}
 
