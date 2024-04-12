@@ -25,9 +25,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			/// \param max_quads Number of quads to allow to be batched.
-			///
-			VertexBatch(const int max_quads);
+			VertexBatch();
 
 			///
 			/// Move constructor.
@@ -43,6 +41,13 @@ namespace galaxy
 			/// Destructor.
 			///
 			~VertexBatch();
+
+			///
+			/// Initialize vertex batch data.
+			///
+			/// \param max_quads Number of quads to allow to be batched.
+			///
+			void init(const int max_quads);
 
 			///
 			/// Buffer some vertices into the spritebatch.
@@ -69,16 +74,11 @@ namespace galaxy
 			///
 			/// Get vertex array object.
 			///
-			/// \return Const reference to VAO.
+			/// \return Reference to VAO.
 			///
-			[[nodiscard]] const VertexArray& vao() const;
+			[[nodiscard]] VertexArray& vao();
 
 		  private:
-			///
-			/// Constructor.
-			///
-			VertexBatch() = delete;
-
 			///
 			/// Copy constructor.
 			///
