@@ -1,0 +1,9 @@
+<map id="galaxy::map::Map" name="galaxy::map::Map">
+<area shape="rect" id="Node000001" title="An LDTK level." alt="" coords="87,663,251,948"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,135,219,600"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,600,143,638,144,646,138,647,137,639,132,600"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="243,335,322,400"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="280,401,259,507,228,639,226,647,221,646,223,638,254,506,275,400"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="217,5,348,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="285,99,285,334,280,334,280,99"/>
+</map>

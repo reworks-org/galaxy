@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,233,105,197,130,151,164,103,205,62,225,49,228,53,208,66,168,107,135,154,110,199,94,235"/>
 <area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35" title="Clears currently active framebuffer." alt="" coords="494,35,689,75"/>
 <area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="95,233,140,179,170,151,205,127,273,98,345,77,415,64,480,56,480,61,416,69,346,82,275,103,208,132,174,155,143,183,99,236"/>
-<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5" title="Load maps." alt="" coords="241,171,394,211"/>
+<area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a840a4d868d242380b46ae69886f165c5" title="Builds opengl resources on the main thread." alt="" coords="241,171,394,211"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,232,230,212,231,217,157,237"/>
 <area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="476,242,707,267"/>
 <area shape="poly" id="edge15_Node000001_Node000005" title=" " alt="" coords="99,233,144,191,174,171,206,156,267,139,317,134,367,141,429,156,468,171,506,190,566,231,563,236,503,195,466,176,427,161,366,146,317,140,268,144,208,161,176,176,147,196,103,236"/>

@@ -40,8 +40,7 @@ var searchData=
   ['donotuserefertomacros_37',['DoNotUseReferToMacros',['../db/d55/structgalaxy_1_1DoNotUseReferToMacros.html',1,'galaxy']]],
   ['dracula_38',['DRACULA',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08ead0773874065915402dbfe3558b15421d',1,'galaxy::ui']]],
   ['draw_39',['draw',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b',1,'galaxy::graphics::Renderer']]],
-  ['draw_5frows_5fbackground_40',['draw_rows_background',['../d3/dd9/namespacegalaxy_1_1ui.html#aaee07b727d59e1038f05b7e9265daf6c',1,'galaxy::ui']]],
-  ['draw_5ftexture_5fto_5ftarget_41',['draw_texture_to_target',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82',1,'galaxy::graphics::Renderer']]],
-  ['drawhint_42',['DrawHint',['../db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477c',1,'galaxy::graphics']]],
-  ['dynamic_5fdraw_43',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
+  ['draw_5ftexture_5fto_5ftarget_40',['draw_texture_to_target',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82',1,'galaxy::graphics::Renderer']]],
+  ['drawhint_41',['DrawHint',['../db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477c',1,'galaxy::graphics']]],
+  ['dynamic_5fdraw_42',['DYNAMIC_DRAW',['../db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477ca5ff708d7d781ea10e2ce8d6d3d4022eb',1,'galaxy::graphics']]]
 ];

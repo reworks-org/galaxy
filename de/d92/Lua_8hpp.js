@@ -14,6 +14,7 @@ var Lua_8hpp =
     [ "inject_fs", "de/d92/Lua_8hpp.html#aa70d6729393546b0f11fd128f3df6ec8", null ],
     [ "inject_graphics", "de/d92/Lua_8hpp.html#a521d74470cd4da3ebf4e4c482a35da64", null ],
     [ "inject_input", "de/d92/Lua_8hpp.html#a1cfa07f8f02c92f44d6971d4d98b3dc7", null ],
+    [ "inject_map", "de/d92/Lua_8hpp.html#afcc409138491358807acff37960143bc", null ],
     [ "inject_math", "de/d92/Lua_8hpp.html#ab9d1ae8ad2cb00822ae4d309c33fe51a", null ],
     [ "inject_media", "de/d92/Lua_8hpp.html#add53ba093ede88cbd1be6056c4e20731", null ],
     [ "inject_resources", "de/d92/Lua_8hpp.html#a6fe84993c5ef6fdb14659b5898c487d5", null ],

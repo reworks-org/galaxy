@@ -11,5 +11,6 @@ var searchData=
   ['config_8',['Config',['../d6/de9/classgalaxy_1_1core_1_1Config.html',1,'galaxy::core']]],
   ['consolesink_9',['ConsoleSink',['../dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html',1,'galaxy::error']]],
   ['contentscale_10',['ContentScale',['../d8/d2a/structgalaxy_1_1events_1_1ContentScale.html',1,'galaxy::events']]],
-  ['cursor_11',['Cursor',['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html',1,'galaxy::input']]]
+  ['convertable_5fonly_5fto_11',['convertable_only_to',['../d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html',1,'galaxy::meta']]],
+  ['cursor_12',['Cursor',['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html',1,'galaxy::input']]]
 ];

@@ -1,0 +1,16 @@
+<map id="galaxy::map::World::parse" name="galaxy::map::World::parse">
+<area shape="rect" id="Node000001" title="Parse world and create entities." alt="" coords="833,27,980,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="612,5,785,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="819,38,785,33,786,28,820,32"/>
+<area shape="rect" id="Node000005" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="619,55,778,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="820,62,778,67,778,62,819,56"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,67,357,92"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="599,24,505,31,406,46,325,69,323,64,405,41,504,26,598,19"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,67,172,92"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,82,172,82,172,77,206,77"/>
+<area shape="rect" id="Node000006" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="405,55,564,95"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="606,78,564,78,564,73,606,73"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="416,119,553,159"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="619,102,553,122,551,117,617,97"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="405,118,330,95,332,89,406,113"/>
+</map>

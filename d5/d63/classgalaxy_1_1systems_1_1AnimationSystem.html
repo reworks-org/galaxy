@@ -135,9 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aefb3bdd30343a8d16b433356af7fc131" id="r_aefb3bdd30343a8d16b433356af7fc131"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131">~AnimationSystem</a> ()</td></tr>
 <tr class="memdesc:aefb3bdd30343a8d16b433356af7fc131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:aefb3bdd30343a8d16b433356af7fc131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf907da9ce26412016027819ef226c21" id="r_adf907da9ce26412016027819ef226c21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#adf907da9ce26412016027819ef226c21">update</a> (<a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">scene::Scene</a> *scene) override</td></tr>
-<tr class="memdesc:adf907da9ce26412016027819ef226c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract implementation for updating the system. Use the manager to retreive your components.  <br /></td></tr>
-<tr class="separator:adf907da9ce26412016027819ef226c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68d10ab4fa7d2404a739c0f08e8ca0f4" id="r_a68d10ab4fa7d2404a739c0f08e8ca0f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#a68d10ab4fa7d2404a739c0f08e8ca0f4">update</a> (entt::registry &amp;registry) override</td></tr>
+<tr class="memdesc:a68d10ab4fa7d2404a739c0f08e8ca0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract implementation for updating the system. Use the manager to retreive your components.  <br /></td></tr>
+<tr class="separator:a68d10ab4fa7d2404a739c0f08e8ca0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classgalaxy_1_1systems_1_1System"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classgalaxy_1_1systems_1_1System')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html">galaxy::systems::System</a></td></tr>
 <tr class="memitem:ac6167648fab69194fa2aa479b9185402 inherit pub_methods_classgalaxy_1_1systems_1_1System" id="r_ac6167648fab69194fa2aa479b9185402"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#ac6167648fab69194fa2aa479b9185402">~System</a> ()</td></tr>
 <tr class="memdesc:ac6167648fab69194fa2aa479b9185402 inherit pub_methods_classgalaxy_1_1systems_1_1System"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
@@ -206,8 +206,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="adf907da9ce26412016027819ef226c21" name="adf907da9ce26412016027819ef226c21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf907da9ce26412016027819ef226c21">&#9670;&#160;</a></span>update()</h2>
+<a id="a68d10ab4fa7d2404a739c0f08e8ca0f4" name="a68d10ab4fa7d2404a739c0f08e8ca0f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68d10ab4fa7d2404a739c0f08e8ca0f4">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,8 +218,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::systems::AnimationSystem::update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">scene::Scene</a> *&#160;</td>
-          <td class="paramname"><em>scene</em></td><td>)</td>
+          <td class="paramtype">entt::registry &amp;&#160;</td>
+          <td class="paramname"><em>registry</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -233,12 +233,12 @@ Additional Inherited Members</h2></td></tr>
 <p>Abstract implementation for updating the system. Use the manager to retreive your components. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>Non-owning pointer to current scene. </td></tr>
+    <tr><td class="paramname">EnTT</td><td>registry to process entities from. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a98309314503361672fdf5446758b35c1">galaxy::systems::System</a>.</p>
+<p>Implements <a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a20984a6cece0b3d14614c39eb32e8abf">galaxy::systems::System</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/da7/AnimationSystem_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d6/da7/AnimationSystem_8cpp_source.html">AnimationSystem.cpp</a>.</p>
 
@@ -254,7 +254,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d2/d27/namespacegalaxy_1_1systems.html">systems</a></li><li class="navelem"><a class="el" href="../../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html">AnimationSystem</a></li>
-    <li class="footer">Generated on Wed Apr 10 2024 09:55:09 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Apr 12 2024 12:35:02 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

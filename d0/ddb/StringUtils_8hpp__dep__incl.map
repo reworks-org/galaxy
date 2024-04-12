@@ -1,17 +1,15 @@
 <map id="galaxy/src/galaxy/utils/StringUtils.hpp" name="galaxy/src/galaxy/utils/StringUtils.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="2339,5,2508,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="2236,5,2405,45"/>
 <area shape="rect" id="Node000002" href="$df/db4/Config_8hpp.html" title=" " alt="" coords="2043,93,2212,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2346,52,2193,96,2191,91,2345,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2267,53,2171,96,2169,91,2265,49"/>
 <area shape="rect" id="Node000018" href="$d2/d84/Window_8cpp.html" title=" " alt="" coords="2236,93,2405,133"/>
-<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="2392,56,2345,95,2342,91,2388,52"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="2323,59,2323,93,2318,93,2318,59"/>
 <area shape="rect" id="Node000019" href="$d2/d0b/graphics_2text_2Text_8cpp.html" title=" " alt="" coords="2429,93,2625,133"/>
-<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="2459,52,2506,91,2503,95,2455,56"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="2380,48,2483,91,2481,96,2378,53"/>
 <area shape="rect" id="Node000020" href="$d4/d92/AudioEngine_8hpp.html" title=" " alt="" coords="635,93,817,133"/>
-<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="2325,34,818,110,818,105,2325,29"/>
-<area shape="rect" id="Node000024" href="$da/dd6/LuaUtils_8cpp.html" title=" " alt="" coords="2650,93,2847,133"/>
-<area shape="poly" id="edge26_Node000001_Node000024" title=" " alt="" coords="2508,46,2678,91,2677,96,2507,51"/>
-<area shape="rect" id="Node000025" href="$d1/d44/StringUtils_8cpp.html" title=" " alt="" coords="2872,93,3041,133"/>
-<area shape="poly" id="edge27_Node000001_Node000025" title=" " alt="" coords="2522,38,2860,91,2872,93,2871,98,2859,96,2521,43"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="2222,35,818,110,818,104,2222,29"/>
+<area shape="rect" id="Node000024" href="$d1/d44/StringUtils_8cpp.html" title=" " alt="" coords="2649,93,2819,133"/>
+<area shape="poly" id="edge26_Node000001_Node000024" title=" " alt="" coords="2420,44,2650,92,2649,97,2419,50"/>
 <area shape="rect" id="Node000003" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="641,181,811,221"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="2028,118,1811,121,1512,131,1170,151,995,166,824,184,811,186,810,180,823,179,994,160,1170,146,1512,126,1811,116,2028,112"/>
 <area shape="rect" id="Node000004" href="$de/da7/Config_8cpp.html" title=" " alt="" coords="2539,181,2708,221"/>

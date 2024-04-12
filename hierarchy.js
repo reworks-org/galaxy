@@ -9,6 +9,7 @@ var hierarchy =
     [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ],
     [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
     [ "galaxy::events::ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", null ],
+    [ "galaxy::meta::convertable_only_to< T >", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html", null ],
     [ "galaxy::graphics::Camera::Data", "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html", null ],
     [ "galaxy::flags::DenySerialization", "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html", null ],
     [ "galaxy::DoNotUseReferToMacros", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html", null ],
@@ -39,6 +40,7 @@ var hierarchy =
     ] ],
     [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", null ],
     [ "galaxy::error::LogMessage", "d5/df7/structgalaxy_1_1error_1_1LogMessage.html", null ],
+    [ "galaxy::map::Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", null ],
     [ "galaxy::events::MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],
@@ -116,6 +118,7 @@ var hierarchy =
       [ "galaxy::graphics::TextureArray", "dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html", null ],
       [ "galaxy::graphics::TextureView", "d9/d28/classgalaxy_1_1graphics_1_1TextureView.html", null ]
     ] ],
+    [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],
     [ "galaxy::async::Timer< async >", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
     [ "galaxy::graphics::Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", [
       [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ]
@@ -130,5 +133,6 @@ var hierarchy =
     [ "galaxy::events::WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],
     [ "galaxy::events::WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", null ],
     [ "galaxy::core::WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", null ],
+    [ "galaxy::map::World", "d9/d75/classgalaxy_1_1map_1_1World.html", null ],
     [ "galaxy::math::ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", null ]
 ];

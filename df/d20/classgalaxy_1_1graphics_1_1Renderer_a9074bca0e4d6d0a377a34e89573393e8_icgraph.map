@@ -1,5 +1,7 @@
 <map id="galaxy::graphics::Renderer::flush" name="galaxy::graphics::Renderer::flush">
-<area shape="rect" id="Node000001" title="Deletes all submitted render commands." alt="" coords="284,5,479,45"/>
-<area shape="rect" id="Node000002" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,28,236,28,236,23,270,23"/>
+<area shape="rect" id="Node000001" title="Deletes all submitted render commands." alt="" coords="268,37,463,77"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a05b20db2d243f6d287667f7c141972b8" title="Only update rendering." alt="" coords="5,5,220,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,46,220,42,221,36,255,41"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6ad3d7bf8412a264e4b1c2ff0939aa58" title="Handle events and update logic." alt="" coords="5,69,220,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,74,221,78,220,73,254,69"/>
 </map>

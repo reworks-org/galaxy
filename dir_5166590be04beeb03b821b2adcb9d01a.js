@@ -11,6 +11,7 @@ var dir_5166590be04beeb03b821b2adcb9d01a =
     [ "LuaGLM.cpp", "d6/db3/LuaGLM_8cpp.html", "d6/db3/LuaGLM_8cpp" ],
     [ "LuaGraphics.cpp", "dd/d97/LuaGraphics_8cpp.html", "dd/d97/LuaGraphics_8cpp" ],
     [ "LuaInput.cpp", "d4/dd6/LuaInput_8cpp.html", "d4/dd6/LuaInput_8cpp" ],
+    [ "LuaMap.cpp", "d8/d09/LuaMap_8cpp.html", "d8/d09/LuaMap_8cpp" ],
     [ "LuaMath.cpp", "df/d48/LuaMath_8cpp.html", "df/d48/LuaMath_8cpp" ],
     [ "LuaMedia.cpp", "da/d28/LuaMedia_8cpp.html", "da/d28/LuaMedia_8cpp" ],
     [ "LuaMiniAudio.cpp", "db/df6/LuaMiniAudio_8cpp.html", "db/df6/LuaMiniAudio_8cpp" ],

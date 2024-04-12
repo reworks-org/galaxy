@@ -1,7 +1,13 @@
 <map id="galaxy::scene::SceneManager::update" name="galaxy::scene::SceneManager::update">
-<area shape="rect" id="Node000001" title="Handle events and update logic." alt="" coords="5,5,220,45"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="268,5,427,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-<area shape="rect" id="Node000003" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528" title="Updates pending component data." alt="" coords="475,5,637,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,23,461,23,461,28,427,28"/>
+<area shape="rect" id="Node000001" title="Handle events and update logic." alt="" coords="5,99,220,139"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8" title="Deletes all submitted render commands." alt="" coords="281,5,476,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,96,267,55,291,47,293,52,269,60,162,101"/>
+<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615" title="Get currently active map." alt="" coords="305,69,452,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,104,291,96,292,102,221,109"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="268,134,489,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="221,127,255,131,254,136,220,133"/>
+<area shape="rect" id="Node000005" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="299,184,458,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="173,136,269,168,298,177,296,182,267,173,171,141"/>
+<area shape="rect" id="Node000006" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528" title="Updates pending component data." alt="" coords="537,184,700,224"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="458,201,523,201,523,207,458,207"/>
 </map>

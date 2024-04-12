@@ -1,0 +1,7 @@
+<map id="galaxy::map::World::load" name="galaxy::map::World::load">
+<area shape="rect" id="Node000001" title="Load a world." alt="" coords="5,35,152,75"/>
+<area shape="rect" id="Node000002" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="242,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,43,228,33,229,39,152,48"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="200,70,431,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,61,195,66,194,71,152,66"/>
+</map>

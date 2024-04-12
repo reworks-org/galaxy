@@ -1,0 +1,7 @@
+<map id="galaxy::systems::RenderSystem::update" name="galaxy::systems::RenderSystem::update">
+<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,27,236,67"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="284,5,505,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,32,270,29,271,34,237,38"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9377e41a636f871fadaa42118add107e" title="Add an entity rendering command." alt="" coords="297,55,492,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,56,284,61,283,67,236,62"/>
+</map>

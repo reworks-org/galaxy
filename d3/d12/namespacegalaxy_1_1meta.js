@@ -1,5 +1,6 @@
 var namespacegalaxy_1_1meta =
 [
+    [ "convertable_only_to", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to" ],
     [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ],
     [ "is_input_device", "dd/d45/conceptgalaxy_1_1meta_1_1is__input__device.html", null ],
     [ "is_class", "d0/d17/conceptgalaxy_1_1meta_1_1is__class.html", null ],

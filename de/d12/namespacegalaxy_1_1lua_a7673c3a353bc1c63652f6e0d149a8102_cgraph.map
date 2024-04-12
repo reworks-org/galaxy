@@ -1,25 +1,43 @@
 <map id="galaxy::lua::inject_core" name="galaxy::lua::inject_core">
-<area shape="rect" id="Node000001" title="Inject galaxy core services into lua." alt="" coords="5,249,177,274"/>
+<area shape="rect" id="Node000001" title="Inject galaxy core services into lua." alt="" coords="5,415,177,441"/>
 <area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a0d6c119110845b828a8dd3cf0bf962a3" title="Clear any pending data." alt="" coords="237,5,400,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,247,111,210,139,158,176,103,199,78,224,55,231,50,234,54,227,59,202,81,180,107,143,161,116,212,100,249"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,415,98,352,118,256,135,202,158,150,187,100,223,55,228,51,232,55,227,59,191,103,162,152,140,204,123,257,103,352,96,415"/>
 <area shape="rect" id="Node000003" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a47df3d4e42282a102e703f407106788b" title="Create an entity with some default components." alt="" coords="237,69,400,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,247,148,186,183,151,224,119,234,113,237,118,227,124,187,155,152,190,104,250"/>
-<area shape="rect" id="Node000004" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#aa1072eec42027e3e667a2b18322f61cf" title="Create an entity from a prefab." alt="" coords="237,133,400,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="115,246,224,190,254,176,256,181,226,194,117,251"/>
-<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="460,306,691,331"/>
-<area shape="poly" id="edge12_Node000001_Node000005" title=" " alt="" coords="139,246,195,234,263,225,338,224,413,233,450,245,487,262,546,296,544,301,484,266,448,250,411,239,338,229,264,231,196,240,140,251"/>
-<area shape="rect" id="Node000006" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4f2c253c063e15d98412bc7c0869fbd7" title="Check if the config file actually has a value." alt="" coords="228,249,409,274"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="178,259,214,259,214,264,178,264"/>
-<area shape="rect" id="Node000007" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee" title="Validate an entity to make sure all components have met their requirements as defined by register_dep..." alt="" coords="237,299,400,339"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="143,271,227,293,225,298,142,277"/>
-<area shape="rect" id="Node000008" href="$de/d12/namespacegalaxy_1_1lua.html#a401a63be2d5613d1f565276a35c78663" title=" " alt="" coords="231,363,406,403"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="110,272,161,309,227,348,241,355,239,360,224,353,158,313,107,276"/>
-<area shape="rect" id="Node000009" href="$de/d12/namespacegalaxy_1_1lua.html#abc08e1a44ad4a5f632fbb8db29664e51" title=" " alt="" coords="225,427,412,467"/>
-<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="102,272,150,339,185,378,227,412,236,418,233,423,224,417,182,382,146,342,98,276"/>
-<area shape="rect" id="Node000010" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a64468bfba46746622e82d637e8c3ffe9" title="Save the config file. Must be opened first." alt="" coords="243,491,394,531"/>
-<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="99,273,115,313,141,367,179,426,202,453,227,477,234,481,230,486,224,481,198,457,174,429,137,370,110,315,94,275"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="376,171,413,190,491,244,552,295,548,299,488,248,411,194,373,176"/>
-<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="400,316,446,316,446,321,400,321"/>
-<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="399,360,509,332,511,337,400,365"/>
-<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="382,424,411,412,483,374,543,337,546,341,486,379,413,417,384,429"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="92,415,104,363,128,286,145,244,167,202,193,162,223,126,238,114,241,119,227,130,197,165,171,204,150,246,133,288,109,364,97,416"/>
+<area shape="rect" id="Node000004" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#aa1072eec42027e3e667a2b18322f61cf" title="Create an entity from a prefab." alt="" coords="237,184,400,224"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="96,414,113,379,140,330,177,279,224,234,231,229,234,233,227,238,181,282,145,333,117,381,100,416"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="460,351,691,377"/>
+<area shape="poly" id="edge20_Node000001_Node000005" title=" " alt="" coords="92,415,103,366,126,297,143,261,165,226,192,195,224,170,273,146,317,140,362,149,413,170,441,185,466,205,509,250,542,298,564,338,560,340,537,301,505,254,462,209,438,190,411,174,360,154,317,145,275,151,227,174,195,199,169,229,148,263,131,299,108,368,97,416"/>
+<area shape="rect" id="Node000006" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056" title="Creates the prefab from an entity." alt="" coords="243,248,394,288"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="101,413,150,358,185,326,224,298,236,291,238,296,227,302,188,330,154,362,105,417"/>
+<area shape="rect" id="Node000007" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66" title="Creates the prefab from a json object." alt="" coords="500,625,651,665"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="99,440,115,477,141,527,178,578,201,600,227,618,257,633,290,644,358,657,425,660,486,656,487,662,425,665,358,662,289,649,255,638,224,622,198,604,174,581,136,529,110,479,95,442"/>
+<area shape="rect" id="Node000008" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4f2c253c063e15d98412bc7c0869fbd7" title="Check if the config file actually has a value." alt="" coords="228,683,409,709"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="99,440,113,482,139,542,177,606,200,636,227,662,249,676,246,680,224,666,196,639,172,609,134,544,108,484,94,442"/>
+<area shape="rect" id="Node000009" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee" title="Validate an entity to make sure all components have met their requirements as defined by register_dep..." alt="" coords="237,312,400,352"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="116,413,224,362,243,354,245,359,226,366,118,418"/>
+<area shape="rect" id="Node000010" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="243,568,394,608"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="105,439,154,494,188,526,227,554,238,560,236,565,224,558,185,530,150,498,101,443"/>
+<area shape="rect" id="Node000013" href="$de/d12/namespacegalaxy_1_1lua.html#a401a63be2d5613d1f565276a35c78663" title=" " alt="" coords="231,376,406,416"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="177,413,217,408,218,413,178,419"/>
+<area shape="rect" id="Node000014" href="$de/d12/namespacegalaxy_1_1lua.html#abc08e1a44ad4a5f632fbb8db29664e51" title=" " alt="" coords="225,440,412,480"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="178,437,212,442,211,448,177,443"/>
+<area shape="rect" id="Node000015" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a64468bfba46746622e82d637e8c3ffe9" title="Save the config file. Must be opened first." alt="" coords="243,733,394,773"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="97,441,109,492,132,567,149,608,171,648,197,686,227,719,233,724,230,728,224,723,192,689,166,651,145,610,127,569,104,494,92,442"/>
+<area shape="rect" id="Node000016" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a07c6f7f4b50815a361fda814ce36e6e3" title="Creates an entity from this prefab." alt="" coords="243,504,394,544"/>
+<area shape="poly" id="edge22_Node000001_Node000016" title=" " alt="" coords="118,438,226,490,245,497,243,502,224,494,116,443"/>
+<area shape="rect" id="Node000017" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5" title="Gets the json representation of this prefab." alt="" coords="243,797,394,837"/>
+<area shape="poly" id="edge24_Node000001_Node000017" title=" " alt="" coords="96,440,104,501,125,593,141,644,164,694,192,742,227,783,233,789,230,793,223,787,188,745,159,697,137,646,119,595,99,502,91,441"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="388,222,413,234,454,259,492,287,553,340,549,344,489,292,451,263,411,238,385,227"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="380,286,413,298,531,343,529,348,411,302,378,291"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="400,339,460,347,460,352,400,345"/>
+<area shape="poly" id="edge15_Node000010_Node000005" title=" " alt="" coords="389,566,410,554,426,541,436,528,458,497,552,386,556,389,462,500,440,531,430,545,414,558,392,570"/>
+<area shape="poly" id="edge14_Node000010_Node000007" title=" " alt="" coords="395,602,487,623,486,628,394,607"/>
+<area shape="rect" id="Node000011" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="494,511,657,551"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="394,569,480,549,481,554,395,574"/>
+<area shape="rect" id="Node000012" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="479,575,671,601"/>
+<area shape="poly" id="edge13_Node000010_Node000012" title=" " alt="" coords="394,585,465,585,465,591,394,591"/>
+<area shape="poly" id="edge17_Node000013_Node000005" title=" " alt="" coords="406,382,459,376,460,381,407,388"/>
+<area shape="poly" id="edge19_Node000014_Node000005" title=" " alt="" coords="378,437,411,426,529,380,531,385,413,430,380,442"/>
+<area shape="poly" id="edge23_Node000016_Node000005" title=" " alt="" coords="385,501,411,490,451,465,489,436,549,384,553,388,492,441,454,469,413,494,388,506"/>
 </map>

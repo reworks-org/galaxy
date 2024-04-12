@@ -6,6 +6,6 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,110,218,104,218,99,271,105"/>
 <area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="23,133,218,173"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,138,218,144,218,139,270,132"/>
-<area shape="rect" id="Node000005" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#a961857c38e9c6425a939b154472ce9e8" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,197,236,237"/>
+<area shape="rect" id="Node000005" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,197,236,237"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="328,150,237,188,200,200,198,195,235,183,326,145"/>
 </map>

@@ -1,0 +1,18 @@
+<map id="galaxy::map::World::load" name="galaxy::map::World::load">
+<area shape="rect" id="Node000001" title="Load a world." alt="" coords="833,55,980,95"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="405,5,579,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="825,55,785,46,678,32,579,24,579,19,678,26,786,41,826,49"/>
+<area shape="rect" id="Node000005" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="627,55,785,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="820,78,785,78,785,73,820,73"/>
+<area shape="rect" id="Node000008" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="633,119,779,159"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="831,102,770,122,768,117,829,97"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,67,357,92"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="435,37,406,46,331,69,330,64,405,41,434,32"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,67,172,92"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,82,172,82,172,77,206,77"/>
+<area shape="rect" id="Node000006" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="413,55,571,95"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="613,78,571,78,571,73,613,73"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="423,119,561,159"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="626,102,560,122,559,117,624,97"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="410,118,332,95,333,89,411,113"/>
+</map>

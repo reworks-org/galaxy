@@ -135,10 +135,24 @@ $(document).ready(function(){initNavTree('d3/d84/Concepts_8hpp_source.html','../
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Loader, <span class="keyword">typename</span> Resource&gt;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">   96</a></span>        <span class="keyword">concept </span><a class="code hl_concept" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">is_loader</a> = <span class="keyword">requires</span> (Loader loader) { loader.operator() &amp;&amp; std::is_class&lt;Loader&gt;::value; };</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    } <span class="comment">// namespace meta</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="};">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html">  105</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html">convertable_only_to</a></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> = std::enable_if_t&lt;std::is_same_v&lt;T, S&gt;&gt;&gt;</div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html#a4da2cecf78c3bf85c6cc6bbc1aeba2ad">  108</a></span>            <span class="keyword">operator</span> S()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                <span class="keywordflow">return</span> S {};</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            }</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        };</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    } <span class="comment">// namespace meta</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconceptgalaxy_1_1meta_1_1is__arithmetic_html"><div class="ttname"><a href="../../db/dc5/conceptgalaxy_1_1meta_1_1is__arithmetic.html">galaxy::meta::is_arithmetic</a></div><div class="ttdoc">Arithmetic concept.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00047">Concepts.hpp:47</a></div></div>
 <div class="ttc" id="aconceptgalaxy_1_1meta_1_1is__bitset__flag_html"><div class="ttname"><a href="../../db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html">galaxy::meta::is_bitset_flag</a></div><div class="ttdoc">Makes sure a value is a valid value for a std::bitset.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00077">Concepts.hpp:77</a></div></div>
 <div class="ttc" id="aconceptgalaxy_1_1meta_1_1is__class_html"><div class="ttname"><a href="../../d0/d17/conceptgalaxy_1_1meta_1_1is__class.html">galaxy::meta::is_class</a></div><div class="ttdoc">Only class concept.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00027">Concepts.hpp:27</a></div></div>
@@ -148,13 +162,14 @@ $(document).ready(function(){initNavTree('d3/d84/Concepts_8hpp_source.html','../
 <div class="ttc" id="aconceptgalaxy_1_1meta_1_1standard__type_html"><div class="ttname"><a href="../../dc/df3/conceptgalaxy_1_1meta_1_1standard__type.html">galaxy::meta::standard_type</a></div><div class="ttdoc">Ensures a type is arithmetic or a std::string.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00057">Concepts.hpp:57</a></div></div>
 <div class="ttc" id="aconceptgalaxy_1_1meta_1_1valid__component_html"><div class="ttname"><a href="../../d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html">galaxy::meta::valid_component</a></div><div class="ttdoc">Makes sure a type is a valid component.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00087">Concepts.hpp:87</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1meta_1_1convertable__only__to_html"><div class="ttname"><a href="../../d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html">galaxy::meta::convertable_only_to</a></div><div class="ttdoc">Avoids implicit conversions in templates.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00105">Concepts.hpp:106</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7f735fbad00ad2f3f96d935c571f321a.html">meta</a></li><li class="navelem"><a class="el" href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></li>
-    <li class="footer">Generated on Wed Apr 10 2024 09:55:09 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Apr 12 2024 12:35:01 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,29 +1,40 @@
 <map id="galaxy/src/galaxy/core/Registry.hpp" name="galaxy/src/galaxy/core/Registry.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="631,5,800,45"/>
-<area shape="rect" id="Node000002" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="432,93,601,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="660,53,561,96,559,91,658,48"/>
-<area shape="rect" id="Node000003" href="$db/de8/Scene_8hpp.html" title=" " alt="" coords="626,93,805,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="718,59,718,93,713,93,713,59"/>
-<area shape="rect" id="Node000014" href="$d2/d01/LuaCore_8cpp.html" title=" " alt="" coords="829,93,1026,133"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="775,48,882,91,880,96,773,53"/>
-<area shape="rect" id="Node000004" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="102,181,281,221"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="613,136,293,184,281,186,280,181,292,179,612,131"/>
-<area shape="rect" id="Node000005" href="$df/d74/SceneManager_8hpp.html" title=" " alt="" coords="305,181,483,221"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="633,139,465,184,464,179,631,134"/>
-<area shape="rect" id="Node000010" href="$d6/da7/AnimationSystem_8cpp.html" title=" " alt="" coords="508,181,704,221"/>
-<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="682,144,632,183,629,179,679,140"/>
-<area shape="rect" id="Node000011" href="$d6/d4a/PhysicsSystem_8cpp.html" title=" " alt="" coords="728,181,924,221"/>
-<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="752,140,803,179,800,183,749,144"/>
-<area shape="rect" id="Node000012" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="948,181,1144,221"/>
-<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="802,134,974,179,973,184,800,139"/>
-<area shape="rect" id="Node000013" href="$dd/d64/ScriptSystem_8cpp.html" title=" " alt="" coords="1168,181,1364,221"/>
-<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="819,131,990,155,1157,179,1168,180,1167,186,1156,184,989,161,818,136"/>
-<area shape="rect" id="Node000006" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,269,175,309"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="315,228,157,272,156,267,313,223"/>
-<area shape="rect" id="Node000007" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="199,269,378,309"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="362,232,314,271,310,267,359,228"/>
-<area shape="rect" id="Node000008" href="$d9/dc5/LuaScenes_8cpp.html" title=" " alt="" coords="402,269,599,309"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="430,228,479,267,475,271,427,232"/>
-<area shape="rect" id="Node000009" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="623,269,821,309"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="480,222,651,267,650,272,478,227"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="525,5,695,45"/>
+<area shape="rect" id="Node000002" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="269,93,439,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="542,52,411,96,409,91,540,47"/>
+<area shape="rect" id="Node000003" href="$dc/dbe/Map_8hpp.html" title=" " alt="" coords="463,93,634,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="591,58,564,95,560,92,586,55"/>
+<area shape="rect" id="Node000007" href="$db/de8/Scene_8hpp.html" title=" " alt="" coords="627,269,806,309"/>
+<area shape="poly" id="edge18_Node000001_Node000007" title=" " alt="" coords="630,56,648,92,687,190,713,268,708,270,682,192,644,94,625,59"/>
+<area shape="rect" id="Node000019" href="$d2/d01/LuaCore_8cpp.html" title=" " alt="" coords="709,93,906,133"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="667,48,765,91,763,96,665,53"/>
+<area shape="rect" id="Node000004" href="$d3/d92/Map_8cpp.html" title=" " alt="" coords="269,181,439,221"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="495,141,398,184,396,179,493,136"/>
+<area shape="rect" id="Node000005" href="$d0/dbb/World_8hpp.html" title=" " alt="" coords="463,181,634,221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="551,147,551,181,546,181,546,147"/>
+<area shape="rect" id="Node000006" href="$d7/dfe/World_8cpp.html" title=" " alt="" coords="211,269,382,309"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="481,228,353,272,351,267,480,223"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="599,225,681,267,679,272,596,230"/>
+<area shape="rect" id="Node000018" href="$d8/d09/LuaMap_8cpp.html" title=" " alt="" coords="406,269,603,309"/>
+<area shape="poly" id="edge17_Node000005_Node000018" title=" " alt="" coords="535,235,517,270,512,268,530,233"/>
+<area shape="rect" id="Node000008" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="102,357,281,397"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="614,312,293,360,281,362,280,357,292,355,613,307"/>
+<area shape="rect" id="Node000009" href="$df/d74/SceneManager_8hpp.html" title=" " alt="" coords="305,357,483,397"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="634,315,465,360,464,355,632,310"/>
+<area shape="rect" id="Node000014" href="$d6/da7/AnimationSystem_8cpp.html" title=" " alt="" coords="508,357,704,397"/>
+<area shape="poly" id="edge13_Node000007_Node000014" title=" " alt="" coords="683,320,632,359,629,355,680,316"/>
+<area shape="rect" id="Node000015" href="$d6/d4a/PhysicsSystem_8cpp.html" title=" " alt="" coords="728,357,924,397"/>
+<area shape="poly" id="edge14_Node000007_Node000015" title=" " alt="" coords="753,316,803,355,800,359,750,320"/>
+<area shape="rect" id="Node000016" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="948,357,1144,397"/>
+<area shape="poly" id="edge15_Node000007_Node000016" title=" " alt="" coords="803,310,975,355,973,360,801,315"/>
+<area shape="rect" id="Node000017" href="$dd/d64/ScriptSystem_8cpp.html" title=" " alt="" coords="1168,357,1364,397"/>
+<area shape="poly" id="edge16_Node000007_Node000017" title=" " alt="" coords="820,303,1157,355,1168,356,1167,362,1156,360,819,308"/>
+<area shape="rect" id="Node000010" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,445,175,485"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="315,404,157,448,156,443,313,399"/>
+<area shape="rect" id="Node000011" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="199,445,378,485"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="362,408,314,447,310,443,359,404"/>
+<area shape="rect" id="Node000012" href="$d9/dc5/LuaScenes_8cpp.html" title=" " alt="" coords="402,445,599,485"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="430,404,479,443,475,447,427,408"/>
+<area shape="rect" id="Node000013" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="623,445,821,485"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="480,398,651,443,650,448,478,403"/>
 </map>

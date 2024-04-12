@@ -1,0 +1,9 @@
+<map id="galaxy::scene::SceneManager::only_update_rendering" name="galaxy::scene::SceneManager::only_update_rendering">
+<area shape="rect" id="Node000001" title="Only update rendering." alt="" coords="5,69,220,109"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8" title="Deletes all submitted render commands." alt="" coords="281,5,476,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,67,281,46,283,51,197,72"/>
+<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615" title="Get currently active map." alt="" coords="305,69,452,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,87,291,87,291,92,220,92"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="268,134,489,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,107,306,128,305,134,206,112"/>
+</map>

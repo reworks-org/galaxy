@@ -18,6 +18,7 @@ var annotated_dup =
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
         [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
         [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", "d2/d81/classgalaxy_1_1components_1_1Text" ],
+        [ "TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", "d2/db4/classgalaxy_1_1components_1_1TileMap" ],
         [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ]
       ] ],
       [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
@@ -111,6 +112,10 @@ var annotated_dup =
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ]
       ] ],
+      [ "map", "d6/d4d/namespacegalaxy_1_1map.html", [
+        [ "Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", "df/d2b/classgalaxy_1_1map_1_1Map" ],
+        [ "World", "d9/d75/classgalaxy_1_1map_1_1World.html", "d9/d75/classgalaxy_1_1map_1_1World" ]
+      ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
         [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", "d5/dcc/classgalaxy_1_1math_1_1Rect" ],
@@ -124,6 +129,7 @@ var annotated_dup =
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
       ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
+        [ "convertable_only_to", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to" ],
         [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
       ] ],
       [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [

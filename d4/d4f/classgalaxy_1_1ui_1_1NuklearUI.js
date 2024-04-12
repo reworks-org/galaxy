@@ -15,7 +15,6 @@ var classgalaxy_1_1ui_1_1NuklearUI =
     [ "toggle_input", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a10975d6e83210f9d9fb7ce89e5f9c370", null ],
     [ "show_loading_bar", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a109fc3ab2fe7a0ca81d43314aa3bee94", null ],
     [ "show_building_atlas", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a06ad38fd7053c12c0d6c1894f380514b", null ],
-    [ "show_loading_maps", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a5794e30b4adf3e01c6a78ab3809edac6", null ],
     [ "ctx", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6", null ],
     [ "m_ctx", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abff213095d3b02b4ba14a7b50e4f58d2", null ],
     [ "m_atlas", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab8205c5f9164608179eb5842f0a8eedc", null ],
