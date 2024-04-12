@@ -118,14 +118,6 @@ namespace galaxy
 			void show_building_atlas();
 
 			///
-			/// Loading screen UI for maps.
-			///
-			/// \param cur Current map being loaded.
-			/// \param total Total maps to load.
-			///
-			void show_loading_maps(const int cur, const int total);
-
-			///
 			/// Nuklear Context.
 			///
 			/// \return Pointer to context. DO NOT FREE.

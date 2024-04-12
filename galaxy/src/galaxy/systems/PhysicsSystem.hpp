@@ -33,9 +33,9 @@ namespace galaxy
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param scene Non-owning pointer to current scene.
+			/// \param EnTT registry to process entities from.
 			///
-			void update(scene::Scene* scene) override;
+			void update(entt::registry& registry) override;
 		};
 	} // namespace systems
 } // namespace galaxy

@@ -33,6 +33,8 @@ namespace galaxy
 			scene_type["dispatcher"]          = &scene::Scene::m_dispatcher;
 			scene_type["render"]              = &scene::Scene::render;
 			scene_type["update_ui"]           = &scene::Scene::update_ui;
+			scene_type["load_world"]          = &scene::Scene::load_world;
+			scene_type["world"]               = &scene::Scene::m_world;
 
 			auto scenemanager_type        = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
 			scenemanager_type["add"]      = &scene::SceneManager::add;

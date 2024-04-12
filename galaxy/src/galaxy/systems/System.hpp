@@ -11,14 +11,10 @@
 #include <concepts>
 
 #include <entt/core/family.hpp>
+#include <entt/entity/registry.hpp>
 
 namespace galaxy
 {
-	namespace scene
-	{
-		class Scene;
-	} // namespace scene
-
 	namespace systems
 	{
 		///
@@ -35,9 +31,9 @@ namespace galaxy
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
-			/// \param scene Non-owning pointer to current scene.
+			/// \param EnTT registry to process entities from.
 			///
-			virtual void update(scene::Scene* scene) = 0;
+			virtual void update(entt::registry& registry) = 0;
 
 		  protected:
 			///

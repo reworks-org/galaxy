@@ -22,10 +22,12 @@
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
+    <ClCompile Include="src\galaxy\components\TileMap.cpp" />
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
     <ClCompile Include="src\galaxy\components\GUI.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
     <ClCompile Include="src\galaxy\core\Registry.cpp" />
+    <ClCompile Include="src\galaxy\map\World.cpp" />
     <ClCompile Include="src\galaxy\error\LogMessage.cpp" />
     <ClCompile Include="src\galaxy\error\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\graphics\anim\Animation.cpp" />
@@ -68,6 +70,7 @@
     <ClCompile Include="src\galaxy\graphics\text\Text.cpp" />
     <ClCompile Include="src\galaxy\graphics\Transform.cpp" />
     <ClCompile Include="src\galaxy\graphics\VertexBatch.cpp" />
+    <ClCompile Include="src\galaxy\map\Map.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
@@ -97,6 +100,7 @@
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
+    <ClInclude Include="src\galaxy\components\TileMap.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
     <ClInclude Include="src\galaxy\components\GUI.hpp" />
     <ClInclude Include="src\galaxy\core\Registry.hpp" />
@@ -143,6 +147,7 @@
     <ClInclude Include="src\galaxy\graphics\Transform.hpp" />
     <ClInclude Include="src\galaxy\graphics\VertexBatch.hpp" />
     <ClInclude Include="src\galaxy\map\Map.hpp" />
+    <ClInclude Include="src\galaxy\map\World.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
@@ -187,6 +192,7 @@
     <ClCompile Include="src\galaxy\scripting\lua\LuaGLM.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaGraphics.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaInput.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMap.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaMath.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaMedia.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaMiniAudio.cpp" />
@@ -426,7 +432,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/misc;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -486,7 +492,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/tson;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/misc;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

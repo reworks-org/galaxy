@@ -20,6 +20,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
+#include "galaxy/components/TileMap.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
@@ -127,6 +128,13 @@ namespace galaxy
 				lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>(), "type_id", &entt::type_hash<components::Text>::value);
 			text_type["text"] = &components::Text::m_text;
 
+			auto tilemap_type           = lua.new_usertype<components::TileMap>("TileMap",
+                sol::constructors<components::TileMap()>(),
+                "type_id",
+                &entt::type_hash<components::TileMap>::value);
+			tilemap_type["get_texture"] = &components::TileMap::get_texture;
+			tilemap_type["set_texture"] = &components::TileMap::set_texture;
+
 			auto transform_type  = lua.new_usertype<components::Transform>("Transform",
                 sol::constructors<components::Transform()>(),
                 "type_id",
@@ -146,6 +154,7 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Sprite>();
 			entt_sol::register_meta_component<components::Tag>();
 			entt_sol::register_meta_component<components::Text>();
+			entt_sol::register_meta_component<components::TileMap>();
 			entt_sol::register_meta_component<components::Transform>();
 		}
 	} // namespace lua

@@ -20,6 +20,7 @@
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
 #include "galaxy/components/Text.hpp"
+#include "galaxy/components/TileMap.hpp"
 #include "galaxy/components/Transform.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Loader.hpp"
@@ -195,6 +196,7 @@ namespace galaxy
 			em.register_component<components::Sprite>("Sprite");
 			em.register_component<components::Tag>("Tag");
 			em.register_component<components::Text>("Text");
+			em.register_component<components::TileMap>("TileMap");
 			em.register_component<components::Transform>("Transform");
 			em.register_component<flags::DenySerialization>("DenySerialization");
 			em.register_component<flags::Disabled>("Disabled");

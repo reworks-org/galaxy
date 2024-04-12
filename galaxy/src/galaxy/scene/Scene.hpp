@@ -13,6 +13,7 @@
 #include "galaxy/core/Registry.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/map/World.hpp"
 #include "galaxy/systems/RenderSystem.hpp"
 
 namespace galaxy
@@ -71,6 +72,15 @@ namespace galaxy
 			void update_ui();
 
 			///
+			/// Loads an LDTK world for this scene.
+			///
+			/// \param file .ldtk project file to load.
+			///
+			/// \return True if loaded successfully.
+			///
+			[[nodiscard]] bool load_world(const std::string& file);
+
+			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
@@ -115,6 +125,11 @@ namespace galaxy
 			/// Box2D physics world.
 			///
 			b2World m_b2world;
+
+			///
+			/// LDTK world.
+			///
+			map::World m_world;
 
 			///
 			/// Box2D world velocity iterations.

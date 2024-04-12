@@ -171,6 +171,10 @@
     <ClCompile Include="src\galaxy\systems\AnimationSystem.cpp" />
     <ClCompile Include="src\galaxy\resource\Animations.cpp" />
     <ClCompile Include="src\galaxy\core\Registry.cpp" />
+    <ClCompile Include="src\galaxy\map\Map.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMap.cpp" />
+    <ClCompile Include="src\galaxy\map\World.cpp" />
+    <ClCompile Include="src\galaxy\components\TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
@@ -244,7 +248,6 @@
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
-    <ClInclude Include="src\galaxy\map\Map.hpp" />
     <ClInclude Include="src\galaxy\error\PhysFSError.hpp" />
     <ClInclude Include="src\galaxy\resource\Loader.hpp" />
     <ClInclude Include="src\galaxy\resource\Fonts.hpp" />
@@ -324,5 +327,8 @@
     <ClInclude Include="src\galaxy\systems\AnimationSystem.hpp" />
     <ClInclude Include="src\galaxy\resource\Animations.hpp" />
     <ClInclude Include="src\galaxy\core\Registry.hpp" />
+    <ClInclude Include="src\galaxy\map\Map.hpp" />
+    <ClInclude Include="src\galaxy\map\World.hpp" />
+    <ClInclude Include="src\galaxy\components\TileMap.hpp" />
   </ItemGroup>
 </Project>

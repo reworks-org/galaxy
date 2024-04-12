@@ -107,6 +107,17 @@ namespace galaxy
 			}
 		}
 
+		bool Scene::load_world(const std::string& file)
+		{
+			if (m_world.load(file))
+			{
+				m_world.parse();
+				return true;
+			}
+
+			return false;
+		}
+
 		nlohmann::json Scene::serialize()
 		{
 			nlohmann::json json = "{}"_json;
@@ -132,6 +143,8 @@ namespace galaxy
 			physics["velocity_iterations"]   = m_velocity_iterations;
 			physics["position_iterations"]   = m_position_iterations;
 			json["name"]                     = m_name;
+			json["ldtk_world"]               = m_world.file();
+			json["current_map"]              = m_world.get_active() ? m_world.get_active()->name() : "";
 
 			return json;
 		}
@@ -167,6 +180,11 @@ namespace galaxy
 			}
 
 			m_name = json.at("name");
+
+			if (load_world(json.at("ldtk_world")))
+			{
+				m_world.set_active(json.at("current_map"));
+			}
 		}
 
 	} // namespace scene

@@ -133,9 +133,16 @@ namespace galaxy
 			{
 				m_current->update();
 
+				graphics::Renderer::ref().flush();
+
 				for (auto&& system : m_systems)
 				{
-					system->update(m_current);
+					system->update(m_current->m_registry.m_entt);
+
+					if (m_current->m_world.get_active())
+					{
+						system->update(m_current->m_world.get_active()->m_registry.m_entt);
+					}
 				}
 			}
 		}
@@ -152,7 +159,13 @@ namespace galaxy
 		{
 			if ((m_rendersystem_index >= 0 && m_rendersystem_index < m_systems.size()) && m_current != nullptr)
 			{
-				m_systems[m_rendersystem_index]->update(m_current);
+				graphics::Renderer::ref().flush();
+				m_systems[m_rendersystem_index]->update(m_current->m_registry.m_entt);
+
+				if (m_current->m_world.get_active())
+				{
+					m_systems[m_rendersystem_index]->update(m_current->m_world.get_active()->m_registry.m_entt);
+				}
 			}
 		}
 

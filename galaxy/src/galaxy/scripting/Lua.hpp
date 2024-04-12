@@ -83,6 +83,11 @@ namespace galaxy
 		void inject_input();
 
 		///
+		/// Injects mapping into lua.
+		///
+		void inject_map();
+
+		///
 		/// Injects math stuff into lua.
 		///
 		void inject_math();

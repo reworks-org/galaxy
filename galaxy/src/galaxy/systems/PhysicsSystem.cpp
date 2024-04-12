@@ -26,9 +26,9 @@ namespace galaxy
 		{
 		}
 
-		void PhysicsSystem::update(scene::Scene* scene)
+		void PhysicsSystem::update(entt::registry& registry)
 		{
-			const auto group = scene->m_registry.m_entt.group<components::RigidBody>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
+			const auto group = registry.group<components::RigidBody>(entt::get<components::Transform>, entt::exclude<flags::Disabled>);
 			for (auto&& [entity, body, transform] : group.each())
 			{
 				const auto& pos = body.m_body->GetPosition();

@@ -213,22 +213,23 @@ namespace galaxy
 				m_id_to_name.emplace(hash, name);
 				m_name_to_id.emplace(name, hash);
 
-				m_json_factory.emplace(name, [](const entt::entity entity, entt::registry& registry, const nlohmann::json& json) {
-					registry.emplace<Component>(entity, json);
-				});
+				if constexpr (std::is_constructible<Component, meta::convertable_only_to<const nlohmann::json&>>::value)
+				{
+					m_json_factory.emplace(name, [](const entt::entity entity, entt::registry& registry, const nlohmann::json& json) {
+						registry.emplace<Component>(entity, json);
+					});
 
-				m_json_any_factory.emplace(name, [](const nlohmann::json& json) -> entt::any {
-					return entt::make_any<Component>(json);
-				});
+					m_json_any_factory.emplace(name, [](const nlohmann::json& json) -> entt::any {
+						return entt::make_any<Component>(json);
+					});
+				}
 
-				m_serialize_factory.emplace(name, [name](void* component) -> SerializationData {
-					if constexpr (std::derived_from<Component, fs::Serializable>)
-					{
+				if constexpr (std::derived_from<Component, fs::Serializable>)
+				{
+					m_serialize_factory.emplace(name, [name](void* component) -> SerializationData {
 						return SerializationData {.name = name, .json = static_cast<Component*>(component)->serialize()};
-					}
-
-					return SerializationData {};
-				});
+					});
+				}
 			}
 			else
 			{

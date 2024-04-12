@@ -24,9 +24,9 @@ namespace galaxy
 		{
 		}
 
-		void AnimationSystem::update(scene::Scene* scene)
+		void AnimationSystem::update(entt::registry& registry)
 		{
-			const auto group = scene->m_registry.m_entt.group<components::Animated>(entt::get<components::Sprite>, entt::exclude<flags::Disabled>);
+			const auto group = registry.group<components::Animated>(entt::get<components::Sprite>, entt::exclude<flags::Disabled>);
 			for (auto&& [entity, animated, sprite] : group.each())
 			{
 				if (!animated.m_paused && animated.m_anim != nullptr)

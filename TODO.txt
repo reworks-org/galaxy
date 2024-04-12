@@ -1,10 +1,14 @@
 - integrate camera controller
-
+- ADD LOADING SCREEN FOR SCENES
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?
-
+- merge concepts and possibly entitymeta.
 - fix event priority.
 - fix registry only calling construction of script when its created from json, not blank.
+
+- https://gameprogrammingpatterns.com/data-locality.html
+- https://gameprogrammingpatterns.com/event-queue.html
+- https://gameprogrammingpatterns.com/flyweight.html
 
 Signals:
 - https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
@@ -23,6 +27,7 @@ Tilemap:
 editor stuff:
 https://github.com/Green-Sky/imgui_entt_entity_editor
 https://github.com/scottmudge/imgui_tabs
+https://github.com/ocornut/imgui/issues/2668#issuecomment-1900456751
 
 animation:
 - need to wire up state management to input and animation in the ECS using messages/events?

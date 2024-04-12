@@ -29,7 +29,6 @@ namespace galaxy
 			nui_type["poll_input"]          = &ui::NuklearUI::poll_input;
 			nui_type["show_building_atlas"] = &ui::NuklearUI::show_building_atlas;
 			nui_type["show_loading_bar"]    = &ui::NuklearUI::show_loading_bar;
-			nui_type["show_loading_maps"]   = &ui::NuklearUI::show_loading_maps;
 
 			// clang-format off
 			lua.new_enum<nk_heading>("nk_heading",

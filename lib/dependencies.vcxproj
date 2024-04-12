@@ -102,6 +102,20 @@
     <ClCompile Include="imgui\imgui\toggle\imgui_toggle_palette.cpp" />
     <ClCompile Include="imgui\imgui\toggle\imgui_toggle_presets.cpp" />
     <ClCompile Include="imgui\imgui\toggle\imgui_toggle_renderer.cpp" />
+    <ClCompile Include="ldtkloader\src\DataTypes.cpp" />
+    <ClCompile Include="ldtkloader\src\Entity.cpp" />
+    <ClCompile Include="ldtkloader\src\EntityDef.cpp" />
+    <ClCompile Include="ldtkloader\src\Enum.cpp" />
+    <ClCompile Include="ldtkloader\src\FieldsContainer.cpp" />
+    <ClCompile Include="ldtkloader\src\Layer.cpp" />
+    <ClCompile Include="ldtkloader\src\LayerDef.cpp" />
+    <ClCompile Include="ldtkloader\src\Level.cpp" />
+    <ClCompile Include="ldtkloader\src\Project.cpp" />
+    <ClCompile Include="ldtkloader\src\TagsContainer.cpp" />
+    <ClCompile Include="ldtkloader\src\Tile.cpp" />
+    <ClCompile Include="ldtkloader\src\Tileset.cpp" />
+    <ClCompile Include="ldtkloader\src\Utils.cpp" />
+    <ClCompile Include="ldtkloader\src\World.cpp" />
     <ClCompile Include="lua\src\lapi.c" />
     <ClCompile Include="lua\src\lauxlib.c" />
     <ClCompile Include="lua\src\lbaselib.c" />
@@ -203,6 +217,25 @@
     <ClInclude Include="imgui\imgui\toggle\imgui_toggle_palette.h" />
     <ClInclude Include="imgui\imgui\toggle\imgui_toggle_presets.h" />
     <ClInclude Include="imgui\imgui\toggle\imgui_toggle_renderer.h" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\containers\FieldsContainer.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\containers\TagsContainer.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\DataTypes.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\EntityDef.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\FieldDef.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\defs\LayerDef.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Entity.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Enum.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Field.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Layer.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Level.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Project.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\thirdparty\json_fwd.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\thirdparty\optional.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Tile.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Tileset.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\Utils.hpp" />
+    <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
+    <ClInclude Include="ldtkloader\src\json.hpp" />
     <ClInclude Include="nuklear\nuklear.h" />
     <ClInclude Include="nuklear\Nuklear.hpp" />
     <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
@@ -299,7 +332,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/misc;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -356,7 +389,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/entt_sol;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/ldtkloader/include;$(SolutionDir)lib/zlib_ng_win/include;$(SolutionDir)lib/misc;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/pl_mpeg;$(SolutionDir)lib/mimalloc/include/;$(SolutionDir)lib/nuklear;$(SolutionDir)lib/zip/src;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/freetype2_win/include;$(SolutionDir)lib/glad/include;$(SolutionDir)lib/glfw/include;$(SolutionDir)lib/glm;$(SolutionDir)lib/imgui;$(SolutionDir)lib/miniaudio;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/msdfgl/include;$(SolutionDir)lib/tinyfiledialogs;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/stb/include;$(SolutionDir)lib/subprocess;$(SolutionDir)lib/dense/include;$(SolutionDir)galaxy/src;$(SolutionDir)supercluster/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

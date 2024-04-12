@@ -26,6 +26,7 @@ namespace galaxy
 			inject_fs();
 			inject_graphics();
 			inject_input();
+			inject_map();
 			inject_math();
 			inject_media();
 			inject_resources();
