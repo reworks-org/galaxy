@@ -36,15 +36,16 @@ namespace galaxy
 			scene_type["load_world"]          = &scene::Scene::load_world;
 			scene_type["world"]               = &scene::Scene::m_world;
 
-			auto scenemanager_type        = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["add"]      = &scene::SceneManager::add;
-			scenemanager_type["clear"]    = &scene::SceneManager::clear;
-			scenemanager_type["empty"]    = &scene::SceneManager::empty;
-			scenemanager_type["get"]      = &scene::SceneManager::get;
-			scenemanager_type["has"]      = &scene::SceneManager::has;
-			scenemanager_type["load_app"] = &scene::SceneManager::load_app;
-			scenemanager_type["remove"]   = &scene::SceneManager::remove;
-			scenemanager_type["save_app"] = &scene::SceneManager::save_app;
+			auto scenemanager_type         = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["add"]       = &scene::SceneManager::add;
+			scenemanager_type["clear"]     = &scene::SceneManager::clear;
+			scenemanager_type["empty"]     = &scene::SceneManager::empty;
+			scenemanager_type["get"]       = &scene::SceneManager::get;
+			scenemanager_type["has"]       = &scene::SceneManager::has;
+			scenemanager_type["load_app"]  = &scene::SceneManager::load_app;
+			scenemanager_type["remove"]    = &scene::SceneManager::remove;
+			scenemanager_type["save_app"]  = &scene::SceneManager::save_app;
+			scenemanager_type["set_scene"] = &scene::SceneManager::set_scene;
 		}
 	} // namespace lua
 } // namespace galaxy

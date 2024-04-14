@@ -83,6 +83,13 @@ namespace galaxy
 			[[nodiscard]] bool has(const std::string& name);
 
 			///
+			/// Scene to set to currently active.
+			///
+			/// \param name Scene name.
+			///
+			void set_scene(const std::string& name);
+
+			///
 			/// \brief Add a system to the manager.
 			///
 			/// \tparam System Type of system to create.

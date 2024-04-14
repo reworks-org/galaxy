@@ -78,6 +78,15 @@ namespace galaxy
 			return m_scenes.contains(math::fnv1a_64(name.c_str()));
 		}
 
+		void SceneManager::set_scene(const std::string& name)
+		{
+			const auto hash = math::fnv1a_64(name.c_str());
+			if (m_scenes.contains(hash))
+			{
+				m_current = m_scenes[hash].get();
+			}
+		}
+
 		void SceneManager::load_app(const std::string& appdata_file)
 		{
 			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read(appdata_file);
