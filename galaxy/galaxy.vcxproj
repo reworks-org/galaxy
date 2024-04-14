@@ -255,7 +255,6 @@
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
-    <ClCompile Include="src\galaxy\ui\ImGuiTheme.cpp" />
     <ClCompile Include="src\galaxy\ui\NuklearUI.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\meta\Memory.cpp" />
@@ -331,7 +330,6 @@
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
-    <ClInclude Include="src\galaxy\ui\ImGuiTheme.hpp" />
     <ClInclude Include="src\galaxy\ui\NuklearUI.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\meta\Memory.hpp" />

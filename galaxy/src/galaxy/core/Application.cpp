@@ -47,7 +47,6 @@
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
-#include "galaxy/ui/ImGuiTheme.hpp"
 #include "galaxy/ui/NuklearUI.hpp"
 
 #include "Application.hpp"

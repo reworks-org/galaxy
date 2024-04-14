@@ -48,6 +48,11 @@ namespace galaxy
 		void imgui_destroy_context();
 
 		///
+		/// Set our theme.
+		///
+		void imgui_set_theme();
+
+		///
 		/// Open a confirmation popup.
 		///
 		/// \param popup String ID of popup to open.
