@@ -80,7 +80,6 @@ namespace galaxy
 				std::filesystem::create_directory(log_dir);
 			}
 
-			// GALAXY_LOG_INIT();
 			GALAXY_ADD_SINK(error::FileSink, log_path);
 			GALAXY_ADD_SINK(error::ConsoleSink);
 			GALAXY_LOG(GALAXY_INFO, "App started.");

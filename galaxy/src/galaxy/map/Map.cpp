@@ -12,6 +12,11 @@
 
 #include "Map.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(4244)
+#endif
+
 namespace galaxy
 {
 	namespace map
@@ -114,7 +119,7 @@ namespace galaxy
 			tag.m_tag = layer.getName();
 
 			auto& tilemap = m_registry.m_entt.emplace<components::TileMap>(entity);
-			tilemap.m_batch.init(layer.allTiles().size());
+			tilemap.m_batch.init(static_cast<int>(layer.allTiles().size()));
 
 			for (const auto& tile : layer.allTiles())
 			{
@@ -167,3 +172,7 @@ namespace galaxy
 
 	} // namespace map
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

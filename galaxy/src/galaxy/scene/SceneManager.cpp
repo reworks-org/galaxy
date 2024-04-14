@@ -188,6 +188,7 @@ namespace galaxy
 
 		void SceneManager::clear()
 		{
+			m_current = nullptr;
 			m_scenes.clear();
 		}
 
@@ -215,7 +216,7 @@ namespace galaxy
 
 		void SceneManager::deserialize(const nlohmann::json& json)
 		{
-			m_scenes.clear();
+			clear();
 
 			const auto& scenes = json.at("scenes");
 			const auto& order  = json.at("order");
