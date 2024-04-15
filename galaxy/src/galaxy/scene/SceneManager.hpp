@@ -144,6 +144,13 @@ namespace galaxy
 			void clear();
 
 			///
+			/// Get current scene.
+			///
+			/// \return Pointer to current scene, nullptr if no scene.
+			///
+			[[nodiscard]] scene::Scene* current() const;
+
+			///
 			/// Get all scenes.
 			///
 			/// \return Reference to scene object.

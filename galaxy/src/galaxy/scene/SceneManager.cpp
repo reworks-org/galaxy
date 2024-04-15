@@ -192,6 +192,11 @@ namespace galaxy
 			m_scenes.clear();
 		}
 
+		scene::Scene* SceneManager::current() const
+		{
+			return m_current;
+		}
+
 		const SceneManager::Map& SceneManager::map() const
 		{
 			return m_scenes;

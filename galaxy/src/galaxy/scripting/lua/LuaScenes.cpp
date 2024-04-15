@@ -46,6 +46,7 @@ namespace galaxy
 			scenemanager_type["remove"]    = &scene::SceneManager::remove;
 			scenemanager_type["save_app"]  = &scene::SceneManager::save_app;
 			scenemanager_type["set_scene"] = &scene::SceneManager::set_scene;
+			scenemanager_type["current"]   = &scene::SceneManager::current;
 		}
 	} // namespace lua
 } // namespace galaxy
