@@ -184,6 +184,8 @@ static ImGui_ImplGlfw_Data* ImGui_ImplGlfw_GetBackendData()
     return ImGui::GetCurrentContext() ? (ImGui_ImplGlfw_Data*)ImGui::GetIO().BackendPlatformUserData : nullptr;
 }
 
+static bool glfw_do_input;
+
 // Forward Declarations
 static void ImGui_ImplGlfw_UpdateMonitors();
 static void ImGui_ImplGlfw_InitPlatformInterface();
@@ -329,11 +331,11 @@ static ImGuiKey ImGui_ImplGlfw_KeyToImGuiKey(int key)
 // See https://github.com/ocornut/imgui/issues/6034 and https://github.com/glfw/glfw/issues/1630
 static void ImGui_ImplGlfw_UpdateKeyModifiers(GLFWwindow* window)
 {
-    ImGuiIO& io = ImGui::GetIO();
-    io.AddKeyEvent(ImGuiMod_Ctrl,  (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS));
-    io.AddKeyEvent(ImGuiMod_Shift, (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT)   == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_SHIFT)   == GLFW_PRESS));
-    io.AddKeyEvent(ImGuiMod_Alt,   (glfwGetKey(window, GLFW_KEY_LEFT_ALT)     == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_ALT)     == GLFW_PRESS));
-    io.AddKeyEvent(ImGuiMod_Super, (glfwGetKey(window, GLFW_KEY_LEFT_SUPER)   == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_SUPER)   == GLFW_PRESS));
+	ImGuiIO& io = ImGui::GetIO();
+	io.AddKeyEvent(ImGuiMod_Ctrl,  (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS));
+	io.AddKeyEvent(ImGuiMod_Shift, (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT)   == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_SHIFT)   == GLFW_PRESS));
+	io.AddKeyEvent(ImGuiMod_Alt,   (glfwGetKey(window, GLFW_KEY_LEFT_ALT)     == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_ALT)     == GLFW_PRESS));
+	io.AddKeyEvent(ImGuiMod_Super, (glfwGetKey(window, GLFW_KEY_LEFT_SUPER)   == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_SUPER)   == GLFW_PRESS));
 }
 
 static bool ImGui_ImplGlfw_ShouldChainCallback(GLFWwindow* window)
@@ -348,11 +350,14 @@ void ImGui_ImplGlfw_MouseButtonCallback(GLFWwindow* window, int button, int acti
     if (bd->PrevUserCallbackMousebutton != nullptr && ImGui_ImplGlfw_ShouldChainCallback(window))
         bd->PrevUserCallbackMousebutton(window, button, action, mods);
 
-    ImGui_ImplGlfw_UpdateKeyModifiers(window);
+	if (glfw_do_input)
+	{
+		ImGui_ImplGlfw_UpdateKeyModifiers(window);
 
-    ImGuiIO& io = ImGui::GetIO();
-    if (button >= 0 && button < ImGuiMouseButton_COUNT)
-        io.AddMouseButtonEvent(button, action == GLFW_PRESS);
+		ImGuiIO& io = ImGui::GetIO();
+		if (button >= 0 && button < ImGuiMouseButton_COUNT)
+			io.AddMouseButtonEvent(button, action == GLFW_PRESS);
+	}
 }
 
 void ImGui_ImplGlfw_ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
@@ -366,8 +371,11 @@ void ImGui_ImplGlfw_ScrollCallback(GLFWwindow* window, double xoffset, double yo
     return;
 #endif
 
-    ImGuiIO& io = ImGui::GetIO();
-    io.AddMouseWheelEvent((float)xoffset, (float)yoffset);
+	if (glfw_do_input)
+    {
+		ImGuiIO& io = ImGui::GetIO();
+		io.AddMouseWheelEvent((float)xoffset, (float)yoffset);
+	}
 }
 
 static int ImGui_ImplGlfw_TranslateUntranslatedKey(int key, int scancode)
@@ -412,17 +420,20 @@ void ImGui_ImplGlfw_KeyCallback(GLFWwindow* window, int keycode, int scancode, i
     if (action != GLFW_PRESS && action != GLFW_RELEASE)
         return;
 
-    ImGui_ImplGlfw_UpdateKeyModifiers(window);
+	if (glfw_do_input)
+    {
+		ImGui_ImplGlfw_UpdateKeyModifiers(window);
 
-    if (keycode >= 0 && keycode < IM_ARRAYSIZE(bd->KeyOwnerWindows))
-        bd->KeyOwnerWindows[keycode] = (action == GLFW_PRESS) ? window : nullptr;
+		if (keycode >= 0 && keycode < IM_ARRAYSIZE(bd->KeyOwnerWindows))
+			bd->KeyOwnerWindows[keycode] = (action == GLFW_PRESS) ? window : nullptr;
 
-    keycode = ImGui_ImplGlfw_TranslateUntranslatedKey(keycode, scancode);
+		keycode = ImGui_ImplGlfw_TranslateUntranslatedKey(keycode, scancode);
 
-    ImGuiIO& io = ImGui::GetIO();
-    ImGuiKey imgui_key = ImGui_ImplGlfw_KeyToImGuiKey(keycode);
-    io.AddKeyEvent(imgui_key, (action == GLFW_PRESS));
-    io.SetKeyEventNativeData(imgui_key, keycode, scancode); // To support legacy indexing (<1.87 user code)
+		ImGuiIO& io = ImGui::GetIO();
+		ImGuiKey imgui_key = ImGui_ImplGlfw_KeyToImGuiKey(keycode);
+		io.AddKeyEvent(imgui_key, (action == GLFW_PRESS));
+		io.SetKeyEventNativeData(imgui_key, keycode, scancode); // To support legacy indexing (<1.87 user code)
+	}
 }
 
 void ImGui_ImplGlfw_WindowFocusCallback(GLFWwindow* window, int focused)
@@ -481,8 +492,11 @@ void ImGui_ImplGlfw_CharCallback(GLFWwindow* window, unsigned int c)
     if (bd->PrevUserCallbackChar != nullptr && ImGui_ImplGlfw_ShouldChainCallback(window))
         bd->PrevUserCallbackChar(window, c);
 
-    ImGuiIO& io = ImGui::GetIO();
-    io.AddInputCharacter(c);
+	if (glfw_do_input)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.AddInputCharacter(c);
+	}
 }
 
 void ImGui_ImplGlfw_MonitorCallback(GLFWmonitor*, int)
@@ -494,17 +508,21 @@ void ImGui_ImplGlfw_MonitorCallback(GLFWmonitor*, int)
 #ifdef __EMSCRIPTEN__
 static EM_BOOL ImGui_ImplEmscripten_WheelCallback(int, const EmscriptenWheelEvent* ev, void*)
 {
-    // Mimic Emscripten_HandleWheel() in SDL.
-    // Corresponding equivalent in GLFW JS emulation layer has incorrect quantizing preventing small values. See #6096
-    float multiplier = 0.0f;
-    if (ev->deltaMode == DOM_DELTA_PIXEL)       { multiplier = 1.0f / 100.0f; } // 100 pixels make up a step.
-    else if (ev->deltaMode == DOM_DELTA_LINE)   { multiplier = 1.0f / 3.0f; }   // 3 lines make up a step.
-    else if (ev->deltaMode == DOM_DELTA_PAGE)   { multiplier = 80.0f; }         // A page makes up 80 steps.
-    float wheel_x = ev->deltaX * -multiplier;
-    float wheel_y = ev->deltaY * -multiplier;
-    ImGuiIO& io = ImGui::GetIO();
-    io.AddMouseWheelEvent(wheel_x, wheel_y);
-    //IMGUI_DEBUG_LOG("[Emsc] mode %d dx: %.2f, dy: %.2f, dz: %.2f --> feed %.2f %.2f\n", (int)ev->deltaMode, ev->deltaX, ev->deltaY, ev->deltaZ, wheel_x, wheel_y);
+	if (glfw_do_input)
+	{
+		// Mimic Emscripten_HandleWheel() in SDL.
+		// Corresponding equivalent in GLFW JS emulation layer has incorrect quantizing preventing small values. See #6096
+		float multiplier = 0.0f;
+		if (ev->deltaMode == DOM_DELTA_PIXEL)       { multiplier = 1.0f / 100.0f; } // 100 pixels make up a step.
+		else if (ev->deltaMode == DOM_DELTA_LINE)   { multiplier = 1.0f / 3.0f; }   // 3 lines make up a step.
+		else if (ev->deltaMode == DOM_DELTA_PAGE)   { multiplier = 80.0f; }         // A page makes up 80 steps.
+		float wheel_x = ev->deltaX * -multiplier;
+		float wheel_y = ev->deltaY * -multiplier;
+		ImGuiIO& io = ImGui::GetIO();
+		io.AddMouseWheelEvent(wheel_x, wheel_y);
+		//IMGUI_DEBUG_LOG("[Emsc] mode %d dx: %.2f, dy: %.2f, dz: %.2f --> feed %.2f %.2f\n", (int)ev->deltaMode, ev->deltaX, ev->deltaY, ev->deltaZ, wheel_x, wheel_y);
+	}
+   
     return EM_TRUE;
 }
 #endif
@@ -567,6 +585,9 @@ void ImGui_ImplGlfw_SetCallbacksChainForAllWindows(bool chain_for_all_windows)
 
 static bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks, GlfwClientApi client_api)
 {
+	// Make sure input is always enabled at first.
+	glfw_do_input = true;
+	
     ImGuiIO& io = ImGui::GetIO();
     IM_ASSERT(io.BackendPlatformUserData == nullptr && "Already initialized a platform backend!");
     //printf("GLFW_VERSION: %d.%d.%d (%d)", GLFW_VERSION_MAJOR, GLFW_VERSION_MINOR, GLFW_VERSION_REVISION, GLFW_VERSION_COMBINED);
@@ -924,6 +945,11 @@ void ImGui_ImplGlfw_NewFrame()
 
     // Update game controllers (if enabled and available)
     ImGui_ImplGlfw_UpdateGamepads();
+}
+
+void ImGui_ImplGlfw_ToggleInput(bool enable)
+{
+	glfw_do_input = enable;
 }
 
 #ifdef __EMSCRIPTEN__
