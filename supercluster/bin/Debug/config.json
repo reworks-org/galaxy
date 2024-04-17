@@ -1,6 +1,5 @@
 {
     "config": {
-        "asset_pak": "data.galaxypak",
         "audio": {
             "dialogue_volume": 1.0,
             "listener_count": 1,
@@ -8,12 +7,6 @@
             "sfx_volume": 1.0
         },
         "default_lang": "en_au",
-        "editor": {
-            "autosave_interval_seconds": 300,
-            "padding": 48.0,
-            "theme": "DRACULA",
-            "thumb_size": 96.0
-        },
         "graphics": {
             "ansiotrophic_filtering": 16,
             "effects": {
@@ -24,7 +17,6 @@
                 "sharpen": false,
                 "smaa": false
             },
-            "texture_atlas_size": 2048,
             "trilinear_filtering": true
         },
         "input": {
@@ -35,7 +27,6 @@
             "camera_rotate_left": 81,
             "camera_rotate_right": 69
         },
-        "log_performance": false,
         "ui_font_size": 14.0,
         "use_loose_assets": true,
         "window": {
@@ -43,7 +34,7 @@
             "debug": true,
             "height": 1080,
             "icon": "",
-            "maximized": false,
+            "maximized": true,
             "scale_to_monitor": true,
             "title": "supercluster",
             "visible_cursor": true,

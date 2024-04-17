@@ -9,6 +9,3 @@ Scenes:
 - on scene load would create entities or other stuff for current battle in a battle scene for example.
 - individual scenes of different types? or a script call to lua that does stuff for you on scene load/unload.
 - attach a script to a scene on construction -> register with lua as an event that can be called on (un)load.
-
-Editor:
-- Editor needs to be an "overlay": i.e. editor stores a copy of the system i.e. scenemanager, and only during "run" do we copy it over.
