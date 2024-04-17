@@ -16,9 +16,7 @@ namespace sc
 
 	void EditorSink::sink_message(const error::LogMessage& message)
 	{
-		// clang-format off
 		m_logs.emplace_back(message);
-		// clang-format on
 	}
 
 	void EditorSink::clear()

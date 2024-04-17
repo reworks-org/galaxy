@@ -43,24 +43,25 @@ namespace
 
 namespace sc
 {
-	namespace panel
+	LuaConsole::LuaConsole()
+		: m_show {true}
 	{
-		LuaConsole::LuaConsole()
-		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+		auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			lua_getglobal(lua.lua_state(), "_G");
-			luaL_setfuncs(lua.lua_state(), printlib, 0);
-			lua_pop(lua.lua_state(), 1);
-		}
+		lua_getglobal(lua.lua_state(), "_G");
+		luaL_setfuncs(lua.lua_state(), printlib, 0);
+		lua_pop(lua.lua_state(), 1);
+	}
 
-		LuaConsole::~LuaConsole()
-		{
-			m_buff.clear();
-			m_history.clear();
-		}
+	LuaConsole::~LuaConsole()
+	{
+		m_buff.clear();
+		m_history.clear();
+	}
 
-		void LuaConsole::render()
+	void LuaConsole::render()
+	{
+		if (m_show)
 		{
 			if (ImGui::Begin(ICON_MDI_CONSOLE " Lua Terminal", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
@@ -197,5 +198,5 @@ namespace sc
 
 			ImGui::End();
 		}
-	} // namespace panel
+	}
 } // namespace sc

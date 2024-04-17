@@ -24,9 +24,6 @@
 #pragma warning(disable : 4312)
 #endif
 
-constexpr const ImVec2                          mid = {0.5f, 0.5f};
-ankerl::unordered_dense::map<const char*, bool> popup_state;
-
 namespace galaxy
 {
 	void* ImGuiMemAllocFunc(size_t sz, void* user_data)
@@ -43,8 +40,6 @@ namespace galaxy
 	{
 		ImGuiIO& imgui_init_context()
 		{
-			popup_state.clear();
-
 			// clang-format off
 			IMGUI_CHECKVERSION();
 			ImGui::SetAllocatorFunctions(ImGuiMemAllocFunc, ImGuiMemFreeFunc, nullptr);
@@ -112,8 +107,6 @@ namespace galaxy
 
 		void imgui_destroy_context()
 		{
-			popup_state.clear();
-
 			ImGui_ImplOpenGL3_Shutdown();
 			ImGui_ImplGlfw_Shutdown();
 			ImGui::DestroyContext();
@@ -210,58 +203,56 @@ namespace galaxy
 			style.Colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.1450980454683304f, 0.1450980454683304f, 0.1490196138620377f, 1.0f);
 		}
 
-		void imgui_open_confirm(const char* popup)
+		void imgui_popup(const char* id, bool& open, const std::function<void(void)>& func)
 		{
-			popup_state[popup] = true;
-		}
-
-		void imgui_confirm(const char* popup, const std::function<void(void)>& yes, const std::function<void(void)>& no)
-		{
-			if (popup_state[popup])
+			if (open)
 			{
-				ImGui::OpenPopup(popup);
-				imgui_center_next_window();
-
-				popup_state[popup] = false;
+				ImGui::OpenPopup(id);
+				open = false;
 			}
 
-			if (ImGui::BeginPopup(popup))
+			imgui_center_next_window();
+			if (ImGui::BeginPopup(id))
 			{
-				ImGui::Text("Are you sure you want to?");
-
-				ImGui::Separator();
-				ImGui::Spacing();
-
-				if (ImGui::Button("Yes"))
-				{
-					if (yes)
-					{
-						yes();
-					}
-
-					ImGui::CloseCurrentPopup();
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("No"))
-				{
-					if (no)
-					{
-						no();
-					}
-
-					ImGui::CloseCurrentPopup();
-				}
-
+				func();
 				ImGui::EndPopup();
+			}
+		}
+
+		void imgui_confirm(const char* msg, const std::function<void(void)>& yes, const std::function<void(void)>& no)
+		{
+			ImGui::Text(msg);
+
+			ImGui::Separator();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Yes"))
+			{
+				if (yes)
+				{
+					yes();
+				}
+
+				ImGui::CloseCurrentPopup();
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("No"))
+			{
+				if (no)
+				{
+					no();
+				}
+
+				ImGui::CloseCurrentPopup();
 			}
 		}
 
 		void imgui_center_next_window()
 		{
 			const auto center = ImGui::GetMainViewport()->GetCenter();
-			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, mid);
+			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, {0.5f, 0.5f});
 		}
 
 		bool imgui_imagebutton(const graphics::Texture2D& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)

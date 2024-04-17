@@ -5,11 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/utils/Globals.hpp>
-
-/*
-#include <iostream>
-
 #include <mimalloc-new-delete.h>
 
 #include <imgui/imgui_freetype.h>
@@ -20,20 +15,16 @@
 #include <galaxy/core/Config.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
 #include <galaxy/resource/embedded/RobotoLight.hpp>
-#include <galaxy/scene/SceneManager.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
-#include <galaxy/ui/ImGuiTheme.hpp>
 
-
-#include "scenes/Editor.hpp"
-*/
+#include "Editor.hpp"
 
 using namespace galaxy;
 
 int main(int argsc, char* argsv[])
 {
-	/*
 	GALAXY_UNUSED(argsc);
 	GALAXY_UNUSED(argsv);
 
@@ -67,50 +58,16 @@ int main(int argsc, char* argsv[])
 
 				static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
 				ImFontConfig         md_icons_cfg;
-				md_icons_cfg.MergeMode  = true;
-				md_icons_cfg.PixelSnapH = true;
+				md_icons_cfg.FontDataOwnedByAtlas = false;
+				md_icons_cfg.MergeMode            = true;
+				md_icons_cfg.PixelSnapH           = true;
 				ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)materialdesignicons_ttf, sizeof(materialdesignicons_ttf), 16.0f, &md_icons_cfg, icons_ranges);
 
-				auto& config = core::ServiceLocator<core::Config>::ref();
-				config.restore<std::string>("theme", "DARK", "editor");
-				config.save();
+				ui::imgui_set_theme();
 
-				const auto theme = magic_enum::enum_cast<ui::ImguiThemeId>(config.get<std::string>("theme", "editor"));
-				if (theme.has_value())
-				{
-					if (theme.value() == ui::ImguiThemeId::DARK)
-					{
-						ImGui::StyleColorsDark();
-					}
-					else if (theme.value() == ui::ImguiThemeId::DRACULA)
-					{
-						ui::imgui_theme_dracula();
-					}
-					else if (theme.value() == ui::ImguiThemeId::MATERIAL_DARK)
-					{
-						ui::imgui_theme_material_dark();
-					}
-					else if (theme.value() == ui::ImguiThemeId::VISUAL_DARK)
-					{
-						ui::imgui_theme_visual_dark();
-					}
-					else if (theme.value() == ui::ImguiThemeId::FANCY_DARK)
-					{
-						ui::imgui_theme_fancy_dark();
-					}
-					else if (theme.value() == ui::ImguiThemeId::DARK_EMBRACE)
-					{
-						ui::imgui_theme_dark_embrace();
-					}
-					else if (theme.value() == ui::ImguiThemeId::ENHANCED_DARK)
-					{
-						ui::imgui_theme_enhanced_dark();
-					}
-				}
-
-				auto& sm    = core::ServiceLocator<scene::SceneManager>::ref();
-				auto  scene = sm.add_custom<sc::Editor>("sc_editor");
-				scene->enable();
+				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
+				sm.add_custom<sc::Editor>("sc_editor");
+				sm.set_scene("sc_editor");
 			}
 
 			supercluster.run();
@@ -124,6 +81,6 @@ int main(int argsc, char* argsv[])
 			std::cin.get();
 		}
 	} while (GALAXY_RESTART);
-	*/
+
 	return GALAXY_EXIT_SUCCESS;
 }

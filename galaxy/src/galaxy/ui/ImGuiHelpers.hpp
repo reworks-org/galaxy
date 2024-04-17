@@ -53,20 +53,22 @@ namespace galaxy
 		void imgui_set_theme();
 
 		///
-		/// Open a confirmation popup.
+		/// Cleaner way of rendering an ImGui popup.
 		///
-		/// \param popup String ID of popup to open.
+		/// \param id Popup ID.
+		/// \param open Controls popup visibility.
+		/// \param func ImGui controls to show on popup.
 		///
-		void imgui_open_confirm(const char* popup);
+		void imgui_popup(const char* id, bool& open, const std::function<void(void)>& func);
 
 		///
-		/// Render the confirmation popup.
+		/// Handles a popup for a yes/no situation.
 		///
-		/// \param popup String ID of popup to open.
-		/// \param yes Callback if user selects the yes option.
-		/// \param no Callback if user selects the no option.
+		/// \param msg Text to display on confirmation box.
+		/// \param yes Code to run if user selects yes.
+		/// \param no Code to run if user selects no.
 		///
-		void imgui_confirm(const char* popup, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {});
+		void imgui_confirm(const char* msg, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {});
 
 		///
 		/// Make sure the next window opened is centered on the monitor.

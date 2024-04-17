@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_EDITOR_EDITORSINK_HPP_
-#define SUPERCLUSTER_EDITOR_EDITORSINK_HPP_
+#ifndef SUPERCLUSTER_EDITORSINK_HPP_
+#define SUPERCLUSTER_EDITORSINK_HPP_
 
 #include <vector>
 

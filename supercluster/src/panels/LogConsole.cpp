@@ -14,28 +14,29 @@
 
 namespace sc
 {
-	namespace panel
+	LogConsole::LogConsole()
+		: m_sink {nullptr}
+		, m_icon_size {32, 32}
+		, m_show_info {true}
+		, m_show_warning {true}
+		, m_show_error {true}
+		, m_show {true}
 	{
-		LogConsole::LogConsole()
-			: m_sink {nullptr}
-			, m_icon_size {32, 32}
-			, m_show_info {true}
-			, m_show_warning {true}
-			, m_show_error {true}
-		{
-		}
+	}
 
-		LogConsole::~LogConsole()
-		{
-			m_sink = nullptr;
-		}
+	LogConsole::~LogConsole()
+	{
+		m_sink = nullptr;
+	}
 
-		void LogConsole::set_sink(EditorSink* sink)
-		{
-			m_sink = sink;
-		}
+	void LogConsole::set_sink(EditorSink* sink)
+	{
+		m_sink = sink;
+	}
 
-		void LogConsole::render()
+	void LogConsole::render()
+	{
+		if (m_show)
 		{
 			if (ImGui::Begin(ICON_MDI_POST " Log", NULL, ImGuiWindowFlags_AlwaysVerticalScrollbar))
 			{
@@ -117,5 +118,5 @@ namespace sc
 
 			ImGui::End();
 		}
-	} // namespace panel
+	}
 } // namespace sc

@@ -11,7 +11,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Editor.cpp" />
+    <ClCompile Include="src\EditorSink.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\panels\CodeEditor.cpp" />
+    <ClCompile Include="src\panels\LogConsole.cpp" />
+    <ClCompile Include="src\panels\LuaConsole.cpp" />
+    <ClCompile Include="src\panels\Viewport.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Editor.hpp" />
+    <ClInclude Include="src\EditorSink.hpp" />
+    <ClInclude Include="src\panels\CodeEditor.hpp" />
+    <ClInclude Include="src\panels\LogConsole.hpp" />
+    <ClInclude Include="src\panels\LuaConsole.hpp" />
+    <ClInclude Include="src\panels\Viewport.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

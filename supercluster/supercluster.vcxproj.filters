@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="src\Editor.cpp" />
+    <ClCompile Include="src\EditorSink.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\panels\LogConsole.cpp" />
+    <ClCompile Include="src\panels\Viewport.cpp" />
+    <ClCompile Include="src\panels\LuaConsole.cpp" />
+    <ClCompile Include="src\panels\CodeEditor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Editor.hpp" />
+    <ClInclude Include="src\EditorSink.hpp" />
+    <ClInclude Include="src\panels\LogConsole.hpp" />
+    <ClInclude Include="src\panels\Viewport.hpp" />
+    <ClInclude Include="src\panels\LuaConsole.hpp" />
+    <ClInclude Include="src\panels\CodeEditor.hpp" />
   </ItemGroup>
 </Project>
