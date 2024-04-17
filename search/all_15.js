@@ -36,10 +36,9 @@ var searchData=
   ['virtualfilesystem_33',['virtualfilesystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs::VirtualFileSystem'],['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#afa8610dcc3da7ce83b9a01a956d35ed9',1,'galaxy::fs::VirtualFileSystem::VirtualFileSystem(VirtualFileSystem &amp;&amp;)=delete'],['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a713915bf658a7fca56793b42edf020d7',1,'galaxy::fs::VirtualFileSystem::VirtualFileSystem(const VirtualFileSystem &amp;)=delete'],['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c',1,'galaxy::fs::VirtualFileSystem::VirtualFileSystem()']]],
   ['virtualfilesystem_2ecpp_34',['VirtualFileSystem.cpp',['../d5/deb/VirtualFileSystem_8cpp.html',1,'']]],
   ['virtualfilesystem_2ehpp_35',['VirtualFileSystem.hpp',['../de/dc7/VirtualFileSystem_8hpp.html',1,'']]],
-  ['visual_5fdark_36',['VISUAL_DARK',['../d3/dd9/namespacegalaxy_1_1ui.html#a0baa39d7d129c3db2a52519cbb04a08eabd742fa443d1de350b8755b68b62bdf0',1,'galaxy::ui']]],
-  ['voice_37',['VOICE',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034a9369ef98bb3f619078bb34cbf76ac6e4',1,'galaxy::media']]],
-  ['voicecache_38',['VoiceCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a513d039956ff773bfc5eaaa608e3c459',1,'galaxy::resource']]],
-  ['voiceengine_39',['VoiceEngine',['../dc/d80/namespacegalaxy_1_1media.html#ac31beda2113a0af7f5a2e5f314385a4e',1,'galaxy::media']]],
-  ['voiceloader_40',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]],
-  ['vsync_41',['vsync',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#ab703099d7b193f489987e8b4d249604b',1,'galaxy::core::WindowSettings']]]
+  ['voice_36',['VOICE',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034a9369ef98bb3f619078bb34cbf76ac6e4',1,'galaxy::media']]],
+  ['voicecache_37',['VoiceCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a513d039956ff773bfc5eaaa608e3c459',1,'galaxy::resource']]],
+  ['voiceengine_38',['VoiceEngine',['../dc/d80/namespacegalaxy_1_1media.html#ac31beda2113a0af7f5a2e5f314385a4e',1,'galaxy::media']]],
+  ['voiceloader_39',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]],
+  ['vsync_40',['vsync',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#ab703099d7b193f489987e8b4d249604b',1,'galaxy::core::WindowSettings']]]
 ];

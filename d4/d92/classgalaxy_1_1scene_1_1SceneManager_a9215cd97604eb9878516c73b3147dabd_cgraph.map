@@ -6,11 +6,13 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,98,273,92,274,97,221,103"/>
 <area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="276,120,491,160"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="221,120,263,125,262,130,220,126"/>
-<area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,185,499,210"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="161,130,269,169,304,179,302,184,267,175,159,135"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="547,127,793,153"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="491,137,533,137,533,143,491,143"/>
-<area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="841,127,1016,153"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="793,137,827,137,827,143,793,143"/>
-<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="887,129,878,119,882,109,900,103,929,101,965,105,975,109,979,115,975,118,972,113,964,110,929,106,901,108,886,113,883,118,891,125"/>
+<area shape="rect" id="Node000008" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,185,499,210"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="161,130,269,169,304,179,302,184,267,175,159,135"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="547,99,793,125"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="491,127,533,123,533,128,491,132"/>
+<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="563,149,777,189"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="491,148,550,154,549,160,491,154"/>
+<area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="841,99,1016,125"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="793,109,827,109,827,115,793,115"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="887,101,878,91,882,81,900,75,929,73,965,77,975,81,979,87,975,90,972,85,964,82,929,78,901,80,886,85,883,90,891,97"/>
 </map>
