@@ -411,40 +411,12 @@ namespace sc
 			ImGui::Text("Controls:\n[PAUSE] - Exit Game Mode.\n[LEFT SHIFT] - Enable Docking.");
 		});
 
-		m_viewport.render(m_state);
 		m_log_console.render();
 		m_lua_console.render();
 		m_code_editor.render();
 		m_asset_panel.render(m_code_editor);
-
-		if (m_settings_panel.m_show)
-		{
-			if (ImGui::Begin("Settings", &m_settings_panel.m_show, ImGuiWindowFlags_MenuBar))
-			{
-				if (ImGui::BeginMenuBar())
-				{
-					if (ImGui::MenuItem("Save"))
-					{
-						auto& config = core::ServiceLocator<core::Config>::ref();
-						config.raw(m_settings_panel.save());
-						config.save();
-
-						ui::imgui_notify_success("Settings changed, a restart is needed.");
-					}
-
-					if (ImGui::MenuItem("Refresh"))
-					{
-						m_settings_panel.load(core::ServiceLocator<core::Config>::ref().raw());
-					}
-
-					ImGui::EndMenuBar();
-				}
-
-				m_settings_panel.render();
-			}
-
-			ImGui::End();
-		}
+		m_viewport.render(m_state);
+		m_settings_panel.render();
 
 		render_exporter();
 		end_dock();
@@ -486,10 +458,7 @@ namespace sc
 		{
 			if (ImGui::BeginMenu("File"))
 			{
-				if (ImGui::MenuItem("New", "Ctrl+N"))
-				{
-					m_show_new = true;
-				}
+				m_show_new = ImGui::MenuItem("New", "Ctrl+N");
 
 				if (ImGui::MenuItem("Open", "Ctrl+O"))
 				{
@@ -511,15 +480,8 @@ namespace sc
 					export_project();
 				}
 
-				if (ImGui::MenuItem("Restart"))
-				{
-					m_show_restart = true;
-				}
-
-				if (ImGui::MenuItem("Exit"))
-				{
-					m_show_exit = true;
-				}
+				m_show_restart = ImGui::MenuItem("Restart");
+				m_show_exit    = ImGui::MenuItem("Exit");
 
 				ImGui::EndMenu();
 			}
@@ -528,12 +490,12 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Toggle Scene Panel", "Ctrl+Alt+S"))
 				{
-					// m_show_scenes = !m_show_scenes;
+					m_scene_panel.m_show = !m_scene_panel.m_show;
 				}
 
 				if (ImGui::MenuItem("Toggle Entity Panel", "Ctrl+Alt+E"))
 				{
-					// m_show_entities = !m_show_entities;
+					m_entity_panel.m_show = !m_entity_panel.m_show;
 				}
 
 				if (ImGui::MenuItem("Toggle Viewport", "Ctrl+Alt+V"))
@@ -588,10 +550,7 @@ namespace sc
 				m_settings_panel.m_show = !m_settings_panel.m_show;
 			}
 
-			if (ImGui::MenuItem("About"))
-			{
-				m_show_about = true;
-			}
+			m_show_about = ImGui::MenuItem("About");
 
 			draw_game_controls();
 
@@ -644,10 +603,7 @@ namespace sc
 
 	void Editor::short_cuts()
 	{
-		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_N))
-		{
-			m_show_new = true;
-		}
+		m_show_new = ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_N);
 
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_E))
 		{

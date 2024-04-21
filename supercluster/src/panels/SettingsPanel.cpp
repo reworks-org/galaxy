@@ -5,12 +5,17 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui/imgui_stdlib.h>
 #include <imgui/toggle/imgui_toggle.h>
+
+#include <galaxy/core/Config.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "SettingsPanel.hpp"
 
 #define INDENT_PIXELS 16.0f
+
+using namespace galaxy;
 
 namespace sc
 {
@@ -35,15 +40,42 @@ namespace sc
 
 	void SettingsPanel::render()
 	{
-		m_counter = 0;
+		if (m_show)
+		{
+			if (ImGui::Begin("Settings", &m_show, ImGuiWindowFlags_MenuBar))
+			{
+				if (ImGui::BeginMenuBar())
+				{
+					if (ImGui::MenuItem("Save"))
+					{
+						auto& config = core::ServiceLocator<core::Config>::ref();
+						config.raw(save());
+						config.save();
 
-		if (m_root.is_object())
-		{
-			do_object(m_root);
-		}
-		else if (m_root.is_array())
-		{
-			do_array(m_root);
+						ui::imgui_notify_success("Settings changed, a restart is needed.");
+					}
+
+					if (ImGui::MenuItem("Refresh"))
+					{
+						load(core::ServiceLocator<core::Config>::ref().raw());
+					}
+
+					ImGui::EndMenuBar();
+				}
+
+				m_counter = 0;
+
+				if (m_root.is_object())
+				{
+					do_object(m_root);
+				}
+				else if (m_root.is_array())
+				{
+					do_array(m_root);
+				}
+			}
+
+			ImGui::End();
 		}
 	}
 

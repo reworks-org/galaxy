@@ -148,35 +148,38 @@ namespace sc
 
 	void AssetPanel::render(CodeEditor& editor)
 	{
-		// First update current_dir will always be root.
-		if (m_update_directories)
+		if (m_show)
 		{
-			m_selected           = {};
-			m_update_directories = false;
-			update_directories(m_current_dir);
-		}
-
-		if (ImGui::Begin(ICON_MDI_FOLDER_ARROW_DOWN " Asset Browser", nullptr, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
-		{
-			top();
-
-			if (ImGui::BeginTable("AssetPanelLayoutTable",
-					2,
-					ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX,
-					ImGui::GetContentRegionAvail()))
+			// First update current_dir will always be root.
+			if (m_update_directories)
 			{
-				ImGui::TableNextRow();
-				ImGui::TableNextColumn();
-				tree();
-
-				ImGui::TableNextColumn();
-				body(editor);
-
-				ImGui::EndTable();
+				m_selected           = {};
+				m_update_directories = false;
+				update_directories(m_current_dir);
 			}
-		}
 
-		ImGui::End();
+			if (ImGui::Begin(ICON_MDI_FOLDER_ARROW_DOWN " Asset Browser", nullptr, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse))
+			{
+				top();
+
+				if (ImGui::BeginTable("AssetPanelLayoutTable",
+						2,
+						ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX,
+						ImGui::GetContentRegionAvail()))
+				{
+					ImGui::TableNextRow();
+					ImGui::TableNextColumn();
+					tree();
+
+					ImGui::TableNextColumn();
+					body(editor);
+
+					ImGui::EndTable();
+				}
+			}
+
+			ImGui::End();
+		}
 	}
 
 	void AssetPanel::top()
