@@ -67,11 +67,8 @@ namespace galaxy
 							break;
 
 						case ldtk::LayerType::Tiles:
-							parse_tile_layer(layer, render_layer);
-							break;
-
 						case ldtk::LayerType::AutoLayer:
-							parse_auto_layer(layer);
+							parse_tile_layer(layer, render_layer);
 							break;
 					}
 				}
@@ -158,11 +155,6 @@ namespace galaxy
 			cmd.m_command.uniforms.handle   = tilemap.get_texture()->handle();
 			cmd.m_command.uniforms.point    = false;
 			cmd.m_command.uniforms.textured = true;
-		}
-
-		void Map::parse_auto_layer(const ldtk::Layer& layer)
-		{
-			GALAXY_LOG(GALAXY_WARNING, "AutoLayer is not supported at this time.");
 		}
 
 		const std::string& Map::name() const

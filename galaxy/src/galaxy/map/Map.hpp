@@ -86,18 +86,11 @@ namespace galaxy
 			void parse_entitiy_layer(const ldtk::Layer& layer);
 
 			///
-			/// Parse LDTK tile layer.
+			/// Parse LDTK tile layer / auto layer.
 			///
 			/// \param layer Layer being parsed.
 			///
 			void parse_tile_layer(const ldtk::Layer& layer, const int render_layer);
-
-			///
-			/// Parse LDTK auto tile layer.
-			///
-			/// \param layer Layer being parsed.
-			///
-			void parse_auto_layer(const ldtk::Layer& layer);
 
 		  public:
 			///
