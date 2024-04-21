@@ -11,7 +11,6 @@ var classgalaxy_1_1map_1_1Map =
     [ "parse_intgrid_layer", "df/d2b/classgalaxy_1_1map_1_1Map.html#af0469b822941c3388935c9cdc3eadedb", null ],
     [ "parse_entitiy_layer", "df/d2b/classgalaxy_1_1map_1_1Map.html#a0305296fcc07bfe15c9ed4ceeb44bff3", null ],
     [ "parse_tile_layer", "df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960", null ],
-    [ "parse_auto_layer", "df/d2b/classgalaxy_1_1map_1_1Map.html#a080f675ca1be5fd05d5893fb19015e22", null ],
     [ "m_registry", "df/d2b/classgalaxy_1_1map_1_1Map.html#a13c96db2cc926e88490cbb515c8ed9a6", null ],
     [ "m_name", "df/d2b/classgalaxy_1_1map_1_1Map.html#a14548dd85462ad03a8e1ec360d4481cd", null ]
 ];

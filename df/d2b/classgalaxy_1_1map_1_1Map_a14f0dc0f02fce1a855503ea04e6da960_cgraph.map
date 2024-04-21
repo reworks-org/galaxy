@@ -1,5 +1,5 @@
 <map id="galaxy::map::Map::parse_tile_layer" name="galaxy::map::Map::parse_tile_layer">
-<area shape="rect" id="Node000001" title="Parse LDTK tile layer." alt="" coords="5,69,188,109"/>
+<area shape="rect" id="Node000001" title="Parse LDTK tile layer / auto layer." alt="" coords="5,69,188,109"/>
 <area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a47df3d4e42282a102e703f407106788b" title="Create an entity with some default components." alt="" coords="255,5,418,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,67,247,46,249,51,173,72"/>
 <area shape="rect" id="Node000003" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#ac3e941642e66be6c5e82691a6a2bf43a" title="Initialize vertex batch data." alt="" coords="247,69,426,109"/>

@@ -11,8 +11,8 @@
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="382,376,478,407,539,432,603,463,668,501,729,546,783,600,826,661,842,697,854,741,867,844,870,964,864,1092,842,1345,833,1453,829,1540,829,1555,828,1563,823,1562,824,1555,824,1540,828,1453,837,1344,858,1092,864,963,862,844,849,742,837,699,822,664,779,603,725,550,665,505,601,468,537,437,476,412,380,381"/>
 <area shape="rect" id="Node000010" href="$d9/d75/classgalaxy_1_1map_1_1World.html" title="An LDTK level." alt="" coords="272,1181,411,1426"/>
 <area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="344,400,344,1164,339,1164,339,400"/>
-<area shape="rect" id="Node000011" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="129,703,293,988"/>
-<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="332,401,297,500,259,625,243,687,238,686,253,623,292,498,327,399"/>
+<area shape="rect" id="Node000011" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="129,713,293,978"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="332,401,297,500,259,625,241,697,236,696,253,623,292,498,327,399"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="276,5,407,85"/>
 <area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="344,99,344,334,339,334,339,99"/>
 <area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="739,1516,744,1554,745,1562,740,1563,739,1555,733,1517"/>
@@ -22,7 +22,7 @@
 <area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="529,894,622,1094,617,1096,524,897"/>
 <area shape="rect" id="Node000009" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,135,219,600"/>
 <area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="76,600,66,703,62,816,64,936,76,1059,99,1182,116,1243,137,1302,161,1359,190,1414,224,1466,262,1514,307,1558,357,1597,411,1630,468,1658,581,1701,680,1729,679,1734,579,1706,466,1663,409,1635,354,1601,303,1562,258,1518,219,1469,185,1416,156,1361,132,1304,111,1244,94,1184,71,1060,59,936,56,816,61,702,70,600"/>
-<area shape="poly" id="edge14_Node000011_Node000009" title=" " alt="" coords="134,600,141,638,154,686,149,688,136,639,129,601"/>
+<area shape="poly" id="edge14_Node000011_Node000009" title=" " alt="" coords="134,600,141,638,157,696,152,698,136,639,129,601"/>
 <area shape="poly" id="edge11_Node000003_Node000010" title=" " alt="" coords="413,1373,686,1650,682,1654,409,1377"/>
-<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="232,988,249,1066,283,1165,278,1166,244,1067,227,989"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="230,978,249,1066,283,1165,278,1166,244,1067,225,979"/>
 </map>
