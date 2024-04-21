@@ -79,6 +79,7 @@
     <ClCompile Include="glfw\src\win32_window.c" />
     <ClCompile Include="glfw\src\window.c" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
+    <ClCompile Include="imgui\imgui\combo_filter\imgui_combo_autoselect.cpp" />
     <ClCompile Include="imgui\imgui\imcoolbar\ImCoolbar.cpp" />
     <ClCompile Include="imgui\imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui\imgui_demo.cpp" />
@@ -184,6 +185,8 @@
     <ClInclude Include="entt_sol\entt_sol\meta_helper.hpp" />
     <ClInclude Include="entt_sol\entt_sol\registry.hpp" />
     <ClInclude Include="entt_sol\entt_sol\script_process.hpp" />
+    <ClInclude Include="imgui\imgui\combo_filter\fts_fuzzy_match.h" />
+    <ClInclude Include="imgui\imgui\combo_filter\imgui_combo_autoselect.h" />
     <ClInclude Include="imgui\imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui\imcoolbar\ImCoolbar.h" />
     <ClInclude Include="imgui\imgui\imgui.h" />

@@ -167,6 +167,7 @@
     <ClCompile Include="ldtkloader\src\Tileset.cpp" />
     <ClCompile Include="ldtkloader\src\Utils.cpp" />
     <ClCompile Include="ldtkloader\src\World.cpp" />
+    <ClCompile Include="imgui\imgui\combo_filter\imgui_combo_autoselect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entt_sol\entt_sol\dispatcher.hpp" />
@@ -229,6 +230,8 @@
     <ClInclude Include="ldtkloader\include\LDtkLoader\Tileset.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\Utils.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
+    <ClInclude Include="imgui\imgui\combo_filter\imgui_combo_autoselect.h" />
+    <ClInclude Include="imgui\imgui\combo_filter\fts_fuzzy_match.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
