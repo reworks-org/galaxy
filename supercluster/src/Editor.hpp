@@ -19,6 +19,7 @@
 #include "panels/CodeEditor.hpp"
 #include "panels/LogConsole.hpp"
 #include "panels/LuaConsole.hpp"
+#include "panels/SettingsPanel.hpp"
 #include "panels/Viewport.hpp"
 
 using namespace galaxy;
@@ -92,11 +93,12 @@ namespace sc
 		ImVec2                m_imgui_mouse_delta = {0.0f, 0.0f};
 
 		// panels
-		LogConsole m_log_console;
-		LuaConsole m_lua_console;
-		Viewport   m_viewport;
-		CodeEditor m_code_editor;
-		AssetPanel m_asset_panel;
+		LogConsole    m_log_console;
+		LuaConsole    m_lua_console;
+		Viewport      m_viewport;
+		CodeEditor    m_code_editor;
+		AssetPanel    m_asset_panel;
+		SettingsPanel m_settings_panel;
 	};
 } // namespace sc
 

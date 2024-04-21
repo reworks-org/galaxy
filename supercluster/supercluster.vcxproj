@@ -18,6 +18,7 @@
     <ClCompile Include="src\panels\CodeEditor.cpp" />
     <ClCompile Include="src\panels\LogConsole.cpp" />
     <ClCompile Include="src\panels\LuaConsole.cpp" />
+    <ClCompile Include="src\panels\SettingsPanel.cpp" />
     <ClCompile Include="src\panels\Viewport.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +28,7 @@
     <ClInclude Include="src\panels\CodeEditor.hpp" />
     <ClInclude Include="src\panels\LogConsole.hpp" />
     <ClInclude Include="src\panels\LuaConsole.hpp" />
+    <ClInclude Include="src\panels\SettingsPanel.hpp" />
     <ClInclude Include="src\panels\Viewport.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

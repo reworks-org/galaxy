@@ -45,6 +45,8 @@ namespace sc
             save_project(false);
 		}, 300000);
 		// clang-format on
+
+		m_settings_panel.load(core::ServiceLocator<core::Config>::ref().raw());
 	}
 
 	Editor::~Editor()
@@ -61,8 +63,6 @@ namespace sc
 
 		m_editor_camera.set_viewport(win.get_widthf(), win.get_heightf());
 		new_project();
-
-		// m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
 	}
 
 	void Editor::unload()
@@ -284,14 +284,14 @@ namespace sc
 
 			if (ofs.good())
 			{
-				// auto& config = core::ServiceLocator<core::Config>::ref();
-				// config.raw(m_settings.save());
-				// config.save();
+				auto& config = core::ServiceLocator<core::Config>::ref();
+				config.raw(m_settings_panel.save());
+				config.save();
 
 				nlohmann::json out_json = "{\"settings\":{},\"app_data\":{}}"_json;
 
 				out_json["app_data"] = m_project.serialize();
-				// out_json["settings"] = m_settings.save();
+				out_json["settings"] = m_settings_panel.save();
 
 				auto data = out_json.dump(4);
 
@@ -342,7 +342,7 @@ namespace sc
 
 			app_data.close();
 
-			/* auto config_data = m_settings.save().dump(4);
+			auto config_data = m_settings_panel.save().dump(4);
 			strutils::replace_first(config_data, "\"use_loose_assets\": true", "\"use_loose_assets\": false");
 
 			app_config.open(path / "config.json", std::ofstream::out | std::ofstream::trunc);
@@ -352,11 +352,11 @@ namespace sc
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to export project.");
+				GALAXY_LOG(GALAXY_ERROR, "Failed to export project settings.");
 			}
 
 			app_config.close();
-			*/
+
 			const auto zip_path = path / GALAXY_ASSET_PACK;
 			std::filesystem::remove(zip_path);
 
@@ -417,17 +417,16 @@ namespace sc
 		m_code_editor.render();
 		m_asset_panel.render(m_code_editor);
 
-		/*
-		if (m_show_settings)
+		if (m_settings_panel.m_show)
 		{
-			if (ImGui::Begin("Settings", &m_show_settings, ImGuiWindowFlags_MenuBar))
+			if (ImGui::Begin("Settings", &m_settings_panel.m_show, ImGuiWindowFlags_MenuBar))
 			{
 				if (ImGui::BeginMenuBar())
 				{
 					if (ImGui::MenuItem("Save"))
 					{
 						auto& config = core::ServiceLocator<core::Config>::ref();
-						config.raw(m_settings.save());
+						config.raw(m_settings_panel.save());
 						config.save();
 
 						ui::imgui_notify_success("Settings changed, a restart is needed.");
@@ -435,18 +434,17 @@ namespace sc
 
 					if (ImGui::MenuItem("Refresh"))
 					{
-						m_settings.load(core::ServiceLocator<core::Config>::ref().raw());
+						m_settings_panel.load(core::ServiceLocator<core::Config>::ref().raw());
 					}
 
 					ImGui::EndMenuBar();
 				}
 
-				m_settings.render();
+				m_settings_panel.render();
 			}
 
 			ImGui::End();
 		}
-		*/
 
 		render_exporter();
 		end_dock();
@@ -587,7 +585,7 @@ namespace sc
 
 			if (ImGui::MenuItem("Settings"))
 			{
-				// m_show_settings = !m_show_settings;
+				m_settings_panel.m_show = !m_settings_panel.m_show;
 			}
 
 			if (ImGui::MenuItem("About"))
