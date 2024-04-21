@@ -26,7 +26,6 @@ namespace sc
 	ImGuiID leftDockID  = -1;
 	ImGuiID rightDockID = -1;
 
-	// ---- Callback declarations ---- //
 	void OnFolderViewNodeFound();
 	void OnFindInFolder(const std::string& folderPath, int folderViewId);
 	void OnFileClickedInFolderView(const std::string& filePath, int folderViewId);
@@ -91,7 +90,6 @@ namespace sc
 		ImGui::DockBuilderFinish(dock_main_id);
 	}
 
-	// ---- Callbacks from folder view ---- //
 	void OnFolderViewNodeFound()
 	{
 		glfwPostEmptyEvent();
@@ -110,7 +108,6 @@ namespace sc
 			editorToFocus = fileToEditorMap[filePath];
 	}
 
-	// ---- Callbacks from file text edit ---- //
 	void OnShowInFolderView(const std::string& filePath, int folderViewId)
 	{
 		assert(folderViewId > -1);
@@ -118,7 +115,6 @@ namespace sc
 		folderViewers[folderViewId]->ShowFile(filePath);
 	}
 
-	// ---- Callbacks from folder finder ---- //
 	void OnFolderSearchResultClick(const std::string& filePath, const DirectoryFinderSearchResult& searchResult, int folderViewId)
 	{
 		FileTextEdit* targetEditor;
@@ -135,7 +131,6 @@ namespace sc
 		glfwPostEmptyEvent();
 	}
 
-	// ---- Generic Callbacks ---- //
 	void OnPanelFocused(int folderViewId)
 	{
 		folderViewForLastFocusedPanel = folderViewId;
@@ -177,23 +172,31 @@ namespace sc
 				}
 
 				if (newTextPanelRequested)
+				{
 					CreateNewEditor();
+				}
 				else if (openFileRequested)
 				{
 					std::vector<std::string> selection = pfd::open_file("Open file", "", {"Any file", "*"}).result();
-					if (selection.size() > 0) // if not canceled
+					if (selection.size() > 0)
+					{
 						fileToEditorMap[selection[0]] = CreateNewEditor(selection[0].c_str());
+					}
 				}
 				else if (openFolderRequested)
 				{
 					std::string folder = pfd::select_folder("Open folder").result();
-					if (folder.length() > 0) // if not canceled
+					if (folder.length() > 0)
+					{
 						CreateNewFolderViewer(folder);
+					}
 				}
 				else if (fileSearchRequested)
 				{
 					if (folderViewForLastFocusedPanel >= 0 && folderViewers[folderViewForLastFocusedPanel] != nullptr)
+					{
 						folderViewers[folderViewForLastFocusedPanel]->RunSearch();
+					}
 				}
 
 				{
@@ -267,5 +270,10 @@ namespace sc
 
 			ImGui::End();
 		}
+	}
+
+	void CodeEditor::load(const std::string& file)
+	{
+		fileToEditorMap[file] = CreateNewEditor(file.c_str());
 	}
 } // namespace sc

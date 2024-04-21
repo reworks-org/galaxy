@@ -415,6 +415,7 @@ namespace sc
 		m_log_console.render();
 		m_lua_console.render();
 		m_code_editor.render();
+		m_asset_panel.render(m_code_editor);
 
 		/*
 		if (m_show_settings)
@@ -544,7 +545,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Toggle Asset Panel", "Ctrl+Alt+A"))
 				{
-					// m_show_assetpanel = !m_show_assetpanel;
+					m_asset_panel.m_show = !m_asset_panel.m_show;
 				}
 
 				if (ImGui::MenuItem("Toggle Logs", "Ctrl+Alt+L"))
@@ -555,11 +556,6 @@ namespace sc
 				if (ImGui::MenuItem("Toggle Lua Terminal", "Ctrl+Alt+T"))
 				{
 					m_lua_console.m_show = !m_lua_console.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle JSON Editor", "Ctrl+Alt+J"))
-				{
-					// m_show_jsonpanel = !m_show_jsonpanel;
 				}
 
 				if (ImGui::MenuItem("Toggle Code Editor", "Ctrl+Alt+C"))
@@ -611,12 +607,10 @@ namespace sc
 	void Editor::draw_game_controls()
 	{
 		ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
+
+		// We dont need to parse EditorState::GAME here.
 		switch (m_state)
 		{
-			case EditorState::GAME:
-				// do nothing, since no ui in game mode.
-				break;
-
 			case EditorState::EDITOR:
 				{
 					if (ImGui::Button(ICON_MDI_PLAY, {24, 24}))
@@ -697,6 +691,11 @@ namespace sc
 			m_code_editor.m_show = !m_code_editor.m_show;
 		}
 
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_A))
+		{
+			m_asset_panel.m_show = !m_asset_panel.m_show;
+		}
+
 		/*
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_S))
 		{
@@ -708,15 +707,7 @@ namespace sc
 			m_show_entities = !m_show_entities;
 		}
 
-		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_A))
-		{
-			m_show_assetpanel = !m_show_assetpanel;
-		}
 
-		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_J))
-		{
-			m_show_jsonpanel = !m_show_jsonpanel;
-		}
 		*/
 	}
 

@@ -8,6 +8,7 @@
     <ClCompile Include="src\panels\Viewport.cpp" />
     <ClCompile Include="src\panels\LuaConsole.cpp" />
     <ClCompile Include="src\panels\CodeEditor.cpp" />
+    <ClCompile Include="src\panels\AssetPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Editor.hpp" />
@@ -16,5 +17,6 @@
     <ClInclude Include="src\panels\Viewport.hpp" />
     <ClInclude Include="src\panels\LuaConsole.hpp" />
     <ClInclude Include="src\panels\CodeEditor.hpp" />
+    <ClInclude Include="src\panels\AssetPanel.hpp" />
   </ItemGroup>
 </Project>

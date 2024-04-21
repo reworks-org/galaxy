@@ -5,7 +5,8 @@
 - merge concepts and possibly entitymeta.
 - fix event priority.
 - fix registry only calling construction of script when its created from json, not blank.
-
+- make map entity more flexible.
+- https://stackoverflow.com/questions/15691320/does-it-make-sense-to-use-box2d-only-for-collision-detection
 - https://gameprogrammingpatterns.com/data-locality.html
 - https://gameprogrammingpatterns.com/event-queue.html
 - https://gameprogrammingpatterns.com/flyweight.html

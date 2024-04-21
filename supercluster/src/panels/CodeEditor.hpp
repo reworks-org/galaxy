@@ -17,6 +17,7 @@ namespace sc
 		~CodeEditor();
 
 		void render();
+		void load(const std::string& file);
 
 	  public:
 		bool m_show;

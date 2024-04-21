@@ -15,6 +15,7 @@
 #include <galaxy/platform/Subprocess.hpp>
 #include <galaxy/scene/SceneManager.hpp>
 
+#include "panels/AssetPanel.hpp"
 #include "panels/CodeEditor.hpp"
 #include "panels/LogConsole.hpp"
 #include "panels/LuaConsole.hpp"
@@ -89,15 +90,13 @@ namespace sc
 		graphics::Camera      m_editor_camera;
 		bool                  m_use_hand_cursor   = false;
 		ImVec2                m_imgui_mouse_delta = {0.0f, 0.0f};
-		// ImVec2                m_icon_size         = {24, 24};
-		// ImVec2                m_icon_size_large   = {32, 32};
-		// unsigned int m_mousepick_buffer;
 
 		// panels
 		LogConsole m_log_console;
 		LuaConsole m_lua_console;
 		Viewport   m_viewport;
 		CodeEditor m_code_editor;
+		AssetPanel m_asset_panel;
 	};
 } // namespace sc
 

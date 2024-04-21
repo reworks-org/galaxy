@@ -14,6 +14,7 @@
     <ClCompile Include="src\Editor.cpp" />
     <ClCompile Include="src\EditorSink.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\panels\AssetPanel.cpp" />
     <ClCompile Include="src\panels\CodeEditor.cpp" />
     <ClCompile Include="src\panels\LogConsole.cpp" />
     <ClCompile Include="src\panels\LuaConsole.cpp" />
@@ -22,6 +23,7 @@
   <ItemGroup>
     <ClInclude Include="src\Editor.hpp" />
     <ClInclude Include="src\EditorSink.hpp" />
+    <ClInclude Include="src\panels\AssetPanel.hpp" />
     <ClInclude Include="src\panels\CodeEditor.hpp" />
     <ClInclude Include="src\panels\LogConsole.hpp" />
     <ClInclude Include="src\panels\LuaConsole.hpp" />
