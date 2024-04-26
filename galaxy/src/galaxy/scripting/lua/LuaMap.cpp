@@ -32,6 +32,8 @@ namespace galaxy
 			world_type["name"]       = &map::World::name;
 			world_type["parse"]      = &map::World::parse;
 			world_type["set_active"] = &map::World::set_active;
+			world_type["clear"]      = &map::World::clear;
+			world_type["loaded"]     = &map::World::loaded;
 		}
 	} // namespace lua
 } // namespace galaxy

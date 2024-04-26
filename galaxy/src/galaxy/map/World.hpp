@@ -53,6 +53,11 @@ namespace galaxy
 			void parse();
 
 			///
+			/// Clear all map and world data.
+			///
+			void clear();
+
+			///
 			/// Set currently active map.
 			///
 			/// \param map Map ID.
@@ -80,6 +85,20 @@ namespace galaxy
 			///
 			[[nodiscard]] const std::string& file() const;
 
+			///
+			/// Check if load() was called.
+			///
+			/// \return True if loaded.
+			///
+			[[nodiscard]] bool loaded() const;
+
+			///
+			/// Get maps.
+			///
+			/// \return Map of maps.
+			///
+			[[nodiscard]] ankerl::unordered_dense::map<std::string, map::Map>& maps();
+
 		  private:
 			///
 			/// File.
@@ -100,6 +119,11 @@ namespace galaxy
 			/// Current map.
 			///
 			map::Map* m_current;
+
+			///
+			/// Loaded flag.
+			///
+			bool m_loaded;
 		};
 	} // namespace map
 } // namespace galaxy

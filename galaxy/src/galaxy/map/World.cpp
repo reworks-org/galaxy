@@ -16,11 +16,13 @@ namespace galaxy
 	{
 		World::World()
 			: m_current {nullptr}
+			, m_loaded {false}
 		{
 		}
 
 		World::World(const std::string& file)
 			: m_current {nullptr}
+			, m_loaded {false}
 		{
 			if (!load(file))
 			{
@@ -43,7 +45,7 @@ namespace galaxy
 				{
 					m_file = file;
 					m_project.loadFromMemory(data.data(), data.size());
-					result = true;
+					result = m_loaded = true;
 				}
 				catch (const std::exception& e)
 				{
@@ -72,6 +74,14 @@ namespace galaxy
 			}
 		}
 
+		void World::clear()
+		{
+			m_loaded  = false;
+			m_file    = "";
+			m_current = nullptr;
+			m_maps.clear();
+		}
+
 		void World::set_active(const std::string& map)
 		{
 			if (m_maps.contains(map))
@@ -97,6 +107,16 @@ namespace galaxy
 		const std::string& World::file() const
 		{
 			return m_file;
+		}
+
+		bool World::loaded() const
+		{
+			return m_loaded;
+		}
+
+		ankerl::unordered_dense::map<std::string, map::Map>& World::maps()
+		{
+			return m_maps;
 		}
 
 	} // namespace map

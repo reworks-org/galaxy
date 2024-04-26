@@ -79,7 +79,11 @@ namespace galaxy
 			void parse_intgrid_layer(const ldtk::Layer& layer);
 
 			///
-			/// Parse LDTK entity layer.
+			/// \brief Parse LDTK entity layer.
+			///
+			/// An entity needs a specific tag to be parsed.
+			/// Tags:
+			/// COLLISION
 			///
 			/// \param layer Layer being parsed.
 			///

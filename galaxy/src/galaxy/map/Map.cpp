@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/components/Tag.hpp"
 #include "galaxy/components/TileMap.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/flags/DenySerialization.hpp"
@@ -84,26 +85,26 @@ namespace galaxy
 
 		void Map::parse_entitiy_layer(const ldtk::Layer& layer)
 		{
-			GALAXY_LOG(GALAXY_WARNING, "Entity layer is not supported at this time.");
-
-			/*
-			for (auto& ldtk_entity : layer.allEntities())
+			for (const auto& entity : layer.allEntities())
 			{
-				auto entity = m_registry.create();
+				auto        count = 0;
+				const auto& id    = entity.getName();
 
-				auto& tag = m_registry.m_entt.get<components::Tag>(entity);
-				tag.m_tag = ldtk_entity.getName();
-
-				auto& transform = m_registry.m_entt.emplace<components::Transform>(entity);
-				transform.m_tf.set_pos(ldtk_entity.getPosition().x, ldtk_entity.getPosition().y);
-
-				if (ldtk_entity.hasSprite())
+				// name = identifier
+				if (id == "COLLISION")
 				{
-					auto& sprite = m_registry.m_entt.emplace<components::Sprite>(entity);
-					// sprite.set_texture(ldtk_entity.getTexturePath());
+					const auto entt = m_registry.create();
+
+					auto& tag = m_registry.m_entt.get<components::Tag>(entt);
+					tag.m_tag = id + std::to_string(count);
 				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Attempted to parse unknown entity '{0}'.", entity.getName());
+				}
+
+				count++;
 			}
-			*/
 		}
 
 		void Map::parse_tile_layer(const ldtk::Layer& layer, const int render_layer)
