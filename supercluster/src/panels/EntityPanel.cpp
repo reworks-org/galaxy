@@ -5,62 +5,150 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui/imnotify/material_design_icons.h>
-
-#include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/components/Animated.hpp>
+#include <galaxy/components/Circle.hpp>
+#include <galaxy/components/Ellipse.hpp>
+#include <galaxy/components/GUI.hpp>
+#include <galaxy/components/Point.hpp>
+#include <galaxy/components/Polygon.hpp>
+#include <galaxy/components/Polyline.hpp>
+#include <galaxy/components/RenderCommand.hpp>
+#include <galaxy/components/RigidBody.hpp>
+#include <galaxy/components/Script.hpp>
+#include <galaxy/components/Sprite.hpp>
+#include <galaxy/components/Tag.hpp>
+#include <galaxy/components/Text.hpp>
+#include <galaxy/components/TileMap.hpp>
+#include <galaxy/components/Transform.hpp>
+#include <galaxy/flags/DenySerialization.hpp>
+#include <galaxy/flags/Disabled.hpp>
 
 #include "EntityPanel.hpp"
 
 namespace sc
 {
-	void EntityPanel::render()
+	EntityPanel::EntityPanel()
+	{
+	}
+
+	EntityPanel::~EntityPanel()
+	{
+	}
+
+	void EntityPanel::render(meta::vector<std::function<void(void)>>& tasks, Selected& selected)
 	{
 		if (m_show)
 		{
 			ImGui::Begin(ICON_MDI_DATABASE " Entity", nullptr);
+
+			if (selected.entity != entt::null && selected.scene != nullptr && selected.scene->m_registry.m_entt.valid(selected.entity))
+			{
+				ImGui::PushID(static_cast<std::uint32_t>(selected.entity));
+
+				ImGui::Text("ID: %u", entt::to_integral(selected.entity));
+
+				ImGui::SameLine();
+
+				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.65f, 0.15f, 0.15f, 1.f));
+				ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.8f, 0.3f, 0.3f, 1.f));
+				ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.f, 0.2f, 0.2f, 1.f));
+				if (ImGui::Button("Destroy"))
+				{
+					tasks.push_back([&]() {
+						selected.scene->m_registry.m_entt.destroy(selected.entity);
+
+						selected.entity = entt::null;
+						selected.scene  = nullptr;
+					});
+				}
+				ImGui::PopStyleColor(3);
+
+				ImGui::Spacing();
+				ImGui::Separator();
+				ImGui::Spacing();
+
+				auto tag = selected.scene->m_registry.m_entt.try_get<components::Tag>(selected.entity);
+				if (tag)
+				{
+					ImGui::InputText("##Tag", &tag->m_tag, ImGuiInputTextFlags_AutoSelectAll);
+				}
+
+				if (ImGui::Button("Set Flags"))
+				{
+					m_open_flags = true;
+				}
+
+				ui::imgui_popup("EntityFlagsPopup", m_open_flags, [&]() {
+					auto disabled = selected.scene->m_registry.m_entt.all_of<flags::Disabled>(selected.entity);
+					if (ImGui::Checkbox("Disabled", &disabled))
+					{
+						if (disabled)
+						{
+							selected.scene->m_registry.m_entt.emplace_or_replace<flags::Disabled>(selected.entity);
+						}
+						else
+						{
+							selected.scene->m_registry.m_entt.remove<flags::DenySerialization>(selected.entity);
+						}
+					}
+
+					ImGui::SetTooltip("Stops an entities components from being updated.");
+					ImGui::SameLine();
+
+					auto deny_save = selected.scene->m_registry.m_entt.all_of<flags::DenySerialization>(selected.entity);
+					if (ImGui::Checkbox("Disable Save", &deny_save))
+					{
+						if (deny_save)
+						{
+							selected.scene->m_registry.m_entt.emplace_or_replace<flags::DenySerialization>(selected.entity);
+						}
+						else
+						{
+							selected.scene->m_registry.m_entt.remove<flags::DenySerialization>(selected.entity);
+						}
+					}
+
+					ImGui::SetTooltip("Disable the ability to serialize this entity.");
+				});
+
+				ImGui::SameLine();
+				ImGui::PushItemWidth(-1);
+
+				if (ImGui::Button("Add Component"))
+				{
+					m_open_components = true;
+				}
+
+				ui::imgui_popup("AddNewComponent", m_open_components, [&]() {
+					draw_entry<components::Animated>(selected, "Animated");
+					draw_entry<components::Circle>(selected, "Circle");
+					draw_entry<components::Ellipse>(selected, "Ellipse");
+					draw_entry<components::GUI>(selected, "GUI");
+					draw_entry<components::Point>(selected, "Point");
+					draw_entry<components::Polygon>(selected, "Polygon");
+					draw_entry<components::Polyline>(selected, "Polyline");
+					draw_entry<components::RigidBody>(selected, "RigidBody");
+					draw_entry<components::Script>(selected, "Script");
+					draw_entry<components::Sprite>(selected, "Sprite");
+					draw_entry<components::Tag>(selected, "Tag");
+					draw_entry<components::Text>(selected, "Text");
+					draw_entry<components::Transform>(selected, "Transform");
+
+					// system added components
+					// draw_entry<components::RenderCommand>(selected, "RenderCommand");
+					// draw_entry<components::TileMap>(selected, "TileMap");
+				});
+
+				ImGui::PopItemWidth();
+				ImGui::PopID();
+			}
+
 			ImGui::End();
 		}
 	}
 } // namespace sc
 
   /*
-  ///
-/// EntityEditor.cpp
-/// supercluster
-///
-/// Refer to LICENSE.txt for more details.
-///
-  
-#include <entt/entity/registry.hpp>
-#include <imgui/imgui_stdlib.h>
-#include <magic_enum/magic_enum.hpp>
-  
-#include <galaxy/components/RigidBody.hpp>
-#include <galaxy/components/Script.hpp>
-#include <galaxy/components/Sprite.hpp>
-#include <galaxy/components/Tag.hpp>
-#include <galaxy/components/Text.hpp>
-#include <galaxy/components/Transform.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/core/Window.hpp>
-#include <galaxy/flags/DenySerialization.hpp>
-#include <galaxy/flags/Disabled.hpp>
-#include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/resource/Fonts.hpp>
-#include <galaxy/resource/Shaders.hpp>
-#include <galaxy/scene/Scene.hpp>
-#include <galaxy/ui/ImGuiHelpers.hpp>
-  
-#include "EntityEditor.hpp"
-  
-using namespace galaxy;
-  
-namespace sc
-{
-	namespace panel
-	{
-		void EntityEditor::render(Selected& selected, UpdateStack& updates)
-		{
 			static const meta::vector<std::string> b2_body_types = {"b2_dynamicBody", "b2_kinematicBody", "b2_staticBody"};
   
 			static constexpr const auto numeric_input_flags =
@@ -68,102 +156,6 @@ namespace sc
 			thread_local constexpr const ImGuiInputTextFlags lua_double_flags = ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank;
 			thread_local constexpr const ImGuiInputTextFlags lua_text_flags   = ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll;
   
-			if (selected.m_selected != entt::null && selected.m_scene != nullptr && selected.m_scene->m_registry.valid(selected.m_selected))
-				{
-					ImGui::PushID(static_cast<std::uint32_t>(selected.m_selected));
-  
-					ImGui::Text("EnTT Id: %u", entt::to_integral(selected.m_selected));
-  
-					ImGui::SameLine();
-  
-					ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.65f, 0.15f, 0.15f, 1.f));
-					ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.8f, 0.3f, 0.3f, 1.f));
-					ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(1.f, 0.2f, 0.2f, 1.f));
-					if (ImGui::Button("Destroy"))
-					{
-						updates.push_back([&]() {
-							selected.m_scene->m_registry.destroy(selected.m_selected);
-							selected.m_selected = entt::null;
-						});
-					}
-					ImGui::PopStyleColor(3);
-  
-					auto tag = selected.m_scene->m_registry.try_get<components::Tag>(selected.m_selected);
-					if (tag)
-					{
-						ImGui::InputText("##Tag", &tag->m_tag, ImGuiInputTextFlags_AutoSelectAll);
-					}
-  
-					if (ImGui::Button("Set Flags"))
-					{
-						ImGui::OpenPopup("EntityFlagsPopup");
-					}
-  
-					if (ImGui::BeginPopup("EntityFlagsPopup"))
-					{
-						auto disabled = selected.m_scene->m_registry.all_of<flags::Disabled>(selected.m_selected);
-						if (ImGui::Checkbox("Disabled", &disabled))
-						{
-							if (disabled)
-							{
-								selected.m_scene->m_registry.emplace_or_replace<flags::Disabled>(selected.m_selected);
-							}
-							else
-							{
-								if (selected.m_scene->is_valid(selected.m_selected))
-								{
-									selected.m_scene->m_registry.remove<flags::DenySerialization>(selected.m_selected);
-								}
-								else
-								{
-									ui::imgui_notify_error("Entity did not pass validation.");
-								}
-							}
-						}
-  
-						ImGui::SameLine();
-  
-						auto deny_save = selected.m_scene->m_registry.all_of<flags::DenySerialization>(selected.m_selected);
-						if (ImGui::Checkbox("Deny Serialization", &deny_save))
-						{
-							if (deny_save)
-							{
-								selected.m_scene->m_registry.emplace_or_replace<flags::DenySerialization>(selected.m_selected);
-							}
-							else
-							{
-								selected.m_scene->m_registry.remove<flags::DenySerialization>(selected.m_selected);
-							}
-						}
-  
-						ImGui::EndPopup();
-					}
-  
-					ImGui::SameLine();
-					ImGui::PushItemWidth(-1);
-  
-					if (ImGui::Button("Add Component"))
-					{
-						ImGui::OpenPopup("AddNewComponent");
-					}
-  
-					if (ImGui::BeginPopup("AddNewComponent"))
-					{
-						// draw_entry<components::Animated>(selected, "Animated");
-						// draw_entry<components::ParticleGenerator>(selected, "ParticleGenerator");
-						// draw_entry<components::Primitive>(selected, "Primitive");
-						draw_entry<components::RigidBody>(selected, "RigidBody");
-						draw_entry<components::Script>(selected, "Script");
-						draw_entry<components::Sprite>(selected, "Sprite");
-						draw_entry<components::Tag>(selected, "Tag");
-						draw_entry<components::Text>(selected, "Text");
-						draw_entry<components::Transform>(selected, "Transform");
-						// draw_entry<components::UIScript>(selected, "UIScript");
-  
-						ImGui::EndPopup();
-					}
-  
-					ImGui::PopItemWidth();
 					draw_component<components::Animated>(selected, "Animated", [](components::Animated* animated) {
 						if (animated->is_paused())
 						{
@@ -735,7 +727,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + path + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_scene->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
+								selected.scene->m_registry.m_entt.emplace_or_replace<components::Script>(selected.entity, nlohmann::json::parse(str));
 							}
 						}
   
@@ -747,7 +739,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + script->file() + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_scene->m_registry.emplace_or_replace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
+								selected.scene->m_registry.m_entt.emplace_or_replace<components::Script>(selected.entity, nlohmann::json::parse(str));
 							}
 						}
   
@@ -1017,7 +1009,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + path + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_scene->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
+								selected.scene->m_registry.m_entt.emplace_or_replace<components::UIScript>(selected.entity, nlohmann::json::parse(str));
 							}
 						}
   
@@ -1029,7 +1021,7 @@ namespace sc
 							{
 								auto str = "{\"file\":\"" + ui->file() + "\"}";
 								strutils::replace_all(str, "\\", "/");
-								selected.m_scene->m_registry.emplace_or_replace<components::UIScript>(selected.m_selected, nlohmann::json::parse(str));
+								selected.scene->m_registry.m_entt.emplace_or_replace<components::UIScript>(selected.entity, nlohmann::json::parse(str));
 							}
 						}
   
@@ -1042,12 +1034,4 @@ namespace sc
   
 						ImGui::Text("Loaded file: %s", ui->file().c_str());
 					});
-					ImGui::PopID();
-				}
-  
-  
-		}
-	} // namespace panel
-} // namespace sc
-  
   */

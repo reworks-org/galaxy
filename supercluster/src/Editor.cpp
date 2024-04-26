@@ -416,7 +416,7 @@ namespace sc
 		m_code_editor.render();
 		m_asset_panel.render(m_code_editor);
 		m_scene_panel.render(m_project, m_tasks, m_selected);
-		m_entity_panel.render();
+		m_entity_panel.render(m_tasks, m_selected);
 		m_viewport.render(m_state);
 		m_settings_panel.render();
 

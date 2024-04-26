@@ -8,6 +8,18 @@
 #ifndef SUPERCLUSTER_PANELS_ENTITYPANEL_HPP_
 #define SUPERCLUSTER_PANELS_ENTITYPANEL_HPP_
 
+#include <imgui/imgui_internal.h>
+#include <imgui/imnotify/material_design_icons.h>
+#include <nlohmann/json.hpp>
+
+#include <galaxy/components/Script.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/utils/StringUtils.hpp>
+
+#include "../Selected.hpp"
+
 using namespace galaxy;
 
 namespace sc
@@ -15,93 +27,66 @@ namespace sc
 	class EntityPanel final
 	{
 	  public:
-		EntityPanel()  = default;
-		~EntityPanel() = default;
+		EntityPanel();
+		~EntityPanel();
 
-		void render();
+		void render(meta::vector<std::function<void(void)>>& tasks, Selected& selected);
+
+	  private:
+		template<meta::valid_component Component>
+		void draw_entry(Selected& selected, const std::string& name);
+
+		template<meta::valid_component Component, typename Func>
+		void draw_component(Selected& selected, const std::string& name, Func&& func);
 
 	  public:
 		bool m_show = true;
+
+	  private:
+		bool m_open_flags      = false;
+		bool m_open_components = false;
 	};
+
+	template<meta::valid_component Component>
+	inline void EntityPanel::draw_entry(Selected& selected, const std::string& name)
+	{
+		if (!selected.scene->m_registry.m_entt.all_of<Component>(selected.entity))
+		{
+			// TODO: is this supposed to be button?
+			if (ImGui::MenuItem(name.c_str()))
+			{
+				if constexpr (std::is_same<Component, components::Script>::value)
+				{
+					const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
+					if (!path.empty())
+					{
+						auto str = "{\"file\":\"" + path + "\"}";
+						strutils::replace_all(str, "\\", "/");
+						selected.scene->m_registry.m_entt.emplace<components::Script>(selected.entity, nlohmann::json::parse(str));
+					}
+				}
+				else
+				{
+					selected.scene->m_registry.m_entt.emplace<Component>(selected.entity);
+				}
+
+				ImGui::CloseCurrentPopup();
+			}
+		}
+	}
 } // namespace sc
 
 #endif
 /*
-///
-/// EntityEditor.hpp
-/// supercluster
-///
-/// Refer to LICENSE.txt for more details.
-///
-
-#ifndef SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
-#define SUPERCLUSTER_EDITOR_PANELS_ENTITYEDITOR_HPP_
-
-#include <imgui/imgui_internal.h>
-#include <imgui/imnotify/material_design_icons.h>
-#include <nlohmann/json.hpp>
-
-#include <galaxy/components/Script.hpp>
-#include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/utils/StringUtils.hpp>
-
-#include "editor/Selected.hpp"
-#include "editor/UpdateStack.hpp"
-
-using namespace galaxy;
-
-namespace sc
-{
-	namespace panel
-	{
 		class EntityEditor final
 		{
-		  public:
-			EntityEditor()  = default;
-			~EntityEditor() = default;
-
-			void render(Selected& selected, UpdateStack& updates);
-
-		  private:
-			template<meta::valid_component Component>
-			void draw_entry(Selected& selected, const std::string& name);
-
-			template<meta::valid_component Component, typename Func>
-			void draw_component(Selected& selected, const std::string& name, Func&& func);
-
-		  private:
 			ImGuiTextFilter m_filter_shaders;
 			ImGuiTextFilter m_filter_textures;
 			ImGuiTextFilter m_filter_tex_pg;
 			ImGuiTextFilter m_filter_fonts;
 		};
 
-		template<meta::valid_component Component>
-		inline void EntityEditor::draw_entry(Selected& selected, const std::string& name)
-		{
-			if (!selected.m_scene->m_registry.all_of<Component>(selected.m_selected))
-			{
-				if (ImGui::MenuItem(name.c_str()))
-				{
-					if constexpr (std::is_same<Component, components::Script>::value)
-					{
-						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
-						if (!path.empty())
-						{
-							auto str = "{\"file\":\"" + path + "\"}";
-							strutils::replace_all(str, "\\", "/");
-							selected.m_scene->m_registry.emplace<components::Script>(selected.m_selected, nlohmann::json::parse(str));
-						}
-					}
-					else
-					{
-						selected.m_scene->m_registry.emplace<Component>(selected.m_selected);
-					}
 
-					ImGui::CloseCurrentPopup();
-				}
-			}
-		}
 
 		template<meta::valid_component Component, typename Func>
 		inline void EntityEditor::draw_component(Selected& selected, const std::string& name, Func&& func)
