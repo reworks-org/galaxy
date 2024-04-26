@@ -105,13 +105,13 @@ namespace sc
 								const auto entity = fb.read_storagebuffer(static_cast<int>(mx), static_cast<int>(my));
 								if (entity == -1)
 								{
-									// m_selected_entity.m_selected = entt::null;
-									// m_selected_entity.m_scene    = nullptr;
+									m_selected.entity = entt::null;
+									m_selected.scene  = nullptr;
 								}
 								else
 								{
-									// m_selected_entity.m_selected = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
-									//  m_selected_entity.m_scene    = &m_project_sm.current().m_world;
+									m_selected.entity = static_cast<entt::entity>(static_cast<std::uint32_t>(entity));
+									m_selected.scene  = m_project.current();
 								}
 							}
 						}
@@ -415,6 +415,8 @@ namespace sc
 		m_lua_console.render();
 		m_code_editor.render();
 		m_asset_panel.render(m_code_editor);
+		m_scene_panel.render(m_project, m_tasks, m_selected);
+		m_entity_panel.render();
 		m_viewport.render(m_state);
 		m_settings_panel.render();
 
@@ -650,19 +652,18 @@ namespace sc
 			m_asset_panel.m_show = !m_asset_panel.m_show;
 		}
 
-		/*
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_S))
 		{
-			m_show_scenes = !m_show_scenes;
+			m_scene_panel.m_show = !m_scene_panel.m_show;
 		}
 
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_E))
 		{
-			m_show_entities = !m_show_entities;
+			m_entity_panel.m_show = !m_entity_panel.m_show;
 		}
 
-
-		*/
+		// static bool open = true;
+		// ImGui::ShowDemoWindow(&open);
 	}
 
 	void Editor::show_loadproject()
@@ -678,7 +679,7 @@ namespace sc
 		}
 	}
 
-	void Editor::render_exporter()
+	void Editor::render_exporter() const
 	{
 		if (m_show_export)
 		{

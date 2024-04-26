@@ -17,10 +17,14 @@
 
 #include "panels/AssetPanel.hpp"
 #include "panels/CodeEditor.hpp"
+#include "panels/EntityPanel.hpp"
 #include "panels/LogConsole.hpp"
 #include "panels/LuaConsole.hpp"
+#include "panels/ScenePanel.hpp"
 #include "panels/SettingsPanel.hpp"
 #include "panels/Viewport.hpp"
+
+#include "Selected.hpp"
 
 using namespace galaxy;
 
@@ -55,7 +59,7 @@ namespace sc
 		void draw_game_controls();
 		void short_cuts();
 		void show_loadproject();
-		void render_exporter();
+		void render_exporter() const;
 
 		void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path& path);
 
@@ -91,6 +95,7 @@ namespace sc
 		graphics::Camera      m_editor_camera;
 		bool                  m_use_hand_cursor   = false;
 		ImVec2                m_imgui_mouse_delta = {0.0f, 0.0f};
+		Selected              m_selected;
 
 		// panels
 		LogConsole    m_log_console;
@@ -99,6 +104,8 @@ namespace sc
 		CodeEditor    m_code_editor;
 		AssetPanel    m_asset_panel;
 		SettingsPanel m_settings_panel;
+		ScenePanel    m_scene_panel;
+		EntityPanel   m_entity_panel;
 	};
 } // namespace sc
 

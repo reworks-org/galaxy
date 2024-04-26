@@ -14,6 +14,10 @@ namespace ImGui
 		int                      index      = -1;
 		char                     input[128] = {};
 
+		ComboAutoSelectData()
+		{
+		}
+
 		ComboAutoSelectData(std::vector<std::string>&& hints, int selected_index = -1)
 			: items(hints)
 		{

@@ -16,20 +16,26 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\panels\AssetPanel.cpp" />
     <ClCompile Include="src\panels\CodeEditor.cpp" />
+    <ClCompile Include="src\panels\EntityPanel.cpp" />
     <ClCompile Include="src\panels\LogConsole.cpp" />
     <ClCompile Include="src\panels\LuaConsole.cpp" />
+    <ClCompile Include="src\panels\ScenePanel.cpp" />
     <ClCompile Include="src\panels\SettingsPanel.cpp" />
     <ClCompile Include="src\panels\Viewport.cpp" />
+    <ClCompile Include="src\Selected.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Editor.hpp" />
     <ClInclude Include="src\EditorSink.hpp" />
     <ClInclude Include="src\panels\AssetPanel.hpp" />
     <ClInclude Include="src\panels\CodeEditor.hpp" />
+    <ClInclude Include="src\panels\EntityPanel.hpp" />
     <ClInclude Include="src\panels\LogConsole.hpp" />
     <ClInclude Include="src\panels\LuaConsole.hpp" />
+    <ClInclude Include="src\panels\ScenePanel.hpp" />
     <ClInclude Include="src\panels\SettingsPanel.hpp" />
     <ClInclude Include="src\panels\Viewport.hpp" />
+    <ClInclude Include="src\Selected.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

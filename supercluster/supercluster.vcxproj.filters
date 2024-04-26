@@ -10,6 +10,9 @@
     <ClCompile Include="src\panels\CodeEditor.cpp" />
     <ClCompile Include="src\panels\AssetPanel.cpp" />
     <ClCompile Include="src\panels\SettingsPanel.cpp" />
+    <ClCompile Include="src\panels\EntityPanel.cpp" />
+    <ClCompile Include="src\panels\ScenePanel.cpp" />
+    <ClCompile Include="src\Selected.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Editor.hpp" />
@@ -20,5 +23,8 @@
     <ClInclude Include="src\panels\CodeEditor.hpp" />
     <ClInclude Include="src\panels\AssetPanel.hpp" />
     <ClInclude Include="src\panels\SettingsPanel.hpp" />
+    <ClInclude Include="src\panels\EntityPanel.hpp" />
+    <ClInclude Include="src\panels\ScenePanel.hpp" />
+    <ClInclude Include="src\Selected.hpp" />
   </ItemGroup>
 </Project>
