@@ -13,6 +13,11 @@
 #include "galaxy/resource/Cache.hpp"
 #include "galaxy/resource/Loader.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 26434)
+#endif
+
 namespace galaxy
 {
 	namespace resource
@@ -89,5 +94,9 @@ namespace galaxy
 		using VideoCache = Cache<media::Video, Loader<media::Video>>;
 	} // namespace resource
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif
 
 #endif

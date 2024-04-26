@@ -34,8 +34,7 @@ Building Instructions:
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy
 git submodule update --init --recursive
-cd galaxy
-Open galaxy.sln and go Build -> Rebuild Solution.
+Open galaxy.sln and go Build -> Rebuild Solution, in either Debug or Release mode.
 ```
 
 ### Linux:
@@ -58,7 +57,7 @@ No.
 ### Scripts:
 There are additional helper scripts located in the [scripts folder](https://github.com/DomRe/galaxy/tree/master/scripts).
 
-In order to run these, you require a ```MSYS2 installation``` installed on your ```PATH```.
+In order to run these, you require ```MSYS2``` or ```WSL2```.
 
 
 ## Documentation
@@ -67,6 +66,28 @@ See [online documentation](https://reworks-org.github.io/galaxy/).
 
 ## Features
 ```
+- (A)sync Timers
+- Entity Component System
+- Config Loader
+- Prefabs
+- OpenGL 4.6 w/ Extensions Renderer (i.e. Bindless Textures).
+- Error handling.
+- Flexible logging.
+- Event Handling.
+- Virtual File System.
+- File Dialogs.
+- Input Handling, both callback and poll.
+- LDTK mapping support.
+- Various algorithms and math stuff.
+- (De)compression support.
+- Platform abstraction.
+- Resource and asset handling.
+- Unity style scene Management.
+- Lua and JSON scripting support.
+- State management for things like animations and movement.
+- ImGUI + Nuklear for UI.
+- Lua bindings for Nuklear UI.
+- Supercluster editor to be used in conjunction with coding. Not standalone.
 ```
 
 
