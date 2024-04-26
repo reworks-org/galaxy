@@ -74,15 +74,15 @@ var NAVTREEINDEX =
 "d6/dd5/classgalaxy_1_1media_1_1Sound.html#af020c608e0772800bd7a9ad401c5b5f6",
 "d7/dc3/RenderTexture_8hpp_source.html",
 "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7",
-"d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615",
-"da/d41/Textures_8hpp.html",
-"db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ae536faef50a95b2855483ac506e74d0a",
-"db/df9/classgalaxy_1_1input_1_1Input.html#a5396cb4f5c3bde7f5fd05b04207065d4",
-"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142ea126c6be5f82a5d28208b095c9e45f4b0",
-"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eacbc55a981874476c41bbc954dfe3ec6e",
-"de/d0b/classgalaxy_1_1media_1_1Video.html#a397eaf4d72c34d34aec8bfe847cc1e99",
-"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56",
-"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ad6344da8c1dc246c2072e1d39eed8aba"
+"d9/d75/classgalaxy_1_1map_1_1World.html#aa84f7f81cc76543f7bf9134597a47ed7",
+"da/d36/classgalaxy_1_1flags_1_1DenySerialization.html#abd1e7bdbc71b5a01012f12e9526fe38f",
+"db/d55/structgalaxy_1_1DoNotUseReferToMacros.html#ab866d166ed792402bc4f01b4b4253657",
+"db/df9/classgalaxy_1_1input_1_1Input.html#a03f65ddbd8e7f823fedf24757236c50f",
+"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142ea04197ae3bad50df742af443314306367",
+"dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142eac248b44c41333613a8ad29b656f8950e",
+"de/d07/Vertex_8cpp.html#ad0e8e66b043f4f31d9b1eb00f6296867",
+"df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed",
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#aa17c4702246caa9ee7cb78cf84ad893f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

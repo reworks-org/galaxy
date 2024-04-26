@@ -1,0 +1,5 @@
+<map id="galaxy::map::Map::parse_entitiy_layer" name="galaxy::map::Map::parse_entitiy_layer">
+<area shape="rect" id="Node000001" title="Parse LDTK entity layer." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a47df3d4e42282a102e703f407106788b" title="Create an entity with some default components." alt="" coords="236,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,23,222,23,222,28,189,28"/>
+</map>

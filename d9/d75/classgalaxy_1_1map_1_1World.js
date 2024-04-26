@@ -5,12 +5,16 @@ var classgalaxy_1_1map_1_1World =
     [ "~World", "d9/d75/classgalaxy_1_1map_1_1World.html#a54c05cbabb5531623059cba4636efd59", null ],
     [ "load", "d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba", null ],
     [ "parse", "d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02", null ],
+    [ "clear", "d9/d75/classgalaxy_1_1map_1_1World.html#afce356e9a9bb64424165a18fd9eeba89", null ],
     [ "set_active", "d9/d75/classgalaxy_1_1map_1_1World.html#a7075fb160fcb187285dfaea8be1a55dd", null ],
     [ "get_active", "d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615", null ],
     [ "name", "d9/d75/classgalaxy_1_1map_1_1World.html#a3029750f1e795df5614ba901171b9933", null ],
     [ "file", "d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1", null ],
+    [ "loaded", "d9/d75/classgalaxy_1_1map_1_1World.html#a939bde2a2b625d47e3ff50b034087baf", null ],
+    [ "maps", "d9/d75/classgalaxy_1_1map_1_1World.html#a50a5b57b56fc19f7a6d42359f24186a3", null ],
     [ "m_file", "d9/d75/classgalaxy_1_1map_1_1World.html#aa84f7f81cc76543f7bf9134597a47ed7", null ],
     [ "m_project", "d9/d75/classgalaxy_1_1map_1_1World.html#a201eaa443a321d5883289ec2c644c6f7", null ],
     [ "m_maps", "d9/d75/classgalaxy_1_1map_1_1World.html#a81f6a6bff98018ad40ff3d33ecf0f4fc", null ],
-    [ "m_current", "d9/d75/classgalaxy_1_1map_1_1World.html#a399f1226aba3ecfe3440e3adc81137b4", null ]
+    [ "m_current", "d9/d75/classgalaxy_1_1map_1_1World.html#a399f1226aba3ecfe3440e3adc81137b4", null ],
+    [ "m_loaded", "d9/d75/classgalaxy_1_1map_1_1World.html#ae5d9523be6a86f39515080920caa14dc", null ]
 ];

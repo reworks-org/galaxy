@@ -1,12 +1,12 @@
 <map id="galaxy::map::World" name="galaxy::map::World">
-<area shape="rect" id="Node000001" title="An LDTK level." alt="" coords="180,991,319,1236"/>
+<area shape="rect" id="Node000001" title="An LDTK level." alt="" coords="180,991,319,1316"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="259,335,338,400"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,400,312,496,318,636,315,800,309,885,299,967,297,975,292,974,293,966,304,884,310,800,312,637,307,496,299,400"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,400,310,497,314,637,312,800,299,967,298,975,292,974,293,966,307,800,309,637,304,497,299,401"/>
 <area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="102,663,266,928"/>
 <area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="293,401,232,625,226,647,221,646,227,623,288,399"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="233,5,364,85"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,99,301,334,296,334,296,99"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,928,223,974,218,975,209,929"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,928,219,974,214,975,206,929"/>
 <area shape="rect" id="Node000005" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,135,219,600"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="109,600,116,638,118,646,113,647,111,639,104,601"/>
 </map>
