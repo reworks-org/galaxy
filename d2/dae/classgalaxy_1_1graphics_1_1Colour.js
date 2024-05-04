@@ -14,6 +14,7 @@ var classgalaxy_1_1graphics_1_1Colour =
     [ "g", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a", null ],
     [ "b", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37", null ],
     [ "a", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c", null ],
+    [ "set_rgba", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a71dd83a6caf2b29c662d0a4dad172b49", null ],
     [ "array", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3f00c22989d3b80b4d4186ba4e0ad531", null ],
     [ "vec4", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560", null ],
     [ "array", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a66f9902e018b50afebf2f73601261a27", null ],

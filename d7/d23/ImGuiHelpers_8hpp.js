@@ -17,5 +17,6 @@ var ImGuiHelpers_8hpp =
     [ "imgui_notify_error", "d7/d23/ImGuiHelpers_8hpp.html#a07ea7645484387d4e690f8efc3a9b8e4", null ],
     [ "imgui_glm_vec2", "d7/d23/ImGuiHelpers_8hpp.html#a04e7572be7f432e40a3dee3571c9fd2e", null ],
     [ "imgui_glm_vec3", "d7/d23/ImGuiHelpers_8hpp.html#a540fec72ae3e1c4f5156ff535a7bf1a3", null ],
-    [ "imgui_glm_vec4", "d7/d23/ImGuiHelpers_8hpp.html#a9ea9137bfa4a7f48555a0f23385b56bb", null ]
+    [ "imgui_glm_vec4", "d7/d23/ImGuiHelpers_8hpp.html#a9ea9137bfa4a7f48555a0f23385b56bb", null ],
+    [ "imgui_frect", "d7/d23/ImGuiHelpers_8hpp.html#aea8bf68ecf24464e133131949c5ba9d8", null ]
 ];

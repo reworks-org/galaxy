@@ -1,15 +1,18 @@
 <map id="galaxy::graphics::Colour::array" name="galaxy::graphics::Colour::array">
-<area shape="rect" id="Node000001" title="Get integer array." alt="" coords="632,101,811,141"/>
-<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a09a54d5f286ee93716b6fb8f1cb72954" title="Move constructor." alt="" coords="405,5,584,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="667,98,583,60,553,48,555,43,585,55,669,93"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="426,69,563,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="618,109,563,102,564,96,618,104"/>
-<area shape="rect" id="Node000006" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff" title="Move assignment operator." alt="" coords="405,133,584,173"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="619,139,585,143,584,138,618,133"/>
-<area shape="rect" id="Node000007" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6a6ecc0def703f7447c6fceca355e4d2" title="Copy assignment operator." alt="" coords="405,197,584,237"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="669,150,585,188,555,200,553,195,583,183,667,145"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,77,357,102"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="412,92,357,92,357,87,412,87"/>
-<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,172,92,172,87,206,87"/>
+<area shape="rect" id="Node000001" title="Get integer array." alt="" coords="817,120,996,160"/>
+<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a09a54d5f286ee93716b6fb8f1cb72954" title="Move constructor." alt="" coords="591,5,769,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="858,115,768,66,728,48,730,43,771,62,861,111"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="405,156,543,196"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="827,119,774,108,714,101,652,101,591,111,542,131,502,158,499,153,540,127,590,105,652,95,715,96,775,103,828,114"/>
+<area shape="rect" id="Node000006" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff" title="Move assignment operator." alt="" coords="591,120,769,160"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="803,143,770,143,770,137,803,137"/>
+<area shape="rect" id="Node000007" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6a6ecc0def703f7447c6fceca355e4d2" title="Copy assignment operator." alt="" coords="591,184,769,224"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="822,166,752,187,751,181,821,161"/>
+<area shape="rect" id="Node000008" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a71dd83a6caf2b29c662d0a4dad172b49" title="Set RGBA." alt="" coords="591,248,769,288"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="872,171,825,205,771,238,744,250,742,245,768,234,822,201,869,166"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,163,357,189"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,179,358,179,358,173,392,173"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,163,172,189"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,179,172,179,172,173,206,173"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="606,245,590,238,510,199,512,194,592,234,608,241"/>
 </map>
