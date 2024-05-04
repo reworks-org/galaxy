@@ -160,6 +160,8 @@ namespace galaxy
 
 		void Sprite::set_clip(const math::fRect& rect)
 		{
+			m_clip = rect;
+
 			// if (m_mapped_vbo)
 			//{
 			m_vertices[0].m_pos.x    = 0.0f;
@@ -188,9 +190,19 @@ namespace galaxy
 			//}
 		}
 
+		const math::fRect& Sprite::get_clip() const
+		{
+			return m_clip;
+		}
+
 		graphics::Texture2D* Sprite::get_texture()
 		{
 			return m_texture;
+		}
+
+		const std::string& Sprite::get_texture_name() const
+		{
+			return m_name;
 		}
 
 		nlohmann::json Sprite::serialize()

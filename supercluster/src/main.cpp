@@ -64,6 +64,7 @@ int main(int argsc, char* argsv[])
 				ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)materialdesignicons_ttf, sizeof(materialdesignicons_ttf), 16.0f, &md_icons_cfg, icons_ranges);
 
 				ui::imgui_set_theme();
+				ImGui::SetColorEditOptions(ImGuiColorEditFlags_DefaultOptions_);
 
 				auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
 				sm.add_custom<sc::Editor>("sc_editor");

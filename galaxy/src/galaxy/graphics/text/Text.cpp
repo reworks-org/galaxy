@@ -26,6 +26,8 @@ namespace galaxy
 		{
 			auto indicies = graphics::gen_default_indices();
 			m_vao.buffer(4, indicies);
+
+			m_rt.create(1, 1);
 		}
 
 		Text::Text(Text&& t)
@@ -76,72 +78,16 @@ namespace galaxy
 
 			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
 
-			if (!font.empty())
-			{
-				auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
-				m_font      = fonts.get(m_font_name);
-
-				const auto vec    = m_font->get_text_size(m_text, m_size);
-				const auto width  = vec.x;
-				const auto height = vec.y;
-
-				m_rt.create(static_cast<int>(width), static_cast<int>(height));
-				m_rt.bind();
-
-				std::size_t start = 0;
-				std::size_t end   = m_text.find('\n');
-
-				auto proj  = glm::ortho(0.0f, width, height, 0.0f, -1.0f, 1.0f);
-				auto y_off = m_font->vertical_advance(m_size);
-
-				while (end != std::string::npos)
-				{
-					const auto block = m_text.substr(start, end);
-					msdfgl_printf(0,
-						y_off,
-						static_cast<int>(m_alignment),
-						m_font->handle(),
-						m_size,
-						0xffffffff,
-						glm::value_ptr(proj),
-						static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
-						block.c_str());
-
-					y_off += m_font->vertical_advance(m_size);
-					start  = end + 1;
-					end    = m_text.find('\n', start);
-				}
-
-				const auto last_block = m_text.substr(start, end);
-
-				msdfgl_printf(0,
-					y_off,
-					static_cast<int>(m_alignment),
-					m_font->handle(),
-					m_size,
-					0xffffffff,
-					glm::value_ptr(proj),
-					static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
-					last_block.c_str());
-
-				m_rt.unbind();
-
-				auto vertices = graphics::gen_quad_vertices(width, height);
-				m_vao.sub_buffer(0, vertices);
-
-				m_rt.make_bindless();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to create text without a font.");
-			}
+			update();
 		}
 
-		void Text::update(std::string_view text)
+		void Text::set_font(std::string_view font)
 		{
-			m_text = text;
-			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
+			m_font_name = font;
+		}
 
+		void Text::update()
+		{
 			if (!m_font_name.empty())
 			{
 				auto& fonts = core::ServiceLocator<resource::Fonts>::ref();
@@ -203,62 +149,30 @@ namespace galaxy
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Attempted to update text without a font.");
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to create text without a font.");
 			}
 		}
 
-		void Text::update(std::string_view text, const float size)
+		void Text::update(std::string_view text)
+		{
+			m_text = text;
+			strutils::replace_all(m_text, "\t", "    "); // Handle tabs.
+
+			update();
+		}
+
+		void Text::update(const float size)
 		{
 			m_size = size;
 
-			update(text);
+			update();
 		}
 
-		void Text::update(std::string_view text, const graphics::Colour& colour)
-		{
-			m_colour = colour;
-
-			update(text);
-		}
-
-		void Text::update(std::string_view text, const float size, const graphics::Colour& colour)
-		{
-			m_size   = size;
-			m_colour = colour;
-
-			update(text);
-		}
-
-		void Text::update(std::string_view text, Alignment alignment)
+		void Text::update(Alignment alignment)
 		{
 			m_alignment = alignment;
 
-			update(text);
-		}
-
-		void Text::update(std::string_view text, const float size, Alignment alignment)
-		{
-			m_size      = size;
-			m_alignment = alignment;
-
-			update(text);
-		}
-
-		void Text::update(std::string_view text, const graphics::Colour& colour, Alignment alignment)
-		{
-			m_colour    = colour;
-			m_alignment = alignment;
-
-			update(text);
-		}
-
-		void Text::update(std::string_view text, const float size, const graphics::Colour& colour, Alignment alignment)
-		{
-			m_size      = size;
-			m_colour    = colour;
-			m_alignment = alignment;
-
-			update(text);
+			update();
 		}
 
 		float Text::width() const

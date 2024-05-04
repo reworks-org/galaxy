@@ -375,6 +375,38 @@ namespace galaxy
 			ImGui::PopID();
 			return clicked;
 		}
+
+		bool imgui_frect(const char* label, math::fRect& rect)
+		{
+			auto clicked = false;
+
+			ImGui::PushID(label);
+
+			ImGui::TextUnformatted(label);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("X", &rect.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("Y", &rect.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("W", &rect.width, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::SameLine();
+
+			ImGui::SetNextItemWidth(75);
+			clicked |= ImGui::InputFloat("H", &rect.height, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+
+			ImGui::PopID();
+			return clicked;
+		}
 	} // namespace ui
 } // namespace galaxy
 

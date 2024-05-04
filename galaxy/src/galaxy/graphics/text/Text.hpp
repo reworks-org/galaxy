@@ -65,6 +65,13 @@ namespace galaxy
 			create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, Alignment alignment = Alignment::LEFT);
 
 			///
+			/// Update the font used.
+			///
+			/// \param font Font to use.
+			///
+			void set_font(std::string_view font);
+
+			///
 			/// Update the rendered text.
 			///
 			/// \param text Text to display. Supports newlines.
@@ -74,63 +81,16 @@ namespace galaxy
 			///
 			/// Update the rendered text.
 			///
-			/// \param text Text to display. Supports newlines.
 			/// \param size Size of text in em.
 			///
-			void update(std::string_view text, const float size);
+			void update(const float size);
 
 			///
 			/// Update the rendered text.
 			///
-			/// \param text Text to display. Supports newlines.
-			/// \param colour Font colour.
-			///
-			void update(std::string_view text, const graphics::Colour& colour);
-
-			///
-			/// Update the rendered text.
-			///
-			/// \param text Text to display. Supports newlines.
-			/// \param size Size of text in em.
-			/// \param colour Font colour.
-			///
-			void update(std::string_view text, const float size, const graphics::Colour& colour);
-
-			///
-			/// Update the rendered text.
-			///
-			/// \param text Text to display. Supports newlines.
 			/// \param alignment Text alignment.
 			///
-			void update(std::string_view text, const Alignment alignment);
-
-			///
-			/// Update the rendered text.
-			///
-			/// \param text Text to display. Supports newlines.
-			/// \param size Size of text in em.
-			/// \param alignment Text alignment.
-			///
-			void update(std::string_view text, const float size, const Alignment alignment);
-
-			///
-			/// Update the rendered text.
-			///
-			/// \param text Text to display. Supports newlines.
-			/// \param colour Font colour.
-			/// \param alignment Text alignment.
-			///
-			void update(std::string_view text, const graphics::Colour& colour, const Alignment alignment);
-
-			///
-			/// Update the rendered text.
-			///
-			/// \param text Text to display. Supports newlines.
-			/// \param size Size of text in em.
-			/// \param colour Font colour.
-			/// \param alignment Text alignment.
-			///
-			void update(std::string_view text, const float size, const graphics::Colour& colour, const Alignment alignment);
+			void update(const Alignment alignment);
 
 			///
 			/// \brief Get text width.
@@ -206,6 +166,11 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Text& operator=(const Text&) = delete;
+
+			///
+			/// Update the rendered text.
+			///
+			void update();
 
 		  public:
 			///

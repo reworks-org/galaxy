@@ -90,6 +90,7 @@ namespace galaxy
 			colour_type["set_g"]       = &graphics::Colour::set_g;
 			colour_type["set_b"]       = &graphics::Colour::set_b;
 			colour_type["set_a"]       = &graphics::Colour::set_a;
+			colour_type["set_rgba"]    = &graphics::Colour::set_rgba;
 
 			auto rendercommand_type         = lua.new_usertype<graphics::RenderCommand>("RenderCommand", sol::constructors<graphics::RenderCommand()>());
 			rendercommand_type["count"]     = &graphics::RenderCommand::count;
@@ -143,25 +144,19 @@ namespace galaxy
 			auto fc_type       = lua.new_usertype<graphics::FontContext>("Font", sol::no_constructor);
 			fc_type["set_dpi"] = &graphics::FontContext::set_dpi;
 
-			auto text_type                     = lua.new_usertype<graphics::Text>("Text", sol::constructors<graphics::Font()>());
-			text_type["create"]                = &graphics::Text::create;
-			text_type["get_alignment"]         = &graphics::Text::get_alignment;
-			text_type["get_font"]              = &graphics::Text::get_font;
-			text_type["get_size"]              = &graphics::Text::get_size;
-			text_type["get_text"]              = &graphics::Text::get_text;
-			text_type["height"]                = &graphics::Text::height;
-			text_type["colour"]                = &graphics::Text::m_colour;
-			text_type["update"]                = sol::resolve<void(std::string_view)>(&graphics::Text::update);
-			text_type["update_size"]           = sol::resolve<void(std::string_view, const float)>(&graphics::Text::update);
-			text_type["update_colour"]         = sol::resolve<void(std::string_view, const graphics::Colour&)>(&graphics::Text::update);
-			text_type["update_size_colour"]    = sol::resolve<void(std::string_view, const float, const graphics::Colour&)>(&graphics::Text::update);
-			text_type["update_alignment"]      = sol::resolve<void(std::string_view, const graphics::Text::Alignment)>(&graphics::Text::update);
-			text_type["update_size_alignment"] = sol::resolve<void(std::string_view, const float, const graphics::Text::Alignment)>(&graphics::Text::update);
-			text_type["update_colour_alignment"] =
-				sol::resolve<void(std::string_view, const graphics::Colour&, const graphics::Text::Alignment)>(&graphics::Text::update);
-			text_type["update_size_colour_alignment"] =
-				sol::resolve<void(std::string_view, const float, const graphics::Colour&, const graphics::Text::Alignment)>(&graphics::Text::update);
-			text_type["width"] = &graphics::Text::width;
+			auto text_type                = lua.new_usertype<graphics::Text>("Text", sol::constructors<graphics::Font()>());
+			text_type["create"]           = &graphics::Text::create;
+			text_type["get_alignment"]    = &graphics::Text::get_alignment;
+			text_type["get_font"]         = &graphics::Text::get_font;
+			text_type["get_size"]         = &graphics::Text::get_size;
+			text_type["get_text"]         = &graphics::Text::get_text;
+			text_type["height"]           = &graphics::Text::height;
+			text_type["colour"]           = &graphics::Text::m_colour;
+			text_type["update"]           = sol::resolve<void(std::string_view)>(&graphics::Text::update);
+			text_type["update_size"]      = sol::resolve<void(const float)>(&graphics::Text::update);
+			text_type["update_alignment"] = sol::resolve<void(const graphics::Text::Alignment)>(&graphics::Text::update);
+			text_type["set_font"]         = &graphics::Text::set_font;
+			text_type["width"]            = &graphics::Text::width;
 
 			auto circle_type         = lua.new_usertype<graphics::Circle>("Circle", sol::constructors<graphics::Circle()>());
 			circle_type["create"]    = &graphics::Circle::create;

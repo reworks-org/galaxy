@@ -15,6 +15,8 @@
 #include <glm/vec4.hpp>
 #include <imgui/imgui_stdlib.h>
 
+#include "galaxy/math/Rect.hpp"
+
 namespace galaxy
 {
 	namespace graphics
@@ -163,6 +165,16 @@ namespace galaxy
 		/// \return True if any field is clicked.
 		///
 		[[maybe_unused]] bool imgui_glm_vec4(const char* label, glm::vec4& vec);
+
+		///
+		/// fRect widget.
+		///
+		/// \param label Widget label.
+		/// \param rect Rectangle.
+		///
+		/// \return True if any field is clicked.
+		///
+		[[maybe_unused]] bool imgui_frect(const char* label, math::fRect& rect);
 	} // namespace ui
 } // namespace galaxy
 

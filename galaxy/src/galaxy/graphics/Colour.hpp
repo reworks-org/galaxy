@@ -140,6 +140,13 @@ namespace galaxy
 			A a() const;
 
 			///
+			/// Set RGBA.
+			///
+			/// \param rgba Clamps from 0 to 1.
+			///
+			void set_rgba(const glm::vec4& rgba);
+
+			///
 			/// Get integer array.
 			///
 			/// \return Integers 0 - 255.

@@ -74,11 +74,25 @@ namespace galaxy
 			void set_clip(const math::fRect& rect);
 
 			///
+			/// Get texture clip.
+			///
+			/// \return Const reference to sprite clip.
+			///
+			[[nodiscard]] const math::fRect& get_clip() const;
+
+			///
 			/// Get texture.
 			///
 			/// \return Pointer. DO NOT STORE THIS.
 			///
 			[[nodiscard]] graphics::Texture2D* get_texture();
+
+			///
+			/// Texture name.
+			///
+			/// \return Const string ref.
+			///
+			[[nodiscard]] const std::string& get_texture_name() const;
 
 			///
 			/// Serializes object.
@@ -131,6 +145,11 @@ namespace galaxy
 			/// Vertex data.
 			///
 			std::array<graphics::Vertex, 4> m_vertices;
+
+			///
+			/// Texture clip.
+			///
+			math::fRect m_clip;
 
 			///
 			/// Pointer to vertex data memory. Faster than upload.

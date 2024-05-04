@@ -119,6 +119,8 @@ namespace galaxy
 			sprite_type["set_texture"]           = sol::resolve<void(const std::string&)>(&components::Sprite::set_texture);
 			sprite_type["set_texture_with_rect"] = sol::resolve<void(const std::string&, const math::fRect&)>(&components::Sprite::set_texture);
 			sprite_type["set_clip"]              = &components::Sprite::set_clip;
+			sprite_type["get_clip"]              = &components::Sprite::get_clip;
+			sprite_type["get_texture_name"]      = &components::Sprite::get_texture_name;
 
 			auto tag_type =
 				lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);

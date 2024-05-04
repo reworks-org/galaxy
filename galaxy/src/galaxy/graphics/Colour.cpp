@@ -136,6 +136,21 @@ namespace galaxy
 			}
 		}
 
+		void Colour::set_rgba(const glm::vec4& rgba)
+		{
+			m_vec4 = rgba;
+
+			m_vec4.x = std::clamp(m_vec4.x, 0.0f, 1.0f);
+			m_vec4.y = std::clamp(m_vec4.y, 0.0f, 1.0f);
+			m_vec4.z = std::clamp(m_vec4.z, 0.0f, 1.0f);
+			m_vec4.w = std::clamp(m_vec4.w, 0.0f, 1.0f);
+
+			m_array[0] = m_vec4.x * COLOUR_OFFSET;
+			m_array[1] = m_vec4.y * COLOUR_OFFSET;
+			m_array[2] = m_vec4.z * COLOUR_OFFSET;
+			m_array[3] = m_vec4.w * COLOUR_OFFSET;
+		}
+
 		std::array<std::uint8_t, 4>& Colour::array()
 		{
 			return m_array;
