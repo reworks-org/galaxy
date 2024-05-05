@@ -11,6 +11,8 @@
 - https://gameprogrammingpatterns.com/event-queue.html
 - https://gameprogrammingpatterns.com/flyweight.html
 
+https://old.reddit.com/r/cpp/comments/1ciek1o/making_a_faster_stdfunction_a_different_way_to/
+
 Signals:
 - https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
 - https://github.com/skypjack/entt/wiki/Crash-Course:-events,-signals-and-everything-in-between#signals

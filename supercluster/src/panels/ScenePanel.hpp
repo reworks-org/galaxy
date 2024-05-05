@@ -36,10 +36,12 @@ namespace sc
 		bool m_show = true;
 
 	  private:
-		bool                       m_show_new   = false;
-		bool                       m_show_clear = false;
+		bool                       m_show_new     = false;
+		bool                       m_show_clear   = false;
+		bool                       m_prefab_popup = false;
 		std::string                m_selected;
 		ImGui::ComboAutoSelectData m_map_data;
+		ImGui::ComboAutoSelectData m_prefab_data;
 		ImGuiTextFilter            m_entity_filter;
 		ImGuiTextFilter            m_map_entity_filter;
 	};

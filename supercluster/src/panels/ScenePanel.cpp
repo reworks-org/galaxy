@@ -9,6 +9,9 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/VirtualFileSystem.hpp>
+#include <galaxy/math/Base64.hpp>
+#include <galaxy/math/ZLib.hpp>
+#include <galaxy/resource/Prefabs.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
 
 #include "ScenePanel.hpp"
@@ -17,6 +20,10 @@ namespace sc
 {
 	ScenePanel::ScenePanel()
 	{
+		for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
+		{
+			m_prefab_data.items.push_back(key);
+		}
 	}
 
 	ScenePanel::~ScenePanel()
@@ -90,76 +97,6 @@ namespace sc
 
 				ImGui::PopID();
 			}
-
-			/*
-					if (ImGui::Button("Load Prefab"))
-					{
-						ImGui::OpenPopup("PrefabListPopup");
-					}
-
-					ImGui::SameLine();
-
-					if (ImGui::Button("Save as Prefab"))
-					{
-						if (selected.entity != entt::null && selected.scene != nullptr)
-						{
-							core::Prefab prefab {selected.entity, selected.scene->m_registry};
-							const auto   base64 = math::encode_base64(prefab.to_json().dump(4));
-							const auto   zlib   = math::encode_zlib(base64);
-
-							auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-							auto  dest = fs.open_save_dialog("untitled.gprefab", {"*.gprefab"});
-
-							if (!fs.write(zlib, dest))
-							{
-								GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
-								ui::imgui_notify_error("Failed to save prefab.");
-							}
-						}
-					}
-
-					if (ImGui::BeginPopup("PrefabListPopup"))
-					{
-						m_filter_prefabs.DrawWithHint("###PrefabSearch", ICON_MDI_MAGNIFY "Search...", ImGui::GetContentRegionAvail().x);
-
-						static std::string s_selected = "";
-						if (ImGui::BeginCombo("##PrefabList", s_selected.c_str()))
-						{
-							for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
-							{
-								if (m_filter_prefabs.PassFilter(key.c_str()))
-								{
-									const bool selected = (s_selected == key);
-									if (ImGui::Selectable(key.c_str(), selected))
-									{
-										s_selected = key;
-									}
-
-									if (selected)
-									{
-										ImGui::SetItemDefaultFocus();
-									}
-								}
-							}
-
-							ImGui::EndCombo();
-						}
-
-						if (ImGui::Button("Load"))
-						{
-							if (!s_selected.empty())
-							{
-								scene->create_from_prefab(s_selected);
-							}
-							else
-							{
-								ui::imgui_notify_warning("Please select a prefab.");
-							}
-						}
-
-						ImGui::EndPopup();
-					}
-			*/
 
 			ImGui::End();
 		}
@@ -288,6 +225,44 @@ namespace sc
 			{
 				selected.entity = registry.create();
 				selected.scene  = scene;
+			}
+
+			if (ImGui::CollapsingHeader("Prefabs"))
+			{
+				ImGui::ComboAutoSelect("Prefab List", m_prefab_data);
+				if (ImGui::Button("Load"))
+				{
+					auto selected = std::string {m_prefab_data.input};
+					if (!selected.empty())
+					{
+						registry.create_from_prefab(selected);
+					}
+					else
+					{
+						ui::imgui_notify_warning("Please select a prefab.");
+					}
+				}
+
+				if (ImGui::Button("Save"))
+				{
+					if (selected.entity != entt::null && selected.scene != nullptr)
+					{
+						core::Prefab prefab;
+						prefab.from_entity(selected.entity, selected.scene->m_registry.m_entt);
+
+						const auto base64 = math::encode_base64(prefab.to_json().dump(4));
+						const auto zlib   = math::encode_zlib(base64);
+
+						auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+						auto  dest = fs.open_save_dialog("untitled.galaxyprefab", {"*.galaxyprefab"});
+
+						if (!fs.write(zlib, dest))
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Failed to save prefab.");
+							ui::imgui_notify_error("Failed to save prefab.");
+						}
+					}
+				}
 			}
 
 			filter.DrawWithHint("###EntitySearch", ICON_MDI_MAGNIFY "Search by tag...", ImGui::GetContentRegionAvail().x);
