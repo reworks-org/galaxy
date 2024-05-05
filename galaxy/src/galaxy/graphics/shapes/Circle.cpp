@@ -18,8 +18,8 @@ namespace galaxy
 	namespace graphics
 	{
 		Circle::Circle()
-			: m_fragments {1.0f}
-			, m_radius {1.0f}
+			: m_fragments {20.0f}
+			, m_radius {10.0f}
 
 		{
 			m_mode = GL_LINE_LOOP;

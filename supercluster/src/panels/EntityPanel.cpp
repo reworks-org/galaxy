@@ -299,170 +299,49 @@ namespace sc
 				});
 
 				draw_component<components::Circle>(selected, "Circle", [&](components::Circle* circle) {
-					/*
-					ImGui::Text("Width: %.0f", primitive->get_width());
-						ImGui::SameLine(0.0f, 5.0f);
-						ImGui::Text("Height: %.0f", primitive->get_height());
+					auto frag = circle->m_shape.fragments();
+					if (ImGui::InputFloat("Fragments", &frag, 0.1f, 1.0f, "%.1f"))
+					{
+						tasks.push_back([&]() {
+							circle->m_shape.create(frag, circle->m_shape.radius());
+						});
+					}
 
-						ImGui::InputInt("Layer", &primitive->m_layer, 1, 2, numeric_input_flags);
+					auto rad = circle->m_shape.radius();
+					if (ImGui::InputFloat("Radius", &rad, 0.1f, 1.0f, "%.1f"))
+					{
+						tasks.push_back([&]() {
+							circle->m_shape.create(circle->m_shape.fragments(), rad);
+						});
+					}
 
-						static auto s_selected = std::string(magic_enum::enum_name(primitive->get_shape()));
-						static auto s_type     = primitive->get_shape();
-						if (ImGui::BeginCombo("Type", s_selected.c_str()))
-						{
-							for (const auto& name : s_types)
-							{
-								const bool selected = (s_selected == name);
-								if (ImGui::Selectable(std::string(name).c_str(), selected))
-								{
-									s_selected = name;
-									s_type     = magic_enum::enum_cast<math::Shape>(s_selected).value();
-								}
-
-								if (selected)
-								{
-									ImGui::SetItemDefaultFocus();
-								}
-							}
-
-							ImGui::EndCombo();
-						}
-
-						auto colour = primitive->m_colour.to_array();
-						if (ImGui::ColorEdit4("Colour", &colour[0]))
-						{
-							primitive->m_colour.set_from_normalized(colour[0], colour[1], colour[2], colour[3]);
-						}
-
-						ImGui::Spacing();
-
-						static components::Primitive::PrimitiveData data = primitive->get_data();
-						if (s_type == math::Shape::CIRCLE || s_type == math::Shape::ELLIPSE)
-						{
-							ImGui::InputFloat("Fragments", &data.fragments, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-						}
-
-						if (s_type == math::Shape::CIRCLE)
-						{
-							ImGui::InputFloat("Radius", &data.radius, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-						}
-
-						if (s_type == math::Shape::ELLIPSE)
-						{
-							ImGui::Text("Radii");
-
-							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("X##1", &data.radii.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-							ImGui::SameLine();
-
-							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("Y##2", &data.radii.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-						}
-
-						if (s_type == math::Shape::LINE)
-						{
-							ImGui::Text("First Point");
-							static float s_point_xy[2] = {0.0f, 0.0f};
-							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("X1##3", &s_point_xy[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-							ImGui::SameLine();
-
-							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("Y1##4", &s_point_xy[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-							ImGui::Text("Second Point");
-							static float s_point_zw[2] = {0.0f, 0.0f};
-							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("X2##5", &s_point_zw[0], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-
-							ImGui::SameLine();
-
-							ImGui::SetNextItemWidth(150);
-							ImGui::InputFloat("Y2##6", &s_point_zw[1], 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
-						}
-
-						static meta::vector<glm::vec2> points = {};
-						if (s_type == math::Shape::POLYLINE || s_type == math::Shape::POLYGON)
-						{
-							if (ImGui::Button("Add Point"))
-							{
-								ImGui::OpenPopup("PolyPointPopup");
-							}
-
-							ImGui::SameLine();
-
-							if (ImGui::Button("Clear Points"))
-							{
-								points.clear();
-							}
-
-							ImGui::Text("Points");
-							for (const auto& point : points)
-							{
-								ImGui::BulletText("{X: %.1f, Y: %.1f}", point.x, point.y);
-							}
-
-							if (ImGui::BeginPopup("PolyPointPopup"))
-							{
-								static glm::vec2 s_point {0.0f, 0.0f};
-								ui::imgui_glm_vec2("Point", s_point);
-
-								if (ImGui::Button("Push"))
-								{
-									points.emplace_back(s_point);
-
-									s_point.x = 0.0f;
-									s_point.y = 0.0f;
-
-									ImGui::CloseCurrentPopup();
-								}
-							}
-						}
-
-						if (ImGui::Button("Create"))
-						{
-							updates.emplace_back([&]() {
-								data.points = std::move(points);
-
-								switch (s_type)
-								{
-									case math::Shape::CIRCLE:
-										primitive->create<math::Shape::CIRCLE>(data, primitive->m_colour, primitive->m_layer);
-										break;
-
-									case math::Shape::ELLIPSE:
-										primitive->create<math::Shape::ELLIPSE>(data, primitive->m_colour, primitive->m_layer);
-										break;
-
-									case math::Shape::LINE:
-										primitive->create<math::Shape::LINE>(data, primitive->m_colour, primitive->m_layer);
-										break;
-
-									case math::Shape::POINT:
-										primitive->create<math::Shape::POINT>(data, primitive->m_colour, primitive->m_layer);
-										break;
-
-									case math::Shape::POLYGON:
-										primitive->create<math::Shape::POLYGON>(data, primitive->m_colour, primitive->m_layer);
-										break;
-
-									case math::Shape::POLYLINE:
-										primitive->create<math::Shape::POLYLINE>(data, primitive->m_colour, primitive->m_layer);
-										break;
-								}
-
-								data = {};
-								points.clear();
-							});
-
-							ui::imgui_notify_success("Successfully created primitive.");
-						}
-					*/
+					auto& tint = circle->m_shape.m_colour.vec4();
+					if (ImGui::ColorEdit4("Colour", &tint.x))
+					{
+						circle->m_shape.m_colour.set_rgba(tint);
+					}
 				});
 
 				draw_component<components::Ellipse>(selected, "Ellipse", [&](components::Ellipse* ellipse) {
+					auto frag = ellipse->m_shape.fragments();
+					if (ImGui::InputFloat("Fragments", &frag, 0.1f, 1.0f, "%.1f"))
+					{
+						tasks.push_back([&]() {
+							ellipse->m_shape.create(frag, ellipse->m_shape.radii());
+						});
+					}
+
+					glm::vec2 radii = ellipse->m_shape.radii();
+					if (ui::imgui_glm_vec2("Radii", radii))
+					{
+						ellipse->m_shape.create(ellipse->m_shape.fragments(), radii);
+					}
+
+					auto& tint = ellipse->m_shape.m_colour.vec4();
+					if (ImGui::ColorEdit4("Colour", &tint.x))
+					{
+						ellipse->m_shape.m_colour.set_rgba(tint);
+					}
 				});
 
 				draw_component<components::GUI>(selected, "GUI", [&](components::GUI* gui) {
@@ -555,12 +434,95 @@ namespace sc
 				});
 
 				draw_component<components::Point>(selected, "Point", [&](components::Point* point) {
+					glm::vec2 pos = point->m_shape.pos();
+					if (ui::imgui_glm_vec2("Pos", pos))
+					{
+						point->m_shape.create(pos);
+					}
+
+					auto& tint = point->m_shape.m_colour.vec4();
+					if (ImGui::ColorEdit4("Colour", &tint.x))
+					{
+						point->m_shape.m_colour.set_rgba(tint);
+					}
 				});
 
 				draw_component<components::Polygon>(selected, "Polygon", [&](components::Polygon* polygon) {
+					static meta::vector<glm::vec2> points = polygon->m_shape.points();
+
+					static glm::vec2 s_point {0.0f, 0.0f};
+					ui::imgui_glm_vec2("Add Point", s_point);
+
+					if (ImGui::Button("Push Point"))
+					{
+						points.emplace_back(s_point);
+
+						s_point.x = 0.0f;
+						s_point.y = 0.0f;
+					}
+
+					ImGui::SameLine();
+
+					if (ImGui::Button("Clear Points"))
+					{
+						points.clear();
+					}
+
+					auto& tint = polygon->m_shape.m_colour.vec4();
+					if (ImGui::ColorEdit4("Colour", &tint.x))
+					{
+						polygon->m_shape.m_colour.set_rgba(tint);
+					}
+
+					ImGui::Text("Points");
+					for (const auto& point : points)
+					{
+						ImGui::BulletText("{X: %.1f, Y: %.1f}", point.x, point.y);
+					}
+
+					if (ImGui::Button("Create"))
+					{
+						polygon->m_shape.create(points);
+					}
 				});
 
 				draw_component<components::Polyline>(selected, "Polyline", [&](components::Polyline* polyline) {
+					static meta::vector<glm::vec2> points = polyline->m_shape.points();
+
+					static glm::vec2 s_point {0.0f, 0.0f};
+					ui::imgui_glm_vec2("Add Point", s_point);
+
+					if (ImGui::Button("Push Point"))
+					{
+						points.emplace_back(s_point);
+
+						s_point.x = 0.0f;
+						s_point.y = 0.0f;
+					}
+
+					ImGui::SameLine();
+
+					if (ImGui::Button("Clear Points"))
+					{
+						points.clear();
+					}
+
+					auto& tint = polyline->m_shape.m_colour.vec4();
+					if (ImGui::ColorEdit4("Colour", &tint.x))
+					{
+						polyline->m_shape.m_colour.set_rgba(tint);
+					}
+
+					ImGui::Text("Points");
+					for (const auto& point : points)
+					{
+						ImGui::BulletText("{X: %.1f, Y: %.1f}", point.x, point.y);
+					}
+
+					if (ImGui::Button("Create"))
+					{
+						polyline->m_shape.create(points);
+					}
 				});
 
 				draw_component<components::RenderCommand>(selected, "RenderCommand", [&](components::RenderCommand* cmd) {

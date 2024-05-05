@@ -18,8 +18,8 @@ namespace galaxy
 	namespace graphics
 	{
 		Ellipse::Ellipse()
-			: m_fragments {1.0f}
-			, m_radii {1.0f, 1.0f}
+			: m_fragments {12.0f}
+			, m_radii {10.0f, 5.0f}
 
 		{
 			m_mode = GL_LINE_LOOP;

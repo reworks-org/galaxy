@@ -143,21 +143,3 @@ namespace sc
 } // namespace sc
 
 #endif
-/*
-		class EntityEditor final
-		{
-			ImGuiTextFilter m_filter_shaders;
-			ImGuiTextFilter m_filter_textures;
-			ImGuiTextFilter m_filter_tex_pg;
-			ImGuiTextFilter m_filter_fonts;
-		};
-
-
-
-
-	} // namespace panel
-} // namespace sc
-
-#endif
-
-*/
