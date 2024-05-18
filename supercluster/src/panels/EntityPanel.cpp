@@ -50,7 +50,7 @@ namespace sc
 	{
 	}
 
-	void EntityPanel::render(meta::vector<std::function<void(void)>>& tasks, Selected& selected)
+	void EntityPanel::render(meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected)
 	{
 		if (m_show)
 		{

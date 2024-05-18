@@ -24,12 +24,12 @@ namespace sc
 		ScenePanel();
 		~ScenePanel();
 
-		void render(scene::SceneManager& project, meta::vector<std::function<void(void)>>& tasks, Selected& selected);
+		void render(scene::SceneManager& project, meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected);
 
 	  private:
 		void draw_camera(scene::Scene* scene);
 		void draw_physics(scene::Scene* scene);
-		void draw_mapping(meta::vector<std::function<void(void)>>& tasks, scene::Scene* scene, Selected& selected);
+		void draw_mapping(meta::vector<std::move_only_function<void(void)>>& tasks, scene::Scene* scene, Selected& selected);
 		void draw_registry(Selected& selected, scene::Scene* scene, core::Registry& registry, ImGuiTextFilter& filter);
 
 	  public:

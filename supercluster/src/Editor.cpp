@@ -73,7 +73,7 @@ namespace sc
 
 	void Editor::update()
 	{
-		for (const auto& task : m_tasks)
+		for (auto& task : m_tasks)
 		{
 			task();
 		}

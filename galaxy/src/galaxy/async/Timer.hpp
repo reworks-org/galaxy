@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		/// Timer callback type.
 		///
-		using TimerCallback = std::function<void(void)>;
+		using TimerCallback = std::move_only_function<void(void)>;
 
 		///
 		/// (A)synchronous timer class.
@@ -44,7 +44,7 @@ namespace galaxy
 			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			Timer(const TimerCallback& func, const std::uint32_t delay);
+			Timer(TimerCallback&& func, const std::uint32_t delay);
 
 			///
 			/// Destructor.
@@ -57,7 +57,7 @@ namespace galaxy
 			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			void set(const TimerCallback& func, const std::uint32_t delay);
+			void set(TimerCallback&& func, const std::uint32_t delay);
 
 			///
 			/// Make function repeat itself instead of running once.
@@ -168,7 +168,7 @@ namespace galaxy
 		}
 
 		template<bool async>
-		inline Timer<async>::Timer(const TimerCallback& func, const std::uint32_t delay)
+		inline Timer<async>::Timer(TimerCallback&& func, const std::uint32_t delay)
 			: m_stopped {true}
 			, m_paused {false}
 			, m_repeat {false}
@@ -187,9 +187,9 @@ namespace galaxy
 		}
 
 		template<bool async>
-		inline void Timer<async>::set(const TimerCallback& func, const std::uint32_t delay)
+		inline void Timer<async>::set(TimerCallback&& func, const std::uint32_t delay)
 		{
-			m_callback = func;
+			m_callback = std::move(func);
 			m_delay    = delay;
 		}
 

@@ -203,7 +203,7 @@ namespace galaxy
 			style.Colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.1450980454683304f, 0.1450980454683304f, 0.1490196138620377f, 1.0f);
 		}
 
-		void imgui_popup(const char* id, bool& open, const std::function<void(void)>& func)
+		void imgui_popup(const char* id, bool& open, std::move_only_function<void(void)>&& func)
 		{
 			if (open)
 			{
@@ -219,7 +219,7 @@ namespace galaxy
 			}
 		}
 
-		void imgui_confirm(const char* msg, const std::function<void(void)>& yes, const std::function<void(void)>& no)
+		void imgui_confirm(const char* msg, std::move_only_function<void(void)>&& yes, std::move_only_function<void(void)>&& no)
 		{
 			ImGui::Text(msg);
 

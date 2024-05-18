@@ -61,7 +61,7 @@ namespace galaxy
 		/// \param open Controls popup visibility.
 		/// \param func ImGui controls to show on popup.
 		///
-		void imgui_popup(const char* id, bool& open, const std::function<void(void)>& func);
+		void imgui_popup(const char* id, bool& open, std::move_only_function<void(void)>&& func);
 
 		///
 		/// Handles a popup for a yes/no situation.
@@ -70,7 +70,7 @@ namespace galaxy
 		/// \param yes Code to run if user selects yes.
 		/// \param no Code to run if user selects no.
 		///
-		void imgui_confirm(const char* msg, const std::function<void(void)>& yes = {}, const std::function<void(void)>& no = {});
+		void imgui_confirm(const char* msg, std::move_only_function<void(void)>&& yes = {}, std::move_only_function<void(void)>&& no = {});
 
 		///
 		/// Make sure the next window opened is centered on the monitor.

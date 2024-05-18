@@ -31,7 +31,7 @@ namespace sc
 		EntityPanel();
 		~EntityPanel();
 
-		void render(meta::vector<std::function<void(void)>>& tasks, Selected& selected);
+		void render(meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected);
 
 	  private:
 		template<meta::valid_component Component>

@@ -30,7 +30,7 @@ namespace sc
 	{
 	}
 
-	void ScenePanel::render(scene::SceneManager& project, meta::vector<std::function<void(void)>>& tasks, Selected& selected)
+	void ScenePanel::render(scene::SceneManager& project, meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected)
 	{
 		if (m_show)
 		{
@@ -160,7 +160,7 @@ namespace sc
 		}
 	}
 
-	void ScenePanel::draw_mapping(meta::vector<std::function<void(void)>>& tasks, scene::Scene* scene, Selected& selected)
+	void ScenePanel::draw_mapping(meta::vector<std::move_only_function<void(void)>>& tasks, scene::Scene* scene, Selected& selected)
 	{
 		if (ImGui::CollapsingHeader("Mapping"))
 		{

@@ -33,7 +33,7 @@ namespace sc
 	class Editor final : public scene::Scene
 	{
 	  public:
-		using Tasks = meta::vector<std::function<void(void)>>;
+		using Tasks = meta::vector<std::move_only_function<void(void)>>;
 
 		Editor(const std::string& name);
 		virtual ~Editor();

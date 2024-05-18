@@ -40,11 +40,11 @@ namespace galaxy
 				nlohmann::json json;
 			};
 
-			using Validations = ankerl::unordered_dense::map<entt::id_type, std::function<bool(const entt::entity, entt::registry&)>>;
+			using Validations = ankerl::unordered_dense::map<entt::id_type, std::move_only_function<bool(const entt::entity, entt::registry&)>>;
 			using ComponentJSONFactory =
-				ankerl::unordered_dense::map<std::string, std::function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
-			using AnyJSONFactory   = ankerl::unordered_dense::map<std::string, std::function<entt::any(const nlohmann::json&)>>;
-			using SerializeFactory = ankerl::unordered_dense::map<std::string, std::function<EntityMeta::SerializationData(void*)>>;
+				ankerl::unordered_dense::map<std::string, std::move_only_function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
+			using AnyJSONFactory   = ankerl::unordered_dense::map<std::string, std::move_only_function<entt::any(const nlohmann::json&)>>;
+			using SerializeFactory = ankerl::unordered_dense::map<std::string, std::move_only_function<EntityMeta::SerializationData(void*)>>;
 
 		  public:
 			///
@@ -129,9 +129,9 @@ namespace galaxy
 			///
 			/// Get a list of configurations.
 			///
-			/// \return Const reference to Validations map.
+			/// \return Reference to validations map.
 			///
-			[[nodiscard]] const Validations& get_validations() const;
+			[[nodiscard]] Validations& get_validations();
 
 			///
 			/// Get a list of validations to run.

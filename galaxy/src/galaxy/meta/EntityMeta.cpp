@@ -77,7 +77,7 @@ namespace galaxy
 			return m_name_to_id.at(name);
 		}
 
-		const EntityMeta::Validations& EntityMeta::get_validations() const
+		EntityMeta::Validations& EntityMeta::get_validations()
 		{
 			return m_validations;
 		}
