@@ -36,7 +36,6 @@ namespace galaxy
 			}
 
 			m_camera.buffer<Camera::Data>(GAlAXY_BUFFER_CAMERA_INDEX, 0, 1, nullptr);
-
 			m_renderdata.buffer<RenderData>(GAlAXY_BUFFER_RENDERDATA_INDEX, 0, 1, nullptr);
 
 			auto& window = core::ServiceLocator<core::Window>::ref();

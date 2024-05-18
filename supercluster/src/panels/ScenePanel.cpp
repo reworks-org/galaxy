@@ -229,7 +229,7 @@ namespace sc
 
 			if (ImGui::CollapsingHeader("Prefabs"))
 			{
-				ImGui::ComboAutoSelect("Prefab List", m_prefab_data);
+				ImGui::ComboAutoSelect("List", m_prefab_data);
 				if (ImGui::Button("Load"))
 				{
 					auto selected = std::string {m_prefab_data.input};
@@ -242,6 +242,8 @@ namespace sc
 						ui::imgui_notify_warning("Please select a prefab.");
 					}
 				}
+
+				ImGui::SameLine();
 
 				if (ImGui::Button("Save"))
 				{

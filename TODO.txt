@@ -6,6 +6,7 @@
 - fix event priority.
 - fix registry only calling construction of script when its created from json, not blank.
 - make map entity more flexible.
+- aspect ratio independant camera.
 - https://stackoverflow.com/questions/15691320/does-it-make-sense-to-use-box2d-only-for-collision-detection
 - https://gameprogrammingpatterns.com/data-locality.html
 - https://gameprogrammingpatterns.com/event-queue.html
