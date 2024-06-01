@@ -3,6 +3,7 @@
 #include <entt/entity/registry.hpp>
 #include <entt/entity/runtime_view.hpp>
 #include <set>
+
 #include "meta_helper.hpp"
 
 namespace entt_sol
@@ -10,22 +11,19 @@ namespace entt_sol
 	template<typename Component>
 	inline auto is_valid(const entt::registry* registry, entt::entity entity)
 	{
-		assert(registry);
 		return registry->valid(entity);
 	}
 
 	template<typename Component>
 	inline auto emplace_component(entt::registry* registry, entt::entity entity, const sol::table& instance, sol::this_state s)
 	{
-		assert(registry);
-		auto& comp = registry->emplace_or_replace<Component>(entity, instance.valid() ? std::move(instance.as<Component>()) : Component {});
+		auto& comp = registry->emplace_or_replace<Component>(entity, instance.valid() ? std::move(instance.as<Component&&>()) : Component {});
 		return sol::make_reference(s, std::ref(comp));
 	}
 
 	template<typename Component>
 	inline auto get_component(entt::registry* registry, entt::entity entity, sol::this_state s)
 	{
-		assert(registry);
 		auto& comp = registry->get_or_emplace<Component>(entity);
 		return sol::make_reference(s, std::ref(comp));
 	}
@@ -33,21 +31,18 @@ namespace entt_sol
 	template<typename Component>
 	inline bool has_component(entt::registry* registry, entt::entity entity)
 	{
-		assert(registry);
 		return registry->any_of<Component>(entity);
 	}
 
 	template<typename Component>
 	inline auto remove_component(entt::registry* registry, entt::entity entity)
 	{
-		assert(registry);
 		return registry->remove<Component>(entity);
 	}
 
 	template<typename Component>
 	inline void clear_component(entt::registry* registry)
 	{
-		assert(registry);
 		registry->clear<Component>();
 	}
 

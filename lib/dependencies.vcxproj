@@ -239,6 +239,11 @@
     <ClInclude Include="ldtkloader\include\LDtkLoader\Utils.hpp" />
     <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
     <ClInclude Include="ldtkloader\src\json.hpp" />
+    <ClInclude Include="misc\entt_sol\dispatcher.hpp" />
+    <ClInclude Include="misc\entt_sol\meta_helper.hpp" />
+    <ClInclude Include="misc\entt_sol\registry.hpp" />
+    <ClInclude Include="misc\entt_sol\script_process.hpp" />
+    <ClInclude Include="misc\ldtkloader\Version.hpp" />
     <ClInclude Include="nuklear\nuklear.h" />
     <ClInclude Include="nuklear\Nuklear.hpp" />
     <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />

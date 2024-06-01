@@ -1,6 +1,7 @@
 #pragma once
 
 #include <entt/signal/dispatcher.hpp>
+
 #include "meta_helper.hpp"
 
 namespace entt_sol
@@ -8,8 +9,6 @@ namespace entt_sol
 	template<typename Event>
 	inline auto connect_listener(entt::dispatcher* dispatcher, const sol::function& f)
 	{
-		assert(dispatcher && f.valid());
-
 		struct script_listener
 		{
 			script_listener(entt::dispatcher& dispatcher, const sol::function& f)
@@ -46,28 +45,24 @@ namespace entt_sol
 	template<typename Event>
 	inline void trigger_event(entt::dispatcher* dispatcher, const sol::table& evt)
 	{
-		assert(dispatcher && evt.valid());
 		dispatcher->trigger(evt.as<Event>());
 	}
 
 	template<typename Event>
 	inline void enqueue_event(entt::dispatcher* dispatcher, const sol::table& evt)
 	{
-		assert(dispatcher && evt.valid());
 		dispatcher->enqueue(evt.as<Event>());
 	}
 
 	template<typename Event>
 	inline void clear_event(entt::dispatcher* dispatcher)
 	{
-		assert(dispatcher);
 		dispatcher->clear<Event>();
 	}
 
 	template<typename Event>
 	inline void update_event(entt::dispatcher* dispatcher)
 	{
-		assert(dispatcher);
 		dispatcher->update<Event>();
 	}
 
@@ -169,13 +164,21 @@ namespace entt_sol
 				}
 			},
 			"clear",
-			[](entt::dispatcher& self, const sol::object& type_or_id) {
-				invoke_meta_func(deduce_type(type_or_id), "clear_event"_hs, &self);
-			},
+			sol::overload(
+				[](entt::dispatcher& self) {
+					self.clear();
+				},
+				[](entt::dispatcher& self, const sol::object& type_or_id) {
+					invoke_meta_func(deduce_type(type_or_id), "clear_event"_hs, &self);
+				}),
 			"update",
-			[](entt::dispatcher& self, const sol::object& type_or_id) {
-				invoke_meta_func(deduce_type(type_or_id), "update_event"_hs, &self);
-			},
+			sol::overload(
+				[](entt::dispatcher& self) {
+					self.update();
+				},
+				[](entt::dispatcher& self, const sol::object& type_or_id) {
+					invoke_meta_func(deduce_type(type_or_id), "update_event"_hs, &self);
+				}),
 			"connect",
 			[](entt::dispatcher& self, const sol::object& type_or_id, const sol::function& listener, sol::this_state s) {
 				if (!listener.valid())
@@ -183,6 +186,7 @@ namespace entt_sol
 					// TODO: warning message
 					return entt::meta_any {};
 				}
+
 				if (const auto event_id = deduce_type(type_or_id); event_id == entt::type_hash<base_script_event>::value())
 				{
 					return entt::meta_any {std::make_unique<scripted_event_listener>(self, type_or_id, listener)};

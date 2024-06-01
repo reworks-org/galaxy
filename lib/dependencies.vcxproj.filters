@@ -232,6 +232,11 @@
     <ClInclude Include="ldtkloader\include\LDtkLoader\World.hpp" />
     <ClInclude Include="imgui\imgui\combo_filter\imgui_combo_autoselect.h" />
     <ClInclude Include="imgui\imgui\combo_filter\fts_fuzzy_match.h" />
+    <ClInclude Include="misc\entt_sol\dispatcher.hpp" />
+    <ClInclude Include="misc\entt_sol\meta_helper.hpp" />
+    <ClInclude Include="misc\entt_sol\registry.hpp" />
+    <ClInclude Include="misc\entt_sol\script_process.hpp" />
+    <ClInclude Include="misc\ldtkloader\Version.hpp" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

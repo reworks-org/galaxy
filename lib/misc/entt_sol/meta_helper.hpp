@@ -9,7 +9,6 @@ namespace entt_sol
 	[[nodiscard]] inline entt::id_type get_type_id(const sol::table& obj)
 	{
 		const auto f = obj["type_id"].get<sol::function>();
-		assert(f.valid() && "type_id not exposed to lua!");
 		return f.valid() ? f().get<entt::id_type>() : -1;
 	}
 
@@ -25,12 +24,9 @@ namespace entt_sol
 			case sol::type::table:
 				return get_type_id(obj);
 		}
-		assert(false);
+
 		return -1;
 	}
-
-	// @see
-	// https://github.com/skypjack/entt/wiki/Crash-Course:-runtime-reflection-system
 
 	template<typename... Args>
 	inline auto invoke_meta_func(entt::meta_type meta_type, entt::id_type function_id, Args&&... args)

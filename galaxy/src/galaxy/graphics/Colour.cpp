@@ -14,6 +14,7 @@ const constexpr auto COLOUR_OFFSET = static_cast<float>(0xFF);
 #ifdef GALAXY_WIN_PLATFORM
 GALAXY_DISABLE_WARNING_PUSH
 GALAXY_DISABLE_WARNING(26467)
+GALAXY_DISABLE_WARNING(4244)
 #endif
 
 namespace galaxy

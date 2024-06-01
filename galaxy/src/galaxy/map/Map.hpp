@@ -21,7 +21,6 @@ namespace galaxy
 		///
 		/// Some implementation notes:
 		/// Only 1 tileset per layer is currently supported.
-		/// AutoLayer is not supported at this time.
 		///
 		class Map final
 		{
