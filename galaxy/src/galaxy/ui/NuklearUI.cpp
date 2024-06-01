@@ -28,26 +28,11 @@ namespace galaxy
 			, m_viewport_backup {0, 0, 0, 0}
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
-			auto& config = core::ServiceLocator<core::Config>::ref();
 
 			m_ctx = nk_glfw3_init(window.handle(), NK_GLFW3_DEFAULT, NK_MAX_VERTEX_BUFFER, NK_MAX_ELEMENT_BUFFER);
+
 			toggle_input(false);
-
-			nk_glfw3_font_stash_begin(&m_atlas);
-
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			for (const auto& file : fs.list(GALAXY_UI_FONTS_DIR))
-			{
-				auto data = fs.read_binary(file);
-				if (!data.empty())
-				{
-					auto font = nk_font_atlas_add_from_memory(m_atlas, data.data(), data.size(), config.get<float>("ui_font_size"), nullptr);
-					m_fonts.emplace(file, font);
-				}
-			}
-
-			nk_glfw3_font_stash_end();
-			nk_style_default(ctx());
+			scale(window.get_content_scale_max());
 		}
 
 		NuklearUI::~NuklearUI()
@@ -102,6 +87,11 @@ namespace galaxy
 				nk_glfw3_key_button_callback(nullptr, input::key_to_int(e.keycode), e.scancode, action, input::mod_to_int(e.mod));
 				e.handled = true;
 			}
+		}
+
+		void NuklearUI::on_content_scale(const events::ContentScale& e)
+		{
+			scale(std::max(e.xscale, e.yscale));
 		}
 
 		void NuklearUI::begin_input() const
@@ -219,6 +209,37 @@ namespace galaxy
 		nk_context* NuklearUI::ctx() const
 		{
 			return &m_ctx->ctx;
+		}
+
+		void NuklearUI::scale(const float scale)
+		{
+			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& config = core::ServiceLocator<core::Config>::ref();
+
+			if (m_atlas)
+			{
+				nk_font_atlas_clear(m_atlas);
+			}
+
+			nk_glfw3_font_stash_begin(&m_atlas);
+
+			for (const auto& file : fs.list(GALAXY_UI_FONTS_DIR))
+			{
+				auto data = fs.read_binary(file);
+				if (!data.empty())
+				{
+					const auto size = scale * config.get<float>("ui_font_size");
+
+					auto font_cfg       = nk_font_config(size);
+					font_cfg.pixel_snap = true;
+
+					auto font = nk_font_atlas_add_from_memory(m_atlas, data.data(), data.size(), size, &font_cfg);
+					m_fonts.emplace(file, font);
+				}
+			}
+
+			nk_glfw3_font_stash_end();
+			nk_style_default(ctx());
 		}
 	} // namespace ui
 } // namespace galaxy

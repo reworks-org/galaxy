@@ -11,6 +11,7 @@
 #include <ankerl/unordered_dense.h>
 #include <Nuklear.hpp>
 
+#include "galaxy/events/ContentScale.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyPress.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -63,6 +64,13 @@ namespace galaxy
 			/// \param e Takes in a key press event.
 			///
 			void on_key_press(events::KeyPress& e);
+
+			///
+			/// On content scale event.
+			///
+			/// \param e Takes in a content scale event.
+			///
+			void on_content_scale(const events::ContentScale& e);
 
 			///
 			/// Called before glfwPollEvents.
@@ -123,6 +131,14 @@ namespace galaxy
 			/// \return Pointer to context. DO NOT FREE.
 			///
 			[[nodiscard]] nk_context* ctx() const;
+
+		  private:
+			///
+			/// Scale UI to monitor/window.
+			///
+			/// \param scale Usually window content scale.
+			///
+			void scale(const float scale);
 
 		  private:
 			///
