@@ -45,14 +45,14 @@ namespace galaxy
 			bool maximized;
 
 			///
+			/// Open window fullscreen. Has priority over maximized.
+			///
+			bool fullscreen;
+
+			///
 			/// Enable debug api calls.
 			///
 			bool debug;
-
-			///
-			/// Window content area should be resized based on the monitor content scale.
-			///
-			bool scale_to_monitor;
 		};
 	} // namespace core
 } // namespace galaxy

@@ -32,6 +32,7 @@
         "window": {
             "cursor_icon": "",
             "debug": true,
+            "fullscreen": false,
             "height": 1080,
             "icon": "",
             "maximized": true,

@@ -96,9 +96,9 @@ namespace galaxy
 			config.restore<float>("ui_font_size", 14.0f);
 			config.restore<bool>("vsync", false, "window");
 			config.restore<bool>("maximized", false, "window");
+			config.restore<bool>("fullscreen", false, "window");
 			config.restore<bool>("debug", true, "window");
 			config.restore<bool>("visible_cursor", true, "window");
-			config.restore<bool>("scale_to_monitor", true, "window");
 			config.restore<int>("width", 1280, "window");
 			config.restore<int>("height", 720, "window");
 			config.restore<float>("sfx_volume", 1.0f, "audio");
@@ -147,8 +147,8 @@ namespace galaxy
 				.height = config.get<int>("height", "window"),
 				.vsync = config.get<bool>("vsync", "window"),
 				.maximized = config.get<bool>("maximized", "window"),
-				.debug = config.get<bool>("debug", "window"),
-				.scale_to_monitor = config.get<bool>("scale_to_monitor", "window")
+				.fullscreen = config.get<bool>("fullscreen", "window"),
+				.debug = config.get<bool>("debug", "window")
 			};
 			// clang-format on
 

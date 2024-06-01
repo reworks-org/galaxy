@@ -114,6 +114,11 @@ namespace galaxy
 			void minimize() const;
 
 			///
+			/// Set window into borderless fullscreen mode.
+			///
+			void fullscreen() const;
+
+			///
 			/// Set window title.
 			///
 			/// \param title New title to set window to.
@@ -206,6 +211,13 @@ namespace galaxy
 			/// \return glm::ivec2.
 			///
 			[[nodiscard]] glm::ivec2 get_framebuffer_size();
+
+			///
+			/// Get window content scale.
+			///
+			/// \return glm::vec2.
+			///
+			[[nodiscard]] glm::vec2 get_content_scale();
 
 			///
 			/// Retrieve pointer to GLFWwindow object.

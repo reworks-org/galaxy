@@ -28,6 +28,7 @@
 #include "galaxy/input/Input.hpp"
 #include "galaxy/input/InputMods.hpp"
 #include "galaxy/platform/Pragma.hpp"
+#include "galaxy/ui/ImGuiHelpers.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
 #include "Window.hpp"
@@ -115,17 +116,20 @@ namespace galaxy
 				glfwWindowHint(GLFW_AUTO_ICONIFY, GLFW_TRUE);
 				glfwWindowHint(GLFW_CENTER_CURSOR, GLFW_TRUE);
 				glfwWindowHint(GLFW_FOCUS_ON_SHOW, GLFW_TRUE);
-				glfwWindowHint(GLFW_SCALE_TO_MONITOR, settings.scale_to_monitor);
+				glfwWindowHint(GLFW_SCALE_TO_MONITOR, GLFW_TRUE);
 
 				// Configure framebuffer setup.
-				glfwWindowHint(GLFW_RED_BITS, 8);
-				glfwWindowHint(GLFW_GREEN_BITS, 8);
-				glfwWindowHint(GLFW_BLUE_BITS, 8);
+				auto* vm = glfwGetVideoMode(glfwGetPrimaryMonitor());
+
+				glfwWindowHint(GLFW_RED_BITS, vm->redBits);     // 8
+				glfwWindowHint(GLFW_GREEN_BITS, vm->greenBits); // 8
+				glfwWindowHint(GLFW_BLUE_BITS, vm->blueBits);   // 8
+				glfwWindowHint(GLFW_REFRESH_RATE, vm->refreshRate);
 				glfwWindowHint(GLFW_ALPHA_BITS, 8);
 				glfwWindowHint(GLFW_DEPTH_BITS, 24);
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
 				glfwWindowHint(GLFW_STEREO, GLFW_FALSE);
-				glfwWindowHint(GLFW_SAMPLES, 4);
+				glfwWindowHint(GLFW_SAMPLES, 0); // 4
 				glfwWindowHint(GLFW_SRGB_CAPABLE, GLFW_TRUE);
 				glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
 
@@ -137,18 +141,11 @@ namespace galaxy
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, settings.debug);
 				glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-				// Window maximized check.
-				if (settings.maximized)
-				{
-					glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
-				}
-
-				// Create the window from input, ensuring it is centered in the screen.
 				m_title  = settings.title;
 				m_window = glfwCreateWindow(settings.width, settings.height, m_title.c_str(), nullptr, nullptr);
 				if (m_window)
 				{
-					// Center window.
+					if (!settings.maximized && !settings.fullscreen)
 					{
 						int sx = 0, sy = 0;
 						int px = 0, py = 0;
@@ -205,9 +202,17 @@ namespace galaxy
 							}
 						}
 					}
+					else if (settings.fullscreen)
+					{
+						fullscreen();
+					}
+					else if (settings.maximized)
+					{
+						maximize();
+					}
 
-					glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
 					glfwShowWindow(m_window);
+					glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
 
 					// Set input devices.
 					m_keyboard.set_window(m_window);
@@ -257,6 +262,17 @@ namespace galaxy
 							// clang-format on
 
 							win->m_dispatcher->trigger(sc);
+						}
+
+						if (!ServiceLocator<graphics::FontContext>::empty())
+						{
+							auto& fc = ServiceLocator<graphics::FontContext>::ref();
+							fc.set_dpi(xscale * 96.0f, yscale * 96.0f);
+						}
+
+						if (ui::imgui_loaded())
+						{
+							ui::scale_and_load_fonts();
 						}
 					});
 
@@ -409,15 +425,6 @@ namespace galaxy
 						}
 					});
 
-					// Set window scale callback.
-					glfwSetWindowContentScaleCallback(m_window, [](GLFWwindow* window, float xscale, float yscale) {
-						if (!ServiceLocator<graphics::FontContext>::empty())
-						{
-							auto& fc = ServiceLocator<graphics::FontContext>::ref();
-							fc.set_dpi(xscale * 96.0f, yscale * 96.0f);
-						}
-					});
-
 					// clang-format off
 					#ifdef GALAXY_WIN_PLATFORM
 					GALAXY_DISABLE_WARNING_POP
@@ -479,8 +486,8 @@ namespace galaxy
 						glDisable(GL_FRAMEBUFFER_SRGB);
 						glDisable(GL_CULL_FACE);
 						glDisable(GL_SCISSOR_TEST);
+						glDisable(GL_MULTISAMPLE); // Use provided SMAA.
 
-						glEnable(GL_MULTISAMPLE);
 						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 						glEnable(GL_PROGRAM_POINT_SIZE);
 						glEnable(GL_DEPTH_TEST);
@@ -642,6 +649,14 @@ namespace galaxy
 			glfwIconifyWindow(m_window);
 		}
 
+		void Window::fullscreen() const
+		{
+			auto* monitor = glfwGetPrimaryMonitor();
+			auto* mode    = glfwGetVideoMode(monitor);
+
+			glfwSetWindowMonitor(m_window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
+
 		bool Window::is_focused() const
 		{
 			return glfwGetWindowAttrib(m_window, GLFW_FOCUSED);
@@ -676,6 +691,14 @@ namespace galaxy
 		{
 			glm::ivec2 size;
 			glfwGetFramebufferSize(m_window, &size.x, &size.y);
+
+			return size;
+		}
+
+		glm::vec2 Window::get_content_scale()
+		{
+			glm::vec2 size;
+			glfwGetWindowContentScale(m_window, &size.x, &size.y);
 
 			return size;
 		}
