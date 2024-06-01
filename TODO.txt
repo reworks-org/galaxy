@@ -1,3 +1,5 @@
+- fix camera/window scalings
+
 - integrate camera controller
 - ADD LOADING SCREEN FOR SCENES
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab

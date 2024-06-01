@@ -41,7 +41,7 @@ namespace galaxy
 			/// \param x Font DPI scale for x axis.
 			/// \param y Font DPI scale for y axis.
 			///
-			void set_dpi(const float x, const float y);
+			void set_dpi(const float x, const float y) const;
 
 			///
 			/// Get font context object.
