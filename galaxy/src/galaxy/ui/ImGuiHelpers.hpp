@@ -30,9 +30,11 @@ namespace galaxy
 		///
 		/// Initialize ImGui context with galaxy.
 		///
+		/// \param ini Layout ini file. Can include a path.
+		///
 		/// \return Reference to initialized imgui io.
 		///
-		[[maybe_unused]] ImGuiIO& imgui_init_context();
+		[[maybe_unused]] ImGuiIO& imgui_init_context(const char* ini);
 
 		///
 		/// New imgui frame with galaxy.
@@ -76,6 +78,20 @@ namespace galaxy
 		/// Make sure the next window opened is centered on the monitor.
 		///
 		void imgui_center_next_window();
+
+		///
+		/// \brief Scale and load fonts.
+		///
+		/// Calc proper window scalings and needs to reload fonts aswell.
+		///
+		void scale_and_load_fonts();
+
+		///
+		/// Is ImGui loaded?
+		///
+		/// \return True if imgui context is loaded.
+		///
+		[[nodiscard]] bool imgui_loaded();
 
 		///
 		/// Render an imgui image button with a galaxy texture.

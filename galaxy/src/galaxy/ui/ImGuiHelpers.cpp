@@ -7,6 +7,7 @@
 
 #include <ankerl/unordered_dense.h>
 #include <glad/glad.h>
+#include <imgui/imgui_freetype.h>
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
 #include <imgui/imnotify/ImGuiNotify.hpp>
@@ -16,6 +17,7 @@
 #include "galaxy/graphics/gl/Texture2D.hpp"
 #include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/platform/Pragma.hpp"
+#include "galaxy/resource/embedded/RobotoLight.hpp"
 
 #include "ImGuiHelpers.hpp"
 
@@ -38,7 +40,7 @@ namespace galaxy
 
 	namespace ui
 	{
-		ImGuiIO& imgui_init_context()
+		ImGuiIO& imgui_init_context(const char* ini)
 		{
 			// clang-format off
 			IMGUI_CHECKVERSION();
@@ -56,6 +58,7 @@ namespace galaxy
 			io.ConfigDockingWithShift     = true;
 			io.ConfigDockingAlwaysTabBar  = true;
 			io.MouseDrawCursor            = false;
+			io.IniFilename                = ini;
 
 			// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 			ImGuiStyle& style = ImGui::GetStyle();
@@ -71,6 +74,9 @@ namespace galaxy
 
 			ImGui::SetColorEditOptions(ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB |
 									   ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_AlphaBar);
+
+			ui::imgui_set_theme();
+			ui::scale_and_load_fonts();
 
 			return io;
 		}
@@ -253,6 +259,38 @@ namespace galaxy
 		{
 			const auto center = ImGui::GetMainViewport()->GetCenter();
 			ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, {0.5f, 0.5f});
+		}
+
+		void scale_and_load_fonts()
+		{
+			auto& window = core::ServiceLocator<core::Window>::ref();
+			auto& io     = ImGui::GetIO();
+
+			const auto scale     = window.get_content_scale();
+			const auto max       = std::max(scale.x, scale.y);
+			const auto font_size = std::floor(max * 16.0f);
+
+			ImGui::GetStyle().ScaleAllSizes(max);
+
+			ImFontConfig font_cfg          = {};
+			font_cfg.FontDataOwnedByAtlas  = false;
+			font_cfg.RasterizerMultiply    = 1.5f;
+			font_cfg.OversampleH           = 1;
+			font_cfg.OversampleV           = 1;
+			font_cfg.FontBuilderFlags     |= ImGuiFreeTypeBuilderFlags_LoadColor;
+			io.FontDefault                 = io.Fonts->AddFontFromMemoryTTF(&resource::roboto_light, resource::roboto_light_len, font_size, &font_cfg);
+
+			static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
+			ImFontConfig         md_icons_cfg;
+			md_icons_cfg.FontDataOwnedByAtlas = false;
+			md_icons_cfg.MergeMode            = true;
+			md_icons_cfg.PixelSnapH           = true;
+			io.Fonts->AddFontFromMemoryTTF(&materialdesignicons_ttf, sizeof(materialdesignicons_ttf), font_size, &md_icons_cfg, icons_ranges);
+		}
+
+		bool imgui_loaded()
+		{
+			return ImGui::GetCurrentContext() != NULL;
 		}
 
 		bool imgui_imagebutton(const graphics::Texture2D& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)
