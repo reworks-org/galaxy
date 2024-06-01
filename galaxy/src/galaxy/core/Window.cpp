@@ -703,6 +703,12 @@ namespace galaxy
 			return size;
 		}
 
+		float Window::get_content_scale_max()
+		{
+			const auto scale = get_content_scale();
+			return std::max(scale.x, scale.y);
+		}
+
 		GLFWwindow* Window::handle()
 		{
 			return m_window;

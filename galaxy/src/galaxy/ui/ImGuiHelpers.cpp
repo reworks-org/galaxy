@@ -266,11 +266,10 @@ namespace galaxy
 			auto& window = core::ServiceLocator<core::Window>::ref();
 			auto& io     = ImGui::GetIO();
 
-			const auto scale     = window.get_content_scale();
-			const auto max       = std::max(scale.x, scale.y);
-			const auto font_size = std::floor(max * 16.0f);
+			const auto scale     = window.get_content_scale_max();
+			const auto font_size = std::floor(scale * 16.0f);
 
-			ImGui::GetStyle().ScaleAllSizes(max);
+			ImGui::GetStyle().ScaleAllSizes(scale);
 
 			ImFontConfig font_cfg          = {};
 			font_cfg.FontDataOwnedByAtlas  = false;
@@ -290,7 +289,7 @@ namespace galaxy
 
 		bool imgui_loaded()
 		{
-			return ImGui::GetCurrentContext() != NULL;
+			return ImGui::GetCurrentContext() != nullptr;
 		}
 
 		bool imgui_imagebutton(const graphics::Texture2D& texture, const ImVec2& size, const ImVec4& bg_col, const ImVec4& tint_col)

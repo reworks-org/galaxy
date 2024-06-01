@@ -220,6 +220,13 @@ namespace galaxy
 			[[nodiscard]] glm::vec2 get_content_scale();
 
 			///
+			/// Get max window content scale.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]] float get_content_scale_max();
+
+			///
 			/// Retrieve pointer to GLFWwindow object.
 			///
 			/// \return Returns pointer to GLFWwindow.
