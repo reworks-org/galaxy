@@ -43,5 +43,6 @@ var searchData=
   ['frames_40',['frames',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a6d04ec8e90e00c023c7823b992dbc39b',1,'galaxy::graphics::Animation']]],
   ['frect_41',['fRect',['../d1/d92/namespacegalaxy_1_1math.html#a1474ab75830e10ec2701f450c8715c53',1,'galaxy::math']]],
   ['from_5fentity_42',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_43',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]]
+  ['from_5fjson_43',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['fullscreen_44',['fullscreen',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a05b42ead6c53cc7defb97c55bbb63fe1',1,'galaxy::core::Window::fullscreen()'],['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a37cfa930df008236cbd7b465514fbcb5',1,'galaxy::core::WindowSettings::fullscreen']]]
 ];

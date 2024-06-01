@@ -1,5 +1,5 @@
 <map id="galaxy::ui::imgui_center_next_window" name="galaxy::ui::imgui_center_next_window">
 <area shape="rect" id="Node000001" title="Make sure the next window opened is centered on the monitor." alt="" coords="231,5,409,45"/>
-<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7fe6445a6e1e7490dbc6a69b82000910" title="Cleaner way of rendering an ImGui popup." alt="" coords="5,13,183,38"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7b096445df6fb5693a3463f406d55fb4" title="Cleaner way of rendering an ImGui popup." alt="" coords="5,13,183,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,28,183,28,183,23,217,23"/>
 </map>

@@ -19,5 +19,6 @@ var searchData=
   ['framebuffer_16',['framebuffer',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae327a001b7cb9903f080b3b3b1ed81f9',1,'galaxy::graphics::Framebuffer::Framebuffer()'],['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a34e325cdd30038d84b53d5b98fcbb7be',1,'galaxy::graphics::Framebuffer::Framebuffer(Framebuffer &amp;&amp;)'],['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ace9d2534db4c0e09192e454594b016cf',1,'galaxy::graphics::Framebuffer::Framebuffer(const Framebuffer &amp;)=delete']]],
   ['frames_17',['frames',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a6d04ec8e90e00c023c7823b992dbc39b',1,'galaxy::graphics::Animation']]],
   ['from_5fentity_18',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_19',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]]
+  ['from_5fjson_19',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['fullscreen_20',['fullscreen',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a05b42ead6c53cc7defb97c55bbb63fe1',1,'galaxy::core::Window']]]
 ];

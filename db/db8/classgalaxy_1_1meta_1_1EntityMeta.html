@@ -150,23 +150,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8089dfe3248b7fec9d8d7da259b441a3" id="r_a8089dfe3248b7fec9d8d7da259b441a3"><td class="memItemLeft" align="right" valign="top">entt::id_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a8089dfe3248b7fec9d8d7da259b441a3">get_typeid</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:a8089dfe3248b7fec9d8d7da259b441a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an entity type id from a string.  <br /></td></tr>
 <tr class="separator:a8089dfe3248b7fec9d8d7da259b441a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780d4e39ceea6e3714040e6311253d9a" id="r_a780d4e39ceea6e3714040e6311253d9a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a43e91906be675b18bbb137bc2e184e70">Validations</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a780d4e39ceea6e3714040e6311253d9a">get_validations</a> () const</td></tr>
-<tr class="memdesc:a780d4e39ceea6e3714040e6311253d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of configurations.  <br /></td></tr>
-<tr class="separator:a780d4e39ceea6e3714040e6311253d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f988982846d967a69f4760188517712" id="r_a1f988982846d967a69f4760188517712"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae531322a621a78ce2861b2baf69536b1">Validations</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a1f988982846d967a69f4760188517712">get_validations</a> ()</td></tr>
+<tr class="memdesc:a1f988982846d967a69f4760188517712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of configurations.  <br /></td></tr>
+<tr class="separator:a1f988982846d967a69f4760188517712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a603d6bcfc9e184c561d4c2393dc3a388" id="r_a603d6bcfc9e184c561d4c2393dc3a388"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; entt::id_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a603d6bcfc9e184c561d4c2393dc3a388">get_validation_list</a> () const</td></tr>
 <tr class="memdesc:a603d6bcfc9e184c561d4c2393dc3a388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of validations to run.  <br /></td></tr>
 <tr class="separator:a603d6bcfc9e184c561d4c2393dc3a388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:a43e91906be675b18bbb137bc2e184e70" id="r_a43e91906be675b18bbb137bc2e184e70"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a43e91906be675b18bbb137bc2e184e70">Validations</a> = ankerl::unordered_dense::map&lt; entt::id_type, std::function&lt; bool(const entt::entity, entt::registry &amp;)&gt; &gt;</td></tr>
-<tr class="separator:a43e91906be675b18bbb137bc2e184e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac66105a7a4c00f761a10ae27c9eb1a1" id="r_aac66105a7a4c00f761a10ae27c9eb1a1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aac66105a7a4c00f761a10ae27c9eb1a1">ComponentJSONFactory</a> = ankerl::unordered_dense::map&lt; std::string, std::function&lt; void(const entt::entity, entt::registry &amp;, const nlohmann::json &amp;)&gt; &gt;</td></tr>
-<tr class="separator:aac66105a7a4c00f761a10ae27c9eb1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa734dc21c47123e361d8510e4ae02469" id="r_aa734dc21c47123e361d8510e4ae02469"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa734dc21c47123e361d8510e4ae02469">AnyJSONFactory</a> = ankerl::unordered_dense::map&lt; std::string, std::function&lt; entt::any(const nlohmann::json &amp;)&gt; &gt;</td></tr>
-<tr class="separator:aa734dc21c47123e361d8510e4ae02469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaffe0f1dd08df2fa9e367b9e900f64c" id="r_aaaffe0f1dd08df2fa9e367b9e900f64c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aaaffe0f1dd08df2fa9e367b9e900f64c">SerializeFactory</a> = ankerl::unordered_dense::map&lt; std::string, std::function&lt; <a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">EntityMeta::SerializationData</a>(void *)&gt; &gt;</td></tr>
-<tr class="separator:aaaffe0f1dd08df2fa9e367b9e900f64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae531322a621a78ce2861b2baf69536b1" id="r_ae531322a621a78ce2861b2baf69536b1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae531322a621a78ce2861b2baf69536b1">Validations</a> = ankerl::unordered_dense::map&lt; entt::id_type, std::move_only_function&lt; bool(const entt::entity, entt::registry &amp;)&gt; &gt;</td></tr>
+<tr class="separator:ae531322a621a78ce2861b2baf69536b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be5834f38fe81870d8250acfc32a5b2" id="r_a7be5834f38fe81870d8250acfc32a5b2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a7be5834f38fe81870d8250acfc32a5b2">ComponentJSONFactory</a> = ankerl::unordered_dense::map&lt; std::string, std::move_only_function&lt; void(const entt::entity, entt::registry &amp;, const nlohmann::json &amp;)&gt; &gt;</td></tr>
+<tr class="separator:a7be5834f38fe81870d8250acfc32a5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff18a7ebadf79dabfcb0c028021a963" id="r_a2ff18a7ebadf79dabfcb0c028021a963"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a2ff18a7ebadf79dabfcb0c028021a963">AnyJSONFactory</a> = ankerl::unordered_dense::map&lt; std::string, std::move_only_function&lt; entt::any(const nlohmann::json &amp;)&gt; &gt;</td></tr>
+<tr class="separator:a2ff18a7ebadf79dabfcb0c028021a963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3345742d986ea0b270631e4b12701f15" id="r_a3345742d986ea0b270631e4b12701f15"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3345742d986ea0b270631e4b12701f15">SerializeFactory</a> = ankerl::unordered_dense::map&lt; std::string, std::move_only_function&lt; <a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">EntityMeta::SerializationData</a>(void *)&gt; &gt;</td></tr>
+<tr class="separator:a3345742d986ea0b270631e4b12701f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -176,16 +176,16 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae4b134b255ad6479a72fd707769f114f" id="r_ae4b134b255ad6479a72fd707769f114f"><td class="memItemLeft" align="right" valign="top">ankerl::unordered_dense::map&lt; std::string, entt::id_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae4b134b255ad6479a72fd707769f114f">m_name_to_id</a></td></tr>
 <tr class="memdesc:ae4b134b255ad6479a72fd707769f114f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a string name to an entt id.  <br /></td></tr>
 <tr class="separator:ae4b134b255ad6479a72fd707769f114f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939db4968f0e78db5ffc874db55b456c" id="r_a939db4968f0e78db5ffc874db55b456c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aac66105a7a4c00f761a10ae27c9eb1a1">ComponentJSONFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a939db4968f0e78db5ffc874db55b456c">m_json_factory</a></td></tr>
+<tr class="memitem:a939db4968f0e78db5ffc874db55b456c" id="r_a939db4968f0e78db5ffc874db55b456c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a7be5834f38fe81870d8250acfc32a5b2">ComponentJSONFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a939db4968f0e78db5ffc874db55b456c">m_json_factory</a></td></tr>
 <tr class="memdesc:a939db4968f0e78db5ffc874db55b456c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to allow for component creation from json.  <br /></td></tr>
 <tr class="separator:a939db4968f0e78db5ffc874db55b456c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa64ff95a75428b759b1fe4d0f754c3" id="r_a9aa64ff95a75428b759b1fe4d0f754c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa734dc21c47123e361d8510e4ae02469">AnyJSONFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a9aa64ff95a75428b759b1fe4d0f754c3">m_json_any_factory</a></td></tr>
+<tr class="memitem:a9aa64ff95a75428b759b1fe4d0f754c3" id="r_a9aa64ff95a75428b759b1fe4d0f754c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a2ff18a7ebadf79dabfcb0c028021a963">AnyJSONFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a9aa64ff95a75428b759b1fe4d0f754c3">m_json_any_factory</a></td></tr>
 <tr class="memdesc:a9aa64ff95a75428b759b1fe4d0f754c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entt::any from a json component data.  <br /></td></tr>
 <tr class="separator:a9aa64ff95a75428b759b1fe4d0f754c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326c01f228d59a68a69d95e1e8cd69cf" id="r_a326c01f228d59a68a69d95e1e8cd69cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aaaffe0f1dd08df2fa9e367b9e900f64c">SerializeFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf">m_serialize_factory</a></td></tr>
+<tr class="memitem:a326c01f228d59a68a69d95e1e8cd69cf" id="r_a326c01f228d59a68a69d95e1e8cd69cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3345742d986ea0b270631e4b12701f15">SerializeFactory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a326c01f228d59a68a69d95e1e8cd69cf">m_serialize_factory</a></td></tr>
 <tr class="memdesc:a326c01f228d59a68a69d95e1e8cd69cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an entity from a void* pointer.  <br /></td></tr>
 <tr class="separator:a326c01f228d59a68a69d95e1e8cd69cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab23f9f7a17f72800e7cbf806256582c4" id="r_ab23f9f7a17f72800e7cbf806256582c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a43e91906be675b18bbb137bc2e184e70">Validations</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ab23f9f7a17f72800e7cbf806256582c4">m_validations</a></td></tr>
+<tr class="memitem:ab23f9f7a17f72800e7cbf806256582c4" id="r_ab23f9f7a17f72800e7cbf806256582c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae531322a621a78ce2861b2baf69536b1">Validations</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ab23f9f7a17f72800e7cbf806256582c4">m_validations</a></td></tr>
 <tr class="memdesc:ab23f9f7a17f72800e7cbf806256582c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores validation configurations.  <br /></td></tr>
 <tr class="separator:ab23f9f7a17f72800e7cbf806256582c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa43dcac4662e593aa11255d0bad07b95" id="r_aa43dcac4662e593aa11255d0bad07b95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html#a91b98bdf02f8524397102fa7301964db">meta::vector</a>&lt; entt::id_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa43dcac4662e593aa11255d0bad07b95">m_validations_to_run</a></td></tr>
@@ -197,8 +197,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../d4/d95/EntityMeta_8hpp_source.html">EntityMeta.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a43e91906be675b18bbb137bc2e184e70" name="a43e91906be675b18bbb137bc2e184e70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43e91906be675b18bbb137bc2e184e70">&#9670;&#160;</a></span>Validations</h2>
+<a id="ae531322a621a78ce2861b2baf69536b1" name="ae531322a621a78ce2861b2baf69536b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae531322a621a78ce2861b2baf69536b1">&#9670;&#160;</a></span>Validations</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +207,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a43e91906be675b18bbb137bc2e184e70">galaxy::meta::EntityMeta::Validations</a> =  ankerl::unordered_dense::map&lt;entt::id_type, std::function&lt;bool(const entt::entity, entt::registry&amp;)&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae531322a621a78ce2861b2baf69536b1">galaxy::meta::EntityMeta::Validations</a> =  ankerl::unordered_dense::map&lt;entt::id_type, std::move_only_function&lt;bool(const entt::entity, entt::registry&amp;)&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -221,8 +221,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aac66105a7a4c00f761a10ae27c9eb1a1" name="aac66105a7a4c00f761a10ae27c9eb1a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac66105a7a4c00f761a10ae27c9eb1a1">&#9670;&#160;</a></span>ComponentJSONFactory</h2>
+<a id="a7be5834f38fe81870d8250acfc32a5b2" name="a7be5834f38fe81870d8250acfc32a5b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be5834f38fe81870d8250acfc32a5b2">&#9670;&#160;</a></span>ComponentJSONFactory</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +231,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aac66105a7a4c00f761a10ae27c9eb1a1">galaxy::meta::EntityMeta::ComponentJSONFactory</a> =  ankerl::unordered_dense::map&lt;std::string, std::function&lt;void(const entt::entity, entt::registry&amp;, const nlohmann::json&amp;)&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a7be5834f38fe81870d8250acfc32a5b2">galaxy::meta::EntityMeta::ComponentJSONFactory</a> =  ankerl::unordered_dense::map&lt;std::string, std::move_only_function&lt;void(const entt::entity, entt::registry&amp;, const nlohmann::json&amp;)&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -245,8 +245,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa734dc21c47123e361d8510e4ae02469" name="aa734dc21c47123e361d8510e4ae02469"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa734dc21c47123e361d8510e4ae02469">&#9670;&#160;</a></span>AnyJSONFactory</h2>
+<a id="a2ff18a7ebadf79dabfcb0c028021a963" name="a2ff18a7ebadf79dabfcb0c028021a963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff18a7ebadf79dabfcb0c028021a963">&#9670;&#160;</a></span>AnyJSONFactory</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +255,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa734dc21c47123e361d8510e4ae02469">galaxy::meta::EntityMeta::AnyJSONFactory</a> =  ankerl::unordered_dense::map&lt;std::string, std::function&lt;entt::any(const nlohmann::json&amp;)&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a2ff18a7ebadf79dabfcb0c028021a963">galaxy::meta::EntityMeta::AnyJSONFactory</a> =  ankerl::unordered_dense::map&lt;std::string, std::move_only_function&lt;entt::any(const nlohmann::json&amp;)&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -269,8 +269,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaaffe0f1dd08df2fa9e367b9e900f64c" name="aaaffe0f1dd08df2fa9e367b9e900f64c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaffe0f1dd08df2fa9e367b9e900f64c">&#9670;&#160;</a></span>SerializeFactory</h2>
+<a id="a3345742d986ea0b270631e4b12701f15" name="a3345742d986ea0b270631e4b12701f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3345742d986ea0b270631e4b12701f15">&#9670;&#160;</a></span>SerializeFactory</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +279,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aaaffe0f1dd08df2fa9e367b9e900f64c">galaxy::meta::EntityMeta::SerializeFactory</a> =  ankerl::unordered_dense::map&lt;std::string, std::function&lt;<a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">EntityMeta::SerializationData</a>(void*)&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3345742d986ea0b270631e4b12701f15">galaxy::meta::EntityMeta::SerializeFactory</a> =  ankerl::unordered_dense::map&lt;std::string, std::move_only_function&lt;<a class="el" href="../../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html">EntityMeta::SerializationData</a>(void*)&gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -656,23 +656,23 @@ template&lt;valid_component Component&gt; </div>
 
 </div>
 </div>
-<a id="a780d4e39ceea6e3714040e6311253d9a" name="a780d4e39ceea6e3714040e6311253d9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a780d4e39ceea6e3714040e6311253d9a">&#9670;&#160;</a></span>get_validations()</h2>
+<a id="a1f988982846d967a69f4760188517712" name="a1f988982846d967a69f4760188517712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f988982846d967a69f4760188517712">&#9670;&#160;</a></span>get_validations()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a43e91906be675b18bbb137bc2e184e70">EntityMeta::Validations</a> &amp; galaxy::meta::EntityMeta::get_validations </td>
+          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae531322a621a78ce2861b2baf69536b1">EntityMeta::Validations</a> &amp; galaxy::meta::EntityMeta::get_validations </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Get a list of configurations. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to Validations map. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to validations map. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html#l00080">80</a> of file <a class="el" href="../../dd/d04/EntityMeta_8cpp_source.html">EntityMeta.cpp</a>.</p>
 
@@ -763,7 +763,7 @@ template&lt;valid_component Component&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aac66105a7a4c00f761a10ae27c9eb1a1">ComponentJSONFactory</a> galaxy::meta::EntityMeta::m_json_factory</td>
+          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a7be5834f38fe81870d8250acfc32a5b2">ComponentJSONFactory</a> galaxy::meta::EntityMeta::m_json_factory</td>
         </tr>
       </table>
   </td>
@@ -789,7 +789,7 @@ template&lt;valid_component Component&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aa734dc21c47123e361d8510e4ae02469">AnyJSONFactory</a> galaxy::meta::EntityMeta::m_json_any_factory</td>
+          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a2ff18a7ebadf79dabfcb0c028021a963">AnyJSONFactory</a> galaxy::meta::EntityMeta::m_json_any_factory</td>
         </tr>
       </table>
   </td>
@@ -815,7 +815,7 @@ template&lt;valid_component Component&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aaaffe0f1dd08df2fa9e367b9e900f64c">SerializeFactory</a> galaxy::meta::EntityMeta::m_serialize_factory</td>
+          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a3345742d986ea0b270631e4b12701f15">SerializeFactory</a> galaxy::meta::EntityMeta::m_serialize_factory</td>
         </tr>
       </table>
   </td>
@@ -841,7 +841,7 @@ template&lt;valid_component Component&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a43e91906be675b18bbb137bc2e184e70">Validations</a> galaxy::meta::EntityMeta::m_validations</td>
+          <td class="memname"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ae531322a621a78ce2861b2baf69536b1">Validations</a> galaxy::meta::EntityMeta::m_validations</td>
         </tr>
       </table>
   </td>
@@ -893,7 +893,7 @@ template&lt;valid_component Component&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html">meta</a></li><li class="navelem"><a class="el" href="../../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html">EntityMeta</a></li>
-    <li class="footer">Generated on Sun May 5 2024 10:39:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jun 1 2024 06:27:03 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

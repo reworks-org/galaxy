@@ -1,0 +1,5 @@
+<map id="galaxy::ui::imgui_set_theme" name="galaxy::ui::imgui_set_theme">
+<area shape="rect" id="Node000001" title="Set our theme." alt="" coords="212,5,369,45"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a92a55d3429a106644042a88aaaba1865" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
+</map>

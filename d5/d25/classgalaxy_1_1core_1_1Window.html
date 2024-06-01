@@ -176,6 +176,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a39b3e5f64848d946d5a4b785cc5a7166" id="r_a39b3e5f64848d946d5a4b785cc5a7166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a39b3e5f64848d946d5a4b785cc5a7166">minimize</a> () const</td></tr>
 <tr class="memdesc:a39b3e5f64848d946d5a4b785cc5a7166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimize window.  <br /></td></tr>
 <tr class="separator:a39b3e5f64848d946d5a4b785cc5a7166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b42ead6c53cc7defb97c55bbb63fe1" id="r_a05b42ead6c53cc7defb97c55bbb63fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a05b42ead6c53cc7defb97c55bbb63fe1">fullscreen</a> () const</td></tr>
+<tr class="memdesc:a05b42ead6c53cc7defb97c55bbb63fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window into borderless fullscreen mode.  <br /></td></tr>
+<tr class="separator:a05b42ead6c53cc7defb97c55bbb63fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0573732c9477fc9b457c44dc506cd744" id="r_a0573732c9477fc9b457c44dc506cd744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">set_title</a> (const std::string &amp;title)</td></tr>
 <tr class="memdesc:a0573732c9477fc9b457c44dc506cd744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window title.  <br /></td></tr>
 <tr class="separator:a0573732c9477fc9b457c44dc506cd744"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,6 +219,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7109dce6b8e40dcc7082792156b3afad" id="r_a7109dce6b8e40dcc7082792156b3afad"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7109dce6b8e40dcc7082792156b3afad">get_framebuffer_size</a> ()</td></tr>
 <tr class="memdesc:a7109dce6b8e40dcc7082792156b3afad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get framebuffer size taking into account DPI.  <br /></td></tr>
 <tr class="separator:a7109dce6b8e40dcc7082792156b3afad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53962defa02233cd0101ecbdfa5d39e2" id="r_a53962defa02233cd0101ecbdfa5d39e2"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a53962defa02233cd0101ecbdfa5d39e2">get_content_scale</a> ()</td></tr>
+<tr class="memdesc:a53962defa02233cd0101ecbdfa5d39e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get window content scale.  <br /></td></tr>
+<tr class="separator:a53962defa02233cd0101ecbdfa5d39e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69e5b8a2544369d1950b0ed4de1a5723" id="r_a69e5b8a2544369d1950b0ed4de1a5723"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a69e5b8a2544369d1950b0ed4de1a5723">get_content_scale_max</a> ()</td></tr>
+<tr class="memdesc:a69e5b8a2544369d1950b0ed4de1a5723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get max window content scale.  <br /></td></tr>
+<tr class="separator:a69e5b8a2544369d1950b0ed4de1a5723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad37f2fa07bf5cbb2290d66b4329df371" id="r_ad37f2fa07bf5cbb2290d66b4329df371"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad37f2fa07bf5cbb2290d66b4329df371">handle</a> ()</td></tr>
 <tr class="memdesc:ad37f2fa07bf5cbb2290d66b4329df371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve pointer to GLFWwindow object.  <br /></td></tr>
 <tr class="separator:ad37f2fa07bf5cbb2290d66b4329df371"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -293,7 +302,7 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00059">59</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -338,7 +347,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00070">70</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00071">71</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -346,57 +355,66 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_aa0955e4daa23016975d1924020b39b2f_cgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_aa0955e4daa23016975d1924020b39b2f_cgraph" alt=""/></div>
 <map name="ad5/d25/classgalaxy_1_1core_1_1Window_aa0955e4daa23016975d1924020b39b2f_cgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_aa0955e4daa23016975d1924020b39b2f_cgraph">
-<area shape="rect" title="Window creation constructor." alt="" coords="5,180,167,220"/>
-<area shape="rect" href="../../d2/d84/Window_8cpp.html#ae69dffd9738a07cf7915f97c280121bf" title="Window.cpp galaxy." alt="" coords="252,113,339,138"/>
-<area shape="poly" title=" " alt="" coords="134,177,214,147,238,139,239,144,216,152,136,182"/>
-<area shape="rect" href="../../d2/d84/Window_8cpp.html#a91fadaf791c4b18395f2fff3ca66fde2" title=" " alt="" coords="244,162,347,187"/>
-<area shape="poly" title=" " alt="" coords="167,188,230,180,231,185,168,193"/>
-<area shape="rect" href="../../d2/d84/Window_8cpp.html#ad23f1c8a44363e14052ac5103285462d" title=" " alt="" coords="245,211,345,237"/>
-<area shape="poly" title=" " alt="" coords="168,207,232,214,231,219,167,212"/>
-<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,261,376,301"/>
-<area shape="poly" title=" " alt="" coords="139,218,231,254,229,259,137,223"/>
-<area shape="rect" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="461,5,618,45"/>
-<area shape="poly" title=" " alt="" coords="359,259,374,246,389,222,396,199,396,151,394,128,396,104,404,80,422,55,446,38,449,43,426,59,409,82,401,105,400,128,401,151,402,199,394,224,378,250,362,263"/>
-<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="461,69,617,109"/>
-<area shape="poly" title=" " alt="" coords="357,259,374,246,386,230,392,215,396,183,401,151,409,135,422,119,447,103,450,108,426,123,413,138,406,153,402,184,397,216,391,233,378,250,360,263"/>
-<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="474,133,605,173"/>
-<area shape="poly" title=" " alt="" coords="353,259,374,246,389,230,397,215,406,199,422,183,460,165,462,170,426,188,410,202,402,217,393,233,378,250,356,264"/>
-<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc" title="Converts an int to an input mod." alt="" coords="474,197,605,237"/>
-<area shape="poly" title=" " alt="" coords="372,259,460,235,461,240,373,264"/>
-<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a0f59cb0a75a074f9c2cb5dc907142413" title="Converts an int to a mouse button." alt="" coords="474,261,605,301"/>
-<area shape="poly" title=" " alt="" coords="376,279,460,279,460,284,376,284"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="442,325,637,365"/>
-<area shape="poly" title=" " alt="" coords="373,299,450,319,449,324,372,304"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="424,390,655,415"/>
-<area shape="poly" title=" " alt="" coords="319,299,366,338,394,358,425,375,448,384,446,389,423,380,392,363,362,343,316,303"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="429,439,650,465"/>
-<area shape="poly" title=" " alt="" coords="310,300,355,363,388,397,425,426,437,432,435,437,423,430,384,401,351,367,306,303"/>
-<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="443,489,635,529"/>
-<area shape="poly" title=" " alt="" coords="306,300,323,338,348,385,383,434,426,475,434,481,431,485,422,479,379,437,344,388,318,340,302,302"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="703,325,917,365"/>
-<area shape="poly" title=" " alt="" coords="637,343,689,343,689,348,637,348"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="965,325,1148,365"/>
-<area shape="poly" title=" " alt="" coords="918,343,951,343,951,348,918,348"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="1212,240,1395,280"/>
-<area shape="poly" title=" " alt="" coords="1114,323,1231,282,1233,287,1116,328"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="1485,300,1667,340"/>
-<area shape="poly" title=" " alt="" coords="1148,338,1471,322,1471,328,1149,344"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="1485,364,1667,404"/>
-<area shape="poly" title=" " alt="" coords="1149,349,1471,374,1471,379,1148,355"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6350f1b6c59a018c7ce8ef9de3504bf8" title="Completely delete objects." alt="" coords="1196,408,1411,448"/>
-<area shape="poly" title=" " alt="" coords="1118,363,1231,401,1229,406,1116,368"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="1469,108,1683,148"/>
-<area shape="poly" title=" " alt="" coords="1329,237,1386,197,1458,158,1476,150,1478,155,1460,162,1389,202,1332,242"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="1459,172,1693,212"/>
-<area shape="poly" title=" " alt="" coords="1384,237,1482,213,1483,218,1385,243"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="1469,236,1683,276"/>
-<area shape="poly" title=" " alt="" coords="1395,256,1455,255,1455,260,1395,261"/>
-<area shape="poly" title=" " alt="" coords="1396,277,1472,294,1471,300,1394,283"/>
-<area shape="poly" title=" " alt="" coords="1334,278,1391,314,1460,350,1479,357,1477,362,1458,354,1388,319,1332,282"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1741,76,1956,116"/>
-<area shape="poly" title=" " alt="" coords="1683,113,1727,108,1728,113,1684,118"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1741,140,1956,180"/>
-<area shape="poly" title=" " alt="" coords="1684,138,1728,143,1727,148,1683,143"/>
+<area shape="rect" title="Window creation constructor." alt="" coords="5,295,167,335"/>
+<area shape="rect" href="../../d2/d84/Window_8cpp.html#ae69dffd9738a07cf7915f97c280121bf" title="Window.cpp galaxy." alt="" coords="252,227,339,253"/>
+<area shape="poly" title=" " alt="" coords="136,292,214,263,239,254,241,259,216,268,138,297"/>
+<area shape="rect" href="../../d2/d84/Window_8cpp.html#a91fadaf791c4b18395f2fff3ca66fde2" title=" " alt="" coords="244,277,347,302"/>
+<area shape="poly" title=" " alt="" coords="167,302,230,295,231,300,168,308"/>
+<area shape="rect" href="../../d2/d84/Window_8cpp.html#ad23f1c8a44363e14052ac5103285462d" title=" " alt="" coords="245,326,345,351"/>
+<area shape="poly" title=" " alt="" coords="168,321,232,329,231,334,167,327"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,376,376,416"/>
+<area shape="poly" title=" " alt="" coords="139,332,231,368,229,373,137,337"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a05b42ead6c53cc7defb97c55bbb63fe1" title="Set window into borderless fullscreen mode." alt="" coords="454,5,615,45"/>
+<area shape="poly" title=" " alt="" coords="361,374,374,362,396,323,404,285,402,247,395,209,389,172,388,134,397,95,422,56,440,41,443,45,426,59,402,97,393,134,394,171,401,209,408,247,410,285,401,325,378,366,365,378"/>
+<area shape="rect" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="456,69,613,109"/>
+<area shape="poly" title=" " alt="" coords="361,374,374,362,393,332,400,301,400,272,396,242,392,212,392,181,401,150,422,120,441,104,445,109,426,123,406,153,398,182,397,211,401,241,405,271,405,302,398,334,378,366,364,378"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a1f8cf91c74dc9a38e468e855e4497265" title="Is ImGui loaded?" alt="" coords="444,134,625,159"/>
+<area shape="poly" title=" " alt="" coords="360,374,374,362,390,338,396,314,395,266,394,242,396,218,404,194,422,170,430,163,434,167,426,174,409,196,401,219,399,242,401,266,402,315,394,340,378,366,364,378"/>
+<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="457,184,613,224"/>
+<area shape="poly" title=" " alt="" coords="359,374,374,362,386,346,393,331,397,299,401,267,409,250,422,234,442,220,445,224,426,238,413,253,406,268,402,300,398,332,391,349,378,366,362,378"/>
+<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="469,248,600,288"/>
+<area shape="poly" title=" " alt="" coords="355,374,374,362,389,346,397,330,406,314,422,298,455,281,457,286,426,302,410,317,402,333,393,349,378,366,358,378"/>
+<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc" title="Converts an int to an input mod." alt="" coords="469,312,600,352"/>
+<area shape="poly" title=" " alt="" coords="370,373,455,350,457,356,372,378"/>
+<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a0f59cb0a75a074f9c2cb5dc907142413" title="Converts an int to a mouse button." alt="" coords="469,376,600,416"/>
+<area shape="poly" title=" " alt="" coords="376,393,456,393,456,399,376,399"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#af2c221cb19cdfe08408b8b880c517022" title="Maximize window." alt="" coords="454,440,615,480"/>
+<area shape="poly" title=" " alt="" coords="372,414,447,434,446,439,370,419"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="437,504,632,544"/>
+<area shape="poly" title=" " alt="" coords="320,414,367,452,425,490,441,497,438,501,423,494,363,457,317,418"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="693,603,924,629"/>
+<area shape="poly" title=" " alt="" coords="304,416,316,460,340,517,356,546,376,574,399,598,425,618,466,636,509,648,554,653,599,654,684,645,754,630,755,635,685,650,599,659,554,659,508,653,464,641,423,622,395,602,371,577,352,549,335,520,311,462,298,417"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="424,683,645,709"/>
+<area shape="poly" title=" " alt="" coords="303,416,315,466,339,532,375,602,398,634,426,662,447,676,444,680,422,666,394,638,370,605,334,534,310,467,298,417"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#abede2d11d33d2479532fa4006c9a3337" title="Scale and load fonts." alt="" coords="455,568,614,608"/>
+<area shape="poly" title=" " alt="" coords="310,415,354,484,387,521,426,554,444,564,441,569,422,558,383,525,350,487,305,418"/>
+<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="439,733,631,773"/>
+<area shape="poly" title=" " alt="" coords="301,416,310,475,331,557,347,601,368,644,394,684,426,719,431,724,428,728,422,723,390,688,364,647,342,603,326,559,305,476,296,417"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="701,504,916,544"/>
+<area shape="poly" title=" " alt="" coords="632,521,688,521,688,527,632,527"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="972,504,1155,544"/>
+<area shape="poly" title=" " alt="" coords="916,521,958,521,958,527,916,527"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="1219,419,1401,459"/>
+<area shape="poly" title=" " alt="" coords="1121,501,1238,461,1240,466,1123,507"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="1491,479,1674,519"/>
+<area shape="poly" title=" " alt="" coords="1155,517,1478,501,1478,506,1155,522"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="1491,543,1674,583"/>
+<area shape="poly" title=" " alt="" coords="1155,528,1478,552,1477,558,1155,533"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6350f1b6c59a018c7ce8ef9de3504bf8" title="Completely delete objects." alt="" coords="1203,587,1417,627"/>
+<area shape="poly" title=" " alt="" coords="1125,541,1237,580,1236,585,1123,547"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="1475,287,1690,327"/>
+<area shape="poly" title=" " alt="" coords="1336,416,1393,376,1464,336,1483,329,1485,334,1466,341,1396,381,1339,421"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="1465,351,1700,391"/>
+<area shape="poly" title=" " alt="" coords="1390,416,1488,391,1490,397,1392,421"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="1475,415,1690,455"/>
+<area shape="poly" title=" " alt="" coords="1402,435,1461,434,1461,439,1402,440"/>
+<area shape="poly" title=" " alt="" coords="1402,456,1478,473,1477,478,1401,461"/>
+<area shape="poly" title=" " alt="" coords="1341,457,1398,493,1466,528,1486,536,1484,541,1464,533,1395,497,1338,461"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1748,255,1963,295"/>
+<area shape="poly" title=" " alt="" coords="1690,291,1734,286,1735,291,1691,297"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1748,319,1963,359"/>
+<area shape="poly" title=" " alt="" coords="1691,317,1735,322,1734,327,1690,322"/>
+<area shape="poly" title=" " alt="" coords="614,593,679,600,679,605,614,599"/>
 </map>
 </div>
 
@@ -419,7 +437,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00083">83</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -520,7 +538,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00091">91</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -528,49 +546,58 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_a08f5070e3b4c47632fb659fa99c4e584_cgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_a08f5070e3b4c47632fb659fa99c4e584_cgraph" alt=""/></div>
 <map name="ad5/d25/classgalaxy_1_1core_1_1Window_a08f5070e3b4c47632fb659fa99c4e584_cgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_a08f5070e3b4c47632fb659fa99c4e584_cgraph">
-<area shape="rect" title="Construct a Window." alt="" coords="5,261,167,301"/>
-<area shape="rect" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="251,5,409,45"/>
-<area shape="poly" title=" " alt="" coords="91,260,105,217,130,162,166,105,188,78,213,55,237,41,240,46,216,59,192,82,170,108,135,165,110,219,96,262"/>
-<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="252,69,408,109"/>
-<area shape="poly" title=" " alt="" coords="96,260,140,191,174,152,213,119,238,106,240,111,216,124,177,156,145,194,100,263"/>
-<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="265,133,395,173"/>
-<area shape="poly" title=" " alt="" coords="107,259,154,221,213,183,250,168,252,173,216,188,157,225,110,263"/>
-<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc" title="Converts an int to an input mod." alt="" coords="265,197,395,237"/>
-<area shape="poly" title=" " alt="" coords="162,259,251,235,252,240,164,264"/>
-<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a0f59cb0a75a074f9c2cb5dc907142413" title="Converts an int to a mouse button." alt="" coords="265,261,395,301"/>
-<area shape="poly" title=" " alt="" coords="167,279,251,279,251,284,167,284"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="233,325,427,365"/>
-<area shape="poly" title=" " alt="" coords="164,299,241,319,240,324,162,304"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="215,390,445,415"/>
-<area shape="poly" title=" " alt="" coords="110,299,156,338,185,358,216,375,238,384,236,389,214,380,182,363,153,343,106,303"/>
-<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="219,439,441,465"/>
-<area shape="poly" title=" " alt="" coords="101,300,146,363,178,397,216,426,228,432,225,437,213,430,175,401,142,367,97,303"/>
-<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="234,489,426,529"/>
-<area shape="poly" title=" " alt="" coords="97,300,114,338,139,385,173,434,216,475,225,481,222,485,213,479,169,437,134,388,109,340,92,302"/>
-<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="493,325,708,365"/>
-<area shape="poly" title=" " alt="" coords="428,343,479,343,479,348,428,348"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="756,325,939,365"/>
-<area shape="poly" title=" " alt="" coords="708,343,742,343,742,348,708,348"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="1003,240,1185,280"/>
-<area shape="poly" title=" " alt="" coords="905,323,1022,282,1024,287,907,328"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="1275,300,1458,340"/>
-<area shape="poly" title=" " alt="" coords="939,338,1262,322,1262,328,939,344"/>
-<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="1275,364,1458,404"/>
-<area shape="poly" title=" " alt="" coords="939,349,1262,374,1261,379,939,355"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6350f1b6c59a018c7ce8ef9de3504bf8" title="Completely delete objects." alt="" coords="987,408,1201,448"/>
-<area shape="poly" title=" " alt="" coords="909,363,1021,401,1020,406,907,368"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="1259,108,1474,148"/>
-<area shape="poly" title=" " alt="" coords="1120,237,1177,197,1248,158,1267,150,1269,155,1250,162,1180,202,1123,242"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="1249,172,1484,212"/>
-<area shape="poly" title=" " alt="" coords="1174,237,1272,213,1274,218,1176,243"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="1259,236,1474,276"/>
-<area shape="poly" title=" " alt="" coords="1186,256,1245,255,1245,260,1186,261"/>
-<area shape="poly" title=" " alt="" coords="1186,277,1262,294,1261,300,1185,283"/>
-<area shape="poly" title=" " alt="" coords="1125,278,1182,314,1250,350,1270,357,1268,362,1248,354,1179,319,1122,282"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1532,76,1747,116"/>
-<area shape="poly" title=" " alt="" coords="1474,113,1518,108,1519,113,1475,118"/>
-<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1532,140,1747,180"/>
-<area shape="poly" title=" " alt="" coords="1475,138,1519,143,1518,148,1474,143"/>
+<area shape="rect" title="Construct a Window." alt="" coords="5,376,167,416"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a05b42ead6c53cc7defb97c55bbb63fe1" title="Set window into borderless fullscreen mode." alt="" coords="245,5,406,45"/>
+<area shape="poly" title=" " alt="" coords="86,375,95,314,115,228,131,181,153,135,180,93,213,55,231,43,234,47,216,59,184,96,157,138,136,183,120,229,100,315,91,376"/>
+<area shape="rect" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc" title="Get last recorded mouse position." alt="" coords="247,69,404,109"/>
+<area shape="poly" title=" " alt="" coords="88,375,100,324,123,255,160,182,184,149,213,119,232,107,235,111,216,123,188,152,165,185,128,257,105,325,93,376"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a1f8cf91c74dc9a38e468e855e4497265" title="Is ImGui loaded?" alt="" coords="235,134,416,159"/>
+<area shape="poly" title=" " alt="" coords="90,375,105,332,129,276,165,219,188,192,213,170,224,163,227,167,216,174,191,196,169,222,134,279,110,334,95,377"/>
+<area shape="rect" href="../../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597" title="Initialize cursor data." alt="" coords="247,184,403,224"/>
+<area shape="poly" title=" " alt="" coords="96,374,141,305,174,267,213,234,233,223,236,227,216,238,178,271,145,308,100,377"/>
+<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="260,248,391,288"/>
+<area shape="poly" title=" " alt="" coords="107,374,154,335,213,298,246,284,248,289,216,302,157,340,111,378"/>
+<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a1c18b359dd947b3a1baf3b9a8bd6f2cc" title="Converts an int to an input mod." alt="" coords="260,312,391,352"/>
+<area shape="poly" title=" " alt="" coords="161,373,246,350,247,356,162,378"/>
+<area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a0f59cb0a75a074f9c2cb5dc907142413" title="Converts an int to a mouse button." alt="" coords="260,376,391,416"/>
+<area shape="poly" title=" " alt="" coords="167,393,246,393,246,399,167,399"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#af2c221cb19cdfe08408b8b880c517022" title="Maximize window." alt="" coords="245,440,406,480"/>
+<area shape="poly" title=" " alt="" coords="162,414,238,434,236,439,161,419"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="228,504,423,544"/>
+<area shape="poly" title=" " alt="" coords="111,414,157,452,216,490,231,497,229,501,213,494,154,457,107,418"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="484,603,715,629"/>
+<area shape="poly" title=" " alt="" coords="94,416,107,460,131,517,147,546,166,574,189,598,216,618,257,636,300,648,345,653,390,654,475,645,545,630,546,635,476,650,390,659,344,659,299,653,255,641,213,622,186,602,162,577,142,549,126,520,102,462,89,417"/>
+<area shape="rect" href="../../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="215,683,436,709"/>
+<area shape="poly" title=" " alt="" coords="94,416,106,466,129,532,165,602,189,634,216,662,238,676,235,680,213,666,185,638,161,605,124,534,101,467,88,417"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#abede2d11d33d2479532fa4006c9a3337" title="Scale and load fonts." alt="" coords="246,568,405,608"/>
+<area shape="poly" title=" " alt="" coords="100,415,145,484,178,521,216,554,234,564,232,569,213,558,174,525,141,487,96,418"/>
+<area shape="rect" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#a93a25066258287e296a3cd59daf45fe2" title="Sets the window pointer." alt="" coords="229,733,421,773"/>
+<area shape="poly" title=" " alt="" coords="92,416,101,475,122,557,138,601,159,644,185,684,217,719,222,724,218,728,213,723,181,688,154,647,133,603,117,559,96,476,87,417"/>
+<area shape="rect" href="../../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9837e128bd5a4c30355da6650b31b390" title="Resize framebuffers." alt="" coords="492,504,707,544"/>
+<area shape="poly" title=" " alt="" coords="423,521,478,521,478,527,423,527"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="763,504,945,544"/>
+<area shape="poly" title=" " alt="" coords="707,521,749,521,749,527,707,527"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="1009,419,1192,459"/>
+<area shape="poly" title=" " alt="" coords="912,501,1028,461,1030,466,913,507"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="1282,479,1465,519"/>
+<area shape="poly" title=" " alt="" coords="946,517,1268,501,1268,506,946,522"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="1282,543,1465,583"/>
+<area shape="poly" title=" " alt="" coords="946,528,1269,552,1268,558,946,533"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6350f1b6c59a018c7ce8ef9de3504bf8" title="Completely delete objects." alt="" coords="993,587,1208,627"/>
+<area shape="poly" title=" " alt="" coords="915,541,1028,580,1026,585,914,547"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="1266,287,1481,327"/>
+<area shape="poly" title=" " alt="" coords="1126,416,1183,376,1255,336,1273,329,1275,334,1257,341,1186,381,1129,421"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="1256,351,1491,391"/>
+<area shape="poly" title=" " alt="" coords="1181,416,1279,391,1280,397,1182,421"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="1266,415,1481,455"/>
+<area shape="poly" title=" " alt="" coords="1192,435,1252,434,1252,439,1192,440"/>
+<area shape="poly" title=" " alt="" coords="1193,456,1269,473,1268,478,1192,461"/>
+<area shape="poly" title=" " alt="" coords="1132,457,1188,493,1257,528,1277,536,1275,541,1255,533,1186,497,1129,461"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="1539,255,1753,295"/>
+<area shape="poly" title=" " alt="" coords="1481,291,1525,286,1525,291,1481,297"/>
+<area shape="rect" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="1539,319,1753,359"/>
+<area shape="poly" title=" " alt="" coords="1481,317,1525,322,1525,327,1481,322"/>
+<area shape="poly" title=" " alt="" coords="405,593,470,600,470,605,405,599"/>
 </map>
 </div>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -606,7 +633,7 @@ Private Attributes</h2></td></tr>
 <p>Checks if window is currently open or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if window is currently open, false if not. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00578">578</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00585">585</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -628,7 +655,7 @@ Private Attributes</h2></td></tr>
 <p>Closes the current window. </p>
 <p>Internally, sets isOpen to false. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00583">583</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00590">590</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -649,7 +676,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destroys <a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display.">Window</a> and related context and data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00588">588</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00595">595</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -696,7 +723,7 @@ Private Attributes</h2></td></tr>
 
 <p>Poll for events. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00607">607</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00614">614</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -735,7 +762,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00612">612</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00619">619</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -757,7 +784,7 @@ Private Attributes</h2></td></tr>
 <p>Notify's user of an event without interrupting. </p>
 <p>Think like windows flashing tray icon. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00620">620</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00627">627</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -778,7 +805,7 @@ Private Attributes</h2></td></tr>
 
 <p>Force window into focus. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00625">625</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00632">632</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -799,7 +826,21 @@ Private Attributes</h2></td></tr>
 
 <p>Maximize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00630">630</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00637">637</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_af2c221cb19cdfe08408b8b880c517022_icgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_af2c221cb19cdfe08408b8b880c517022_icgraph" alt=""/></div>
+<map name="ad5/d25/classgalaxy_1_1core_1_1Window_af2c221cb19cdfe08408b8b880c517022_icgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_af2c221cb19cdfe08408b8b880c517022_icgraph">
+<area shape="rect" title="Maximize window." alt="" coords="424,5,585,45"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,5,376,45"/>
+<area shape="poly" title=" " alt="" coords="410,28,376,28,376,23,410,23"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,5,167,45"/>
+<area shape="poly" title=" " alt="" coords="200,28,167,28,167,23,200,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -820,7 +861,7 @@ Private Attributes</h2></td></tr>
 
 <p>Restore window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00635">635</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00642">642</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +882,42 @@ Private Attributes</h2></td></tr>
 
 <p>Minimize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00640">640</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00647">647</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a05b42ead6c53cc7defb97c55bbb63fe1" name="a05b42ead6c53cc7defb97c55bbb63fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b42ead6c53cc7defb97c55bbb63fe1">&#9670;&#160;</a></span>fullscreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Window::fullscreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set window into borderless fullscreen mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00652">652</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_a05b42ead6c53cc7defb97c55bbb63fe1_icgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_a05b42ead6c53cc7defb97c55bbb63fe1_icgraph" alt=""/></div>
+<map name="ad5/d25/classgalaxy_1_1core_1_1Window_a05b42ead6c53cc7defb97c55bbb63fe1_icgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_a05b42ead6c53cc7defb97c55bbb63fe1_icgraph">
+<area shape="rect" title="Set window into borderless fullscreen mode." alt="" coords="424,5,585,45"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,5,376,45"/>
+<area shape="poly" title=" " alt="" coords="410,28,376,28,376,23,410,23"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,5,167,45"/>
+<area shape="poly" title=" " alt="" coords="200,28,167,28,167,23,200,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -869,7 +945,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00504">504</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00511">511</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -897,7 +973,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00509">509</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00516">516</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -925,12 +1001,12 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00515">515</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00522">522</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph" alt=""/></div>
 <map name="ad5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_a96584fefe16054bbb78fa7242e2cfa21_cgraph">
 <area shape="rect" title="Set window icon." alt="" coords="5,5,167,45"/>
@@ -965,7 +1041,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00549">549</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00556">556</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1069,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00573">573</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00580">580</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1015,7 +1091,7 @@ Private Attributes</h2></td></tr>
 <p>Check if windows is in focus. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if window is in input focus. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00645">645</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00660">660</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1129,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the input device. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00296">296</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00315">315</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1151,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get a list of paths dropped on window. </p>
 <p>Reset when a new path is dropped. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00650">650</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00665">665</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1173,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window width. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00655">655</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00670">670</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1119,7 +1195,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window height. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00660">660</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00675">675</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1141,7 +1217,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window width. </p>
 <dl class="section return"><dt>Returns</dt><dd>Float. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00665">665</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00680">680</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1239,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get window height. </p>
 <dl class="section return"><dt>Returns</dt><dd>Float. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00670">670</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00685">685</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1185,7 +1261,75 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Get framebuffer size taking into account DPI. </p>
 <dl class="section return"><dt>Returns</dt><dd>glm::ivec2. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00675">675</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00690">690</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a53962defa02233cd0101ecbdfa5d39e2" name="a53962defa02233cd0101ecbdfa5d39e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53962defa02233cd0101ecbdfa5d39e2">&#9670;&#160;</a></span>get_content_scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 galaxy::core::Window::get_content_scale </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get window content scale. </p>
+<dl class="section return"><dt>Returns</dt><dd>glm::vec2. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00698">698</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_a53962defa02233cd0101ecbdfa5d39e2_icgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_a53962defa02233cd0101ecbdfa5d39e2_icgraph" alt=""/></div>
+<map name="ad5/d25/classgalaxy_1_1core_1_1Window_a53962defa02233cd0101ecbdfa5d39e2_icgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_a53962defa02233cd0101ecbdfa5d39e2_icgraph">
+<area shape="rect" title="Get window content scale." alt="" coords="237,5,399,45"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a69e5b8a2544369d1950b0ed4de1a5723" title="Get max window content scale." alt="" coords="5,5,189,45"/>
+<area shape="poly" title=" " alt="" coords="223,28,190,28,190,23,223,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a69e5b8a2544369d1950b0ed4de1a5723" name="a69e5b8a2544369d1950b0ed4de1a5723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69e5b8a2544369d1950b0ed4de1a5723">&#9670;&#160;</a></span>get_content_scale_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float galaxy::core::Window::get_content_scale_max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get max window content scale. </p>
+<dl class="section return"><dt>Returns</dt><dd>Float. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00706">706</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d5/d25/classgalaxy_1_1core_1_1Window_a69e5b8a2544369d1950b0ed4de1a5723_cgraph.png" border="0" usemap="#ad5/d25/classgalaxy_1_1core_1_1Window_a69e5b8a2544369d1950b0ed4de1a5723_cgraph" alt=""/></div>
+<map name="ad5/d25/classgalaxy_1_1core_1_1Window_a69e5b8a2544369d1950b0ed4de1a5723_cgraph" id="ad5/d25/classgalaxy_1_1core_1_1Window_a69e5b8a2544369d1950b0ed4de1a5723_cgraph">
+<area shape="rect" title="Get max window content scale." alt="" coords="5,5,189,45"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a53962defa02233cd0101ecbdfa5d39e2" title="Get window content scale." alt="" coords="237,5,399,45"/>
+<area shape="poly" title=" " alt="" coords="190,23,224,23,224,28,190,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1207,7 +1351,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <p>Retrieve pointer to GLFWwindow object. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns pointer to GLFWwindow. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00683">683</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00712">712</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1290,7 +1434,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html" title="Handles events, input &amp; display.">Window</a> title. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00242">242</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00261">261</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1316,7 +1460,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Custom GLFW window allocator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00247">247</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00266">266</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1342,7 +1486,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>GLFW window data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00252">252</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00271">271</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1368,7 +1512,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Width of window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00257">257</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1394,7 +1538,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Height of window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00262">262</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00281">281</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1420,7 +1564,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Keyboard assigned to window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00267">267</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00286">286</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1446,7 +1590,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Mouse assigned to window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00272">272</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00291">291</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1472,7 +1616,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Mouse cursor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00277">277</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00296">296</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1498,7 +1642,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Clipboard access. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00282">282</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00301">301</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1524,7 +1668,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Cache of last dropped paths. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00287">287</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00306">306</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1550,7 +1694,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 
 <p>Currently active event dispatcher. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00292">292</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00311">311</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1564,7 +1708,7 @@ template&lt;meta::is_input_device Device&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/dcb/namespacegalaxy_1_1core.html">core</a></li><li class="navelem"><a class="el" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html">Window</a></li>
-    <li class="footer">Generated on Sun May 5 2024 10:39:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jun 1 2024 06:27:02 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

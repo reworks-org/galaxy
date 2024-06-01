@@ -106,9 +106,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac72dd21f0dc545815c93acaca2ed87db" id="r_ac72dd21f0dc545815c93acaca2ed87db"><td class="memItemLeft" align="right" valign="top">ImGuiIO &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#ac72dd21f0dc545815c93acaca2ed87db">imgui_init_context</a> ()</td></tr>
-<tr class="memdesc:ac72dd21f0dc545815c93acaca2ed87db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize ImGui context with galaxy.  <br /></td></tr>
-<tr class="separator:ac72dd21f0dc545815c93acaca2ed87db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a55d3429a106644042a88aaaba1865" id="r_a92a55d3429a106644042a88aaaba1865"><td class="memItemLeft" align="right" valign="top">ImGuiIO &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92a55d3429a106644042a88aaaba1865">imgui_init_context</a> (const char *ini)</td></tr>
+<tr class="memdesc:a92a55d3429a106644042a88aaaba1865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize ImGui context with galaxy.  <br /></td></tr>
+<tr class="separator:a92a55d3429a106644042a88aaaba1865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c64426a2357bdcdd6991be9483dc7e1" id="r_a6c64426a2357bdcdd6991be9483dc7e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">imgui_new_frame</a> ()</td></tr>
 <tr class="memdesc:a6c64426a2357bdcdd6991be9483dc7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">New imgui frame with galaxy.  <br /></td></tr>
 <tr class="separator:a6c64426a2357bdcdd6991be9483dc7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,15 +121,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a0d1e4d1b532d5dc92c036921e844b0a0" id="r_a0d1e4d1b532d5dc92c036921e844b0a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a0d1e4d1b532d5dc92c036921e844b0a0">imgui_set_theme</a> ()</td></tr>
 <tr class="memdesc:a0d1e4d1b532d5dc92c036921e844b0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set our theme.  <br /></td></tr>
 <tr class="separator:a0d1e4d1b532d5dc92c036921e844b0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe6445a6e1e7490dbc6a69b82000910" id="r_a7fe6445a6e1e7490dbc6a69b82000910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7fe6445a6e1e7490dbc6a69b82000910">imgui_popup</a> (const char *id, bool &amp;open, const std::function&lt; void(void)&gt; &amp;func)</td></tr>
-<tr class="memdesc:a7fe6445a6e1e7490dbc6a69b82000910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleaner way of rendering an ImGui popup.  <br /></td></tr>
-<tr class="separator:a7fe6445a6e1e7490dbc6a69b82000910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ccc271f6de3bffb81f03532b7a18210" id="r_a2ccc271f6de3bffb81f03532b7a18210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a2ccc271f6de3bffb81f03532b7a18210">imgui_confirm</a> (const char *msg, const std::function&lt; void(void)&gt; &amp;yes={}, const std::function&lt; void(void)&gt; &amp;no={})</td></tr>
-<tr class="memdesc:a2ccc271f6de3bffb81f03532b7a18210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a popup for a yes/no situation.  <br /></td></tr>
-<tr class="separator:a2ccc271f6de3bffb81f03532b7a18210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b096445df6fb5693a3463f406d55fb4" id="r_a7b096445df6fb5693a3463f406d55fb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7b096445df6fb5693a3463f406d55fb4">imgui_popup</a> (const char *id, bool &amp;open, std::move_only_function&lt; void(void)&gt; &amp;&amp;func)</td></tr>
+<tr class="memdesc:a7b096445df6fb5693a3463f406d55fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleaner way of rendering an ImGui popup.  <br /></td></tr>
+<tr class="separator:a7b096445df6fb5693a3463f406d55fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2413e14fc7e6b91879b372fcadbb0c" id="r_acc2413e14fc7e6b91879b372fcadbb0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c">imgui_confirm</a> (const char *msg, std::move_only_function&lt; void(void)&gt; &amp;&amp;yes={}, std::move_only_function&lt; void(void)&gt; &amp;&amp;no={})</td></tr>
+<tr class="memdesc:acc2413e14fc7e6b91879b372fcadbb0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a popup for a yes/no situation.  <br /></td></tr>
+<tr class="separator:acc2413e14fc7e6b91879b372fcadbb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ff5e05d5cf8281ac3a5fd5805dec67e" id="r_a7ff5e05d5cf8281ac3a5fd5805dec67e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">imgui_center_next_window</a> ()</td></tr>
 <tr class="memdesc:a7ff5e05d5cf8281ac3a5fd5805dec67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure the next window opened is centered on the monitor.  <br /></td></tr>
 <tr class="separator:a7ff5e05d5cf8281ac3a5fd5805dec67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abede2d11d33d2479532fa4006c9a3337" id="r_abede2d11d33d2479532fa4006c9a3337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#abede2d11d33d2479532fa4006c9a3337">scale_and_load_fonts</a> ()</td></tr>
+<tr class="memdesc:abede2d11d33d2479532fa4006c9a3337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale and load fonts.  <br /></td></tr>
+<tr class="separator:abede2d11d33d2479532fa4006c9a3337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f8cf91c74dc9a38e468e855e4497265" id="r_a1f8cf91c74dc9a38e468e855e4497265"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a1f8cf91c74dc9a38e468e855e4497265">imgui_loaded</a> ()</td></tr>
+<tr class="memdesc:a1f8cf91c74dc9a38e468e855e4497265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is ImGui loaded?  <br /></td></tr>
+<tr class="separator:a1f8cf91c74dc9a38e468e855e4497265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b4ef8624d8234a7d9a6608e11eb07c2" id="r_a2b4ef8624d8234a7d9a6608e11eb07c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a2b4ef8624d8234a7d9a6608e11eb07c2">imgui_imagebutton</a> (const <a class="el" href="../../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html">graphics::Texture2D</a> &amp;texture, const ImVec2 &amp;size, const ImVec4 &amp;bg_col=ImVec4(0, 0, 0, 0), const ImVec4 &amp;tint_col=ImVec4(1, 1, 1, 1))</td></tr>
 <tr class="memdesc:a2b4ef8624d8234a7d9a6608e11eb07c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render an imgui image button with a galaxy texture.  <br /></td></tr>
 <tr class="separator:a2b4ef8624d8234a7d9a6608e11eb07c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,8 +171,8 @@ Functions</h2></td></tr>
 <tr class="separator:aea8bf68ecf24464e133131949c5ba9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac72dd21f0dc545815c93acaca2ed87db" name="ac72dd21f0dc545815c93acaca2ed87db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac72dd21f0dc545815c93acaca2ed87db">&#9670;&#160;</a></span>imgui_init_context()</h2>
+<a id="a92a55d3429a106644042a88aaaba1865" name="a92a55d3429a106644042a88aaaba1865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a55d3429a106644042a88aaaba1865">&#9670;&#160;</a></span>imgui_init_context()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,30 +180,42 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">ImGuiIO &amp; galaxy::ui::imgui_init_context </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ini</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Initialize ImGui context with galaxy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ini</td><td>Layout ini file. Can include a path.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to initialized imgui io. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_ac72dd21f0dc545815c93acaca2ed87db_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_ac72dd21f0dc545815c93acaca2ed87db_cgraph" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_ac72dd21f0dc545815c93acaca2ed87db_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_ac72dd21f0dc545815c93acaca2ed87db_cgraph">
-<area shape="rect" title="Initialize ImGui context with galaxy." alt="" coords="5,47,164,87"/>
-<area shape="rect" href="../../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404" title=" " alt="" coords="224,5,431,31"/>
-<area shape="poly" title=" " alt="" coords="164,49,251,31,252,36,165,54"/>
-<area shape="rect" href="../../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281" title=" " alt="" coords="226,55,429,80"/>
-<area shape="poly" title=" " alt="" coords="165,65,212,65,212,70,165,70"/>
-<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,104,443,129"/>
-<area shape="poly" title=" " alt="" coords="165,81,252,99,251,104,164,86"/>
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a92a55d3429a106644042a88aaaba1865_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a92a55d3429a106644042a88aaaba1865_cgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a92a55d3429a106644042a88aaaba1865_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a92a55d3429a106644042a88aaaba1865_cgraph">
+<area shape="rect" title="Initialize ImGui context with galaxy." alt="" coords="5,112,164,152"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a0d1e4d1b532d5dc92c036921e844b0a0" title="Set our theme." alt="" coords="237,5,394,45"/>
+<area shape="poly" title=" " alt="" coords="114,110,159,82,211,55,229,48,231,52,213,60,161,87,117,114"/>
+<area shape="rect" href="../../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404" title=" " alt="" coords="212,70,419,95"/>
+<area shape="poly" title=" " alt="" coords="164,112,241,96,242,101,165,118"/>
+<area shape="rect" href="../../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281" title=" " alt="" coords="214,119,417,145"/>
+<area shape="poly" title=" " alt="" coords="164,129,200,129,200,135,164,135"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="467,199,697,225"/>
+<area shape="poly" title=" " alt="" coords="165,145,212,153,478,195,477,200,212,159,164,150"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#abede2d11d33d2479532fa4006c9a3337" title="Scale and load fonts." alt="" coords="236,220,395,260"/>
+<area shape="poly" title=" " alt="" coords="121,150,213,199,245,213,243,217,211,204,118,155"/>
+<area shape="poly" title=" " alt="" coords="395,229,453,223,453,228,395,234"/>
 </map>
 </div>
 
@@ -220,7 +238,7 @@ Functions</h2></td></tr>
 
 <p>New imgui frame with galaxy. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +259,7 @@ Functions</h2></td></tr>
 
 <p>Render imgui with galaxy. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00096">96</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +280,7 @@ Functions</h2></td></tr>
 
 <p>Cleanup imgui resources used by galaxy. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00108">108</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00114">114</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,12 +301,24 @@ Functions</h2></td></tr>
 
 <p>Set our theme. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00115">115</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00121">121</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a0d1e4d1b532d5dc92c036921e844b0a0_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a0d1e4d1b532d5dc92c036921e844b0a0_icgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a0d1e4d1b532d5dc92c036921e844b0a0_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a0d1e4d1b532d5dc92c036921e844b0a0_icgraph">
+<area shape="rect" title="Set our theme." alt="" coords="212,5,369,45"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92a55d3429a106644042a88aaaba1865" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,45"/>
+<area shape="poly" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a7fe6445a6e1e7490dbc6a69b82000910" name="a7fe6445a6e1e7490dbc6a69b82000910"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fe6445a6e1e7490dbc6a69b82000910">&#9670;&#160;</a></span>imgui_popup()</h2>
+<a id="a7b096445df6fb5693a3463f406d55fb4" name="a7b096445df6fb5693a3463f406d55fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b096445df6fb5693a3463f406d55fb4">&#9670;&#160;</a></span>imgui_popup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,7 +338,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::function&lt; void(void)&gt; &amp;&#160;</td>
+          <td class="paramtype">std::move_only_function&lt; void(void)&gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>func</em>&#160;</td>
         </tr>
         <tr>
@@ -329,14 +359,14 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00206">206</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00212">212</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a7fe6445a6e1e7490dbc6a69b82000910_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a7fe6445a6e1e7490dbc6a69b82000910_cgraph" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_a7fe6445a6e1e7490dbc6a69b82000910_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a7fe6445a6e1e7490dbc6a69b82000910_cgraph">
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a7b096445df6fb5693a3463f406d55fb4_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a7b096445df6fb5693a3463f406d55fb4_cgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a7b096445df6fb5693a3463f406d55fb4_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a7b096445df6fb5693a3463f406d55fb4_cgraph">
 <area shape="rect" title="Cleaner way of rendering an ImGui popup." alt="" coords="5,13,183,38"/>
 <area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e" title="Make sure the next window opened is centered on the monitor." alt="" coords="231,5,409,45"/>
 <area shape="poly" title=" " alt="" coords="183,23,217,23,217,28,183,28"/>
@@ -345,8 +375,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2ccc271f6de3bffb81f03532b7a18210" name="a2ccc271f6de3bffb81f03532b7a18210"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ccc271f6de3bffb81f03532b7a18210">&#9670;&#160;</a></span>imgui_confirm()</h2>
+<a id="acc2413e14fc7e6b91879b372fcadbb0c" name="acc2413e14fc7e6b91879b372fcadbb0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2413e14fc7e6b91879b372fcadbb0c">&#9670;&#160;</a></span>imgui_confirm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,13 +390,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::function&lt; void(void)&gt; &amp;&#160;</td>
+          <td class="paramtype">std::move_only_function&lt; void(void)&gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>yes</em> = <code>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::function&lt; void(void)&gt; &amp;&#160;</td>
+          <td class="paramtype">std::move_only_function&lt; void(void)&gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>no</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
@@ -387,7 +417,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00222">222</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00228">228</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -408,17 +438,103 @@ Functions</h2></td></tr>
 
 <p>Make sure the next window opened is centered on the monitor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00252">252</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00258">258</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a7ff5e05d5cf8281ac3a5fd5805dec67e_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a7ff5e05d5cf8281ac3a5fd5805dec67e_icgraph" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a7ff5e05d5cf8281ac3a5fd5805dec67e_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a7ff5e05d5cf8281ac3a5fd5805dec67e_icgraph">
 <area shape="rect" title="Make sure the next window opened is centered on the monitor." alt="" coords="231,5,409,45"/>
-<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7fe6445a6e1e7490dbc6a69b82000910" title="Cleaner way of rendering an ImGui popup." alt="" coords="5,13,183,38"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7b096445df6fb5693a3463f406d55fb4" title="Cleaner way of rendering an ImGui popup." alt="" coords="5,13,183,38"/>
 <area shape="poly" title=" " alt="" coords="217,28,183,28,183,23,217,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abede2d11d33d2479532fa4006c9a3337" name="abede2d11d33d2479532fa4006c9a3337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abede2d11d33d2479532fa4006c9a3337">&#9670;&#160;</a></span>scale_and_load_fonts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::ui::scale_and_load_fonts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scale and load fonts. </p>
+<p>Calc proper window scalings and needs to reload fonts aswell. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00264">264</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_cgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_cgraph">
+<area shape="rect" title="Scale and load fonts." alt="" coords="5,5,164,45"/>
+<area shape="rect" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,13,443,38"/>
+<area shape="poly" title=" " alt="" coords="165,23,198,23,198,28,165,28"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_icgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_abede2d11d33d2479532fa4006c9a3337_icgraph">
+<area shape="rect" title="Scale and load fonts." alt="" coords="424,37,583,77"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a92a55d3429a106644042a88aaaba1865" title="Initialize ImGui context with galaxy." alt="" coords="216,5,375,45"/>
+<area shape="poly" title=" " alt="" coords="410,46,375,40,375,35,411,40"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,69,376,109"/>
+<area shape="poly" title=" " alt="" coords="411,74,376,80,376,74,410,69"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,69,167,109"/>
+<area shape="poly" title=" " alt="" coords="200,92,167,92,167,87,200,87"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1f8cf91c74dc9a38e468e855e4497265" name="a1f8cf91c74dc9a38e468e855e4497265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8cf91c74dc9a38e468e855e4497265">&#9670;&#160;</a></span>imgui_loaded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::ui::imgui_loaded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is ImGui loaded? </p>
+<dl class="section return"><dt>Returns</dt><dd>True if imgui context is loaded. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00290">290</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a1f8cf91c74dc9a38e468e855e4497265_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a1f8cf91c74dc9a38e468e855e4497265_icgraph" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a1f8cf91c74dc9a38e468e855e4497265_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a1f8cf91c74dc9a38e468e855e4497265_icgraph">
+<area shape="rect" title="Is ImGui loaded?" alt="" coords="424,13,605,38"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,5,376,45"/>
+<area shape="poly" title=" " alt="" coords="410,28,376,28,376,23,410,23"/>
+<area shape="rect" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,5,167,45"/>
+<area shape="poly" title=" " alt="" coords="200,28,167,28,167,23,200,23"/>
 </map>
 </div>
 
@@ -474,12 +590,12 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if button pressed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00258">258</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00295">295</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a2b4ef8624d8234a7d9a6608e11eb07c2_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a2b4ef8624d8234a7d9a6608e11eb07c2_cgraph" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a2b4ef8624d8234a7d9a6608e11eb07c2_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a2b4ef8624d8234a7d9a6608e11eb07c2_cgraph">
 <area shape="rect" title="Render an imgui image button with a galaxy texture." alt="" coords="5,70,225,95"/>
@@ -529,12 +645,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00266">266</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00303">303</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a6387aaf488654b9fb843eaf05e58c03b_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a6387aaf488654b9fb843eaf05e58c03b_cgraph" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a6387aaf488654b9fb843eaf05e58c03b_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a6387aaf488654b9fb843eaf05e58c03b_cgraph">
 <area shape="rect" title="Display a galaxy image with imgui." alt="" coords="5,5,184,31"/>
@@ -580,12 +696,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00272">272</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00309">309</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_adfdf080efa51bb15e233bab502ffd26e_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_adfdf080efa51bb15e233bab502ffd26e_cgraph" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_adfdf080efa51bb15e233bab502ffd26e_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_adfdf080efa51bb15e233bab502ffd26e_cgraph">
 <area shape="rect" title="Display a galaxy image with imgui." alt="" coords="5,13,184,38"/>
@@ -622,7 +738,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00278">278</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00315">315</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -650,7 +766,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00283">283</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00320">320</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -678,7 +794,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00288">288</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00325">325</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -706,7 +822,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00293">293</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00330">330</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -746,7 +862,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if any field is clicked. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00298">298</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00335">335</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -786,7 +902,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if any field is clicked. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00320">320</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00357">357</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -826,7 +942,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if any field is clicked. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00347">347</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00384">384</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +982,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if any field is clicked. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00379">379</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00416">416</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -876,7 +992,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html">ui</a></li>
-    <li class="footer">Generated on Sun May 5 2024 10:39:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Jun 1 2024 06:27:03 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

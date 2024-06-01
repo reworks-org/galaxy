@@ -1,9 +1,0 @@
-<map id="galaxy::ui::imgui_init_context" name="galaxy::ui::imgui_init_context">
-<area shape="rect" id="Node000001" title="Initialize ImGui context with galaxy." alt="" coords="5,47,164,87"/>
-<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404" title=" " alt="" coords="224,5,431,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,49,251,31,252,36,165,54"/>
-<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281" title=" " alt="" coords="226,55,429,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,65,212,65,212,70,165,70"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,104,443,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,81,252,99,251,104,164,86"/>
-</map>

@@ -1,0 +1,14 @@
+<map id="galaxy::ui::imgui_init_context" name="galaxy::ui::imgui_init_context">
+<area shape="rect" id="Node000001" title="Initialize ImGui context with galaxy." alt="" coords="5,112,164,152"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a0d1e4d1b532d5dc92c036921e844b0a0" title="Set our theme." alt="" coords="237,5,394,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,110,159,82,211,55,229,48,231,52,213,60,161,87,117,114"/>
+<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404" title=" " alt="" coords="212,70,419,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,112,241,96,242,101,165,118"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281" title=" " alt="" coords="214,119,417,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,129,200,129,200,135,164,135"/>
+<area shape="rect" id="Node000005" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="467,199,697,225"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,145,212,153,478,195,477,200,212,159,164,150"/>
+<area shape="rect" id="Node000006" href="$d3/dd9/namespacegalaxy_1_1ui.html#abede2d11d33d2479532fa4006c9a3337" title="Scale and load fonts." alt="" coords="236,220,395,260"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,150,213,199,245,213,243,217,211,204,118,155"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="395,229,453,223,453,228,395,234"/>
+</map>
