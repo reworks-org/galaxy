@@ -8,14 +8,12 @@
 #ifndef GALAXY_FLAGS_DENYSERIALIZATION_HPP_
 #define GALAXY_FLAGS_DENYSERIALIZATION_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 namespace galaxy
 {
 	namespace flags
 	{
 		///
-		/// Used to exclude a component when serializing.
+		/// Used to stop an entity from being updated/rendered.
 		///
 		class DenySerialization final
 		{
@@ -24,20 +22,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			DenySerialization();
-
-			///
-			/// JSON constructor.
-			///
-			/// \param json JSON defining object.
-			///
-			DenySerialization(const nlohmann::json& json);
-
-			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			DenySerialization(DenySerialization* ptr);
 
 			///
 			/// Move constructor.
@@ -50,9 +34,22 @@ namespace galaxy
 			DenySerialization& operator=(DenySerialization&&);
 
 			///
-			/// Destructor.
+			/// \brief Destructor.
+			///
+			/// I dont know why this has to be virtual. Definitly a bug in MSVC somewhere.
 			///
 			virtual ~DenySerialization();
+
+		  private:
+			///
+			/// Copy assignment operator.
+			///
+			DenySerialization& operator=(const DenySerialization&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			DenySerialization(const DenySerialization&) = delete;
 		};
 	} // namespace flags
 } // namespace galaxy

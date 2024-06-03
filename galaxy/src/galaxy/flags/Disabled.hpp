@@ -33,13 +33,6 @@ namespace galaxy
 			Disabled(const nlohmann::json& json);
 
 			///
-			/// Pointer constructor.
-			///
-			/// \param ptr Data to COPY into this component.
-			///
-			Disabled(Disabled* ptr);
-
-			///
 			/// Move constructor.
 			///
 			Disabled(Disabled&&);
@@ -67,6 +60,17 @@ namespace galaxy
 			/// \param json Json object to retrieve data from.
 			///
 			void deserialize(const nlohmann::json& json) override;
+
+		  private:
+			///
+			/// Copy assignment operator.
+			///
+			Disabled& operator=(const Disabled&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			Disabled(const Disabled&) = delete;
 		};
 	} // namespace flags
 } // namespace galaxy

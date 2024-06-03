@@ -343,12 +343,12 @@ namespace galaxy
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(150);
-			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(150);
-			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f");
 
 			ImGui::PopID();
 			return clicked;
@@ -365,17 +365,17 @@ namespace galaxy
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(100);
-			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(100);
-			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(100);
-			clicked |= ImGui::InputFloat("Z", &vec.z, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("Z", &vec.z, 1.0f, 10.0f, "%.1f");
 
 			ImGui::PopID();
 			return clicked;
@@ -392,22 +392,22 @@ namespace galaxy
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("X", &vec.x, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("Y", &vec.y, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("Z", &vec.z, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("Z", &vec.z, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("W", &vec.w, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("W", &vec.w, 1.0f, 10.0f, "%.1f");
 
 			ImGui::PopID();
 			return clicked;
@@ -424,22 +424,22 @@ namespace galaxy
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("X", &rect.x, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("X", &rect.x, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("Y", &rect.y, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("Y", &rect.y, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("W", &rect.width, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("W", &rect.width, 1.0f, 10.0f, "%.1f");
 
 			ImGui::SameLine();
 
 			ImGui::SetNextItemWidth(75);
-			clicked |= ImGui::InputFloat("H", &rect.height, 1.0f, 10.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank);
+			clicked |= ImGui::InputFloat("H", &rect.height, 1.0f, 10.0f, "%.1f");
 
 			ImGui::PopID();
 			return clicked;

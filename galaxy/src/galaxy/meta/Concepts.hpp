@@ -94,22 +94,6 @@ namespace galaxy
 		///
 		template<typename Loader, typename Resource>
 		concept is_loader = requires (Loader loader) { loader.operator() && std::is_class<Loader>::value; };
-
-		///
-		/// \brief Avoids implicit conversions in templates.
-		///
-		/// Not a concept but fits here.
-		/// https://stackoverflow.com/a/61444429
-		///
-		template<typename T>
-		struct convertable_only_to
-		{
-			template<typename S, typename = std::enable_if_t<std::is_same_v<T, S>>>
-			operator S() const
-			{
-				return S {};
-			}
-		};
 	} // namespace meta
 } // namespace galaxy
 

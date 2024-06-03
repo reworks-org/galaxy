@@ -201,11 +201,16 @@ namespace galaxy
 
 		nlohmann::json SceneManager::serialize()
 		{
-			nlohmann::json json = "{\"scenes\":{},\"order\":{}}"_json;
+			nlohmann::json json = "{\"scenes\":{}}"_json;
 
 			for (auto& [name, scene] : m_scenes)
 			{
 				json["scenes"][scene->m_name] = scene->serialize();
+			}
+
+			if (m_current)
+			{
+				json["current"] = m_current->m_name;
 			}
 
 			return json;
@@ -216,7 +221,6 @@ namespace galaxy
 			clear();
 
 			const auto& scenes = json.at("scenes");
-			const auto& order  = json.at("order");
 
 			m_scenes.reserve(scenes.size());
 			for (const auto& [name, data] : scenes.items())
@@ -226,6 +230,11 @@ namespace galaxy
 				{
 					scene->deserialize(data);
 				}
+			}
+
+			if (json.contains("current"))
+			{
+				set_scene(json.at("current"));
 			}
 		}
 	} // namespace scene

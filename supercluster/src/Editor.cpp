@@ -205,6 +205,7 @@ namespace sc
 	void Editor::new_project()
 	{
 		m_project.clear();
+		m_backup               = m_project.serialize();
 		m_current_project_path = "";
 		core::ServiceLocator<core::Window>::ref().append_title(" | Untitled");
 
@@ -242,6 +243,7 @@ namespace sc
 
 				m_tasks.emplace_back([&]() {
 					// Sets from backup.
+					m_project.deserialize(m_backup);
 					set_state_editor();
 				});
 			}

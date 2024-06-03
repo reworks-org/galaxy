@@ -36,25 +36,25 @@ namespace galaxy
 
 		bool World::load(const std::string& file)
 		{
-			auto  result = false;
-			auto& fs     = core::ServiceLocator<fs::VirtualFileSystem>::ref();
-			auto  data   = fs.read_binary(file);
-			if (!data.empty())
+			auto result = false;
+
+			if (!file.empty())
 			{
-				try
+				auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+				auto  data = fs.read_binary(file);
+				if (!data.empty())
 				{
-					m_file = file;
-					m_project.loadFromMemory(data.data(), data.size());
-					result = m_loaded = true;
+					try
+					{
+						m_file = file;
+						m_project.loadFromMemory(data.data(), data.size());
+						result = m_loaded = true;
+					}
+					catch (const std::exception& e)
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to load map '{0}' because {1}.", file, e.what());
+					}
 				}
-				catch (const std::exception& e)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load map '{0}' because {1}.", file, e.what());
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to read map '{0}'.", file);
 			}
 
 			return result;

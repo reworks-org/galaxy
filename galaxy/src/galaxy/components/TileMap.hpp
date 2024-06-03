@@ -39,7 +39,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~TileMap();
+			~TileMap();
 
 			///
 			/// Sets the texture and vertex data.

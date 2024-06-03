@@ -213,7 +213,7 @@ namespace galaxy
 				m_id_to_name.emplace(hash, name);
 				m_name_to_id.emplace(name, hash);
 
-				if constexpr (std::is_constructible<Component, meta::convertable_only_to<const nlohmann::json&>>::value)
+				if constexpr (std::constructible_from<Component, const nlohmann::json&>)
 				{
 					m_json_factory.emplace(name, [](const entt::entity entity, entt::registry& registry, const nlohmann::json& json) {
 						registry.emplace<Component>(entity, json);

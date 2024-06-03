@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/utils/Globals.hpp"
-
 #include "DenySerialization.hpp"
 
 namespace galaxy
@@ -17,24 +15,12 @@ namespace galaxy
 		{
 		}
 
-		DenySerialization::DenySerialization(const nlohmann::json& json)
+		DenySerialization::DenySerialization(DenySerialization&&)
 		{
-			GALAXY_UNUSED(json);
 		}
 
-		DenySerialization::DenySerialization(DenySerialization* ptr)
+		DenySerialization& DenySerialization::operator=(DenySerialization&&)
 		{
-			GALAXY_UNUSED(ptr);
-		}
-
-		DenySerialization::DenySerialization(DenySerialization&& ds)
-		{
-			GALAXY_UNUSED(ds);
-		}
-
-		DenySerialization& DenySerialization::operator=(DenySerialization&& ds)
-		{
-			GALAXY_UNUSED(ds);
 			return *this;
 		}
 

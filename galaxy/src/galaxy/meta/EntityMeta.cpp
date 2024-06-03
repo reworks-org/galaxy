@@ -22,7 +22,14 @@ namespace galaxy
 	{
 		void EntityMeta::json_factory(const std::string& type, const entt::entity entity, entt::registry& registry, const nlohmann::json& json)
 		{
-			m_json_factory[type](entity, registry, json);
+			if (m_json_factory.contains(type))
+			{
+				m_json_factory[type](entity, registry, json);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to create component {0} from json factory.", type);
+			}
 		}
 
 		entt::any EntityMeta::any_from_json(const std::string& type, const nlohmann::json& json)

@@ -181,7 +181,7 @@ namespace galaxy
 		void Texture2D::make_bindless()
 		{
 			m_handle = glGetTextureHandleARB(m_id);
-			glMakeTextureHandleResidentARB(m_id);
+			glMakeTextureHandleResidentARB(m_handle);
 		}
 
 		void Texture2D::bind()

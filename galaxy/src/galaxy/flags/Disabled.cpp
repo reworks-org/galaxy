@@ -24,19 +24,12 @@ namespace galaxy
 			GALAXY_UNUSED(json);
 		}
 
-		Disabled::Disabled(Disabled* ptr)
+		Disabled::Disabled(Disabled&&)
 		{
-			GALAXY_UNUSED(ptr);
 		}
 
-		Disabled::Disabled(Disabled&& d)
+		Disabled& Disabled::operator=(Disabled&&)
 		{
-			GALAXY_UNUSED(d);
-		}
-
-		Disabled& Disabled::operator=(Disabled&& d)
-		{
-			GALAXY_UNUSED(d);
 			return *this;
 		}
 
