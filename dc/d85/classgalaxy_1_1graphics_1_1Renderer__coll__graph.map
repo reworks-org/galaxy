@@ -7,10 +7,10 @@
 <area shape="rect" id="Node000003" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html" title="Abstraction for OpenGL buffer objects." alt="" coords="437,1308,621,1608"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="453,1609,414,1684,409,1681,448,1607"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="311,1611,311,1671,306,1671,306,1611"/>
-<area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="221,870,396,1230"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,1230,311,1289,306,1289,306,1230"/>
+<area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="221,860,396,1240"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,1240,311,1289,306,1289,306,1240"/>
 <area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="187,389,431,795"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="311,795,311,853,306,853,306,795"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="311,795,311,844,306,844,306,795"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="233,261,384,327"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="311,327,311,373,306,373,306,327"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="251,133,366,199"/>

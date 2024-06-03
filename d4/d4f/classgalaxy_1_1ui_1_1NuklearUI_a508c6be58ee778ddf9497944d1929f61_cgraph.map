@@ -1,8 +1,0 @@
-<map id="galaxy::ui::NuklearUI::scale" name="galaxy::ui::NuklearUI::scale">
-<area shape="rect" id="Node000001" title="Scale UI to monitor/window." alt="" coords="5,29,164,69"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="39,30,37,20,44,10,60,5,85,3,113,6,128,13,126,18,111,11,85,8,61,10,47,15,42,21,45,28"/>
-<area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="234,11,421,37"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,38,220,32,221,38,165,44"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,61,443,86"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,55,199,58,198,63,164,60"/>
-</map>

@@ -6,7 +6,6 @@ var namespacegalaxy_1_1lua =
     [ "inject_glm", "de/d12/namespacegalaxy_1_1lua.html#ab14c600adcb93bb9edf95f0c3372d4d3", null ],
     [ "inject_entt", "de/d12/namespacegalaxy_1_1lua.html#a4816504ffd60d669ef3a2a9a4faface6", null ],
     [ "inject_box2d", "de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6", null ],
-    [ "inject_nuklear", "de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554", null ],
     [ "inject_components", "de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb", null ],
     [ "inject_core", "de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102", null ],
     [ "inject_error", "de/d12/namespacegalaxy_1_1lua.html#a54ef670f077e6a24aa8f3621cc976849", null ],

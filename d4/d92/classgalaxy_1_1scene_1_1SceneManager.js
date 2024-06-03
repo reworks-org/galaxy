@@ -14,7 +14,6 @@ var classgalaxy_1_1scene_1_1SceneManager =
     [ "load_app", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd", null ],
     [ "save_app", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a186b4dc359e2d0e41fee1c2187aeaf9a", null ],
     [ "update", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6ad3d7bf8412a264e4b1c2ff0939aa58", null ],
-    [ "only_update_ui", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#abce71eb35ad8d79ef3097616d6ce145c", null ],
     [ "only_update_rendering", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a05b20db2d243f6d287667f7c141972b8", null ],
     [ "render", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45", null ],
     [ "clear", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1", null ],

@@ -1,11 +1,11 @@
 <map id="galaxy::core::Window" name="galaxy::core::Window">
-<area shape="rect" id="Node000001" title="Handles events, input &amp; display." alt="" coords="354,808,507,1253"/>
+<area shape="rect" id="Node000001" title="Handles events, input &amp; display." alt="" coords="354,808,507,1333"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="31,460,110,525"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,525,77,571,85,627,100,687,125,744,171,811,227,872,286,925,342,968,339,972,282,929,223,876,167,814,120,747,95,689,80,628,72,571,68,526"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,525,78,570,87,626,102,687,125,744,172,818,228,887,287,947,343,998,340,1002,283,951,224,890,167,821,120,747,97,688,81,627,73,571,69,526"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,58,136,138"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,152,73,460,68,460,68,152"/>
 <area shape="rect" id="Node000004" href="$d9/d50/classgalaxy_1_1input_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="135,330,316,655"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="289,655,338,783,351,814,346,816,334,785,284,656"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="285,655,351,838,346,840,280,656"/>
 <area shape="rect" id="Node000005" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="447,5,631,191"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="436,154,380,193,330,242,301,284,277,331,272,329,296,282,326,238,377,189,433,149"/>
 <area shape="rect" id="Node000006" href="$dd/d15/classgalaxy_1_1input_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="340,380,521,605"/>
@@ -14,7 +14,7 @@
 <area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="570,203,580,239,575,241,565,204"/>
 <area shape="rect" id="Node000008" href="$db/d0b/classgalaxy_1_1input_1_1Clipboard.html" title="Access PC clipboard and set/get contents." alt="" coords="775,390,943,595"/>
 <area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="644,145,707,186,737,211,763,238,788,273,809,312,838,389,833,391,804,314,784,276,759,242,733,214,704,190,642,149"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="433,606,433,791,428,791,428,606"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="548,747,516,827,511,825,543,745"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="834,597,805,673,786,711,764,747,709,814,646,875,582,929,522,973,519,969,579,925,642,871,705,810,759,744,781,708,800,671,829,595"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="433,606,433,792,428,792,428,606"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="555,746,516,852,511,850,550,745"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="833,596,804,672,764,747,708,821,645,890,581,951,522,1002,518,998,577,947,641,886,704,817,759,744,799,670,828,594"/>
 </map>

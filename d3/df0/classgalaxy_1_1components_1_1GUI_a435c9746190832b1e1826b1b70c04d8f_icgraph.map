@@ -1,5 +1,0 @@
-<map id="galaxy::components::GUI::deserialize" name="galaxy::components::GUI::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="207,5,360,45"/>
-<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#ac9ae5d79716495c820d1167de5a7f8b8" title="JSON constructor." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
-</map>

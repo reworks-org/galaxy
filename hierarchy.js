@@ -46,7 +46,6 @@ var hierarchy =
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],
     [ "galaxy::events::MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", null ],
     [ "galaxy::events::MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", null ],
-    [ "galaxy::ui::NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", null ],
     [ "galaxy::graphics::PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", [
       [ "galaxy::graphics::ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", null ],
       [ "galaxy::graphics::FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", null ],
@@ -71,7 +70,6 @@ var hierarchy =
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
       [ "galaxy::components::Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", null ],
       [ "galaxy::components::Ellipse", "d9/ddf/classgalaxy_1_1components_1_1Ellipse.html", null ],
-      [ "galaxy::components::GUI", "d3/df0/classgalaxy_1_1components_1_1GUI.html", null ],
       [ "galaxy::components::Point", "d4/d0e/classgalaxy_1_1components_1_1Point.html", null ],
       [ "galaxy::components::Polygon", "d0/dbe/classgalaxy_1_1components_1_1Polygon.html", null ],
       [ "galaxy::components::Polyline", "dd/d2d/classgalaxy_1_1components_1_1Polyline.html", null ],

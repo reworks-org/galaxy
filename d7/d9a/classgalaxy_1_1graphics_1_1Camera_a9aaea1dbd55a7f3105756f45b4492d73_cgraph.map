@@ -1,9 +1,7 @@
 <map id="galaxy::graphics::Camera::Camera" name="galaxy::graphics::Camera::Camera">
-<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,61,192,101"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,29,192,69"/>
 <area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="240,29,427,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,66,226,61,227,67,192,71"/>
-<area shape="rect" id="Node000004" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d" title="Set camera projection." alt="" coords="240,93,427,133"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="192,91,227,96,226,101,192,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,47,226,47,226,52,192,52"/>
 <area shape="rect" id="Node000003" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="475,29,676,69"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,47,461,47,461,52,427,52"/>
 <area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="531,30,528,20,535,10,551,5,575,3,603,6,618,13,616,18,602,11,575,8,552,10,538,15,533,21,536,28"/>

@@ -5,7 +5,7 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "post", "dir_caf60e19dcb1ab55c9f6abc1ee887a43.html", "dir_caf60e19dcb1ab55c9f6abc1ee887a43" ],
     [ "shapes", "dir_844fcea5e0559fce5aff0337046f7570.html", "dir_844fcea5e0559fce5aff0337046f7570" ],
     [ "text", "dir_b17ffddb03673327e70de50848ad0375.html", "dir_b17ffddb03673327e70de50848ad0375" ],
-    [ "Camera.cpp", "da/d8c/Camera_8cpp.html", "da/d8c/Camera_8cpp" ],
+    [ "Camera.cpp", "da/d8c/Camera_8cpp.html", null ],
     [ "Camera.hpp", "d6/d80/Camera_8hpp.html", "d6/d80/Camera_8hpp" ],
     [ "Colour.cpp", "dd/db2/Colour_8cpp.html", "dd/db2/Colour_8cpp" ],
     [ "Colour.hpp", "db/dd2/Colour_8hpp.html", "db/dd2/Colour_8hpp" ],

@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['vertex_0',['Vertex',['../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html',1,'galaxy::graphics']]],
-  ['vertexarray_1',['VertexArray',['../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html',1,'galaxy::graphics']]],
-  ['vertexbatch_2',['VertexBatch',['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html',1,'galaxy::graphics']]],
-  ['vertexbuffer_3',['VertexBuffer',['../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html',1,'galaxy::graphics']]],
-  ['video_4',['Video',['../de/d0b/classgalaxy_1_1media_1_1Video.html',1,'galaxy::media']]],
-  ['virtualfilesystem_5',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs']]],
-  ['voiceloader_6',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
+  ['window_0',['Window',['../d5/d25/classgalaxy_1_1core_1_1Window.html',1,'galaxy::core']]],
+  ['windowclosed_1',['WindowClosed',['../dc/dad/structgalaxy_1_1events_1_1WindowClosed.html',1,'galaxy::events']]],
+  ['windowresized_2',['WindowResized',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html',1,'galaxy::events']]],
+  ['windowsettings_3',['WindowSettings',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html',1,'galaxy::core']]],
+  ['world_4',['World',['../d9/d75/classgalaxy_1_1map_1_1World.html',1,'galaxy::map']]]
 ];

@@ -1,5 +1,0 @@
-<map id="galaxy::components::GUI" name="galaxy::components::GUI">
-<area shape="rect" id="Node000001" title="Script for running an active UI." alt="" coords="5,219,183,524"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="13,5,175,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,185,97,218,91,218,91,185"/>
-</map>

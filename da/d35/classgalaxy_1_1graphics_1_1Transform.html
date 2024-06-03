@@ -111,8 +111,8 @@ $(document).ready(function(){initNavTree('da/d35/classgalaxy_1_1graphics_1_1Tran
 <div class="center"><img src="../../d4/daa/classgalaxy_1_1graphics_1_1Transform__inherit__graph.png" border="0" usemap="#agalaxy_1_1graphics_1_1Transform_inherit__map" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1graphics_1_1Transform_inherit__map" id="agalaxy_1_1graphics_1_1Transform_inherit__map">
 <area shape="rect" title="Defines the 2D transformation of an entity." alt="" coords="5,5,199,371"/>
-<area shape="rect" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="13,419,191,864"/>
-<area shape="poly" title=" " alt="" coords="105,384,105,419,99,419,99,384"/>
+<area shape="rect" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="13,419,191,804"/>
+<area shape="poly" title=" " alt="" coords="105,384,105,418,99,418,99,384"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -146,10 +146,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8b5822243c0a8f9480a32ea5a5776916" id="r_a8b5822243c0a8f9480a32ea5a5776916"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a8b5822243c0a8f9480a32ea5a5776916">~Transform</a> ()</td></tr>
 <tr class="memdesc:a8b5822243c0a8f9480a32ea5a5776916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a8b5822243c0a8f9480a32ea5a5776916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a96210f67d7a989920410729ec784fd" id="r_a6a96210f67d7a989920410729ec784fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a6a96210f67d7a989920410729ec784fd">translate</a> (const float x, const float y)</td></tr>
+<tr class="memitem:a6a96210f67d7a989920410729ec784fd" id="r_a6a96210f67d7a989920410729ec784fd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a6a96210f67d7a989920410729ec784fd">translate</a> (const float x, const float y)</td></tr>
 <tr class="memdesc:a6a96210f67d7a989920410729ec784fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate (move) position.  <br /></td></tr>
 <tr class="separator:a6a96210f67d7a989920410729ec784fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25d343b86ff11e6eff91474ef1e2d645" id="r_a25d343b86ff11e6eff91474ef1e2d645"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a25d343b86ff11e6eff91474ef1e2d645">rotate</a> (const float degrees)</td></tr>
+<tr class="memitem:a25d343b86ff11e6eff91474ef1e2d645" id="r_a25d343b86ff11e6eff91474ef1e2d645"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a25d343b86ff11e6eff91474ef1e2d645">rotate</a> (const float degrees)</td></tr>
 <tr class="memdesc:a25d343b86ff11e6eff91474ef1e2d645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate entity.  <br /></td></tr>
 <tr class="separator:a25d343b86ff11e6eff91474ef1e2d645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca846c9c51f638a7c2ead9de20d9695c" id="r_aca846c9c51f638a7c2ead9de20d9695c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c">scale</a> (const float scale)</td></tr>
@@ -373,6 +373,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void galaxy::graphics::Transform::translate </td>
@@ -392,6 +395,11 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Translate (move) position. </p>
@@ -402,6 +410,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a65c308c16d2408b3741b1df0c6ea269d">galaxy::graphics::Camera</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d1d/graphics_2Transform_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../dd/d1d/graphics_2Transform_8cpp_source.html">Transform.cpp</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -428,6 +438,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void galaxy::graphics::Transform::rotate </td>
@@ -437,15 +450,22 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Rotate entity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">degrees</td><td>Additive. Min 0, max 360. </td></tr>
+    <tr><td class="paramname">degrees</td><td>Additive. Min -360, max 360. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#af5fbd80ab67a2ceb32a0150f34ec3415">galaxy::graphics::Camera</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d1d/graphics_2Transform_8cpp_source.html#l00094">94</a> of file <a class="el" href="../../dd/d1d/graphics_2Transform_8cpp_source.html">Transform.cpp</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -741,7 +761,7 @@ Protected Attributes</h2></td></tr>
 <p>Set the entity rotation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">degrees</td><td>Min 0, max 360. </td></tr>
+    <tr><td class="paramname">degrees</td><td>Min -360, max 360. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1273,7 +1293,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="../../da/d35/classgalaxy_1_1graphics_1_1Transform.html">Transform</a></li>
-    <li class="footer">Generated on Sat Jun 1 2024 06:27:03 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Jun 3 2024 02:36:54 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

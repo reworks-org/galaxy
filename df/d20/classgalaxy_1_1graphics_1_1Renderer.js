@@ -20,12 +20,12 @@ var classgalaxy_1_1graphics_1_1Renderer =
     [ "render_post", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d", null ],
     [ "begin_default", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af2810f49a72158adbf57af81a1cb7191", null ],
     [ "end_default", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a2806053665ce85980aa67b144f604814", null ],
+    [ "calc_viewport", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aec54d3ac961247a2fb4cf1e428fd4cb7", null ],
     [ "m_cmds", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ab86c572c10a3bc69b60b188a303af609", null ],
     [ "m_free_cmds", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#acf7d926333d0bdff796bb6b31b2558bf", null ],
     [ "m_r2d_shader", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ad4361f541c64890d16dd55a5a1261334", null ],
     [ "m_camera", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff0e8dfb72cdb5162726ecd27b16a66d", null ],
     [ "m_renderdata", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a6fc2423c26f91d33be221207423424bb", null ],
     [ "m_post", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a76d8199d3bbaffe0bf92e99e0cb2e199", null ],
-    [ "m_width", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a19daa48f69a3c245f8f2a4585b0402d4", null ],
-    [ "m_height", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa7dacd634bf7dcbb00fa507f6aace5c2", null ]
+    [ "m_viewport", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a18407f29f2f957bd0f624d759e44043c", null ]
 ];

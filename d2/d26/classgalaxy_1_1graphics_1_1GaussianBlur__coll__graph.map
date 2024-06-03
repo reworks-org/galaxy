@@ -4,10 +4,10 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,1173,214,1241,259,1318,254,1321,209,1244,170,1176"/>
 <area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="223,857,400,1243"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="314,1243,314,1303,309,1303,309,1243"/>
-<area shape="rect" id="Node000004" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="424,870,599,1230"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="428,1232,392,1297,386,1307,382,1305,388,1295,424,1229"/>
+<area shape="rect" id="Node000004" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="424,860,599,1240"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="426,1236,392,1297,386,1307,382,1305,388,1295,422,1233"/>
 <area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="389,389,633,795"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="514,795,514,853,509,853,509,795"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="514,795,514,844,509,844,509,795"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="436,261,587,327"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="514,327,514,373,509,373,509,327"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="454,133,569,199"/>

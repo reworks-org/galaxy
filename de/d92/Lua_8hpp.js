@@ -5,7 +5,6 @@ var Lua_8hpp =
     [ "inject_glm", "de/d92/Lua_8hpp.html#ab14c600adcb93bb9edf95f0c3372d4d3", null ],
     [ "inject_entt", "de/d92/Lua_8hpp.html#a4816504ffd60d669ef3a2a9a4faface6", null ],
     [ "inject_box2d", "de/d92/Lua_8hpp.html#a8e443835399c95d998dd8f4c6b0ca4f6", null ],
-    [ "inject_nuklear", "de/d92/Lua_8hpp.html#aafb6e0ee7d30ae18aca6a47a78755554", null ],
     [ "inject_components", "de/d92/Lua_8hpp.html#ad6d6e4e57beaeb92225f41e0526f60cb", null ],
     [ "inject_core", "de/d92/Lua_8hpp.html#a7673c3a353bc1c63652f6e0d149a8102", null ],
     [ "inject_error", "de/d92/Lua_8hpp.html#a54ef670f077e6a24aa8f3621cc976849", null ],

@@ -1,7 +1,0 @@
-<map id="galaxy::ui::NuklearUI::show_loading_bar" name="galaxy::ui::NuklearUI::show_loading_bar">
-<area shape="rect" id="Node000001" title="Shows a progress bar for loading screens." alt="" coords="5,23,164,63"/>
-<area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="234,5,421,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,32,220,26,221,32,165,38"/>
-<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="212,55,443,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,49,199,52,198,57,164,54"/>
-</map>

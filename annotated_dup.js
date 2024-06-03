@@ -8,7 +8,6 @@ var annotated_dup =
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
         [ "Ellipse", "d9/ddf/classgalaxy_1_1components_1_1Ellipse.html", "d9/ddf/classgalaxy_1_1components_1_1Ellipse" ],
-        [ "GUI", "d3/df0/classgalaxy_1_1components_1_1GUI.html", "d3/df0/classgalaxy_1_1components_1_1GUI" ],
         [ "Point", "d4/d0e/classgalaxy_1_1components_1_1Point.html", "d4/d0e/classgalaxy_1_1components_1_1Point" ],
         [ "Polygon", "d0/dbe/classgalaxy_1_1components_1_1Polygon.html", "d0/dbe/classgalaxy_1_1components_1_1Polygon" ],
         [ "Polyline", "dd/d2d/classgalaxy_1_1components_1_1Polyline.html", "dd/d2d/classgalaxy_1_1components_1_1Polyline" ],
@@ -156,9 +155,6 @@ var annotated_dup =
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],
         [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]
-      ] ],
-      [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", [
-        [ "NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI" ]
       ] ],
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]

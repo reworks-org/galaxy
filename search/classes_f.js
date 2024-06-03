@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['tag_0',['Tag',['../d8/d96/classgalaxy_1_1components_1_1Tag.html',1,'galaxy::components']]],
-  ['text_1',['text',['../d2/d81/classgalaxy_1_1components_1_1Text.html',1,'galaxy::components::Text'],['../db/dcc/classgalaxy_1_1graphics_1_1Text.html',1,'galaxy::graphics::Text']]],
-  ['texture_2',['Texture',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html',1,'galaxy::graphics']]],
-  ['texture2d_3',['Texture2D',['../d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html',1,'galaxy::graphics']]],
-  ['texturearray_4',['TextureArray',['../dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html',1,'galaxy::graphics']]],
-  ['textureview_5',['TextureView',['../d9/d28/classgalaxy_1_1graphics_1_1TextureView.html',1,'galaxy::graphics']]],
-  ['tilemap_6',['TileMap',['../d2/db4/classgalaxy_1_1components_1_1TileMap.html',1,'galaxy::components']]],
-  ['timer_7',['Timer',['../da/d6d/classgalaxy_1_1async_1_1Timer.html',1,'galaxy::async']]],
-  ['transform_8',['transform',['../d8/d8a/classgalaxy_1_1components_1_1Transform.html',1,'galaxy::components::Transform'],['../da/d35/classgalaxy_1_1graphics_1_1Transform.html',1,'galaxy::graphics::Transform']]]
+  ['vertex_0',['Vertex',['../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html',1,'galaxy::graphics']]],
+  ['vertexarray_1',['VertexArray',['../df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html',1,'galaxy::graphics']]],
+  ['vertexbatch_2',['VertexBatch',['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html',1,'galaxy::graphics']]],
+  ['vertexbuffer_3',['VertexBuffer',['../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html',1,'galaxy::graphics']]],
+  ['video_4',['Video',['../de/d0b/classgalaxy_1_1media_1_1Video.html',1,'galaxy::media']]],
+  ['virtualfilesystem_5',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs']]],
+  ['voiceloader_6',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
 ];

@@ -1,9 +1,7 @@
 <map id="galaxy::ui::scale_and_load_fonts" name="galaxy::ui::scale_and_load_fonts">
-<area shape="rect" id="Node000001" title="Scale and load fonts." alt="" coords="424,37,583,77"/>
-<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a92a55d3429a106644042a88aaaba1865" title="Initialize ImGui context with galaxy." alt="" coords="216,5,375,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,46,375,40,375,35,411,40"/>
-<area shape="rect" id="Node000003" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a08f5070e3b4c47632fb659fa99c4e584" title="Construct a Window." alt="" coords="215,69,376,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="411,74,376,80,376,74,410,69"/>
-<area shape="rect" id="Node000004" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,69,167,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="200,92,167,92,167,87,200,87"/>
+<area shape="rect" id="Node000001" title="Scale and load fonts." alt="" coords="215,37,373,77"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a92a55d3429a106644042a88aaaba1865" title="Initialize ImGui context with galaxy." alt="" coords="7,5,165,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,46,165,40,166,35,202,40"/>
+<area shape="rect" id="Node000003" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,69,167,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,74,167,80,166,74,201,69"/>
 </map>

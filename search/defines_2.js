@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['nk_5fglfw_5fgl4_5fimplementation_0',['NK_GLFW_GL4_IMPLEMENTATION',['../d8/d99/NuklearUI_8cpp.html#a5d25e9845b21d43de3fe644c6b25913b',1,'NuklearUI.cpp']]]
+  ['searchtex_5fheight_0',['SEARCHTEX_HEIGHT',['../d4/dad/SMAA_8cpp.html#a15de9127232659609fadb54ee35fb5b9',1,'SMAA.cpp']]],
+  ['searchtex_5fpitch_1',['SEARCHTEX_PITCH',['../d4/dad/SMAA_8cpp.html#ada901f34a155af025ea7fb5a50a83d41',1,'SMAA.cpp']]],
+  ['searchtex_5fsize_2',['SEARCHTEX_SIZE',['../d4/dad/SMAA_8cpp.html#a0f0836280815bc6b75f6997b3bb1911b',1,'SMAA.cpp']]],
+  ['searchtex_5fwidth_3',['SEARCHTEX_WIDTH',['../d4/dad/SMAA_8cpp.html#a6e5f3da2c1acfcdacadf532bed434810',1,'SMAA.cpp']]]
 ];

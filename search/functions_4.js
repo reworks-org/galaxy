@@ -9,8 +9,7 @@ var searchData=
   ['encode_5fzlib_6',['encode_zlib',['../d1/d92/namespacegalaxy_1_1math.html#aa268fcdadd51a019f66c4953e578694e',1,'galaxy::math']]],
   ['end_7',['end',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa92e97cb44e8f1d6bfaa59750b533aed',1,'galaxy::graphics::Framebuffer']]],
   ['end_5fdefault_8',['end_default',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a2806053665ce85980aa67b144f604814',1,'galaxy::graphics::Renderer']]],
-  ['end_5finput_9',['end_input',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a3c4d2225b090d54cbda4a645d0f1b908',1,'galaxy::ui::NuklearUI']]],
-  ['end_5fpost_10',['end_post',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd',1,'galaxy::graphics::Renderer']]],
-  ['end_5ftext_5finput_11',['end_text_input',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197',1,'galaxy::input::Keyboard']]],
-  ['exists_12',['exists',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ad5ffea521344ba9318bb8c865ca7b7d5',1,'galaxy::fs::VirtualFileSystem']]]
+  ['end_5fpost_9',['end_post',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd',1,'galaxy::graphics::Renderer']]],
+  ['end_5ftext_5finput_10',['end_text_input',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197',1,'galaxy::input::Keyboard']]],
+  ['exists_11',['exists',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ad5ffea521344ba9318bb8c865ca7b7d5',1,'galaxy::fs::VirtualFileSystem']]]
 ];
