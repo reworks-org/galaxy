@@ -16,21 +16,26 @@ namespace galaxy
 	{
 		TileMap::TileMap()
 			: m_texture {nullptr}
+			, m_render_layer {0}
 		{
 		}
 
 		TileMap::TileMap(TileMap&& t)
 		{
-			this->m_texture = t.m_texture;
-			this->m_batch   = std::move(t.m_batch);
+			this->m_texture      = t.m_texture;
+			this->m_batch        = std::move(t.m_batch);
+			this->m_render_layer = t.m_render_layer;
+			this->m_tint         = std::move(t.m_tint);
 		}
 
 		TileMap& TileMap::operator=(TileMap&& t)
 		{
 			if (this != &t)
 			{
-				this->m_texture = t.m_texture;
-				this->m_batch   = std::move(t.m_batch);
+				this->m_texture      = t.m_texture;
+				this->m_batch        = std::move(t.m_batch);
+				this->m_render_layer = t.m_render_layer;
+				this->m_tint         = std::move(t.m_tint);
 			}
 
 			return *this;

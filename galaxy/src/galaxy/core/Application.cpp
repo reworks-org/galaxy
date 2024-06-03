@@ -13,7 +13,6 @@
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Polyline.hpp"
-#include "galaxy/components/RenderCommand.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -184,7 +183,6 @@ namespace galaxy
 			em.register_component<components::Point>("Point");
 			em.register_component<components::Polygon>("Polygon");
 			em.register_component<components::Polyline>("Polyline");
-			em.register_component<components::RenderCommand>("RenderCommand");
 			em.register_component<components::RigidBody>("RigidBody");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");

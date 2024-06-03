@@ -13,7 +13,6 @@
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Polyline.hpp"
-#include "galaxy/components/RenderCommand.hpp"
 #include "galaxy/components/RigidBody.hpp"
 #include "galaxy/components/Script.hpp"
 #include "galaxy/components/Sprite.hpp"
@@ -69,12 +68,6 @@ namespace galaxy
                 &entt::type_hash<components::Polyline>::value);
 			polyline_type["shape"] = &components::Polyline::m_shape;
 
-			auto rendercommand_type       = lua.new_usertype<components::RenderCommand>("RenderCommand",
-                sol::constructors<components::RenderCommand()>(),
-                "type_id",
-                &entt::type_hash<components::RenderCommand>::value);
-			rendercommand_type["command"] = &components::RenderCommand::m_command;
-
 			auto rigidbody_type                         = lua.new_usertype<components::RigidBody>("RigidBody",
                 sol::constructors<components::RigidBody()>(),
                 "type_id",
@@ -123,12 +116,14 @@ namespace galaxy
 				lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>(), "type_id", &entt::type_hash<components::Text>::value);
 			text_type["text"] = &components::Text::m_text;
 
-			auto tilemap_type           = lua.new_usertype<components::TileMap>("TileMap",
+			auto tilemap_type            = lua.new_usertype<components::TileMap>("TileMap",
                 sol::constructors<components::TileMap()>(),
                 "type_id",
                 &entt::type_hash<components::TileMap>::value);
-			tilemap_type["get_texture"] = &components::TileMap::get_texture;
-			tilemap_type["set_texture"] = &components::TileMap::set_texture;
+			tilemap_type["get_texture"]  = &components::TileMap::get_texture;
+			tilemap_type["set_texture"]  = &components::TileMap::set_texture;
+			tilemap_type["render_layer"] = &components::TileMap::m_render_layer;
+			tilemap_type["tint"]         = &components::TileMap::m_tint;
 
 			auto transform_type  = lua.new_usertype<components::Transform>("Transform",
                 sol::constructors<components::Transform()>(),
@@ -142,7 +137,6 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Point>();
 			entt_sol::register_meta_component<components::Polygon>();
 			entt_sol::register_meta_component<components::Polyline>();
-			entt_sol::register_meta_component<components::RenderCommand>();
 			entt_sol::register_meta_component<components::RigidBody>();
 			entt_sol::register_meta_component<components::Script>();
 			entt_sol::register_meta_component<components::Sprite>();

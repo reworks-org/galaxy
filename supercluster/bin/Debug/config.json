@@ -32,6 +32,8 @@
         "window": {
             "cursor_icon": "",
             "debug": true,
+            "frame_height": 360,
+            "frame_width": 640,
             "fullscreen": false,
             "height": 1080,
             "icon": "",
@@ -40,7 +42,9 @@
             "title": "supercluster",
             "visible_cursor": true,
             "vsync": false,
-            "width": 1920
+            "width": 1920,
+            "window_height": 1080,
+            "window_width": 1920
         }
     }
 }

@@ -26,7 +26,6 @@ namespace galaxy
 	{
 		Texture2D::Texture2D()
 			: Texture {}
-			, m_handle {0}
 		{
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_id);
 		}
@@ -34,13 +33,6 @@ namespace galaxy
 		Texture2D::Texture2D(Texture2D&& t)
 			: Texture {std::move(t)}
 		{
-			if (this->m_handle != 0)
-			{
-				glMakeTextureHandleNonResidentARB(this->m_handle);
-			}
-
-			this->m_handle = t.m_handle;
-			t.m_handle     = 0;
 		}
 
 		Texture2D& Texture2D::operator=(Texture2D&& t)
@@ -48,14 +40,6 @@ namespace galaxy
 			if (this != &t)
 			{
 				Texture::operator=(std::move(t));
-
-				if (this->m_handle != 0)
-				{
-					glMakeTextureHandleNonResidentARB(this->m_handle);
-				}
-
-				this->m_handle = t.m_handle;
-				t.m_handle     = 0;
 			}
 
 			return *this;
@@ -63,10 +47,6 @@ namespace galaxy
 
 		Texture2D::~Texture2D()
 		{
-			if (m_handle != 0)
-			{
-				glMakeTextureHandleNonResidentARB(m_handle);
-			}
 		}
 
 		bool Texture2D::load(const std::string& file)
@@ -169,19 +149,7 @@ namespace galaxy
 				m_id = 0;
 			}
 
-			if (m_handle != 0)
-			{
-				glMakeTextureHandleNonResidentARB(m_handle);
-				m_handle = 0;
-			}
-
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_id);
-		}
-
-		void Texture2D::make_bindless()
-		{
-			m_handle = glGetTextureHandleARB(m_id);
-			glMakeTextureHandleResidentARB(m_handle);
 		}
 
 		void Texture2D::bind()
@@ -192,11 +160,6 @@ namespace galaxy
 		void Texture2D::unbind()
 		{
 			glBindTexture(GL_TEXTURE_2D, 0);
-		}
-
-		std::uint64_t Texture2D::handle() const
-		{
-			return m_handle;
 		}
 	} // namespace graphics
 } // namespace galaxy

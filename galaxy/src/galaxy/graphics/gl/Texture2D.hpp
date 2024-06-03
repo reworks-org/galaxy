@@ -73,14 +73,6 @@ namespace galaxy
 			void recreate();
 
 			///
-			/// \brief Converts this texture to a bindless texture.
-			///
-			/// THIS MAKES THE TEXTURE PARAMETERS IMMUTABLE.
-			/// If you re-create the texture, you need to recall this.
-			///
-			void make_bindless();
-
-			///
 			/// Activate context.
 			///
 			void bind() override;
@@ -89,19 +81,6 @@ namespace galaxy
 			/// Deactivate context.
 			///
 			void unbind() override;
-
-			///
-			/// Gets bindless handle.
-			///
-			/// \return 64 bit identifier.
-			///
-			[[nodiscard]] std::uint64_t handle() const;
-
-		  private:
-			///
-			/// Bindless handle.
-			///
-			std::uint64_t m_handle;
 		};
 	} // namespace graphics
 } // namespace galaxy

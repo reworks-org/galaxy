@@ -16,7 +16,6 @@
     <ClCompile Include="src\galaxy\components\Point.cpp" />
     <ClCompile Include="src\galaxy\components\Polygon.cpp" />
     <ClCompile Include="src\galaxy\components\Polyline.cpp" />
-    <ClCompile Include="src\galaxy\components\RenderCommand.cpp" />
     <ClCompile Include="src\galaxy\components\RigidBody.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\components\Sprite.cpp" />
@@ -93,7 +92,6 @@
     <ClInclude Include="src\galaxy\components\Point.hpp" />
     <ClInclude Include="src\galaxy\components\Polygon.hpp" />
     <ClInclude Include="src\galaxy\components\Polyline.hpp" />
-    <ClInclude Include="src\galaxy\components\RenderCommand.hpp" />
     <ClInclude Include="src\galaxy\components\RigidBody.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\components\Sprite.hpp" />

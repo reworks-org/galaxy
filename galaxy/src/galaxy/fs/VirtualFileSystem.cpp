@@ -172,7 +172,13 @@ namespace galaxy
 
 		bool VirtualFileSystem::write_raw(const void* data, const std::size_t size, const std::string& file)
 		{
-			PHYSFS_File* f = PHYSFS_openWrite(file.c_str());
+			auto path = std::filesystem::path(file);
+			if (path.is_absolute())
+			{
+				path = path.filename();
+			}
+
+			PHYSFS_File* f = PHYSFS_openWrite(path.string().c_str());
 			if (error::physfs_check(f))
 			{
 				const auto len = PHYSFS_fileLength(f);
@@ -183,14 +189,14 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", path.string());
 				}
 
 				error::physfs_check(PHYSFS_close(f));
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", file);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", path.string());
 			}
 
 			return false;

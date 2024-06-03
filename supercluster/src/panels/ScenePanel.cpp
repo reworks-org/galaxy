@@ -50,6 +50,8 @@ namespace sc
 					if (!s_buff.empty())
 					{
 						project.add(s_buff);
+						project.set_scene(s_buff);
+
 						s_buff = "";
 
 						ImGui::CloseCurrentPopup();
@@ -69,17 +71,23 @@ namespace sc
 
 			for (auto&& [id, scene] : project.map())
 			{
-				ImGui::PushID(static_cast<int>(id));
-
 				auto scene_ptr = scene.get();
+
+				std::string tree_id = scene_ptr->m_name;
+				if (project.current())
+				{
+					m_selected = project.current()->m_name;
+				}
 
 				ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
 				if (m_selected == scene_ptr->m_name)
 				{
-					flags |= ImGuiTreeNodeFlags_Selected;
+					flags   |= ImGuiTreeNodeFlags_Selected;
+					tree_id += " (current)";
 				}
 
-				const bool is_open = ImGui::TreeNodeEx(scene_ptr->m_name.c_str(), flags);
+				ImGui::PushID(static_cast<int>(id));
+				const bool is_open = ImGui::TreeNodeEx(tree_id.c_str(), flags);
 				if (ImGui::IsItemClicked())
 				{
 					m_selected = scene_ptr->m_name;
@@ -87,6 +95,11 @@ namespace sc
 
 				if (is_open)
 				{
+					if (ImGui::Button("Set Current"))
+					{
+						project.set_scene(m_selected);
+					}
+
 					draw_camera(scene_ptr);
 					draw_physics(scene_ptr);
 					draw_mapping(tasks, scene_ptr, selected);

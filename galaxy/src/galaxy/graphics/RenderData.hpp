@@ -51,11 +51,6 @@ namespace galaxy
 			/// Are we rendering as a texture.
 			///
 			bool textured;
-
-			///
-			/// Texture handle.
-			///
-			std::uint64_t handle;
 		};
 	} // namespace graphics
 } // namespace galaxy

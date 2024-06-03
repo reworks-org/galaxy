@@ -61,6 +61,16 @@ namespace galaxy
 			///
 			graphics::VertexBatch m_batch;
 
+			///
+			/// Rendering layer.
+			///
+			int m_render_layer;
+
+			///
+			/// Opacity/tinting.
+			///
+			glm::vec4 m_tint;
+
 		  private:
 			///
 			/// Tileset.

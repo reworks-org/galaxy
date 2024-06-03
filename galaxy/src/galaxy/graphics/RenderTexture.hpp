@@ -87,13 +87,6 @@ namespace galaxy
 			void clear();
 
 			///
-			/// \brief Makes this texture bindless.
-			///
-			/// WARNING: YOU CANNOT MODIFY THE TEXTURE AFTER CALLING THIS.
-			///
-			void make_bindless();
-
-			///
 			/// \brief Get texture width.
 			///
 			/// Is cached for performance.
@@ -110,13 +103,6 @@ namespace galaxy
 			/// \return Height as int.
 			///
 			[[nodiscard]] int height() const;
-
-			///
-			/// Gets bindless texture handle.
-			///
-			/// \return 64 bit identifier.
-			///
-			[[nodiscard]] std::uint64_t handle() const;
 
 			///
 			/// Gets framebuffer texture.
@@ -160,11 +146,6 @@ namespace galaxy
 			/// Cached height.
 			///
 			int m_height;
-
-			///
-			/// Bindless handle.
-			///
-			std::uint64_t m_handle;
 
 			///
 			/// OpenGL framebuffer abstraction.

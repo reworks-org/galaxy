@@ -23,7 +23,9 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ShaderStorageBuffer();
+			/// \param index Index to set SSBO to.
+			///
+			ShaderStorageBuffer(const int index);
 
 			///
 			/// Move constructor.
@@ -45,13 +47,12 @@ namespace galaxy
 			///
 			/// \tparam Object The data structure to use with this buffer.
 			///
-			/// \param index Index to set SSBO to.
 			/// \param offset Offset to start adding buffer from.
 			/// \param count Number of objects in data.
 			/// \param data Pointer to the data to buffer.
 			///
 			template<typename Object>
-			void buffer(const int index, const unsigned int offset, const unsigned int count, Object* data);
+			void buffer(const unsigned int offset, const unsigned int count, Object* data);
 
 			///
 			/// Sub buffer data.
@@ -68,7 +69,7 @@ namespace galaxy
 			///
 			/// Bind buffer.
 			///
-			void bind();
+			void bind() const;
 
 			///
 			/// Clears data from buffer.
@@ -83,6 +84,11 @@ namespace galaxy
 			[[nodiscard]] unsigned int id() const;
 
 		  private:
+			///
+			/// Default constructor.
+			///
+			ShaderStorageBuffer() = delete;
+
 			///
 			/// Copy constructor.
 			///
@@ -106,10 +112,8 @@ namespace galaxy
 		};
 
 		template<typename Object>
-		inline void ShaderStorageBuffer::buffer(const int index, const unsigned int offset, const unsigned int count, Object* data)
+		inline void ShaderStorageBuffer::buffer(const unsigned int offset, const unsigned int count, Object* data)
 		{
-			m_index = index;
-
 			constexpr auto size = sizeof(Object);
 			glNamedBufferData(m_id, count * size, data, GL_DYNAMIC_DRAW);
 		}

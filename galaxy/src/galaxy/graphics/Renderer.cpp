@@ -22,12 +22,18 @@ namespace galaxy
 			return renderer;
 		}
 
+		Renderer::Renderer()
+			: m_camera {GAlAXY_BUFFER_CAMERA_INDEX}
+			, m_renderdata {GAlAXY_BUFFER_RENDERDATA_INDEX}
+		{
+		}
+
 		void Renderer::init()
 		{
 			// Reserve some upfront memory to ease initial allocations.
-			if (m_cmds.capacity() < 10)
+			if (m_cmds.capacity() < GALAXY_RENDERCOMMAND_INITIAL_ALLOCS)
 			{
-				m_cmds.reserve(10);
+				m_cmds.reserve(GALAXY_RENDERCOMMAND_INITIAL_ALLOCS);
 			}
 
 			if (m_r2d_shader.parse(resource::r2d_vert_shader, resource::r2d_frag_shader))
@@ -35,8 +41,8 @@ namespace galaxy
 				m_r2d_shader.compile();
 			}
 
-			m_camera.buffer<Camera::Data>(GAlAXY_BUFFER_CAMERA_INDEX, 0, 1, nullptr);
-			m_renderdata.buffer<RenderData>(GAlAXY_BUFFER_RENDERDATA_INDEX, 0, 1, nullptr);
+			m_camera.buffer<Camera::Data>(0, 1, nullptr);
+			m_renderdata.buffer<RenderData>(0, 1, nullptr);
 
 			auto&      w      = core::ServiceLocator<core::Window>::ref();
 			const auto width  = w.frame_width();
@@ -74,12 +80,12 @@ namespace galaxy
 
 		void Renderer::submit_cmd(RenderCommand& command)
 		{
-			m_cmds.push_back(&command);
+			m_cmds.emplace_back(std::move(command));
 		}
 
 		void Renderer::submit_texture(const Texture2D& texture, VertexArray& va, Transform& tf, const int layer, const float opacity)
 		{
-			auto& cmd = m_free_cmds.emplace_back(RenderCommand {});
+			auto& cmd = m_cmds.emplace_back(RenderCommand {});
 
 			cmd.count              = va.count();
 			cmd.instances          = va.instances();
@@ -87,9 +93,9 @@ namespace galaxy
 			cmd.mode               = GL_TRIANGLES;
 			cmd.offset             = va.offset();
 			cmd.vao                = va.id();
+			cmd.texture            = texture.id();
 			cmd.uniforms.colour    = {1.0f, 1.0f, 1.0f, opacity};
 			cmd.uniforms.entity    = -1;
-			cmd.uniforms.handle    = texture.handle();
 			cmd.uniforms.point     = false;
 			cmd.uniforms.textured  = true;
 			cmd.uniforms.transform = tf.get_transform();
@@ -99,7 +105,7 @@ namespace galaxy
 
 		void Renderer::submit_text(Text& text, Transform& tf, const int layer)
 		{
-			auto& cmd = m_free_cmds.emplace_back(RenderCommand {});
+			auto& cmd = m_cmds.emplace_back(RenderCommand {});
 
 			cmd.count              = text.vao().count();
 			cmd.instances          = text.vao().instances();
@@ -107,9 +113,9 @@ namespace galaxy
 			cmd.mode               = GL_TRIANGLES;
 			cmd.offset             = text.vao().offset();
 			cmd.vao                = text.vao().id();
+			cmd.texture            = text.render_texture().texture();
 			cmd.uniforms.colour    = text.m_colour.vec4();
 			cmd.uniforms.entity    = -1;
-			cmd.uniforms.handle    = text.render_texture().handle();
 			cmd.uniforms.point     = false;
 			cmd.uniforms.textured  = true;
 			cmd.uniforms.transform = tf.get_transform();
@@ -119,7 +125,7 @@ namespace galaxy
 
 		void Renderer::submit_shape(Shape* shape, Transform& tf, const int layer)
 		{
-			auto& cmd = m_free_cmds.emplace_back(RenderCommand {});
+			auto& cmd = m_cmds.emplace_back(RenderCommand {});
 
 			cmd.count              = shape->vao().count();
 			cmd.instances          = shape->vao().instances();
@@ -127,9 +133,9 @@ namespace galaxy
 			cmd.mode               = shape->mode();
 			cmd.offset             = shape->vao().offset();
 			cmd.vao                = shape->vao().id();
+			cmd.texture            = 0;
 			cmd.uniforms.colour    = shape->m_colour.vec4();
 			cmd.uniforms.entity    = -1;
-			cmd.uniforms.handle    = 0;
 			cmd.uniforms.point     = shape->mode() == GL_POINTS ? true : false;
 			cmd.uniforms.textured  = false;
 			cmd.uniforms.transform = tf.get_transform();
@@ -161,24 +167,28 @@ namespace galaxy
 		{
 			// I don't think we would ever sort the amount of renderable data required to do this in parallel faster.
 			std::sort(m_cmds.begin(), m_cmds.end(), [](auto left, auto right) -> bool {
-				return left->layer < right->layer;
+				return left.layer < right.layer;
 			});
 
 			m_r2d_shader.bind();
+			m_camera.bind();
+			m_renderdata.bind();
+
+			glActiveTexture(GL_TEXTURE0);
 
 			for (auto& cmd : m_cmds)
 			{
-				m_renderdata.sub_buffer<RenderData>(0, 1, &cmd->uniforms);
+				m_renderdata.sub_buffer<RenderData>(0, 1, &cmd.uniforms);
 
-				glBindVertexArray(cmd->vao);
-				glDrawElementsInstanced(cmd->mode, cmd->count, GL_UNSIGNED_INT, cmd->offset, cmd->instances);
+				glBindTexture(GL_TEXTURE_2D, cmd.texture);
+				glBindVertexArray(cmd.vao);
+				glDrawElementsInstanced(cmd.mode, cmd.count, GL_UNSIGNED_INT, cmd.offset, cmd.instances);
 			}
 		}
 
 		void Renderer::flush()
 		{
 			m_cmds.clear();
-			m_free_cmds.clear();
 		}
 
 		void Renderer::clear_active()
@@ -202,10 +212,6 @@ namespace galaxy
 		void Renderer::render_post()
 		{
 			m_post.render_output();
-
-			// glBindVertexArray(0);
-			// glBindTexture(GL_TEXTURE_2D, 0);
-			// glUseProgram(0);
 		}
 
 		void Renderer::begin_default()

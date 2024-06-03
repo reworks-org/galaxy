@@ -202,10 +202,6 @@ namespace galaxy
 
 			auto& tex = ServiceLocator<resource::Textures>::ref();
 			tex.load_folder(GALAXY_TEXTURE_DIR);
-			for (auto&& [key, value] : tex.cache())
-			{
-				value->make_bindless();
-			}
 		}
 	} // namespace core
 } // namespace galaxy

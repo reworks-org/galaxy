@@ -53,6 +53,11 @@ namespace galaxy
 			/// Number of instances to render.
 			///
 			int instances = 1;
+
+			///
+			/// Texture.
+			///
+			unsigned int texture = 0;
 		};
 	} // namespace graphics
 } // namespace galaxy

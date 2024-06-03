@@ -144,8 +144,6 @@ namespace galaxy
 
 				auto vertices = graphics::gen_quad_vertices(width, height);
 				m_vao.sub_buffer(0, vertices);
-
-				m_rt.make_bindless();
 			}
 			else
 			{

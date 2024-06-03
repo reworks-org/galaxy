@@ -59,11 +59,6 @@ namespace galaxy
 #define GALAXY_ENTITY_SIZE std::uint64_t
 
 ///
-/// Restart flag.
-///
-#define GALAXY_RESTART galaxy::DoNotUseReferToMacros::GALAXY_RESTART_FLAG
-
-///
 /// Updates per second.
 ///
 #define GALAXY_UPS galaxy::DoNotUseReferToMacros::GALAXY_UPS_VAR
@@ -102,6 +97,11 @@ namespace galaxy
 /// Index of 2d uniform data in shaders.
 ///
 #define GAlAXY_BUFFER_RENDERDATA_INDEX 1
+
+///
+/// Amount of rendercommands to initially reserve in memory.
+///
+#define GALAXY_RENDERCOMMAND_INITIAL_ALLOCS 10
 
 ///
 /// Minimum zoom allowed on orthographic camera.

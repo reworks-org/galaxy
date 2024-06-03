@@ -100,11 +100,11 @@ namespace galaxy
 			rendercommand_type["offset"]    = &graphics::RenderCommand::offset;
 			rendercommand_type["uniforms"]  = &graphics::RenderCommand::uniforms;
 			rendercommand_type["vao"]       = &graphics::RenderCommand::vao;
+			rendercommand_type["texture"]   = &graphics::RenderCommand::texture;
 
 			auto renderdata_type         = lua.new_usertype<graphics::RenderData>("RenderData", sol::constructors<graphics::RenderData()>());
 			renderdata_type["colour"]    = &graphics::RenderData::colour;
 			renderdata_type["entity"]    = &graphics::RenderData::entity;
-			renderdata_type["handle"]    = &graphics::RenderData::handle;
 			renderdata_type["point"]     = &graphics::RenderData::point;
 			renderdata_type["textured"]  = &graphics::RenderData::textured;
 			renderdata_type["transform"] = &graphics::RenderData::transform;

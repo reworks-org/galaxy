@@ -71,6 +71,8 @@ namespace sc
 
 	void Editor::update()
 	{
+		graphics::Renderer::ref().flush();
+
 		for (auto& task : m_tasks)
 		{
 			task();
@@ -231,8 +233,8 @@ namespace sc
 			m_current_project_path = std::filesystem::path(path);
 
 			auto data = std::string(buffer.begin(), buffer.end());
-			data      = math::decode_zlib(data);
-			data      = math::decode_base64(data);
+			// data      = math::decode_zlib(data);
+			// data      = math::decode_base64(data);
 
 			auto json = json::read_raw(data);
 
@@ -292,8 +294,8 @@ namespace sc
 
 				auto data = out_json.dump(4);
 
-				data = math::encode_base64(data);
-				data = math::encode_zlib(data);
+				// data = math::encode_base64(data);
+				// data = math::encode_zlib(data);
 
 				ofs.write(data.data(), data.size());
 
@@ -389,13 +391,6 @@ namespace sc
 			});
 		});
 
-		ui::imgui_popup("Restart##MenuBarPopup", m_show_restart, [&]() {
-			ui::imgui_confirm("Are you sure you want to restart?\nUnsaved progress will be lost.", [&]() {
-				GALAXY_RESTART = true;
-				exit();
-			});
-		});
-
 		ui::imgui_popup("Exit##MenuBarPopup", m_show_exit, [&]() {
 			ui::imgui_confirm("Are you sure you want to exit?\nUnsaved progress will be lost.", [&]() {
 				exit();
@@ -479,8 +474,7 @@ namespace sc
 					export_project();
 				}
 
-				m_show_restart = ImGui::MenuItem("Restart");
-				m_show_exit    = ImGui::MenuItem("Exit");
+				m_show_exit = ImGui::MenuItem("Exit");
 
 				ImGui::EndMenu();
 			}

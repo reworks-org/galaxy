@@ -1,0 +1,5 @@
+Author: Ogrebane
+Link: http://opengameart.org/content/16x16-tiles
+License: Public Domain CC0
+
+Resized to 48x48 by reworks.

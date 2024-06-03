@@ -140,22 +140,11 @@ namespace galaxy
 
 			auto file = std::filesystem::path(layer.getTileset().path).filename().string();
 			tilemap.set_texture(file);
+			tilemap.m_render_layer = render_layer;
+			tilemap.m_tint         = glm::vec4(1.0f, 1.0f, 1.0f, layer.getOpacity());
 
 			auto& transform = m_registry.m_entt.emplace<components::Transform>(entity);
 			transform.m_tf.set_pos(layer.getOffset().x, layer.getOffset().y);
-
-			auto& cmd                       = m_registry.m_entt.emplace<components::RenderCommand>(entity);
-			cmd.m_command.count             = tilemap.m_batch.vao().count();
-			cmd.m_command.instances         = 1;
-			cmd.m_command.layer             = render_layer;
-			cmd.m_command.mode              = GL_TRIANGLES;
-			cmd.m_command.offset            = tilemap.m_batch.vao().offset();
-			cmd.m_command.vao               = tilemap.m_batch.vao().id();
-			cmd.m_command.uniforms.colour   = glm::vec4(1.0f, 1.0f, 1.0f, layer.getOpacity());
-			cmd.m_command.uniforms.entity   = static_cast<int>(entt::to_integral(entity));
-			cmd.m_command.uniforms.handle   = tilemap.get_texture()->handle();
-			cmd.m_command.uniforms.point    = false;
-			cmd.m_command.uniforms.textured = true;
 		}
 
 		const std::string& Map::name() const

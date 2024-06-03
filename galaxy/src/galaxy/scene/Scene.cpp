@@ -60,6 +60,7 @@ namespace galaxy
 
 		void Scene::update()
 		{
+			graphics::Renderer::ref().flush();
 			m_registry.update(m_b2world);
 			m_b2world.Step(GALAXY_DT, m_velocity_iterations, m_position_iterations);
 		}
@@ -140,8 +141,6 @@ namespace galaxy
 			for (const auto& data : entity_json)
 			{
 				const auto entity = em.deserialize_entity(data, m_registry.m_entt);
-
-				m_registry.m_entt.emplace<flags::Disabled>(entity);
 
 				if (!m_registry.m_entt.all_of<components::Tag>(entity))
 				{

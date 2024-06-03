@@ -11,7 +11,6 @@
 #include <galaxy/components/Point.hpp>
 #include <galaxy/components/Polygon.hpp>
 #include <galaxy/components/Polyline.hpp>
-#include <galaxy/components/RenderCommand.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
@@ -102,11 +101,17 @@ namespace sc
 						}
 						else
 						{
-							selected.scene->m_registry.m_entt.remove<flags::DenySerialization>(selected.entity);
+							if (selected.scene->m_registry.is_valid(selected.entity))
+							{
+								selected.scene->m_registry.m_entt.remove<flags::Disabled>(selected.entity);
+							}
+							else
+							{
+								ui::imgui_notify_error("Tried to enable non-valid component");
+							}
 						}
 					}
 
-					ImGui::SetTooltip("Stops an entities components from being updated.");
 					ImGui::SameLine();
 
 					auto deny_save = selected.scene->m_registry.m_entt.all_of<flags::DenySerialization>(selected.entity);
@@ -122,7 +127,10 @@ namespace sc
 						}
 					}
 
-					ImGui::SetTooltip("Disable the ability to serialize this entity.");
+					if (ImGui::Button("Close"))
+					{
+						ImGui::CloseCurrentPopup();
+					}
 				});
 
 				ImGui::SameLine();
@@ -140,7 +148,6 @@ namespace sc
 					draw_entry<components::Point>(selected, "Point");
 					draw_entry<components::Polygon>(selected, "Polygon");
 					draw_entry<components::Polyline>(selected, "Polyline");
-					draw_entry<components::RenderCommand>(selected, "RenderCommand");
 					draw_entry<components::RigidBody>(selected, "RigidBody");
 					draw_entry<components::Script>(selected, "Script");
 					draw_entry<components::Sprite>(selected, "Sprite");
@@ -300,7 +307,7 @@ namespace sc
 					auto frag = circle->m_shape.fragments();
 					if (ImGui::InputFloat("Fragments", &frag, 0.1f, 1.0f, "%.1f"))
 					{
-						tasks.push_back([&]() {
+						tasks.push_back([&, circle]() {
 							circle->m_shape.create(frag, circle->m_shape.radius());
 						});
 					}
@@ -308,7 +315,7 @@ namespace sc
 					auto rad = circle->m_shape.radius();
 					if (ImGui::InputFloat("Radius", &rad, 0.1f, 1.0f, "%.1f"))
 					{
-						tasks.push_back([&]() {
+						tasks.push_back([&, circle]() {
 							circle->m_shape.create(circle->m_shape.fragments(), rad);
 						});
 					}
@@ -324,7 +331,7 @@ namespace sc
 					auto frag = ellipse->m_shape.fragments();
 					if (ImGui::InputFloat("Fragments", &frag, 0.1f, 1.0f, "%.1f"))
 					{
-						tasks.push_back([&]() {
+						tasks.push_back([&, ellipse]() {
 							ellipse->m_shape.create(frag, ellipse->m_shape.radii());
 						});
 					}
@@ -432,12 +439,6 @@ namespace sc
 					{
 						polyline->m_shape.create(points);
 					}
-				});
-
-				draw_component<components::RenderCommand>(selected, "RenderCommand", [&](components::RenderCommand* cmd) {
-					ImGui::InputInt("Instances", &cmd->m_command.instances, 1, 10);
-					ImGui::InputInt("Layer", &cmd->m_command.layer, 1, 10);
-					ImGui::Checkbox("Textured", &cmd->m_command.uniforms.textured);
 				});
 
 				draw_component<components::RigidBody>(selected, "RigidBody", [&](components::RigidBody* body) {
@@ -612,9 +613,9 @@ namespace sc
 				draw_component<components::Sprite>(selected, "Sprite", [&](components::Sprite* sprite) {
 					ImGui::Text("Texture: %s", sprite->get_texture_name().c_str());
 
-					if (ImGui::ComboAutoSelect("Select Texture", m_texture_data))
+					if (ImGui::ComboAutoSelect("##SelectTexture", m_texture_data))
 					{
-						tasks.push_back([&]() {
+						tasks.push_back([&, sprite]() {
 							sprite->set_texture(m_texture_data.input);
 						});
 					}
@@ -622,7 +623,7 @@ namespace sc
 					math::fRect clip = sprite->get_clip();
 					if (ui::imgui_frect("Clip", clip))
 					{
-						tasks.push_back([&]() {
+						tasks.push_back([&, sprite]() {
 							sprite->set_clip(clip);
 						});
 					}
@@ -650,7 +651,7 @@ namespace sc
 						std::string tstr = text->m_text.get_text();
 						if (ImGui::InputTextMultiline("Text", &tstr))
 						{
-							tasks.push_back([&]() {
+							tasks.push_back([&, text]() {
 								text->m_text.update(tstr);
 							});
 						}
@@ -658,7 +659,7 @@ namespace sc
 						auto size = text->m_text.get_size();
 						if (ImGui::InputFloat("Size", &size, 1.0f, 2.0f, "%.0f"))
 						{
-							tasks.push_back([&]() {
+							tasks.push_back([&, text]() {
 								text->m_text.update(size);
 							});
 						}
@@ -666,7 +667,7 @@ namespace sc
 						ImGui::Text("Alignment: %s", magic_enum::enum_name<graphics::Text::Alignment>(text->m_text.get_alignment()));
 						if (ImGui::ComboAutoSelect("##AlignmentSelector", m_alignment_data))
 						{
-							tasks.push_back([&]() {
+							tasks.push_back([&, text]() {
 								auto align = magic_enum::enum_cast<graphics::Text::Alignment>(m_alignment_data.input).value();
 								text->m_text.update(align);
 							});

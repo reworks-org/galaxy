@@ -27,40 +27,23 @@ namespace galaxy
 		RenderTexture::RenderTexture()
 			: m_width {0}
 			, m_height {0}
-			, m_handle {0}
 		{
 		}
 
 		RenderTexture::RenderTexture(RenderTexture&& rt)
 		{
-			if (this->m_handle != 0)
-			{
-				glMakeTextureHandleNonResidentARB(this->m_handle);
-			}
-
 			this->m_width       = rt.m_width;
 			this->m_height      = rt.m_height;
-			this->m_handle      = rt.m_handle;
 			this->m_framebuffer = std::move(rt.m_framebuffer);
-
-			rt.m_handle = 0;
 		}
 
 		RenderTexture& RenderTexture::operator=(RenderTexture&& rt)
 		{
 			if (this != &rt)
 			{
-				if (this->m_handle != 0)
-				{
-					glMakeTextureHandleNonResidentARB(this->m_handle);
-				}
-
 				this->m_width       = rt.m_width;
 				this->m_height      = rt.m_height;
-				this->m_handle      = rt.m_handle;
 				this->m_framebuffer = std::move(rt.m_framebuffer);
-
-				rt.m_handle = 0;
 			}
 
 			return *this;
@@ -68,10 +51,6 @@ namespace galaxy
 
 		RenderTexture::~RenderTexture()
 		{
-			if (m_handle != 0)
-			{
-				glMakeTextureHandleNonResidentARB(m_handle);
-			}
 		}
 
 		void RenderTexture::create(const int width, const int height)
@@ -152,12 +131,6 @@ namespace galaxy
 			m_framebuffer.clear();
 		}
 
-		void RenderTexture::make_bindless()
-		{
-			m_handle = glGetTextureHandleARB(m_framebuffer.texture());
-			glMakeTextureHandleResidentARB(m_handle);
-		}
-
 		int RenderTexture::width() const
 		{
 			return m_width;
@@ -166,11 +139,6 @@ namespace galaxy
 		int RenderTexture::height() const
 		{
 			return m_height;
-		}
-
-		std::uint64_t RenderTexture::handle() const
-		{
-			return m_handle;
 		}
 
 		unsigned int RenderTexture::texture() const

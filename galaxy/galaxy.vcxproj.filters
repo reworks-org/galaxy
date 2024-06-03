@@ -131,7 +131,6 @@
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
-    <ClCompile Include="src\galaxy\components\RenderCommand.cpp" />
     <ClCompile Include="src\galaxy\input\CameraController.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostEffect.cpp" />
     <ClCompile Include="src\galaxy\graphics\PostProcess.cpp" />
@@ -302,7 +301,6 @@
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
-    <ClInclude Include="src\galaxy\components\RenderCommand.hpp" />
     <ClInclude Include="src\galaxy\input\CameraController.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostEffect.hpp" />
     <ClInclude Include="src\galaxy\graphics\PostProcess.hpp" />

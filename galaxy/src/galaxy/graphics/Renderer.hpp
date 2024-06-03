@@ -32,6 +32,11 @@ namespace galaxy
 		class Renderer final
 		{
 		  public:
+			///
+			/// Get reference to renderer singleton.
+			///
+			/// \return Static reference.
+			///
 			[[nodiscard]] static Renderer& ref();
 
 			///
@@ -152,7 +157,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Renderer() = default;
+			Renderer();
 
 			///
 			/// Destructor.
@@ -170,12 +175,7 @@ namespace galaxy
 			///
 			/// List of renderables to draw.
 			///
-			meta::vector<RenderCommand*> m_cmds;
-
-			///
-			/// List of non component commands.
-			///
-			meta::vector<RenderCommand> m_free_cmds;
+			meta::vector<RenderCommand> m_cmds;
 
 			///
 			/// Mono render shader.

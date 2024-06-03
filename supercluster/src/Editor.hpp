@@ -81,11 +81,10 @@ namespace sc
 		platform::Subprocess m_bfxr;
 
 		// popup controls.
-		bool m_show_new     = false;
-		bool m_show_exit    = false;
-		bool m_show_restart = false;
-		bool m_show_about   = false;
-		bool m_show_export  = false;
+		bool m_show_new    = false;
+		bool m_show_exit   = false;
+		bool m_show_about  = false;
+		bool m_show_export = false;
 
 		// random editor data.
 		ImVec2                m_padding;

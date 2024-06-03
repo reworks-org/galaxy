@@ -1,4 +1,10 @@
 - integrate camera controller
+https://trederia.blogspot.com/2013/02/faking-ambient-occlusion-in-sfml-tile.html
+https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson6
+https://github.com/romrz/Basic-2D-lighting
+https://github.com/deepnight/ldtk/issues/119#issuecomment-1133785141
+- handle incompatible components (cant use entt signal mixins)
+- think about ripping out bindless textures if i cant debug.
 - ADD LOADING SCREEN FOR SCENES
 - add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
 	- scene heirarchy / scene tree thingy?

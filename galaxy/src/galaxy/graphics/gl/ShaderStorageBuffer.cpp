@@ -11,9 +11,9 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		ShaderStorageBuffer::ShaderStorageBuffer()
+		ShaderStorageBuffer::ShaderStorageBuffer(const int index)
 			: m_id {0}
-			, m_index {-1}
+			, m_index {index}
 		{
 			glCreateBuffers(1, &m_id);
 		}
@@ -55,7 +55,7 @@ namespace galaxy
 			}
 		}
 
-		void ShaderStorageBuffer::bind()
+		void ShaderStorageBuffer::bind() const
 		{
 			glBindBufferBase(GL_SHADER_STORAGE_BUFFER, m_index, m_id);
 		}
