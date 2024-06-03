@@ -116,12 +116,6 @@ namespace sc
 			ImGui::Text("Zoom:     %.1f", scene->m_camera.get_scale().x);
 			ImGui::Text("Origin:   %.2f, %.2f", scene->m_camera.get_origin().x, scene->m_camera.get_origin().y);
 
-			float vp[2] = {scene->m_camera.get_viewport().x, scene->m_camera.get_viewport().y};
-			if (ImGui::InputFloat2("Viewport", vp, "%.1f", ImGuiInputTextFlags_CharsNoBlank))
-			{
-				scene->m_camera.set_viewport(vp[0], vp[1]);
-			}
-
 			ImGui::Checkbox("Allow Rotation", &scene->m_camera.m_allow_rotation);
 			ImGui::InputFloat("Move Speed", &scene->m_camera.m_translation_speed, 0.1f, 1.0f, "%.1f");
 			ImGui::InputFloat("Rotation Speed", &scene->m_camera.m_rotation_speed, 0.1f, 1.0f, "%.1f");

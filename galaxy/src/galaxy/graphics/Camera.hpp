@@ -93,6 +93,21 @@ namespace galaxy
 			void set_viewport(const float width, const float height);
 
 			///
+			/// Translate (move) position.
+			///
+			/// \param x How far to translate on x axis.
+			/// \param y How far to translate on y axis.
+			///
+			void translate(const float x, const float y) override;
+
+			///
+			/// Rotate entity.
+			///
+			/// \param degrees Additive. Min -360, max 360.
+			///
+			void rotate(const float degrees) override;
+
+			///
 			/// Get camera viewport.
 			///
 			/// \return glm::vec2 reference.

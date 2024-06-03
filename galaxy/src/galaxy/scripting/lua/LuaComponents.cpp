@@ -10,7 +10,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/GUI.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Polyline.hpp"
@@ -53,12 +52,6 @@ namespace galaxy
                 "type_id",
                 &entt::type_hash<components::Ellipse>::value);
 			ellipse_type["shape"] = &components::Ellipse::m_shape;
-
-			auto gui_type =
-				lua.new_usertype<components::GUI>("GUI", sol::constructors<components::GUI()>(), "type_id", &entt::type_hash<components::GUI>::value);
-			gui_type["file"]   = &components::GUI::file;
-			gui_type["self"]   = &components::GUI::m_self;
-			gui_type["update"] = &components::GUI::m_update;
 
 			auto point_type =
 				lua.new_usertype<components::Point>("Point", sol::constructors<components::Point()>(), "type_id", &entt::type_hash<components::Point>::value);
@@ -146,7 +139,6 @@ namespace galaxy
 			entt_sol::register_meta_component<components::Animated>();
 			entt_sol::register_meta_component<components::Circle>();
 			entt_sol::register_meta_component<components::Ellipse>();
-			entt_sol::register_meta_component<components::GUI>();
 			entt_sol::register_meta_component<components::Point>();
 			entt_sol::register_meta_component<components::Polygon>();
 			entt_sol::register_meta_component<components::Polyline>();

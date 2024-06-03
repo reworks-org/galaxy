@@ -20,7 +20,6 @@
 #include "galaxy/resource/Shaders.hpp"
 #include "galaxy/resource/Textures.hpp"
 #include "galaxy/scene/SceneManager.hpp"
-#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Lua.hpp"
 
@@ -35,8 +34,7 @@ namespace galaxy
 			// thead_pool
 			lua["galaxy_config"] = std::ref(core::ServiceLocator<core::Config>::ref());
 			// window
-			lua["galaxy_fs"]  = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
-			lua["galaxy_nui"] = std::ref(core::ServiceLocator<ui::NuklearUI>::ref());
+			lua["galaxy_fs"] = std::ref(core::ServiceLocator<fs::VirtualFileSystem>::ref());
 			// loader
 			// fontcontext
 			lua["galaxy_entitymeta"] = std::ref(core::ServiceLocator<meta::EntityMeta>::ref());

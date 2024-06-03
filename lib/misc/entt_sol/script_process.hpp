@@ -14,9 +14,10 @@ namespace entt_sol
 	  public:
 		script_process(const sol::table& t, const fsec freq = std::chrono::milliseconds {250})
 			: m_self {t}
-			, m_update {m_self["update"]}
 			, m_frequency {freq}
 		{
+			m_update = m_self["update"];
+
 #define BIND(func) m_self.set_function(#func, &script_process::func, this)
 
 			BIND(succeed);

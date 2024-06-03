@@ -27,9 +27,9 @@ namespace galaxy
 			{
 				msdfgl_set_missing_glyph_callback(m_context, msdfgl_generate_glyph, nullptr);
 
-				auto& window = core::ServiceLocator<core::Window>::ref();
-				auto  scale  = window.get_content_scale();
+				auto& w = core::ServiceLocator<core::Window>::ref();
 
+				const auto scale = w.get_content_scale();
 				set_dpi(scale.x, scale.y);
 			}
 		}

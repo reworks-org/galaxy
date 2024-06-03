@@ -13,6 +13,7 @@
 #include <glm/vec2.hpp>
 #include <imgui/imgui.h>
 
+#include <galaxy/graphics/Camera.hpp>
 #include <galaxy/graphics/gl/Texture2D.hpp>
 #include <galaxy/graphics/RenderTexture.hpp>
 
@@ -34,7 +35,7 @@ namespace sc
 		~Viewport();
 
 		void set_active();
-		void render(EditorState state);
+		void render(EditorState state, graphics::Camera& editor_camera);
 
 	  public:
 		bool                     m_show;

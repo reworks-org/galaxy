@@ -56,14 +56,14 @@ namespace galaxy
 			/// \param x How far to translate on x axis.
 			/// \param y How far to translate on y axis.
 			///
-			void translate(const float x, const float y);
+			virtual void translate(const float x, const float y);
 
 			///
 			/// Rotate entity.
 			///
-			/// \param degrees Additive. Min 0, max 360.
+			/// \param degrees Additive. Min -360, max 360.
 			///
-			void rotate(const float degrees);
+			virtual void rotate(const float degrees);
 
 			///
 			/// Set entity scale.
@@ -97,7 +97,7 @@ namespace galaxy
 			///
 			/// Set the entity rotation.
 			///
-			/// \param degrees Min 0, max 360.
+			/// \param degrees Min -360, max 360.
 			///
 			void set_rotation(const float degrees);
 

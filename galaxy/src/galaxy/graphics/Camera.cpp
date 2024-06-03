@@ -8,13 +8,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <nlohmann/json.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/core/Window.hpp"
-
 #include "Camera.hpp"
-
-const constexpr auto identity_matrix = glm::mat4 {GALAXY_IDENTITY_MATRIX};
-const constexpr auto rotation_origin = glm::vec3 {0, 0, 1};
 
 namespace galaxy
 {
@@ -25,7 +19,6 @@ namespace galaxy
 			, m_translation_speed {180.0f}
 			, m_rotation_speed {180.0f}
 		{
-			set_projection(0.0f, core::ServiceLocator<core::Window>::ref().get_widthf(), core::ServiceLocator<core::Window>::ref().get_heightf(), 0.0f);
 		}
 
 		Camera::Camera(const nlohmann::json& json)
@@ -33,8 +26,6 @@ namespace galaxy
 			, m_translation_speed {180.0f}
 			, m_rotation_speed {180.0f}
 		{
-			set_projection(0.0f, core::ServiceLocator<core::Window>::ref().get_widthf(), core::ServiceLocator<core::Window>::ref().get_heightf(), 0.0f);
-
 			deserialize(json);
 		}
 
@@ -101,6 +92,22 @@ namespace galaxy
 		void Camera::set_viewport(const float width, const float height)
 		{
 			set_projection(0.0f, width, height, 0.0f);
+		}
+
+		void Camera::translate(const float x, const float y)
+		{
+			m_pos.x += x * m_translation_speed;
+			m_pos.y += y * m_translation_speed;
+
+			m_dirty = true;
+		}
+
+		void Camera::rotate(const float degrees)
+		{
+			m_rotation += degrees * m_rotation_speed;
+			m_rotation  = std::clamp(m_rotation, -360.0f, 360.0f);
+
+			m_dirty = true;
 		}
 
 		const glm::vec2& Camera::get_viewport() const

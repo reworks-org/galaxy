@@ -24,7 +24,6 @@
     <ClCompile Include="src\galaxy\components\Text.cpp" />
     <ClCompile Include="src\galaxy\components\TileMap.cpp" />
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
-    <ClCompile Include="src\galaxy\components\GUI.cpp" />
     <ClCompile Include="src\galaxy\components\Animated.cpp" />
     <ClCompile Include="src\galaxy\core\Registry.cpp" />
     <ClCompile Include="src\galaxy\map\World.cpp" />
@@ -102,7 +101,6 @@
     <ClInclude Include="src\galaxy\components\Text.hpp" />
     <ClInclude Include="src\galaxy\components\TileMap.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
-    <ClInclude Include="src\galaxy\components\GUI.hpp" />
     <ClInclude Include="src\galaxy\core\Registry.hpp" />
     <ClInclude Include="src\galaxy\error\LogMessage.hpp" />
     <ClInclude Include="src\galaxy\error\PhysFSError.hpp" />
@@ -202,7 +200,6 @@
     <ClCompile Include="src\galaxy\scripting\lua\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\scripting\Script.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaBox2D.cpp" />
-    <ClCompile Include="src\galaxy\scripting\lua\LuaNuklear.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaServices.cpp" />
     <ClCompile Include="src\galaxy\core\Loader.cpp" />
     <ClCompile Include="src\galaxy\meta\Async.cpp" />
@@ -255,7 +252,6 @@
     <ClCompile Include="src\galaxy\systems\ScriptSystem.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
-    <ClCompile Include="src\galaxy\ui\NuklearUI.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\meta\Memory.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
@@ -330,7 +326,6 @@
     <ClInclude Include="src\galaxy\systems\ScriptSystem.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
-    <ClInclude Include="src\galaxy\ui\NuklearUI.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\meta\Memory.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />

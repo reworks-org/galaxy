@@ -25,14 +25,24 @@ namespace galaxy
 			std::string title;
 
 			///
-			/// Width of window.
+			/// Width of window (or fullscreen).
 			///
-			int width;
+			int window_width;
 
 			///
-			/// Height of window.
+			/// Height of window (or fullscreen).
 			///
-			int height;
+			int window_height;
+
+			///
+			/// The virtual or final framebuffer width.
+			///
+			int frame_width;
+
+			///
+			/// The virtual or final framebuffer height.
+			///
+			int frame_height;
 
 			///
 			/// Vertical sync.

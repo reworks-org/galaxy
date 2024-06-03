@@ -20,7 +20,6 @@
 #include <galaxy/math/ZLib.hpp>
 #include <galaxy/scripting/JSON.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
-#include <galaxy/ui/NuklearUI.hpp>
 
 #include "Editor.hpp"
 
@@ -61,7 +60,6 @@ namespace sc
 			glfwSetWindowShouldClose(window, GLFW_FALSE);
 		});
 
-		m_editor_camera.set_viewport(win.get_widthf(), win.get_heightf());
 		new_project();
 	}
 
@@ -178,17 +176,14 @@ namespace sc
 						}
 
 						graphics::Renderer::ref().draw();
-
-						auto& nui = core::ServiceLocator<ui::NuklearUI>::ref();
-
-						nui.new_frame();
-						m_project.current()->update_ui();
-						nui.render();
 					}
 
-					graphics::Renderer::ref().begin_default();
+					auto& w = core::ServiceLocator<core::Window>::ref();
+					glBindFramebuffer(GL_FRAMEBUFFER, 0);
+					glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+					glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 					draw_editor();
-					graphics::Renderer::ref().end_default();
+					glfwSwapBuffers(w.handle());
 				}
 				break;
 
@@ -417,7 +412,7 @@ namespace sc
 		m_asset_panel.render(m_code_editor);
 		m_scene_panel.render(m_project, m_tasks, m_selected);
 		m_entity_panel.render(m_tasks, m_selected);
-		m_viewport.render(m_state);
+		m_viewport.render(m_state, m_editor_camera);
 		m_settings_panel.render();
 
 		render_exporter();
@@ -770,7 +765,6 @@ namespace sc
 	void Editor::set_input_game()
 	{
 		ImGui_ImplGlfw_ToggleInput(false);
-		core::ServiceLocator<ui::NuklearUI>::ref().toggle_input(true);
 		core::ServiceLocator<core::Window>::ref().set_dispatcher(&m_project.current()->m_dispatcher);
 		core::ServiceLocator<core::Window>::ref().get_input<input::Cursor>().use_custom_else_pointer();
 	}
@@ -778,7 +772,6 @@ namespace sc
 	void Editor::set_input_editor()
 	{
 		ImGui_ImplGlfw_ToggleInput(true);
-		core::ServiceLocator<ui::NuklearUI>::ref().toggle_input(false);
 		core::ServiceLocator<core::Window>::ref().set_dispatcher(nullptr);
 		ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 	}

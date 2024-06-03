@@ -155,7 +155,6 @@
     <ClCompile Include="msdfgl\src\msdfgl.c" />
     <ClCompile Include="msdfgl\src\msdfgl_map.c" />
     <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
-    <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="physfs\src\physfs.c" />
     <ClCompile Include="physfs\src\physfs_archiver_7z.c" />
     <ClCompile Include="physfs\src\physfs_archiver_csm.c" />
@@ -244,9 +243,6 @@
     <ClInclude Include="misc\entt_sol\registry.hpp" />
     <ClInclude Include="misc\entt_sol\script_process.hpp" />
     <ClInclude Include="misc\ldtkloader\Version.hpp" />
-    <ClInclude Include="nuklear\nuklear.h" />
-    <ClInclude Include="nuklear\Nuklear.hpp" />
-    <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

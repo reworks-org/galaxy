@@ -29,11 +29,6 @@ namespace galaxy
 		{
 		  public:
 			///
-			/// Constructor.
-			///
-			Window();
-
-			///
 			/// \brief Window creation constructor.
 			///
 			/// Calls open().
@@ -46,13 +41,6 @@ namespace galaxy
 			/// Destructor.
 			///
 			~Window();
-
-			///
-			/// Construct a Window.
-			///
-			/// \param settings Settings of the window.
-			///
-			void open(const WindowSettings& settings);
 
 			///
 			/// Checks if window is currently open or not.
@@ -101,12 +89,12 @@ namespace galaxy
 			///
 			/// Maximize window.
 			///
-			void maximize() const;
+			void maximize();
 
 			///
 			/// Restore window.
 			///
-			void restore() const;
+			void restore();
 
 			///
 			/// Minimize window.
@@ -116,7 +104,7 @@ namespace galaxy
 			///
 			/// Set window into borderless fullscreen mode.
 			///
-			void fullscreen() const;
+			void fullscreen();
 
 			///
 			/// Set window title.
@@ -160,6 +148,12 @@ namespace galaxy
 			///
 			[[nodiscard]] bool is_focused() const;
 
+			[[nodiscard]] int   window_width() const;
+			[[nodiscard]] int   window_height() const;
+			[[nodiscard]] int   frame_width() const;
+			[[nodiscard]] int   frame_height() const;
+			[[nodiscard]] float aspect_ratio() const;
+
 			///
 			/// Get a window input device.
 			///
@@ -176,34 +170,6 @@ namespace galaxy
 			/// Reset when a new path is dropped.
 			///
 			[[nodiscard]] const meta::vector<std::string>& get_drop_paths() const;
-
-			///
-			/// Get window width.
-			///
-			/// \return Integer.
-			///
-			[[nodiscard]] int get_width() const;
-
-			///
-			/// Get window height.
-			///
-			/// \return Integer.
-			///
-			[[nodiscard]] int get_height() const;
-
-			///
-			/// Get window width.
-			///
-			/// \return Float.
-			///
-			[[nodiscard]] float get_widthf() const;
-
-			///
-			/// Get window height.
-			///
-			/// \return Float.
-			///
-			[[nodiscard]] float get_heightf() const;
 
 			///
 			/// Get framebuffer size taking into account DPI.
@@ -235,6 +201,11 @@ namespace galaxy
 
 		  private:
 			///
+			/// Constructor.
+			///
+			Window() = delete;
+
+			///
 			/// Copy constructor.
 			///
 			Window(const Window&) = delete;
@@ -261,9 +232,29 @@ namespace galaxy
 			std::string m_title;
 
 			///
-			/// Custom GLFW window allocator.
+			/// Width of window (or fullscreen).
 			///
-			GLFWallocator m_glfw_allocator;
+			int m_window_width;
+
+			///
+			/// Height of window (or fullscreen).
+			///
+			int m_window_height;
+
+			///
+			/// The virtual or final framebuffer width.
+			///
+			int m_frame_width;
+
+			///
+			/// The virtual or final framebuffer height.
+			///
+			int m_frame_height;
+
+			///
+			/// Window aspect ratio.
+			///
+			float m_aspect_ratio;
 
 			///
 			/// GLFW window data.
@@ -271,14 +262,14 @@ namespace galaxy
 			GLFWwindow* m_window;
 
 			///
-			/// Width of window.
+			/// Currently active event dispatcher.
 			///
-			int m_width;
+			entt::dispatcher* m_dispatcher;
 
 			///
-			/// Height of window.
+			/// Custom GLFW window allocator.
 			///
-			int m_height;
+			GLFWallocator m_glfw_allocator;
 
 			///
 			/// Keyboard assigned to window.
@@ -304,11 +295,6 @@ namespace galaxy
 			/// Cache of last dropped paths.
 			///
 			meta::vector<std::string> m_drop_paths;
-
-			///
-			/// Currently active event dispatcher.
-			///
-			entt::dispatcher* m_dispatcher;
 		};
 
 		template<meta::is_input_device Device>

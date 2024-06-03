@@ -47,7 +47,7 @@ namespace sc
 		m_framebuffer.fbo().clear_storagebuffer(-1);
 	}
 
-	void Viewport::render(EditorState state)
+	void Viewport::render(EditorState state, graphics::Camera& editor_camera)
 	{
 		constexpr const ImGuiWindowFlags flags = ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse;
 
@@ -68,7 +68,8 @@ namespace sc
 			if (size_avail != m_viewport_size)
 			{
 				m_viewport_size = size_avail;
-				m_framebuffer.recreate((int)m_viewport_size.x, (int)m_viewport_size.y);
+				m_framebuffer.recreate(m_viewport_size.x, m_viewport_size.y);
+				editor_camera.set_viewport(m_viewport_size.x, m_viewport_size.y);
 			}
 
 			if (state == EditorState::EDITOR)

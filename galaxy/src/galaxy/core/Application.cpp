@@ -10,7 +10,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/GUI.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Polyline.hpp"
@@ -47,7 +46,6 @@
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/scripting/Lua.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
-#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Application.hpp"
 
@@ -99,8 +97,10 @@ namespace galaxy
 			config.restore<bool>("fullscreen", false, "window");
 			config.restore<bool>("debug", true, "window");
 			config.restore<bool>("visible_cursor", true, "window");
-			config.restore<int>("width", 1280, "window");
-			config.restore<int>("height", 720, "window");
+			config.restore<int>("window_width", 1920, "window");
+			config.restore<int>("window_height", 1080, "window");
+			config.restore<int>("frame_width", 640, "window");
+			config.restore<int>("frame_height", 360, "window");
 			config.restore<float>("sfx_volume", 1.0f, "audio");
 			config.restore<float>("music_volume", 1.0f, "audio");
 			config.restore<float>("dialogue_volume", 1.0f, "audio");
@@ -143,8 +143,10 @@ namespace galaxy
 			const auto window_settings = WindowSettings
 			{
 				.title = config.get<std::string>("title", "window"),
-				.width = config.get<int>("width", "window"),
-				.height = config.get<int>("height", "window"),
+				.window_width = config.get<int>("window_width", "window"),
+				.window_height = config.get<int>("window_height", "window"),
+				.frame_width = config.get<int>("frame_width", "window"),
+				.frame_height = config.get<int>("frame_height", "window"),
 				.vsync = config.get<bool>("vsync", "window"),
 				.maximized = config.get<bool>("maximized", "window"),
 				.fullscreen = config.get<bool>("fullscreen", "window"),
@@ -161,11 +163,6 @@ namespace galaxy
 			/// Renderer init.
 			///
 			graphics::Renderer::ref().init();
-
-			//
-			// Nuklear UI.
-			//
-			auto& nui = ServiceLocator<ui::NuklearUI>::make();
 
 			///
 			/// Loader.
@@ -184,7 +181,6 @@ namespace galaxy
 			em.register_component<components::Animated>("Animated");
 			em.register_component<components::Circle>("Circle");
 			em.register_component<components::Ellipse>("Ellipse");
-			em.register_component<components::GUI>("GUI");
 			em.register_component<components::Point>("Point");
 			em.register_component<components::Polygon>("Polygon");
 			em.register_component<components::Polyline>("Polyline");
@@ -273,7 +269,6 @@ namespace galaxy
 			ServiceLocator<meta::EntityMeta>::del();
 			ServiceLocator<graphics::FontContext>::del();
 			ServiceLocator<Loader>::del();
-			ServiceLocator<ui::NuklearUI>::del();
 			graphics::Renderer::ref().destroy();
 			ServiceLocator<Window>::del();
 			ServiceLocator<fs::VirtualFileSystem>::del();
@@ -301,7 +296,6 @@ namespace galaxy
 
 			auto& window  = ServiceLocator<Window>::ref();
 			auto& manager = ServiceLocator<scene::SceneManager>::ref();
-			auto& nui     = ServiceLocator<ui::NuklearUI>::ref();
 
 			unsigned int frames  = 0u;
 			unsigned int updates = 0u;
@@ -327,9 +321,7 @@ namespace galaxy
 
 				while (accumulator >= GALAXY_UPS)
 				{
-					nui.begin_input();
 					window.poll_events();
-					nui.end_input();
 					manager.update();
 
 					accumulator -= ups_as_nano;

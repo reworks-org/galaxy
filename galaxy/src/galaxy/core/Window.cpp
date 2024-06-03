@@ -57,39 +57,20 @@ namespace galaxy
 {
 	namespace core
 	{
-		Window::Window()
-			: m_window {nullptr}
-			, m_width {1}
-			, m_height {1}
-			, m_dispatcher {nullptr}
-		{
-			m_glfw_allocator.allocate   = &glfw_alloc;
-			m_glfw_allocator.reallocate = &glfw_realloc;
-			m_glfw_allocator.deallocate = &glfw_dealloc;
-		}
-
 		Window::Window(const WindowSettings& settings)
 			: m_window {nullptr}
-			, m_width {1}
-			, m_height {1}
 			, m_dispatcher {nullptr}
+			, m_title {settings.title}
+			, m_window_width {settings.window_width}
+			, m_window_height {settings.window_height}
+			, m_frame_width {settings.frame_width}
+			, m_frame_height {settings.frame_height != 0 ? settings.frame_height : 1}
+			, m_aspect_ratio {static_cast<float>(m_frame_width / m_frame_height)}
 		{
 			m_glfw_allocator.allocate   = &glfw_alloc;
 			m_glfw_allocator.reallocate = &glfw_realloc;
 			m_glfw_allocator.deallocate = &glfw_dealloc;
 
-			open(settings);
-		}
-
-		Window::~Window()
-		{
-			// Call again to ensure everything is cleaned up.
-			// Has checks to ensure no null data is destroyed.
-			destroy();
-		}
-
-		void Window::open(const WindowSettings& settings)
-		{
 			// Set error handling callback.
 			glfwSetErrorCallback([](int error, const char* description) {
 				GALAXY_LOG(GALAXY_ERROR, "[GLFW] Code: {0}, Desc: {1}.", error, description);
@@ -141,8 +122,7 @@ namespace galaxy
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, settings.debug);
 				glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-				m_title  = settings.title;
-				m_window = glfwCreateWindow(settings.width, settings.height, m_title.c_str(), nullptr, nullptr);
+				m_window = glfwCreateWindow(m_window_width, m_window_height, m_title.c_str(), nullptr, nullptr);
 				if (m_window)
 				{
 					if (!settings.maximized && !settings.fullscreen)
@@ -213,6 +193,7 @@ namespace galaxy
 
 					glfwShowWindow(m_window);
 					glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
+					glfwGetWindowSize(m_window, &m_window_width, &m_window_height); // Correct window size after setup.
 
 					// Set input devices.
 					m_keyboard.set_window(m_window);
@@ -246,6 +227,9 @@ namespace galaxy
 							graphics::Renderer::ref().on_window_resized(wr);
 							win->m_dispatcher->trigger(wr);
 						}
+
+						win->m_window_width  = width;
+						win->m_window_height = height;
 					});
 
 					// Content scale callback.
@@ -431,11 +415,8 @@ namespace galaxy
 					#endif
 					// clang-format on
 
-					glfwSetWindowUserPointer(m_window, this);
-					glfwGetWindowSize(m_window, &m_width, &m_height);
-
-					// Set window context and aspect ratio.
 					glfwMakeContextCurrent(m_window);
+					glfwSetWindowUserPointer(m_window, this);
 
 					// Set up glad.
 					if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -506,6 +487,13 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_FATAL, "Failed to create window.");
 				}
 			}
+		}
+
+		Window::~Window()
+		{
+			// Call again to ensure everything is cleaned up.
+			// Has checks to ensure no null data is destroyed.
+			destroy();
 		}
 
 		void Window::set_title(const std::string& title)
@@ -618,10 +606,10 @@ namespace galaxy
 
 		void Window::resize(const int width, const int height)
 		{
-			m_width  = width;
-			m_height = height;
+			m_window_width  = width;
+			m_window_height = height;
 
-			glfwSetWindowSize(m_window, m_width, m_height);
+			glfwSetWindowSize(m_window, m_window_width, m_window_height);
 		}
 
 		void Window::request_attention()
@@ -634,14 +622,16 @@ namespace galaxy
 			glfwFocusWindow(m_window);
 		}
 
-		void Window::maximize() const
+		void Window::maximize()
 		{
 			glfwMaximizeWindow(m_window);
+			glfwGetWindowSize(m_window, &m_window_width, &m_window_height);
 		}
 
-		void Window::restore() const
+		void Window::restore()
 		{
 			glfwRestoreWindow(m_window);
+			glfwGetWindowSize(m_window, &m_window_width, &m_window_height);
 		}
 
 		void Window::minimize() const
@@ -649,12 +639,13 @@ namespace galaxy
 			glfwIconifyWindow(m_window);
 		}
 
-		void Window::fullscreen() const
+		void Window::fullscreen()
 		{
 			auto* monitor = glfwGetPrimaryMonitor();
 			auto* mode    = glfwGetVideoMode(monitor);
 
 			glfwSetWindowMonitor(m_window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+			glfwGetWindowSize(m_window, &m_window_width, &m_window_height);
 		}
 
 		bool Window::is_focused() const
@@ -662,29 +653,34 @@ namespace galaxy
 			return glfwGetWindowAttrib(m_window, GLFW_FOCUSED);
 		}
 
+		int Window::window_width() const
+		{
+			return m_window_width;
+		}
+
+		int Window::window_height() const
+		{
+			return m_window_height;
+		}
+
+		int Window::frame_width() const
+		{
+			return m_frame_width;
+		}
+
+		int Window::frame_height() const
+		{
+			return m_frame_height;
+		}
+
+		float Window::aspect_ratio() const
+		{
+			return m_aspect_ratio;
+		}
+
 		const meta::vector<std::string>& Window::get_drop_paths() const
 		{
 			return m_drop_paths;
-		}
-
-		int Window::get_width() const
-		{
-			return m_width;
-		}
-
-		int Window::get_height() const
-		{
-			return m_height;
-		}
-
-		float Window::get_widthf() const
-		{
-			return static_cast<float>(m_width);
-		}
-
-		float Window::get_heightf() const
-		{
-			return static_cast<float>(m_height);
 		}
 
 		glm::ivec2 Window::get_framebuffer_size()

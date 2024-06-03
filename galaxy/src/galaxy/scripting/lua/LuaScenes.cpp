@@ -32,7 +32,6 @@ namespace galaxy
 			scene_type["b2world"]             = &scene::Scene::m_b2world;
 			scene_type["dispatcher"]          = &scene::Scene::m_dispatcher;
 			scene_type["render"]              = &scene::Scene::render;
-			scene_type["update_ui"]           = &scene::Scene::update_ui;
 			scene_type["load_world"]          = &scene::Scene::load_world;
 			scene_type["world"]               = &scene::Scene::m_world;
 

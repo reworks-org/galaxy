@@ -124,11 +124,6 @@ namespace galaxy
 			void update();
 
 			///
-			/// Only update ui.
-			///
-			void only_update_ui();
-
-			///
 			/// Only update rendering.
 			///
 			void only_update_rendering();

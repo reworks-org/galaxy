@@ -11,7 +11,6 @@
 #include <entt/signal/dispatcher.hpp>
 
 #include "galaxy/core/Registry.hpp"
-#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/map/World.hpp"
 #include "galaxy/systems/RenderSystem.hpp"
@@ -58,18 +57,6 @@ namespace galaxy
 			/// Render scene.
 			///
 			virtual void render();
-
-			///
-			/// Event processing method for window size change.
-			///
-			/// \param e Takes in a window resized event.
-			///
-			void on_window_resized(const events::WindowResized& e);
-
-			///
-			/// Update ui.
-			///
-			void update_ui();
 
 			///
 			/// Loads an LDTK world for this scene.

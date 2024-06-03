@@ -19,6 +19,7 @@
 #include "galaxy/graphics/RenderTexture.hpp"
 #include "galaxy/graphics/shapes/Shape.hpp"
 #include "galaxy/graphics/text/Text.hpp"
+#include "galaxy/graphics/Transform.hpp"
 #include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
@@ -158,6 +159,13 @@ namespace galaxy
 			///
 			~Renderer() = default;
 
+			///
+			/// Need to recalculate default framebuffer viewport.
+			///
+			/// \param window_width New window width.
+			/// \param window_height New window height.
+			void calc_viewport(int window_width, int window_height);
+
 		  private:
 			///
 			/// List of renderables to draw.
@@ -190,14 +198,9 @@ namespace galaxy
 			PostProcess m_post;
 
 			///
-			/// Renderer frame width.
+			/// Default framebuffer viewport.
 			///
-			int m_width = 1;
-
-			///
-			/// Renderer frame height.
-			///
-			int m_height = 1;
+			glm::vec4 m_viewport;
 		};
 	} // namespace graphics
 } // namespace galaxy

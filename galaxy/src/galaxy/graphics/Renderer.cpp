@@ -38,17 +38,19 @@ namespace galaxy
 			m_camera.buffer<Camera::Data>(GAlAXY_BUFFER_CAMERA_INDEX, 0, 1, nullptr);
 			m_renderdata.buffer<RenderData>(GAlAXY_BUFFER_RENDERDATA_INDEX, 0, 1, nullptr);
 
-			auto& window = core::ServiceLocator<core::Window>::ref();
-			m_width      = window.get_width();
-			m_height     = window.get_height();
+			auto&      w      = core::ServiceLocator<core::Window>::ref();
+			const auto width  = w.frame_width();
+			const auto height = w.frame_height();
 
-			m_post.init(m_width, m_height);
-			m_post.add<graphics::ChromaticAberration>(m_width, m_height);
-			m_post.add<graphics::FilmicGrain>(m_width, m_height);
-			m_post.add<graphics::GammaCorrection>(m_width, m_height);
-			m_post.add<graphics::GaussianBlur>(m_width, m_height);
-			m_post.add<graphics::Sharpen>(m_width, m_height);
-			m_post.add<graphics::SMAA>(m_width, m_height);
+			m_post.init(width, width);
+			m_post.add<graphics::ChromaticAberration>(width, width);
+			m_post.add<graphics::FilmicGrain>(width, width);
+			m_post.add<graphics::GammaCorrection>(width, width);
+			m_post.add<graphics::GaussianBlur>(width, width);
+			m_post.add<graphics::Sharpen>(width, width);
+			m_post.add<graphics::SMAA>(width, width);
+
+			calc_viewport(width, height);
 		}
 
 		void Renderer::destroy()
@@ -62,10 +64,7 @@ namespace galaxy
 
 		void Renderer::on_window_resized(const events::WindowResized& e)
 		{
-			m_width  = e.width;
-			m_height = e.height;
-
-			m_post.resize(m_width, m_height);
+			calc_viewport(e.width, e.height);
 		}
 
 		void Renderer::submit_camera(Camera& camera)
@@ -146,12 +145,9 @@ namespace galaxy
 			va.bind();
 			texture->bind();
 
-			// Use a standard projection.
-			const auto proj = glm::ortho(0.0f, static_cast<float>(target.width()), static_cast<float>(target.height()), 0.0f, -1.0f, 1.0f);
-
 			auto rtt = core::ServiceLocator<resource::Shaders>::ref().get("render_to_texture");
 			rtt->bind();
-			rtt->set_uniform("u_projection", proj);
+			rtt->set_uniform("u_projection", target.get_proj());
 			rtt->set_uniform("u_transform", tf.get_transform());
 
 			glDrawElements(GL_TRIANGLES, va.count(), GL_UNSIGNED_INT, va.offset());
@@ -214,14 +210,49 @@ namespace galaxy
 
 		void Renderer::begin_default()
 		{
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(push)
+#pragma warning(disable : 4244)
+#endif
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glViewport(0, 0, m_width, m_height);
+			glViewport(m_viewport.x, m_viewport.y, m_viewport.z, m_viewport.w);
 			clear_active();
+
+			// model view i.e. camera.
+			// glOrtho(0, screen_width, screen_height, 0, -1, 1);
+			// float scale_x = (float)((float)(screen_width)) / (float)virtual_width);
+			// float scale_y = (float)((float)(screen_height) / (float)virtual_height);
+			// glScalef(scale_x, scale_y, 1.0f);
+
+#ifdef GALAXY_WIN_PLATFORM
+#pragma warning(pop)
+#endif
 		}
 
 		void Renderer::end_default()
 		{
 			glfwSwapBuffers(core::ServiceLocator<core::Window>::ref().handle());
+		}
+
+		void Renderer::calc_viewport(int window_width, int window_height)
+		{
+			auto& w = core::ServiceLocator<core::Window>::ref();
+
+			int width  = window_width;
+			int height = static_cast<int>(width / w.aspect_ratio() + 0.5f);
+
+			if (height > window_height)
+			{
+				// It doesn't fit our height, we must switch to pillarbox then.
+				height = window_height;
+				width  = static_cast<int>(height * w.aspect_ratio() + 0.5f);
+			}
+
+			// Set up the new viewport centered in the backbuffer.
+			m_viewport.x = static_cast<float>((window_width / 2) - (width / 2));
+			m_viewport.y = static_cast<float>((window_height / 2) - (height / 2));
+			m_viewport.z = static_cast<float>(width);
+			m_viewport.w = static_cast<float>(height);
 		}
 	} // namespace graphics
 } // namespace galaxy

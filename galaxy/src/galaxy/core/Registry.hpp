@@ -14,7 +14,6 @@
 #include "galaxy/components/Animated.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/GUI.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Polygon.hpp"
 #include "galaxy/components/Polyline.hpp"

@@ -156,14 +156,6 @@ namespace galaxy
 			}
 		}
 
-		void SceneManager::only_update_ui()
-		{
-			if (m_current)
-			{
-				m_current->update_ui();
-			}
-		}
-
 		void SceneManager::only_update_rendering()
 		{
 			if ((m_rendersystem_index >= 0 && m_rendersystem_index < m_systems.size()) && m_current != nullptr)

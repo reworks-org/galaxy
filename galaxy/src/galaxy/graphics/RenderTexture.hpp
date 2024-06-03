@@ -10,6 +10,8 @@
 
 #include <string_view>
 
+#include <glm/mat4x4.hpp>
+
 #include "galaxy/graphics/gl/Framebuffer.hpp"
 
 namespace galaxy
@@ -124,6 +126,13 @@ namespace galaxy
 			[[nodiscard]] unsigned int texture() const;
 
 			///
+			/// Get render texture projection.
+			///
+			/// \return Const reference to framebuffer viewport projection.
+			///
+			[[nodiscard]] const glm::mat4& get_proj();
+
+			///
 			/// Get framebuffer.
 			///
 			/// \return Reference to framebuffer.
@@ -161,6 +170,11 @@ namespace galaxy
 			/// OpenGL framebuffer abstraction.
 			///
 			Framebuffer m_framebuffer;
+
+			///
+			/// Projection.
+			///
+			glm::mat4 m_proj;
 		};
 	} // namespace graphics
 } // namespace galaxy

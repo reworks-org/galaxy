@@ -63,8 +63,6 @@
     <ClCompile Include="src\galaxy\events\MouseEnter.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaBox2D.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaServices.cpp" />
-    <ClCompile Include="src\galaxy\ui\NuklearUI.cpp" />
-    <ClCompile Include="src\galaxy\scripting\lua\LuaNuklear.cpp" />
     <ClCompile Include="src\galaxy\media\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\media\SoundType.cpp" />
@@ -116,7 +114,6 @@
     <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\components\Text.cpp" />
     <ClCompile Include="src\galaxy\components\Transform.cpp" />
-    <ClCompile Include="src\galaxy\components\GUI.cpp" />
     <ClCompile Include="src\galaxy\components\Script.cpp" />
     <ClCompile Include="src\galaxy\graphics\shapes\Circle.cpp" />
     <ClCompile Include="src\galaxy\graphics\shapes\Point.cpp" />
@@ -237,7 +234,6 @@
     <ClInclude Include="src\galaxy\media\Video.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityMeta.hpp" />
     <ClInclude Include="src\galaxy\events\MouseEnter.hpp" />
-    <ClInclude Include="src\galaxy\ui\NuklearUI.hpp" />
     <ClInclude Include="src\galaxy\media\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\media\SoundType.hpp" />
@@ -289,7 +285,6 @@
     <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\components\Text.hpp" />
     <ClInclude Include="src\galaxy\components\Transform.hpp" />
-    <ClInclude Include="src\galaxy\components\GUI.hpp" />
     <ClInclude Include="src\galaxy\components\Script.hpp" />
     <ClInclude Include="src\galaxy\graphics\shapes\Circle.hpp" />
     <ClInclude Include="src\galaxy\graphics\shapes\Point.hpp" />

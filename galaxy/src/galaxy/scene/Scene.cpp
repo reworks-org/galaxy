@@ -19,13 +19,13 @@
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/scripting/JSON.hpp"
 #include "galaxy/scripting/Lua.hpp"
-#include "galaxy/ui/NuklearUI.hpp"
 
 #include "Scene.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 #pragma warning(push)
 #pragma warning(disable : 26487)
+#pragma warning(disable : 4244)
 #endif
 
 namespace galaxy
@@ -40,13 +40,8 @@ namespace galaxy
 			, m_velocity_iterations {8}
 			, m_position_iterations {3}
 		{
-			auto& nui = core::ServiceLocator<ui::NuklearUI>::ref();
-			m_dispatcher.sink<events::WindowResized>().connect<&Scene::on_window_resized>(this);
-			m_dispatcher.sink<events::MousePressed>().connect<&ui::NuklearUI::on_mouse_pressed>(nui);
-			m_dispatcher.sink<events::MouseWheel>().connect<&ui::NuklearUI::on_mouse_wheel>(nui);
-			m_dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
-			m_dispatcher.sink<events::KeyPress>().connect<&ui::NuklearUI::on_key_press>(nui);
-			m_dispatcher.sink<events::ContentScale>().connect<&ui::NuklearUI::on_content_scale>(nui);
+			auto& w = core::ServiceLocator<core::Window>::ref();
+			m_camera.set_viewport(w.frame_width(), w.frame_height());
 		}
 
 		Scene::~Scene()
@@ -80,32 +75,7 @@ namespace galaxy
 			graphics::Renderer::ref().end_post();
 			graphics::Renderer::ref().begin_default();
 			graphics::Renderer::ref().render_post();
-
-			// Scene specific.
-			auto& nui = core::ServiceLocator<ui::NuklearUI>::ref();
-
-			nui.new_frame();
-			update_ui();
-			nui.render();
-
 			graphics::Renderer::ref().end_default();
-		}
-
-		void Scene::on_window_resized(const events::WindowResized& e)
-		{
-			m_camera.set_viewport(static_cast<float>(e.width), static_cast<float>(e.height));
-		}
-
-		void Scene::update_ui()
-		{
-			const auto view = m_registry.m_entt.view<components::GUI>(entt::exclude<flags::Disabled>);
-			for (auto&& [entity, gui] : view.each())
-			{
-				if (gui.m_update.valid())
-				{
-					gui.m_update(gui.m_self);
-				}
-			}
 		}
 
 		bool Scene::load_world(const std::string& file)

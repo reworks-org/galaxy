@@ -94,7 +94,7 @@ namespace galaxy
 		void Transform::rotate(const float degrees)
 		{
 			m_rotation += degrees;
-			m_rotation  = std::clamp(m_rotation, 0.0f, 360.0f);
+			m_rotation  = std::clamp(m_rotation, -360.0f, 360.0f);
 
 			m_dirty = true;
 		}
@@ -129,7 +129,7 @@ namespace galaxy
 
 		void Transform::set_rotation(const float degrees)
 		{
-			m_rotation = std::clamp(degrees, 0.0f, 360.0f);
+			m_rotation = std::clamp(degrees, -360.0f, 360.0f);
 			m_dirty    = true;
 		}
 
@@ -152,7 +152,7 @@ namespace galaxy
 
 		const glm::vec2& Transform::get_pos() const
 		{
-			return m_origin;
+			return m_pos;
 		}
 
 		float Transform::get_rotation() const

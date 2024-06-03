@@ -6,6 +6,7 @@
 ///
 
 #include <glad/glad.h>
+#include <glm/gtc/matrix_transform.hpp>
 #include <stb_image_write.h>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -83,6 +84,7 @@ namespace galaxy
 			m_framebuffer.add_colour_attachment(width, height);
 			m_framebuffer.add_depth_stencil_renderbuffer();
 			m_framebuffer.create();
+			m_proj = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 		}
 
 		void RenderTexture::recreate(const int width, const int height)
@@ -174,6 +176,11 @@ namespace galaxy
 		unsigned int RenderTexture::texture() const
 		{
 			return m_framebuffer.texture();
+		}
+
+		const glm::mat4& RenderTexture::get_proj()
+		{
+			return m_proj;
 		}
 
 		Framebuffer& RenderTexture::fbo()

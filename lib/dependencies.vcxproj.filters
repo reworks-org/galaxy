@@ -64,7 +64,6 @@
     <ClCompile Include="pl_mpeg\pl_mpeg.cpp" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
     <ClCompile Include="mimalloc\src\static.c" />
-    <ClCompile Include="nuklear\nuklear.c" />
     <ClCompile Include="stb\include\stb_image.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
@@ -175,9 +174,6 @@
     <ClInclude Include="entt_sol\entt_sol\registry.hpp" />
     <ClInclude Include="entt_sol\entt_sol\script_process.hpp" />
     <ClInclude Include="dense\include\ankerl\unordered_dense.h" />
-    <ClInclude Include="nuklear\nuklear.h" />
-    <ClInclude Include="nuklear\Nuklear.hpp" />
-    <ClInclude Include="nuklear\nuklear_glfw_gl4.h" />
     <ClInclude Include="imgui\imgui\imcoolbar\ImCoolbar.h" />
     <ClInclude Include="imgui\imgui\imnotify\ImGuiNotify.hpp" />
     <ClInclude Include="imgui\imgui\imnotify\material_design_icons.h" />
