@@ -1,6 +1,0 @@
-Author: MrBeast
-License: CC-BY 3.0
-Link: http://opengameart.org/content/worldmapoverworld-tileset
-Files: Grasslands.png, Mountains.png, Water.png
-
-Resized to 48x48 by reworks.
