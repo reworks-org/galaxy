@@ -1,12 +1,3 @@
-[submodule "lib/glfw"]
-	path = lib/glfw
-	url = https://github.com/glfw/glfw.git
-[submodule "lib/glm"]
-	path = lib/glm
-	url = https://github.com/g-truc/glm.git
-[submodule "lib/subprocess"]
-	path = lib/subprocess
-	url = https://github.com/sheredom/subprocess.h.git
 [submodule "lib/sol3"]
 	path = lib/sol3
 	url = https://github.com/ThePhD/sol2.git
@@ -37,6 +28,3 @@
 [submodule "lib/dense"]
 	path = lib/dense
 	url = https://github.com/martinus/unordered_dense.git
-[submodule "lib/ldtkloader"]
-	path = lib/ldtkloader
-	url = https://github.com/Madour/LDtkLoader.git
