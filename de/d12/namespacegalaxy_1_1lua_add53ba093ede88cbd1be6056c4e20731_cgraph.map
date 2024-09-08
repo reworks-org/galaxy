@@ -78,12 +78,12 @@
 <area shape="poly" id="edge40_Node000001_Node000041" title=" " alt="" coords="105,2483,145,2460,190,2439,211,2431,213,2436,192,2444,147,2465,108,2488"/>
 <area shape="rect" id="Node000042" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a2722a857de092383fa5bfcc27e8eb0e3" title="Does this sound have spatialization enabled." alt="" coords="209,2453,404,2493"/>
 <area shape="poly" id="edge41_Node000001_Node000042" title=" " alt="" coords="143,2493,195,2486,196,2491,143,2499"/>
-<area shape="rect" id="Node000043" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#addac9c6a8ad3f99e0218c45f796b5d27" title="Load a MPEG&#45;1 from video file." alt="" coords="227,2517,386,2557"/>
-<area shape="poly" id="edge42_Node000001_Node000043" title=" " alt="" coords="143,2512,214,2522,213,2527,143,2517"/>
-<area shape="rect" id="Node000047" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="471,2643,701,2669"/>
-<area shape="poly" id="edge53_Node000001_Node000047" title=" " alt="" coords="107,2523,147,2546,192,2567,255,2587,306,2598,423,2617,515,2638,514,2643,422,2623,305,2603,253,2592,190,2572,144,2551,105,2528"/>
-<area shape="rect" id="Node000050" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a386941e1d4c9de8bf20111da2ec8c6c2" title="Load a sound from disk." alt="" coords="225,2632,388,2672"/>
-<area shape="poly" id="edge49_Node000001_Node000050" title=" " alt="" coords="94,2524,136,2568,163,2591,192,2611,219,2624,216,2629,189,2616,160,2595,132,2571,90,2527"/>
+<area shape="rect" id="Node000043" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a386941e1d4c9de8bf20111da2ec8c6c2" title="Load a sound from disk." alt="" coords="225,2517,388,2557"/>
+<area shape="poly" id="edge42_Node000001_Node000043" title=" " alt="" coords="143,2512,212,2522,211,2527,143,2517"/>
+<area shape="rect" id="Node000044" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="471,2611,701,2637"/>
+<area shape="poly" id="edge53_Node000001_Node000044" title=" " alt="" coords="106,2523,145,2547,192,2567,258,2586,327,2600,457,2616,457,2621,326,2605,257,2591,190,2572,143,2551,103,2528"/>
+<area shape="rect" id="Node000045" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#addac9c6a8ad3f99e0218c45f796b5d27" title="Load a MPEG&#45;1 from video file." alt="" coords="227,4712,386,4752"/>
+<area shape="poly" id="edge44_Node000001_Node000045" title=" " alt="" coords="78,2525,88,2943,110,3660,126,4029,146,4352,168,4589,180,4662,193,4698,216,4717,213,4721,188,4702,175,4664,163,4590,140,4353,121,4029,105,3660,83,2943,73,2526"/>
 <area shape="rect" id="Node000051" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a1c37525976b61feec1c080dfdce65b35" title="Pause the sound." alt="" coords="225,2696,388,2736"/>
 <area shape="poly" id="edge51_Node000001_Node000051" title=" " alt="" coords="85,2524,100,2559,123,2601,154,2645,192,2682,213,2694,211,2699,189,2686,150,2648,118,2604,95,2561,80,2526"/>
 <area shape="rect" id="Node000052" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#ab61bb7c0e524d0de305ec08827b36142" title="Start playing the sound." alt="" coords="225,2760,388,2800"/>
@@ -97,7 +97,7 @@
 <area shape="rect" id="Node000056" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#aa049308ee40f78942d3fbc7d90128750" title="Set the directional attenuation factor for the sound." alt="" coords="203,3017,411,3071"/>
 <area shape="poly" id="edge57_Node000001_Node000056" title=" " alt="" coords="80,2525,92,2625,115,2768,131,2842,149,2909,170,2965,193,3002,196,3006,192,3010,189,3006,165,2967,144,2911,126,2843,110,2769,87,2626,75,2526"/>
 <area shape="rect" id="Node000057" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a55d5624024e3b19f44ec7f7ba6e2bff4" title="Set doppler effect." alt="" coords="225,3096,388,3136"/>
-<area shape="poly" id="edge58_Node000001_Node000057" title=" " alt="" coords="79,2525,89,2639,110,2807,125,2893,144,2972,166,3037,179,3062,193,3081,214,3097,211,3101,189,3085,174,3065,161,3039,138,2974,120,2894,104,2807,84,2640,74,2526"/>
+<area shape="poly" id="edge58_Node000001_Node000057" title=" " alt="" coords="79,2525,89,2640,109,2808,124,2894,143,2973,166,3039,179,3063,193,3082,214,3098,211,3102,189,3086,174,3066,161,3041,138,2975,119,2895,104,2808,83,2640,74,2526"/>
 <area shape="rect" id="Node000058" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#aac01b0bb0ccad601fb6ad20b7617fd64" title="Directional attenuation." alt="" coords="205,3160,408,3200"/>
 <area shape="poly" id="edge59_Node000001_Node000058" title=" " alt="" coords="79,2526,86,2651,105,2838,120,2935,140,3024,164,3097,178,3125,193,3146,196,3150,193,3154,189,3150,173,3128,159,3099,134,3025,115,2936,100,2839,81,2652,74,2526"/>
 <area shape="rect" id="Node000059" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a33f921f96085974adda6cb6bae6b2660" title="Set a listeners direction." alt="" coords="205,3224,408,3264"/>
@@ -135,7 +135,7 @@
 <area shape="rect" id="Node000075" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a82c205f945ccfbcbefdea0c11f0b92e8" title="Enable or disable spacialization." alt="" coords="225,4249,388,4303"/>
 <area shape="poly" id="edge76_Node000001_Node000075" title=" " alt="" coords="78,2526,81,2851,95,3397,109,3681,129,3934,142,4041,157,4129,174,4194,193,4234,215,4253,211,4257,189,4238,169,4196,152,4130,137,4041,124,3935,104,3681,90,3397,76,2851,73,2526"/>
 <area shape="rect" id="Node000076" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a18a8978558678ff9d9bfe3f3f8ebf0cf" title="Set the start time of the sound in milliseconds relative to the absolute global time." alt="" coords="191,4328,423,4368"/>
-<area shape="poly" id="edge77_Node000001_Node000076" title=" " alt="" coords="78,2526,79,2864,83,3136,91,3436,105,3734,126,4000,139,4111,154,4203,172,4272,193,4313,197,4318,193,4321,188,4316,167,4273,149,4204,134,4112,120,4000,100,3734,86,3436,78,3136,74,2864,73,2526"/>
+<area shape="poly" id="edge77_Node000001_Node000076" title=" " alt="" coords="78,2526,79,2865,83,3137,91,3437,104,3735,125,4001,139,4112,154,4204,172,4273,193,4315,195,4317,191,4321,188,4317,167,4275,149,4205,133,4113,120,4001,99,3735,85,3437,77,3137,74,2865,73,2526"/>
 <area shape="rect" id="Node000077" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a0ceaef7919c24ea06cb73a52bfb61b5b" title="Set the stop time of the sound in milliseconds relative to the absolute global time." alt="" coords="191,4392,422,4432"/>
 <area shape="poly" id="edge78_Node000001_Node000077" title=" " alt="" coords="78,2526,78,2876,81,3158,89,3469,102,3778,123,4053,137,4169,153,4264,172,4335,182,4361,193,4378,195,4381,191,4385,189,4382,177,4363,167,4337,148,4265,132,4170,118,4054,97,3778,84,3469,76,3158,73,2876,73,2526"/>
 <area shape="rect" id="Node000078" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#ad7675ca70ca02a052cccf137b695976c" title="The velocity of a sound is used for doppler effect." alt="" coords="225,4456,388,4496"/>
@@ -146,8 +146,8 @@
 <area shape="poly" id="edge81_Node000001_Node000080" title=" " alt="" coords="78,2525,89,2921,112,3595,128,3942,147,4246,169,4468,181,4537,193,4570,214,4588,211,4592,188,4574,176,4538,164,4469,142,4246,123,3943,107,3596,84,2922,73,2526"/>
 <area shape="rect" id="Node000081" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a3595123ecb81984b47cfb4443dde488a" title="Start device." alt="" coords="205,4648,408,4688"/>
 <area shape="poly" id="edge82_Node000001_Node000081" title=" " alt="" coords="78,2525,88,2932,111,3628,127,3986,147,4299,169,4529,180,4600,193,4635,197,4639,193,4642,188,4637,175,4601,163,4529,141,4300,122,3986,106,3628,83,2933,73,2526"/>
-<area shape="rect" id="Node000082" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#ae4591accb38c1cf0e7b0f8a012544f12" title="Stop all playing audio." alt="" coords="205,4712,408,4752"/>
-<area shape="poly" id="edge83_Node000001_Node000082" title=" " alt="" coords="78,2525,88,2943,110,3660,126,4029,146,4352,168,4589,180,4662,193,4699,197,4703,193,4706,188,4701,175,4664,163,4590,140,4353,121,4029,105,3660,83,2943,73,2526"/>
+<area shape="rect" id="Node000082" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#ae4591accb38c1cf0e7b0f8a012544f12" title="Stop all playing audio." alt="" coords="205,2632,408,2672"/>
+<area shape="poly" id="edge83_Node000001_Node000082" title=" " alt="" coords="94,2524,136,2568,163,2591,192,2611,219,2624,216,2629,189,2616,160,2595,132,2571,90,2527"/>
 <area shape="rect" id="Node000083" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a8033120bd361f0e2920ca4ee8dbfe8d9" title="Stop playing the sound." alt="" coords="225,4776,388,4816"/>
 <area shape="poly" id="edge85_Node000001_Node000083" title=" " alt="" coords="78,2525,88,2954,110,3692,125,4072,145,4406,167,4650,180,4725,193,4762,214,4780,211,4784,188,4766,175,4727,162,4651,139,4406,120,4073,104,3692,82,2954,73,2525"/>
 <area shape="rect" id="Node000084" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#ad53408b8b72737a7da05d50772a39ef5" title="Stop device." alt="" coords="205,4840,408,4880"/>
@@ -160,17 +160,17 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,23,493,23,493,28,386,28"/>
 <area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="749,5,931,45"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="665,23,736,23,736,28,665,28"/>
-<area shape="rect" id="Node000044" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="511,2387,661,2427"/>
-<area shape="poly" id="edge43_Node000043_Node000044" title=" " alt="" coords="385,2521,421,2503,436,2488,444,2471,453,2453,469,2437,496,2422,499,2427,472,2441,457,2456,449,2473,441,2491,424,2507,388,2526"/>
-<area shape="rect" id="Node000045" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="495,2451,677,2491"/>
-<area shape="poly" id="edge44_Node000043_Node000045" title=" " alt="" coords="386,2516,488,2491,489,2496,387,2521"/>
-<area shape="poly" id="edge46_Node000043_Node000047" title=" " alt="" coords="387,2555,424,2574,440,2588,449,2602,457,2616,472,2628,487,2636,485,2641,469,2633,453,2619,444,2605,436,2591,421,2578,385,2560"/>
-<area shape="rect" id="Node000048" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="507,2515,665,2555"/>
-<area shape="poly" id="edge47_Node000043_Node000048" title=" " alt="" coords="386,2534,493,2533,493,2538,386,2539"/>
-<area shape="rect" id="Node000049" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b" title="Write data to ring buffer." alt="" coords="491,2579,681,2619"/>
-<area shape="poly" id="edge48_Node000043_Node000049" title=" " alt="" coords="387,2552,481,2573,480,2578,386,2557"/>
-<area shape="rect" id="Node000046" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="749,2451,931,2491"/>
-<area shape="poly" id="edge45_Node000045_Node000046" title=" " alt="" coords="677,2468,735,2468,735,2473,677,2473"/>
-<area shape="poly" id="edge50_Node000050_Node000047" title=" " alt="" coords="388,2650,457,2651,457,2657,388,2656"/>
-<area shape="poly" id="edge84_Node000082_Node000047" title=" " alt="" coords="406,4711,421,4698,433,4679,444,4652,466,4575,485,4472,502,4347,530,4050,550,3715,565,3378,574,3071,582,2682,587,2682,580,3071,570,3378,556,3715,535,4050,507,4348,490,4473,471,4576,449,4654,437,4682,425,4702,410,4715"/>
+<area shape="poly" id="edge43_Node000043_Node000044" title=" " alt="" coords="373,2555,532,2605,530,2610,371,2560"/>
+<area shape="poly" id="edge48_Node000045_Node000044" title=" " alt="" coords="385,4721,405,4712,421,4698,433,4679,444,4651,466,4573,485,4469,503,4342,531,4039,551,3700,565,3357,575,3045,582,2651,587,2651,580,3045,571,3357,557,3700,536,4040,508,4343,491,4469,471,4574,449,4653,438,4681,425,4702,408,4717,388,4726"/>
+<area shape="rect" id="Node000046" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="511,4744,661,4784"/>
+<area shape="poly" id="edge45_Node000045_Node000046" title=" " alt="" coords="386,4738,497,4751,497,4757,386,4744"/>
+<area shape="rect" id="Node000047" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="495,4808,677,4848"/>
+<area shape="poly" id="edge46_Node000045_Node000047" title=" " alt="" coords="387,4748,424,4762,448,4778,472,4794,490,4801,488,4806,469,4798,445,4782,421,4766,385,4753"/>
+<area shape="rect" id="Node000049" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="507,4616,665,4656"/>
+<area shape="poly" id="edge49_Node000045_Node000049" title=" " alt="" coords="385,4711,421,4698,445,4682,469,4666,492,4656,494,4661,472,4670,448,4686,424,4702,387,4716"/>
+<area shape="rect" id="Node000050" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a7f7c090f0c9d798566318da06b902c8b" title="Write data to ring buffer." alt="" coords="491,4680,681,4720"/>
+<area shape="poly" id="edge50_Node000045_Node000050" title=" " alt="" coords="386,4720,477,4710,477,4715,386,4726"/>
+<area shape="rect" id="Node000048" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="749,4808,931,4848"/>
+<area shape="poly" id="edge47_Node000047_Node000048" title=" " alt="" coords="677,4825,735,4825,735,4831,677,4831"/>
+<area shape="poly" id="edge84_Node000082_Node000044" title=" " alt="" coords="408,2639,457,2634,457,2640,409,2645"/>
 </map>

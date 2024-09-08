@@ -6,12 +6,12 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,106,237,99,238,105,185,111"/>
 <area shape="rect" id="Node000007" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="233,134,464,159"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="185,126,220,130,219,135,184,131"/>
-<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title=" " alt="" coords="238,183,459,209"/>
+<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title="Get reference to renderer singleton." alt="" coords="238,183,459,209"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="126,129,175,149,233,169,264,178,263,183,231,175,173,154,124,134"/>
 <area shape="rect" id="Node000004" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a17f84808231d0a3c46b6538f22a56754" title="Clears data from buffer." alt="" coords="530,5,711,45"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="434,67,522,46,523,51,435,72"/>
-<area shape="rect" id="Node000005" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Destroys shader program." alt="" coords="530,69,711,109"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="446,87,516,87,516,92,446,92"/>
-<area shape="rect" id="Node000006" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="513,133,728,173"/>
+<area shape="rect" id="Node000005" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a51b82490feec0b76226ecf83e4a79008" title="Cleanup used memory." alt="" coords="513,69,728,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="446,87,500,87,500,92,446,92"/>
+<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0158b2937d3d815c1dcda3bba4f67ef7" title="Destroys shader program." alt="" coords="530,133,711,173"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="435,107,523,128,522,133,434,112"/>
 </map>

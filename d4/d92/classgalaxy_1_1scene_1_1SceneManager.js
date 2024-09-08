@@ -1,7 +1,7 @@
 var classgalaxy_1_1scene_1_1SceneManager =
 [
-    [ "Map", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a89688895e770d2212fb920156fb9620b", null ],
-    [ "SystemContainer", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aab67f81bd8cea798a80f4b2b36643985", null ],
+    [ "Map", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aae24a5e812fd02c9647a244790f2e192", null ],
+    [ "SystemContainer", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8510b39f435278171a9c8ec7e84a9ca", null ],
     [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410", null ],
     [ "~SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46f4790b8ac97f7019a4245b41fdd81b", null ],
     [ "add", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7", null ],

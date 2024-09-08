@@ -1,24 +1,29 @@
 <map id="galaxy::graphics::Renderer::ref" name="galaxy::graphics::Renderer::ref">
-<area shape="rect" id="Node000001" title=" " alt="" coords="947,214,1168,240"/>
-<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,57,172,82"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1039,204,1016,171,984,133,944,97,898,69,847,50,794,36,685,16,575,9,467,11,366,19,275,32,139,59,138,54,274,27,365,14,467,5,575,3,686,11,795,30,848,45,900,64,947,92,988,129,1020,168,1044,201"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a05b20db2d243f6d287667f7c141972b8" title="Only update rendering." alt="" coords="676,79,891,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1026,208,968,171,898,133,866,121,868,116,900,128,971,166,1029,204"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="704,143,863,183"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="988,214,862,184,864,179,989,208"/>
-<area shape="rect" id="Node000008" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6ad3d7bf8412a264e4b1c2ff0939aa58" title="Handle events and update logic." alt="" coords="676,207,891,247"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="933,230,891,230,891,224,933,224"/>
-<area shape="rect" id="Node000009" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="668,271,899,311"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="989,245,870,273,869,268,988,240"/>
-<area shape="rect" id="Node000010" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="703,335,864,375"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="1029,250,971,288,900,325,865,338,863,333,898,320,968,283,1026,245"/>
-<area shape="rect" id="Node000011" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="694,400,873,425"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1042,253,985,321,945,358,900,389,869,402,867,397,897,385,941,354,981,318,1037,249"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="444,79,581,119"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="690,144,581,118,582,112,691,139"/>
-<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="405,143,620,183"/>
-<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="690,166,620,166,620,160,690,160"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,82,357,108"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="430,100,358,99,358,93,430,95"/>
-<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="206,87,172,83,172,77,207,82"/>
+<area shape="rect" id="Node000001" title="Get reference to renderer singleton." alt="" coords="1004,159,1225,185"/>
+<area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71" title=" " alt="" coords="761,17,956,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1085,153,1027,110,955,66,902,45,904,40,957,62,1030,106,1088,148"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,130,172,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1077,156,1021,130,955,111,843,94,727,86,611,85,500,90,300,110,155,133,154,127,300,105,499,85,611,80,727,81,843,89,957,105,1023,125,1079,151"/>
+<area shape="rect" id="Node000006" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="779,120,938,160"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="999,160,938,153,938,147,1000,155"/>
+<area shape="rect" id="Node000010" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="779,184,938,224"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="1000,189,938,197,938,191,999,184"/>
+<area shape="rect" id="Node000012" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="778,248,939,288"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1072,193,957,238,923,250,921,245,955,234,1070,188"/>
+<area shape="rect" id="Node000013" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="769,313,948,338"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="1094,197,1035,250,998,278,957,302,925,315,923,310,955,298,995,274,1032,246,1090,193"/>
+<area shape="rect" id="Node000003" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="516,5,696,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="747,30,696,29,696,24,747,25"/>
+<area shape="rect" id="Node000004" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="220,5,451,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="502,28,451,28,451,23,502,23"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="537,184,675,224"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="767,166,675,189,674,184,765,161"/>
+<area shape="rect" id="Node000009" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="499,120,713,160"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="766,143,714,143,714,137,766,137"/>
+<area shape="rect" id="Node000008" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="267,155,404,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="523,196,404,180,405,174,524,190"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="252,162,172,154,173,149,253,157"/>
+<area shape="poly" id="edge11_Node000010_Node000007" title=" " alt="" coords="766,207,675,207,675,201,766,201"/>
+<area shape="rect" id="Node000011" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6ad3d7bf8412a264e4b1c2ff0939aa58" title="Handle events and update logic." alt="" coords="499,248,713,288"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="767,230,686,251,685,245,765,225"/>
 </map>

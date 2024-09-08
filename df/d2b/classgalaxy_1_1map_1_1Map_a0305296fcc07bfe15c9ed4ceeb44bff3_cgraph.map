@@ -1,5 +1,6 @@
 <map id="galaxy::map::Map::parse_entitiy_layer" name="galaxy::map::Map::parse_entitiy_layer">
-<area shape="rect" id="Node000001" title="Parse LDTK entity layer." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a47df3d4e42282a102e703f407106788b" title="Create an entity with some default components." alt="" coords="236,5,399,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,23,222,23,222,28,189,28"/>
+<area shape="rect" id="Node000001" title="Parse LDTK entity layer." alt="" coords="5,29,188,69"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a47df3d4e42282a102e703f407106788b" title="Create an entity with some default components." alt="" coords="236,29,399,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,47,222,47,222,52,189,52"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="276,30,274,20,280,10,295,5,317,3,343,6,357,13,354,18,341,11,317,8,296,10,284,15,279,21,281,28"/>
 </map>

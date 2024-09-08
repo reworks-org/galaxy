@@ -6,5 +6,6 @@ var structgalaxy_1_1graphics_1_1RenderCommand =
     [ "mode", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a025e64c0062f014384bf460f93aa3260", null ],
     [ "count", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a16deeaa49deaf28f83e513cdcd89a8dd", null ],
     [ "offset", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a2995095b863fd7f0d7e7d6874a993753", null ],
-    [ "instances", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aaabca89f9f39cd3f2558018fd1f68261", null ]
+    [ "instances", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aaabca89f9f39cd3f2558018fd1f68261", null ],
+    [ "texture", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a3bcfec9d001d237a1f69e0e17adfd642", null ]
 ];

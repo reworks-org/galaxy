@@ -4,7 +4,7 @@ var namespacegalaxy_1_1math =
     [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", "d5/dcc/classgalaxy_1_1math_1_1Rect" ],
     [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
     [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ],
-    [ "conditional_distribution", "d1/d92/namespacegalaxy_1_1math.html#acc72c3d7d22f4ac11d4d05c1091220b0", null ],
+    [ "conditional_distribution", "d1/d92/namespacegalaxy_1_1math.html#a9e752e8c2942e357176958bc041f954e", null ],
     [ "iRect", "d1/d92/namespacegalaxy_1_1math.html#a4205216328e42027d47d0ebbb2620d9d", null ],
     [ "fRect", "d1/d92/namespacegalaxy_1_1math.html#a1474ab75830e10ec2701f450c8715c53", null ],
     [ "encode_base64", "d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529", null ],

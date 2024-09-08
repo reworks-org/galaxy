@@ -11,17 +11,14 @@ var classgalaxy_1_1graphics_1_1RenderTexture =
     [ "bind", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad", null ],
     [ "unbind", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464", null ],
     [ "clear", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5", null ],
-    [ "make_bindless", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a226c099a1d44f3af90cf47a10aca7fc6", null ],
     [ "width", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8", null ],
     [ "height", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85", null ],
-    [ "handle", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a491b5fa3b4e8fee87cb03e3ffef47b22", null ],
     [ "texture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a5e280fba4aec4c1e717e9b4937f0b203", null ],
     [ "get_proj", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a3522410d7d1cb5ac974f07f51da25ed7", null ],
     [ "fbo", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aec48065727a4305b9dd2358f6cc4863a", null ],
     [ "operator=", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6ca4eeeb87de9e4d9147d4daed957fbd", null ],
     [ "m_width", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#afebc3eb8f1f9649c4a11f88f39093421", null ],
     [ "m_height", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6d2ce7973fa74453d3ca0d5eb73b1124", null ],
-    [ "m_handle", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aaac23147e82c8a7ddd7bb882ded42a3b", null ],
     [ "m_framebuffer", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a023a2bde147de7fcc90dd877b5433e3e", null ],
     [ "m_proj", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aaa1c4a10b675e9a780c889727627a8e1", null ]
 ];

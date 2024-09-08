@@ -1,0 +1,5 @@
+<map id="galaxy::systems::handle_renderables" name="galaxy::systems::handle_renderables">
+<area shape="rect" id="Node000001" title=" " alt="" coords="284,5,464,45"/>
+<area shape="rect" id="Node000002" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,28,236,28,236,23,270,23"/>
+</map>

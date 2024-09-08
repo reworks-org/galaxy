@@ -1,61 +1,68 @@
 <map id="galaxy::lua::inject_math" name="galaxy::lua::inject_math">
-<area shape="rect" id="Node000001" title="Injects math stuff into lua." alt="" coords="5,831,184,857"/>
+<area shape="rect" id="Node000001" title="Injects math stuff into lua." alt="" coords="5,882,184,907"/>
 <area shape="rect" id="Node000002" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae6dbbd4ee6545ec94dc9dbcea79afc81" title="Clear all data." alt="" coords="260,5,435,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,831,101,687,122,454,139,330,163,215,193,120,210,84,230,56,246,42,249,47,234,59,215,86,198,122,168,217,145,331,127,455,106,688,99,831"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,882,99,731,119,482,136,350,160,227,191,125,209,86,230,56,246,42,249,47,234,59,214,88,196,127,165,228,141,350,124,483,105,731,99,882"/>
 <area shape="rect" id="Node000003" href="$d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a9a42fb1d47362f45425639bc6d2c931e" title="Compresses string." alt="" coords="276,69,419,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,831,103,698,126,484,143,370,166,265,195,179,212,145,230,120,245,107,262,98,264,103,248,112,234,123,216,148,200,181,172,267,149,371,131,484,108,698,99,831"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,882,101,741,123,511,140,389,163,277,193,183,211,147,230,120,245,107,262,98,264,103,248,111,234,123,215,150,198,185,169,278,146,390,128,512,107,741,99,882"/>
 <area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="266,133,429,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="94,831,105,708,129,513,148,411,170,316,197,237,213,207,230,183,251,167,255,172,234,187,218,209,202,239,175,317,153,412,135,514,110,709,100,831"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="94,882,103,751,126,541,144,430,167,327,195,242,212,209,230,183,252,167,255,171,234,187,216,211,200,244,172,328,150,431,132,542,109,751,99,882"/>
 <area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="251,198,443,223"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="94,831,106,717,131,537,149,442,172,354,199,283,214,255,230,234,238,228,241,232,234,238,218,258,203,285,177,356,155,443,136,538,111,718,100,832"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="94,881,104,758,128,563,146,460,169,365,197,287,213,257,230,234,237,228,241,232,234,238,217,260,202,289,174,367,151,461,133,564,110,759,99,882"/>
 <area shape="rect" id="Node000006" href="$d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a4f39a89eaa6abc761d3e4cdbe8c5977e" title="Decompresses a zlib string." alt="" coords="276,248,419,288"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="95,831,109,728,136,567,155,483,177,406,202,342,215,317,230,298,245,286,262,278,264,282,248,291,234,302,220,320,207,344,182,407,160,485,141,568,114,729,100,832"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="95,882,107,770,133,594,152,502,174,417,200,346,214,319,230,298,245,286,262,277,264,282,248,291,234,302,219,322,205,348,179,418,157,503,138,595,112,771,100,882"/>
 <area shape="rect" id="Node000007" href="$d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529" title="Compresses string into Base64." alt="" coords="266,312,429,352"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="93,831,94,751,99,692,109,626,125,555,150,485,184,420,206,390,230,362,251,347,255,351,234,366,210,393,189,423,155,488,130,557,114,627,104,693,99,752,98,831"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="95,881,109,780,137,624,156,542,178,467,202,404,230,362,252,346,255,351,234,366,207,407,183,468,161,543,142,625,114,781,100,882"/>
 <area shape="rect" id="Node000008" href="$d1/d92/namespacegalaxy_1_1math.html#aa268fcdadd51a019f66c4953e578694e" title="Compresses string into ZLib." alt="" coords="251,377,443,402"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="93,831,96,758,102,705,113,645,130,582,154,520,187,463,230,413,238,407,241,411,234,417,191,466,159,523,135,584,118,646,107,705,101,758,98,831"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="95,881,110,788,139,647,158,573,180,506,204,450,230,413,238,407,241,411,234,416,208,453,185,507,163,575,144,648,116,789,101,882"/>
 <area shape="rect" id="Node000009" href="$d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a298a6c2b322b1f171236fdd1f2945c9d" title="Completes the compression." alt="" coords="276,427,419,467"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="94,831,101,768,122,672,139,620,163,568,193,519,230,477,261,458,264,462,234,481,197,522,167,570,144,622,127,674,107,769,99,831"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="93,882,98,811,105,760,116,703,133,642,157,582,189,526,230,477,262,457,265,462,234,481,193,529,162,584,138,644,121,704,110,761,103,812,99,882"/>
 <area shape="rect" id="Node000010" href="$d1/d92/namespacegalaxy_1_1math.html#ae73f930703216aa88e5217af0e15c239" title="Convert string to 32bit hash." alt="" coords="260,515,435,541"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="95,830,106,778,130,702,147,660,170,620,197,582,230,550,246,540,249,545,234,554,201,586,174,622,152,662,135,703,111,779,101,832"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="94,882,102,821,123,731,140,682,164,634,193,589,230,550,246,540,249,544,234,554,197,592,168,636,145,684,128,733,107,822,100,882"/>
 <area shape="rect" id="Node000011" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="260,589,435,614"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="98,830,113,790,140,734,179,675,203,648,230,624,246,616,248,620,234,629,207,651,183,678,144,736,118,792,103,832"/>
-<area shape="rect" id="Node000012" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#a51ffc288b3c186f651cc4577ed1d9e5a" title="Generate a random vec2." alt="" coords="263,639,432,679"/>
-<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="102,830,150,762,187,722,231,688,249,679,251,683,233,693,191,726,154,766,106,833"/>
-<area shape="rect" id="Node000013" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#a049e66bdec93fce2305144d2420a44bb" title="Generate a random vec3." alt="" coords="263,703,432,743"/>
-<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="110,829,162,792,231,752,249,745,251,750,233,757,165,796,113,833"/>
-<area shape="rect" id="Node000014" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#ac5fbaa8f5762f27f30dc5bfc309e3818" title="Generate a random vec4." alt="" coords="263,767,432,807"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="151,829,249,806,250,811,152,834"/>
-<area shape="rect" id="Node000015" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#af1e20cd90c24370d2c91e67dae416485" title="Get bottom left corner." alt="" coords="511,980,655,1020"/>
-<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="184,830,248,827,320,830,394,842,430,853,464,867,496,887,524,913,565,966,561,970,520,917,493,892,461,872,428,858,392,847,319,835,248,832,184,835"/>
-<area shape="rect" id="Node000016" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a710cd0663b0e5fde6234035e333391d6" title="Gets the center of the rectangle." alt="" coords="275,881,419,921"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="152,854,262,879,261,885,151,859"/>
-<area shape="rect" id="Node000017" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2a5d97bc401cabd2c05b76b3c8177457" title="Get free rectangles." alt="" coords="260,945,435,985"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="113,855,165,892,233,931,251,938,249,943,231,936,162,896,110,859"/>
-<area shape="rect" id="Node000018" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a52fdaad91716290a1ec183997cfaddc4" title="Get total height." alt="" coords="260,1009,435,1049"/>
-<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="106,855,154,922,191,962,233,995,248,1003,246,1008,231,1000,187,966,150,926,102,858"/>
-<area shape="rect" id="Node000019" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a93276b0b64337e9f1083e140780b587b" title="Get top right corner." alt="" coords="511,1168,655,1208"/>
-<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="100,857,112,961,137,1121,155,1205,178,1280,204,1341,218,1363,234,1379,263,1399,291,1412,317,1420,344,1421,371,1417,399,1409,461,1379,483,1364,502,1346,533,1304,555,1259,570,1220,575,1222,560,1261,537,1307,506,1350,486,1369,464,1384,401,1414,372,1423,344,1426,317,1425,289,1417,260,1404,230,1383,214,1367,199,1344,173,1282,150,1206,132,1122,106,961,95,857"/>
-<area shape="rect" id="Node000020" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#aae57f25360526a6fba3d8322db411863" title="Gets width and height of rectangle." alt="" coords="275,1137,419,1177"/>
-<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="101,856,113,906,137,979,155,1018,177,1056,203,1092,234,1123,264,1141,261,1145,230,1127,199,1096,172,1059,150,1020,132,981,108,908,96,858"/>
-<area shape="rect" id="Node000021" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a70822a530a84521a7e48e1fc42ebe929" title="Get the upper&#45;left coordinate." alt="" coords="275,1201,419,1241"/>
-<area shape="poly" id="edge22_Node000001_Node000021" title=" " alt="" coords="100,857,108,916,129,1006,147,1055,170,1103,198,1148,234,1187,264,1205,261,1210,230,1191,194,1151,165,1106,142,1057,124,1007,103,917,94,857"/>
-<area shape="rect" id="Node000022" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a705a5341d96b2a1984a232f25c43b159" title="Get total width." alt="" coords="260,1265,435,1305"/>
-<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="99,857,104,926,122,1032,139,1091,162,1149,194,1204,234,1251,249,1263,246,1267,230,1255,189,1207,158,1152,134,1093,117,1034,98,927,94,857"/>
-<area shape="rect" id="Node000023" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a619de7d31c54ee52bde3bb2c597841bd" title="Set starting width and height of rectangle." alt="" coords="260,1329,435,1369"/>
-<area shape="poly" id="edge24_Node000001_Node000023" title=" " alt="" coords="98,857,100,935,105,993,114,1058,131,1127,155,1196,189,1260,210,1289,234,1315,249,1327,246,1331,230,1319,206,1292,185,1262,150,1198,126,1129,109,1059,99,994,94,935,93,857"/>
-<area shape="rect" id="Node000024" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a50acec48622dbee3790ab9819dac677a" title="Do two rectangles intersect." alt="" coords="275,1073,419,1113"/>
-<area shape="poly" id="edge25_Node000001_Node000024" title=" " alt="" coords="103,856,118,896,145,951,184,1009,207,1036,234,1059,264,1075,261,1080,230,1064,204,1040,180,1013,141,954,114,898,98,858"/>
-<area shape="rect" id="Node000025" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#ad1370fc9c5c660d93c6ff2728f0b3f75" title="Do the rectangles a and b overlap." alt="" coords="275,1444,419,1484"/>
-<area shape="poly" id="edge28_Node000001_Node000025" title=" " alt="" coords="100,857,113,966,140,1137,159,1226,181,1309,206,1378,220,1404,234,1424,248,1435,264,1445,261,1449,245,1440,230,1427,215,1407,201,1380,176,1311,154,1228,135,1138,108,966,95,857"/>
-<area shape="rect" id="Node000026" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#ac89a343b4c701d972f55b5f044b612d4" title="Pack a rectangle into the master rectangle." alt="" coords="260,1508,435,1548"/>
-<area shape="poly" id="edge29_Node000001_Node000026" title=" " alt="" coords="100,857,110,978,135,1170,153,1272,176,1366,203,1443,218,1472,234,1494,249,1507,246,1511,230,1498,213,1475,198,1445,170,1367,148,1273,130,1171,105,978,94,857"/>
-<area shape="rect" id="Node000027" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="232,1573,463,1598"/>
-<area shape="poly" id="edge30_Node000001_Node000027" title=" " alt="" coords="99,857,108,989,130,1202,148,1314,171,1417,199,1502,216,1534,234,1558,239,1563,235,1567,230,1562,211,1537,194,1504,165,1419,142,1315,125,1202,102,990,94,857"/>
-<area shape="rect" id="Node000028" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a8efd85ec3b45feef33b64781077949fc" title="Set the top&#45;left position." alt="" coords="275,1623,419,1663"/>
-<area shape="poly" id="edge31_Node000001_Node000028" title=" " alt="" coords="99,857,107,996,128,1223,146,1344,169,1455,198,1547,215,1582,234,1609,248,1620,264,1629,261,1634,245,1625,230,1612,211,1585,193,1549,164,1457,141,1345,123,1224,102,997,94,857"/>
-<area shape="poly" id="edge10_Node000010_Node000010" title=" " alt="" coords="309,517,301,507,305,497,321,491,347,489,380,493,393,502,390,506,378,497,347,494,322,496,309,501,306,506,313,513"/>
-<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="309,590,301,580,305,570,321,564,347,562,380,566,393,575,390,580,378,571,347,567,322,569,309,574,306,580,313,587"/>
-<area shape="poly" id="edge26_Node000024_Node000015" title=" " alt="" coords="418,1073,462,1059,534,1024,536,1029,464,1064,420,1078"/>
-<area shape="poly" id="edge27_Node000024_Node000019" title=" " alt="" coords="420,1108,464,1123,537,1159,535,1163,462,1128,419,1113"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="96,881,108,832,133,762,151,725,173,688,199,654,230,625,245,615,248,620,234,629,203,657,177,691,156,727,138,764,113,834,101,882"/>
+<area shape="rect" id="Node000012" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#a8840146f6a92d8d253e0bc52f362441b" title="Generate a random number of type T." alt="" coords="511,733,712,758"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="100,881,118,850,146,809,184,770,207,752,231,739,271,724,314,715,400,709,481,715,549,727,548,732,481,720,400,714,315,720,273,729,233,744,210,757,188,773,151,813,122,852,105,883"/>
+<area shape="rect" id="Node000013" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#a51ffc288b3c186f651cc4577ed1d9e5a" title="Generate a random vec2." alt="" coords="263,753,432,793"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="110,880,162,842,231,803,249,795,251,800,233,808,165,847,113,884"/>
+<area shape="rect" id="Node000014" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#a049e66bdec93fce2305144d2420a44bb" title="Generate a random vec3." alt="" coords="263,817,432,857"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="151,879,249,857,250,862,152,885"/>
+<area shape="rect" id="Node000015" href="$d9/deb/classgalaxy_1_1math_1_1Random.html#ac5fbaa8f5762f27f30dc5bfc309e3818" title="Generate a random vec4." alt="" coords="263,639,432,679"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="99,881,116,845,144,795,183,742,230,695,251,682,254,687,234,699,187,745,149,798,121,847,104,883"/>
+<area shape="rect" id="Node000016" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#af1e20cd90c24370d2c91e67dae416485" title="Get bottom left corner." alt="" coords="539,1031,683,1071"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="184,883,247,881,319,884,393,895,464,918,501,938,535,964,588,1018,584,1022,532,968,498,943,462,922,392,901,318,889,247,886,184,888"/>
+<area shape="rect" id="Node000017" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a710cd0663b0e5fde6234035e333391d6" title="Gets the center of the rectangle." alt="" coords="275,932,419,972"/>
+<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="152,905,262,930,261,935,151,910"/>
+<area shape="rect" id="Node000018" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2a5d97bc401cabd2c05b76b3c8177457" title="Get free rectangles." alt="" coords="260,996,435,1036"/>
+<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="113,905,165,943,233,982,251,989,249,994,231,986,162,947,110,910"/>
+<area shape="rect" id="Node000019" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a52fdaad91716290a1ec183997cfaddc4" title="Get total height." alt="" coords="260,1060,435,1100"/>
+<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="106,906,154,973,191,1012,233,1046,248,1054,246,1059,231,1050,187,1016,150,976,102,909"/>
+<area shape="rect" id="Node000020" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a93276b0b64337e9f1083e140780b587b" title="Get top right corner." alt="" coords="539,1219,683,1259"/>
+<area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="100,907,112,1011,137,1172,155,1255,178,1331,204,1392,218,1414,234,1430,263,1450,290,1462,317,1469,343,1470,370,1466,398,1458,461,1430,485,1415,507,1397,545,1355,574,1310,594,1270,599,1272,579,1312,549,1358,511,1401,489,1420,464,1434,400,1463,371,1471,343,1475,316,1474,288,1467,260,1454,230,1434,214,1417,199,1394,173,1333,150,1257,132,1173,106,1012,95,908"/>
+<area shape="rect" id="Node000021" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#aae57f25360526a6fba3d8322db411863" title="Gets width and height of rectangle." alt="" coords="275,1188,419,1228"/>
+<area shape="poly" id="edge25_Node000001_Node000021" title=" " alt="" coords="101,907,113,957,137,1029,155,1069,177,1107,203,1143,234,1174,264,1191,261,1196,230,1178,199,1146,172,1110,150,1071,132,1031,108,959,96,908"/>
+<area shape="rect" id="Node000022" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a70822a530a84521a7e48e1fc42ebe929" title="Get the upper&#45;left coordinate." alt="" coords="275,1252,419,1292"/>
+<area shape="poly" id="edge26_Node000001_Node000022" title=" " alt="" coords="100,907,108,967,129,1056,147,1105,170,1154,198,1199,234,1238,264,1256,261,1261,230,1242,194,1202,165,1156,142,1107,124,1058,103,968,94,908"/>
+<area shape="rect" id="Node000023" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a705a5341d96b2a1984a232f25c43b159" title="Get total width." alt="" coords="260,1316,435,1356"/>
+<area shape="poly" id="edge27_Node000001_Node000023" title=" " alt="" coords="99,907,104,977,122,1083,139,1142,162,1200,194,1255,234,1302,249,1314,246,1318,230,1306,189,1258,158,1202,134,1144,117,1084,98,977,94,908"/>
+<area shape="rect" id="Node000024" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#a619de7d31c54ee52bde3bb2c597841bd" title="Set starting width and height of rectangle." alt="" coords="260,1380,435,1420"/>
+<area shape="poly" id="edge28_Node000001_Node000024" title=" " alt="" coords="98,907,100,986,105,1044,114,1109,131,1178,155,1246,189,1310,210,1339,234,1366,249,1378,246,1382,230,1370,206,1343,185,1313,150,1248,126,1179,109,1110,99,1044,94,986,93,907"/>
+<area shape="rect" id="Node000025" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a50acec48622dbee3790ab9819dac677a" title="Do two rectangles intersect." alt="" coords="275,1124,419,1164"/>
+<area shape="poly" id="edge29_Node000001_Node000025" title=" " alt="" coords="103,907,118,947,145,1002,184,1060,207,1087,234,1110,264,1126,261,1131,230,1114,204,1091,180,1063,141,1004,114,949,98,909"/>
+<area shape="rect" id="Node000026" href="$d1/d92/namespacegalaxy_1_1math.html#a08d68c471dcf5179897ba3f3873d2c9e" title="Calc normalized value from range." alt="" coords="257,1495,437,1521"/>
+<area shape="poly" id="edge32_Node000001_Node000026" title=" " alt="" coords="100,907,113,1017,139,1188,158,1278,180,1361,205,1429,219,1455,234,1474,250,1487,247,1491,230,1478,215,1458,200,1431,175,1363,152,1279,134,1189,107,1018,95,908"/>
+<area shape="rect" id="Node000027" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#ad1370fc9c5c660d93c6ff2728f0b3f75" title="Do the rectangles a and b overlap." alt="" coords="275,1545,419,1585"/>
+<area shape="poly" id="edge33_Node000001_Node000027" title=" " alt="" coords="100,907,111,1026,136,1214,154,1314,176,1406,203,1481,218,1510,234,1531,248,1543,264,1551,261,1556,245,1547,230,1535,213,1513,198,1483,171,1407,149,1315,130,1215,105,1026,94,908"/>
+<area shape="rect" id="Node000028" href="$d3/d76/classgalaxy_1_1math_1_1RectPack.html#ac89a343b4c701d972f55b5f044b612d4" title="Pack a rectangle into the master rectangle." alt="" coords="260,1609,435,1649"/>
+<area shape="poly" id="edge34_Node000001_Node000028" title=" " alt="" coords="99,907,109,1037,132,1244,150,1354,173,1456,201,1540,217,1572,234,1596,249,1608,246,1612,230,1599,212,1574,196,1542,168,1457,145,1355,127,1245,103,1037,94,908"/>
+<area shape="rect" id="Node000029" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="232,1674,463,1699"/>
+<area shape="poly" id="edge35_Node000001_Node000029" title=" " alt="" coords="99,907,106,1048,127,1275,144,1396,168,1507,197,1599,215,1634,234,1660,239,1664,235,1668,230,1663,210,1636,192,1601,162,1509,139,1397,122,1276,101,1048,94,908"/>
+<area shape="rect" id="Node000030" href="$d5/dcc/classgalaxy_1_1math_1_1Rect.html#a8efd85ec3b45feef33b64781077949fc" title="Set the top&#45;left position." alt="" coords="275,1724,419,1764"/>
+<area shape="poly" id="edge36_Node000001_Node000030" title=" " alt="" coords="99,908,105,1056,125,1298,143,1427,166,1546,196,1644,214,1682,234,1710,248,1722,264,1730,261,1735,245,1726,230,1714,210,1685,191,1646,161,1547,138,1428,120,1299,100,1056,94,908"/>
+<area shape="poly" id="edge10_Node000010_Node000010" title=" " alt="" coords="307,517,298,507,302,497,319,491,347,489,383,493,393,497,397,503,392,506,389,501,381,498,347,494,320,496,306,501,303,506,311,513"/>
+<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="307,590,298,580,302,570,319,564,347,562,383,566,393,571,397,576,392,579,389,575,381,571,347,567,320,569,306,574,303,580,311,587"/>
+<area shape="poly" id="edge15_Node000013_Node000012" title=" " alt="" coords="432,762,497,755,497,760,432,767"/>
+<area shape="poly" id="edge17_Node000014_Node000012" title=" " alt="" coords="424,815,462,803,568,761,570,766,464,808,426,820"/>
+<area shape="poly" id="edge19_Node000015_Node000012" title=" " alt="" coords="410,676,560,726,558,731,408,681"/>
+<area shape="poly" id="edge30_Node000025_Node000016" title=" " alt="" coords="419,1123,462,1109,552,1074,554,1079,464,1115,420,1128"/>
+<area shape="poly" id="edge31_Node000025_Node000020" title=" " alt="" coords="420,1160,464,1173,555,1210,553,1215,462,1179,419,1165"/>
 </map>

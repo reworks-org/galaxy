@@ -1,6 +1,5 @@
 var Concepts_8hpp =
 [
-    [ "galaxy::meta::convertable_only_to< T >", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to" ],
     [ "galaxy::meta::is_class", "d0/d17/conceptgalaxy_1_1meta_1_1is__class.html", null ],
     [ "galaxy::meta::not_memory", "d8/d0b/conceptgalaxy_1_1meta_1_1not__memory.html", null ],
     [ "galaxy::meta::is_arithmetic", "db/dc5/conceptgalaxy_1_1meta_1_1is__arithmetic.html", null ],

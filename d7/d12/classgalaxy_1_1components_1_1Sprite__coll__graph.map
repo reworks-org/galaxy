@@ -16,10 +16,10 @@
 <area shape="poly" id="edge14_Node000013_Node000007" title=" " alt="" coords="483,207,461,223,443,244,426,276,415,311,404,384,404,452,411,508,405,509,399,453,399,383,410,310,422,274,438,241,457,219,480,203"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="540,5,563,71"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="554,71,554,127,549,127,549,71"/>
-<area shape="rect" id="Node000009" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="Standard opengl texture." alt="" coords="710,931,905,1217"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="742,1219,700,1286,632,1369,562,1443,558,1440,628,1366,696,1282,738,1216"/>
+<area shape="rect" id="Node000009" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="Standard opengl texture." alt="" coords="710,951,905,1197"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="753,1198,700,1286,632,1369,562,1443,558,1440,628,1366,696,1282,749,1195"/>
 <area shape="rect" id="Node000010" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture." alt="" coords="715,296,891,801"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="808,815,809,931,804,931,803,815"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="808,815,809,951,804,951,803,815"/>
 <area shape="rect" id="Node000011" title=" " alt="" coords="937,1041,1016,1107"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="978,1107,973,1146,963,1193,945,1242,919,1286,881,1326,839,1363,793,1395,745,1424,650,1469,564,1501,562,1496,648,1464,743,1419,790,1391,836,1359,878,1323,915,1282,941,1239,958,1192,968,1145,972,1106"/>
 <area shape="rect" id="Node000012" title=" " alt="" coords="915,509,1046,589"/>

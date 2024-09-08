@@ -11,7 +11,6 @@ var annotated_dup =
         [ "Point", "d4/d0e/classgalaxy_1_1components_1_1Point.html", "d4/d0e/classgalaxy_1_1components_1_1Point" ],
         [ "Polygon", "d0/dbe/classgalaxy_1_1components_1_1Polygon.html", "d0/dbe/classgalaxy_1_1components_1_1Polygon" ],
         [ "Polyline", "dd/d2d/classgalaxy_1_1components_1_1Polyline.html", "dd/d2d/classgalaxy_1_1components_1_1Polyline" ],
-        [ "RenderCommand", "d6/db5/classgalaxy_1_1components_1_1RenderCommand.html", "d6/db5/classgalaxy_1_1components_1_1RenderCommand" ],
         [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
         [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
         [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
@@ -128,7 +127,6 @@ var annotated_dup =
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
       ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
-        [ "convertable_only_to", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to.html", "d2/d19/structgalaxy_1_1meta_1_1convertable__only__to" ],
         [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
       ] ],
       [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [

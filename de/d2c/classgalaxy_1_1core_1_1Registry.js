@@ -1,6 +1,6 @@
 var classgalaxy_1_1core_1_1Registry =
 [
-    [ "B2BodyConstruction", "de/d2c/classgalaxy_1_1core_1_1Registry.html#ad3515d22a6df50fb64a5daee936c7f96", null ],
+    [ "B2BodyConstruction", "de/d2c/classgalaxy_1_1core_1_1Registry.html#a73f52afd480c2dd31bf7533a9091e0c2", null ],
     [ "Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html#aacc103a7649d64b0e8975cada3750c1f", null ],
     [ "Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html#a18605a7b04fbf835e7d275e2efd57048", null ],
     [ "~Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html#a6462c6c08376fa3a6bc053b90e07b584", null ],
@@ -20,7 +20,6 @@ var classgalaxy_1_1core_1_1Registry =
     [ "destruct_nui", "de/d2c/classgalaxy_1_1core_1_1Registry.html#a20b4a5ffd50bb0f4687e6437fecee561", null ],
     [ "enable_entity", "de/d2c/classgalaxy_1_1core_1_1Registry.html#a80aba122170ee5bdab5877b5f46ac9bb", null ],
     [ "disable_entity", "de/d2c/classgalaxy_1_1core_1_1Registry.html#a362641d71c6340e1419d64b91789bcda", null ],
-    [ "construct_rendercommand", "de/d2c/classgalaxy_1_1core_1_1Registry.html#acc9fe699f6bc1fcd4bd3bbabe73672ad", null ],
     [ "m_entt", "de/d2c/classgalaxy_1_1core_1_1Registry.html#af090fac31c9d4042dd5eaeb64eae5274", null ],
     [ "m_bodies_to_construct", "de/d2c/classgalaxy_1_1core_1_1Registry.html#ae20920045b4a384573a87eaeb52061dd", null ]
 ];

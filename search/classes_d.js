@@ -2,7 +2,7 @@ var searchData=
 [
   ['scene_0',['Scene',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html',1,'galaxy::scene']]],
   ['scenemanager_1',['SceneManager',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html',1,'galaxy::scene']]],
-  ['script_2',['script',['../db/d40/classgalaxy_1_1components_1_1Script.html',1,'galaxy::components::Script'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html',1,'galaxy::lua::Script']]],
+  ['script_2',['Script',['../db/d40/classgalaxy_1_1components_1_1Script.html',1,'galaxy::components::Script'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html',1,'galaxy::lua::Script']]],
   ['scriptsystem_3',['ScriptSystem',['../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html',1,'galaxy::systems']]],
   ['serializable_4',['Serializable',['../d2/d54/classgalaxy_1_1fs_1_1Serializable.html',1,'galaxy::fs']]],
   ['serializationdata_5',['SerializationData',['../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html',1,'galaxy::meta::EntityMeta']]],

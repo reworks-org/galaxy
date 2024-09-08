@@ -1,13 +1,17 @@
 <map id="galaxy::graphics::Colour::vec4" name="galaxy::graphics::Colour::vec4">
-<area shape="rect" id="Node000001" title="Get vec4." alt="" coords="268,133,447,173"/>
-<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#acc9fe699f6bc1fcd4bd3bbabe73672ad" title="Adds a renderable object to the registry." alt="" coords="11,5,215,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,127,274,92,219,60,190,48,192,43,221,55,276,88,323,122"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af7ef3204ccfa4602c6a27253150e3295" title="Set clear colour." alt="" coords="5,69,220,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="266,132,189,112,190,107,268,127"/>
-<area shape="rect" id="Node000004" href="$db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736" title=" " alt="" coords="5,133,220,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="254,156,220,156,220,151,254,151"/>
-<area shape="rect" id="Node000005" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="15,197,210,237"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="268,179,190,200,189,195,266,174"/>
-<area shape="rect" id="Node000006" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="15,261,210,301"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="323,184,276,219,221,252,192,264,190,259,219,247,274,215,320,180"/>
+<area shape="rect" id="Node000001" title="Get vec4." alt="" coords="775,127,953,167"/>
+<area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71" title=" " alt="" coords="522,13,717,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="828,120,781,85,726,53,690,41,692,36,728,48,784,80,831,115"/>
+<area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af7ef3204ccfa4602c6a27253150e3295" title="Set clear colour." alt="" coords="512,63,727,103"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="773,126,696,105,697,100,774,121"/>
+<area shape="rect" id="Node000006" href="$db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736" title=" " alt="" coords="512,127,727,167"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="761,149,727,149,727,144,761,144"/>
+<area shape="rect" id="Node000007" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="522,191,717,231"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="774,173,697,193,696,188,773,168"/>
+<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="522,255,717,295"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="830,178,783,212,728,245,699,257,697,252,725,240,780,208,827,173"/>
+<area shape="rect" id="Node000003" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="284,5,464,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="508,28,464,28,464,23,508,23"/>
+<area shape="rect" id="Node000004" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="270,28,236,28,236,23,270,23"/>
 </map>

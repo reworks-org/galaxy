@@ -37,7 +37,7 @@ var searchData=
   ['galaxy_5fmin_5fcamera_5fzoom_34',['GALAXY_MIN_CAMERA_ZOOM',['../d5/d64/Globals_8hpp.html#afc07e5528fc7b4c2bb70298680c56b2f',1,'Globals.hpp']]],
   ['galaxy_5fmusic_5fdir_35',['GALAXY_MUSIC_DIR',['../d5/d64/Globals_8hpp.html#ae28c665f8250a7851e3cdd543a1cd662',1,'Globals.hpp']]],
   ['galaxy_5fprefabs_5fdir_36',['GALAXY_PREFABS_DIR',['../d5/d64/Globals_8hpp.html#ae49fe5cc91c8dee17f399bf770c8ffb0',1,'Globals.hpp']]],
-  ['galaxy_5frestart_37',['GALAXY_RESTART',['../d5/d64/Globals_8hpp.html#aaf42a6f59bc131363f8bbd0a3482cfd9',1,'Globals.hpp']]],
+  ['galaxy_5frendercommand_5finitial_5fallocs_37',['GALAXY_RENDERCOMMAND_INITIAL_ALLOCS',['../d5/d64/Globals_8hpp.html#afd65f2dd1378090ce37d9a44bb540983',1,'Globals.hpp']]],
   ['galaxy_5froot_5fdir_38',['GALAXY_ROOT_DIR',['../d5/d64/Globals_8hpp.html#a85578f94dab36071859e17e9f5aa0ba8',1,'Globals.hpp']]],
   ['galaxy_5fscript_5fdir_39',['GALAXY_SCRIPT_DIR',['../d5/d64/Globals_8hpp.html#a2ef3605a806655843baf2da5b1b2d51c',1,'Globals.hpp']]],
   ['galaxy_5fsfx_5fdir_40',['GALAXY_SFX_DIR',['../d5/d64/Globals_8hpp.html#a051695d7c2a32b1a2537b7c52a8d834c',1,'Globals.hpp']]],

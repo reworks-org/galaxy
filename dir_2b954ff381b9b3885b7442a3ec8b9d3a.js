@@ -12,8 +12,6 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "Polygon.hpp", "d6/d20/components_2Polygon_8hpp.html", "d6/d20/components_2Polygon_8hpp" ],
     [ "Polyline.cpp", "dd/df9/components_2Polyline_8cpp.html", null ],
     [ "Polyline.hpp", "d4/da7/components_2Polyline_8hpp.html", "d4/da7/components_2Polyline_8hpp" ],
-    [ "RenderCommand.cpp", "d1/dd1/components_2RenderCommand_8cpp.html", null ],
-    [ "RenderCommand.hpp", "da/d11/components_2RenderCommand_8hpp.html", "da/d11/components_2RenderCommand_8hpp" ],
     [ "RigidBody.cpp", "db/d7e/RigidBody_8cpp.html", null ],
     [ "RigidBody.hpp", "d3/def/RigidBody_8hpp.html", "d3/def/RigidBody_8hpp" ],
     [ "Script.cpp", "de/df5/components_2Script_8cpp.html", null ],

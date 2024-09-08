@@ -1,9 +1,0 @@
-<map id="galaxy::components::RenderCommand" name="galaxy::components::RenderCommand">
-<area shape="rect" id="Node000001" title="Controls how an entity should be rendered." alt="" coords="63,476,226,716"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,241,167,406"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,419,121,475,116,476,104,420"/>
-<area shape="rect" id="Node000003" href="$d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html" title="Data to be passed to the renderer." alt="" coords="191,233,365,413"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,415,213,462,208,460,232,412"/>
-<area shape="rect" id="Node000004" href="$de/df1/structgalaxy_1_1graphics_1_1RenderData.html" title="Uniform data passed to shader from entity." alt="" coords="175,5,381,171"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,171,281,217,275,217,275,171"/>
-</map>

@@ -1,15 +1,13 @@
 <map id="galaxy::resource::Cache::load_folder" name="galaxy::resource::Cache::load_folder">
-<area shape="rect" id="Node000001" title="Load resources of a specific type." alt="" coords="5,69,183,109"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a0d82589d0227945ced2656854b671a36" title="Destroy resources." alt="" coords="257,5,435,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,67,253,46,254,51,174,72"/>
-<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="257,69,435,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,87,244,87,244,92,183,92"/>
-<area shape="rect" id="Node000006" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="231,134,461,159"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="180,107,231,119,274,128,273,134,230,124,179,112"/>
-<area shape="rect" id="Node000004" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="509,69,687,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="435,87,496,87,496,92,435,92"/>
-<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="556,70,554,60,560,50,575,45,598,43,624,46,638,53,636,58,623,51,598,48,576,50,564,55,559,61,561,68"/>
-<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="735,77,909,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="687,87,721,87,721,92,687,92"/>
-<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="785,78,778,68,782,58,797,52,822,50,854,54,866,63,862,67,852,59,822,55,798,57,785,62,783,68,790,75"/>
+<area shape="rect" id="Node000001" title="Load resources of a specific type." alt="" coords="5,37,183,77"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a0d82589d0227945ced2656854b671a36" title="Destroy resources." alt="" coords="231,5,408,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,42,217,37,218,42,183,47"/>
+<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="231,69,408,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,67,218,72,217,77,182,73"/>
+<area shape="rect" id="Node000004" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="456,69,633,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="408,87,442,87,442,92,408,92"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="503,70,500,60,507,50,522,45,545,43,571,46,585,53,583,58,569,51,545,48,523,50,510,55,505,61,508,68"/>
+<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="681,77,856,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="633,87,668,87,668,92,633,92"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="732,78,724,68,728,58,744,52,769,50,800,54,812,63,809,67,798,59,769,55,745,57,732,62,729,68,736,75"/>
 </map>
