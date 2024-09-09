@@ -1,1 +1,0 @@
-start "../../../tools/blink/bin/Release/blink.exe" "supercluster.exe"
