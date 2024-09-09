@@ -534,7 +534,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/dense/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/imgui;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/mimalloc/include;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/SFML/include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/zip/src;$(SolutionDir)galaxy/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua/src;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -548,7 +548,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)lib\SFML\lib\flac.lib;$(SolutionDir)lib\SFML\lib\freetype.lib;$(SolutionDir)lib\SFML\lib\ogg.lib;$(SolutionDir)lib\SFML\lib\openal32.lib;$(SolutionDir)lib\SFML\lib\vorbis.lib;$(SolutionDir)lib\SFML\lib\vorbisenc.lib;$(SolutionDir)lib\SFML\lib\vorbisfile.lib;$(SolutionDir)lib\SFML\lib\sfml-main-d.lib;$(SolutionDir)lib\SFML\lib\sfml-audio-s-d.lib;$(SolutionDir)lib\SFML\lib\sfml-graphics-s-d.lib;$(SolutionDir)lib\SFML\lib\sfml-network-s-d.lib;$(SolutionDir)lib\SFML\lib\sfml-system-s-d.lib;$(SolutionDir)lib\SFML\lib\sfml-window-s-d.lib</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps\SFML\lib\flac.lib;$(SolutionDir)deps\SFML\lib\freetype.lib;$(SolutionDir)deps\SFML\lib\ogg.lib;$(SolutionDir)deps\SFML\lib\openal32.lib;$(SolutionDir)deps\SFML\lib\vorbis.lib;$(SolutionDir)deps\SFML\lib\vorbisenc.lib;$(SolutionDir)deps\SFML\lib\vorbisfile.lib;$(SolutionDir)deps\SFML\lib\sfml-main-d.lib;$(SolutionDir)deps\SFML\lib\sfml-audio-s-d.lib;$(SolutionDir)deps\SFML\lib\sfml-graphics-s-d.lib;$(SolutionDir)deps\SFML\lib\sfml-network-s-d.lib;$(SolutionDir)deps\SFML\lib\sfml-system-s-d.lib;$(SolutionDir)deps\SFML\lib\sfml-window-s-d.lib</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -591,7 +591,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/box2d/include;$(SolutionDir)lib/dense/include;$(SolutionDir)lib/entt/src;$(SolutionDir)lib/imgui;$(SolutionDir)lib/json/include;$(SolutionDir)lib/lua/src;$(SolutionDir)lib/magic_enum/include;$(SolutionDir)lib/mimalloc/include;$(SolutionDir)lib/physfs/src;$(SolutionDir)lib/SFML/include;$(SolutionDir)lib/sol3/include;$(SolutionDir)lib/threadpool/include;$(SolutionDir)lib/zip/src;$(SolutionDir)galaxy/src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua/src;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -606,7 +606,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)lib\SFML\lib\flac.lib;$(SolutionDir)lib\SFML\lib\freetype.lib;$(SolutionDir)lib\SFML\lib\ogg.lib;$(SolutionDir)lib\SFML\lib\openal32.lib;$(SolutionDir)lib\SFML\lib\vorbis.lib;$(SolutionDir)lib\SFML\lib\vorbisenc.lib;$(SolutionDir)lib\SFML\lib\vorbisfile.lib;$(SolutionDir)lib\SFML\lib\sfml-main.lib;$(SolutionDir)lib\SFML\lib\sfml-audio-s.lib;$(SolutionDir)lib\SFML\lib\sfml-graphics-s.lib;$(SolutionDir)lib\SFML\lib\sfml-network-s.lib;$(SolutionDir)lib\SFML\lib\sfml-system-s.lib;$(SolutionDir)lib\SFML\lib\sfml-window-s.lib</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps\SFML\lib\flac.lib;$(SolutionDir)deps\SFML\lib\freetype.lib;$(SolutionDir)deps\SFML\lib\ogg.lib;$(SolutionDir)deps\SFML\lib\openal32.lib;$(SolutionDir)deps\SFML\lib\vorbis.lib;$(SolutionDir)deps\SFML\lib\vorbisenc.lib;$(SolutionDir)deps\SFML\lib\vorbisfile.lib;$(SolutionDir)deps\SFML\lib\sfml-main.lib;$(SolutionDir)deps\SFML\lib\sfml-audio-s.lib;$(SolutionDir)deps\SFML\lib\sfml-graphics-s.lib;$(SolutionDir)deps\SFML\lib\sfml-network-s.lib;$(SolutionDir)deps\SFML\lib\sfml-system-s.lib;$(SolutionDir)deps\SFML\lib\sfml-window-s.lib</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
