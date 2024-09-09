@@ -31,3 +31,9 @@
 [submodule "lib/box2d"]
 	path = deps/box2d
 	url = https://github.com/erincatto/box2d.git
+[submodule "deps/tinyfiledialogs"]
+	path = deps/tinyfiledialogs
+	url = https://git.code.sf.net/p/tinyfiledialogs/code
+[submodule "deps/subprocess"]
+	path = deps/subprocess
+	url = https://github.com/sheredom/subprocess.h.git
