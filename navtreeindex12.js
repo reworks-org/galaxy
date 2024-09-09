@@ -143,6 +143,8 @@ var NAVTREEINDEX12 =
 "db/d4b/Fonts_8cpp_source.html":[3,0,0,0,0,14,5],
 "db/d4c/Tag_8cpp.html":[3,0,0,0,0,1,18],
 "db/d4c/Tag_8cpp_source.html":[3,0,0,0,0,1,18],
+"db/d4f/MemAlloc_8cpp.html":[3,0,0,0,0,21],
+"db/d4f/MemAlloc_8cpp_source.html":[3,0,0,0,0,21],
 "db/d51/components_2Circle_8hpp.html":[3,0,0,0,0,1,3],
 "db/d51/components_2Circle_8hpp_source.html":[3,0,0,0,0,1,3],
 "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html":[0,0,0,23],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "db/dab/namespacegalaxy_1_1graphics.html#a347d8a5b45d7013ed1c153257377590e":[0,0,0,7,47],
 "db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736":[0,0,0,7,51],
 "db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0":[0,0,0,7,52],
-"db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aa":[0,0,0,7,43],
-"db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaa2ca5e5f343aeb8dea3bc466ba43ee783":[0,0,0,7,43,1],
-"db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaaad135772d7cf93dd0ccf9d2474b34e6a":[0,0,0,7,43,0]
+"db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aa":[0,0,0,7,43]
 };

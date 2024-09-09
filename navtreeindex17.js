@@ -1,5 +1,7 @@
 var NAVTREEINDEX17 =
 {
+"de/d18/classgalaxy_1_1error_1_1FileSink.html":[2,0,0,3,1],
+"de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f":[0,0,0,3,1,0],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f":[2,0,0,3,1,0],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a34d9758ddf3f1f9640b73495428d1d5c":[0,0,0,3,1,1],
 "de/d18/classgalaxy_1_1error_1_1FileSink.html#a34d9758ddf3f1f9640b73495428d1d5c":[2,0,0,3,1,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX17 =
 "df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960":[0,0,0,11,0,10],
 "df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960":[2,0,0,10,0,10],
 "df/d2b/classgalaxy_1_1map_1_1Map.html#a182c09df17e695a7f74e7738c1a7c56d":[0,0,0,11,0,3],
-"df/d2b/classgalaxy_1_1map_1_1Map.html#a182c09df17e695a7f74e7738c1a7c56d":[2,0,0,10,0,3],
-"df/d2b/classgalaxy_1_1map_1_1Map.html#a3bddd72676276cab2f9d9eb2cc01f62a":[0,0,0,11,0,0],
-"df/d2b/classgalaxy_1_1map_1_1Map.html#a3bddd72676276cab2f9d9eb2cc01f62a":[2,0,0,10,0,0]
+"df/d2b/classgalaxy_1_1map_1_1Map.html#a182c09df17e695a7f74e7738c1a7c56d":[2,0,0,10,0,3]
 };

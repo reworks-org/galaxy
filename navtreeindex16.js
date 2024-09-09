@@ -1,5 +1,7 @@
 var NAVTREEINDEX16 =
 {
+"dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a993863c86f35cb23970b12057cf742b5":[2,0,0,7,12,11],
+"dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ab656ebc49de966239daf7b3471beedcf":[0,0,0,7,12,6],
 "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ab656ebc49de966239daf7b3471beedcf":[2,0,0,7,12,6],
 "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886":[0,0,0,7,12,1],
 "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886":[2,0,0,7,12,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX16 =
 "de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc":[0,0,0,10,14],
 "de/d15/Scene_8cpp.html":[3,0,0,0,0,15,0],
 "de/d15/Scene_8cpp_source.html":[3,0,0,0,0,15,0],
-"de/d18/classgalaxy_1_1error_1_1FileSink.html":[0,0,0,3,1],
-"de/d18/classgalaxy_1_1error_1_1FileSink.html":[2,0,0,3,1],
-"de/d18/classgalaxy_1_1error_1_1FileSink.html#a0ecff2d7ba65815168cb393337b9560f":[0,0,0,3,1,0]
+"de/d18/classgalaxy_1_1error_1_1FileSink.html":[0,0,0,3,1]
 };
