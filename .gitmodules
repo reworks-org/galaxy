@@ -1,30 +1,33 @@
-[submodule "lib/sol3"]
-	path = lib/sol3
+[submodule "deps/sol3"]
+	path = deps/sol3
 	url = https://github.com/ThePhD/sol2.git
-[submodule "lib/magic_enum"]
-	path = lib/magic_enum
+[submodule "deps/magic_enum"]
+	path = deps/magic_enum
 	url = https://github.com/Neargye/magic_enum.git
-[submodule "lib/json"]
-	path = lib/json
+[submodule "deps/json"]
+	path = deps/json
 	url = https://github.com/nlohmann/json.git
-[submodule "lib/threadpool"]
-	path = lib/threadpool
+[submodule "deps/threadpool"]
+	path = deps/threadpool
 	url = https://github.com/bshoshany/thread-pool.git
-[submodule "lib/mimalloc"]
-	path = lib/mimalloc
+[submodule "deps/mimalloc"]
+	path = deps/mimalloc
 	url = https://github.com/microsoft/mimalloc.git
-[submodule "lib/zip"]
-	path = lib/zip
+[submodule "deps/zip"]
+	path = deps/zip
 	url = https://github.com/kuba--/zip.git
-[submodule "lib/box2d"]
-	path = lib/box2d
+[submodule "deps/box2d"]
+	path = deps/box2d
 	url = https://github.com/erincatto/box2d.git
-[submodule "lib/physfs"]
-	path = lib/physfs
+[submodule "deps/physfs"]
+	path = deps/physfs
 	url = https://github.com/icculus/physfs.git
-[submodule "lib/entt"]
-	path = lib/entt
+[submodule "deps/entt"]
+	path = deps/entt
 	url = https://github.com/skypjack/entt.git
-[submodule "lib/dense"]
-	path = lib/dense
+[submodule "deps/dense"]
+	path = deps/dense
 	url = https://github.com/martinus/unordered_dense.git
+[submodule "lib/SFML"]
+	path = lib/SFML
+	url = https://github.com/SFML/SFML.git
