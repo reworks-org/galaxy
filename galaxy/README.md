@@ -1,3 +1,3 @@
-# Galaxy
+# galaxy
 
-This is the core application programming interface.
+Main API is here.

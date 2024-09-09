@@ -1,6 +1,6 @@
 ///
 /// main.cpp
-/// supercluster
+/// sandbox
 ///
 /// Refer to LICENSE.txt for more details.
 ///
