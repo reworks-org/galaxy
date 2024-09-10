@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class ConsoleSink final : public Sink
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///

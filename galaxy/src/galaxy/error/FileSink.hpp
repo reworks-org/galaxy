@@ -18,7 +18,7 @@ namespace galaxy
 	{
 		class FileSink final : public Sink
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -38,7 +38,7 @@ namespace galaxy
 			///
 			void sink_message(const LogMessage& message) override;
 
-		  private:
+		private:
 			///
 			/// File stream to write to.
 			///

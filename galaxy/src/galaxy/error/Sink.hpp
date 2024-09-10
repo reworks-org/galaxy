@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Sink
 		{
-		  public:
+		public:
 			///
 			/// Virtual destructor.
 			///
@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			virtual void sink_message(const LogMessage& message) = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///

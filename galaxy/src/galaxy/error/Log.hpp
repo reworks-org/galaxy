@@ -9,13 +9,13 @@
 #define GALAXY_ERROR_LOG_HPP_
 
 #include <filesystem>
-#include <source_location>
 #include <stacktrace>
+#include <source_location>
 
 #include <magic_enum/magic_enum.hpp>
 
-#include "galaxy/error/LogLevel.hpp"
 #include "galaxy/error/Sink.hpp"
+#include "galaxy/error/LogLevel.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
 #define GALAXY_INFO                     galaxy::error::LogLevel::INFO
@@ -39,7 +39,7 @@ namespace galaxy
 		///
 		class Log final
 		{
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -50,7 +50,8 @@ namespace galaxy
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[nodiscard]] static Log& ref();
+			[[nodiscard]]
+			static Log& ref();
 
 			///
 			/// Cleanup any static resources.
@@ -68,7 +69,8 @@ namespace galaxy
 			/// \return A pointer to the newly created sink.
 			///
 			template<std::derived_from<Sink> SinkTo, typename... Args>
-			[[maybe_unused]] SinkTo& add_sink(Args&&... args);
+			[[maybe_unused]]
+			SinkTo& add_sink(Args&&... args);
 
 			///
 			/// \brief Set a minimum log level.
@@ -93,7 +95,7 @@ namespace galaxy
 			template<LogLevel level, typename... MsgInputs>
 			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -119,7 +121,7 @@ namespace galaxy
 			///
 			Log& operator=(Log&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Minimum level for a message to be logged.
 			///

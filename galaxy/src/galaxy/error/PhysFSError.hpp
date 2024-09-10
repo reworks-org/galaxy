@@ -19,7 +19,8 @@ namespace galaxy
 		///
 		/// \return True if function call succeeded.
 		///
-		[[maybe_unused]] bool physfs_check(const int code);
+		[[maybe_unused]]
+		bool physfs_check(const int code);
 
 		///
 		/// Call a physfs function with error handling and logs a message for you.
@@ -28,7 +29,8 @@ namespace galaxy
 		///
 		/// \return True if function call succeeded.
 		///
-		[[maybe_unused]] bool physfs_check(void* ptr);
+		[[maybe_unused]]
+		bool physfs_check(void* ptr);
 	} // namespace error
 } // namespace galaxy
 
