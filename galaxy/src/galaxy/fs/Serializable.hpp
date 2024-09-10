@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Serializable
 		{
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -44,7 +44,8 @@ namespace galaxy
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] virtual nlohmann::json serialize() = 0;
+			[[nodiscard]]
+			virtual nlohmann::json serialize() = 0;
 
 			///
 			/// Deserializes from object.
@@ -53,7 +54,7 @@ namespace galaxy
 			///
 			virtual void deserialize(const nlohmann::json& json) = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///

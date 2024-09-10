@@ -12,8 +12,8 @@
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/Log.hpp"
-#include "galaxy/error/PhysFSError.hpp"
+#include "galaxy/logging/Log.hpp"
+#include "galaxy/logging/PhysFSError.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
 #include "VirtualFileSystem.hpp"
@@ -243,7 +243,8 @@ namespace galaxy
 
 					return PHYSFS_ENUM_OK;
 				},
-				&list));
+				&list
+			));
 
 			return list;
 		}
@@ -259,8 +260,7 @@ namespace galaxy
 			tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
 		}
 
-		int
-		VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn)
+		int VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn)
 		{
 			std::string tinyfd_type {magic_enum::enum_name(type)};
 			std::string tinyfd_icon {magic_enum::enum_name(icon)};
@@ -277,7 +277,7 @@ namespace galaxy
 		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
 		{
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char* result = tinyfd_saveFileDialog("Save file", default_filename.c_str(), static_cast<int>(filters.size()), filter_patterns, nullptr);
+			const char*        result          = tinyfd_saveFileDialog("Save file", default_filename.c_str(), static_cast<int>(filters.size()), filter_patterns, nullptr);
 
 			if (result != nullptr)
 			{
@@ -294,8 +294,7 @@ namespace galaxy
 			const auto default_path = (GALAXY_ROOT_DIR / def_path).string();
 
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char*        result =
-				tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
+			const char*        result = tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
 
 			if (result != nullptr)
 			{
