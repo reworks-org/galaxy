@@ -20,7 +20,7 @@ AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
 AlignConsecutiveShortCaseStatements:
   Enabled: true
-  AcrossEmptyLines: true
+  AcrossEmptyLines: false
   AcrossComments: true
   AlignCaseColons: false
 BinPackArguments: false
@@ -140,28 +140,28 @@ SpacesInLineCommentPrefix:
   Maximum: 1
 AlignConsecutiveAssignments:
   Enabled: true
-  AcrossEmptyLines: true
+  AcrossEmptyLines: false
   AcrossComments: true
   AlignCompound: true
   PadOperators: true
   AlignFunctionPointers: true
 AlignConsecutiveBitFields:
   Enabled: true
-  AcrossEmptyLines: true
+  AcrossEmptyLines: false
   AcrossComments: true
   AlignCompound: true
   PadOperators: true
   AlignFunctionPointers: true
 AlignConsecutiveDeclarations:
   Enabled: true
-  AcrossEmptyLines: true
+  AcrossEmptyLines: false
   AcrossComments: true
   AlignCompound: true
   PadOperators: true
   AlignFunctionPointers: true
 AlignConsecutiveMacros:
   Enabled: true
-  AcrossEmptyLines: true
+  AcrossEmptyLines: false
   AcrossComments: true
   AlignCompound: true
   PadOperators: true
@@ -175,9 +175,9 @@ SkipMacroDefinitionBody: true
 AccessModifierOffset: -4
 SpacesInParens: Custom
 SpacesInParensOptions:
-  InConditionalStatements: true
+  InConditionalStatements: false
   InCStyleCasts: false
   InEmptyParentheses: false
-  Other: true
+  Other: false
 LineEnding: LF
 KeepEmptyLinesAtEOF: true

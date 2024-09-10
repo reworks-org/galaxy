@@ -56,38 +56,38 @@
     <ClCompile Include="box2d\src\dynamics\b2_world.cpp" />
     <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
     <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
-    <ClCompile Include="lua\src\lapi.c" />
-    <ClCompile Include="lua\src\lauxlib.c" />
-    <ClCompile Include="lua\src\lbaselib.c" />
-    <ClCompile Include="lua\src\lcode.c" />
-    <ClCompile Include="lua\src\lcorolib.c" />
-    <ClCompile Include="lua\src\lctype.c" />
-    <ClCompile Include="lua\src\ldblib.c" />
-    <ClCompile Include="lua\src\ldebug.c" />
-    <ClCompile Include="lua\src\ldo.c" />
-    <ClCompile Include="lua\src\ldump.c" />
-    <ClCompile Include="lua\src\lfunc.c" />
-    <ClCompile Include="lua\src\lgc.c" />
-    <ClCompile Include="lua\src\linit.c" />
-    <ClCompile Include="lua\src\liolib.c" />
-    <ClCompile Include="lua\src\llex.c" />
-    <ClCompile Include="lua\src\lmathlib.c" />
-    <ClCompile Include="lua\src\lmem.c" />
-    <ClCompile Include="lua\src\loadlib.c" />
-    <ClCompile Include="lua\src\lobject.c" />
-    <ClCompile Include="lua\src\lopcodes.c" />
-    <ClCompile Include="lua\src\loslib.c" />
-    <ClCompile Include="lua\src\lparser.c" />
-    <ClCompile Include="lua\src\lstate.c" />
-    <ClCompile Include="lua\src\lstring.c" />
-    <ClCompile Include="lua\src\lstrlib.c" />
-    <ClCompile Include="lua\src\ltable.c" />
-    <ClCompile Include="lua\src\ltablib.c" />
-    <ClCompile Include="lua\src\ltm.c" />
-    <ClCompile Include="lua\src\lundump.c" />
-    <ClCompile Include="lua\src\lutf8lib.c" />
-    <ClCompile Include="lua\src\lvm.c" />
-    <ClCompile Include="lua\src\lzio.c" />
+    <ClCompile Include="lua\lapi.c" />
+    <ClCompile Include="lua\lauxlib.c" />
+    <ClCompile Include="lua\lbaselib.c" />
+    <ClCompile Include="lua\lcode.c" />
+    <ClCompile Include="lua\lcorolib.c" />
+    <ClCompile Include="lua\lctype.c" />
+    <ClCompile Include="lua\ldblib.c" />
+    <ClCompile Include="lua\ldebug.c" />
+    <ClCompile Include="lua\ldo.c" />
+    <ClCompile Include="lua\ldump.c" />
+    <ClCompile Include="lua\lfunc.c" />
+    <ClCompile Include="lua\lgc.c" />
+    <ClCompile Include="lua\linit.c" />
+    <ClCompile Include="lua\liolib.c" />
+    <ClCompile Include="lua\llex.c" />
+    <ClCompile Include="lua\lmathlib.c" />
+    <ClCompile Include="lua\lmem.c" />
+    <ClCompile Include="lua\loadlib.c" />
+    <ClCompile Include="lua\lobject.c" />
+    <ClCompile Include="lua\lopcodes.c" />
+    <ClCompile Include="lua\loslib.c" />
+    <ClCompile Include="lua\lparser.c" />
+    <ClCompile Include="lua\lstate.c" />
+    <ClCompile Include="lua\lstring.c" />
+    <ClCompile Include="lua\lstrlib.c" />
+    <ClCompile Include="lua\ltable.c" />
+    <ClCompile Include="lua\ltablib.c" />
+    <ClCompile Include="lua\ltm.c" />
+    <ClCompile Include="lua\lundump.c" />
+    <ClCompile Include="lua\lutf8lib.c" />
+    <ClCompile Include="lua\lvm.c" />
+    <ClCompile Include="lua\lzio.c" />
     <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="physfs\src\physfs.c" />
@@ -376,34 +376,34 @@
     <ClInclude Include="json\include\nlohmann\ordered_map.hpp" />
     <ClInclude Include="json\include\nlohmann\thirdparty\hedley\hedley.hpp" />
     <ClInclude Include="json\include\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
-    <ClInclude Include="lua\src\lapi.h" />
-    <ClInclude Include="lua\src\lauxlib.h" />
-    <ClInclude Include="lua\src\lcode.h" />
-    <ClInclude Include="lua\src\lctype.h" />
-    <ClInclude Include="lua\src\ldebug.h" />
-    <ClInclude Include="lua\src\ldo.h" />
-    <ClInclude Include="lua\src\lfunc.h" />
-    <ClInclude Include="lua\src\lgc.h" />
-    <ClInclude Include="lua\src\ljumptab.h" />
-    <ClInclude Include="lua\src\llex.h" />
-    <ClInclude Include="lua\src\llimits.h" />
-    <ClInclude Include="lua\src\lmem.h" />
-    <ClInclude Include="lua\src\lobject.h" />
-    <ClInclude Include="lua\src\lopcodes.h" />
-    <ClInclude Include="lua\src\lopnames.h" />
-    <ClInclude Include="lua\src\lparser.h" />
-    <ClInclude Include="lua\src\lprefix.h" />
-    <ClInclude Include="lua\src\lstate.h" />
-    <ClInclude Include="lua\src\lstring.h" />
-    <ClInclude Include="lua\src\ltable.h" />
-    <ClInclude Include="lua\src\ltm.h" />
-    <ClInclude Include="lua\src\lua.h" />
-    <ClInclude Include="lua\src\lua.hpp" />
-    <ClInclude Include="lua\src\luaconf.h" />
-    <ClInclude Include="lua\src\lualib.h" />
-    <ClInclude Include="lua\src\lundump.h" />
-    <ClInclude Include="lua\src\lvm.h" />
-    <ClInclude Include="lua\src\lzio.h" />
+    <ClInclude Include="lua\lapi.h" />
+    <ClInclude Include="lua\lauxlib.h" />
+    <ClInclude Include="lua\lcode.h" />
+    <ClInclude Include="lua\lctype.h" />
+    <ClInclude Include="lua\ldebug.h" />
+    <ClInclude Include="lua\ldo.h" />
+    <ClInclude Include="lua\lfunc.h" />
+    <ClInclude Include="lua\lgc.h" />
+    <ClInclude Include="lua\ljumptab.h" />
+    <ClInclude Include="lua\llex.h" />
+    <ClInclude Include="lua\llimits.h" />
+    <ClInclude Include="lua\lmem.h" />
+    <ClInclude Include="lua\lobject.h" />
+    <ClInclude Include="lua\lopcodes.h" />
+    <ClInclude Include="lua\lopnames.h" />
+    <ClInclude Include="lua\lparser.h" />
+    <ClInclude Include="lua\lprefix.h" />
+    <ClInclude Include="lua\lstate.h" />
+    <ClInclude Include="lua\lstring.h" />
+    <ClInclude Include="lua\ltable.h" />
+    <ClInclude Include="lua\ltm.h" />
+    <ClInclude Include="lua\lua.h" />
+    <ClInclude Include="lua\lua.hpp" />
+    <ClInclude Include="lua\luaconf.h" />
+    <ClInclude Include="lua\lualib.h" />
+    <ClInclude Include="lua\lundump.h" />
+    <ClInclude Include="lua\lvm.h" />
+    <ClInclude Include="lua\lzio.h" />
     <ClInclude Include="magic_enum\include\magic_enum\magic_enum.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum\magic_enum_all.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum\magic_enum_containers.hpp" />
@@ -801,7 +801,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua/src;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -858,7 +858,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua/src;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
