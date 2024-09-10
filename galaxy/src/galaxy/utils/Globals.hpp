@@ -19,8 +19,7 @@ namespace galaxy
 	{
 		inline static constexpr const std::chrono::duration<double, std::ratio<1, 60>> GALAXY_UPS_VAR {1};
 
-		inline static constexpr const float GALAXY_DT_VAR =
-			static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
+		inline static constexpr const float GALAXY_DT_VAR = static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(GALAXY_UPS_VAR).count()) / 1000.0f;
 
 		inline static bool GALAXY_RESTART_FLAG {false};
 

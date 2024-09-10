@@ -24,7 +24,8 @@ namespace galaxy
 		/// Source: http://stackoverflow.com/a/32907541.
 		///
 		template<typename Type>
-		using conditional_distribution = std::conditional_t<std::is_integral<Type>::value,
+		using conditional_distribution = std::conditional_t<
+			std::is_integral<Type>::value,
 			std::uniform_int_distribution<Type>,
 			std::conditional_t<std::is_floating_point<Type>::value, std::uniform_real_distribution<Type>, void>>;
 
@@ -35,7 +36,7 @@ namespace galaxy
 		///
 		class Random final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -57,7 +58,8 @@ namespace galaxy
 			/// \return Returns number of the same type as inputs.
 			///
 			template<meta::is_arithmetic Type>
-			[[nodiscard]] Type gen(const Type min, const Type max);
+			[[nodiscard]]
+			Type gen(const Type min, const Type max);
 
 			///
 			/// Generate a random vec2.
@@ -67,7 +69,8 @@ namespace galaxy
 			///
 			/// \return Pseudo-randomized vec2.
 			///
-			[[nodiscard]] glm::vec2 gen_vec2(const glm::vec2& min, const glm::vec2& max);
+			[[nodiscard]]
+			glm::vec2 gen_vec2(const glm::vec2& min, const glm::vec2& max);
 
 			///
 			/// Generate a random vec3.
@@ -77,7 +80,8 @@ namespace galaxy
 			///
 			/// \return Pseudo-randomized vec3.
 			///
-			[[nodiscard]] glm::vec3 gen_vec3(const glm::vec3& min, const glm::vec3& max);
+			[[nodiscard]]
+			glm::vec3 gen_vec3(const glm::vec3& min, const glm::vec3& max);
 
 			///
 			/// Generate a random vec4.
@@ -87,9 +91,10 @@ namespace galaxy
 			///
 			/// \return Pseudo-randomized vec4.
 			///
-			[[nodiscard]] glm::vec4 gen_vec4(const glm::vec4& min, const glm::vec4& max);
+			[[nodiscard]]
+			glm::vec4 gen_vec4(const glm::vec4& min, const glm::vec4& max);
 
-		  private:
+		private:
 			///
 			/// Randomizer device.
 			///

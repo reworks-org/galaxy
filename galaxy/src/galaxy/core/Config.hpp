@@ -10,7 +10,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/logging/Log.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
 namespace galaxy
@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class Config final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -115,7 +115,8 @@ namespace galaxy
 			///
 			/// \return True if the value exists.
 			///
-			[[nodiscard]] bool has(const std::string& key);
+			[[nodiscard]]
+			bool has(const std::string& key);
 
 			///
 			/// Check if the config file actually has a value.
@@ -126,7 +127,8 @@ namespace galaxy
 			///
 			/// \return True if the value exists.
 			///
-			[[nodiscard]] bool has(const std::string& key, const std::string& section, const std::string& delim = ".");
+			[[nodiscard]]
+			bool has(const std::string& key, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Retrieve a root config value.
@@ -138,7 +140,8 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] Value get(const std::string& key);
+			[[nodiscard]]
+			Value get(const std::string& key);
 
 			///
 			/// Retrieve a config value in a section.
@@ -152,14 +155,16 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] Value get(const std::string& key, const std::string& section, const std::string& delim = ".");
+			[[nodiscard]]
+			Value get(const std::string& key, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Is the config file blank.
 			///
 			/// \return True if blank.
 			///
-			[[nodiscard]] bool empty() const;
+			[[nodiscard]]
+			bool empty() const;
 
 			///
 			/// Set as external json object.
@@ -173,9 +178,10 @@ namespace galaxy
 			///
 			/// \return Const reference to internal json object.
 			///
-			[[nodiscard]] const nlohmann::json& raw() const;
+			[[nodiscard]]
+			const nlohmann::json& raw() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -196,7 +202,7 @@ namespace galaxy
 			///
 			Config& operator=(Config&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Config loaded flag.
 			///

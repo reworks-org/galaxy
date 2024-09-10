@@ -9,10 +9,10 @@
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		Sink::~Sink()
 		{
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy

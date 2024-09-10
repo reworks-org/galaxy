@@ -8,7 +8,7 @@
 #include <mimalloc.h>
 #include <mimalloc-new-delete.h>
 
-int main( int argsc, char* argsv[] )
+int main(int argsc, char* argsv[])
 {
 	mi_version();
 }

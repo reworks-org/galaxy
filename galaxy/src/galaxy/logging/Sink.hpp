@@ -5,14 +5,14 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_SINK_HPP_
-#define GALAXY_ERROR_SINK_HPP_
+#ifndef GALAXY_LOGGING_SINK_HPP_
+#define GALAXY_LOGGING_SINK_HPP_
 
-#include "galaxy/error/LogMessage.hpp"
+#include "galaxy/logging/LogMessage.hpp"
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// \brief A source for log messages to be recorded to.
@@ -60,7 +60,7 @@ namespace galaxy
 			///
 			Sink& operator=(Sink&&) = default;
 		};
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

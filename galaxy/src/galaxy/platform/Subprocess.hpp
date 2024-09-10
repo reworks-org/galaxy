@@ -27,7 +27,7 @@ namespace galaxy
 		///
 		class Subprocess final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -61,7 +61,8 @@ namespace galaxy
 			///
 			/// \return Process exit code. -1 on error.
 			///
-			[[maybe_unused]] int join();
+			[[maybe_unused]]
+			int join();
 
 			///
 			/// Terminate process, killing if alive.
@@ -78,9 +79,10 @@ namespace galaxy
 			///
 			/// \return True if process is alive.
 			///
-			[[nodiscard]] bool alive();
+			[[nodiscard]]
+			bool alive();
 
-		  private:
+		private:
 			///
 			/// Process information and handles.
 			///

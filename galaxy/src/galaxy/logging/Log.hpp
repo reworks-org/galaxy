@@ -5,32 +5,32 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_LOG_HPP_
-#define GALAXY_ERROR_LOG_HPP_
+#ifndef GALAXY_LOGGING_LOG_HPP_
+#define GALAXY_LOGGING_LOG_HPP_
 
 #include <filesystem>
-#include <stacktrace>
 #include <source_location>
+#include <stacktrace>
 
 #include <magic_enum/magic_enum.hpp>
 
-#include "galaxy/error/Sink.hpp"
-#include "galaxy/error/LogLevel.hpp"
+#include "galaxy/logging/LogLevel.hpp"
+#include "galaxy/logging/Sink.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
-#define GALAXY_INFO                     galaxy::error::LogLevel::INFO
-#define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
-#define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
-#define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR
-#define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
-#define GALAXY_LOG_FINISH               galaxy::error::Log::ref().finish
-#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::ref().set_min_level<level>()
-#define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::ref().add_sink<sink>(__VA_ARGS__)
-#define GALAXY_LOG(level, msg, ...)     galaxy::error::Log::ref().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
+#define GALAXY_INFO                     galaxy::logging::LogLevel::INFO
+#define GALAXY_DEBUG                    galaxy::logging::LogLevel::DEBUG
+#define GALAXY_WARNING                  galaxy::logging::LogLevel::WARNING
+#define GALAXY_ERROR                    galaxy::logging::LogLevel::ERROR
+#define GALAXY_FATAL                    galaxy::logging::LogLevel::FATAL
+#define GALAXY_LOG_FINISH               galaxy::logging::Log::ref().finish
+#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::logging::Log::ref().set_min_level<level>()
+#define GALAXY_ADD_SINK(sink, ...)      galaxy::logging::Log::ref().add_sink<sink>(__VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...)     galaxy::logging::Log::ref().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// \brief Log singleton.
@@ -191,7 +191,7 @@ namespace galaxy
 				}
 			}
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

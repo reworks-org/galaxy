@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Guid final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -57,14 +57,16 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& to_string() const;
+			[[nodiscard]]
+			const std::string& to_string() const;
 
 			///
 			/// Check to make sure Guid is not empty.
 			///
 			/// \return True if guid is invalid or empty, usually from a move.
 			///
-			[[nodiscard]] bool is_empty() const;
+			[[nodiscard]]
+			bool is_empty() const;
 
 			///
 			/// Equality comparison.
@@ -73,7 +75,8 @@ namespace galaxy
 			///
 			/// \return True if equal.
 			///
-			[[nodiscard]] bool operator==(const Guid& rhs);
+			[[nodiscard]]
+			bool operator==(const Guid& rhs);
 
 			///
 			/// Inequality comparison.
@@ -82,14 +85,16 @@ namespace galaxy
 			///
 			/// \return True if NOT equal.
 			///
-			[[nodiscard]] bool operator!=(const Guid& rhs);
+			[[nodiscard]]
+			bool operator!=(const Guid& rhs);
 
 			///
 			/// Comparison operator.
 			///
-			[[nodiscard]] auto operator<=>(const Guid&) const = default;
+			[[nodiscard]]
+			auto operator<=>(const Guid&) const = default;
 
-		  private:
+		private:
 			///
 			/// Guid.
 			///

@@ -26,7 +26,7 @@ namespace galaxy
 		template<meta::is_arithmetic Type>
 		class Rect final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -55,7 +55,8 @@ namespace galaxy
 			///
 			/// \return True if contains the point.
 			///
-			[[nodiscard]] bool contains(const Type _x, const Type _y) const;
+			[[nodiscard]]
+			bool contains(const Type _x, const Type _y) const;
 
 			///
 			/// Does the rectangle contain another rectangle.
@@ -64,7 +65,8 @@ namespace galaxy
 			///
 			/// \return Returns true if the rectangle is completely inside, not on the edge.
 			///
-			[[nodiscard]] bool contains(const Rect<Type>& b) const;
+			[[nodiscard]]
+			bool contains(const Rect<Type>& b) const;
 
 			///
 			/// Do the rectangles a and b overlap.
@@ -73,7 +75,8 @@ namespace galaxy
 			///
 			/// \return Returns true if there is an overlap.
 			///
-			[[nodiscard]] bool overlaps(const Rect<Type>& b);
+			[[nodiscard]]
+			bool overlaps(const Rect<Type>& b);
 
 			///
 			/// Do two rectangles intersect.
@@ -82,7 +85,8 @@ namespace galaxy
 			///
 			/// \return True if the rectangles intersect.
 			///
-			[[nodiscard]] bool intersects(const Rect<Type>& b) const;
+			[[nodiscard]]
+			bool intersects(const Rect<Type>& b) const;
 
 			///
 			/// Set the top-left position.
@@ -96,42 +100,48 @@ namespace galaxy
 			///
 			/// \return x + width.
 			///
-			[[nodiscard]] Type get_right() const;
+			[[nodiscard]]
+			Type get_right() const;
 
 			///
 			/// Get bottom left corner.
 			///
 			/// \return y + height.
 			///
-			[[nodiscard]] Type get_bottom() const;
+			[[nodiscard]]
+			Type get_bottom() const;
 
 			///
 			/// Get the upper-left coordinate.
 			///
 			/// \return {x, y}.
 			///
-			[[nodiscard]] glm::vec<2, Type, glm::defaultp> get_top_left() const;
+			[[nodiscard]]
+			glm::vec<2, Type, glm::defaultp> get_top_left() const;
 
 			///
 			/// Gets the center of the rectangle.
 			///
 			/// \return Center point of rectangle.
 			///
-			[[nodiscard]] glm::vec<2, Type, glm::defaultp> get_center() const;
+			[[nodiscard]]
+			glm::vec<2, Type, glm::defaultp> get_center() const;
 
 			///
 			/// Gets width and height of rectangle.
 			///
 			/// \return {width, height}.
 			///
-			[[nodiscard]] glm::vec<2, Type, glm::defaultp> get_size() const;
+			[[nodiscard]]
+			glm::vec<2, Type, glm::defaultp> get_size() const;
 
 			///
 			/// Comparison operator.
 			///
-			[[nodiscard]] auto operator<=>(const Rect&) const = default;
+			[[nodiscard]]
+			auto operator<=>(const Rect&) const = default;
 
-		  public:
+		public:
 			///
 			/// X position.
 			///
@@ -152,7 +162,7 @@ namespace galaxy
 			///
 			Type height;
 
-		  private:
+		private:
 			///
 			/// Private function to determine if value is in range. Inclusive.
 			/// Credits: https://stackoverflow.com/a/306379
@@ -163,7 +173,8 @@ namespace galaxy
 			///
 			/// \return True if value is inbetween min and max. Inclusive.
 			///
-			[[nodiscard]] bool value_in_range(const Type value, const Type min, const Type max);
+			[[nodiscard]]
+			bool value_in_range(const Type value, const Type min, const Type max);
 		};
 
 		///

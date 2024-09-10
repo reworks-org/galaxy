@@ -5,16 +5,16 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_FILESINK_HPP_
-#define GALAXY_ERROR_FILESINK_HPP_
+#ifndef GALAXY_LOGGING_FILESINK_HPP_
+#define GALAXY_LOGGING_FILESINK_HPP_
 
 #include <fstream>
 
-#include "galaxy/error/Sink.hpp"
+#include "galaxy/logging/Sink.hpp"
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		class FileSink final : public Sink
 		{
@@ -44,7 +44,7 @@ namespace galaxy
 			///
 			std::ofstream m_file_stream;
 		};
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

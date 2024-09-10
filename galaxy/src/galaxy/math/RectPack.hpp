@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class RectPack final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -50,7 +50,8 @@ namespace galaxy
 			/// \return Returns the location of the packed rectangle on the master rectangle.
 			///			Otherwise, returns a std::nullopt.
 			///
-			[[nodiscard]] std::optional<iRect> pack(const int width, const int height);
+			[[nodiscard]]
+			std::optional<iRect> pack(const int width, const int height);
 
 			///
 			/// Clear all data.
@@ -62,23 +63,26 @@ namespace galaxy
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_width() const;
+			[[nodiscard]]
+			int get_width() const;
 
 			///
 			/// Get total height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_height() const;
+			[[nodiscard]]
+			int get_height() const;
 
 			///
 			/// Get free rectangles.
 			///
 			/// \return Const meta::vector.
 			///
-			[[nodiscard]] const meta::vector<iRect>& get_free_space() const;
+			[[nodiscard]]
+			const meta::vector<iRect>& get_free_space() const;
 
-		  private:
+		private:
 			///
 			/// The starting width of the rectangle.
 			///

@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class ZLib final
 		{
-		  public:
+		public:
 			///
 			/// ZLib mode to start in.
 			///
@@ -77,7 +77,7 @@ namespace galaxy
 			///
 			std::string decompress(const std::string& input);
 
-		  private:
+		private:
 			///
 			/// ZLib mode.
 			///
@@ -111,7 +111,8 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string encode_zlib(const std::string& input);
+		[[nodiscard]]
+		std::string encode_zlib(const std::string& input);
 
 		///
 		/// Decompresses string into ZLib.
@@ -120,7 +121,8 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string decode_zlib(const std::string& input);
+		[[nodiscard]]
+		std::string decode_zlib(const std::string& input);
 	} // namespace math
 } // namespace galaxy
 

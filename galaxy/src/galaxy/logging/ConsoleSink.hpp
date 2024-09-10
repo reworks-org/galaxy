@@ -5,14 +5,14 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_CONSOLESINK_HPP_
-#define GALAXY_ERROR_CONSOLESINK_HPP_
+#ifndef GALAXY_LOGGING_CONSOLESINK_HPP_
+#define GALAXY_LOGGING_CONSOLESINK_HPP_
 
-#include "galaxy/error/Sink.hpp"
+#include "galaxy/logging/Sink.hpp"
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// Logs a message to the console.
@@ -37,7 +37,7 @@ namespace galaxy
 			///
 			void sink_message(const LogMessage& message) override;
 		};
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

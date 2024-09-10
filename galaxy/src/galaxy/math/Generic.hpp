@@ -28,7 +28,8 @@ namespace galaxy
 		/// \return Normalized float.
 		///
 		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline float normalize(const Type val, const Type max)
+		[[nodiscard]]
+		inline float normalize(const Type val, const Type max)
 		{
 			return (static_cast<float>(val) / static_cast<float>(max));
 		}
@@ -44,7 +45,8 @@ namespace galaxy
 		/// \return True if found.
 		///
 		template<typename Type>
-		[[nodiscard]] inline bool contains(const meta::vector<Type>& cont, const Type& val)
+		[[nodiscard]]
+		inline bool contains(const meta::vector<Type>& cont, const Type& val)
 		{
 			auto out = false;
 			std::for_each(cont.begin(), cont.end(), [&](const Type& var) {

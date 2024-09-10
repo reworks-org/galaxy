@@ -11,7 +11,7 @@ using namespace std::chrono_literals;
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		Log::Log()
 			: m_min_level {LogLevel::INFO}
@@ -34,5 +34,5 @@ namespace galaxy
 			m_min_level = LogLevel::INFO;
 			m_sinks.clear();
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy

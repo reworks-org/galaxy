@@ -24,7 +24,8 @@ namespace galaxy
 		/// \return Returns true when async thread has finished.
 		///
 		template<typename T = void>
-		[[nodiscard]] inline bool is_work_done(const std::future<T>& t)
+		[[nodiscard]]
+		inline bool is_work_done(const std::future<T>& t)
 		{
 			return t.wait_for(0s) == std::future_status::ready;
 		}
