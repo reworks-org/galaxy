@@ -98,8 +98,8 @@ SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles: Never
-SpacesInContainerLiterals: true
-SpacesInSquareBrackets: true
+SpacesInContainerLiterals: false
+SpacesInSquareBrackets: false
 Standard: Latest
 TabWidth: 4
 UseTab: ForContinuationAndIndentation
