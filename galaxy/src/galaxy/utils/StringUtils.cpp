@@ -66,6 +66,7 @@ namespace galaxy
 
 		void ltrim(std::string& input)
 		{
+			// clang-format off
 			input.erase(input.begin(), std::find_if(input.begin(), input.end(), [](const auto ch) {
 				return !std::isspace(ch);
 			}));
@@ -73,7 +74,6 @@ namespace galaxy
 
 		void rtrim(std::string& input)
 		{
-			// clang-format off
 			input.erase(std::find_if(input.rbegin(), input.rend(), [](const auto ch) {
                 return !std::isspace(ch);
 			}).base(), input.end());
