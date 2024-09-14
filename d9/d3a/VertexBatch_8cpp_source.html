@@ -104,7 +104,7 @@ $(function(){initNavTree('d9/d3a/VertexBatch_8cpp_source.html','../../'); initRe
 <div class="contents">
 <a href="../../d9/d3a/VertexBatch_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/error/Log.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;galaxy/error/Log.hpp&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d4a/VertexBatch_8hpp.html">VertexBatch.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -156,7 +156,7 @@ $(function(){initNavTree('d9/d3a/VertexBatch_8cpp_source.html','../../'); initRe
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a545b4ac38dc31e51196136f6c1473316">m_max_quads</a> &gt; 0)</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#afa874649c58ec35d9fbc97232971423c">meta::vector&lt;unsigned int&gt;</a> <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                meta::vector&lt;unsigned int&gt; <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b">indices</a>.reserve(<a class="code hl_variable" href="../../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a545b4ac38dc31e51196136f6c1473316">m_max_quads</a> * 6);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keyword">auto</span> increment = 0;</div>
@@ -221,7 +221,6 @@ $(function(){initNavTree('d9/d3a/VertexBatch_8cpp_source.html','../../'); initRe
 </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    } <span class="comment">// namespace graphics</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
 <div class="ttc" id="aVertexBatch_8hpp_html"><div class="ttname"><a href="../../d7/d4a/VertexBatch_8hpp.html">VertexBatch.hpp</a></div></div>
@@ -244,7 +243,6 @@ $(function(){initNavTree('d9/d3a/VertexBatch_8cpp_source.html','../../'); initRe
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1VertexBatch_html_abca6ae97be0f911e026e11a964163322"><div class="ttname"><a href="../../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#abca6ae97be0f911e026e11a964163322">galaxy::graphics::VertexBatch::m_vao</a></div><div class="ttdeci">VertexArray m_vao</div><div class="ttdoc">Vertex data.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d4a/VertexBatch_8hpp_source.html#l00096">VertexBatch.hpp:96</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1VertexBatch_html_ac3e941642e66be6c5e82691a6a2bf43a"><div class="ttname"><a href="../../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#ac3e941642e66be6c5e82691a6a2bf43a">galaxy::graphics::VertexBatch::init</a></div><div class="ttdeci">void init(const int max_quads)</div><div class="ttdoc">Initialize vertex batch data.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">VertexBatch.cpp:45</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1VertexBuffer_html_a08634dd8270cd5b12287a3ec34d61d87"><div class="ttname"><a href="../../d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a08634dd8270cd5b12287a3ec34d61d87">galaxy::graphics::VertexBuffer::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear buffer data.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dea/VertexBuffer_8cpp_source.html#l00082">VertexBuffer.cpp:82</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1meta_html_afa874649c58ec35d9fbc97232971423c"><div class="ttname"><a href="../../d3/d12/namespacegalaxy_1_1meta.html#afa874649c58ec35d9fbc97232971423c">galaxy::meta::vector</a></div><div class="ttdeci">std::vector&lt; T, mi_stl_allocator&lt; T &gt; &gt; vector</div><div class="ttdoc">std::vector with faster allocation.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d18/Memory_8hpp_source.html#l00057">Memory.hpp:57</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -252,7 +250,7 @@ $(function(){initNavTree('d9/d3a/VertexBatch_8cpp_source.html','../../'); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../d9/d3a/VertexBatch_8cpp.html">VertexBatch.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -9,7 +9,7 @@ var searchData=
   ['clipboard_6',['Clipboard',['../db/d0b/classgalaxy_1_1input_1_1Clipboard.html',1,'galaxy::input']]],
   ['colour_7',['Colour',['../d2/dae/classgalaxy_1_1graphics_1_1Colour.html',1,'galaxy::graphics']]],
   ['config_8',['Config',['../d6/de9/classgalaxy_1_1core_1_1Config.html',1,'galaxy::core']]],
-  ['consolesink_9',['ConsoleSink',['../dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html',1,'galaxy::error']]],
+  ['consolesink_9',['ConsoleSink',['../d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html',1,'galaxy::logging']]],
   ['contentscale_10',['ContentScale',['../d8/d2a/structgalaxy_1_1events_1_1ContentScale.html',1,'galaxy::events']]],
   ['cursor_11',['Cursor',['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html',1,'galaxy::input']]]
 ];

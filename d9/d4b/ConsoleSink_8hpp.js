@@ -1,4 +1,4 @@
 var ConsoleSink_8hpp =
 [
-    [ "galaxy::error::ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink" ]
+    [ "galaxy::logging::ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink" ]
 ];

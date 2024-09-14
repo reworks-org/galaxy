@@ -1,14 +1,7 @@
 <map id="galaxy::lua::inject_error" name="galaxy::lua::inject_error">
-<area shape="rect" id="Node000001" title="Injects error handling into lua." alt="" coords="5,120,143,160"/>
-<area shape="rect" id="Node000002" href="$d3/d81/namespacegalaxy_1_1error.html#a992b35658b4009f3246e8a19a294f9b5" title="Insert a message into the OpenGL debug stack." alt="" coords="229,5,383,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,118,141,89,189,62,222,48,224,52,192,66,144,94,103,122"/>
-<area shape="rect" id="Node000003" href="$d3/d81/namespacegalaxy_1_1error.html#aae02b0d611f319e23e5bf699aa403575" title="Convert a GL error code to a string." alt="" coords="469,92,649,132"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,117,190,105,259,99,329,97,456,100,456,106,329,102,259,104,191,111,136,123"/>
-<area shape="rect" id="Node000004" href="$d3/d81/namespacegalaxy_1_1error.html#a169a2b466fbd10d41637d1627e48f1e5" title="Returns all GL errors on stack." alt="" coords="230,120,382,160"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,137,217,137,217,143,143,143"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#ae6e69f0c5e5575aa352f2eea4e819eb3" title=" " alt="" coords="215,185,397,210"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="144,157,191,169,232,179,231,184,190,175,142,162"/>
-<area shape="rect" id="Node000006" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="191,234,421,259"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="100,158,141,190,192,219,216,228,214,233,190,224,138,194,96,162"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="382,129,455,121,456,126,382,134"/>
+<area shape="rect" id="Node000001" title="Injects error handling into lua." alt="" coords="5,23,143,63"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ae6e69f0c5e5575aa352f2eea4e819eb3" title=" " alt="" coords="215,5,397,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,33,201,27,202,32,143,39"/>
+<area shape="rect" id="Node000003" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="191,55,421,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,48,177,51,177,57,143,53"/>
 </map>

@@ -1,5 +1,5 @@
 var PhysFSError_8cpp =
 [
-    [ "physfs_check", "dd/df8/PhysFSError_8cpp.html#aba2082667422d8fbfefd61a140bd90e3", null ],
-    [ "physfs_check", "dd/df8/PhysFSError_8cpp.html#af3b9c80dda02cf9b0d390847859ee359", null ]
+    [ "physfs_check", "dd/df8/PhysFSError_8cpp.html#a6961fefaf032dd925143042a862442ae", null ],
+    [ "physfs_check", "dd/df8/PhysFSError_8cpp.html#a6ac2104580a35d3916370d4648c4b334", null ]
 ];

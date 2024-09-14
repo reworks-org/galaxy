@@ -1,5 +1,5 @@
 <map id="galaxy::fs::VirtualFileSystem::remove" name="galaxy::fs::VirtualFileSystem::remove">
 <area shape="rect" id="Node000001" title="Delete a file or folder." alt="" coords="5,5,213,45"/>
-<area shape="rect" id="Node000002" href="$d3/d81/namespacegalaxy_1_1error.html#aba2082667422d8fbfefd61a140bd90e3" title="Call a physfs function with error handling and logs a message for you." alt="" coords="261,5,416,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,23,248,23,248,28,213,28"/>
+<area shape="rect" id="Node000002" href="$dd/dad/namespacegalaxy_1_1logging.html#a6961fefaf032dd925143042a862442ae" title="Call a physfs function with error handling and logs a message for you." alt="" coords="261,5,433,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,23,248,23,248,28,214,28"/>
 </map>

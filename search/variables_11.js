@@ -1,23 +1,12 @@
 var searchData=
 [
-  ['s_5fchars_0',['s_chars',['../dd/dc0/Guid_8cpp.html#a57fd49033bf363cbc1ec9a8bf3704268',1,'Guid.cpp']]],
-  ['s_5fcursor_5fpos_1',['s_cursor_pos',['../db/df9/classgalaxy_1_1input_1_1Input.html#a76025e0de20016cdd29e717ccad66cad',1,'galaxy::input::Input']]],
-  ['s_5fwindow_2',['s_window',['../db/df9/classgalaxy_1_1input_1_1Input.html#a047a0c3a211e8ccec255c57be0e91186',1,'galaxy::input::Input']]],
-  ['scancode_3',['scancode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a77300939739fec91c09a401d95b375ef',1,'galaxy::events::KeyPress::scancode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#afe95375d94754e1b60f3c65d72763569',1,'galaxy::events::KeyRepeat::scancode']]],
-  ['sharpen_5ffrag_4',['sharpen_frag',['../d2/d44/Sharpen_8cpp.html#a51a8562e7b1ca4ee31eb33bbda648074',1,'Sharpen.cpp']]],
-  ['sharpen_5fvert_5',['sharpen_vert',['../d2/d44/Sharpen_8cpp.html#aa4c1b78d973941eab9aca355e8430419',1,'Sharpen.cpp']]],
-  ['smaa_5farea_5ftex_6',['smaa_area_tex',['../d4/dad/SMAA_8cpp.html#ade83426ad41bac14affedd95865fc3f6',1,'SMAA.cpp']]],
-  ['smaa_5fblend_5ffrag_7',['smaa_blend_frag',['../d4/dad/SMAA_8cpp.html#a1f97b157586d4a6cb9efc9b2cd5d0e75',1,'SMAA.cpp']]],
-  ['smaa_5fblend_5fvert_8',['smaa_blend_vert',['../d4/dad/SMAA_8cpp.html#a07db1ea74e5407674895547422b94890',1,'SMAA.cpp']]],
-  ['smaa_5fcore_5fpart1_9',['smaa_core_part1',['../d4/dad/SMAA_8cpp.html#ac6776105f566b9b71b151a84ed9dbf29',1,'SMAA.cpp']]],
-  ['smaa_5fcore_5fpart2_10',['smaa_core_part2',['../d4/dad/SMAA_8cpp.html#aa5d9fd909cc032ba09c55bab06673ae0',1,'SMAA.cpp']]],
-  ['smaa_5fcore_5fpart3_11',['smaa_core_part3',['../d4/dad/SMAA_8cpp.html#adef7f3c817e823f6bedfd0e5375d2606',1,'SMAA.cpp']]],
-  ['smaa_5fcore_5fpart4_12',['smaa_core_part4',['../d4/dad/SMAA_8cpp.html#a2ae3f6d8ca15fbe3f4716acd8dacff4a',1,'SMAA.cpp']]],
-  ['smaa_5fedge_5ffrag_13',['smaa_edge_frag',['../d4/dad/SMAA_8cpp.html#ac743c083251ae7e435362bb7dcedb90e',1,'SMAA.cpp']]],
-  ['smaa_5fedge_5fvert_14',['smaa_edge_vert',['../d4/dad/SMAA_8cpp.html#afe57d350f6c416ba9c8294f656453b26',1,'SMAA.cpp']]],
-  ['smaa_5fheader_5ffrag_15',['smaa_header_frag',['../d4/dad/SMAA_8cpp.html#a9abfe628c76188a2a5a2ed301e37b28d',1,'SMAA.cpp']]],
-  ['smaa_5fheader_5fvert_16',['smaa_header_vert',['../d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40',1,'SMAA.cpp']]],
-  ['smaa_5fneighbour_5ffrag_17',['smaa_neighbour_frag',['../d4/dad/SMAA_8cpp.html#ac37b371046f325b2d5012cdd497fa24c',1,'SMAA.cpp']]],
-  ['smaa_5fneighbour_5fvert_18',['smaa_neighbour_vert',['../d4/dad/SMAA_8cpp.html#a7fad5dd0d7400c340b2aa0fba2a9e1a2',1,'SMAA.cpp']]],
-  ['smaa_5fsearch_5ftex_19',['smaa_search_tex',['../d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae',1,'SMAA.cpp']]]
+  ['val_5f32_5fconst_0',['val_32_const',['../d1/d92/namespacegalaxy_1_1math.html#aa176ec87fe07b2240a16c26c221fe409',1,'galaxy::math']]],
+  ['val_5f64_5fconst_1',['val_64_const',['../d1/d92/namespacegalaxy_1_1math.html#a7282841173b7751e6653d99cedfb74fa',1,'galaxy::math']]],
+  ['vao_2',['vao',['../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#a10c72b97ecc4dc8f549649ff0b8f6bc5',1,'galaxy::graphics::RenderCommand']]],
+  ['vao_5ffrag_3',['vao_frag',['../d8/d9f/PostProcess_8cpp.html#a589629fcea27c2da18d594c11bbde2d4',1,'PostProcess.cpp']]],
+  ['vao_5fvert_4',['vao_vert',['../d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5',1,'PostProcess.cpp']]],
+  ['vertices_5',['vertices',['../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9',1,'Video.cpp']]],
+  ['video_5ffrag_5fshader_6',['video_frag_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6',1,'galaxy::resource']]],
+  ['video_5fvert_5fshader_7',['video_vert_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d',1,'galaxy::resource']]],
+  ['vsync_8',['vsync',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#ab703099d7b193f489987e8b4d249604b',1,'galaxy::core::WindowSettings']]]
 ];

@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="5,37,213,77"/>
 <area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ad5ffea521344ba9318bb8c865ca7b7d5" title="Does the file exist in the vfs." alt="" coords="261,5,469,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,42,247,37,248,43,214,47"/>
-<area shape="rect" id="Node000003" href="$d3/d81/namespacegalaxy_1_1error.html#aba2082667422d8fbfefd61a140bd90e3" title="Call a physfs function with error handling and logs a message for you." alt="" coords="288,69,443,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,68,275,75,274,81,213,73"/>
+<area shape="rect" id="Node000003" href="$dd/dad/namespacegalaxy_1_1logging.html#a6961fefaf032dd925143042a862442ae" title="Call a physfs function with error handling and logs a message for you." alt="" coords="279,69,451,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,68,266,74,265,80,213,73"/>
 </map>

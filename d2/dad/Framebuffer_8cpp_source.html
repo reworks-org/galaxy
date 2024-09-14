@@ -106,7 +106,7 @@ $(function(){initNavTree('d2/dad/Framebuffer_8cpp_source.html','../../'); initRe
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;glad/glad.h&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/error/Log.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;galaxy/error/Log.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d2c/Framebuffer_8hpp.html">Framebuffer.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
@@ -317,7 +317,7 @@ $(function(){initNavTree('d2/dad/Framebuffer_8cpp_source.html','../../'); initRe
 <div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5">  204</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5">Framebuffer::create</a>()</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        {</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <a class="code hl_typedef" href="../../d3/d12/namespacegalaxy_1_1meta.html#afa874649c58ec35d9fbc97232971423c">meta::vector&lt;unsigned int&gt;</a> used;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            meta::vector&lt;unsigned int&gt; used;</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a9ff03a7003b930d16ba36359c8b3cd8e">m_colour</a> &gt; 0)</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            {</div>
@@ -510,7 +510,6 @@ $(function(){initNavTree('d2/dad/Framebuffer_8cpp_source.html','../../'); initRe
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    } <span class="comment">// namespace graphics</span></div>
 <div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aFramebuffer_8hpp_html"><div class="ttname"><a href="../../d9/d2c/Framebuffer_8hpp.html">Framebuffer.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">galaxy::graphics::Colour</a></div><div class="ttdoc">Represents an RGBA colour.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00026">Colour.hpp:27</a></div></div>
@@ -541,7 +540,6 @@ $(function(){initNavTree('d2/dad/Framebuffer_8cpp_source.html','../../'); initRe
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Framebuffer_html_ae327a001b7cb9903f080b3b3b1ed81f9"><div class="ttname"><a href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ae327a001b7cb9903f080b3b3b1ed81f9">galaxy::graphics::Framebuffer::Framebuffer</a></div><div class="ttdeci">Framebuffer()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">Framebuffer.cpp:18</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Framebuffer_html_af6ac285cc200de4a04e605e0bd697cee"><div class="ttname"><a href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee">galaxy::graphics::Framebuffer::begin</a></div><div class="ttdeci">void begin(const bool clear=true)</div><div class="ttdoc">Bind framebuffer for rendering to.</div><div class="ttdef"><b>Definition</b> <a href="#l00289">Framebuffer.cpp:289</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1graphics_1_1Framebuffer_html_af7ef3204ccfa4602c6a27253150e3295"><div class="ttname"><a href="../../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af7ef3204ccfa4602c6a27253150e3295">galaxy::graphics::Framebuffer::set_clear_colour</a></div><div class="ttdeci">void set_clear_colour(const graphics::Colour &amp;col)</div><div class="ttdoc">Set clear colour.</div><div class="ttdef"><b>Definition</b> <a href="#l00279">Framebuffer.cpp:279</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1meta_html_afa874649c58ec35d9fbc97232971423c"><div class="ttname"><a href="../../d3/d12/namespacegalaxy_1_1meta.html#afa874649c58ec35d9fbc97232971423c">galaxy::meta::vector</a></div><div class="ttdeci">std::vector&lt; T, mi_stl_allocator&lt; T &gt; &gt; vector</div><div class="ttdoc">std::vector with faster allocation.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d18/Memory_8hpp_source.html#l00057">Memory.hpp:57</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00018">Timer.hpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -549,7 +547,7 @@ $(function(){initNavTree('d2/dad/Framebuffer_8cpp_source.html','../../'); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../d2/dad/Framebuffer_8cpp.html">Framebuffer.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

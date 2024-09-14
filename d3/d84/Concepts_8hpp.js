@@ -1,11 +1,11 @@
 var Concepts_8hpp =
 [
-    [ "galaxy::meta::is_class", "d0/d17/conceptgalaxy_1_1meta_1_1is__class.html", null ],
-    [ "galaxy::meta::not_memory", "d8/d0b/conceptgalaxy_1_1meta_1_1not__memory.html", null ],
-    [ "galaxy::meta::is_arithmetic", "db/dc5/conceptgalaxy_1_1meta_1_1is__arithmetic.html", null ],
-    [ "galaxy::meta::standard_type", "dc/df3/conceptgalaxy_1_1meta_1_1standard__type.html", null ],
-    [ "galaxy::meta::is_object", "d1/d92/conceptgalaxy_1_1meta_1_1is__object.html", null ],
-    [ "galaxy::meta::is_bitset_flag", "db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html", null ],
-    [ "galaxy::meta::valid_component", "d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html", null ],
-    [ "galaxy::meta::is_loader", "db/dba/conceptgalaxy_1_1meta_1_1is__loader.html", null ]
+    [ "galaxy::utils::is_class", "d6/d48/conceptgalaxy_1_1utils_1_1is__class.html", null ],
+    [ "galaxy::utils::not_memory", "db/dc5/conceptgalaxy_1_1utils_1_1not__memory.html", null ],
+    [ "galaxy::utils::is_arithmetic", "d8/d1b/conceptgalaxy_1_1utils_1_1is__arithmetic.html", null ],
+    [ "galaxy::utils::standard_type", "dd/d3f/conceptgalaxy_1_1utils_1_1standard__type.html", null ],
+    [ "galaxy::utils::is_object", "dd/d40/conceptgalaxy_1_1utils_1_1is__object.html", null ],
+    [ "galaxy::utils::is_bitset_flag", "d8/de6/conceptgalaxy_1_1utils_1_1is__bitset__flag.html", null ],
+    [ "galaxy::utils::valid_component", "d0/d3c/conceptgalaxy_1_1utils_1_1valid__component.html", null ],
+    [ "galaxy::utils::is_loader", "d2/dc3/conceptgalaxy_1_1utils_1_1is__loader.html", null ]
 ];

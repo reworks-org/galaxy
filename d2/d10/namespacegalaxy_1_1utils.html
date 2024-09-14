@@ -100,7 +100,9 @@ $(function(){initNavTree('d2/d10/namespacegalaxy_1_1utils.html','../../'); initR
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#concepts">Concepts</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">galaxy::utils Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -110,14 +112,106 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html">Guid</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains a 128bit randomly generated GUID, along with helper functions.  <a href="../../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
+Concepts</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d48/conceptgalaxy_1_1utils_1_1is__class.html">is_class</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only class concept. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dc5/conceptgalaxy_1_1utils_1_1not__memory.html">not_memory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept to restrict templates to not pointers and not references. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d1b/conceptgalaxy_1_1utils_1_1is__arithmetic.html">is_arithmetic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arithmetic concept. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d3f/conceptgalaxy_1_1utils_1_1standard__type.html">standard_type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures a type is arithmetic or a std::string. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d40/conceptgalaxy_1_1utils_1_1is__object.html">is_object</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests for a type being a class, union, array, scalar or integral constant. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/de6/conceptgalaxy_1_1utils_1_1is__bitset__flag.html">is_bitset_flag</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure a value is a valid value for a std::bitset. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3c/conceptgalaxy_1_1utils_1_1valid__component.html">valid_component</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure a type is a valid component. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dc3/conceptgalaxy_1_1utils_1_1is__loader.html">is_loader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that the provided loader has an operator() that returns a shared pointer. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ad8eca35b9ea85c1274c440f26c5a4c02" id="r_ad8eca35b9ea85c1274c440f26c5a4c02"><td class="memTemplParams" colspan="2">template&lt;is_object Type&gt; </td></tr>
+<tr class="memitem:ad8eca35b9ea85c1274c440f26c5a4c02"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad8eca35b9ea85c1274c440f26c5a4c02">ref</a> = std::reference_wrapper&lt;Type&gt;</td></tr>
+<tr class="memdesc:ad8eca35b9ea85c1274c440f26c5a4c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference wrapper.  <br /></td></tr>
+<tr class="separator:ad8eca35b9ea85c1274c440f26c5a4c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac358a3737492b865aa61f9d0de94c76" id="r_aac358a3737492b865aa61f9d0de94c76"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:aac358a3737492b865aa61f9d0de94c76"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aac358a3737492b865aa61f9d0de94c76">optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;</td></tr>
+<tr class="memdesc:aac358a3737492b865aa61f9d0de94c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference.  <br /></td></tr>
+<tr class="separator:aac358a3737492b865aa61f9d0de94c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ad8eca35b9ea85c1274c440f26c5a4c02" name="ad8eca35b9ea85c1274c440f26c5a4c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8eca35b9ea85c1274c440f26c5a4c02">&#9670;&#160;</a></span>ref</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;is_object Type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ad8eca35b9ea85c1274c440f26c5a4c02">galaxy::utils::ref</a> = std::reference_wrapper&lt;Type&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reference wrapper. </p>
+<p>Stores a pointer that can only be accessed as a reference.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>Any type that can be a reference. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d18/Memory_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../d4/d18/Memory_8hpp_source.html">Memory.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aac358a3737492b865aa61f9d0de94c76" name="aac358a3737492b865aa61f9d0de94c76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac358a3737492b865aa61f9d0de94c76">&#9670;&#160;</a></span>optional_ref</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aac358a3737492b865aa61f9d0de94c76">galaxy::utils::optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional reference. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>Any type that can be a reference. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d18/Memory_8hpp_source.html#l00033">33</a> of file <a class="el" href="../../d4/d18/Memory_8hpp_source.html">Memory.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d2/d10/namespacegalaxy_1_1utils.html">utils</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:27 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:21 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

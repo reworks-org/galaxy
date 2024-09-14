@@ -110,7 +110,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;BS_thread_pool.hpp&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d64/Globals_8hpp.html">galaxy/utils/Globals.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;galaxy/utils/Globals.hpp&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
@@ -300,7 +300,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            {</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <span class="keywordflow">if</span> (!m_stopped &amp;&amp; !m_paused)</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                    m_time_passed += (<a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146">GALAXY_DT</a> * 1000.0);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                    m_time_passed += (GALAXY_DT * 1000.0);</div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                    <span class="keywordflow">if</span> (m_time_passed &gt;= m_delay)</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                    {</div>
@@ -341,8 +341,6 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 </div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aGlobals_8hpp_html"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html">Globals.hpp</a></div></div>
-<div class="ttc" id="aGlobals_8hpp_html_a18e2a994bddbee1da721d788b3008146"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#a18e2a994bddbee1da721d788b3008146">GALAXY_DT</a></div><div class="ttdeci">#define GALAXY_DT</div><div class="ttdoc">Galaxy Delta-Time.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00069">Globals.hpp:69</a></div></div>
 <div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html">galaxy::async::Timer</a></div><div class="ttdoc">(A)synchronous timer class.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Timer.hpp:34</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a031fddb9de91bc171d1f960807505c7a"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a031fddb9de91bc171d1f960807505c7a">galaxy::async::Timer::m_paused</a></div><div class="ttdeci">std::atomic_bool m_paused</div><div class="ttdoc">Is timer paused.</div><div class="ttdef"><b>Definition</b> <a href="#l00130">Timer.hpp:130</a></div></div>
@@ -374,7 +372,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

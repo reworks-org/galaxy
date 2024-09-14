@@ -1,5 +1,6 @@
 var namespacegalaxy_1_1fs =
 [
+    [ "PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream" ],
     [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
     [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ],
     [ "DialogButton", "d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0", [

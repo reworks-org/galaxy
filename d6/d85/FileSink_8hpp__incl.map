@@ -1,11 +1,11 @@
-<map id="galaxy/src/galaxy/error/FileSink.hpp" name="galaxy/src/galaxy/error/FileSink.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="27,5,199,45"/>
+<map id="galaxy/src/galaxy/logging/FileSink.hpp" name="galaxy/src/galaxy/logging/FileSink.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="22,5,211,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,79,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,47,64,85,60,81,94,44"/>
-<area shape="rect" id="Node000003" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="103,93,264,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,44,166,81,162,85,128,47"/>
-<area shape="rect" id="Node000004" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="76,167,291,192"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="186,119,186,153,181,153,181,119"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="154,240,213,265"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="186,192,186,226,181,226,181,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,47,65,85,61,81,97,44"/>
+<area shape="rect" id="Node000003" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="103,93,282,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,44,174,81,170,85,133,47"/>
+<area shape="rect" id="Node000004" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="77,167,308,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,119,195,153,190,153,190,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="163,240,222,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,192,195,226,190,226,190,192"/>
 </map>

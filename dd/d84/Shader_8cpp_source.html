@@ -107,9 +107,9 @@ $(function(){initNavTree('dd/d84/Shader_8cpp_source.html','../../'); initResizab
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/error/Log.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;galaxy/error/Log.hpp&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d64/Globals_8hpp.html">galaxy/utils/Globals.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;galaxy/utils/Globals.hpp&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d6e/Shader_8hpp.html">Shader.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
@@ -135,7 +135,7 @@ $(function(){initNavTree('dd/d84/Shader_8cpp_source.html','../../'); initResizab
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">if</span> (json.count(<span class="stringliteral">&quot;file&quot;</span>) &gt; 0)</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                <a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a>(<a class="code hl_function" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac21182a86bbd5f2a78d509912d16d350">load</a>(json.at(<span class="stringliteral">&quot;file&quot;</span>)));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                GALAXY_UNUSED(<a class="code hl_function" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac21182a86bbd5f2a78d509912d16d350">load</a>(json.at(<span class="stringliteral">&quot;file&quot;</span>)));</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
@@ -435,9 +435,6 @@ $(function(){initNavTree('dd/d84/Shader_8cpp_source.html','../../'); initResizab
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
 <div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="preprocessor">#pragma warning(pop)</span></div>
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aGlobals_8hpp_html"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html">Globals.hpp</a></div></div>
-<div class="ttc" id="aGlobals_8hpp_html_aeea47fcf9ec981a261237221194b033f"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a></div><div class="ttdeci">#define GALAXY_UNUSED(var)</div><div class="ttdoc">Prevents compiler warnings when applied to unused parameters.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00054">Globals.hpp:54</a></div></div>
-<div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00023">Log.hpp:23</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
@@ -468,7 +465,7 @@ $(function(){initNavTree('dd/d84/Shader_8cpp_source.html','../../'); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../dd/d84/Shader_8cpp.html">Shader.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

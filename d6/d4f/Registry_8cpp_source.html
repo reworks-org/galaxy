@@ -110,7 +110,7 @@ $(function(){initNavTree('d6/d4f/Registry_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/df4/Disabled_8hpp.html">galaxy/flags/Disabled.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d95/EntityMeta_8hpp.html">galaxy/meta/EntityMeta.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;galaxy/meta/EntityMeta.hpp&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d96/Prefabs_8hpp.html">galaxy/resource/Prefabs.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dd1/Registry_8hpp.html">Registry.hpp</a>&quot;</span></div>
@@ -212,8 +212,8 @@ $(function(){initNavTree('d6/d4f/Registry_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [rigidbody, transform] : <a class="code hl_variable" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html#ae20920045b4a384573a87eaeb52061dd">m_bodies_to_construct</a>)</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            {</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                b2BodyDef def {};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                def.position.x    = transform-&gt;m_tf.get_pos().x / <a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#a3e8d246355a0db6e5d25824b73b7d4d4">GALAXY_WORLD_TO_BOX</a>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                def.position.y    = transform-&gt;m_tf.get_pos().y / <a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#a3e8d246355a0db6e5d25824b73b7d4d4">GALAXY_WORLD_TO_BOX</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                def.position.x    = transform-&gt;m_tf.get_pos().x / GALAXY_WORLD_TO_BOX;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                def.position.y    = transform-&gt;m_tf.get_pos().y / GALAXY_WORLD_TO_BOX;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                def.angle         = glm::radians(transform-&gt;m_tf.get_rotation());</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                def.type          = rigidbody-&gt;m_type;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                def.fixedRotation = rigidbody-&gt;m_fixed_rotation;</div>
@@ -360,8 +360,6 @@ $(function(){initNavTree('d6/d4f/Registry_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    } <span class="comment">// namespace core</span></div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aDisabled_8hpp_html"><div class="ttname"><a href="../../d9/df4/Disabled_8hpp.html">Disabled.hpp</a></div></div>
-<div class="ttc" id="aEntityMeta_8hpp_html"><div class="ttname"><a href="../../d4/d95/EntityMeta_8hpp.html">EntityMeta.hpp</a></div></div>
-<div class="ttc" id="aGlobals_8hpp_html_a3e8d246355a0db6e5d25824b73b7d4d4"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#a3e8d246355a0db6e5d25824b73b7d4d4">GALAXY_WORLD_TO_BOX</a></div><div class="ttdeci">#define GALAXY_WORLD_TO_BOX</div><div class="ttdoc">Ratio to convert world coords to box2d.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00135">Globals.hpp:135</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00023">Log.hpp:23</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
@@ -398,7 +396,7 @@ $(function(){initNavTree('d6/d4f/Registry_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d6/d4f/Registry_8cpp.html">Registry.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

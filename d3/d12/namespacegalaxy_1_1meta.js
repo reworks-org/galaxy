@@ -1,32 +1,5 @@
 var namespacegalaxy_1_1meta =
 [
-    [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ],
     [ "is_input_device", "dd/d45/conceptgalaxy_1_1meta_1_1is__input__device.html", null ],
-    [ "is_class", "d0/d17/conceptgalaxy_1_1meta_1_1is__class.html", null ],
-    [ "not_memory", "d8/d0b/conceptgalaxy_1_1meta_1_1not__memory.html", null ],
-    [ "is_arithmetic", "db/dc5/conceptgalaxy_1_1meta_1_1is__arithmetic.html", null ],
-    [ "standard_type", "dc/df3/conceptgalaxy_1_1meta_1_1standard__type.html", null ],
-    [ "is_object", "d1/d92/conceptgalaxy_1_1meta_1_1is__object.html", null ],
-    [ "is_bitset_flag", "db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html", null ],
-    [ "valid_component", "d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html", null ],
-    [ "is_loader", "db/dba/conceptgalaxy_1_1meta_1_1is__loader.html", null ],
-    [ "is_system", "dd/d60/conceptgalaxy_1_1meta_1_1is__system.html", null ],
-    [ "ref", "d3/d12/namespacegalaxy_1_1meta.html#a3a37ebb924a8112a885175d44107c051", null ],
-    [ "optional_ref", "d3/d12/namespacegalaxy_1_1meta.html#a0d46006d032bbccd695ac641b43f7d3c", null ],
-    [ "vector", "d3/d12/namespacegalaxy_1_1meta.html#afa874649c58ec35d9fbc97232971423c", null ],
-    [ "deque", "d3/d12/namespacegalaxy_1_1meta.html#ae084abe469cd86bba21b269817e32932", null ],
-    [ "forward_list", "d3/d12/namespacegalaxy_1_1meta.html#aebcd288cfc3faf4db579e59b6ab0c380", null ],
-    [ "list", "d3/d12/namespacegalaxy_1_1meta.html#a8558cbe5b4c2af315e39d0d7db1d3757", null ],
-    [ "set", "d3/d12/namespacegalaxy_1_1meta.html#a905b33547ef309e5b2cad1d17a34f80b", null ],
-    [ "map", "d3/d12/namespacegalaxy_1_1meta.html#a02fe3f9159bdd46e01c7ed89aaebfbae", null ],
-    [ "multiset", "d3/d12/namespacegalaxy_1_1meta.html#ae8a7b808b1c7846a2bd99c72b839bd11", null ],
-    [ "multimap", "d3/d12/namespacegalaxy_1_1meta.html#a3c1c3f3ba82625d23abb4c69863f3aeb", null ],
-    [ "unordered_set", "d3/d12/namespacegalaxy_1_1meta.html#a0352419318c6911a740591cd19c4bcde", null ],
-    [ "unordered_map", "d3/d12/namespacegalaxy_1_1meta.html#adcb6a23e323c01ee9df993dd96c42242", null ],
-    [ "unordered_multiset", "d3/d12/namespacegalaxy_1_1meta.html#ae524bc55e954e59b5c3263b148dc0ae5", null ],
-    [ "unordered_multimap", "d3/d12/namespacegalaxy_1_1meta.html#ad8b581c7686991b0c475a58758b743e3", null ],
-    [ "stack", "d3/d12/namespacegalaxy_1_1meta.html#ab8f9ad3dc0ec6754fa6d9b1dfc04cc51", null ],
-    [ "queue", "d3/d12/namespacegalaxy_1_1meta.html#a0f4e14fd6039f97285cf3b18949b7cb3", null ],
-    [ "priority_queue", "d3/d12/namespacegalaxy_1_1meta.html#a0f6f82de14faf742b2ce6d14e86a6db1", null ],
-    [ "is_work_done", "d3/d12/namespacegalaxy_1_1meta.html#a3e4e6d647a6fe6435f38d444fb47f754", null ]
+    [ "is_system", "dd/d60/conceptgalaxy_1_1meta_1_1is__system.html", null ]
 ];

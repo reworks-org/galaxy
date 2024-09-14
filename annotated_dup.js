@@ -29,13 +29,6 @@ var annotated_dup =
         [ "Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", "d5/d25/classgalaxy_1_1core_1_1Window" ],
         [ "WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings" ]
       ] ],
-      [ "error", "d3/d81/namespacegalaxy_1_1error.html", [
-        [ "ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink" ],
-        [ "FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", "de/d18/classgalaxy_1_1error_1_1FileSink" ],
-        [ "Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", "d6/d5b/classgalaxy_1_1error_1_1Log" ],
-        [ "LogMessage", "d5/df7/structgalaxy_1_1error_1_1LogMessage.html", "d5/df7/structgalaxy_1_1error_1_1LogMessage" ],
-        [ "Sink", "d6/d9f/classgalaxy_1_1error_1_1Sink.html", "d6/d9f/classgalaxy_1_1error_1_1Sink" ]
-      ] ],
       [ "events", "d6/d3d/namespacegalaxy_1_1events.html", [
         [ "ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", "d8/d2a/structgalaxy_1_1events_1_1ContentScale" ],
         [ "KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", "dc/d97/structgalaxy_1_1events_1_1KeyChar" ],
@@ -54,6 +47,7 @@ var annotated_dup =
         [ "Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", "d3/d72/classgalaxy_1_1flags_1_1Disabled" ]
       ] ],
       [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", [
+        [ "PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream" ],
         [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
@@ -107,6 +101,13 @@ var annotated_dup =
         [ "Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", "d9/d50/classgalaxy_1_1input_1_1Keyboard" ],
         [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", "dd/d15/classgalaxy_1_1input_1_1Mouse" ]
       ] ],
+      [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", [
+        [ "ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink" ],
+        [ "FileSink", "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html", "d6/d7a/classgalaxy_1_1logging_1_1FileSink" ],
+        [ "Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html", "d9/dec/classgalaxy_1_1logging_1_1Log" ],
+        [ "LogMessage", "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html", "d1/db0/structgalaxy_1_1logging_1_1LogMessage" ],
+        [ "Sink", "d9/d9f/classgalaxy_1_1logging_1_1Sink.html", "d9/d9f/classgalaxy_1_1logging_1_1Sink" ]
+      ] ],
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ]
       ] ],
@@ -116,7 +117,6 @@ var annotated_dup =
       ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
-        [ "Rect", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", "d5/dcc/classgalaxy_1_1math_1_1Rect" ],
         [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
         [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]
       ] ],
@@ -125,9 +125,6 @@ var annotated_dup =
         [ "RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", "d5/df7/classgalaxy_1_1media_1_1RingBuffer" ],
         [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ],
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
-      ] ],
-      [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
-        [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
       ] ],
       [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
         [ "Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", "de/d02/classgalaxy_1_1platform_1_1Subprocess" ]
@@ -156,8 +153,7 @@ var annotated_dup =
       ] ],
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
-      ] ],
-      [ "DoNotUseReferToMacros", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html", "db/d55/structgalaxy_1_1DoNotUseReferToMacros" ]
+      ] ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [
       [ "hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" ]

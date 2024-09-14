@@ -1,0 +1,7 @@
+<map id="galaxy::logging::Sink" name="galaxy::logging::Sink">
+<area shape="rect" id="Node000001" title="A source for log messages to be recorded to." alt="" coords="137,5,286,191"/>
+<area shape="rect" id="Node000002" href="$d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html" title="Logs a message to the console." alt="" coords="5,239,207,344"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,204,137,240,132,237,152,201"/>
+<area shape="rect" id="Node000003" href="$d6/d7a/classgalaxy_1_1logging_1_1FileSink.html" title=" " alt="" coords="231,239,403,344"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,201,291,237,286,240,266,204"/>
+</map>

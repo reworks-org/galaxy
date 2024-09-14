@@ -11,8 +11,6 @@ var hierarchy =
     [ "galaxy::events::ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", null ],
     [ "galaxy::graphics::Camera::Data", "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html", null ],
     [ "galaxy::flags::DenySerialization", "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html", null ],
-    [ "galaxy::DoNotUseReferToMacros", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html", null ],
-    [ "galaxy::meta::EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", null ],
     [ "galaxy::graphics::Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", null ],
     [ "galaxy::graphics::FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", null ],
     [ "galaxy::graphics::Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", null ],
@@ -26,6 +24,9 @@ var hierarchy =
       [ "galaxy::input::Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", null ],
       [ "galaxy::input::Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", null ]
     ] ],
+    [ "sf::InputStream", null, [
+      [ "galaxy::fs::PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", null ]
+    ] ],
     [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
     [ "galaxy::events::KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", null ],
     [ "galaxy::events::KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", null ],
@@ -37,8 +38,8 @@ var hierarchy =
       [ "galaxy::resource::SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", null ],
       [ "galaxy::resource::VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", null ]
     ] ],
-    [ "galaxy::error::Log", "d6/d5b/classgalaxy_1_1error_1_1Log.html", null ],
-    [ "galaxy::error::LogMessage", "d5/df7/structgalaxy_1_1error_1_1LogMessage.html", null ],
+    [ "galaxy::logging::Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html", null ],
+    [ "galaxy::logging::LogMessage", "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html", null ],
     [ "galaxy::map::Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", null ],
     [ "galaxy::events::MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
@@ -56,7 +57,6 @@ var hierarchy =
     [ "galaxy::graphics::PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", null ],
     [ "galaxy::core::Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", null ],
     [ "galaxy::math::Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", null ],
-    [ "galaxy::math::Rect< Type >", "d5/dcc/classgalaxy_1_1math_1_1Rect.html", null ],
     [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
     [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", null ],
     [ "galaxy::graphics::RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", null ],
@@ -83,7 +83,6 @@ var hierarchy =
       [ "galaxy::scene::Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", null ],
       [ "galaxy::scene::SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", null ]
     ] ],
-    [ "galaxy::meta::EntityMeta::SerializationData", "d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html", null ],
     [ "galaxy::core::ServiceLocator< Service >", "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html", null ],
     [ "galaxy::graphics::Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", null ],
     [ "galaxy::graphics::ShaderStorageBuffer", "d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html", null ],
@@ -94,9 +93,9 @@ var hierarchy =
       [ "galaxy::graphics::Polygon", "d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html", null ],
       [ "galaxy::graphics::Polyline", "df/d27/classgalaxy_1_1graphics_1_1Polyline.html", null ]
     ] ],
-    [ "galaxy::error::Sink", "d6/d9f/classgalaxy_1_1error_1_1Sink.html", [
-      [ "galaxy::error::ConsoleSink", "dc/daf/classgalaxy_1_1error_1_1ConsoleSink.html", null ],
-      [ "galaxy::error::FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", null ]
+    [ "galaxy::logging::Sink", "d9/d9f/classgalaxy_1_1logging_1_1Sink.html", [
+      [ "galaxy::logging::ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", null ],
+      [ "galaxy::logging::FileSink", "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html", null ]
     ] ],
     [ "galaxy::media::Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", null ],
     [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],

@@ -1,4 +1,4 @@
 var FileSink_8hpp =
 [
-    [ "galaxy::error::FileSink", "de/d18/classgalaxy_1_1error_1_1FileSink.html", "de/d18/classgalaxy_1_1error_1_1FileSink" ]
+    [ "galaxy::logging::FileSink", "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html", "d6/d7a/classgalaxy_1_1logging_1_1FileSink" ]
 ];

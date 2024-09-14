@@ -1,0 +1,15 @@
+<map id="galaxy/src/galaxy/fs/PhysfsStream.cpp" name="galaxy/src/galaxy/fs/PhysfsStream.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="143,5,297,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,83,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,48,84,90,81,85,177,43"/>
+<area shape="rect" id="Node000003" href="$d0/d44/PhysFSError_8hpp.html" title=" " alt="" coords="107,93,333,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,46,223,79,217,79,217,46"/>
+<area shape="rect" id="Node000004" href="$db/db6/PhysfsStream_8hpp.html" title=" " alt="" coords="358,93,498,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,43,386,86,384,91,269,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="235,167,293,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="403,121,304,164,302,159,401,116"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="317,167,539,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="431,119,431,153,425,153,425,119"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="564,167,793,192"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="469,116,626,160,624,165,468,121"/>
+</map>

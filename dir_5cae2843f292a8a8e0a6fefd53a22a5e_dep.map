@@ -1,10 +1,4 @@
 <map id="galaxy/src/galaxy/state" name="galaxy/src/galaxy/state">
-<area shape="rect" id="node1" href="dir_48f77a4e21c16676ac8bbd98db82dd44.html" title="error" alt="" coords="27,125,80,151"/>
-<area shape="rect" id="node2" href="dir_7f735fbad00ad2f3f96d935c571f321a.html" title="meta" alt="" coords="104,125,160,151"/>
-<area shape="rect" id="node3" href="dir_5cae2843f292a8a8e0a6fefd53a22a5e.html" title="state" alt="" coords="66,52,121,77"/>
-<area shape="poly" id="edge1" href="dir_000027_000005.html" alt="" coords="89,79,69,115,64,112,84,76"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000027_000005.html" title="1" alt="" coords="71,106,81,121"/>
-<area shape="poly" id="edge2" href="dir_000027_000018.html" alt="" coords="102,76,122,112,117,115,97,79"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000027_000018.html" title="1" alt="" coords="120,98,129,113"/>
-<area shape="rect" id="clust1" href="dir_719a66e699117833dd2aa990b86b1834.html" title="galaxy" alt="" coords="16,16,171,161"/>
+<area shape="rect" id="node1" href="dir_5cae2843f292a8a8e0a6fefd53a22a5e.html" title="state" alt="" coords="27,52,82,77"/>
+<area shape="rect" id="clust1" href="dir_719a66e699117833dd2aa990b86b1834.html" title="galaxy" alt="" coords="16,16,93,88"/>
 </map>

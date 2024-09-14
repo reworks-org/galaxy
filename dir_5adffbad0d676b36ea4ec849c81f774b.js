@@ -8,8 +8,6 @@ var dir_5adffbad0d676b36ea4ec849c81f774b =
     [ "Generic.hpp", "d8/d2c/Generic_8hpp.html", "d8/d2c/Generic_8hpp" ],
     [ "Random.cpp", "d4/dde/Random_8cpp.html", null ],
     [ "Random.hpp", "dd/d6e/Random_8hpp.html", "dd/d6e/Random_8hpp" ],
-    [ "Rect.cpp", "da/d9f/Rect_8cpp.html", null ],
-    [ "Rect.hpp", "dc/dd2/Rect_8hpp.html", "dc/dd2/Rect_8hpp" ],
     [ "RectPack.cpp", "dc/d61/RectPack_8cpp.html", null ],
     [ "RectPack.hpp", "da/d8d/RectPack_8hpp.html", "da/d8d/RectPack_8hpp" ],
     [ "ZLib.cpp", "d1/d16/ZLib_8cpp.html", "d1/d16/ZLib_8cpp" ],

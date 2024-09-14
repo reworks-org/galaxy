@@ -136,7 +136,7 @@ $(function(){initNavTree('d6/d4a/PhysicsSystem_8cpp_source.html','../../'); init
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [entity, body, transform] : group.each())</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; pos = body.m_body-&gt;GetPosition();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                transform.m_tf.set_pos(pos.x * <a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#aeafe52b63f91fdc6e71598753d60082f">GALAXY_BOX_TO_WORLD</a>, pos.y * <a class="code hl_define" href="../../d5/d64/Globals_8hpp.html#aeafe52b63f91fdc6e71598753d60082f">GALAXY_BOX_TO_WORLD</a>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                transform.m_tf.set_pos(pos.x * GALAXY_BOX_TO_WORLD, pos.y * GALAXY_BOX_TO_WORLD);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                transform.m_tf.set_rotation(glm::degrees(body.m_body-&gt;GetAngle()));</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
@@ -144,7 +144,6 @@ $(function(){initNavTree('d6/d4a/PhysicsSystem_8cpp_source.html','../../'); init
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    } <span class="comment">// namespace systems</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aDisabled_8hpp_html"><div class="ttname"><a href="../../d9/df4/Disabled_8hpp.html">Disabled.hpp</a></div></div>
-<div class="ttc" id="aGlobals_8hpp_html_aeafe52b63f91fdc6e71598753d60082f"><div class="ttname"><a href="../../d5/d64/Globals_8hpp.html#aeafe52b63f91fdc6e71598753d60082f">GALAXY_BOX_TO_WORLD</a></div><div class="ttdeci">#define GALAXY_BOX_TO_WORLD</div><div class="ttdoc">Ratio to convert box2d to world coords.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/Globals_8hpp_source.html#l00140">Globals.hpp:140</a></div></div>
 <div class="ttc" id="aPhysicsSystem_8hpp_html"><div class="ttname"><a href="../../d1/d91/PhysicsSystem_8hpp.html">PhysicsSystem.hpp</a></div></div>
 <div class="ttc" id="aRigidBody_8hpp_html"><div class="ttname"><a href="../../d3/def/RigidBody_8hpp.html">RigidBody.hpp</a></div></div>
 <div class="ttc" id="aScene_8hpp_html"><div class="ttname"><a href="../../db/de8/Scene_8hpp.html">Scene.hpp</a></div></div>
@@ -160,7 +159,7 @@ $(function(){initNavTree('d6/d4a/PhysicsSystem_8cpp_source.html','../../'); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_998c186d51e0a7e9e97fc5ef3ee68646.html">systems</a></li><li class="navelem"><a class="el" href="../../d6/d4a/PhysicsSystem_8cpp.html">PhysicsSystem.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 10 2024 09:23:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 14 2024 10:36:21 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

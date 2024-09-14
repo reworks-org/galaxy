@@ -3,7 +3,6 @@ var namespacegalaxy =
     [ "async", "d0/d7f/namespacegalaxy_1_1async.html", "d0/d7f/namespacegalaxy_1_1async" ],
     [ "components", "d3/db5/namespacegalaxy_1_1components.html", "d3/db5/namespacegalaxy_1_1components" ],
     [ "core", "d1/dcb/namespacegalaxy_1_1core.html", "d1/dcb/namespacegalaxy_1_1core" ],
-    [ "error", "d3/d81/namespacegalaxy_1_1error.html", "d3/d81/namespacegalaxy_1_1error" ],
     [ "events", "d6/d3d/namespacegalaxy_1_1events.html", "d6/d3d/namespacegalaxy_1_1events" ],
     [ "flags", "df/d31/namespacegalaxy_1_1flags.html", "df/d31/namespacegalaxy_1_1flags" ],
     [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", "d6/d19/namespacegalaxy_1_1fs" ],
@@ -14,6 +13,7 @@ var namespacegalaxy =
       [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707", null ],
       [ "write", "de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a", null ]
     ] ],
+    [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", "dd/dad/namespacegalaxy_1_1logging" ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
     [ "map", "d6/d4d/namespacegalaxy_1_1map.html", "d6/d4d/namespacegalaxy_1_1map" ],
     [ "math", "d1/d92/namespacegalaxy_1_1math.html", "d1/d92/namespacegalaxy_1_1math" ],
@@ -24,7 +24,7 @@ var namespacegalaxy =
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],
     [ "state", "df/dcc/namespacegalaxy_1_1state.html", "df/dcc/namespacegalaxy_1_1state" ],
     [ "strutils", "db/d7c/namespacegalaxy_1_1strutils.html", [
-      [ "split", "db/d7c/namespacegalaxy_1_1strutils.html#aa49866d6c8088279303394a48f2a8324", null ],
+      [ "split", "db/d7c/namespacegalaxy_1_1strutils.html#aa478cb3361fc7c4a54132170d8fa9e4b", null ],
       [ "replace_first", "db/d7c/namespacegalaxy_1_1strutils.html#aadb96bbbbd51e3761290151baf3bcd3d", null ],
       [ "replace_all", "db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f", null ],
       [ "begins_with", "db/d7c/namespacegalaxy_1_1strutils.html#abd79c863f9a90136d5dd6ddea01cacda", null ],
@@ -58,7 +58,6 @@ var namespacegalaxy =
       [ "imgui_frect", "d3/dd9/namespacegalaxy_1_1ui.html#aea8bf68ecf24464e133131949c5ba9d8", null ]
     ] ],
     [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
-    [ "DoNotUseReferToMacros", "db/d55/structgalaxy_1_1DoNotUseReferToMacros.html", "db/d55/structgalaxy_1_1DoNotUseReferToMacros" ],
     [ "ImGuiMemAllocFunc", "d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404", null ],
     [ "ImGuiMemFreeFunc", "d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281", null ]
 ];

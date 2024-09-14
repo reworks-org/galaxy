@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loglevel_0',['LogLevel',['../d3/d81/namespacegalaxy_1_1error.html#a698a19875dfa76c8a37bd80dc34fdefd',1,'galaxy::error']]]
+  ['loglevel_0',['LogLevel',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fb',1,'galaxy::logging']]]
 ];
