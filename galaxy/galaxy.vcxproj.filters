@@ -1,8 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\galaxy\MemAlloc.cpp" />
+    <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\Generic.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\async\Async.cpp" />
+    <ClCompile Include="src\galaxy\utils\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\utils\Memory.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
+    <ClCompile Include="src\galaxy\platform\Platform.cpp" />
+    <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
+    <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\core\Settings.cpp" />
+    <ClCompile Include="src\galaxy\utils\Guid.cpp" />
+    <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
+    <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
+    <ClCompile Include="src\galaxy\logging\FileSink.cpp" />
+    <ClCompile Include="src\galaxy\logging\Log.cpp" />
+    <ClCompile Include="src\galaxy\logging\LogLevel.cpp" />
+    <ClCompile Include="src\galaxy\logging\LogMessage.cpp" />
+    <ClCompile Include="src\galaxy\logging\PhysFSError.cpp" />
+    <ClCompile Include="src\galaxy\logging\Sink.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\fs\PhysfsStream.cpp" />
+    <ClCompile Include="src\galaxy\core\Application.cpp" />
+    <ClCompile Include="src\galaxy\async\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\async\Timer.hpp" />
+    <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\Generic.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\async\Async.hpp" />
+    <ClInclude Include="src\galaxy\utils\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\utils\Memory.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
+    <ClInclude Include="src\galaxy\platform\Platform.hpp" />
+    <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
+    <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\core\Settings.hpp" />
+    <ClInclude Include="src\galaxy\utils\Guid.hpp" />
+    <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
+    <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
+    <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
+    <ClInclude Include="src\galaxy\logging\Log.hpp" />
+    <ClInclude Include="src\galaxy\logging\LogLevel.hpp" />
+    <ClInclude Include="src\galaxy\logging\LogMessage.hpp" />
+    <ClInclude Include="src\galaxy\logging\PhysFSError.hpp" />
+    <ClInclude Include="src\galaxy\logging\Sink.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\fs\PhysfsStream.hpp" />
+    <ClInclude Include="src\galaxy\core\Application.hpp" />
   </ItemGroup>
 </Project>

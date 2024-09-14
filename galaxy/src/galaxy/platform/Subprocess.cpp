@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/logging/Log.hpp"
 
 #include "Subprocess.hpp"
 
@@ -33,7 +33,7 @@ namespace galaxy
 		{
 			const auto sp_to_run = std::filesystem::absolute(process).replace_extension("").string();
 
-			meta::vector<const char*> cmd_line;
+			std::vector<const char*> cmd_line;
 			cmd_line.reserve(args.size() + 2);
 
 			cmd_line.push_back(sp_to_run.c_str());

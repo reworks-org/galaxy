@@ -11,9 +11,74 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\galaxy\MemAlloc.cpp" />
+    <ClCompile Include="src\galaxy\async\Timer.cpp" />
+    <ClCompile Include="src\galaxy\core\Application.cpp" />
+    <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
+    <ClCompile Include="src\galaxy\fs\PhysfsStream.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
+    <ClCompile Include="src\galaxy\logging\FileSink.cpp" />
+    <ClCompile Include="src\galaxy\logging\Log.cpp" />
+    <ClCompile Include="src\galaxy\logging\LogLevel.cpp" />
+    <ClCompile Include="src\galaxy\logging\LogMessage.cpp" />
+    <ClCompile Include="src\galaxy\logging\PhysFSError.cpp" />
+    <ClCompile Include="src\galaxy\logging\Sink.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\Generic.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\async\Async.cpp" />
+    <ClCompile Include="src\galaxy\utils\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\utils\Memory.cpp" />
+    <ClCompile Include="src\galaxy\platform\Platform.cpp" />
+    <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
+    <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\core\Settings.cpp" />
+    <ClCompile Include="src\galaxy\utils\Guid.cpp" />
+    <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\async\Timer.hpp" />
+    <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
+    <ClInclude Include="src\galaxy\fs\PhysfsStream.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
+    <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
+    <ClInclude Include="src\galaxy\logging\Log.hpp" />
+    <ClInclude Include="src\galaxy\logging\LogLevel.hpp" />
+    <ClInclude Include="src\galaxy\logging\LogMessage.hpp" />
+    <ClInclude Include="src\galaxy\logging\PhysFSError.hpp" />
+    <ClInclude Include="src\galaxy\logging\Sink.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\Generic.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\async\Async.hpp" />
+    <ClInclude Include="src\galaxy\utils\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\utils\Memory.hpp" />
+    <ClInclude Include="src\galaxy\platform\Platform.hpp" />
+    <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
+    <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\core\Settings.hpp" />
+    <ClInclude Include="src\galaxy\utils\Guid.hpp" />
+    <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -106,7 +171,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -166,7 +231,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

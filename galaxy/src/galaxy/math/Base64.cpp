@@ -5,7 +5,7 @@
 /// Modified for use in Galaxy Engine.
 ///
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/logging/Log.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
 #include "Base64.hpp"

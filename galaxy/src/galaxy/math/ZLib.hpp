@@ -10,7 +10,7 @@
 
 #include <zlib.h>
 
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/core/Settings.hpp"
 
 namespace galaxy
 {

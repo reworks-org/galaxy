@@ -10,11 +10,10 @@
 
 #include <random>
 
-#include <glm/vec2.hpp>
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/System/Vector3.hpp>
 
-#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/utils/Concepts.hpp"
 
 namespace galaxy
 {
@@ -57,7 +56,7 @@ namespace galaxy
 			///
 			/// \return Returns number of the same type as inputs.
 			///
-			template<meta::is_arithmetic Type>
+			template<utils::is_arithmetic Type>
 			[[nodiscard]]
 			Type gen(const Type min, const Type max);
 
@@ -70,7 +69,7 @@ namespace galaxy
 			/// \return Pseudo-randomized vec2.
 			///
 			[[nodiscard]]
-			glm::vec2 gen_vec2(const glm::vec2& min, const glm::vec2& max);
+			sf::Vector2f gen_vec2(const sf::Vector2f& min, const sf::Vector2f& max);
 
 			///
 			/// Generate a random vec3.
@@ -81,18 +80,7 @@ namespace galaxy
 			/// \return Pseudo-randomized vec3.
 			///
 			[[nodiscard]]
-			glm::vec3 gen_vec3(const glm::vec3& min, const glm::vec3& max);
-
-			///
-			/// Generate a random vec4.
-			///
-			/// \param min Minimum vec4 inclusive.
-			/// \param max Maximum vec4 inclusive.
-			///
-			/// \return Pseudo-randomized vec4.
-			///
-			[[nodiscard]]
-			glm::vec4 gen_vec4(const glm::vec4& min, const glm::vec4& max);
+			sf::Vector3f gen_vec3(const sf::Vector3f& min, const sf::Vector3f& max);
 
 		private:
 			///
@@ -106,7 +94,7 @@ namespace galaxy
 			std::mt19937_64 m_mt;
 		};
 
-		template<meta::is_arithmetic Type>
+		template<utils::is_arithmetic Type>
 		inline Type Random::gen(const Type min, const Type max)
 		{
 			conditional_distribution<Type> dist {min, max};

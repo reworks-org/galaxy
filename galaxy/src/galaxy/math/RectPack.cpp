@@ -30,10 +30,10 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		std::optional<iRect> RectPack::pack(const int width, const int height)
+		std::optional<sf::IntRect> RectPack::pack(const int width, const int height)
 		{
 			// Result.
-			std::optional<iRect> result = std::nullopt;
+			std::optional<sf::IntRect> result = std::nullopt;
 
 			// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
 			for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend();)
@@ -44,7 +44,7 @@ namespace galaxy
 				if (width <= space.width && height <= space.height)
 				{
 					// Make the packed area rectangle.
-					result = std::make_optional<iRect>(space.x, space.y, width, height);
+					result = std::make_optional<sf::IntRect>(space.left, space.top, width, height);
 
 					// Check to see if shape fills completely.
 					if (width == space.width && height == space.height)
@@ -67,8 +67,9 @@ namespace galaxy
 					}
 					else
 					{
+						sf::IntRect a;
 						// Otherwise, split up existing space.
-						iRect temp = {space.x + width, space.y, space.width - width, height};
+						sf::IntRect temp = {space.left + width, space.top, space.width - width, height};
 
 						space.y      += height;
 						space.height -= height;
@@ -105,7 +106,7 @@ namespace galaxy
 			return m_height;
 		}
 
-		const meta::vector<iRect>& RectPack::get_free_space() const
+		const std::vector<sf::IntRect>& RectPack::get_free_space() const
 		{
 			return m_free_rects;
 		}

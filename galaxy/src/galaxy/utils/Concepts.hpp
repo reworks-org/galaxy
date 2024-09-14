@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_META_CONCEPTS_HPP_
-#define GALAXY_META_CONCEPTS_HPP_
+#ifndef GALAXY_UTILS_CONCEPTS_HPP_
+#define GALAXY_UTILS_CONCEPTS_HPP_
 
 #include <concepts>
 #include <string>
@@ -14,7 +14,7 @@
 
 namespace galaxy
 {
-	namespace meta
+	namespace utils
 	{
 		///
 		/// \brief Only class concept.
@@ -94,7 +94,7 @@ namespace galaxy
 		///
 		template<typename Loader, typename Resource>
 		concept is_loader = requires(Loader loader) { loader.operator() && std::is_class<Loader>::value; };
-	} // namespace meta
+	} // namespace utils
 } // namespace galaxy
 
 #endif
