@@ -9,9 +9,9 @@
 #define GALAXY_ASYNC_TIMER_HPP_
 
 #include <BS_thread_pool.hpp>
+#include <entt/locator/locator.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/core/Settings.hpp"
 
 using namespace std::chrono_literals;
 
@@ -32,7 +32,7 @@ namespace galaxy
 		template<bool async = true>
 		class Timer final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -91,23 +91,25 @@ namespace galaxy
 			///
 			/// You only need to call this if the timer is not running in async mode.
 			///
-			void update();
+			constexpr typename std::enable_if<async, void>::type update();
 
 			///
 			/// Is the timer finished?
 			///
 			/// \return True if timer is stopped (finished).
 			///
-			[[nodiscard]] bool stopped() const;
+			[[nodiscard]]
+			bool stopped() const;
 
 			///
 			/// Is the timer paused?
 			///
 			/// \return True if timer is paused.
 			///
-			[[nodiscard]] bool paused() const;
+			[[nodiscard]]
+			bool paused() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -118,7 +120,7 @@ namespace galaxy
 			///
 			Timer& operator=(const Timer&) = delete;
 
-		  private:
+		private:
 			///
 			/// Is timer stopped.
 			///
@@ -207,7 +209,7 @@ namespace galaxy
 
 			if constexpr (async)
 			{
-				auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
+				auto& tp = entt::locator<BS::thread_pool>::value();
 				m_handle = tp.submit_task([&]() {
 					do
 					{
@@ -253,30 +255,23 @@ namespace galaxy
 		}
 
 		template<bool async>
-		inline void Timer<async>::update()
+		inline constexpr typename std::enable_if<async, void>::type Timer<async>::update()
 		{
-			if constexpr (async)
+			if (!m_stopped && !m_paused)
 			{
-				std::unreachable();
-			}
-			else
-			{
-				if (!m_stopped && !m_paused)
+				m_time_passed += (settings::dt() * 1000.0);
+
+				if (m_time_passed >= m_delay)
 				{
-					m_time_passed += (GALAXY_DT * 1000.0);
+					m_callback();
 
-					if (m_time_passed >= m_delay)
+					if (m_repeat)
 					{
-						m_callback();
-
-						if (m_repeat)
-						{
-							m_time_passed = 0.0;
-						}
-						else
-						{
-							stop();
-						}
+						m_time_passed = 0.0;
+					}
+					else
+					{
+						stop();
 					}
 				}
 			}
