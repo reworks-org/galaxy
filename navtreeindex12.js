@@ -1,5 +1,9 @@
 var NAVTREEINDEX12 =
 {
+"db/d1a/Mouse_8cpp_source.html":[3,0,0,0,0,7,16],
+"db/d20/Clipboard_8hpp.html":[3,0,0,0,0,7,3],
+"db/d20/Clipboard_8hpp_source.html":[3,0,0,0,0,7,3],
+"db/d27/LuaState_8cpp.html":[3,0,0,0,0,15,0,18],
 "db/d27/LuaState_8cpp.html#ab275a55a81ed4fd840cd1abc4a75377b":[3,0,0,0,0,15,0,18,0],
 "db/d27/LuaState_8cpp_source.html":[3,0,0,0,0,15,0,18],
 "db/d40/classgalaxy_1_1components_1_1Script.html":[0,0,0,1,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX12 =
 "db/df9/classgalaxy_1_1input_1_1Input.html#a71b0cbd6fd83f4f279d50599fca1a06e":[0,0,0,7,4,3],
 "db/df9/classgalaxy_1_1input_1_1Input.html#a71b0cbd6fd83f4f279d50599fca1a06e":[2,0,0,7,4,3],
 "db/df9/classgalaxy_1_1input_1_1Input.html#a76025e0de20016cdd29e717ccad66cad":[0,0,0,7,4,9],
-"db/df9/classgalaxy_1_1input_1_1Input.html#a76025e0de20016cdd29e717ccad66cad":[2,0,0,7,4,9],
-"db/df9/classgalaxy_1_1input_1_1Input.html#a7ab0385f867b98642581f319a95db0d5":[0,0,0,7,4,1],
-"db/df9/classgalaxy_1_1input_1_1Input.html#a7ab0385f867b98642581f319a95db0d5":[2,0,0,7,4,1],
-"db/df9/classgalaxy_1_1input_1_1Input.html#ac44a87c102404353baa9ebfc004fc8e1":[0,0,0,7,4,4],
-"db/df9/classgalaxy_1_1input_1_1Input.html#ac44a87c102404353baa9ebfc004fc8e1":[2,0,0,7,4,4]
+"db/df9/classgalaxy_1_1input_1_1Input.html#a76025e0de20016cdd29e717ccad66cad":[2,0,0,7,4,9]
 };

@@ -83,5 +83,6 @@ var searchData=
   ['is_5frotation_5ffixed_80',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
   ['is_5fspatialization_5fenabled_81',['is_spatialization_enabled',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html#a2722a857de092383fa5bfcc27e8eb0e3',1,'galaxy::media::Sound']]],
   ['is_5ftext_5finput_5fenabled_82',['is_text_input_enabled',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b',1,'galaxy::input::Keyboard']]],
-  ['is_5fvalid_83',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]]
+  ['is_5fvalid_83',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
+  ['is_5fwork_5fdone_84',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a3fc797c1da8c1b21dac7dce0751f439a',1,'galaxy::async']]]
 ];

@@ -140,7 +140,7 @@ var searchData=
   ['m_5fshow_5ffunctions_137',['m_show_functions',['../db/d40/classgalaxy_1_1components_1_1Script.html#aab0b0e6799fb0d4552c0dde131375e40',1,'galaxy::components::Script']]],
   ['m_5fshow_5funknown_138',['m_show_unknown',['../db/d40/classgalaxy_1_1components_1_1Script.html#a510bee379e033bcd32ff19c1f5ceac0a',1,'galaxy::components::Script']]],
   ['m_5fshow_5fuserdata_139',['m_show_userdata',['../db/d40/classgalaxy_1_1components_1_1Script.html#a240b4288e96b29a9df79439c166ead97',1,'galaxy::components::Script']]],
-  ['m_5fsinks_140',['m_sinks',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a77e6e754b17eb0ce5fc8b1dd9455d69f',1,'galaxy::logging::Log']]],
+  ['m_5fsinks_140',['m_sinks',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5c424c1f9c4587d2d10e7d0abfddc583',1,'galaxy::logging::Log']]],
   ['m_5fsize_141',['m_size',['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a37eb70c4f3a408b166eed4ee3f5098c5',1,'galaxy::graphics::Text']]],
   ['m_5fsmaa_5fblend_142',['m_smaa_blend',['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a49adf0404563764e3ba6ba6f7638fabd',1,'galaxy::graphics::SMAA']]],
   ['m_5fsmaa_5fedge_143',['m_smaa_edge',['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a5fcc4b73f2879862ae314e3bad9f976a',1,'galaxy::graphics::SMAA']]],

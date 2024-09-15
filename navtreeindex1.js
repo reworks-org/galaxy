@@ -1,6 +1,7 @@
 var NAVTREEINDEX1 =
 {
-"d0/dc2/Timer_8cpp_source.html":[3,0,0,0,0,0,0],
+"d0/dc2/Timer_8cpp.html":[3,0,0,0,0,0,2],
+"d0/dc2/Timer_8cpp_source.html":[3,0,0,0,0,0,2],
 "d0/dd0/core_2Loader_8cpp.html":[3,0,0,0,0,2,4],
 "d0/dd0/core_2Loader_8cpp_source.html":[3,0,0,0,0,2,4],
 "d0/dd1/MouseButtons_8cpp.html":[3,0,0,0,0,7,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "d2/d44/Sharpen_8cpp.html#a51a8562e7b1ca4ee31eb33bbda648074":[3,0,0,0,0,6,2,8,1],
 "d2/d44/Sharpen_8cpp.html#aa4c1b78d973941eab9aca355e8430419":[3,0,0,0,0,6,2,8,0],
 "d2/d44/Sharpen_8cpp_source.html":[3,0,0,0,0,6,2,8],
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html":[0,0,0,22,0],
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html":[2,0,0,18,0]
+"d2/d4d/classgalaxy_1_1utils_1_1Guid.html":[0,0,0,22,0]
 };

@@ -131,6 +131,7 @@ var NAVTREEINDEX0 =
 "d0/d79/Base64_8hpp.html#a6ae9cb90ed7180e96e12016f22b1121d":[3,0,0,0,0,10,1,1],
 "d0/d79/Base64_8hpp_source.html":[3,0,0,0,0,10,1],
 "d0/d7f/namespacegalaxy_1_1async.html":[0,0,0,0],
+"d0/d7f/namespacegalaxy_1_1async.html#a3fc797c1da8c1b21dac7dce0751f439a":[0,0,0,0,2],
 "d0/d7f/namespacegalaxy_1_1async.html#af7aa889ef5dc58516ac18772f1dca0bc":[0,0,0,0,1],
 "d0/d82/Log_8hpp.html":[3,0,0,0,0,8,5],
 "d0/d82/Log_8hpp.html#a2565edfbb02a82906807dda458b849de":[3,0,0,0,0,8,5,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4":[0,0,0,2,5,6],
 "d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4":[2,0,0,2,5,6],
 "d0/dc1/RingBuffer_8cpp.html":[3,0,0,0,0,11,2],
-"d0/dc1/RingBuffer_8cpp_source.html":[3,0,0,0,0,11,2],
-"d0/dc2/Timer_8cpp.html":[3,0,0,0,0,0,0]
+"d0/dc1/RingBuffer_8cpp_source.html":[3,0,0,0,0,11,2]
 };

@@ -1,3 +1,16 @@
 <map id="galaxy::logging::Log" name="galaxy::logging::Log">
-<area shape="rect" id="Node000001" title="Log singleton." alt="" coords="5,5,149,291"/>
+<area shape="rect" id="Node000001" title="Log singleton." alt="" coords="180,732,324,997"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="167,575,337,669"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,670,255,716,249,716,249,670"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="85,432,256,512"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,511,221,559,216,562,190,513"/>
+<area shape="rect" id="Node000004" href="$d9/d9f/classgalaxy_1_1logging_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,133,155,319"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,318,106,363,122,407,128,417,123,420,118,409,101,365,89,319"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,193,328,259"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="213,270,187,304,168,343,161,388,165,431,159,432,156,388,163,342,183,302,209,267"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="298,5,321,71"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="302,72,270,178,265,177,297,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="305,343,426,408"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="323,66,333,94,349,156,359,219,367,326,362,327,353,219,343,157,328,95,318,68"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="352,422,328,484,297,552,284,576,279,573,292,549,323,482,347,420"/>
 </map>

@@ -101,7 +101,8 @@ $(function(){initNavTree('d0/d7f/namespacegalaxy_1_1async.html','../../'); initR
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">galaxy::async Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -117,6 +118,13 @@ Typedefs</h2></td></tr>
 <tr class="memitem:af7aa889ef5dc58516ac18772f1dca0bc" id="r_af7aa889ef5dc58516ac18772f1dca0bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7aa889ef5dc58516ac18772f1dca0bc">TimerCallback</a> = std::move_only_function&lt;void(void)&gt;</td></tr>
 <tr class="memdesc:af7aa889ef5dc58516ac18772f1dca0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html" title="(A)synchronous timer class.">Timer</a> callback type.  <br /></td></tr>
 <tr class="separator:af7aa889ef5dc58516ac18772f1dca0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3fc797c1da8c1b21dac7dce0751f439a" id="r_a3fc797c1da8c1b21dac7dce0751f439a"><td class="memTemplParams" colspan="2">template&lt;typename T  = void&gt; </td></tr>
+<tr class="memitem:a3fc797c1da8c1b21dac7dce0751f439a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3fc797c1da8c1b21dac7dce0751f439a">is_work_done</a> (const std::future&lt; T &gt; &amp;t)</td></tr>
+<tr class="memdesc:a3fc797c1da8c1b21dac7dce0751f439a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an async thread has finished or not.  <br /></td></tr>
+<tr class="separator:a3fc797c1da8c1b21dac7dce0751f439a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="af7aa889ef5dc58516ac18772f1dca0bc" name="af7aa889ef5dc58516ac18772f1dca0bc"></a>
@@ -137,13 +145,52 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a3fc797c1da8c1b21dac7dce0751f439a" name="a3fc797c1da8c1b21dac7dce0751f439a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc797c1da8c1b21dac7dce0751f439a">&#9670;&#160;</a></span>is_work_done()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::async::is_work_done </td>
+          <td>(</td>
+          <td class="paramtype">const std::future&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if an async thread has finished or not. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Template type for std::future&lt;T&gt;.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true when async thread has finished. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d4b/Async_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d3/d4b/Async_8hpp_source.html">Async.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d0/d7f/namespacegalaxy_1_1async.html">async</a></li>
-    <li class="footer">Generated on Sat Sep 14 2024 10:36:21 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
