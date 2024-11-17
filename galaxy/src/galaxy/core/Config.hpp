@@ -11,6 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include "galaxy/logging/Log.hpp"
+#include "galaxy/utils/Concepts.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
 namespace galaxy
@@ -66,7 +67,7 @@ namespace galaxy
 			/// \param key Name of the variable.
 			/// \param value The variable value to set.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			void set(const std::string& key, const Value& value);
 
 			///
@@ -81,7 +82,7 @@ namespace galaxy
 			/// \param section Section of the config file to use. Can use a delimiter to seperate sections.
 			/// \param delim Delimiter to seperate sections with. Optional.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			void set(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
 
 			///
@@ -92,7 +93,7 @@ namespace galaxy
 			/// \param key Name of the variable.
 			/// \param value The variable value to set.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			void restore(const std::string& key, const Value& value);
 
 			///
@@ -105,7 +106,7 @@ namespace galaxy
 			/// \param section Section of the config file to use. Can use a delimiter to seperate sections.
 			/// \param delim Delimiter to seperate sections with. Optional.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			void restore(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
 
 			///
@@ -139,7 +140,7 @@ namespace galaxy
 			///
 			/// \return Returns the value retrieved from the key.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			[[nodiscard]]
 			Value get(const std::string& key);
 
@@ -154,7 +155,7 @@ namespace galaxy
 			///
 			/// \return Returns the value retrieved from the key.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			[[nodiscard]]
 			Value get(const std::string& key, const std::string& section, const std::string& delim = ".");
 
@@ -219,7 +220,7 @@ namespace galaxy
 			std::string m_path;
 		};
 
-		template<meta::standard_type Value>
+		template<utils::standard_type Value>
 		inline void Config::set(const std::string& key, const Value& value)
 		{
 			if (m_loaded)
@@ -232,7 +233,7 @@ namespace galaxy
 			}
 		}
 
-		template<meta::standard_type Value>
+		template<utils::standard_type Value>
 		inline void Config::set(const std::string& key, const Value& value, const std::string& section, const std::string& delim)
 		{
 			if (m_loaded)
@@ -266,7 +267,7 @@ namespace galaxy
 			}
 		}
 
-		template<meta::standard_type Value>
+		template<utils::standard_type Value>
 		inline void Config::restore(const std::string& key, const Value& value)
 		{
 			if (!has(key))
@@ -275,7 +276,7 @@ namespace galaxy
 			}
 		}
 
-		template<meta::standard_type Value>
+		template<utils::standard_type Value>
 		inline void Config::restore(const std::string& key, const Value& value, const std::string& section, const std::string& delim)
 		{
 			if (!has(key, section, delim))
@@ -284,7 +285,7 @@ namespace galaxy
 			}
 		}
 
-		template<meta::standard_type Value>
+		template<utils::standard_type Value>
 		inline Value Config::get(const std::string& key)
 		{
 			if (m_loaded)
@@ -306,7 +307,7 @@ namespace galaxy
 			return Value {};
 		}
 
-		template<meta::standard_type Value>
+		template<utils::standard_type Value>
 		inline Value Config::get(const std::string& key, const std::string& section, const std::string& delim)
 		{
 			if (m_loaded)
