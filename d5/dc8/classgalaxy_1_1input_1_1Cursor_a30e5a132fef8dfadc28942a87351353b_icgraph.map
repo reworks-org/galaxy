@@ -1,15 +1,11 @@
 <map id="galaxy::input::Cursor::destroy" name="galaxy::input::Cursor::destroy">
-<area shape="rect" id="Node000001" title="Clean up custom cursor." alt="" coords="639,69,795,109"/>
-<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="429,5,591,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="638,68,574,48,576,43,639,63"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7" title="Injects input handling into lua." alt="" coords="441,69,579,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="625,92,579,92,579,87,625,87"/>
-<area shape="rect" id="Node000007" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab8c023aa17a34a69a3071a228cac94f2" title="Destructor." alt="" coords="432,133,588,173"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="639,116,576,136,574,131,638,111"/>
-<area shape="rect" id="Node000003" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="220,5,381,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="415,28,381,28,381,23,415,23"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="232,77,369,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="427,92,369,92,369,87,427,87"/>
-<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="218,92,172,92,172,87,218,87"/>
+<area shape="rect" id="Node000001" title="Clean up custom cursor." alt="" coords="609,37,765,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7" title="Injects input handling into lua." alt="" coords="415,5,552,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="596,46,552,39,553,33,596,40"/>
+<area shape="rect" id="Node000005" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ab8c023aa17a34a69a3071a228cac94f2" title="Destructor." alt="" coords="405,69,561,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="596,74,562,80,561,74,596,69"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,28,358,28,358,23,401,23"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>

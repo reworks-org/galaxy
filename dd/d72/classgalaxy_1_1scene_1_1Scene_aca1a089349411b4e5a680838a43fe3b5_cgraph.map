@@ -1,11 +1,9 @@
 <map id="galaxy::scene::Scene::load_world" name="galaxy::scene::Scene::load_world">
-<area shape="rect" id="Node000001" title="Loads an LDTK world for this scene." alt="" coords="5,65,164,105"/>
-<area shape="rect" id="Node000002" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="212,33,359,73"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,70,198,65,198,70,165,75"/>
-<area shape="rect" id="Node000005" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02" title="Parse world and create entities." alt="" coords="212,97,359,137"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,95,198,101,198,106,164,101"/>
-<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="449,5,595,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="358,42,435,33,435,38,359,47"/>
-<area shape="rect" id="Node000004" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="407,70,637,95"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="359,60,406,66,406,71,358,65"/>
+<area shape="rect" id="Node000001" title="Loads an LDTK world for this scene." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000002" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="212,5,359,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,42,198,37,198,42,165,47"/>
+<area shape="rect" id="Node000004" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02" title="Parse world and create entities." alt="" coords="212,69,359,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,67,198,73,198,78,164,73"/>
+<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="407,5,553,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,23,393,23,393,28,359,28"/>
 </map>

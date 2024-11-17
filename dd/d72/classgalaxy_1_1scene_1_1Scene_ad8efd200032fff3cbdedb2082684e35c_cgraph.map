@@ -1,23 +1,15 @@
 <map id="galaxy::scene::Scene::deserialize" name="galaxy::scene::Scene::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,157,164,197"/>
-<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a0d6c119110845b828a8dd3cf0bf962a3" title="Clear any pending data." alt="" coords="224,29,387,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,155,152,117,211,79,224,72,227,77,213,84,156,122,109,159"/>
-<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="212,93,399,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,155,222,135,224,140,155,160"/>
-<area shape="rect" id="Node000005" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="226,157,385,197"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="164,175,212,175,212,180,164,180"/>
-<area shape="rect" id="Node000008" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="696,190,927,215"/>
-<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="153,195,212,207,337,217,462,220,580,217,682,211,683,217,581,222,462,225,336,222,212,212,152,200"/>
-<area shape="rect" id="Node000010" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a7075fb160fcb187285dfaea8be1a55dd" title="Set currently active map." alt="" coords="232,272,379,312"/>
-<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="118,195,213,251,241,264,239,269,211,256,115,200"/>
-<area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="447,29,648,69"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="381,91,458,70,459,75,382,96"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="503,30,500,20,507,10,523,5,547,3,575,6,590,13,588,18,574,11,547,8,524,10,510,15,505,21,508,28"/>
-<area shape="rect" id="Node000006" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="474,93,621,133"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="381,155,460,134,461,139,382,160"/>
-<area shape="rect" id="Node000009" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02" title="Parse world and create entities." alt="" coords="474,157,621,197"/>
-<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="385,175,461,175,461,180,385,180"/>
-<area shape="rect" id="Node000007" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="738,93,885,133"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="621,111,724,111,724,116,621,116"/>
-<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="613,131,649,143,763,183,761,188,647,148,611,136"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,69,164,109"/>
+<area shape="rect" id="Node000002" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a0d6c119110845b828a8dd3cf0bf962a3" title="Clear any pending data." alt="" coords="212,5,375,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,67,214,47,215,52,151,72"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="214,69,373,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,87,200,87,200,92,164,92"/>
+<area shape="rect" id="Node000007" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a7075fb160fcb187285dfaea8be1a55dd" title="Set currently active map." alt="" coords="220,133,367,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="151,107,215,127,214,132,150,112"/>
+<area shape="rect" id="Node000004" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="423,37,569,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="373,74,409,68,409,74,374,79"/>
+<area shape="rect" id="Node000006" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02" title="Parse world and create entities." alt="" coords="423,101,569,141"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="374,99,409,105,409,110,373,105"/>
+<area shape="rect" id="Node000005" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="617,37,764,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="569,55,603,55,603,60,569,60"/>
 </map>

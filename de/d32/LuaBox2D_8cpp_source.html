@@ -108,7 +108,7 @@ $(function(){initNavTree('de/d32/LuaBox2D_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;box2d/b2_world.h&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;sol/sol.hpp&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d92/Lua_8hpp.html">Lua.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
@@ -119,7 +119,7 @@ $(function(){initNavTree('de/d32/LuaBox2D_8cpp_source.html','../../'); initResiz
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6">   20</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6">inject_box2d</a>()</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keyword">auto</span>&amp; lua = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;sol::state&gt;::ref</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keyword">auto</span>&amp; lua = core::ServiceLocator&lt;sol::state&gt;::ref();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="comment">// clang-format off</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            lua.new_enum&lt;b2BodyType&gt;(<span class="stringliteral">&quot;b2BodyType&quot;</span>,</div>
@@ -241,8 +241,6 @@ $(function(){initNavTree('de/d32/LuaBox2D_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    } <span class="comment">// namespace lua</span></div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
-<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1lua_html_a8e443835399c95d998dd8f4c6b0ca4f6"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6">galaxy::lua::inject_box2d</a></div><div class="ttdeci">void inject_box2d()</div><div class="ttdoc">Injects Box2D into lua.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">LuaBox2D.cpp:20</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -251,7 +249,7 @@ $(function(){initNavTree('de/d32/LuaBox2D_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dir_5166590be04beeb03b821b2adcb9d01a.html">lua</a></li><li class="navelem"><a class="el" href="../../de/d32/LuaBox2D_8cpp.html">LuaBox2D.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

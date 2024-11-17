@@ -1,37 +1,5 @@
 <map id="galaxy::components::Sprite::deserialize" name="galaxy::components::Sprite::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,133,159,173"/>
-<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ad3ffb31eb7b707f437b6b0ace6d8277f" title="Alpha." alt="" coords="207,5,385,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,131,149,93,205,55,218,48,221,53,208,60,152,97,107,135"/>
-<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ab417167636cc93ce7ae0569bf665e2ee" title="Blue." alt="" coords="207,69,385,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,131,215,111,216,116,150,136"/>
-<area shape="rect" id="Node000006" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0db9c22461a60650eebe6d97442b8297" title="Green." alt="" coords="207,133,385,173"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="159,151,193,151,193,156,159,156"/>
-<area shape="rect" id="Node000008" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e9f7104e1bff2c2fd29e9cf659e7035" title="Red." alt="" coords="207,197,385,237"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="150,171,216,191,215,196,149,176"/>
-<area shape="rect" id="Node000010" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="219,375,373,415"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="103,172,270,362,266,366,99,175"/>
-<area shape="rect" id="Node000003" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c" title="Get alpha." alt="" coords="451,13,646,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,23,437,23,437,28,385,28"/>
-<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37" title="Get blue." alt="" coords="451,77,646,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="385,87,437,87,437,92,385,92"/>
-<area shape="rect" id="Node000007" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a" title="Get green." alt="" coords="451,141,646,166"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="385,151,437,151,437,156,385,156"/>
-<area shape="rect" id="Node000009" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c" title="Get red." alt="" coords="453,197,644,222"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="385,212,439,210,440,215,386,217"/>
-<area shape="rect" id="Node000011" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="459,247,638,287"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="319,372,369,334,432,296,449,289,451,294,435,301,372,338,322,376"/>
-<area shape="rect" id="Node000014" href="$db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867" title="Generate some default indicies." alt="" coords="469,311,629,351"/>
-<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="372,373,455,351,457,357,373,378"/>
-<area shape="rect" id="Node000015" href="$db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0" title="Generate some default verticies." alt="" coords="469,375,629,415"/>
-<area shape="poly" id="edge14_Node000010_Node000015" title=" " alt="" coords="373,392,455,392,455,397,373,397"/>
-<area shape="rect" id="Node000016" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a8223f419eb7a8cd8f1be25592544d954" title="Get texture height." alt="" coords="457,439,641,479"/>
-<area shape="poly" id="edge15_Node000010_Node000016" title=" " alt="" coords="373,411,457,433,455,438,372,417"/>
-<area shape="rect" id="Node000017" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="433,503,664,529"/>
-<area shape="poly" id="edge16_Node000010_Node000017" title=" " alt="" coords="321,413,371,451,434,488,458,497,457,502,432,493,368,456,318,417"/>
-<area shape="rect" id="Node000018" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a5961fcc6224b3525f8639fcdbc8aceb3" title="Get texture width." alt="" coords="457,553,641,593"/>
-<area shape="poly" id="edge17_Node000010_Node000018" title=" " alt="" coords="313,413,362,476,396,510,435,539,446,545,444,550,432,544,392,514,358,479,309,417"/>
-<area shape="rect" id="Node000012" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="712,215,891,255"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="638,253,698,245,699,250,638,258"/>
-<area shape="rect" id="Node000013" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="712,279,891,319"/>
-<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="638,275,699,283,698,288,638,281"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,5,159,45"/>
+<area shape="rect" id="Node000002" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
 </map>

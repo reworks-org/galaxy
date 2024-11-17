@@ -3,12 +3,12 @@ var classgalaxy_1_1math_1_1RectPack =
     [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a988c63c03643cdab6ea10c1cab39bd18", null ],
     [ "~RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab7c03ffc842f84a16a275f5c3799c32b", null ],
     [ "init", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a619de7d31c54ee52bde3bb2c597841bd", null ],
-    [ "pack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a6872923f9b94fd208cd4b89685ddf9b1", null ],
+    [ "pack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a4cbc276df1854cc8771571390587905a", null ],
     [ "clear", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae6dbbd4ee6545ec94dc9dbcea79afc81", null ],
     [ "get_width", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a705a5341d96b2a1984a232f25c43b159", null ],
     [ "get_height", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a52fdaad91716290a1ec183997cfaddc4", null ],
-    [ "get_free_space", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a292f6ac0db3adb8f7f4574226a2e8e3d", null ],
+    [ "get_free_space", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a609c21d872cfddcae680596b2477d86d", null ],
     [ "m_width", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854", null ],
     [ "m_height", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e", null ],
-    [ "m_free_rects", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43d87e38afc5055c4ff2a3dcb4b370f8", null ]
+    [ "m_free_rects", "d3/d76/classgalaxy_1_1math_1_1RectPack.html#a0554137e54877a8a845af501ac421f6b", null ]
 ];

@@ -106,7 +106,7 @@ $(function(){initNavTree('d7/d76/LuaError_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sol/sol.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;galaxy/error/OpenGLError.hpp&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/d92/Lua_8hpp.html">Lua.hpp</a>&quot;</span></div>
@@ -146,7 +146,7 @@ $(function(){initNavTree('d7/d76/LuaError_8cpp_source.html','../../'); initResiz
 <div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../de/d12/namespacegalaxy_1_1lua.html#a54ef670f077e6a24aa8f3621cc976849">   45</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a54ef670f077e6a24aa8f3621cc976849">inject_error</a>()</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keyword">auto</span>&amp; lua = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;sol::state&gt;::ref</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keyword">auto</span>&amp; lua = core::ServiceLocator&lt;sol::state&gt;::ref();</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="comment">// clang-format off</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            lua.new_enum&lt;error::LogLevel&gt;(<span class="stringliteral">&quot;LogLevels&quot;</span>,</div>
@@ -174,8 +174,6 @@ $(function(){initNavTree('d7/d76/LuaError_8cpp_source.html','../../'); initResiz
 <div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
-<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1lua_html_a54ef670f077e6a24aa8f3621cc976849"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a54ef670f077e6a24aa8f3621cc976849">galaxy::lua::inject_error</a></div><div class="ttdeci">void inject_error()</div><div class="ttdoc">Injects error handling into lua.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">LuaError.cpp:45</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1lua_html_ae6e69f0c5e5575aa352f2eea4e819eb3"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#ae6e69f0c5e5575aa352f2eea4e819eb3">galaxy::lua::log_wrapper</a></div><div class="ttdeci">void log_wrapper(error::LogLevel error_level, std::string_view message)</div><div class="ttdef"><b>Definition</b> <a href="#l00019">LuaError.cpp:19</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
@@ -185,7 +183,7 @@ $(function(){initNavTree('d7/d76/LuaError_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dir_5166590be04beeb03b821b2adcb9d01a.html">lua</a></li><li class="navelem"><a class="el" href="../../d7/d76/LuaError_8cpp.html">LuaError.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

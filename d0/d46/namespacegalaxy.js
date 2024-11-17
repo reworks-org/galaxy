@@ -6,7 +6,14 @@ var namespacegalaxy =
     [ "events", "d6/d3d/namespacegalaxy_1_1events.html", "d6/d3d/namespacegalaxy_1_1events" ],
     [ "flags", "df/d31/namespacegalaxy_1_1flags.html", "df/d31/namespacegalaxy_1_1flags" ],
     [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", "d6/d19/namespacegalaxy_1_1fs" ],
-    [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", "db/dab/namespacegalaxy_1_1graphics" ],
+    [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
+      [ "ScreenMode", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1", [
+        [ "NONE", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab50339a10e1de285ac99d4c3990b8693", null ],
+        [ "MAXIMIZED", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1a2f33d682f3a4e19c31ced6cb4fd022e3", null ],
+        [ "FULLSCREEN", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97", null ],
+        [ "BORDERLESS", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1af744a3ac16b1ac0bc9df0aa02cc1a038", null ]
+      ] ]
+    ] ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", "dd/d59/namespacegalaxy_1_1input" ],
     [ "json", "de/dd6/namespacegalaxy_1_1json.html", [
       [ "read", "de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d", null ],
@@ -58,6 +65,7 @@ var namespacegalaxy =
       [ "imgui_frect", "d3/dd9/namespacegalaxy_1_1ui.html#aea8bf68ecf24464e133131949c5ba9d8", null ]
     ] ],
     [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
+    [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
     [ "ImGuiMemAllocFunc", "d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404", null ],
     [ "ImGuiMemFreeFunc", "d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281", null ]
 ];

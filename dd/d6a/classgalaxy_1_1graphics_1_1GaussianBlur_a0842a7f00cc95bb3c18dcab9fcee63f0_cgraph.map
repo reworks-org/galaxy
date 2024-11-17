@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::GaussianBlur::is_enabled" name="galaxy::graphics::GaussianBlur::is_enabled">
-<area shape="rect" id="Node000001" title="Is this effect enabled?" alt="" coords="5,5,201,45"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="249,13,480,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,23,236,23,236,28,201,28"/>
-</map>

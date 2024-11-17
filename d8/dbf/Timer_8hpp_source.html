@@ -110,7 +110,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;BS_thread_pool.hpp&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;entt/locator/locator.hpp&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;galaxy/core/Settings.hpp&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d02/Settings_8hpp.html">galaxy/core/Settings.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
@@ -294,7 +294,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        {</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            <span class="keywordflow">if</span> (!m_stopped &amp;&amp; !m_paused)</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                m_time_passed += (settings::dt() * 1000.0);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                m_time_passed += (<a class="code hl_function" href="../../d1/db3/structgalaxy_1_1settings.html#ad933b3274cb9d6c97e398b296dcf6bea">settings::dt</a>() * 1000.0);</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                <span class="keywordflow">if</span> (m_time_passed &gt;= m_delay)</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                {</div>
@@ -332,6 +332,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aSettings_8hpp_html"><div class="ttname"><a href="../../db/d02/Settings_8hpp.html">Settings.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html">galaxy::async::Timer</a></div><div class="ttdoc">(A)synchronous timer class.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Timer.hpp:34</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a031fddb9de91bc171d1f960807505c7a"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a031fddb9de91bc171d1f960807505c7a">galaxy::async::Timer::m_paused</a></div><div class="ttdeci">std::atomic_bool m_paused</div><div class="ttdoc">Is timer paused.</div><div class="ttdef"><b>Definition</b> <a href="#l00132">Timer.hpp:132</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a041a215ccbc20d6a05dfd707ad468961"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a041a215ccbc20d6a05dfd707ad468961">galaxy::async::Timer::repeat</a></div><div class="ttdeci">void repeat(const bool repeat)</div><div class="ttdoc">Make function repeat itself instead of running once.</div><div class="ttdef"><b>Definition</b> <a href="#l00199">Timer.hpp:199</a></div></div>
@@ -355,13 +356,14 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_aed2c1d6f97d0e3f2a598841b87265922"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#aed2c1d6f97d0e3f2a598841b87265922">galaxy::async::Timer::operator=</a></div><div class="ttdeci">Timer &amp; operator=(const Timer &amp;)=delete</div><div class="ttdoc">Copy assignment operator.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1async_html_af7aa889ef5dc58516ac18772f1dca0bc"><div class="ttname"><a href="../../d0/d7f/namespacegalaxy_1_1async.html#af7aa889ef5dc58516ac18772f1dca0bc">galaxy::async::TimerCallback</a></div><div class="ttdeci">std::move_only_function&lt; void(void)&gt; TimerCallback</div><div class="ttdoc">Timer callback type.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Timer.hpp:25</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1settings_html_ad933b3274cb9d6c97e398b296dcf6bea"><div class="ttname"><a href="../../d1/db3/structgalaxy_1_1settings.html#ad933b3274cb9d6c97e398b296dcf6bea">galaxy::settings::dt</a></div><div class="ttdeci">static auto dt() -&gt; double</div><div class="ttdoc">Get galaxy delta time.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd8/Settings_8cpp_source.html#l00093">Settings.cpp:93</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

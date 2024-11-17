@@ -8,8 +8,6 @@ var dir_b44bae1181d28134d9654f6dd7c8beaa =
     [ "Cursor.hpp", "de/ddb/Cursor_8hpp.html", "de/ddb/Cursor_8hpp" ],
     [ "Input.cpp", "df/de8/Input_8cpp.html", null ],
     [ "Input.hpp", "d1/d36/Input_8hpp.html", "d1/d36/Input_8hpp" ],
-    [ "InputDevice.cpp", "df/d7c/InputDevice_8cpp.html", null ],
-    [ "InputDevice.hpp", "d4/da5/InputDevice_8hpp.html", "d4/da5/InputDevice_8hpp" ],
     [ "InputMods.cpp", "dc/d8e/InputMods_8cpp.html", null ],
     [ "InputMods.hpp", "d4/d98/InputMods_8hpp.html", "d4/d98/InputMods_8hpp" ],
     [ "Keyboard.cpp", "de/db9/Keyboard_8cpp.html", null ],

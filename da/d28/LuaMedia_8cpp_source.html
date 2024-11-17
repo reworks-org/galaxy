@@ -106,7 +106,7 @@ $(function(){initNavTree('da/d28/LuaMedia_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sol/sol.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d92/AudioEngine_8hpp.html">galaxy/media/AudioEngine.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/db9/Sound_8hpp.html">galaxy/media/Sound.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d4c/Video_8hpp.html">galaxy/media/Video.hpp</a>&quot;</span></div>
@@ -120,7 +120,7 @@ $(function(){initNavTree('da/d28/LuaMedia_8cpp_source.html','../../'); initResiz
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../de/d12/namespacegalaxy_1_1lua.html#add53ba093ede88cbd1be6056c4e20731">   21</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#add53ba093ede88cbd1be6056c4e20731">inject_media</a>()</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">auto</span>&amp; lua = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;sol::state&gt;::ref</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">auto</span>&amp; lua = core::ServiceLocator&lt;sol::state&gt;::ref();</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="comment">// clang-format off</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            lua.new_enum&lt;<a class="code hl_enumeration" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034">media::SoundType</a>&gt;(<span class="stringliteral">&quot;SoundType&quot;</span>,</div>
@@ -253,10 +253,8 @@ $(function(){initNavTree('da/d28/LuaMedia_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aAudioEngine_8hpp_html"><div class="ttname"><a href="../../d4/d92/AudioEngine_8hpp.html">AudioEngine.hpp</a></div></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
-<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aSound_8hpp_html"><div class="ttname"><a href="../../d9/db9/Sound_8hpp.html">Sound.hpp</a></div></div>
 <div class="ttc" id="aVideo_8hpp_html"><div class="ttname"><a href="../../d7/d4c/Video_8hpp.html">Video.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1media_1_1AudioEngine_html"><div class="ttname"><a href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html">galaxy::media::AudioEngine</a></div><div class="ttdoc">MiniAudio high level API engine.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d92/AudioEngine_8hpp_source.html#l00027">AudioEngine.hpp:28</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1media_1_1AudioEngine_html_a2706defba3cfb33df9aa43f83d99cda7"><div class="ttname"><a href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a2706defba3cfb33df9aa43f83d99cda7">galaxy::media::AudioEngine::set_listener_velocity</a></div><div class="ttdeci">void set_listener_velocity(const unsigned int id, const float x, const float y, const float z)</div><div class="ttdoc">Set the velocity of a sound used for doppler effect.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d92/AudioEngine_8hpp_source.html#l00369">AudioEngine.hpp:369</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1media_1_1AudioEngine_html_a33f921f96085974adda6cb6bae6b2660"><div class="ttname"><a href="../../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a33f921f96085974adda6cb6bae6b2660">galaxy::media::AudioEngine::set_listener_direction</a></div><div class="ttdeci">void set_listener_direction(const unsigned int id, const float x, const float y, const float z)</div><div class="ttdoc">Set a listeners direction.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d92/AudioEngine_8hpp_source.html#l00375">AudioEngine.hpp:375</a></div></div>
@@ -349,7 +347,7 @@ $(function(){initNavTree('da/d28/LuaMedia_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dir_5166590be04beeb03b821b2adcb9d01a.html">lua</a></li><li class="navelem"><a class="el" href="../../da/d28/LuaMedia_8cpp.html">LuaMedia.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

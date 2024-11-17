@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::ShaderStorageBuffer::clear" name="galaxy::graphics::ShaderStorageBuffer::clear">
-<area shape="rect" id="Node000001" title="Clears data from buffer." alt="" coords="475,5,656,45"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Cleanup renderer data." alt="" coords="232,5,427,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="461,28,427,28,427,23,461,23"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="5,13,184,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,28,184,28,184,23,219,23"/>
-</map>

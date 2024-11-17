@@ -10,10 +10,8 @@ var dir_2fca6cf9c244716c7cc7db0f05b66bc2 =
     [ "Prefab.hpp", "d1/d98/Prefab_8hpp.html", "d1/d98/Prefab_8hpp" ],
     [ "Registry.cpp", "d6/d4f/Registry_8cpp.html", null ],
     [ "Registry.hpp", "db/dd1/Registry_8hpp.html", "db/dd1/Registry_8hpp" ],
-    [ "ServiceLocator.cpp", "d8/d6b/ServiceLocator_8cpp.html", null ],
-    [ "ServiceLocator.hpp", "da/ddf/ServiceLocator_8hpp.html", "da/ddf/ServiceLocator_8hpp" ],
-    [ "Window.cpp", "d2/d84/Window_8cpp.html", "d2/d84/Window_8cpp" ],
-    [ "Window.hpp", "d0/de3/Window_8hpp.html", "d0/de3/Window_8hpp" ],
-    [ "WindowSettings.cpp", "d5/da4/WindowSettings_8cpp.html", null ],
-    [ "WindowSettings.hpp", "df/da8/WindowSettings_8hpp.html", "df/da8/WindowSettings_8hpp" ]
+    [ "Settings.cpp", "db/dd8/Settings_8cpp.html", null ],
+    [ "Settings.hpp", "db/d02/Settings_8hpp.html", "db/d02/Settings_8hpp" ],
+    [ "Window.cpp", "d2/d84/Window_8cpp.html", null ],
+    [ "Window.hpp", "d0/de3/Window_8hpp.html", "d0/de3/Window_8hpp" ]
 ];

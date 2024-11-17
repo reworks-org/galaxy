@@ -114,7 +114,7 @@ $(function(){initNavTree('db/d1a/Mouse_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#abf07a7d4bde7f080c3b427e7c95eb66b">   16</a></span>        <a class="code hl_function" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#abf07a7d4bde7f080c3b427e7c95eb66b">Mouse::Mouse</a>()</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : <a class="code hl_class" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html">InputDevice</a> {}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : InputDevice {}</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        }</div>
 </div>
@@ -128,14 +128,14 @@ $(function(){initNavTree('db/d1a/Mouse_8cpp_source.html','../../'); initResizabl
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf">   25</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf">Mouse::enable_sticky_mouse</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            glfwSetInputMode(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#adf98facfb24d4602c169023bab725688">   30</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#adf98facfb24d4602c169023bab725688">Mouse::disable_sticky_mouse</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            glfwSetInputMode(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, GLFW_STICKY_MOUSE_BUTTONS, GLFW_FALSE);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_FALSE);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
@@ -143,7 +143,7 @@ $(function(){initNavTree('db/d1a/Mouse_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc">   35</a></span>        glm::dvec2 <a class="code hl_function" href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc">Mouse::get_pos</a>()</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            glm::dvec2 out;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            glfwGetCursorPos(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, &amp;out.x, &amp;out.y);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            glfwGetCursorPos(m_window, &amp;out.x, &amp;out.y);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
@@ -151,8 +151,6 @@ $(function(){initNavTree('db/d1a/Mouse_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    } <span class="comment">// namespace input</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aMouse_8hpp_html"><div class="ttname"><a href="../../d5/d78/Mouse_8hpp.html">Mouse.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1InputDevice_html"><div class="ttname"><a href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html">galaxy::input::InputDevice</a></div><div class="ttdef"><b>Definition</b> <a href="../../d4/da5/InputDevice_8hpp_source.html#l00024">InputDevice.hpp:25</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1InputDevice_html_ac7a454a8895b256b09ab3494598cbb0a"><div class="ttname"><a href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">galaxy::input::InputDevice::m_window</a></div><div class="ttdeci">GLFWwindow * m_window</div><div class="ttdoc">Pointer to glfw window.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da5/InputDevice_8hpp_source.html#l00069">InputDevice.hpp:69</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1Mouse_html_a0acd61e57a056b501d4888d186b7e0dc"><div class="ttname"><a href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a0acd61e57a056b501d4888d186b7e0dc">galaxy::input::Mouse::get_pos</a></div><div class="ttdeci">glm::dvec2 get_pos()</div><div class="ttdoc">Get last recorded mouse position.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Mouse.cpp:35</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1Mouse_html_a73e07c59258d87cc6d745f31fc8054cf"><div class="ttname"><a href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a73e07c59258d87cc6d745f31fc8054cf">galaxy::input::Mouse::enable_sticky_mouse</a></div><div class="ttdeci">void enable_sticky_mouse() const</div><div class="ttdoc">Enable sticky mouse.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Mouse.cpp:25</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1Mouse_html_abf07a7d4bde7f080c3b427e7c95eb66b"><div class="ttname"><a href="../../dd/d15/classgalaxy_1_1input_1_1Mouse.html#abf07a7d4bde7f080c3b427e7c95eb66b">galaxy::input::Mouse::Mouse</a></div><div class="ttdeci">Mouse()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Mouse.cpp:16</a></div></div>
@@ -165,7 +163,7 @@ $(function(){initNavTree('db/d1a/Mouse_8cpp_source.html','../../'); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../db/d1a/Mouse_8cpp.html">Mouse.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,7 +1,9 @@
 <map id="galaxy::core::Config::get" name="galaxy::core::Config::get">
-<area shape="rect" id="Node000001" title="Retrieve a root config value." alt="" coords="625,5,804,31"/>
+<area shape="rect" id="Node000001" title="Retrieve a root config value." alt="" coords="625,35,804,60"/>
 <area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into lua." alt="" coords="405,5,577,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="611,21,578,21,578,15,611,15"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="611,36,577,32,578,27,612,31"/>
+<area shape="rect" id="Node000005" href="$d1/db3/structgalaxy_1_1settings.html#ad5517fd6f20f5df2f8f25b7c4eccce2c" title="Set all our settings using the provided config file." alt="" coords="409,55,574,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="612,63,574,68,574,62,611,58"/>
 <area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,5,357,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,21,357,21,357,15,392,15"/>
 <area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,5,172,31"/>

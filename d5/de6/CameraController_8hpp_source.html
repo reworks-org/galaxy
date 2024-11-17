@@ -109,7 +109,7 @@ $(function(){initNavTree('d5/de6/CameraController_8hpp_source.html','../../'); i
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/ddc/KeyPress_8hpp.html">galaxy/events/KeyPress.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/dd7/MouseWheel_8hpp.html">galaxy/events/MouseWheel.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d80/Camera_8hpp.html">galaxy/graphics/Camera.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;galaxy/graphics/Camera.hpp&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
@@ -119,7 +119,7 @@ $(function(){initNavTree('d5/de6/CameraController_8hpp_source.html','../../'); i
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html">   22</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html">CameraController</a> final</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>          <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_function" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#afd7298d14d002a5684391dbb695a4730">CameraController</a>(<a class="code hl_class" href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html">graphics::Camera</a>&amp; camera);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_function" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#afd7298d14d002a5684391dbb695a4730">CameraController</a>(graphics::Camera&amp; camera);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <a class="code hl_function" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#aa2267405c55f6b18c3081e32a205d53d">~CameraController</a>();</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
@@ -138,10 +138,8 @@ $(function(){initNavTree('d5/de6/CameraController_8hpp_source.html','../../'); i
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aCamera_8hpp_html"><div class="ttname"><a href="../../d6/d80/Camera_8hpp.html">Camera.hpp</a></div></div>
 <div class="ttc" id="aKeyPress_8hpp_html"><div class="ttname"><a href="../../d4/ddc/KeyPress_8hpp.html">KeyPress.hpp</a></div></div>
 <div class="ttc" id="aMouseWheel_8hpp_html"><div class="ttname"><a href="../../dd/dd7/MouseWheel_8hpp.html">MouseWheel.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Camera_html"><div class="ttname"><a href="../../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html">galaxy::graphics::Camera</a></div><div class="ttdoc">Orthographic 2D camera.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d80/Camera_8hpp_source.html#l00027">Camera.hpp:28</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1CameraController_html"><div class="ttname"><a href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html">galaxy::input::CameraController</a></div><div class="ttdoc">Orthographic camera input wrapper.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">CameraController.hpp:23</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1CameraController_html_a624abf28da3ffa7c8b9e5702784fb72b"><div class="ttname"><a href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#a624abf28da3ffa7c8b9e5702784fb72b">galaxy::input::CameraController::m_camera</a></div><div class="ttdeci">std::reference_wrapper&lt; graphics::Camera &gt; m_camera</div><div class="ttdoc">Camera object being manipulated.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">CameraController.hpp:61</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1CameraController_html_a82b8f420f625efa970cfe2b7dba3a3bf"><div class="ttname"><a href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#a82b8f420f625efa970cfe2b7dba3a3bf">galaxy::input::CameraController::on_key_press</a></div><div class="ttdeci">void on_key_press(events::KeyPress &amp;e)</div><div class="ttdoc">Event processing method for input events.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd3/CameraController_8cpp_source.html#l00027">CameraController.cpp:27</a></div></div>
@@ -157,7 +155,7 @@ $(function(){initNavTree('d5/de6/CameraController_8hpp_source.html','../../'); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../d5/de6/CameraController_8hpp.html">CameraController.hpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

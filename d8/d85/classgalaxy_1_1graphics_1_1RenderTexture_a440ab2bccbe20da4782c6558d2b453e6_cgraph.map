@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::RenderTexture::save" name="galaxy::graphics::RenderTexture::save">
-<area shape="rect" id="Node000001" title="Saves texture to file on disk." alt="" coords="5,27,188,67"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="236,5,467,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,34,227,30,228,35,189,39"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="244,55,459,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,55,230,59,230,65,188,60"/>
-</map>

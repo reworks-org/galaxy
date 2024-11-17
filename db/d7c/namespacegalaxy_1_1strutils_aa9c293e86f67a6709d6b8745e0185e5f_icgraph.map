@@ -1,19 +1,5 @@
 <map id="galaxy::strutils::replace_all" name="galaxy::strutils::replace_all">
-<area shape="rect" id="Node000001" title="Replaces all occurances of a string." alt="" coords="873,77,1071,102"/>
-<area shape="rect" id="Node000002" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a8532b0faf8dbef5f32bd86a3c644fc57" title="Argument constructor." alt="" coords="623,5,825,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="908,76,802,48,803,43,909,70"/>
-<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="643,69,805,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="859,92,805,92,805,87,859,87"/>
-<area shape="rect" id="Node000009" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="643,133,805,173"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="909,108,803,136,802,131,908,103"/>
-<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="421,37,575,77"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="628,78,575,71,575,66,629,73"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="429,101,567,141"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="629,105,567,114,567,109,628,100"/>
-<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="220,37,373,77"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="407,60,373,60,373,55,407,55"/>
-<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="228,109,365,134"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="415,124,366,124,366,119,415,119"/>
-<area shape="rect" id="Node000008" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,109,172,134"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="214,124,172,124,172,119,214,119"/>
+<area shape="rect" id="Node000001" title="Replaces all occurances of a string." alt="" coords="256,13,453,38"/>
+<area shape="rect" id="Node000002" href="$d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a8532b0faf8dbef5f32bd86a3c644fc57" title="Argument constructor." alt="" coords="5,5,208,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,28,208,28,208,23,242,23"/>
 </map>

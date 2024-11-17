@@ -137,7 +137,7 @@ var searchData=
   ['keyrepeat_2ecpp_134',['KeyRepeat.cpp',['../d7/d24/KeyRepeat_8cpp.html',1,'']]],
   ['keyrepeat_2ehpp_135',['KeyRepeat.hpp',['../d2/dd7/KeyRepeat_8hpp.html',1,'']]],
   ['keys_136',['Keys',['../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142e',1,'galaxy::input']]],
-  ['keys_137',['keys',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#acf4efd74aac7b3775f0f9695f1b0da53',1,'galaxy::resource::Cache']]],
+  ['keys_137',['keys',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#acf4efd74aac7b3775f0f9695f1b0da53',1,'galaxy::resource::Cache::keys()'],['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a65e3fa552586fc92ea9d609ada1de176',1,'galaxy::resource::TextureAtlas::keys()']]],
   ['keys_2ecpp_138',['Keys.cpp',['../d4/d76/Keys_8cpp.html',1,'']]],
   ['keys_2ehpp_139',['Keys.hpp',['../dd/d25/Keys_8hpp.html',1,'']]]
 ];

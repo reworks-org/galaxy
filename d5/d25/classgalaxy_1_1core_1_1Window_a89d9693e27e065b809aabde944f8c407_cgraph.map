@@ -1,0 +1,23 @@
+<map id="galaxy::core::Window::Window" name="galaxy::core::Window::Window">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,249,167,289"/>
+<area shape="rect" id="Node000002" href="$d1/db3/structgalaxy_1_1settings.html#ab88b1b2cf514989c6ecda8dc69d54ba4" title="Enable High DPI support." alt="" coords="233,5,414,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,248,105,204,129,148,165,90,187,64,213,41,224,34,227,39,216,45,191,68,169,93,134,151,110,206,95,249"/>
+<area shape="rect" id="Node000003" href="$d1/db3/structgalaxy_1_1settings.html#a43622d5e2520d6d4bea5d59aa5687803" title="Show/hide mouse cursor." alt="" coords="235,55,412,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,247,140,178,174,139,213,105,223,99,226,104,216,109,177,142,145,181,100,250"/>
+<area shape="rect" id="Node000004" href="$d1/db3/structgalaxy_1_1settings.html#af697a8a9857f6880c9ce92bf83229c47" title="Enable default 4x MSAA." alt="" coords="239,120,408,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="103,246,149,200,180,175,213,154,230,147,232,152,216,159,183,179,153,204,106,250"/>
+<area shape="rect" id="Node000005" href="$d1/db3/structgalaxy_1_1settings.html#a82047072e4d48d6de04ac81700839b27" title="Window fullscreen mode." alt="" coords="217,169,430,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="123,246,166,225,214,205,244,196,245,201,216,210,168,230,125,251"/>
+<area shape="rect" id="Node000006" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21" title="Set icon for window." alt="" coords="243,219,404,259"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="166,256,229,248,230,254,167,261"/>
+<area shape="rect" id="Node000007" href="$d1/db3/structgalaxy_1_1settings.html#a3eafb7f16156526b589b4c0c3b3bbd6a" title="Vsync control." alt="" coords="238,284,409,309"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="167,275,224,282,224,288,166,281"/>
+<area shape="rect" id="Node000008" href="$d1/db3/structgalaxy_1_1settings.html#a163918fe2cedbee8ac5ddf98de49125e" title="Window creation height." alt="" coords="232,334,415,374"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="135,286,216,318,242,327,240,332,214,323,133,291"/>
+<area shape="rect" id="Node000009" href="$d1/db3/structgalaxy_1_1settings.html#a1734dce40f363a098814f184dc8c693d" title="Window icon file in vfs." alt="" coords="215,399,432,424"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="105,287,152,336,182,362,216,384,235,392,232,397,213,388,179,366,148,340,102,291"/>
+<area shape="rect" id="Node000010" href="$d1/db3/structgalaxy_1_1settings.html#a682decb8250c0c096f7ebadde0ce8fc9" title="Window title." alt="" coords="232,449,415,489"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="100,287,144,359,177,399,216,433,228,440,225,445,213,437,173,403,140,362,95,290"/>
+<area shape="rect" id="Node000011" href="$d1/db3/structgalaxy_1_1settings.html#a9c655843797ecc427f87e75f339c2522" title="Window creation width." alt="" coords="232,513,415,553"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="95,288,110,332,134,389,169,448,191,475,216,499,223,503,220,508,213,503,187,479,165,451,129,391,105,334,90,290"/>
+</map>

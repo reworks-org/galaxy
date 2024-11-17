@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loglevel_0',['LogLevel',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fb',1,'galaxy::logging']]]
+  ['screenmode_0',['ScreenMode',['../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1',1,'galaxy::graphics']]],
+  ['soundtype_1',['SoundType',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034',1,'galaxy::media']]]
 ];

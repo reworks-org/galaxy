@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::Polyline" name="galaxy::graphics::Polyline">
-<area shape="rect" id="Node000001" title="An open looped line of points." alt="" coords="5,339,185,504"/>
-<area shape="rect" id="Node000002" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html" title="A generic 2D shape." alt="" coords="11,5,179,291"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,305,98,338,93,338,93,305"/>
-</map>

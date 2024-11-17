@@ -1,0 +1,7 @@
+<map id="galaxy::core::Window::set_size" name="galaxy::core::Window::set_size">
+<area shape="rect" id="Node000001" title="Set window dimensions." alt="" coords="5,37,167,77"/>
+<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a389058ea41b3f9df470317a56e5aea17" title="Get current screen height." alt="" coords="215,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,42,201,37,202,42,168,48"/>
+<area shape="rect" id="Node000003" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a0869a02d7fdcde4926c27ba75fc85773" title="Get current screen width." alt="" coords="215,69,376,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,67,202,72,201,78,167,72"/>
+</map>

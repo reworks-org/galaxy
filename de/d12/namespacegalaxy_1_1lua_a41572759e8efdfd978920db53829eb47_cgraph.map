@@ -1,133 +1,61 @@
 <map id="galaxy::lua::inject_scenes" name="galaxy::lua::inject_scenes">
-<area shape="rect" id="Node000001" title="Injects galaxy scene management into lua." alt="" coords="5,512,143,552"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="755,465,1001,490"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,530,391,527,548,520,706,507,807,490,808,495,707,512,549,525,392,533,143,536"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="771,351,985,391"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="97,510,138,476,189,443,268,400,331,370,398,347,485,328,547,319,596,317,707,328,795,345,794,350,706,333,596,322,547,324,486,333,399,352,333,375,270,405,192,448,142,481,100,514"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3ac342f096544a8231c11fafb7d32620" title="Get current scene." alt="" coords="207,120,421,160"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="73,512,77,446,93,354,108,305,128,256,155,210,189,170,194,166,197,170,193,174,159,213,133,258,113,306,98,355,83,447,78,512"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8a97636e3deac16856f380f2932d416" title="Are there any scenes." alt="" coords="207,184,421,224"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="74,512,83,456,101,382,116,342,135,302,159,266,189,234,194,229,198,234,192,238,164,269,140,305,121,344,107,383,88,458,80,512"/>
-<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9a40cc4ea286604359ca20d342c2ca9a" title="Get a specific scene." alt="" coords="192,70,436,95"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="75,511,89,424,113,302,129,240,146,183,166,137,189,106,195,101,199,105,193,110,171,140,151,185,134,241,118,303,94,425,81,512"/>
-<area shape="rect" id="Node000008" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a27c2830c7ee5f35464157163f2d688e9" title="Does a scene exist." alt="" coords="191,249,437,274"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="77,511,88,466,109,406,142,344,164,316,189,291,211,277,214,282,192,295,168,319,147,347,114,408,93,467,82,512"/>
-<area shape="rect" id="Node000009" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4" title="When scene is loaded and made active." alt="" coords="235,737,393,777"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="84,552,98,589,121,635,152,683,192,723,223,740,220,744,189,727,148,686,116,638,93,591,79,553"/>
-<area shape="rect" id="Node000010" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="763,699,993,725"/>
-<area shape="poly" id="edge27_Node000001_Node000010" title=" " alt="" coords="144,545,807,694,806,699,142,550"/>
-<area shape="rect" id="Node000011" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="207,457,421,497"/>
-<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="142,514,211,498,213,503,143,519"/>
-<area shape="rect" id="Node000015" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="771,239,985,279"/>
-<area shape="poly" id="edge69_Node000001_Node000015" title=" " alt="" coords="82,510,98,479,122,442,152,404,189,372,233,351,293,332,364,315,443,301,609,279,757,265,757,270,609,284,444,306,365,321,294,337,235,356,192,377,156,408,126,445,103,482,87,513"/>
-<area shape="rect" id="Node000016" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="235,801,393,841"/>
-<area shape="poly" id="edge22_Node000001_Node000016" title=" " alt="" coords="81,552,91,600,112,664,145,731,166,761,192,787,223,805,220,810,189,791,162,764,140,733,107,666,86,601,76,553"/>
-<area shape="rect" id="Node000020" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad68da0b40675dc3a2abdbab3c40edf47" title="Remove a specific scene." alt="" coords="207,5,421,45"/>
-<area shape="poly" id="edge28_Node000001_Node000020" title=" " alt="" coords="75,511,87,415,110,278,126,208,144,144,165,91,189,56,193,51,197,55,193,59,170,94,149,146,131,209,116,279,93,416,80,512"/>
-<area shape="rect" id="Node000021" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="235,1209,393,1249"/>
-<area shape="poly" id="edge30_Node000001_Node000021" title=" " alt="" coords="82,552,123,719,155,836,193,954,248,1089,299,1196,294,1198,244,1091,188,956,150,837,117,720,77,553"/>
-<area shape="rect" id="Node000050" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a186b4dc359e2d0e41fee1c2187aeaf9a" title="Save all active scenes and sub data within those scenes." alt="" coords="207,903,421,943"/>
-<area shape="poly" id="edge65_Node000001_Node000050" title=" " alt="" coords="80,552,90,608,110,687,143,773,166,814,193,852,218,875,248,894,246,899,215,880,189,855,161,817,138,775,105,689,85,609,75,553"/>
-<area shape="rect" id="Node000053" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c" title="When scene is deactivated / unloaded." alt="" coords="235,673,393,713"/>
-<area shape="poly" id="edge70_Node000001_Node000053" title=" " alt="" coords="91,551,133,602,161,629,192,652,223,668,221,673,189,657,157,633,129,605,87,554"/>
-<area shape="rect" id="Node000054" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="235,1487,393,1527"/>
-<area shape="poly" id="edge72_Node000001_Node000054" title=" " alt="" coords="79,552,87,661,105,837,139,1048,164,1156,193,1260,216,1321,244,1380,295,1474,291,1476,239,1383,211,1323,188,1262,158,1157,134,1049,100,838,81,662,74,552"/>
-<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="1055,189,1230,214"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="906,462,952,436,1000,401,1040,356,1076,308,1126,225,1131,228,1080,311,1044,360,1003,405,955,441,909,467"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="1100,190,1091,180,1096,170,1113,164,1143,162,1181,166,1191,171,1194,177,1190,180,1187,175,1179,171,1143,167,1114,169,1099,174,1096,180,1104,187"/>
-<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="404,93,1042,184,1041,190,403,98"/>
-<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="390,246,485,233,637,220,789,211,1041,201,1042,206,789,216,637,226,486,239,390,251"/>
-<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="393,748,749,720,749,725,394,754"/>
-<area shape="poly" id="edge21_Node000011_Node000010" title=" " alt="" coords="383,495,533,545,621,578,708,615,783,653,846,690,843,694,780,658,706,620,619,583,531,550,381,500"/>
-<area shape="rect" id="Node000012" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="515,343,677,383"/>
-<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="351,455,413,424,484,392,506,384,508,389,486,397,415,428,354,459"/>
-<area shape="rect" id="Node000013" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="500,407,692,433"/>
-<area shape="poly" id="edge15_Node000011_Node000013" title=" " alt="" coords="412,455,519,433,520,438,414,460"/>
-<area shape="rect" id="Node000014" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="489,457,703,497"/>
-<area shape="poly" id="edge16_Node000011_Node000014" title=" " alt="" coords="421,475,475,475,475,480,421,480"/>
-<area shape="poly" id="edge17_Node000014_Node000002" title=" " alt="" coords="703,475,741,475,741,480,703,480"/>
-<area shape="poly" id="edge18_Node000014_Node000004" title=" " alt="" coords="666,455,706,442,820,394,822,399,708,446,668,460"/>
-<area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="686,455,705,442,723,418,730,393,736,366,753,337,785,307,821,283,824,288,788,311,757,340,741,368,735,394,728,420,709,446,689,459"/>
-<area shape="poly" id="edge20_Node000015_Node000003" title=" " alt="" coords="970,236,1070,214,1071,220,972,241"/>
-<area shape="rect" id="Node000017" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="523,775,669,815"/>
-<area shape="poly" id="edge23_Node000016_Node000017" title=" " alt="" coords="393,811,508,800,509,806,394,817"/>
-<area shape="rect" id="Node000019" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02" title="Parse world and create entities." alt="" coords="523,839,669,879"/>
-<area shape="poly" id="edge26_Node000016_Node000019" title=" " alt="" coords="394,829,509,845,509,850,393,834"/>
-<area shape="poly" id="edge25_Node000017_Node000010" title=" " alt="" coords="664,772,820,726,821,731,666,777"/>
-<area shape="rect" id="Node000018" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="805,775,951,815"/>
-<area shape="poly" id="edge24_Node000017_Node000018" title=" " alt="" coords="670,792,791,792,791,797,670,797"/>
-<area shape="poly" id="edge29_Node000020_Node000003" title=" " alt="" coords="422,34,542,50,687,73,846,104,1002,143,1055,161,1103,180,1101,185,1053,166,1001,148,844,109,687,79,541,55,421,40"/>
-<area shape="rect" id="Node000022" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af2810f49a72158adbf57af81a1cb7191" title="Start rendering to default framebuffer." alt="" coords="499,1145,693,1185"/>
-<area shape="poly" id="edge31_Node000021_Node000022" title=" " alt="" coords="393,1209,494,1186,495,1191,394,1214"/>
-<area shape="rect" id="Node000024" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56" title="Begin rendering to post process framebuffer." alt="" coords="499,1081,693,1121"/>
-<area shape="poly" id="edge33_Node000021_Node000024" title=" " alt="" coords="345,1207,408,1169,484,1131,504,1123,506,1128,486,1136,410,1174,348,1211"/>
-<area shape="rect" id="Node000030" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted render commands to screen." alt="" coords="499,1273,693,1313"/>
-<area shape="poly" id="edge42_Node000021_Node000030" title=" " alt="" coords="394,1245,495,1268,494,1273,393,1250"/>
-<area shape="rect" id="Node000034" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a2806053665ce85980aa67b144f604814" title="Swaps buffers." alt="" coords="499,1401,693,1441"/>
-<area shape="poly" id="edge46_Node000021_Node000034" title=" " alt="" coords="333,1248,396,1316,439,1354,487,1387,499,1393,497,1398,484,1392,436,1359,392,1320,329,1252"/>
-<area shape="rect" id="Node000035" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="499,1017,693,1057"/>
-<area shape="poly" id="edge47_Node000021_Node000035" title=" " alt="" coords="329,1207,392,1139,436,1100,484,1067,497,1060,499,1065,487,1072,439,1104,396,1142,333,1211"/>
-<area shape="rect" id="Node000042" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa89d2573fbe5a5619e5ad5484329e302" title="Get reference to renderer singleton." alt="" coords="485,1466,707,1491"/>
-<area shape="poly" id="edge54_Node000021_Node000042" title=" " alt="" coords="327,1248,350,1291,384,1347,431,1404,458,1429,487,1451,500,1458,498,1463,484,1456,454,1433,427,1407,380,1350,345,1294,322,1251"/>
-<area shape="rect" id="Node000043" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d" title="Renders final post processing output to active framebuffer." alt="" coords="499,1209,693,1249"/>
-<area shape="poly" id="edge55_Node000021_Node000043" title=" " alt="" coords="394,1227,485,1227,485,1232,394,1232"/>
-<area shape="rect" id="Node000045" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="499,1337,693,1377"/>
-<area shape="poly" id="edge58_Node000021_Node000045" title=" " alt="" coords="348,1247,410,1285,486,1323,506,1330,504,1335,484,1328,408,1290,345,1252"/>
-<area shape="rect" id="Node000023" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a72664de638a43afb58ee502cdea93d35" title="Clears currently active framebuffer." alt="" coords="781,1145,975,1185"/>
-<area shape="poly" id="edge32_Node000022_Node000023" title=" " alt="" coords="693,1163,767,1163,767,1168,693,1168"/>
-<area shape="poly" id="edge41_Node000024_Node000023" title=" " alt="" coords="686,1119,777,1140,776,1145,684,1124"/>
-<area shape="rect" id="Node000025" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737" title="Bind to draw to post processor framebuffer." alt="" coords="771,1081,985,1121"/>
-<area shape="poly" id="edge34_Node000024_Node000025" title=" " alt="" coords="693,1099,757,1099,757,1104,693,1104"/>
-<area shape="rect" id="Node000026" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="1051,1081,1234,1121"/>
-<area shape="poly" id="edge35_Node000025_Node000026" title=" " alt="" coords="986,1099,1037,1099,1037,1104,986,1104"/>
-<area shape="rect" id="Node000027" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="1300,1145,1515,1185"/>
-<area shape="poly" id="edge36_Node000026_Node000027" title=" " alt="" coords="1227,1119,1312,1140,1310,1145,1226,1124"/>
-<area shape="rect" id="Node000029" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="1316,1081,1499,1121"/>
-<area shape="poly" id="edge39_Node000026_Node000029" title=" " alt="" coords="1234,1099,1302,1099,1302,1104,1234,1104"/>
-<area shape="rect" id="Node000028" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="1579,1113,1793,1153"/>
-<area shape="poly" id="edge37_Node000027_Node000028" title=" " alt="" coords="1515,1150,1565,1145,1565,1150,1515,1156"/>
-<area shape="poly" id="edge38_Node000028_Node000028" title=" " alt="" coords="1635,1114,1632,1104,1640,1094,1658,1089,1686,1087,1718,1089,1736,1097,1734,1102,1717,1095,1686,1092,1659,1094,1643,1099,1637,1105,1640,1112"/>
-<area shape="poly" id="edge40_Node000029_Node000028" title=" " alt="" coords="1499,1109,1565,1117,1564,1122,1499,1114"/>
-<area shape="rect" id="Node000031" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="1052,1239,1233,1279"/>
-<area shape="poly" id="edge43_Node000030_Node000031" title=" " alt="" coords="693,1285,1038,1263,1038,1268,694,1290"/>
-<area shape="rect" id="Node000032" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a905753e6522506320337c0064eb70f34" title="Bind buffer." alt="" coords="787,1324,969,1364"/>
-<area shape="poly" id="edge44_Node000030_Node000032" title=" " alt="" coords="694,1308,774,1323,773,1328,693,1313"/>
-<area shape="rect" id="Node000033" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a9cac5e7dfec35777fd033814b05ed423" title="Sub buffer data." alt="" coords="785,1388,971,1428"/>
-<area shape="poly" id="edge45_Node000030_Node000033" title=" " alt="" coords="684,1311,708,1323,724,1336,733,1349,742,1362,756,1374,773,1382,771,1387,753,1378,738,1366,728,1352,720,1340,705,1328,682,1316"/>
-<area shape="rect" id="Node000036" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a9fc795887dcdcfcbd547a0821fa9228c" title="Draw post effects to stored framebuffer." alt="" coords="771,1017,985,1057"/>
-<area shape="poly" id="edge48_Node000035_Node000036" title=" " alt="" coords="693,1035,757,1035,757,1040,693,1040"/>
-<area shape="rect" id="Node000039" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="771,953,985,993"/>
-<area shape="poly" id="edge51_Node000035_Node000039" title=" " alt="" coords="684,1015,776,994,777,999,686,1020"/>
-<area shape="rect" id="Node000037" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a5e280fba4aec4c1e717e9b4937f0b203" title="Gets framebuffer texture." alt="" coords="1051,1017,1234,1057"/>
-<area shape="poly" id="edge49_Node000036_Node000037" title=" " alt="" coords="986,1035,1037,1035,1037,1040,986,1040"/>
-<area shape="rect" id="Node000038" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="1300,1017,1515,1057"/>
-<area shape="poly" id="edge50_Node000037_Node000038" title=" " alt="" coords="1234,1035,1286,1035,1286,1040,1234,1040"/>
-<area shape="rect" id="Node000040" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a1d0058534f313fc7c871612867a28464" title="Deactivate context." alt="" coords="1051,953,1234,993"/>
-<area shape="poly" id="edge52_Node000039_Node000040" title=" " alt="" coords="986,971,1037,971,1037,976,986,976"/>
-<area shape="rect" id="Node000041" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#aa92e97cb44e8f1d6bfaa59750b533aed" title="Unbind framebuffer." alt="" coords="1284,961,1531,986"/>
-<area shape="poly" id="edge53_Node000040_Node000041" title=" " alt="" coords="1234,971,1270,971,1270,976,1234,976"/>
-<area shape="rect" id="Node000044" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="771,1209,985,1249"/>
-<area shape="poly" id="edge56_Node000043_Node000044" title=" " alt="" coords="693,1227,757,1227,757,1232,693,1232"/>
-<area shape="poly" id="edge57_Node000044_Node000031" title=" " alt="" coords="986,1239,1038,1244,1038,1250,985,1244"/>
-<area shape="poly" id="edge64_Node000045_Node000033" title=" " alt="" coords="694,1372,772,1386,771,1392,693,1377"/>
-<area shape="rect" id="Node000046" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="785,1452,971,1492"/>
-<area shape="poly" id="edge59_Node000045_Node000046" title=" " alt="" coords="684,1375,708,1387,724,1400,733,1413,742,1426,756,1438,773,1446,771,1451,753,1442,738,1430,728,1416,720,1404,705,1392,682,1380"/>
-<area shape="rect" id="Node000047" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="1049,1452,1236,1492"/>
-<area shape="poly" id="edge60_Node000046_Node000047" title=" " alt="" coords="971,1469,1035,1469,1035,1475,971,1475"/>
-<area shape="rect" id="Node000048" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="1307,1452,1508,1492"/>
-<area shape="poly" id="edge61_Node000047_Node000048" title=" " alt="" coords="1236,1469,1293,1469,1293,1475,1236,1475"/>
-<area shape="rect" id="Node000049" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="1585,1452,1787,1492"/>
-<area shape="poly" id="edge62_Node000048_Node000049" title=" " alt="" coords="1508,1469,1572,1469,1572,1475,1508,1475"/>
-<area shape="poly" id="edge63_Node000049_Node000049" title=" " alt="" coords="1635,1453,1632,1442,1640,1433,1658,1427,1686,1425,1718,1428,1736,1435,1734,1440,1717,1433,1686,1431,1659,1433,1643,1438,1637,1443,1640,1451"/>
-<area shape="rect" id="Node000051" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e" title="Serializes object." alt="" coords="489,903,703,943"/>
-<area shape="poly" id="edge66_Node000050_Node000051" title=" " alt="" coords="421,920,475,920,475,925,421,925"/>
-<area shape="rect" id="Node000052" href="$de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a" title="Write json to vfs." alt="" coords="525,967,667,993"/>
-<area shape="poly" id="edge67_Node000050_Node000052" title=" " alt="" coords="414,940,520,962,519,967,412,945"/>
-<area shape="poly" id="edge68_Node000052_Node000010" title=" " alt="" coords="666,973,687,965,705,953,722,930,730,907,732,884,730,861,729,812,736,786,753,761,776,741,803,727,805,732,779,746,757,764,741,789,734,812,735,860,737,884,735,909,727,933,709,957,689,970,668,978"/>
-<area shape="poly" id="edge71_Node000053_Node000010" title=" " alt="" coords="393,693,749,705,749,710,393,699"/>
-<area shape="poly" id="edge74_Node000054_Node000042" title=" " alt="" coords="393,1496,472,1488,472,1494,394,1501"/>
-<area shape="rect" id="Node000055" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8" title="Deletes all submitted render commands." alt="" coords="499,1516,693,1556"/>
-<area shape="poly" id="edge73_Node000054_Node000055" title=" " alt="" coords="394,1512,485,1522,485,1527,393,1518"/>
-<area shape="rect" id="Node000056" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528" title="Updates pending component data." alt="" coords="515,1580,677,1620"/>
-<area shape="poly" id="edge75_Node000054_Node000056" title=" " alt="" coords="369,1524,486,1565,511,1573,510,1578,484,1571,367,1529"/>
+<area shape="rect" id="Node000001" title="Injects galaxy scene management into lua." alt="" coords="5,405,143,445"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="716,155,963,180"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,405,76,341,91,254,106,208,126,163,154,124,189,91,219,85,277,83,437,87,669,104,684,112,694,122,703,131,717,140,741,149,739,154,715,145,700,135,690,126,681,116,667,109,437,93,277,88,220,90,192,95,158,127,131,166,111,210,96,255,81,342,78,405"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="732,248,947,288"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="93,403,134,366,161,348,190,333,390,310,718,277,719,282,390,315,191,338,164,352,138,370,96,407"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3ac342f096544a8231c11fafb7d32620" title="Get current scene." alt="" coords="191,105,405,145"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="76,404,86,354,106,287,139,216,162,184,189,155,195,150,198,155,192,159,166,187,144,219,111,289,91,356,81,405"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad8a97636e3deac16856f380f2932d416" title="Are there any scenes." alt="" coords="191,169,405,209"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="79,404,92,365,115,315,147,263,167,240,189,219,196,214,199,218,192,223,171,243,151,267,120,318,97,367,84,406"/>
+<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9a40cc4ea286604359ca20d342c2ca9a" title="Get a specific scene." alt="" coords="717,407,961,432"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="143,422,704,418,704,423,143,427"/>
+<area shape="rect" id="Node000008" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a27c2830c7ee5f35464157163f2d688e9" title="Does a scene exist." alt="" coords="716,456,963,482"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="143,426,702,459,702,464,143,432"/>
+<area shape="rect" id="Node000009" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4" title="When scene is loaded and made active." alt="" coords="219,348,377,388"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="142,405,206,389,207,394,144,410"/>
+<area shape="rect" id="Node000010" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="191,233,405,273"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="86,403,127,348,156,317,189,290,212,276,215,281,192,294,160,321,131,351,90,407"/>
+<area shape="rect" id="Node000014" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="732,90,947,130"/>
+<area shape="poly" id="edge30_Node000001_Node000014" title=" " alt="" coords="72,405,74,338,79,293,88,244,102,195,123,148,152,105,189,70,224,47,262,30,301,18,341,9,424,3,508,8,589,22,663,41,782,82,780,88,662,46,588,27,507,13,425,8,342,14,302,23,264,35,227,52,192,74,156,108,128,150,107,197,93,246,84,294,79,338,77,405"/>
+<area shape="rect" id="Node000015" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="219,564,377,604"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="92,443,134,493,162,519,192,543,216,556,213,561,189,547,158,524,130,496,88,447"/>
+<area shape="rect" id="Node000019" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad68da0b40675dc3a2abdbab3c40edf47" title="Remove a specific scene." alt="" coords="732,506,947,546"/>
+<area shape="poly" id="edge24_Node000001_Node000019" title=" " alt="" coords="143,437,191,446,475,486,718,513,718,518,474,491,190,452,142,443"/>
+<area shape="rect" id="Node000020" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="219,628,377,668"/>
+<area shape="poly" id="edge26_Node000001_Node000020" title=" " alt="" coords="84,444,99,481,122,526,153,573,192,614,207,623,205,628,189,618,149,577,117,529,94,483,79,446"/>
+<area shape="rect" id="Node000021" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a186b4dc359e2d0e41fee1c2187aeaf9a" title="Save all active scenes and sub data within those scenes." alt="" coords="191,692,405,732"/>
+<area shape="poly" id="edge27_Node000001_Node000021" title=" " alt="" coords="81,445,92,492,113,555,146,621,167,651,192,678,198,682,195,686,189,682,163,655,141,624,108,557,87,494,76,446"/>
+<area shape="rect" id="Node000024" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c" title="When scene is deactivated / unloaded." alt="" coords="219,756,377,796"/>
+<area shape="poly" id="edge31_Node000001_Node000024" title=" " alt="" coords="79,445,86,503,104,583,119,626,138,668,163,707,192,742,208,753,205,757,189,746,158,711,134,671,114,628,99,584,81,504,74,445"/>
+<area shape="rect" id="Node000025" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="219,820,377,860"/>
+<area shape="poly" id="edge32_Node000001_Node000025" title=" " alt="" coords="78,445,81,514,97,611,111,663,131,715,158,763,193,806,208,818,204,822,189,810,154,766,126,717,106,665,91,612,76,514,72,446"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="1011,407,1185,432"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="873,178,918,201,964,234,1003,274,1037,317,1085,393,1081,396,1033,320,999,277,961,238,915,206,870,183"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="1056,409,1047,399,1052,389,1069,383,1098,380,1135,384,1145,389,1149,395,1144,398,1141,393,1133,389,1098,386,1070,388,1055,393,1052,398,1060,405"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="962,417,997,417,997,422,962,422"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="906,454,1017,432,1018,438,907,459"/>
+<area shape="rect" id="Node000011" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="479,182,642,222"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="402,230,465,218,466,223,403,236"/>
+<area shape="rect" id="Node000012" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="465,247,657,272"/>
+<area shape="poly" id="edge14_Node000010_Node000012" title=" " alt="" coords="406,253,451,254,451,260,405,258"/>
+<area shape="rect" id="Node000013" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="453,118,668,158"/>
+<area shape="poly" id="edge15_Node000010_Node000013" title=" " alt="" coords="380,231,404,219,418,207,427,194,436,181,452,168,464,162,466,166,455,173,440,185,432,197,422,210,407,223,383,235"/>
+<area shape="poly" id="edge16_Node000013_Node000002" title=" " alt="" coords="669,147,705,151,705,156,668,152"/>
+<area shape="poly" id="edge17_Node000013_Node000004" title=" " alt="" coords="637,156,669,168,738,202,797,238,795,242,735,207,667,173,635,161"/>
+<area shape="poly" id="edge18_Node000013_Node000014" title=" " alt="" coords="668,125,718,120,719,125,669,130"/>
+<area shape="poly" id="edge19_Node000014_Node000003" title=" " alt="" coords="946,128,964,140,993,168,1018,201,1056,271,1081,340,1094,393,1089,394,1075,341,1051,274,1013,204,989,172,961,144,943,133"/>
+<area shape="rect" id="Node000016" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="487,628,634,668"/>
+<area shape="poly" id="edge21_Node000015_Node000016" title=" " alt="" coords="378,600,475,624,473,629,377,606"/>
+<area shape="rect" id="Node000018" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad913c3e4cb28b2f994ebe766cf302e02" title="Parse world and create entities." alt="" coords="487,564,634,604"/>
+<area shape="poly" id="edge23_Node000015_Node000018" title=" " alt="" coords="377,581,474,581,474,586,377,586"/>
+<area shape="rect" id="Node000017" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="766,628,913,668"/>
+<area shape="poly" id="edge22_Node000016_Node000017" title=" " alt="" coords="634,645,752,645,752,650,634,650"/>
+<area shape="poly" id="edge25_Node000019_Node000003" title=" " alt="" coords="923,504,962,491,1017,464,1064,437,1067,442,1019,469,964,496,925,509"/>
+<area shape="rect" id="Node000022" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a873057f00a609e38666151a40674710e" title="Serializes object." alt="" coords="453,692,668,732"/>
+<area shape="poly" id="edge28_Node000021_Node000022" title=" " alt="" coords="405,709,440,709,440,714,405,714"/>
+<area shape="rect" id="Node000023" href="$de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a" title="Write json to vfs." alt="" coords="490,756,631,782"/>
+<area shape="poly" id="edge29_Node000021_Node000023" title=" " alt="" coords="391,729,489,751,488,756,390,734"/>
+<area shape="rect" id="Node000026" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528" title="Updates pending component data." alt="" coords="479,820,642,860"/>
+<area shape="poly" id="edge33_Node000025_Node000026" title=" " alt="" coords="377,837,466,837,466,842,377,842"/>
 </map>

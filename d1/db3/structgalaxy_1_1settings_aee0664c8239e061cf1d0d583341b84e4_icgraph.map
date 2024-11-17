@@ -1,0 +1,16 @@
+<map id="galaxy::settings::root_dir" name="galaxy::settings::root_dir">
+<area shape="rect" id="Node000001" title="Current root directory of application, unless it has been changed." alt="" coords="865,77,1048,102"/>
+<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="609,5,817,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="893,76,790,48,791,43,895,70"/>
+<area shape="rect" id="Node000006" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7" title="Select a folder using a dialog." alt="" coords="609,69,817,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="851,92,818,92,818,87,851,87"/>
+<area shape="rect" id="Node000007" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="609,133,817,173"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="895,108,791,136,790,131,893,103"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="405,45,561,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="596,44,562,49,561,44,595,39"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,45,357,70"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="391,60,358,60,358,55,391,55"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,45,172,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,60,172,60,172,55,206,55"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="595,76,561,71,562,66,596,70"/>
+</map>

@@ -13,5 +13,6 @@ var namespacegalaxy_1_1logging =
       [ "FATAL", "dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba19da7170bea36556dde582519795f3fc", null ]
     ] ],
     [ "physfs_check", "dd/dad/namespacegalaxy_1_1logging.html#a6961fefaf032dd925143042a862442ae", null ],
-    [ "physfs_check", "dd/dad/namespacegalaxy_1_1logging.html#a6ac2104580a35d3916370d4648c4b334", null ]
+    [ "physfs_check", "dd/dad/namespacegalaxy_1_1logging.html#a6ac2104580a35d3916370d4648c4b334", null ],
+    [ "raylib_trace", "dd/dad/namespacegalaxy_1_1logging.html#ab19d3398060d1da5e3cbd5461326e0ec", null ]
 ];

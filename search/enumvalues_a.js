@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['nearest_0',['NEAREST',['../db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaaad135772d7cf93dd0ccf9d2474b34e6a',1,'galaxy::graphics']]],
-  ['normal_1',['NORMAL',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda1e23852820b9154316c7c06e2b7ba051',1,'galaxy::graphics::GaussianBlur']]],
-  ['num_5flock_2',['NUM_LOCK',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaacb0d0bf9279e78f982deba761110e434',1,'galaxy::input']]]
+  ['ok_0',['ok',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455a444bcb3a3fcf8389296c49467f27e1d6',1,'galaxy::fs']]],
+  ['ok_5fyes_1',['ok_yes',['../d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0aa9f72a0065aa944d677a1018eb40c452',1,'galaxy::fs']]],
+  ['okcancel_2',['okcancel',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455a5e8e0e395dfe620cc4df524eb4294d1b',1,'galaxy::fs']]]
 ];

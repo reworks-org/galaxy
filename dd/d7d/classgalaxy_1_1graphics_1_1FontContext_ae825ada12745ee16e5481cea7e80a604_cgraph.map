@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::FontContext::FontContext" name="galaxy::graphics::FontContext::FontContext">
-<area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,27,220,67"/>
-<area shape="rect" id="Node000002" href="$d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4" title="Get a reference to the service." alt="" coords="268,5,499,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,33,254,29,255,35,221,38"/>
-<area shape="rect" id="Node000003" href="$dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#aa9196ebff727ae831a4039ca7507b354" title="Set font DPI." alt="" coords="276,55,491,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,56,263,60,262,65,220,61"/>
-</map>

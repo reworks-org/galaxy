@@ -1,9 +1,7 @@
 <map id="galaxy/src/galaxy/flags/Disabled.hpp" name="galaxy/src/galaxy/flags/Disabled.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="110,5,282,45"/>
-<area shape="rect" id="Node000002" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="101,93,291,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,46,199,79,193,79,193,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,181,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,121,123,161,120,156,178,116"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="206,167,394,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="214,116,273,156,270,161,211,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,187,45"/>
+<area shape="rect" id="Node000002" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="5,93,196,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,46,103,79,98,79,98,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="13,167,189,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,119,103,153,98,153,98,119"/>
 </map>

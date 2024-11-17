@@ -12,6 +12,8 @@ var dir_a724136a1f39cb6404ada524c6e6706e =
     [ "LogMessage.hpp", "d6/da7/LogMessage_8hpp.html", "d6/da7/LogMessage_8hpp" ],
     [ "PhysFSError.cpp", "dd/df8/PhysFSError_8cpp.html", "dd/df8/PhysFSError_8cpp" ],
     [ "PhysFSError.hpp", "d0/d44/PhysFSError_8hpp.html", "d0/d44/PhysFSError_8hpp" ],
+    [ "RaylibError.cpp", "d4/dd4/RaylibError_8cpp.html", "d4/dd4/RaylibError_8cpp" ],
+    [ "RaylibError.hpp", "da/d1d/RaylibError_8hpp.html", "da/d1d/RaylibError_8hpp" ],
     [ "Sink.cpp", "d6/d18/Sink_8cpp.html", null ],
     [ "Sink.hpp", "d8/d5e/Sink_8hpp.html", "d8/d5e/Sink_8hpp" ]
 ];

@@ -1,13 +1,11 @@
 <map id="galaxy::media::Video" name="galaxy::media::Video">
-<area shape="rect" id="Node000001" title="Plays an MPEG&#45;1 video." alt="" coords="153,1029,304,1495"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="43,734,214,814"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,814,149,902,167,1005,169,1013,164,1014,162,1006,144,902,131,815"/>
+<area shape="rect" id="Node000001" title="Plays an MPEG&#45;1 video." alt="" coords="53,724,204,1209"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="43,581,214,661"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,662,131,708,126,708,126,662"/>
 <area shape="rect" id="Node000003" href="$d5/df7/classgalaxy_1_1media_1_1RingBuffer.html" title="Ring buffer to manage audio for mpeg videos." alt="" coords="5,133,188,519"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,519,127,717,122,718,108,519"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,519,125,565,120,565,115,519"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="213,293,362,359"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="274,373,145,734,140,732,269,371"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="273,372,242,443,203,520,161,583,157,580,198,517,237,440,268,370"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="276,5,299,71"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="290,71,290,277,285,277,285,71"/>
-<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="239,581,416,967"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="291,967,282,1013,276,1012,286,966"/>
 </map>

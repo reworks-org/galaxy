@@ -1,9 +1,0 @@
-<map id="galaxy/src/galaxy/fs/PhysfsStream.hpp" name="galaxy/src/galaxy/fs/PhysfsStream.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="122,5,275,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,64,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,48,72,90,70,85,158,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="87,93,310,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,46,201,79,196,79,196,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="335,93,564,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="259,43,400,87,399,92,258,48"/>
-</map>

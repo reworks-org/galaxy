@@ -9,6 +9,5 @@ var searchData=
   ['roboto_5flight_6',['roboto_light',['../d4/d1b/namespacegalaxy_1_1resource.html#a0a558b76b83408eb125523a657eafe89',1,'galaxy::resource']]],
   ['roboto_5flight_5flen_7',['roboto_light_len',['../d4/d1b/namespacegalaxy_1_1resource.html#ac8745a7514bb448e74099e5994548aa0',1,'galaxy::resource']]],
   ['rotate_5fleft_8',['ROTATE_LEFT',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#a5c5d9a8800cfb8746575f02dd753d730',1,'galaxy::input::CameraKeys']]],
-  ['rotate_5fright_9',['ROTATE_RIGHT',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab5ca9ec89abc6e748041a942da2a73fa',1,'galaxy::input::CameraKeys']]],
-  ['rotation_5fvec_10',['rotation_vec',['../dd/d1d/graphics_2Transform_8cpp.html#aae52476a15ca65ecb7a43069e718d78c',1,'Transform.cpp']]]
+  ['rotate_5fright_9',['ROTATE_RIGHT',['../d0/d71/structgalaxy_1_1input_1_1CameraKeys.html#ab5ca9ec89abc6e748041a942da2a73fa',1,'galaxy::input::CameraKeys']]]
 ];

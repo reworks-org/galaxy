@@ -1,0 +1,5 @@
+<map id="galaxy::fs::VirtualFileSystem::select_folder_dialog" name="galaxy::fs::VirtualFileSystem::select_folder_dialog">
+<area shape="rect" id="Node000001" title="Select a folder using a dialog." alt="" coords="5,5,213,45"/>
+<area shape="rect" id="Node000002" href="$d1/db3/structgalaxy_1_1settings.html#aee0664c8239e061cf1d0d583341b84e4" title="Current root directory of application, unless it has been changed." alt="" coords="261,13,444,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,23,247,23,247,28,213,28"/>
+</map>

@@ -1,9 +1,7 @@
 <map id="galaxy/src/galaxy/logging/PhysFSError.hpp" name="galaxy/src/galaxy/logging/PhysFSError.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="173,5,362,45"/>
-<area shape="rect" id="Node000002" href="$d3/d8f/PhysfsStream_8cpp.html" title=" " alt="" coords="5,93,159,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,54,124,96,121,91,213,49"/>
-<area shape="rect" id="Node000003" href="$d5/deb/VirtualFileSystem_8cpp.html" title=" " alt="" coords="183,93,351,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,59,270,93,265,93,265,59"/>
-<area shape="rect" id="Node000004" href="$dd/df8/PhysFSError_8cpp.html" title=" " alt="" coords="375,93,565,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="325,48,427,91,425,96,323,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="96,5,285,45"/>
+<area shape="rect" id="Node000002" href="$d5/deb/VirtualFileSystem_8cpp.html" title=" " alt="" coords="5,93,173,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,56,113,95,110,91,156,52"/>
+<area shape="rect" id="Node000003" href="$dd/df8/PhysFSError_8cpp.html" title=" " alt="" coords="197,93,387,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,52,271,91,268,95,222,56"/>
 </map>

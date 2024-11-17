@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['left_0',['LEFT',['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a684d325a7303f52e64011467ff5c5758',1,'galaxy::graphics::Text']]],
-  ['low_1',['LOW',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda41bc94cbd8eebea13ce0491b2ac11b88',1,'galaxy::graphics::GaussianBlur']]]
+  ['maximized_0',['MAXIMIZED',['../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1a2f33d682f3a4e19c31ced6cb4fd022e3',1,'galaxy::graphics']]],
+  ['music_1',['MUSIC',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9',1,'galaxy::media']]]
 ];

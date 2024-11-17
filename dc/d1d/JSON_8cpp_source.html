@@ -106,7 +106,7 @@ $(function(){initNavTree('dc/d1d/JSON_8cpp_source.html','../../'); initResizable
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/dea/JSON_8hpp.html">JSON.hpp</a>&quot;</span></div>
@@ -119,7 +119,7 @@ $(function(){initNavTree('dc/d1d/JSON_8cpp_source.html','../../'); initResizable
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d">   19</a></span>        nlohmann::json <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d">read</a>(<span class="keyword">const</span> std::string&amp; entry)</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keyword">auto</span>&amp; fs   = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keyword">auto</span>&amp; fs   = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keyword">auto</span>  data = fs.read(entry);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">return</span> nlohmann::json::parse(data);</div>
@@ -136,7 +136,7 @@ $(function(){initNavTree('dc/d1d/JSON_8cpp_source.html','../../'); initResizable
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a">   32</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a">write</a>(<span class="keyword">const</span> std::string&amp; entry, <span class="keyword">const</span> nlohmann::json&amp; json)</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">auto</span>&amp; fs = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">auto</span>&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordflow">return</span> fs.write(json.dump(4), entry);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
 </div>
@@ -144,9 +144,7 @@ $(function(){initNavTree('dc/d1d/JSON_8cpp_source.html','../../'); initResizable
 </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aJSON_8hpp_html"><div class="ttname"><a href="../../df/dea/JSON_8hpp.html">JSON.hpp</a></div></div>
-<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1json_html_a16ec2f8525e7b1b49b84f8c6dfe5d707"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707">galaxy::json::read_raw</a></div><div class="ttdeci">nlohmann::json read_raw(const std::string &amp;json)</div><div class="ttdoc">Read raw json string.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">JSON.cpp:27</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1json_html_a9075672b169d5ecfcfea1e4be935fd3a"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a">galaxy::json::write</a></div><div class="ttdeci">bool write(const std::string &amp;entry, const nlohmann::json &amp;json)</div><div class="ttdoc">Write json to vfs.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">JSON.cpp:32</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1json_html_aef84997e096a889464b801a4e502f73d"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d">galaxy::json::read</a></div><div class="ttdeci">nlohmann::json read(const std::string &amp;entry)</div><div class="ttdoc">Read a json file in the vfs.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">JSON.cpp:19</a></div></div>
@@ -157,7 +155,7 @@ $(function(){initNavTree('dc/d1d/JSON_8cpp_source.html','../../'); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dc/d1d/JSON_8cpp.html">JSON.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

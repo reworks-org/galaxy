@@ -104,7 +104,7 @@ $(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../'); initResizabl
 <div class="contents">
 <a href="../../d7/dfe/World_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dbb/World_8hpp.html">World.hpp</a>&quot;</span></div>
@@ -146,7 +146,7 @@ $(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1">file</a>.empty())</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keyword">auto</span>&amp; fs   = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keyword">auto</span>&amp; fs   = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keyword">auto</span>  data = fs.read_binary(<a class="code hl_function" href="../../d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1">file</a>);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <span class="keywordflow">if</span> (!data.empty())</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                {</div>
@@ -247,10 +247,8 @@ $(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../'); initResizabl
 <div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00023">Log.hpp:23</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
-<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
 <div class="ttc" id="aWorld_8hpp_html"><div class="ttname"><a href="../../d0/dbb/World_8hpp.html">World.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1map_1_1Map_html"><div class="ttname"><a href="../../df/d2b/classgalaxy_1_1map_1_1Map.html">galaxy::map::Map</a></div><div class="ttdoc">An LDTK level.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/dbe/Map_8hpp_source.html#l00025">Map.hpp:26</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1map_1_1World_html_a054fbd3febf585e7c2bb6bc20896e8ba"><div class="ttname"><a href="../../d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba">galaxy::map::World::load</a></div><div class="ttdeci">bool load(const std::string &amp;file)</div><div class="ttdoc">Load a world.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">World.cpp:37</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1map_1_1World_html_a201eaa443a321d5883289ec2c644c6f7"><div class="ttname"><a href="../../d9/d75/classgalaxy_1_1map_1_1World.html#a201eaa443a321d5883289ec2c644c6f7">galaxy::map::World::m_project</a></div><div class="ttdeci">ldtk::Project m_project</div><div class="ttdoc">LDTK project data.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dbb/World_8hpp_source.html#l00111">World.hpp:111</a></div></div>
@@ -275,7 +273,7 @@ $(function(){initNavTree('d7/dfe/World_8cpp_source.html','../../'); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_66fc11cfaed6a3f099b7f5543b36868d.html">map</a></li><li class="navelem"><a class="el" href="../../d7/dfe/World_8cpp.html">World.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

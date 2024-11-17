@@ -1,9 +1,11 @@
 <map id="galaxy/src/galaxy/math/RectPack.cpp" name="galaxy/src/galaxy/math/RectPack.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="21,5,196,45"/>
-<area shape="rect" id="Node000002" href="$da/d8d/RectPack_8hpp.html" title=" " alt="" coords="54,93,163,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,46,111,79,106,79,106,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,68,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,121,60,159,56,155,95,117"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="93,167,271,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="123,117,162,155,158,159,119,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,223,45"/>
+<area shape="rect" id="Node000002" href="$da/d8d/RectPack_8hpp.html" title=" " alt="" coords="81,93,191,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,46,139,79,133,79,133,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,80,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,121,70,160,67,156,119,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,167,167,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="139,119,139,153,133,153,133,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="191,167,262,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="152,117,203,156,199,160,149,121"/>
 </map>

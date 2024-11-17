@@ -1,0 +1,19 @@
+<map id="galaxy/src/galaxy/meta/EntityMeta.cpp" name="galaxy/src/galaxy/meta/EntityMeta.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="185,5,359,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,167,152,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,48,106,160,102,156,246,43"/>
+<area shape="rect" id="Node000003" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="177,167,367,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,46,275,153,269,153,269,46"/>
+<area shape="rect" id="Node000005" href="$d4/d95/EntityMeta_8hpp.html" title=" " alt="" coords="367,93,489,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="311,43,394,85,392,89,308,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="184,240,360,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="275,192,275,226,269,226,269,192"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="372,121,149,167,148,161,371,116"/>
+<area shape="poly" id="edge9_Node000005_Node000003" title=" " alt="" coords="404,121,311,163,309,158,402,116"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="391,167,582,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="440,117,471,155,467,158,436,121"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="607,167,713,192"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="466,116,610,160,609,165,464,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="738,167,894,192"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="490,116,741,162,740,167,489,121"/>
+</map>

@@ -114,7 +114,7 @@ $(function(){initNavTree('de/db9/Keyboard_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#ad8819050373a08113816a0fc7def74ee">   16</a></span>        <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#ad8819050373a08113816a0fc7def74ee">Keyboard::Keyboard</a>()</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : <a class="code hl_class" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html">InputDevice</a> {}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : InputDevice {}</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            , m_text_input_enabled {false}</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
@@ -143,16 +143,16 @@ $(function(){initNavTree('de/db9/Keyboard_8cpp_source.html','../../'); initResiz
 <div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366">   36</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366">Keyboard::enable_sticky_keys</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            glfwSetInputMode(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, GLFW_STICKY_KEYS, GLFW_TRUE);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            glfwSetInputMode(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, GLFW_LOCK_KEY_MODS, GLFW_TRUE);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_TRUE);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
 </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d">   42</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d">Keyboard::disable_sticky_keys</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            glfwSetInputMode(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, GLFW_STICKY_KEYS, GLFW_FALSE);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            glfwSetInputMode(<a class="code hl_variable" href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">m_window</a>, GLFW_LOCK_KEY_MODS, GLFW_FALSE);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_FALSE);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_FALSE);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
 </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
@@ -186,8 +186,6 @@ $(function(){initNavTree('de/db9/Keyboard_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    } <span class="comment">// namespace input</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aKeyboard_8hpp_html"><div class="ttname"><a href="../../d8/dd0/Keyboard_8hpp.html">Keyboard.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1InputDevice_html"><div class="ttname"><a href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html">galaxy::input::InputDevice</a></div><div class="ttdef"><b>Definition</b> <a href="../../d4/da5/InputDevice_8hpp_source.html#l00024">InputDevice.hpp:25</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1InputDevice_html_ac7a454a8895b256b09ab3494598cbb0a"><div class="ttname"><a href="../../da/def/classgalaxy_1_1input_1_1InputDevice.html#ac7a454a8895b256b09ab3494598cbb0a">galaxy::input::InputDevice::m_window</a></div><div class="ttdeci">GLFWwindow * m_window</div><div class="ttdoc">Pointer to glfw window.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da5/InputDevice_8hpp_source.html#l00069">InputDevice.hpp:69</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a1a34b5ab66d6bd4a99473827cb90368b"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b">galaxy::input::Keyboard::is_text_input_enabled</a></div><div class="ttdeci">bool is_text_input_enabled() const</div><div class="ttdoc">Check if window is in text input mode.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">Keyboard.cpp:48</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a2223f46d9fa4e427d22fc2d8741f60d0"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0">galaxy::input::Keyboard::begin_text_input</a></div><div class="ttdeci">void begin_text_input()</div><div class="ttdoc">Enable window to begin processing text input.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">Keyboard.cpp:26</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a2610d4cc532044fffe97fcce972717c4"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4">galaxy::input::Keyboard::get_scancode_name</a></div><div class="ttdeci">std::string get_scancode_name(const int scancode) const</div><div class="ttdoc">Get key name.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">Keyboard.cpp:63</a></div></div>
@@ -207,7 +205,7 @@ $(function(){initNavTree('de/db9/Keyboard_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../de/db9/Keyboard_8cpp.html">Keyboard.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

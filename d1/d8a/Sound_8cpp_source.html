@@ -104,7 +104,7 @@ $(function(){initNavTree('d1/d8a/Sound_8cpp_source.html','../../'); initResizabl
 <div class="contents">
 <a href="../../d1/d8a/Sound_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/ddf/ServiceLocator_8hpp.html">galaxy/core/ServiceLocator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d92/AudioEngine_8hpp.html">galaxy/media/AudioEngine.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -127,7 +127,7 @@ $(function(){initNavTree('d1/d8a/Sound_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            : m_sound {}</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            , m_decoder {}</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            GALAXY_UNUSED(<a class="code hl_function" href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html#a386941e1d4c9de8bf20111da2ec8c6c2">load</a>(type, file));</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_define" href="../../db/d02/Settings_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a>(<a class="code hl_function" href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html#a386941e1d4c9de8bf20111da2ec8c6c2">load</a>(type, file));</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        }</div>
 </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
@@ -147,7 +147,7 @@ $(function(){initNavTree('d1/d8a/Sound_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keyword">auto</span> success = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keyword">auto</span>&amp; fs = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keyword">auto</span>&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            ma_engine*   engine = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags  = MA_SOUND_FLAG_DECODE | MA_SOUND_FLAG_NO_SPATIALIZATION;</div>
@@ -155,16 +155,16 @@ $(function(){initNavTree('d1/d8a/Sound_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">switch</span> (type)</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            {</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ada101052f6ba998ab41d571a6fff1708">SoundType::SFX</a>:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    engine = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;media::SoundEngine&gt;::ref</a>().get_engine();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    engine = core::ServiceLocator&lt;media::SoundEngine&gt;::ref().get_engine();</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034ad74c735013cdd2b883e25ccca502a2e9">SoundType::MUSIC</a>:</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    engine  = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;media::MusicEngine&gt;::ref</a>().get_engine();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    engine  = core::ServiceLocator&lt;media::MusicEngine&gt;::ref().get_engine();</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    flags  |= MA_SOUND_FLAG_STREAM;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034a9369ef98bb3f619078bb34cbf76ac6e4">SoundType::VOICE</a>:</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    engine  = <a class="code hl_function" href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">core::ServiceLocator&lt;media::VoiceEngine&gt;::ref</a>().get_engine();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    engine  = core::ServiceLocator&lt;media::VoiceEngine&gt;::ref().get_engine();</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    flags  |= MA_SOUND_FLAG_STREAM;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            }</div>
@@ -596,10 +596,9 @@ $(function(){initNavTree('d1/d8a/Sound_8cpp_source.html','../../'); initResizabl
 <div class="ttc" id="aAudioEngine_8hpp_html"><div class="ttname"><a href="../../d4/d92/AudioEngine_8hpp.html">AudioEngine.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
-<div class="ttc" id="aServiceLocator_8hpp_html"><div class="ttname"><a href="../../da/ddf/ServiceLocator_8hpp.html">ServiceLocator.hpp</a></div></div>
+<div class="ttc" id="aSettings_8hpp_html_aeea47fcf9ec981a261237221194b033f"><div class="ttname"><a href="../../db/d02/Settings_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a></div><div class="ttdeci">#define GALAXY_UNUSED(var)</div><div class="ttdoc">Prevents compiler warnings when applied to unused parameters.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d02/Settings_8hpp_source.html#l00301">Settings.hpp:301</a></div></div>
 <div class="ttc" id="aSound_8hpp_html"><div class="ttname"><a href="../../d9/db9/Sound_8hpp.html">Sound.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1ServiceLocator_html_ac920be311b89bf8e0d419ab7dcdbedf4"><div class="ttname"><a href="../../d0/dbf/classgalaxy_1_1core_1_1ServiceLocator.html#ac920be311b89bf8e0d419ab7dcdbedf4">galaxy::core::ServiceLocator::ref</a></div><div class="ttdeci">static Service &amp; ref()</div><div class="ttdoc">Get a reference to the service.</div><div class="ttdef"><b>Definition</b> <a href="../../da/ddf/ServiceLocator_8hpp_source.html#l00131">ServiceLocator.hpp:131</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1media_1_1Sound_html_a029487a18783cd7ae26c96ec7debc54f"><div class="ttname"><a href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html#a029487a18783cd7ae26c96ec7debc54f">galaxy::media::Sound::get_pinned_listener_index</a></div><div class="ttdeci">unsigned int get_pinned_listener_index() const</div><div class="ttdoc">Get the pinned listener index for the sound.</div><div class="ttdef"><b>Definition</b> <a href="#l00287">Sound.cpp:287</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1media_1_1Sound_html_a056c5946551fea0a5c7ee886fd38f26d"><div class="ttname"><a href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html#a056c5946551fea0a5c7ee886fd38f26d">galaxy::media::Sound::get_pan_mode</a></div><div class="ttdeci">ma_pan_mode get_pan_mode() const</div><div class="ttdoc">Get the pan mode of the sound.</div><div class="ttdef"><b>Definition</b> <a href="#l00247">Sound.cpp:247</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1media_1_1Sound_html_a068c9d41cc2a5165ca521d8ac06bd5fb"><div class="ttname"><a href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html#a068c9d41cc2a5165ca521d8ac06bd5fb">galaxy::media::Sound::set_min_distance</a></div><div class="ttdeci">void set_min_distance(const float distance)</div><div class="ttdoc">Set min distance.</div><div class="ttdef"><b>Definition</b> <a href="#l00207">Sound.cpp:207</a></div></div>
@@ -672,7 +671,7 @@ $(function(){initNavTree('d1/d8a/Sound_8cpp_source.html','../../'); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_d3c4af17bd947ce0a543d597ca1cfb63.html">media</a></li><li class="navelem"><a class="el" href="../../d1/d8a/Sound_8cpp.html">Sound.cpp</a></li>
-    <li class="footer">Generated on Sun Sep 15 2024 11:11:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Nov 17 2024 10:06:20 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

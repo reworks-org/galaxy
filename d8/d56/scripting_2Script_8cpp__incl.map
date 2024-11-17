@@ -1,25 +1,21 @@
 <map id="galaxy/src/galaxy/scripting/Script.cpp" name="galaxy/src/galaxy/scripting/Script.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="531,5,728,45"/>
-<area shape="rect" id="Node000002" href="$da/ddf/ServiceLocator_8hpp.html" title=" " alt="" coords="73,93,298,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,47,264,93,263,88,530,41"/>
-<area shape="rect" id="Node000005" href="$de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="401,93,631,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="603,48,546,87,543,83,600,43"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="655,93,833,119"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="659,43,717,83,714,88,656,48"/>
-<area shape="rect" id="Node000011" href="$df/d8e/scripting_2Script_8hpp.html" title=" " alt="" coords="963,93,1050,119"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="720,43,950,90,949,96,719,48"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,83,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,121,80,163,78,158,161,116"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="107,167,263,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="188,119,188,153,183,153,183,119"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="288,167,341,192"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="485,121,356,166,354,161,483,116"/>
-<area shape="rect" id="Node000007" href="$d5/d02/DialogButton_8hpp.html" title=" " alt="" coords="365,167,563,192"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="510,121,483,157,478,154,505,117"/>
-<area shape="rect" id="Node000008" href="$d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="587,167,778,192"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="544,116,644,159,642,164,542,121"/>
-<area shape="rect" id="Node000009" href="$df/da3/DialogType_8hpp.html" title=" " alt="" coords="803,167,989,192"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="578,116,822,161,821,167,577,121"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="1014,167,1106,192"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1018,117,1045,154,1041,157,1013,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="411,5,608,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="31,93,257,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="422,48,211,93,210,88,421,43"/>
+<area shape="rect" id="Node000003" href="$de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="281,93,511,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="483,48,426,87,423,83,480,43"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="535,93,713,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="539,43,597,83,594,88,536,48"/>
+<area shape="rect" id="Node000009" href="$df/d8e/scripting_2Script_8hpp.html" title=" " alt="" coords="738,93,825,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="575,43,729,87,728,92,574,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,167,59,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="319,121,206,141,73,169,72,164,205,136,318,116"/>
+<area shape="rect" id="Node000005" href="$d5/d02/DialogButton_8hpp.html" title=" " alt="" coords="82,167,281,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="362,121,230,165,228,160,361,116"/>
+<area shape="rect" id="Node000006" href="$d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="305,167,495,192"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="399,119,401,153,396,153,394,119"/>
+<area shape="rect" id="Node000007" href="$df/da3/DialogType_8hpp.html" title=" " alt="" coords="520,167,707,192"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="432,116,566,160,564,165,430,121"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="735,167,827,192"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="784,119,784,153,779,153,779,119"/>
 </map>

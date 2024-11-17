@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['width_0',['width',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html#af12e62583d675a0dc869c983daa20e68',1,'galaxy::events::WindowResized']]],
-  ['window_5fheight_1',['window_height',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#ac0006cbca6652adf5fcee4a245d07b18',1,'galaxy::core::WindowSettings']]],
-  ['window_5fwidth_2',['window_width',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#a6a5a4d0686fa91261672b6253a3e3a06',1,'galaxy::core::WindowSettings']]]
+  ['xoff_0',['xoff',['../d6/d70/structgalaxy_1_1events_1_1MouseWheel.html#a9fe04d69aa151aa54efb15b0bc8192f5',1,'galaxy::events::MouseWheel']]],
+  ['xpos_1',['xpos',['../db/da7/structgalaxy_1_1events_1_1MouseMoved.html#a1f9c52901fe99bcb28a36af77e8cd9d0',1,'galaxy::events::MouseMoved::xpos'],['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html#af35a5ff23336a3db09b77574b040af58',1,'galaxy::events::MousePressed::xpos'],['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html#ac443eff92679a0c44c35fdeba20fce63',1,'galaxy::events::MouseReleased::xpos']]],
+  ['xscale_2',['xscale',['../d8/d2a/structgalaxy_1_1events_1_1ContentScale.html#a6b61dc6b0ffa5a776f8844b108d9bd99',1,'galaxy::events::ContentScale']]]
 ];

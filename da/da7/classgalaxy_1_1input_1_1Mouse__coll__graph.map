@@ -1,5 +1,5 @@
 <map id="galaxy::input::Mouse" name="galaxy::input::Mouse">
-<area shape="rect" id="Node000001" title="Physical mouse device and state management." alt="" coords="7,239,188,464"/>
-<area shape="rect" id="Node000002" href="$da/def/classgalaxy_1_1input_1_1InputDevice.html" title=" " alt="" coords="5,5,189,191"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,205,100,239,95,239,95,205"/>
+<area shape="rect" id="Node000001" title="Physical mouse device and state management." alt="" coords="5,119,187,344"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,142,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,84,99,119,93,119,93,84"/>
 </map>

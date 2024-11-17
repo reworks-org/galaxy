@@ -1,15 +1,5 @@
 <map id="galaxy::components::Transform::Transform" name="galaxy::components::Transform::Transform">
-<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,133,173,173"/>
-<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="221,133,396,173"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,151,208,151,208,156,174,156"/>
-<area shape="rect" id="Node000003" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a41f5a518ce5f3af1ae18367ae9703bd1" title="Set the origin point." alt="" coords="444,5,645,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="332,131,381,93,443,55,458,48,460,53,445,60,384,97,335,135"/>
-<area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a32b8b037a3779788257fd236c3ffe8a2" title="Sets position without moving the entity." alt="" coords="444,69,645,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="382,131,457,110,458,115,384,136"/>
-<area shape="rect" id="Node000005" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a8a5d2e75b40fef98223b8eccd3becc81" title="Set the entity rotation." alt="" coords="444,133,645,173"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="396,151,430,151,430,156,396,156"/>
-<area shape="rect" id="Node000006" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aa8971d7b070835d5600cca396a7fa155" title="Set entity scale." alt="" coords="444,197,645,237"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="384,171,458,191,457,196,382,176"/>
-<area shape="rect" id="Node000007" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a1e144ac03b4009348ca59a73bf5d6cc4" title="Set entity scale." alt="" coords="444,261,645,301"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="335,171,384,209,445,247,460,254,458,259,443,252,381,214,332,176"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,5,173,45"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="221,5,396,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,23,208,23,208,28,174,28"/>
 </map>
