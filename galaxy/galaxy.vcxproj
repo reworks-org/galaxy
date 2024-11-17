@@ -139,7 +139,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>BOX2D_ENABLE_SIMD;BOX2D_AVX2;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;SFML_STATIC;STBI_FAILURE_USERMSG;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;SOL_CXX17_FEATURES;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOX2D_ENABLE_SIMD;BOX2D_AVX2;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;_GLFW_WIN32;_GLFW_USE_HYBRID_HPG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -171,7 +171,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -199,7 +199,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>BOX2D_ENABLE_SIMD;BOX2D_AVX2;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;SFML_STATIC;STBI_FAILURE_USERMSG;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;SOL_CXX17_FEATURES;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOX2D_ENABLE_SIMD;BOX2D_AVX2;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;_GLFW_WIN32;_GLFW_USE_HYBRID_HPG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -231,7 +231,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SFML/include;$(SolutionDir)deps/SFML/src;$(SolutionDir)deps/SFML/extlibs/headers/vulkan;$(SolutionDir)deps/SFML/extlibs/headers/minimp3;$(SolutionDir)deps/SFML/extlibs/headers/AL;$(SolutionDir)deps/SFML/extlibs/headers;$(SolutionDir)deps/SFML/extlibs/headers/stb_image;$(SolutionDir)deps/SFML/extlibs/headers/glad/include;$(SolutionDir)deps/SFML/extlibs/headers/freetype2;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
