@@ -17,7 +17,6 @@
     <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
-    <ClCompile Include="src\galaxy\fs\PhysfsStream.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
@@ -52,7 +51,6 @@
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
-    <ClInclude Include="src\galaxy\fs\PhysfsStream.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />

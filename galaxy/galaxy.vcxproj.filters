@@ -5,8 +5,6 @@
     <ClCompile Include="src\galaxy\math\Base64.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\math\Generic.cpp" />
-    <ClCompile Include="src\galaxy\math\Random.cpp" />
-    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\async\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\Concepts.cpp" />
@@ -31,9 +29,10 @@
     <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
-    <ClCompile Include="src\galaxy\fs\PhysfsStream.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -41,8 +40,6 @@
     <ClInclude Include="src\galaxy\math\Base64.hpp" />
     <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
-    <ClInclude Include="src\galaxy\math\Random.hpp" />
-    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\async\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\Concepts.hpp" />
@@ -67,7 +64,8 @@
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
-    <ClInclude Include="src\galaxy\fs\PhysfsStream.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
   </ItemGroup>
 </Project>
