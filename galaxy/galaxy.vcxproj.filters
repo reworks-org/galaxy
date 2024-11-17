@@ -33,6 +33,9 @@
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\math\Random.cpp" />
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\core\Window.cpp" />
+    <ClCompile Include="src\galaxy\logging\RaylibError.cpp" />
+    <ClCompile Include="src\galaxy\graphics\ScreenMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -67,5 +70,8 @@
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\math\Random.hpp" />
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\core\Window.hpp" />
+    <ClInclude Include="src\galaxy\logging\RaylibError.hpp" />
+    <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
   </ItemGroup>
 </Project>
