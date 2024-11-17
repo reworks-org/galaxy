@@ -21,14 +21,19 @@ namespace galaxy
 		{
 		}
 
-		sf::Vector2f Random::gen_vec2(const sf::Vector2f& min, const sf::Vector2f& max)
+		Vector2 Random::gen_vec2(const Vector2& min, const Vector2& max)
 		{
 			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y)};
 		}
 
-		sf::Vector3f Random::gen_vec3(const sf::Vector3f& min, const sf::Vector3f& max)
+		Vector3 Random::gen_vec3(const Vector3& min, const Vector3& max)
 		{
 			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y), gen<float>(min.z, max.z)};
+		}
+
+		Vector4 Random::gen_vec4(const Vector4& min, const Vector4& max)
+		{
+			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y), gen<float>(min.z, max.z), gen<float>(min.w, max.w)};
 		}
 	} // namespace math
 } // namespace galaxy

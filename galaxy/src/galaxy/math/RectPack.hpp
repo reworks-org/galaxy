@@ -8,9 +8,10 @@
 #ifndef GALAXY_MATH_RECTPACK_HPP_
 #define GALAXY_MATH_RECTPACK_HPP_
 
+#include <optional>
 #include <vector>
 
-#include <SFML/Graphics/Rect.hpp>
+#include <raylib.h>
 
 namespace galaxy
 {
@@ -52,7 +53,7 @@ namespace galaxy
 			///			Otherwise, returns a std::nullopt.
 			///
 			[[nodiscard]]
-			std::optional<sf::IntRect> pack(const int width, const int height);
+			std::optional<Rectangle> pack(const int width, const int height);
 
 			///
 			/// Clear all data.
@@ -81,7 +82,7 @@ namespace galaxy
 			/// \return Const meta::vector.
 			///
 			[[nodiscard]]
-			const std::vector<sf::IntRect>& get_free_space() const;
+			const std::vector<Rectangle>& get_free_space() const;
 
 		private:
 			///
@@ -97,7 +98,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			std::vector<sf::IntRect> m_free_rects;
+			std::vector<Rectangle> m_free_rects;
 		};
 	} // namespace math
 } // namespace galaxy

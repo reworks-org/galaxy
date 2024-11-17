@@ -10,8 +10,7 @@
 
 #include <random>
 
-#include <SFML/System/Vector2.hpp>
-#include <SFML/System/Vector3.hpp>
+#include <raylib.h>
 
 #include "galaxy/utils/Concepts.hpp"
 
@@ -69,7 +68,7 @@ namespace galaxy
 			/// \return Pseudo-randomized vec2.
 			///
 			[[nodiscard]]
-			sf::Vector2f gen_vec2(const sf::Vector2f& min, const sf::Vector2f& max);
+			Vector2 gen_vec2(const Vector2& min, const Vector2& max);
 
 			///
 			/// Generate a random vec3.
@@ -80,7 +79,18 @@ namespace galaxy
 			/// \return Pseudo-randomized vec3.
 			///
 			[[nodiscard]]
-			sf::Vector3f gen_vec3(const sf::Vector3f& min, const sf::Vector3f& max);
+			Vector3 gen_vec3(const Vector3& min, const Vector3& max);
+
+			///
+			/// Generate a random vec4.
+			///
+			/// \param min Minimum vec4 inclusive.
+			/// \param max Maximum vec4 inclusive.
+			///
+			/// \return Pseudo-randomized vec4.
+			///
+			[[nodiscard]]
+			Vector4 gen_vec4(const Vector4& min, const Vector4& max);
 
 		private:
 			///
