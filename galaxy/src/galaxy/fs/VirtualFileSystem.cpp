@@ -12,6 +12,7 @@
 #include <zip.h>
 
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Settings.hpp"
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/logging/PhysFSError.hpp"
 #include "galaxy/platform/Pragma.hpp"
@@ -31,8 +32,8 @@ namespace galaxy
 		VirtualFileSystem::VirtualFileSystem()
 		{
 			// Create data directories.
-			std::filesystem::create_directories(GALAXY_ROOT_DIR / GALAXY_ASSET_DIR);
-			std::filesystem::create_directories(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR);
+			std::filesystem::create_directories(settings::root_dir() / settings::assets_dir());
+			std::filesystem::create_directories(settings::root_dir() / settings::editor_dir());
 
 			// Set up allocators for physfs.
 			PHYSFS_Allocator a = {};
@@ -48,37 +49,34 @@ namespace galaxy
 			{
 				PHYSFS_permitSymbolicLinks(false);
 
-				auto write_dir = GALAXY_ROOT_DIR / GALAXY_ASSET_DIR;
+				auto write_dir = settings::root_dir() / settings::assets_dir();
 				write_dir.make_preferred();
 				logging::physfs_check(PHYSFS_setWriteDir(write_dir.string().c_str()));
 
-				auto& config   = entt::locator<core::Config>::value();
-				auto  read_dir = GALAXY_ROOT_DIR / GALAXY_ASSET_PACK;
+				auto read_dir = settings::root_dir() / settings::asset_pack();
 				read_dir.make_preferred();
 
-				if (config.get<bool>("use_loose_assets"))
+				if (settings::use_loose_assets())
 				{
-					mkdir(GALAXY_MUSIC_DIR);
-					mkdir(GALAXY_SFX_DIR);
-					mkdir(GALAXY_VOICE_DIR);
-					mkdir(GALAXY_FONT_DIR);
-					mkdir(GALAXY_SCRIPT_DIR);
-					mkdir(GALAXY_SHADER_DIR);
-					mkdir(GALAXY_ANIM_DIR);
-					mkdir(GALAXY_TEXTURE_DIR);
-					mkdir(GALAXY_LANG_DIR);
-					mkdir(GALAXY_PREFABS_DIR);
-					mkdir(GALAXY_MAPS_DIR);
-					mkdir(GALAXY_VIDEO_DIR);
-					mkdir(GALAXY_UI_DIR);
-					mkdir(GALAXY_UI_FONTS_DIR);
+					mkdir(settings::assets_dir_music());
+					mkdir(settings::assets_dir_sfx());
+					mkdir(settings::assets_dir_voice());
+					mkdir(settings::assets_dir_font());
+					mkdir(settings::assets_dir_script());
+					mkdir(settings::assets_dir_shaders());
+					mkdir(settings::assets_dir_animation());
+					mkdir(settings::assets_dir_texture());
+					mkdir(settings::assets_dir_prefabs());
+					mkdir(settings::assets_dir_maps());
+					mkdir(settings::assets_dir_video());
+					mkdir(settings::assets_dir_ui());
 
 					read_dir = write_dir;
 				}
 
 				logging::physfs_check(PHYSFS_mount(read_dir.string().c_str(), nullptr, true));
 
-				const auto merged = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
+				const auto merged = settings::root_dir() / settings::editor_dir();
 				logging::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
 			}
 		}
@@ -124,7 +122,7 @@ namespace galaxy
 			return {};
 		}
 
-		meta::vector<std::uint8_t> VirtualFileSystem::read_binary(const std::string& file)
+		std::vector<std::uint8_t> VirtualFileSystem::read_binary(const std::string& file)
 		{
 			PHYSFS_File* f = PHYSFS_openRead(file.c_str());
 			if (logging::physfs_check(f))
@@ -133,7 +131,7 @@ namespace galaxy
 
 				if (logging::physfs_check(len))
 				{
-					meta::vector<std::uint8_t> buffer;
+					std::vector<std::uint8_t> buffer;
 					buffer.resize(len);
 
 					if (logging::physfs_check(PHYSFS_readBytes(f, &buffer[0], buffer.size())))
@@ -225,9 +223,9 @@ namespace galaxy
 			return PHYSFS_isDirectory(path.c_str());
 		}
 
-		meta::vector<std::string> VirtualFileSystem::list(const std::string& dir)
+		std::vector<std::string> VirtualFileSystem::list(const std::string& dir)
 		{
-			meta::vector<std::string> list;
+			std::vector<std::string> list;
 
 			logging::physfs_check(PHYSFS_enumerate(
 				dir.c_str(),
@@ -237,7 +235,7 @@ namespace galaxy
 						std::string o = origdir;
 						std::string f = fname;
 
-						auto* my_list = static_cast<meta::vector<std::string>*>(data);
+						auto* my_list = static_cast<std::vector<std::string>*>(data);
 						my_list->emplace_back(o + f);
 					}
 
@@ -274,7 +272,7 @@ namespace galaxy
 			return tinyfd_inputBox(title.c_str(), msg.c_str(), dt);
 		}
 
-		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
+		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters)
 		{
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
 			const char*        result          = tinyfd_saveFileDialog("Save file", default_filename.c_str(), static_cast<int>(filters.size()), filter_patterns, nullptr);
@@ -289,9 +287,9 @@ namespace galaxy
 			}
 		}
 
-		std::string VirtualFileSystem::open_file_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
+		std::string VirtualFileSystem::open_file_dialog(const std::vector<const char*>& filters, const std::string& def_path)
 		{
-			const auto default_path = (GALAXY_ROOT_DIR / def_path).string();
+			const auto default_path = (settings::root_dir() / def_path).string();
 
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
 			const char*        result = tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
@@ -308,7 +306,7 @@ namespace galaxy
 
 		std::string VirtualFileSystem::select_folder_dialog(const std::string& def_path)
 		{
-			const auto  default_path = (GALAXY_ROOT_DIR / def_path).string();
+			const auto  default_path = (settings::root_dir() / def_path).string();
 			const char* result       = tinyfd_selectFolderDialog("Select folder", default_path.c_str());
 
 			if (result != nullptr)

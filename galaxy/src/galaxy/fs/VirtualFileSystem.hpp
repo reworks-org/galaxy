@@ -52,7 +52,7 @@ namespace galaxy
 			/// \return Buffer containing read data.
 			///
 			[[nodiscard]]
-			meta::vector<std::uint8_t> read_binary(const std::string& file);
+			std::vector<std::uint8_t> read_binary(const std::string& file);
 
 			///
 			/// \brief Writes a file to disk.
@@ -138,7 +138,7 @@ namespace galaxy
 			/// \return List of assets in directory.
 			///
 			[[nodiscard]]
-			meta::vector<std::string> list(const std::string& dir);
+			std::vector<std::string> list(const std::string& dir);
 
 			///
 			/// Trigger a standard filesystem audio alert.
@@ -190,7 +190,7 @@ namespace galaxy
 			/// \return String with path, empty if error.
 			///
 			[[nodiscard]]
-			std::string open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters = {});
+			std::string open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters = {});
 
 			///
 			/// Open a file dialog.
@@ -201,7 +201,7 @@ namespace galaxy
 			/// \return String with path, empty if error.
 			///
 			[[nodiscard]]
-			std::string open_file_dialog(const meta::vector<const char*>& filters = {}, const std::string& def_path = "");
+			std::string open_file_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
 			/// Select a folder using a dialog.
