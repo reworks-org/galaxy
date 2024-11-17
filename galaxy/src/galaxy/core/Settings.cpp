@@ -20,11 +20,11 @@ namespace galaxy
 		config.restore<int>("width", 1920, "window");
 		config.restore<int>("height", 1080, "window");
 		config.restore<std::string>("title", "galaxy", "window");
-		config.restore<bool>("fullscreen", false, "window");
+		config.restore<int>("screenmode", 1, "window");
 		config.restore<bool>("vsync", false, "window");
-		config.restore<bool>("key_repeat", false, "window");
-		config.restore<bool>("mouse_grabbed", false, "window");
 		config.restore<bool>("mouse_visible", false, "window");
+		config.restore<bool>("msaa", false, "window");
+		config.restore<bool>("highdpi", false, "window");
 		config.restore<std::string>("icon", "", "window");
 		config.restore<std::string>("cursor_icon", "", "window");
 
@@ -59,11 +59,11 @@ namespace galaxy
 		s_window_width  = config.get<int>("width", "window");
 		s_window_height = config.get<int>("height", "window");
 		s_title         = config.get<std::string>("title", "window");
-		s_fullscreen    = config.get<bool>("fullscreen", "window");
+		s_screenmode    = static_cast<graphics::ScreenMode>(config.get<int>("screenmode", "window"));
 		s_vsync         = config.get<bool>("vsync", "window");
-		s_key_repeat    = config.get<bool>("key_repeat", "window");
-		s_mouse_grabbed = config.get<bool>("mouse_grabbed", "window");
 		s_mouse_visible = config.get<bool>("mouse_visible", "window");
+		s_msaa          = config.get<bool>("msaa", "window");
+		s_highdpi       = config.get<bool>("highdpi", "window");
 		s_icon          = config.get<std::string>("icon", "window");
 		s_cursor_icon   = config.get<std::string>("cursor_icon", "window");
 
@@ -135,9 +135,9 @@ namespace galaxy
 		return s_title;
 	}
 
-	auto settings::fullscreen() -> bool
+	auto settings::screenmode() -> graphics::ScreenMode
 	{
-		return s_fullscreen;
+		return s_screenmode;
 	}
 
 	auto settings::vsync() -> bool
@@ -145,19 +145,19 @@ namespace galaxy
 		return s_vsync;
 	}
 
-	auto settings::key_repeat() -> bool
-	{
-		return s_key_repeat;
-	}
-
-	auto settings::mouse_grabbed() -> bool
-	{
-		return s_mouse_grabbed;
-	}
-
 	auto settings::mouse_visible() -> bool
 	{
 		return s_mouse_visible;
+	}
+
+	auto settings::msaa() -> bool
+	{
+		return s_msaa;
+	}
+
+	auto settings::highdpi() -> bool
+	{
+		return s_highdpi;
 	}
 
 	auto settings::window_icon() -> const std::string&

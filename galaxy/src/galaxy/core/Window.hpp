@@ -8,16 +8,6 @@
 #ifndef GALAXY_CORE_WINDOW_HPP_
 #define GALAXY_CORE_WINDOW_HPP_
 
-#include <entt/signal/fwd.hpp>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#include "galaxy/core/WindowSettings.hpp"
-#include "galaxy/input/Clipboard.hpp"
-#include "galaxy/input/Cursor.hpp"
-#include "galaxy/input/Keyboard.hpp"
-#include "galaxy/input/Mouse.hpp"
-
 namespace galaxy
 {
 	namespace core
@@ -27,15 +17,11 @@ namespace galaxy
 		///
 		class Window final
 		{
-		  public:
+		public:
 			///
-			/// \brief Window creation constructor.
+			/// Constructor.
 			///
-			/// Calls open().
-			///
-			/// \param settings Settings of the window.
-			///
-			Window(const WindowSettings& settings);
+			Window();
 
 			///
 			/// Destructor.
@@ -43,73 +29,51 @@ namespace galaxy
 			~Window();
 
 			///
-			/// Checks if window is currently open or not.
-			///
-			/// \return Returns true if window is currently open, false if not.
-			///
-			[[nodiscard]] bool is_open() const;
-
-			///
-			/// \brief Closes the current window.
-			///
-			/// Internally, sets isOpen to false.
-			///
-			void close();
-
-			///
-			/// Destroys Window and related context and data.
-			///
-			void destroy();
-
-			///
 			/// Poll for events.
 			///
-			void poll_events();
+			static void poll_events();
 
 			///
-			/// Resizes window.
+			/// Set window focus.
 			///
-			/// \param width Width of the window.
-			/// \param height Height of the window.
-			///
-			void resize(const int width, const int height);
+			static void focus();
 
 			///
-			/// \brief Notify's user of an event without interrupting.
+			/// Set window state: not minimized/maximized.
 			///
-			/// Think like windows flashing tray icon.
-			///
-			void request_attention();
+			static void restore();
 
 			///
-			/// Force window into focus.
+			/// Set window state: minimized, if resizable.
 			///
-			void focus() const;
+			static void minimize();
 
 			///
-			/// Maximize window.
+			// Set window state: maximized, if resizable.
 			///
-			void maximize();
+			static void maximize();
 
 			///
-			/// Restore window.
+			/// Toggle window state: fullscreen/windowed.
 			///
-			void restore();
+			static void toggle_fullscreen();
 
 			///
-			/// Minimize window.
+			/// Toggle window state: borderless windowed.
 			///
-			void minimize() const;
+			static void toggle_borderless();
 
 			///
-			/// Set window into borderless fullscreen mode.
+			/// Set icon for window.
 			///
-			void fullscreen();
+			/// \param icon Icon file in VFS.
+			///
+			void set_icon(const std::string& icon);
 
 			///
-			/// Set window title.
+			/// Set title for window.
 			///
-			/// \param title New title to set window to.
+			/// \param title New window bar title.
 			///
 			void set_title(const std::string& title);
 
@@ -121,90 +85,102 @@ namespace galaxy
 			void append_title(const std::string& append);
 
 			///
-			/// Set window icon.
+			/// Set window position on screen.
 			///
-			/// \param icon Icon to load.
+			/// \param x x screen coord.
+			/// \param y y screen coord.
 			///
-			void set_icon(const std::string& icon);
+			static void set_pos(const int x, const int y);
 
 			///
-			/// Set window icon.
+			/// Set window dimensions.
 			///
-			/// \param buffer Memory buffer containing pixels.
+			/// \param width Screen width of window.
+			/// \param height Screen height of window.
 			///
-			void set_icon(std::span<std::uint8_t> buffer);
+			static void set_size(const int width, const int height);
 
 			///
-			/// Set current event dispatcher to use.
+			/// Should the window close?
 			///
-			/// \param dispatcher Event dispatcher to use for processing input, etc.
+			/// \return True if window should close.
 			///
-			void set_dispatcher(entt::dispatcher* dispatcher);
+			[[nodiscard]]
+			static bool should_close();
 
 			///
-			/// Check if windows is in focus.
+			/// Check if window is currently fullscreen.
 			///
-			/// \return True if window is in input focus.
+			/// \return Boolean.
 			///
-			[[nodiscard]] bool is_focused() const;
-
-			[[nodiscard]] int   window_width() const;
-			[[nodiscard]] int   window_height() const;
-			[[nodiscard]] int   frame_width() const;
-			[[nodiscard]] int   frame_height() const;
-			[[nodiscard]] float aspect_ratio() const;
+			[[nodiscard]]
+			static bool is_fullscreen();
 
 			///
-			/// Get a window input device.
+			/// Check if window is currently hidden.
 			///
-			/// \tparam Device The type of input device to get. Constrained to a derived InputDevice.
+			/// \return Boolean.
 			///
-			/// \return Reference to the input device.
-			///
-			template<meta::is_input_device Device>
-			[[nodiscard]] Device& get_input();
+			[[nodiscard]]
+			static bool is_hidden();
 
 			///
-			/// \brief Get a list of paths dropped on window.
+			/// Check if window is currently minimized.
 			///
-			/// Reset when a new path is dropped.
+			/// \return Boolean.
 			///
-			[[nodiscard]] const meta::vector<std::string>& get_drop_paths() const;
+			[[nodiscard]]
+			static bool is_minimized();
 
 			///
-			/// Get framebuffer size taking into account DPI.
+			/// Check if window is currently maximized.
 			///
-			/// \return glm::ivec2.
+			/// \return Boolean.
 			///
-			[[nodiscard]] glm::ivec2 get_framebuffer_size();
+			[[nodiscard]]
+			static bool is_maximized();
 
 			///
-			/// Get window content scale.
+			/// Check if window is currently focused.
 			///
-			/// \return glm::vec2.
+			/// \return Boolean.
 			///
-			[[nodiscard]] glm::vec2 get_content_scale();
+			[[nodiscard]]
+			static bool is_focused();
 
 			///
-			/// Get max window content scale.
+			/// Get current screen width.
 			///
-			/// \return Float.
+			/// \return Integer.
 			///
-			[[nodiscard]] float get_content_scale_max();
+			[[nodiscard]]
+			static int width();
 
 			///
-			/// Retrieve pointer to GLFWwindow object.
+			/// Get current screen height.
 			///
-			/// \return Returns pointer to GLFWwindow.
+			/// \return Integer.
 			///
-			[[nodiscard]] GLFWwindow* handle();
+			[[nodiscard]]
+			static int height();
 
-		  private:
 			///
-			/// Constructor.
+			/// Get current render width (it considers HiDPI).
 			///
-			Window() = delete;
+			/// \return Integer.
+			///
+			[[nodiscard]]
+			static int render_width();
 
+			///
+			/// Get current render height (it considers HiDPI).
+			///
+			/// \return Integer.
+			///
+			[[nodiscard]]
+			static int render_height();
+
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -225,98 +201,12 @@ namespace galaxy
 			///
 			Window& operator=(Window&&) = delete;
 
-		  private:
+		private:
 			///
-			/// Window title.
+			/// Title cache.
 			///
 			std::string m_title;
-
-			///
-			/// Width of window (or fullscreen).
-			///
-			int m_window_width;
-
-			///
-			/// Height of window (or fullscreen).
-			///
-			int m_window_height;
-
-			///
-			/// The virtual or final framebuffer width.
-			///
-			int m_frame_width;
-
-			///
-			/// The virtual or final framebuffer height.
-			///
-			int m_frame_height;
-
-			///
-			/// Window aspect ratio.
-			///
-			float m_aspect_ratio;
-
-			///
-			/// GLFW window data.
-			///
-			GLFWwindow* m_window;
-
-			///
-			/// Currently active event dispatcher.
-			///
-			entt::dispatcher* m_dispatcher;
-
-			///
-			/// Custom GLFW window allocator.
-			///
-			GLFWallocator m_glfw_allocator;
-
-			///
-			/// Keyboard assigned to window.
-			///
-			input::Keyboard m_keyboard;
-
-			///
-			/// Mouse assigned to window.
-			///
-			input::Mouse m_mouse;
-
-			///
-			/// Mouse cursor.
-			///
-			input::Cursor m_cursor;
-
-			///
-			/// Clipboard access.
-			///
-			input::Clipboard m_clipboard;
-
-			///
-			/// Cache of last dropped paths.
-			///
-			meta::vector<std::string> m_drop_paths;
 		};
-
-		template<meta::is_input_device Device>
-		inline Device& Window::get_input()
-		{
-			if constexpr (std::is_same<Device, input::Keyboard>::value)
-			{
-				return m_keyboard;
-			}
-			else if constexpr (std::is_same<Device, input::Mouse>::value)
-			{
-				return m_mouse;
-			}
-			else if constexpr (std::is_same<Device, input::Cursor>::value)
-			{
-				return m_cursor;
-			}
-			else if constexpr (std::is_same<Device, input::Clipboard>::value)
-			{
-				return m_clipboard;
-			}
-		}
 	} // namespace core
 } // namespace galaxy
 

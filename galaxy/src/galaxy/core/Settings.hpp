@@ -9,6 +9,7 @@
 #define GALAXY_CORE_SETTINGS_HPP_
 
 #include "galaxy/core/Config.hpp"
+#include "galaxy/graphics/ScreenMode.hpp"
 
 namespace galaxy
 {
@@ -96,10 +97,10 @@ namespace galaxy
 		static auto window_title() -> const std::string&;
 
 		///
-		/// Window fullscreen state.
+		/// Window fullscreen mode.
 		///
 		[[nodiscard]]
-		static auto fullscreen() -> bool;
+		static auto screenmode() -> graphics::ScreenMode;
 
 		///
 		/// Vsync control.
@@ -108,23 +109,22 @@ namespace galaxy
 		static auto vsync() -> bool;
 
 		///
-		/// Key repeat control.
-		///
-
-		[[nodiscard]]
-		static auto key_repeat() -> bool;
-
-		///
-		/// Confine mouse cursor to window.
-		///
-		[[nodiscard]]
-		static auto mouse_grabbed() -> bool;
-
-		///
 		/// Show/hide mouse cursor.
 		///
 		[[nodiscard]]
 		static auto mouse_visible() -> bool;
+
+		///
+		/// Enable default 4x MSAA.
+		///
+		[[nodiscard]]
+		static auto msaa() -> bool;
+
+		///
+		/// Enable High DPI support.
+		///
+		[[nodiscard]]
+		static auto highdpi() -> bool;
 
 		///
 		/// Window icon file in vfs.
@@ -255,16 +255,16 @@ namespace galaxy
 		inline static float  s_box2d_to_world;
 		inline static double s_ups;
 
-		inline static int         s_window_width;
-		inline static int         s_window_height;
-		inline static std::string s_title;
-		inline static bool        s_fullscreen;
-		inline static bool        s_vsync;
-		inline static bool        s_key_repeat;
-		inline static bool        s_mouse_grabbed;
-		inline static bool        s_mouse_visible;
-		inline static std::string s_icon;
-		inline static std::string s_cursor_icon;
+		inline static int                  s_window_width;
+		inline static int                  s_window_height;
+		inline static std::string          s_title;
+		inline static graphics::ScreenMode s_screenmode;
+		inline static bool                 s_vsync;
+		inline static bool                 s_mouse_visible;
+		inline static bool                 s_msaa;
+		inline static bool                 s_highdpi;
+		inline static std::string          s_icon;
+		inline static std::string          s_cursor_icon;
 
 		inline static std::filesystem::path s_assets_dir;
 		inline static std::filesystem::path s_editor_dir;
