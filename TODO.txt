@@ -14,15 +14,8 @@ void EndDrawing(void);                                      // End canvas drawin
     void EndBlendMode(void);                                    // End blending mode (reset to default: alpha blending)
     void BeginScissorMode(int x, int y, int width, int height); // Begin scissor mode (define screen area for following drawing)
     void EndScissorMode(void);                                  // End scissor mode
-    void BeginVrStereoMode(VrStereoConfig config);              // Begin stereo rendering (requires VR simulator)
-    void EndVrStereoMode(void);                                 // End stereo rendering (requires VR simulator)
-
-// VR stereo config functions for VR simulator
-    VrStereoConfig LoadVrStereoConfig(VrDeviceInfo device);     // Load VR stereo config for VR simulator device parameters
-    void UnloadVrStereoConfig(VrStereoConfig config);           // Unload VR stereo config
 
     // Shader management functions
-    // NOTE: Shader functionality is not available on OpenGL 1.1
     Shader LoadShader(const char *vsFileName, const char *fsFileName);   // Load shader from files and bind default locations
     Shader LoadShaderFromMemory(const char *vsCode, const char *fsCode); // Load shader from code strings and bind default locations
     bool IsShaderValid(Shader shader);                                   // Check if a shader is valid (loaded on GPU)
@@ -45,38 +38,10 @@ void EndDrawing(void);                                      // End canvas drawin
     Matrix GetCameraMatrix(Camera camera);                            // Get camera transform matrix (view matrix)
     Matrix GetCameraMatrix2D(Camera2D camera);                        // Get camera 2d transform matrix
 
-    // Timing-related functions
-    void SetTargetFPS(int fps);                                 // Set target FPS (maximum)
-    float GetFrameTime(void);                                   // Get time in seconds for last frame drawn (delta time)
-    double GetTime(void);                                       // Get elapsed time in seconds since InitWindow()
-    int GetFPS(void);                                           // Get current FPS
-
-    // Custom frame control functions
-    // NOTE: Those functions are intended for advanced users that want full control over the frame processing
-    // By default EndDrawing() does this job: draws everything + SwapScreenBuffer() + manage frame timing + PollInputEvents()
-    // To avoid that behaviour and control frame processes manually, enable in config.h: SUPPORT_CUSTOM_FRAME_CONTROL
-    void SwapScreenBuffer(void);                                // Swap back buffer with front buffer (screen drawing)
-    void PollInputEvents(void);                                 // Register all input events
-    void WaitTime(double seconds);                              // Wait for some time (halt program execution)
-
-    // Random values generation functions
-    void SetRandomSeed(unsigned int seed);                      // Set the seed for the random number generator
-    int GetRandomValue(int min, int max);                       // Get a random value between min and max (both included)
-    int *LoadRandomSequence(unsigned int count, int min, int max); // Load random values sequence, no values repeated
-    void UnloadRandomSequence(int *sequence);                   // Unload random values sequence
-
     // Misc. functions
     void TakeScreenshot(const char *fileName);                  // Takes a screenshot of current screen (filename extension defines format)
     void SetConfigFlags(unsigned int flags);                    // Setup init configuration flags (view FLAGS)
     void OpenURL(const char *url);                              // Open URL with default system browser (if available)
-
-    // NOTE: Following functions implemented in module [utils]
-    //------------------------------------------------------------------
-    void TraceLog(int logLevel, const char *text, ...);         // Show trace log messages (LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR...)
-    void SetTraceLogLevel(int logLevel);                        // Set the current threshold (minimum) log level
-    void *MemAlloc(unsigned int size);                          // Internal memory allocator
-    void *MemRealloc(void *ptr, unsigned int size);             // Internal memory reallocator
-    void MemFree(void *ptr);                                    // Internal memory free
 
     // Set custom callbacks
     // WARNING: Callbacks setup is intended for advanced users
@@ -181,26 +146,6 @@ void EndDrawing(void);                                      // End canvas drawin
     void SetMouseScale(float scaleX, float scaleY);         // Set mouse scaling
     float GetMouseWheelMove(void);                          // Get mouse wheel movement for X or Y, whichever is larger
     Vector2 GetMouseWheelMoveV(void);                       // Get mouse wheel movement for both X and Y
-    void SetMouseCursor(int cursor);                        // Set mouse cursor
-
-    // Input-related functions: touch
-    int GetTouchX(void);                                    // Get touch position X for touch point 0 (relative to screen size)
-    int GetTouchY(void);                                    // Get touch position Y for touch point 0 (relative to screen size)
-    Vector2 GetTouchPosition(int index);                    // Get touch position XY for a touch point index (relative to screen size)
-    int GetTouchPointId(int index);                         // Get touch point identifier for given index
-    int GetTouchPointCount(void);                           // Get number of touch points
-
-    //------------------------------------------------------------------------------------
-    // Gestures and Touch Handling Functions (Module: rgestures)
-    //------------------------------------------------------------------------------------
-    void SetGesturesEnabled(unsigned int flags);      // Enable a set of gestures using flags
-    bool IsGestureDetected(unsigned int gesture);     // Check if a gesture have been detected
-    int GetGestureDetected(void);                     // Get latest detected gesture
-    float GetGestureHoldDuration(void);               // Get gesture hold time in seconds
-    Vector2 GetGestureDragVector(void);               // Get gesture drag vector
-    float GetGestureDragAngle(void);                  // Get gesture drag angle
-    Vector2 GetGesturePinchVector(void);              // Get gesture pinch delta
-    float GetGesturePinchAngle(void);                 // Get gesture pinch angle
 
     //------------------------------------------------------------------------------------
     // Camera System Functions (Module: rcamera)
