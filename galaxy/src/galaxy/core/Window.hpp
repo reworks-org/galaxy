@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_WINDOW_HPP_
 #define GALAXY_CORE_WINDOW_HPP_
 
+#include <string>
+
 namespace galaxy
 {
 	namespace core
@@ -31,37 +33,42 @@ namespace galaxy
 			///
 			/// Poll for events.
 			///
-			static void poll_events();
+			void poll_events();
+
+			///
+			/// Swap draw buffers.
+			///
+			void swap_buffers();
 
 			///
 			/// Set window focus.
 			///
-			static void focus();
+			void focus();
 
 			///
 			/// Set window state: not minimized/maximized.
 			///
-			static void restore();
+			void restore();
 
 			///
 			/// Set window state: minimized, if resizable.
 			///
-			static void minimize();
+			void minimize();
 
 			///
 			// Set window state: maximized, if resizable.
 			///
-			static void maximize();
+			void maximize();
 
 			///
 			/// Toggle window state: fullscreen/windowed.
 			///
-			static void toggle_fullscreen();
+			void toggle_fullscreen();
 
 			///
 			/// Toggle window state: borderless windowed.
 			///
-			static void toggle_borderless();
+			void toggle_borderless();
 
 			///
 			/// Set icon for window.
@@ -90,7 +97,7 @@ namespace galaxy
 			/// \param x x screen coord.
 			/// \param y y screen coord.
 			///
-			static void set_pos(const int x, const int y);
+			void set_pos(const int x, const int y);
 
 			///
 			/// Set window dimensions.
@@ -98,7 +105,7 @@ namespace galaxy
 			/// \param width Screen width of window.
 			/// \param height Screen height of window.
 			///
-			static void set_size(const int width, const int height);
+			void set_size(const int width, const int height);
 
 			///
 			/// Should the window close?
@@ -106,7 +113,7 @@ namespace galaxy
 			/// \return True if window should close.
 			///
 			[[nodiscard]]
-			static bool should_close();
+			bool should_close() const;
 
 			///
 			/// Check if window is currently fullscreen.
@@ -114,7 +121,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			static bool is_fullscreen();
+			bool is_fullscreen() const;
 
 			///
 			/// Check if window is currently hidden.
@@ -122,7 +129,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			static bool is_hidden();
+			bool is_hidden() const;
 
 			///
 			/// Check if window is currently minimized.
@@ -130,7 +137,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			static bool is_minimized();
+			bool is_minimized() const;
 
 			///
 			/// Check if window is currently maximized.
@@ -138,7 +145,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			static bool is_maximized();
+			bool is_maximized() const;
 
 			///
 			/// Check if window is currently focused.
@@ -146,7 +153,17 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			static bool is_focused();
+			bool is_focused() const;
+
+			///
+			/// \brief Get a list of paths dropped on window.
+			///
+			/// Reset when new path(s) are dropped.
+			///
+			/// \return List of paths as a string.
+			///
+			[[nodiscard]]
+			std::vector<std::string> get_drop_paths() const;
 
 			///
 			/// Get current screen width.
@@ -154,7 +171,7 @@ namespace galaxy
 			/// \return Integer.
 			///
 			[[nodiscard]]
-			static int width();
+			int width() const;
 
 			///
 			/// Get current screen height.
@@ -162,7 +179,7 @@ namespace galaxy
 			/// \return Integer.
 			///
 			[[nodiscard]]
-			static int height();
+			int height() const;
 
 			///
 			/// Get current render width (it considers HiDPI).
@@ -170,7 +187,7 @@ namespace galaxy
 			/// \return Integer.
 			///
 			[[nodiscard]]
-			static int render_width();
+			int render_width() const;
 
 			///
 			/// Get current render height (it considers HiDPI).
@@ -178,7 +195,7 @@ namespace galaxy
 			/// \return Integer.
 			///
 			[[nodiscard]]
-			static int render_height();
+			int render_height() const;
 
 		private:
 			///

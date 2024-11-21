@@ -54,7 +54,7 @@ namespace galaxy
 				flags |= FLAG_WINDOW_HIGHDPI;
 			}
 
-			SetWindowState(flags);
+			SetConfigFlags(flags);
 			InitWindow(settings::window_width(), settings::window_height(), settings::window_title().c_str());
 			DisableEventWaiting();
 
@@ -78,6 +78,11 @@ namespace galaxy
 		void Window::poll_events()
 		{
 			PollInputEvents();
+		}
+
+		void Window::swap_buffers()
+		{
+			SwapScreenBuffer();
 		}
 
 		void Window::focus()
@@ -150,52 +155,71 @@ namespace galaxy
 			SetWindowSize(width, height);
 		}
 
-		bool Window::should_close()
+		bool Window::should_close() const
 		{
 			return WindowShouldClose();
 		}
 
-		bool Window::is_fullscreen()
+		bool Window::is_fullscreen() const
 		{
 			return IsWindowFullscreen();
 		}
 
-		bool Window::is_hidden()
+		bool Window::is_hidden() const
 		{
 			return IsWindowHidden();
 		}
 
-		bool Window::is_minimized()
+		bool Window::is_minimized() const
 		{
 			return IsWindowMinimized();
 		}
 
-		bool Window::is_maximized()
+		bool Window::is_maximized() const
 		{
 			return IsWindowMaximized();
 		}
 
-		bool Window::is_focused()
+		bool Window::is_focused() const
 		{
 			return IsWindowFocused();
 		}
 
-		int Window::width()
+		std::vector<std::string> Window::get_drop_paths() const
+		{
+			std::vector<std::string> paths;
+
+			if (IsFileDropped())
+			{
+				const auto dropped = LoadDroppedFiles();
+
+				for (auto i = 0u; i < dropped.count; i++)
+				{
+					paths.push_back(dropped.paths[i]);
+				}
+
+				UnloadDroppedFiles(dropped);
+			}
+
+			return paths;
+		}
+
+		int Window::width() const
 		{
 			return GetScreenWidth();
 		}
 
-		int Window::height()
+		int Window::height() const
 		{
 			return GetScreenHeight();
 		}
 
-		int Window::render_width()
+		int Window::render_width() const
 		{
 			return GetRenderWidth();
 		}
 
-		int Window::render_height()
+		int Window::render_height() const
 		{
 			return GetRenderHeight();
 		}
