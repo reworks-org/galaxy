@@ -1,14 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a67fb623305be63b783050a953d64d8c2":[0,0,0,2,3,7],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a67fb623305be63b783050a953d64d8c2":[2,0,0,2,3,7],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354":[0,0,0,2,3,8],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354":[2,0,0,2,3,8],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a93fd128b9da57d04d716b2b5e6aaa664":[0,0,0,2,3,0],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a93fd128b9da57d04d716b2b5e6aaa664":[2,0,0,2,3,0],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76":[0,0,0,2,3,5],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a9fe3ec4f861bd657e69c332a58b80b76":[2,0,0,2,3,5],
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66":[0,0,0,2,3,10],
 "d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66":[2,0,0,2,3,10],
 "d6/d40/classgalaxy_1_1core_1_1Prefab.html#ac9be6bed2d350352aa9bce8f27ad155c":[0,0,0,2,3,3],
 "d6/d40/classgalaxy_1_1core_1_1Prefab.html#ac9be6bed2d350352aa9bce8f27ad155c":[2,0,0,2,3,3],
@@ -249,5 +240,14 @@ var NAVTREEINDEX5 =
 "d6/df6/Shaders_8hpp.html#a687f83d5647af5d045a7d933dbb17c5a":[3,0,0,0,0,14,16,0],
 "d6/df6/Shaders_8hpp_source.html":[3,0,0,0,0,14,16],
 "d7/d16/ScriptSystem_8hpp.html":[3,0,0,0,0,18,7],
-"d7/d16/ScriptSystem_8hpp_source.html":[3,0,0,0,0,18,7]
+"d7/d16/ScriptSystem_8hpp_source.html":[3,0,0,0,0,18,7],
+"d7/d23/ImGuiHelpers_8hpp.html":[3,0,0,0,0,19,1],
+"d7/d23/ImGuiHelpers_8hpp.html#a04e7572be7f432e40a3dee3571c9fd2e":[3,0,0,0,0,19,1,17],
+"d7/d23/ImGuiHelpers_8hpp.html#a07ea7645484387d4e690f8efc3a9b8e4":[3,0,0,0,0,19,1,16],
+"d7/d23/ImGuiHelpers_8hpp.html#a0d1e4d1b532d5dc92c036921e844b0a0":[3,0,0,0,0,19,1,4],
+"d7/d23/ImGuiHelpers_8hpp.html#a1f8cf91c74dc9a38e468e855e4497265":[3,0,0,0,0,19,1,9],
+"d7/d23/ImGuiHelpers_8hpp.html#a2b4ef8624d8234a7d9a6608e11eb07c2":[3,0,0,0,0,19,1,10],
+"d7/d23/ImGuiHelpers_8hpp.html#a540fec72ae3e1c4f5156ff535a7bf1a3":[3,0,0,0,0,19,1,18],
+"d7/d23/ImGuiHelpers_8hpp.html#a6387aaf488654b9fb843eaf05e58c03b":[3,0,0,0,0,19,1,11],
+"d7/d23/ImGuiHelpers_8hpp.html#a6c64426a2357bdcdd6991be9483dc7e1":[3,0,0,0,0,19,1,1]
 };

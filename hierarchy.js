@@ -4,7 +4,6 @@ var hierarchy =
     [ "galaxy::media::AudioEngine< type >", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::resource::Cache< Resource, Loader >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
     [ "galaxy::input::CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", null ],
-    [ "galaxy::input::CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", null ],
     [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
     [ "galaxy::events::ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", null ],
     [ "galaxy::flags::DenySerialization", "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html", null ],
@@ -12,13 +11,6 @@ var hierarchy =
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
     [ "galaxy::resource::TextureAtlas::Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", null ],
-    [ "galaxy::input::Input", "db/df9/classgalaxy_1_1input_1_1Input.html", null ],
-    [ "InputDevice", null, [
-      [ "galaxy::input::Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html", null ],
-      [ "galaxy::input::Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html", null ],
-      [ "galaxy::input::Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", null ],
-      [ "galaxy::input::Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", null ]
-    ] ],
     [ "galaxy::events::KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", null ],
     [ "galaxy::events::KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", null ],
     [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", null ],

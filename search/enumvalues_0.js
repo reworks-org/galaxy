@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['alt_0',['ALT',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaadfbfc9cc7a235560f04cb1a5faf1ec3e',1,'galaxy::input']]]
+  ['borderless_0',['BORDERLESS',['../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1af744a3ac16b1ac0bc9df0aa02cc1a038',1,'galaxy::graphics']]]
 ];

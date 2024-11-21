@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['unknown_0',['UNKNOWN',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75eaa696b031073e74bf2cb98e5ef201d4aa3',1,'galaxy::input::UNKNOWN'],['../dd/d59/namespacegalaxy_1_1input.html#aa7bf4d7514cc2b0eb1945a646daaab3fa696b031073e74bf2cb98e5ef201d4aa3',1,'galaxy::input::UNKNOWN']]]
+  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0a5c5cb337bb234e240912dc139048038c',1,'galaxy::fs']]],
+  ['yesno_1',['yesno',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455acc74e9b9aaac7367488cc146dfb078db',1,'galaxy::fs']]],
+  ['yesnocancel_2',['yesnocancel',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455a30cea79617be1bdc188511fdf0d582bd',1,'galaxy::fs']]]
 ];

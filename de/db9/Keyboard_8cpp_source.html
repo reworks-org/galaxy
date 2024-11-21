@@ -104,100 +104,77 @@ $(function(){initNavTree('de/db9/Keyboard_8cpp_source.html','../../'); initResiz
 <div class="contents">
 <a href="../../de/db9/Keyboard_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dd0/Keyboard_8hpp.html">Keyboard.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dd0/Keyboard_8hpp.html">Keyboard.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">namespace </span>input</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>input</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html">   14</a></span>        <span class="keyword">namespace </span>keyboard</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#ad8819050373a08113816a0fc7def74ee">   16</a></span>        <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#ad8819050373a08113816a0fc7def74ee">Keyboard::Keyboard</a>()</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : InputDevice {}</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            , m_text_input_enabled {false}</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a7c5e9e2916fcd56c3d418d58563d285d">   16</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a7c5e9e2916fcd56c3d418d58563d285d">is_key_pressed</a>(<span class="keyword">const</span> KeyboardKey key)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                <span class="keywordflow">return</span> IsKeyPressed(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key));</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            }</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7b02b75f1fb8a587afad299fcaed9244">   22</a></span>        <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7b02b75f1fb8a587afad299fcaed9244">Keyboard::~Keyboard</a>()</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a58b0e611dab9fd0569777803c78f7d2e">   21</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a58b0e611dab9fd0569777803c78f7d2e">is_key_repeating</a>(<span class="keyword">const</span> KeyboardKey key)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                <span class="keywordflow">return</span> IsKeyPressedRepeat(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key));</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            }</div>
 </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0">   26</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0">Keyboard::begin_text_input</a>()</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_variable" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418">m_text_input_enabled</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a576caef982804038d816c1d5cc20269a">   26</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a576caef982804038d816c1d5cc20269a">is_key_released</a>(<span class="keyword">const</span> KeyboardKey key)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                <span class="keywordflow">return</span> IsKeyReleased(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            }</div>
 </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197">   31</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197">Keyboard::end_text_input</a>()</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_variable" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418">m_text_input_enabled</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a15878a3b19eb19460bcbf78fc8b4a29b">   31</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a15878a3b19eb19460bcbf78fc8b4a29b">is_key_down</a>(<span class="keyword">const</span> KeyboardKey key)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                <span class="keywordflow">return</span> IsKeyDown(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            }</div>
 </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366">   36</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366">Keyboard::enable_sticky_keys</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_TRUE);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a1a2199606c666ed95acf4ba1fb80ec9b">   36</a></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a1a2199606c666ed95acf4ba1fb80ec9b">is_key_up</a>(<span class="keyword">const</span> KeyboardKey key)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                <span class="keywordflow">return</span> IsKeyUp(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key));</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            }</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d">   42</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d">Keyboard::disable_sticky_keys</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_FALSE);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_FALSE);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#aff11c65f040e21e99c2118ff1fa3348d">   41</a></span>            KeyboardKey <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#aff11c65f040e21e99c2118ff1fa3348d">get_key_pressed</a>()</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>KeyboardKey<span class="keyword">&gt;</span>(GetKeyPressed());</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            }</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b">   48</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b">Keyboard::is_text_input_enabled</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418">m_text_input_enabled</a>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a61a3f8f6ef428b1e7c59e9f48003d4f9">   46</a></span>            KeyboardKey <a class="code hl_function" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a61a3f8f6ef428b1e7c59e9f48003d4f9">get_char_pressed</a>()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>KeyboardKey<span class="keyword">&gt;</span>(GetCharPressed());</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a61fc7b6066ccce21c96f7b51574287b9">   53</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a61fc7b6066ccce21c96f7b51574287b9">Keyboard::get_scancode</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142e">input::Keys</a> key)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">return</span> glfwGetKeyScancode(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key));</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        } <span class="comment">// namespace keyboard</span></div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a87e26a18b74d05110d1de9b08506c475">   58</a></span>        std::string <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a87e26a18b74d05110d1de9b08506c475">Keyboard::get_key_name</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="../../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142e">input::Keys</a> key)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> glfwGetKeyName(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key), 0);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
-</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4">   63</a></span>        std::string <a class="code hl_function" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4">Keyboard::get_scancode_name</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> scancode)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">return</span> glfwGetKeyName(GLFW_KEY_UNKNOWN, scancode);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
-</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    } <span class="comment">// namespace input</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    } <span class="comment">// namespace input</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="ttc" id="aKeyboard_8hpp_html"><div class="ttname"><a href="../../d8/dd0/Keyboard_8hpp.html">Keyboard.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a1a34b5ab66d6bd4a99473827cb90368b"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b">galaxy::input::Keyboard::is_text_input_enabled</a></div><div class="ttdeci">bool is_text_input_enabled() const</div><div class="ttdoc">Check if window is in text input mode.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">Keyboard.cpp:48</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a2223f46d9fa4e427d22fc2d8741f60d0"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2223f46d9fa4e427d22fc2d8741f60d0">galaxy::input::Keyboard::begin_text_input</a></div><div class="ttdeci">void begin_text_input()</div><div class="ttdoc">Enable window to begin processing text input.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">Keyboard.cpp:26</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a2610d4cc532044fffe97fcce972717c4"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a2610d4cc532044fffe97fcce972717c4">galaxy::input::Keyboard::get_scancode_name</a></div><div class="ttdeci">std::string get_scancode_name(const int scancode) const</div><div class="ttdoc">Get key name.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">Keyboard.cpp:63</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a49d0505e3c78adf44ed3cc915ccf9418"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a49d0505e3c78adf44ed3cc915ccf9418">galaxy::input::Keyboard::m_text_input_enabled</a></div><div class="ttdeci">bool m_text_input_enabled</div><div class="ttdoc">Flag to keep track of text input state.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dd0/Keyboard_8hpp_source.html#l00122">Keyboard.hpp:122</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a61fc7b6066ccce21c96f7b51574287b9"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a61fc7b6066ccce21c96f7b51574287b9">galaxy::input::Keyboard::get_scancode</a></div><div class="ttdeci">int get_scancode(const input::Keys key) const</div><div class="ttdoc">Get key scancode.</div><div class="ttdef"><b>Definition</b> <a href="#l00053">Keyboard.cpp:53</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a658b9ecf837275a884bd86437b03d197"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a658b9ecf837275a884bd86437b03d197">galaxy::input::Keyboard::end_text_input</a></div><div class="ttdeci">void end_text_input()</div><div class="ttdoc">Disable text input.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">Keyboard.cpp:31</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a7b02b75f1fb8a587afad299fcaed9244"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7b02b75f1fb8a587afad299fcaed9244">galaxy::input::Keyboard::~Keyboard</a></div><div class="ttdeci">virtual ~Keyboard()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">Keyboard.cpp:22</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a7e5a05e5f2c884310a601cb0c1a57366"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a7e5a05e5f2c884310a601cb0c1a57366">galaxy::input::Keyboard::enable_sticky_keys</a></div><div class="ttdeci">void enable_sticky_keys() const</div><div class="ttdoc">Enable sticky keys.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Keyboard.cpp:36</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_a87e26a18b74d05110d1de9b08506c475"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a87e26a18b74d05110d1de9b08506c475">galaxy::input::Keyboard::get_key_name</a></div><div class="ttdeci">std::string get_key_name(const input::Keys key) const</div><div class="ttdoc">Get key name.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">Keyboard.cpp:58</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_abc8c802f69ccf91d1ae85b1ad457df7d"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d">galaxy::input::Keyboard::disable_sticky_keys</a></div><div class="ttdeci">void disable_sticky_keys() const</div><div class="ttdoc">Disable sticky keys.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">Keyboard.cpp:42</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1Keyboard_html_ad8819050373a08113816a0fc7def74ee"><div class="ttname"><a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#ad8819050373a08113816a0fc7def74ee">galaxy::input::Keyboard::Keyboard</a></div><div class="ttdeci">Keyboard()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Keyboard.cpp:16</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1input_html_a8f609fdbc17576d75e3001b412df142e"><div class="ttname"><a href="../../dd/d59/namespacegalaxy_1_1input.html#a8f609fdbc17576d75e3001b412df142e">galaxy::input::Keys</a></div><div class="ttdeci">Keys</div><div class="ttdoc">Enum class representing keys.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d25/Keys_8hpp_source.html#l00022">Keys.hpp:23</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_a15878a3b19eb19460bcbf78fc8b4a29b"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a15878a3b19eb19460bcbf78fc8b4a29b">galaxy::input::keyboard::is_key_down</a></div><div class="ttdeci">bool is_key_down(const KeyboardKey key)</div><div class="ttdoc">Check if a key is being held down.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">Keyboard.cpp:31</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_a1a2199606c666ed95acf4ba1fb80ec9b"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a1a2199606c666ed95acf4ba1fb80ec9b">galaxy::input::keyboard::is_key_up</a></div><div class="ttdeci">bool is_key_up(const KeyboardKey key)</div><div class="ttdoc">Check if a key is NOT being pressed.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Keyboard.cpp:36</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_a576caef982804038d816c1d5cc20269a"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a576caef982804038d816c1d5cc20269a">galaxy::input::keyboard::is_key_released</a></div><div class="ttdeci">bool is_key_released(const KeyboardKey key)</div><div class="ttdoc">Check if a key that was pressed is now released.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">Keyboard.cpp:26</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_a58b0e611dab9fd0569777803c78f7d2e"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a58b0e611dab9fd0569777803c78f7d2e">galaxy::input::keyboard::is_key_repeating</a></div><div class="ttdeci">bool is_key_repeating(const KeyboardKey key)</div><div class="ttdoc">Check if a key is being pressed repeatedly.</div><div class="ttdef"><b>Definition</b> <a href="#l00021">Keyboard.cpp:21</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_a61a3f8f6ef428b1e7c59e9f48003d4f9"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a61a3f8f6ef428b1e7c59e9f48003d4f9">galaxy::input::keyboard::get_char_pressed</a></div><div class="ttdeci">KeyboardKey get_char_pressed()</div><div class="ttdoc">Get char pressed (unicode).</div><div class="ttdef"><b>Definition</b> <a href="#l00046">Keyboard.cpp:46</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_a7c5e9e2916fcd56c3d418d58563d285d"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a7c5e9e2916fcd56c3d418d58563d285d">galaxy::input::keyboard::is_key_pressed</a></div><div class="ttdeci">bool is_key_pressed(const KeyboardKey key)</div><div class="ttdoc">Check if a key was pressed once.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Keyboard.cpp:16</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1input_1_1keyboard_html_aff11c65f040e21e99c2118ff1fa3348d"><div class="ttname"><a href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#aff11c65f040e21e99c2118ff1fa3348d">galaxy::input::keyboard::get_key_pressed</a></div><div class="ttdeci">KeyboardKey get_key_pressed()</div><div class="ttdoc">Get key pressed (keycode).</div><div class="ttdef"><b>Definition</b> <a href="#l00041">Keyboard.cpp:41</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -205,7 +182,7 @@ $(function(){initNavTree('de/db9/Keyboard_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../de/db9/Keyboard_8cpp.html">Keyboard.cpp</a></li>
-    <li class="footer">Generated on Tue Nov 19 2024 14:06:30 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Thu Nov 21 2024 08:26:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

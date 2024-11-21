@@ -49,13 +49,7 @@ var annotated_dup =
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
-        [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ],
-        [ "CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", "d0/d71/structgalaxy_1_1input_1_1CameraKeys" ],
-        [ "Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html", "db/d0b/classgalaxy_1_1input_1_1Clipboard" ],
-        [ "Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html", "d5/dc8/classgalaxy_1_1input_1_1Cursor" ],
-        [ "Input", "db/df9/classgalaxy_1_1input_1_1Input.html", "db/df9/classgalaxy_1_1input_1_1Input" ],
-        [ "Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", "d9/d50/classgalaxy_1_1input_1_1Keyboard" ],
-        [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", "dd/d15/classgalaxy_1_1input_1_1Mouse" ]
+        [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ]
       ] ],
       [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", [
         [ "ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink" ],

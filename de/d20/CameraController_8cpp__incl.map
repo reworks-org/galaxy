@@ -1,28 +1,19 @@
 <map id="galaxy/src/galaxy/input/CameraController.cpp" name="galaxy/src/galaxy/input/CameraController.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="220,5,395,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="103,93,269,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,48,217,88,214,84,277,43"/>
-<area shape="rect" id="Node000003" href="$d1/d36/Input_8hpp.html" title=" " alt="" coords="175,167,343,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="305,46,283,119,271,155,266,153,278,118,300,45"/>
-<area shape="rect" id="Node000008" href="$d5/de6/CameraController_8hpp.html" title=" " alt="" coords="515,93,679,119"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="377,43,542,87,540,92,376,48"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,116,265"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="228,195,107,238,105,233,227,190"/>
-<area shape="rect" id="Node000005" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="392,240,559,265"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="295,189,428,233,427,238,293,195"/>
-<area shape="rect" id="Node000007" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="140,240,368,265"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="261,193,259,227,253,226,256,192"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="420,313,531,339"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="478,266,478,300,473,300,473,266"/>
-<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="290,263,428,307,426,312,289,268"/>
-<area shape="rect" id="Node000009" href="$d4/ddc/KeyPress_8hpp.html" title=" " alt="" coords="373,167,578,192"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="579,121,508,162,505,157,576,116"/>
-<area shape="rect" id="Node000011" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="603,167,833,192"/>
-<area shape="poly" id="edge13_Node000008_Node000011" title=" " alt="" coords="618,116,688,157,685,162,615,121"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="858,167,1066,192"/>
-<area shape="poly" id="edge14_Node000008_Node000012" title=" " alt="" coords="656,116,890,161,889,167,655,121"/>
-<area shape="poly" id="edge12_Node000009_Node000005" title=" " alt="" coords="478,192,478,226,473,226,473,192"/>
-<area shape="rect" id="Node000010" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="583,240,786,265"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="510,189,638,233,637,238,508,195"/>
-<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="652,268,523,311,522,306,650,263"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="193,5,368,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,172,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,48,130,91,128,86,234,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="197,93,365,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,46,283,79,278,79,278,46"/>
+<area shape="rect" id="Node000004" href="$d5/de6/CameraController_8hpp.html" title=" " alt="" coords="389,93,553,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,43,432,86,430,91,325,48"/>
+<area shape="rect" id="Node000005" href="$d4/ddc/KeyPress_8hpp.html" title=" " alt="" coords="126,167,331,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="433,121,282,165,280,160,432,116"/>
+<area shape="rect" id="Node000008" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="356,167,587,192"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="474,119,474,153,469,153,469,119"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="611,167,819,192"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="511,116,664,160,662,165,510,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="23,240,226,265"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="213,194,155,234,152,230,210,190"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="251,240,417,265"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="247,190,307,230,304,235,244,194"/>
 </map>

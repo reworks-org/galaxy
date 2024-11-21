@@ -10,10 +10,6 @@ var searchData=
   ['message_5fbox_7',['message_box',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7aa9af35cf5130dea49bc6e4b4f61de8',1,'galaxy::fs::VirtualFileSystem']]],
   ['minimize_8',['minimize',['../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b',1,'galaxy::core::Window']]],
   ['mkdir_9',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a20bd46e48eafbfb0ae7426eae05f24b4',1,'galaxy::fs::VirtualFileSystem']]],
-  ['mod_5fto_5fint_10',['mod_to_int',['../dd/d59/namespacegalaxy_1_1input.html#a4fcee35b9edb521d4a4ad60afa81a031',1,'galaxy::input']]],
-  ['mouse_11',['Mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#abf07a7d4bde7f080c3b427e7c95eb66b',1,'galaxy::input::Mouse::Mouse()'],['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a281a677f02747fabc76c1d764a87df2d',1,'galaxy::input::Mouse::Mouse(Mouse &amp;&amp;)=delete'],['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#a7ceacd48658fa3a7c0430e58bf713839',1,'galaxy::input::Mouse::Mouse(const Mouse &amp;)=delete']]],
-  ['mouse_5fbutton_5fdown_12',['mouse_button_down',['../db/df9/classgalaxy_1_1input_1_1Input.html#ac44a87c102404353baa9ebfc004fc8e1',1,'galaxy::input::Input']]],
-  ['mouse_5fto_5fint_13',['mouse_to_int',['../dd/d59/namespacegalaxy_1_1input.html#af1118c564aadc9192de8e4f371c1cc96',1,'galaxy::input']]],
-  ['mouse_5fvisible_14',['mouse_visible',['../d1/db3/structgalaxy_1_1settings.html#a43622d5e2520d6d4bea5d59aa5687803',1,'galaxy::settings']]],
-  ['msaa_15',['msaa',['../d1/db3/structgalaxy_1_1settings.html#af697a8a9857f6880c9ce92bf83229c47',1,'galaxy::settings']]]
+  ['mouse_5fvisible_10',['mouse_visible',['../d1/db3/structgalaxy_1_1settings.html#a43622d5e2520d6d4bea5d59aa5687803',1,'galaxy::settings']]],
+  ['msaa_11',['msaa',['../d1/db3/structgalaxy_1_1settings.html#af697a8a9857f6880c9ce92bf83229c47',1,'galaxy::settings']]]
 ];

@@ -2,11 +2,8 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="134,5,319,45"/>
 <area shape="rect" id="Node000002" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="155,93,299,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,46,229,79,224,79,224,46"/>
-<area shape="rect" id="Node000003" href="$d4/d98/InputMods_8hpp.html" title=" " alt="" coords="5,167,208,192"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,208,192"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,121,140,162,137,157,206,116"/>
-<area shape="rect" id="Node000005" href="$df/d3a/MouseButtons_8hpp.html" title=" " alt="" coords="233,167,461,192"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="247,116,316,157,314,162,245,121"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="171,240,282,265"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="127,190,196,230,194,235,125,194"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="329,194,260,235,257,230,326,190"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="233,167,461,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="247,116,316,157,314,162,245,121"/>
 </map>

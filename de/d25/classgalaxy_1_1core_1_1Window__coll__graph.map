@@ -1,5 +1,5 @@
 <map id="galaxy::core::Window" name="galaxy::core::Window">
-<area shape="rect" id="Node000001" title="Handles events, input &amp; display." alt="" coords="5,263,160,708"/>
+<area shape="rect" id="Node000001" title="Handles events, input &amp; display." alt="" coords="5,263,160,608"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="43,135,122,200"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,200,85,246,80,246,80,200"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="17,5,148,85"/>

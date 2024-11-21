@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputmods_0',['InputMods',['../dd/d59/namespacegalaxy_1_1input.html#a05c5b12f86417f108a428596ea3e75ea',1,'galaxy::input']]]
+  ['loglevel_0',['LogLevel',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fb',1,'galaxy::logging']]]
 ];

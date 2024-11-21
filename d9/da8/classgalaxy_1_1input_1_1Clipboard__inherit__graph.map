@@ -1,5 +1,0 @@
-<map id="galaxy::input::Clipboard" name="galaxy::input::Clipboard">
-<area shape="rect" id="Node000001" title="Access PC clipboard and set/get contents." alt="" coords="5,119,173,324"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="43,5,135,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,84,92,119,87,119,87,84"/>
-</map>

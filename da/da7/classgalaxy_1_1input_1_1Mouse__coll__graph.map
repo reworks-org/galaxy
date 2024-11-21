@@ -1,5 +1,0 @@
-<map id="galaxy::input::Mouse" name="galaxy::input::Mouse">
-<area shape="rect" id="Node000001" title="Physical mouse device and state management." alt="" coords="5,119,187,344"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,142,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,84,99,119,93,119,93,84"/>
-</map>

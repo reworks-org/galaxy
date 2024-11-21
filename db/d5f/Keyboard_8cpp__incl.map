@@ -1,14 +1,7 @@
 <map id="galaxy/src/galaxy/input/Keyboard.cpp" name="galaxy/src/galaxy/input/Keyboard.cpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,180,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="211,240,321,265"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,47,72,77,61,115,60,155,64,173,73,190,98,215,130,231,164,242,197,247,196,253,162,247,127,236,95,219,69,194,59,175,54,156,56,114,67,75,80,45"/>
-<area shape="rect" id="Node000003" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="151,93,261,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,43,179,83,176,87,119,48"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="83,167,142,192"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,121,140,160,137,156,189,117"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="166,167,379,192"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="219,117,254,155,251,158,215,121"/>
-<area shape="rect" id="Node000006" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="404,167,571,192"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="252,116,429,161,428,166,251,121"/>
-<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="453,195,315,238,314,233,451,189"/>
+<area shape="rect" id="Node000002" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="37,93,148,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,46,95,79,90,79,90,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="57,167,128,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,119,95,153,90,153,90,119"/>
 </map>

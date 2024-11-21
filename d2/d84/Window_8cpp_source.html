@@ -154,7 +154,7 @@ $(function(){initNavTree('d2/d84/Window_8cpp_source.html','../../'); initResizab
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                flags |= FLAG_WINDOW_HIGHDPI;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            }</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            SetWindowState(flags);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            SetConfigFlags(flags);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            InitWindow(<a class="code hl_function" href="../../d1/db3/structgalaxy_1_1settings.html#a9c655843797ecc427f87e75f339c2522">settings::window_width</a>(), <a class="code hl_function" href="../../d1/db3/structgalaxy_1_1settings.html#a163918fe2cedbee8ac5ddf98de49125e">settings::window_height</a>(), <a class="code hl_function" href="../../d1/db3/structgalaxy_1_1settings.html#a682decb8250c0c096f7ebadde0ce8fc9">settings::window_title</a>().c_str());</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            DisableEventWaiting();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
@@ -186,198 +186,228 @@ $(function(){initNavTree('d2/d84/Window_8cpp_source.html','../../'); initResizab
 </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8">   83</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8">Window::focus</a>()</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a59220d26a036ff4268f20bb6d5cfd0ca">   83</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a59220d26a036ff4268f20bb6d5cfd0ca">Window::swap_buffers</a>()</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            SetWindowFocused();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            SwapScreenBuffer();</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
 </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab080df8af33b9136beda28c49b23d237">   88</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab080df8af33b9136beda28c49b23d237">Window::restore</a>()</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8">   88</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8">Window::focus</a>()</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            RestoreWindow();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            SetWindowFocused();</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
 </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b">   93</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b">Window::minimize</a>()</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab080df8af33b9136beda28c49b23d237">   93</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab080df8af33b9136beda28c49b23d237">Window::restore</a>()</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            MinimizeWindow();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            RestoreWindow();</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
 </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd">   98</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd">Window::maximize</a>()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b">   98</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b">Window::minimize</a>()</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            MaximizeWindow();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            MinimizeWindow();</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
 </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7c2bca5b0ce7218a3144236ee608a262">  103</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7c2bca5b0ce7218a3144236ee608a262">Window::toggle_fullscreen</a>()</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd">  103</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd">Window::maximize</a>()</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            ToggleFullscreen();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            MaximizeWindow();</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
 </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a56467b2e0803bd94850a103f358b9dfc">  108</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a56467b2e0803bd94850a103f358b9dfc">Window::toggle_borderless</a>()</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7c2bca5b0ce7218a3144236ee608a262">  108</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7c2bca5b0ce7218a3144236ee608a262">Window::toggle_fullscreen</a>()</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            ToggleBorderlessWindowed();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            ToggleFullscreen();</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
 </div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">  113</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">Window::set_icon</a>(<span class="keyword">const</span> std::string&amp; icon)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a56467b2e0803bd94850a103f358b9dfc">  113</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a56467b2e0803bd94850a103f358b9dfc">Window::toggle_borderless</a>()</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">if</span> (!icon.empty())</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="keyword">auto</span>&amp; fs   = entt::locator&lt;fs::VirtualFileSystem&gt;::value();</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                <span class="keyword">auto</span>  data = fs.read_binary(icon);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <span class="keyword">const</span> <span class="keywordtype">char</span>* ext = GetFileExtension(icon.c_str());</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                Image       img = LoadImageFromMemory(ext, data.data(), data.size());</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                SetWindowIcon(img);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a>, <span class="stringliteral">&quot;No icon found to set.&quot;</span>);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            }</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            ToggleBorderlessWindowed();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
 </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">  131</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">Window::set_title</a>(<span class="keyword">const</span> std::string&amp; title)</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <a class="code hl_variable" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086">m_title</a> = title;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            SetWindowTitle(title.c_str());</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">  118</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">Window::set_icon</a>(<span class="keyword">const</span> std::string&amp; icon)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">if</span> (!icon.empty())</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                <span class="keyword">auto</span>&amp; fs   = entt::locator&lt;fs::VirtualFileSystem&gt;::value();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                <span class="keyword">auto</span>  data = fs.read_binary(icon);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                <span class="keyword">const</span> <span class="keywordtype">char</span>* ext = GetFileExtension(icon.c_str());</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                Image       img = LoadImageFromMemory(ext, data.data(), data.size());</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                SetWindowIcon(img);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a>, <span class="stringliteral">&quot;No icon found to set.&quot;</span>);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        }</div>
 </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35">  137</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35">Window::append_title</a>(<span class="keyword">const</span> std::string&amp; append)</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keyword">auto</span> title = <a class="code hl_variable" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086">m_title</a> + append;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            SetWindowTitle(title.c_str());</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">  136</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">Window::set_title</a>(<span class="keyword">const</span> std::string&amp; title)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <a class="code hl_variable" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086">m_title</a> = title;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            SetWindowTitle(title.c_str());</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
 </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aeab18a7f9a78bc9bb8d4a12327fb22ca">  143</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aeab18a7f9a78bc9bb8d4a12327fb22ca">Window::set_pos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            SetWindowPosition(x, y);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35">  142</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35">Window::append_title</a>(<span class="keyword">const</span> std::string&amp; append)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keyword">auto</span> title = <a class="code hl_variable" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086">m_title</a> + append;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            SetWindowTitle(title.c_str());</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        }</div>
 </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
 <div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad3dd5cf484649c57d07ea3d97d3fbdfa">  148</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad3dd5cf484649c57d07ea3d97d3fbdfa">Window::set_size</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aeab18a7f9a78bc9bb8d4a12327fb22ca">  148</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aeab18a7f9a78bc9bb8d4a12327fb22ca">Window::set_pos</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            SetWindowSize(<a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0869a02d7fdcde4926c27ba75fc85773">width</a>, <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a389058ea41b3f9df470317a56e5aea17">height</a>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            SetWindowPosition(x, y);</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        }</div>
 </div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
 <div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a976b2d3eaf2c6c84115c8c842530c910">  153</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a976b2d3eaf2c6c84115c8c842530c910">Window::should_close</a>()</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad3dd5cf484649c57d07ea3d97d3fbdfa">  153</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad3dd5cf484649c57d07ea3d97d3fbdfa">Window::set_size</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height)</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordflow">return</span> WindowShouldClose();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            SetWindowSize(<a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac2e3ad8b67dee8139d5ec66381994b40">width</a>, <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a13c912eae79b4f31c2c389bc2bc3eaad">height</a>);</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        }</div>
 </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
 <div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a526c245be5d24242a4ae03b954155414">  158</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a526c245be5d24242a4ae03b954155414">Window::is_fullscreen</a>()</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="keywordflow">return</span> IsWindowFullscreen();</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2fc27addecaf71b0da0a8ae55d80ebc8">  158</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2fc27addecaf71b0da0a8ae55d80ebc8">Window::should_close</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="keywordflow">return</span> WindowShouldClose();</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        }</div>
 </div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
 <div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6e2b97b7cde545b60e6e08bb2ab0dbfc">  163</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6e2b97b7cde545b60e6e08bb2ab0dbfc">Window::is_hidden</a>()</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        {</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">return</span> IsWindowHidden();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9cd5d5acae4151fd3f6e7a0c7534bee5">  163</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9cd5d5acae4151fd3f6e7a0c7534bee5">Window::is_fullscreen</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">return</span> IsWindowFullscreen();</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        }</div>
 </div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="foldopen" id="foldopen00168" data-start="{" data-end="}">
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#af7799bdb732489c06c3967ecfab97b80">  168</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#af7799bdb732489c06c3967ecfab97b80">Window::is_minimized</a>()</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        {</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keywordflow">return</span> IsWindowMinimized();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9a7ad0e883e219d7c0ad7b439ad4a30d">  168</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9a7ad0e883e219d7c0ad7b439ad4a30d">Window::is_hidden</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keywordflow">return</span> IsWindowHidden();</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
 </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
 <div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a64e4a16c868507af63a2e053c3c981db">  173</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a64e4a16c868507af63a2e053c3c981db">Window::is_maximized</a>()</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">return</span> IsWindowMaximized();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a651cfef90e395e7a69ba63e8bca8315c">  173</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a651cfef90e395e7a69ba63e8bca8315c">Window::is_minimized</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">return</span> IsWindowMinimized();</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        }</div>
 </div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a852d2c29f690240198a8fffe86bd69d8">  178</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a852d2c29f690240198a8fffe86bd69d8">Window::is_focused</a>()</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keywordflow">return</span> IsWindowFocused();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a8afb3647a305f30d2d22020e08971998">  178</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a8afb3647a305f30d2d22020e08971998">Window::is_maximized</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keywordflow">return</span> IsWindowMaximized();</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        }</div>
 </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
 <div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0869a02d7fdcde4926c27ba75fc85773">  183</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0869a02d7fdcde4926c27ba75fc85773">Window::width</a>()</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        {</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            <span class="keywordflow">return</span> GetScreenWidth();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a70257eb1e20eb1dde82208235197d494">  183</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a70257eb1e20eb1dde82208235197d494">Window::is_focused</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            <span class="keywordflow">return</span> IsWindowFocused();</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        }</div>
 </div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
 <div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a389058ea41b3f9df470317a56e5aea17">  188</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a389058ea41b3f9df470317a56e5aea17">Window::height</a>()</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        {</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <span class="keywordflow">return</span> GetScreenHeight();</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a97458abe53266fcd597ad63b89d91b97">  188</a></span>        std::vector&lt;std::string&gt; <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a97458abe53266fcd597ad63b89d91b97">Window::get_drop_paths</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            std::vector&lt;std::string&gt; paths;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keywordflow">if</span> (IsFileDropped())</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                <span class="keyword">const</span> <span class="keyword">auto</span> dropped = LoadDroppedFiles();</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0u; i &lt; dropped.count; i++)</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                    paths.push_back(dropped.paths[i]);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                UnloadDroppedFiles(dropped);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordflow">return</span> paths;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        }</div>
 </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa8ee9c67f14da36f2a5cc8a4cc36bcb2">  193</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa8ee9c67f14da36f2a5cc8a4cc36bcb2">Window::render_width</a>()</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        {</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            <span class="keywordflow">return</span> GetRenderWidth();</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="foldopen" id="foldopen00207" data-start="{" data-end="}">
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac2e3ad8b67dee8139d5ec66381994b40">  207</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac2e3ad8b67dee8139d5ec66381994b40">Window::width</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            <span class="keywordflow">return</span> GetScreenWidth();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        }</div>
 </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab19adfa6225bc8ac5af3319797c386d8">  198</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab19adfa6225bc8ac5af3319797c386d8">Window::render_height</a>()</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        {</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <span class="keywordflow">return</span> GetRenderHeight();</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a13c912eae79b4f31c2c389bc2bc3eaad">  212</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a13c912eae79b4f31c2c389bc2bc3eaad">Window::height</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            <span class="keywordflow">return</span> GetScreenHeight();</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        }</div>
 </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    } <span class="comment">// namespace core</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a548662af67ab33135a3868e32f4108ff">  217</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a548662af67ab33135a3868e32f4108ff">Window::render_width</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="keywordflow">return</span> GetRenderWidth();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        }</div>
+</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9772c7396e6ddadcedff85304429ec21">  222</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9772c7396e6ddadcedff85304429ec21">Window::render_height</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keywordflow">return</span> GetRenderHeight();</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        }</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLog_8hpp_html_a4a69bff052e7518f4b037b6f2888fb71"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a></div><div class="ttdeci">#define GALAXY_INFO</div><div class="ttdoc">Log.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00021">Log.hpp:21</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aSettings_8hpp_html"><div class="ttname"><a href="../../db/d02/Settings_8hpp.html">Settings.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
 <div class="ttc" id="aWindow_8hpp_html"><div class="ttname"><a href="../../d0/de3/Window_8hpp.html">Window.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a01ccce73a11f73ffdcfa1b4b9de6daf8"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8">galaxy::core::Window::focus</a></div><div class="ttdeci">static void focus()</div><div class="ttdoc">Set window focus.</div><div class="ttdef"><b>Definition</b> <a href="#l00083">Window.cpp:83</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a0573732c9477fc9b457c44dc506cd744"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">galaxy::core::Window::set_title</a></div><div class="ttdeci">void set_title(const std::string &amp;title)</div><div class="ttdoc">Set title for window.</div><div class="ttdef"><b>Definition</b> <a href="#l00131">Window.cpp:131</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a07271b915e05fe0fa098c8e3d035c086"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086">galaxy::core::Window::m_title</a></div><div class="ttdeci">std::string m_title</div><div class="ttdoc">Title cache.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/Window_8hpp_source.html#l00208">Window.hpp:208</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a0869a02d7fdcde4926c27ba75fc85773"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0869a02d7fdcde4926c27ba75fc85773">galaxy::core::Window::width</a></div><div class="ttdeci">static int width()</div><div class="ttdoc">Get current screen width.</div><div class="ttdef"><b>Definition</b> <a href="#l00183">Window.cpp:183</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a0ea85d649b283518d01e33ed9597850f"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0ea85d649b283518d01e33ed9597850f">galaxy::core::Window::poll_events</a></div><div class="ttdeci">static void poll_events()</div><div class="ttdoc">Poll for events.</div><div class="ttdef"><b>Definition</b> <a href="#l00078">Window.cpp:78</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a2dcb07c84b19c94de51588077955bf35"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35">galaxy::core::Window::append_title</a></div><div class="ttdeci">void append_title(const std::string &amp;append)</div><div class="ttdoc">Append to window title.</div><div class="ttdef"><b>Definition</b> <a href="#l00137">Window.cpp:137</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a389058ea41b3f9df470317a56e5aea17"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a389058ea41b3f9df470317a56e5aea17">galaxy::core::Window::height</a></div><div class="ttdeci">static int height()</div><div class="ttdoc">Get current screen height.</div><div class="ttdef"><b>Definition</b> <a href="#l00188">Window.cpp:188</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a526c245be5d24242a4ae03b954155414"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a526c245be5d24242a4ae03b954155414">galaxy::core::Window::is_fullscreen</a></div><div class="ttdeci">static bool is_fullscreen()</div><div class="ttdoc">Check if window is currently fullscreen.</div><div class="ttdef"><b>Definition</b> <a href="#l00158">Window.cpp:158</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a56467b2e0803bd94850a103f358b9dfc"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a56467b2e0803bd94850a103f358b9dfc">galaxy::core::Window::toggle_borderless</a></div><div class="ttdeci">static void toggle_borderless()</div><div class="ttdoc">Toggle window state: borderless windowed.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">Window.cpp:108</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a64e4a16c868507af63a2e053c3c981db"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a64e4a16c868507af63a2e053c3c981db">galaxy::core::Window::is_maximized</a></div><div class="ttdeci">static bool is_maximized()</div><div class="ttdoc">Check if window is currently maximized.</div><div class="ttdef"><b>Definition</b> <a href="#l00173">Window.cpp:173</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a01ccce73a11f73ffdcfa1b4b9de6daf8"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8">galaxy::core::Window::focus</a></div><div class="ttdeci">void focus()</div><div class="ttdoc">Set window focus.</div><div class="ttdef"><b>Definition</b> <a href="#l00088">Window.cpp:88</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a0573732c9477fc9b457c44dc506cd744"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0573732c9477fc9b457c44dc506cd744">galaxy::core::Window::set_title</a></div><div class="ttdeci">void set_title(const std::string &amp;title)</div><div class="ttdoc">Set title for window.</div><div class="ttdef"><b>Definition</b> <a href="#l00136">Window.cpp:136</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a07271b915e05fe0fa098c8e3d035c086"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a07271b915e05fe0fa098c8e3d035c086">galaxy::core::Window::m_title</a></div><div class="ttdeci">std::string m_title</div><div class="ttdoc">Title cache.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/Window_8hpp_source.html#l00225">Window.hpp:225</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a0ea85d649b283518d01e33ed9597850f"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a0ea85d649b283518d01e33ed9597850f">galaxy::core::Window::poll_events</a></div><div class="ttdeci">void poll_events()</div><div class="ttdoc">Poll for events.</div><div class="ttdef"><b>Definition</b> <a href="#l00078">Window.cpp:78</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a13c912eae79b4f31c2c389bc2bc3eaad"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a13c912eae79b4f31c2c389bc2bc3eaad">galaxy::core::Window::height</a></div><div class="ttdeci">int height() const</div><div class="ttdoc">Get current screen height.</div><div class="ttdef"><b>Definition</b> <a href="#l00212">Window.cpp:212</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a2dcb07c84b19c94de51588077955bf35"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2dcb07c84b19c94de51588077955bf35">galaxy::core::Window::append_title</a></div><div class="ttdeci">void append_title(const std::string &amp;append)</div><div class="ttdoc">Append to window title.</div><div class="ttdef"><b>Definition</b> <a href="#l00142">Window.cpp:142</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a2fc27addecaf71b0da0a8ae55d80ebc8"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a2fc27addecaf71b0da0a8ae55d80ebc8">galaxy::core::Window::should_close</a></div><div class="ttdeci">bool should_close() const</div><div class="ttdoc">Should the window close?</div><div class="ttdef"><b>Definition</b> <a href="#l00158">Window.cpp:158</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a548662af67ab33135a3868e32f4108ff"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a548662af67ab33135a3868e32f4108ff">galaxy::core::Window::render_width</a></div><div class="ttdeci">int render_width() const</div><div class="ttdoc">Get current render width (it considers HiDPI).</div><div class="ttdef"><b>Definition</b> <a href="#l00217">Window.cpp:217</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a56467b2e0803bd94850a103f358b9dfc"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a56467b2e0803bd94850a103f358b9dfc">galaxy::core::Window::toggle_borderless</a></div><div class="ttdeci">void toggle_borderless()</div><div class="ttdoc">Toggle window state: borderless windowed.</div><div class="ttdef"><b>Definition</b> <a href="#l00113">Window.cpp:113</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a59220d26a036ff4268f20bb6d5cfd0ca"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a59220d26a036ff4268f20bb6d5cfd0ca">galaxy::core::Window::swap_buffers</a></div><div class="ttdeci">void swap_buffers()</div><div class="ttdoc">Swap draw buffers.</div><div class="ttdef"><b>Definition</b> <a href="#l00083">Window.cpp:83</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a651cfef90e395e7a69ba63e8bca8315c"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a651cfef90e395e7a69ba63e8bca8315c">galaxy::core::Window::is_minimized</a></div><div class="ttdeci">bool is_minimized() const</div><div class="ttdoc">Check if window is currently minimized.</div><div class="ttdef"><b>Definition</b> <a href="#l00173">Window.cpp:173</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a6b5ad227efab9c4d309486fd70fc851b"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b">galaxy::core::Window::~Window</a></div><div class="ttdeci">~Window()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">Window.cpp:73</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a6e2b97b7cde545b60e6e08bb2ab0dbfc"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a6e2b97b7cde545b60e6e08bb2ab0dbfc">galaxy::core::Window::is_hidden</a></div><div class="ttdeci">static bool is_hidden()</div><div class="ttdoc">Check if window is currently hidden.</div><div class="ttdef"><b>Definition</b> <a href="#l00163">Window.cpp:163</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a7c2bca5b0ce7218a3144236ee608a262"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7c2bca5b0ce7218a3144236ee608a262">galaxy::core::Window::toggle_fullscreen</a></div><div class="ttdeci">static void toggle_fullscreen()</div><div class="ttdoc">Toggle window state: fullscreen/windowed.</div><div class="ttdef"><b>Definition</b> <a href="#l00103">Window.cpp:103</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a852d2c29f690240198a8fffe86bd69d8"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a852d2c29f690240198a8fffe86bd69d8">galaxy::core::Window::is_focused</a></div><div class="ttdeci">static bool is_focused()</div><div class="ttdoc">Check if window is currently focused.</div><div class="ttdef"><b>Definition</b> <a href="#l00178">Window.cpp:178</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a70257eb1e20eb1dde82208235197d494"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a70257eb1e20eb1dde82208235197d494">galaxy::core::Window::is_focused</a></div><div class="ttdeci">bool is_focused() const</div><div class="ttdoc">Check if window is currently focused.</div><div class="ttdef"><b>Definition</b> <a href="#l00183">Window.cpp:183</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a7c2bca5b0ce7218a3144236ee608a262"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a7c2bca5b0ce7218a3144236ee608a262">galaxy::core::Window::toggle_fullscreen</a></div><div class="ttdeci">void toggle_fullscreen()</div><div class="ttdoc">Toggle window state: fullscreen/windowed.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">Window.cpp:108</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a89d9693e27e065b809aabde944f8c407"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a89d9693e27e065b809aabde944f8c407">galaxy::core::Window::Window</a></div><div class="ttdeci">Window()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">Window.cpp:20</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a96584fefe16054bbb78fa7242e2cfa21"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">galaxy::core::Window::set_icon</a></div><div class="ttdeci">void set_icon(const std::string &amp;icon)</div><div class="ttdoc">Set icon for window.</div><div class="ttdef"><b>Definition</b> <a href="#l00113">Window.cpp:113</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a976b2d3eaf2c6c84115c8c842530c910"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a976b2d3eaf2c6c84115c8c842530c910">galaxy::core::Window::should_close</a></div><div class="ttdeci">static bool should_close()</div><div class="ttdoc">Should the window close?</div><div class="ttdef"><b>Definition</b> <a href="#l00153">Window.cpp:153</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_aa8ee9c67f14da36f2a5cc8a4cc36bcb2"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aa8ee9c67f14da36f2a5cc8a4cc36bcb2">galaxy::core::Window::render_width</a></div><div class="ttdeci">static int render_width()</div><div class="ttdoc">Get current render width (it considers HiDPI).</div><div class="ttdef"><b>Definition</b> <a href="#l00193">Window.cpp:193</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ab080df8af33b9136beda28c49b23d237"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab080df8af33b9136beda28c49b23d237">galaxy::core::Window::restore</a></div><div class="ttdeci">static void restore()</div><div class="ttdoc">Set window state: not minimized/maximized.</div><div class="ttdef"><b>Definition</b> <a href="#l00088">Window.cpp:88</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ab19adfa6225bc8ac5af3319797c386d8"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab19adfa6225bc8ac5af3319797c386d8">galaxy::core::Window::render_height</a></div><div class="ttdeci">static int render_height()</div><div class="ttdoc">Get current render height (it considers HiDPI).</div><div class="ttdef"><b>Definition</b> <a href="#l00198">Window.cpp:198</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ac5dc3ab3bc35dfacf59d1f3450e5fccd"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd">galaxy::core::Window::maximize</a></div><div class="ttdeci">static void maximize()</div><div class="ttdef"><b>Definition</b> <a href="#l00098">Window.cpp:98</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ac8a9d8fb5826acb81982adb7bd8d471b"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b">galaxy::core::Window::minimize</a></div><div class="ttdeci">static void minimize()</div><div class="ttdoc">Set window state: minimized, if resizable.</div><div class="ttdef"><b>Definition</b> <a href="#l00093">Window.cpp:93</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ad3dd5cf484649c57d07ea3d97d3fbdfa"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad3dd5cf484649c57d07ea3d97d3fbdfa">galaxy::core::Window::set_size</a></div><div class="ttdeci">static void set_size(const int width, const int height)</div><div class="ttdoc">Set window dimensions.</div><div class="ttdef"><b>Definition</b> <a href="#l00148">Window.cpp:148</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_aeab18a7f9a78bc9bb8d4a12327fb22ca"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aeab18a7f9a78bc9bb8d4a12327fb22ca">galaxy::core::Window::set_pos</a></div><div class="ttdeci">static void set_pos(const int x, const int y)</div><div class="ttdoc">Set window position on screen.</div><div class="ttdef"><b>Definition</b> <a href="#l00143">Window.cpp:143</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_af7799bdb732489c06c3967ecfab97b80"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#af7799bdb732489c06c3967ecfab97b80">galaxy::core::Window::is_minimized</a></div><div class="ttdeci">static bool is_minimized()</div><div class="ttdoc">Check if window is currently minimized.</div><div class="ttdef"><b>Definition</b> <a href="#l00168">Window.cpp:168</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a8afb3647a305f30d2d22020e08971998"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a8afb3647a305f30d2d22020e08971998">galaxy::core::Window::is_maximized</a></div><div class="ttdeci">bool is_maximized() const</div><div class="ttdoc">Check if window is currently maximized.</div><div class="ttdef"><b>Definition</b> <a href="#l00178">Window.cpp:178</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a96584fefe16054bbb78fa7242e2cfa21"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a96584fefe16054bbb78fa7242e2cfa21">galaxy::core::Window::set_icon</a></div><div class="ttdeci">void set_icon(const std::string &amp;icon)</div><div class="ttdoc">Set icon for window.</div><div class="ttdef"><b>Definition</b> <a href="#l00118">Window.cpp:118</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a97458abe53266fcd597ad63b89d91b97"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a97458abe53266fcd597ad63b89d91b97">galaxy::core::Window::get_drop_paths</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_drop_paths() const</div><div class="ttdoc">Get a list of paths dropped on window.</div><div class="ttdef"><b>Definition</b> <a href="#l00188">Window.cpp:188</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a9772c7396e6ddadcedff85304429ec21"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9772c7396e6ddadcedff85304429ec21">galaxy::core::Window::render_height</a></div><div class="ttdeci">int render_height() const</div><div class="ttdoc">Get current render height (it considers HiDPI).</div><div class="ttdef"><b>Definition</b> <a href="#l00222">Window.cpp:222</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a9a7ad0e883e219d7c0ad7b439ad4a30d"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9a7ad0e883e219d7c0ad7b439ad4a30d">galaxy::core::Window::is_hidden</a></div><div class="ttdeci">bool is_hidden() const</div><div class="ttdoc">Check if window is currently hidden.</div><div class="ttdef"><b>Definition</b> <a href="#l00168">Window.cpp:168</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_a9cd5d5acae4151fd3f6e7a0c7534bee5"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#a9cd5d5acae4151fd3f6e7a0c7534bee5">galaxy::core::Window::is_fullscreen</a></div><div class="ttdeci">bool is_fullscreen() const</div><div class="ttdoc">Check if window is currently fullscreen.</div><div class="ttdef"><b>Definition</b> <a href="#l00163">Window.cpp:163</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ab080df8af33b9136beda28c49b23d237"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ab080df8af33b9136beda28c49b23d237">galaxy::core::Window::restore</a></div><div class="ttdeci">void restore()</div><div class="ttdoc">Set window state: not minimized/maximized.</div><div class="ttdef"><b>Definition</b> <a href="#l00093">Window.cpp:93</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ac2e3ad8b67dee8139d5ec66381994b40"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac2e3ad8b67dee8139d5ec66381994b40">galaxy::core::Window::width</a></div><div class="ttdeci">int width() const</div><div class="ttdoc">Get current screen width.</div><div class="ttdef"><b>Definition</b> <a href="#l00207">Window.cpp:207</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ac5dc3ab3bc35dfacf59d1f3450e5fccd"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd">galaxy::core::Window::maximize</a></div><div class="ttdeci">void maximize()</div><div class="ttdef"><b>Definition</b> <a href="#l00103">Window.cpp:103</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ac8a9d8fb5826acb81982adb7bd8d471b"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b">galaxy::core::Window::minimize</a></div><div class="ttdeci">void minimize()</div><div class="ttdoc">Set window state: minimized, if resizable.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">Window.cpp:98</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_ad3dd5cf484649c57d07ea3d97d3fbdfa"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#ad3dd5cf484649c57d07ea3d97d3fbdfa">galaxy::core::Window::set_size</a></div><div class="ttdeci">void set_size(const int width, const int height)</div><div class="ttdoc">Set window dimensions.</div><div class="ttdef"><b>Definition</b> <a href="#l00153">Window.cpp:153</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1core_1_1Window_html_aeab18a7f9a78bc9bb8d4a12327fb22ca"><div class="ttname"><a href="../../d5/d25/classgalaxy_1_1core_1_1Window.html#aeab18a7f9a78bc9bb8d4a12327fb22ca">galaxy::core::Window::set_pos</a></div><div class="ttdeci">void set_pos(const int x, const int y)</div><div class="ttdoc">Set window position on screen.</div><div class="ttdef"><b>Definition</b> <a href="#l00148">Window.cpp:148</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a08af28b4cceba5e7896adb5e286047c1a2f33d682f3a4e19c31ced6cb4fd022e3"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1a2f33d682f3a4e19c31ced6cb4fd022e3">galaxy::graphics::ScreenMode::MAXIMIZED</a></div><div class="ttdeci">@ MAXIMIZED</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97">galaxy::graphics::ScreenMode::FULLSCREEN</a></div><div class="ttdeci">@ FULLSCREEN</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1graphics_html_a08af28b4cceba5e7896adb5e286047c1af744a3ac16b1ac0bc9df0aa02cc1a038"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1af744a3ac16b1ac0bc9df0aa02cc1a038">galaxy::graphics::ScreenMode::BORDERLESS</a></div><div class="ttdeci">@ BORDERLESS</div></div>
@@ -397,7 +427,7 @@ $(function(){initNavTree('d2/d84/Window_8cpp_source.html','../../'); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../d2/d84/Window_8cpp.html">Window.cpp</a></li>
-    <li class="footer">Generated on Tue Nov 19 2024 14:06:30 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Thu Nov 21 2024 08:26:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

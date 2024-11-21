@@ -1,28 +1,7 @@
 <map id="galaxy/src/galaxy/input/Cursor.cpp" name="galaxy/src/galaxy/input/Cursor.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="399,5,573,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,116,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,45,130,95,129,89,398,40"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="140,93,243,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="416,48,249,92,247,87,415,43"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="267,93,492,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="462,48,408,87,405,83,459,43"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="516,93,672,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="514,43,568,83,565,87,511,48"/>
-<area shape="rect" id="Node000006" href="$de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="697,93,926,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="565,43,751,88,750,93,563,48"/>
-<area shape="rect" id="Node000011" href="$de/ddb/Cursor_8hpp.html" title=" " alt="" coords="981,93,1071,119"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="574,37,968,94,967,99,573,42"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="929,167,982,192"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="836,116,921,158,918,163,833,121"/>
-<area shape="rect" id="Node000008" href="$d5/d02/DialogButton_8hpp.html" title=" " alt="" coords="280,167,479,192"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="742,121,463,167,462,162,741,116"/>
-<area shape="rect" id="Node000009" href="$d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="503,167,693,192"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="778,121,646,165,645,160,776,116"/>
-<area shape="rect" id="Node000010" href="$df/da3/DialogType_8hpp.html" title=" " alt="" coords="718,167,905,192"/>
-<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="814,119,814,153,809,153,809,119"/>
-<area shape="poly" id="edge11_Node000011_Node000007" title=" " alt="" coords="1016,121,978,159,974,155,1012,117"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="1007,167,1104,192"/>
-<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="1033,118,1048,153,1043,155,1028,120"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="1129,167,1342,192"/>
-<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="1060,116,1189,160,1187,165,1059,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,180,45"/>
+<area shape="rect" id="Node000002" href="$de/ddb/Cursor_8hpp.html" title=" " alt="" coords="47,93,138,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,46,95,79,90,79,90,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="57,167,128,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,119,95,153,90,153,90,119"/>
 </map>

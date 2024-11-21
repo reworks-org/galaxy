@@ -1,5 +1,0 @@
-<map id="galaxy::core::Loader::load_window" name="galaxy::core::Loader::load_window">
-<area shape="rect" id="Node000001" title="Only loads the window settings." alt="" coords="5,5,159,45"/>
-<area shape="rect" id="Node000002" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="207,5,363,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
-</map>

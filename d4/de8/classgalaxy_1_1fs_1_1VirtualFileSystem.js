@@ -21,6 +21,8 @@ var classgalaxy_1_1fs_1_1VirtualFileSystem =
     [ "open_save_dialog", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481", null ],
     [ "open_file_dialog", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14", null ],
     [ "select_folder_dialog", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7", null ],
+    [ "get_file_extension", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae311e8e00ea032e802be084178878281", null ],
+    [ "get_file_last_write_time", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0508e47d6aac7984d69f2709a6e7b390", null ],
     [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ac7ddea742a2628b6588ee7eda2ae1f2d", null ],
     [ "operator=", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a564dcf34ba59bece241652cb0d2c300c", null ]
 ];

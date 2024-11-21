@@ -100,14 +100,12 @@ $(function(){initNavTree('d8/dd0/Keyboard_8hpp.html','../../'); initResizable(tr
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Keyboard.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-<code>#include &quot;galaxy/input/InputDevice.hpp&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d25/Keys_8hpp_source.html">galaxy/input/Keys.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;raylib.h&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Keyboard.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -115,15 +113,9 @@ $(function(){initNavTree('d8/dd0/Keyboard_8hpp.html','../../'); initResizable(tr
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/ded/Keyboard_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2input_2Keyboard_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2input_2Keyboard_8hpp" id="agalaxy_2src_2galaxy_2input_2Keyboard_8hpp">
-<area shape="rect" title=" " alt="" coords="107,5,282,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,64,119"/>
-<area shape="poly" title=" " alt="" coords="158,48,72,90,69,85,155,43"/>
-<area shape="rect" title=" " alt="" coords="88,93,301,119"/>
-<area shape="poly" title=" " alt="" coords="197,46,197,79,192,79,192,46"/>
-<area shape="rect" href="../../dd/d25/Keys_8hpp.html" title=" " alt="" coords="326,93,493,119"/>
-<area shape="poly" title=" " alt="" coords="247,43,366,86,364,91,245,48"/>
-<area shape="rect" title=" " alt="" coords="354,167,465,192"/>
-<area shape="poly" title=" " alt="" coords="412,119,412,153,407,153,407,119"/>
+<area shape="rect" title=" " alt="" coords="5,5,180,45"/>
+<area shape="rect" title=" " alt="" coords="57,93,128,119"/>
+<area shape="poly" title=" " alt="" coords="95,46,95,79,90,79,90,46"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -143,12 +135,6 @@ $(function(){initNavTree('d8/dd0/Keyboard_8hpp.html','../../'); initResizable(tr
 </div>
 <p><a href="../../d8/dd0/Keyboard_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html">galaxy::input::Keyboard</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Physical keyboard device and state management.  <a href="../../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
@@ -156,6 +142,33 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d59/namespacegalaxy_1_1input.html">galaxy::input</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html">galaxy::input::keyboard</a></td></tr>
+<tr class="memdesc:d2/de3/namespacegalaxy_1_1input_1_1keyboard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keyboard device related functionality. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a7c5e9e2916fcd56c3d418d58563d285d" id="r_a7c5e9e2916fcd56c3d418d58563d285d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a7c5e9e2916fcd56c3d418d58563d285d">galaxy::input::keyboard::is_key_pressed</a> (const KeyboardKey key)</td></tr>
+<tr class="memdesc:a7c5e9e2916fcd56c3d418d58563d285d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a key was pressed once.  <br /></td></tr>
+<tr class="separator:a7c5e9e2916fcd56c3d418d58563d285d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58b0e611dab9fd0569777803c78f7d2e" id="r_a58b0e611dab9fd0569777803c78f7d2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a58b0e611dab9fd0569777803c78f7d2e">galaxy::input::keyboard::is_key_repeating</a> (const KeyboardKey key)</td></tr>
+<tr class="memdesc:a58b0e611dab9fd0569777803c78f7d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a key is being pressed repeatedly.  <br /></td></tr>
+<tr class="separator:a58b0e611dab9fd0569777803c78f7d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576caef982804038d816c1d5cc20269a" id="r_a576caef982804038d816c1d5cc20269a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a576caef982804038d816c1d5cc20269a">galaxy::input::keyboard::is_key_released</a> (const KeyboardKey key)</td></tr>
+<tr class="memdesc:a576caef982804038d816c1d5cc20269a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a key that was pressed is now released.  <br /></td></tr>
+<tr class="separator:a576caef982804038d816c1d5cc20269a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15878a3b19eb19460bcbf78fc8b4a29b" id="r_a15878a3b19eb19460bcbf78fc8b4a29b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a15878a3b19eb19460bcbf78fc8b4a29b">galaxy::input::keyboard::is_key_down</a> (const KeyboardKey key)</td></tr>
+<tr class="memdesc:a15878a3b19eb19460bcbf78fc8b4a29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a key is being held down.  <br /></td></tr>
+<tr class="separator:a15878a3b19eb19460bcbf78fc8b4a29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a2199606c666ed95acf4ba1fb80ec9b" id="r_a1a2199606c666ed95acf4ba1fb80ec9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a1a2199606c666ed95acf4ba1fb80ec9b">galaxy::input::keyboard::is_key_up</a> (const KeyboardKey key)</td></tr>
+<tr class="memdesc:a1a2199606c666ed95acf4ba1fb80ec9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a key is NOT being pressed.  <br /></td></tr>
+<tr class="separator:a1a2199606c666ed95acf4ba1fb80ec9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff11c65f040e21e99c2118ff1fa3348d" id="r_aff11c65f040e21e99c2118ff1fa3348d"><td class="memItemLeft" align="right" valign="top">KeyboardKey&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#aff11c65f040e21e99c2118ff1fa3348d">galaxy::input::keyboard::get_key_pressed</a> ()</td></tr>
+<tr class="memdesc:aff11c65f040e21e99c2118ff1fa3348d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get key pressed (keycode).  <br /></td></tr>
+<tr class="separator:aff11c65f040e21e99c2118ff1fa3348d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a3f8f6ef428b1e7c59e9f48003d4f9" id="r_a61a3f8f6ef428b1e7c59e9f48003d4f9"><td class="memItemLeft" align="right" valign="top">KeyboardKey&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de3/namespacegalaxy_1_1input_1_1keyboard.html#a61a3f8f6ef428b1e7c59e9f48003d4f9">galaxy::input::keyboard::get_char_pressed</a> ()</td></tr>
+<tr class="memdesc:a61a3f8f6ef428b1e7c59e9f48003d4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get char pressed (unicode).  <br /></td></tr>
+<tr class="separator:a61a3f8f6ef428b1e7c59e9f48003d4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -163,7 +176,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../d8/dd0/Keyboard_8hpp.html">Keyboard.hpp</a></li>
-    <li class="footer">Generated on Tue Nov 19 2024 14:06:31 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Thu Nov 21 2024 08:26:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['error_0',['ERROR',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fbabb1ca97ec761fc37101737ba0aa2e7c5',1,'galaxy::logging']]],
-  ['error_1',['error',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy::fs']]]
+  ['fatal_0',['FATAL',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba19da7170bea36556dde582519795f3fc',1,'galaxy::logging']]],
+  ['fullscreen_1',['FULLSCREEN',['../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97',1,'galaxy::graphics']]]
 ];
