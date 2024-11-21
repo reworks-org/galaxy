@@ -8,6 +8,7 @@
 #include <entt/locator/locator.hpp>
 #include <mimalloc.h>
 #include <physfs.h>
+#include <raylib.h>
 #include <tinyfiledialogs.h>
 #include <zip.h>
 
@@ -78,6 +79,26 @@ namespace galaxy
 
 				const auto merged = settings::root_dir() / settings::editor_dir();
 				logging::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
+
+				SetLoadFileDataCallback([](const char* fileName, int* dataSize) -> unsigned char* {
+					auto& fs = entt::locator<VirtualFileSystem>::value();
+					return fs.read_binary(fileName).data();
+				});
+
+				SetSaveFileDataCallback([](const char* fileName, void* data, int dataSize) -> bool {
+					auto& fs = entt::locator<VirtualFileSystem>::value();
+					return fs.write_raw(data, dataSize, fileName);
+				});
+
+				SetLoadFileTextCallback([](const char* fileName) -> char* {
+					auto& fs = entt::locator<VirtualFileSystem>::value();
+					return fs.read(fileName).data();
+				});
+
+				SetSaveFileTextCallback([](const char* fileName, char* text) -> bool {
+					auto& fs = entt::locator<VirtualFileSystem>::value();
+					return fs.write(text, fileName);
+				});
 			}
 		}
 
@@ -317,6 +338,17 @@ namespace galaxy
 			{
 				return {};
 			}
+		}
+
+		std::string VirtualFileSystem::get_file_extension(const std::string& file_name)
+		{
+			const char* ext = GetFileExtension(file_name.c_str());
+			return {ext};
+		}
+
+		long VirtualFileSystem::get_file_last_write_time(const std::string& file)
+		{
+			return GetFileModTime(file.c_str());
 		}
 	} // namespace fs
 } // namespace galaxy

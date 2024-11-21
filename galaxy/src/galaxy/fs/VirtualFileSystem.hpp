@@ -213,6 +213,26 @@ namespace galaxy
 			[[nodiscard]]
 			std::string select_folder_dialog(const std::string& def_path = "");
 
+			///
+			/// Get pointer to extension for a filename string.
+			///
+			/// \param file_name File name to parse.
+			///
+			/// \return File extension, including dot.
+			///
+			[[nodiscard]]
+			std::string get_file_extension(const std::string& file_name);
+
+			///
+			/// Get the last write time of a file.
+			///
+			/// \param file File to check.
+			///
+			/// \return Last write time as a timestamp (long).
+			///
+			[[nodiscard]]
+			long get_file_last_write_time(const std::string& file);
+
 		private:
 			///
 			/// Copy constructor.
