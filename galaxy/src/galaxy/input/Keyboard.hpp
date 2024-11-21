@@ -8,119 +8,87 @@
 #ifndef GALAXY_INPUT_KEYBOARD_HPP_
 #define GALAXY_INPUT_KEYBOARD_HPP_
 
-#include <string>
-
-#include "galaxy/input/InputDevice.hpp"
-#include "galaxy/input/Keys.hpp"
+#include <raylib.h>
 
 namespace galaxy
 {
 	namespace input
 	{
 		///
-		/// Physical keyboard device and state management.
+		/// Keyboard device related functionality.
 		///
-		class Keyboard final : public InputDevice
+		namespace keyboard
 		{
-			friend class core::Window;
-
-		  public:
 			///
-			/// Destructor.
+			/// Check if a key was pressed once.
 			///
-			virtual ~Keyboard();
-
+			/// \param key Keyboard key to check.
 			///
-			/// \brief Enable window to begin processing text input.
+			/// \return Boolean.
 			///
-			/// Prevents normal key input until disabled.
-			///
-			void begin_text_input();
+			[[nodiscard]]
+			bool is_key_pressed(const KeyboardKey key);
 
 			///
-			/// Disable text input.
+			/// Check if a key is being pressed repeatedly.
 			///
-			void end_text_input();
+			/// \param key Keyboard key to check.
+			///
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool is_key_repeating(const KeyboardKey key);
 
 			///
-			/// \brief Enable sticky keys.
+			/// Check if a key that was pressed is now released.
 			///
-			/// The pollable state of a key will remain pressed until the state of that key is polled.
-			/// This applies to modifer keys aswell, such as CAPS LOCK.
+			/// \param key Keyboard key to check.
 			///
-			void enable_sticky_keys() const;
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool is_key_released(const KeyboardKey key);
 
 			///
-			/// Disable sticky keys.
+			/// Check if a key is being held down.
 			///
-			void disable_sticky_keys() const;
+			/// \param key Keyboard key to check.
+			///
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool is_key_down(const KeyboardKey key);
 
 			///
-			/// Check if window is in text input mode.
+			/// Check if a key is NOT being pressed.
 			///
-			/// \return True if only text input is being registered.
+			/// \param key Keyboard key to check.
 			///
-			[[nodiscard]] bool is_text_input_enabled() const;
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool is_key_up(const KeyboardKey key);
 
 			///
-			/// Get key scancode.
+			/// \brief Get key pressed (keycode).
 			///
-			/// \param key Key to query.
+			/// Call it multiple times for keys queued, returns 0 when the queue is empty.
 			///
-			/// \return Platform-specific scancode of a key.
+			/// \return Keyboard key enum.
 			///
-			[[nodiscard]] int get_scancode(const input::Keys key) const;
+			[[nodiscard]]
+			KeyboardKey get_key_pressed();
 
 			///
-			/// Get key name.
+			/// \brief Get char pressed (unicode).
 			///
-			/// \param key Key to query.
+			/// Call it multiple times for chars queued, returns 0 when the queue is empty.
 			///
-			/// \return Name of key, empty if error occurs.
+			/// \return Keyboard key enum.
 			///
-			[[nodiscard]] std::string get_key_name(const input::Keys key) const;
-
-			///
-			/// Get key name.
-			///
-			/// \param scancode Scancode to query.
-			///
-			/// \return Name of scancode, empty if error occurs.
-			///
-			[[nodiscard]] std::string get_scancode_name(const int scancode) const;
-
-		  private:
-			///
-			/// Constructor.
-			///
-			Keyboard();
-
-			///
-			/// Move constructor.
-			///
-			Keyboard(Keyboard&&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Keyboard& operator=(Keyboard&&) = delete;
-
-			///
-			/// Copy constructor.
-			///
-			Keyboard(const Keyboard&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Keyboard& operator=(const Keyboard&) = delete;
-
-		  private:
-			///
-			/// Flag to keep track of text input state.
-			///
-			bool m_text_input_enabled;
-		};
+			[[nodiscard]]
+			KeyboardKey get_char_pressed();
+		} // namespace keyboard
 	} // namespace input
 } // namespace galaxy
 

@@ -10,65 +10,40 @@
 
 #include <string>
 
-#include "galaxy/input/InputDevice.hpp"
+#include <raylib.h>
 
 namespace galaxy
 {
 	namespace input
 	{
 		///
-		/// Access PC clipboard and set/get contents.
+		/// Access to PC clipboard.
 		///
-		class Clipboard final : public InputDevice
+		namespace clipboard
 		{
-			friend class core::Window;
-
-		  public:
 			///
-			/// Destructor.
+			//// Set clipboard text content.
 			///
-			virtual ~Clipboard();
-
+			/// \param text Text content to set.
 			///
-			/// Set clipboard contents.
-			///
-			/// \param contents UTF-8 string.
-			///
-			void set(const char* contents) const;
+			void set(const std::string& text);
 
 			///
-			/// Get clipboard contents.
+			/// Get clipboard text content.
 			///
-			/// \return UTF-8 string.
+			/// \return Data from clipboard in a string.
 			///
-			[[nodiscard]] std::string get() const;
-
-		  private:
-			///
-			/// Constructor.
-			///
-			Clipboard();
+			[[nodiscard]]
+			std::string get();
 
 			///
-			/// Move constructor.
+			/// Get clipboard content as an image.
 			///
-			Clipboard(Clipboard&&) = delete;
-
+			/// \return Image object.
 			///
-			/// Move assignment operator.
-			///
-			Clipboard& operator=(Clipboard&&) = delete;
-
-			///
-			/// Copy constructor.
-			///
-			Clipboard(const Clipboard&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Clipboard& operator=(const Clipboard&) = delete;
-		};
+			[[nodiscard]]
+			Image get_image();
+		} // namespace clipboard
 	} // namespace input
 } // namespace galaxy
 

@@ -8,72 +8,102 @@
 #ifndef GALAXY_INPUT_MOUSE_HPP_
 #define GALAXY_INPUT_MOUSE_HPP_
 
-#include <glm/vec2.hpp>
-
-#include "galaxy/input/InputDevice.hpp"
+#include <raylib.h>
 
 namespace galaxy
 {
 	namespace input
 	{
-		///
-		/// Physical mouse device and state management.
-		///
-		class Mouse final : public InputDevice
+		namespace mouse
 		{
-			friend class core::Window;
-
-		  public:
 			///
-			/// Destructor.
+			/// Check if a mouse button has been pressed once.
 			///
-			virtual ~Mouse();
-
+			/// \param button Mouse button.
 			///
-			/// \brief Enable sticky mouse.
+			/// \return Boolean.
 			///
-			/// The pollable state of a nouse button will remain pressed until the state of that button is polled.
-			///
-			void enable_sticky_mouse() const;
+			[[nodiscard]]
+			bool is_mouse_button_pressed(const MouseButton button);
 
 			///
-			/// Disable sticky mouse.
+			/// Check if a mouse button has been released once.
 			///
-			void disable_sticky_mouse() const;
+			/// \param button Mouse button.
+			///
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool is_mouse_button_released(const MouseButton button);
 
 			///
-			/// Get last recorded mouse position.
+			/// Check if a mouse button is being pressed.
 			///
-			/// \return XY vector position of cursor.
+			/// \param button Mouse button.
 			///
-			[[nodiscard]] glm::dvec2 get_pos();
-
-		  private:
+			/// \return Boolean.
 			///
-			/// Constructor.
-			///
-			Mouse();
+			[[nodiscard]]
+			bool is_mouse_button_down(const MouseButton button);
 
 			///
-			/// Move constructor.
+			/// Check if a mouse button is NOT being pressed.
 			///
-			Mouse(Mouse&&) = delete;
+			/// \param button Mouse button.
+			///
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool is_mouse_button_up(const MouseButton button);
 
 			///
-			/// Move assignment operator.
+			/// Get mouse position X.
 			///
-			Mouse& operator=(Mouse&&) = delete;
+			/// \return Int.
+			///
+			[[nodiscard]]
+			int get_mouse_x();
 
 			///
-			/// Copy constructor.
+			//// Get mouse position Y.
 			///
-			Mouse(const Mouse&) = delete;
+			/// \return Int.
+			///
+			[[nodiscard]]
+			int get_mouse_y();
 
 			///
-			/// Copy assignment operator.
+			/// Get mouse position XY.
 			///
-			Mouse& operator=(const Mouse&) = delete;
-		};
+			/// \return Vec2.
+			///
+			[[nodiscard]]
+			Vector2 get_mouse_position();
+
+			///
+			/// Get mouse delta between frames.
+			///
+			/// \return Vec2.
+			///
+			[[nodiscard]]
+			Vector2 get_mouse_delta();
+
+			///
+			/// Get mouse wheel movement for X or Y, whichever is larger.
+			///
+			/// \return Float.
+			///
+			[[nodiscard]]
+			float get_mouse_wheel_move();
+
+			///
+			/// Get mouse wheel movement for both X and Y.
+			///
+			/// \return Vec2.
+			///
+			[[nodiscard]]
+			Vector2 get_mouse_wheel_move_v();
+		} // namespace mouse
 	} // namespace input
 } // namespace galaxy
 

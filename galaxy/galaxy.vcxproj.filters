@@ -36,6 +36,12 @@
     <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\logging\RaylibError.cpp" />
     <ClCompile Include="src\galaxy\graphics\ScreenMode.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Cursor.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
+    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Mouse.cpp" />
+    <ClCompile Include="src\galaxy\input\Gamepad.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -73,5 +79,11 @@
     <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\logging\RaylibError.hpp" />
     <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Cursor.hpp" />
+    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
+    <ClInclude Include="src\galaxy\input\Mouse.hpp" />
+    <ClInclude Include="src\galaxy\input\Gamepad.hpp" />
   </ItemGroup>
 </Project>

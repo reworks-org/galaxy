@@ -5,64 +5,50 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <GLFW/glfw3.h>
-
 #include "Keyboard.hpp"
 
 namespace galaxy
 {
 	namespace input
 	{
-		Keyboard::Keyboard()
-			: InputDevice {}
-			, m_text_input_enabled {false}
+		namespace keyboard
 		{
-		}
+			bool is_key_pressed(const KeyboardKey key)
+			{
+				return IsKeyPressed(static_cast<int>(key));
+			}
 
-		Keyboard::~Keyboard()
-		{
-		}
+			bool is_key_repeating(const KeyboardKey key)
+			{
+				return IsKeyPressedRepeat(static_cast<int>(key));
+			}
 
-		void Keyboard::begin_text_input()
-		{
-			m_text_input_enabled = true;
-		}
+			bool is_key_released(const KeyboardKey key)
+			{
+				return IsKeyReleased(static_cast<int>(key));
+			}
 
-		void Keyboard::end_text_input()
-		{
-			m_text_input_enabled = false;
-		}
+			bool is_key_down(const KeyboardKey key)
+			{
+				return IsKeyDown(static_cast<int>(key));
+			}
 
-		void Keyboard::enable_sticky_keys() const
-		{
-			glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_TRUE);
-			glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
-		}
+			bool is_key_up(const KeyboardKey key)
+			{
+				return IsKeyUp(static_cast<int>(key));
+			}
 
-		void Keyboard::disable_sticky_keys() const
-		{
-			glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_FALSE);
-			glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_FALSE);
-		}
+			KeyboardKey get_key_pressed()
+			{
+				return static_cast<KeyboardKey>(GetKeyPressed());
+			}
 
-		bool Keyboard::is_text_input_enabled() const
-		{
-			return m_text_input_enabled;
-		}
+			KeyboardKey get_char_pressed()
+			{
+				return static_cast<KeyboardKey>(GetCharPressed());
+			}
 
-		int Keyboard::get_scancode(const input::Keys key) const
-		{
-			return glfwGetKeyScancode(static_cast<int>(key));
-		}
-
-		std::string Keyboard::get_key_name(const input::Keys key) const
-		{
-			return glfwGetKeyName(static_cast<int>(key), 0);
-		}
-
-		std::string Keyboard::get_scancode_name(const int scancode) const
-		{
-			return glfwGetKeyName(GLFW_KEY_UNKNOWN, scancode);
-		}
+		} // namespace keyboard
 	} // namespace input
 } // namespace galaxy
+

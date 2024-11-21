@@ -8,157 +8,60 @@
 #ifndef GALAXY_INPUT_CURSOR_HPP_
 #define GALAXY_INPUT_CURSOR_HPP_
 
-#include <span>
-#include <string_view>
-
-#include "galaxy/input/InputDevice.hpp"
-
-struct GLFWcursor;
+#include <raylib.h>
 
 namespace galaxy
 {
 	namespace input
 	{
 		///
-		/// Implementation of the mouse cursor and state management.
+		/// Mouse cursor state management.
 		///
-		class Cursor final : public InputDevice
+		namespace cursor
 		{
-			friend class core::Window;
-
-		  public:
 			///
-			/// Destructor.
+			/// Show cursor.
 			///
-			virtual ~Cursor();
+			void show();
 
 			///
-			/// Initialize cursor data.
+			/// Hide cursor.
 			///
-			void init();
+			void hide();
 
 			///
-			/// Set cursor visibility.
+			/// Check if cursor is not visible.
 			///
-			/// \param visible True for cursor to be visible, otherwise false.
+			/// \return Boolean.
 			///
-			void toggle(const bool visible);
+			[[nodiscard]]
+			bool is_hidden();
 
 			///
-			/// Load custom cursor data.
+			/// Enables cursor (unlock cursor).
 			///
-			/// \param file Cursor texture file to load.
-			///
-			void load_custom(const std::string& file);
+			void enable();
 
 			///
-			/// Load custom cursor data.
+			/// Disables cursor (lock cursor).
 			///
-			/// \param buffer Memory buffer containing pixel data.
-			///
-			void load_custom_mem(std::span<unsigned char> buffer);
+			void disable();
 
 			///
-			/// Set cursor to custom cursor if loaded.
+			/// Check if cursor is on the screen.
 			///
-			void use_custom();
+			/// \return Boolean.
+			///
+			[[nodiscard]]
+			bool on_screen();
 
 			///
-			/// OS default pointer.
+			/// Set mouse cursor to a OS provided cursor.
 			///
-			void use_pointer();
-
+			/// \param cursor MouseCursor enum from available in OS.
 			///
-			/// OS default hand pointer.
-			///
-			void use_hand();
-
-			///
-			/// OS default cross pointer.
-			///
-			void use_cross();
-
-			///
-			/// OS default I-Beam cursor.
-			///
-			void use_text();
-
-			///
-			/// Uses custom cursor if available, otherwise uses default OS pointer.
-			///
-			void use_custom_else_pointer();
-
-			///
-			/// Checks if cursor is within window.
-			///
-			/// \return True if cursor is within the content area of the window.
-			///
-			[[nodiscard]] bool within_window() const;
-
-			///
-			/// \brief Clean up custom cursor.
-			///
-			/// Does not destroy default cursors.
-			///
-			void destroy();
-
-		  private:
-			///
-			/// Constructor.
-			///
-			Cursor();
-
-			///
-			/// Move constructor.
-			///
-			Cursor(Cursor&&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Cursor& operator=(Cursor&&) = delete;
-
-			///
-			/// Copy constructor.
-			///
-			Cursor(const Cursor&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Cursor& operator=(const Cursor&) = delete;
-
-			///
-			/// Destroy system cursor data.
-			///
-			void destroy_system_cursors();
-
-		  private:
-			///
-			/// Custom user cursor.
-			///
-			GLFWcursor* m_custom;
-
-			///
-			/// Default system pointer.
-			///
-			GLFWcursor* m_pointer;
-
-			///
-			/// Default system cross pointer.
-			///
-			GLFWcursor* m_cross;
-
-			///
-			/// Default system hand cursor.
-			///
-			GLFWcursor* m_hand;
-
-			///
-			/// Default system text pointer.
-			///
-			GLFWcursor* m_text;
-		};
+			void set(const MouseCursor cursor);
+		} // namespace cursor
 	} // namespace input
 } // namespace galaxy
 

@@ -5,39 +5,63 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <GLFW/glfw3.h>
-
 #include "Mouse.hpp"
 
 namespace galaxy
 {
 	namespace input
 	{
-		Mouse::Mouse()
-			: InputDevice {}
+		namespace mouse
 		{
-		}
+			bool is_mouse_button_pressed(const MouseButton button)
+			{
+				return IsMouseButtonPressed(static_cast<int>(button));
+			}
 
-		Mouse::~Mouse()
-		{
-		}
+			bool is_mouse_button_released(const MouseButton button)
+			{
+				return IsMouseButtonReleased(static_cast<int>(button));
+			}
 
-		void Mouse::enable_sticky_mouse() const
-		{
-			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);
-		}
+			bool is_mouse_button_down(const MouseButton button)
+			{
+				return IsMouseButtonDown(static_cast<int>(button));
+			}
 
-		void Mouse::disable_sticky_mouse() const
-		{
-			glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_FALSE);
-		}
+			bool is_mouse_button_up(const MouseButton button)
+			{
+				return IsMouseButtonUp(static_cast<int>(button));
+			}
 
-		glm::dvec2 Mouse::get_pos()
-		{
-			glm::dvec2 out;
-			glfwGetCursorPos(m_window, &out.x, &out.y);
+			int get_mouse_x()
+			{
+				return GetMouseX();
+			}
 
-			return out;
-		}
+			int get_mouse_y()
+			{
+				return GetMouseY();
+			}
+
+			Vector2 get_mouse_position()
+			{
+				return GetMousePosition();
+			}
+
+			Vector2 get_mouse_delta()
+			{
+				return GetMouseDelta();
+			}
+
+			float get_mouse_wheel_move()
+			{
+				return GetMouseWheelMove();
+			}
+
+			Vector2 get_mouse_wheel_move_v()
+			{
+				return GetMouseWheelMoveV();
+			}
+		} // namespace mouse
 	} // namespace input
 } // namespace galaxy

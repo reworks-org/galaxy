@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
@@ -21,6 +22,11 @@
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\ScreenMode.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Cursor.cpp" />
+    <ClCompile Include="src\galaxy\input\Gamepad.cpp" />
+    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
     <ClCompile Include="src\galaxy\logging\FileSink.cpp" />
     <ClCompile Include="src\galaxy\logging\Log.cpp" />
@@ -58,6 +64,12 @@
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Cursor.hpp" />
+    <ClInclude Include="src\galaxy\input\Gamepad.hpp" />
+    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
     <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
     <ClInclude Include="src\galaxy\logging\Log.hpp" />
