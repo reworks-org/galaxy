@@ -1,0 +1,11 @@
+<map id="galaxy::platform::Subprocess::alive" name="galaxy::platform::Subprocess::alive">
+<area shape="rect" id="Node000001" title="Check if subprocess is still alive and executing." alt="" coords="523,69,733,109"/>
+<area shape="rect" id="Node000002" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b" title="Destroy process, preserving if alive." alt="" coords="264,5,475,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="533,69,450,48,451,43,534,63"/>
+<area shape="rect" id="Node000003" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a246ad7e7bc9f5d2e8dc6e521a726c5c5" title="Wait for a process to finish execution." alt="" coords="264,69,475,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="509,92,475,92,475,87,509,87"/>
+<area shape="rect" id="Node000004" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#af23961055078494076ed487acf9d2a3d" title="Terminate process, killing if alive." alt="" coords="264,133,475,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="534,115,451,136,450,131,533,110"/>
+<area shape="rect" id="Node000005" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a50b4ae55d389933adaa9a592aed050f7" title="Destructor." alt="" coords="5,133,216,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="250,156,216,156,216,151,250,151"/>
+</map>

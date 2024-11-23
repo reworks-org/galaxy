@@ -49,7 +49,7 @@ var annotated_dup =
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
-        [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ]
+        [ "Gamepad", "d2/d24/classgalaxy_1_1input_1_1Gamepad.html", "d2/d24/classgalaxy_1_1input_1_1Gamepad" ]
       ] ],
       [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", [
         [ "ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink" ],

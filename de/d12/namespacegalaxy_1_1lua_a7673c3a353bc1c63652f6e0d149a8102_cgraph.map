@@ -12,7 +12,7 @@
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="102,413,151,366,185,340,224,321,289,307,356,306,420,312,477,323,476,329,420,318,356,311,290,313,226,327,188,345,154,370,105,417"/>
 <area shape="rect" id="Node000007" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2" title="Retrieve a root config value." alt="" coords="229,337,408,362"/>
 <area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="120,413,224,371,250,363,251,368,226,376,122,418"/>
-<area shape="rect" id="Node000008" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a4f2c253c063e15d98412bc7c0869fbd7" title="Check if the config file actually has a value." alt="" coords="228,386,409,411"/>
+<area shape="rect" id="Node000008" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a7071b98a344838c08bf71718ffbc3118" title="Check if the config file actually has a value." alt="" coords="228,386,409,411"/>
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="177,414,214,409,215,415,178,420"/>
 <area shape="rect" id="Node000009" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee" title="Validate an entity to make sure all components have met their requirements as defined by register_dep..." alt="" coords="237,436,400,476"/>
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="178,436,224,442,223,447,177,441"/>

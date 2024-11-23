@@ -104,7 +104,7 @@ $(function(){initNavTree('d4/dd4/RaylibError_8cpp_source.html','../../'); initRe
 <div class="contents">
 <a href="../../d4/dd4/RaylibError_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;raylib.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;raylib.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/logging/Log.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -140,16 +140,16 @@ $(function(){initNavTree('d4/dd4/RaylibError_8cpp_source.html','../../'); initRe
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">switch</span> (level)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keywordflow">case</span> LOG_INFO:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keywordflow">case</span> ray::TraceLogLevel::LOG_INFO:</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a>, result);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="keywordflow">case</span> LOG_ERROR:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="keywordflow">case</span> ray::TraceLogLevel::LOG_ERROR:</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, result);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <span class="keywordflow">case</span> LOG_WARNING:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <span class="keywordflow">case</span> ray::TraceLogLevel::LOG_WARNING:</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a>, result);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">case</span> LOG_DEBUG:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">case</span> ray::TraceLogLevel::LOG_DEBUG:</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a45c6466a45e13924b58af848a1851b47">GALAXY_DEBUG</a>, result);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                <span class="keywordflow">default</span>:</div>
@@ -174,7 +174,7 @@ $(function(){initNavTree('d4/dd4/RaylibError_8cpp_source.html','../../'); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a724136a1f39cb6404ada524c6e6706e.html">logging</a></li><li class="navelem"><a class="el" href="../../d4/dd4/RaylibError_8cpp.html">RaylibError.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 21 2024 08:26:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Nov 23 2024 15:40:40 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

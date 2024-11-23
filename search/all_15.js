@@ -19,5 +19,5 @@ var searchData=
   ['voicecache_16',['VoiceCache',['../d4/d1b/namespacegalaxy_1_1resource.html#aaacfdb74d8acbcb7b44270dd8a3e2adf',1,'galaxy::resource']]],
   ['voiceengine_17',['VoiceEngine',['../dc/d80/namespacegalaxy_1_1media.html#a7cedd54fab8796a97fe4ca03821496d4',1,'galaxy::media']]],
   ['voiceloader_18',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]],
-  ['vsync_19',['vsync',['../d1/db3/structgalaxy_1_1settings.html#a3eafb7f16156526b589b4c0c3b3bbd6a',1,'galaxy::settings']]]
+  ['vsync_19',['vsync',['../d1/db3/structgalaxy_1_1settings.html#a3d34905152bf790a74b2f6224de6a0ec',1,'galaxy::settings']]]
 ];

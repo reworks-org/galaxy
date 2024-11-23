@@ -13,7 +13,7 @@ var searchData=
   ['load_5fworld_10',['load_world',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5',1,'galaxy::scene::Scene']]],
   ['loaded_11',['loaded',['../d9/d75/classgalaxy_1_1map_1_1World.html#a939bde2a2b625d47e3ff50b034087baf',1,'galaxy::map::World']]],
   ['loader_12',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e',1,'galaxy::core::Loader']]],
-  ['log_13',['Log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#abc1c7574b4aa30f495c36b01449c675d',1,'galaxy::logging::Log::Log()'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#ae0abeb8f10c0303ade8af03f274ab42d',1,'galaxy::logging::Log::Log(const Log &amp;)=delete'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a228dbb39fefefd31fa456e85554ba73e',1,'galaxy::logging::Log::Log(Log &amp;&amp;)=delete']]],
+  ['log_13',['Log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155',1,'galaxy::logging::Log::Log() noexcept'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#ae0abeb8f10c0303ade8af03f274ab42d',1,'galaxy::logging::Log::Log(const Log &amp;)=delete'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a228dbb39fefefd31fa456e85554ba73e',1,'galaxy::logging::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_14',['log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#aa34d80cfd9c656f12cd28b0f6067feef',1,'galaxy::logging::Log']]],
   ['log_5fwrapper_15',['log_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#ae6e69f0c5e5575aa352f2eea4e819eb3',1,'galaxy::lua']]],
   ['ltrim_16',['ltrim',['../db/d7c/namespacegalaxy_1_1strutils.html#afff4d4bc591e6b700b5065afb2144125',1,'galaxy::strutils']]]

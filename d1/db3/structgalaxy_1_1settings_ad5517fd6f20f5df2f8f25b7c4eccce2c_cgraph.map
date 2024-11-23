@@ -1,5 +1,0 @@
-<map id="galaxy::settings::set_settings_from_config" name="galaxy::settings::set_settings_from_config">
-<area shape="rect" id="Node000001" title="Set all our settings using the provided config file." alt="" coords="5,5,171,45"/>
-<area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2" title="Retrieve a root config value." alt="" coords="219,13,397,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,23,205,23,205,28,171,28"/>
-</map>

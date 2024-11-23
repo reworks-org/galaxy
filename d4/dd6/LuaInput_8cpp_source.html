@@ -107,7 +107,7 @@ $(function(){initNavTree('d4/dd6/LuaInput_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sol/sol.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/de6/CameraController_8hpp.html">galaxy/input/CameraController.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;galaxy/input/CameraController.hpp&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d20/Clipboard_8hpp.html">galaxy/input/Clipboard.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/ddb/Cursor_8hpp.html">galaxy/input/Cursor.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;galaxy/input/Input.hpp&quot;</span></div>
@@ -127,8 +127,8 @@ $(function(){initNavTree('d4/dd6/LuaInput_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keyword">auto</span>&amp; lua = core::ServiceLocator&lt;sol::state&gt;::ref();</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keyword">auto</span> camera_controller =</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                lua.new_usertype&lt;<a class="code hl_class" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html">input::CameraController</a>&gt;(<span class="stringliteral">&quot;CameraController&quot;</span>, sol::constructors&lt;input::CameraController(graphics::Camera&amp;)&gt;());</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            camera_controller[<span class="stringliteral">&quot;camera&quot;</span>] = &amp;<a class="code hl_variable" href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#a624abf28da3ffa7c8b9e5702784fb72b">input::CameraController::m_camera</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                lua.new_usertype&lt;input::CameraController&gt;(<span class="stringliteral">&quot;CameraController&quot;</span>, sol::constructors&lt;input::CameraController(graphics::Camera&amp;)&gt;());</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            camera_controller[<span class="stringliteral">&quot;camera&quot;</span>] = &amp;input::CameraController::m_camera;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keyword">auto</span> clipboard_type   = lua.new_usertype&lt;input::Clipboard&gt;(<span class="stringliteral">&quot;Clipboard&quot;</span>, sol::no_constructor);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            clipboard_type[<span class="stringliteral">&quot;set&quot;</span>] = &amp;input::Clipboard::set;</div>
@@ -344,14 +344,11 @@ $(function(){initNavTree('d4/dd6/LuaInput_8cpp_source.html','../../'); initResiz
 </div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    } <span class="comment">// namespace lua</span></div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="ttc" id="aCameraController_8hpp_html"><div class="ttname"><a href="../../d5/de6/CameraController_8hpp.html">CameraController.hpp</a></div></div>
 <div class="ttc" id="aClipboard_8hpp_html"><div class="ttname"><a href="../../db/d20/Clipboard_8hpp.html">Clipboard.hpp</a></div></div>
 <div class="ttc" id="aCursor_8hpp_html"><div class="ttname"><a href="../../de/ddb/Cursor_8hpp.html">Cursor.hpp</a></div></div>
 <div class="ttc" id="aKeyboard_8hpp_html"><div class="ttname"><a href="../../d8/dd0/Keyboard_8hpp.html">Keyboard.hpp</a></div></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
 <div class="ttc" id="aMouse_8hpp_html"><div class="ttname"><a href="../../d5/d78/Mouse_8hpp.html">Mouse.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1CameraController_html"><div class="ttname"><a href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html">galaxy::input::CameraController</a></div><div class="ttdoc">Orthographic camera input wrapper.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/de6/CameraController_8hpp_source.html#l00022">CameraController.hpp:23</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1input_1_1CameraController_html_a624abf28da3ffa7c8b9e5702784fb72b"><div class="ttname"><a href="../../d0/d15/classgalaxy_1_1input_1_1CameraController.html#a624abf28da3ffa7c8b9e5702784fb72b">galaxy::input::CameraController::m_camera</a></div><div class="ttdeci">std::reference_wrapper&lt; graphics::Camera &gt; m_camera</div><div class="ttdoc">Camera object being manipulated.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/de6/CameraController_8hpp_source.html#l00061">CameraController.hpp:61</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1lua_html_a1cfa07f8f02c92f44d6971d4d98b3dc7"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7">galaxy::lua::inject_input</a></div><div class="ttdeci">void inject_input()</div><div class="ttdoc">Injects input handling into lua.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">LuaInput.cpp:25</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -360,7 +357,7 @@ $(function(){initNavTree('d4/dd6/LuaInput_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dir_5166590be04beeb03b821b2adcb9d01a.html">lua</a></li><li class="navelem"><a class="el" href="../../d4/dd6/LuaInput_8cpp.html">LuaInput.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 21 2024 08:26:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Nov 23 2024 15:40:40 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

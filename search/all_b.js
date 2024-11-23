@@ -18,7 +18,7 @@ var searchData=
   ['loader_2ecpp_15',['Loader.cpp',['../d0/dd0/core_2Loader_8cpp.html',1,'(Global Namespace)'],['../d6/dd7/resource_2Loader_8cpp.html',1,'(Global Namespace)']]],
   ['loader_2ehpp_16',['Loader.hpp',['../d9/d16/core_2Loader_8hpp.html',1,'(Global Namespace)'],['../dc/d7c/resource_2Loader_8hpp.html',1,'(Global Namespace)']]],
   ['loader_3c_20media_3a_3asound_20_3e_17',['Loader&lt; media::Sound &gt;',['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource']]],
-  ['log_18',['Log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html',1,'galaxy::logging::Log'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#abc1c7574b4aa30f495c36b01449c675d',1,'galaxy::logging::Log::Log()'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#ae0abeb8f10c0303ade8af03f274ab42d',1,'galaxy::logging::Log::Log(const Log &amp;)=delete'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a228dbb39fefefd31fa456e85554ba73e',1,'galaxy::logging::Log::Log(Log &amp;&amp;)=delete']]],
+  ['log_18',['Log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html',1,'galaxy::logging::Log'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155',1,'galaxy::logging::Log::Log() noexcept'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#ae0abeb8f10c0303ade8af03f274ab42d',1,'galaxy::logging::Log::Log(const Log &amp;)=delete'],['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a228dbb39fefefd31fa456e85554ba73e',1,'galaxy::logging::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_19',['log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#aa34d80cfd9c656f12cd28b0f6067feef',1,'galaxy::logging::Log']]],
   ['log_2ecpp_20',['Log.cpp',['../d4/d88/Log_8cpp.html',1,'']]],
   ['log_2ehpp_21',['Log.hpp',['../d0/d82/Log_8hpp.html',1,'']]],

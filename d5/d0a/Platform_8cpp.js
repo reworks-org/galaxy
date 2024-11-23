@@ -1,5 +1,5 @@
 var Platform_8cpp =
 [
-    [ "take_screenshot", "d5/d0a/Platform_8cpp.html#acfff10b708593cc9832780f23e14cd5e", null ],
-    [ "open_url", "d5/d0a/Platform_8cpp.html#a0e74b752e9be052ea4329d922135f81a", null ]
+    [ "take_screenshot", "d5/d0a/Platform_8cpp.html#adcdc37bd23716a8b21a3b65a7babfe33", null ],
+    [ "open_url", "d5/d0a/Platform_8cpp.html#a3297bffa9e83b097f75c777204b2c0ce", null ]
 ];
