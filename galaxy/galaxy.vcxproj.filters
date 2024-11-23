@@ -31,12 +31,9 @@
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
-    <ClCompile Include="src\galaxy\math\Random.cpp" />
-    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\logging\RaylibError.cpp" />
     <ClCompile Include="src\galaxy\graphics\ScreenMode.cpp" />
-    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\input\Cursor.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
@@ -74,12 +71,9 @@
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\math\Random.hpp" />
-    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\logging\RaylibError.hpp" />
     <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
-    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\input\Cursor.hpp" />
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />

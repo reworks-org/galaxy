@@ -32,7 +32,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Subprocess();
+			Subprocess() noexcept;
 
 			///
 			/// Create constructor.
@@ -47,7 +47,7 @@ namespace galaxy
 			///
 			/// Calls terminate().
 			///
-			~Subprocess();
+			~Subprocess() noexcept;
 
 			///
 			/// Launch a subprocess.
@@ -63,17 +63,17 @@ namespace galaxy
 			/// \return Process exit code. -1 on error.
 			///
 			[[maybe_unused]]
-			int join();
+			int join() noexcept;
 
 			///
 			/// Terminate process, killing if alive.
 			///
-			void terminate();
+			void terminate() noexcept;
 
 			///
 			/// Destroy process, preserving if alive.
 			///
-			void destroy();
+			void destroy() noexcept;
 
 			///
 			/// Check if subprocess is still alive and executing.
@@ -81,7 +81,7 @@ namespace galaxy
 			/// \return True if process is alive.
 			///
 			[[nodiscard]]
-			bool alive();
+			bool alive() noexcept;
 
 		private:
 			///

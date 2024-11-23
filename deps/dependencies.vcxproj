@@ -349,6 +349,7 @@
     <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
     <ClInclude Include="physfs\src\physfs_miniz.h" />
     <ClInclude Include="physfs\src\physfs_platforms.h" />
+    <ClInclude Include="raycpp\raylib.hpp" />
     <ClInclude Include="raylib\src\external\glfw\include\GLFW\glfw3.h" />
     <ClInclude Include="raylib\src\external\glfw\include\GLFW\glfw3native.h" />
     <ClInclude Include="raylib\src\external\glfw\src\internal.h" />
@@ -579,7 +580,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -636,7 +637,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

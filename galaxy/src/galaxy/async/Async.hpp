@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		template<typename T = void>
 		[[nodiscard]]
-		inline bool is_work_done(const std::future<T>& t)
+		inline bool is_work_done(const std::future<T>& t) noexcept
 		{
 			return t.wait_for(0s) == std::future_status::ready;
 		}

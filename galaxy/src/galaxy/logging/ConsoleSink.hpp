@@ -23,12 +23,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ConsoleSink();
+			ConsoleSink() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~ConsoleSink();
+			virtual ~ConsoleSink() noexcept;
 
 			///
 			/// Sink the message.

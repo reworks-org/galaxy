@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Config();
+			Config() noexcept;
 
 			///
 			/// \brief Argument constructor.
@@ -36,12 +36,12 @@ namespace galaxy
 			///
 			/// \param file Path to config to open / use (does not matter if does not exist). This is relative to the app.
 			///
-			Config(std::string_view file);
+			Config(std::string_view file) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Config();
+			~Config() noexcept;
 
 			///
 			/// \brief Checks if config exists and flags if a config needs to be created.
@@ -117,7 +117,7 @@ namespace galaxy
 			/// \return True if the value exists.
 			///
 			[[nodiscard]]
-			bool has(const std::string& key);
+			bool has(const std::string& key) noexcept;
 
 			///
 			/// Check if the config file actually has a value.
@@ -165,14 +165,14 @@ namespace galaxy
 			/// \return True if blank.
 			///
 			[[nodiscard]]
-			bool empty() const;
+			bool empty() const noexcept;
 
 			///
 			/// Set as external json object.
 			///
 			/// \param json New json config data to set.
 			///
-			void raw(const nlohmann::json& json);
+			void raw(const nlohmann::json& json) noexcept;
 
 			///
 			/// Get raw json object.
@@ -180,7 +180,7 @@ namespace galaxy
 			/// \return Const reference to internal json object.
 			///
 			[[nodiscard]]
-			const nlohmann::json& raw() const;
+			const nlohmann::json& raw() const noexcept;
 
 		private:
 			///

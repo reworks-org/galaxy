@@ -13,54 +13,54 @@ namespace galaxy
 	{
 		namespace mouse
 		{
-			bool is_mouse_button_pressed(const MouseButton button)
+			bool is_mouse_button_pressed(const ray::MouseButton button) noexcept
 			{
-				return IsMouseButtonPressed(static_cast<int>(button));
+				return ::IsMouseButtonPressed(static_cast<int>(button));
 			}
 
-			bool is_mouse_button_released(const MouseButton button)
+			bool is_mouse_button_released(const ray::MouseButton button) noexcept
 			{
-				return IsMouseButtonReleased(static_cast<int>(button));
+				return ::IsMouseButtonReleased(static_cast<int>(button));
 			}
 
-			bool is_mouse_button_down(const MouseButton button)
+			bool is_mouse_button_down(const ray::MouseButton button) noexcept
 			{
-				return IsMouseButtonDown(static_cast<int>(button));
+				return ::IsMouseButtonDown(static_cast<int>(button));
 			}
 
-			bool is_mouse_button_up(const MouseButton button)
+			bool is_mouse_button_up(const ray::MouseButton button) noexcept
 			{
-				return IsMouseButtonUp(static_cast<int>(button));
+				return ::IsMouseButtonUp(static_cast<int>(button));
 			}
 
-			int get_mouse_x()
+			int get_mouse_x() noexcept
 			{
-				return GetMouseX();
+				return ::GetMouseX();
 			}
 
-			int get_mouse_y()
+			int get_mouse_y() noexcept
 			{
-				return GetMouseY();
+				return ::GetMouseY();
 			}
 
-			Vector2 get_mouse_position()
+			math::Vector2 get_mouse_position() noexcept
 			{
-				return GetMousePosition();
+				return {GetMousePosition()};
 			}
 
-			Vector2 get_mouse_delta()
+			math::Vector2 get_mouse_delta() noexcept
 			{
-				return GetMouseDelta();
+				return {GetMouseDelta()};
 			}
 
-			float get_mouse_wheel_move()
+			float get_mouse_wheel_move() noexcept
 			{
-				return GetMouseWheelMove();
+				return ::GetMouseWheelMove();
 			}
 
-			Vector2 get_mouse_wheel_move_v()
+			math::Vector2 get_mouse_wheel_move_v() noexcept
 			{
-				return GetMouseWheelMoveV();
+				return {GetMouseWheelMoveV()};
 			}
 		} // namespace mouse
 	} // namespace input

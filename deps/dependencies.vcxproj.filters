@@ -476,5 +476,6 @@
     <ClInclude Include="raylib\src\external\glfw\src\win32_platform.h" />
     <ClInclude Include="raylib\src\external\glfw\src\win32_thread.h" />
     <ClInclude Include="raylib\src\external\glfw\src\win32_time.h" />
+    <ClInclude Include="raycpp\raylib.hpp" />
   </ItemGroup>
 </Project>

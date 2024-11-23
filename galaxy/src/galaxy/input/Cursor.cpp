@@ -13,39 +13,39 @@ namespace galaxy
 	{
 		namespace cursor
 		{
-			void show()
+			void show() noexcept
 			{
-				ShowCursor();
+				::ShowCursor();
 			}
 
-			void hide()
+			void hide() noexcept
 			{
-				HideCursor();
+				::HideCursor();
 			}
 
-			bool is_hidden()
+			bool is_hidden() noexcept
 			{
-				return IsCursorHidden();
+				return ::IsCursorHidden();
 			}
 
-			void enable()
+			void enable() noexcept
 			{
-				EnableCursor();
+				::EnableCursor();
 			}
 
-			void disable()
+			void disable() noexcept
 			{
-				DisableCursor();
+				::DisableCursor();
 			}
 
-			bool on_screen()
+			bool on_screen() noexcept
 			{
-				return IsCursorOnScreen();
+				return ::IsCursorOnScreen();
 			}
 
-			void set(const MouseCursor cursor)
+			void set(const ray::MouseCursor cursor) noexcept
 			{
-				SetMouseCursor(static_cast<int>(cursor));
+				::SetMouseCursor(static_cast<int>(cursor));
 			}
 		} // namespace cursor
 	} // namespace input

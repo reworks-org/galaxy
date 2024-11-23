@@ -38,7 +38,7 @@ namespace galaxy
 		///
 		/// \param dt Time lag from game loop.
 		///
-		static auto set_delta_time(const double dt) -> void;
+		static auto set_delta_time(const double dt) noexcept -> void;
 
 		///
 		/// Get galaxy delta time.
@@ -46,205 +46,205 @@ namespace galaxy
 		/// \return Current lag from gameloop.
 		///
 		[[nodiscard]]
-		static auto dt() -> double;
+		static auto dt() noexcept -> double;
 
 		///
 		/// Number of bits in a flag bitset.
 		///
 		[[nodiscard]]
-		static auto flag_bitset_count() -> int;
+		static auto flag_bitset_count() noexcept -> int;
 
 		///
 		/// Successful return.
 		///
 		[[nodiscard]]
-		static auto exit_success() -> int;
+		static auto exit_success() noexcept -> int;
 
 		///
 		/// Failed main return.
 		///
 		[[nodiscard]]
-		static auto exit_failure() -> int;
+		static auto exit_failure() noexcept -> int;
 
 		///
 		/// Ratio to convert world coords to box2d.
 		///
 		[[nodiscard]]
-		static auto world_to_box2d() -> float;
+		static auto world_to_box2d() noexcept -> float;
 
 		///
 		/// Ratio to convert box2d to world coords.
 		///
 		[[nodiscard]]
-		static auto box2d_to_world() -> float;
+		static auto box2d_to_world() noexcept -> float;
 
 		///
 		/// Window creation width.
 		///
 		[[nodiscard]]
-		static auto window_width() -> int;
+		static auto window_width() noexcept -> int;
 
 		///
 		/// Window creation height.
 		///
 		[[nodiscard]]
-		static auto window_height() -> int;
+		static auto window_height() noexcept -> int;
 
 		///
 		/// Window title.
 		///
 		[[nodiscard]]
-		static auto window_title() -> const std::string&;
+		static auto window_title() noexcept -> const std::string&;
 
 		///
 		/// Window fullscreen mode.
 		///
 		[[nodiscard]]
-		static auto screenmode() -> graphics::ScreenMode;
+		static auto screenmode() noexcept -> graphics::ScreenMode;
 
 		///
 		/// Vsync control.
 		///
 		[[nodiscard]]
-		static auto vsync() -> bool;
+		static auto vsync() noexcept -> bool;
 
 		///
 		/// Show/hide mouse cursor.
 		///
 		[[nodiscard]]
-		static auto mouse_visible() -> bool;
+		static auto mouse_visible() noexcept -> bool;
 
 		///
 		/// Enable default 4x MSAA.
 		///
 		[[nodiscard]]
-		static auto msaa() -> bool;
+		static auto msaa() noexcept -> bool;
 
 		///
 		/// Enable High DPI support.
 		///
 		[[nodiscard]]
-		static auto highdpi() -> bool;
+		static auto highdpi() noexcept -> bool;
 
 		///
 		/// Window icon file in vfs.
 		///
 		[[nodiscard]]
-		static auto window_icon() -> const std::string&;
+		static auto window_icon() noexcept -> const std::string&;
 
 		///
 		/// Cursor texture file in vfs.
 		///
 		[[nodiscard]]
-		static auto cursor_icon() -> const std::string&;
+		static auto cursor_icon() noexcept -> const std::string&;
 
 		///
 		/// Game updates per second, independant of FPS, see "fixed timestep gameloop".
 		///
 		[[nodiscard]]
-		static auto ups() -> double;
+		static auto ups() noexcept -> double;
 
 		///
 		/// Current root directory of application, unless it has been changed.
 		///
 		[[nodiscard]]
-		static auto root_dir() -> std::filesystem::path;
+		static auto root_dir() noexcept -> std::filesystem::path;
 
 		///
 		/// Main data directory.
 		///
 		[[nodiscard]]
-		static auto assets_dir() -> std::filesystem::path;
+		static auto assets_dir() noexcept -> std::filesystem::path;
 
 		///
 		/// Directory for editor specific stuff.
 		///
 		[[nodiscard]]
-		static auto editor_dir() -> std::filesystem::path;
+		static auto editor_dir() noexcept -> std::filesystem::path;
 
 		///
 		/// Name of packed assets file.
 		///
 		[[nodiscard]]
-		static auto asset_pack() -> const std::string&;
+		static auto asset_pack() noexcept -> const std::string&;
 
 		///
 		/// Should asset data be read from pack or assets dir.
 		///
 		[[nodiscard]]
-		static auto use_loose_assets() -> bool;
+		static auto use_loose_assets() noexcept -> bool;
 
 		///
 		/// Music asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_music() -> const std::string&;
+		static auto assets_dir_music() noexcept -> const std::string&;
 
 		///
 		/// SFX asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_sfx() -> const std::string&;
+		static auto assets_dir_sfx() noexcept -> const std::string&;
 
 		///
 		/// Voice asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_voice() -> const std::string&;
+		static auto assets_dir_voice() noexcept -> const std::string&;
 
 		///
 		/// Font asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_font() -> const std::string&;
+		static auto assets_dir_font() noexcept -> const std::string&;
 
 		///
 		/// Scripts asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_script() -> const std::string&;
+		static auto assets_dir_script() noexcept -> const std::string&;
 
 		///
 		/// Shaders asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_shaders() -> const std::string&;
+		static auto assets_dir_shaders() noexcept -> const std::string&;
 
 		///
 		/// Animation data location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_animation() -> const std::string&;
+		static auto assets_dir_animation() noexcept -> const std::string&;
 
 		///
 		/// Textures asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_texture() -> const std::string&;
+		static auto assets_dir_texture() noexcept -> const std::string&;
 
 		///
 		/// Prefab asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_prefabs() -> const std::string&;
+		static auto assets_dir_prefabs() noexcept -> const std::string&;
 
 		///
 		/// Maps asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_maps() -> const std::string&;
+		static auto assets_dir_maps() noexcept -> const std::string&;
 
 		///
 		/// Video asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_video() -> const std::string&;
+		static auto assets_dir_video() noexcept -> const std::string&;
 
 		///
 		/// UI asset location.
 		///
 		[[nodiscard]]
-		static auto assets_dir_ui() -> const std::string&;
+		static auto assets_dir_ui() noexcept -> const std::string&;
 
 	private:
 		inline static double s_delta_time;
@@ -321,8 +321,6 @@ namespace galaxy
 #define GALAXY_MACOS_PLATFORM
 #endif
 
-#endif
-
 /*
 
 config.restore<float>("ui_font_size", 14.0f);
@@ -356,3 +354,5 @@ config.restore<int>("camera_rotate_right", input::key_to_int(input::Keys::KEY_E)
 #define GALAXY_APPDATA 	inline static const std::string app_data {"app.galaxy"};
 
 */
+
+#endif

@@ -13,13 +13,13 @@ namespace galaxy
 {
 	namespace core
 	{
-		Config::Config()
+		Config::Config() noexcept
 			: m_loaded {false}
 		{
 			m_config = "{\"config\":{}}"_json;
 		}
 
-		Config::Config(std::string_view file)
+		Config::Config(std::string_view file) noexcept
 			: m_loaded {false}
 		{
 			m_config = "{\"config\":{}}"_json;
@@ -27,7 +27,7 @@ namespace galaxy
 			load(file);
 		}
 
-		Config::~Config()
+		Config::~Config() noexcept
 		{
 			m_loaded = false;
 			m_config.clear();
@@ -95,7 +95,7 @@ namespace galaxy
 			}
 		}
 
-		bool Config::has(const std::string& key)
+		bool Config::has(const std::string& key) noexcept
 		{
 			if (m_loaded)
 			{
@@ -141,7 +141,7 @@ namespace galaxy
 			return false;
 		}
 
-		bool Config::empty() const
+		bool Config::empty() const noexcept
 		{
 			if (m_loaded)
 			{
@@ -151,13 +151,13 @@ namespace galaxy
 			return true;
 		}
 
-		void Config::raw(const nlohmann::json& json)
+		void Config::raw(const nlohmann::json& json) noexcept
 		{
 			m_config = json;
 			m_loaded = true;
 		}
 
-		const nlohmann::json& Config::raw() const
+		const nlohmann::json& Config::raw() const noexcept
 		{
 			return m_config;
 		}

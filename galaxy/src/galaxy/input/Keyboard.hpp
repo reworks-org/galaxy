@@ -8,7 +8,7 @@
 #ifndef GALAXY_INPUT_KEYBOARD_HPP_
 #define GALAXY_INPUT_KEYBOARD_HPP_
 
-#include <raylib.h>
+#include <raylib.hpp>
 
 namespace galaxy
 {
@@ -27,7 +27,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_key_pressed(const KeyboardKey key);
+			bool is_key_pressed(const ray::KeyboardKey key) noexcept;
 
 			///
 			/// Check if a key is being pressed repeatedly.
@@ -37,7 +37,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_key_repeating(const KeyboardKey key);
+			bool is_key_repeating(const ray::KeyboardKey key) noexcept;
 
 			///
 			/// Check if a key that was pressed is now released.
@@ -47,7 +47,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_key_released(const KeyboardKey key);
+			bool is_key_released(const ray::KeyboardKey key) noexcept;
 
 			///
 			/// Check if a key is being held down.
@@ -57,7 +57,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_key_down(const KeyboardKey key);
+			bool is_key_down(const ray::KeyboardKey key) noexcept;
 
 			///
 			/// Check if a key is NOT being pressed.
@@ -67,7 +67,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_key_up(const KeyboardKey key);
+			bool is_key_up(const ray::KeyboardKey key) noexcept;
 
 			///
 			/// \brief Get key pressed (keycode).
@@ -77,7 +77,7 @@ namespace galaxy
 			/// \return Keyboard key enum.
 			///
 			[[nodiscard]]
-			KeyboardKey get_key_pressed();
+			ray::KeyboardKey get_key_pressed() noexcept;
 
 			///
 			/// \brief Get char pressed (unicode).
@@ -87,7 +87,7 @@ namespace galaxy
 			/// \return Keyboard key enum.
 			///
 			[[nodiscard]]
-			KeyboardKey get_char_pressed();
+			ray::KeyboardKey get_char_pressed() noexcept;
 		} // namespace keyboard
 	} // namespace input
 } // namespace galaxy

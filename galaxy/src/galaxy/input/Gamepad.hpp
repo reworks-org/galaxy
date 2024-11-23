@@ -10,77 +10,82 @@
 
 #include <string>
 
-#include <raylib.h>
+#include <raylib.hpp>
 
 namespace galaxy
 {
 	namespace input
 	{
-		namespace gamepad
+		class Gamepad
 		{
+		public:
 			///
-			/// Check if a gamepad is available.
+			/// Index constructor.
 			///
 			/// \param gamepad The gamepad index.
+			///
+			Gamepad(const int gamepad) noexcept;
+
+			///
+			/// Destructor.
+			///
+			~Gamepad() noexcept;
+
+			///
+			/// Check if a gamepad is available.
 			///
 			/// \return True if the gamepad is available, false otherwise.
 			///
 			[[nodiscard]]
-			bool is_gamepad_available(const int gamepad);
+			bool is_gamepad_available() const noexcept;
 
 			///
 			/// Get gamepad internal name id.
 			///
-			/// \param gamepad The gamepad index.
-			///
 			/// \return The name of the gamepad.
 			///
 			[[nodiscard]]
-			std::string get_gamepad_name(const int gamepad);
+			std::string get_gamepad_name() noexcept;
 
 			///
 			/// Check if a gamepad button has been pressed once.
 			///
-			/// \param gamepad The gamepad index.
 			/// \param button The button index.
 			///
 			/// \return True if the gamepad button has been pressed once, false otherwise.
 			///
 			[[nodiscard]]
-			bool is_gamepad_button_pressed(const int gamepad, const GamepadButton button);
+			bool is_gamepad_button_pressed(const ray::GamepadButton button) const noexcept;
 
 			///
 			/// Check if a gamepad button is being pressed.
 			///
-			/// \param gamepad The gamepad index.
 			/// \param button The button index.
 			///
 			/// \return True if the gamepad button is being pressed, false otherwise.
 			///
 			[[nodiscard]]
-			bool is_gamepad_button_down(const int gamepad, const GamepadButton button);
+			bool is_gamepad_button_down(const ray::GamepadButton button) const noexcept;
 
 			///
 			/// Check if a gamepad button has been released once.
 			///
-			/// \param gamepad The gamepad index.
 			/// \param button The button index.
 			///
 			/// \return True if the gamepad button has been released once, false otherwise.
 			///
 			[[nodiscard]]
-			bool is_gamepad_button_released(const int gamepad, const GamepadButton button);
+			bool is_gamepad_button_released(const ray::GamepadButton button) const noexcept;
 
 			///
 			/// Check if a gamepad button is NOT being pressed.
 			///
-			/// \param gamepad The gamepad index.
 			/// \param button The button index.
 			///
 			/// \return True if the gamepad button is NOT being pressed, false otherwise.
 			///
 			[[nodiscard]]
-			bool is_gamepad_button_up(const int gamepad, const GamepadButton button);
+			bool is_gamepad_button_up(const ray::GamepadButton button) const noexcept;
 
 			///
 			/// Get the last gamepad button pressed.
@@ -88,28 +93,25 @@ namespace galaxy
 			/// \return The index of the last gamepad button pressed.
 			///
 			[[nodiscard]]
-			int get_gamepad_button_pressed();
+			int get_gamepad_button_pressed() const noexcept;
 
 			///
 			/// Get gamepad axis count for a gamepad.
 			///
-			/// \param gamepad The gamepad index.
-			///
 			/// \return The number of axes for the gamepad.
 			///
 			[[nodiscard]]
-			int get_gamepad_axis_count(const int gamepad);
+			int get_gamepad_axis_count() const noexcept;
 
 			///
 			/// Get axis movement value for a gamepad axis.
 			///
-			/// \param gamepad The gamepad index.
 			/// \param axis The axis index.
 			///
 			/// \return The movement value for the specified axis.
 			///
 			[[nodiscard]]
-			float get_gamepad_axis_movement(const int gamepad, const GamepadAxis axis);
+			float get_gamepad_axis_movement(const ray::GamepadAxis axis) const noexcept;
 
 			///
 			/// Set internal gamepad mappings (SDL_GameControllerDB).
@@ -119,19 +121,29 @@ namespace galaxy
 			/// \return 0 on success, -1 on failure.
 			///
 			[[nodiscard]]
-			int set_gamepad_mappings(const std::string& mappings);
+			int set_gamepad_mappings(const std::string& mappings) noexcept;
 
 			///
 			/// Set gamepad vibration for both motors (duration in seconds).
 			///
-			/// \param gamepad The gamepad index.
 			/// \param left_motor The intensity of the left motor vibration.
 			/// \param right_motor The intensity of the right motor vibration.
 			/// \param duration The duration of the vibration in seconds.
 			///
-			void set_gamepad_vibration(const int gamepad, const float left_motor, const float right_motor, const float duration);
+			void set_gamepad_vibration(const float left_motor, const float right_motor, const float duration) const noexcept;
 
-		} // namespace gamepad
+		private:
+			///
+			/// Constructor.
+			///
+			Gamepad() = delete;
+
+		private:
+			///
+			/// The gamepad index.
+			///
+			int m_gamepad;
+		};
 	} // namespace input
 } // namespace galaxy
 

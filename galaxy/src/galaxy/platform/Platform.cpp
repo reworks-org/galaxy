@@ -13,14 +13,14 @@ namespace galaxy
 {
 	namespace platform
 	{
-		void take_screenshot(const std::string& file)
+		void take_screenshot(const std::string& file) noexcept
 		{
-			TakeScreenshot(file.c_str());
+			::TakeScreenshot(file.c_str());
 		}
 
-		void open_url(const std::string& url)
+		void open_url(const std::string& url) noexcept
 		{
-			OpenURL(url.c_str());
+			::OpenURL(url.c_str());
 		}
 	} // namespace platform
 } // namespace galaxy

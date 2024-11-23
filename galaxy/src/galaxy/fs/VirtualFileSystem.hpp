@@ -99,7 +99,7 @@ namespace galaxy
 			///
 			/// \param dir Directory(s) to create.
 			///
-			void mkdir(const std::string& dir);
+			void mkdir(const std::string& dir) noexcept;
 
 			///
 			/// \brief Delete a file or folder.
@@ -108,7 +108,7 @@ namespace galaxy
 			///
 			/// \param path File or folder to delete.
 			///
-			void remove(const std::string& path);
+			void remove(const std::string& path) noexcept;
 
 			///
 			/// Does the file exist in the vfs.
@@ -118,7 +118,7 @@ namespace galaxy
 			/// \return True if file exists.
 			///
 			[[nodiscard]]
-			bool exists(const std::string& file);
+			bool exists(const std::string& file) noexcept;
 
 			///
 			/// Checks if a file is a folder.
@@ -128,7 +128,7 @@ namespace galaxy
 			/// \return True if directory.
 			///
 			[[nodiscard]]
-			bool is_dir(const std::string& path);
+			bool is_dir(const std::string& path) noexcept;
 
 			///
 			/// Get assets in an asset folder.
@@ -143,7 +143,7 @@ namespace galaxy
 			///
 			/// Trigger a standard filesystem audio alert.
 			///
-			void alert();
+			void alert() noexcept;
 
 			///
 			/// Trigger a system notification.
@@ -152,7 +152,7 @@ namespace galaxy
 			/// \param msg Body text of notification.
 			/// \param icon Icon to display alongside text.
 			///
-			void notification(const std::string& title, const std::string& msg, const DialogIcon icon);
+			void notification(const std::string& title, const std::string& msg, const DialogIcon icon) noexcept;
 
 			///
 			/// Opens a platform specific message box.
@@ -166,7 +166,7 @@ namespace galaxy
 			/// \return Integer with outcome. 0 for cancel/no , 1 for ok/yes , 2 for no in yesnocancel.
 			///
 			[[nodiscard]]
-			int message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn);
+			int message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn) noexcept;
 
 			///
 			/// Opens a platform specific text input box.
@@ -179,7 +179,7 @@ namespace galaxy
 			/// \return Input as a string.
 			///
 			[[nodiscard]]
-			std::string input_box(const std::string& title, const std::string& msg, const std::string& default_text = "", const bool password = false);
+			std::string input_box(const std::string& title, const std::string& msg, const std::string& default_text = "", const bool password = false) noexcept;
 
 			///
 			/// Open a save file dialog.
@@ -221,7 +221,7 @@ namespace galaxy
 			/// \return File extension, including dot.
 			///
 			[[nodiscard]]
-			std::string get_file_extension(const std::string& file_name);
+			std::string get_file_extension(const std::string& file_name) noexcept;
 
 			///
 			/// Get the last write time of a file.
@@ -231,7 +231,7 @@ namespace galaxy
 			/// \return Last write time as a timestamp (long).
 			///
 			[[nodiscard]]
-			long get_file_last_write_time(const std::string& file);
+			long get_file_last_write_time(const std::string& file) noexcept;
 
 		private:
 			///

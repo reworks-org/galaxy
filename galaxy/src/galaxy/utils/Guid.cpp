@@ -40,12 +40,12 @@ namespace galaxy
 			}
 		}
 
-		Guid::Guid(Guid&& g)
+		Guid::Guid(Guid&& g) noexcept
 		{
 			this->m_id = std::move(g.m_id);
 		}
 
-		Guid& Guid::operator=(Guid&& g)
+		Guid& Guid::operator=(Guid&& g) noexcept
 		{
 			if (this != &g)
 			{
@@ -55,12 +55,12 @@ namespace galaxy
 			return *this;
 		}
 
-		Guid::Guid(const Guid& g)
+		Guid::Guid(const Guid& g) noexcept
 		{
 			this->m_id = g.m_id;
 		}
 
-		Guid& Guid::operator=(const Guid& g)
+		Guid& Guid::operator=(const Guid& g) noexcept
 		{
 			if (this != &g)
 			{
@@ -70,26 +70,26 @@ namespace galaxy
 			return *this;
 		}
 
-		Guid::~Guid()
+		Guid::~Guid() noexcept
 		{
 		}
 
-		const std::string& Guid::to_string() const
+		const std::string& Guid::to_string() const noexcept
 		{
 			return m_id;
 		}
 
-		bool Guid::is_empty() const
+		bool Guid::is_empty() const noexcept
 		{
 			return m_id.empty();
 		}
 
-		bool Guid::operator==(const Guid& rhs)
+		bool Guid::operator==(const Guid& rhs) noexcept
 		{
 			return m_id == rhs.m_id;
 		}
 
-		bool Guid::operator!=(const Guid& rhs)
+		bool Guid::operator!=(const Guid& rhs) noexcept
 		{
 			return !operator==(rhs);
 		}

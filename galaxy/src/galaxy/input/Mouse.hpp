@@ -8,7 +8,7 @@
 #ifndef GALAXY_INPUT_MOUSE_HPP_
 #define GALAXY_INPUT_MOUSE_HPP_
 
-#include <raylib.h>
+#include "galaxy/math/Vector2.hpp"
 
 namespace galaxy
 {
@@ -24,7 +24,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_mouse_button_pressed(const MouseButton button);
+			bool is_mouse_button_pressed(const ray::MouseButton button) noexcept;
 
 			///
 			/// Check if a mouse button has been released once.
@@ -34,7 +34,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_mouse_button_released(const MouseButton button);
+			bool is_mouse_button_released(const ray::MouseButton button) noexcept;
 
 			///
 			/// Check if a mouse button is being pressed.
@@ -44,7 +44,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_mouse_button_down(const MouseButton button);
+			bool is_mouse_button_down(const ray::MouseButton button) noexcept;
 
 			///
 			/// Check if a mouse button is NOT being pressed.
@@ -54,7 +54,7 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_mouse_button_up(const MouseButton button);
+			bool is_mouse_button_up(const ray::MouseButton button) noexcept;
 
 			///
 			/// Get mouse position X.
@@ -62,7 +62,7 @@ namespace galaxy
 			/// \return Int.
 			///
 			[[nodiscard]]
-			int get_mouse_x();
+			int get_mouse_x() noexcept;
 
 			///
 			//// Get mouse position Y.
@@ -70,7 +70,7 @@ namespace galaxy
 			/// \return Int.
 			///
 			[[nodiscard]]
-			int get_mouse_y();
+			int get_mouse_y() noexcept;
 
 			///
 			/// Get mouse position XY.
@@ -78,7 +78,7 @@ namespace galaxy
 			/// \return Vec2.
 			///
 			[[nodiscard]]
-			Vector2 get_mouse_position();
+			math::Vector2 get_mouse_position() noexcept;
 
 			///
 			/// Get mouse delta between frames.
@@ -86,7 +86,7 @@ namespace galaxy
 			/// \return Vec2.
 			///
 			[[nodiscard]]
-			Vector2 get_mouse_delta();
+			math::Vector2 get_mouse_delta() noexcept;
 
 			///
 			/// Get mouse wheel movement for X or Y, whichever is larger.
@@ -94,7 +94,7 @@ namespace galaxy
 			/// \return Float.
 			///
 			[[nodiscard]]
-			float get_mouse_wheel_move();
+			float get_mouse_wheel_move() noexcept;
 
 			///
 			/// Get mouse wheel movement for both X and Y.
@@ -102,7 +102,7 @@ namespace galaxy
 			/// \return Vec2.
 			///
 			[[nodiscard]]
-			Vector2 get_mouse_wheel_move_v();
+			math::Vector2 get_mouse_wheel_move_v() noexcept;
 		} // namespace mouse
 	} // namespace input
 } // namespace galaxy

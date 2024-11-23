@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <raylib.h>
+#include <raylib.hpp>
 
 #include "galaxy/logging/Log.hpp"
 
@@ -40,16 +40,16 @@ namespace galaxy
 
 			switch (level)
 			{
-				case LOG_INFO:
+				case ray::TraceLogLevel::LOG_INFO:
 					GALAXY_LOG(GALAXY_INFO, result);
 					break;
-				case LOG_ERROR:
+				case ray::TraceLogLevel::LOG_ERROR:
 					GALAXY_LOG(GALAXY_ERROR, result);
 					break;
-				case LOG_WARNING:
+				case ray::TraceLogLevel::LOG_WARNING:
 					GALAXY_LOG(GALAXY_WARNING, result);
 					break;
-				case LOG_DEBUG:
+				case ray::TraceLogLevel::LOG_DEBUG:
 					GALAXY_LOG(GALAXY_DEBUG, result);
 					break;
 				default:

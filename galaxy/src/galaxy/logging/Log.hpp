@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			~Log();
+			~Log() noexcept;
 
 			///
 			/// Retrieve log instance.
@@ -51,12 +51,12 @@ namespace galaxy
 			/// \return Returns static reference to Log class.
 			///
 			[[nodiscard]]
-			static Log& ref();
+			static Log& ref() noexcept;
 
 			///
 			/// Cleanup any static resources.
 			///
-			void finish();
+			void finish() noexcept;
 
 			///
 			/// Add a sink to log to.
@@ -80,7 +80,7 @@ namespace galaxy
 			/// \tparam level Must be a LogLevel enum value.
 			///
 			template<LogLevel level>
-			void set_min_level();
+			void set_min_level() noexcept;
 
 			///
 			/// Log a message.
@@ -99,7 +99,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Log();
+			Log() noexcept;
 
 			///
 			/// Copy constructor.
@@ -142,7 +142,7 @@ namespace galaxy
 		}
 
 		template<LogLevel level>
-		inline void Log::set_min_level()
+		inline void Log::set_min_level() noexcept
 		{
 			m_min_level = level;
 		}

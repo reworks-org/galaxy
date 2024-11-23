@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace platform
 	{
-		void configure_terminal() const
+		void configure_terminal() const noexcept
 		{
 			// This function is stubbed on unix systems.
 			return;

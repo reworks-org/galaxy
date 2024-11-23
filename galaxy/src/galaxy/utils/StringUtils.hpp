@@ -9,6 +9,8 @@
 #define GALAXY_UTILS_STRINGUTILS_HPP_
 
 #include <string_view>
+#include <string>
+#include <vector>
 
 namespace galaxy
 {

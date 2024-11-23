@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace platform
 	{
-		Subprocess::Subprocess()
+		Subprocess::Subprocess() noexcept
 			: m_process {nullptr}
 		{
 		}
@@ -24,7 +24,7 @@ namespace galaxy
 			create(process, args);
 		}
 
-		Subprocess::~Subprocess()
+		Subprocess::~Subprocess() noexcept
 		{
 			terminate();
 		}
@@ -49,7 +49,7 @@ namespace galaxy
 			}
 		}
 
-		int Subprocess::join()
+		int Subprocess::join() noexcept
 		{
 			if (alive())
 			{
@@ -65,7 +65,7 @@ namespace galaxy
 			return -1;
 		}
 
-		void Subprocess::terminate()
+		void Subprocess::terminate() noexcept
 		{
 			if (alive())
 			{
@@ -76,7 +76,7 @@ namespace galaxy
 			}
 		}
 
-		void Subprocess::destroy()
+		void Subprocess::destroy() noexcept
 		{
 			if (alive())
 			{
@@ -87,7 +87,7 @@ namespace galaxy
 			}
 		}
 
-		bool Subprocess::alive()
+		bool Subprocess::alive() noexcept
 		{
 			return subprocess_alive(&m_process) != 0 ? true : false;
 		}

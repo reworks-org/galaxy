@@ -48,7 +48,7 @@ namespace galaxy
 		config.save();
 	}
 
-	void settings::set_settings_from_config(core::Config& config)
+	auto settings::set_settings_from_config(core::Config& config) -> void
 	{
 		s_flag_bitset_count = config.get<int>("flag_bitset_count", "misc");
 
@@ -85,177 +85,177 @@ namespace galaxy
 		s_assets_ui        = config.get<std::string>("assets_ui", "fs");
 	}
 
-	auto settings::set_delta_time(const double dt) -> void
+	auto settings::set_delta_time(const double dt) noexcept -> void
 	{
 		s_delta_time = dt;
 	}
 
-	auto settings::dt() -> double
+	auto settings::dt() noexcept -> double
 	{
 		return s_delta_time;
 	}
 
-	auto settings::flag_bitset_count() -> int
+	auto settings::flag_bitset_count() noexcept -> int
 	{
 		return s_flag_bitset_count;
 	}
 
-	auto settings::exit_success() -> int
+	auto settings::exit_success() noexcept -> int
 	{
 		return 0;
 	}
 
-	auto settings::exit_failure() -> int
+	auto settings::exit_failure() noexcept -> int
 	{
 		return 1;
 	}
 
-	auto settings::world_to_box2d() -> float
+	auto settings::world_to_box2d() noexcept -> float
 	{
 		return s_world_to_box2d;
 	}
 
-	auto settings::box2d_to_world() -> float
+	auto settings::box2d_to_world() noexcept -> float
 	{
 		return s_box2d_to_world;
 	}
 
-	auto settings::window_width() -> int
+	auto settings::window_width() noexcept -> int
 	{
 		return s_window_width;
 	}
 
-	auto settings::window_height() -> int
+	auto settings::window_height() noexcept -> int
 	{
 		return s_window_height;
 	}
 
-	auto settings::window_title() -> const std::string&
+	auto settings::window_title() noexcept -> const std::string&
 	{
 		return s_title;
 	}
 
-	auto settings::screenmode() -> graphics::ScreenMode
+	auto settings::screenmode() noexcept -> graphics::ScreenMode
 	{
 		return s_screenmode;
 	}
 
-	auto settings::vsync() -> bool
+	auto settings::vsync() noexcept -> bool
 	{
 		return s_vsync;
 	}
 
-	auto settings::mouse_visible() -> bool
+	auto settings::mouse_visible() noexcept -> bool
 	{
 		return s_mouse_visible;
 	}
 
-	auto settings::msaa() -> bool
+	auto settings::msaa() noexcept -> bool
 	{
 		return s_msaa;
 	}
 
-	auto settings::highdpi() -> bool
+	auto settings::highdpi() noexcept -> bool
 	{
 		return s_highdpi;
 	}
 
-	auto settings::window_icon() -> const std::string&
+	auto settings::window_icon() noexcept -> const std::string&
 	{
 		return s_icon;
 	}
 
-	auto settings::cursor_icon() -> const std::string&
+	auto settings::cursor_icon() noexcept -> const std::string&
 	{
 		return s_cursor_icon;
 	}
 
-	auto settings::ups() -> double
+	auto settings::ups() noexcept -> double
 	{
 		return s_ups;
 	}
 
-	auto settings::root_dir() -> std::filesystem::path
+	auto settings::root_dir() noexcept -> std::filesystem::path
 	{
 		return std::filesystem::current_path();
 	}
 
-	auto settings::assets_dir() -> std::filesystem::path
+	auto settings::assets_dir() noexcept -> std::filesystem::path
 	{
 		return s_assets_dir;
 	}
 
-	auto settings::editor_dir() -> std::filesystem::path
+	auto settings::editor_dir() noexcept -> std::filesystem::path
 	{
 		return s_editor_dir;
 	}
 
-	auto settings::asset_pack() -> const std::string&
+	auto settings::asset_pack() noexcept -> const std::string&
 	{
 		return s_asset_pack;
 	}
 
-	auto settings::use_loose_assets() -> bool
+	auto settings::use_loose_assets() noexcept -> bool
 	{
 		return s_use_loose_assets;
 	}
 
-	auto settings::assets_dir_music() -> const std::string&
+	auto settings::assets_dir_music() noexcept -> const std::string&
 	{
 		return s_assets_music;
 	}
 
-	auto settings::assets_dir_sfx() -> const std::string&
+	auto settings::assets_dir_sfx() noexcept -> const std::string&
 	{
 		return s_assets_sfx;
 	}
 
-	auto settings::assets_dir_voice() -> const std::string&
+	auto settings::assets_dir_voice() noexcept -> const std::string&
 	{
 		return s_assets_voice;
 	}
 
-	auto settings::assets_dir_font() -> const std::string&
+	auto settings::assets_dir_font() noexcept -> const std::string&
 	{
 		return s_assets_font;
 	}
 
-	auto settings::assets_dir_script() -> const std::string&
+	auto settings::assets_dir_script() noexcept -> const std::string&
 	{
 		return s_assets_script;
 	}
 
-	auto settings::assets_dir_shaders() -> const std::string&
+	auto settings::assets_dir_shaders() noexcept -> const std::string&
 	{
 		return s_assets_shaders;
 	}
 
-	auto settings::assets_dir_animation() -> const std::string&
+	auto settings::assets_dir_animation() noexcept -> const std::string&
 	{
 		return s_assets_animation;
 	}
 
-	auto settings::assets_dir_texture() -> const std::string&
+	auto settings::assets_dir_texture() noexcept -> const std::string&
 	{
 		return s_assets_texture;
 	}
 
-	auto settings::assets_dir_prefabs() -> const std::string&
+	auto settings::assets_dir_prefabs() noexcept -> const std::string&
 	{
 		return s_assets_prefabs;
 	}
 
-	auto settings::assets_dir_maps() -> const std::string&
+	auto settings::assets_dir_maps() noexcept -> const std::string&
 	{
 		return s_assets_maps;
 	}
 
-	auto settings::assets_dir_video() -> const std::string&
+	auto settings::assets_dir_video() noexcept -> const std::string&
 	{
 		return s_assets_video;
 	}
 
-	auto settings::assets_dir_ui() -> const std::string&
+	auto settings::assets_dir_ui() noexcept -> const std::string&
 	{
 		return s_assets_ui;
 	}

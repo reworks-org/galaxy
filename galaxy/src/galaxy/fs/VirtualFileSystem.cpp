@@ -80,22 +80,22 @@ namespace galaxy
 				const auto merged = settings::root_dir() / settings::editor_dir();
 				logging::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
 
-				SetLoadFileDataCallback([](const char* fileName, int* dataSize) -> unsigned char* {
+				::SetLoadFileDataCallback([](const char* fileName, int* dataSize) -> unsigned char* {
 					auto& fs = entt::locator<VirtualFileSystem>::value();
 					return fs.read_binary(fileName).data();
 				});
 
-				SetSaveFileDataCallback([](const char* fileName, void* data, int dataSize) -> bool {
+				::SetSaveFileDataCallback([](const char* fileName, void* data, int dataSize) -> bool {
 					auto& fs = entt::locator<VirtualFileSystem>::value();
 					return fs.write_raw(data, dataSize, fileName);
 				});
 
-				SetLoadFileTextCallback([](const char* fileName) -> char* {
+				::SetLoadFileTextCallback([](const char* fileName) -> char* {
 					auto& fs = entt::locator<VirtualFileSystem>::value();
 					return fs.read(fileName).data();
 				});
 
-				SetSaveFileTextCallback([](const char* fileName, char* text) -> bool {
+				::SetSaveFileTextCallback([](const char* fileName, char* text) -> bool {
 					auto& fs = entt::locator<VirtualFileSystem>::value();
 					return fs.write(text, fileName);
 				});
@@ -221,7 +221,7 @@ namespace galaxy
 			return false;
 		}
 
-		void VirtualFileSystem::mkdir(const std::string& dir)
+		void VirtualFileSystem::mkdir(const std::string& dir) noexcept
 		{
 			if (!exists(dir))
 			{
@@ -229,17 +229,17 @@ namespace galaxy
 			}
 		}
 
-		void VirtualFileSystem::remove(const std::string& path)
+		void VirtualFileSystem::remove(const std::string& path) noexcept
 		{
 			logging::physfs_check(PHYSFS_delete(path.c_str()));
 		}
 
-		bool VirtualFileSystem::exists(const std::string& file)
+		bool VirtualFileSystem::exists(const std::string& file) noexcept
 		{
 			return PHYSFS_exists(file.c_str());
 		}
 
-		bool VirtualFileSystem::is_dir(const std::string& path)
+		bool VirtualFileSystem::is_dir(const std::string& path) noexcept
 		{
 			return PHYSFS_isDirectory(path.c_str());
 		}
@@ -268,18 +268,18 @@ namespace galaxy
 			return list;
 		}
 
-		void VirtualFileSystem::alert()
+		void VirtualFileSystem::alert() noexcept
 		{
 			tinyfd_beep();
 		}
 
-		void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const DialogIcon icon)
+		void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const DialogIcon icon) noexcept
 		{
 			std::string tinyfd_icon {magic_enum::enum_name(icon)};
 			tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
 		}
 
-		int VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn)
+		int VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn) noexcept
 		{
 			std::string tinyfd_type {magic_enum::enum_name(type)};
 			std::string tinyfd_icon {magic_enum::enum_name(icon)};
@@ -287,7 +287,7 @@ namespace galaxy
 			return tinyfd_messageBox(title.c_str(), msg.c_str(), tinyfd_type.c_str(), tinyfd_icon.c_str(), static_cast<int>(btn));
 		}
 
-		std::string VirtualFileSystem::input_box(const std::string& title, const std::string& msg, const std::string& default_text, const bool password)
+		std::string VirtualFileSystem::input_box(const std::string& title, const std::string& msg, const std::string& default_text, const bool password) noexcept
 		{
 			const char* dt = password ? nullptr : default_text.c_str();
 			return tinyfd_inputBox(title.c_str(), msg.c_str(), dt);
@@ -340,15 +340,15 @@ namespace galaxy
 			}
 		}
 
-		std::string VirtualFileSystem::get_file_extension(const std::string& file_name)
+		std::string VirtualFileSystem::get_file_extension(const std::string& file_name) noexcept
 		{
-			const char* ext = GetFileExtension(file_name.c_str());
+			const char* ext = ::GetFileExtension(file_name.c_str());
 			return {ext};
 		}
 
-		long VirtualFileSystem::get_file_last_write_time(const std::string& file)
+		long VirtualFileSystem::get_file_last_write_time(const std::string& file) noexcept
 		{
-			return GetFileModTime(file.c_str());
+			return ::GetFileModTime(file.c_str());
 		}
 	} // namespace fs
 } // namespace galaxy

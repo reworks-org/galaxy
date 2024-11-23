@@ -11,62 +11,68 @@ namespace galaxy
 {
 	namespace input
 	{
-		namespace gamepad
+		Gamepad::Gamepad(const int gamepad) noexcept
+			: m_gamepad(gamepad)
 		{
-			bool is_gamepad_available(const int gamepad)
-			{
-				return IsGamepadAvailable(gamepad);
-			}
+		}
 
-			std::string get_gamepad_name(const int gamepad)
-			{
-				return {GetGamepadName(gamepad)};
-			}
+		Gamepad::~Gamepad() noexcept
+		{
+		}
 
-			bool is_gamepad_button_pressed(const int gamepad, const GamepadButton button)
-			{
-				return IsGamepadButtonPressed(gamepad, button);
-			}
+		bool Gamepad::is_gamepad_available() const noexcept
+		{
+			return ::IsGamepadAvailable(m_gamepad);
+		}
 
-			bool is_gamepad_button_down(const int gamepad, const GamepadButton button)
-			{
-				return IsGamepadButtonDown(gamepad, button);
-			}
+		std::string Gamepad::get_gamepad_name() noexcept
+		{
+			return {::GetGamepadName(m_gamepad)};
+		}
 
-			bool is_gamepad_button_released(const int gamepad, const GamepadButton button)
-			{
-				return IsGamepadButtonReleased(gamepad, button);
-			}
+		bool Gamepad::is_gamepad_button_pressed(const ray::GamepadButton button) const noexcept
+		{
+			return ::IsGamepadButtonPressed(m_gamepad, button);
+		}
 
-			bool is_gamepad_button_up(const int gamepad, const GamepadButton button)
-			{
-				return IsGamepadButtonUp(gamepad, button);
-			}
+		bool Gamepad::is_gamepad_button_down(const ray::GamepadButton button) const noexcept
+		{
+			return ::IsGamepadButtonDown(m_gamepad, button);
+		}
 
-			int get_gamepad_button_pressed()
-			{
-				return GetGamepadButtonPressed();
-			}
+		bool Gamepad::is_gamepad_button_released(const ray::GamepadButton button) const noexcept
+		{
+			return ::IsGamepadButtonReleased(m_gamepad, button);
+		}
 
-			int get_gamepad_axis_count(const int gamepad)
-			{
-				return GetGamepadAxisCount(gamepad);
-			}
+		bool Gamepad::is_gamepad_button_up(const ray::GamepadButton button) const noexcept
+		{
+			return ::IsGamepadButtonUp(m_gamepad, button);
+		}
 
-			float get_gamepad_axis_movement(const int gamepad, const GamepadAxis axis)
-			{
-				return GetGamepadAxisMovement(gamepad, axis);
-			}
+		int Gamepad::get_gamepad_button_pressed() const noexcept
+		{
+			return ::GetGamepadButtonPressed();
+		}
 
-			int set_gamepad_mappings(const std::string& mappings)
-			{
-				return SetGamepadMappings(mappings.c_str());
-			}
+		int Gamepad::get_gamepad_axis_count() const noexcept
+		{
+			return ::GetGamepadAxisCount(m_gamepad);
+		}
 
-			void set_gamepad_vibration(const int gamepad, const float left_motor, const float right_motor, const float duration)
-			{
-				SetGamepadVibration(gamepad, left_motor, right_motor, duration);
-			}
-		} // namespace gamepad
+		float Gamepad::get_gamepad_axis_movement(const ray::GamepadAxis axis) const noexcept
+		{
+			return ::GetGamepadAxisMovement(m_gamepad, axis);
+		}
+
+		int Gamepad::set_gamepad_mappings(const std::string& mappings) noexcept
+		{
+			return ::SetGamepadMappings(mappings.c_str());
+		}
+
+		void Gamepad::set_gamepad_vibration(const float left_motor, const float right_motor, const float duration) const noexcept
+		{
+			::SetGamepadVibration(m_gamepad, left_motor, right_motor, duration);
+		}
 	} // namespace input
 } // namespace galaxy

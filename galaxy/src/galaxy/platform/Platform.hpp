@@ -25,14 +25,14 @@ namespace galaxy
 		///
 		/// \param file File to save to. Extension defines format.
 		///
-		void take_screenshot(const std::string& file);
+		void take_screenshot(const std::string& file) noexcept;
 
 		///
 		/// Open URL with default system browser (if available)
 		///
 		/// \param url Url to open in browser.
 		///
-		void open_url(const std::string& url);
+		void open_url(const std::string& url) noexcept;
 	} // namespace platform
 } // namespace galaxy
 

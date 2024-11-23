@@ -19,7 +19,7 @@ namespace galaxy
 			std::size_t start = 0;
 			std::size_t end   = 0;
 
-			meta::vector<std::string> splits;
+			std::vector<std::string> splits;
 			while ((start = input.find_first_not_of(delim, end)) != std::string::npos)
 			{
 				end = input.find(delim, start);

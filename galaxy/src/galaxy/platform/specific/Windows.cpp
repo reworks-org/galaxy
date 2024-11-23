@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace platform
 	{
-		void configure_terminal()
+		void configure_terminal() noexcept
 		{
 			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 			DWORD  mode   = 0;

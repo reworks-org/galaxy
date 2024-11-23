@@ -8,7 +8,7 @@
 #ifndef GALAXY_INPUT_CURSOR_HPP_
 #define GALAXY_INPUT_CURSOR_HPP_
 
-#include <raylib.h>
+#include <raylib.hpp>
 
 namespace galaxy
 {
@@ -22,12 +22,12 @@ namespace galaxy
 			///
 			/// Show cursor.
 			///
-			void show();
+			void show() noexcept;
 
 			///
 			/// Hide cursor.
 			///
-			void hide();
+			void hide() noexcept;
 
 			///
 			/// Check if cursor is not visible.
@@ -35,17 +35,17 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool is_hidden();
+			bool is_hidden() noexcept;
 
 			///
 			/// Enables cursor (unlock cursor).
 			///
-			void enable();
+			void enable() noexcept;
 
 			///
 			/// Disables cursor (lock cursor).
 			///
-			void disable();
+			void disable() noexcept;
 
 			///
 			/// Check if cursor is on the screen.
@@ -53,14 +53,14 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool on_screen();
+			bool on_screen() noexcept;
 
 			///
 			/// Set mouse cursor to a OS provided cursor.
 			///
 			/// \param cursor MouseCursor enum from available in OS.
 			///
-			void set(const MouseCursor cursor);
+			void set(const ray::MouseCursor cursor) noexcept;
 		} // namespace cursor
 	} // namespace input
 } // namespace galaxy

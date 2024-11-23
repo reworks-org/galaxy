@@ -506,45 +506,6 @@ module: raudio →
     void AttachAudioMixedProcessor(AudioCallback processor); // Attach audio stream processor to the entire audio pipeline, receives the samples as 'float'
     void DetachAudioMixedProcessor(AudioCallback processor); // Detach audio stream processor from the entire audio pipeline
 
-module: raymath
-
-
-    // Utils math
-    float Clamp(float value, float min, float max);                             // Function specifiers definition Defines and Macros Get float vector for Matrix Get float vector for Vector3 Types and Structures Definition Vector2 type Vector3 type Vector4 type Quaternion type Matrix type (OpenGL style 4x4 - right handed, column major) NOTE: Helper types to be used instead of array return types for *ToFloat functions Clamp float value
-    float Lerp(float start, float end, float amount);                           // Calculate linear interpolation between two floats
-    float Normalize(float value, float start, float end);                       // Normalize input value within input range
-    float Remap(float value, float inputStart, float inputEnd, float outputStart, float outputEnd); // Remap input value within input range to output range
-    float Wrap(float value, float min, float max);                              // Wrap input value from min to max
-    int FloatEquals(float x, float y);                                          // Check whether two given floats are almost equal
-
-    // Vector2 math
-    Vector2 Vector2Zero(void);                                                  // Vector with components value 0.0f
-    Vector2 Vector2One(void);                                                   // Vector with components value 1.0f
-    Vector2 Vector2Add(Vector2 v1, Vector2 v2);                                 // Add two vectors (v1 + v2)
-    Vector2 Vector2AddValue(Vector2 v, float add);                              // Add vector and float value
-    Vector2 Vector2Subtract(Vector2 v1, Vector2 v2);                            // Subtract two vectors (v1 - v2)
-    Vector2 Vector2SubtractValue(Vector2 v, float sub);                         // Subtract vector by float value
-    float Vector2Length(Vector2 v);                                             // Calculate vector length
-    float Vector2LengthSqr(Vector2 v);                                          // Calculate vector square length
-    float Vector2DotProduct(Vector2 v1, Vector2 v2);                            // Calculate two vectors dot product
-    float Vector2Distance(Vector2 v1, Vector2 v2);                              // Calculate distance between two vectors
-    float Vector2DistanceSqr(Vector2 v1, Vector2 v2);                           // Calculate square distance between two vectors
-    float Vector2Angle(Vector2 v1, Vector2 v2);                                 // Calculate angle from two vectors
-    Vector2 Vector2Scale(Vector2 v, float scale);                               // Scale vector (multiply by value)
-    Vector2 Vector2Multiply(Vector2 v1, Vector2 v2);                            // Multiply vector by vector
-    Vector2 Vector2Negate(Vector2 v);                                           // Negate vector
-    Vector2 Vector2Divide(Vector2 v1, Vector2 v2);                              // Divide vector by vector
-    Vector2 Vector2Normalize(Vector2 v);                                        // Normalize provided vector
-    Vector2 Vector2Transform(Vector2 v, Matrix mat);                            // Transforms a Vector2 by a given Matrix
-    Vector2 Vector2Lerp(Vector2 v1, Vector2 v2, float amount);                  // Calculate linear interpolation between two vectors
-    Vector2 Vector2Reflect(Vector2 v, Vector2 normal);                          // Calculate reflected vector to normal
-    Vector2 Vector2Rotate(Vector2 v, float angle);                              // Rotate vector by angle
-    Vector2 Vector2MoveTowards(Vector2 v, Vector2 target, float maxDistance);   // Move Vector towards target
-    Vector2 Vector2Invert(Vector2 v);                                           // Invert the given vector
-    Vector2 Vector2Clamp(Vector2 v, Vector2 min, Vector2 max);                  // Clamp the components of the vector between min and max values specified by the given vectors
-    Vector2 Vector2ClampValue(Vector2 v, float min, float max);                 // Clamp the magnitude of the vector between two min and max values
-    int Vector2Equals(Vector2 p, Vector2 q);                                    // Check whether two given vectors are almost equal
-
     // Vector3 math
     Vector3 Vector3Zero(void);                                                  // Vector with components value 0.0f
     Vector3 Vector3One(void);                                                   // Vector with components value 1.0f

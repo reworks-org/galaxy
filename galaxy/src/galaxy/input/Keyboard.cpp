@@ -13,42 +13,40 @@ namespace galaxy
 	{
 		namespace keyboard
 		{
-			bool is_key_pressed(const KeyboardKey key)
+			bool is_key_pressed(const ray::KeyboardKey key) noexcept
 			{
-				return IsKeyPressed(static_cast<int>(key));
+				return ::IsKeyPressed(static_cast<int>(key));
 			}
 
-			bool is_key_repeating(const KeyboardKey key)
+			bool is_key_repeating(const ray::KeyboardKey key) noexcept
 			{
-				return IsKeyPressedRepeat(static_cast<int>(key));
+				return ::IsKeyPressedRepeat(static_cast<int>(key));
 			}
 
-			bool is_key_released(const KeyboardKey key)
+			bool is_key_released(const ray::KeyboardKey key) noexcept
 			{
-				return IsKeyReleased(static_cast<int>(key));
+				return ::IsKeyReleased(static_cast<int>(key));
 			}
 
-			bool is_key_down(const KeyboardKey key)
+			bool is_key_down(const ray::KeyboardKey key) noexcept
 			{
-				return IsKeyDown(static_cast<int>(key));
+				return ::IsKeyDown(static_cast<int>(key));
 			}
 
-			bool is_key_up(const KeyboardKey key)
+			bool is_key_up(const ray::KeyboardKey key) noexcept
 			{
-				return IsKeyUp(static_cast<int>(key));
+				return ::IsKeyUp(static_cast<int>(key));
 			}
 
-			KeyboardKey get_key_pressed()
+			ray::KeyboardKey get_key_pressed() noexcept
 			{
-				return static_cast<KeyboardKey>(GetKeyPressed());
+				return static_cast<ray::KeyboardKey>(::GetKeyPressed());
 			}
 
-			KeyboardKey get_char_pressed()
+			ray::KeyboardKey get_char_pressed() noexcept
 			{
-				return static_cast<KeyboardKey>(GetCharPressed());
+				return static_cast<ray::KeyboardKey>(::GetCharPressed());
 			}
-
 		} // namespace keyboard
 	} // namespace input
 } // namespace galaxy
-
