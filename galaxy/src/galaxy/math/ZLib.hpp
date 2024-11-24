@@ -59,6 +59,7 @@ namespace galaxy
 			///
 			/// \return Compressed string.
 			///
+			[[nodiscard]]
 			std::string compress(const std::string& input);
 
 			///
@@ -66,6 +67,7 @@ namespace galaxy
 			///
 			/// \return Compressed string containing termination block.
 			///
+			[[nodiscard]]
 			std::string finish();
 
 			///
@@ -75,6 +77,7 @@ namespace galaxy
 			///
 			/// \return String containing decompressed data.
 			///
+			[[nodiscard]]
 			std::string decompress(const std::string& input);
 
 		private:

@@ -54,17 +54,17 @@ namespace galaxy
 				flags |= FLAG_WINDOW_HIGHDPI;
 			}
 
-			SetConfigFlags(flags);
-			InitWindow(settings::window_width(), settings::window_height(), settings::window_title().c_str());
-			DisableEventWaiting();
+			::SetConfigFlags(flags);
+			::InitWindow(settings::window_width(), settings::window_height(), settings::window_title().c_str());
+			::DisableEventWaiting();
 
 			if (settings::mouse_visible())
 			{
-				ShowCursor();
+				::ShowCursor();
 			}
 			else
 			{
-				HideCursor();
+				::HideCursor();
 			}
 
 			set_icon(settings::window_icon());
@@ -72,47 +72,47 @@ namespace galaxy
 
 		Window::~Window()
 		{
-			CloseWindow();
+			::CloseWindow();
 		}
 
 		void Window::poll_events()
 		{
-			PollInputEvents();
+			::PollInputEvents();
 		}
 
 		void Window::swap_buffers()
 		{
-			SwapScreenBuffer();
+			::SwapScreenBuffer();
 		}
 
 		void Window::focus()
 		{
-			SetWindowFocused();
+			::SetWindowFocused();
 		}
 
 		void Window::restore()
 		{
-			RestoreWindow();
+			::RestoreWindow();
 		}
 
 		void Window::minimize()
 		{
-			MinimizeWindow();
+			::MinimizeWindow();
 		}
 
 		void Window::maximize()
 		{
-			MaximizeWindow();
+			::MaximizeWindow();
 		}
 
 		void Window::toggle_fullscreen()
 		{
-			ToggleFullscreen();
+			::ToggleFullscreen();
 		}
 
 		void Window::toggle_borderless()
 		{
-			ToggleBorderlessWindowed();
+			::ToggleBorderlessWindowed();
 		}
 
 		void Window::set_icon(const std::string& icon)
@@ -122,10 +122,10 @@ namespace galaxy
 				auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
 				auto  data = fs.read_binary(icon);
 
-				const char* ext = GetFileExtension(icon.c_str());
-				Image       img = LoadImageFromMemory(ext, data.data(), data.size());
+				const char* ext = ::GetFileExtension(icon.c_str());
+				Image       img = ::LoadImageFromMemory(ext, data.data(), data.size());
 
-				SetWindowIcon(img);
+				::SetWindowIcon(img);
 			}
 			else
 			{
@@ -136,69 +136,69 @@ namespace galaxy
 		void Window::set_title(const std::string& title)
 		{
 			m_title = title;
-			SetWindowTitle(title.c_str());
+			::SetWindowTitle(title.c_str());
 		}
 
 		void Window::append_title(const std::string& append)
 		{
 			auto title = m_title + append;
-			SetWindowTitle(title.c_str());
+			::SetWindowTitle(title.c_str());
 		}
 
 		void Window::set_pos(const int x, int y)
 		{
-			SetWindowPosition(x, y);
+			::SetWindowPosition(x, y);
 		}
 
 		void Window::set_size(const int width, int height)
 		{
-			SetWindowSize(width, height);
+			::SetWindowSize(width, height);
 		}
 
 		bool Window::should_close() const
 		{
-			return WindowShouldClose();
+			return ::WindowShouldClose();
 		}
 
 		bool Window::is_fullscreen() const
 		{
-			return IsWindowFullscreen();
+			return ::IsWindowFullscreen();
 		}
 
 		bool Window::is_hidden() const
 		{
-			return IsWindowHidden();
+			return ::IsWindowHidden();
 		}
 
 		bool Window::is_minimized() const
 		{
-			return IsWindowMinimized();
+			return ::IsWindowMinimized();
 		}
 
 		bool Window::is_maximized() const
 		{
-			return IsWindowMaximized();
+			return ::IsWindowMaximized();
 		}
 
 		bool Window::is_focused() const
 		{
-			return IsWindowFocused();
+			return ::IsWindowFocused();
 		}
 
 		std::vector<std::string> Window::get_drop_paths() const
 		{
 			std::vector<std::string> paths;
 
-			if (IsFileDropped())
+			if (::IsFileDropped())
 			{
-				const auto dropped = LoadDroppedFiles();
+				const auto dropped = ::LoadDroppedFiles();
 
 				for (auto i = 0u; i < dropped.count; i++)
 				{
 					paths.push_back(dropped.paths[i]);
 				}
 
-				UnloadDroppedFiles(dropped);
+				::UnloadDroppedFiles(dropped);
 			}
 
 			return paths;
@@ -206,22 +206,22 @@ namespace galaxy
 
 		int Window::width() const
 		{
-			return GetScreenWidth();
+			return ::GetScreenWidth();
 		}
 
 		int Window::height() const
 		{
-			return GetScreenHeight();
+			return ::GetScreenHeight();
 		}
 
 		int Window::render_width() const
 		{
-			return GetRenderWidth();
+			return ::GetRenderWidth();
 		}
 
 		int Window::render_height() const
 		{
-			return GetRenderHeight();
+			return ::GetRenderHeight();
 		}
 	} // namespace core
 } // namespace galaxy

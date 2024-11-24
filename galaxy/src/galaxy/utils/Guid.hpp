@@ -8,7 +8,6 @@
 #ifndef GALAXY_UTILS_GUID_HPP_
 #define GALAXY_UTILS_GUID_HPP_
 
-#include <compare>
 #include <string>
 
 namespace galaxy
@@ -87,12 +86,6 @@ namespace galaxy
 			///
 			[[nodiscard]]
 			bool operator!=(const Guid& rhs) noexcept;
-
-			///
-			/// Comparison operator.
-			///
-			[[nodiscard]]
-			auto operator<=>(const Guid&) const noexcept = default;
 
 		private:
 			///
