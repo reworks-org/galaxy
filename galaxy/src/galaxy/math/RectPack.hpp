@@ -11,7 +11,7 @@
 #include <optional>
 #include <vector>
 
-#include <raylib.h>
+#include "galaxy/graphics/Rectangle.hpp"
 
 namespace galaxy
 {
@@ -53,7 +53,7 @@ namespace galaxy
 			///			Otherwise, returns a std::nullopt.
 			///
 			[[nodiscard]]
-			std::optional<Rectangle> pack(const int width, const int height);
+			std::optional<graphics::Rectangle> pack(const int width, const int height);
 
 			///
 			/// Clear all data.
@@ -82,7 +82,7 @@ namespace galaxy
 			/// \return Const meta::vector.
 			///
 			[[nodiscard]]
-			const std::vector<Rectangle>& get_free_space() const;
+			const std::vector<graphics::Rectangle>& get_free_space() const;
 
 		private:
 			///
@@ -98,7 +98,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			std::vector<Rectangle> m_free_rects;
+			std::vector<graphics::Rectangle> m_free_rects;
 		};
 	} // namespace math
 } // namespace galaxy

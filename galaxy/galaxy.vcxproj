@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
@@ -37,8 +38,13 @@
     <ClCompile Include="src\galaxy\math\Base64.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\math\Generic.cpp" />
+    <ClCompile Include="src\galaxy\math\Matrix.cpp" />
+    <ClCompile Include="src\galaxy\math\Quaternion.cpp" />
     <ClCompile Include="src\galaxy\math\Random.cpp" />
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\Vector2.cpp" />
+    <ClCompile Include="src\galaxy\math\Vector3.cpp" />
+    <ClCompile Include="src\galaxy\math\Vector4.cpp" />
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\async\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\Concepts.cpp" />
@@ -62,6 +68,7 @@
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
     <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
     <ClInclude Include="src\galaxy\input\Cursor.hpp" />
@@ -79,8 +86,13 @@
     <ClInclude Include="src\galaxy\math\Base64.hpp" />
     <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\math\Generic.hpp" />
+    <ClInclude Include="src\galaxy\math\Matrix.hpp" />
+    <ClInclude Include="src\galaxy\math\Quaternion.hpp" />
     <ClInclude Include="src\galaxy\math\Random.hpp" />
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\Vector2.hpp" />
+    <ClInclude Include="src\galaxy\math\Vector3.hpp" />
+    <ClInclude Include="src\galaxy\math\Vector4.hpp" />
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\async\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\Concepts.hpp" />

@@ -39,6 +39,14 @@
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\input\Gamepad.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\Vector2.cpp" />
+    <ClCompile Include="src\galaxy\math\Vector3.cpp" />
+    <ClCompile Include="src\galaxy\math\Vector4.cpp" />
+    <ClCompile Include="src\galaxy\math\Matrix.cpp" />
+    <ClCompile Include="src\galaxy\math\Quaternion.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -79,5 +87,13 @@
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\input\Gamepad.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\Vector2.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\Vector3.hpp" />
+    <ClInclude Include="src\galaxy\math\Vector4.hpp" />
+    <ClInclude Include="src\galaxy\math\Matrix.hpp" />
+    <ClInclude Include="src\galaxy\math\Quaternion.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
   </ItemGroup>
 </Project>

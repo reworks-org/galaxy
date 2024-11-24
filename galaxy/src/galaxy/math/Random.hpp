@@ -10,9 +10,11 @@
 
 #include <random>
 
-#include <raylib.h>
-
 #include "galaxy/utils/Concepts.hpp"
+
+#include "galaxy/math/Vector2.hpp"
+#include "galaxy/math/Vector3.hpp"
+#include "galaxy/math/Vector4.hpp"
 
 namespace galaxy
 {
@@ -38,12 +40,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Random();
+			Random() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Random();
+			~Random() noexcept;
 
 			///
 			/// Generate a random number of type T.
@@ -57,7 +59,7 @@ namespace galaxy
 			///
 			template<utils::is_arithmetic Type>
 			[[nodiscard]]
-			Type gen(const Type min, const Type max);
+			Type gen(const Type min, const Type max) noexcept;
 
 			///
 			/// Generate a random vec2.
@@ -68,7 +70,7 @@ namespace galaxy
 			/// \return Pseudo-randomized vec2.
 			///
 			[[nodiscard]]
-			Vector2 gen_vec2(const Vector2& min, const Vector2& max);
+			Vector2 gen_vec2(const Vector2& min, const Vector2& max) noexcept;
 
 			///
 			/// Generate a random vec3.
@@ -79,7 +81,7 @@ namespace galaxy
 			/// \return Pseudo-randomized vec3.
 			///
 			[[nodiscard]]
-			Vector3 gen_vec3(const Vector3& min, const Vector3& max);
+			Vector3 gen_vec3(const Vector3& min, const Vector3& max) noexcept;
 
 			///
 			/// Generate a random vec4.
@@ -90,7 +92,7 @@ namespace galaxy
 			/// \return Pseudo-randomized vec4.
 			///
 			[[nodiscard]]
-			Vector4 gen_vec4(const Vector4& min, const Vector4& max);
+			Vector4 gen_vec4(const Vector4& min, const Vector4& max) noexcept;
 
 		private:
 			///
@@ -105,7 +107,7 @@ namespace galaxy
 		};
 
 		template<utils::is_arithmetic Type>
-		inline Type Random::gen(const Type min, const Type max)
+		inline Type Random::gen(const Type min, const Type max) noexcept
 		{
 			conditional_distribution<Type> dist {min, max};
 			return dist(m_mt);
