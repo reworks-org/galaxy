@@ -10,6 +10,11 @@ var searchData=
   ['fnv1a_5f32_7',['fnv1a_32',['../d1/d92/namespacegalaxy_1_1math.html#ae73f930703216aa88e5217af0e15c239',1,'galaxy::math']]],
   ['fnv1a_5f64_8',['fnv1a_64',['../d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3',1,'galaxy::math']]],
   ['focus_9',['focus',['../d5/d25/classgalaxy_1_1core_1_1Window.html#a01ccce73a11f73ffdcfa1b4b9de6daf8',1,'galaxy::core::Window']]],
-  ['from_5fentity_10',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_11',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]]
+  ['from_5faxis_5fangle_10',['from_axis_angle',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a61e5c9479b26d4521bc6d30357066432',1,'galaxy::math::Quaternion']]],
+  ['from_5fentity_11',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
+  ['from_5feuler_12',['from_euler',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a22c0a6818f99be7fe96b7dbeb5732d90',1,'galaxy::math::Quaternion']]],
+  ['from_5fjson_13',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['from_5fmatrix_14',['from_matrix',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#adaa090bc7146dc484fbdc8ddbedeee44',1,'galaxy::math::Quaternion']]],
+  ['from_5fvector3_5fto_5fvector3_15',['from_vector3_to_vector3',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a6a0192a5e53745904b1524aeb206ee17',1,'galaxy::math::Quaternion']]],
+  ['frustum_16',['frustum',['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#ad98d1b0619cb3b1033ab43b46ec014da',1,'galaxy::math::Matrix']]]
 ];

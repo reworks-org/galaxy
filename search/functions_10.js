@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['query_0',['query',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aa98a410df5302ad1897536d8a1d96611',1,'galaxy::resource::TextureAtlas']]]
+  ['quaternion_0',['Quaternion',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a70c6f051f4d19a7c57caa9f913716f60',1,'galaxy::math::Quaternion::Quaternion() noexcept'],['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a8d43d6e2011936f3d02281e33abcef4d',1,'galaxy::math::Quaternion::Quaternion(const float x, const float y, const float z, const float w) noexcept'],['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a1f5539555137d01b94342d4f94cbb983',1,'galaxy::math::Quaternion::Quaternion(const ::Quaternion &amp;vec) noexcept'],['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a297da8c70b167849a58ada94677ba6db',1,'galaxy::math::Quaternion::Quaternion(const Quaternion &amp;) noexcept'],['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a4602fd8138d3f7ed2bd3e0e9aa5496d3',1,'galaxy::math::Quaternion::Quaternion(Quaternion &amp;&amp;) noexcept']]],
+  ['query_1',['query',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aa98a410df5302ad1897536d8a1d96611',1,'galaxy::resource::TextureAtlas']]]
 ];

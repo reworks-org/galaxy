@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['video_0',['Video',['../de/d0b/classgalaxy_1_1media_1_1Video.html',1,'galaxy::media']]],
-  ['virtualfilesystem_1',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs']]],
-  ['voiceloader_2',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
+  ['tag_0',['Tag',['../d8/d96/classgalaxy_1_1components_1_1Tag.html',1,'galaxy::components']]],
+  ['text_1',['Text',['../d2/d81/classgalaxy_1_1components_1_1Text.html',1,'galaxy::components']]],
+  ['textureatlas_2',['TextureAtlas',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html',1,'galaxy::resource']]],
+  ['tilemap_3',['TileMap',['../d2/db4/classgalaxy_1_1components_1_1TileMap.html',1,'galaxy::components']]],
+  ['timer_4',['Timer',['../da/d6d/classgalaxy_1_1async_1_1Timer.html',1,'galaxy::async']]],
+  ['transform_5',['Transform',['../d8/d8a/classgalaxy_1_1components_1_1Transform.html',1,'galaxy::components']]]
 ];

@@ -1,0 +1,31 @@
+<map id="galaxy/src/galaxy/math/Vector2.hpp" name="galaxy/src/galaxy/math/Vector2.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="560,5,735,45"/>
+<area shape="rect" id="Node000002" href="$dd/d49/Camera2D_8hpp.html" title=" " alt="" coords="5,93,201,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="547,44,213,96,202,98,201,92,212,91,546,39"/>
+<area shape="rect" id="Node000004" href="$db/de8/Camera3D_8hpp.html" title=" " alt="" coords="225,93,421,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="564,51,395,96,394,91,563,46"/>
+<area shape="rect" id="Node000006" href="$d4/d6e/Shader_8hpp.html" title=" " alt="" coords="445,93,641,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="615,56,568,95,565,91,612,52"/>
+<area shape="rect" id="Node000008" href="$d5/d78/Mouse_8hpp.html" title=" " alt="" coords="665,93,840,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="683,52,731,91,728,95,679,56"/>
+<area shape="rect" id="Node000011" href="$dd/d6e/Random_8hpp.html" title=" " alt="" coords="1087,93,1261,133"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="749,40,1087,95,1086,100,748,46"/>
+<area shape="rect" id="Node000015" href="$d7/ded/Vector2_8cpp.html" title=" " alt="" coords="1285,93,1460,133"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="749,32,989,55,1274,91,1285,92,1285,98,1274,96,988,61,748,38"/>
+<area shape="rect" id="Node000003" href="$dd/d55/Camera2D_8cpp.html" title=" " alt="" coords="5,181,201,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,147,106,181,101,181,101,147"/>
+<area shape="rect" id="Node000005" href="$d7/dd5/Camera3D_8cpp.html" title=" " alt="" coords="225,181,421,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="326,147,326,181,321,181,321,147"/>
+<area shape="rect" id="Node000007" href="$dd/d84/Shader_8cpp.html" title=" " alt="" coords="445,181,641,221"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="546,147,546,181,541,181,541,147"/>
+<area shape="rect" id="Node000009" href="$db/d1a/Mouse_8cpp.html" title=" " alt="" coords="665,181,840,221"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="755,147,755,181,750,181,750,147"/>
+<area shape="rect" id="Node000010" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="865,181,1062,221"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="812,136,918,179,916,184,810,141"/>
+<area shape="rect" id="Node000012" href="$d4/dde/Random_8cpp.html" title=" " alt="" coords="1087,181,1261,221"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1177,147,1177,181,1171,181,1171,147"/>
+<area shape="rect" id="Node000013" href="$df/d48/LuaMath_8cpp.html" title=" " alt="" coords="1286,181,1483,221"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1234,136,1340,179,1338,184,1232,141"/>
+<area shape="rect" id="Node000014" href="$dd/dc0/Guid_8cpp.html" title=" " alt="" coords="1508,181,1677,221"/>
+<area shape="poly" id="edge13_Node000011_Node000014" title=" " alt="" coords="1276,133,1508,180,1507,185,1275,138"/>
+</map>

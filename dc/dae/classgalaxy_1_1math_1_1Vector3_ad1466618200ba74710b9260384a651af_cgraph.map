@@ -1,0 +1,5 @@
+<map id="galaxy::math::Vector3::refract" name="galaxy::math::Vector3::refract">
+<area shape="rect" id="Node000001" title="Compute the direction of a refracted ray." alt="" coords="5,5,169,45"/>
+<area shape="rect" id="Node000002" href="$dc/dae/classgalaxy_1_1math_1_1Vector3.html#a064ec472f6d8e178e3781c55aeb68294" title="Set this vector from raylib vector." alt="" coords="217,13,409,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,23,204,23,204,28,170,28"/>
+</map>

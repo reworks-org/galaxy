@@ -10,6 +10,5 @@ var classgalaxy_1_1utils_1_1Guid =
     [ "is_empty", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#afa2de4484429db634053da43a16f0894", null ],
     [ "operator==", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#af8eac756de61d4e40316a5b212c2c179", null ],
     [ "operator!=", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a24242d9db9540abb2a585c90167ff60c", null ],
-    [ "operator<=>", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a5161e35769c7162cce55074353b18eb6", null ],
     [ "m_id", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html#aedf5721a6b858dbc82efff74a3b7c59d", null ]
 ];

@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Shader::load_into_raylib" name="galaxy::graphics::Shader::load_into_raylib">
+<area shape="rect" id="Node000001" title="Load source into raylib." alt="" coords="5,37,187,77"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0d654ebaca4e0555197c0724c6d30610" title="Constructor." alt="" coords="235,5,416,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,42,221,37,221,43,187,47"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ade2fdfa75d4447eaac246b8d3b799cec" title="Check to make sure shader is valid." alt="" coords="235,69,416,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,67,221,72,221,77,187,73"/>
+</map>

@@ -48,6 +48,12 @@ var annotated_dup =
         [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
+      [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
+        [ "Camera2D", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D" ],
+        [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html", "db/d05/classgalaxy_1_1graphics_1_1Camera3D" ],
+        [ "Rectangle", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle" ],
+        [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ]
+      ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
         [ "Gamepad", "d2/d24/classgalaxy_1_1input_1_1Gamepad.html", "d2/d24/classgalaxy_1_1input_1_1Gamepad" ]
       ] ],
@@ -66,8 +72,13 @@ var annotated_dup =
         [ "World", "d9/d75/classgalaxy_1_1map_1_1World.html", "d9/d75/classgalaxy_1_1map_1_1World" ]
       ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
+        [ "Matrix", "d2/d9e/classgalaxy_1_1math_1_1Matrix.html", "d2/d9e/classgalaxy_1_1math_1_1Matrix" ],
+        [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html", "d2/dbe/classgalaxy_1_1math_1_1Quaternion" ],
         [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
         [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
+        [ "Vector2", "d8/d3e/classgalaxy_1_1math_1_1Vector2.html", "d8/d3e/classgalaxy_1_1math_1_1Vector2" ],
+        [ "Vector3", "dc/dae/classgalaxy_1_1math_1_1Vector3.html", "dc/dae/classgalaxy_1_1math_1_1Vector3" ],
+        [ "Vector4", "d7/de2/classgalaxy_1_1math_1_1Vector4.html", "d7/de2/classgalaxy_1_1math_1_1Vector4" ],
         [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]
       ] ],
       [ "media", "dc/d80/namespacegalaxy_1_1media.html", [

@@ -1,0 +1,28 @@
+var classgalaxy_1_1math_1_1Quaternion =
+[
+    [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a70c6f051f4d19a7c57caa9f913716f60", null ],
+    [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a8d43d6e2011936f3d02281e33abcef4d", null ],
+    [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a1f5539555137d01b94342d4f94cbb983", null ],
+    [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a297da8c70b167849a58ada94677ba6db", null ],
+    [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a4602fd8138d3f7ed2bd3e0e9aa5496d3", null ],
+    [ "~Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a8a761ea91dcccec60173f53bebdf3336", null ],
+    [ "operator=", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#aa571a9f1ea7fa4a436f45c11ef1fccbe", null ],
+    [ "operator=", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a5802b8f91a8f75ae86c0139fcdcf4f17", null ],
+    [ "length", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a5f047d44b8d9a3b41d7aeff0ce330e22", null ],
+    [ "normalize", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#aba5ea549417f9618794c62d5aaad4f08", null ],
+    [ "invert", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a758fb86cdcfee15980a753b7e37039e0", null ],
+    [ "scale", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a61a4c1402a91c1296d1c4a68667b079c", null ],
+    [ "lerp", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a7deb026e1be6b5b59b86c99ef991156b", null ],
+    [ "nlerp", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a97eb2b5d2599de14a5ce867f5e46a90c", null ],
+    [ "slerp", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#ab3b81febaa19e939d72aa432e316c0b8", null ],
+    [ "transform", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#abf351f5aeb137df25a16444b221daeda", null ],
+    [ "cubic_hermite_spline", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a41e6ec88f6903b11abd5cb8bf3ea2fba", null ],
+    [ "from_matrix", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#adaa090bc7146dc484fbdc8ddbedeee44", null ],
+    [ "to_matrix", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a57ed8754023a32df1c94221a2339d5c0", null ],
+    [ "from_axis_angle", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a61e5c9479b26d4521bc6d30357066432", null ],
+    [ "to_axis_angle", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a7cbc6941740f3cbaf349efba1667b439", null ],
+    [ "from_euler", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a22c0a6818f99be7fe96b7dbeb5732d90", null ],
+    [ "to_euler", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a7150165e96785ff5817d939c1b7732fa", null ],
+    [ "from_vector3_to_vector3", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a6a0192a5e53745904b1524aeb206ee17", null ],
+    [ "set", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#afeb899ee6b10e5eb4626fef809cb6044", null ]
+];

@@ -1,0 +1,5 @@
+<map id="galaxy::math::Vector4::lerp" name="galaxy::math::Vector4::lerp">
+<area shape="rect" id="Node000001" title="Calculate linear interpolation between two vectors." alt="" coords="5,5,169,45"/>
+<area shape="rect" id="Node000002" href="$d7/de2/classgalaxy_1_1math_1_1Vector4.html#a15dda44ea112fac301bd4520a568f75a" title="Set this vector from raylib vector." alt="" coords="217,13,409,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,23,204,23,204,28,170,28"/>
+</map>

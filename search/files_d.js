@@ -1,24 +1,5 @@
 var searchData=
 [
-  ['r2dshader_2ecpp_0',['R2DShader.cpp',['../dc/d33/R2DShader_8cpp.html',1,'']]],
-  ['r2dshader_2ehpp_1',['R2DShader.hpp',['../df/d4e/R2DShader_8hpp.html',1,'']]],
-  ['random_2ecpp_2',['Random.cpp',['../d4/dde/Random_8cpp.html',1,'']]],
-  ['random_2ehpp_3',['Random.hpp',['../dd/d6e/Random_8hpp.html',1,'']]],
-  ['rayliberror_2ecpp_4',['RaylibError.cpp',['../d4/dd4/RaylibError_8cpp.html',1,'']]],
-  ['rayliberror_2ehpp_5',['RaylibError.hpp',['../da/d1d/RaylibError_8hpp.html',1,'']]],
-  ['readme_2emd_6',['README.md',['../da/ddd/README_8md.html',1,'']]],
-  ['rectpack_2ecpp_7',['RectPack.cpp',['../dc/d61/RectPack_8cpp.html',1,'']]],
-  ['rectpack_2ehpp_8',['RectPack.hpp',['../da/d8d/RectPack_8hpp.html',1,'']]],
-  ['registry_2ecpp_9',['Registry.cpp',['../d6/d4f/Registry_8cpp.html',1,'']]],
-  ['registry_2ehpp_10',['Registry.hpp',['../db/dd1/Registry_8hpp.html',1,'']]],
-  ['rendersystem_2ecpp_11',['RenderSystem.cpp',['../db/daa/RenderSystem_8cpp.html',1,'']]],
-  ['rendersystem_2ehpp_12',['RenderSystem.hpp',['../da/d4c/RenderSystem_8hpp.html',1,'']]],
-  ['rendertextureshader_2ecpp_13',['RenderTextureShader.cpp',['../d3/d97/RenderTextureShader_8cpp.html',1,'']]],
-  ['rendertextureshader_2ehpp_14',['RenderTextureShader.hpp',['../db/da8/RenderTextureShader_8hpp.html',1,'']]],
-  ['rigidbody_2ecpp_15',['RigidBody.cpp',['../db/d7e/RigidBody_8cpp.html',1,'']]],
-  ['rigidbody_2ehpp_16',['RigidBody.hpp',['../d3/def/RigidBody_8hpp.html',1,'']]],
-  ['ringbuffer_2ecpp_17',['RingBuffer.cpp',['../d0/dc1/RingBuffer_8cpp.html',1,'']]],
-  ['ringbuffer_2ehpp_18',['RingBuffer.hpp',['../d4/ded/RingBuffer_8hpp.html',1,'']]],
-  ['robotolight_2ecpp_19',['RobotoLight.cpp',['../d7/d8c/RobotoLight_8cpp.html',1,'']]],
-  ['robotolight_2ehpp_20',['RobotoLight.hpp',['../d1/df0/RobotoLight_8hpp.html',1,'']]]
+  ['quaternion_2ecpp_0',['Quaternion.cpp',['../d4/d11/Quaternion_8cpp.html',1,'']]],
+  ['quaternion_2ehpp_1',['Quaternion.hpp',['../d3/d1f/Quaternion_8hpp.html',1,'']]]
 ];

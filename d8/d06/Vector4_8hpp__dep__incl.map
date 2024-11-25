@@ -1,0 +1,17 @@
+<map id="galaxy/src/galaxy/math/Vector4.hpp" name="galaxy/src/galaxy/math/Vector4.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="331,5,505,45"/>
+<area shape="rect" id="Node000002" href="$d4/d6e/Shader_8hpp.html" title=" " alt="" coords="111,93,307,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="360,53,256,96,253,91,358,48"/>
+<area shape="rect" id="Node000004" href="$dd/d6e/Random_8hpp.html" title=" " alt="" coords="331,93,505,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="421,59,421,93,415,93,415,59"/>
+<area shape="rect" id="Node000008" href="$da/dc5/Vector4_8cpp.html" title=" " alt="" coords="529,93,704,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="475,48,574,91,572,96,473,53"/>
+<area shape="rect" id="Node000003" href="$dd/d84/Shader_8cpp.html" title=" " alt="" coords="5,181,201,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,144,128,183,125,179,173,140"/>
+<area shape="rect" id="Node000005" href="$d4/dde/Random_8cpp.html" title=" " alt="" coords="225,181,400,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="386,144,338,183,334,179,383,140"/>
+<area shape="rect" id="Node000006" href="$df/d48/LuaMath_8cpp.html" title=" " alt="" coords="425,181,622,221"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="453,140,502,179,498,183,450,144"/>
+<area shape="rect" id="Node000007" href="$dd/dc0/Guid_8cpp.html" title=" " alt="" coords="647,181,816,221"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="501,134,663,179,662,184,499,140"/>
+</map>

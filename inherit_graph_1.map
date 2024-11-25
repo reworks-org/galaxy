@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d2/db4/classgalaxy_1_1components_1_1TileMap.html" title="Rendering data for a single level/map in a LDTK world." alt="" coords="5,5,159,45"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,96,31"/>
+<area shape="rect" id="Node000001" href="$db/d05/classgalaxy_1_1graphics_1_1Camera3D.html" title="3D camera for drawing with." alt="" coords="144,5,349,31"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="110,15,144,15,144,21,110,21"/>
 </map>

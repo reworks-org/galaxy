@@ -6,10 +6,15 @@ var searchData=
   ['map_5fx_5ftexel_3',['map_x_texel',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aed76039b20370bd457868eee59561515',1,'galaxy::resource::TextureAtlas']]],
   ['map_5fy_5ftexel_4',['map_y_texel',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#aaeca4dd8bfd6eab1a749831634aa3f4d',1,'galaxy::resource::TextureAtlas']]],
   ['maps_5',['maps',['../d9/d75/classgalaxy_1_1map_1_1World.html#a50a5b57b56fc19f7a6d42359f24186a3',1,'galaxy::map::World']]],
-  ['maximize_6',['maximize',['../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd',1,'galaxy::core::Window']]],
-  ['message_5fbox_7',['message_box',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1c8e68d9e1714a071d58d44276931e16',1,'galaxy::fs::VirtualFileSystem']]],
-  ['minimize_8',['minimize',['../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b',1,'galaxy::core::Window']]],
-  ['mkdir_9',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322',1,'galaxy::fs::VirtualFileSystem']]],
-  ['mouse_5fvisible_10',['mouse_visible',['../d1/db3/structgalaxy_1_1settings.html#aef894af1c3f5b51aa3582ae4a9fa3c5a',1,'galaxy::settings']]],
-  ['msaa_11',['msaa',['../d1/db3/structgalaxy_1_1settings.html#a3be95127c054f5d3947c03c0f77970f6',1,'galaxy::settings']]]
+  ['matrix_6',['Matrix',['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#ab6e1dc333c2331bc84d37cad070a6c33',1,'galaxy::math::Matrix::Matrix() noexcept'],['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#a665042f18b9730ee24d26562caac5200',1,'galaxy::math::Matrix::Matrix(const ::Matrix &amp;matrix) noexcept'],['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#a9371de77142b3b86176429bf758d3a62',1,'galaxy::math::Matrix::Matrix(const Matrix &amp;) noexcept'],['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#a5098e37c5fc86d18699c7d038523b09a',1,'galaxy::math::Matrix::Matrix(Matrix &amp;&amp;) noexcept']]],
+  ['matrix_7',['matrix',['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#a477559f5d73b033826e49bc3360bd2b7',1,'galaxy::math::Matrix::matrix(const ::Matrix &amp;matrix) noexcept'],['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#a977a039484769cd76c760c8adc6b4635',1,'galaxy::math::Matrix::matrix() const noexcept']]],
+  ['max_8',['max',['../d8/d3e/classgalaxy_1_1math_1_1Vector2.html#a02a4e931fce4b183ba25ad80ab58b544',1,'galaxy::math::Vector2::max()'],['../dc/dae/classgalaxy_1_1math_1_1Vector3.html#ad74142a44d929353084012d909dca480',1,'galaxy::math::Vector3::max()'],['../d7/de2/classgalaxy_1_1math_1_1Vector4.html#a1b230c0c089be9c94c26fcc47c66ecb5',1,'galaxy::math::Vector4::max()']]],
+  ['maximize_9',['maximize',['../d5/d25/classgalaxy_1_1core_1_1Window.html#ac5dc3ab3bc35dfacf59d1f3450e5fccd',1,'galaxy::core::Window']]],
+  ['message_5fbox_10',['message_box',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1c8e68d9e1714a071d58d44276931e16',1,'galaxy::fs::VirtualFileSystem']]],
+  ['min_11',['min',['../d8/d3e/classgalaxy_1_1math_1_1Vector2.html#aa691a574c90fbb8cc086dd8880e9d474',1,'galaxy::math::Vector2::min()'],['../dc/dae/classgalaxy_1_1math_1_1Vector3.html#a7375ce230bebd9cf3f5216ed49c4eb76',1,'galaxy::math::Vector3::min()'],['../d7/de2/classgalaxy_1_1math_1_1Vector4.html#a5a989c27243e95c6865aa7a57346e9f9',1,'galaxy::math::Vector4::min()']]],
+  ['minimize_12',['minimize',['../d5/d25/classgalaxy_1_1core_1_1Window.html#ac8a9d8fb5826acb81982adb7bd8d471b',1,'galaxy::core::Window']]],
+  ['mkdir_13',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322',1,'galaxy::fs::VirtualFileSystem']]],
+  ['mouse_5fvisible_14',['mouse_visible',['../d1/db3/structgalaxy_1_1settings.html#aef894af1c3f5b51aa3582ae4a9fa3c5a',1,'galaxy::settings']]],
+  ['move_5ftowards_15',['move_towards',['../d8/d3e/classgalaxy_1_1math_1_1Vector2.html#a1677b6b0d9c22f683e2064b40d5a3e6b',1,'galaxy::math::Vector2::move_towards()'],['../dc/dae/classgalaxy_1_1math_1_1Vector3.html#aa7ebee655132c45f34e8ce9268c19be3',1,'galaxy::math::Vector3::move_towards()'],['../d7/de2/classgalaxy_1_1math_1_1Vector4.html#a12da2d04d5ce719425337a4a58f95587',1,'galaxy::math::Vector4::move_towards()']]],
+  ['msaa_16',['msaa',['../d1/db3/structgalaxy_1_1settings.html#a3be95127c054f5d3947c03c0f77970f6',1,'galaxy::settings']]]
 ];

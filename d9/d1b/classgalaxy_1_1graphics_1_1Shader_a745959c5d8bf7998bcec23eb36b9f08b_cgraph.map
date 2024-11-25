@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Shader::set_uniform_sampler2d" name="galaxy::graphics::Shader::set_uniform_sampler2d">
+<area shape="rect" id="Node000001" title="Set sampler2d shader uniform." alt="" coords="5,5,189,45"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#aee01933223fc9353e5456345934ccf12" title="Retrieves the location of a shader uniform." alt="" coords="237,5,419,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,23,224,23,224,28,189,28"/>
+</map>

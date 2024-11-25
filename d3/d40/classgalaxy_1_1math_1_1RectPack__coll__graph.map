@@ -1,9 +1,13 @@
 <map id="galaxy::math::RectPack" name="galaxy::math::RectPack">
-<area shape="rect" id="Node000001" title="Rectangle 2D bin packing class." alt="" coords="11,389,178,615"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,261,184,327"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,327,97,373,92,373,92,327"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="34,133,155,199"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,213,97,261,92,261,92,213"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="83,5,106,71"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="97,71,97,117,92,117,92,71"/>
+<area shape="rect" id="Node000001" title="Rectangle 2D bin packing class." alt="" coords="108,633,275,859"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="109,491,274,571"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,571,194,617,189,617,189,571"/>
+<area shape="rect" id="Node000003" href="$db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html" title=" " alt="" coords="5,133,199,413"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,413,160,466,164,475,160,477,156,468,136,415"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="63,5,141,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="105,84,105,133,99,133,99,84"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="223,241,344,306"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="280,320,264,391,238,468,224,492,219,489,233,466,259,389,274,319"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="272,5,295,71"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="286,71,286,224,281,224,281,71"/>
 </map>

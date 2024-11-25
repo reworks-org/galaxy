@@ -1,0 +1,5 @@
+<map id="galaxy::math::Vector4::min" name="galaxy::math::Vector4::min">
+<area shape="rect" id="Node000001" title="Get min value for each pair of components." alt="" coords="5,5,203,31"/>
+<area shape="rect" id="Node000002" href="$d7/de2/classgalaxy_1_1math_1_1Vector4.html#a15dda44ea112fac301bd4520a568f75a" title="Set this vector from raylib vector." alt="" coords="251,5,443,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,15,237,15,237,21,203,21"/>
+</map>

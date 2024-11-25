@@ -6,14 +6,7 @@ var namespacegalaxy =
     [ "events", "d6/d3d/namespacegalaxy_1_1events.html", "d6/d3d/namespacegalaxy_1_1events" ],
     [ "flags", "df/d31/namespacegalaxy_1_1flags.html", "df/d31/namespacegalaxy_1_1flags" ],
     [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", "d6/d19/namespacegalaxy_1_1fs" ],
-    [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
-      [ "ScreenMode", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1", [
-        [ "NONE", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab50339a10e1de285ac99d4c3990b8693", null ],
-        [ "MAXIMIZED", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1a2f33d682f3a4e19c31ced6cb4fd022e3", null ],
-        [ "FULLSCREEN", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97", null ],
-        [ "BORDERLESS", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1af744a3ac16b1ac0bc9df0aa02cc1a038", null ]
-      ] ]
-    ] ],
+    [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", "db/dab/namespacegalaxy_1_1graphics" ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", "dd/d59/namespacegalaxy_1_1input" ],
     [ "json", "de/dd6/namespacegalaxy_1_1json.html", [
       [ "read", "de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d", null ],

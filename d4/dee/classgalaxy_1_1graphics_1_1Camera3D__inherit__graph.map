@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Camera3D" name="galaxy::graphics::Camera3D">
+<area shape="rect" id="Node000001" title="3D camera for drawing with." alt="" coords="5,119,203,364"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="63,5,145,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,84,107,118,101,118,101,84"/>
+</map>

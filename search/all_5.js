@@ -18,7 +18,12 @@ var searchData=
   ['fonts_15',['Fonts',['../d4/d1b/namespacegalaxy_1_1resource.html#abc6c983b26fb1f6f45b9cff17f8fe4e9',1,'galaxy::resource']]],
   ['fonts_2ecpp_16',['Fonts.cpp',['../db/d4b/Fonts_8cpp.html',1,'']]],
   ['fonts_2ehpp_17',['Fonts.hpp',['../d9/d7d/Fonts_8hpp.html',1,'']]],
-  ['from_5fentity_18',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_19',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
-  ['fullscreen_20',['FULLSCREEN',['../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97',1,'galaxy::graphics']]]
+  ['from_5faxis_5fangle_18',['from_axis_angle',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a61e5c9479b26d4521bc6d30357066432',1,'galaxy::math::Quaternion']]],
+  ['from_5fentity_19',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
+  ['from_5feuler_20',['from_euler',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a22c0a6818f99be7fe96b7dbeb5732d90',1,'galaxy::math::Quaternion']]],
+  ['from_5fjson_21',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['from_5fmatrix_22',['from_matrix',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#adaa090bc7146dc484fbdc8ddbedeee44',1,'galaxy::math::Quaternion']]],
+  ['from_5fvector3_5fto_5fvector3_23',['from_vector3_to_vector3',['../d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a6a0192a5e53745904b1524aeb206ee17',1,'galaxy::math::Quaternion']]],
+  ['frustum_24',['frustum',['../d2/d9e/classgalaxy_1_1math_1_1Matrix.html#ad98d1b0619cb3b1033ab43b46ec014da',1,'galaxy::math::Matrix']]],
+  ['fullscreen_25',['FULLSCREEN',['../db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab89c3d897b196ffff1537331bc659a97',1,'galaxy::graphics']]]
 ];

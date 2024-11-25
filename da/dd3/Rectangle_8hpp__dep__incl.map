@@ -1,0 +1,15 @@
+<map id="galaxy/src/galaxy/graphics/Rectangle.hpp" name="galaxy/src/galaxy/graphics/Rectangle.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="109,5,305,45"/>
+<area shape="rect" id="Node000002" href="$d5/dfd/Rectangle_8cpp.html" title=" " alt="" coords="5,93,201,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,56,128,95,125,91,172,52"/>
+<area shape="rect" id="Node000003" href="$da/d8d/RectPack_8hpp.html" title=" " alt="" coords="225,93,400,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,52,291,91,288,95,239,56"/>
+<area shape="rect" id="Node000004" href="$dc/d61/RectPack_8cpp.html" title=" " alt="" coords="15,181,189,221"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,141,149,184,147,179,253,136"/>
+<area shape="rect" id="Node000005" href="$db/d27/TextureAtlas_8hpp.html" title=" " alt="" coords="214,181,411,221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="315,147,315,181,310,181,310,147"/>
+<area shape="rect" id="Node000007" href="$df/d48/LuaMath_8cpp.html" title=" " alt="" coords="435,181,633,221"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="375,136,487,179,485,184,373,141"/>
+<area shape="rect" id="Node000006" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="214,269,411,309"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="315,235,315,269,310,269,310,235"/>
+</map>

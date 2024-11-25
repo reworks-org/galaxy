@@ -1,19 +1,10 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html',1,'galaxy::scene']]],
-  ['scenemanager_1',['SceneManager',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html',1,'galaxy::scene']]],
-  ['script_2',['Script',['../db/d40/classgalaxy_1_1components_1_1Script.html',1,'galaxy::components::Script'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html',1,'galaxy::lua::Script']]],
-  ['scriptsystem_3',['ScriptSystem',['../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html',1,'galaxy::systems']]],
-  ['serializable_4',['Serializable',['../d2/d54/classgalaxy_1_1fs_1_1Serializable.html',1,'galaxy::fs']]],
-  ['serializationdata_5',['SerializationData',['../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html',1,'galaxy::meta::EntityMeta']]],
-  ['settings_6',['settings',['../d1/db3/structgalaxy_1_1settings.html',1,'galaxy']]],
-  ['sheet_7',['Sheet',['../d8/d13/structgalaxy_1_1resource_1_1TextureAtlas_1_1Sheet.html',1,'galaxy::resource::TextureAtlas']]],
-  ['sink_8',['Sink',['../d9/d9f/classgalaxy_1_1logging_1_1Sink.html',1,'galaxy::logging']]],
-  ['sound_9',['Sound',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html',1,'galaxy::media']]],
-  ['soundloader_10',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],
-  ['sprite_11',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],
-  ['state_12',['State',['../db/d6a/classgalaxy_1_1state_1_1State.html',1,'galaxy::state']]],
-  ['statemachine_13',['StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html',1,'galaxy::state']]],
-  ['subprocess_14',['Subprocess',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html',1,'galaxy::platform']]],
-  ['system_15',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html',1,'galaxy::systems']]]
+  ['random_0',['Random',['../d9/deb/classgalaxy_1_1math_1_1Random.html',1,'galaxy::math']]],
+  ['rectangle_1',['Rectangle',['../db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html',1,'galaxy::graphics']]],
+  ['rectpack_2',['RectPack',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html',1,'galaxy::math']]],
+  ['registry_3',['Registry',['../de/d2c/classgalaxy_1_1core_1_1Registry.html',1,'galaxy::core']]],
+  ['rendersystem_4',['RenderSystem',['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html',1,'galaxy::systems']]],
+  ['rigidbody_5',['RigidBody',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html',1,'galaxy::components']]],
+  ['ringbuffer_6',['RingBuffer',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html',1,'galaxy::media']]]
 ];
