@@ -20,8 +20,22 @@ namespace galaxy
 			projection = proj;
 		}
 
+		Camera3D::Camera3D(const ::Camera3D& camera) noexcept
+		{
+			set(camera);
+		}
+
 		Camera3D::~Camera3D() noexcept
 		{
+		}
+
+		void Camera3D::set(const ::Camera3D& camera) noexcept
+		{
+			position   = camera.position;
+			target     = camera.target;
+			up         = camera.up;
+			fovy       = camera.fovy;
+			projection = camera.projection;
 		}
 
 		math::Vector2 Camera3D::get_world_to_screen(const math::Vector3& position) noexcept

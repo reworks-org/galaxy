@@ -19,8 +19,21 @@ namespace galaxy
 			zoom     = 1.0f;
 		}
 
+		Camera2D::Camera2D(const ::Camera2D& camera) noexcept
+		{
+			set(camera);
+		}
+
 		Camera2D::~Camera2D() noexcept
 		{
+		}
+
+		void Camera2D::set(const ::Camera2D& camera) noexcept
+		{
+			offset   = camera.offset;
+			target   = camera.target;
+			rotation = camera.rotation;
+			zoom     = camera.zoom;
 		}
 
 		math::Vector2 Camera2D::get_world_to_screen(const math::Vector2& position) noexcept

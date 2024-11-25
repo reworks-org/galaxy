@@ -35,9 +35,23 @@ namespace galaxy
 			Camera3D(const ray::CameraProjection proj, const float fov = 90.0f);
 
 			///
+			/// Argument constructor.
+			///
+			/// \param camera Raylib camera.
+			///
+			Camera3D(const ::Camera3D& camera) noexcept;
+
+			///
 			/// Destructor.
 			///
 			~Camera3D() noexcept;
+
+			///
+			/// Set from raylib camera3d.
+			///
+			/// \param camera Raylib camera.
+			///
+			void set(const ::Camera3D& camera) noexcept;
 
 			///
 			/// Get the screen space position for a 3D world space position.

@@ -32,9 +32,23 @@ namespace galaxy
 			Camera2D() noexcept;
 
 			///
+			/// Argument constructor.
+			///
+			/// \param camera Raylib camera.
+			///
+			Camera2D(const ::Camera2D& camera) noexcept;
+
+			///
 			/// Destructor.
 			///
 			~Camera2D() noexcept;
+
+			///
+			/// Set from raylib camera2d.
+			///
+			/// \param camera Raylib camera.
+			///
+			void set(const ::Camera2D& camera) noexcept;
 
 			///
 			/// Get the screen space position for a 2D camera world space position.
