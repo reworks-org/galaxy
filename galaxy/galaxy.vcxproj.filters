@@ -47,6 +47,8 @@
     <ClCompile Include="src\galaxy\math\Matrix.cpp" />
     <ClCompile Include="src\galaxy\math\Quaternion.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Camera2D.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Camera3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -95,5 +97,7 @@
     <ClInclude Include="src\galaxy\math\Matrix.hpp" />
     <ClInclude Include="src\galaxy\math\Quaternion.hpp" />
     <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Camera2D.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Camera3D.hpp" />
   </ItemGroup>
 </Project>
