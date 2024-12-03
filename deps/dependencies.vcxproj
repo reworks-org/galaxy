@@ -126,6 +126,7 @@
     <ClCompile Include="raylib\src\rtext.c" />
     <ClCompile Include="raylib\src\rtextures.c" />
     <ClCompile Include="raylib\src\utils.c" />
+    <ClCompile Include="raylib_extensions\raylib-media\rmedia.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
@@ -253,6 +254,144 @@
     <ClInclude Include="entt\src\entt\signal\emitter.hpp" />
     <ClInclude Include="entt\src\entt\signal\fwd.hpp" />
     <ClInclude Include="entt\src\entt\signal\sigh.hpp" />
+    <ClInclude Include="ffmpeg\include\libavcodec\ac3_parser.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\adts_parser.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\avcodec.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\avdct.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\avfft.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\bsf.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\codec.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\codec_desc.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\codec_id.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\codec_par.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\d3d11va.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\defs.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\dirac.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\dv_profile.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\dxva2.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\jni.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\mediacodec.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\packet.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\qsv.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\vdpau.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\version.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\version_major.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\videotoolbox.h" />
+    <ClInclude Include="ffmpeg\include\libavcodec\vorbis_parser.h" />
+    <ClInclude Include="ffmpeg\include\libavdevice\avdevice.h" />
+    <ClInclude Include="ffmpeg\include\libavdevice\version.h" />
+    <ClInclude Include="ffmpeg\include\libavdevice\version_major.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\avfilter.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\buffersink.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\buffersrc.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\version.h" />
+    <ClInclude Include="ffmpeg\include\libavfilter\version_major.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\avformat.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\avio.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\version.h" />
+    <ClInclude Include="ffmpeg\include\libavformat\version_major.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\adler32.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\aes.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\aes_ctr.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\ambient_viewing_environment.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\attributes.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\audio_fifo.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avassert.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avconfig.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avstring.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\avutil.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\base64.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\blowfish.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\bprint.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\bswap.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\buffer.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\camellia.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\cast5.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\channel_layout.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\common.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\cpu.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\crc.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\csp.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\des.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\detection_bbox.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\dict.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\display.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\dovi_meta.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\downmix_info.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\encryption_info.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\error.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\eval.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\executor.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\ffversion.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\fifo.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\file.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\film_grain_params.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\frame.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hash.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hdr_dynamic_metadata.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hdr_dynamic_vivid_metadata.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hmac.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_cuda.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_d3d11va.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_d3d12va.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_drm.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_dxva2.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_mediacodec.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_opencl.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_qsv.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_vaapi.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_vdpau.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_videotoolbox.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\hwcontext_vulkan.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\iamf.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\imgutils.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\intfloat.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\intreadwrite.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\lfg.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\log.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\lzo.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\macros.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\mastering_display_metadata.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\mathematics.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\md5.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\mem.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\motion_vector.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\murmur3.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\opt.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\parseutils.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\pixdesc.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\pixelutils.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\pixfmt.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\random_seed.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\rational.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\rc4.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\replaygain.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\ripemd.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\samplefmt.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\sha.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\sha512.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\spherical.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\stereo3d.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\tea.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\threadmessage.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\time.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\timecode.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\timestamp.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\tree.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\twofish.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\tx.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\uuid.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\version.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\video_enc_params.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\video_hint.h" />
+    <ClInclude Include="ffmpeg\include\libavutil\xtea.h" />
+    <ClInclude Include="ffmpeg\include\libswresample\swresample.h" />
+    <ClInclude Include="ffmpeg\include\libswresample\version.h" />
+    <ClInclude Include="ffmpeg\include\libswresample\version_major.h" />
+    <ClInclude Include="ffmpeg\include\libswscale\swscale.h" />
+    <ClInclude Include="ffmpeg\include\libswscale\version.h" />
+    <ClInclude Include="ffmpeg\include\libswscale\version_major.h" />
     <ClInclude Include="json\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="json\include\nlohmann\byte_container_with_subtype.hpp" />
     <ClInclude Include="json\include\nlohmann\detail\abi_macros.hpp" />
@@ -364,6 +503,7 @@
     <ClInclude Include="raylib\src\raylib.h" />
     <ClInclude Include="raylib\src\raymath.h" />
     <ClInclude Include="raylib\src\rlgl.h" />
+    <ClInclude Include="raylib_extensions\raylib-media\raymedia.h" />
     <ClInclude Include="sol3\include\sol\abort.hpp" />
     <ClInclude Include="sol3\include\sol\assert.hpp" />
     <ClInclude Include="sol3\include\sol\as_args.hpp" />
@@ -580,7 +720,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -594,7 +734,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps\zlib-ng\lib\Debug\zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps/ffmpeg/lib/avcodec.lib;$(SolutionDir)deps/ffmpeg/lib/avdevice.lib;$(SolutionDir)deps/ffmpeg/lib/avfilter.lib;$(SolutionDir)deps/ffmpeg/lib/avformat.lib;$(SolutionDir)deps/ffmpeg/lib/avutil.lib;$(SolutionDir)deps/ffmpeg/lib/swresample.lib;$(SolutionDir)deps/ffmpeg/lib/swscale.lib;$(SolutionDir)deps\zlib-ng\lib\Debug\zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -637,7 +777,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -652,7 +792,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps\zlib-ng\lib\Release\zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps/ffmpeg/lib/avcodec.lib;$(SolutionDir)deps/ffmpeg/lib/avdevice.lib;$(SolutionDir)deps/ffmpeg/lib/avfilter.lib;$(SolutionDir)deps/ffmpeg/lib/avformat.lib;$(SolutionDir)deps/ffmpeg/lib/avutil.lib;$(SolutionDir)deps/ffmpeg/lib/swresample.lib;$(SolutionDir)deps/ffmpeg/lib/swscale.lib;$(SolutionDir)deps\zlib-ng\lib\Release\zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

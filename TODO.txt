@@ -408,9 +408,4 @@ module: rmodels →
     RayCollision GetRayCollisionTriangle(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3);            // Get collision info between ray and triangle
     RayCollision GetRayCollisionQuad(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4);    // Get collision info between ray and quad
 
-https://github.com/WEREMSOFT/c99-raylib-vide-player/tree/master
-https://github.com/RicoP/raylib-video/blob/main/include/raylibvideo.h
-https://github.com/phoboslab/pl_mpeg
-https://github.com/trikko/raylib-libvlc-example
-https://github.com/cloudofoz/raylib-media
 https://github.com/topics/raylib

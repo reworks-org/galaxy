@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\audio\AudioDevice.cpp" />
+    <ClCompile Include="src\galaxy\audio\Music.cpp" />
+    <ClCompile Include="src\galaxy\audio\Sound.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera3D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
@@ -25,6 +28,7 @@
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\ScreenMode.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Video.cpp" />
     <ClCompile Include="src\galaxy\input\Cursor.cpp" />
     <ClCompile Include="src\galaxy\input\Gamepad.cpp" />
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
@@ -58,10 +62,14 @@
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
+    <ClCompile Include="src\galaxy\utils\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
+    <ClInclude Include="src\galaxy\audio\AudioDevice.hpp" />
+    <ClInclude Include="src\galaxy\audio\Music.hpp" />
+    <ClInclude Include="src\galaxy\audio\Sound.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
@@ -75,6 +83,7 @@
     <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
     <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Video.hpp" />
     <ClInclude Include="src\galaxy\input\Cursor.hpp" />
     <ClInclude Include="src\galaxy\input\Gamepad.hpp" />
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
@@ -108,6 +117,7 @@
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
+    <ClInclude Include="src\galaxy\utils\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -201,7 +211,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -261,7 +271,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

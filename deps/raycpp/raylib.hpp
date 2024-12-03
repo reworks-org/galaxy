@@ -21,6 +21,8 @@ extern "C"
 }
 #endif
 
+#include <raylib-media/raymedia.h>
+
 namespace ray
 {
 	using ConfigFlags             = ::ConfigFlags;
@@ -44,6 +46,11 @@ namespace ray
 	using CameraMode              = ::CameraMode;
 	using CameraProjection        = ::CameraProjection;
 	using NPatchLayout            = ::NPatchLayout;
+	using MediaLoadFlag           = ::MediaLoadFlag;
+	using MediaState              = ::MediaState;
+	using MediaConfigFlag         = ::MediaConfigFlag;
+	using MediaAudioFormat        = ::MediaAudioFormat;
+	using MediaProperties         = ::MediaProperties;
 } // namespace ray
 
 #endif

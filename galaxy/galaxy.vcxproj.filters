@@ -49,6 +49,11 @@
     <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera3D.cpp" />
+    <ClCompile Include="src\galaxy\audio\AudioDevice.cpp" />
+    <ClCompile Include="src\galaxy\audio\Sound.cpp" />
+    <ClCompile Include="src\galaxy\audio\Music.cpp" />
+    <ClCompile Include="src\galaxy\utils\RingBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Video.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -99,5 +104,10 @@
     <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera2D.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera3D.hpp" />
+    <ClInclude Include="src\galaxy\audio\AudioDevice.hpp" />
+    <ClInclude Include="src\galaxy\audio\Sound.hpp" />
+    <ClInclude Include="src\galaxy\audio\Music.hpp" />
+    <ClInclude Include="src\galaxy\utils\RingBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Video.hpp" />
   </ItemGroup>
 </Project>
