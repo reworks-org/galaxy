@@ -39,9 +39,10 @@ var searchData=
   ['assets_5fdir_5fvoice_36',['assets_dir_voice',['../d1/db3/structgalaxy_1_1settings.html#a1f4efd5062b1830cd05b56e8fc07c0bc',1,'galaxy::settings']]],
   ['async_2ecpp_37',['Async.cpp',['../df/d28/Async_8cpp.html',1,'']]],
   ['async_2ehpp_38',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]],
-  ['audioengine_39',['AudioEngine',['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html',1,'galaxy::media::AudioEngine&lt; type &gt;'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a8532b0faf8dbef5f32bd86a3c644fc57',1,'galaxy::media::AudioEngine::AudioEngine(const int listener_count)'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a770b7a664567d504b350c6ac0eb2cd7d',1,'galaxy::media::AudioEngine::AudioEngine()=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a60a5d8c1b1feedda05fe2aed1880ac05',1,'galaxy::media::AudioEngine::AudioEngine(const AudioEngine &amp;)=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a559dfac1b2ecb002e75706fabc6dc2f3',1,'galaxy::media::AudioEngine::AudioEngine(AudioEngine &amp;&amp;)=delete']]],
-  ['audioengine_2ecpp_40',['AudioEngine.cpp',['../df/dc3/AudioEngine_8cpp.html',1,'']]],
-  ['audioengine_2ehpp_41',['AudioEngine.hpp',['../d4/d92/AudioEngine_8hpp.html',1,'']]],
-  ['auto_5farg_42',['AUTO_ARG',['../d2/dc7/LuaEntt_8cpp.html#a41da4e65c770085ad2be1469e5433a49',1,'LuaEntt.cpp']]],
-  ['available_5fbytes_43',['available_bytes',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a32f1d940ddcd3205ec79a640c00b95c8',1,'galaxy::media::RingBuffer']]]
+  ['attach_5faudio_5fmixed_5fprocessor_39',['attach_audio_mixed_processor',['../dc/d50/namespacegalaxy_1_1audio_1_1device.html#a5bb3cf64795395d3e4264f355066cc20',1,'galaxy::audio::device']]],
+  ['attach_5faudio_5fstream_5fprocessor_40',['attach_audio_stream_processor',['../dc/d50/namespacegalaxy_1_1audio_1_1device.html#a5d0deedab14b26a4f7a353fab6a2db23',1,'galaxy::audio::device']]],
+  ['audiodevice_2ecpp_41',['AudioDevice.cpp',['../df/d65/AudioDevice_8cpp.html',1,'']]],
+  ['audiodevice_2ehpp_42',['AudioDevice.hpp',['../dc/d1a/AudioDevice_8hpp.html',1,'']]],
+  ['auto_5farg_43',['AUTO_ARG',['../d2/dc7/LuaEntt_8cpp.html#a41da4e65c770085ad2be1469e5433a49',1,'LuaEntt.cpp']]],
+  ['available_5fbytes_44',['available_bytes',['../d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html#a362fee7744cefd994146e163a76fc4bf',1,'galaxy::utils::RingBuffer']]]
 ];

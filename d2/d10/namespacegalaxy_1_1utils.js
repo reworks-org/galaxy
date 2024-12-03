@@ -1,6 +1,7 @@
 var namespacegalaxy_1_1utils =
 [
     [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ],
+    [ "RingBuffer", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer" ],
     [ "is_class", "d6/d48/conceptgalaxy_1_1utils_1_1is__class.html", null ],
     [ "not_memory", "db/dc5/conceptgalaxy_1_1utils_1_1not__memory.html", null ],
     [ "is_arithmetic", "d8/d1b/conceptgalaxy_1_1utils_1_1is__arithmetic.html", null ],

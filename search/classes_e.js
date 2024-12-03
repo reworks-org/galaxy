@@ -10,7 +10,7 @@ var searchData=
   ['shader_7',['Shader',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html',1,'galaxy::graphics']]],
   ['sheet_8',['Sheet',['../d8/d13/structgalaxy_1_1resource_1_1TextureAtlas_1_1Sheet.html',1,'galaxy::resource::TextureAtlas']]],
   ['sink_9',['Sink',['../d9/d9f/classgalaxy_1_1logging_1_1Sink.html',1,'galaxy::logging']]],
-  ['sound_10',['Sound',['../d6/dd5/classgalaxy_1_1media_1_1Sound.html',1,'galaxy::media']]],
+  ['sound_10',['Sound',['../da/ddd/classgalaxy_1_1audio_1_1Sound.html',1,'galaxy::audio']]],
   ['soundloader_11',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],
   ['sprite_12',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],
   ['state_13',['State',['../db/d6a/classgalaxy_1_1state_1_1State.html',1,'galaxy::state']]],

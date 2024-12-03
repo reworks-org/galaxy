@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['voice_0',['VOICE',['../dc/d80/namespacegalaxy_1_1media.html#a9cd7c852e2b5b65aa4b888356c132034a9369ef98bb3f619078bb34cbf76ac6e4',1,'galaxy::media']]]
+  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0a5c5cb337bb234e240912dc139048038c',1,'galaxy::fs']]],
+  ['yesno_1',['yesno',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455acc74e9b9aaac7367488cc146dfb078db',1,'galaxy::fs']]],
+  ['yesnocancel_2',['yesnocancel',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455a30cea79617be1bdc188511fdf0d582bd',1,'galaxy::fs']]]
 ];

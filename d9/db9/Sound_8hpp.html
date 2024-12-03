@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/media/Sound.hpp File Reference</title>
+<title>galaxy: galaxy/src/galaxy/audio/Sound.hpp File Reference</title>
 <link rel="icon" href="../../logo_docs.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -105,26 +105,61 @@ $(function(){initNavTree('d9/db9/Sound_8hpp.html','../../'); initResizable(true)
   <div class="headertitle"><div class="title">Sound.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string_view&gt;</code><br />
-<code>#include &lt;miniaudio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d7a/SoundType_8hpp_source.html">galaxy/media/SoundType.hpp</a>&quot;</code><br />
-<code>#include &quot;galaxy/meta/Memory.hpp&quot;</code><br />
+<div class="textblock"><code>#include &lt;raylib.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/ddd/Pragma_8hpp_source.html">galaxy/platform/Pragma.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Sound.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d9/df7/Sound_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2media_2Sound_8hpp" alt=""/></div>
-<map name="agalaxy_2src_2galaxy_2media_2Sound_8hpp" id="agalaxy_2src_2galaxy_2media_2Sound_8hpp">
-<area shape="rect" title=" " alt="" coords="175,5,357,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,103,119"/>
-<area shape="poly" title=" " alt="" coords="216,48,99,91,97,86,214,43"/>
-<area shape="rect" title=" " alt="" coords="127,93,226,119"/>
-<area shape="poly" title=" " alt="" coords="246,48,202,86,198,82,243,44"/>
-<area shape="rect" href="../../d5/d7a/SoundType_8hpp.html" title=" " alt="" coords="250,93,463,119"/>
-<area shape="poly" title=" " alt="" coords="290,44,335,82,331,86,286,48"/>
-<area shape="rect" title=" " alt="" coords="488,93,676,119"/>
-<area shape="poly" title=" " alt="" coords="342,43,523,87,522,93,341,48"/>
+<div class="center"><img src="../../d9/df7/Sound_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2audio_2Sound_8hpp" alt=""/></div>
+<map name="agalaxy_2src_2galaxy_2audio_2Sound_8hpp" id="agalaxy_2src_2galaxy_2audio_2Sound_8hpp">
+<area shape="rect" title=" " alt="" coords="431,5,609,45"/>
+<area shape="rect" title=" " alt="" coords="391,93,478,119"/>
+<area shape="poly" title=" " alt="" coords="501,48,459,86,456,82,498,44"/>
+<area shape="rect" href="../../d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="503,93,711,119"/>
+<area shape="poly" title=" " alt="" coords="543,44,585,82,582,86,539,48"/>
+<area shape="rect" href="../../db/d02/Settings_8hpp.html" title=" " alt="" coords="399,167,582,192"/>
+<area shape="poly" title=" " alt="" coords="589,121,523,162,520,157,587,116"/>
+<area shape="rect" href="../../df/db4/Config_8hpp.html" title=" " alt="" coords="405,240,576,265"/>
+<area shape="poly" title=" " alt="" coords="493,192,493,226,488,226,488,192"/>
+<area shape="rect" href="../../dd/d40/ScreenMode_8hpp.html" title=" " alt="" coords="144,240,381,265"/>
+<area shape="poly" title=" " alt="" coords="455,195,314,238,312,233,453,189"/>
+<area shape="rect" title=" " alt="" coords="5,313,152,339"/>
+<area shape="poly" title=" " alt="" coords="425,268,159,314,158,308,424,263"/>
+<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="783,313,956,339"/>
+<area shape="poly" title=" " alt="" coords="552,263,795,308,794,313,551,268"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="177,313,367,339"/>
+<area shape="poly" title=" " alt="" coords="456,268,321,312,320,306,455,263"/>
+<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="391,313,590,339"/>
+<area shape="poly" title=" " alt="" coords="493,266,493,300,488,300,488,266"/>
+<area shape="poly" title=" " alt="" coords="853,315,629,130,633,125,857,311"/>
+<area shape="rect" title=" " alt="" coords="627,387,717,412"/>
+<area shape="poly" title=" " alt="" coords="839,341,718,384,716,379,837,336"/>
+<area shape="rect" title=" " alt="" coords="742,387,866,412"/>
+<area shape="poly" title=" " alt="" coords="861,341,826,378,822,375,857,337"/>
+<area shape="rect" title=" " alt="" coords="891,387,981,412"/>
+<area shape="poly" title=" " alt="" coords="882,337,918,375,914,378,878,341"/>
+<area shape="rect" title=" " alt="" coords="1006,387,1229,412"/>
+<area shape="poly" title=" " alt="" coords="910,336,1065,380,1063,385,908,341"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="1253,387,1461,412"/>
+<area shape="poly" title=" " alt="" coords="948,336,1265,382,1265,387,947,341"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="1485,387,1664,412"/>
+<area shape="poly" title=" " alt="" coords="957,333,1472,384,1471,389,956,338"/>
+<area shape="rect" href="../../d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="938,460,1169,485"/>
+<area shape="poly" title=" " alt="" coords="1491,415,1151,461,1150,455,1491,409"/>
+<area shape="rect" title=" " alt="" coords="351,533,409,559"/>
+<area shape="poly" title=" " alt="" coords="945,488,424,543,423,537,945,483"/>
+<area shape="poly" title=" " alt="" coords="216,341,180,353,149,368,139,377,132,387,131,398,136,411,154,436,177,459,231,494,288,518,338,533,337,538,286,523,229,499,174,463,150,440,131,413,126,399,127,385,135,374,146,364,178,348,214,336"/>
+<area shape="rect" title=" " alt="" coords="145,387,225,412"/>
+<area shape="poly" title=" " alt="" coords="260,341,212,380,208,376,256,337"/>
+<area shape="rect" title=" " alt="" coords="250,387,342,412"/>
+<area shape="poly" title=" " alt="" coords="278,338,290,373,285,374,273,340"/>
+<area shape="poly" title=" " alt="" coords="465,341,434,360,408,388,393,421,384,457,381,520,376,520,379,456,387,419,403,385,431,356,462,337"/>
+<area shape="rect" title=" " alt="" coords="418,387,515,412"/>
+<area shape="poly" title=" " alt="" coords="489,340,477,374,472,373,484,338"/>
+<area shape="rect" title=" " alt="" coords="539,387,602,412"/>
+<area shape="poly" title=" " alt="" coords="505,337,549,376,546,380,502,341"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -132,33 +167,11 @@ $(function(){initNavTree('d9/db9/Sound_8hpp.html','../../'); initResizable(true)
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d2/ded/Sound_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2media_2Sound_8hppdep" alt=""/></div>
-<map name="agalaxy_2src_2galaxy_2media_2Sound_8hppdep" id="agalaxy_2src_2galaxy_2media_2Sound_8hppdep">
-<area shape="rect" title=" " alt="" coords="555,5,737,45"/>
-<area shape="rect" href="../../d1/d8a/Sound_8cpp.html" title=" " alt="" coords="5,269,188,309"/>
-<area shape="poly" title=" " alt="" coords="581,52,437,108,353,144,271,184,191,229,126,271,123,267,188,225,269,179,351,140,435,103,579,47"/>
-<area shape="rect" href="../../d7/db2/Media_8hpp.html" title=" " alt="" coords="547,93,745,133"/>
-<area shape="poly" title=" " alt="" coords="649,59,649,93,643,93,643,59"/>
-<area shape="rect" href="../../da/d28/LuaMedia_8cpp.html" title=" " alt="" coords="1027,269,1225,309"/>
-<area shape="poly" title=" " alt="" coords="728,47,794,69,870,99,949,135,1024,179,1076,224,1114,267,1110,271,1072,228,1020,184,947,140,868,103,792,74,726,52"/>
-<area shape="rect" href="../../d2/db6/Application_8cpp.html" title=" " alt="" coords="212,269,381,309"/>
-<area shape="poly" title=" " alt="" coords="605,143,544,183,519,205,493,224,432,251,371,272,369,267,430,246,490,219,516,200,540,179,602,138"/>
-<area shape="rect" href="../../d4/d92/AudioEngine_8hpp.html" title=" " alt="" coords="555,181,737,221"/>
-<area shape="poly" title=" " alt="" coords="649,147,649,181,643,181,643,147"/>
-<area shape="rect" href="../../d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="806,269,1003,309"/>
-<area shape="poly" title=" " alt="" coords="690,139,750,179,802,219,875,267,872,271,799,224,747,184,687,143"/>
-<area shape="rect" href="../../d0/d71/Media_8cpp.html" title=" " alt="" coords="813,181,1010,221"/>
-<area shape="poly" title=" " alt="" coords="718,135,854,179,852,184,716,140"/>
-<area shape="rect" href="../../d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="282,181,479,221"/>
-<area shape="poly" title=" " alt="" coords="576,140,440,184,438,179,574,135"/>
-<area shape="poly" title=" " alt="" coords="541,220,200,272,189,274,188,269,199,267,540,215"/>
-<area shape="poly" title=" " alt="" coords="557,227,374,272,373,267,555,222"/>
-<area shape="rect" href="../../d0/dd0/core_2Loader_8cpp.html" title=" " alt="" coords="612,269,781,309"/>
-<area shape="poly" title=" " alt="" coords="667,232,688,268,683,270,662,235"/>
-<area shape="rect" href="../../df/dc3/AudioEngine_8cpp.html" title=" " alt="" coords="405,269,588,309"/>
-<area shape="poly" title=" " alt="" coords="603,230,531,272,528,267,600,226"/>
-<area shape="poly" title=" " alt="" coords="751,219,1028,268,1027,273,750,224"/>
-<area shape="poly" title=" " alt="" coords="717,223,849,267,847,272,715,228"/>
+<div class="center"><img src="../../d2/ded/Sound_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2audio_2Sound_8hppdep" alt=""/></div>
+<map name="agalaxy_2src_2galaxy_2audio_2Sound_8hppdep" id="agalaxy_2src_2galaxy_2audio_2Sound_8hppdep">
+<area shape="rect" title=" " alt="" coords="5,5,183,45"/>
+<area shape="rect" href="../../d1/d8a/Sound_8cpp.html" title=" " alt="" coords="5,93,183,133"/>
+<area shape="poly" title=" " alt="" coords="97,59,97,93,91,93,91,59"/>
 </map>
 </div>
 </div>
@@ -166,16 +179,16 @@ $(function(){initNavTree('d9/db9/Sound_8hpp.html','../../'); initResizable(true)
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html">galaxy::media::Sound</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An audio file to play.  <a href="../../d6/dd5/classgalaxy_1_1media_1_1Sound.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html">galaxy::audio::Sound</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Small audio file loaded completely into memory.  <a href="../../da/ddd/classgalaxy_1_1audio_1_1Sound.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
-<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
+<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d65/AudioDevice_8cpp.html">AudioDevice.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d80/namespacegalaxy_1_1media.html">galaxy::media</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dde/namespacegalaxy_1_1audio.html">galaxy::audio</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -183,8 +196,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_d3c4af17bd947ce0a543d597ca1cfb63.html">media</a></li><li class="navelem"><a class="el" href="../../d9/db9/Sound_8hpp.html">Sound.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 25 2024 09:21:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_27f85c13746d6495a823aea84f38dc35.html">audio</a></li><li class="navelem"><a class="el" href="../../d9/db9/Sound_8hpp.html">Sound.hpp</a></li>
+    <li class="footer">Generated on Tue Dec 3 2024 10:15:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

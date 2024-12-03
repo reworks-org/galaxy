@@ -4,6 +4,10 @@ var annotated_dup =
       [ "async", "d0/d7f/namespacegalaxy_1_1async.html", [
         [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ]
       ] ],
+      [ "audio", "d9/dde/namespacegalaxy_1_1audio.html", [
+        [ "Music", "d8/d03/classgalaxy_1_1audio_1_1Music.html", "d8/d03/classgalaxy_1_1audio_1_1Music" ],
+        [ "Sound", "da/ddd/classgalaxy_1_1audio_1_1Sound.html", "da/ddd/classgalaxy_1_1audio_1_1Sound" ]
+      ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
@@ -52,7 +56,8 @@ var annotated_dup =
         [ "Camera2D", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D" ],
         [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html", "db/d05/classgalaxy_1_1graphics_1_1Camera3D" ],
         [ "Rectangle", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle" ],
-        [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ]
+        [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
+        [ "Video", "d8/d06/classgalaxy_1_1graphics_1_1Video.html", "d8/d06/classgalaxy_1_1graphics_1_1Video" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
         [ "Gamepad", "d2/d24/classgalaxy_1_1input_1_1Gamepad.html", "d2/d24/classgalaxy_1_1input_1_1Gamepad" ]
@@ -80,12 +85,6 @@ var annotated_dup =
         [ "Vector3", "dc/dae/classgalaxy_1_1math_1_1Vector3.html", "dc/dae/classgalaxy_1_1math_1_1Vector3" ],
         [ "Vector4", "d7/de2/classgalaxy_1_1math_1_1Vector4.html", "d7/de2/classgalaxy_1_1math_1_1Vector4" ],
         [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]
-      ] ],
-      [ "media", "dc/d80/namespacegalaxy_1_1media.html", [
-        [ "AudioEngine", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine" ],
-        [ "RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", "d5/df7/classgalaxy_1_1media_1_1RingBuffer" ],
-        [ "Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ],
-        [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
       ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
         [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
@@ -117,7 +116,8 @@ var annotated_dup =
         [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]
       ] ],
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
-        [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
+        [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ],
+        [ "RingBuffer", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer" ]
       ] ],
       [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ]
     ] ],

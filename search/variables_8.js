@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['keycode_0',['keycode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a79f77a594c9d542e4c8c8e02f816280f',1,'galaxy::events::KeyPress::keycode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#ad658ddc816aafafbe49376ad716b19bf',1,'galaxy::events::KeyRepeat::keycode']]]
+  ['level_0',['level',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a1afbb2fba458e84c9d0d3841dca842c0',1,'galaxy::logging::LogMessage']]],
+  ['line_1',['line',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#acff6cd58c08711f3e60fcad7671577c8',1,'galaxy::logging::LogMessage']]]
 ];

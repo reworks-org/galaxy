@@ -27,6 +27,7 @@ var searchData=
   ['assets_5fdir_5fui_24',['assets_dir_ui',['../d1/db3/structgalaxy_1_1settings.html#af758bee1dbc00d8210497aa707dd7e3d',1,'galaxy::settings']]],
   ['assets_5fdir_5fvideo_25',['assets_dir_video',['../d1/db3/structgalaxy_1_1settings.html#a116d451d1c8704884db33407c4e344ba',1,'galaxy::settings']]],
   ['assets_5fdir_5fvoice_26',['assets_dir_voice',['../d1/db3/structgalaxy_1_1settings.html#a1f4efd5062b1830cd05b56e8fc07c0bc',1,'galaxy::settings']]],
-  ['audioengine_27',['AudioEngine',['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a8532b0faf8dbef5f32bd86a3c644fc57',1,'galaxy::media::AudioEngine::AudioEngine(const int listener_count)'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a770b7a664567d504b350c6ac0eb2cd7d',1,'galaxy::media::AudioEngine::AudioEngine()=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a60a5d8c1b1feedda05fe2aed1880ac05',1,'galaxy::media::AudioEngine::AudioEngine(const AudioEngine &amp;)=delete'],['../d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html#a559dfac1b2ecb002e75706fabc6dc2f3',1,'galaxy::media::AudioEngine::AudioEngine(AudioEngine &amp;&amp;)=delete']]],
-  ['available_5fbytes_28',['available_bytes',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html#a32f1d940ddcd3205ec79a640c00b95c8',1,'galaxy::media::RingBuffer']]]
+  ['attach_5faudio_5fmixed_5fprocessor_27',['attach_audio_mixed_processor',['../dc/d50/namespacegalaxy_1_1audio_1_1device.html#a5bb3cf64795395d3e4264f355066cc20',1,'galaxy::audio::device']]],
+  ['attach_5faudio_5fstream_5fprocessor_28',['attach_audio_stream_processor',['../dc/d50/namespacegalaxy_1_1audio_1_1device.html#a5d0deedab14b26a4f7a353fab6a2db23',1,'galaxy::audio::device']]],
+  ['available_5fbytes_29',['available_bytes',['../d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html#a362fee7744cefd994146e163a76fc4bf',1,'galaxy::utils::RingBuffer']]]
 ];

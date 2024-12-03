@@ -1,9 +1,9 @@
 <map id="galaxy::graphics::Shader::parse" name="galaxy::graphics::Shader::parse">
-<area shape="rect" id="Node000001" title="Loads a raw shader." alt="" coords="5,37,187,77"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#adc9ac0a5a9ec4dec051b800287a2dceb" title="Load source into raylib." alt="" coords="235,37,416,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,55,221,55,221,60,187,60"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a0d654ebaca4e0555197c0724c6d30610" title="Constructor." alt="" coords="464,5,645,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,42,450,37,451,43,417,47"/>
-<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ade2fdfa75d4447eaac246b8d3b799cec" title="Check to make sure shader is valid." alt="" coords="464,69,645,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="417,67,451,72,450,77,416,73"/>
+<area shape="rect" id="Node000001" title="Loads a raw shader." alt="" coords="5,5,187,45"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#adc9ac0a5a9ec4dec051b800287a2dceb" title="Load source into raylib." alt="" coords="235,5,416,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,23,221,23,221,28,187,28"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ad9a193aa05ee9793eaecfaf159a4999e" title="Unload shader object." alt="" coords="464,5,645,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,23,450,23,450,28,416,28"/>
+<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#adc96cba7a5bdf6cd0f44c3ab38c20874" title="Check to make sure shader is valid." alt="" coords="693,5,875,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="646,23,679,23,679,28,646,28"/>
 </map>

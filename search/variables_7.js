@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_0',['json',['../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#ac15e3c259754552b37625169eb47d9f6',1,'galaxy::meta::EntityMeta::SerializationData']]]
+  ['keycode_0',['keycode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a79f77a594c9d542e4c8c8e02f816280f',1,'galaxy::events::KeyPress::keycode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#ad658ddc816aafafbe49376ad716b19bf',1,'galaxy::events::KeyRepeat::keycode']]]
 ];

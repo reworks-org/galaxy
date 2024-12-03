@@ -1,11 +1,7 @@
-<map id="galaxy/src/galaxy/media/Video.hpp" name="galaxy/src/galaxy/media/Video.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,334,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,104,126"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,48,93,98,91,93,200,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="128,101,219,126"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,47,193,91,189,88,225,44"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="243,93,384,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="260,44,291,81,287,85,256,47"/>
-<area shape="rect" id="Node000005" href="$d4/ded/RingBuffer_8hpp.html" title=" " alt="" coords="408,101,619,126"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="303,43,465,94,464,99,301,48"/>
+<map id="galaxy/src/galaxy/graphics/Video.hpp" name="galaxy/src/galaxy/graphics/Video.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,201,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="26,93,85,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,47,72,83,67,80,89,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,196,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,44,140,80,136,83,113,47"/>
 </map>

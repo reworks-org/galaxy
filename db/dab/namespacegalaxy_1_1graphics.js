@@ -4,6 +4,7 @@ var namespacegalaxy_1_1graphics =
     [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html", "db/d05/classgalaxy_1_1graphics_1_1Camera3D" ],
     [ "Rectangle", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle" ],
     [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
+    [ "Video", "d8/d06/classgalaxy_1_1graphics_1_1Video.html", "d8/d06/classgalaxy_1_1graphics_1_1Video" ],
     [ "ScreenMode", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1", [
       [ "NONE", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "MAXIMIZED", "db/dab/namespacegalaxy_1_1graphics.html#a08af28b4cceba5e7896adb5e286047c1a2f33d682f3a4e19c31ced6cb4fd022e3", null ],

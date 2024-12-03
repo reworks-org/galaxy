@@ -1,7 +1,0 @@
-<map id="galaxy::media::Sound::~Sound" name="galaxy::media::Sound::~Sound">
-<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,37,168,77"/>
-<area shape="rect" id="Node000002" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a6aa99f6bd116e9812372ec10e0bd6ed9" title="Set if sound should loop." alt="" coords="216,5,379,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,42,202,37,203,42,169,48"/>
-<area shape="rect" id="Node000003" href="$d6/dd5/classgalaxy_1_1media_1_1Sound.html#a8033120bd361f0e2920ca4ee8dbfe8d9" title="Stop playing the sound." alt="" coords="216,69,379,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,67,203,72,202,78,168,72"/>
-</map>

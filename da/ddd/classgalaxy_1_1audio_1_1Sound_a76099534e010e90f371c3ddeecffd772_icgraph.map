@@ -1,0 +1,5 @@
+<map id="galaxy::audio::Sound::unload" name="galaxy::audio::Sound::unload">
+<area shape="rect" id="Node000001" title="Unload sound data." alt="" coords="211,5,368,45"/>
+<area shape="rect" id="Node000002" href="$da/ddd/classgalaxy_1_1audio_1_1Sound.html#aa5dbce029e55af68f2c135ca9b51e0a4" title="Destructor." alt="" coords="5,5,163,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,28,163,28,163,23,197,23"/>
+</map>

@@ -7,5 +7,6 @@ var searchData=
   ['mousepressed_4',['MousePressed',['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html',1,'galaxy::events']]],
   ['mousereleased_5',['MouseReleased',['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html',1,'galaxy::events']]],
   ['mousewheel_6',['MouseWheel',['../d6/d70/structgalaxy_1_1events_1_1MouseWheel.html',1,'galaxy::events']]],
-  ['musicloader_7',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
+  ['music_7',['Music',['../d8/d03/classgalaxy_1_1audio_1_1Music.html',1,'galaxy::audio']]],
+  ['musicloader_8',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
 ];

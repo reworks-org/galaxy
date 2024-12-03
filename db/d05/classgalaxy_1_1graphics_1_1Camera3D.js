@@ -1,8 +1,10 @@
 var classgalaxy_1_1graphics_1_1Camera3D =
 [
     [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a1f222c252f08d6d5c0e7ce491b661943", null ],
+    [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a011b3e5ab3f7813980e673a6009639a7", null ],
     [ "~Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a0b4c59d4ead3863c6f25182a3a238a6f", null ],
     [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#abf888767a9c2ff818a5573ca5612d177", null ],
+    [ "set", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#ac989a03c64590097e336c22edb1a5f3f", null ],
     [ "get_world_to_screen", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a3a53394f0f108877fdff22b3dc87b0f1", null ],
     [ "get_world_to_screen_ex", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a180ef633a49cbb106e8a9894f600bb1c", null ],
     [ "get_camera_matrix", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a1ca12195b358cca65f10326040b43f52", null ],

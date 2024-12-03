@@ -1,4 +1,4 @@
 var Sound_8hpp =
 [
-    [ "galaxy::media::Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", "d6/dd5/classgalaxy_1_1media_1_1Sound" ]
+    [ "galaxy::audio::Sound", "da/ddd/classgalaxy_1_1audio_1_1Sound.html", "da/ddd/classgalaxy_1_1audio_1_1Sound" ]
 ];

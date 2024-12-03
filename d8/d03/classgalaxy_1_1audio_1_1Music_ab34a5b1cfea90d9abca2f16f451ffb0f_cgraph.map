@@ -1,0 +1,5 @@
+<map id="galaxy::audio::Music::unload" name="galaxy::audio::Music::unload">
+<area shape="rect" id="Node000001" title="Unload music data." alt="" coords="5,5,160,45"/>
+<area shape="rect" id="Node000002" href="$d8/d03/classgalaxy_1_1audio_1_1Music.html#a186f4e1be5f241a190a6d2e1dd2c4dd1" title="Check if music is valid (data loaded and buffers initialized)." alt="" coords="208,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,23,194,23,194,28,160,28"/>
+</map>

@@ -43,7 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
@@ -63,20 +63,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d92/namespacegalaxy_1_1math.html#a79fccdbd8e93e298e21fd5dbff9003fa",
-"d1/df2/namespacegalaxy_1_1input_1_1clipboard.html#a2e0b090427749973cf0c4186967b45e2",
-"d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a7cbc6941740f3cbaf349efba1667b439",
-"d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html",
-"d5/d25/classgalaxy_1_1core_1_1Window.html#a651cfef90e395e7a69ba63e8bca8315c",
-"d6/d55/DialogIcons_8cpp_source.html",
-"d7/d39/namespacegalaxy_1_1input_1_1mouse.html#a4b99d9eae75522d123bf2b801ca73809",
-"d8/d7f/LuaFS_8cpp.html",
-"d9/d9f/classgalaxy_1_1logging_1_1Sink.html#a8285e94db052f176381e694d3de3288e",
-"da/d6d/classgalaxy_1_1async_1_1Timer.html#a33ef67e43526b0818d95762a81d10df5",
-"db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html#a3431540449ebfa0737c0bb695dfc89c8",
-"dd/d72/classgalaxy_1_1scene_1_1Scene.html#a0d532dad9e7b16874ccc81e415a4b2ab",
-"de/d92/Lua_8hpp.html#a521d74470cd4da3ebf4e4c482a35da64",
-"dir_caa41ed0a60054fdd7b2b558dac6ab70.html"
+"d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#ab6987cfed066c866f62e3a90ed7c1a62",
+"d2/d4d/classgalaxy_1_1utils_1_1Guid.html",
+"d3/d1f/Quaternion_8hpp.html#a735e6db0faf536a4f20b3d1bb72440a9",
+"d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4",
+"d5/d25/classgalaxy_1_1core_1_1Window.html#a9772c7396e6ddadcedff85304429ec21",
+"d6/de9/classgalaxy_1_1core_1_1Config.html#a589d74abf8e26639a6de6e47fe94a92c",
+"d8/d03/classgalaxy_1_1audio_1_1Music.html#ab5ed183a6010bdc9108c08f9d475ee5d",
+"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a53ae713604e4c7ae16f1971890bc3189",
+"d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155",
+"db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a03c797e5283251adf9fc6c75949d00c2",
+"dc/d50/namespacegalaxy_1_1audio_1_1device.html#a2b3156016d9be871724f5eb9aeb37a16",
+"dd/dad/VideoShader_8hpp.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d",
+"df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html#a382e84a2893eca67c0023c959448cbfb",
+"namespacemembers_r.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$db/db8/classgalaxy_1_1meta_1_1EntityMeta.html" title="Handles entity meta (de)serialization." alt="" coords="5,5,192,31"/>
+<area shape="rect" id="Node000000" href="$d0/d02/structgalaxy_1_1resource_1_1Loader.html" title=" " alt="" coords="5,47,187,87"/>
+<area shape="rect" id="Node000001" href="$d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html" title="Loads resources for the music cache." alt="" coords="236,5,455,31"/>
+<area shape="poly" id="edge20_Node000000_Node000001" title=" " alt="" coords="199,44,280,28,281,33,201,49"/>
+<area shape="rect" id="Node000002" href="$d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html" title="Loads resources for the sound cache." alt="" coords="235,55,456,80"/>
+<area shape="poly" id="edge21_Node000000_Node000002" title=" " alt="" coords="200,65,234,65,234,70,200,70"/>
+<area shape="rect" id="Node000003" href="$db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html" title="Loads resources for the voice cache." alt="" coords="237,104,453,129"/>
+<area shape="poly" id="edge22_Node000000_Node000003" title=" " alt="" coords="201,85,281,101,280,107,199,90"/>
 </map>

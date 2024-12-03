@@ -6,5 +6,5 @@ var searchData=
   ['registry_3',['Registry',['../de/d2c/classgalaxy_1_1core_1_1Registry.html',1,'galaxy::core']]],
   ['rendersystem_4',['RenderSystem',['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html',1,'galaxy::systems']]],
   ['rigidbody_5',['RigidBody',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html',1,'galaxy::components']]],
-  ['ringbuffer_6',['RingBuffer',['../d5/df7/classgalaxy_1_1media_1_1RingBuffer.html',1,'galaxy::media']]]
+  ['ringbuffer_6',['RingBuffer',['../d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html',1,'galaxy::utils']]]
 ];

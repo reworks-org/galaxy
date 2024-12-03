@@ -1,6 +1,7 @@
 var namespacegalaxy =
 [
     [ "async", "d0/d7f/namespacegalaxy_1_1async.html", "d0/d7f/namespacegalaxy_1_1async" ],
+    [ "audio", "d9/dde/namespacegalaxy_1_1audio.html", "d9/dde/namespacegalaxy_1_1audio" ],
     [ "components", "d3/db5/namespacegalaxy_1_1components.html", "d3/db5/namespacegalaxy_1_1components" ],
     [ "core", "d1/dcb/namespacegalaxy_1_1core.html", "d1/dcb/namespacegalaxy_1_1core" ],
     [ "events", "d6/d3d/namespacegalaxy_1_1events.html", "d6/d3d/namespacegalaxy_1_1events" ],
@@ -17,7 +18,6 @@ var namespacegalaxy =
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
     [ "map", "d6/d4d/namespacegalaxy_1_1map.html", "d6/d4d/namespacegalaxy_1_1map" ],
     [ "math", "d1/d92/namespacegalaxy_1_1math.html", "d1/d92/namespacegalaxy_1_1math" ],
-    [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", "dd/dfc/namespacegalaxy_1_1platform" ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],

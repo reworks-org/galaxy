@@ -1,4 +1,4 @@
 var RingBuffer_8hpp =
 [
-    [ "galaxy::media::RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", "d5/df7/classgalaxy_1_1media_1_1RingBuffer" ]
+    [ "galaxy::utils::RingBuffer", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer" ]
 ];

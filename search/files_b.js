@@ -19,5 +19,7 @@ var searchData=
   ['mousereleased_2ecpp_16',['MouseReleased.cpp',['../d9/dd1/MouseReleased_8cpp.html',1,'']]],
   ['mousereleased_2ehpp_17',['MouseReleased.hpp',['../df/dd4/MouseReleased_8hpp.html',1,'']]],
   ['mousewheel_2ecpp_18',['MouseWheel.cpp',['../d9/d94/MouseWheel_8cpp.html',1,'']]],
-  ['mousewheel_2ehpp_19',['MouseWheel.hpp',['../dd/dd7/MouseWheel_8hpp.html',1,'']]]
+  ['mousewheel_2ehpp_19',['MouseWheel.hpp',['../dd/dd7/MouseWheel_8hpp.html',1,'']]],
+  ['music_2ecpp_20',['Music.cpp',['../d6/df4/Music_8cpp.html',1,'']]],
+  ['music_2ehpp_21',['Music.hpp',['../dd/d76/Music_8hpp.html',1,'']]]
 ];

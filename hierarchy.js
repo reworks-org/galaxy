@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "galaxy::core::App", "d5/d5a/classgalaxy_1_1core_1_1App.html", null ],
-    [ "galaxy::media::AudioEngine< type >", "d0/d0d/classgalaxy_1_1media_1_1AudioEngine.html", null ],
     [ "galaxy::resource::Cache< Resource, Loader >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
     [ "Camera2D", null, [
       [ "galaxy::graphics::Camera2D", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html", null ]
@@ -31,11 +30,17 @@ var hierarchy =
     [ "galaxy::logging::LogMessage", "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html", null ],
     [ "galaxy::map::Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", null ],
     [ "galaxy::math::Matrix", "d2/d9e/classgalaxy_1_1math_1_1Matrix.html", null ],
+    [ "MediaStream", null, [
+      [ "galaxy::graphics::Video", "d8/d06/classgalaxy_1_1graphics_1_1Video.html", null ]
+    ] ],
     [ "galaxy::events::MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],
     [ "galaxy::events::MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", null ],
     [ "galaxy::events::MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", null ],
+    [ "Music", null, [
+      [ "galaxy::audio::Music", "d8/d03/classgalaxy_1_1audio_1_1Music.html", null ]
+    ] ],
     [ "galaxy::core::Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", null ],
     [ "Quaternion", null, [
       [ "galaxy::math::Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html", null ]
@@ -46,7 +51,7 @@ var hierarchy =
     ] ],
     [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
     [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", null ],
-    [ "galaxy::media::RingBuffer", "d5/df7/classgalaxy_1_1media_1_1RingBuffer.html", null ],
+    [ "galaxy::utils::RingBuffer", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html", null ],
     [ "galaxy::lua::Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
@@ -75,7 +80,9 @@ var hierarchy =
       [ "galaxy::logging::ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", null ],
       [ "galaxy::logging::FileSink", "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html", null ]
     ] ],
-    [ "galaxy::media::Sound", "d6/dd5/classgalaxy_1_1media_1_1Sound.html", null ],
+    [ "Sound", null, [
+      [ "galaxy::audio::Sound", "da/ddd/classgalaxy_1_1audio_1_1Sound.html", null ]
+    ] ],
     [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],
     [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
     [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
@@ -97,7 +104,6 @@ var hierarchy =
     [ "Vector4", null, [
       [ "galaxy::math::Vector4", "d7/de2/classgalaxy_1_1math_1_1Vector4.html", null ]
     ] ],
-    [ "galaxy::media::Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", null ],
     [ "galaxy::fs::VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", null ],
     [ "galaxy::core::Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", null ],
     [ "galaxy::events::WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],

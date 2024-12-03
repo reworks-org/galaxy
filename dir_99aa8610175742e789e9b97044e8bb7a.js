@@ -9,5 +9,7 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "ScreenMode.cpp", "dd/da4/ScreenMode_8cpp.html", null ],
     [ "ScreenMode.hpp", "dd/d40/ScreenMode_8hpp.html", "dd/d40/ScreenMode_8hpp" ],
     [ "Shader.cpp", "dd/d84/Shader_8cpp.html", null ],
-    [ "Shader.hpp", "d4/d6e/Shader_8hpp.html", "d4/d6e/Shader_8hpp" ]
+    [ "Shader.hpp", "d4/d6e/Shader_8hpp.html", "d4/d6e/Shader_8hpp" ],
+    [ "Video.cpp", "df/da9/Video_8cpp.html", null ],
+    [ "Video.hpp", "d7/d4c/Video_8hpp.html", "d7/d4c/Video_8hpp" ]
 ];

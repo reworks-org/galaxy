@@ -16,5 +16,6 @@ var searchData=
   ['mkdir_13',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322',1,'galaxy::fs::VirtualFileSystem']]],
   ['mouse_5fvisible_14',['mouse_visible',['../d1/db3/structgalaxy_1_1settings.html#aef894af1c3f5b51aa3582ae4a9fa3c5a',1,'galaxy::settings']]],
   ['move_5ftowards_15',['move_towards',['../d8/d3e/classgalaxy_1_1math_1_1Vector2.html#a1677b6b0d9c22f683e2064b40d5a3e6b',1,'galaxy::math::Vector2::move_towards()'],['../dc/dae/classgalaxy_1_1math_1_1Vector3.html#aa7ebee655132c45f34e8ce9268c19be3',1,'galaxy::math::Vector3::move_towards()'],['../d7/de2/classgalaxy_1_1math_1_1Vector4.html#a12da2d04d5ce719425337a4a58f95587',1,'galaxy::math::Vector4::move_towards()']]],
-  ['msaa_16',['msaa',['../d1/db3/structgalaxy_1_1settings.html#a3be95127c054f5d3947c03c0f77970f6',1,'galaxy::settings']]]
+  ['msaa_16',['msaa',['../d1/db3/structgalaxy_1_1settings.html#a3be95127c054f5d3947c03c0f77970f6',1,'galaxy::settings']]],
+  ['music_17',['Music',['../d8/d03/classgalaxy_1_1audio_1_1Music.html#a533e88a8d80464d716172adfe79b1b23',1,'galaxy::audio::Music::Music() noexcept'],['../d8/d03/classgalaxy_1_1audio_1_1Music.html#aca2c3bd7ffcccc38e09f06d40364737f',1,'galaxy::audio::Music::Music(Music &amp;&amp;) noexcept'],['../d8/d03/classgalaxy_1_1audio_1_1Music.html#a8204f00d6535d34ac73760563d9126de',1,'galaxy::audio::Music::Music(const Music &amp;)=delete']]]
 ];

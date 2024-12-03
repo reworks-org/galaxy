@@ -1,5 +1,5 @@
-<map id="galaxy/src/galaxy/media/RingBuffer.cpp" name="galaxy/src/galaxy/media/RingBuffer.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="435,5,618,45"/>
+<map id="galaxy/src/galaxy/utils/RingBuffer.cpp" name="galaxy/src/galaxy/utils/RingBuffer.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="442,5,611,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="331,93,394,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="489,48,400,90,398,85,486,43"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="418,93,478,119"/>
