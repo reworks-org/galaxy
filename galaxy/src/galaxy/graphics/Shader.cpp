@@ -16,38 +16,40 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		Shader::Shader()
+		Shader::Shader() noexcept
 		{
+			id   = 0u;
+			locs = nullptr;
 		}
 
-		Shader::Shader(Shader&& s)
+		Shader::Shader(Shader&& s) noexcept
 		{
-			if (valid())
-			{
-				::UnloadShader(*this);
-			}
+			unload();
 
 			this->id   = s.id;
 			this->locs = s.locs;
+
+			s.id   = 0u;
+			s.locs = nullptr;
 		}
 
-		Shader& Shader::operator=(Shader&& s)
+		Shader& Shader::operator=(Shader&& s) noexcept
 		{
 			if (this != &s)
 			{
-				if (valid())
-				{
-					::UnloadShader(*this);
-				}
+				unload();
 
 				this->id   = s.id;
 				this->locs = s.locs;
+
+				s.id   = 0u;
+				s.locs = nullptr;
 			}
 
 			return *this;
 		}
 
-		Shader::~Shader()
+		Shader::~Shader() noexcept
 		{
 			if (valid())
 			{
@@ -117,9 +119,20 @@ namespace galaxy
 			::SetShaderValue(*this, get_uniform_location(name), &sampler2d, RL_SHADER_UNIFORM_SAMPLER2D);
 		}
 
-		bool Shader::valid() const
+		bool Shader::valid() const noexcept
 		{
 			return ::IsShaderValid(*this);
+		}
+
+		void Shader::unload() noexcept
+		{
+			if (valid())
+			{
+				::UnloadShader(*this);
+
+				id   = 0u;
+				locs = nullptr;
+			}
 		}
 
 		bool Shader::preprocess(const std::string& src)
@@ -176,14 +189,11 @@ namespace galaxy
 
 		bool Shader::load_into_raylib(const std::string& vertex, const std::string& frag)
 		{
-			if (valid())
-			{
-				::UnloadShader(*this);
-			}
+			unload();
 
-			::Shader shader = ::LoadShaderFromMemory(vertex.c_str(), frag.c_str());
-			this->id        = shader.id;
-			this->locs      = shader.locs;
+			const auto shader = ::LoadShaderFromMemory(vertex.c_str(), frag.c_str());
+			this->id          = shader.id;
+			this->locs        = shader.locs;
 		}
 	} // namespace graphics
 } // namespace galaxy

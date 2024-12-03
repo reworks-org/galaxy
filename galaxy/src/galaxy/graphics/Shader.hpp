@@ -39,22 +39,22 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Shader();
+			Shader() noexcept;
 
 			///
 			/// Move constructor.
 			///
-			Shader(Shader&&);
+			Shader(Shader&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Shader& operator=(Shader&&);
+			Shader& operator=(Shader&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Shader();
+			~Shader() noexcept;
 
 			///
 			/// Loads a combined shader.
@@ -134,7 +134,12 @@ namespace galaxy
 			/// \return Boolean.
 			///
 			[[nodiscard]]
-			bool valid() const;
+			bool valid() const noexcept;
+
+			///
+			/// Unload shader object.
+			///
+			void unload() noexcept;
 
 		private:
 			///
