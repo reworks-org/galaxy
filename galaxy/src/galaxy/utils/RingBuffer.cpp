@@ -20,9 +20,9 @@
 
 namespace galaxy
 {
-	namespace media
+	namespace utils
 	{
-		RingBuffer::RingBuffer(const int capacity)
+		RingBuffer::RingBuffer(const int capacity) noexcept
 			: m_read_index {0}
 			, m_write_index {0}
 			, m_capacity {capacity}
@@ -31,7 +31,7 @@ namespace galaxy
 			set_volume(1.0f);
 		}
 
-		RingBuffer::~RingBuffer()
+		RingBuffer::~RingBuffer() noexcept
 		{
 			delete[] m_buffer;
 			m_buffer = nullptr;
@@ -70,12 +70,12 @@ namespace galaxy
 			return result;
 		}
 
-		int RingBuffer::available_bytes()
+		int RingBuffer::available_bytes() const noexcept
 		{
 			return (m_capacity + m_write_index - m_read_index) % m_capacity;
 		}
 
-		void RingBuffer::set_volume(const float volume)
+		void RingBuffer::set_volume(const float volume) noexcept
 		{
 			const auto gain   = (std::max(std::min(volume, 1.0f), 0.0f) * 50) - 50;
 			const auto factor = std::pow(10, gain * 0.05f);
@@ -83,11 +83,11 @@ namespace galaxy
 			m_volume = static_cast<float>(std::max(std::min(1.0 * factor, 1.0), 0.0));
 		}
 
-		float RingBuffer::get_volume() const
+		float RingBuffer::get_volume() const noexcept
 		{
 			return m_volume;
 		}
-	} // namespace media
+	} // namespace utils
 } // namespace galaxy
 
 #ifdef GALAXY_WIN_PLATFORM
