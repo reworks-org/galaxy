@@ -133,27 +133,27 @@ namespace galaxy
 
 		double Video::get_position() const noexcept
 		{
-			return GetMediaPosition(*this);
+			return ::GetMediaPosition(*this);
 		}
 
 		bool Video::set_position(const double time_sec) noexcept
 		{
-			return SetMediaPosition(*this, time_sec);
+			return ::SetMediaPosition(*this, time_sec);
 		}
 
 		bool Video::set_looping(const bool loop_play) noexcept
 		{
-			return SetMediaLooping(*this, loop_play);
+			return ::SetMediaLooping(*this, loop_play);
 		}
 
 		int Video::set_flag(const ray::MediaConfigFlag flag, const int value) noexcept
 		{
-			return SetMediaFlag(static_cast<int>(flag), value);
+			return ::SetMediaFlag(static_cast<int>(flag), value);
 		}
 
 		int Video::get_flag(const ray::MediaConfigFlag flag) const noexcept
 		{
-			return GetMediaFlag(static_cast<int>(flag));
+			return ::GetMediaFlag(static_cast<int>(flag));
 		}
 
 		void Video::unload() noexcept
