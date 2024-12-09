@@ -5,6 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
+#include <raylib-media/raymedialoader.h>
+
+#include "galaxy/fs/VirtualFileSystem.hpp"
+
 #include "Video.hpp"
 
 namespace galaxy
@@ -89,7 +94,15 @@ namespace galaxy
 
 		void Video::load_ex(const std::string& file_name, const ray::MediaLoadFlag flags) noexcept
 		{
-			const auto v = ::LoadMediaEx(file_name.c_str(), flags);
+			auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
+			auto  data = fs.read_binary(file_name);
+
+			::MediaMemoryStream stream = {0};
+			stream.data                = data.data();
+			stream.size                = data.size();
+			stream.pos                 = 0;
+
+			const auto v = ::LoadMediaFromStream(::MediaGetMemoryReader(&stream), static_cast<int>(flags));
 
 			ctx = v.ctx;
 
