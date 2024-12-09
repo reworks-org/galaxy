@@ -9,6 +9,8 @@
 #define GALAXY_FS_VIRTUALFILESYSTEM_HPP_
 
 #include <span>
+#include <string>
+#include <vector>
 
 #include "galaxy/fs/DialogButton.hpp"
 #include "galaxy/fs/DialogIcons.hpp"
