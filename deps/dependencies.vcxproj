@@ -504,6 +504,7 @@
     <ClInclude Include="raylib\src\raymath.h" />
     <ClInclude Include="raylib\src\rlgl.h" />
     <ClInclude Include="raylib_extensions\raylib-media\raymedia.h" />
+    <ClInclude Include="raylib_extensions\raylib-media\raymedialoader.h" />
     <ClInclude Include="sol3\include\sol\abort.hpp" />
     <ClInclude Include="sol3\include\sol\assert.hpp" />
     <ClInclude Include="sol3\include\sol\as_args.hpp" />

@@ -1,4 +1,4 @@
- /***************************************************************************************************
+/***************************************************************************************************
  *
  *   LICENSE: zlib
  *
@@ -27,7 +27,7 @@
 
 #include <assert.h>
 
-#include "raymedia.h"
+#include "raymedialoader.h"
 
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
@@ -42,22 +42,22 @@
 #define CLAMP(x, low, high) ((x) < (low) ? (low) : (x) > (high) ? (high) : (x))
 
 #ifndef MIN
-#define MIN(a,b) (((a) < (b)) ? (a) : (b))
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
 #ifndef MAX
-#define MAX(a,b) (((a) > (b)) ? (a) : (b))
+#define MAX(a, b) (((a) > (b)) ? (a) : (b))
 #endif
 
 #if defined(RAYLIB_VERSION_MAJOR) && defined(RAYLIB_VERSION_MINOR)
 // Compatibility check for Raylib versions older than 5.5
 #if (RAYLIB_VERSION_MAJOR < 5) || (RAYLIB_VERSION_MAJOR == 5 && RAYLIB_VERSION_MINOR < 5)
-	#define IsImageValid IsImageReady
-	#define IsTextureValid IsTextureReady
-	#define IsAudioStreamValid IsAudioStreamReady
+#define IsImageValid IsImageReady
+#define IsTextureValid IsTextureReady
+#define IsAudioStreamValid IsAudioStreamReady
 #endif
 #else
-	#error "RAYLIB_VERSION_MAJOR and RAYLIB_VERSION_MINOR must be defined"
+#error "RAYLIB_VERSION_MAJOR and RAYLIB_VERSION_MINOR must be defined"
 #endif
 
 //---------------------------------------------------------------------------------------------------
@@ -65,36 +65,35 @@
 //---------------------------------------------------------------------------------------------------
 
 // Supported stream types
-enum {
-	STREAM_AUDIO	= 0,									// Index of the audio stream
-	STREAM_VIDEO	= 1,									// Index of the video stream
+enum
+{
+	STREAM_AUDIO = 0, // Index of the audio stream
+	STREAM_VIDEO = 1, // Index of the video stream
 
-	STREAM_COUNT											// Number of streams
+	STREAM_COUNT      // Number of streams
 };
 
-// Internal return codes 
+// Internal return codes
 enum
-{	
+{
 	// Error codes, starting from MEDIA_ERR_BASE ----------------------------------------------------
 
 	MEDIA_ERR_BASE = -11000,
 
-	MEDIA_ERR_OVERFLOW = MEDIA_ERR_BASE - 1,				// Buffer overflow
-	MEDIA_ERR_DECODE_AUDIO,									// Error decoding audio
-	MEDIA_ERR_UNKNOWN_STREAM,								// Unknown or unsupported stream
-	MEDIA_ERR_GRAB_PACKET,									// Error grabbing packet
-	MEDIA_ERR_DUPLICATE_STREAM,								// Duplicate stream type detected
-	MEDIA_ERR_CODEC_ALLOC_FAILED,							// Codec context allocation failure
-	MEDIA_ERR_CTX_PARAMS_FAILED,							// Failed to copy codec parameters
-	MEDIA_ERR_CODEC_OPEN_FAILED,							// Codec initialization failure
-
+	MEDIA_ERR_OVERFLOW = MEDIA_ERR_BASE - 1, // Buffer overflow
+	MEDIA_ERR_DECODE_AUDIO,                  // Error decoding audio
+	MEDIA_ERR_UNKNOWN_STREAM,                // Unknown or unsupported stream
+	MEDIA_ERR_GRAB_PACKET,                   // Error grabbing packet
+	MEDIA_ERR_DUPLICATE_STREAM,              // Duplicate stream type detected
+	MEDIA_ERR_CODEC_ALLOC_FAILED,            // Codec context allocation failure
+	MEDIA_ERR_CTX_PARAMS_FAILED,             // Failed to copy codec parameters
+	MEDIA_ERR_CODEC_OPEN_FAILED,             // Codec initialization failure
 
 	// Success and EOF return codes -----------------------------------------------------------------
 
-	MEDIA_RET_SUCCEED = 0,									// Operation successful
-	MEDIA_EOF = 1											// End of file (stream) reached
+	MEDIA_RET_SUCCEED = 0, // Operation successful
+	MEDIA_EOF         = 1  // End of file (stream) reached
 };
-
 
 //---------------------------------------------------------------------------------------------------
 // Types and Structures Definition
@@ -103,88 +102,89 @@ enum
 // Circular buffer logic
 typedef struct BufferState
 {
-	int readPos;					// Read position index
-	int writePos;					// Write position index
-	int capacity;					// Capacity of the circular buffer
+	int readPos;  // Read position index
+	int writePos; // Write position index
+	int capacity; // Capacity of the circular buffer
 } BufferState;
 
 // Queue structure specialized in handling pending AVPackets.
 // - Two queues are used: one for video packets and one for audio packets.
-// - Set queue capacities for a specific MediaStream before calling LoadMedia(), 
+// - Set queue capacities for a specific MediaStream before calling LoadMedia(),
 //   or rely on default values if not set.
-// - To customize capacities, use SetMediaFlag(MEDIA_VIDEO_QUEUE, [videoQueueCapacity]) 
+// - To customize capacities, use SetMediaFlag(MEDIA_VIDEO_QUEUE, [videoQueueCapacity])
 //   and SetMediaFlag(MEDIA_AUDIO_QUEUE, [audioQueueCapacity]).
 typedef struct PacketQueue
 {
-	AVPacket** packets;             // Pointer to the circular buffer queue for AVPackets
-	BufferState state;              // Current state of the circular buffer
+	AVPacket**  packets; // Pointer to the circular buffer queue for AVPackets
+	BufferState state;   // Current state of the circular buffer
 } PacketQueue;
 
 // Buffer structure
 // - A single buffer is used to hold decoded audio before feeding it to the AudioStream.
-// - Set the buffer capacity for a specific MediaStream before calling LoadMedia(), 
+// - Set the buffer capacity for a specific MediaStream before calling LoadMedia(),
 //   or rely on the default value if not set.
 // - To customize capacity, use SetMediaFlag(MEDIA_AUDIO_DECODED_BUFFER, [decodedBufferCapacity]).
 typedef struct Buffer
 {
-	uint8_t* data;                  // Pointer to the circular buffer
-	BufferState state;              // Current state of the circular buffer
+	uint8_t*    data;  // Pointer to the circular buffer
+	BufferState state; // Current state of the circular buffer
 } Buffer;
 
-// Library configuration structure 
+// Library configuration structure
 // - To set a property, use SetMediaFlag([MediaLoadFlag], [value]).
 // - To get a property, use GetMediaFlag([MediaLoadFlag]).
 // - Changes to these settings will take effect only on MediaStreams loaded after the change.
 typedef struct MediaConfig
 {
-	int videoQueueSize;						// Maximum number of pending video packets
-	int audioQueueSize;						// Maximum number of pending audio packets
-	int audioDecodedBufferSize;				// Size in bytes of the buffer holding decoded audio for the AudioStream
-	enum AVSampleFormat audioOutputFmt;		// Output format for the audio stream
-	int audioOutputChannels;				// Number of output channels for the audio stream
-	double maxAllowedDelay[STREAM_COUNT];	// Maximum allowed delay (in seconds) before an Audio or Video packet is discarded
-											// Late packets below this threshold are speed-up
+	int ioBufferSize;                                  // Size of the buffer for custom IO operations (in bytes)
 
-	int audioMaxUpdateSize;					// Maximum number of bytes to be uploaded to the AudioStream in a frame
-	int audioStreamBufferSize;				// Size of the AudioStream buffer
+	int                 videoQueueSize;                // Maximum number of pending video packets
+	int                 audioQueueSize;                // Maximum number of pending audio packets
+	int                 audioDecodedBufferSize;        // Size in bytes of the buffer holding decoded audio for the AudioStream
+	enum AVSampleFormat audioOutputFmt;                // Output format for the audio stream
+	int                 audioOutputChannels;           // Number of output channels for the audio stream
+	double              maxAllowedDelay[STREAM_COUNT]; // Maximum allowed delay (in seconds) before an Audio or Video packet is discarded
+													   // Late packets below this threshold are speed-up
+
+	int audioMaxUpdateSize;                            // Maximum number of bytes to be uploaded to the AudioStream in a frame
+	int audioStreamBufferSize;                         // Size of the AudioStream buffer
 } MediaConfig;
 
 // Audio/Video stream context data
 typedef struct StreamDataContext
 {
 	AVCodecContext* codecCtx;       // Pointer to the codec context for this stream
-	PacketQueue pendingPackets;     // Queue of pending packets, enqueued if they cannot be used immediately
-	int streamIdx;                  // Index of this stream within the AVFormatContext structure
-	int64_t startPts;               // Starting presentation timestamp (PTS) of the stream; AV_NOPTS_VALUE initially
+	PacketQueue     pendingPackets; // Queue of pending packets, enqueued if they cannot be used immediately
+	int             streamIdx;      // Index of this stream within the AVFormatContext structure
+	int64_t         startPts;       // Starting presentation timestamp (PTS) of the stream; AV_NOPTS_VALUE initially
 } StreamDataContext;
 
 // Structure to hold implementation-specific data for a media instance.
 // This structure is presented as an opaque pointer in a MediaStream.
 typedef struct MediaContext
 {
-	AVFormatContext* formatContext;             // Format I/O context
-	StreamDataContext streams[STREAM_COUNT];    // Data associated with video/audio streams
+	AVFormatContext*  formatContext;         // Format I/O context
+	StreamDataContext streams[STREAM_COUNT]; // Data associated with video/audio streams
 
 	// Video stream-related fields
-	struct SwsContext* swsContext;              // Video resampling and scaling context
-	Image videoOutputImage;                     // Image buffer holding the decoded video frame, uploaded to [MediaStream].videoTexture
+	struct SwsContext* swsContext;       // Video resampling and scaling context
+	Image              videoOutputImage; // Image buffer holding the decoded video frame, uploaded to [MediaStream].videoTexture
 
 	// Audio stream-related fields
-	struct SwrContext* swrContext;              // Audio resampling context
-	Buffer audioOutputBuffer;                   // Buffer with decoded audio, used to fill the AudioStream when needed
-	int audioOutputFmt;                         // Output audio format for this stream; must be an interleaved format
-	int audioMaxUpdateSize;						// Maximum number of bytes to be uploaded to the AudioStream in a frame
+	struct SwrContext* swrContext;         // Audio resampling context
+	Buffer             audioOutputBuffer;  // Buffer with decoded audio, used to fill the AudioStream when needed
+	int                audioOutputFmt;     // Output audio format for this stream; must be an interleaved format
+	int                audioMaxUpdateSize; // Maximum number of bytes to be uploaded to the AudioStream in a frame
 
 	// libav* library-related fields
-	AVPacket* avPacket;                         // AVPacket used before dispatching to the correct stream context
-	AVFrame* avFrame;                           // AVFrame used for each packet during processing
+	AVPacket* avPacket; // AVPacket used before dispatching to the correct stream context
+	AVFrame*  avFrame;  // AVFrame used for each packet during processing
 
 	// MediaStream-related fields
-	MediaState state;                           // Current state of the media. Use SetMediaState()/GetMediaState() to modify.
-	double timePos;                             // Current playback position in seconds
-	bool loopPlay;                              // Indicates if the media plays in a loop. Use SetMediaLooping() to set.
+	MediaState state;    // Current state of the media. Use SetMediaState()/GetMediaState() to modify.
+	double     timePos;  // Current playback position in seconds
+	bool       loopPlay; // Indicates if the media plays in a loop. Use SetMediaLooping() to set.
 } MediaContext;
-
 
 //---------------------------------------------------------------------------------------------------
 // Global Variables Definition
@@ -192,16 +192,16 @@ typedef struct MediaContext
 
 // Default global settings in raylib style (see documentation for MediaConfig, SetMediaFlag(), and GetMediaFlag()).
 static MediaConfig MEDIA = {
-	.videoQueueSize = 50,
-	.audioQueueSize = 50,
+	.ioBufferSize           = 4 * 1024,
+	.videoQueueSize         = 50,
+	.audioQueueSize         = 50,
 	.audioDecodedBufferSize = 16 * 1024, // TODO: Fine-tune these values.
-	.audioMaxUpdateSize     = 4  * 1024, // 
-	.audioStreamBufferSize  = 1  * 1024, //
-	.audioOutputChannels = 2,
-	.audioOutputFmt = AV_SAMPLE_FMT_S16,
-	.maxAllowedDelay = {0.04, 1.0}    //!IMPORTANT: Assuming here STREAM_AUDIO = 0, STREAM_VIDEO = 1
+	.audioMaxUpdateSize     = 4 * 1024, //
+	.audioStreamBufferSize  = 1 * 1024, //
+	.audioOutputChannels    = 2,
+	.audioOutputFmt         = AV_SAMPLE_FMT_S16,
+	.maxAllowedDelay        = {0.04, 1.0}  //!   IMPORTANT: Assuming here STREAM_AUDIO = 0, STREAM_VIDEO = 1
 };
-
 
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - Circular buffer logic
@@ -209,68 +209,65 @@ static MediaConfig MEDIA = {
 
 // State checking functions
 
-int IsBufferFull(const BufferState* state);        // Check if the circular buffer is full (returns 1 if full, 0 otherwise)
-int IsBufferEmpty(const BufferState* state);       // Check if the circular buffer is empty (returns 1 if empty, 0 otherwise)
+int IsBufferFull(const BufferState* state);  // Check if the circular buffer is full (returns 1 if full, 0 otherwise)
+int IsBufferEmpty(const BufferState* state); // Check if the circular buffer is empty (returns 1 if empty, 0 otherwise)
 
 // Space calculation functions
 
-int GetBufferWritableSpace(const BufferState* state);         // Calculate total writable space in the buffer, in bytes (not necessarily contiguous)
-int GetBufferWritableSegmentSize(const BufferState* state);   // Calculate the largest contiguous writable segment, in bytes
-int GetBufferReadableSpace(const BufferState* state);         // Calculate total readable space in the buffer, in bytes (not necessarily contiguous)
-int GetBufferReadableSegmentSize(const BufferState* state);   // Calculate the largest contiguous readable segment, in bytes
+int GetBufferWritableSpace(const BufferState* state);       // Calculate total writable space in the buffer, in bytes (not necessarily contiguous)
+int GetBufferWritableSegmentSize(const BufferState* state); // Calculate the largest contiguous writable segment, in bytes
+int GetBufferReadableSpace(const BufferState* state);       // Calculate total readable space in the buffer, in bytes (not necessarily contiguous)
+int GetBufferReadableSegmentSize(const BufferState* state); // Calculate the largest contiguous readable segment, in bytes
 
 // Position advancing functions
 
-void AdvanceWritePos(BufferState* state);          // Advance the write position by one byte in the circular buffer
-void AdvanceWritePosN(BufferState* state, int n);  // Advance the write position by N bytes in the circular buffer
-void AdvanceReadPos(BufferState* state);           // Advance the read position by one byte in the circular buffer
-void AdvanceReadPosN(BufferState* state, int n);   // Advance the read position by N bytes in the circular buffer
-
+void AdvanceWritePos(BufferState* state);         // Advance the write position by one byte in the circular buffer
+void AdvanceWritePosN(BufferState* state, int n); // Advance the write position by N bytes in the circular buffer
+void AdvanceReadPos(BufferState* state);          // Advance the read position by one byte in the circular buffer
+void AdvanceReadPosN(BufferState* state, int n);  // Advance the read position by N bytes in the circular buffer
 
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - Buffer management
 //---------------------------------------------------------------------------------------------------
 
-Buffer LoadBuffer(int capacity);                   // Load a circular buffer with the specified capacity.
-void UnloadBuffer(Buffer* buffer);                 // Free memory associated with the buffer.
-bool IsBufferReady(const Buffer* buffer);          // Check if the buffer is properly loaded.
-void ClearBuffer(Buffer* buffer);                  // Reset the circular buffer without freeing memory, allowing for reuse.
+Buffer LoadBuffer(int capacity);                                      // Load a circular buffer with the specified capacity.
+void   UnloadBuffer(Buffer* buffer);                                  // Free memory associated with the buffer.
+bool   IsBufferReady(const Buffer* buffer);                           // Check if the buffer is properly loaded.
+void   ClearBuffer(Buffer* buffer);                                   // Reset the circular buffer without freeing memory, allowing for reuse.
 
-int  WriteBuffer(Buffer* buffer, const uint8_t* srcData, int srcSize);	// Write srcData to the buffer. Returns a negative value on error; 
-																		// otherwise, returns the actual size written (may be less than srcSize 
-																		// if not enough writable space is available).
+int WriteBuffer(Buffer* buffer, const uint8_t* srcData, int srcSize); // Write srcData to the buffer. Returns a negative value on error;
+																	  // otherwise, returns the actual size written (may be less than srcSize
+																	  // if not enough writable space is available).
 
-int  ReadBuffer(Buffer* buffer, uint8_t* dstData, int dstSize);			// Read data from the buffer into dstData. Returns a negative value on 
-																		// error; otherwise, returns the actual size read (may be less than dstSize 
-																		// if not enough readable space is available).
-
+int ReadBuffer(Buffer* buffer, uint8_t* dstData, int dstSize);        // Read data from the buffer into dstData. Returns a negative value on
+																	  // error; otherwise, returns the actual size read (may be less than dstSize
+																	  // if not enough readable space is available).
 
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - PacketQueue management
 //---------------------------------------------------------------------------------------------------
 
-PacketQueue LoadQueue(int capacity);					// Load a packet queue with the specified capacity.
-void UnloadQueue(PacketQueue* queue);					// Free memory associated with the queue.
-bool IsQueueReady(const PacketQueue* queue);			// Check if the queue is properly loaded.
-void ClearQueue(PacketQueue* queue);					// Reset the queue without freeing memory, allowing for reuse.
-bool IsQueueFull(const PacketQueue* queue);				// Check if the queue is full (no more writable space).
-bool IsQueueEmpty(const PacketQueue* queue);			// Check if the queue is empty (no more readable space).
+PacketQueue LoadQueue(int capacity);                   // Load a packet queue with the specified capacity.
+void        UnloadQueue(PacketQueue* queue);           // Free memory associated with the queue.
+bool        IsQueueReady(const PacketQueue* queue);    // Check if the queue is properly loaded.
+void        ClearQueue(PacketQueue* queue);            // Reset the queue without freeing memory, allowing for reuse.
+bool        IsQueueFull(const PacketQueue* queue);     // Check if the queue is full (no more writable space).
+bool        IsQueueEmpty(const PacketQueue* queue);    // Check if the queue is empty (no more readable space).
 
-bool EnqueuePacket(PacketQueue* queue, AVPacket* src);	// Enqueue a packet. Automatically handles reference management.
-														// Returns true on success, false if the queue is full.
+bool EnqueuePacket(PacketQueue* queue, AVPacket* src); // Enqueue a packet. Automatically handles reference management.
+													   // Returns true on success, false if the queue is full.
 
-bool DequeuePacket(PacketQueue* queue, AVPacket* dst);	// Dequeue a packet. Automatically handles reference management.
-														// Returns true on success, false if the queue is empty.
+bool DequeuePacket(PacketQueue* queue, AVPacket* dst); // Dequeue a packet. Automatically handles reference management.
+													   // Returns true on success, false if the queue is empty.
 
-AVPacket* PeekPacket(const PacketQueue* queue);			// Returns a pointer to the first available packet, or NULL if the queue is empty.
-														// Does not modify the queue or advance the read position.
-
+AVPacket* PeekPacket(const PacketQueue* queue);        // Returns a pointer to the first available packet, or NULL if the queue is empty.
+													   // Does not modify the queue or advance the read position.
 
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - AV management - FFmpeg (libav*)
 //---------------------------------------------------------------------------------------------------
 
-void AVPrintError(int errCode);							 // Prints a libav error code as a string.
+void AVPrintError(int errCode); // Prints a libav error code as a string.
 
 // Grabs a packet of the specified type (STREAM_VIDEO, STREAM_AUDIO).
 // First, searches the pending packets queue; if empty, it grabs and enqueues packets
@@ -280,7 +277,7 @@ int AVGrabPacket(MediaContext* ctx, int streamType, AVPacket* dst);
 // Returns a ptr to a packet of the desired type keeping the reference inside the queue
 int AVPeekPacket(MediaContext* ctx, int streamType, AVPacket** ptr);
 
-// Decodes a packet grabbed with AVGrabPacket, then calls AVProcessVideoFrame or AVProcessAudioFrame 
+// Decodes a packet grabbed with AVGrabPacket, then calls AVProcessVideoFrame or AVProcessAudioFrame
 // based on the packet type. Optionally discards the packet without processing it.
 int AVDecodePacket(const MediaStream* media, int streamType, const AVPacket* packet, bool discardPacket);
 
@@ -297,7 +294,7 @@ bool AVSeekVideoKeyframe(const MediaStream* media);
 // Helper for seeking to a specific position in the media (targetTimestamp in libav time units).
 bool AVSeek(MediaStream* media, int64_t targetTimestamp);
 
-// Helper for relative position seeking in the media (factor is the relative position 
+// Helper for relative position seeking in the media (factor is the relative position
 // between 0.0 and 1.0) [not used].
 bool AVSeekRelative(MediaStream* media, double factor);
 
@@ -307,26 +304,36 @@ bool AVLoadCodecContext(StreamDataContext* streamCtx, const AVCodec* codec, cons
 // Helper function to free memory associated with codec context data for a specific stream.
 void AVUnloadCodecContext(StreamDataContext* streamCtx);
 
-
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - Media Context loading and unloading
 //---------------------------------------------------------------------------------------------------
 
-MediaContext* LoadMediaContext(const char* fileName, int flags);
+// Load a MediaContext from a file or a custom MediaStreamReader.
+// - fileName: Name of the media file to load. Ignored if a valid MediaStreamReader is provided.
+// - streamReader: A MediaStreamReader containing custom IO callbacks. Takes precedence over fileName if valid.
+// - flags: Combination of MediaLoadFlag values to configure loading behavior.
+// Returns: Pointer to the allocated MediaContext on success, or NULL on failure.
+MediaContext* LoadMediaContext(const char* fileName, MediaStreamReader streamReader, int flags);
 
 void UnloadMediaContext(MediaContext* ctx);
-
 
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - Helpers
 //---------------------------------------------------------------------------------------------------
+
+// Loads a MediaStream from an already initialized MediaContext.
+// This internal function is shared by exposed API functions (LoadMedia, LoadMediaEx, LoadMediaFromStream),
+// which differ only in how the MediaContext is initialized.
+// - ctx: Pointer to an initialized MediaContext structure.
+// - flags: Combination of MediaLoadFlag values to configure the loading process.
+// Returns: A valid MediaStream on success; an empty MediaStream on failure.
+MediaStream LoadMediaFromContext(MediaContext* ctx, int flags);
 
 void NotifyEndOfStream(const MediaStream* media);         // Handles the end-of-stream event for the specified media.
 
 void UpdateState(const MediaStream* media, int newState); // Helper function to update the state of the media to the specified new state.
 
 bool HasStream(const MediaContext* ctx, int streamType);  // Checks if the media has an available VIDEO_STREAM or AUDIO_STREAM.
-
 
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - MediaConfigFlags settings
@@ -338,53 +345,57 @@ int SetMediaFlag(int flag, int value)
 
 	switch (flag)
 	{
-	case MEDIA_VIDEO_QUEUE:
-		MEDIA.videoQueueSize = MAX(value, 1);
-		break;
+		case MEDIA_IO_BUFFER:
+			MEDIA.ioBufferSize = MAX(value, 1);
+			break;
 
-	case MEDIA_AUDIO_QUEUE:
-		MEDIA.audioQueueSize = MAX(value, 1);
-		break;
+		case MEDIA_VIDEO_QUEUE:
+			MEDIA.videoQueueSize = MAX(value, 1);
+			break;
 
-	case MEDIA_AUDIO_DECODED_BUFFER:
-		MEDIA.audioDecodedBufferSize = MAX(value, 1024);
-		break;
+		case MEDIA_AUDIO_QUEUE:
+			MEDIA.audioQueueSize = MAX(value, 1);
+			break;
 
-	case MEDIA_AUDIO_STREAM_BUFFER:
-		MEDIA.audioStreamBufferSize = MAX(value, 1024);
-		break;
+		case MEDIA_AUDIO_DECODED_BUFFER:
+			MEDIA.audioDecodedBufferSize = MAX(value, 1024);
+			break;
 
-	case MEDIA_AUDIO_FORMAT:
-		// A planar format (not interleaved) would require a different implementation
-		if(!av_sample_fmt_is_planar(value)) 
-		{
-			MEDIA.audioOutputFmt = (enum AVSampleFormat)CLAMP(value, AV_SAMPLE_FMT_U8, AV_SAMPLE_FMT_DBL);
-		}
-		else 
-		{
-			TraceLog(LOG_WARNING, "MEDIA: Non-interleaved audio format (%i) is not supported.", value);
-		}		
-		break;
+		case MEDIA_AUDIO_STREAM_BUFFER:
+			MEDIA.audioStreamBufferSize = MAX(value, 1024);
+			break;
 
-	case MEDIA_AUDIO_CHANNELS:
-		MEDIA.audioOutputChannels = MAX(1, value);
-		break;
+		case MEDIA_AUDIO_FORMAT:
+			// A planar format (not interleaved) would require a different implementation
+			if (!av_sample_fmt_is_planar(value))
+			{
+				MEDIA.audioOutputFmt = (enum AVSampleFormat)CLAMP(value, AV_SAMPLE_FMT_U8, AV_SAMPLE_FMT_DBL);
+			}
+			else
+			{
+				TraceLog(LOG_WARNING, "MEDIA: Non-interleaved audio format (%i) is not supported.", value);
+			}
+			break;
 
-	case MEDIA_VIDEO_MAX_DELAY:
-		MEDIA.maxAllowedDelay[STREAM_VIDEO] = MAX(0, value) / 1000.0;
-		break;
+		case MEDIA_AUDIO_CHANNELS:
+			MEDIA.audioOutputChannels = MAX(1, value);
+			break;
 
-	case MEDIA_AUDIO_MAX_DELAY:
-		MEDIA.maxAllowedDelay[STREAM_AUDIO] = MAX(0, value) / 1000.0;
-		break;
+		case MEDIA_VIDEO_MAX_DELAY:
+			MEDIA.maxAllowedDelay[STREAM_VIDEO] = MAX(0, value) / 1000.0;
+			break;
 
-	case MEDIA_AUDIO_UPDATE:
-		MEDIA.audioMaxUpdateSize = MAX(value, 1024);
-		break;	
+		case MEDIA_AUDIO_MAX_DELAY:
+			MEDIA.maxAllowedDelay[STREAM_AUDIO] = MAX(0, value) / 1000.0;
+			break;
 
-	default:
-		ret = -1; // Flag not recognized
-		break;
+		case MEDIA_AUDIO_UPDATE:
+			MEDIA.audioMaxUpdateSize = MAX(value, 1024);
+			break;
+
+		default:
+			ret = -1; // Flag not recognized
+			break;
 	}
 
 	return ret;
@@ -392,53 +403,56 @@ int SetMediaFlag(int flag, int value)
 
 int GetMediaFlag(int flag)
 {
-	int ret = -1; 
+	int ret = -1;
 
 	switch (flag)
 	{
-	case MEDIA_VIDEO_QUEUE:
-		ret = MEDIA.videoQueueSize;
-		break;
+		case MEDIA_IO_BUFFER:
+			ret = MEDIA.ioBufferSize;
+			break;
 
-	case MEDIA_AUDIO_QUEUE:
-		ret = MEDIA.audioQueueSize;
-		break;
+		case MEDIA_VIDEO_QUEUE:
+			ret = MEDIA.videoQueueSize;
+			break;
 
-	case MEDIA_AUDIO_DECODED_BUFFER:
-		ret = MEDIA.audioDecodedBufferSize;
-		break;
+		case MEDIA_AUDIO_QUEUE:
+			ret = MEDIA.audioQueueSize;
+			break;
 
-	case MEDIA_AUDIO_STREAM_BUFFER:
-		ret = MEDIA.audioStreamBufferSize;
-		break;
+		case MEDIA_AUDIO_DECODED_BUFFER:
+			ret = MEDIA.audioDecodedBufferSize;
+			break;
 
-	case MEDIA_AUDIO_FORMAT:
-		ret = MEDIA.audioOutputFmt;
-		break;
+		case MEDIA_AUDIO_STREAM_BUFFER:
+			ret = MEDIA.audioStreamBufferSize;
+			break;
 
-	case MEDIA_AUDIO_CHANNELS:
-		ret = MEDIA.audioOutputChannels;
-		break;
+		case MEDIA_AUDIO_FORMAT:
+			ret = MEDIA.audioOutputFmt;
+			break;
 
-	case MEDIA_VIDEO_MAX_DELAY:
-		ret = (int)(MEDIA.maxAllowedDelay[STREAM_VIDEO] * 1000.0);
-		break;
+		case MEDIA_AUDIO_CHANNELS:
+			ret = MEDIA.audioOutputChannels;
+			break;
 
-	case MEDIA_AUDIO_MAX_DELAY:
-		ret = (int)(MEDIA.maxAllowedDelay[STREAM_AUDIO] * 1000.0);
-		break;
+		case MEDIA_VIDEO_MAX_DELAY:
+			ret = (int)(MEDIA.maxAllowedDelay[STREAM_VIDEO] * 1000.0);
+			break;
 
-	case MEDIA_AUDIO_UPDATE:
-		ret = MEDIA.audioMaxUpdateSize;
-		break;
+		case MEDIA_AUDIO_MAX_DELAY:
+			ret = (int)(MEDIA.maxAllowedDelay[STREAM_AUDIO] * 1000.0);
+			break;
 
-	default:
-		break;
+		case MEDIA_AUDIO_UPDATE:
+			ret = MEDIA.audioMaxUpdateSize;
+			break;
+
+		default:
+			break;
 	}
 
 	return ret;
 }
-
 
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - Media properties handling
@@ -446,17 +460,17 @@ int GetMediaFlag(int flag)
 
 MediaProperties GetMediaProperties(MediaStream media)
 {
-	MediaProperties props = (MediaProperties){ 0 };
+	MediaProperties props = (MediaProperties) {0};
 
-	if(IsMediaValid(media))
+	if (IsMediaValid(media))
 	{
 		const AVFormatContext* fmtCtx = media.ctx->formatContext;
 		assert(fmtCtx);
 
 		const StreamDataContext* videoCtx = &media.ctx->streams[STREAM_VIDEO];
-		
+
 		props.durationSec = (double)fmtCtx->duration / AV_TIME_BASE; // av_rescale_q(fmtCtx->duration, AV_TIME_BASE_Q, (AVRational) { 1, 1000 });
-		props.hasVideo	  = HasStream(media.ctx, STREAM_VIDEO); 
+		props.hasVideo    = HasStream(media.ctx, STREAM_VIDEO);
 		props.hasAudio    = HasStream(media.ctx, STREAM_AUDIO);
 		props.avgFPS      = props.hasVideo ? (float)av_q2d(fmtCtx->streams[videoCtx->streamIdx]->avg_frame_rate) : 0;
 	}
@@ -468,15 +482,13 @@ MediaProperties GetMediaProperties(MediaStream media)
 	return props;
 }
 
-
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - Media play management
 //---------------------------------------------------------------------------------------------------
 
-
 bool SetMediaPosition(MediaStream media, double timeSec)
 {
-	if(!IsMediaValid(media))
+	if (!IsMediaValid(media))
 	{
 		TraceLog(LOG_WARNING, "MEDIA: Trying to set the position of an invalid media.");
 		return false;
@@ -510,7 +522,7 @@ bool SetMediaLooping(MediaStream media, bool loopPlay)
 	if (IsMediaValid(media))
 	{
 		media.ctx->loopPlay = loopPlay;
-		ret = true;
+		ret                 = true;
 	}
 	else
 	{
@@ -520,16 +532,15 @@ bool SetMediaLooping(MediaStream media, bool loopPlay)
 	return ret;
 }
 
-
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - Media Context loading and unloading
 //---------------------------------------------------------------------------------------------------
 
-MediaContext* LoadMediaContext(const char* fileName, int flags)
+MediaContext* LoadMediaContext(const char* fileName, MediaStreamReader streamReader, int flags)
 {
-	MediaContext* ctx = (MediaContext*) RL_MALLOC(sizeof(MediaContext));
+	MediaContext* ctx = (MediaContext*)RL_MALLOC(sizeof(MediaContext));
 
-	*ctx = (MediaContext){ 0 };
+	*ctx = (MediaContext) {0};
 
 	ctx->state = MEDIA_STATE_INVALID;
 
@@ -542,9 +553,48 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 		return NULL;
 	}
 
+	// If a custom read function is provided, set up the AVIOContext for custom IO
+	if (streamReader.readFn)
+	{
+		// Allocate buffer for AVIOContext
+		unsigned char* ioBuffer = av_malloc(MEDIA.ioBufferSize);
+		if (!ioBuffer)
+		{
+			TraceLog(LOG_ERROR, "MEDIA: Can't allocate AVIOContext buffer");
+			UnloadMediaContext(ctx); // Free resources and exit on error
+			return NULL;
+		}
+
+		// Allocate and initialize the AVIOContext for custom IO
+		AVIOContext* avIOContext = avio_alloc_context(
+			ioBuffer,              // Buffer for IO operations
+			MEDIA.ioBufferSize,    // Size of the buffer in bytes
+			0,                     // Write flag (0 for read-only operations)
+			streamReader.userData, // Opaque pointer to custom stream context
+			streamReader.readFn,   // Custom read function
+			NULL,                  // Custom write function (NULL for read-only)
+			streamReader.seekFn    // Custom seek function (NULL if not supported)
+		);
+
+		if (!avIOContext)
+		{
+			TraceLog(LOG_ERROR, "MEDIA: Can't allocate AVIOContext");
+			av_freep(&ioBuffer);     // Free the allocated buffer on failure
+			UnloadMediaContext(ctx); // Free resources and exit on error
+			return NULL;
+		}
+
+		// Assign the custom AVIOContext to the format context
+		ctx->formatContext->pb = avIOContext;
+
+		// Set the custom IO flag for the format context
+		ctx->formatContext->flags |= AVFMT_FLAG_CUSTOM_IO;
+	}
+
 	int ret = avformat_open_input(&ctx->formatContext, fileName, NULL, NULL);
 
-	if ( ret < 0) {
+	if (ret < 0)
+	{
 		AVPrintError(ret);
 		UnloadMediaContext(ctx);
 		return NULL;
@@ -552,7 +602,8 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 	ret = avformat_find_stream_info(ctx->formatContext, NULL);
 
-	if (ret < 0) {
+	if (ret < 0)
+	{
 		AVPrintError(ret);
 		UnloadMediaContext(ctx);
 		return NULL;
@@ -564,21 +615,20 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 		const AVCodec* localCodec = avcodec_find_decoder(localCodecParameters->codec_id);
 
-		if (localCodec == NULL) 
+		if (localCodec == NULL)
 		{
 			TraceLog(LOG_WARNING, "MEDIA: Unsupported codec.");
 
 			continue;
 		}
 
-		if (localCodecParameters->codec_type == AVMEDIA_TYPE_VIDEO &&
-			(flags & MEDIA_LOAD_NO_VIDEO) == 0)
+		if (localCodecParameters->codec_type == AVMEDIA_TYPE_VIDEO && (flags & MEDIA_LOAD_NO_VIDEO) == 0)
 		{
 			StreamDataContext* videoCtx = &ctx->streams[STREAM_VIDEO];
 
 			ret = AVLoadCodecContext(videoCtx, localCodec, localCodecParameters);
 
-			if(ret == MEDIA_RET_SUCCEED)
+			if (ret == MEDIA_RET_SUCCEED)
 			{
 				//-------------------------------------------------------------
 
@@ -592,24 +642,32 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 				videoCtx->pendingPackets = LoadQueue(MEDIA.videoQueueSize);
 
-				if(!IsQueueReady(&videoCtx->pendingPackets))
+				if (!IsQueueReady(&videoCtx->pendingPackets))
 				{
 					TraceLog(LOG_ERROR, "MEDIA: Cannot initialize the video packet queue.");
 
 					AVUnloadCodecContext(videoCtx);
 
 					continue;
-				}				
+				}
 
 				//-------------------------------------------------------------
 
 				// Video resampling and scaling context
 				ctx->swsContext = sws_getContext(
-					codecCtx->width, codecCtx->height, codecCtx->pix_fmt,  // Input format
-					codecCtx->width, codecCtx->height, AV_PIX_FMT_RGB24,   // Output format
-					SWS_BILINEAR, NULL, NULL, NULL);
+					codecCtx->width,
+					codecCtx->height,
+					codecCtx->pix_fmt, // Input format
+					codecCtx->width,
+					codecCtx->height,
+					AV_PIX_FMT_RGB24,  // Output format
+					SWS_BILINEAR,
+					NULL,
+					NULL,
+					NULL
+				);
 
-				if(!ctx->swsContext)
+				if (!ctx->swsContext)
 				{
 					TraceLog(LOG_ERROR, "MEDIA: Cannot initialize the SWS context.");
 
@@ -622,7 +680,7 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 				ctx->videoOutputImage.data = RL_MALLOC(av_image_get_buffer_size(AV_PIX_FMT_RGB24, codecCtx->width, codecCtx->height, 1));
 
-				if(!ctx->videoOutputImage.data)
+				if (!ctx->videoOutputImage.data)
 				{
 					TraceLog(LOG_ERROR, "MEDIA: Cannot allocate memory for holding the decoded frame.");
 
@@ -638,24 +696,22 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 				ImageClearBackground(&ctx->videoOutputImage, BLANK),
 
-				//-------------------------------------------------------------
+					//-------------------------------------------------------------
 
-				videoCtx->streamIdx = i;
+					videoCtx->streamIdx = i;
 
 				//-------------------------------------------------------------
 			}
 			else
 			{
-				TraceLog(LOG_WARNING, "MEDIA: Cannot initialize the video codec. (Error code: %i)", ret);				
+				TraceLog(LOG_WARNING, "MEDIA: Cannot initialize the video codec. (Error code: %i)", ret);
 			}
 
 			TraceLog(LOG_DEBUG, "Media Debug: '%s' - Video Codec: resolution %d x %d", fileName, localCodecParameters->width, localCodecParameters->height);
 		}
-		else if (localCodecParameters->codec_type == AVMEDIA_TYPE_AUDIO &&
-			(flags & MEDIA_LOAD_NO_AUDIO) == 0) 
+		else if (localCodecParameters->codec_type == AVMEDIA_TYPE_AUDIO && (flags & MEDIA_LOAD_NO_AUDIO) == 0)
 		{
-
-			if(!IsAudioDeviceReady())
+			if (!IsAudioDeviceReady())
 			{
 				TraceLog(LOG_WARNING, "MEDIA: '%s' - Audio Codec: raylib audio device is not initialized. Audio will be skipped.");
 				continue;
@@ -699,7 +755,7 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 				//-------------------------------------------------------------
 
-				ctx->audioOutputFmt = MEDIA.audioOutputFmt;
+				ctx->audioOutputFmt     = MEDIA.audioOutputFmt;
 				ctx->audioMaxUpdateSize = MEDIA.audioMaxUpdateSize;
 
 				//-------------------------------------------------------------
@@ -721,19 +777,22 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 				av_channel_layout_default(&out_ch_layout, MEDIA.audioOutputChannels);
 
 				// Set options for SwrContext
-				ret = swr_alloc_set_opts2(&ctx->swrContext,
+				ret = swr_alloc_set_opts2(
+					&ctx->swrContext,
 					&out_ch_layout,
 					ctx->audioOutputFmt,   // Output sample format
 					codecCtx->sample_rate, // Output sample rate
 					&codecCtx->ch_layout,  // Input channel layout
 					codecCtx->sample_fmt,  // Input sample format
 					codecCtx->sample_rate, // Input sample rate
-					0, NULL);
+					0,
+					NULL
+				);
 
 				// Clean up the output channel layout
 				av_channel_layout_uninit(&out_ch_layout);
 
-				if(ret < 0)
+				if (ret < 0)
 				{
 					AVPrintError(ret);
 
@@ -747,7 +806,7 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 				ret = swr_init(ctx->swrContext);
 
 				// Initialize the SwrContext
-				if (ret < 0) 
+				if (ret < 0)
 				{
 					AVPrintError(ret);
 
@@ -769,17 +828,23 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 				TraceLog(LOG_WARNING, "MEDIA: Cannot initialize the video codec. (Error code: %i)", ret);
 			}
 
-			TraceLog(LOG_DEBUG, "Media Debug: '%s' - Audio Codec: %d channels, sample rate %d", fileName, localCodecParameters->ch_layout.nb_channels, localCodecParameters->sample_rate);
+			TraceLog(
+				LOG_DEBUG,
+				"Media Debug: '%s' - Audio Codec: %d channels, sample rate %d",
+				fileName,
+				localCodecParameters->ch_layout.nb_channels,
+				localCodecParameters->sample_rate
+			);
 		}
 
 		TraceLog(LOG_DEBUG, "Media Debug: '%s' - Audio Codec: %s ID %d bit_rate %lld", fileName, localCodec->name, localCodec->id, localCodecParameters->bit_rate);
 	}
-	
+
 	if (HasStream(ctx, STREAM_VIDEO) || HasStream(ctx, STREAM_AUDIO))
 	{
-		ctx->avFrame  = av_frame_alloc();
+		ctx->avFrame = av_frame_alloc();
 
-		if(!ctx->avFrame)
+		if (!ctx->avFrame)
 		{
 			TraceLog(LOG_ERROR, "MEDIA: Failed to allocate memory for AVFrame");
 			UnloadMediaContext(ctx);
@@ -797,7 +862,7 @@ MediaContext* LoadMediaContext(const char* fileName, int flags)
 
 		ctx->state = MEDIA_STATE_STOPPED;
 	}
-	
+
 	return ctx;
 }
 
@@ -807,20 +872,20 @@ void UnloadMediaContext(MediaContext* ctx)
 
 	ctx->state = MEDIA_STATE_INVALID;
 
-	for(int i = 0; i < STREAM_COUNT; ++i)
+	for (int i = 0; i < STREAM_COUNT; ++i)
 	{
 		const StreamDataContext* streamCtx = &ctx->streams[i];
-		if(streamCtx->codecCtx != NULL)
+		if (streamCtx->codecCtx != NULL)
 		{
 			AVUnloadCodecContext(&ctx->streams[i]);
 		}
-		if(IsQueueReady(&ctx->streams[i].pendingPackets))
+		if (IsQueueReady(&ctx->streams[i].pendingPackets))
 		{
 			UnloadQueue(&ctx->streams[i].pendingPackets);
-		}		
+		}
 	}
 
-	if(ctx->swsContext)
+	if (ctx->swsContext)
 	{
 		sws_freeContext(ctx->swsContext);
 		ctx->swsContext = NULL;
@@ -829,25 +894,32 @@ void UnloadMediaContext(MediaContext* ctx)
 	if (IsImageValid(ctx->videoOutputImage))
 	{
 		UnloadImage(ctx->videoOutputImage);
-		ctx->videoOutputImage = (Image){ 0 };
+		ctx->videoOutputImage = (Image) {0};
 	}
 
-	if(ctx->swrContext)
+	if (ctx->swrContext)
 	{
 		swr_free(&ctx->swrContext);
 	}
 
-	if(IsBufferReady(&ctx->audioOutputBuffer))
+	if (IsBufferReady(&ctx->audioOutputBuffer))
 	{
 		UnloadBuffer(&ctx->audioOutputBuffer);
 	}
 
-	if(ctx->formatContext)
+	if (ctx->formatContext)
 	{
+		// AVIOContext
+		if (ctx->formatContext->pb)
+		{
+			av_freep(&ctx->formatContext->pb->buffer);
+			avio_context_free(&ctx->formatContext->pb);
+		}
+
 		avformat_close_input(&ctx->formatContext);
 	}
 
-	if(ctx->avPacket)
+	if (ctx->avPacket)
 	{
 		av_packet_free(&ctx->avPacket);
 	}
@@ -860,27 +932,19 @@ void UnloadMediaContext(MediaContext* ctx)
 	RL_FREE(ctx);
 }
 
-
 //---------------------------------------------------------------------------------------------------
-// Functions Definition - MediaStream loading and unloading 
+// Functions Definition - MediaStream loading and unloading
 //---------------------------------------------------------------------------------------------------
 
-
-MediaStream LoadMedia(const char* fileName)
+MediaStream LoadMediaFromContext(MediaContext* ctx, int flags)
 {
-	return LoadMediaEx(fileName, MEDIA_LOAD_AV);
-}
+	MediaStream ret = (MediaStream) {0};
 
-MediaStream LoadMediaEx(const char* fileName, int flags)
-{
-
-	MediaStream ret = (MediaStream){ 0 };
-
-	ret.ctx = LoadMediaContext(fileName, flags);
+	ret.ctx = ctx;
 
 	bool isLoaded = true;
 
-	if(!ret.ctx)
+	if (!ret.ctx)
 	{
 		isLoaded = false;
 	}
@@ -903,8 +967,8 @@ MediaStream LoadMediaEx(const char* fileName, int flags)
 	{
 		const int sampleRate = ret.ctx->streams[STREAM_AUDIO].codecCtx->sample_rate;
 		const int sampleSize = 8 * av_get_bytes_per_sample(MEDIA.audioOutputFmt);
-		const int channels = MEDIA.audioOutputChannels;
-		
+		const int channels   = MEDIA.audioOutputChannels;
+
 		SetAudioStreamBufferSizeDefault(MEDIA.audioStreamBufferSize);
 
 		ret.audioStream = LoadAudioStream(sampleRate, sampleSize, channels);
@@ -929,14 +993,37 @@ MediaStream LoadMediaEx(const char* fileName, int flags)
 			SetMediaState(ret, MEDIA_STATE_PLAYING);
 		}
 	}
-	else 
+	else
 	{
-		TraceLog(LOG_ERROR, "MEDIA: Failed to load the media for '%s'.", fileName);
+		TraceLog(LOG_ERROR, "MEDIA: Failed to load the media");
 		UnloadMedia(&ret);
-		ret = (MediaStream){ 0 };
+		ret = (MediaStream) {0};
 	}
 
 	return ret;
+}
+
+MediaStream LoadMedia(const char* fileName)
+{
+	return LoadMediaEx(fileName, MEDIA_LOAD_AV);
+}
+
+MediaStream LoadMediaEx(const char* fileName, int flags)
+{
+	MediaContext* ctx = LoadMediaContext(fileName, (MediaStreamReader) {0}, flags);
+	return LoadMediaFromContext(ctx, flags);
+}
+
+MediaStream LoadMediaFromStream(MediaStreamReader streamReader, int flags)
+{
+	if (!streamReader.readFn)
+	{
+		TraceLog(LOG_ERROR, "MEDIA: A valid read function is required to load media from a stream");
+		return (MediaStream) {0};
+	}
+
+	MediaContext* ctx = LoadMediaContext(NULL, streamReader, flags);
+	return LoadMediaFromContext(ctx, flags);
 }
 
 bool IsMediaValid(MediaStream media)
@@ -951,22 +1038,21 @@ void UnloadMedia(MediaStream* media)
 	if (IsAudioStreamValid(media->audioStream))
 	{
 		UnloadAudioStream(media->audioStream);
-		media->audioStream = (AudioStream){ 0 };
+		media->audioStream = (AudioStream) {0};
 	}
 
-	if(IsTextureValid(media->videoTexture))
+	if (IsTextureValid(media->videoTexture))
 	{
 		UnloadTexture(media->videoTexture);
-		media->videoTexture = (Texture2D){ 0 };
-	}	
+		media->videoTexture = (Texture2D) {0};
+	}
 
-	if(media->ctx)
+	if (media->ctx)
 	{
 		UnloadMediaContext(media->ctx);
 		media->ctx = NULL;
 	}
 }
-
 
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - Media State handling
@@ -981,7 +1067,7 @@ int SetMediaState(MediaStream media, int newState)
 {
 	int curState = GetMediaState(media);
 
-	if (curState == MEDIA_STATE_INVALID) 
+	if (curState == MEDIA_STATE_INVALID)
 	{
 		TraceLog(LOG_WARNING, "MEDIA: Trying to change the state of an invalid media");
 		return MEDIA_STATE_INVALID;
@@ -989,55 +1075,54 @@ int SetMediaState(MediaStream media, int newState)
 
 	switch (newState)
 	{
+		case MEDIA_STATE_PLAYING:
 
-	case MEDIA_STATE_PLAYING:
-
-		if (curState == MEDIA_STATE_STOPPED) 
-		{
-			UpdateState(&media, MEDIA_STATE_PLAYING);
-			if(IsAudioStreamValid(media.audioStream))
+			if (curState == MEDIA_STATE_STOPPED)
 			{
-				PlayAudioStream(media.audioStream);
+				UpdateState(&media, MEDIA_STATE_PLAYING);
+				if (IsAudioStreamValid(media.audioStream))
+				{
+					PlayAudioStream(media.audioStream);
+				}
 			}
-		}
-		else if (curState == MEDIA_STATE_PAUSED) 
-		{
-			UpdateState(&media, MEDIA_STATE_PLAYING);
-			if (IsAudioStreamValid(media.audioStream)) 
+			else if (curState == MEDIA_STATE_PAUSED)
 			{
-				ResumeAudioStream(media.audioStream);
+				UpdateState(&media, MEDIA_STATE_PLAYING);
+				if (IsAudioStreamValid(media.audioStream))
+				{
+					ResumeAudioStream(media.audioStream);
+				}
 			}
-		}
-		break;
+			break;
 
-	case MEDIA_STATE_PAUSED:
+		case MEDIA_STATE_PAUSED:
 
-		if (curState == MEDIA_STATE_PLAYING) 
-		{
-			UpdateState(&media, MEDIA_STATE_PAUSED);
-			if (IsAudioStreamValid(media.audioStream)) 
+			if (curState == MEDIA_STATE_PLAYING)
 			{
-				PauseAudioStream(media.audioStream);
+				UpdateState(&media, MEDIA_STATE_PAUSED);
+				if (IsAudioStreamValid(media.audioStream))
+				{
+					PauseAudioStream(media.audioStream);
+				}
 			}
-		}
-		break;
+			break;
 
-	case MEDIA_STATE_STOPPED:
+		case MEDIA_STATE_STOPPED:
 
-		if (curState != MEDIA_STATE_STOPPED) 
-		{
-			UpdateState(&media, MEDIA_STATE_STOPPED);
-			if (!AVSeek(&media, 0)) 
+			if (curState != MEDIA_STATE_STOPPED)
 			{
-				TraceLog(LOG_WARNING, "MEDIA: Could not reset the stream.");
+				UpdateState(&media, MEDIA_STATE_STOPPED);
+				if (!AVSeek(&media, 0))
+				{
+					TraceLog(LOG_WARNING, "MEDIA: Could not reset the stream.");
+				}
 			}
-		}
-		break;
+			break;
 
-	default:
+		default:
 
-		TraceLog(LOG_WARNING, "MEDIA: Invalid state transition requested");
-		return curState; // No change if newState is invalid
+			TraceLog(LOG_WARNING, "MEDIA: Invalid state transition requested");
+			return curState; // No change if newState is invalid
 	}
 
 	return media.ctx->state;
@@ -1084,9 +1169,8 @@ bool UpdateMediaEx(MediaStream* media, double deltaTime)
 
 		bool discardPacketAndContinue = true;
 
-		while(discardPacketAndContinue)
+		while (discardPacketAndContinue)
 		{
-
 			AVPacket* avPacket;
 
 			// Peek at a packet from the queue without modifying the queue or changing packet references.
@@ -1109,8 +1193,7 @@ bool UpdateMediaEx(MediaStream* media, double deltaTime)
 				streamCtx->startPts = avPacket->pts;
 			}
 
-			const double nextFrameTime = (double)(avPacket->pts - streamCtx->startPts) *
-				av_q2d(ctx->formatContext->streams[streamCtx->streamIdx]->time_base);
+			const double nextFrameTime = (double)(avPacket->pts - streamCtx->startPts) * av_q2d(ctx->formatContext->streams[streamCtx->streamIdx]->time_base);
 
 			// It's not yet time to use the packet
 			// Since we have just "peeked" the packet no reference handling is needed
@@ -1118,9 +1201,9 @@ bool UpdateMediaEx(MediaStream* media, double deltaTime)
 			{
 				break;
 			}
-		   
+
 			const double delaySec = ctx->timePos - nextFrameTime;
-			
+
 			discardPacketAndContinue = delaySec > MEDIA.maxAllowedDelay[i];
 
 			ret = AVDecodePacket(media, i, avPacket, discardPacketAndContinue);
@@ -1134,7 +1217,7 @@ bool UpdateMediaEx(MediaStream* media, double deltaTime)
 			// This is equivalent to DequeueBuffer but avoids transferring ownership of the packet reference.
 			AdvanceReadPos(&streamCtx->pendingPackets.state);
 			av_packet_unref(avPacket);
-		}		
+		}
 	}
 
 	if (HasStream(ctx, STREAM_AUDIO) && IsAudioStreamProcessed(media->audioStream))
@@ -1155,11 +1238,9 @@ bool UpdateMediaEx(MediaStream* media, double deltaTime)
 	return ret == MEDIA_RET_SUCCEED;
 }
 
-
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - Circular buffer logic
 //---------------------------------------------------------------------------------------------------
-
 
 int IsBufferFull(const BufferState* state)
 {
@@ -1173,7 +1254,7 @@ int IsBufferEmpty(const BufferState* state)
 
 int GetBufferWritableSpace(const BufferState* state)
 {
-	if(state->readPos > state->writePos)
+	if (state->readPos > state->writePos)
 	{
 		return state->readPos - state->writePos - 1;
 	}
@@ -1183,12 +1264,12 @@ int GetBufferWritableSpace(const BufferState* state)
 
 int GetBufferWritableSegmentSize(const BufferState* state)
 {
-	if(state->readPos > state->writePos)
+	if (state->readPos > state->writePos)
 	{
 		return state->readPos - state->writePos - 1;
 	}
 
-	return state->capacity - state->writePos;	
+	return state->capacity - state->writePos;
 }
 
 int GetBufferReadableSpace(const BufferState* state)
@@ -1203,7 +1284,7 @@ int GetBufferReadableSpace(const BufferState* state)
 
 int GetBufferReadableSegmentSize(const BufferState* state)
 {
-	if(state->readPos > state->writePos)
+	if (state->readPos > state->writePos)
 	{
 		return state->capacity - state->readPos;
 	}
@@ -1237,9 +1318,9 @@ void AdvanceReadPosN(BufferState* state, int n)
 
 Buffer LoadBuffer(int capacity)
 {
-	assert(capacity > 0); 
+	assert(capacity > 0);
 
-	Buffer ret = (Buffer){ 0 };
+	Buffer ret = (Buffer) {0};
 
 	ret.data = RL_MALLOC(capacity);
 
@@ -1259,10 +1340,10 @@ void UnloadBuffer(Buffer* buffer)
 {
 	assert(buffer);
 
-	if(buffer->data)
+	if (buffer->data)
 	{
 		RL_FREE(buffer->data);
-		*buffer = (Buffer){ 0 };
+		*buffer = (Buffer) {0};
 	}
 	else
 	{
@@ -1281,9 +1362,9 @@ void ClearBuffer(Buffer* buffer)
 {
 	assert(buffer);
 
-	if(buffer->data)
+	if (buffer->data)
 	{
-		buffer->state.readPos = 0;
+		buffer->state.readPos  = 0;
 		buffer->state.writePos = 0;
 	}
 	else
@@ -1295,9 +1376,9 @@ void ClearBuffer(Buffer* buffer)
 int WriteBuffer(Buffer* buffer, const uint8_t* srcData, int srcSize)
 {
 	assert(buffer);
-	assert(srcSize>=0);
+	assert(srcSize >= 0);
 
-	if(!srcData)
+	if (!srcData)
 	{
 		TraceLog(LOG_ERROR, "MEDIA: Trying to write from a NULL source.");
 		return -1;
@@ -1305,11 +1386,11 @@ int WriteBuffer(Buffer* buffer, const uint8_t* srcData, int srcSize)
 
 	int sizeToWrite = srcSize;
 
-	while(sizeToWrite > 0)
+	while (sizeToWrite > 0)
 	{
 		const int segmentToWrite = MIN(sizeToWrite, GetBufferWritableSegmentSize(&buffer->state));
 
-		if(segmentToWrite <= 0)
+		if (segmentToWrite <= 0)
 		{
 			break;
 		}
@@ -1318,21 +1399,24 @@ int WriteBuffer(Buffer* buffer, const uint8_t* srcData, int srcSize)
 
 		AdvanceWritePosN(&buffer->state, segmentToWrite);
 
-		srcData += segmentToWrite;
+		srcData     += segmentToWrite;
 		sizeToWrite -= segmentToWrite;
 	}
 
-	if(sizeToWrite > 0)
+	if (sizeToWrite > 0)
 	{
 		TraceLog(LOG_WARNING, "MEDIA: Could not write %i bytes to the buffer.", sizeToWrite);
 		if (IsBufferFull(&buffer->state))
 		{
 			if (IsBufferFull(&buffer->state))
 			{
-				TraceLog(LOG_WARNING,
+				TraceLog(
+					LOG_WARNING,
 					"The buffer was filled while writing. Consider increasing its capacity. "
 					"Capacity: %i bytes, Remaining unwritten: %i bytes.",
-					buffer->state.capacity, sizeToWrite);
+					buffer->state.capacity,
+					sizeToWrite
+				);
 			}
 		}
 	}
@@ -1366,25 +1450,27 @@ int ReadBuffer(Buffer* buffer, uint8_t* dstData, int dstSize)
 
 		AdvanceReadPosN(&buffer->state, segmentToRead);
 
-		dstData += segmentToRead;
+		dstData    += segmentToRead;
 		sizeToRead -= segmentToRead;
 	}
 
 	if (sizeToRead > 0)
 	{
 		TraceLog(LOG_WARNING, "MEDIA: Could not read %i bytes from the buffer.", sizeToRead);
-		if(IsBufferEmpty(&buffer->state))
+		if (IsBufferEmpty(&buffer->state))
 		{
-			TraceLog(LOG_WARNING,
+			TraceLog(
+				LOG_WARNING,
 				"Readable data was exhausted while reading. Consider increasing buffer capacity."
 				"Capacity: %i bytes, Remaining to read: %i bytes.",
-				buffer->state.capacity, sizeToRead);
+				buffer->state.capacity,
+				sizeToRead
+			);
 		}
 	}
 
 	return dstSize - sizeToRead;
 }
-
 
 //---------------------------------------------------------------------------------------------------
 // Functions Declaration - PacketQueue management
@@ -1394,7 +1480,7 @@ PacketQueue LoadQueue(int capacity)
 {
 	assert(capacity > 0);
 
-	PacketQueue ret = (PacketQueue){ 0 };
+	PacketQueue ret = (PacketQueue) {0};
 
 	const int sizeToAllocate = (int)sizeof(AVPacket*) * capacity;
 
@@ -1409,13 +1495,13 @@ PacketQueue LoadQueue(int capacity)
 		for (int i = 0; i < capacity; ++i)
 		{
 			ret.packets[i] = av_packet_alloc();
-			if(!ret.packets[i])
+			if (!ret.packets[i])
 			{
-				TraceLog(LOG_ERROR,"MEDIA: Failed to allocate packet at index %i, the queue will be unloaded.", i);
+				TraceLog(LOG_ERROR, "MEDIA: Failed to allocate packet at index %i, the queue will be unloaded.", i);
 
 				UnloadQueue(&ret);
 
-				return (PacketQueue) { 0 };
+				return (PacketQueue) {0};
 			}
 		}
 	}
@@ -1440,12 +1526,11 @@ void UnloadQueue(PacketQueue* queue)
 
 	if (queue->packets)
 	{
-
-		while(!IsBufferEmpty(&queue->state))
+		while (!IsBufferEmpty(&queue->state))
 		{
 			av_packet_unref(queue->packets[queue->state.readPos]);
 
-			AdvanceReadPos(&queue->state);			
+			AdvanceReadPos(&queue->state);
 		}
 
 		for (int i = 0; i < queue->state.capacity; ++i)
@@ -1455,7 +1540,7 @@ void UnloadQueue(PacketQueue* queue)
 
 		RL_FREE((void*)queue->packets);
 
-		*queue = (PacketQueue){ 0 };
+		*queue = (PacketQueue) {0};
 	}
 	else
 	{
@@ -1510,13 +1595,13 @@ bool EnqueuePacket(PacketQueue* queue, AVPacket* src)
 		return false;
 	}
 
-	if(!queue->packets)
+	if (!queue->packets)
 	{
 		TraceLog(LOG_ERROR, "MEDIA: Trying to enqueue packet to a queue with no allocated packets.");
 		return false;
 	}
 
-	if(IsQueueFull(queue))
+	if (IsQueueFull(queue))
 	{
 		TraceLog(LOG_DEBUG, "MEDIA: Queue full, dropping the packet.");
 
@@ -1575,7 +1660,6 @@ AVPacket* PeekPacket(const PacketQueue* queue)
 	return !IsQueueEmpty(queue) ? queue->packets[queue->state.readPos] : NULL;
 }
 
-
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - AV management - FFmpeg(libav)
 //---------------------------------------------------------------------------------------------------
@@ -1590,27 +1674,25 @@ int AVGrabPacket(MediaContext* ctx, int streamType, AVPacket* dst)
 		return MEDIA_ERR_GRAB_PACKET;
 	}
 
-	if(!ctx->streams[streamType].codecCtx)
+	if (!ctx->streams[streamType].codecCtx)
 	{
 		TraceLog(LOG_WARNING, "MEDIA: Trying to grab a packet of an unavailable type: %i", streamType);
 		return MEDIA_ERR_GRAB_PACKET;
 	}
 
-	// If there are no pending AVPackets of the desired type to dequeue, start grabbing and enqueueing new packets 
+	// If there are no pending AVPackets of the desired type to dequeue, start grabbing and enqueueing new packets
 	// until a packet of the desired type is available.
-	while(IsQueueEmpty(&ctx->streams[streamType].pendingPackets))
+	while (IsQueueEmpty(&ctx->streams[streamType].pendingPackets))
 	{
-
 		const int ret = av_read_frame(ctx->formatContext, dst);
 
 		if (ret < 0)
 		{
-
-			if (ret == AVERROR_EOF) 
+			if (ret == AVERROR_EOF)
 			{
 				return MEDIA_EOF;
 			}
-			else 
+			else
 			{
 				AVPrintError(ret);
 				TraceLog(LOG_ERROR, "MEDIA: Error reading packet for stream type %d", streamType);
@@ -1619,8 +1701,7 @@ int AVGrabPacket(MediaContext* ctx, int streamType, AVPacket* dst)
 			return MEDIA_ERR_GRAB_PACKET;
 		}
 
-		
-		if(dst->stream_index == ctx->streams[STREAM_VIDEO].streamIdx)			// The grabbed packet is a video packet
+		if (dst->stream_index == ctx->streams[STREAM_VIDEO].streamIdx) // The grabbed packet is a video packet
 		{
 			// If we requested a video packet, return success as we have what we need
 			if (streamType == STREAM_VIDEO)
@@ -1631,7 +1712,7 @@ int AVGrabPacket(MediaContext* ctx, int streamType, AVPacket* dst)
 			// Otherwise, enqueue this video packet since a different packet type was requested
 			EnqueuePacket(&ctx->streams[STREAM_VIDEO].pendingPackets, dst);
 		}
-		else if (dst->stream_index == ctx->streams[STREAM_AUDIO].streamIdx)		// The grabbed packet is an audio packet
+		else if (dst->stream_index == ctx->streams[STREAM_AUDIO].streamIdx) // The grabbed packet is an audio packet
 		{
 			// If we requested an audio packet, return success as we have what we need
 			if (streamType == STREAM_AUDIO)
@@ -1646,7 +1727,6 @@ int AVGrabPacket(MediaContext* ctx, int streamType, AVPacket* dst)
 		{
 			av_packet_unref(dst);
 		}
-
 	}
 
 	// A previously enqueued packet of the desired type is available to return
@@ -1694,13 +1774,13 @@ bool AVSeekVideoKeyframe(const MediaStream* media)
 	if (!HasStream(media->ctx, STREAM_VIDEO))
 		return true;
 
-	MediaContext* ctx = media->ctx;
+	MediaContext*      ctx       = media->ctx;
 	StreamDataContext* streamCtx = &ctx->streams[STREAM_VIDEO];
 
 	while (true)
 	{
 		AVPacket* vPacket = NULL;
-		int ret = AVPeekPacket(ctx, STREAM_VIDEO, &vPacket);
+		int       ret     = AVPeekPacket(ctx, STREAM_VIDEO, &vPacket);
 
 		if (ret == MEDIA_EOF)
 		{
@@ -1718,8 +1798,7 @@ bool AVSeekVideoKeyframe(const MediaStream* media)
 		if (vPacket->flags & AV_PKT_FLAG_KEY)
 		{
 			// Set the media time to match this keyframe
-			ctx->timePos = (double)(vPacket->pts - streamCtx->startPts) *
-				av_q2d(ctx->formatContext->streams[streamCtx->streamIdx]->time_base);
+			ctx->timePos = (double)(vPacket->pts - streamCtx->startPts) * av_q2d(ctx->formatContext->streams[streamCtx->streamIdx]->time_base);
 			break;
 		}
 
@@ -1731,7 +1810,6 @@ bool AVSeekVideoKeyframe(const MediaStream* media)
 	return true;
 }
 
-
 bool AVSeek(MediaStream* media, int64_t targetTimestamp)
 {
 	MediaContext* ctx = media->ctx;
@@ -1740,7 +1818,7 @@ bool AVSeek(MediaStream* media, int64_t targetTimestamp)
 
 	const int ret = avformat_seek_file(ctx->formatContext, -1, INT64_MIN, targetTimestamp, INT64_MAX, AVSEEK_FLAG_BACKWARD);
 
-	if (ret < 0) 
+	if (ret < 0)
 	{
 		AVPrintError(ret);
 		return false;
@@ -1749,20 +1827,20 @@ bool AVSeek(MediaStream* media, int64_t targetTimestamp)
 	// Update the time to the target TS
 	ctx->timePos = (double)targetTimestamp / AV_TIME_BASE;
 
-	for(int i = 0; i < STREAM_COUNT; ++i)
+	for (int i = 0; i < STREAM_COUNT; ++i)
 	{
 		AVCodecContext* codecCtx = ctx->streams[i].codecCtx;
 
-		if(codecCtx)
+		if (codecCtx)
 		{
 			avcodec_flush_buffers(codecCtx);
 
 			ClearQueue(&ctx->streams[i].pendingPackets);
-		}		
+		}
 	}
 
 	// If the media has a video stream then seek the first video keyframe to avoid image output artifacts
-	if(!AVSeekVideoKeyframe(media))
+	if (!AVSeekVideoKeyframe(media))
 	{
 		return false;
 	}
@@ -1775,41 +1853,40 @@ bool AVSeek(MediaStream* media, int64_t targetTimestamp)
 
 		switch (GetMediaState(*media))
 		{
-		case MEDIA_STATE_PLAYING:
+			case MEDIA_STATE_PLAYING:
 
-			UpdateMediaEx(media, 0.0); // grab the first packets with deltaTime = 0.0
+				UpdateMediaEx(media, 0.0); // grab the first packets with deltaTime = 0.0
 
-			PlayAudioStream(media->audioStream);
+				PlayAudioStream(media->audioStream);
 
-			break;
+				break;
 
-		case MEDIA_STATE_PAUSED:
+			case MEDIA_STATE_PAUSED:
 
-			UpdateMediaEx(media, 0.0); // grab the first packets with deltaTime = 0.0
+				UpdateMediaEx(media, 0.0); // grab the first packets with deltaTime = 0.0
 
-			PlayAudioStream(media->audioStream);
+				PlayAudioStream(media->audioStream);
 
-			PauseAudioStream(media->audioStream);
+				PauseAudioStream(media->audioStream);
 
-			break;
+				break;
 
-		case MEDIA_STATE_STOPPED:
+			case MEDIA_STATE_STOPPED:
 
-		default:
+			default:
 
-			// Leave the audio stream in a stopped state
-			break;
+				// Leave the audio stream in a stopped state
+				break;
 		}
-	}	
+	}
 
 	return true;
-
 }
 
 void AVPrintError(int errCode)
 {
-	char errBuffer[AV_ERROR_MAX_STRING_SIZE] = { 0 }; 
-	if (av_strerror(errCode, errBuffer, sizeof(errBuffer)) == 0) 
+	char errBuffer[AV_ERROR_MAX_STRING_SIZE] = {0};
+	if (av_strerror(errCode, errBuffer, sizeof(errBuffer)) == 0)
 	{
 		TraceLog(LOG_ERROR, "FFMPEG: %s", errBuffer);
 	}
@@ -1824,9 +1901,9 @@ int AVDecodePacket(const MediaStream* media, int streamType, const AVPacket* pac
 	const StreamDataContext* streamCtx = &media->ctx->streams[streamType];
 
 	// Supply raw packet data as input to a decoder
-	int ret = avcodec_send_packet(streamCtx->codecCtx, packet);					
+	int ret = avcodec_send_packet(streamCtx->codecCtx, packet);
 
-	if (ret < 0) 
+	if (ret < 0)
 	{
 		AVPrintError(ret);
 
@@ -1837,35 +1914,34 @@ int AVDecodePacket(const MediaStream* media, int streamType, const AVPacket* pac
 	{
 		ret = avcodec_receive_frame(streamCtx->codecCtx, media->ctx->avFrame);
 
-		if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) 
+		if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF)
 		{
 			ret = MEDIA_RET_SUCCEED;
 			break;
 		}
 
-		if (ret < 0) 
+		if (ret < 0)
 		{
 			AVPrintError(ret);
 			break;
 		}
 
-		if (ret >= 0 && !discardPacket) {
-
-			switch(streamType)
+		if (ret >= 0 && !discardPacket)
+		{
+			switch (streamType)
 			{
-			case STREAM_VIDEO:
-				ret = AVProcessVideoFrame(media);
-				break;
-			case STREAM_AUDIO:
-				ret = AVProcessAudioFrame(media);
-				break;
-			default:
-				TraceLog(LOG_WARNING, "MEDIA: Unsupported stream type.");
-				ret = MEDIA_ERR_UNKNOWN_STREAM;
-				break;
+				case STREAM_VIDEO:
+					ret = AVProcessVideoFrame(media);
+					break;
+				case STREAM_AUDIO:
+					ret = AVProcessAudioFrame(media);
+					break;
+				default:
+					TraceLog(LOG_WARNING, "MEDIA: Unsupported stream type.");
+					ret = MEDIA_ERR_UNKNOWN_STREAM;
+					break;
 			}
 		}
-
 	}
 
 	av_frame_unref(media->ctx->avFrame);
@@ -1873,14 +1949,14 @@ int AVDecodePacket(const MediaStream* media, int streamType, const AVPacket* pac
 	return ret;
 }
 
-int  AVProcessVideoFrame(const MediaStream* media)
+int AVProcessVideoFrame(const MediaStream* media)
 {
-	const MediaContext* ctx = media->ctx;
-	const AVCodecContext* codec = ctx->streams[STREAM_VIDEO].codecCtx;
-	const int rgbLineSize = codec->width * 3;
+	const MediaContext*   ctx         = media->ctx;
+	const AVCodecContext* codec       = ctx->streams[STREAM_VIDEO].codecCtx;
+	const int             rgbLineSize = codec->width * 3;
 
 	// Convert the frame to RGB
-	sws_scale(ctx->swsContext, (const uint8_t* const*)ctx->avFrame->data, ctx->avFrame->linesize, 0, codec->height, (uint8_t* const*) &ctx->videoOutputImage.data, &rgbLineSize);
+	sws_scale(ctx->swsContext, (const uint8_t* const*)ctx->avFrame->data, ctx->avFrame->linesize, 0, codec->height, (uint8_t* const*)&ctx->videoOutputImage.data, &rgbLineSize);
 
 	// Update texture with the decoded image data
 	UpdateTexture(media->videoTexture, ctx->videoOutputImage.data);
@@ -1888,29 +1964,29 @@ int  AVProcessVideoFrame(const MediaStream* media)
 	return 0;
 }
 
-int  AVProcessAudioFrame(const MediaStream* media)
+int AVProcessAudioFrame(const MediaStream* media)
 {
 	MediaContext* ctx = media->ctx;
 
 	int ret = 0;
 
-	// Initialize input data and sample count for conversion. After the first call, inData and inSamples 
+	// Initialize input data and sample count for conversion. After the first call, inData and inSamples
 	// will be set to NULL and 0 respectively to signal swr_convert to finish processing remaining data.
-	const uint8_t* const* inData = (const uint8_t* const*)ctx->avFrame->data;
-	int inSamples = ctx->avFrame->nb_samples;
+	const uint8_t* const* inData    = (const uint8_t* const*)ctx->avFrame->data;
+	int                   inSamples = ctx->avFrame->nb_samples;
 
 	// Initialize the number of samples left to convert. The loop will continue until all samples are converted.
 	int leftSamples = inSamples;
 
 	do
 	{
-		if(IsBufferFull(&ctx->audioOutputBuffer.state))
+		if (IsBufferFull(&ctx->audioOutputBuffer.state))
 		{
 			TraceLog(LOG_WARNING, "MEDIA: Not enough space for decoding in the audio buffer.");
 			ret = MEDIA_ERR_OVERFLOW;
 			break;
 		}
-		
+
 		const int writableSegmentSizeBytes = GetBufferWritableSegmentSize(&ctx->audioOutputBuffer.state);
 
 		// Determine the number of bytes per audio frame, based on sample size and channel count.
@@ -1923,27 +1999,17 @@ int  AVProcessAudioFrame(const MediaStream* media)
 
 		// Convert and store the incoming audio samples into the output buffer.
 		// This will fill up to the writable segment size in samples, using the provided input data.
-		const int convertedSamples = swr_convert(ctx->swrContext,
-		                                         &outputBuffer,
-		                                         writableSegmentSizeSamples,
-		                                         inData,
-			 									 inSamples);
+		const int convertedSamples = swr_convert(ctx->swrContext, &outputBuffer, writableSegmentSizeSamples, inData, inSamples);
 
-		if(convertedSamples < 0)
+		if (convertedSamples < 0)
 		{
 			AVPrintError(convertedSamples);
 			ret = MEDIA_ERR_DECODE_AUDIO;
-			break; 
+			break;
 		}
 
 		// Calculate the size in bytes of the converted samples just written to the buffer.
-		const int convertedSamplesBytes = av_samples_get_buffer_size(
-			NULL,
-			(int)media->audioStream.channels,
-			convertedSamples,
-			ctx->audioOutputFmt,
-			1
-		);
+		const int convertedSamplesBytes = av_samples_get_buffer_size(NULL, (int)media->audioStream.channels, convertedSamples, ctx->audioOutputFmt, 1);
 
 		AdvanceWritePosN(&ctx->audioOutputBuffer.state, convertedSamplesBytes);
 
@@ -1951,14 +2017,13 @@ int  AVProcessAudioFrame(const MediaStream* media)
 
 		// Setting inData to NULL and inSamples to 0 instructs subsequent swr_convert calls
 		// to process any remaining buffered data
-		inData = NULL;
+		inData    = NULL;
 		inSamples = 0;
 
 	} while (leftSamples > 0);
 
 	return ret;
 }
-
 
 bool AVLoadCodecContext(StreamDataContext* streamCtx, const AVCodec* codec, const AVCodecParameters* params)
 {
@@ -2009,7 +2074,6 @@ void AVUnloadCodecContext(StreamDataContext* streamCtx)
 	avcodec_free_context(&streamCtx->codecCtx);
 }
 
-
 //---------------------------------------------------------------------------------------------------
 // Functions Definition - Helpers
 //---------------------------------------------------------------------------------------------------
@@ -2018,7 +2082,7 @@ void NotifyEndOfStream(const MediaStream* media)
 {
 	SetMediaState(*media, MEDIA_STATE_STOPPED);
 
-	if(media->ctx->loopPlay)
+	if (media->ctx->loopPlay)
 	{
 		SetMediaState(*media, MEDIA_STATE_PLAYING);
 	}

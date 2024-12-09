@@ -29,6 +29,7 @@
 //--------------------------------------------------------------------------------------------------
 
 #include <raylib.h>
+#include <stdint.h>
 
 //--------------------------------------------------------------------------------------------------
 // Structures Definition
@@ -62,6 +63,18 @@ typedef struct MediaProperties
     bool   hasVideo;                 // True if video is present
     bool   hasAudio;                 // True if audio is present
 } MediaProperties;
+
+/**
+ * Holds the data needed to implement a custom stream reader.
+ * Used to define custom read and seek behaviors for media input streams.
+ */
+typedef struct MediaStreamReader
+{
+    int     (*readFn) (void* userData, uint8_t* buffer, int bufferSize);    // Custom read function pointer
+    int64_t (*seekFn) (void* userData, int64_t offset, int whence);         // Custom seek function pointer (optional, can be NULL)
+    void* userData; // Pointer to user-defined context, passed to the callback functions
+} MediaStreamReader;
+
 
 //--------------------------------------------------------------------------------------------------
 // Enumerators Definition
@@ -98,6 +111,7 @@ typedef enum
  */
 typedef enum
 {
+    MEDIA_IO_BUFFER,                  // Size of the buffer used for media IO operations (only applies to custom read callbacks)
     MEDIA_VIDEO_QUEUE,                // Video packet queue capacity
     MEDIA_AUDIO_QUEUE,                // Audio packet queue capacity
     MEDIA_AUDIO_DECODED_BUFFER,       // Maximum decoded audio buffer size
@@ -107,7 +121,6 @@ typedef enum
     MEDIA_VIDEO_MAX_DELAY,            // Maximum delay (ms) before discarding a video packet
     MEDIA_AUDIO_MAX_DELAY,            // Maximum delay (ms) before discarding an audio packet
     MEDIA_AUDIO_UPDATE                // Max bytes uploaded to AudioStream per frame
-
 } MediaConfigFlag;
 
 /**
@@ -124,6 +137,17 @@ typedef enum
     AUDIO_FMT_FLT = 3,                // Float
     AUDIO_FMT_DBL = 4                 // Double
 } MediaAudioFormat;
+
+/**
+ * Status values for MediaStreamReader callback functions.
+ * These values indicate the outcome of custom IO operations.
+ */
+typedef enum
+{
+    MEDIA_IO_EOF     = -541478725, // End of the stream reached (matches AVERROR_EOF)
+    MEDIA_IO_INVALID = -22         // Invalid call or operation (matches AVERROR(EINVAL))
+} MediaStreamIOResult;
+
 
 //--------------------------------------------------------------------------------------------------
 // MediaStream API
@@ -149,6 +173,14 @@ extern "C" {
      * @return MediaStream on success; empty structure on failure
      */
     RLAPI MediaStream LoadMediaEx(const char* fileName, int flags);
+
+    /**
+     * Load a MediaStream from a custom stream with flags.
+     * @param streamReader A valid MediaStreamReader with callback functions and context
+     * @param flags Combination of MediaLoadFlag values
+     * @return MediaStream on success; empty structure on failure
+     */
+    RLAPI MediaStream LoadMediaFromStream(MediaStreamReader streamReader, int flags);
 
     /**
      * Check if a MediaStream is valid (loaded and initialized).

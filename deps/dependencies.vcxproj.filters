@@ -617,5 +617,6 @@
     <ClInclude Include="ffmpeg\include\libswscale\version.h" />
     <ClInclude Include="ffmpeg\include\libswscale\version_major.h" />
     <ClInclude Include="raylib_extensions\raylib-media\raymedia.h" />
+    <ClInclude Include="raylib_extensions\raylib-media\raymedialoader.h" />
   </ItemGroup>
 </Project>
