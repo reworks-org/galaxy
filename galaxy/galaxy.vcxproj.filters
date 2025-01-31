@@ -59,6 +59,7 @@
     <ClCompile Include="src\galaxy\graphics\Cubemap.cpp" />
     <ClCompile Include="src\galaxy\graphics\Texture2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Image.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -119,5 +120,6 @@
     <ClInclude Include="src\galaxy\graphics\Cubemap.hpp" />
     <ClInclude Include="src\galaxy\graphics\Texture2D.hpp" />
     <ClInclude Include="src\galaxy\graphics\Image.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
   </ItemGroup>
 </Project>

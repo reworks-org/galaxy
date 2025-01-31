@@ -16,6 +16,7 @@
     <ClCompile Include="src\galaxy\audio\Sound.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera3D.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
     <ClCompile Include="src\galaxy\graphics\Cubemap.cpp" />
     <ClCompile Include="src\galaxy\graphics\Image.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera2D.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera3D.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
     <ClInclude Include="src\galaxy\graphics\Cubemap.hpp" />
     <ClInclude Include="src\galaxy\graphics\Image.hpp" />
     <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
