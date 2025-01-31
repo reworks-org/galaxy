@@ -8,8 +8,8 @@
 #ifndef GALAXY_GRAPHICS_TEXTURE2D_HPP_
 #define GALAXY_GRAPHICS_TEXTURE2D_HPP_
 
-#include "galaxy/graphics/Texture.hpp"
 #include "galaxy/graphics/Image.hpp"
+#include "galaxy/graphics/Texture.hpp"
 
 namespace galaxy
 {

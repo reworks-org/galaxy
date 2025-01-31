@@ -38,13 +38,13 @@ namespace galaxy
 		void Texture2D::load(const std::string& file) noexcept
 		{
 			const auto tex = ::LoadTexture(file.c_str());
-			configure(tex);
+			set(tex);
 		}
 
 		void Texture2D::load(const Image& image) noexcept
 		{
 			const auto tex = ::LoadTextureFromImage(image);
-			configure(tex);
+			set(tex);
 		}
 	} // namespace graphics
 } // namespace galaxy

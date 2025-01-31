@@ -38,7 +38,7 @@ namespace galaxy
 		void Cubemap::load(const Image& image, const ray::CubemapLayout layout) noexcept
 		{
 			const auto cube = ::LoadTextureCubemap(image, static_cast<int>(layout));
-			configure(cube);
+			set(cube);
 		}
 	} // namespace graphics
 } // namespace galaxy

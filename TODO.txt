@@ -103,26 +103,6 @@ module: rshapes →
     bool CheckCollisionPointPoly(Vector2 point, const Vector2 *points, int pointCount);                // Check if point is within a polygon described by array of vertices
     bool CheckCollisionLines(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2, Vector2 *collisionPoint); // Check the collision between two lines defined by two points each, returns collision point by reference
     
-    
-
-module: rtextures →
-
-
-    // Image loading functions
-    // NOTE: These functions do not require GPU access
-    Image LoadImage(const char *fileName);                                                             // Load image from file into CPU memory (RAM)
-    Image LoadImageRaw(const char *fileName, int width, int height, int format, int headerSize);       // Load image from RAW file data
-    Image LoadImageAnim(const char *fileName, int *frames);                                            // Load image sequence from file (frames appended to image.data)
-    Image LoadImageAnimFromMemory(const char *fileType, const unsigned char *fileData, int dataSize, int *frames); // Load image sequence from memory buffer
-    Image LoadImageFromMemory(const char *fileType, const unsigned char *fileData, int dataSize);      // Load image from memory buffer, fileType refers to extension: i.e. '.png'
-    Image LoadImageFromTexture(Texture2D texture);                                                     // Load image from GPU texture data
-    Image LoadImageFromScreen(void);                                                                   // Load image from screen buffer and (screenshot)
-    bool IsImageValid(Image image);                                                                    // Check if an image is valid (data and parameters)
-    void UnloadImage(Image image);                                                                     // Unload image from CPU memory (RAM)
-    bool ExportImage(Image image, const char *fileName);                                               // Export image data to file, returns true on success
-    unsigned char *ExportImageToMemory(Image image, const char *fileType, int *fileSize);              // Export image to memory buffer
-    bool ExportImageAsCode(Image image, const char *fileName);                                         // Export image as code file defining an array of bytes, returns true on success
-
     // Image generation functions
     Image GenImageColor(int width, int height, Color color);                                           // Generate image: plain color
     Image GenImageGradientLinear(int width, int height, int direction, Color start, Color end);        // Generate image: linear gradient, direction in degrees [0..360], 0=Vertical gradient

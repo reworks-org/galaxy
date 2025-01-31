@@ -90,7 +90,7 @@ namespace galaxy
 			///
 			/// \param tex Raylib texture handle.
 			///
-			void configure(const ::RenderTexture& tex) noexcept;
+			void set(const ::RenderTexture& tex) noexcept;
 
 		private:
 			///

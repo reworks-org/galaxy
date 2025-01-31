@@ -19,7 +19,7 @@ namespace galaxy
 			width   = 0;
 			height  = 0;
 			mipmaps = 1;
-			format  = 0;
+			format  = static_cast<int>(PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
 		}
 
 		Texture::Texture(Texture&& t) noexcept
@@ -92,7 +92,7 @@ namespace galaxy
 			::SetTextureWrap(*this, static_cast<int>(wrap));
 		}
 
-		void Texture::configure(const ::Texture& tex) noexcept
+		void Texture::set(const ::Texture& tex) noexcept
 		{
 			id      = tex.id;
 			width   = tex.width;

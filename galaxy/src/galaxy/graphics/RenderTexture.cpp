@@ -87,7 +87,7 @@ namespace galaxy
 		void RenderTexture::create(const int width, const int height)
 		{
 			const auto rt = ::LoadRenderTexture(width, height);
-			configure(rt);
+			set(rt);
 		}
 
 		bool RenderTexture::is_valid() const noexcept
@@ -114,7 +114,7 @@ namespace galaxy
 			::SetTextureWrap(texture, static_cast<int>(wrap));
 		}
 
-		void RenderTexture::configure(const ::RenderTexture& tex) noexcept
+		void RenderTexture::set(const ::RenderTexture& tex) noexcept
 		{
 			this->unload();
 			this->id = tex.id;
