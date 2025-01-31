@@ -54,6 +54,10 @@
     <ClCompile Include="src\galaxy\audio\Music.cpp" />
     <ClCompile Include="src\galaxy\utils\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\graphics\Video.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Cubemap.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
@@ -109,5 +113,9 @@
     <ClInclude Include="src\galaxy\audio\Music.hpp" />
     <ClInclude Include="src\galaxy\utils\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\graphics\Video.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Cubemap.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Texture2D.hpp" />
   </ItemGroup>
 </Project>

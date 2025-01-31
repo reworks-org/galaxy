@@ -16,7 +16,9 @@
     <ClCompile Include="src\galaxy\audio\Sound.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Camera3D.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Cubemap.cpp" />
     <ClCompile Include="src\galaxy\graphics\Rectangle.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
@@ -28,6 +30,8 @@
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\graphics\ScreenMode.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Texture2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Video.cpp" />
     <ClCompile Include="src\galaxy\input\Cursor.cpp" />
     <ClCompile Include="src\galaxy\input\Gamepad.cpp" />
@@ -80,9 +84,13 @@
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera2D.hpp" />
     <ClInclude Include="src\galaxy\graphics\Camera3D.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Cubemap.hpp" />
     <ClInclude Include="src\galaxy\graphics\Rectangle.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\galaxy\graphics\ScreenMode.hpp" />
     <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Texture2D.hpp" />
     <ClInclude Include="src\galaxy\graphics\Video.hpp" />
     <ClInclude Include="src\galaxy\input\Cursor.hpp" />
     <ClInclude Include="src\galaxy\input\Gamepad.hpp" />

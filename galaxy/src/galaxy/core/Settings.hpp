@@ -139,6 +139,12 @@ namespace galaxy
 		static auto cursor_icon() noexcept -> const std::string&;
 
 		///
+		/// Ansiotropic filtering level.
+		///
+		[[nodiscard]]
+		static auto ansio_level() noexcept -> int;
+
+		///
 		/// Game updates per second, independant of FPS, see "fixed timestep gameloop".
 		///
 		[[nodiscard]]
@@ -265,6 +271,7 @@ namespace galaxy
 		inline static bool                 s_highdpi;
 		inline static std::string          s_icon;
 		inline static std::string          s_cursor_icon;
+		inline static int                  s_ansio_filtering;
 
 		inline static std::filesystem::path s_assets_dir;
 		inline static std::filesystem::path s_editor_dir;
@@ -299,27 +306,6 @@ namespace galaxy
 /// Prevents compiler warnings when applied to unused parameters.
 ///
 #define GALAXY_UNUSED(var) ((void)(var))
-
-///
-/// Macro for windows platform detection.
-///
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)
-#define GALAXY_WIN_PLATFORM
-#endif
-
-///
-/// Macro for linux platform detection.
-///
-#if defined(__linux__) || defined(__unix) || defined(_POISX_VERSION) || defined(__GNUC__) || defined(__clang__)
-#define GALAXY_LINUX_PLATFORM
-#endif
-
-///
-/// Macro for macos platform detection.
-///
-#if defined(__APPLE__) || defined(TARGET_OS_MAC)
-#define GALAXY_MACOS_PLATFORM
-#endif
 
 /*
 

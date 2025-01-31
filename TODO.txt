@@ -26,8 +26,6 @@ void EndDrawing(void);                                      // End canvas drawin
     void PlayAutomationEvent(AutomationEvent event);                                  // Play a recorded automation event
 
 module: rshapes →
-
-
     // Set texture and rectangle to be used on shapes drawing
     // NOTE: It can be useful when using basic shapes and one single font,
     // defining a font char white rectangle would allow drawing everything in a single draw call
@@ -198,24 +196,6 @@ module: rtextures →
     void ImageDraw(Image *dst, Image src, Rectangle srcRec, Rectangle dstRec, Color tint);             // Draw a source image within a destination image (tint applied to source)
     void ImageDrawText(Image *dst, const char *text, int posX, int posY, int fontSize, Color color);   // Draw text (using default font) within an image (destination)
     void ImageDrawTextEx(Image *dst, Font font, const char *text, Vector2 position, float fontSize, float spacing, Color tint); // Draw text (custom sprite font) within an image (destination)
-
-    // Texture loading functions
-    // NOTE: These functions require GPU access
-    Texture2D LoadTexture(const char *fileName);                                                       // Load texture from file into GPU memory (VRAM)
-    Texture2D LoadTextureFromImage(Image image);                                                       // Load texture from image data
-    TextureCubemap LoadTextureCubemap(Image image, int layout);                                        // Load cubemap from image, multiple image cubemap layouts supported
-    RenderTexture2D LoadRenderTexture(int width, int height);                                          // Load texture for rendering (framebuffer)
-    bool IsTextureValid(Texture2D texture);                                                            // Check if a texture is valid (loaded in GPU)
-    void UnloadTexture(Texture2D texture);                                                             // Unload texture from GPU memory (VRAM)
-    bool IsRenderTextureValid(RenderTexture2D target);                                                 // Check if a render texture is valid (loaded in GPU)
-    void UnloadRenderTexture(RenderTexture2D target);                                                  // Unload render texture from GPU memory (VRAM)
-    void UpdateTexture(Texture2D texture, const void *pixels);                                         // Update GPU texture with new data
-    void UpdateTextureRec(Texture2D texture, Rectangle rec, const void *pixels);                       // Update GPU texture rectangle with new data
-
-    // Texture configuration functions
-    void GenTextureMipmaps(Texture2D *texture);                                                        // Generate GPU mipmaps for a texture
-    void SetTextureFilter(Texture2D texture, int filter);                                              // Set texture scaling filter mode
-    void SetTextureWrap(Texture2D texture, int wrap);                                                  // Set texture wrapping mode
 
     // Texture drawing functions
     void DrawTexture(Texture2D texture, int posX, int posY, Color tint);                               // Draw a Texture2D

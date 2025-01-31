@@ -27,6 +27,7 @@ namespace galaxy
 		config.restore<bool>("highdpi", false, "window");
 		config.restore<std::string>("icon", "", "window");
 		config.restore<std::string>("cursor_icon", "", "window");
+		config.restore<int>("ansiotrophic_filtering", 16, "window");
 
 		config.restore<std::string>("assets_dir", "assets/", "fs");
 		config.restore<std::string>("editor_dir", "editor/", "fs");
@@ -56,16 +57,17 @@ namespace galaxy
 		s_box2d_to_world = config.get<float>("box2d_to_world", "physics");
 		s_ups            = config.get<double>("ups", "physics");
 
-		s_window_width  = config.get<int>("width", "window");
-		s_window_height = config.get<int>("height", "window");
-		s_title         = config.get<std::string>("title", "window");
-		s_screenmode    = static_cast<graphics::ScreenMode>(config.get<int>("screenmode", "window"));
-		s_vsync         = config.get<bool>("vsync", "window");
-		s_mouse_visible = config.get<bool>("mouse_visible", "window");
-		s_msaa          = config.get<bool>("msaa", "window");
-		s_highdpi       = config.get<bool>("highdpi", "window");
-		s_icon          = config.get<std::string>("icon", "window");
-		s_cursor_icon   = config.get<std::string>("cursor_icon", "window");
+		s_window_width    = config.get<int>("width", "window");
+		s_window_height   = config.get<int>("height", "window");
+		s_title           = config.get<std::string>("title", "window");
+		s_screenmode      = static_cast<graphics::ScreenMode>(config.get<int>("screenmode", "window"));
+		s_vsync           = config.get<bool>("vsync", "window");
+		s_mouse_visible   = config.get<bool>("mouse_visible", "window");
+		s_msaa            = config.get<bool>("msaa", "window");
+		s_highdpi         = config.get<bool>("highdpi", "window");
+		s_icon            = config.get<std::string>("icon", "window");
+		s_cursor_icon     = config.get<std::string>("cursor_icon", "window");
+		s_ansio_filtering = config.get<int>("ansiotrophic_filtering", "window");
 
 		s_assets_dir       = config.get<std::string>("assets_dir", "fs");
 		s_editor_dir       = config.get<std::string>("editor_dir", "fs");
@@ -168,6 +170,11 @@ namespace galaxy
 	auto settings::cursor_icon() noexcept -> const std::string&
 	{
 		return s_cursor_icon;
+	}
+
+	auto settings::ansio_level() noexcept -> int
+	{
+		return s_ansio_filtering;
 	}
 
 	auto settings::ups() noexcept -> double

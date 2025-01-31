@@ -123,7 +123,7 @@ namespace galaxy
 				auto  data = fs.read_binary(icon);
 
 				const char* ext = ::GetFileExtension(icon.c_str());
-				Image       img = ::LoadImageFromMemory(ext, data.data(), data.size());
+				const auto  img = ::LoadImageFromMemory(ext, data.data(), data.size());
 
 				::SetWindowIcon(img);
 			}
