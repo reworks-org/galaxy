@@ -49,6 +49,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Shader& operator=(Shader&&) noexcept;
 
 			///

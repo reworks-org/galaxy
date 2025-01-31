@@ -53,11 +53,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
+			[[nodiscard]]
 			Sink& operator=(const Sink&) = default;
 
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Sink& operator=(Sink&&) = default;
 		};
 	} // namespace logging

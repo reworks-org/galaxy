@@ -36,6 +36,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Cubemap& operator=(Cubemap&&) noexcept;
 
 			///

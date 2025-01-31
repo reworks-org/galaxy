@@ -62,11 +62,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
+			[[nodiscard]]
 			Vector4& operator=(const Vector4&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Vector4& operator=(Vector4&&) noexcept;
 
 			///
@@ -198,6 +200,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the addition.
 		///
+		[[nodiscard]]
 		Vector4 operator+(const Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -208,6 +211,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after addition.
 		///
+		[[nodiscard]]
 		const Vector4& operator+=(Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -218,6 +222,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the subtraction.
 		///
+		[[nodiscard]]
 		Vector4 operator-(const Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -228,6 +233,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after subtraction.
 		///
+		[[nodiscard]]
 		const Vector4& operator-=(Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -238,6 +244,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the multiplication.
 		///
+		[[nodiscard]]
 		Vector4 operator*(const Vector4& lhs, const float& rhs) noexcept;
 
 		///
@@ -248,6 +255,7 @@ namespace galaxy
 		///
 		/// \return A reference to the vector after multiplication.
 		///
+		[[nodiscard]]
 		const Vector4& operator*=(Vector4& lhs, const float& rhs) noexcept;
 
 		///
@@ -258,6 +266,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the multiplication.
 		///
+		[[nodiscard]]
 		Vector4 operator*(const Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -268,6 +277,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after multiplication.
 		///
+		[[nodiscard]]
 		const Vector4& operator*=(Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -278,6 +288,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the division.
 		///
+		[[nodiscard]]
 		Vector4 operator/(const Vector4& lhs, const float& rhs) noexcept;
 
 		///
@@ -288,6 +299,7 @@ namespace galaxy
 		///
 		/// \return A reference to the vector after division.
 		///
+		[[nodiscard]]
 		const Vector4& operator/=(Vector4& lhs, const float& rhs) noexcept;
 
 		///
@@ -298,6 +310,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the division.
 		///
+		[[nodiscard]]
 		Vector4 operator/(const Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -308,6 +321,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after division.
 		///
+		[[nodiscard]]
 		const Vector4& operator/=(Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -318,6 +332,7 @@ namespace galaxy
 		///
 		/// \return True if the vectors are equal, false otherwise.
 		///
+		[[nodiscard]]
 		bool operator==(const Vector4& lhs, const Vector4& rhs) noexcept;
 
 		///
@@ -328,8 +343,8 @@ namespace galaxy
 		///
 		/// \return True if the vectors are not equal, false otherwise.
 		///
+		[[nodiscard]]
 		bool operator!=(const Vector4& lhs, const Vector4& rhs) noexcept;
-
 	} // namespace math
 } // namespace galaxy
 

@@ -45,6 +45,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Image& operator=(Image&&) noexcept;
 
 			///

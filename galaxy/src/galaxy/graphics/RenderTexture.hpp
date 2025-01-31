@@ -42,6 +42,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			RenderTexture& operator=(RenderTexture&&) noexcept;
 
 			///

@@ -30,11 +30,13 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			virtual Serializable& operator=(Serializable&&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
+			[[nodiscard]]
 			virtual Serializable& operator=(const Serializable&) = default;
 
 			///

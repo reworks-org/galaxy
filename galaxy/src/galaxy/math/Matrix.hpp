@@ -46,11 +46,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
+			[[nodiscard]]
 			Matrix& operator=(const Matrix&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Matrix& operator=(Matrix&&) noexcept;
 
 			///
@@ -239,6 +241,7 @@ namespace galaxy
 		///
 		/// \return The resulting matrix from the addition.
 		///
+		[[nodiscard]]
 		Matrix operator+(const Matrix& lhs, const Matrix& rhs) noexcept;
 
 		///
@@ -249,6 +252,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side matrix after addition.
 		///
+		[[nodiscard]]
 		const Matrix& operator+=(Matrix& lhs, const Matrix& rhs) noexcept;
 
 		///
@@ -259,6 +263,7 @@ namespace galaxy
 		///
 		/// \return The resulting matrix from the subtraction.
 		///
+		[[nodiscard]]
 		Matrix operator-(const Matrix& lhs, const Matrix& rhs) noexcept;
 
 		///
@@ -269,6 +274,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side matrix after subtraction.
 		///
+		[[nodiscard]]
 		const Matrix& operator-=(Matrix& lhs, const Matrix& rhs) noexcept;
 
 		///
@@ -279,6 +285,7 @@ namespace galaxy
 		///
 		/// \return The resulting matrix from the multiplication.
 		///
+		[[nodiscard]]
 		Matrix operator*(const Matrix& lhs, const Matrix& rhs) noexcept;
 
 		///
@@ -289,6 +296,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side matrix after multiplication.
 		///
+		[[nodiscard]]
 		const Matrix& operator*=(Matrix& lhs, const Matrix& rhs) noexcept;
 	} // namespace math
 } // namespace galaxy

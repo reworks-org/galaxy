@@ -61,11 +61,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
+			[[nodiscard]]
 			Quaternion& operator=(const Quaternion&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Quaternion& operator=(Quaternion&&) noexcept;
 
 			///
@@ -215,6 +217,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the addition.
 		///
+		[[nodiscard]]
 		Quaternion operator+(const Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -225,6 +228,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after addition.
 		///
+		[[nodiscard]]
 		const Quaternion& operator+=(Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -235,6 +239,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the subtraction.
 		///
+		[[nodiscard]]
 		Quaternion operator-(const Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -245,6 +250,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after subtraction.
 		///
+		[[nodiscard]]
 		const Quaternion& operator-=(Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -255,6 +261,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the multiplication.
 		///
+		[[nodiscard]]
 		Quaternion operator*(const Quaternion& lhs, const float& rhs) noexcept;
 
 		///
@@ -265,6 +272,7 @@ namespace galaxy
 		///
 		/// \return A reference to the vector after multiplication.
 		///
+		[[nodiscard]]
 		const Quaternion& operator*=(Quaternion& lhs, const float& rhs) noexcept;
 
 		///
@@ -275,6 +283,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the multiplication.
 		///
+		[[nodiscard]]
 		Quaternion operator*(const Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -285,6 +294,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after multiplication.
 		///
+		[[nodiscard]]
 		const Quaternion& operator*=(Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -295,6 +305,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the division.
 		///
+		[[nodiscard]]
 		Quaternion operator/(const Quaternion& lhs, const float& rhs) noexcept;
 
 		///
@@ -305,6 +316,7 @@ namespace galaxy
 		///
 		/// \return A reference to the vector after division.
 		///
+		[[nodiscard]]
 		const Quaternion& operator/=(Quaternion& lhs, const float& rhs) noexcept;
 
 		///
@@ -315,6 +327,7 @@ namespace galaxy
 		///
 		/// \return The resulting vector from the division.
 		///
+		[[nodiscard]]
 		Quaternion operator/(const Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -325,6 +338,7 @@ namespace galaxy
 		///
 		/// \return A reference to the left-hand side vector after division.
 		///
+		[[nodiscard]]
 		const Quaternion& operator/=(Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -335,6 +349,7 @@ namespace galaxy
 		///
 		/// \return True if the vectors are equal, false otherwise.
 		///
+		[[nodiscard]]
 		bool operator==(const Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 		///
@@ -345,6 +360,7 @@ namespace galaxy
 		///
 		/// \return True if the vectors are not equal, false otherwise.
 		///
+		[[nodiscard]]
 		bool operator!=(const Quaternion& lhs, const Quaternion& rhs) noexcept;
 
 	} // namespace math

@@ -35,6 +35,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Video& operator=(Video&&) noexcept;
 
 			///

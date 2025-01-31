@@ -87,6 +87,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			Texture& operator=(Texture&&) noexcept;
 
 			///
