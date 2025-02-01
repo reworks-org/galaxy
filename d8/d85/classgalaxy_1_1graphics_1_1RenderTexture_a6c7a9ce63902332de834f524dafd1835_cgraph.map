@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::RenderTexture::set" name="galaxy::graphics::RenderTexture::set">
+<area shape="rect" id="Node000001" title="Configure loaded texture." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$d1/db3/structgalaxy_1_1settings.html#a3e61cbe068cc3c1bd10b656ada78c267" title="Ansiotropic filtering level." alt="" coords="236,5,404,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
+</map>

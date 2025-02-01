@@ -63,20 +63,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#ab6987cfed066c866f62e3a90ed7c1a62",
-"d2/d4d/classgalaxy_1_1utils_1_1Guid.html",
-"d3/d1f/Quaternion_8hpp.html#a735e6db0faf536a4f20b3d1bb72440a9",
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4",
-"d5/d25/classgalaxy_1_1core_1_1Window.html#a9772c7396e6ddadcedff85304429ec21",
-"d6/de9/classgalaxy_1_1core_1_1Config.html#a589d74abf8e26639a6de6e47fe94a92c",
-"d8/d03/classgalaxy_1_1audio_1_1Music.html#ab5ed183a6010bdc9108c08f9d475ee5d",
-"d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a53ae713604e4c7ae16f1971890bc3189",
-"d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155",
-"db/d05/classgalaxy_1_1graphics_1_1Camera3D.html#a03c797e5283251adf9fc6c75949d00c2",
-"dc/d50/namespacegalaxy_1_1audio_1_1device.html#a2b3156016d9be871724f5eb9aeb37a16",
-"dd/dad/VideoShader_8hpp.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d",
-"df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html#a382e84a2893eca67c0023c959448cbfb",
-"namespacemembers_r.html"
+"d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a5f90be48aa788622673866b7fe45469b",
+"d2/d24/classgalaxy_1_1input_1_1Gamepad.html#af89bb11d2e2b932135e88f03bd14619b",
+"d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a7cbc6941740f3cbaf349efba1667b439",
+"d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html",
+"d5/d02/DialogButton_8hpp_source.html",
+"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a93fd128b9da57d04d716b2b5e6aaa664",
+"d7/d84/classgalaxy_1_1graphics_1_1Image.html#afd1dd7e4636c425cdeb5ac06fdc3f50e",
+"d8/d2c/Generic_8hpp.html#a8d6cc000bebf17fa9563cd351a3903b9",
+"d9/d1c/Matrix_8hpp.html#af716559a76232f048531e13025e0a378",
+"da/d18/classgalaxy_1_1components_1_1Animated.html#a63fcec9982325d8314e01e8e0918c7a3",
+"db/d27/TextureAtlas_8hpp.html",
+"dc/d61/RectPack_8cpp_source.html",
+"dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba059e9861e0400dfbe05c98a841f3f96b",
+"df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html#a6939cb779c8bb67a5e5105f53f8bbe94",
+"namespacemembers_v.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

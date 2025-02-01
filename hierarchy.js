@@ -8,6 +8,9 @@ var hierarchy =
     [ "Camera3D", null, [
       [ "galaxy::graphics::Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html", null ]
     ] ],
+    [ "Color", null, [
+      [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ]
+    ] ],
     [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
     [ "galaxy::events::ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", null ],
     [ "galaxy::flags::DenySerialization", "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html", null ],
@@ -15,6 +18,9 @@ var hierarchy =
     [ "galaxy::input::Gamepad", "d2/d24/classgalaxy_1_1input_1_1Gamepad.html", null ],
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
+    [ "Image", null, [
+      [ "galaxy::graphics::Image", "d7/d84/classgalaxy_1_1graphics_1_1Image.html", null ]
+    ] ],
     [ "galaxy::resource::TextureAtlas::Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", null ],
     [ "galaxy::events::KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", null ],
     [ "galaxy::events::KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", null ],
@@ -51,6 +57,9 @@ var hierarchy =
     ] ],
     [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
     [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", null ],
+    [ "RenderTexture", null, [
+      [ "galaxy::graphics::RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", null ]
+    ] ],
     [ "galaxy::utils::RingBuffer", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html", null ],
     [ "galaxy::lua::Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
@@ -91,6 +100,12 @@ var hierarchy =
       [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]
+    ] ],
+    [ "Texture", null, [
+      [ "galaxy::graphics::Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", [
+        [ "galaxy::graphics::Cubemap", "d5/d8e/classgalaxy_1_1graphics_1_1Cubemap.html", null ],
+        [ "galaxy::graphics::Texture2D", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html", null ]
+      ] ]
     ] ],
     [ "galaxy::resource::TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", null ],
     [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],

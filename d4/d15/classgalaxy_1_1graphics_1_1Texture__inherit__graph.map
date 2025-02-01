@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Texture" name="galaxy::graphics::Texture">
+<area shape="rect" id="Node000001" title="GPU texture." alt="" coords="121,119,297,424"/>
+<area shape="rect" id="Node000003" href="$d5/d8e/classgalaxy_1_1graphics_1_1Cubemap.html" title="GPU texture." alt="" coords="5,482,196,667"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,438,136,483,131,481,147,436"/>
+<area shape="rect" id="Node000004" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="GPU texture." alt="" coords="221,472,415,677"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,436,284,471,279,473,266,438"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="177,5,240,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,84,211,119,206,119,206,84"/>
+</map>

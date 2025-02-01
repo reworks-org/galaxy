@@ -142,7 +142,7 @@ $(function(){initNavTree('d4/ddf/TextureAtlas_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keyword">auto</span>  data = fs.read_binary(file);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">if</span> (!data.empty())</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                graphics::Texture texture;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <a class="code hl_class" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">graphics::Texture</a> texture;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                texture.load_mem(data);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keyword">const</span> <span class="keyword">auto</span> path = std::filesystem::path(file);</div>
@@ -348,6 +348,7 @@ $(function(){initNavTree('d4/ddf/TextureAtlas_8cpp_source.html','../../'); initR
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
 <div class="ttc" id="aTextureAtlas_8hpp_html"><div class="ttname"><a href="../../db/d27/TextureAtlas_8hpp.html">TextureAtlas.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Texture_html"><div class="ttname"><a href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html">galaxy::graphics::Texture</a></div><div class="ttdoc">GPU texture.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/ddc/Texture_8hpp_source.html#l00031">Texture.hpp:32</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1TextureAtlas_html_a008984a04fbb50b4052300d2d8f1853f"><div class="ttname"><a href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f">galaxy::resource::TextureAtlas::~TextureAtlas</a></div><div class="ttdeci">virtual ~TextureAtlas()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">TextureAtlas.cpp:30</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1TextureAtlas_html_a152b6278e99aca04017a92035d3fa116"><div class="ttname"><a href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a152b6278e99aca04017a92035d3fa116">galaxy::resource::TextureAtlas::m_data</a></div><div class="ttdeci">robin_hood::unordered_flat_map&lt; std::string, Info &gt; m_data</div><div class="ttdoc">Index'd list of textures on a sheet.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d27/TextureAtlas_8hpp_source.html#l00214">TextureAtlas.hpp:214</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1resource_1_1TextureAtlas_html_a2d30fe3013032d3e3b70e8432e6b4c3f"><div class="ttname"><a href="../../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a2d30fe3013032d3e3b70e8432e6b4c3f">galaxy::resource::TextureAtlas::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initialize atlas.</div><div class="ttdef"><b>Definition</b> <a href="#l00198">TextureAtlas.cpp:198</a></div></div>
@@ -373,7 +374,7 @@ $(function(){initNavTree('d4/ddf/TextureAtlas_8cpp_source.html','../../'); initR
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../d4/ddf/TextureAtlas_8cpp.html">TextureAtlas.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 3 2024 10:15:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

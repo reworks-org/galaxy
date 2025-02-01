@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Colour" name="galaxy::graphics::Colour">
+<area shape="rect" id="Node000001" title="RGBA colour." alt="" coords="5,119,176,404"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="67,5,115,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,84,93,119,88,119,88,84"/>
+</map>

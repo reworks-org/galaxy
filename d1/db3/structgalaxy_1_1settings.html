@@ -185,6 +185,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a054349e4630d70317f734e5b5a172791" id="r_a054349e4630d70317f734e5b5a172791"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a054349e4630d70317f734e5b5a172791">cursor_icon</a> () noexcept -&gt; const std::string &amp;</td></tr>
 <tr class="memdesc:a054349e4630d70317f734e5b5a172791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor texture file in vfs.  <br /></td></tr>
 <tr class="separator:a054349e4630d70317f734e5b5a172791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e61cbe068cc3c1bd10b656ada78c267" id="r_a3e61cbe068cc3c1bd10b656ada78c267"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e61cbe068cc3c1bd10b656ada78c267">ansio_level</a> () noexcept -&gt; int</td></tr>
+<tr class="memdesc:a3e61cbe068cc3c1bd10b656ada78c267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ansiotropic filtering level.  <br /></td></tr>
+<tr class="separator:a3e61cbe068cc3c1bd10b656ada78c267"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5327bf397eaee7d873d1c3a383c92ea" id="r_ab5327bf397eaee7d873d1c3a383c92ea"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5327bf397eaee7d873d1c3a383c92ea">ups</a> () noexcept -&gt; double</td></tr>
 <tr class="memdesc:ab5327bf397eaee7d873d1c3a383c92ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Game updates per second, independant of FPS, see "fixed timestep gameloop".  <br /></td></tr>
 <tr class="separator:ab5327bf397eaee7d873d1c3a383c92ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -272,6 +275,8 @@ Static Private Attributes</h2></td></tr>
 <tr class="separator:a1fa8976281ac4ec45dc7680a67d859aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ca28cc52232b929fa36db4609b8d4c5" id="r_a1ca28cc52232b929fa36db4609b8d4c5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ca28cc52232b929fa36db4609b8d4c5">s_cursor_icon</a></td></tr>
 <tr class="separator:a1ca28cc52232b929fa36db4609b8d4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c2ac028bf29e523c993aa3eef2c909" id="r_ad0c2ac028bf29e523c993aa3eef2c909"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0c2ac028bf29e523c993aa3eef2c909">s_ansio_filtering</a></td></tr>
+<tr class="separator:ad0c2ac028bf29e523c993aa3eef2c909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fa2e2b7d04714e328d25cb5282800d6" id="r_a0fa2e2b7d04714e328d25cb5282800d6"><td class="memItemLeft" align="right" valign="top">static std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fa2e2b7d04714e328d25cb5282800d6">s_assets_dir</a></td></tr>
 <tr class="separator:a0fa2e2b7d04714e328d25cb5282800d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb27f6b6fb6181a293eb2e99a2391cf" id="r_a4fb27f6b6fb6181a293eb2e99a2391cf"><td class="memItemLeft" align="right" valign="top">static std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fb27f6b6fb6181a293eb2e99a2391cf">s_editor_dir</a></td></tr>
@@ -376,7 +381,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00051">51</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +416,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -441,7 +446,7 @@ Static Private Attributes</h2></td></tr>
 <p>Get galaxy delta time. </p>
 <dl class="section return"><dt>Returns</dt><dd>Current lag from gameloop. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00093">93</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00095">95</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -482,7 +487,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Number of bits in a flag bitset. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00098">98</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00100">100</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -511,7 +516,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Successful return. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00105">105</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -540,7 +545,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Failed main return. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00108">108</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00110">110</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -569,7 +574,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Ratio to convert world coords to box2d. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00113">113</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00115">115</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -598,7 +603,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Ratio to convert box2d to world coords. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00118">118</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00120">120</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -627,7 +632,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Window creation width. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00123">123</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00125">125</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -668,7 +673,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Window creation height. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00128">128</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00130">130</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -709,7 +714,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Window title. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00133">133</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00135">135</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -750,7 +755,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Window fullscreen mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00138">138</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00140">140</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -791,7 +796,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Vsync control. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00145">145</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -832,7 +837,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Show/hide mouse cursor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00148">148</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00150">150</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -873,7 +878,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Enable default 4x MSAA. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00155">155</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -914,7 +919,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Enable High DPI support. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00158">158</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00160">160</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -955,7 +960,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Window icon file in vfs. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00163">163</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00165">165</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 <div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -996,7 +1001,52 @@ Static Private Attributes</h2></td></tr>
 
 <p>Cursor texture file in vfs. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00168">168</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00170">170</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3e61cbe068cc3c1bd10b656ada78c267" name="a3e61cbe068cc3c1bd10b656ada78c267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e61cbe068cc3c1bd10b656ada78c267">&#9670;&#160;</a></span>ansio_level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto galaxy::settings::ansio_level </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> -&gt; int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ansiotropic filtering level. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00175">175</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a3e61cbe068cc3c1bd10b656ada78c267_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a3e61cbe068cc3c1bd10b656ada78c267_icgraph" alt=""/></div>
+<map name="ad1/db3/structgalaxy_1_1settings_a3e61cbe068cc3c1bd10b656ada78c267_icgraph" id="ad1/db3/structgalaxy_1_1settings_a3e61cbe068cc3c1bd10b656ada78c267_icgraph">
+<area shape="rect" title="Ansiotropic filtering level." alt="" coords="496,35,664,75"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6c7a9ce63902332de834f524dafd1835" title="Configure loaded texture." alt="" coords="251,5,433,45"/>
+<area shape="poly" title=" " alt="" coords="482,45,433,39,434,34,483,40"/>
+<area shape="rect" href="../../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a7803dc0aec742c7fe47dd26f5b65ec47" title="Configure loaded texture." alt="" coords="236,70,448,95"/>
+<area shape="poly" title=" " alt="" coords="483,69,449,73,448,68,482,63"/>
+<area shape="rect" href="../../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a9910faab7345ccc9487a5a10704c23a8" title="Load texture for rendering (framebuffer)." alt="" coords="5,5,188,45"/>
+<area shape="poly" title=" " alt="" coords="237,28,188,28,188,23,237,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1025,7 +1075,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Game updates per second, independant of FPS, see "fixed timestep gameloop". </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00173">173</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00180">180</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
 
 </div>
 </div>
@@ -1054,12 +1104,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Current root directory of application, unless it has been changed. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00178">178</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00185">185</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a566d989a8396d9f36754fb8d3084e41b_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a566d989a8396d9f36754fb8d3084e41b_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a566d989a8396d9f36754fb8d3084e41b_icgraph" id="ad1/db3/structgalaxy_1_1settings_a566d989a8396d9f36754fb8d3084e41b_icgraph">
 <area shape="rect" title="Current root directory of application, unless it has been changed." alt="" coords="865,77,1048,102"/>
@@ -1106,12 +1156,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Main data directory. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00183">183</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00190">190</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_ab5ed71114ee3dd59ccbeb2fb7eb7d86c_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_ab5ed71114ee3dd59ccbeb2fb7eb7d86c_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_ab5ed71114ee3dd59ccbeb2fb7eb7d86c_icgraph" id="ad1/db3/structgalaxy_1_1settings_ab5ed71114ee3dd59ccbeb2fb7eb7d86c_icgraph">
 <area shape="rect" title="Main data directory." alt="" coords="261,13,460,38"/>
@@ -1147,12 +1197,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Directory for editor specific stuff. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00188">188</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00195">195</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a89f510a96bebe3f40924cd387c570976_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a89f510a96bebe3f40924cd387c570976_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a89f510a96bebe3f40924cd387c570976_icgraph" id="ad1/db3/structgalaxy_1_1settings_a89f510a96bebe3f40924cd387c570976_icgraph">
 <area shape="rect" title="Directory for editor specific stuff." alt="" coords="261,13,456,38"/>
@@ -1188,12 +1238,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Name of packed assets file. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00193">193</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00200">200</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a5146b2ba963e52a9709212539af6e68a_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a5146b2ba963e52a9709212539af6e68a_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a5146b2ba963e52a9709212539af6e68a_icgraph" id="ad1/db3/structgalaxy_1_1settings_a5146b2ba963e52a9709212539af6e68a_icgraph">
 <area shape="rect" title="Name of packed assets file." alt="" coords="261,13,468,38"/>
@@ -1229,12 +1279,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Should asset data be read from pack or assets dir. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00198">198</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00205">205</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_abb8d02f3b0709ecff70c30eda260eccd_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_abb8d02f3b0709ecff70c30eda260eccd_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_abb8d02f3b0709ecff70c30eda260eccd_icgraph" id="ad1/db3/structgalaxy_1_1settings_abb8d02f3b0709ecff70c30eda260eccd_icgraph">
 <area shape="rect" title="Should asset data be read from pack or assets dir." alt="" coords="261,5,417,45"/>
@@ -1270,12 +1320,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Music asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00203">203</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00210">210</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_abefe4bf0fa68580e695273425f0b80e0_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_abefe4bf0fa68580e695273425f0b80e0_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_abefe4bf0fa68580e695273425f0b80e0_icgraph" id="ad1/db3/structgalaxy_1_1settings_abefe4bf0fa68580e695273425f0b80e0_icgraph">
 <area shape="rect" title="Music asset location." alt="" coords="261,5,436,45"/>
@@ -1311,12 +1361,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>SFX asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00208">208</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00215">215</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_ad26ab1af3280f8ba82016f8fc67a2215_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_ad26ab1af3280f8ba82016f8fc67a2215_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_ad26ab1af3280f8ba82016f8fc67a2215_icgraph" id="ad1/db3/structgalaxy_1_1settings_ad26ab1af3280f8ba82016f8fc67a2215_icgraph">
 <area shape="rect" title="SFX asset location." alt="" coords="261,5,436,45"/>
@@ -1352,12 +1402,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Voice asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a1f4efd5062b1830cd05b56e8fc07c0bc_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a1f4efd5062b1830cd05b56e8fc07c0bc_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a1f4efd5062b1830cd05b56e8fc07c0bc_icgraph" id="ad1/db3/structgalaxy_1_1settings_a1f4efd5062b1830cd05b56e8fc07c0bc_icgraph">
 <area shape="rect" title="Voice asset location." alt="" coords="261,5,436,45"/>
@@ -1393,12 +1443,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Font asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00218">218</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00225">225</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a994d24041899433fb11e7b36e5843a37_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a994d24041899433fb11e7b36e5843a37_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a994d24041899433fb11e7b36e5843a37_icgraph" id="ad1/db3/structgalaxy_1_1settings_a994d24041899433fb11e7b36e5843a37_icgraph">
 <area shape="rect" title="Font asset location." alt="" coords="261,5,436,45"/>
@@ -1434,12 +1484,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Scripts asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00223">223</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00230">230</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a373f600f5d75a91f238e6d979c321fa7_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a373f600f5d75a91f238e6d979c321fa7_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a373f600f5d75a91f238e6d979c321fa7_icgraph" id="ad1/db3/structgalaxy_1_1settings_a373f600f5d75a91f238e6d979c321fa7_icgraph">
 <area shape="rect" title="Scripts asset location." alt="" coords="261,5,436,45"/>
@@ -1475,12 +1525,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Shaders asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00228">228</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00235">235</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a6e6d07fe03240401928d4a724a0bb5e1_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a6e6d07fe03240401928d4a724a0bb5e1_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a6e6d07fe03240401928d4a724a0bb5e1_icgraph" id="ad1/db3/structgalaxy_1_1settings_a6e6d07fe03240401928d4a724a0bb5e1_icgraph">
 <area shape="rect" title="Shaders asset location." alt="" coords="261,5,436,45"/>
@@ -1516,12 +1566,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Animation data location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00233">233</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00240">240</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a7e40c509d171c0a9ef25809bf723d63c_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a7e40c509d171c0a9ef25809bf723d63c_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a7e40c509d171c0a9ef25809bf723d63c_icgraph" id="ad1/db3/structgalaxy_1_1settings_a7e40c509d171c0a9ef25809bf723d63c_icgraph">
 <area shape="rect" title="Animation data location." alt="" coords="261,5,436,45"/>
@@ -1557,12 +1607,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Textures asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00238">238</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00245">245</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_ab9b771f6c954c4c662646e9dfe678be8_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_ab9b771f6c954c4c662646e9dfe678be8_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_ab9b771f6c954c4c662646e9dfe678be8_icgraph" id="ad1/db3/structgalaxy_1_1settings_ab9b771f6c954c4c662646e9dfe678be8_icgraph">
 <area shape="rect" title="Textures asset location." alt="" coords="261,5,436,45"/>
@@ -1598,12 +1648,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Prefab asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00243">243</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00250">250</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a61fb8e755eb19d805372a072c5fe7f8f_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a61fb8e755eb19d805372a072c5fe7f8f_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a61fb8e755eb19d805372a072c5fe7f8f_icgraph" id="ad1/db3/structgalaxy_1_1settings_a61fb8e755eb19d805372a072c5fe7f8f_icgraph">
 <area shape="rect" title="Prefab asset location." alt="" coords="261,5,436,45"/>
@@ -1639,12 +1689,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Maps asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00248">248</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00255">255</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a9c7f6ad3fb4b8a1da42c759f67d3233b_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a9c7f6ad3fb4b8a1da42c759f67d3233b_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a9c7f6ad3fb4b8a1da42c759f67d3233b_icgraph" id="ad1/db3/structgalaxy_1_1settings_a9c7f6ad3fb4b8a1da42c759f67d3233b_icgraph">
 <area shape="rect" title="Maps asset location." alt="" coords="261,5,436,45"/>
@@ -1680,12 +1730,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>Video asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00253">253</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00260">260</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-27" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_a116d451d1c8704884db33407c4e344ba_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_a116d451d1c8704884db33407c4e344ba_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_a116d451d1c8704884db33407c4e344ba_icgraph" id="ad1/db3/structgalaxy_1_1settings_a116d451d1c8704884db33407c4e344ba_icgraph">
 <area shape="rect" title="Video asset location." alt="" coords="261,5,436,45"/>
@@ -1721,12 +1771,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>UI asset location. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00258">258</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div id="dynsection-27" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
+<div id="dynsection-28" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/db3/structgalaxy_1_1settings_af758bee1dbc00d8210497aa707dd7e3d_icgraph.png" border="0" usemap="#ad1/db3/structgalaxy_1_1settings_af758bee1dbc00d8210497aa707dd7e3d_icgraph" alt=""/></div>
 <map name="ad1/db3/structgalaxy_1_1settings_af758bee1dbc00d8210497aa707dd7e3d_icgraph" id="ad1/db3/structgalaxy_1_1settings_af758bee1dbc00d8210497aa707dd7e3d_icgraph">
 <area shape="rect" title="UI asset location." alt="" coords="261,5,436,45"/>
@@ -1758,7 +1808,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00250">250</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00256">256</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1782,7 +1832,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00252">252</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00258">258</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1806,7 +1856,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00254">254</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00260">260</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1830,7 +1880,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00255">255</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00261">261</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1854,7 +1904,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00256">256</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00262">262</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1878,7 +1928,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00258">258</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00264">264</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1902,7 +1952,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00259">259</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00265">265</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1926,7 +1976,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00260">260</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00266">266</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1950,7 +2000,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00261">261</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00267">267</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1974,7 +2024,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00262">262</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00268">268</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -1998,7 +2048,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00263">263</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00269">269</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2022,7 +2072,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00264">264</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00270">270</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2046,7 +2096,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00265">265</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00271">271</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2070,7 +2120,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00266">266</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00272">272</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2094,7 +2144,31 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00267">267</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00273">273</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad0c2ac028bf29e523c993aa3eef2c909" name="ad0c2ac028bf29e523c993aa3eef2c909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0c2ac028bf29e523c993aa3eef2c909">&#9670;&#160;</a></span>s_ansio_filtering</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::settings::s_ansio_filtering</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00274">274</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2118,7 +2192,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00269">269</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2142,7 +2216,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00270">270</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00277">277</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2166,7 +2240,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00271">271</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00278">278</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2190,7 +2264,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00272">272</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00279">279</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2214,7 +2288,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00273">273</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00280">280</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2238,7 +2312,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00274">274</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00281">281</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2262,7 +2336,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00275">275</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00282">282</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2286,7 +2360,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00276">276</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00283">283</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2310,7 +2384,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00277">277</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2334,7 +2408,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00278">278</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00285">285</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2358,7 +2432,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00279">279</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00286">286</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2382,7 +2456,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00280">280</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00287">287</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2406,7 +2480,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00281">281</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2430,7 +2504,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00282">282</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00289">289</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2454,7 +2528,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00283">283</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00290">290</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2478,7 +2552,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00284">284</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d02/Settings_8hpp_source.html#l00291">291</a> of file <a class="el" href="../../db/d02/Settings_8hpp_source.html">Settings.hpp</a>.</p>
 
 </div>
 </div>
@@ -2492,7 +2566,7 @@ Static Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/db3/structgalaxy_1_1settings.html">settings</a></li>
-    <li class="footer">Generated on Tue Dec 3 2024 10:15:07 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

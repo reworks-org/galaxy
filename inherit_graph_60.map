@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,76,56"/>
+<area shape="rect" id="Node000001" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="GPU texture." alt="" coords="124,31,308,56"/>
+<area shape="poly" id="edge36_Node000000_Node000001" title=" " alt="" coords="90,41,124,41,124,46,90,46"/>
+<area shape="rect" id="Node000002" href="$d5/d8e/classgalaxy_1_1graphics_1_1Cubemap.html" title="GPU texture." alt="" coords="358,5,557,31"/>
+<area shape="poly" id="edge37_Node000001_Node000002" title=" " alt="" coords="321,30,358,26,358,31,322,35"/>
+<area shape="rect" id="Node000003" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="GPU texture." alt="" coords="356,55,559,80"/>
+<area shape="poly" id="edge38_Node000001_Node000003" title=" " alt="" coords="322,51,356,55,356,60,322,56"/>
+</map>
