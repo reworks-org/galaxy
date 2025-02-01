@@ -38,6 +38,11 @@ namespace galaxy
 			Image() noexcept;
 
 			///
+			/// Raylib constructor.
+			///
+			Image(const ::Image& img) noexcept;
+
+			///
 			/// Move constructor.
 			///
 			Image(Image&&) noexcept;

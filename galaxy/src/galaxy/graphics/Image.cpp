@@ -20,6 +20,11 @@ namespace galaxy
 			format  = static_cast<int>(PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
 		}
 
+		Image::Image(const ::Image& img) noexcept
+		{
+			set(img);
+		}
+
 		Image::Image(Image&& i) noexcept
 		{
 			this->unload();
@@ -58,26 +63,22 @@ namespace galaxy
 
 		void Image::load(const std::string& file)
 		{
-			const auto img = ::LoadImage(file.c_str());
-			set(img);
+			set(::LoadImage(file.c_str()));
 		}
 
 		void Image::load_raw(const std::string& file, const int width, const int height, const ray::PixelFormat format, const int header_size)
 		{
-			const auto img = ::LoadImageRaw(file.c_str(), width, height, static_cast<int>(format), header_size);
-			set(img);
+			set(::LoadImageRaw(file.c_str(), width, height, static_cast<int>(format), header_size));
 		}
 
 		void Image::load_from_memory(const std::string& file_type, std::span<unsigned char> file_data)
 		{
-			const auto img = ::LoadImageFromMemory(file_type.c_str(), file_data.data(), file_data.size());
-			set(img);
+			set(::LoadImageFromMemory(file_type.c_str(), file_data.data(), file_data.size()));
 		}
 
 		void Image::load_from_screen()
 		{
-			const auto img = ::LoadImageFromScreen();
-			set(img);
+			set(::LoadImageFromScreen());
 		}
 
 		bool Image::is_valid() const noexcept

@@ -13,19 +13,19 @@ namespace galaxy
 	{
 		namespace clipboard
 		{
-			void set(const std::string& text)
+			void set(const std::string& text) noexcept
 			{
-				SetClipboardText(text.c_str());
+				::SetClipboardText(text.c_str());
 			}
 
-			std::string get()
+			std::string get() noexcept
 			{
-				return {GetClipboardText()};
+				return {::GetClipboardText()};
 			}
 
-			Image get_image()
+			graphics::Image get_image() noexcept
 			{
-				return GetClipboardImage();
+				return graphics::Image(::GetClipboardImage());
 			}
 		} // namespace clipboard
 	} // namespace input

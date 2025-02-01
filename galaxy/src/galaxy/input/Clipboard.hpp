@@ -8,9 +8,7 @@
 #ifndef GALAXY_INPUT_CLIPBOARD_HPP_
 #define GALAXY_INPUT_CLIPBOARD_HPP_
 
-#include <string>
-
-#include <raylib.h>
+#include "galaxy/graphics/Image.hpp"
 
 namespace galaxy
 {
@@ -26,7 +24,7 @@ namespace galaxy
 			///
 			/// \param text Text content to set.
 			///
-			void set(const std::string& text);
+			void set(const std::string& text) noexcept;
 
 			///
 			/// Get clipboard text content.
@@ -34,7 +32,7 @@ namespace galaxy
 			/// \return Data from clipboard in a string.
 			///
 			[[nodiscard]]
-			std::string get();
+			std::string get() noexcept;
 
 			///
 			/// Get clipboard content as an image.
@@ -42,7 +40,7 @@ namespace galaxy
 			/// \return Image object.
 			///
 			[[nodiscard]]
-			Image get_image();
+			graphics::Image get_image() noexcept;
 		} // namespace clipboard
 	} // namespace input
 } // namespace galaxy

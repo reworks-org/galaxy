@@ -35,6 +35,7 @@
     <ClCompile Include="src\galaxy\graphics\Texture.cpp" />
     <ClCompile Include="src\galaxy\graphics\Texture2D.cpp" />
     <ClCompile Include="src\galaxy\graphics\Video.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\input\Cursor.cpp" />
     <ClCompile Include="src\galaxy\input\Gamepad.cpp" />
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="src\galaxy\graphics\Texture.hpp" />
     <ClInclude Include="src\galaxy\graphics\Texture2D.hpp" />
     <ClInclude Include="src\galaxy\graphics\Video.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\input\Cursor.hpp" />
     <ClInclude Include="src\galaxy\input\Gamepad.hpp" />
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
