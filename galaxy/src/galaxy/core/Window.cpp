@@ -136,13 +136,13 @@ namespace galaxy
 		void Window::set_title(const std::string& title)
 		{
 			m_title = title;
-			::SetWindowTitle(title.c_str());
+			::SetWindowTitle(m_title.c_str());
 		}
 
 		void Window::append_title(const std::string& append)
 		{
-			auto title = m_title + append;
-			::SetWindowTitle(title.c_str());
+			m_title += append;
+			::SetWindowTitle(m_title.c_str());
 		}
 
 		void Window::set_pos(const int x, int y)
