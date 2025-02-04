@@ -11,6 +11,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="physfs\src\physfs.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_7z.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_csm.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_dir.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_grp.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_hog.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_iso9660.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_lec3d.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_mvl.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_qpak.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_slb.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_unpacked.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_vdf.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_wad.c" />
+    <ClCompile Include="physfs\src\physfs_archiver_zip.c" />
+    <ClCompile Include="physfs\src\physfs_byteorder.c" />
+    <ClCompile Include="physfs\src\physfs_platform_windows.c" />
+    <ClCompile Include="physfs\src\physfs_unicode.c" />
+    <ClCompile Include="tinyfiledialogs\more_dialogs\tinyfd_moredialogs.c" />
+    <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="zip\src\zip.c" />
+    <ClInclude Include="physfs\src\physfs.h" />
+    <ClInclude Include="physfs\src\physfs_casefolding.h" />
+    <ClInclude Include="physfs\src\physfs_internal.h" />
+    <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
+    <ClInclude Include="physfs\src\physfs_miniz.h" />
+    <ClInclude Include="physfs\src\physfs_platforms.h" />
     <ClInclude Include="sfml\include\SFML\Audio.hpp" />
     <ClInclude Include="sfml\include\SFML\Config.hpp" />
     <ClInclude Include="sfml\include\SFML\GpuPreference.hpp" />
@@ -103,6 +130,7 @@
     <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\t1types.h" />
     <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\tttypes.h" />
     <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\wofftypes.h" />
+    <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />
     <ClCompile Include="sfml_deps\freetype-src\src\base\ftbase.c" />
     <ClCompile Include="sfml_deps\freetype-src\src\base\ftbbox.c" />
@@ -145,6 +173,129 @@
     <ClCompile Include="sfml_deps\freetype-src\src\winfonts\winfnt.c" />
     <ClCompile Include="sfml_deps\freetype-src\builds\windows\ftsystem.c" />
     <ClCompile Include="sfml_deps\freetype-src\builds\windows\ftdebug.c" />
+    <ClInclude Include="sol\include\sol\abort.hpp" />
+    <ClInclude Include="sol\include\sol\assert.hpp" />
+    <ClInclude Include="sol\include\sol\as_args.hpp" />
+    <ClInclude Include="sol\include\sol\as_returns.hpp" />
+    <ClInclude Include="sol\include\sol\base_traits.hpp" />
+    <ClInclude Include="sol\include\sol\bind_traits.hpp" />
+    <ClInclude Include="sol\include\sol\bytecode.hpp" />
+    <ClInclude Include="sol\include\sol\call.hpp" />
+    <ClInclude Include="sol\include\sol\compatibility.hpp" />
+    <ClInclude Include="sol\include\sol\compatibility\compat-5.3.c.h" />
+    <ClInclude Include="sol\include\sol\compatibility\compat-5.3.h" />
+    <ClInclude Include="sol\include\sol\compatibility\compat-5.4.h" />
+    <ClInclude Include="sol\include\sol\compatibility\lua_version.hpp" />
+    <ClInclude Include="sol\include\sol\config.hpp" />
+    <ClInclude Include="sol\include\sol\coroutine.hpp" />
+    <ClInclude Include="sol\include\sol\debug.hpp" />
+    <ClInclude Include="sol\include\sol\demangle.hpp" />
+    <ClInclude Include="sol\include\sol\deprecate.hpp" />
+    <ClInclude Include="sol\include\sol\detail\build_version.hpp" />
+    <ClInclude Include="sol\include\sol\dump_handler.hpp" />
+    <ClInclude Include="sol\include\sol\ebco.hpp" />
+    <ClInclude Include="sol\include\sol\environment.hpp" />
+    <ClInclude Include="sol\include\sol\epilogue.hpp" />
+    <ClInclude Include="sol\include\sol\error.hpp" />
+    <ClInclude Include="sol\include\sol\error_handler.hpp" />
+    <ClInclude Include="sol\include\sol\forward.hpp" />
+    <ClInclude Include="sol\include\sol\forward_as.hpp" />
+    <ClInclude Include="sol\include\sol\forward_detail.hpp" />
+    <ClInclude Include="sol\include\sol\function.hpp" />
+    <ClInclude Include="sol\include\sol\function_result.hpp" />
+    <ClInclude Include="sol\include\sol\function_types.hpp" />
+    <ClInclude Include="sol\include\sol\function_types_core.hpp" />
+    <ClInclude Include="sol\include\sol\function_types_overloaded.hpp" />
+    <ClInclude Include="sol\include\sol\function_types_stateful.hpp" />
+    <ClInclude Include="sol\include\sol\function_types_stateless.hpp" />
+    <ClInclude Include="sol\include\sol\function_types_templated.hpp" />
+    <ClInclude Include="sol\include\sol\inheritance.hpp" />
+    <ClInclude Include="sol\include\sol\in_place.hpp" />
+    <ClInclude Include="sol\include\sol\load_result.hpp" />
+    <ClInclude Include="sol\include\sol\lua_table.hpp" />
+    <ClInclude Include="sol\include\sol\lua_value.hpp" />
+    <ClInclude Include="sol\include\sol\make_reference.hpp" />
+    <ClInclude Include="sol\include\sol\metatable.hpp" />
+    <ClInclude Include="sol\include\sol\object.hpp" />
+    <ClInclude Include="sol\include\sol\object_base.hpp" />
+    <ClInclude Include="sol\include\sol\optional.hpp" />
+    <ClInclude Include="sol\include\sol\optional_implementation.hpp" />
+    <ClInclude Include="sol\include\sol\overload.hpp" />
+    <ClInclude Include="sol\include\sol\packaged_coroutine.hpp" />
+    <ClInclude Include="sol\include\sol\pairs_iterator.hpp" />
+    <ClInclude Include="sol\include\sol\pointer_like.hpp" />
+    <ClInclude Include="sol\include\sol\policies.hpp" />
+    <ClInclude Include="sol\include\sol\prologue.hpp" />
+    <ClInclude Include="sol\include\sol\property.hpp" />
+    <ClInclude Include="sol\include\sol\protect.hpp" />
+    <ClInclude Include="sol\include\sol\protected_function.hpp" />
+    <ClInclude Include="sol\include\sol\protected_function_result.hpp" />
+    <ClInclude Include="sol\include\sol\protected_handler.hpp" />
+    <ClInclude Include="sol\include\sol\proxy_base.hpp" />
+    <ClInclude Include="sol\include\sol\raii.hpp" />
+    <ClInclude Include="sol\include\sol\reference.hpp" />
+    <ClInclude Include="sol\include\sol\resolve.hpp" />
+    <ClInclude Include="sol\include\sol\sol.hpp" />
+    <ClInclude Include="sol\include\sol\stack.hpp" />
+    <ClInclude Include="sol\include\sol\stack\detail\pairs.hpp" />
+    <ClInclude Include="sol\include\sol\stack_check.hpp" />
+    <ClInclude Include="sol\include\sol\stack_check_get.hpp" />
+    <ClInclude Include="sol\include\sol\stack_check_get_qualified.hpp" />
+    <ClInclude Include="sol\include\sol\stack_check_get_unqualified.hpp" />
+    <ClInclude Include="sol\include\sol\stack_check_qualified.hpp" />
+    <ClInclude Include="sol\include\sol\stack_check_unqualified.hpp" />
+    <ClInclude Include="sol\include\sol\stack_core.hpp" />
+    <ClInclude Include="sol\include\sol\stack_field.hpp" />
+    <ClInclude Include="sol\include\sol\stack_get.hpp" />
+    <ClInclude Include="sol\include\sol\stack_get_qualified.hpp" />
+    <ClInclude Include="sol\include\sol\stack_get_unqualified.hpp" />
+    <ClInclude Include="sol\include\sol\stack_guard.hpp" />
+    <ClInclude Include="sol\include\sol\stack_iterator.hpp" />
+    <ClInclude Include="sol\include\sol\stack_pop.hpp" />
+    <ClInclude Include="sol\include\sol\stack_probe.hpp" />
+    <ClInclude Include="sol\include\sol\stack_proxy.hpp" />
+    <ClInclude Include="sol\include\sol\stack_proxy_base.hpp" />
+    <ClInclude Include="sol\include\sol\stack_push.hpp" />
+    <ClInclude Include="sol\include\sol\stack_reference.hpp" />
+    <ClInclude Include="sol\include\sol\state.hpp" />
+    <ClInclude Include="sol\include\sol\state_handling.hpp" />
+    <ClInclude Include="sol\include\sol\state_view.hpp" />
+    <ClInclude Include="sol\include\sol\string_view.hpp" />
+    <ClInclude Include="sol\include\sol\table.hpp" />
+    <ClInclude Include="sol\include\sol\table_core.hpp" />
+    <ClInclude Include="sol\include\sol\table_iterator.hpp" />
+    <ClInclude Include="sol\include\sol\table_proxy.hpp" />
+    <ClInclude Include="sol\include\sol\thread.hpp" />
+    <ClInclude Include="sol\include\sol\tie.hpp" />
+    <ClInclude Include="sol\include\sol\traits.hpp" />
+    <ClInclude Include="sol\include\sol\trampoline.hpp" />
+    <ClInclude Include="sol\include\sol\tuple.hpp" />
+    <ClInclude Include="sol\include\sol\types.hpp" />
+    <ClInclude Include="sol\include\sol\unicode.hpp" />
+    <ClInclude Include="sol\include\sol\unique_usertype_traits.hpp" />
+    <ClInclude Include="sol\include\sol\unreachable.hpp" />
+    <ClInclude Include="sol\include\sol\unsafe_function.hpp" />
+    <ClInclude Include="sol\include\sol\unsafe_function_result.hpp" />
+    <ClInclude Include="sol\include\sol\userdata.hpp" />
+    <ClInclude Include="sol\include\sol\usertype.hpp" />
+    <ClInclude Include="sol\include\sol\usertype_container.hpp" />
+    <ClInclude Include="sol\include\sol\usertype_container_launch.hpp" />
+    <ClInclude Include="sol\include\sol\usertype_core.hpp" />
+    <ClInclude Include="sol\include\sol\usertype_proxy.hpp" />
+    <ClInclude Include="sol\include\sol\usertype_storage.hpp" />
+    <ClInclude Include="sol\include\sol\usertype_traits.hpp" />
+    <ClInclude Include="sol\include\sol\utility\is_integer.hpp" />
+    <ClInclude Include="sol\include\sol\utility\to_string.hpp" />
+    <ClInclude Include="sol\include\sol\variadic_args.hpp" />
+    <ClInclude Include="sol\include\sol\variadic_results.hpp" />
+    <ClInclude Include="sol\include\sol\version.hpp" />
+    <ClInclude Include="sol\include\sol\wrapper.hpp" />
+    <ClInclude Include="subprocess\subprocess.h" />
+    <ClInclude Include="threadpool\include\BS_thread_pool.hpp" />
+    <ClInclude Include="tinyfiledialogs\more_dialogs\tinyfd_moredialogs.h" />
+    <ClInclude Include="tinyfiledialogs\tinyfiledialogs.h" />
+    <ClInclude Include="zip\src\miniz.h" />
+    <ClInclude Include="zip\src\zip.h" />
     <ResourceCompile Include="sfml_deps\freetype-src\src\base\ftver.rc" />
     <ClCompile Include="sfml_deps\flac-src\src\libFLAC\bitmath.c" />
     <ClCompile Include="sfml_deps\flac-src\src\libFLAC\bitreader.c" />
@@ -529,7 +680,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;UNICODE;_UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;SFML_STATIC;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;MA_NO_MP3;MA_NO_FLAC;MA_NO_ENCODING;MA_NO_RESOURCE_MANAGER;MA_NO_GENERATION;MA_USE_STDINT;SFML_IS_BIG_ENDIAN=0;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_USE_MATH_DEFINES;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PHYSFS_SUPPORTS_DEFAULT=0;ENTT_DISABLE_ASSERT;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;UNICODE;_UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;SFML_STATIC;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;MA_NO_MP3;MA_NO_FLAC;MA_NO_ENCODING;MA_NO_RESOURCE_MANAGER;MA_NO_GENERATION;MA_USE_STDINT;SFML_IS_BIG_ENDIAN=0;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_USE_MATH_DEFINES;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -590,7 +741,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;UNICODE;_UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;SFML_STATIC;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;MA_NO_MP3;MA_NO_FLAC;MA_NO_ENCODING;MA_NO_RESOURCE_MANAGER;MA_NO_GENERATION;MA_USE_STDINT;SFML_IS_BIG_ENDIAN=0;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_USE_MATH_DEFINES;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PHYSFS_SUPPORTS_DEFAULT=0;ENTT_DISABLE_ASSERT;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;UNICODE;_UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;SFML_STATIC;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;MA_NO_MP3;MA_NO_FLAC;MA_NO_ENCODING;MA_NO_RESOURCE_MANAGER;MA_NO_GENERATION;MA_USE_STDINT;SFML_IS_BIG_ENDIAN=0;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_USE_MATH_DEFINES;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
