@@ -1,3 +1,5 @@
+game: 2d pixel rpg with srpg battle scene.
+
 Resources are designed to be loaded up front. This is fine since we aren't using the level of assets of i.e. a 3D game.
 - This is similar in style to how games like minecraft and factorio loads its data.
 

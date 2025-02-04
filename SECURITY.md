@@ -10,5 +10,3 @@
 ## Reporting a Vulnerability
 
 Open an issue in the issue tracker.
-
-Thanks for your contribution.
