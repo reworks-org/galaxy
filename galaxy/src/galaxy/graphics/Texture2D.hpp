@@ -36,7 +36,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Texture2D& operator=(Texture2D&&) noexcept;
 
 			///

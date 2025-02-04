@@ -6,7 +6,7 @@
 ///
 
 #include <entt/locator/locator.hpp>
-#include <raylib.h>
+#include <raylib.hpp>
 
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -123,7 +123,7 @@ namespace galaxy
 				auto  data = fs.read_binary(icon);
 
 				const char* ext = ::GetFileExtension(icon.c_str());
-				const auto  img = ::LoadImageFromMemory(ext, data.data(), data.size());
+				const auto  img = ::LoadImageFromMemory(ext, data.data(), static_cast<int>(data.size()));
 
 				::SetWindowIcon(img);
 			}

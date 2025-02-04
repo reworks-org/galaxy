@@ -35,7 +35,7 @@ namespace galaxy
 		///
 		class App final
 		{
-		  public:
+		public:
 			///
 			/// \brief Default constructor.
 			///
@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			void run();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -82,6 +82,16 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			App& operator=(App&&) = delete;
+
+			void setup_platform();
+			void setup_logging(std::string_view log_dir);
+			void setup_async();
+			void setup_config(std::string_view config_file);
+			void setup_fs();
+			void setup_window();
+			void setup_audio();
+			void setup_entity_metadata();
+			void setup_scripting();
 		};
 	} // namespace core
 } // namespace galaxy

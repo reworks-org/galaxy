@@ -17,47 +17,47 @@ namespace galaxy
 		{
 			void init() noexcept
 			{
-				::InitAudioDevice();
+				rl::InitAudioDevice();
 			}
 
 			void close() noexcept
 			{
-				::CloseAudioDevice();
+				rl::CloseAudioDevice();
 			}
 
 			bool is_audio_device_ready() noexcept
 			{
-				return ::IsAudioDeviceReady();
+				return rl::IsAudioDeviceReady();
 			}
 
 			void set_master_volume(const float volume) noexcept
 			{
-				::SetMasterVolume(volume);
+				rl::SetMasterVolume(volume);
 			}
 
 			float get_master_volume() noexcept
 			{
-				return ::GetMasterVolume();
+				return rl::GetMasterVolume();
 			}
 
-			void attach_audio_stream_processor(const AudioStream& stream, const AudioCallback& processor) noexcept
+			void attach_audio_stream_processor(const rl::AudioStream& stream, const rl::AudioCallback& processor) noexcept
 			{
-				::AttachAudioStreamProcessor(stream, processor);
+				rl::AttachAudioStreamProcessor(stream, processor);
 			}
 
-			void detach_audio_stream_processor(const AudioStream& stream, const AudioCallback& processor) noexcept
+			void detach_audio_stream_processor(const rl::AudioStream& stream, const rl::AudioCallback& processor) noexcept
 			{
-				::DetachAudioStreamProcessor(stream, processor);
+				rl::DetachAudioStreamProcessor(stream, processor);
 			}
 
-			void attach_audio_mixed_processor(const AudioCallback& processor) noexcept
+			void attach_audio_mixed_processor(const rl::AudioCallback& processor) noexcept
 			{
-				::AttachAudioMixedProcessor(processor);
+				rl::AttachAudioMixedProcessor(processor);
 			}
 
-			void detach_audio_mixed_processor(const AudioCallback& processor) noexcept
+			void detach_audio_mixed_processor(const rl::AudioCallback& processor) noexcept
 			{
-				::DetachAudioMixedProcessor(processor);
+				rl::DetachAudioMixedProcessor(processor);
 			}
 		} // namespace device
 	} // namespace audio

@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Guid& operator=(Guid&&) noexcept;
 
 			///
@@ -45,7 +45,7 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Guid& operator=(const Guid&) noexcept;
 
 			///

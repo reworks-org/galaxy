@@ -5,3 +5,6 @@ Thumbs.db
 legacy/
 out/
 build/
+sandbox/bin
+supercluster/bin
+dist/bin

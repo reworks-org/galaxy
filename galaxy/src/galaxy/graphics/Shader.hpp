@@ -49,7 +49,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Shader& operator=(Shader&&) noexcept;
 
 			///
@@ -169,10 +169,7 @@ namespace galaxy
 			/// \param vertex Vertex shader.
 			/// \param frag Fragment shader.
 			///
-			/// \return True if successful.
-			///
-			[[nodiscard]]
-			bool load_into_raylib(const std::string& vertex, const std::string& frag);
+			void load_into_raylib(const std::string& vertex, const std::string& frag);
 
 		private:
 			///

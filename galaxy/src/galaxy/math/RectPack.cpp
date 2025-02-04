@@ -22,7 +22,7 @@ namespace galaxy
 			m_free_rects.clear();
 		}
 
-		void RectPack::init(const int width, const int height)
+		void RectPack::init(const float width, const float height)
 		{
 			m_width  = width;
 			m_height = height;
@@ -30,7 +30,7 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		std::optional<graphics::Rectangle> RectPack::pack(const int width, const int height)
+		std::optional<graphics::Rectangle> RectPack::pack(const float width, const float height)
 		{
 			// Result.
 			std::optional<graphics::Rectangle> result = std::nullopt;

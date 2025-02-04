@@ -8,20 +8,28 @@
 #include <raylib.hpp>
 
 #include "galaxy/logging/Log.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "RaylibError.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26826)
+GALAXY_DISABLE_WARNING(26477)
+GALAXY_DISABLE_WARNING(26465)
+#endif
 
 namespace galaxy
 {
 	namespace logging
 	{
-		void raylib_trace(int level, const char* text, va_list args)
+		std::string handle_va(const char* text, va_list args, ...)
 		{
 			std::string result;
 
 			va_start(args, text);
-			char   buf[32];
-			size_t n = std::vsnprintf(buf, sizeof(buf), text, args);
+			char         buf[32];
+			const size_t n = std::vsnprintf(buf, sizeof(buf), text, args);
 			va_end(args);
 
 			if (n < sizeof(buf))
@@ -38,6 +46,12 @@ namespace galaxy
 				va_end(args);
 			}
 
+			return result;
+		}
+
+		void raylib_trace(int level, const char* text, va_list args)
+		{
+			const auto result = handle_va(text, args);
 			switch (level)
 			{
 				case ray::TraceLogLevel::LOG_INFO:
@@ -58,3 +72,7 @@ namespace galaxy
 		}
 	} // namespace logging
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

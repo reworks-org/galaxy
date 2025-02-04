@@ -32,6 +32,11 @@ namespace galaxy
 		{
 		public:
 			///
+			/// Destructor.
+			///
+			virtual ~Texture() noexcept;
+
+			///
 			/// Check if a texture is valid (loaded in GPU).
 			///
 			/// \return bool True if the texture is valid, false otherwise.
@@ -87,13 +92,8 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Texture& operator=(Texture&&) noexcept;
-
-			///
-			/// Destructor.
-			///
-			virtual ~Texture() noexcept;
 
 			///
 			/// Configure loaded texture.

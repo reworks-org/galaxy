@@ -5,6 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
+
+#include "galaxy/fs/VirtualFileSystem.hpp"
+
 #include "Sound.hpp"
 
 namespace galaxy
@@ -63,7 +67,14 @@ namespace galaxy
 
 		void Sound::load(const std::string& file_name)
 		{
-			const auto s = ::LoadSound(file_name.c_str());
+			auto& fs = entt::locator<fs::VirtualFileSystem>::value();
+
+			const auto ext  = fs.get_file_extension(file_name);
+			const auto data = fs.read_binary(file_name);
+
+			const auto wave = ::LoadWaveFromMemory(ext.c_str(), data.data(), data.size());
+			const auto s    = ::LoadSoundFromWave(wave);
+			::UnloadWave(wave);
 
 			stream.buffer     = s.stream.buffer;
 			stream.processor  = s.stream.processor;

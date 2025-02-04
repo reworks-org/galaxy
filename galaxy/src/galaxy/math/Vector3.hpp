@@ -61,13 +61,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Vector3& operator=(const Vector3&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Vector3& operator=(Vector3&&) noexcept;
 
 			///

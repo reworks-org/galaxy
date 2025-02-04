@@ -46,7 +46,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Colour& operator=(Colour&&) noexcept;
 
 			///
@@ -57,7 +57,7 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Colour& operator=(const Colour&) noexcept;
 
 			///

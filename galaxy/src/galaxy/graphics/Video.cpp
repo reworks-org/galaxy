@@ -97,7 +97,7 @@ namespace galaxy
 			auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
 			auto  data = fs.read_binary(file_name);
 
-			::MediaMemoryStream stream = {0};
+			::MediaMemoryStream stream = {};
 			stream.data                = data.data();
 			stream.size                = data.size();
 			stream.pos                 = 0;

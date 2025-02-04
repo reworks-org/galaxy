@@ -5,6 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
+
+#include "galaxy/fs/VirtualFileSystem.hpp"
+
 #include "Music.hpp"
 
 namespace galaxy
@@ -74,7 +78,12 @@ namespace galaxy
 
 		void Music::load(const std::string& file_name)
 		{
-			const auto s = ::LoadMusicStream(file_name.c_str());
+			auto& fs = entt::locator<fs::VirtualFileSystem>::value();
+
+			const auto ext  = fs.get_file_extension(file_name);
+			const auto data = fs.read_binary(file_name);
+
+			const auto s = ::LoadMusicStreamFromMemory(ext.c_str(), data.data(), data.size());
 
 			stream.buffer     = s.stream.buffer;
 			stream.processor  = s.stream.processor;

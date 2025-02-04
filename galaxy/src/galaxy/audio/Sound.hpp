@@ -41,7 +41,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Sound& operator=(Sound&&) noexcept;
 
 			///

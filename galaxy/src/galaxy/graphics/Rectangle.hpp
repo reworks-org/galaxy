@@ -60,13 +60,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Rectangle& operator=(const Rectangle&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Rectangle& operator=(Rectangle&&) noexcept;
 
 			///

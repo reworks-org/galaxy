@@ -8,6 +8,7 @@
 #ifndef GALAXY_ASYNC_ASYNC_HPP_
 #define GALAXY_ASYNC_ASYNC_HPP_
 
+#include <chrono>
 #include <future>
 
 using namespace std::chrono_literals;

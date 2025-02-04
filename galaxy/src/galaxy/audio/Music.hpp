@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		/// Large audio file streamed.
 		///
-		class Music : public ::Music
+		class Music : public rl::Music
 		{
 		public:
 			///
@@ -41,7 +41,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Music& operator=(Music&&) noexcept;
 
 			///

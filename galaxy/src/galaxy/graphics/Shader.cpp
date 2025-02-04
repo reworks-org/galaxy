@@ -12,6 +12,11 @@
 
 #include "Shader.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26437)
+#endif
+
 namespace galaxy
 {
 	namespace graphics
@@ -98,7 +103,7 @@ namespace galaxy
 
 			if (result)
 			{
-				result = load_into_raylib(vertex, frag);
+				load_into_raylib(vertex, frag);
 			}
 
 			return result;
@@ -176,7 +181,7 @@ namespace galaxy
 					}
 				}
 
-				result = load_into_raylib(vertex, frag);
+				load_into_raylib(vertex, frag);
 			}
 			else
 			{
@@ -187,7 +192,7 @@ namespace galaxy
 			return result;
 		}
 
-		bool Shader::load_into_raylib(const std::string& vertex, const std::string& frag)
+		void Shader::load_into_raylib(const std::string& vertex, const std::string& frag)
 		{
 			unload();
 
@@ -197,3 +202,7 @@ namespace galaxy
 		}
 	} // namespace graphics
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

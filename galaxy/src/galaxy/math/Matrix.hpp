@@ -46,13 +46,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Matrix& operator=(const Matrix&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Matrix& operator=(Matrix&&) noexcept;
 
 			///

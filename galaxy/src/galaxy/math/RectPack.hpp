@@ -41,7 +41,7 @@ namespace galaxy
 			/// \param width Width of the master rectangle.
 			/// \param height Height of the master rectangle.
 			///
-			void init(const int width, const int height);
+			void init(const float width, const float height);
 
 			///
 			/// Pack a rectangle into the master rectangle.
@@ -53,7 +53,7 @@ namespace galaxy
 			///			Otherwise, returns a std::nullopt.
 			///
 			[[nodiscard]]
-			std::optional<graphics::Rectangle> pack(const int width, const int height);
+			std::optional<graphics::Rectangle> pack(const float width, const float height);
 
 			///
 			/// Clear all data.

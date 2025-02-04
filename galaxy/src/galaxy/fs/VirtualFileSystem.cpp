@@ -8,7 +8,7 @@
 #include <entt/locator/locator.hpp>
 #include <mimalloc.h>
 #include <physfs.h>
-#include <raylib.h>
+#include <raylib.hpp>
 #include <tinyfiledialogs.h>
 #include <zip.h>
 
@@ -81,8 +81,7 @@ namespace galaxy
 				logging::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
 
 				::SetLoadFileDataCallback([](const char* fileName, int* dataSize) -> unsigned char* {
-					auto& fs = entt::locator<VirtualFileSystem>::value();
-					return fs.read_binary(fileName).data();
+					GALAXY_LOG(GALAXY_FATAL, "Do not load {0} through raylib.", fileName);
 				});
 
 				::SetSaveFileDataCallback([](const char* fileName, void* data, int dataSize) -> bool {
@@ -91,8 +90,7 @@ namespace galaxy
 				});
 
 				::SetLoadFileTextCallback([](const char* fileName) -> char* {
-					auto& fs = entt::locator<VirtualFileSystem>::value();
-					return fs.read(fileName).data();
+					GALAXY_LOG(GALAXY_FATAL, "Do not load {0} through raylib.", fileName);
 				});
 
 				::SetSaveFileTextCallback([](const char* fileName, char* text) -> bool {
@@ -342,8 +340,15 @@ namespace galaxy
 
 		std::string VirtualFileSystem::get_file_extension(const std::string& file_name) noexcept
 		{
-			const char* ext = ::GetFileExtension(file_name.c_str());
-			return {ext};
+			const auto path = std::filesystem::path(file_name);
+			if (path.has_extension())
+			{
+				return path.extension().string();
+			}
+			else
+			{
+				return {};
+			}
 		}
 
 		long VirtualFileSystem::get_file_last_write_time(const std::string& file) noexcept

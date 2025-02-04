@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		/// Raylib support for videos.
 		///
-		class Video final : public ::MediaStream
+		class Video final : public rl::MediaStream
 		{
 		public:
 			///
@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Video& operator=(Video&&) noexcept;
 
 			///
@@ -56,7 +56,7 @@ namespace galaxy
 			/// \param file_name Path to the movie file.
 			/// \param flags Combination of MediaLoadFlag values.
 			///
-			void load_ex(const std::string& file_name, const ray::MediaLoadFlag flags) noexcept;
+			void load_ex(const std::string& file_name, const rl::MediaLoadFlag flags) noexcept;
 
 			///
 			/// Check if a MediaStream is valid (loaded and initialized).

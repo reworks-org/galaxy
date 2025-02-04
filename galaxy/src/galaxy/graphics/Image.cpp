@@ -73,7 +73,7 @@ namespace galaxy
 
 		void Image::load_from_memory(const std::string& file_type, std::span<unsigned char> file_data)
 		{
-			set(::LoadImageFromMemory(file_type.c_str(), file_data.data(), file_data.size()));
+			set(::LoadImageFromMemory(file_type.c_str(), file_data.data(), static_cast<int>(file_data.size())));
 		}
 
 		void Image::load_from_screen()

@@ -61,13 +61,13 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Quaternion& operator=(const Quaternion&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			[[nodiscard]]
+			[[maybe_unused]]
 			Quaternion& operator=(Quaternion&&) noexcept;
 
 			///

@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <raylib.h>
+#include <raylib.hpp>
 
 #include "Platform.hpp"
 

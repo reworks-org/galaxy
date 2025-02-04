@@ -209,7 +209,7 @@ namespace galaxy
 
 			if constexpr (async)
 			{
-				auto& tp = entt::locator<BS::thread_pool>::value();
+				auto& tp = entt::locator<BS::light_thread_pool>::value();
 				m_handle = tp.submit_task([&]() {
 					do
 					{

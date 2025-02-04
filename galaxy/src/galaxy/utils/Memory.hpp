@@ -8,6 +8,8 @@
 #ifndef GALAXY_UTILS_MEMORY_HPP_
 #define GALAXY_UTILS_MEMORY_HPP_
 
+#include <optional>
+
 #include "galaxy/utils/Concepts.hpp"
 
 namespace galaxy

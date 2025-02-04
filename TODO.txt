@@ -1,3 +1,9 @@
+- fix loading...
+
+
+
+
+
 // Drawing-related functions
 void ClearBackground(Color color);                          // Set background color (framebuffer clear color)
 void BeginDrawing(void);                                    // Setup canvas (framebuffer) to start drawing

@@ -8,6 +8,8 @@
 #ifndef GALAXY_AUDIO_DEVICE_HPP_
 #define GALAXY_AUDIO_DEVICE_HPP_
 
+#include <raylib.hpp>
+
 namespace galaxy
 {
 	namespace audio
@@ -53,7 +55,7 @@ namespace galaxy
 			/// \param stream The audio stream.
 			/// \param processor The audio callback processor.
 			///
-			void attach_audio_stream_processor(const AudioStream& stream, const AudioCallback& processor) noexcept;
+			void attach_audio_stream_processor(const rl::AudioStream& stream, const rl::AudioCallback& processor) noexcept;
 
 			///
 			/// Detach audio stream processor from stream.
@@ -61,21 +63,21 @@ namespace galaxy
 			/// \param stream The audio stream.
 			/// \param processor The audio callback processor.
 			///
-			void detach_audio_stream_processor(const AudioStream& stream, const AudioCallback& processor) noexcept;
+			void detach_audio_stream_processor(const rl::AudioStream& stream, const rl::AudioCallback& processor) noexcept;
 
 			///
 			/// Attach audio stream processor to the entire audio pipeline, receives the samples as 'float'.
 			///
 			/// \param processor The audio callback processor.
 			///
-			void attach_audio_mixed_processor(const AudioCallback& processor) noexcept;
+			void attach_audio_mixed_processor(const rl::AudioCallback& processor) noexcept;
 
 			///
 			/// Detach audio stream processor from the entire audio pipeline.
 			///
 			/// \param processor The audio callback processor.
 			///
-			void detach_audio_mixed_processor(const AudioCallback& processor) noexcept;
+			void detach_audio_mixed_processor(const rl::AudioCallback& processor) noexcept;
 		} // namespace device
 	} // namespace audio
 } // namespace galaxy

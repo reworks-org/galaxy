@@ -16,7 +16,6 @@
 
 #include "galaxy/logging/LogLevel.hpp"
 #include "galaxy/logging/Sink.hpp"
-#include "galaxy/platform/Pragma.hpp"
 
 #define GALAXY_INFO                     galaxy::logging::LogLevel::INFO
 #define GALAXY_DEBUG                    galaxy::logging::LogLevel::DEBUG
