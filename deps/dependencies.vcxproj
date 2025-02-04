@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sfml\include\SFML\Audio.hpp" />
+    <ClInclude Include="sfml\include\SFML\Config.hpp" />
+    <ClInclude Include="sfml\include\SFML\GpuPreference.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics.hpp" />
+    <ClInclude Include="sfml\include\SFML\Main.hpp" />
+    <ClInclude Include="sfml\include\SFML\Network.hpp" />
+    <ClInclude Include="sfml\include\SFML\OpenGL.hpp" />
+    <ClInclude Include="sfml\include\SFML\System.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window.hpp" />
+    <ClInclude Include="sfml_deps\flac-build\config.h" />
+    <ClInclude Include="sfml_deps\freetype-build\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="sfml_deps\freetype-build\include\freetype\config\ftoption.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\freetype.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftadvanc.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftbbox.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftbdf.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftbitmap.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftbzip2.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftcache.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftchapters.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftcid.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftcolor.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftdriver.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\fterrdef.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\fterrors.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftfntfmt.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftgasp.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftglyph.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftgxval.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftgzip.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftimage.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftincrem.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftlist.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftlogging.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftlzw.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftmac.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftmm.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftmodapi.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftmoderr.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftotval.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftoutln.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftparams.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftpfr.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftrender.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftsizes.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftsnames.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftstroke.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftsynth.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftsystem.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\fttrigon.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\fttypes.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\otsvg.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\t1tables.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\ttnameid.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\tttables.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\tttags.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\ft2build.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\ftheader.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\ftoption.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\integer-types.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\mac-support.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\config\public-macros.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\autohint.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\cffotypes.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\cfftypes.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\compiler-macros.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftdrv.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\fthash.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftmmtypes.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftpsprop.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\psaux.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\pshints.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\svginterface.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\t1types.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="sfml_deps\freetype-src\include\freetype\internal\wofftypes.h" />
+    <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftbase.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftbbox.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftbdf.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftbitmap.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftcid.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftfstype.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftgasp.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftglyph.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftgxval.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftinit.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftmm.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftotval.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftpatent.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftpfr.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftstroke.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftsynth.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\fttype1.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\base\ftwinfnt.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\bdf\bdf.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\bzip2\ftbzip2.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\cache\ftcache.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\cff\cff.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\cid\type1cid.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\gzip\ftgzip.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\lzw\ftlzw.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\pcf\pcf.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\pfr\pfr.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\psaux\psaux.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\pshinter\pshinter.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\psnames\psnames.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\raster\raster.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\sdf\sdf.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\sfnt\sfnt.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\smooth\smooth.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\svg\svg.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\truetype\truetype.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\type1\type1.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\type42\type42.c" />
+    <ClCompile Include="sfml_deps\freetype-src\src\winfonts\winfnt.c" />
+    <ClCompile Include="sfml_deps\freetype-src\builds\windows\ftsystem.c" />
+    <ClCompile Include="sfml_deps\freetype-src\builds\windows\ftdebug.c" />
+    <ResourceCompile Include="sfml_deps\freetype-src\src\base\ftver.rc" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\bitmath.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\bitreader.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\bitwriter.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\cpu.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\crc.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\fixed.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\fixed_intrin_sse2.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\fixed_intrin_ssse3.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\fixed_intrin_sse42.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\fixed_intrin_avx2.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\float.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\format.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\lpc.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\lpc_intrin_neon.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\lpc_intrin_sse2.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\lpc_intrin_sse41.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\lpc_intrin_avx2.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\lpc_intrin_fma.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\md5.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\memory.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\metadata_iterators.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\metadata_object.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_decoder.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_intrin_sse2.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_intrin_ssse3.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_intrin_avx2.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_framing.c" />
+    <ResourceCompile Include="sfml_deps\flac-src\src\libFLAC\version.rc" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\window.c" />
+    <ClInclude Include="sfml_deps\flac-src\include\share\win_utf8_io.h" />
+    <ClCompile Include="sfml_deps\flac-src\src\share\win_utf8_io\win_utf8_io.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\ogg_decoder_aspect.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\ogg_encoder_aspect.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\ogg_helper.c" />
+    <ClCompile Include="sfml_deps\flac-src\src\libFLAC\ogg_mapping.c" />
+    <ClInclude Include="sfml_deps\ogg-build\include\ogg\config_types.h" />
+    <ClInclude Include="sfml_deps\ogg-src\include\ogg\ogg.h" />
+    <ClInclude Include="sfml_deps\ogg-src\include\ogg\os_types.h" />
+    <ClCompile Include="sfml_deps\ogg-src\src\bitwise.c" />
+    <ClCompile Include="sfml_deps\ogg-src\src\framing.c" />
+    <ClInclude Include="sfml_deps\ogg-src\src\crctable.h" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\vorbisfile.c" />
+    <None Include="sfml_deps\vorbis-src\win32\vorbisfile.def" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\vorbisenc.c" />
+    <None Include="sfml_deps\vorbis-src\win32\vorbisenc.def" />
+    <None Include="sfml_deps\vorbis-src\win32\vorbis.def" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\envelope.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\lpc.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\lsp.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\codebook.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\misc.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\psy.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\masking.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\os.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\mdct.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\smallft.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\highlevel.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\registry.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\scales.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\window.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\lookup.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\lookup_data.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\codec_internal.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\backends.h" />
+    <ClInclude Include="sfml_deps\vorbis-src\lib\bitrate.h" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\mdct.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\smallft.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\block.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\envelope.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\window.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\lsp.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\lpc.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\analysis.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\synthesis.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\psy.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\info.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\floor1.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\floor0.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\res0.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\mapping0.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\registry.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\codebook.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\sharedbook.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\lookup.c" />
+    <ClCompile Include="sfml_deps\vorbis-src\lib\bitrate.c" />
+    <ClInclude Include="sfml\include\SFML\System\Angle.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Angle.inl" />
+    <ClCompile Include="sfml\src\SFML\System\Clock.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\Clock.hpp" />
+    <ClInclude Include="sfml\src\SFML\System\EnumArray.hpp" />
+    <ClCompile Include="sfml\src\SFML\System\Err.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\Err.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Exception.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Export.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\InputStream.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\NativeActivity.hpp" />
+    <ClCompile Include="sfml\src\SFML\System\Sleep.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\Sleep.hpp" />
+    <ClCompile Include="sfml\src\SFML\System\String.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\String.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\String.inl" />
+    <ClInclude Include="sfml\include\SFML\System\Time.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Time.inl" />
+    <ClInclude Include="sfml\include\SFML\System\Utf.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Utf.inl" />
+    <ClInclude Include="sfml\src\SFML\System\Utils.hpp" />
+    <ClCompile Include="sfml\src\SFML\System\Utils.cpp" />
+    <ClCompile Include="sfml\src\SFML\System\Vector2.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\Vector2.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Vector2.inl" />
+    <ClCompile Include="sfml\src\SFML\System\Vector3.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\Vector3.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\Vector3.inl" />
+    <ClCompile Include="sfml\src\SFML\System\FileInputStream.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\FileInputStream.hpp" />
+    <ClCompile Include="sfml\src\SFML\System\MemoryInputStream.cpp" />
+    <ClInclude Include="sfml\include\SFML\System\MemoryInputStream.hpp" />
+    <ClInclude Include="sfml\include\SFML\System\SuspendAwareClock.hpp" />
+    <ClCompile Include="sfml\src\SFML\System\Win32\SleepImpl.cpp" />
+    <ClInclude Include="sfml\src\SFML\System\Win32\SleepImpl.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Clipboard.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Clipboard.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\ClipboardImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Context.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Context.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Cursor.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Cursor.hpp" />
+    <ClInclude Include="sfml\src\SFML\Window\CursorImpl.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Export.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\GlContext.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\GlContext.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\GlResource.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\GlResource.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\ContextSettings.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Event.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Event.inl" />
+    <ClInclude Include="sfml\src\SFML\Window\InputImpl.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Joystick.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Joystick.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\JoystickImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\JoystickManager.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\JoystickManager.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Keyboard.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Keyboard.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Mouse.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Mouse.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Touch.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Touch.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Sensor.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Sensor.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\SensorImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\SensorManager.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\SensorManager.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\VideoMode.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\VideoMode.hpp" />
+    <ClInclude Include="sfml\src\SFML\Window\VideoModeImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Vulkan.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Vulkan.hpp" />
+    <ClInclude Include="sfml\src\SFML\Window\VulkanImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Window.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\Window.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\WindowBase.cpp" />
+    <ClInclude Include="sfml\include\SFML\Window\WindowBase.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\WindowBase.inl" />
+    <ClInclude Include="sfml\include\SFML\Window\WindowEnums.hpp" />
+    <ClInclude Include="sfml\include\SFML\Window\WindowHandle.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\WindowImpl.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\WindowImpl.hpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\CursorImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\CursorImpl.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\ClipboardImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\ClipboardImpl.cpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\InputImpl.cpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\JoystickImpl.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\JoystickImpl.hpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\SensorImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\SensorImpl.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\Utils.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\VideoModeImpl.cpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\VulkanImplWin32.cpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\WindowImplWin32.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\WindowImplWin32.hpp" />
+    <ClCompile Include="sfml\src\SFML\Window\Win32\WglContext.cpp" />
+    <ClInclude Include="sfml\src\SFML\Window\Win32\WglContext.hpp" />
+    <ClInclude Include="sfml\include\SFML\Network\Export.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\Ftp.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\Ftp.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\Http.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\Http.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\IpAddress.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\IpAddress.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\Packet.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\Packet.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\Socket.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\Socket.hpp" />
+    <ClInclude Include="sfml\src\SFML\Network\SocketImpl.hpp" />
+    <ClInclude Include="sfml\include\SFML\Network\SocketHandle.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\SocketSelector.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\SocketSelector.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\TcpListener.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\TcpListener.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\TcpSocket.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\TcpSocket.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\UdpSocket.cpp" />
+    <ClInclude Include="sfml\include\SFML\Network\UdpSocket.hpp" />
+    <ClCompile Include="sfml\src\SFML\Network\Win32\SocketImpl.cpp" />
+    <ClCompile Include="sfml\src\SFML\Main\MainWin32.cpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\BlendMode.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\BlendMode.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Color.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Color.inl" />
+    <ClInclude Include="sfml\include\SFML\Graphics\CoordinateType.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Export.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Font.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Font.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Glsl.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Glsl.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Glsl.inl" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Glyph.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\GLCheck.cpp" />
+    <ClInclude Include="sfml\src\SFML\Graphics\GLCheck.hpp" />
+    <ClInclude Include="sfml\src\SFML\Graphics\GLExtensions.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\GLExtensions.cpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Image.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Image.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\PrimitiveType.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Rect.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Rect.inl" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RenderStates.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\RenderStates.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RenderTexture.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\RenderTexture.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RenderTarget.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\RenderTarget.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RenderWindow.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\RenderWindow.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Shader.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Shader.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\StencilMode.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\StencilMode.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Texture.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Texture.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\TextureSaver.cpp" />
+    <ClInclude Include="sfml\src\SFML\Graphics\TextureSaver.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Transform.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Transform.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Transform.inl" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Transformable.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Transformable.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\View.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\View.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Vertex.hpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Drawable.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Shape.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Shape.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\CircleShape.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\CircleShape.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RectangleShape.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\RectangleShape.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\ConvexShape.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\ConvexShape.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Sprite.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Sprite.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\Text.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\Text.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\VertexArray.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\VertexArray.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\VertexBuffer.cpp" />
+    <ClInclude Include="sfml\include\SFML\Graphics\VertexBuffer.hpp" />
+    <ClInclude Include="sfml\src\SFML\Graphics\RenderTextureImpl.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RenderTextureImplFBO.cpp" />
+    <ClInclude Include="sfml\src\SFML\Graphics\RenderTextureImplFBO.hpp" />
+    <ClCompile Include="sfml\src\SFML\Graphics\RenderTextureImplDefault.cpp" />
+    <ClInclude Include="sfml\src\SFML\Graphics\RenderTextureImplDefault.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\AudioResource.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\AudioResource.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\AudioDevice.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\AudioDevice.hpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\Export.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\Listener.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\Listener.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\Miniaudio.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\MiniaudioUtils.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\MiniaudioUtils.cpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\Music.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\Music.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\PlaybackDevice.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\PlaybackDevice.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\Sound.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\Sound.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundBuffer.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundBuffer.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundBufferRecorder.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundBufferRecorder.hpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundChannel.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\InputSoundFile.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\InputSoundFile.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\OutputSoundFile.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\OutputSoundFile.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundRecorder.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundRecorder.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundSource.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundSource.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundStream.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundStream.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileFactory.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundFileFactory.hpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundFileFactory.inl" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundFileReader.hpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileReaderFlac.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileReaderFlac.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileReaderMp3.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileReaderMp3.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileReaderOgg.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileReaderOgg.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileReaderWav.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileReaderWav.cpp" />
+    <ClInclude Include="sfml\include\SFML\Audio\SoundFileWriter.hpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileWriterFlac.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileWriterFlac.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileWriterOgg.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileWriterOgg.cpp" />
+    <ClInclude Include="sfml\src\SFML\Audio\SoundFileWriterWav.hpp" />
+    <ClCompile Include="sfml\src\SFML\Audio\SoundFileWriterWav.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{7d1068d5-2b05-46e2-8b93-1bb42f6b445f}</ProjectGuid>
+    <RootNamespace>dependencies</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)out\dependencies\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\dependencies\$(Configuration)\</IntDir>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+    <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)out\dependencies\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\dependencies\$(Configuration)\</IntDir>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+    <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;UNICODE;_UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;SFML_STATIC;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;MA_NO_MP3;MA_NO_FLAC;MA_NO_ENCODING;MA_NO_RESOURCE_MANAGER;MA_NO_GENERATION;MA_USE_STDINT;SFML_IS_BIG_ENDIAN=0;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_USE_MATH_DEFINES;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>true</SupportJustMyCode>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <EnableModules>false</EnableModules>
+      <PrecompiledHeaderOutputFile />
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ErrorReporting>NoErrorReport</ErrorReporting>
+      <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps/ffmpeg/lib/avcodec.lib;$(SolutionDir)deps/ffmpeg/lib/avdevice.lib;$(SolutionDir)deps/ffmpeg/lib/avfilter.lib;$(SolutionDir)deps/ffmpeg/lib/avformat.lib;$(SolutionDir)deps/ffmpeg/lib/avutil.lib;$(SolutionDir)deps/ffmpeg/lib/swresample.lib;$(SolutionDir)deps/ffmpeg/lib/swscale.lib;$(SolutionDir)deps\zlib-ng\lib\Debug\zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>ENTT_DISABLE_ASSERT;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;UNICODE;_UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_WINSOCK_DEPRECATED_NO_WARNINGS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;SFML_STATIC;OV_EXCLUDE_STATIC_CALLBACKS;FLAC__NO_DLL;MA_NO_MP3;MA_NO_FLAC;MA_NO_ENCODING;MA_NO_RESOURCE_MANAGER;MA_NO_GENERATION;MA_USE_STDINT;SFML_IS_BIG_ENDIAN=0;_DARWIN_C_SOURCE;_POSIX_PTHREAD_SEMANTICS;__STDC_WANT_IEC_60559_BFP_EXT__;__STDC_WANT_IEC_60559_DFP_EXT__;__STDC_WANT_IEC_60559_FUNCS_EXT__;__STDC_WANT_IEC_60559_TYPES_EXT__;__STDC_WANT_LIB_EXT2__;__STDC_WANT_MATH_SPEC_FUNCS__;_TANDEM_SOURCE;HAVE_CONFIG_H;_USE_MATH_DEFINES;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+      <EnableModules>false</EnableModules>
+      <PrecompiledHeaderOutputFile />
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ErrorReporting>NoErrorReport</ErrorReporting>
+      <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
+      <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps/ffmpeg/lib/avcodec.lib;$(SolutionDir)deps/ffmpeg/lib/avdevice.lib;$(SolutionDir)deps/ffmpeg/lib/avfilter.lib;$(SolutionDir)deps/ffmpeg/lib/avformat.lib;$(SolutionDir)deps/ffmpeg/lib/avutil.lib;$(SolutionDir)deps/ffmpeg/lib/swresample.lib;$(SolutionDir)deps/ffmpeg/lib/swscale.lib;$(SolutionDir)deps\zlib-ng\lib\Release\zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

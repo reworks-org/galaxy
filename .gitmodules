@@ -1,0 +1,36 @@
+[submodule "deps/json"]
+	path = deps/json
+	url = https://github.com/nlohmann/json.git
+[submodule "deps/lua"]
+	path = deps/lua
+	url = https://github.com/lua/lua.git
+[submodule "deps/magic_enum"]
+	path = deps/magic_enum
+	url = https://github.com/Neargye/magic_enum.git
+[submodule "deps/entt"]
+	path = deps/entt
+	url = https://github.com/skypjack/entt.git
+[submodule "deps/zip"]
+	path = deps/zip
+	url = https://github.com/kuba--/zip.git
+[submodule "deps/tinyfiledialogs"]
+	path = deps/tinyfiledialogs
+	url = https://git.code.sf.net/p/tinyfiledialogs/code
+[submodule "deps/threadpool"]
+	path = deps/threadpool
+	url = https://github.com/bshoshany/thread-pool.git
+[submodule "deps/subprocess"]
+	path = deps/subprocess
+	url = https://github.com/sheredom/subprocess.h.git
+[submodule "deps/sol"]
+	path = deps/sol
+	url = https://github.com/ThePhD/sol2.git
+[submodule "deps/dense"]
+	path = deps/dense
+	url = https://github.com/martinus/unordered_dense.git
+[submodule "deps/physfs"]
+	path = deps/physfs
+	url = https://github.com/icculus/physfs.git
+[submodule "deps/sfml"]
+	path = deps/sfml
+	url = https://github.com/SFML/SFML.git
