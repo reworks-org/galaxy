@@ -11,51 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="box2d\src\collision\b2_broad_phase.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_chain_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_circle_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collide_circle.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collide_edge.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collide_polygon.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_collision.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_distance.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_dynamic_tree.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_edge_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_polygon_shape.cpp" />
-    <ClCompile Include="box2d\src\collision\b2_time_of_impact.cpp" />
-    <ClCompile Include="box2d\src\common\b2_block_allocator.cpp" />
-    <ClCompile Include="box2d\src\common\b2_draw.cpp" />
-    <ClCompile Include="box2d\src\common\b2_math.cpp" />
-    <ClCompile Include="box2d\src\common\b2_settings.cpp" />
-    <ClCompile Include="box2d\src\common\b2_stack_allocator.cpp" />
-    <ClCompile Include="box2d\src\common\b2_timer.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_body.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_chain_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_chain_polygon_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_contact_manager.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_contact_solver.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_distance_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_edge_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_edge_polygon_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_fixture.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_friction_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_gear_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_island.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_motor_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_mouse_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_polygon_circle_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_polygon_contact.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_prismatic_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_pulley_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_revolute_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_weld_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_wheel_joint.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_world.cpp" />
-    <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
-    <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -131,55 +86,6 @@
     <ClCompile Include="zip\src\zip.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="box2d\include\box2d\b2_api.h" />
-    <ClInclude Include="box2d\include\box2d\b2_block_allocator.h" />
-    <ClInclude Include="box2d\include\box2d\b2_body.h" />
-    <ClInclude Include="box2d\include\box2d\b2_broad_phase.h" />
-    <ClInclude Include="box2d\include\box2d\b2_chain_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_circle_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_collision.h" />
-    <ClInclude Include="box2d\include\box2d\b2_common.h" />
-    <ClInclude Include="box2d\include\box2d\b2_contact.h" />
-    <ClInclude Include="box2d\include\box2d\b2_contact_manager.h" />
-    <ClInclude Include="box2d\include\box2d\b2_distance.h" />
-    <ClInclude Include="box2d\include\box2d\b2_distance_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_draw.h" />
-    <ClInclude Include="box2d\include\box2d\b2_dynamic_tree.h" />
-    <ClInclude Include="box2d\include\box2d\b2_edge_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_fixture.h" />
-    <ClInclude Include="box2d\include\box2d\b2_friction_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_gear_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_growable_stack.h" />
-    <ClInclude Include="box2d\include\box2d\b2_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_math.h" />
-    <ClInclude Include="box2d\include\box2d\b2_motor_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_mouse_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_polygon_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_prismatic_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_pulley_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_revolute_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_rope.h" />
-    <ClInclude Include="box2d\include\box2d\b2_settings.h" />
-    <ClInclude Include="box2d\include\box2d\b2_shape.h" />
-    <ClInclude Include="box2d\include\box2d\b2_stack_allocator.h" />
-    <ClInclude Include="box2d\include\box2d\b2_timer.h" />
-    <ClInclude Include="box2d\include\box2d\b2_time_of_impact.h" />
-    <ClInclude Include="box2d\include\box2d\b2_time_step.h" />
-    <ClInclude Include="box2d\include\box2d\b2_types.h" />
-    <ClInclude Include="box2d\include\box2d\b2_weld_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_wheel_joint.h" />
-    <ClInclude Include="box2d\include\box2d\b2_world.h" />
-    <ClInclude Include="box2d\include\box2d\b2_world_callbacks.h" />
-    <ClInclude Include="box2d\include\box2d\box2d.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_chain_polygon_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_contact_solver.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_edge_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_edge_polygon_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_island.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_polygon_circle_contact.h" />
-    <ClInclude Include="box2d\src\dynamics\b2_polygon_contact.h" />
     <ClInclude Include="dense\include\ankerl\unordered_dense.h" />
     <ClInclude Include="entt\src\entt\config\config.h" />
     <ClInclude Include="entt\src\entt\config\macro.h" />
@@ -686,7 +592,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GRAPHICS_API_OPENGL_43;SUPPORT_CUSTOM_FRAME_CONTROL;BOX2D_ENABLE_SIMD;BOX2D_AVX2;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;_GLFW_WIN32;_GLFW_USE_HYBRID_HPG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GRAPHICS_API_OPENGL_43;SUPPORT_CUSTOM_FRAME_CONTROL;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;_GLFW_WIN32;_GLFW_USE_HYBRID_HPG;PLATFORM_DESKTOP;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -721,7 +627,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -747,7 +653,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GRAPHICS_API_OPENGL_43;SUPPORT_CUSTOM_FRAME_CONTROL;BOX2D_ENABLE_SIMD;BOX2D_AVX2;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;_GLFW_WIN32;_GLFW_USE_HYBRID_HPG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GRAPHICS_API_OPENGL_43;SUPPORT_CUSTOM_FRAME_CONTROL;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;_GLFW_WIN32;_GLFW_USE_HYBRID_HPG;PLATFORM_DESKTOP;WIN32;_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -778,7 +684,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/ffmpeg/include;$(SolutionDir)deps/raylib_extensions;$(SolutionDir)deps/raycpp;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sol3/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zlib-ng/include;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/raylib/src/external/glfw/src;$(SolutionDir)deps/raylib/src/external/glfw/include;$(SolutionDir)deps/raylib/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

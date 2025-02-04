@@ -28,9 +28,6 @@
 [submodule "lib/SFML"]
 	path = deps/SFML
 	url = https://github.com/SFML/SFML.git
-[submodule "lib/box2d"]
-	path = deps/box2d
-	url = https://github.com/erincatto/box2d.git
 [submodule "deps/tinyfiledialogs"]
 	path = deps/tinyfiledialogs
 	url = https://git.code.sf.net/p/tinyfiledialogs/code
