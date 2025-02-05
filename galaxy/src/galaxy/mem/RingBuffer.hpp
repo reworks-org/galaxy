@@ -5,30 +5,30 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_MEDIA_RINGBUFFER_HPP_
-#define GALAXY_MEDIA_RINGBUFFER_HPP_
+#ifndef GALAXY_MEM_RINGBUFFER_HPP_
+#define GALAXY_MEM_RINGBUFFER_HPP_
 
 namespace galaxy
 {
-	namespace media
+	namespace mem
 	{
 		///
-		/// Ring buffer to manage audio for mpeg videos.
+		/// Memory manager in a ring buffer format.
 		///
 		class RingBuffer
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
 			/// \param capacity Usually you want 1 second of audio reserved.
 			///
-			RingBuffer(const int capacity);
+			RingBuffer(const int capacity) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~RingBuffer();
+			~RingBuffer() noexcept;
 
 			///
 			/// Write data to ring buffer.
@@ -38,6 +38,7 @@ namespace galaxy
 			///
 			/// \return Updated write index.
 			///
+			[[nodiscard]]
 			int write(const float* data, const int count);
 
 			///
@@ -48,6 +49,7 @@ namespace galaxy
 			///
 			/// \return Updated read index.
 			///
+			[[nodiscard]]
 			int read(float* data, int count);
 
 			///
@@ -57,6 +59,7 @@ namespace galaxy
 			///
 			/// \return Section of data read.
 			///
+			[[nodiscard]]
 			float* direct_read_pointer(const int count);
 
 			///
@@ -64,23 +67,25 @@ namespace galaxy
 			///
 			/// \return Amount of space left in bytes.
 			///
-			int available_bytes();
+			[[nodiscard]]
+			int available_bytes() const noexcept;
 
 			///
 			/// Sets audio volume of the buffer.
 			///
 			/// \param volume Between 0 and 1.
 			///
-			void set_volume(const float volume);
+			void set_volume(const float volume) noexcept;
 
 			///
 			/// Gets current buffer volume.
 			///
 			/// \return Float from 0 to 1.
 			///
-			float get_volume() const;
+			[[nodiscard]]
+			float get_volume() const noexcept;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -106,7 +111,7 @@ namespace galaxy
 			///
 			RingBuffer& operator=(RingBuffer&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Data buffer.
 			///
@@ -132,7 +137,7 @@ namespace galaxy
 			///
 			float m_volume;
 		};
-	} // namespace media
+	} // namespace mem
 } // namespace galaxy
 
 #endif

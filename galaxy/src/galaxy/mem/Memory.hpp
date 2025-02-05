@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_UTILS_MEMORY_HPP_
-#define GALAXY_UTILS_MEMORY_HPP_
+#ifndef GALAXY_MEM_MEMORY_HPP_
+#define GALAXY_MEM_MEMORY_HPP_
 
 #include <optional>
 
@@ -14,7 +14,7 @@
 
 namespace galaxy
 {
-	namespace utils
+	namespace mem
 	{
 		///
 		/// \brief Reference wrapper.
@@ -33,7 +33,7 @@ namespace galaxy
 		///
 		template<typename Type>
 		using optional_ref = std::optional<std::reference_wrapper<Type>>;
-	} // namespace utils
+	} // namespace mem
 } // namespace galaxy
 
 #endif
