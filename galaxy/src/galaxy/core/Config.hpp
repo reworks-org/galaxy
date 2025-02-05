@@ -10,7 +10,8 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/logging/Log.hpp"
+#include "galaxy/meta/Concepts.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 
 namespace galaxy
@@ -22,11 +23,11 @@ namespace galaxy
 		///
 		class Config final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
-			Config();
+			Config() noexcept;
 
 			///
 			/// \brief Argument constructor.
@@ -35,12 +36,12 @@ namespace galaxy
 			///
 			/// \param file Path to config to open / use (does not matter if does not exist). This is relative to the app.
 			///
-			Config(std::string_view file);
+			Config(std::string_view file) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Config();
+			~Config() noexcept;
 
 			///
 			/// \brief Checks if config exists and flags if a config needs to be created.
@@ -105,7 +106,7 @@ namespace galaxy
 			/// \param section Section of the config file to use. Can use a delimiter to seperate sections.
 			/// \param delim Delimiter to seperate sections with. Optional.
 			///
-			template<meta::standard_type Value>
+			template<utils::standard_type Value>
 			void restore(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
 
 			///
@@ -115,7 +116,8 @@ namespace galaxy
 			///
 			/// \return True if the value exists.
 			///
-			[[nodiscard]] bool has(const std::string& key);
+			[[nodiscard]]
+			bool has(const std::string& key) noexcept;
 
 			///
 			/// Check if the config file actually has a value.
@@ -126,7 +128,8 @@ namespace galaxy
 			///
 			/// \return True if the value exists.
 			///
-			[[nodiscard]] bool has(const std::string& key, const std::string& section, const std::string& delim = ".");
+			[[nodiscard]]
+			bool has(const std::string& key, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Retrieve a root config value.
@@ -138,7 +141,8 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] Value get(const std::string& key);
+			[[nodiscard]]
+			Value get(const std::string& key);
 
 			///
 			/// Retrieve a config value in a section.
@@ -152,30 +156,33 @@ namespace galaxy
 			/// \return Returns the value retrieved from the key.
 			///
 			template<meta::standard_type Value>
-			[[nodiscard]] Value get(const std::string& key, const std::string& section, const std::string& delim = ".");
+			[[nodiscard]]
+			Value get(const std::string& key, const std::string& section, const std::string& delim = ".");
 
 			///
 			/// Is the config file blank.
 			///
 			/// \return True if blank.
 			///
-			[[nodiscard]] bool empty() const;
+			[[nodiscard]]
+			bool empty() const noexcept;
 
 			///
 			/// Set as external json object.
 			///
 			/// \param json New json config data to set.
 			///
-			void raw(const nlohmann::json& json);
+			void raw(const nlohmann::json& json) noexcept;
 
 			///
 			/// Get raw json object.
 			///
 			/// \return Const reference to internal json object.
 			///
-			[[nodiscard]] const nlohmann::json& raw() const;
+			[[nodiscard]]
+			const nlohmann::json& raw() const noexcept;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -196,7 +203,7 @@ namespace galaxy
 			///
 			Config& operator=(Config&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Config loaded flag.
 			///
