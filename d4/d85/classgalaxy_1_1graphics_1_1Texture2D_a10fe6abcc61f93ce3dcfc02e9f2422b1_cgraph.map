@@ -1,0 +1,11 @@
+<map id="galaxy::graphics::Texture2D::load" name="galaxy::graphics::Texture2D::load">
+<area shape="rect" id="Node000001" title="Load a texture from vfs." alt="" coords="5,69,197,109"/>
+<area shape="rect" id="Node000002" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#a5f2941cca5416b6f1d070c28e9ef6a0c" title="Loads texture from memory." alt="" coords="245,69,437,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,87,232,87,232,92,197,92"/>
+<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a3aa4307076d4929453eb8ca27f260ee2" title="Get current anisotropy level." alt="" coords="485,5,669,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="415,67,489,46,491,51,417,72"/>
+<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aeb2485daf7ad649d9180d102ce5c6e92" title="Get texture filter." alt="" coords="485,69,669,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="438,87,472,87,472,92,438,92"/>
+<area shape="rect" id="Node000005" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc" title="Get texture mode." alt="" coords="485,133,669,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="417,107,491,127,489,132,415,112"/>
+</map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/utils/Memory.hpp File Reference</title>
+<title>galaxy: galaxy/src/galaxy/mem/Memory.hpp File Reference</title>
 <link rel="icon" href="../../logo_docs.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -105,23 +105,26 @@ $(function(){initNavTree('d4/d18/Memory_8hpp.html','../../'); initResizable(true
   <div class="headertitle"><div class="title">Memory.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d84/Concepts_8hpp_source.html">galaxy/utils/Concepts.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;optional&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d84/Concepts_8hpp_source.html">galaxy/meta/Concepts.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Memory.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../dd/d74/Memory_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2utils_2Memory_8hpp" alt=""/></div>
-<map name="agalaxy_2src_2galaxy_2utils_2Memory_8hpp" id="agalaxy_2src_2galaxy_2utils_2Memory_8hpp">
-<area shape="rect" title=" " alt="" coords="54,5,223,45"/>
-<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="43,93,234,119"/>
-<area shape="poly" title=" " alt="" coords="141,46,141,79,136,79,136,46"/>
-<area shape="rect" title=" " alt="" coords="5,167,85,192"/>
-<area shape="poly" title=" " alt="" coords="125,121,73,160,70,156,122,117"/>
-<area shape="rect" title=" " alt="" coords="109,167,168,192"/>
-<area shape="poly" title=" " alt="" coords="141,119,141,153,136,153,136,119"/>
-<area shape="rect" title=" " alt="" coords="193,167,285,192"/>
-<area shape="poly" title=" " alt="" coords="156,117,213,156,210,161,153,121"/>
+<div class="center"><img src="../../dd/d74/Memory_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2mem_2Memory_8hpp" alt=""/></div>
+<map name="agalaxy_2src_2galaxy_2mem_2Memory_8hpp" id="agalaxy_2src_2galaxy_2mem_2Memory_8hpp">
+<area shape="rect" title=" " alt="" coords="35,5,210,45"/>
+<area shape="rect" title=" " alt="" coords="5,93,80,119"/>
+<area shape="poly" title=" " alt="" coords="105,47,66,85,63,82,101,44"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="105,93,301,119"/>
+<area shape="poly" title=" " alt="" coords="144,44,183,82,179,85,140,47"/>
+<area shape="rect" title=" " alt="" coords="69,167,149,192"/>
+<area shape="poly" title=" " alt="" coords="189,121,137,160,134,156,186,117"/>
+<area shape="rect" title=" " alt="" coords="173,167,232,192"/>
+<area shape="poly" title=" " alt="" coords="205,119,205,153,200,153,200,119"/>
+<area shape="rect" title=" " alt="" coords="257,167,349,192"/>
+<area shape="poly" title=" " alt="" coords="220,117,277,156,274,161,217,121"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -129,11 +132,11 @@ $(function(){initNavTree('d4/d18/Memory_8hpp.html','../../'); initResizable(true
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d2e/Memory_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2utils_2Memory_8hppdep" alt=""/></div>
-<map name="agalaxy_2src_2galaxy_2utils_2Memory_8hppdep" id="agalaxy_2src_2galaxy_2utils_2Memory_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,175,45"/>
-<area shape="rect" href="../../d8/dcc/Memory_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
-<area shape="poly" title=" " alt="" coords="93,59,93,93,87,93,87,59"/>
+<div class="center"><img src="../../da/d2e/Memory_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2mem_2Memory_8hppdep" alt=""/></div>
+<map name="agalaxy_2src_2galaxy_2mem_2Memory_8hppdep" id="agalaxy_2src_2galaxy_2mem_2Memory_8hppdep">
+<area shape="rect" title=" " alt="" coords="5,5,180,45"/>
+<area shape="rect" href="../../d8/dcc/Memory_8cpp.html" title=" " alt="" coords="5,93,180,133"/>
+<area shape="poly" title=" " alt="" coords="95,59,95,93,90,93,90,59"/>
 </map>
 </div>
 </div>
@@ -142,29 +145,29 @@ $(function(){initNavTree('d4/d18/Memory_8hpp.html','../../'); initResizable(true
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
-<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d65/AudioDevice_8cpp.html">AudioDevice.cpp</a> galaxy. <br /></td></tr>
+<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d10/namespacegalaxy_1_1utils.html">galaxy::utils</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d0d/namespacegalaxy_1_1mem.html">galaxy::mem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ad8eca35b9ea85c1274c440f26c5a4c02" id="r_ad8eca35b9ea85c1274c440f26c5a4c02"><td class="memTemplParams" colspan="2">template&lt;is_object Type&gt; </td></tr>
-<tr class="memitem:ad8eca35b9ea85c1274c440f26c5a4c02"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d10/namespacegalaxy_1_1utils.html#ad8eca35b9ea85c1274c440f26c5a4c02">galaxy::utils::ref</a> = std::reference_wrapper&lt;Type&gt;</td></tr>
-<tr class="memdesc:ad8eca35b9ea85c1274c440f26c5a4c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference wrapper.  <br /></td></tr>
-<tr class="separator:ad8eca35b9ea85c1274c440f26c5a4c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac358a3737492b865aa61f9d0de94c76" id="r_aac358a3737492b865aa61f9d0de94c76"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:aac358a3737492b865aa61f9d0de94c76"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d10/namespacegalaxy_1_1utils.html#aac358a3737492b865aa61f9d0de94c76">galaxy::utils::optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;</td></tr>
-<tr class="memdesc:aac358a3737492b865aa61f9d0de94c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference.  <br /></td></tr>
-<tr class="separator:aac358a3737492b865aa61f9d0de94c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c54c3f75e6137ba58990cf6aac9032" id="r_a55c54c3f75e6137ba58990cf6aac9032"><td class="memTemplParams" colspan="2">template&lt;is_object Type&gt; </td></tr>
+<tr class="memitem:a55c54c3f75e6137ba58990cf6aac9032"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032">galaxy::mem::ref</a> = std::reference_wrapper&lt;Type&gt;</td></tr>
+<tr class="memdesc:a55c54c3f75e6137ba58990cf6aac9032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference wrapper.  <br /></td></tr>
+<tr class="separator:a55c54c3f75e6137ba58990cf6aac9032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05847280c7c3ecfc6dabb9c1b9ab0028" id="r_a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a05847280c7c3ecfc6dabb9c1b9ab0028">galaxy::mem::optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;</td></tr>
+<tr class="memdesc:a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference.  <br /></td></tr>
+<tr class="separator:a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a1194cae147883a6cbcc1cdd989eaf5f.html">utils</a></li><li class="navelem"><a class="el" href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a></li>
-    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5a83dd64e6f5522f929ecc6d2abdb825.html">mem</a></li><li class="navelem"><a class="el" href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a></li>
+    <li class="footer">Generated on Wed Feb 5 2025 09:00:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

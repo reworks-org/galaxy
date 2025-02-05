@@ -1,0 +1,13 @@
+<map id="galaxy::graphics::Transform::set_origin" name="galaxy::graphics::Transform::set_origin">
+<area shape="rect" id="Node000001" title="Set the origin point." alt="" coords="659,37,860,77"/>
+<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="436,5,611,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="645,44,610,40,611,34,645,39"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="455,69,592,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="645,76,593,83,592,77,644,70"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="220,5,388,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="422,28,388,28,388,23,422,23"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="235,77,373,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="441,92,373,92,373,87,441,87"/>
+<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="221,92,172,92,172,87,221,87"/>
+</map>

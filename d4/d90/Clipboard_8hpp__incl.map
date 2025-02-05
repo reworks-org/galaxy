@@ -1,7 +1,9 @@
 <map id="galaxy/src/galaxy/input/Clipboard.hpp" name="galaxy/src/galaxy/input/Clipboard.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,180,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="19,93,78,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,47,64,83,60,80,80,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="103,93,173,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,44,127,80,122,83,101,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="27,5,202,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,64,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,47,58,85,55,82,93,44"/>
+<area shape="rect" id="Node000003" href="$d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="88,93,301,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,44,175,82,171,85,132,47"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="155,167,235,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="197,119,197,153,192,153,192,119"/>
 </map>

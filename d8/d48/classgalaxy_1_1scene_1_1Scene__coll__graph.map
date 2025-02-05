@@ -1,18 +1,25 @@
 <map id="galaxy::scene::Scene" name="galaxy::scene::Scene">
-<area shape="rect" id="Node000001" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="180,1359,349,1684"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,1051,167,1216"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,1228,192,1358,187,1360,127,1230"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="416,325,495,390"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="467,390,496,500,510,571,521,642,532,775,529,834,521,908,503,1021,483,1108,453,1192,408,1297,361,1386,356,1384,404,1295,448,1190,478,1107,498,1020,515,908,524,834,526,776,515,643,505,572,490,502,462,391"/>
-<area shape="rect" id="Node000006" href="$d9/d75/classgalaxy_1_1map_1_1World.html" title="An LDTK level." alt="" coords="255,971,394,1296"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="461,390,468,487,468,627,462,707,451,789,434,870,409,948,403,962,398,960,403,946,428,868,446,788,457,706,462,627,463,487,456,390"/>
-<area shape="rect" id="Node000007" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="243,643,407,908"/>
-<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="446,391,412,486,373,605,366,627,361,626,367,603,407,485,441,389"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="390,5,521,85"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="458,99,458,325,453,325,453,99"/>
-<area shape="rect" id="Node000005" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="138,135,317,580"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="228,580,231,918,236,1108,246,1296,249,1342,244,1342,241,1296,231,1108,225,918,223,580"/>
-<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="246,580,255,618,258,626,253,628,250,619,241,581"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="302,1297,295,1343,290,1342,297,1296"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="327,908,327,954,322,954,322,908"/>
+<area shape="rect" id="Node000001" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="540,1499,709,1804"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,743,167,908"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,921,122,1034,159,1168,185,1238,215,1307,251,1373,293,1434,349,1492,413,1542,480,1582,541,1613,539,1618,477,1587,410,1546,345,1496,289,1438,247,1376,210,1309,180,1240,154,1169,117,1035,95,922"/>
+<area shape="rect" id="Node000005" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="303,1071,482,1436"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="130,919,180,1007,241,1087,305,1160,301,1163,237,1090,176,1009,126,922"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="836,325,915,390"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="886,390,911,501,923,571,933,642,954,872,959,967,957,1055,945,1141,921,1231,883,1328,828,1437,806,1474,780,1508,723,1570,719,1566,776,1505,802,1471,824,1435,878,1326,916,1229,940,1140,952,1055,954,967,949,872,927,643,918,572,906,502,881,391"/>
+<area shape="rect" id="Node000009" href="$d9/d75/classgalaxy_1_1map_1_1World.html" title="An LDTK level." alt="" coords="675,1091,814,1416"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="879,390,881,494,879,647,868,826,857,919,842,1009,829,1048,818,1076,813,1074,823,1046,837,1007,852,918,862,826,874,647,876,494,874,390"/>
+<area shape="rect" id="Node000010" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="663,693,827,958"/>
+<area shape="poly" id="edge13_Node000010_Node000003" title=" " alt="" coords="865,391,830,486,793,605,775,677,770,676,787,603,825,484,860,389"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="810,5,941,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="878,99,878,325,873,325,873,99"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="484,1407,523,1473,534,1492,529,1495,518,1476,480,1410"/>
+<area shape="rect" id="Node000006" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="191,643,384,1008"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="338,1021,350,1070,345,1071,333,1022"/>
+<area shape="rect" id="Node000007" href="$de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="409,775,587,875"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="489,876,444,1055,439,1054,483,875"/>
+<area shape="rect" id="Node000008" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="558,135,737,580"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="646,580,630,1482,625,1482,641,580"/>
+<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="668,580,675,618,691,676,686,678,670,619,663,581"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="698,1417,678,1483,673,1481,693,1415"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="747,958,747,1074,742,1074,742,958"/>
 </map>

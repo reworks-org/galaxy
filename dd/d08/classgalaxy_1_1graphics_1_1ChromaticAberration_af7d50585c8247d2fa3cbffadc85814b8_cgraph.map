@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::ChromaticAberration::set_b_offset" name="galaxy::graphics::ChromaticAberration::set_b_offset">
+<area shape="rect" id="Node000001" title="Set chromatic r offset." alt="" coords="5,5,208,45"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="256,5,437,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,23,242,23,242,28,208,28"/>
+</map>

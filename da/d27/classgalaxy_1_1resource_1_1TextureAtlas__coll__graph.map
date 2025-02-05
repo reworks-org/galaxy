@@ -1,7 +1,0 @@
-<map id="galaxy::resource::TextureAtlas" name="galaxy::resource::TextureAtlas">
-<area shape="rect" id="Node000001" title="Parses raw texture files and stiches them into a large altas." alt="" coords="5,523,183,983"/>
-<area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="21,220,167,460"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,460,97,506,91,506,91,460"/>
-<area shape="rect" id="Node000003" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="13,5,175,171"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,184,97,220,91,220,91,184"/>
-</map>

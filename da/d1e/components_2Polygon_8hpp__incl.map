@@ -1,0 +1,38 @@
+<map id="galaxy/src/galaxy/components/Polygon.hpp" name="galaxy/src/galaxy/components/Polygon.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="164,5,385,45"/>
+<area shape="rect" id="Node000002" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="76,101,267,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,48,198,93,195,89,250,44"/>
+<area shape="rect" id="Node000004" href="$d7/d0c/graphics_2shapes_2Polygon_8hpp.html" title=" " alt="" coords="291,93,466,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="299,44,346,82,343,86,296,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="84,189,260,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,126,174,174,169,174,169,126"/>
+<area shape="rect" id="Node000005" href="$d2/df8/Shape_8hpp.html" title=" " alt="" coords="287,181,462,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="380,134,379,168,373,167,375,133"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="518,533,706,559"/>
+<area shape="poly" id="edge19_Node000004_Node000017" title=" " alt="" coords="447,131,503,154,556,186,580,207,598,231,610,258,614,288,614,379,614,520,609,520,609,379,609,288,605,259,593,234,576,211,553,191,500,158,445,136"/>
+<area shape="rect" id="Node000006" href="$db/dd2/Colour_8hpp.html" title=" " alt="" coords="43,277,242,302"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="324,224,187,274,185,269,323,219"/>
+<area shape="rect" id="Node000010" href="$dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="304,269,445,309"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="377,222,377,255,372,255,372,222"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="130,533,186,559"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="94,304,49,325,30,340,14,359,8,377,14,396,37,437,68,472,100,501,130,524,127,528,97,506,64,476,33,440,9,398,3,377,9,356,26,336,47,320,92,300"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="24,365,103,390"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="134,304,86,356,82,352,130,300"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="127,365,238,390"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="150,301,173,351,169,353,145,303"/>
+<area shape="rect" id="Node000011" href="$dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="262,357,409,397"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="368,311,352,346,347,344,363,309"/>
+<area shape="rect" id="Node000014" href="$d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="433,357,574,397"/>
+<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="405,307,465,347,462,352,402,312"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="356,453,409,478"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="348,396,372,439,367,442,344,399"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="202,453,331,478"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="322,399,286,443,282,440,318,396"/>
+<area shape="poly" id="edge14_Node000014_Node000012" title=" " alt="" coords="478,400,412,447,409,442,475,395"/>
+<area shape="rect" id="Node000015" href="$d6/db0/Vertex_8hpp.html" title=" " alt="" coords="433,445,574,485"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="506,398,506,431,501,431,501,398"/>
+<area shape="poly" id="edge16_Node000015_Node000007" title=" " alt="" coords="434,485,200,538,199,533,432,480"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="383,533,494,559"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="490,487,459,524,455,521,486,484"/>
+<area shape="poly" id="edge18_Node000015_Node000017" title=" " alt="" coords="531,483,586,523,583,527,528,488"/>
+</map>

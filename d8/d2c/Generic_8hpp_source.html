@@ -110,7 +110,7 @@ $(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../../'); initResiza
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/utils/Concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;galaxy/utils/Concepts.hpp&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
@@ -119,7 +119,7 @@ $(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../../'); initResiza
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">template</span>&lt;utils::is_arithmetic Type&gt;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        [[nodiscard]]</div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#a8a514f195498da0f3e396364b10ad30e">   32</a></span>        <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a9dbcb831b6ac0f62ba9fc22f5fcc3664">normalize</a>(<span class="keyword">const</span> Type val, <span class="keyword">const</span> Type max) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#a8a514f195498da0f3e396364b10ad30e">   32</a></span>        <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a8a514f195498da0f3e396364b10ad30e">normalize</a>(<span class="keyword">const</span> Type val, <span class="keyword">const</span> Type max) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(val) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(max));</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
@@ -141,30 +141,20 @@ $(function(){initNavTree('d8/d2c/Generic_8hpp_source.html','../../'); initResiza
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        [[nodiscard]]</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordtype">float</span> normalize(<span class="keyword">const</span> <span class="keywordtype">float</span> value, <span class="keyword">const</span> <span class="keywordtype">float</span> start, <span class="keyword">const</span> <span class="keywordtype">float</span> end) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        [[nodiscard]]</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordtype">float</span> remap(<span class="keyword">const</span> <span class="keywordtype">float</span> value, <span class="keyword">const</span> <span class="keywordtype">float</span> input_start, <span class="keyword">const</span> <span class="keywordtype">float</span> input_end, <span class="keyword">const</span> <span class="keywordtype">float</span> output_start, <span class="keyword">const</span> <span class="keywordtype">float</span> output_end) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        [[nodiscard]]</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">float</span> wrap(<span class="keyword">const</span> <span class="keywordtype">float</span> value, <span class="keyword">const</span> <span class="keywordtype">float</span> min, <span class="keyword">const</span> <span class="keywordtype">float</span> max) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    } <span class="comment">// namespace math</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    } <span class="comment">// namespace math</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacegalaxy_1_1math_html_a31d8b4af7c3e101bea45ddd5566142b4"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a31d8b4af7c3e101bea45ddd5566142b4">galaxy::math::contains</a></div><div class="ttdeci">bool contains(const std::vector&lt; Type &gt; &amp;cont, const Type &amp;val) noexcept</div><div class="ttdoc">See if a vector contains a value.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">Generic.hpp:49</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1math_html_a9dbcb831b6ac0f62ba9fc22f5fcc3664"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a9dbcb831b6ac0f62ba9fc22f5fcc3664">galaxy::math::normalize</a></div><div class="ttdeci">float normalize(const float value, const float start, const float end) noexcept</div><div class="ttdoc">Normalize input value within input range.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d07/Generic_8cpp_source.html#l00016">Generic.cpp:16</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">AudioDevice.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_a8a514f195498da0f3e396364b10ad30e"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a8a514f195498da0f3e396364b10ad30e">galaxy::math::normalize</a></div><div class="ttdeci">float normalize(const Type val, const Type max) noexcept</div><div class="ttdoc">Calc normalized value from range.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">Generic.hpp:32</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../d8/d2c/Generic_8hpp.html">Generic.hpp</a></li>
-    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Feb 5 2025 09:00:33 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

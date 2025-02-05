@@ -6,6 +6,10 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,107,193,101,194,106,159,112"/>
 <area shape="rect" id="Node000004" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a9cd2d939dc4eb3cb8a921d91672cb797" title="Only loads user config." alt="" coords="207,133,360,173"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,131,194,136,193,142,159,136"/>
-<area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5" title="Only loads the window settings." alt="" coords="207,197,360,237"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="121,139,208,183,222,189,219,194,206,188,119,144"/>
+<area shape="rect" id="Node000006" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5" title="Only loads the window settings." alt="" coords="207,197,360,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,139,208,183,222,189,219,194,206,188,119,144"/>
+<area shape="rect" id="Node000005" href="$dd/d59/namespacegalaxy_1_1input.html#a9305c56a5ddc61b7a4e6fa55b59ed99d" title="Converts an integer to a key enum." alt="" coords="421,133,551,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="360,151,406,151,406,156,360,156"/>
+<area shape="rect" id="Node000007" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ad72f046e8bce8d95b18ebd561c477308" title="Set cursor visibility." alt="" coords="408,197,564,237"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="360,215,394,215,394,220,360,220"/>
 </map>

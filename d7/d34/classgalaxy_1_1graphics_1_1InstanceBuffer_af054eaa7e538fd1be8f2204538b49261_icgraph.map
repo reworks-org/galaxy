@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::InstanceBuffer::amount" name="galaxy::graphics::InstanceBuffer::amount">
+<area shape="rect" id="Node000001" title="Get the amount of instances." alt="" coords="232,5,423,45"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ad6344da8c1dc246c2072e1d39eed8aba" title="Set this vertex array to use a specific instance buffer." alt="" coords="5,5,184,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,28,184,28,184,23,218,23"/>
+</map>

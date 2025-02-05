@@ -1,15 +1,7 @@
 <map id="galaxy/src/galaxy/math/RectPack.hpp" name="galaxy/src/galaxy/math/RectPack.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,223,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,80,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,48,69,86,66,82,112,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="105,93,167,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,46,139,79,133,79,133,46"/>
-<area shape="rect" id="Node000004" href="$d7/dc8/Rectangle_8hpp.html" title=" " alt="" coords="191,93,414,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,43,267,85,265,90,175,48"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="174,167,261,192"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,121,243,160,240,156,287,117"/>
-<area shape="rect" id="Node000006" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="285,167,493,192"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="318,117,366,156,363,160,315,121"/>
-<area shape="rect" id="Node000007" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="282,240,497,265"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="392,192,392,226,387,226,387,192"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,275,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,171,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,48,115,87,112,82,162,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="195,93,383,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,43,265,82,262,87,211,48"/>
 </map>

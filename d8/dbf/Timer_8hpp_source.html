@@ -198,7 +198,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            , m_handle {}</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            , m_callback {<span class="keyword">nullptr</span>}</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <a class="code hl_function" href="../../d1/df2/namespacegalaxy_1_1input_1_1clipboard.html#a2e0b090427749973cf0c4186967b45e2">set</a>(func, delay);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            set(func, delay);</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
 </div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
@@ -236,7 +236,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (async)</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <span class="keyword">auto</span>&amp; tp = entt::locator&lt;BS::thread_pool&gt;::value();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <span class="keyword">auto</span>&amp; tp = entt::locator&lt;BS::light_thread_pool&gt;::value();</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                m_handle = tp.submit_task([&amp;]() {</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                    <span class="keywordflow">do</span></div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                    {</div>
@@ -355,8 +355,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_ae44ddc23d2950a70b34a510d61d00056"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ae44ddc23d2950a70b34a510d61d00056">galaxy::async::Timer::m_time_passed</a></div><div class="ttdeci">double m_time_passed</div><div class="ttdoc">Time passed.</div><div class="ttdef"><b>Definition</b> <a href="#l00147">Timer.hpp:147</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_aed2c1d6f97d0e3f2a598841b87265922"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#aed2c1d6f97d0e3f2a598841b87265922">galaxy::async::Timer::operator=</a></div><div class="ttdeci">Timer &amp; operator=(const Timer &amp;)=delete</div><div class="ttdoc">Copy assignment operator.</div></div>
 <div class="ttc" id="anamespacegalaxy_1_1async_html_af7aa889ef5dc58516ac18772f1dca0bc"><div class="ttname"><a href="../../d0/d7f/namespacegalaxy_1_1async.html#af7aa889ef5dc58516ac18772f1dca0bc">galaxy::async::TimerCallback</a></div><div class="ttdeci">std::move_only_function&lt; void(void)&gt; TimerCallback</div><div class="ttdoc">Timer callback type.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Timer.hpp:25</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1input_1_1clipboard_html_a2e0b090427749973cf0c4186967b45e2"><div class="ttname"><a href="../../d1/df2/namespacegalaxy_1_1input_1_1clipboard.html#a2e0b090427749973cf0c4186967b45e2">galaxy::input::clipboard::set</a></div><div class="ttdeci">void set(const std::string &amp;text)</div><div class="ttdoc">/ Set clipboard text content.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d0a/Clipboard_8cpp_source.html#l00016">Clipboard.cpp:16</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">AudioDevice.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 <div class="ttc" id="astructgalaxy_1_1settings_html_a26ec50c62ed108e031f9466c78127a5c"><div class="ttname"><a href="../../d1/db3/structgalaxy_1_1settings.html#a26ec50c62ed108e031f9466c78127a5c">galaxy::settings::dt</a></div><div class="ttdeci">static auto dt() noexcept -&gt; double</div><div class="ttdoc">Get galaxy delta time.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd8/Settings_8cpp_source.html#l00095">Settings.cpp:95</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -364,7 +363,7 @@ $(function(){initNavTree('d8/dbf/Timer_8hpp_source.html','../../'); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></li>
-    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Feb 5 2025 09:00:33 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

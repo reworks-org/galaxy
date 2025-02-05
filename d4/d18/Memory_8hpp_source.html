@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/utils/Memory.hpp Source File</title>
+<title>galaxy: galaxy/src/galaxy/mem/Memory.hpp Source File</title>
 <link rel="icon" href="../../logo_docs.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -104,35 +104,39 @@ $(function(){initNavTree('d4/d18/Memory_8hpp_source.html','../../'); initResizab
 <div class="contents">
 <a href="../../d4/d18/Memory_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_UTILS_MEMORY_HPP_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_UTILS_MEMORY_HPP_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_MEM_MEMORY_HPP_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_MEM_MEMORY_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/utils/Concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">namespace </span>utils</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">template</span>&lt;is_<span class="keywordtype">object</span> Type&gt;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d2/d10/namespacegalaxy_1_1utils.html#ad8eca35b9ea85c1274c440f26c5a4c02">   25</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../d2/d10/namespacegalaxy_1_1utils.html#ad8eca35b9ea85c1274c440f26c5a4c02">ref</a> = std::reference_wrapper&lt;Type&gt;;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d2/d10/namespacegalaxy_1_1utils.html#aac358a3737492b865aa61f9d0de94c76">   33</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../d2/d10/namespacegalaxy_1_1utils.html#aac358a3737492b865aa61f9d0de94c76">optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    } <span class="comment">// namespace utils</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/meta/Concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../dd/d0d/namespacegalaxy_1_1mem.html">   17</a></span>    <span class="keyword">namespace </span>mem</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">template</span>&lt;is_<span class="keywordtype">object</span> Type&gt;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032">   27</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032">ref</a> = std::reference_wrapper&lt;Type&gt;;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a05847280c7c3ecfc6dabb9c1b9ab0028">   35</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a05847280c7c3ecfc6dabb9c1b9ab0028">optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    } <span class="comment">// namespace mem</span></div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1utils_html_aac358a3737492b865aa61f9d0de94c76"><div class="ttname"><a href="../../d2/d10/namespacegalaxy_1_1utils.html#aac358a3737492b865aa61f9d0de94c76">galaxy::utils::optional_ref</a></div><div class="ttdeci">std::optional&lt; std::reference_wrapper&lt; Type &gt; &gt; optional_ref</div><div class="ttdoc">Optional reference.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Memory.hpp:33</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1utils_html_ad8eca35b9ea85c1274c440f26c5a4c02"><div class="ttname"><a href="../../d2/d10/namespacegalaxy_1_1utils.html#ad8eca35b9ea85c1274c440f26c5a4c02">galaxy::utils::ref</a></div><div class="ttdeci">std::reference_wrapper&lt; Type &gt; ref</div><div class="ttdoc">Reference wrapper.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Memory.hpp:25</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">AudioDevice.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1mem_html_a05847280c7c3ecfc6dabb9c1b9ab0028"><div class="ttname"><a href="../../dd/d0d/namespacegalaxy_1_1mem.html#a05847280c7c3ecfc6dabb9c1b9ab0028">galaxy::mem::optional_ref</a></div><div class="ttdeci">std::optional&lt; std::reference_wrapper&lt; Type &gt; &gt; optional_ref</div><div class="ttdoc">Optional reference.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Memory.hpp:35</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1mem_html_a55c54c3f75e6137ba58990cf6aac9032"><div class="ttname"><a href="../../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032">galaxy::mem::ref</a></div><div class="ttdeci">std::reference_wrapper&lt; Type &gt; ref</div><div class="ttdoc">Reference wrapper.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">Memory.hpp:27</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a1194cae147883a6cbcc1cdd989eaf5f.html">utils</a></li><li class="navelem"><a class="el" href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a></li>
-    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5a83dd64e6f5522f929ecc6d2abdb825.html">mem</a></li><li class="navelem"><a class="el" href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a></li>
+    <li class="footer">Generated on Wed Feb 5 2025 09:00:33 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

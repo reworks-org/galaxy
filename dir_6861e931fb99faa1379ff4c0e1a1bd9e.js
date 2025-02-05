@@ -17,8 +17,6 @@ var dir_6861e931fb99faa1379ff4c0e1a1bd9e =
     [ "Scripts.hpp", "d7/d91/Scripts_8hpp.html", "d7/d91/Scripts_8hpp" ],
     [ "Shaders.cpp", "d4/d01/Shaders_8cpp.html", null ],
     [ "Shaders.hpp", "d6/df6/Shaders_8hpp.html", "d6/df6/Shaders_8hpp" ],
-    [ "TextureAtlas.cpp", "d4/ddf/TextureAtlas_8cpp.html", null ],
-    [ "TextureAtlas.hpp", "db/d27/TextureAtlas_8hpp.html", "db/d27/TextureAtlas_8hpp" ],
     [ "Textures.cpp", "d0/d35/Textures_8cpp.html", null ],
     [ "Textures.hpp", "da/d41/Textures_8hpp.html", "da/d41/Textures_8hpp" ]
 ];

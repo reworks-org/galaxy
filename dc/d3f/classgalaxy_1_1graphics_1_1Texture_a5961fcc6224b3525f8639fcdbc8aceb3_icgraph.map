@@ -1,0 +1,24 @@
+<map id="galaxy::graphics::Texture::width" name="galaxy::graphics::Texture::width">
+<area shape="rect" id="Node000001" title="Get texture width." alt="" coords="891,120,1075,160"/>
+<area shape="rect" id="Node000002" href="$dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html#ab50d4a753fec5fa49577b959aea35091" title="Creates the array texture." alt="" coords="641,5,825,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="940,114,893,86,842,60,810,48,812,43,844,55,896,82,942,110"/>
+<area shape="rect" id="Node000003" href="$d3/dd9/namespacegalaxy_1_1ui.html#a2b4ef8624d8234a7d9a6608e11eb07c2" title="Render an imgui image button with a galaxy texture." alt="" coords="623,70,843,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="881,119,788,98,789,93,882,114"/>
+<area shape="rect" id="Node000004" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3f6f7afd6d2f8579c79adb9113bfcaa6" title="Set texture clip." alt="" coords="656,120,809,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="877,143,810,143,810,137,877,137"/>
+<area shape="rect" id="Node000008" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="656,184,809,224"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="891,166,810,187,809,182,890,161"/>
+<area shape="rect" id="Node000011" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a28764f95f6198b764692275f0d08886b" title="Sets the texture and vertex data." alt="" coords="656,248,809,288"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="948,171,900,206,844,238,810,252,808,247,842,234,897,201,945,167"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into lua." alt="" coords="429,120,567,160"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="642,143,567,143,567,137,642,137"/>
+<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="228,127,365,153"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="415,143,366,143,366,137,415,137"/>
+<area shape="rect" id="Node000007" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,127,172,153"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="214,143,172,143,172,137,214,137"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="645,183,566,161,567,156,646,178"/>
+<area shape="rect" id="Node000009" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="421,184,575,224"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="642,207,575,207,575,201,642,201"/>
+<area shape="rect" id="Node000010" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a7dcb4eab0d5e04257fb79f1175d403d7" title="JSON constructor." alt="" coords="220,184,373,224"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="407,207,373,207,373,201,407,201"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Texture::filter" name="galaxy::graphics::Texture::filter">
+<area shape="rect" id="Node000001" title="Set filter when texture is (up/down)scaled in OpenGL." alt="" coords="5,5,189,45"/>
+<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aeb2485daf7ad649d9180d102ce5c6e92" title="Get texture filter." alt="" coords="237,5,421,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,23,223,23,223,28,190,28"/>
+</map>

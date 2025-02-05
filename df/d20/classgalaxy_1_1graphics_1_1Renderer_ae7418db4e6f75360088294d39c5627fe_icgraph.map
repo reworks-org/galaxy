@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Renderer::destroy" name="galaxy::graphics::Renderer::destroy">
+<area shape="rect" id="Node000001" title="Cleanup renderer data." alt="" coords="232,5,427,45"/>
+<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="5,13,184,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,28,184,28,184,23,219,23"/>
+</map>

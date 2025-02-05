@@ -1,5 +1,11 @@
 <map id="galaxy::components::Animated" name="galaxy::components::Animated">
-<area shape="rect" id="Node000001" title="Allows for an entity to be animated." alt="" coords="13,219,159,519"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,167,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,185,89,218,83,218,83,185"/>
+<area shape="rect" id="Node000001" title="Allows for an entity to be animated." alt="" coords="35,631,180,911"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,333,167,498"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,512,102,630,96,630,89,512"/>
+<area shape="rect" id="Node000003" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html" title="2D animation information." alt="" coords="191,263,386,568"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,569,188,617,184,615,208,567"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="249,135,328,200"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,200,291,246,286,246,286,200"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="223,5,354,85"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,99,291,134,286,134,286,99"/>
 </map>

@@ -1,11 +1,9 @@
 <map id="galaxy/src/galaxy/input/Mouse.hpp" name="galaxy/src/galaxy/input/Mouse.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="47,5,221,45"/>
-<area shape="rect" id="Node000002" href="$d9/d4a/Vector2_8hpp.html" title=" " alt="" coords="41,93,227,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,46,137,79,131,79,131,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,92,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,121,75,160,71,156,119,117"/>
-<area shape="rect" id="Node000004" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="117,167,325,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="150,117,198,156,194,160,146,121"/>
-<area shape="rect" id="Node000005" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="113,240,328,265"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="223,192,223,226,218,226,218,192"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="67,5,241,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,116,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,48,87,86,84,82,130,44"/>
+<area shape="rect" id="Node000003" href="$d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="141,93,354,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,44,224,82,221,86,175,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="207,167,287,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="250,119,250,153,245,153,245,119"/>
 </map>

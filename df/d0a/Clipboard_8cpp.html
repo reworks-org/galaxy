@@ -100,12 +100,12 @@ $(function(){initNavTree('df/d0a/Clipboard_8cpp.html','../../'); initResizable(t
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle"><div class="title">Clipboard.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d20/Clipboard_8hpp_source.html">Clipboard.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;GLFW/glfw3.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d20/Clipboard_8hpp_source.html">Clipboard.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Clipboard.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -113,13 +113,17 @@ $(function(){initNavTree('df/d0a/Clipboard_8cpp.html','../../'); initResizable(t
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d05/Clipboard_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2input_2Clipboard_8cpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2input_2Clipboard_8cpp" id="agalaxy_2src_2galaxy_2input_2Clipboard_8cpp">
-<area shape="rect" title=" " alt="" coords="5,5,180,45"/>
-<area shape="rect" href="../../db/d20/Clipboard_8hpp.html" title=" " alt="" coords="37,93,149,119"/>
-<area shape="poly" title=" " alt="" coords="95,46,95,79,90,79,90,46"/>
-<area shape="rect" title=" " alt="" coords="19,167,78,192"/>
-<area shape="poly" title=" " alt="" coords="88,120,65,156,61,154,83,118"/>
-<area shape="rect" title=" " alt="" coords="103,167,173,192"/>
-<area shape="poly" title=" " alt="" coords="102,118,126,154,121,157,98,120"/>
+<area shape="rect" title=" " alt="" coords="41,5,216,45"/>
+<area shape="rect" title=" " alt="" coords="5,93,116,119"/>
+<area shape="poly" title=" " alt="" coords="114,47,82,84,78,81,110,44"/>
+<area shape="rect" href="../../db/d20/Clipboard_8hpp.html" title=" " alt="" coords="141,93,253,119"/>
+<area shape="poly" title=" " alt="" coords="147,44,180,81,176,84,143,47"/>
+<area shape="rect" title=" " alt="" coords="87,167,146,192"/>
+<area shape="poly" title=" " alt="" coords="186,121,142,160,138,156,182,117"/>
+<area shape="rect" href="../../d4/da5/InputDevice_8hpp.html" title=" " alt="" coords="170,167,383,192"/>
+<area shape="poly" title=" " alt="" coords="211,117,255,156,252,160,208,121"/>
+<area shape="rect" title=" " alt="" coords="237,240,317,265"/>
+<area shape="poly" title=" " alt="" coords="279,192,279,226,274,226,274,192"/>
 </map>
 </div>
 </div>
@@ -128,25 +132,10 @@ $(function(){initNavTree('df/d0a/Clipboard_8cpp.html','../../'); initResizable(t
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
-<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d65/AudioDevice_8cpp.html">AudioDevice.cpp</a> galaxy. <br /></td></tr>
+<tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d59/namespacegalaxy_1_1input.html">galaxy::input</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/df2/namespacegalaxy_1_1input_1_1clipboard.html">galaxy::input::clipboard</a></td></tr>
-<tr class="memdesc:d1/df2/namespacegalaxy_1_1input_1_1clipboard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to PC clipboard. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a2e0b090427749973cf0c4186967b45e2" id="r_a2e0b090427749973cf0c4186967b45e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/df2/namespacegalaxy_1_1input_1_1clipboard.html#a2e0b090427749973cf0c4186967b45e2">galaxy::input::clipboard::set</a> (const std::string &amp;text)</td></tr>
-<tr class="memdesc:a2e0b090427749973cf0c4186967b45e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">/ Set clipboard text content.  <br /></td></tr>
-<tr class="separator:a2e0b090427749973cf0c4186967b45e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a438b4e0d6afad95939c3973754296f6e" id="r_a438b4e0d6afad95939c3973754296f6e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/df2/namespacegalaxy_1_1input_1_1clipboard.html#a438b4e0d6afad95939c3973754296f6e">galaxy::input::clipboard::get</a> ()</td></tr>
-<tr class="memdesc:a438b4e0d6afad95939c3973754296f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get clipboard text content.  <br /></td></tr>
-<tr class="separator:a438b4e0d6afad95939c3973754296f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a665a02e73d27dfa462298aa937bfa72f" id="r_a665a02e73d27dfa462298aa937bfa72f"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/df2/namespacegalaxy_1_1input_1_1clipboard.html#a665a02e73d27dfa462298aa937bfa72f">galaxy::input::clipboard::get_image</a> ()</td></tr>
-<tr class="memdesc:a665a02e73d27dfa462298aa937bfa72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get clipboard content as an image.  <br /></td></tr>
-<tr class="separator:a665a02e73d27dfa462298aa937bfa72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -154,7 +143,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_b44bae1181d28134d9654f6dd7c8beaa.html">input</a></li><li class="navelem"><a class="el" href="../../df/d0a/Clipboard_8cpp.html">Clipboard.cpp</a></li>
-    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Feb 5 2025 09:00:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

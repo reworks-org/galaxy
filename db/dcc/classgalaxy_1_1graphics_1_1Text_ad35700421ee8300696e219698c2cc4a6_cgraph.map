@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Text::width" name="galaxy::graphics::Text::width">
+<area shape="rect" id="Node000001" title="Get text width." alt="" coords="5,5,168,45"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="216,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,23,202,23,202,28,169,28"/>
+</map>

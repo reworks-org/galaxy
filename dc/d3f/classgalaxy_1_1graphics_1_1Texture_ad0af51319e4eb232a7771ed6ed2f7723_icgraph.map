@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::Texture::unload" name="galaxy::graphics::Texture::unload">
-<area shape="rect" id="Node000001" title="Unload texture from GPU memory (VRAM)." alt="" coords="237,5,421,45"/>
-<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#abe0262dd14145318c9fb402b2af35fcd" title="Destructor." alt="" coords="5,5,189,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,28,190,28,190,23,223,23"/>
-</map>

@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::Transform" name="galaxy::graphics::Transform">
+<area shape="rect" id="Node000001" title="Defines the 2D transformation of an entity." alt="" coords="5,5,199,371"/>
+<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="13,419,191,804"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,384,105,418,99,418,99,384"/>
+</map>

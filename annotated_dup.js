@@ -4,10 +4,6 @@ var annotated_dup =
       [ "async", "d0/d7f/namespacegalaxy_1_1async.html", [
         [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ]
       ] ],
-      [ "audio", "d9/dde/namespacegalaxy_1_1audio.html", [
-        [ "Music", "d8/d03/classgalaxy_1_1audio_1_1Music.html", "d8/d03/classgalaxy_1_1audio_1_1Music" ],
-        [ "Sound", "da/ddd/classgalaxy_1_1audio_1_1Sound.html", "da/ddd/classgalaxy_1_1audio_1_1Sound" ]
-      ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
@@ -49,24 +45,59 @@ var annotated_dup =
         [ "Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", "d3/d72/classgalaxy_1_1flags_1_1Disabled" ]
       ] ],
       [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", [
+        [ "PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream" ],
         [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
         [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
       ] ],
       [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
-        [ "Camera2D", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html", "df/d2d/classgalaxy_1_1graphics_1_1Camera2D" ],
-        [ "Camera3D", "db/d05/classgalaxy_1_1graphics_1_1Camera3D.html", "db/d05/classgalaxy_1_1graphics_1_1Camera3D" ],
+        [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
+        [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
+        [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
+        [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
         [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ],
-        [ "Cubemap", "d5/d8e/classgalaxy_1_1graphics_1_1Cubemap.html", "d5/d8e/classgalaxy_1_1graphics_1_1Cubemap" ],
-        [ "Image", "d7/d84/classgalaxy_1_1graphics_1_1Image.html", "d7/d84/classgalaxy_1_1graphics_1_1Image" ],
-        [ "Rectangle", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle.html", "db/dc6/classgalaxy_1_1graphics_1_1Rectangle" ],
+        [ "Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse" ],
+        [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
+        [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", "d1/d70/classgalaxy_1_1graphics_1_1Font" ],
+        [ "FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext" ],
+        [ "Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", "d8/dad/structgalaxy_1_1graphics_1_1Frame" ],
+        [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer" ],
+        [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
+        [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],
+        [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
+        [ "Point", "db/de1/classgalaxy_1_1graphics_1_1Point.html", "db/de1/classgalaxy_1_1graphics_1_1Point" ],
+        [ "Polygon", "d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html", "d6/d5e/classgalaxy_1_1graphics_1_1Polygon" ],
+        [ "Polyline", "df/d27/classgalaxy_1_1graphics_1_1Polyline.html", "df/d27/classgalaxy_1_1graphics_1_1Polyline" ],
+        [ "PostEffect", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html", "d0/dd9/classgalaxy_1_1graphics_1_1PostEffect" ],
+        [ "PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess" ],
+        [ "RenderCommand", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html", "d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand" ],
+        [ "RenderData", "de/df1/structgalaxy_1_1graphics_1_1RenderData.html", "de/df1/structgalaxy_1_1graphics_1_1RenderData" ],
+        [ "Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", "df/d20/classgalaxy_1_1graphics_1_1Renderer" ],
         [ "RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture" ],
         [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
+        [ "ShaderStorageBuffer", "d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html", "d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer" ],
+        [ "Shape", "d9/d29/classgalaxy_1_1graphics_1_1Shape.html", "d9/d29/classgalaxy_1_1graphics_1_1Shape" ],
+        [ "Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen" ],
+        [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
+        [ "Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", "db/dcc/classgalaxy_1_1graphics_1_1Text" ],
         [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", "dc/d3f/classgalaxy_1_1graphics_1_1Texture" ],
         [ "Texture2D", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D" ],
-        [ "Video", "d8/d06/classgalaxy_1_1graphics_1_1Video.html", "d8/d06/classgalaxy_1_1graphics_1_1Video" ]
+        [ "TextureArray", "dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html", "dc/d9b/classgalaxy_1_1graphics_1_1TextureArray" ],
+        [ "TextureView", "d9/d28/classgalaxy_1_1graphics_1_1TextureView.html", "d9/d28/classgalaxy_1_1graphics_1_1TextureView" ],
+        [ "Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", "da/d35/classgalaxy_1_1graphics_1_1Transform" ],
+        [ "Vertex", "d7/ded/structgalaxy_1_1graphics_1_1Vertex.html", "d7/ded/structgalaxy_1_1graphics_1_1Vertex" ],
+        [ "VertexArray", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray" ],
+        [ "VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch" ],
+        [ "VertexBuffer", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
-        [ "Gamepad", "d2/d24/classgalaxy_1_1input_1_1Gamepad.html", "d2/d24/classgalaxy_1_1input_1_1Gamepad" ]
+        [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ],
+        [ "CameraKeys", "d0/d71/structgalaxy_1_1input_1_1CameraKeys.html", "d0/d71/structgalaxy_1_1input_1_1CameraKeys" ],
+        [ "Clipboard", "db/d0b/classgalaxy_1_1input_1_1Clipboard.html", "db/d0b/classgalaxy_1_1input_1_1Clipboard" ],
+        [ "Cursor", "d5/dc8/classgalaxy_1_1input_1_1Cursor.html", "d5/dc8/classgalaxy_1_1input_1_1Cursor" ],
+        [ "Input", "db/df9/classgalaxy_1_1input_1_1Input.html", "db/df9/classgalaxy_1_1input_1_1Input" ],
+        [ "InputDevice", "da/def/classgalaxy_1_1input_1_1InputDevice.html", "da/def/classgalaxy_1_1input_1_1InputDevice" ],
+        [ "Keyboard", "d9/d50/classgalaxy_1_1input_1_1Keyboard.html", "d9/d50/classgalaxy_1_1input_1_1Keyboard" ],
+        [ "Mouse", "dd/d15/classgalaxy_1_1input_1_1Mouse.html", "dd/d15/classgalaxy_1_1input_1_1Mouse" ]
       ] ],
       [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", [
         [ "ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink" ],
@@ -83,14 +114,12 @@ var annotated_dup =
         [ "World", "d9/d75/classgalaxy_1_1map_1_1World.html", "d9/d75/classgalaxy_1_1map_1_1World" ]
       ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
-        [ "Matrix", "d2/d9e/classgalaxy_1_1math_1_1Matrix.html", "d2/d9e/classgalaxy_1_1math_1_1Matrix" ],
-        [ "Quaternion", "d2/dbe/classgalaxy_1_1math_1_1Quaternion.html", "d2/dbe/classgalaxy_1_1math_1_1Quaternion" ],
         [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
         [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
-        [ "Vector2", "d8/d3e/classgalaxy_1_1math_1_1Vector2.html", "d8/d3e/classgalaxy_1_1math_1_1Vector2" ],
-        [ "Vector3", "dc/dae/classgalaxy_1_1math_1_1Vector3.html", "dc/dae/classgalaxy_1_1math_1_1Vector3" ],
-        [ "Vector4", "d7/de2/classgalaxy_1_1math_1_1Vector4.html", "d7/de2/classgalaxy_1_1math_1_1Vector4" ],
         [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]
+      ] ],
+      [ "mem", "dd/d0d/namespacegalaxy_1_1mem.html", [
+        [ "RingBuffer", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer" ]
       ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
         [ "EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", "db/db8/classgalaxy_1_1meta_1_1EntityMeta" ]
@@ -103,7 +132,6 @@ var annotated_dup =
         [ "Loader", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", "d0/d02/structgalaxy_1_1resource_1_1Loader" ],
         [ "MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
         [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
-        [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
         [ "VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader" ]
       ] ],
       [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
@@ -122,8 +150,7 @@ var annotated_dup =
         [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]
       ] ],
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
-        [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ],
-        [ "RingBuffer", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer.html", "d4/dc9/classgalaxy_1_1utils_1_1RingBuffer" ]
+        [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
       ] ],
       [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ]
     ] ],

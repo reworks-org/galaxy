@@ -1,0 +1,17 @@
+<map id="galaxy::components::Sprite::set_texture" name="galaxy::components::Sprite::set_texture">
+<area shape="rect" id="Node000001" title="Sets the texture and vertex data." alt="" coords="5,165,159,205"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="209,37,388,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,163,148,125,205,87,219,80,221,85,208,92,151,129,106,167"/>
+<area shape="rect" id="Node000005" href="$db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867" title="Generate some default indicies." alt="" coords="219,101,379,141"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="150,163,217,143,218,148,151,168"/>
+<area shape="rect" id="Node000006" href="$db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0" title="Generate some default verticies." alt="" coords="219,165,379,205"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="159,183,205,183,205,188,159,188"/>
+<area shape="rect" id="Node000007" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a8223f419eb7a8cd8f1be25592544d954" title="Get texture height." alt="" coords="207,229,391,269"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="151,203,218,223,217,228,150,208"/>
+<area shape="rect" id="Node000008" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a5961fcc6224b3525f8639fcdbc8aceb3" title="Get texture width." alt="" coords="207,293,391,333"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="106,203,151,241,208,279,221,286,219,290,205,284,148,245,103,207"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="439,5,617,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="388,42,425,37,426,42,389,48"/>
+<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="439,69,617,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="389,67,426,72,425,78,388,72"/>
+</map>

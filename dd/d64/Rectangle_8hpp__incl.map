@@ -1,9 +1,0 @@
-<map id="galaxy/src/galaxy/graphics/Rectangle.hpp" name="galaxy/src/galaxy/graphics/Rectangle.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="36,5,232,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,92,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,48,73,86,70,82,112,44"/>
-<area shape="rect" id="Node000003" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="117,93,325,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,44,199,82,196,86,153,48"/>
-<area shape="rect" id="Node000004" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="113,167,328,192"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="223,119,223,153,218,153,218,119"/>
-</map>

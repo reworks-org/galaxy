@@ -1,0 +1,30 @@
+<map id="galaxy::graphics::Shader::preprocess" name="galaxy::graphics::Shader::preprocess">
+<area shape="rect" id="Node000001" title="Extract source code from a combined shader." alt="" coords="995,291,1176,331"/>
+<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="765,291,947,331"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="981,313,947,313,947,308,981,308"/>
+<area shape="rect" id="Node000003" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="473,5,707,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="844,279,827,229,801,170,764,110,741,83,716,59,697,48,700,43,719,55,745,79,768,107,806,167,832,227,849,277"/>
+<area shape="rect" id="Node000004" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="503,69,677,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="838,280,818,243,791,200,757,159,716,124,676,105,679,100,719,119,760,155,795,197,823,240,842,277"/>
+<area shape="rect" id="Node000005" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="463,133,717,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="827,282,779,233,749,208,716,188,689,176,691,171,719,183,752,204,782,229,831,278"/>
+<area shape="rect" id="Node000006" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="492,197,688,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="801,287,716,252,678,240,679,235,718,247,803,282"/>
+<area shape="rect" id="Node000007" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="483,261,697,301"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="751,302,697,296,698,291,752,297"/>
+<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,287,415,327"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="752,316,717,316,463,316,415,314,415,309,463,311,717,311,752,310"/>
+<area shape="rect" id="Node000010" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#ac21182a86bbd5f2a78d509912d16d350" title="Loads a combined shader." alt="" coords="499,376,681,416"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="785,338,718,360,659,378,657,373,717,355,783,333"/>
+<area shape="rect" id="Node000012" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#abba2da13636a97fcc3d5a50cb490efa9" title="Loads an OpenGL shader." alt="" coords="499,440,681,480"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="829,343,780,388,751,411,719,430,682,445,680,440,716,426,748,407,777,384,825,339"/>
+<area shape="rect" id="Node000013" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="495,504,685,544"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="841,345,821,380,793,421,759,461,719,494,686,510,684,505,716,490,755,457,789,417,816,377,836,342"/>
+<area shape="rect" id="Node000014" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="503,568,677,608"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="848,345,831,393,804,450,767,509,745,535,719,558,700,570,679,579,677,574,697,565,716,554,741,531,763,505,800,448,826,391,843,343"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="469,295,415,300,415,295,468,290"/>
+<area shape="rect" id="Node000009" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,294,172,319"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="206,309,172,309,172,304,206,304"/>
+<area shape="rect" id="Node000011" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#abdd1427b50a9e9627323154533c1dcbf" title="JSON Constructor." alt="" coords="227,376,408,416"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="486,399,408,399,408,393,486,393"/>
+</map>

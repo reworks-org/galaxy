@@ -1,7 +1,0 @@
-<map id="galaxy::math::Quaternion::set" name="galaxy::math::Quaternion::set">
-<area shape="rect" id="Node000001" title="Set this vector from raylib vector." alt="" coords="240,45,455,70"/>
-<area shape="rect" id="Node000002" href="$d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a758fb86cdcfee15980a753b7e37039e0" title="Invert the provided quaternion." alt="" coords="5,5,192,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,46,192,40,193,35,235,40"/>
-<area shape="rect" id="Node000003" href="$d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#aba5ea549417f9618794c62d5aaad4f08" title="Normalize the provided quaternion." alt="" coords="5,69,192,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,74,193,80,192,75,235,69"/>
-</map>

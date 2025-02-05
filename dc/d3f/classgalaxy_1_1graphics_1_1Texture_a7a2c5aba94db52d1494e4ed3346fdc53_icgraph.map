@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Texture::operator=" name="galaxy::graphics::Texture::operator=">
+<area shape="rect" id="Node000001" title="Move assignment operator." alt="" coords="245,69,429,109"/>
+<area shape="rect" id="Node000002" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html#a2aacb98b7742c45d85bc74ba7abed981" title="Move assignment operator." alt="" coords="5,5,197,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,68,175,48,176,43,251,63"/>
+<area shape="rect" id="Node000003" href="$dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html#abac3e7059081e0f0fcb3a56bd1956744" title="Move assignment operator." alt="" coords="9,69,193,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,92,194,92,194,87,232,87"/>
+<area shape="rect" id="Node000004" href="$d9/d28/classgalaxy_1_1graphics_1_1TextureView.html#a248eba5ee969e4dde04958383551ffc0" title="Move assignment operator." alt="" coords="9,133,193,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,116,176,136,175,131,249,110"/>
+</map>

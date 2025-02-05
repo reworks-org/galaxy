@@ -1,7 +1,6 @@
 var dir_719a66e699117833dd2aa990b86b1834 =
 [
     [ "async", "dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html", "dir_5f96bc83f9c3b09ebca36e7cfb485d9f" ],
-    [ "audio", "dir_27f85c13746d6495a823aea84f38dc35.html", "dir_27f85c13746d6495a823aea84f38dc35" ],
     [ "components", "dir_2b954ff381b9b3885b7442a3ec8b9d3a.html", "dir_2b954ff381b9b3885b7442a3ec8b9d3a" ],
     [ "core", "dir_2fca6cf9c244716c7cc7db0f05b66bc2.html", "dir_2fca6cf9c244716c7cc7db0f05b66bc2" ],
     [ "events", "dir_e4e12536003b5868dacffd6be6350da8.html", "dir_e4e12536003b5868dacffd6be6350da8" ],
@@ -12,6 +11,7 @@ var dir_719a66e699117833dd2aa990b86b1834 =
     [ "logging", "dir_a724136a1f39cb6404ada524c6e6706e.html", "dir_a724136a1f39cb6404ada524c6e6706e" ],
     [ "map", "dir_66fc11cfaed6a3f099b7f5543b36868d.html", "dir_66fc11cfaed6a3f099b7f5543b36868d" ],
     [ "math", "dir_5adffbad0d676b36ea4ec849c81f774b.html", "dir_5adffbad0d676b36ea4ec849c81f774b" ],
+    [ "mem", "dir_5a83dd64e6f5522f929ecc6d2abdb825.html", "dir_5a83dd64e6f5522f929ecc6d2abdb825" ],
     [ "meta", "dir_7f735fbad00ad2f3f96d935c571f321a.html", "dir_7f735fbad00ad2f3f96d935c571f321a" ],
     [ "platform", "dir_539763b671f38b158c533952648703b5.html", "dir_539763b671f38b158c533952648703b5" ],
     [ "resource", "dir_6861e931fb99faa1379ff4c0e1a1bd9e.html", "dir_6861e931fb99faa1379ff4c0e1a1bd9e" ],

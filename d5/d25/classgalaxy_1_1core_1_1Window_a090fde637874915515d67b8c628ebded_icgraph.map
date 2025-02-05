@@ -1,0 +1,5 @@
+<map id="galaxy::core::Window::destroy" name="galaxy::core::Window::destroy">
+<area shape="rect" id="Node000001" title="Destroys Window and related context and data." alt="" coords="215,5,376,45"/>
+<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b" title="Destructor." alt="" coords="5,5,167,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,28,167,28,167,23,200,23"/>
+</map>

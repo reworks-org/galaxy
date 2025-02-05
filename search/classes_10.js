@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['vector2_0',['Vector2',['../d8/d3e/classgalaxy_1_1math_1_1Vector2.html',1,'galaxy::math']]],
-  ['vector3_1',['Vector3',['../dc/dae/classgalaxy_1_1math_1_1Vector3.html',1,'galaxy::math']]],
-  ['vector4_2',['Vector4',['../d7/de2/classgalaxy_1_1math_1_1Vector4.html',1,'galaxy::math']]],
-  ['video_3',['Video',['../d8/d06/classgalaxy_1_1graphics_1_1Video.html',1,'galaxy::graphics']]],
-  ['virtualfilesystem_4',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs']]],
-  ['voiceloader_5',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
+  ['window_0',['Window',['../d5/d25/classgalaxy_1_1core_1_1Window.html',1,'galaxy::core']]],
+  ['windowclosed_1',['WindowClosed',['../dc/dad/structgalaxy_1_1events_1_1WindowClosed.html',1,'galaxy::events']]],
+  ['windowresized_2',['WindowResized',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html',1,'galaxy::events']]],
+  ['world_3',['World',['../d9/d75/classgalaxy_1_1map_1_1World.html',1,'galaxy::map']]]
 ];

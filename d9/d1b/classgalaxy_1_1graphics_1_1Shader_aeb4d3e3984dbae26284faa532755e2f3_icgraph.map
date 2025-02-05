@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Shader::parse" name="galaxy::graphics::Shader::parse">
-<area shape="rect" id="Node000001" title="Loads a combined raw shader." alt="" coords="235,37,416,77"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a572aa190d926ff6c4e59005cc58d1fc6" title="Loads a combined shader." alt="" coords="5,5,187,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,45,187,41,187,35,222,40"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a67a17efe79361403ab806550a754e586" title="Loads an OpenGL shader." alt="" coords="5,69,187,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,74,187,79,187,74,221,69"/>
-</map>

@@ -1,5 +1,21 @@
 <map id="galaxy::components::Circle" name="galaxy::components::Circle">
-<area shape="rect" id="Node000001" title="2D shape." alt="" coords="13,219,159,459"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,167,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,184,89,218,83,218,83,184"/>
+<area shape="rect" id="Node000001" title="2D shape." alt="" coords="35,1729,180,1969"/>
+<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,1481,167,1647"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,1660,101,1729,96,1729,90,1660"/>
+<area shape="rect" id="Node000003" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html" title="A circle." alt="" coords="191,1461,357,1667"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,1668,188,1716,184,1714,212,1666"/>
+<area shape="rect" id="Node000004" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html" title="A generic 2D shape." alt="" coords="190,1167,358,1412"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,1426,277,1461,271,1461,271,1426"/>
+<area shape="rect" id="Node000005" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="91,741,262,1047"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="217,1047,243,1150,237,1151,212,1048"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="101,401,253,481"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="179,481,179,725,174,725,174,481"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="119,133,234,199"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="179,213,179,401,174,401,174,213"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="165,5,188,71"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="179,71,179,117,174,117,174,71"/>
+<area shape="rect" id="Node000009" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="286,684,457,1104"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="331,1105,322,1143,320,1151,315,1150,317,1142,326,1104"/>
+<area shape="rect" id="Node000010" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="286,261,457,621"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="374,622,374,668,369,668,369,622"/>
 </map>

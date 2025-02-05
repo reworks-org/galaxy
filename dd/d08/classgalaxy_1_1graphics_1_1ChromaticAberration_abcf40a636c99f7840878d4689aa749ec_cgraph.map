@@ -1,0 +1,19 @@
+<map id="galaxy::graphics::ChromaticAberration::render" name="galaxy::graphics::ChromaticAberration::render">
+<area shape="rect" id="Node000001" title="Render effect to input texture." alt="" coords="5,101,208,141"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="256,37,439,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,99,258,78,259,83,183,104"/>
+<area shape="rect" id="Node000006" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="257,101,438,141"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="208,119,243,119,243,124,208,124"/>
+<area shape="rect" id="Node000007" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a5e280fba4aec4c1e717e9b4937f0b203" title="Gets framebuffer texture." alt="" coords="256,165,439,205"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="183,139,259,159,258,164,182,144"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="487,5,701,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,43,473,38,473,44,439,48"/>
+<area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="503,69,685,109"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="439,67,490,73,489,78,438,72"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="749,37,964,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="702,36,736,40,735,45,701,41"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="808,38,805,28,813,18,830,13,857,11,887,14,903,21,901,26,886,19,857,16,831,18,816,23,810,29,813,36"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="685,76,735,69,736,75,686,81"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a73d2d35d3aa7d8f96e047b808b127a57" title="Get colour attachment texture id." alt="" coords="487,165,701,205"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="439,183,473,183,473,188,439,188"/>
+</map>

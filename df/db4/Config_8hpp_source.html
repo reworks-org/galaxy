@@ -110,7 +110,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/logging/Log.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/utils/Concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/meta/Concepts.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d44/StringUtils_8hpp.html">galaxy/utils/StringUtils.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
@@ -131,13 +131,13 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a64468bfba46746622e82d637e8c3ffe9">save</a>();</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a2e15b2c49b147adbfe87e5d470a15d17">set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a2e15b2c49b147adbfe87e5d470a15d17">set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3">restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
@@ -149,11 +149,11 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            [[nodiscard]]</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a7071b98a344838c08bf71718ffbc3118">has</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            [[nodiscard]]</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">get</a>(<span class="keyword">const</span> std::string&amp; key);</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            [[nodiscard]]</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">get</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
@@ -183,7 +183,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        };</div>
 </div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="foldopen" id="foldopen00224" data-start="{" data-end="}">
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a2e15b2c49b147adbfe87e5d470a15d17">  224</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a2e15b2c49b147adbfe87e5d470a15d17">Config::set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value)</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        {</div>
@@ -198,7 +198,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        }</div>
 </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a4fb4ce2d77d558a751f8b0c407b6196c">  237</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a2e15b2c49b147adbfe87e5d470a15d17">Config::set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        {</div>
@@ -234,7 +234,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        }</div>
 </div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3">  271</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3">Config::restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value)</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        {</div>
@@ -245,7 +245,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        }</div>
 </div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="foldopen" id="foldopen00280" data-start="{" data-end="}">
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d">  280</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3">Config::restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        {</div>
@@ -256,7 +256,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
 </div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">  289</a></span>        <span class="keyword">inline</span> Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">Config::get</a>(<span class="keyword">const</span> std::string&amp; key)</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        {</div>
@@ -280,7 +280,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        }</div>
 </div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keyword">template</span>&lt;utils::standard_type Value&gt;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
 <div class="foldopen" id="foldopen00311" data-start="{" data-end="}">
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#aa4677cef788381727a4c2e904134ff9d">  311</a></span>        <span class="keyword">inline</span> Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">Config::get</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
 <div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        {</div>
@@ -339,9 +339,9 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00023">Log.hpp:23</a></div></div>
 <div class="ttc" id="aStringUtils_8hpp_html"><div class="ttname"><a href="../../d1/d44/StringUtils_8hpp.html">StringUtils.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">galaxy::core::Config</a></div><div class="ttdoc">Allows you to read, write and manipulate JSON config files.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Config.hpp:25</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a00df181519aa3dee2434545d32b484aa"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">galaxy::core::Config::m_config</a></div><div class="ttdeci">nlohmann::json m_config</div><div class="ttdoc">Config file as JSON.</div><div class="ttdef"><b>Definition</b> <a href="#l00215">Config.hpp:215</a></div></div>
@@ -362,14 +362,14 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_ae53d93746660df6d78d2aa4e70355fa5"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae53d93746660df6d78d2aa4e70355fa5">galaxy::core::Config::operator=</a></div><div class="ttdeci">Config &amp; operator=(Config &amp;&amp;)=delete</div><div class="ttdoc">Move assignment operator.</div></div>
 <div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_ae9d237d19a8bb828aa694b0df14d8512"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae9d237d19a8bb828aa694b0df14d8512">galaxy::core::Config::m_path</a></div><div class="ttdeci">std::string m_path</div><div class="ttdoc">Filepath.</div><div class="ttdef"><b>Definition</b> <a href="#l00220">Config.hpp:220</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1strutils_html_aa478cb3361fc7c4a54132170d8fa9e4b"><div class="ttname"><a href="../../db/d7c/namespacegalaxy_1_1strutils.html#aa478cb3361fc7c4a54132170d8fa9e4b">galaxy::strutils::split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; split(std::string_view input, std::string_view delim)</div><div class="ttdoc">Split a string based on a delimiter.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d44/StringUtils_8cpp_source.html#l00017">StringUtils.cpp:17</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">AudioDevice.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00015">Async.hpp:16</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../df/db4/Config_8hpp.html">Config.hpp</a></li>
-    <li class="footer">Generated on Sat Feb 1 2025 03:54:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Feb 5 2025 09:00:33 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

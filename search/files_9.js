@@ -7,5 +7,7 @@ var searchData=
   ['keypress_2ecpp_4',['KeyPress.cpp',['../d4/d36/KeyPress_8cpp.html',1,'']]],
   ['keypress_2ehpp_5',['KeyPress.hpp',['../d4/ddc/KeyPress_8hpp.html',1,'']]],
   ['keyrepeat_2ecpp_6',['KeyRepeat.cpp',['../d7/d24/KeyRepeat_8cpp.html',1,'']]],
-  ['keyrepeat_2ehpp_7',['KeyRepeat.hpp',['../d2/dd7/KeyRepeat_8hpp.html',1,'']]]
+  ['keyrepeat_2ehpp_7',['KeyRepeat.hpp',['../d2/dd7/KeyRepeat_8hpp.html',1,'']]],
+  ['keys_2ecpp_8',['Keys.cpp',['../d4/d76/Keys_8cpp.html',1,'']]],
+  ['keys_2ehpp_9',['Keys.hpp',['../dd/d25/Keys_8hpp.html',1,'']]]
 ];

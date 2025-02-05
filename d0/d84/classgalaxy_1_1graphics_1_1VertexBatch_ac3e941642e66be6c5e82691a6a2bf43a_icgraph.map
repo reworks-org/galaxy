@@ -1,0 +1,13 @@
+<map id="galaxy::graphics::VertexBatch::init" name="galaxy::graphics::VertexBatch::init">
+<area shape="rect" id="Node000001" title="Initialize vertex batch data." alt="" coords="1080,5,1259,45"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960" title="Parse LDTK tile layer / auto layer." alt="" coords="849,5,1032,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1067,28,1032,28,1032,23,1067,23"/>
+<area shape="rect" id="Node000003" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="627,13,801,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="835,28,801,28,801,23,835,23"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="405,13,579,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="613,28,579,28,579,23,613,23"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>

@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::RenderTexture::~RenderTexture" name="galaxy::graphics::RenderTexture::~RenderTexture">
-<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a2c251864e400f7d73357a93748b81c1a" title="Unload texture from GPU memory (VRAM)." alt="" coords="236,5,419,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
-<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a23b307b2b30c1abeb962a4bf8373a4cb" title="Check if a texture is valid (loaded in GPU)." alt="" coords="467,5,649,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="419,23,453,23,453,28,419,28"/>
-</map>

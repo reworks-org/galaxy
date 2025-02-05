@@ -2,8 +2,15 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="90,5,311,45"/>
 <area shape="rect" id="Node000002" href="$d0/d15/Serializable_8hpp.html" title=" " alt="" coords="5,101,196,126"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,48,127,93,123,89,177,44"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="221,93,383,133"/>
+<area shape="rect" id="Node000004" href="$d0/d36/Animation_8hpp.html" title=" " alt="" coords="221,93,383,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,44,271,82,267,86,221,48"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="13,181,189,207"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,126,103,167,98,167,98,126"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="17,189,193,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,126,106,175,101,175,99,126"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="260,136,144,186,142,181,258,131"/>
+<area shape="rect" id="Node000005" href="$d3/dae/Frame_8hpp.html" title=" " alt="" coords="218,181,381,221"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="304,134,303,168,298,167,299,134"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="405,189,593,214"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="346,131,462,181,460,186,344,136"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="217,269,382,295"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="302,222,302,255,297,255,297,222"/>
 </map>

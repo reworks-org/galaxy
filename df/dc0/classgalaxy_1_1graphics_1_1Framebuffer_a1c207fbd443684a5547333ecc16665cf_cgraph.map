@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Framebuffer::add_colour_attachment" name="galaxy::graphics::Framebuffer::add_colour_attachment">
+<area shape="rect" id="Node000001" title="Add a colour attachment to the framebuffer." alt="" coords="5,37,220,77"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="268,5,483,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,42,254,37,255,43,220,47"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="268,69,483,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,68,255,72,254,77,220,73"/>
+</map>

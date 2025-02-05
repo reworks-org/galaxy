@@ -1,5 +1,0 @@
-<map id="galaxy::math::Vector3::rotate_by_quaternion" name="galaxy::math::Vector3::rotate_by_quaternion">
-<area shape="rect" id="Node000001" title="Transform a vector by quaternion rotation." alt="" coords="5,5,175,45"/>
-<area shape="rect" id="Node000002" href="$dc/dae/classgalaxy_1_1math_1_1Vector3.html#a064ec472f6d8e178e3781c55aeb68294" title="Set this vector from raylib vector." alt="" coords="223,13,415,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,23,209,23,209,28,175,28"/>
-</map>

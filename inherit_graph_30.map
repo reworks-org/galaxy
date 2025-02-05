@@ -1,3 +1,15 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="5,5,144,31"/>
+<area shape="rect" id="Node000000" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,159,207,185"/>
+<area shape="rect" id="Node000001" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html" title="Chromatic Aberration pass." alt="" coords="281,5,483,45"/>
+<area shape="poly" id="edge18_Node000000_Node000001" title=" " alt="" coords="128,148,182,101,217,76,254,55,283,43,285,48,256,60,220,81,185,105,131,152"/>
+<area shape="rect" id="Node000002" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html" title="Film grain effect." alt="" coords="295,69,469,109"/>
+<area shape="poly" id="edge19_Node000000_Node000002" title=" " alt="" coords="153,152,254,119,297,107,298,112,255,124,155,157"/>
+<area shape="rect" id="Node000003" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html" title="GammaCorrection effect." alt="" coords="255,134,509,159"/>
+<area shape="poly" id="edge20_Node000000_Node000003" title=" " alt="" coords="220,159,254,156,254,161,221,164"/>
+<area shape="rect" id="Node000004" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html" title="Gaussian Blur pass." alt="" coords="271,183,493,209"/>
+<area shape="poly" id="edge21_Node000000_Node000004" title=" " alt="" coords="220,179,271,184,270,189,220,185"/>
+<area shape="rect" id="Node000005" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html" title="Submorphological Anti Aliasing." alt="" coords="295,233,469,258"/>
+<area shape="poly" id="edge22_Node000000_Node000005" title=" " alt="" coords="156,187,255,217,310,230,309,235,254,223,155,192"/>
+<area shape="rect" id="Node000006" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html" title="Sharpening effect." alt="" coords="287,282,477,307"/>
+<area shape="poly" id="edge23_Node000000_Node000006" title=" " alt="" coords="135,191,188,230,256,267,295,279,294,285,254,272,186,235,131,196"/>
 </map>

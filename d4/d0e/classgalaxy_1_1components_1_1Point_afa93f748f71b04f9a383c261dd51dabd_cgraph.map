@@ -1,0 +1,13 @@
+<map id="galaxy::components::Point::serialize" name="galaxy::components::Point::serialize">
+<area shape="rect" id="Node000001" title="Serializes object." alt="" coords="5,97,159,137"/>
+<area shape="rect" id="Node000002" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c" title="Get alpha." alt="" coords="209,5,404,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,94,153,66,206,40,227,32,229,37,208,44,156,71,112,99"/>
+<area shape="rect" id="Node000003" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37" title="Get blue." alt="" coords="209,55,404,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,97,234,80,236,86,160,102"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a" title="Get green." alt="" coords="209,104,404,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="159,114,196,114,196,119,159,119"/>
+<area shape="rect" id="Node000005" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="207,153,407,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="160,131,236,148,234,153,159,136"/>
+<area shape="rect" id="Node000006" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c" title="Get red." alt="" coords="211,203,402,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="113,135,157,162,208,188,232,196,230,201,206,192,154,167,111,139"/>
+</map>

@@ -28,7 +28,7 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
@@ -43,7 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
@@ -52,6 +52,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
@@ -63,21 +64,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a5f90be48aa788622673866b7fe45469b",
-"d2/d24/classgalaxy_1_1input_1_1Gamepad.html#af89bb11d2e2b932135e88f03bd14619b",
-"d2/dbe/classgalaxy_1_1math_1_1Quaternion.html#a7cbc6941740f3cbaf349efba1667b439",
-"d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html",
-"d5/d02/DialogButton_8hpp_source.html",
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a93fd128b9da57d04d716b2b5e6aaa664",
-"d7/d84/classgalaxy_1_1graphics_1_1Image.html#afd1dd7e4636c425cdeb5ac06fdc3f50e",
-"d8/d2c/Generic_8hpp.html#a8d6cc000bebf17fa9563cd351a3903b9",
-"d9/d1c/Matrix_8hpp.html#af716559a76232f048531e13025e0a378",
-"da/d18/classgalaxy_1_1components_1_1Animated.html#a63fcec9982325d8314e01e8e0918c7a3",
-"db/d27/TextureAtlas_8hpp.html",
-"dc/d61/RectPack_8cpp_source.html",
-"dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba059e9861e0400dfbe05c98a841f3f96b",
-"df/d2d/classgalaxy_1_1graphics_1_1Camera2D.html#a6939cb779c8bb67a5e5105f53f8bbe94",
-"namespacemembers_v.html"
+"d1/d44/StringUtils_8cpp.html#a22d4d4217db71614abc57b1d4aa3a9a0",
+"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afbad99a99e787339258bd63bebb2445ffd5",
+"d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a43421794070cb1bf3a0bd2479ab3e771",
+"d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#a9e325f94cbfb886732e6d6e8bb668370",
+"d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae3c7b2fab3fe92ca74c867fbe60a56bc",
+"d5/dc8/classgalaxy_1_1input_1_1Cursor.html#ae04f20ce002058e8d8977097abc49246",
+"d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#ab44bebfa1a44c3572d6ac788687ec145",
+"d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d",
+"d9/d28/classgalaxy_1_1graphics_1_1TextureView.html#a8717924d1aae0876db1ad2ad7ab60c56",
+"d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a807faf163d3761966634dbd0ab9aa1e1",
+"da/d4c/RenderSystem_8hpp_source.html",
+"db/dab/namespacegalaxy_1_1graphics.html#a0ca55519659bd7fb510efa0ec3167e17",
+"dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a97572eca426bc6f017245979225fbdbf",
+"dd/d25/Keys_8hpp.html#a8f609fdbc17576d75e3001b412df142eab129b7f084e2e697de71e420faeaa8f5",
+"dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ad847b8d6ce65482b7661de37f1ba9342",
+"de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html#a6e2d7eef4c72eed98c2aac946d91af90",
+"df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html",
+"functions_func_j.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,9 @@
+<map id="galaxy::core::Window::~Window" name="galaxy::core::Window::~Window">
+<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,37,167,77"/>
+<area shape="rect" id="Node000002" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#a090fde637874915515d67b8c628ebded" title="Destroys Window and related context and data." alt="" coords="215,37,376,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,55,201,55,201,60,167,60"/>
+<area shape="rect" id="Node000003" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a30e5a132fef8dfadc28942a87351353b" title="Clean up custom cursor." alt="" coords="440,5,596,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,43,426,36,427,41,376,48"/>
+<area shape="rect" id="Node000004" href="$d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a77c5cad9d2a83a0a7d393cdbb21fc783" title="Destroy system cursor data." alt="" coords="424,69,612,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="376,66,411,71,410,77,376,72"/>
+</map>

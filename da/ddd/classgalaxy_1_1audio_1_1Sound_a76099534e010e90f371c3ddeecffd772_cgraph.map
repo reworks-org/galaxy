@@ -1,5 +1,0 @@
-<map id="galaxy::audio::Sound::unload" name="galaxy::audio::Sound::unload">
-<area shape="rect" id="Node000001" title="Unload sound data." alt="" coords="5,5,163,45"/>
-<area shape="rect" id="Node000002" href="$da/ddd/classgalaxy_1_1audio_1_1Sound.html#aa5c61b5360b4de5cfa8db6337c366809" title="Check if a sound is valid (data loaded and buffers initialized)." alt="" coords="211,5,368,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,23,197,23,197,28,163,28"/>
-</map>

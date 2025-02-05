@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::Camera2D" name="galaxy::graphics::Camera2D">
-<area shape="rect" id="Node000001" title="2D camera for drawing with." alt="" coords="5,119,203,304"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="63,5,145,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,85,107,119,101,119,101,85"/>
-</map>

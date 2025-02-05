@@ -1,9 +1,0 @@
-<map id="galaxy::settings::ansio_level" name="galaxy::settings::ansio_level">
-<area shape="rect" id="Node000001" title="Ansiotropic filtering level." alt="" coords="496,35,664,75"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a6c7a9ce63902332de834f524dafd1835" title="Configure loaded texture." alt="" coords="251,5,433,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,45,433,39,434,34,483,40"/>
-<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a7803dc0aec742c7fe47dd26f5b65ec47" title="Configure loaded texture." alt="" coords="236,70,448,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="483,69,449,73,448,68,482,63"/>
-<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a9910faab7345ccc9487a5a10704c23a8" title="Load texture for rendering (framebuffer)." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,28,188,28,188,23,237,23"/>
-</map>
