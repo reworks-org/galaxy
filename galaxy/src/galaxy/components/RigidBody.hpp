@@ -35,7 +35,7 @@ namespace galaxy
 			friend class core::Registry;
 			friend class systems::PhysicsSystem;
 
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -125,63 +125,72 @@ namespace galaxy
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_shape() const;
+			[[nodiscard]]
+			const glm::vec2& get_shape() const;
 
 			///
 			/// Get body type.
 			///
 			/// \return Box2d enum body type.
 			///
-			[[nodiscard]] b2BodyType get_type() const;
+			[[nodiscard]]
+			b2BodyType get_type() const;
 
 			///
 			/// Get body density.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_density() const;
+			[[nodiscard]]
+			float get_density() const;
 
 			///
 			/// Get body friction.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_friction() const;
+			[[nodiscard]]
+			float get_friction() const;
 
 			///
 			/// Get body restitution.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_restitution() const;
+			[[nodiscard]]
+			float get_restitution() const;
 
 			///
 			/// Get restitution threshold.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_restitution_threshold() const;
+			[[nodiscard]]
+			float get_restitution_threshold() const;
 
 			///
 			/// Is this a bullet style body.
 			///
 			/// \return True if continously colliding.
 			///
-			[[nodiscard]] bool is_bullet() const;
+			[[nodiscard]]
+			bool is_bullet() const;
 
 			///
 			/// Get rotation status.
 			///
 			/// \return True if body can't rotate.
 			///
-			[[nodiscard]] bool is_rotation_fixed() const;
+			[[nodiscard]]
+			bool is_rotation_fixed() const;
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -190,7 +199,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Copy assignment operator.
 			///
@@ -201,7 +210,7 @@ namespace galaxy
 			///
 			RigidBody(const RigidBody&) = delete;
 
-		  private:
+		private:
 			///
 			/// Box2D body shape.
 			///

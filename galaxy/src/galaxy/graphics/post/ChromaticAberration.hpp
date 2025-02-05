@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class ChromaticAberration final : public PostEffect
 		{
-		  public:
+		public:
 			///
 			/// Argument constructor.
 			///
@@ -52,7 +52,8 @@ namespace galaxy
 			///
 			/// \return Returns output texture for next effect or final framebuffer.
 			///
-			[[nodiscard]] unsigned int render(const unsigned int input) override;
+			[[nodiscard]]
+			unsigned int render(const unsigned int input) override;
 
 			///
 			/// Set chromatic r offset.
@@ -89,15 +90,16 @@ namespace galaxy
 			///
 			/// \return True if effect is enabled. Otherwise false.
 			///
-			[[nodiscard]] bool is_enabled() override;
+			[[nodiscard]]
+			bool is_enabled() override;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
 			ChromaticAberration() = delete;
 
-		  private:
+		private:
 			///
 			/// Shader for post processing effect.
 			///

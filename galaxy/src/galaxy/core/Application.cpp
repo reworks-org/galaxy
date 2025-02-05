@@ -207,7 +207,8 @@ namespace galaxy
 			// Initialize Lua.
 			//
 			auto& lua = ServiceLocator<sol::state>::make();
-			lua.open_libraries(sol::lib::base,
+			lua.open_libraries(
+				sol::lib::base,
 				sol::lib::package,
 				sol::lib::coroutine,
 				sol::lib::string,
@@ -215,7 +216,8 @@ namespace galaxy
 				sol::lib::math,
 				sol::lib::table,
 				sol::lib::io,
-				sol::lib::utf8);
+				sol::lib::utf8
+			);
 
 			//
 			// Services.

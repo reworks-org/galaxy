@@ -23,7 +23,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -46,9 +46,10 @@ namespace galaxy
 			///
 			/// \return XY vector position of cursor.
 			///
-			[[nodiscard]] glm::dvec2 get_pos();
+			[[nodiscard]]
+			glm::dvec2 get_pos();
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///

@@ -20,11 +20,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		TextureView::TextureView(const unsigned int parent,
-			const unsigned int                      minlevel,
-			const unsigned int                      numlevels,
-			const unsigned int                      minlayer,
-			const unsigned int                      numlayers)
+		TextureView::TextureView(const unsigned int parent, const unsigned int minlevel, const unsigned int numlevels, const unsigned int minlayer, const unsigned int numlayers)
 			: Texture {}
 		{
 			glGenTextures(1, &m_id);

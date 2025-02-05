@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Framebuffer final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -71,7 +71,8 @@ namespace galaxy
 			///
 			/// \returns Integer read at pixel coords.
 			///
-			[[nodiscard]] int read_storagebuffer(const int x, const int y);
+			[[nodiscard]]
+			int read_storagebuffer(const int x, const int y);
 
 			///
 			/// Clear storagebuffer.
@@ -121,30 +122,34 @@ namespace galaxy
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int width() const;
+			[[nodiscard]]
+			int width() const;
 
 			///
 			/// Get height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int height() const;
+			[[nodiscard]]
+			int height() const;
 
 			///
 			/// Get colour attachment texture id.
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int texture() const;
+			[[nodiscard]]
+			unsigned int texture() const;
 
 			///
 			/// Get OpenGL framebuffer object.
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int id() const;
+			[[nodiscard]]
+			unsigned int id() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -155,7 +160,7 @@ namespace galaxy
 			///
 			Framebuffer& operator=(const Framebuffer&) = delete;
 
-		  private:
+		private:
 			///
 			/// OpenGL handle.
 			///

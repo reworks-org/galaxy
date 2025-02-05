@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class Prefab final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -71,7 +71,8 @@ namespace galaxy
 			///
 			/// \param file Json file to read from disk.
 			///
-			[[nodiscard]] bool load(const std::string& file);
+			[[nodiscard]]
+			bool load(const std::string& file);
 
 			///
 			/// Creates the prefab from an entity.
@@ -95,16 +96,18 @@ namespace galaxy
 			///
 			/// \return Newly created entity.
 			///
-			[[nodiscard]] entt::entity to_entity(entt::registry& registry) const;
+			[[nodiscard]]
+			entt::entity to_entity(entt::registry& registry) const;
 
 			///
 			/// Gets the json representation of this prefab.
 			///
 			/// \return Const reference from the json object.
 			///
-			[[nodiscard]] const nlohmann::json& to_json() const;
+			[[nodiscard]]
+			const nlohmann::json& to_json() const;
 
-		  private:
+		private:
 			///
 			/// Prefab as json data.
 			///

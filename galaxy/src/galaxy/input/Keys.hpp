@@ -151,7 +151,8 @@ namespace galaxy
 		///
 		/// \return Enum key.
 		///
-		[[nodiscard]] inline constexpr input::Keys int_to_key(const int key)
+		[[nodiscard]]
+		inline constexpr input::Keys int_to_key(const int key)
 		{
 			return static_cast<input::Keys>(key);
 		}
@@ -163,7 +164,8 @@ namespace galaxy
 		///
 		/// \return Integer key.
 		///
-		[[nodiscard]] inline constexpr int key_to_int(const input::Keys key)
+		[[nodiscard]]
+		inline constexpr int key_to_int(const input::Keys key)
 		{
 			return static_cast<int>(key);
 		}

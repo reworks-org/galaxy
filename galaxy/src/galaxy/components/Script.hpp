@@ -31,7 +31,7 @@ namespace galaxy
 		{
 			friend class sc::panel::EntityEditor;
 
-		  public:
+		public:
 			////
 			/// Constructor.
 			///
@@ -64,14 +64,16 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& file() const;
+			[[nodiscard]]
+			const std::string& file() const;
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -80,7 +82,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Load a script.
 			///
@@ -98,7 +100,7 @@ namespace galaxy
 			///
 			Script(const Script&) = delete;
 
-		  public:
+		public:
 			///
 			/// The script object (table) returned by a lua script.
 			///
@@ -109,7 +111,7 @@ namespace galaxy
 			///
 			sol::function m_update;
 
-		  private:
+		private:
 			///
 			/// Script file.
 			///

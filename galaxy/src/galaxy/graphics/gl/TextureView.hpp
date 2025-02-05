@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class TextureView final : public Texture
 		{
-		  public:
+		public:
 			///
 			/// Args constructor.
 			///
@@ -29,11 +29,7 @@ namespace galaxy
 			/// \param minlayer Specifies the index of the first layer to include in the view.
 			/// \param numlayers Specifies the number of layers to include in the view.
 			///
-			TextureView(const unsigned int parent,
-				const unsigned int         minlevel,
-				const unsigned int         numlevels,
-				const unsigned int         minlayer,
-				const unsigned int         numlayers);
+			TextureView(const unsigned int parent, const unsigned int minlevel, const unsigned int numlevels, const unsigned int minlayer, const unsigned int numlayers);
 
 			///
 			/// Move constructor.
@@ -60,7 +56,7 @@ namespace galaxy
 			///
 			void unbind() override;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///

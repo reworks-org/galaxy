@@ -91,8 +91,7 @@ namespace galaxy
 				auto& camera = m_camera.get();
 				auto& scale  = camera.get_scale();
 
-				camera.set_scale_vertical(
-					std::clamp(static_cast<float>(scale.y - (e.yoff * GALAXY_MIN_CAMERA_ZOOM)), GALAXY_MIN_CAMERA_ZOOM, GALAXY_MAX_CAMERA_ZOOM));
+				camera.set_scale_vertical(std::clamp(static_cast<float>(scale.y - (e.yoff * GALAXY_MIN_CAMERA_ZOOM)), GALAXY_MIN_CAMERA_ZOOM, GALAXY_MAX_CAMERA_ZOOM));
 
 				e.handled = true;
 			}

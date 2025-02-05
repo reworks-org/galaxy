@@ -30,7 +30,8 @@ namespace galaxy
 			});
 			// clang-format on
 
-			lua.new_usertype<b2Vec2>("b2Vec2",
+			lua.new_usertype<b2Vec2>(
+				"b2Vec2",
 				"x",
 				&b2Vec2::x,
 				"y",
@@ -74,9 +75,12 @@ namespace galaxy
 						b2Vec2 ret  = left;
 						ret        *= right;
 						return ret;
-					}));
+					}
+				)
+			);
 
-			lua.new_usertype<b2Vec3>("b2Vec3",
+			lua.new_usertype<b2Vec3>(
+				"b2Vec3",
 				"x",
 				&b2Vec3::x,
 				"y",
@@ -112,7 +116,9 @@ namespace galaxy
 						b2Vec3 ret  = left;
 						ret        *= right;
 						return ret;
-					}));
+					}
+				)
+			);
 
 			auto b2world_type                  = lua.new_usertype<b2World>("b2World", sol::no_constructor);
 			b2world_type["ClearForces"]        = &b2World::ClearForces;

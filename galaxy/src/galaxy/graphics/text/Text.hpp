@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Text final
 		{
-		  public:
+		public:
 			///
 			/// Text alignment.
 			///
@@ -61,8 +61,7 @@ namespace galaxy
 			/// \param colour Font colour.
 			/// \param alignment Text alignment. Defaults to LEFT.
 			///
-			void
-			create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, Alignment alignment = Alignment::LEFT);
+			void create(std::string_view text, const float size, const std::string& font, const graphics::Colour& colour, Alignment alignment = Alignment::LEFT);
 
 			///
 			/// Update the font used.
@@ -99,7 +98,8 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float width() const;
+			[[nodiscard]]
+			float width() const;
 
 			///
 			/// \brief Get text height.
@@ -108,7 +108,8 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float height() const;
+			[[nodiscard]]
+			float height() const;
 
 			///
 			/// \brief Get text.
@@ -117,7 +118,8 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& get_text() const;
+			[[nodiscard]]
+			const std::string& get_text() const;
 
 			///
 			/// \brief Get text em size.
@@ -126,21 +128,24 @@ namespace galaxy
 			///
 			/// \return Float as EM.
 			///
-			[[nodiscard]] float get_size() const;
+			[[nodiscard]]
+			float get_size() const;
 
 			///
 			/// Get the text alignment.
 			///
 			/// \return Alignment enum.
 			///
-			[[nodiscard]] Alignment get_alignment() const;
+			[[nodiscard]]
+			Alignment get_alignment() const;
 
 			///
 			/// Get font ID.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& get_font() const;
+			[[nodiscard]]
+			const std::string& get_font() const;
 
 			///
 			/// Get vertex array.
@@ -156,7 +161,7 @@ namespace galaxy
 			///
 			graphics::RenderTexture& render_texture();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -172,13 +177,13 @@ namespace galaxy
 			///
 			void update();
 
-		  public:
+		public:
 			///
 			/// Text colour.
 			///
 			graphics::Colour m_colour;
 
-		  private:
+		private:
 			///
 			/// Vertex Array Object.
 			///

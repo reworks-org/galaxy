@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class ShaderStorageBuffer final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -81,9 +81,10 @@ namespace galaxy
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const;
+			[[nodiscard]]
+			unsigned int id() const;
 
-		  private:
+		private:
 			///
 			/// Default constructor.
 			///
@@ -99,7 +100,7 @@ namespace galaxy
 			///
 			ShaderStorageBuffer& operator=(const ShaderStorageBuffer&) = delete;
 
-		  private:
+		private:
 			///
 			/// OpenGL handle.
 			///

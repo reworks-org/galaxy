@@ -43,7 +43,8 @@ namespace galaxy
 		///
 		/// \return Enum mouse button.
 		///
-		[[nodiscard]] inline constexpr input::MouseButtons int_to_mouse(const int mouse)
+		[[nodiscard]]
+		inline constexpr input::MouseButtons int_to_mouse(const int mouse)
 		{
 			return static_cast<input::MouseButtons>(mouse);
 		}
@@ -55,7 +56,8 @@ namespace galaxy
 		///
 		/// \return Integer mouse button.
 		///
-		[[nodiscard]] inline constexpr int mouse_to_int(const input::MouseButtons mouse)
+		[[nodiscard]]
+		inline constexpr int mouse_to_int(const input::MouseButtons mouse)
 		{
 			return static_cast<int>(mouse);
 		}

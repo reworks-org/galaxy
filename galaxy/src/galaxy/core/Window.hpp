@@ -27,7 +27,7 @@ namespace galaxy
 		///
 		class Window final
 		{
-		  public:
+		public:
 			///
 			/// \brief Window creation constructor.
 			///
@@ -47,7 +47,8 @@ namespace galaxy
 			///
 			/// \return Returns true if window is currently open, false if not.
 			///
-			[[nodiscard]] bool is_open() const;
+			[[nodiscard]]
+			bool is_open() const;
 
 			///
 			/// \brief Closes the current window.
@@ -146,13 +147,19 @@ namespace galaxy
 			///
 			/// \return True if window is in input focus.
 			///
-			[[nodiscard]] bool is_focused() const;
+			[[nodiscard]]
+			bool is_focused() const;
 
-			[[nodiscard]] int   window_width() const;
-			[[nodiscard]] int   window_height() const;
-			[[nodiscard]] int   frame_width() const;
-			[[nodiscard]] int   frame_height() const;
-			[[nodiscard]] float aspect_ratio() const;
+			[[nodiscard]]
+			int window_width() const;
+			[[nodiscard]]
+			int window_height() const;
+			[[nodiscard]]
+			int frame_width() const;
+			[[nodiscard]]
+			int frame_height() const;
+			[[nodiscard]]
+			float aspect_ratio() const;
 
 			///
 			/// Get a window input device.
@@ -162,44 +169,50 @@ namespace galaxy
 			/// \return Reference to the input device.
 			///
 			template<meta::is_input_device Device>
-			[[nodiscard]] Device& get_input();
+			[[nodiscard]]
+			Device& get_input();
 
 			///
 			/// \brief Get a list of paths dropped on window.
 			///
 			/// Reset when a new path is dropped.
 			///
-			[[nodiscard]] const meta::vector<std::string>& get_drop_paths() const;
+			[[nodiscard]]
+			const meta::vector<std::string>& get_drop_paths() const;
 
 			///
 			/// Get framebuffer size taking into account DPI.
 			///
 			/// \return glm::ivec2.
 			///
-			[[nodiscard]] glm::ivec2 get_framebuffer_size();
+			[[nodiscard]]
+			glm::ivec2 get_framebuffer_size();
 
 			///
 			/// Get window content scale.
 			///
 			/// \return glm::vec2.
 			///
-			[[nodiscard]] glm::vec2 get_content_scale();
+			[[nodiscard]]
+			glm::vec2 get_content_scale();
 
 			///
 			/// Get max window content scale.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_content_scale_max();
+			[[nodiscard]]
+			float get_content_scale_max();
 
 			///
 			/// Retrieve pointer to GLFWwindow object.
 			///
 			/// \return Returns pointer to GLFWwindow.
 			///
-			[[nodiscard]] GLFWwindow* handle();
+			[[nodiscard]]
+			GLFWwindow* handle();
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -225,7 +238,7 @@ namespace galaxy
 			///
 			Window& operator=(Window&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Window title.
 			///

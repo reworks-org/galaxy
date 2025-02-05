@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class VertexBatch final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -56,7 +56,8 @@ namespace galaxy
 			///
 			/// \return Index where the vertx data is offset from. Useful to update animations, transforms later. -1 on error.
 			///
-			[[maybe_unused]] int push(std::span<Vertex> vertices);
+			[[maybe_unused]]
+			int push(std::span<Vertex> vertices);
 
 			///
 			/// Sub-buffer vertex object.
@@ -76,9 +77,10 @@ namespace galaxy
 			///
 			/// \return Reference to VAO.
 			///
-			[[nodiscard]] VertexArray& vao();
+			[[nodiscard]]
+			VertexArray& vao();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -89,7 +91,7 @@ namespace galaxy
 			///
 			VertexBatch& operator=(const VertexBatch&) = delete;
 
-		  private:
+		private:
 			///
 			/// Vertex data.
 			///

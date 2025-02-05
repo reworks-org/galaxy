@@ -24,7 +24,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -60,7 +60,8 @@ namespace galaxy
 			///
 			/// \return True if only text input is being registered.
 			///
-			[[nodiscard]] bool is_text_input_enabled() const;
+			[[nodiscard]]
+			bool is_text_input_enabled() const;
 
 			///
 			/// Get key scancode.
@@ -69,7 +70,8 @@ namespace galaxy
 			///
 			/// \return Platform-specific scancode of a key.
 			///
-			[[nodiscard]] int get_scancode(const input::Keys key) const;
+			[[nodiscard]]
+			int get_scancode(const input::Keys key) const;
 
 			///
 			/// Get key name.
@@ -78,7 +80,8 @@ namespace galaxy
 			///
 			/// \return Name of key, empty if error occurs.
 			///
-			[[nodiscard]] std::string get_key_name(const input::Keys key) const;
+			[[nodiscard]]
+			std::string get_key_name(const input::Keys key) const;
 
 			///
 			/// Get key name.
@@ -87,9 +90,10 @@ namespace galaxy
 			///
 			/// \return Name of scancode, empty if error occurs.
 			///
-			[[nodiscard]] std::string get_scancode_name(const int scancode) const;
+			[[nodiscard]]
+			std::string get_scancode_name(const int scancode) const;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -115,7 +119,7 @@ namespace galaxy
 			///
 			Keyboard& operator=(const Keyboard&) = delete;
 
-		  private:
+		private:
 			///
 			/// Flag to keep track of text input state.
 			///

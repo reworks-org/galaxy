@@ -45,7 +45,8 @@ namespace galaxy
 				sol::meta_function::equal_to,
 				[](const glm::vec2& a, const glm::vec2& b) {
 					return a == b;
-				});
+				}
+			);
 
 			vec2_type["x"] = &glm::vec2::x;
 			vec2_type["y"] = &glm::vec2::y;
@@ -59,7 +60,8 @@ namespace galaxy
 				},
 				[](float f, const glm::vec3& v1) -> glm::vec3 {
 					return f * v1;
-				});
+				}
+			);
 
 			auto dvec2_type = lua.new_usertype<glm::dvec2>(
 				"dvec2",
@@ -83,7 +85,8 @@ namespace galaxy
 				sol::meta_function::equal_to,
 				[](const glm::dvec2& a, const glm::dvec2& b) {
 					return a == b;
-				});
+				}
+			);
 
 			dvec2_type["x"] = &glm::dvec2::x;
 			dvec2_type["y"] = &glm::dvec2::y;
@@ -112,7 +115,8 @@ namespace galaxy
 				sol::meta_function::equal_to,
 				[](const glm::vec3& a, const glm::vec3& b) {
 					return a == b;
-				});
+				}
+			);
 
 			vec3_type["x"] = &glm::vec3::x;
 			vec3_type["y"] = &glm::vec3::y;
@@ -139,7 +143,8 @@ namespace galaxy
 					},
 					[](float f, const glm::vec4& v1) -> glm::vec4 {
 						return f * v1;
-					}),
+					}
+				),
 				sol::meta_function::multiplication,
 				[](float a, const glm::vec4& b) {
 					return a * b;
@@ -155,19 +160,22 @@ namespace galaxy
 				sol::meta_function::equal_to,
 				[](const glm::vec4& a, const glm::vec4& b) {
 					return a == b;
-				});
+				}
+			);
 
 			vec4_type["x"] = &glm::vec4::x;
 			vec4_type["y"] = &glm::vec4::y;
 			vec4_type["z"] = &glm::vec4::z;
 			vec4_type["w"] = &glm::vec4::w;
 
-			auto mat3_type = lua.new_usertype<glm::mat3>("mat3",
+			auto mat3_type = lua.new_usertype<glm::mat3>(
+				"mat3",
 				sol::constructors<glm::mat3(), glm::mat3(float, float, float, float, float, float, float, float, float)>(),
 				sol::meta_function::multiplication,
 				[](const glm::mat3& a, const glm::mat3& b) {
 					return a * b;
-				});
+				}
+			);
 
 			auto mat4_type = lua.new_usertype<glm::mat4>(
 				"mat4",
@@ -183,7 +191,8 @@ namespace galaxy
 				sol::meta_function::subtraction,
 				[](const glm::mat4& a, const glm::mat4& b) {
 					return a - b;
-				});
+				}
+			);
 
 			mat3_type["length"] = &glm::mat3::length;
 			mat4_type["length"] = &glm::mat4::length;

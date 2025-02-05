@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class Colour final
 		{
-		  public:
+		public:
 			///
 			/// Opaque colour.
 			///
@@ -36,7 +36,7 @@ namespace galaxy
 			///
 			inline static const constexpr std::uint8_t TRANSPARENT = 0;
 
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -151,35 +151,40 @@ namespace galaxy
 			///
 			/// \return Integers 0 - 255.
 			///
-			[[nodiscard]] std::array<std::uint8_t, 4>& array();
+			[[nodiscard]]
+			std::array<std::uint8_t, 4>& array();
 
 			///
 			/// Get vec4.
 			///
 			/// \return Floats 0 - 1.
 			///
-			[[nodiscard]] glm::vec4& vec4();
+			[[nodiscard]]
+			glm::vec4& vec4();
 
 			///
 			/// Get const integer array.
 			///
 			/// \return Integers 0 - 255.
 			///
-			[[nodiscard]] const std::array<std::uint8_t, 4>& array() const;
+			[[nodiscard]]
+			const std::array<std::uint8_t, 4>& array() const;
 
 			///
 			/// Get const vec4.
 			///
 			/// \return Floats 0 - 1.
 			///
-			[[nodiscard]] const glm::vec4& vec4() const;
+			[[nodiscard]]
+			const glm::vec4& vec4() const;
 
 			///
 			/// Comparison operator.
 			///
-			[[nodiscard]] auto operator<=>(const Colour&) const = default;
+			[[nodiscard]]
+			auto operator<=>(const Colour&) const = default;
 
-		  private:
+		private:
 			///
 			/// r,g,b,a = 0,1,2,3.
 			///

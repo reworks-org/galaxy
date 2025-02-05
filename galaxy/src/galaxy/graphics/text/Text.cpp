@@ -113,7 +113,8 @@ namespace galaxy
 				while (end != std::string::npos)
 				{
 					const auto block = m_text.substr(start, end);
-					msdfgl_printf(0,
+					msdfgl_printf(
+						0,
 						y_off,
 						static_cast<int>(m_alignment),
 						m_font->handle(),
@@ -121,7 +122,8 @@ namespace galaxy
 						0xffffffff,
 						glm::value_ptr(proj),
 						static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
-						block.c_str());
+						block.c_str()
+					);
 
 					y_off += m_font->vertical_advance(m_size);
 					start  = end + 1;
@@ -130,7 +132,8 @@ namespace galaxy
 
 				const auto last_block = m_text.substr(start, end);
 
-				msdfgl_printf(0,
+				msdfgl_printf(
+					0,
 					y_off,
 					static_cast<int>(m_alignment),
 					m_font->handle(),
@@ -138,7 +141,8 @@ namespace galaxy
 					0xffffffff,
 					glm::value_ptr(proj),
 					static_cast<msdfgl_printf_flags>(MSDFGL_UTF8 | MSDFGL_KERNING),
-					last_block.c_str());
+					last_block.c_str()
+				);
 
 				m_rt.unbind();
 

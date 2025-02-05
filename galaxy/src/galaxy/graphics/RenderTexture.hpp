@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class RenderTexture final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -93,7 +93,8 @@ namespace galaxy
 			///
 			/// \return Width as int.
 			///
-			[[nodiscard]] int width() const;
+			[[nodiscard]]
+			int width() const;
 
 			///
 			/// \brief Get texture height.
@@ -102,30 +103,34 @@ namespace galaxy
 			///
 			/// \return Height as int.
 			///
-			[[nodiscard]] int height() const;
+			[[nodiscard]]
+			int height() const;
 
 			///
 			/// Gets framebuffer texture.
 			///
 			/// \return Texture ID.
 			///
-			[[nodiscard]] unsigned int texture() const;
+			[[nodiscard]]
+			unsigned int texture() const;
 
 			///
 			/// Get render texture projection.
 			///
 			/// \return Const reference to framebuffer viewport projection.
 			///
-			[[nodiscard]] const glm::mat4& get_proj();
+			[[nodiscard]]
+			const glm::mat4& get_proj();
 
 			///
 			/// Get framebuffer.
 			///
 			/// \return Reference to framebuffer.
 			///
-			[[nodiscard]] Framebuffer& fbo();
+			[[nodiscard]]
+			Framebuffer& fbo();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -136,7 +141,7 @@ namespace galaxy
 			///
 			RenderTexture& operator=(const RenderTexture&) = delete;
 
-		  private:
+		private:
 			///
 			/// Cached width.
 			///

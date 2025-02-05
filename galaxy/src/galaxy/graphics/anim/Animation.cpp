@@ -92,7 +92,7 @@ namespace galaxy
 				Frame frame {
 					.m_bounds   = {obj.at("x"), obj.at("y"), obj.at("width"), obj.at("height")},
 					.m_duration = obj.at("duration")
-                };
+				};
 
 				m_frames.emplace_back(frame);
 			}

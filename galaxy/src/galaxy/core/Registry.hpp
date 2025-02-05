@@ -40,7 +40,7 @@ namespace galaxy
 			///
 			using B2BodyConstruction = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
 
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -66,7 +66,8 @@ namespace galaxy
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]] entt::entity create();
+			[[maybe_unused]]
+			entt::entity create();
 
 			///
 			/// Create an entity from a prefab.
@@ -75,7 +76,8 @@ namespace galaxy
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]] entt::entity create_from_prefab(const std::string& name);
+			[[maybe_unused]]
+			entt::entity create_from_prefab(const std::string& name);
 
 			///
 			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
@@ -84,7 +86,8 @@ namespace galaxy
 			///
 			/// \return True if entity is valid.
 			///
-			[[nodiscard]] bool is_valid(const entt::entity entity);
+			[[nodiscard]]
+			bool is_valid(const entt::entity entity);
 
 			///
 			/// \brief Updates pending component data.
@@ -100,7 +103,7 @@ namespace galaxy
 			///
 			void clear();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -175,13 +178,13 @@ namespace galaxy
 			///
 			void disable_entity(entt::registry& registry, entt::entity entity);
 
-		  public:
+		public:
 			///
 			/// Scene entities.
 			///
 			entt::registry m_entt;
 
-		  private:
+		private:
 			///
 			/// List of rigid bodies that need to be constructed.
 			///

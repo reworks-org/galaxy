@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Font final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -51,7 +51,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool load(const std::string& file);
+			[[nodiscard]]
+			bool load(const std::string& file);
 
 			///
 			/// Loads the font and sets up characters.
@@ -61,7 +62,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool load(unsigned char* buffer, const unsigned int size);
+			[[nodiscard]]
+			bool load(unsigned char* buffer, const unsigned int size);
 
 			///
 			/// \brief Build the font atlas.
@@ -77,7 +79,8 @@ namespace galaxy
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float vertical_advance(const float size) const;
+			[[nodiscard]]
+			float vertical_advance(const float size) const;
 
 			///
 			/// \brief Query text size with font.
@@ -89,16 +92,18 @@ namespace galaxy
 			///
 			/// \return Vector 2 of dimensions of text.
 			///
-			[[nodiscard]] glm::vec2 get_text_size(const std::string& text, const float size);
+			[[nodiscard]]
+			glm::vec2 get_text_size(const std::string& text, const float size);
 
 			///
 			/// Get handle to internal font object.
 			///
 			/// \return msdfgl_font_t pointer.
 			///
-			[[nodiscard]] msdfgl_font_t handle();
+			[[nodiscard]]
+			msdfgl_font_t handle();
 
-		  private:
+		private:
 			///
 			/// Font object.
 			///

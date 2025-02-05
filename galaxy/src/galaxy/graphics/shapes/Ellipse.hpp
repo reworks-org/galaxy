@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Ellipse final : public Shape
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -53,16 +53,18 @@ namespace galaxy
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] float fragments() const;
+			[[nodiscard]]
+			float fragments() const;
 
 			///
 			/// Get radii.
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& radii() const;
+			[[nodiscard]]
+			const glm::vec2& radii() const;
 
-		  private:
+		private:
 			///
 			/// Number of points used to create shape.
 			///

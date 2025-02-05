@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class CameraController final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -48,13 +48,13 @@ namespace galaxy
 			///
 			void on_mouse_wheel(events::MouseWheel& e);
 
-		  private:
+		private:
 			///
 			/// Deleted constructor.
 			///
 			CameraController();
 
-		  public:
+		public:
 			///
 			/// Camera object being manipulated.
 			///

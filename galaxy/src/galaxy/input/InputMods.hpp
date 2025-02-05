@@ -64,7 +64,8 @@ namespace galaxy
 		///
 		/// \return Enum keymod.
 		///
-		[[nodiscard]] inline constexpr input::InputMods int_to_mod(const int mod)
+		[[nodiscard]]
+		inline constexpr input::InputMods int_to_mod(const int mod)
 		{
 			return static_cast<input::InputMods>(mod);
 		}
@@ -76,7 +77,8 @@ namespace galaxy
 		///
 		/// \return Integer keymod.
 		///
-		[[nodiscard]] inline constexpr int mod_to_int(const input::InputMods mod)
+		[[nodiscard]]
+		inline constexpr int mod_to_int(const input::InputMods mod)
 		{
 			return static_cast<int>(mod);
 		}

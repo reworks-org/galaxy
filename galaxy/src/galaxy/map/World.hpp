@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class World final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -45,7 +45,8 @@ namespace galaxy
 			///
 			/// \param file World in VFS.
 			///
-			[[nodiscard]] bool load(const std::string& file);
+			[[nodiscard]]
+			bool load(const std::string& file);
 
 			///
 			/// Parse world and create entities.
@@ -69,37 +70,42 @@ namespace galaxy
 			///
 			/// \return Pointer to active map.
 			///
-			[[nodiscard]] map::Map* get_active() const;
+			[[nodiscard]]
+			map::Map* get_active() const;
 
 			///
 			/// Get world name.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& name() const;
+			[[nodiscard]]
+			const std::string& name() const;
 
 			///
 			/// Get file.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& file() const;
+			[[nodiscard]]
+			const std::string& file() const;
 
 			///
 			/// Check if load() was called.
 			///
 			/// \return True if loaded.
 			///
-			[[nodiscard]] bool loaded() const;
+			[[nodiscard]]
+			bool loaded() const;
 
 			///
 			/// Get maps.
 			///
 			/// \return Map of maps.
 			///
-			[[nodiscard]] ankerl::unordered_dense::map<std::string, map::Map>& maps();
+			[[nodiscard]]
+			ankerl::unordered_dense::map<std::string, map::Map>& maps();
 
-		  private:
+		private:
 			///
 			/// File.
 			///

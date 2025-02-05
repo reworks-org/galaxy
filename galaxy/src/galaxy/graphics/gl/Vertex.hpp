@@ -62,7 +62,8 @@ namespace galaxy
 		/// \return OpenGL shader compatible texel.
 		///
 		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline float map_x_texel(const Type x, const float width)
+		[[nodiscard]]
+		inline float map_x_texel(const Type x, const float width)
 		{
 			return static_cast<float>(x) / width;
 		}
@@ -78,7 +79,8 @@ namespace galaxy
 		/// \return OpenGL shader compatible texel.
 		///
 		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline float map_y_texel(const Type y, const float height)
+		[[nodiscard]]
+		inline float map_y_texel(const Type y, const float height)
 		{
 			return static_cast<float>(y) / height;
 		}

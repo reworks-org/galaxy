@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Texture2D final : public Texture
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -47,7 +47,8 @@ namespace galaxy
 			///
 			/// \return True if texture loaded successfully.
 			///
-			[[nodiscard]] bool load(const std::string& file);
+			[[nodiscard]]
+			bool load(const std::string& file);
 
 			///
 			/// \brief Loads texture from memory.
@@ -58,7 +59,8 @@ namespace galaxy
 			///
 			/// \return True if texture loaded successfully.
 			///
-			[[nodiscard]] bool load_mem(std::span<std::uint8_t> buffer);
+			[[nodiscard]]
+			bool load_mem(std::span<std::uint8_t> buffer);
 
 			///
 			/// Saves texture to file on disk.

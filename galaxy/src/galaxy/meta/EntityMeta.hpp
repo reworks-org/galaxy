@@ -40,13 +40,12 @@ namespace galaxy
 				nlohmann::json json;
 			};
 
-			using Validations = ankerl::unordered_dense::map<entt::id_type, std::move_only_function<bool(const entt::entity, entt::registry&)>>;
-			using ComponentJSONFactory =
-				ankerl::unordered_dense::map<std::string, std::move_only_function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
-			using AnyJSONFactory   = ankerl::unordered_dense::map<std::string, std::move_only_function<entt::any(const nlohmann::json&)>>;
-			using SerializeFactory = ankerl::unordered_dense::map<std::string, std::move_only_function<EntityMeta::SerializationData(void*)>>;
+			using Validations          = ankerl::unordered_dense::map<entt::id_type, std::move_only_function<bool(const entt::entity, entt::registry&)>>;
+			using ComponentJSONFactory = ankerl::unordered_dense::map<std::string, std::move_only_function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
+			using AnyJSONFactory       = ankerl::unordered_dense::map<std::string, std::move_only_function<entt::any(const nlohmann::json&)>>;
+			using SerializeFactory     = ankerl::unordered_dense::map<std::string, std::move_only_function<EntityMeta::SerializationData(void*)>>;
 
-		  public:
+		public:
 			///
 			/// Defines a dependency validation for components.
 			///
@@ -84,7 +83,8 @@ namespace galaxy
 			///
 			/// \return Newly constructed entt::any.
 			///
-			[[nodiscard]] entt::any any_from_json(const std::string& type, const nlohmann::json& json);
+			[[nodiscard]]
+			entt::any any_from_json(const std::string& type, const nlohmann::json& json);
 
 			///
 			/// Serialise a single entity.
@@ -94,7 +94,8 @@ namespace galaxy
 			///
 			/// \return JSON entity data.
 			///
-			[[nodiscard]] nlohmann::json serialize_entity(const entt::entity entity, entt::registry& registry);
+			[[nodiscard]]
+			nlohmann::json serialize_entity(const entt::entity entity, entt::registry& registry);
 
 			///
 			/// \brief Create an entity from a JSON object.
@@ -106,7 +107,8 @@ namespace galaxy
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]] entt::entity deserialize_entity(const nlohmann::json& json, entt::registry& registry);
+			[[maybe_unused]]
+			entt::entity deserialize_entity(const nlohmann::json& json, entt::registry& registry);
 
 			///
 			/// Get a string representation of an entity type id.
@@ -115,7 +117,8 @@ namespace galaxy
 			///
 			/// \return String name of component.
 			///
-			[[nodiscard]] const std::string& get_type(const entt::id_type id);
+			[[nodiscard]]
+			const std::string& get_type(const entt::id_type id);
 
 			///
 			/// Get an entity type id from a string.
@@ -124,23 +127,26 @@ namespace galaxy
 			///
 			/// \return Entt meta type id of a component.
 			///
-			[[nodiscard]] entt::id_type get_typeid(const std::string& name);
+			[[nodiscard]]
+			entt::id_type get_typeid(const std::string& name);
 
 			///
 			/// Get a list of configurations.
 			///
 			/// \return Reference to validations map.
 			///
-			[[nodiscard]] Validations& get_validations();
+			[[nodiscard]]
+			Validations& get_validations();
 
 			///
 			/// Get a list of validations to run.
 			///
 			/// \return Const reference to list of validations to run.
 			///
-			[[nodiscard]] const meta::vector<entt::id_type>& get_validation_list() const;
+			[[nodiscard]]
+			const meta::vector<entt::id_type>& get_validation_list() const;
 
-		  private:
+		private:
 			///
 			/// Maps an entt type id to a string.
 			///

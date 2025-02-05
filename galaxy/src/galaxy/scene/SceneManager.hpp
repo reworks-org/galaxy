@@ -25,7 +25,7 @@ namespace galaxy
 			using Map             = ankerl::unordered_dense::map<std::uint64_t, std::unique_ptr<Scene>>;
 			using SystemContainer = meta::vector<std::unique_ptr<systems::System>>;
 
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -43,7 +43,8 @@ namespace galaxy
 			///
 			/// \return Pointer to added scene.
 			///
-			[[maybe_unused]] Scene* add(const std::string& name);
+			[[maybe_unused]]
+			Scene* add(const std::string& name);
 
 			///
 			/// Add a custom scene.
@@ -53,7 +54,8 @@ namespace galaxy
 			/// \param name Scene name to assign.
 			///
 			template<std::derived_from<Scene> Custom>
-			[[maybe_unused]] Custom* add_custom(const std::string& name);
+			[[maybe_unused]]
+			Custom* add_custom(const std::string& name);
 
 			///
 			/// Get a specific scene.
@@ -62,7 +64,8 @@ namespace galaxy
 			///
 			/// \return Reference to requested scene.
 			///
-			[[nodiscard]] Scene* get(const std::string& name);
+			[[nodiscard]]
+			Scene* get(const std::string& name);
 
 			///
 			/// \brief Remove a specific scene.
@@ -80,7 +83,8 @@ namespace galaxy
 			///
 			/// \return True if exists.
 			///
-			[[nodiscard]] bool has(const std::string& name);
+			[[nodiscard]]
+			bool has(const std::string& name);
 
 			///
 			/// Scene to set to currently active.
@@ -143,28 +147,32 @@ namespace galaxy
 			///
 			/// \return Pointer to current scene, nullptr if no scene.
 			///
-			[[nodiscard]] scene::Scene* current() const;
+			[[nodiscard]]
+			scene::Scene* current() const;
 
 			///
 			/// Get all scenes.
 			///
 			/// \return Reference to scene object.
 			///
-			[[nodiscard]] const Map& map() const;
+			[[nodiscard]]
+			const Map& map() const;
 
 			///
 			/// Are there any scenes.
 			///
 			/// \return True if no scenes.
 			///
-			[[nodiscard]] bool empty() const;
+			[[nodiscard]]
+			bool empty() const;
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -173,7 +181,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Scene map.
 			///

@@ -31,7 +31,7 @@ namespace galaxy
 		{
 			using CacheType = ankerl::unordered_dense::map<std::uint64_t, std::unique_ptr<Resource>>;
 
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -99,7 +99,8 @@ namespace galaxy
 			///
 			/// \return Returns a shared pointer to the resource.
 			///
-			[[nodiscard]] inline Resource* get(std::string_view id)
+			[[nodiscard]]
+			inline Resource* get(std::string_view id)
 			{
 				const auto hashed = hash(id);
 
@@ -126,7 +127,8 @@ namespace galaxy
 			///
 			/// \return True if resource was found.
 			///
-			[[nodiscard]] inline bool has(std::string_view id)
+			[[nodiscard]]
+			inline bool has(std::string_view id)
 			{
 				return m_cache.contains(hash(id));
 			}
@@ -136,7 +138,8 @@ namespace galaxy
 			///
 			/// \return True if empty, false otherwise.
 			///
-			[[nodiscard]] inline bool empty() const
+			[[nodiscard]]
+			inline bool empty() const
 			{
 				return size() == 0;
 			}
@@ -144,7 +147,8 @@ namespace galaxy
 			///
 			/// Get amount of resources cached.
 			///
-			[[nodiscard]] inline std::size_t size() const
+			[[nodiscard]]
+			inline std::size_t size() const
 			{
 				return m_cache.size();
 			}
@@ -154,7 +158,8 @@ namespace galaxy
 			///
 			/// \return Const reference to the resource cache.
 			///
-			[[nodiscard]] inline const CacheType& cache() const
+			[[nodiscard]]
+			inline const CacheType& cache() const
 			{
 				return m_cache;
 			}
@@ -164,12 +169,13 @@ namespace galaxy
 			///
 			/// \return A vector of char pointers.
 			///
-			[[nodiscard]] inline const meta::vector<std::string>& keys()
+			[[nodiscard]]
+			inline const meta::vector<std::string>& keys()
 			{
 				return m_keys;
 			}
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -199,7 +205,7 @@ namespace galaxy
 				return hash;
 			}
 
-		  private:
+		private:
 			///
 			/// Used to load a resource into the cache. Allows for flexiblity.
 			///

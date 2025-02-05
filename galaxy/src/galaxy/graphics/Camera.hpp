@@ -28,7 +28,7 @@ namespace galaxy
 		{
 			friend class input::CameraController;
 
-		  public:
+		public:
 			///
 			/// Camera data.
 			///
@@ -112,35 +112,40 @@ namespace galaxy
 			///
 			/// \return glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_viewport() const;
+			[[nodiscard]]
+			const glm::vec2& get_viewport() const;
 
 			///
 			/// Retrieve internal transformation matrix.
 			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_model_view();
+			[[nodiscard]]
+			const glm::mat4& get_model_view();
 
 			///
 			/// Get the Camera projection.
 			///
 			/// \return Const glm::mat4 reference.
 			///
-			[[nodiscard]] const glm::mat4& get_proj();
+			[[nodiscard]]
+			const glm::mat4& get_proj();
 
 			///
 			/// Get camera view and proj.
 			///
 			/// \return Reference to camera data.
 			///
-			[[nodiscard]] Data& get_data();
+			[[nodiscard]]
+			Data& get_data();
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -149,7 +154,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Set camera projection.
 			///
@@ -165,7 +170,7 @@ namespace galaxy
 			///
 			void recalculate();
 
-		  public:
+		public:
 			///
 			/// Allow camera to rotate.
 			///
@@ -181,7 +186,7 @@ namespace galaxy
 			///
 			float m_rotation_speed;
 
-		  private:
+		private:
 			///
 			/// Camera data.
 			///

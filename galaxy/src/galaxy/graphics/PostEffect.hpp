@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class PostEffect
 		{
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -40,16 +40,18 @@ namespace galaxy
 			///
 			/// \return Returns output texture for next effect or final framebuffer.
 			///
-			[[nodiscard]] virtual unsigned int render(const unsigned int input) = 0;
+			[[nodiscard]]
+			virtual unsigned int render(const unsigned int input) = 0;
 
 			///
 			/// Is this effect enabled?
 			///
 			/// \return True if effect is enabled. Otherwise false.
 			///
-			[[nodiscard]] virtual bool is_enabled() = 0;
+			[[nodiscard]]
+			virtual bool is_enabled() = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///

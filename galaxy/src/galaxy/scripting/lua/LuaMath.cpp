@@ -47,8 +47,7 @@ namespace galaxy
 			});
 			// clang-format on
 
-			auto frect_type =
-				lua.new_usertype<math::fRect>("Rect", sol::constructors<math::fRect(), math::fRect(const float, const float, const float, const float)>());
+			auto frect_type      = lua.new_usertype<math::fRect>("Rect", sol::constructors<math::fRect(), math::fRect(const float, const float, const float, const float)>());
 			frect_type["x"]      = &math::fRect::x;
 			frect_type["y"]      = &math::fRect::y;
 			frect_type["width"]  = &math::fRect::width;

@@ -26,9 +26,8 @@ namespace galaxy
 			{
 				graphics::RenderCommand cmd;
 
-				if constexpr ((std::is_same_v<GC, components::Circle>) || (std::is_same_v<GC, components::Ellipse>) ||
-							  (std::is_same_v<GC, components::Point>) || (std::is_same_v<GC, components::Polygon>) ||
-							  (std::is_same_v<GC, components::Polyline>))
+				if constexpr ((std::is_same_v<GC, components::Circle>) || (std::is_same_v<GC, components::Ellipse>) || (std::is_same_v<GC, components::Point>) ||
+							  (std::is_same_v<GC, components::Polygon>) || (std::is_same_v<GC, components::Polyline>))
 				{
 					graphics::Shape* shape = &gc.m_shape;
 
@@ -105,7 +104,8 @@ namespace galaxy
 
 		void RenderSystem::update(entt::registry& registry)
 		{
-			handle_renderables<components::Circle,
+			handle_renderables<
+				components::Circle,
 				components::Ellipse,
 				components::Point,
 				components::Polygon,

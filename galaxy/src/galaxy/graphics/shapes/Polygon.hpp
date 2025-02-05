@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class Polygon final : public Shape
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -53,9 +53,10 @@ namespace galaxy
 			///
 			/// \return List of points making up shape.
 			///
-			[[nodiscard]] const meta::vector<glm::vec2>& points() const;
+			[[nodiscard]]
+			const meta::vector<glm::vec2>& points() const;
 
-		  private:
+		private:
 			///
 			/// List of points.
 			///

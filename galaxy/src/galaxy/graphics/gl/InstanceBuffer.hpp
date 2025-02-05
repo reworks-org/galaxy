@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class InstanceBuffer final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -67,16 +67,18 @@ namespace galaxy
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int amount() const;
+			[[nodiscard]]
+			int amount() const;
 
 			///
 			/// Get OpenGL handle.
 			///
 			/// \return Unsigned integer.
 			///
-			[[nodiscard]] unsigned int id() const;
+			[[nodiscard]]
+			unsigned int id() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -86,7 +88,7 @@ namespace galaxy
 			///
 			InstanceBuffer& operator=(const InstanceBuffer&) = delete;
 
-		  private:
+		private:
 			///
 			/// ID returned by OpenGL when generating buffer.
 			///

@@ -21,10 +21,12 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			lua.new_usertype<flags::DenySerialization>("DenySerialization",
+			lua.new_usertype<flags::DenySerialization>(
+				"DenySerialization",
 				sol::constructors<flags::DenySerialization()>(),
 				"type_id",
-				&entt::type_hash<flags::DenySerialization>::value);
+				&entt::type_hash<flags::DenySerialization>::value
+			);
 
 			lua.new_usertype<flags::Disabled>("Disabled", sol::constructors<flags::Disabled()>(), "type_id", &entt::type_hash<flags::Disabled>::value);
 

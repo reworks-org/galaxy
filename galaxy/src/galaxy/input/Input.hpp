@@ -28,7 +28,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		  public:
+		public:
 			///
 			/// \brief See if a key is being held down.
 			///
@@ -38,7 +38,8 @@ namespace galaxy
 			///
 			/// \return True if key is currently down.
 			///
-			[[nodiscard]] static bool key_down(input::Keys key);
+			[[nodiscard]]
+			static bool key_down(input::Keys key);
 
 			///
 			/// Check if a mouse button was pressed.
@@ -47,16 +48,18 @@ namespace galaxy
 			///
 			/// \return True if button was pressed.
 			///
-			[[nodiscard]] static bool mouse_button_down(input::MouseButtons button);
+			[[nodiscard]]
+			static bool mouse_button_down(input::MouseButtons button);
 
 			///
 			/// Get current cursor position.
 			///
 			/// \return Returns position as a const vec2 reference.
 			///
-			[[nodiscard]] static const glm::dvec2& get_cursor_pos();
+			[[nodiscard]]
+			static const glm::dvec2& get_cursor_pos();
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -82,7 +85,7 @@ namespace galaxy
 			///
 			Input& operator=(const Input&) = delete;
 
-		  private:
+		private:
 			///
 			/// Static cursor pos cache.
 			///

@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Circle final : public Shape
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -53,16 +53,18 @@ namespace galaxy
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] float fragments() const;
+			[[nodiscard]]
+			float fragments() const;
 
 			///
 			/// Get radius.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] float radius() const;
+			[[nodiscard]]
+			float radius() const;
 
-		  private:
+		private:
 			///
 			/// Points making up circumference.
 			///

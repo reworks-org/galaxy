@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Sharpen final : public PostEffect
 		{
-		  public:
+		public:
 			///
 			/// Argument constructor.
 			///
@@ -52,7 +52,8 @@ namespace galaxy
 			///
 			/// \return Returns output texture for next effect or final framebuffer.
 			///
-			[[nodiscard]] unsigned int render(const unsigned int input) override;
+			[[nodiscard]]
+			unsigned int render(const unsigned int input) override;
 
 			///
 			/// Set sharpening amount.
@@ -66,22 +67,24 @@ namespace galaxy
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_amount() const;
+			[[nodiscard]]
+			float get_amount() const;
 
 			///
 			/// Is this effect enabled?
 			///
 			/// \return True if effect is enabled. Otherwise false.
 			///
-			[[nodiscard]] bool is_enabled() override;
+			[[nodiscard]]
+			bool is_enabled() override;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
 			Sharpen() = delete;
 
-		  private:
+		private:
 			///
 			/// Shader for post processing effect.
 			///

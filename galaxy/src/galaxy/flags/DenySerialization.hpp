@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		class DenySerialization final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -40,7 +40,7 @@ namespace galaxy
 			///
 			virtual ~DenySerialization();
 
-		  private:
+		private:
 			///
 			/// Copy assignment operator.
 			///

@@ -26,8 +26,7 @@ namespace galaxy
 		{
 			auto& lua = core::ServiceLocator<sol::state>::ref();
 
-			auto camera_controller =
-				lua.new_usertype<input::CameraController>("CameraController", sol::constructors<input::CameraController(graphics::Camera&)>());
+			auto camera_controller      = lua.new_usertype<input::CameraController>("CameraController", sol::constructors<input::CameraController(graphics::Camera&)>());
 			camera_controller["camera"] = &input::CameraController::m_camera;
 
 			auto clipboard_type   = lua.new_usertype<input::Clipboard>("Clipboard", sol::no_constructor);

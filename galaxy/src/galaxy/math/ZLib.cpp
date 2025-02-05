@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/logging/Log.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
 #include "ZLib.hpp"

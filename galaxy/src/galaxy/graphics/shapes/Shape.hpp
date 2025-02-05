@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class Shape
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -46,7 +46,8 @@ namespace galaxy
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int mode() const;
+			[[nodiscard]]
+			unsigned int mode() const;
 
 			///
 			/// \brief Get texture width.
@@ -55,7 +56,8 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float width() const;
+			[[nodiscard]]
+			float width() const;
 
 			///
 			/// \brief Get texture height.
@@ -64,22 +66,24 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float height() const;
+			[[nodiscard]]
+			float height() const;
 
 			///
 			/// Get vertex array object.
 			///
 			/// \return Const reference to VAO.
 			///
-			[[nodiscard]] VertexArray& vao();
+			[[nodiscard]]
+			VertexArray& vao();
 
-		  public:
+		public:
 			///
 			/// Used by all primitives.
 			///
 			Colour m_colour;
 
-		  protected:
+		protected:
 			///
 			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
 			///

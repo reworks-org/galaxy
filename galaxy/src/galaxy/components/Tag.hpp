@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Tag final : public fs::Serializable
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -59,7 +59,8 @@ namespace galaxy
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -68,7 +69,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Copy assignment operator.
 			///
@@ -79,7 +80,7 @@ namespace galaxy
 			///
 			Tag(const Tag&) = delete;
 
-		  public:
+		public:
 			///
 			/// Tag.
 			///

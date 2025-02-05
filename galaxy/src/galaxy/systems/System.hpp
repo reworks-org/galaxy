@@ -22,7 +22,7 @@ namespace galaxy
 		///
 		class System
 		{
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -35,7 +35,7 @@ namespace galaxy
 			///
 			virtual void update(entt::registry& registry) = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///

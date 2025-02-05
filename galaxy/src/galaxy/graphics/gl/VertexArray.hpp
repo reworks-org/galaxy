@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class VertexArray final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -87,37 +87,42 @@ namespace galaxy
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int count() const;
+			[[nodiscard]]
+			int count() const;
 
 			///
 			/// Gets index offset.
 			///
 			/// \return Integer as void pointer for opengl shenanigans.
 			///
-			[[nodiscard]] void* offset();
+			[[nodiscard]]
+			void* offset();
 
 			///
 			/// Number of instances to render.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int instances() const;
+			[[nodiscard]]
+			int instances() const;
 
 			///
 			/// Get vertex buffer.
 			///
 			/// \return Reference to vertex buffer object.
 			///
-			[[nodiscard]] VertexBuffer& vbo();
+			[[nodiscard]]
+			VertexBuffer& vbo();
 
 			///
 			/// Get vertex array handle.
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int id() const;
+			[[nodiscard]]
+			unsigned int id() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -128,7 +133,7 @@ namespace galaxy
 			///
 			VertexArray& operator=(const VertexArray&) = delete;
 
-		  private:
+		private:
 			///
 			/// VAO object.
 			///

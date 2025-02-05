@@ -74,7 +74,7 @@ namespace galaxy
 		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept is_bitset_flag = requires (Type type) { Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value; };
+		concept is_bitset_flag = requires(Type type) { Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value; };
 
 		///
 		/// \brief Makes sure a type is a valid component.
@@ -93,7 +93,7 @@ namespace galaxy
 		/// \tparam Resource The resource being loaded.
 		///
 		template<typename Loader, typename Resource>
-		concept is_loader = requires (Loader loader) { loader.operator() && std::is_class<Loader>::value; };
+		concept is_loader = requires(Loader loader) { loader.operator() && std::is_class<Loader>::value; };
 	} // namespace meta
 } // namespace galaxy
 

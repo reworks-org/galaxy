@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "galaxy/meta/Memory.hpp"
+#include "galaxy/utils/Concepts.hpp"
 
 namespace galaxy
 {
@@ -27,8 +27,9 @@ namespace galaxy
 		///
 		/// \return Normalized float.
 		///
-		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline float normalize(const Type val, const Type max)
+		template<utils::is_arithmetic Type>
+		[[nodiscard]]
+		inline float normalize(const Type val, const Type max) noexcept
 		{
 			return (static_cast<float>(val) / static_cast<float>(max));
 		}
@@ -44,7 +45,8 @@ namespace galaxy
 		/// \return True if found.
 		///
 		template<typename Type>
-		[[nodiscard]] inline bool contains(const meta::vector<Type>& cont, const Type& val)
+		[[nodiscard]]
+		inline bool contains(const std::vector<Type>& cont, const Type& val) noexcept
 		{
 			auto out = false;
 			std::for_each(cont.begin(), cont.end(), [&](const Type& var) {

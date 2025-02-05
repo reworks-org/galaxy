@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Transform
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -121,37 +121,42 @@ namespace galaxy
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_pos() const;
+			[[nodiscard]]
+			const glm::vec2& get_pos() const;
 
 			///
 			/// Get stored rotation.
 			///
 			/// \return Float.
 			///
-			[[nodiscard]] float get_rotation() const;
+			[[nodiscard]]
+			float get_rotation() const;
 
 			///
 			/// Get stored scale.
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_scale() const;
+			[[nodiscard]]
+			const glm::vec2& get_scale() const;
 
 			///
 			/// Get origin point.
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& get_origin() const;
+			[[nodiscard]]
+			const glm::vec2& get_origin() const;
 
 			///
 			/// Retrieve internal transformation matrix.
 			///
 			/// \return glm::mat4 reference.
 			///
-			[[nodiscard]] glm::mat4& get_transform();
+			[[nodiscard]]
+			glm::mat4& get_transform();
 
-		  protected:
+		protected:
 			///
 			/// Cached for easy retrieval.
 			/// Pos.

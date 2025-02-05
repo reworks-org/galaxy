@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		class Map final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -57,9 +57,10 @@ namespace galaxy
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& name() const;
+			[[nodiscard]]
+			const std::string& name() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -95,13 +96,13 @@ namespace galaxy
 			///
 			void parse_tile_layer(const ldtk::Layer& layer, const int render_layer);
 
-		  public:
+		public:
 			///
 			/// Map entities.
 			///
 			core::Registry m_registry;
 
-		  private:
+		private:
 			///
 			/// Map name.
 			///

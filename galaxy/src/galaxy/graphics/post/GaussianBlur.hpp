@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class GaussianBlur final : public PostEffect
 		{
-		  public:
+		public:
 			///
 			/// Pixel sample strength.
 			///
@@ -73,7 +73,8 @@ namespace galaxy
 			///
 			/// \return Returns output texture for next effect or final framebuffer.
 			///
-			[[nodiscard]] unsigned int render(const unsigned int input) override;
+			[[nodiscard]]
+			unsigned int render(const unsigned int input) override;
 
 			///
 			/// Set gaussian blur strength.
@@ -87,15 +88,16 @@ namespace galaxy
 			///
 			/// \return True if effect is enabled. Otherwise false.
 			///
-			[[nodiscard]] bool is_enabled() override;
+			[[nodiscard]]
+			bool is_enabled() override;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
 			GaussianBlur() = delete;
 
-		  private:
+		private:
 			///
 			/// Shader for post processing effect.
 			///

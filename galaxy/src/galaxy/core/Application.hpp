@@ -35,7 +35,7 @@ namespace galaxy
 		///
 		class App final
 		{
-		  public:
+		public:
 			///
 			/// \brief Default constructor.
 			///
@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			void run();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///

@@ -23,13 +23,13 @@ namespace galaxy
 	{
 		class InputDevice
 		{
-		  public:
+		public:
 			///
 			/// Virtual destructor.
 			///
 			virtual ~InputDevice();
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///
@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			void set_window(GLFWwindow* window);
 
-		  protected:
+		protected:
 			///
 			/// Pointer to glfw window.
 			///

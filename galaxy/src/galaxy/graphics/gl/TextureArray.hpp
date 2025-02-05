@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class TextureArray final : public Texture
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -53,7 +53,8 @@ namespace galaxy
 			///
 			/// \return True if texture array created successfully.
 			///
-			[[nodiscard]] bool add(const std::string& file);
+			[[nodiscard]]
+			bool add(const std::string& file);
 
 			///
 			/// Creates the array texture.
@@ -71,7 +72,8 @@ namespace galaxy
 			///
 			/// \return True if texture loaded successfully.
 			///
-			[[nodiscard]] bool build_from_tileset(const std::string& file, const int tile_size);
+			[[nodiscard]]
+			bool build_from_tileset(const std::string& file, const int tile_size);
 
 			///
 			/// Activate context.
@@ -83,7 +85,7 @@ namespace galaxy
 			///
 			void unbind() override;
 
-		  private:
+		private:
 			///
 			/// Data from adding a file to the texture array.
 			/// Not kept after building.

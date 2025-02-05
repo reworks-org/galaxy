@@ -26,7 +26,7 @@ namespace galaxy
 		{
 			friend class core::Window;
 
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -93,7 +93,8 @@ namespace galaxy
 			///
 			/// \return True if cursor is within the content area of the window.
 			///
-			[[nodiscard]] bool within_window() const;
+			[[nodiscard]]
+			bool within_window() const;
 
 			///
 			/// \brief Clean up custom cursor.
@@ -102,7 +103,7 @@ namespace galaxy
 			///
 			void destroy();
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -133,7 +134,7 @@ namespace galaxy
 			///
 			void destroy_system_cursors();
 
-		  private:
+		private:
 			///
 			/// Custom user cursor.
 			///

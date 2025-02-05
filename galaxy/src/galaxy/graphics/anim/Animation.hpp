@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		class Animation final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -64,7 +64,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool load(const std::string& file);
+			[[nodiscard]]
+			bool load(const std::string& file);
 
 			///
 			/// Loads frames from json object.
@@ -100,30 +101,34 @@ namespace galaxy
 			///
 			/// \return Reference to active frame.
 			///
-			[[nodiscard]] Frame& current();
+			[[nodiscard]]
+			Frame& current();
 
 			///
 			/// Get total frames.
 			///
 			/// \return std::size_t.
 			///
-			[[nodiscard]] std::size_t total() const;
+			[[nodiscard]]
+			std::size_t total() const;
 
 			///
 			/// Get current frame index.
 			///
 			/// \return std::size_t.
 			///
-			[[nodiscard]] std::size_t index() const;
+			[[nodiscard]]
+			std::size_t index() const;
 
 			///
 			/// Get the frames.
 			///
 			/// \return Reference to frame list.
 			///
-			[[nodiscard]] meta::vector<Frame>& frames();
+			[[nodiscard]]
+			meta::vector<Frame>& frames();
 
-		  public:
+		public:
 			///
 			/// Speed of the animation.
 			/// Multiplier, so 1.0f is regular speed.
@@ -135,7 +140,7 @@ namespace galaxy
 			///
 			std::string m_name;
 
-		  private:
+		private:
 			///
 			/// Index of the current active frame.
 			///

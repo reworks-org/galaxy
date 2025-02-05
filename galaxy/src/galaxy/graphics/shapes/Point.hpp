@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Point final : public Shape
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -52,9 +52,10 @@ namespace galaxy
 			///
 			/// \return Const glm::vec2 reference.
 			///
-			[[nodiscard]] const glm::vec2& pos() const;
+			[[nodiscard]]
+			const glm::vec2& pos() const;
 
-		  private:
+		private:
 			///
 			/// Position.
 			///

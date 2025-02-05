@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		class TileMap final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -53,9 +53,10 @@ namespace galaxy
 			///
 			/// \return Pointer. DO NOT STORE THIS.
 			///
-			[[nodiscard]] graphics::Texture2D* get_texture();
+			[[nodiscard]]
+			graphics::Texture2D* get_texture();
 
-		  public:
+		public:
 			///
 			/// Vertex data batch.
 			///
@@ -71,13 +72,13 @@ namespace galaxy
 			///
 			glm::vec4 m_tint;
 
-		  private:
+		private:
 			///
 			/// Tileset.
 			///
 			graphics::Texture2D* m_texture;
 
-		  private:
+		private:
 			///
 			/// Copy assignment operator.
 			///

@@ -57,8 +57,7 @@ namespace galaxy
 			if (!data.empty())
 			{
 				stbi_set_flip_vertically_on_load(true);
-				m_data.emplace_back(
-					stbi_load_from_memory(data.data(), static_cast<int>(data.size() * sizeof(std::uint8_t)), nullptr, nullptr, nullptr, STBI_rgb_alpha));
+				m_data.emplace_back(stbi_load_from_memory(data.data(), static_cast<int>(data.size() * sizeof(std::uint8_t)), nullptr, nullptr, nullptr, STBI_rgb_alpha));
 			}
 			else
 			{
@@ -122,8 +121,7 @@ namespace galaxy
 			if (!buffer.empty())
 			{
 				stbi_set_flip_vertically_on_load(true);
-				unsigned char* data =
-					stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size() * sizeof(std::uint8_t)), &m_width, &m_height, nullptr, STBI_rgb_alpha);
+				unsigned char* data = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size() * sizeof(std::uint8_t)), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 				if (data)
 				{

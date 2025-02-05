@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		class Texture
 		{
-		  public:
+		public:
 			///
 			/// Move constructor.
 			///
@@ -51,8 +51,8 @@ namespace galaxy
 			///
 			/// \return OpenGL texture view of this texture.
 			///
-			[[nodiscard]] TextureView
-			make_view(const unsigned int minlevel = 0, const unsigned int numlevels = 1, const unsigned int minlayer = 0, const unsigned int numlayers = 1);
+			[[nodiscard]]
+			TextureView make_view(const unsigned int minlevel = 0, const unsigned int numlevels = 1, const unsigned int minlayer = 0, const unsigned int numlayers = 1);
 
 			///
 			/// Activate context.
@@ -76,7 +76,8 @@ namespace galaxy
 			///
 			/// \return Enum.
 			///
-			[[nodiscard]] TextureMode mode() const;
+			[[nodiscard]]
+			TextureMode mode() const;
 
 			///
 			/// Set filter when texture is (up/down)scaled in OpenGL.
@@ -90,7 +91,8 @@ namespace galaxy
 			///
 			/// \return Enum.
 			///
-			[[nodiscard]] TextureFilter filter() const;
+			[[nodiscard]]
+			TextureFilter filter() const;
 
 			///
 			/// Set ansiotropic filtering level.
@@ -104,7 +106,8 @@ namespace galaxy
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int anisotropy() const;
+			[[nodiscard]]
+			int anisotropy() const;
 
 			///
 			/// \brief Get texture width.
@@ -113,7 +116,8 @@ namespace galaxy
 			///
 			/// \return Width as float.
 			///
-			[[nodiscard]] float width() const;
+			[[nodiscard]]
+			float width() const;
 
 			///
 			/// \brief Get texture height.
@@ -122,22 +126,24 @@ namespace galaxy
 			///
 			/// \return Height as float.
 			///
-			[[nodiscard]] float height() const;
+			[[nodiscard]]
+			float height() const;
 
 			///
 			/// Gets opengl handle.
 			///
 			/// \return Unsigned int.
 			///
-			[[nodiscard]] unsigned int id() const;
+			[[nodiscard]]
+			unsigned int id() const;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///
 			Texture();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -148,7 +154,7 @@ namespace galaxy
 			///
 			Texture& operator=(const Texture&) = delete;
 
-		  protected:
+		protected:
 			///
 			/// OpenGL id.
 			///

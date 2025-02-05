@@ -27,7 +27,7 @@ namespace galaxy
 		///
 		class Shader final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -62,7 +62,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool load(const std::string& file);
+			[[nodiscard]]
+			bool load(const std::string& file);
 
 			///
 			/// Loads an OpenGL shader.
@@ -72,7 +73,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool load(const std::string& vertex, const std::string& frag);
+			[[nodiscard]]
+			bool load(const std::string& vertex, const std::string& frag);
 
 			///
 			/// Loads a combined raw shader.
@@ -81,7 +83,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool parse(const std::string& src);
+			[[nodiscard]]
+			bool parse(const std::string& src);
 
 			///
 			/// Loads a raw shader.
@@ -91,7 +94,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool parse(const std::string& vertex, const std::string& frag);
+			[[nodiscard]]
+			bool parse(const std::string& vertex, const std::string& frag);
 
 			///
 			/// Compiles shader into GPU mem.
@@ -130,9 +134,10 @@ namespace galaxy
 			///
 			/// \return unsigned int.
 			///
-			[[nodiscard]] unsigned int id() const;
+			[[nodiscard]]
+			unsigned int id() const;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -150,7 +155,8 @@ namespace galaxy
 			///
 			/// \return True if parse was successful.
 			///
-			[[nodiscard]] bool preprocess(const std::string& src);
+			[[nodiscard]]
+			bool preprocess(const std::string& src);
 
 			///
 			/// Retrieves the location of a shader uniform.
@@ -159,9 +165,10 @@ namespace galaxy
 			///
 			/// \return Uniform location. -1 on error.
 			///
-			[[nodiscard]] int get_uniform_location(const std::string& name);
+			[[nodiscard]]
+			int get_uniform_location(const std::string& name);
 
-		  private:
+		private:
 			///
 			/// OpenGL handle.
 			///
@@ -227,20 +234,19 @@ namespace galaxy
 		}
 
 		template<>
-		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(const std::string& name,
-			const unsigned int&                                                                      a,
-			const unsigned int&                                                                      b,
-			const unsigned int&                                                                      c)
+		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(const std::string& name, const unsigned int& a, const unsigned int& b, const unsigned int& c)
 		{
 			glProgramUniform3ui(m_id, get_uniform_location(name), a, b, c);
 		}
 
 		template<>
-		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(const std::string& name,
-			const unsigned int&                                                                                    a,
-			const unsigned int&                                                                                    b,
-			const unsigned int&                                                                                    c,
-			const unsigned int&                                                                                    d)
+		inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(
+			const std::string&  name,
+			const unsigned int& a,
+			const unsigned int& b,
+			const unsigned int& c,
+			const unsigned int& d
+		)
 		{
 			glProgramUniform4ui(m_id, get_uniform_location(name), a, b, c, d);
 		}
@@ -288,8 +294,7 @@ namespace galaxy
 		}
 
 		template<>
-		inline void
-		Shader::set_uniform<double, double, double, double>(const std::string& name, const double& a, const double& b, const double& c, const double& d)
+		inline void Shader::set_uniform<double, double, double, double>(const std::string& name, const double& a, const double& b, const double& c, const double& d)
 		{
 			glProgramUniform4d(m_id, get_uniform_location(name), a, b, c, d);
 		}

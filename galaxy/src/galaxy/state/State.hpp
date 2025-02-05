@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		class State
 		{
-		  public:
+		public:
 			///
 			/// Virtual destructor.
 			///
@@ -38,7 +38,7 @@ namespace galaxy
 			///
 			virtual void update() = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///

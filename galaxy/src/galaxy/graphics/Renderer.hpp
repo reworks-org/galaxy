@@ -31,13 +31,14 @@ namespace galaxy
 		///
 		class Renderer final
 		{
-		  public:
+		public:
 			///
 			/// Get reference to renderer singleton.
 			///
 			/// \return Static reference.
 			///
-			[[nodiscard]] static Renderer& ref();
+			[[nodiscard]]
+			static Renderer& ref();
 
 			///
 			/// Initialize renderer.
@@ -153,7 +154,7 @@ namespace galaxy
 			///
 			void end_default();
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
@@ -171,7 +172,7 @@ namespace galaxy
 			/// \param window_height New window height.
 			void calc_viewport(int window_width, int window_height);
 
-		  private:
+		private:
 			///
 			/// List of renderables to draw.
 			///

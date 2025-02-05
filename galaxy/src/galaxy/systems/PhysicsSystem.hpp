@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class PhysicsSystem final : public systems::System
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///

@@ -34,7 +34,8 @@ namespace galaxy
 		///
 		/// \return Reference to initialized imgui io.
 		///
-		[[maybe_unused]] ImGuiIO& imgui_init_context(const char* ini);
+		[[maybe_unused]]
+		ImGuiIO& imgui_init_context(const char* ini);
 
 		///
 		/// New imgui frame with galaxy.
@@ -91,7 +92,8 @@ namespace galaxy
 		///
 		/// \return True if imgui context is loaded.
 		///
-		[[nodiscard]] bool imgui_loaded();
+		[[nodiscard]]
+		bool imgui_loaded();
 
 		///
 		/// Render an imgui image button with a galaxy texture.
@@ -103,10 +105,8 @@ namespace galaxy
 		///
 		/// \return True if button pressed.
 		///
-		[[maybe_unused]] bool imgui_imagebutton(const graphics::Texture2D& texture,
-			const ImVec2&                                                  size,
-			const ImVec4&                                                  bg_col   = ImVec4(0, 0, 0, 0),
-			const ImVec4&                                                  tint_col = ImVec4(1, 1, 1, 1));
+		[[maybe_unused]]
+		bool imgui_imagebutton(const graphics::Texture2D& texture, const ImVec2& size, const ImVec4& bg_col = ImVec4(0, 0, 0, 0), const ImVec4& tint_col = ImVec4(1, 1, 1, 1));
 
 		///
 		/// Display a galaxy image with imgui.
@@ -160,7 +160,8 @@ namespace galaxy
 		///
 		/// \return True if any field is clicked.
 		///
-		[[maybe_unused]] bool imgui_glm_vec2(const char* label, glm::vec2& vec);
+		[[maybe_unused]]
+		bool imgui_glm_vec2(const char* label, glm::vec2& vec);
 
 		///
 		/// GLM vector 3 widget.
@@ -170,7 +171,8 @@ namespace galaxy
 		///
 		/// \return True if any field is clicked.
 		///
-		[[maybe_unused]] bool imgui_glm_vec3(const char* label, glm::vec3& vec);
+		[[maybe_unused]]
+		bool imgui_glm_vec3(const char* label, glm::vec3& vec);
 
 		///
 		/// GLM vector 4 widget.
@@ -180,7 +182,8 @@ namespace galaxy
 		///
 		/// \return True if any field is clicked.
 		///
-		[[maybe_unused]] bool imgui_glm_vec4(const char* label, glm::vec4& vec);
+		[[maybe_unused]]
+		bool imgui_glm_vec4(const char* label, glm::vec4& vec);
 
 		///
 		/// fRect widget.
@@ -190,7 +193,8 @@ namespace galaxy
 		///
 		/// \return True if any field is clicked.
 		///
-		[[maybe_unused]] bool imgui_frect(const char* label, math::fRect& rect);
+		[[maybe_unused]]
+		bool imgui_frect(const char* label, math::fRect& rect);
 	} // namespace ui
 } // namespace galaxy
 

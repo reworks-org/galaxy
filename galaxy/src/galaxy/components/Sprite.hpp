@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class Sprite final : public fs::Serializable
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -78,28 +78,32 @@ namespace galaxy
 			///
 			/// \return Const reference to sprite clip.
 			///
-			[[nodiscard]] const math::fRect& get_clip() const;
+			[[nodiscard]]
+			const math::fRect& get_clip() const;
 
 			///
 			/// Get texture.
 			///
 			/// \return Pointer. DO NOT STORE THIS.
 			///
-			[[nodiscard]] graphics::Texture2D* get_texture();
+			[[nodiscard]]
+			graphics::Texture2D* get_texture();
 
 			///
 			/// Texture name.
 			///
 			/// \return Const string ref.
 			///
-			[[nodiscard]] const std::string& get_texture_name() const;
+			[[nodiscard]]
+			const std::string& get_texture_name() const;
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -108,7 +112,7 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -119,7 +123,7 @@ namespace galaxy
 			///
 			Sprite& operator=(const Sprite&) = delete;
 
-		  public:
+		public:
 			///
 			/// Vertex Array Object.
 			///
@@ -130,7 +134,7 @@ namespace galaxy
 			///
 			graphics::Colour m_tint;
 
-		  private:
+		private:
 			///
 			/// Texture.
 			///

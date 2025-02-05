@@ -10,7 +10,7 @@
 
 #include <zlib.h>
 
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/core/Settings.hpp"
 
 namespace galaxy
 {
@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		class ZLib final
 		{
-		  public:
+		public:
 			///
 			/// ZLib mode to start in.
 			///
@@ -59,6 +59,7 @@ namespace galaxy
 			///
 			/// \return Compressed string.
 			///
+			[[nodiscard]]
 			std::string compress(const std::string& input);
 
 			///
@@ -66,6 +67,7 @@ namespace galaxy
 			///
 			/// \return Compressed string containing termination block.
 			///
+			[[nodiscard]]
 			std::string finish();
 
 			///
@@ -75,9 +77,10 @@ namespace galaxy
 			///
 			/// \return String containing decompressed data.
 			///
+			[[nodiscard]]
 			std::string decompress(const std::string& input);
 
-		  private:
+		private:
 			///
 			/// ZLib mode.
 			///
@@ -111,7 +114,8 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string encode_zlib(const std::string& input);
+		[[nodiscard]]
+		std::string encode_zlib(const std::string& input);
 
 		///
 		/// Decompresses string into ZLib.
@@ -120,7 +124,8 @@ namespace galaxy
 		///
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
-		[[nodiscard]] std::string decode_zlib(const std::string& input);
+		[[nodiscard]]
+		std::string decode_zlib(const std::string& input);
 	} // namespace math
 } // namespace galaxy
 

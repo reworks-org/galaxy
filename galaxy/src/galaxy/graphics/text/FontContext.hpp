@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		class FontContext final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -48,9 +48,10 @@ namespace galaxy
 			///
 			/// \return msdfgl_context_t pointer.
 			///
-			[[nodiscard]] msdfgl_context_t context();
+			[[nodiscard]]
+			msdfgl_context_t context();
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -71,7 +72,7 @@ namespace galaxy
 			///
 			FontContext& operator=(FontContext&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Library context object.
 			///
