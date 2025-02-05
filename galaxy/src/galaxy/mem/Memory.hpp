@@ -10,7 +10,7 @@
 
 #include <optional>
 
-#include "galaxy/utils/Concepts.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {

@@ -14,12 +14,12 @@ namespace galaxy
 {
 	namespace strutils
 	{
-		meta::vector<std::string> split(std::string_view input, std::string_view delim)
+		std::vector<std::string> split(std::string_view input, std::string_view delim)
 		{
 			std::size_t start = 0;
 			std::size_t end   = 0;
 
-			meta::vector<std::string> splits;
+			std::vector<std::string> splits;
 			while ((start = input.find_first_not_of(delim, end)) != std::string::npos)
 			{
 				end = input.find(delim, start);
@@ -66,6 +66,7 @@ namespace galaxy
 
 		void ltrim(std::string& input)
 		{
+			// clang-format off
 			input.erase(input.begin(), std::find_if(input.begin(), input.end(), [](const auto ch) {
 				return !std::isspace(ch);
 			}));
@@ -73,7 +74,6 @@ namespace galaxy
 
 		void rtrim(std::string& input)
 		{
-			// clang-format off
 			input.erase(std::find_if(input.rbegin(), input.rend(), [](const auto ch) {
                 return !std::isspace(ch);
 			}).base(), input.end());

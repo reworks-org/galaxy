@@ -9,8 +9,8 @@
 #define GALAXY_UTILS_STRINGUTILS_HPP_
 
 #include <string_view>
-
-#include "galaxy/meta/Memory.hpp"
+#include <string>
+#include <vector>
 
 namespace galaxy
 {
@@ -24,7 +24,8 @@ namespace galaxy
 		///
 		/// \return Array of strings split. Does not return empty entries or delimiter.
 		///
-		[[nodiscard]] meta::vector<std::string> split(std::string_view input, std::string_view delim);
+		[[nodiscard]]
+		std::vector<std::string> split(std::string_view input, std::string_view delim);
 
 		///
 		/// \brief Replace first occurance of a string.
@@ -56,7 +57,8 @@ namespace galaxy
 		///
 		/// \return True if input string begins with find string.
 		///
-		[[nodiscard]] bool begins_with(const std::string& input, const std::string& find);
+		[[nodiscard]]
+		bool begins_with(const std::string& input, const std::string& find);
 
 		///
 		/// \brief Trim string from start.

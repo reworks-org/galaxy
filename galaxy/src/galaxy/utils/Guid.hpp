@@ -8,7 +8,6 @@
 #ifndef GALAXY_UTILS_GUID_HPP_
 #define GALAXY_UTILS_GUID_HPP_
 
-#include <compare>
 #include <string>
 
 namespace galaxy
@@ -21,7 +20,7 @@ namespace galaxy
 		///
 		class Guid final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -30,41 +29,45 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Guid(Guid&&);
+			Guid(Guid&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Guid& operator=(Guid&&);
+			[[maybe_unused]]
+			Guid& operator=(Guid&&) noexcept;
 
 			///
 			/// Copy constructor.
 			///
-			Guid(const Guid&);
+			Guid(const Guid&) noexcept;
 
 			///
 			/// Copy assignment operator.
 			///
-			Guid& operator=(const Guid&);
+			[[maybe_unused]]
+			Guid& operator=(const Guid&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Guid();
+			~Guid() noexcept;
 
 			///
 			/// Get the GUID as a string.
 			///
 			/// \return Const string reference.
 			///
-			[[nodiscard]] const std::string& to_string() const;
+			[[nodiscard]]
+			const std::string& to_string() const noexcept;
 
 			///
 			/// Check to make sure Guid is not empty.
 			///
 			/// \return True if guid is invalid or empty, usually from a move.
 			///
-			[[nodiscard]] bool is_empty() const;
+			[[nodiscard]]
+			bool is_empty() const noexcept;
 
 			///
 			/// Equality comparison.
@@ -73,7 +76,8 @@ namespace galaxy
 			///
 			/// \return True if equal.
 			///
-			[[nodiscard]] bool operator==(const Guid& rhs);
+			[[nodiscard]]
+			bool operator==(const Guid& rhs) noexcept;
 
 			///
 			/// Inequality comparison.
@@ -82,14 +86,10 @@ namespace galaxy
 			///
 			/// \return True if NOT equal.
 			///
-			[[nodiscard]] bool operator!=(const Guid& rhs);
+			[[nodiscard]]
+			bool operator!=(const Guid& rhs) noexcept;
 
-			///
-			/// Comparison operator.
-			///
-			[[nodiscard]] auto operator<=>(const Guid&) const = default;
-
-		  private:
+		private:
 			///
 			/// Guid.
 			///
