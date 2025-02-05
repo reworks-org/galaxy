@@ -5,14 +5,14 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_SINK_HPP_
-#define GALAXY_ERROR_SINK_HPP_
+#ifndef GALAXY_LOGGING_SINK_HPP_
+#define GALAXY_LOGGING_SINK_HPP_
 
-#include "galaxy/error/LogMessage.hpp"
+#include "galaxy/logging/LogMessage.hpp"
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// \brief A source for log messages to be recorded to.
@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		class Sink
 		{
-		  public:
+		public:
 			///
 			/// Virtual destructor.
 			///
@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			virtual void sink_message(const LogMessage& message) = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///
@@ -53,14 +53,16 @@ namespace galaxy
 			///
 			/// Copy assignment operator.
 			///
+			[[maybe_unused]]
 			Sink& operator=(const Sink&) = default;
 
 			///
 			/// Move assignment operator.
 			///
+			[[maybe_unused]]
 			Sink& operator=(Sink&&) = default;
 		};
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

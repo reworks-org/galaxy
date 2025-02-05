@@ -5,14 +5,14 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_LOGMESSAGE_HPP_
-#define GALAXY_ERROR_LOGMESSAGE_HPP_
+#ifndef GALAXY_LOGGING_LOGMESSAGE_HPP_
+#define GALAXY_LOGGING_LOGMESSAGE_HPP_
 
 #include <string>
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// Parts of a log message to be passed to sinks.
@@ -54,7 +54,7 @@ namespace galaxy
 			///
 			std::string trace;
 		};
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

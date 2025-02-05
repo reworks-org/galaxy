@@ -5,12 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ERROR_PHYSFSERROR_HPP_
-#define GALAXY_ERROR_PHYSFSERROR_HPP_
+#ifndef GALAXY_LOGGING_PHYSFSERROR_HPP_
+#define GALAXY_LOGGING_PHYSFSERROR_HPP_
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// Call a physfs function with error handling and logs a message for you.
@@ -19,7 +19,8 @@ namespace galaxy
 		///
 		/// \return True if function call succeeded.
 		///
-		[[maybe_unused]] bool physfs_check(const int code);
+		[[maybe_unused]]
+		bool physfs_check(const int code) noexcept;
 
 		///
 		/// Call a physfs function with error handling and logs a message for you.
@@ -28,8 +29,9 @@ namespace galaxy
 		///
 		/// \return True if function call succeeded.
 		///
-		[[maybe_unused]] bool physfs_check(void* ptr);
-	} // namespace error
+		[[maybe_unused]]
+		bool physfs_check(void* ptr) noexcept;
+	} // namespace logging
 } // namespace galaxy
 
 #endif

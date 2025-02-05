@@ -11,13 +11,13 @@
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
-		ConsoleSink::ConsoleSink()
+		ConsoleSink::ConsoleSink() noexcept
 		{
 		}
 
-		ConsoleSink::~ConsoleSink()
+		ConsoleSink::~ConsoleSink() noexcept
 		{
 		}
 
@@ -25,5 +25,5 @@ namespace galaxy
 		{
 			std::println("{0}[{1}] [{3}, Ln {4}] {2}: {5}\x1b[0m", message.colour, message.time, message.level, message.file, message.line, message.message);
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy

@@ -5,14 +5,14 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_LOGLEVEL_HPP_
-#define GALAXY_ERROR_LOGLEVEL_HPP_
+#ifndef GALAXY_LOGGING_LOGLEVEL_HPP_
+#define GALAXY_LOGGING_LOGLEVEL_HPP_
 
 #undef ERROR
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// Used to determine filtering and colouring of log messages.
@@ -44,7 +44,7 @@ namespace galaxy
 			///
 			FATAL = 4
 		};
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

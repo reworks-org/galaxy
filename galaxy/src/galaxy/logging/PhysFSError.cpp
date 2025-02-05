@@ -7,15 +7,15 @@
 
 #include <physfs.h>
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/logging/Log.hpp"
 
 #include "PhysFSError.hpp"
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
-		bool physfs_check(const int code)
+		bool physfs_check(const int code) noexcept
 		{
 			if (code == 0 || code == -1)
 			{
@@ -26,7 +26,7 @@ namespace galaxy
 			return true;
 		}
 
-		bool physfs_check(void* ptr)
+		bool physfs_check(void* ptr) noexcept
 		{
 			if (!ptr)
 			{
@@ -36,5 +36,5 @@ namespace galaxy
 
 			return true;
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy

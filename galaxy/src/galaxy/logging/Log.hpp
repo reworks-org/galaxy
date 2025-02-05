@@ -5,8 +5,8 @@
 /// See LICENSE.txt.
 ///
 
-#ifndef GALAXY_ERROR_LOG_HPP_
-#define GALAXY_ERROR_LOG_HPP_
+#ifndef GALAXY_LOGGING_LOG_HPP_
+#define GALAXY_LOGGING_LOG_HPP_
 
 #include <filesystem>
 #include <source_location>
@@ -14,23 +14,22 @@
 
 #include <magic_enum/magic_enum.hpp>
 
-#include "galaxy/error/LogLevel.hpp"
-#include "galaxy/error/Sink.hpp"
-#include "galaxy/platform/Pragma.hpp"
+#include "galaxy/logging/LogLevel.hpp"
+#include "galaxy/logging/Sink.hpp"
 
-#define GALAXY_INFO                     galaxy::error::LogLevel::INFO
-#define GALAXY_DEBUG                    galaxy::error::LogLevel::DEBUG
-#define GALAXY_WARNING                  galaxy::error::LogLevel::WARNING
-#define GALAXY_ERROR                    galaxy::error::LogLevel::ERROR
-#define GALAXY_FATAL                    galaxy::error::LogLevel::FATAL
-#define GALAXY_LOG_FINISH               galaxy::error::Log::ref().finish
-#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::ref().set_min_level<level>()
-#define GALAXY_ADD_SINK(sink, ...)      galaxy::error::Log::ref().add_sink<sink>(__VA_ARGS__)
-#define GALAXY_LOG(level, msg, ...)     galaxy::error::Log::ref().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
+#define GALAXY_INFO                     galaxy::logging::LogLevel::INFO
+#define GALAXY_DEBUG                    galaxy::logging::LogLevel::DEBUG
+#define GALAXY_WARNING                  galaxy::logging::LogLevel::WARNING
+#define GALAXY_ERROR                    galaxy::logging::LogLevel::ERROR
+#define GALAXY_FATAL                    galaxy::logging::LogLevel::FATAL
+#define GALAXY_LOG_FINISH               galaxy::logging::Log::ref().finish
+#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::logging::Log::ref().set_min_level<level>()
+#define GALAXY_ADD_SINK(sink, ...)      galaxy::logging::Log::ref().add_sink<sink>(__VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...)     galaxy::logging::Log::ref().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		///
 		/// \brief Log singleton.
@@ -39,23 +38,24 @@ namespace galaxy
 		///
 		class Log final
 		{
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
-			~Log();
+			~Log() noexcept;
 
 			///
 			/// Retrieve log instance.
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[nodiscard]] static Log& ref();
+			[[nodiscard]]
+			static Log& ref() noexcept;
 
 			///
 			/// Cleanup any static resources.
 			///
-			void finish();
+			void finish() noexcept;
 
 			///
 			/// Add a sink to log to.
@@ -68,7 +68,8 @@ namespace galaxy
 			/// \return A pointer to the newly created sink.
 			///
 			template<std::derived_from<Sink> SinkTo, typename... Args>
-			[[maybe_unused]] SinkTo& add_sink(Args&&... args);
+			[[maybe_unused]]
+			SinkTo& add_sink(Args&&... args);
 
 			///
 			/// \brief Set a minimum log level.
@@ -78,7 +79,7 @@ namespace galaxy
 			/// \tparam level Must be a LogLevel enum value.
 			///
 			template<LogLevel level>
-			void set_min_level();
+			void set_min_level() noexcept;
 
 			///
 			/// Log a message.
@@ -93,11 +94,11 @@ namespace galaxy
 			template<LogLevel level, typename... MsgInputs>
 			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
-			Log();
+			Log() noexcept;
 
 			///
 			/// Copy constructor.
@@ -119,7 +120,7 @@ namespace galaxy
 			///
 			Log& operator=(Log&&) = delete;
 
-		  private:
+		private:
 			///
 			/// Minimum level for a message to be logged.
 			///
@@ -128,7 +129,7 @@ namespace galaxy
 			///
 			/// List of sinks.
 			///
-			meta::vector<std::unique_ptr<Sink>> m_sinks;
+			std::vector<std::unique_ptr<Sink>> m_sinks;
 		};
 
 		template<std::derived_from<Sink> SinkTo, typename... Args>
@@ -140,7 +141,7 @@ namespace galaxy
 		}
 
 		template<LogLevel level>
-		inline void Log::set_min_level()
+		inline void Log::set_min_level() noexcept
 		{
 			m_min_level = level;
 		}
@@ -189,7 +190,7 @@ namespace galaxy
 				}
 			}
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
 
 #endif

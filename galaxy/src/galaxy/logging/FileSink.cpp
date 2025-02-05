@@ -13,7 +13,7 @@
 
 namespace galaxy
 {
-	namespace error
+	namespace logging
 	{
 		FileSink::FileSink(std::string_view file)
 		{
@@ -55,8 +55,7 @@ namespace galaxy
 
 		void FileSink::sink_message(const LogMessage& message)
 		{
-			m_file_stream
-				<< std::format("[{0}] [{2}, Ln {3}] {1}: {4}\n{5}\n", message.time, message.level, message.file, message.line, message.message, message.trace);
+			m_file_stream << std::format("[{0}] [{2}, Ln {3}] {1}: {4}\n{5}\n", message.time, message.level, message.file, message.line, message.message, message.trace);
 		}
-	} // namespace error
+	} // namespace logging
 } // namespace galaxy
