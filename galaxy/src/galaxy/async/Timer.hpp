@@ -9,9 +9,9 @@
 #define GALAXY_ASYNC_TIMER_HPP_
 
 #include <BS_thread_pool.hpp>
+#include <entt/locator/locator.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/core/Settings.hpp"
 
 using namespace std::chrono_literals;
 
@@ -32,11 +32,11 @@ namespace galaxy
 		template<bool async = true>
 		class Timer final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
-			Timer();
+			Timer() noexcept;
 
 			///
 			/// Set constructor.
@@ -44,12 +44,12 @@ namespace galaxy
 			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			Timer(TimerCallback&& func, const std::uint32_t delay);
+			Timer(TimerCallback&& func, const std::uint32_t delay) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Timer();
+			~Timer() noexcept;
 
 			///
 			/// Run a function on a precision timer.
@@ -57,14 +57,14 @@ namespace galaxy
 			/// \param func Function to call.
 			/// \param delay Delay until function is called. In milliseconds.
 			///
-			void set(TimerCallback&& func, const std::uint32_t delay);
+			void set(TimerCallback&& func, const std::uint32_t delay) noexcept;
 
 			///
 			/// Make function repeat itself instead of running once.
 			///
 			/// \param repeat True to repeat.
 			///
-			void repeat(const bool repeat);
+			void repeat(const bool repeat) noexcept;
 
 			///
 			/// Start timer.
@@ -79,35 +79,37 @@ namespace galaxy
 			///
 			/// Pause the timer.
 			///
-			void pause();
+			void pause() noexcept;
 
 			///
 			/// Resume the timer.
 			///
-			void unpause();
+			void unpause() noexcept;
 
 			///
 			/// \brief Call to update timer count.
 			///
 			/// You only need to call this if the timer is not running in async mode.
 			///
-			void update();
+			constexpr typename std::enable_if<async, void>::type update();
 
 			///
 			/// Is the timer finished?
 			///
 			/// \return True if timer is stopped (finished).
 			///
-			[[nodiscard]] bool stopped() const;
+			[[nodiscard]]
+			bool stopped() const noexcept;
 
 			///
 			/// Is the timer paused?
 			///
 			/// \return True if timer is paused.
 			///
-			[[nodiscard]] bool paused() const;
+			[[nodiscard]]
+			bool paused() const noexcept;
 
-		  private:
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -118,7 +120,7 @@ namespace galaxy
 			///
 			Timer& operator=(const Timer&) = delete;
 
-		  private:
+		private:
 			///
 			/// Is timer stopped.
 			///
@@ -156,7 +158,7 @@ namespace galaxy
 		};
 
 		template<bool async>
-		inline Timer<async>::Timer()
+		inline Timer<async>::Timer() noexcept
 			: m_stopped {true}
 			, m_paused {false}
 			, m_repeat {false}
@@ -168,7 +170,7 @@ namespace galaxy
 		}
 
 		template<bool async>
-		inline Timer<async>::Timer(TimerCallback&& func, const std::uint32_t delay)
+		inline Timer<async>::Timer(TimerCallback&& func, const std::uint32_t delay) noexcept
 			: m_stopped {true}
 			, m_paused {false}
 			, m_repeat {false}
@@ -181,20 +183,20 @@ namespace galaxy
 		}
 
 		template<bool async>
-		inline Timer<async>::~Timer()
+		inline Timer<async>::~Timer() noexcept
 		{
 			stop();
 		}
 
 		template<bool async>
-		inline void Timer<async>::set(TimerCallback&& func, const std::uint32_t delay)
+		inline void Timer<async>::set(TimerCallback&& func, const std::uint32_t delay) noexcept
 		{
 			m_callback = std::move(func);
 			m_delay    = delay;
 		}
 
 		template<bool async>
-		inline void Timer<async>::repeat(const bool repeat)
+		inline void Timer<async>::repeat(const bool repeat) noexcept
 		{
 			m_repeat = repeat;
 		}
@@ -207,7 +209,7 @@ namespace galaxy
 
 			if constexpr (async)
 			{
-				auto& tp = core::ServiceLocator<BS::thread_pool>::ref();
+				auto& tp = entt::locator<BS::light_thread_pool>::value();
 				m_handle = tp.submit_task([&]() {
 					do
 					{
@@ -241,55 +243,48 @@ namespace galaxy
 		}
 
 		template<bool async>
-		inline void Timer<async>::pause()
+		inline void Timer<async>::pause() noexcept
 		{
 			m_paused = true;
 		}
 
 		template<bool async>
-		inline void Timer<async>::unpause()
+		inline void Timer<async>::unpause() noexcept
 		{
 			m_paused = false;
 		}
 
 		template<bool async>
-		inline void Timer<async>::update()
+		inline constexpr typename std::enable_if<async, void>::type Timer<async>::update()
 		{
-			if constexpr (async)
+			if (!m_stopped && !m_paused)
 			{
-				std::unreachable();
-			}
-			else
-			{
-				if (!m_stopped && !m_paused)
+				m_time_passed += (settings::dt() * 1000.0);
+
+				if (m_time_passed >= m_delay)
 				{
-					m_time_passed += (GALAXY_DT * 1000.0);
+					m_callback();
 
-					if (m_time_passed >= m_delay)
+					if (m_repeat)
 					{
-						m_callback();
-
-						if (m_repeat)
-						{
-							m_time_passed = 0.0;
-						}
-						else
-						{
-							stop();
-						}
+						m_time_passed = 0.0;
+					}
+					else
+					{
+						stop();
 					}
 				}
 			}
 		}
 
 		template<bool async>
-		inline bool Timer<async>::stopped() const
+		inline bool Timer<async>::stopped() const noexcept
 		{
 			return m_stopped;
 		}
 
 		template<bool async>
-		inline bool Timer<async>::paused() const
+		inline bool Timer<async>::paused() const noexcept
 		{
 			return m_paused;
 		}

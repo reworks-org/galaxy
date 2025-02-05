@@ -5,16 +5,17 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_META_ASYNC_HPP_
-#define GALAXY_META_ASYNC_HPP_
+#ifndef GALAXY_ASYNC_ASYNC_HPP_
+#define GALAXY_ASYNC_ASYNC_HPP_
 
+#include <chrono>
 #include <future>
 
 using namespace std::chrono_literals;
 
 namespace galaxy
 {
-	namespace meta
+	namespace async
 	{
 		///
 		/// Check if an async thread has finished or not.
@@ -24,11 +25,12 @@ namespace galaxy
 		/// \return Returns true when async thread has finished.
 		///
 		template<typename T = void>
-		[[nodiscard]] inline bool is_work_done(const std::future<T>& t)
+		[[nodiscard]]
+		inline bool is_work_done(const std::future<T>& t) noexcept
 		{
 			return t.wait_for(0s) == std::future_status::ready;
 		}
-	} // namespace meta
+	} // namespace async
 } // namespace galaxy
 
 #endif
