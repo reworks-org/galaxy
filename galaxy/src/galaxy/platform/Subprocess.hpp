@@ -9,6 +9,7 @@
 #define GALAXY_PLATFORM_SUBPROCESS_HPP_
 
 #include <span>
+#include <string>
 #include <string_view>
 
 #include <subprocess.h>
@@ -27,11 +28,11 @@ namespace galaxy
 		///
 		class Subprocess final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
-			Subprocess();
+			Subprocess() noexcept;
 
 			///
 			/// Create constructor.
@@ -46,7 +47,7 @@ namespace galaxy
 			///
 			/// Calls terminate().
 			///
-			~Subprocess();
+			~Subprocess() noexcept;
 
 			///
 			/// Launch a subprocess.
@@ -61,26 +62,28 @@ namespace galaxy
 			///
 			/// \return Process exit code. -1 on error.
 			///
-			[[maybe_unused]] int join();
+			[[maybe_unused]]
+			int join() noexcept;
 
 			///
 			/// Terminate process, killing if alive.
 			///
-			void terminate();
+			void terminate() noexcept;
 
 			///
 			/// Destroy process, preserving if alive.
 			///
-			void destroy();
+			void destroy() noexcept;
 
 			///
 			/// Check if subprocess is still alive and executing.
 			///
 			/// \return True if process is alive.
 			///
-			[[nodiscard]] bool alive();
+			[[nodiscard]]
+			bool alive() noexcept;
 
-		  private:
+		private:
 			///
 			/// Process information and handles.
 			///

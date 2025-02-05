@@ -8,7 +8,7 @@
 #ifndef GALAXY_PLATFORM_PRAGMA_HPP_
 #define GALAXY_PLATFORM_PRAGMA_HPP_
 
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/platform/Platform.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 #define GALAXY_PLATFORM_PUSH       __pragma(warning(push))
