@@ -9,6 +9,8 @@
 #define GALAXY_FS_VIRTUALFILESYSTEM_HPP_
 
 #include <span>
+#include <string>
+#include <vector>
 
 #include "galaxy/fs/DialogButton.hpp"
 #include "galaxy/fs/DialogIcons.hpp"
@@ -23,7 +25,7 @@ namespace galaxy
 		///
 		class VirtualFileSystem final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -41,7 +43,8 @@ namespace galaxy
 			///
 			/// \return Buffer containing read data.
 			///
-			[[nodiscard]] std::string read(const std::string& file);
+			[[nodiscard]]
+			std::string read(const std::string& file);
 
 			///
 			/// Read a binary file.
@@ -50,7 +53,8 @@ namespace galaxy
 			///
 			/// \return Buffer containing read data.
 			///
-			[[nodiscard]] meta::vector<std::uint8_t> read_binary(const std::string& file);
+			[[nodiscard]]
+			std::vector<std::uint8_t> read_binary(const std::string& file);
 
 			///
 			/// \brief Writes a file to disk.
@@ -62,7 +66,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool write(const std::string& data, const std::string& file);
+			[[nodiscard]]
+			bool write(const std::string& data, const std::string& file);
 
 			///
 			/// \brief Writes a binary file to disk.
@@ -74,7 +79,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool write_binary(std::span<std::uint8_t> data, const std::string& file);
+			[[nodiscard]]
+			bool write_binary(std::span<std::uint8_t> data, const std::string& file);
 
 			///
 			/// Raw data writing.
@@ -85,7 +91,8 @@ namespace galaxy
 			///
 			/// \return True if successful.
 			///
-			[[nodiscard]] bool write_raw(const void* data, const std::size_t size, const std::string& file);
+			[[nodiscard]]
+			bool write_raw(const void* data, const std::size_t size, const std::string& file);
 
 			///
 			/// \brief Creates an empty folder in the filesystem relative to the root.
@@ -94,7 +101,7 @@ namespace galaxy
 			///
 			/// \param dir Directory(s) to create.
 			///
-			void mkdir(const std::string& dir);
+			void mkdir(const std::string& dir) noexcept;
 
 			///
 			/// \brief Delete a file or folder.
@@ -103,7 +110,7 @@ namespace galaxy
 			///
 			/// \param path File or folder to delete.
 			///
-			void remove(const std::string& path);
+			void remove(const std::string& path) noexcept;
 
 			///
 			/// Does the file exist in the vfs.
@@ -112,7 +119,8 @@ namespace galaxy
 			///
 			/// \return True if file exists.
 			///
-			[[nodiscard]] bool exists(const std::string& file);
+			[[nodiscard]]
+			bool exists(const std::string& file) noexcept;
 
 			///
 			/// Checks if a file is a folder.
@@ -121,7 +129,8 @@ namespace galaxy
 			///
 			/// \return True if directory.
 			///
-			[[nodiscard]] bool is_dir(const std::string& path);
+			[[nodiscard]]
+			bool is_dir(const std::string& path) noexcept;
 
 			///
 			/// Get assets in an asset folder.
@@ -130,12 +139,13 @@ namespace galaxy
 			///
 			/// \return List of assets in directory.
 			///
-			[[nodiscard]] meta::vector<std::string> list(const std::string& dir);
+			[[nodiscard]]
+			std::vector<std::string> list(const std::string& dir);
 
 			///
 			/// Trigger a standard filesystem audio alert.
 			///
-			void alert();
+			void alert() noexcept;
 
 			///
 			/// Trigger a system notification.
@@ -144,7 +154,7 @@ namespace galaxy
 			/// \param msg Body text of notification.
 			/// \param icon Icon to display alongside text.
 			///
-			void notification(const std::string& title, const std::string& msg, const DialogIcon icon);
+			void notification(const std::string& title, const std::string& msg, const DialogIcon icon) noexcept;
 
 			///
 			/// Opens a platform specific message box.
@@ -157,8 +167,8 @@ namespace galaxy
 			///
 			/// \return Integer with outcome. 0 for cancel/no , 1 for ok/yes , 2 for no in yesnocancel.
 			///
-			[[nodiscard]] int
-			message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn);
+			[[nodiscard]]
+			int message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn) noexcept;
 
 			///
 			/// Opens a platform specific text input box.
@@ -170,8 +180,8 @@ namespace galaxy
 			///
 			/// \return Input as a string.
 			///
-			[[nodiscard]] std::string
-			input_box(const std::string& title, const std::string& msg, const std::string& default_text = "", const bool password = false);
+			[[nodiscard]]
+			std::string input_box(const std::string& title, const std::string& msg, const std::string& default_text = "", const bool password = false) noexcept;
 
 			///
 			/// Open a save file dialog.
@@ -181,7 +191,8 @@ namespace galaxy
 			///
 			/// \return String with path, empty if error.
 			///
-			[[nodiscard]] std::string open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters = {});
+			[[nodiscard]]
+			std::string open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters = {});
 
 			///
 			/// Open a file dialog.
@@ -191,7 +202,8 @@ namespace galaxy
 			///
 			/// \return String with path, empty if error.
 			///
-			[[nodiscard]] std::string open_file_dialog(const meta::vector<const char*>& filters = {}, const std::string& def_path = "");
+			[[nodiscard]]
+			std::string open_file_dialog(const std::vector<const char*>& filters = {}, const std::string& def_path = "");
 
 			///
 			/// Select a folder using a dialog.
@@ -200,9 +212,20 @@ namespace galaxy
 			///
 			/// \return String with path, empty if error.
 			///
-			[[nodiscard]] std::string select_folder_dialog(const std::string& def_path = "");
+			[[nodiscard]]
+			std::string select_folder_dialog(const std::string& def_path = "");
 
-		  private:
+			///
+			/// Get pointer to extension for a filename string.
+			///
+			/// \param file_name File name to parse.
+			///
+			/// \return File extension, including dot.
+			///
+			[[nodiscard]]
+			std::string get_file_extension(const std::string& file_name) noexcept;
+
+		private:
 			///
 			/// Copy constructor.
 			///

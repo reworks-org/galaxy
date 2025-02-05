@@ -10,8 +10,6 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/meta/Memory.hpp"
-
 namespace galaxy
 {
 	namespace fs
@@ -23,7 +21,7 @@ namespace galaxy
 		///
 		class Serializable
 		{
-		  public:
+		public:
 			///
 			/// Destructor.
 			///
@@ -32,11 +30,13 @@ namespace galaxy
 			///
 			/// Move assignment operator.
 			///
+			[[nodiscard]]
 			virtual Serializable& operator=(Serializable&&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
+			[[nodiscard]]
 			virtual Serializable& operator=(const Serializable&) = default;
 
 			///
@@ -44,7 +44,8 @@ namespace galaxy
 			///
 			/// \return JSON object containing data to be serialized.
 			///
-			[[nodiscard]] virtual nlohmann::json serialize() = 0;
+			[[nodiscard]]
+			virtual nlohmann::json serialize() = 0;
 
 			///
 			/// Deserializes from object.
@@ -53,7 +54,7 @@ namespace galaxy
 			///
 			virtual void deserialize(const nlohmann::json& json) = 0;
 
-		  protected:
+		protected:
 			///
 			/// Constructor.
 			///

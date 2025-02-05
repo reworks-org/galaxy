@@ -5,15 +5,17 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
 #include <mimalloc.h>
 #include <physfs.h>
+#include <raylib.hpp>
 #include <tinyfiledialogs.h>
 #include <zip.h>
 
 #include "galaxy/core/Config.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/Log.hpp"
-#include "galaxy/error/PhysFSError.hpp"
+#include "galaxy/core/Settings.hpp"
+#include "galaxy/logging/Log.hpp"
+#include "galaxy/logging/PhysFSError.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
 #include "VirtualFileSystem.hpp"
@@ -31,8 +33,8 @@ namespace galaxy
 		VirtualFileSystem::VirtualFileSystem()
 		{
 			// Create data directories.
-			std::filesystem::create_directories(GALAXY_ROOT_DIR / GALAXY_ASSET_DIR);
-			std::filesystem::create_directories(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR);
+			std::filesystem::create_directories(settings::root_dir() / settings::assets_dir());
+			std::filesystem::create_directories(settings::root_dir() / settings::editor_dir());
 
 			// Set up allocators for physfs.
 			PHYSFS_Allocator a = {};
@@ -41,66 +43,63 @@ namespace galaxy
 			a.Free             = mi_free;
 			a.Malloc           = mi_malloc;
 			a.Realloc          = mi_realloc;
-			error::physfs_check(PHYSFS_setAllocator(&a));
+			logging::physfs_check(PHYSFS_setAllocator(&a));
 
 			// Set up vfs.
-			if (error::physfs_check(PHYSFS_init(nullptr)))
+			if (logging::physfs_check(PHYSFS_init(nullptr)))
 			{
 				PHYSFS_permitSymbolicLinks(false);
 
-				auto write_dir = GALAXY_ROOT_DIR / GALAXY_ASSET_DIR;
+				auto write_dir = settings::root_dir() / settings::assets_dir();
 				write_dir.make_preferred();
-				error::physfs_check(PHYSFS_setWriteDir(write_dir.string().c_str()));
+				logging::physfs_check(PHYSFS_setWriteDir(write_dir.string().c_str()));
 
-				auto& config   = core::ServiceLocator<core::Config>::ref();
-				auto  read_dir = GALAXY_ROOT_DIR / GALAXY_ASSET_PACK;
+				auto read_dir = settings::root_dir() / settings::asset_pack();
 				read_dir.make_preferred();
 
-				if (config.get<bool>("use_loose_assets"))
+				if (settings::use_loose_assets())
 				{
-					mkdir(GALAXY_MUSIC_DIR);
-					mkdir(GALAXY_SFX_DIR);
-					mkdir(GALAXY_VOICE_DIR);
-					mkdir(GALAXY_FONT_DIR);
-					mkdir(GALAXY_SCRIPT_DIR);
-					mkdir(GALAXY_SHADER_DIR);
-					mkdir(GALAXY_ANIM_DIR);
-					mkdir(GALAXY_TEXTURE_DIR);
-					mkdir(GALAXY_LANG_DIR);
-					mkdir(GALAXY_PREFABS_DIR);
-					mkdir(GALAXY_MAPS_DIR);
-					mkdir(GALAXY_VIDEO_DIR);
-					mkdir(GALAXY_UI_DIR);
-					mkdir(GALAXY_UI_FONTS_DIR);
+					mkdir(settings::assets_dir_music());
+					mkdir(settings::assets_dir_sfx());
+					mkdir(settings::assets_dir_voice());
+					mkdir(settings::assets_dir_font());
+					mkdir(settings::assets_dir_script());
+					mkdir(settings::assets_dir_shaders());
+					mkdir(settings::assets_dir_animation());
+					mkdir(settings::assets_dir_texture());
+					mkdir(settings::assets_dir_prefabs());
+					mkdir(settings::assets_dir_maps());
+					mkdir(settings::assets_dir_video());
+					mkdir(settings::assets_dir_ui());
 
 					read_dir = write_dir;
 				}
 
-				error::physfs_check(PHYSFS_mount(read_dir.string().c_str(), nullptr, true));
+				logging::physfs_check(PHYSFS_mount(read_dir.string().c_str(), nullptr, true));
 
-				const auto merged = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
-				error::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
+				const auto merged = settings::root_dir() / settings::editor_dir();
+				logging::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
 			}
 		}
 
 		VirtualFileSystem::~VirtualFileSystem()
 		{
-			error::physfs_check(PHYSFS_deinit());
+			logging::physfs_check(PHYSFS_deinit());
 		}
 
 		std::string VirtualFileSystem::read(const std::string& file)
 		{
 			PHYSFS_File* f = PHYSFS_openRead(file.c_str());
-			if (error::physfs_check(f))
+			if (logging::physfs_check(f))
 			{
 				const auto len = PHYSFS_fileLength(f);
 
-				if (error::physfs_check(len))
+				if (logging::physfs_check(len))
 				{
 					std::string buffer;
 					buffer.resize(len);
 
-					if (error::physfs_check(PHYSFS_readBytes(f, buffer.data(), buffer.size())))
+					if (logging::physfs_check(PHYSFS_readBytes(f, buffer.data(), buffer.size())))
 					{
 						return buffer;
 					}
@@ -114,7 +113,7 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_ERROR, "Failed to check file length for '{0}'.", file);
 				}
 
-				error::physfs_check(PHYSFS_close(f));
+				logging::physfs_check(PHYSFS_close(f));
 			}
 			else
 			{
@@ -124,19 +123,19 @@ namespace galaxy
 			return {};
 		}
 
-		meta::vector<std::uint8_t> VirtualFileSystem::read_binary(const std::string& file)
+		std::vector<std::uint8_t> VirtualFileSystem::read_binary(const std::string& file)
 		{
 			PHYSFS_File* f = PHYSFS_openRead(file.c_str());
-			if (error::physfs_check(f))
+			if (logging::physfs_check(f))
 			{
 				const auto len = PHYSFS_fileLength(f);
 
-				if (error::physfs_check(len))
+				if (logging::physfs_check(len))
 				{
-					meta::vector<std::uint8_t> buffer;
+					std::vector<std::uint8_t> buffer;
 					buffer.resize(len);
 
-					if (error::physfs_check(PHYSFS_readBytes(f, &buffer[0], buffer.size())))
+					if (logging::physfs_check(PHYSFS_readBytes(f, &buffer[0], buffer.size())))
 					{
 						return buffer;
 					}
@@ -150,7 +149,7 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_ERROR, "Failed to check file length for '{0}'.", file);
 				}
 
-				error::physfs_check(PHYSFS_close(f));
+				logging::physfs_check(PHYSFS_close(f));
 			}
 			else
 			{
@@ -179,11 +178,11 @@ namespace galaxy
 			}
 
 			PHYSFS_File* f = PHYSFS_openWrite(path.string().c_str());
-			if (error::physfs_check(f))
+			if (logging::physfs_check(f))
 			{
 				const auto len = PHYSFS_fileLength(f);
 
-				if (error::physfs_check(PHYSFS_writeBytes(f, data, size)))
+				if (logging::physfs_check(PHYSFS_writeBytes(f, data, size)))
 				{
 					return true;
 				}
@@ -192,7 +191,7 @@ namespace galaxy
 					GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}'.", path.string());
 				}
 
-				error::physfs_check(PHYSFS_close(f));
+				logging::physfs_check(PHYSFS_close(f));
 			}
 			else
 			{
@@ -202,34 +201,34 @@ namespace galaxy
 			return false;
 		}
 
-		void VirtualFileSystem::mkdir(const std::string& dir)
+		void VirtualFileSystem::mkdir(const std::string& dir) noexcept
 		{
 			if (!exists(dir))
 			{
-				error::physfs_check(PHYSFS_mkdir(dir.c_str()));
+				logging::physfs_check(PHYSFS_mkdir(dir.c_str()));
 			}
 		}
 
-		void VirtualFileSystem::remove(const std::string& path)
+		void VirtualFileSystem::remove(const std::string& path) noexcept
 		{
-			error::physfs_check(PHYSFS_delete(path.c_str()));
+			logging::physfs_check(PHYSFS_delete(path.c_str()));
 		}
 
-		bool VirtualFileSystem::exists(const std::string& file)
+		bool VirtualFileSystem::exists(const std::string& file) noexcept
 		{
 			return PHYSFS_exists(file.c_str());
 		}
 
-		bool VirtualFileSystem::is_dir(const std::string& path)
+		bool VirtualFileSystem::is_dir(const std::string& path) noexcept
 		{
 			return PHYSFS_isDirectory(path.c_str());
 		}
 
-		meta::vector<std::string> VirtualFileSystem::list(const std::string& dir)
+		std::vector<std::string> VirtualFileSystem::list(const std::string& dir)
 		{
-			meta::vector<std::string> list;
+			std::vector<std::string> list;
 
-			error::physfs_check(PHYSFS_enumerate(
+			logging::physfs_check(PHYSFS_enumerate(
 				dir.c_str(),
 				[](void* data, const char* origdir, const char* fname) -> PHYSFS_EnumerateCallbackResult {
 					if (data != nullptr && fname != nullptr)
@@ -237,30 +236,30 @@ namespace galaxy
 						std::string o = origdir;
 						std::string f = fname;
 
-						auto* my_list = static_cast<meta::vector<std::string>*>(data);
+						auto* my_list = static_cast<std::vector<std::string>*>(data);
 						my_list->emplace_back(o + f);
 					}
 
 					return PHYSFS_ENUM_OK;
 				},
-				&list));
+				&list
+			));
 
 			return list;
 		}
 
-		void VirtualFileSystem::alert()
+		void VirtualFileSystem::alert() noexcept
 		{
 			tinyfd_beep();
 		}
 
-		void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const DialogIcon icon)
+		void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const DialogIcon icon) noexcept
 		{
 			std::string tinyfd_icon {magic_enum::enum_name(icon)};
 			tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
 		}
 
-		int
-		VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn)
+		int VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn) noexcept
 		{
 			std::string tinyfd_type {magic_enum::enum_name(type)};
 			std::string tinyfd_icon {magic_enum::enum_name(icon)};
@@ -268,16 +267,16 @@ namespace galaxy
 			return tinyfd_messageBox(title.c_str(), msg.c_str(), tinyfd_type.c_str(), tinyfd_icon.c_str(), static_cast<int>(btn));
 		}
 
-		std::string VirtualFileSystem::input_box(const std::string& title, const std::string& msg, const std::string& default_text, const bool password)
+		std::string VirtualFileSystem::input_box(const std::string& title, const std::string& msg, const std::string& default_text, const bool password) noexcept
 		{
 			const char* dt = password ? nullptr : default_text.c_str();
 			return tinyfd_inputBox(title.c_str(), msg.c_str(), dt);
 		}
 
-		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const meta::vector<const char*>& filters)
+		std::string VirtualFileSystem::open_save_dialog(const std::string& default_filename, const std::vector<const char*>& filters)
 		{
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char* result = tinyfd_saveFileDialog("Save file", default_filename.c_str(), static_cast<int>(filters.size()), filter_patterns, nullptr);
+			const char*        result          = tinyfd_saveFileDialog("Save file", default_filename.c_str(), static_cast<int>(filters.size()), filter_patterns, nullptr);
 
 			if (result != nullptr)
 			{
@@ -289,13 +288,12 @@ namespace galaxy
 			}
 		}
 
-		std::string VirtualFileSystem::open_file_dialog(const meta::vector<const char*>& filters, const std::string& def_path)
+		std::string VirtualFileSystem::open_file_dialog(const std::vector<const char*>& filters, const std::string& def_path)
 		{
-			const auto default_path = (GALAXY_ROOT_DIR / def_path).string();
+			const auto default_path = (settings::root_dir() / def_path).string();
 
 			const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
-			const char*        result =
-				tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
+			const char*        result = tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
 
 			if (result != nullptr)
 			{
@@ -309,12 +307,25 @@ namespace galaxy
 
 		std::string VirtualFileSystem::select_folder_dialog(const std::string& def_path)
 		{
-			const auto  default_path = (GALAXY_ROOT_DIR / def_path).string();
+			const auto  default_path = (settings::root_dir() / def_path).string();
 			const char* result       = tinyfd_selectFolderDialog("Select folder", default_path.c_str());
 
 			if (result != nullptr)
 			{
 				return {result};
+			}
+			else
+			{
+				return {};
+			}
+		}
+
+		std::string VirtualFileSystem::get_file_extension(const std::string& file_name) noexcept
+		{
+			const auto path = std::filesystem::path(file_name);
+			if (path.has_extension())
+			{
+				return path.extension().string();
 			}
 			else
 			{
