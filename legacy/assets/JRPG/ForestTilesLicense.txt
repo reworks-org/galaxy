@@ -1,5 +1,0 @@
-Author: Sharm, surt, MrBeast
-Link: http://opengameart.org/content/16x16-forest-tiles
-License: CC-BY 3.0, CC-BY-SA 3.0
-
-Resized (and edited transparency) to 48x48 by reworks.

@@ -1,5 +1,0 @@
-Author: Daniel Siegmund
-Link: http://opengameart.org/content/16x16-pixel-art-dungeon-wall-and-cobblestone-floor-tiles
-License: CC-BY 3.0, CC-BY-SA 3.0, GPL 3.0, GPL 2.0
-
-Resized (and edited transparency) to 48x48 by reworks.
