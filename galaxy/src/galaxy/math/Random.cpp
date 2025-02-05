@@ -11,27 +11,27 @@ namespace galaxy
 {
 	namespace math
 	{
-		Random::Random()
+		Random::Random() noexcept
 			: m_rd {}
 			, m_mt {m_rd()}
 		{
 		}
 
-		Random::~Random()
+		Random::~Random() noexcept
 		{
 		}
 
-		glm::vec2 Random::gen_vec2(const glm::vec2& min, const glm::vec2& max)
+		Vector2 Random::gen_vec2(const Vector2& min, const Vector2& max) noexcept
 		{
 			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y)};
 		}
 
-		glm::vec3 Random::gen_vec3(const glm::vec3& min, const glm::vec3& max)
+		Vector3 Random::gen_vec3(const Vector3& min, const Vector3& max) noexcept
 		{
 			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y), gen<float>(min.z, max.z)};
 		}
 
-		glm::vec4 Random::gen_vec4(const glm::vec4& min, const glm::vec4& max)
+		Vector4 Random::gen_vec4(const Vector4& min, const Vector4& max) noexcept
 		{
 			return {gen<float>(min.x, max.x), gen<float>(min.y, max.y), gen<float>(min.z, max.z), gen<float>(min.w, max.w)};
 		}

@@ -8,8 +8,10 @@
 #ifndef GALAXY_MATH_RECTPACK_HPP_
 #define GALAXY_MATH_RECTPACK_HPP_
 
-#include "galaxy/math/Rect.hpp"
-#include "galaxy/meta/Memory.hpp"
+#include <optional>
+#include <vector>
+
+#include "galaxy/graphics/Rectangle.hpp"
 
 namespace galaxy
 {
@@ -20,7 +22,7 @@ namespace galaxy
 		///
 		class RectPack final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -39,7 +41,7 @@ namespace galaxy
 			/// \param width Width of the master rectangle.
 			/// \param height Height of the master rectangle.
 			///
-			void init(const int width, const int height);
+			void init(const float width, const float height);
 
 			///
 			/// Pack a rectangle into the master rectangle.
@@ -50,7 +52,8 @@ namespace galaxy
 			/// \return Returns the location of the packed rectangle on the master rectangle.
 			///			Otherwise, returns a std::nullopt.
 			///
-			[[nodiscard]] std::optional<iRect> pack(const int width, const int height);
+			[[nodiscard]]
+			std::optional<graphics::Rectangle> pack(const float width, const float height);
 
 			///
 			/// Clear all data.
@@ -62,23 +65,26 @@ namespace galaxy
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_width() const;
+			[[nodiscard]]
+			int get_width() const;
 
 			///
 			/// Get total height.
 			///
 			/// \return Integer.
 			///
-			[[nodiscard]] int get_height() const;
+			[[nodiscard]]
+			int get_height() const;
 
 			///
 			/// Get free rectangles.
 			///
 			/// \return Const meta::vector.
 			///
-			[[nodiscard]] const meta::vector<iRect>& get_free_space() const;
+			[[nodiscard]]
+			const std::vector<graphics::Rectangle>& get_free_space() const;
 
-		  private:
+		private:
 			///
 			/// The starting width of the rectangle.
 			///
@@ -92,7 +98,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			meta::vector<iRect> m_free_rects;
+			std::vector<graphics::Rectangle> m_free_rects;
 		};
 	} // namespace math
 } // namespace galaxy

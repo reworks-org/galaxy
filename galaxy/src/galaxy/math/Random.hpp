@@ -10,11 +10,11 @@
 
 #include <random>
 
-#include <glm/vec2.hpp>
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
+#include "galaxy/utils/Concepts.hpp"
 
-#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/math/Vector2.hpp"
+#include "galaxy/math/Vector3.hpp"
+#include "galaxy/math/Vector4.hpp"
 
 namespace galaxy
 {
@@ -24,7 +24,8 @@ namespace galaxy
 		/// Source: http://stackoverflow.com/a/32907541.
 		///
 		template<typename Type>
-		using conditional_distribution = std::conditional_t<std::is_integral<Type>::value,
+		using conditional_distribution = std::conditional_t<
+			std::is_integral<Type>::value,
 			std::uniform_int_distribution<Type>,
 			std::conditional_t<std::is_floating_point<Type>::value, std::uniform_real_distribution<Type>, void>>;
 
@@ -35,16 +36,16 @@ namespace galaxy
 		///
 		class Random final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
-			Random();
+			Random() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Random();
+			~Random() noexcept;
 
 			///
 			/// Generate a random number of type T.
@@ -56,8 +57,9 @@ namespace galaxy
 			///
 			/// \return Returns number of the same type as inputs.
 			///
-			template<meta::is_arithmetic Type>
-			[[nodiscard]] Type gen(const Type min, const Type max);
+			template<utils::is_arithmetic Type>
+			[[nodiscard]]
+			Type gen(const Type min, const Type max) noexcept;
 
 			///
 			/// Generate a random vec2.
@@ -67,7 +69,8 @@ namespace galaxy
 			///
 			/// \return Pseudo-randomized vec2.
 			///
-			[[nodiscard]] glm::vec2 gen_vec2(const glm::vec2& min, const glm::vec2& max);
+			[[nodiscard]]
+			Vector2 gen_vec2(const Vector2& min, const Vector2& max) noexcept;
 
 			///
 			/// Generate a random vec3.
@@ -77,7 +80,8 @@ namespace galaxy
 			///
 			/// \return Pseudo-randomized vec3.
 			///
-			[[nodiscard]] glm::vec3 gen_vec3(const glm::vec3& min, const glm::vec3& max);
+			[[nodiscard]]
+			Vector3 gen_vec3(const Vector3& min, const Vector3& max) noexcept;
 
 			///
 			/// Generate a random vec4.
@@ -87,9 +91,10 @@ namespace galaxy
 			///
 			/// \return Pseudo-randomized vec4.
 			///
-			[[nodiscard]] glm::vec4 gen_vec4(const glm::vec4& min, const glm::vec4& max);
+			[[nodiscard]]
+			Vector4 gen_vec4(const Vector4& min, const Vector4& max) noexcept;
 
-		  private:
+		private:
 			///
 			/// Randomizer device.
 			///
@@ -101,8 +106,8 @@ namespace galaxy
 			std::mt19937_64 m_mt;
 		};
 
-		template<meta::is_arithmetic Type>
-		inline Type Random::gen(const Type min, const Type max)
+		template<utils::is_arithmetic Type>
+		inline Type Random::gen(const Type min, const Type max) noexcept
 		{
 			conditional_distribution<Type> dist {min, max};
 			return dist(m_mt);
