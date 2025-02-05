@@ -388,6 +388,10 @@
     <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
     <ClInclude Include="physfs\src\physfs_miniz.h" />
     <ClInclude Include="physfs\src\physfs_platforms.h" />
+    <ClInclude Include="entt_sol\dispatcher.hpp" />
+    <ClInclude Include="entt_sol\meta_helper.hpp" />
+    <ClInclude Include="entt_sol\registry.hpp" />
+    <ClInclude Include="entt_sol\script_process.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />
@@ -612,7 +616,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sfml_deps\freetype-src\src\base\ftver.rc" />
-    <ResourceCompile Include="sfml_deps\flac-src\src\libFLAC\version.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sfml_deps\vorbis-src\win32\vorbisfile.def" />

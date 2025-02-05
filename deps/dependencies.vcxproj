@@ -32,6 +32,10 @@
     <ClCompile Include="tinyfiledialogs\more_dialogs\tinyfd_moredialogs.c" />
     <ClCompile Include="tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
+    <ClInclude Include="entt_sol\dispatcher.hpp" />
+    <ClInclude Include="entt_sol\meta_helper.hpp" />
+    <ClInclude Include="entt_sol\registry.hpp" />
+    <ClInclude Include="entt_sol\script_process.hpp" />
     <ClInclude Include="physfs\src\physfs.h" />
     <ClInclude Include="physfs\src\physfs_casefolding.h" />
     <ClInclude Include="physfs\src\physfs_internal.h" />
@@ -325,7 +329,6 @@
     <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_intrin_ssse3.c" />
     <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_intrin_avx2.c" />
     <ClCompile Include="sfml_deps\flac-src\src\libFLAC\stream_encoder_framing.c" />
-    <ResourceCompile Include="sfml_deps\flac-src\src\libFLAC\version.rc" />
     <ClCompile Include="sfml_deps\flac-src\src\libFLAC\window.c" />
     <ClInclude Include="sfml_deps\flac-src\include\share\win_utf8_io.h" />
     <ClCompile Include="sfml_deps\flac-src\src\share\win_utf8_io\win_utf8_io.c" />
@@ -715,7 +718,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml/extlibs/headers/glad/include;$(SolutionDir)deps/sfml/extlibs/headers/mingw;$(SolutionDir)deps/sfml/extlibs/headers/miniaudio;$(SolutionDir)deps/sfml/extlibs/headers/minimp3;$(SolutionDir)deps/sfml/extlibs/headers/stb_image;$(SolutionDir)deps/sfml/extlibs/headers/vulkan;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -729,7 +732,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps/ffmpeg/lib/avcodec.lib;$(SolutionDir)deps/ffmpeg/lib/avdevice.lib;$(SolutionDir)deps/ffmpeg/lib/avfilter.lib;$(SolutionDir)deps/ffmpeg/lib/avformat.lib;$(SolutionDir)deps/ffmpeg/lib/avutil.lib;$(SolutionDir)deps/ffmpeg/lib/swresample.lib;$(SolutionDir)deps/ffmpeg/lib/swscale.lib;$(SolutionDir)deps\zlib-ng\lib\Debug\zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)deps\mimalloc\bin\$(Configuration)\mimalloc.dll.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -772,7 +775,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml/extlibs/headers/glad/include;$(SolutionDir)deps/sfml/extlibs/headers/mingw;$(SolutionDir)deps/sfml/extlibs/headers/miniaudio;$(SolutionDir)deps/sfml/extlibs/headers/minimp3;$(SolutionDir)deps/sfml/extlibs/headers/stb_image;$(SolutionDir)deps/sfml/extlibs/headers/vulkan;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -787,7 +790,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;$(SolutionDir)deps/ffmpeg/lib/avcodec.lib;$(SolutionDir)deps/ffmpeg/lib/avdevice.lib;$(SolutionDir)deps/ffmpeg/lib/avfilter.lib;$(SolutionDir)deps/ffmpeg/lib/avformat.lib;$(SolutionDir)deps/ffmpeg/lib/avutil.lib;$(SolutionDir)deps/ffmpeg/lib/swresample.lib;$(SolutionDir)deps/ffmpeg/lib/swscale.lib;$(SolutionDir)deps\zlib-ng\lib\Release\zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)deps\mimalloc\bin\$(Configuration)\mimalloc.dll.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
