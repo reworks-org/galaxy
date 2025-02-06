@@ -8,7 +8,7 @@
 #ifndef GALAXY_PLATFORM_SPECIFIC_WINDOWS_HPP_
 #define GALAXY_PLATFORM_SPECIFIC_WINDOWS_HPP_
 
-#include "galaxy/core/Settings.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 

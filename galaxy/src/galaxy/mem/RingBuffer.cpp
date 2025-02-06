@@ -16,6 +16,7 @@
 #pragma warning(push)
 #pragma warning(disable : 26401)
 #pragma warning(disable : 26409)
+#pragma warning(disable : 26461)
 #endif
 
 namespace galaxy
@@ -37,7 +38,7 @@ namespace galaxy
 			m_buffer = nullptr;
 		}
 
-		int RingBuffer::write(const float* data, const int count)
+		int RingBuffer::write(float* data, const int count) noexcept
 		{
 			for (auto i = 0; i < count; i++)
 			{
@@ -50,7 +51,7 @@ namespace galaxy
 			return count;
 		}
 
-		int RingBuffer::read(float* data, int count)
+		int RingBuffer::read(float* data, int count) noexcept
 		{
 			for (auto i = 0; i < count; i++)
 			{
@@ -63,7 +64,7 @@ namespace galaxy
 			return count;
 		}
 
-		float* RingBuffer::direct_read_pointer(const int count)
+		float* RingBuffer::direct_read_pointer(const int count) noexcept
 		{
 			float* result = &m_buffer[m_read_index % m_capacity];
 			m_read_index  = (m_read_index + count) % m_capacity;

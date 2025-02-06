@@ -106,7 +106,7 @@ namespace galaxy
 			/// \param section Section of the config file to use. Can use a delimiter to seperate sections.
 			/// \param delim Delimiter to seperate sections with. Optional.
 			///
-			template<utils::standard_type Value>
+			template<meta::standard_type Value>
 			void restore(const std::string& key, const Value& value, const std::string& section, const std::string& delim = ".");
 
 			///

@@ -13,11 +13,11 @@ namespace galaxy
 {
 	namespace logging
 	{
-		ConsoleSink::ConsoleSink() noexcept
+		ConsoleSink::ConsoleSink()
 		{
 		}
 
-		ConsoleSink::~ConsoleSink() noexcept
+		ConsoleSink::~ConsoleSink()
 		{
 		}
 

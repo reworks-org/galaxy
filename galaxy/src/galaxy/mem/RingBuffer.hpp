@@ -39,7 +39,7 @@ namespace galaxy
 			/// \return Updated write index.
 			///
 			[[nodiscard]]
-			int write(const float* data, const int count);
+			int write(float* data, const int count) noexcept;
 
 			///
 			/// Read data from buffer.
@@ -50,7 +50,7 @@ namespace galaxy
 			/// \return Updated read index.
 			///
 			[[nodiscard]]
-			int read(float* data, int count);
+			int read(float* data, int count) noexcept;
 
 			///
 			/// Read the ring buffer.
@@ -60,7 +60,7 @@ namespace galaxy
 			/// \return Section of data read.
 			///
 			[[nodiscard]]
-			float* direct_read_pointer(const int count);
+			float* direct_read_pointer(const int count) noexcept;
 
 			///
 			/// Available bytes left in the ring buffer.

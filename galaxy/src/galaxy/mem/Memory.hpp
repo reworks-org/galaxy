@@ -23,7 +23,7 @@ namespace galaxy
 		///
 		/// \tparam Type Any type that can be a reference.
 		///
-		template<is_object Type>
+		template<meta::is_object Type>
 		using ref = std::reference_wrapper<Type>;
 
 		///

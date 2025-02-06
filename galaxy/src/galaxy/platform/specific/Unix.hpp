@@ -8,7 +8,7 @@
 #ifndef GALAXY_PLATFORM_SPECIFIC_UNIX_HPP_
 #define GALAXY_PLATFORM_SPECIFIC_UNIX_HPP_
 
-#include "galaxy/core/Settings.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #ifdef GALAXY_UNIX_PLATFORM
 
@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		/// Sets up debug terminal.
 		///
-		void configure_terminal() const noexcept;
+		void configure_terminal() noexcept;
 	} // namespace platform
 } // namespace galaxy
 

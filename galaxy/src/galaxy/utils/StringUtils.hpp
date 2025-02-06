@@ -28,7 +28,7 @@ namespace galaxy
 		std::vector<std::string> split(std::string_view input, std::string_view delim);
 
 		///
-		/// \brief Replace first occurance of a string.
+		/// \brief Replace first occurrence of a string.
 		///
 		/// Returns input string if to_replace not found.
 		///
@@ -39,7 +39,7 @@ namespace galaxy
 		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with);
 
 		///
-		/// \brief Replaces all occurances of a string.
+		/// \brief Replaces all occurrences of a string.
 		///
 		/// Returns input string if to_replace not found.
 		///
@@ -61,27 +61,21 @@ namespace galaxy
 		bool begins_with(const std::string& input, const std::string& find);
 
 		///
-		/// \brief Trim string from start.
-		///
-		/// Credits: https://stackoverflow.com/a/217605
+		/// Trim string from start.
 		///
 		/// \param input String to trim.
 		///
 		void rtrim(std::string& input);
 
 		///
-		/// \brief Trim string from end.
-		///
-		/// Credits: https://stackoverflow.com/a/217605
+		/// Trim string from end.
 		///
 		/// \param input String to trim.
 		///
 		void ltrim(std::string& input);
 
 		///
-		/// \brief Trim both ends of string.
-		///
-		/// Credits: https://stackoverflow.com/a/217605
+		/// Trim both ends of string.
 		///
 		/// \param input String to trim.
 		///
