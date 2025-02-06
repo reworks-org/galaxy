@@ -11,7 +11,7 @@ var searchData=
   ['destroy_5fsystem_5fcursors_8',['destroy_system_cursors',['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a77c5cad9d2a83a0a7d393cdbb21fc783',1,'galaxy::input::Cursor']]],
   ['destruct_5fnui_9',['destruct_nui',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a20b4a5ffd50bb0f4687e6437fecee561',1,'galaxy::core::Registry']]],
   ['destruct_5fscript_10',['destruct_script',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a2394fd36450c27b406a5e1b151226e16',1,'galaxy::core::Registry']]],
-  ['direct_5fread_5fpointer_11',['direct_read_pointer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a77a2093ee29cab6699198005b8afde35',1,'galaxy::mem::RingBuffer']]],
+  ['direct_5fread_5fpointer_11',['direct_read_pointer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#af54f563f573a6c2654773b5197cd6e71',1,'galaxy::mem::RingBuffer']]],
   ['disable_5fentity_12',['disable_entity',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a362641d71c6340e1419d64b91789bcda',1,'galaxy::core::Registry']]],
   ['disable_5fsticky_5fkeys_13',['disable_sticky_keys',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d',1,'galaxy::input::Keyboard']]],
   ['disable_5fsticky_5fmouse_14',['disable_sticky_mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#adf98facfb24d4602c169023bab725688',1,'galaxy::input::Mouse']]],

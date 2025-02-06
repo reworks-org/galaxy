@@ -15,6 +15,7 @@ var hierarchy =
     [ "galaxy::graphics::FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", null ],
     [ "galaxy::graphics::Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", null ],
     [ "galaxy::graphics::Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", null ],
+    [ "galaxy::events::GainedFocus", "d1/d4c/structgalaxy_1_1events_1_1GainedFocus.html", null ],
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
     [ "galaxy::input::Input", "db/df9/classgalaxy_1_1input_1_1Input.html", null ],
@@ -28,6 +29,7 @@ var hierarchy =
       [ "galaxy::fs::PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", null ]
     ] ],
     [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
+    [ "galaxy::events::JoystickDisconnect", "d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect.html", null ],
     [ "galaxy::events::KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", null ],
     [ "galaxy::events::KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", null ],
     [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", null ],
@@ -40,8 +42,11 @@ var hierarchy =
     ] ],
     [ "galaxy::logging::Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html", null ],
     [ "galaxy::logging::LogMessage", "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html", null ],
+    [ "galaxy::events::LostFocus", "d8/d4a/structgalaxy_1_1events_1_1LostFocus.html", null ],
     [ "galaxy::map::Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", null ],
     [ "galaxy::events::MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", null ],
+    [ "galaxy::events::MouseEntered", "d2/d71/structgalaxy_1_1events_1_1MouseEntered.html", null ],
+    [ "galaxy::events::MouseLeft", "d8/dfe/structgalaxy_1_1events_1_1MouseLeft.html", null ],
     [ "galaxy::events::MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", null ],
     [ "galaxy::events::MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", null ],
     [ "galaxy::events::MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", null ],
@@ -114,7 +119,7 @@ var hierarchy =
       [ "galaxy::graphics::TextureView", "d9/d28/classgalaxy_1_1graphics_1_1TextureView.html", null ]
     ] ],
     [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],
-    [ "galaxy::async::Timer< async >", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
+    [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
     [ "galaxy::graphics::Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", [
       [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ]
     ] ],

@@ -1,11 +1,11 @@
 var classgalaxy_1_1math_1_1Random =
 [
-    [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html#ac84da373112079f3b1c5881ee30daace", null ],
-    [ "~Random", "d9/deb/classgalaxy_1_1math_1_1Random.html#a1688aaf9471f55f53f7fac1f2931aa0f", null ],
-    [ "gen", "d9/deb/classgalaxy_1_1math_1_1Random.html#a8840146f6a92d8d253e0bc52f362441b", null ],
-    [ "gen_vec2", "d9/deb/classgalaxy_1_1math_1_1Random.html#a51ffc288b3c186f651cc4577ed1d9e5a", null ],
-    [ "gen_vec3", "d9/deb/classgalaxy_1_1math_1_1Random.html#a049e66bdec93fce2305144d2420a44bb", null ],
-    [ "gen_vec4", "d9/deb/classgalaxy_1_1math_1_1Random.html#ac5fbaa8f5762f27f30dc5bfc309e3818", null ],
+    [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html#aadc60e1ce65f28056faa6408a73a0a39", null ],
+    [ "~Random", "d9/deb/classgalaxy_1_1math_1_1Random.html#a12ac9bcbcbe80b35bdb04f9268456549", null ],
+    [ "gen", "d9/deb/classgalaxy_1_1math_1_1Random.html#a8e73b0cc9dc0074180bb75b2338180c8", null ],
+    [ "gen_vec2", "d9/deb/classgalaxy_1_1math_1_1Random.html#a5ced413f17fb9417d3d5ffc91b9647e7", null ],
+    [ "gen_vec3", "d9/deb/classgalaxy_1_1math_1_1Random.html#af798a23d46799d7368cd2d9f422be8b5", null ],
+    [ "gen_vec4", "d9/deb/classgalaxy_1_1math_1_1Random.html#a2dd26fee87196ef450aa5a919e5ac5c5", null ],
     [ "m_rd", "d9/deb/classgalaxy_1_1math_1_1Random.html#a06193a86320cb0fbe362a20c515f3846", null ],
     [ "m_mt", "d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311", null ]
 ];

@@ -1,22 +1,13 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html',1,'galaxy::scene']]],
-  ['scenemanager_1',['SceneManager',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html',1,'galaxy::scene']]],
-  ['script_2',['Script',['../db/d40/classgalaxy_1_1components_1_1Script.html',1,'galaxy::components::Script'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html',1,'galaxy::lua::Script']]],
-  ['scriptsystem_3',['ScriptSystem',['../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html',1,'galaxy::systems']]],
-  ['serializable_4',['Serializable',['../d2/d54/classgalaxy_1_1fs_1_1Serializable.html',1,'galaxy::fs']]],
-  ['serializationdata_5',['SerializationData',['../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html',1,'galaxy::meta::EntityMeta']]],
-  ['settings_6',['settings',['../d1/db3/structgalaxy_1_1settings.html',1,'galaxy']]],
-  ['shader_7',['Shader',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html',1,'galaxy::graphics']]],
-  ['shaderstoragebuffer_8',['ShaderStorageBuffer',['../d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html',1,'galaxy::graphics']]],
-  ['shape_9',['Shape',['../d9/d29/classgalaxy_1_1graphics_1_1Shape.html',1,'galaxy::graphics']]],
-  ['sharpen_10',['Sharpen',['../de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html',1,'galaxy::graphics']]],
-  ['sink_11',['Sink',['../d9/d9f/classgalaxy_1_1logging_1_1Sink.html',1,'galaxy::logging']]],
-  ['smaa_12',['SMAA',['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html',1,'galaxy::graphics']]],
-  ['soundloader_13',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],
-  ['sprite_14',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],
-  ['state_15',['State',['../db/d6a/classgalaxy_1_1state_1_1State.html',1,'galaxy::state']]],
-  ['statemachine_16',['StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html',1,'galaxy::state']]],
-  ['subprocess_17',['Subprocess',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html',1,'galaxy::platform']]],
-  ['system_18',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html',1,'galaxy::systems']]]
+  ['random_0',['Random',['../d9/deb/classgalaxy_1_1math_1_1Random.html',1,'galaxy::math']]],
+  ['rectpack_1',['RectPack',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html',1,'galaxy::math']]],
+  ['registry_2',['Registry',['../de/d2c/classgalaxy_1_1core_1_1Registry.html',1,'galaxy::core']]],
+  ['rendercommand_3',['RenderCommand',['../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html',1,'galaxy::graphics']]],
+  ['renderdata_4',['RenderData',['../de/df1/structgalaxy_1_1graphics_1_1RenderData.html',1,'galaxy::graphics']]],
+  ['renderer_5',['Renderer',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html',1,'galaxy::graphics']]],
+  ['rendersystem_6',['RenderSystem',['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html',1,'galaxy::systems']]],
+  ['rendertexture_7',['RenderTexture',['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html',1,'galaxy::graphics']]],
+  ['rigidbody_8',['RigidBody',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html',1,'galaxy::components']]],
+  ['ringbuffer_9',['RingBuffer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html',1,'galaxy::mem']]]
 ];

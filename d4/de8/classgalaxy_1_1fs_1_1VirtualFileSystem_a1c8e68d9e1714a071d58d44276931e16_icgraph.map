@@ -1,9 +1,7 @@
 <map id="galaxy::fs::VirtualFileSystem::message_box" name="galaxy::fs::VirtualFileSystem::message_box">
-<area shape="rect" id="Node000001" title="Opens a platform specific message box." alt="" coords="609,5,817,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="405,13,561,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,28,561,28,561,23,595,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="391,28,358,28,358,23,391,23"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" id="Node000001" title="Opens a platform specific message box." alt="" coords="395,5,603,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into lua." alt="" coords="191,13,347,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,28,347,28,347,23,381,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
 </map>

@@ -107,32 +107,41 @@ $(function(){initNavTree('d5/ddd/Pragma_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_PLATFORM_PRAGMA_HPP_</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_PLATFORM_PRAGMA_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d40/Platform_8hpp.html">galaxy/platform/Platform.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define GALAXY_PLATFORM_PUSH       __pragma(warning(push))</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define GALAXY_PLATFORM_POP        __pragma(warning(pop))</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define GALAXY_PLATFORM_WARNING(x) __pragma(warning(disable : x))</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#elif GALAXY_UNIX_PLATFORM</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GALAXY_PLATFORM_PUSH       _Pragma(&quot;GCC diagnostic push&quot;)</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define GALAXY_PLATFORM_POP        _Pragma(&quot;GCC diagnostic pop&quot;)</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define GALAXY_DO_PRAGMA(x)        _Pragma(#x)</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define GALAXY_PLATFORM_WARNING(x) GALAXY_DO_PRAGMA(GCC diagnostic ignored #x)</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b">   24</a></span><span class="preprocessor">#define GALAXY_DISABLE_WARNING_PUSH GALAXY_PLATFORM_PUSH</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041">   25</a></span><span class="preprocessor">#define GALAXY_DISABLE_WARNING_POP  GALAXY_PLATFORM_POP</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1">   26</a></span><span class="preprocessor">#define GALAXY_DISABLE_WARNING(x)   GALAXY_PLATFORM_WARNING(x)</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aPlatform_8hpp_html"><div class="ttname"><a href="../../d5/d40/Platform_8hpp.html">Platform.hpp</a></div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define GALAXY_WIN_PLATFORM</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#if defined(__linux__) || defined(__unix) || defined(_POISX_VERSION) || defined(__GNUC__) || defined(__clang__)</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define GALAXY_LINUX_PLATFORM</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#if defined(__APPLE__) || defined(TARGET_OS_MAC)</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define GALAXY_MACOS_PLATFORM</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define GALAXY_PLATFORM_PUSH       __pragma(warning(push))</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define GALAXY_PLATFORM_POP        __pragma(warning(pop))</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define GALAXY_PLATFORM_WARNING(x) __pragma(warning(disable : x))</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#elif GALAXY_UNIX_PLATFORM</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define GALAXY_PLATFORM_PUSH       _Pragma(&quot;GCC diagnostic push&quot;)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define GALAXY_PLATFORM_POP        _Pragma(&quot;GCC diagnostic pop&quot;)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define GALAXY_DO_PRAGMA(x)        _Pragma(#x)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define GALAXY_PLATFORM_WARNING(x) GALAXY_DO_PRAGMA(GCC diagnostic ignored #x)</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b">   43</a></span><span class="preprocessor">#define GALAXY_DISABLE_WARNING_PUSH GALAXY_PLATFORM_PUSH</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041">   44</a></span><span class="preprocessor">#define GALAXY_DISABLE_WARNING_POP  GALAXY_PLATFORM_POP</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1">   45</a></span><span class="preprocessor">#define GALAXY_DISABLE_WARNING(x)   GALAXY_PLATFORM_WARNING(x)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_539763b671f38b158c533952648703b5.html">platform</a></li><li class="navelem"><a class="el" href="../../d5/ddd/Pragma_8hpp.html">Pragma.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 5 2025 09:00:33 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Thu Feb 6 2025 14:34:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

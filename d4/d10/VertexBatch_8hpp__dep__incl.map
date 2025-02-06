@@ -1,17 +1,15 @@
 <map id="galaxy/src/galaxy/graphics/VertexBatch.hpp" name="galaxy/src/galaxy/graphics/VertexBatch.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="549,5,745,45"/>
-<area shape="rect" id="Node000002" href="$de/d03/TileMap_8hpp.html" title=" " alt="" coords="420,93,641,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="612,56,558,95,555,91,608,52"/>
-<area shape="rect" id="Node000008" href="$d9/d3a/VertexBatch_8cpp.html" title=" " alt="" coords="666,93,862,133"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="685,52,740,91,736,95,682,56"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="458,5,654,45"/>
+<area shape="rect" id="Node000002" href="$de/d03/TileMap_8hpp.html" title=" " alt="" coords="329,93,551,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,56,467,95,464,91,518,52"/>
+<area shape="rect" id="Node000007" href="$d9/d3a/VertexBatch_8cpp.html" title=" " alt="" coords="575,93,771,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="595,52,649,91,646,95,592,56"/>
 <area shape="rect" id="Node000003" href="$d2/d69/TileMap_8cpp.html" title=" " alt="" coords="5,181,227,221"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,139,207,184,206,179,426,134"/>
-<area shape="rect" id="Node000004" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="251,181,421,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="477,141,380,184,378,179,475,136"/>
-<area shape="rect" id="Node000005" href="$d3/d92/Map_8cpp.html" title=" " alt="" coords="445,181,616,221"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="533,147,533,181,528,181,528,147"/>
-<area shape="rect" id="Node000006" href="$da/d27/LuaComponents_8cpp.html" title=" " alt="" coords="640,181,837,221"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="590,136,694,179,692,184,588,141"/>
-<area shape="rect" id="Node000007" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="862,181,1058,221"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="639,133,867,179,865,184,638,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="357,139,188,184,186,179,355,134"/>
+<area shape="rect" id="Node000004" href="$d3/d92/Map_8cpp.html" title=" " alt="" coords="251,181,421,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="408,144,361,183,357,179,405,140"/>
+<area shape="rect" id="Node000005" href="$da/d27/LuaComponents_8cpp.html" title=" " alt="" coords="445,181,643,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="475,140,523,179,519,183,472,144"/>
+<area shape="rect" id="Node000006" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="667,181,863,221"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="525,134,695,179,693,184,524,139"/>
 </map>

@@ -42,5 +42,6 @@ var searchData=
   ['frames_39',['frames',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a6d04ec8e90e00c023c7823b992dbc39b',1,'galaxy::graphics::Animation']]],
   ['from_5fentity_40',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
   ['from_5fjson_41',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
-  ['fullscreen_42',['fullscreen',['../d5/d25/classgalaxy_1_1core_1_1Window.html#afd048185cbf359f21b3c15d29de24bcd',1,'galaxy::core::Window']]]
+  ['fullscreen_42',['fullscreen',['../d5/d25/classgalaxy_1_1core_1_1Window.html#afd048185cbf359f21b3c15d29de24bcd',1,'galaxy::core::Window']]],
+  ['function_43',['Function',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#ab07fa9a2451f570e7f50e04b0fb2dcd1',1,'galaxy::async::Timer']]]
 ];

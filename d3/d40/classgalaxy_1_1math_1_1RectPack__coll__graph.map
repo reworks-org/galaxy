@@ -1,3 +1,9 @@
 <map id="galaxy::math::RectPack" name="galaxy::math::RectPack">
-<area shape="rect" id="Node000001" title="Rectangle 2D bin packing class." alt="" coords="5,5,172,251"/>
+<area shape="rect" id="Node000001" title="Rectangle 2D bin packing class." alt="" coords="5,404,172,629"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="12,261,165,341"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,342,91,388,86,388,86,342"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,133,149,199"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,212,91,261,86,261,86,212"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="77,5,100,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="91,71,91,117,86,117,86,71"/>
 </map>

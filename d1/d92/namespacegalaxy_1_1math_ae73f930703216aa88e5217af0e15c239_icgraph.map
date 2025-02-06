@@ -1,10 +1,8 @@
 <map id="galaxy::math::fnv1a_32" name="galaxy::math::fnv1a_32">
-<area shape="rect" id="Node000001" title="Convert string to 32bit hash." alt="" coords="632,29,807,55"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="760,20,749,11,719,8,695,10,683,15,680,20,687,27,683,31,675,21,679,11,694,5,719,3,751,7,763,16"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="405,29,584,55"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="618,45,584,45,584,39,618,39"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,29,357,55"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="392,45,358,45,358,39,392,39"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,29,172,55"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="206,45,172,45,172,39,206,39"/>
+<area shape="rect" id="Node000001" title="Convert string to 32bit hash." alt="" coords="417,29,592,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="545,20,534,11,505,8,481,10,468,15,465,20,472,27,468,31,460,21,464,11,480,5,505,3,536,7,548,16"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="191,29,369,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="403,45,369,45,369,39,403,39"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,29,143,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="177,45,143,45,143,39,177,39"/>
 </map>

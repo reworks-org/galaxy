@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"d1/d38/graphics_2shapes_2Point_8cpp_source.html":[3,0,0,0,0,6,3,4],
+"d1/d44/StringUtils_8cpp.html":[3,0,0,0,0,20,2],
+"d1/d44/StringUtils_8cpp.html#a08031ceb7b289eae2739e4528489da4b":[3,0,0,0,0,20,2,6],
 "d1/d44/StringUtils_8cpp.html#a22d4d4217db71614abc57b1d4aa3a9a0":[3,0,0,0,0,20,2,7],
 "d1/d44/StringUtils_8cpp.html#aa478cb3361fc7c4a54132170d8fa9e4b":[3,0,0,0,0,20,2,0],
 "d1/d44/StringUtils_8cpp.html#aa9c293e86f67a6709d6b8745e0185e5f":[3,0,0,0,0,20,2,2],
@@ -18,6 +21,8 @@ var NAVTREEINDEX1 =
 "d1/d44/StringUtils_8hpp.html#ac5695a7c71384e1de6aa6cf8a9e46e5a":[3,0,0,0,0,20,3,4],
 "d1/d44/StringUtils_8hpp.html#afff4d4bc591e6b700b5065afb2144125":[3,0,0,0,0,20,3,5],
 "d1/d44/StringUtils_8hpp_source.html":[3,0,0,0,0,20,3],
+"d1/d4c/structgalaxy_1_1events_1_1GainedFocus.html":[0,0,0,3,1],
+"d1/d4c/structgalaxy_1_1events_1_1GainedFocus.html":[2,0,0,3,1],
 "d1/d50/LuaServices_8cpp.html":[3,0,0,0,0,16,0,17],
 "d1/d50/LuaServices_8cpp.html#a59f23ce23f852638e16b61a663a83005":[3,0,0,0,0,16,0,17,0],
 "d1/d50/LuaServices_8cpp_source.html":[3,0,0,0,0,16,0,17],
@@ -62,7 +67,7 @@ var NAVTREEINDEX1 =
 "d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d":[0,0,0,12,5],
 "d1/d92/namespacegalaxy_1_1math.html#a7282841173b7751e6653d99cedfb74fa":[0,0,0,12,14],
 "d1/d92/namespacegalaxy_1_1math.html#a8a514f195498da0f3e396364b10ad30e":[0,0,0,12,8],
-"d1/d92/namespacegalaxy_1_1math.html#a9e752e8c2942e357176958bc041f954e":[0,0,0,12,3],
+"d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f":[0,0,0,12,3],
 "d1/d92/namespacegalaxy_1_1math.html#aa176ec87fe07b2240a16c26c221fe409":[0,0,0,12,12],
 "d1/d92/namespacegalaxy_1_1math.html#aa268fcdadd51a019f66c4953e578694e":[0,0,0,12,10],
 "d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3":[0,0,0,12,7],
@@ -71,6 +76,8 @@ var NAVTREEINDEX1 =
 "d1/d92/namespacegalaxy_1_1math.html#afcef1d71a1d37b4bf17ed1053d42c07d":[0,0,0,12,15],
 "d1/d98/Prefab_8hpp.html":[3,0,0,0,0,2,7],
 "d1/d98/Prefab_8hpp_source.html":[3,0,0,0,0,2,7],
+"d1/da4/LostFocus_8hpp.html":[3,0,0,0,0,3,13],
+"d1/da4/LostFocus_8hpp_source.html":[3,0,0,0,0,3,13],
 "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html":[0,0,0,9,3],
 "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html":[2,0,0,8,3],
 "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a1afbb2fba458e84c9d0d3841dca842c0":[0,0,0,9,3,1],
@@ -242,12 +249,5 @@ var NAVTREEINDEX1 =
 "d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a298ab64302d94b7fadf4a5fbb5d09037":[0,0,0,12,2,10],
 "d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a298ab64302d94b7fadf4a5fbb5d09037":[2,0,0,11,2,10],
 "d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a497edc558be6d10e116d3b5b7241a20c":[0,0,0,12,2,8],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a497edc558be6d10e116d3b5b7241a20c":[2,0,0,11,2,8],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a4f39a89eaa6abc761d3e4cdbe8c5977e":[0,0,0,12,2,5],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a4f39a89eaa6abc761d3e4cdbe8c5977e":[2,0,0,11,2,5],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afb":[0,0,0,12,2,0],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afb":[2,0,0,11,2,0],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afba08c078f425b1925fb4be9d7d0ee118b1":[0,0,0,12,2,0,0],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afba08c078f425b1925fb4be9d7d0ee118b1":[2,0,0,11,2,0,0],
-"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afbad99a99e787339258bd63bebb2445ffd5":[0,0,0,12,2,0,1]
+"d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a497edc558be6d10e116d3b5b7241a20c":[2,0,0,11,2,8]
 };

@@ -1,9 +1,7 @@
 <map id="galaxy::graphics::Shader::destroy" name="galaxy::graphics::Shader::destroy">
-<area shape="rect" id="Node000001" title="Destroys shader program." alt="" coords="475,37,656,77"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Cleanup renderer data." alt="" coords="232,5,427,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="461,46,427,41,427,36,462,41"/>
-<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a98805bf1affebc423b1c74524c172304" title="Destructor." alt="" coords="239,69,420,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="461,74,421,80,420,74,461,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b" title="Destructor." alt="" coords="5,13,184,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,28,184,28,184,23,219,23"/>
+<area shape="rect" id="Node000001" title="Destroys shader program." alt="" coords="248,37,429,77"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Cleanup renderer data." alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,46,200,41,201,36,235,41"/>
+<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a98805bf1affebc423b1c74524c172304" title="Destructor." alt="" coords="12,69,193,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,74,194,80,193,74,234,69"/>
 </map>

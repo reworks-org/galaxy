@@ -1,11 +1,9 @@
 <map id="galaxy::scene::Scene::load_world" name="galaxy::scene::Scene::load_world">
-<area shape="rect" id="Node000001" title="Loads an LDTK world for this scene." alt="" coords="612,37,771,77"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="405,5,564,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,46,564,40,564,35,599,40"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="416,69,553,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="599,74,554,81,553,76,598,69"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,77,357,102"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="402,92,358,92,358,87,402,87"/>
-<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,172,92,172,87,206,87"/>
+<area shape="rect" id="Node000001" title="Loads an LDTK world for this scene." alt="" coords="397,37,556,77"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="191,5,349,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="383,46,349,40,350,35,384,40"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="201,69,339,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="384,74,340,81,339,76,383,69"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,77,143,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="188,92,143,92,143,87,188,87"/>
 </map>

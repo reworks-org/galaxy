@@ -1,5 +1,7 @@
 <map id="galaxy/src/galaxy/platform/Platform.cpp" name="galaxy/src/galaxy/platform/Platform.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,203,45"/>
-<area shape="rect" id="Node000002" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="51,93,157,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,46,107,79,101,79,101,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,5,208,45"/>
+<area shape="rect" id="Node000002" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="56,93,163,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,46,112,79,107,79,107,46"/>
+<area shape="rect" id="Node000003" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="5,167,213,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,119,112,153,107,153,107,119"/>
 </map>

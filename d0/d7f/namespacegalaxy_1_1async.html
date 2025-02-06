@@ -101,7 +101,6 @@ $(function(){initNavTree('d0/d7f/namespacegalaxy_1_1async.html','../../'); initR
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">galaxy::async Namespace Reference</div></div>
 </div><!--header-->
@@ -110,44 +109,19 @@ $(function(){initNavTree('d0/d7f/namespacegalaxy_1_1async.html','../../'); initR
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html">Timer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">(A)synchronous timer class.  <a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous timer class.  <a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:af7aa889ef5dc58516ac18772f1dca0bc" id="r_af7aa889ef5dc58516ac18772f1dca0bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7aa889ef5dc58516ac18772f1dca0bc">TimerCallback</a> = std::move_only_function&lt;void(void)&gt;</td></tr>
-<tr class="memdesc:af7aa889ef5dc58516ac18772f1dca0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html" title="(A)synchronous timer class.">Timer</a> callback type.  <br /></td></tr>
-<tr class="separator:af7aa889ef5dc58516ac18772f1dca0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aeea5abfe76269a2ab05b4ea82e4e753c" id="r_aeea5abfe76269a2ab05b4ea82e4e753c"><td class="memTemplParams" colspan="2">template&lt;typename T  = void&gt; </td></tr>
-<tr class="memitem:aeea5abfe76269a2ab05b4ea82e4e753c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aeea5abfe76269a2ab05b4ea82e4e753c">is_work_done</a> (const std::future&lt; T &gt; &amp;t) noexcept</td></tr>
-<tr class="memdesc:aeea5abfe76269a2ab05b4ea82e4e753c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an async thread has finished or not.  <br /></td></tr>
-<tr class="separator:aeea5abfe76269a2ab05b4ea82e4e753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a939037e97468ef4e93924f7ccdb4b" id="r_a93a939037e97468ef4e93924f7ccdb4b"><td class="memTemplParams" colspan="2">template&lt;typename T  = void&gt; </td></tr>
+<tr class="memitem:a93a939037e97468ef4e93924f7ccdb4b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a93a939037e97468ef4e93924f7ccdb4b">is_work_done</a> (const std::future&lt; T &gt; &amp;task) noexcept</td></tr>
+<tr class="memdesc:a93a939037e97468ef4e93924f7ccdb4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an async thread has finished or not.  <br /></td></tr>
+<tr class="separator:a93a939037e97468ef4e93924f7ccdb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="af7aa889ef5dc58516ac18772f1dca0bc" name="af7aa889ef5dc58516ac18772f1dca0bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7aa889ef5dc58516ac18772f1dca0bc">&#9670;&#160;</a></span>TimerCallback</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#af7aa889ef5dc58516ac18772f1dca0bc">galaxy::async::TimerCallback</a> = std::move_only_function&lt;void(void)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html" title="(A)synchronous timer class.">Timer</a> callback type. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d8/dbf/Timer_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../d8/dbf/Timer_8hpp_source.html">Timer.hpp</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aeea5abfe76269a2ab05b4ea82e4e753c" name="aeea5abfe76269a2ab05b4ea82e4e753c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeea5abfe76269a2ab05b4ea82e4e753c">&#9670;&#160;</a></span>is_work_done()</h2>
+<a id="a93a939037e97468ef4e93924f7ccdb4b" name="a93a939037e97468ef4e93924f7ccdb4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a939037e97468ef4e93924f7ccdb4b">&#9670;&#160;</a></span>is_work_done()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,7 +134,7 @@ template&lt;typename T  = void&gt; </div>
         <tr>
           <td class="memname">bool galaxy::async::is_work_done </td>
           <td>(</td>
-          <td class="paramtype">const std::future&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td class="paramtype">const std::future&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -178,9 +152,15 @@ template&lt;typename T  = void&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns true when async thread has finished. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Future returned from thread to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true when task has finished. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d4b/Async_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d3/d4b/Async_8hpp_source.html">Async.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d4b/Async_8hpp_source.html#l00031">31</a> of file <a class="el" href="../../d3/d4b/Async_8hpp_source.html">Async.hpp</a>.</p>
 
 </div>
 </div>
@@ -190,7 +170,7 @@ template&lt;typename T  = void&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d0/d7f/namespacegalaxy_1_1async.html">async</a></li>
-    <li class="footer">Generated on Wed Feb 5 2025 09:00:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Thu Feb 6 2025 14:34:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

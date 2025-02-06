@@ -1,0 +1,9 @@
+<map id="galaxy::math::Random::gen" name="galaxy::math::Random::gen">
+<area shape="rect" id="Node000001" title="Generate a random number of type T." alt="" coords="417,42,619,67"/>
+<area shape="rect" id="Node000002" href="$d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f" title="Constructor." alt="" coords="211,5,349,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="403,43,349,36,350,31,404,38"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="191,70,369,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="404,71,370,75,369,70,403,65"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,70,143,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,85,143,85,143,80,177,80"/>
+</map>

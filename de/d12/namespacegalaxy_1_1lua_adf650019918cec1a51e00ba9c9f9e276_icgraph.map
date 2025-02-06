@@ -1,5 +1,0 @@
-<map id="galaxy::lua::inject" name="galaxy::lua::inject">
-<area shape="rect" id="Node000001" title="Inject everything into lua." alt="" coords="220,5,357,31"/>
-<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,5,172,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,21,172,21,172,15,206,15"/>
-</map>

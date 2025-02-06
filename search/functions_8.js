@@ -23,7 +23,7 @@ var searchData=
   ['imguimemallocfunc_20',['ImGuiMemAllocFunc',['../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404',1,'galaxy']]],
   ['imguimemfreefunc_21',['ImGuiMemFreeFunc',['../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281',1,'galaxy']]],
   ['index_22',['index',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a5e5ff2bf08c7ca9797400c6eefb1b413',1,'galaxy::graphics::Animation']]],
-  ['init_23',['init',['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779',1,'galaxy::graphics::PostProcess::init()'],['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd',1,'galaxy::graphics::Renderer::init()'],['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#ac3e941642e66be6c5e82691a6a2bf43a',1,'galaxy::graphics::VertexBatch::init()'],['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597',1,'galaxy::input::Cursor::init()'],['../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a619de7d31c54ee52bde3bb2c597841bd',1,'galaxy::math::RectPack::init()']]],
+  ['init_23',['init',['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779',1,'galaxy::graphics::PostProcess::init()'],['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd',1,'galaxy::graphics::Renderer::init()'],['../d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#ac3e941642e66be6c5e82691a6a2bf43a',1,'galaxy::graphics::VertexBatch::init()'],['../d5/dc8/classgalaxy_1_1input_1_1Cursor.html#a3dd30ee99666258d967872084c067597',1,'galaxy::input::Cursor::init()'],['../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae1704e8895570620f1698f45339a8df3',1,'galaxy::math::RectPack::init()']]],
   ['inject_24',['inject',['../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276',1,'galaxy::lua']]],
   ['inject_5fbox2d_25',['inject_box2d',['../de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6',1,'galaxy::lua']]],
   ['inject_5fcomponents_26',['inject_components',['../de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb',1,'galaxy::lua']]],
@@ -63,5 +63,5 @@ var searchData=
   ['is_5frotation_5ffixed_60',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
   ['is_5ftext_5finput_5fenabled_61',['is_text_input_enabled',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#a1a34b5ab66d6bd4a99473827cb90368b',1,'galaxy::input::Keyboard']]],
   ['is_5fvalid_62',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
-  ['is_5fwork_5fdone_63',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#aeea5abfe76269a2ab05b4ea82e4e753c',1,'galaxy::async']]]
+  ['is_5fwork_5fdone_63',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
 ];

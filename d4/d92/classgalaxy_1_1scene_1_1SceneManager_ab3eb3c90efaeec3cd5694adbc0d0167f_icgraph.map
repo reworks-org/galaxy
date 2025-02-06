@@ -1,14 +1,12 @@
 <map id="galaxy::scene::SceneManager::set_scene" name="galaxy::scene::SceneManager::set_scene">
-<area shape="rect" id="Node000001" title="Scene to set to currently active." alt="" coords="1116,35,1331,75"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="853,5,1068,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1102,44,1068,40,1069,35,1103,39"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="405,35,543,75"/>
-<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="1102,60,1068,60,591,60,543,59,543,54,591,55,1068,55,1102,54"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="591,5,805,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="840,28,806,28,806,23,840,23"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="578,44,543,48,543,43,577,39"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="220,42,357,67"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="392,57,358,57,358,52,392,52"/>
-<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
+<area shape="rect" id="Node000001" title="Scene to set to currently active." alt="" coords="901,35,1116,75"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="639,5,853,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="888,44,853,40,854,35,888,39"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,35,328,75"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="888,60,853,60,376,60,328,59,328,54,376,55,853,55,888,54"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="376,5,591,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="625,28,591,28,591,23,625,23"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,44,329,48,328,43,362,39"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,42,143,67"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="177,57,143,57,143,52,177,52"/>
 </map>

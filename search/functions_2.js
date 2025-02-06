@@ -16,7 +16,7 @@ var searchData=
   ['compile_13',['compile',['../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4',1,'galaxy::graphics::Shader']]],
   ['compress_14',['compress',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a9a42fb1d47362f45425639bc6d2c931e',1,'galaxy::math::ZLib']]],
   ['config_15',['Config',['../d6/de9/classgalaxy_1_1core_1_1Config.html#ac906955da5a102f9ebb052a8cb5c3f13',1,'galaxy::core::Config::Config() noexcept'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a180edaa1a3a2f76d0bc14e3a17121de2',1,'galaxy::core::Config::Config(std::string_view file) noexcept'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a250760e25955ac4851152d80dbca5167',1,'galaxy::core::Config::Config(const Config &amp;)=delete'],['../d6/de9/classgalaxy_1_1core_1_1Config.html#a1c8731bf696fe2406c803525f2750c0a',1,'galaxy::core::Config::Config(Config &amp;&amp;)=delete']]],
-  ['consolesink_16',['ConsoleSink',['../d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html#af9ccee4be98d7e2851634d50f1394f50',1,'galaxy::logging::ConsoleSink']]],
+  ['consolesink_16',['ConsoleSink',['../d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html#a9e6b1046bfcabedcec2af5a05cd1b61b',1,'galaxy::logging::ConsoleSink']]],
   ['construct_5fnui_17',['construct_nui',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a1fe047fc8d45f03edcc1fbc9de7e53d7',1,'galaxy::core::Registry']]],
   ['construct_5frigidbody_18',['construct_rigidbody',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a5f9a92a5603a1691779362dbde6297a9',1,'galaxy::core::Registry']]],
   ['construct_5fscript_19',['construct_script',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a0a4da3a8f6440d4e32e0ae0a2c89a8c4',1,'galaxy::core::Registry']]],

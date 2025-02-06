@@ -1,15 +1,13 @@
 <map id="galaxy/src/galaxy/meta/EntityMeta.hpp" name="galaxy/src/galaxy/meta/EntityMeta.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="487,5,661,45"/>
-<area shape="rect" id="Node000002" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="474,46,186,96,175,98,174,93,186,91,473,41"/>
-<area shape="rect" id="Node000003" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="199,93,368,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="498,52,348,96,346,91,497,47"/>
-<area shape="rect" id="Node000004" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="392,93,561,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="544,56,500,95,496,91,541,52"/>
-<area shape="rect" id="Node000005" href="$dd/d04/EntityMeta_8cpp.html" title=" " alt="" coords="585,93,760,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="608,52,653,91,649,95,604,56"/>
-<area shape="rect" id="Node000006" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="785,93,963,133"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="654,47,809,91,808,96,652,52"/>
-<area shape="rect" id="Node000007" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="987,93,1185,133"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="675,41,976,91,987,93,987,98,975,96,674,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="392,5,567,45"/>
+<area shape="rect" id="Node000002" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,51,175,96,174,91,380,46"/>
+<area shape="rect" id="Node000003" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="199,93,368,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="425,53,327,96,325,91,423,48"/>
+<area shape="rect" id="Node000004" href="$dd/d04/EntityMeta_8cpp.html" title=" " alt="" coords="392,93,567,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="482,59,482,93,477,93,477,59"/>
+<area shape="rect" id="Node000005" href="$de/d15/Scene_8cpp.html" title=" " alt="" coords="591,93,770,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="537,48,638,91,636,96,535,53"/>
+<area shape="rect" id="Node000006" href="$d1/d50/LuaServices_8cpp.html" title=" " alt="" coords="794,93,991,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="581,45,802,91,801,96,580,50"/>
 </map>

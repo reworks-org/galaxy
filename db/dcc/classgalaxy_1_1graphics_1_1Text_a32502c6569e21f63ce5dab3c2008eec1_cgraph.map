@@ -1,6 +1,6 @@
 <map id="galaxy::graphics::Text::create" name="galaxy::graphics::Text::create">
 <area shape="rect" id="Node000001" title="Creates the rendered text." alt="" coords="5,339,168,379"/>
-<area shape="rect" id="Node000002" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f" title="Replaces all occurances of a string." alt="" coords="216,317,413,342"/>
+<area shape="rect" id="Node000002" href="$db/d7c/namespacegalaxy_1_1strutils.html#aa9c293e86f67a6709d6b8745e0185e5f" title="Replaces all occurrences of a string." alt="" coords="216,317,413,342"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,346,202,341,203,346,168,351"/>
 <area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#abbed32e3993a13131ccbe7d723eb6663" title="Update the rendered text." alt="" coords="233,367,396,407"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,366,220,372,219,378,168,371"/>

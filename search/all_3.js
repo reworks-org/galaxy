@@ -26,7 +26,7 @@ var searchData=
   ['dialogtype_23',['DialogType',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455',1,'galaxy::fs']]],
   ['dialogtype_2ecpp_24',['DialogType.cpp',['../dd/d03/DialogType_8cpp.html',1,'']]],
   ['dialogtype_2ehpp_25',['DialogType.hpp',['../df/da3/DialogType_8hpp.html',1,'']]],
-  ['direct_5fread_5fpointer_26',['direct_read_pointer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a77a2093ee29cab6699198005b8afde35',1,'galaxy::mem::RingBuffer']]],
+  ['direct_5fread_5fpointer_26',['direct_read_pointer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#af54f563f573a6c2654773b5197cd6e71',1,'galaxy::mem::RingBuffer']]],
   ['disable_5fentity_27',['disable_entity',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a362641d71c6340e1419d64b91789bcda',1,'galaxy::core::Registry']]],
   ['disable_5fsticky_5fkeys_28',['disable_sticky_keys',['../d9/d50/classgalaxy_1_1input_1_1Keyboard.html#abc8c802f69ccf91d1ae85b1ad457df7d',1,'galaxy::input::Keyboard']]],
   ['disable_5fsticky_5fmouse_29',['disable_sticky_mouse',['../dd/d15/classgalaxy_1_1input_1_1Mouse.html#adf98facfb24d4602c169023bab725688',1,'galaxy::input::Mouse']]],

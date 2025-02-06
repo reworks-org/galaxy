@@ -1,11 +1,9 @@
 <map id="galaxy::graphics::Renderer::calc_viewport" name="galaxy::graphics::Renderer::calc_viewport">
-<area shape="rect" id="Node000001" title="Need to recalculate default framebuffer viewport." alt="" coords="463,37,657,77"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="220,5,415,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="449,45,415,41,415,36,449,40"/>
-<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="220,69,415,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="449,75,415,79,415,74,449,69"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-<area shape="rect" id="Node000005" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="8,69,169,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,169,92,169,87,206,87"/>
+<area shape="rect" id="Node000001" title="Need to recalculate default framebuffer viewport." alt="" coords="457,37,652,77"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="215,5,409,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,45,409,41,410,36,444,40"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aff3aca16711deb34a32258d98d447170" title="Event processing method for window size change." alt="" coords="215,69,409,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="444,75,410,79,409,74,443,69"/>
+<area shape="rect" id="Node000004" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="5,69,167,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,92,167,92,167,87,201,87"/>
 </map>
