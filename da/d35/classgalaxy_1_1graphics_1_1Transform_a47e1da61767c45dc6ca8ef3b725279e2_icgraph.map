@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Transform::operator=" name="galaxy::graphics::Transform::operator=">
-<area shape="rect" id="Node000001" title="Move assignment operator." alt="" coords="240,37,441,77"/>
-<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a80b6edc3c455e260c6dafd4c14eed94b" title="Move assignment operator." alt="" coords="5,5,192,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,45,192,40,193,35,227,40"/>
-<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a332c2266d8ad82bfe1f349bac9387a28" title="Copy assignment operator." alt="" coords="5,69,192,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,75,193,80,192,74,226,70"/>
-</map>

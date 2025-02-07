@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::Texture" name="galaxy::graphics::Texture">
-<area shape="rect" id="Node000001" title="OpenGL 2D Texture." alt="" coords="224,5,400,511"/>
-<area shape="rect" id="Node000002" href="$d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html" title="Standard opengl texture." alt="" coords="5,559,200,804"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,450,166,560,161,557,215,447"/>
-<area shape="rect" id="Node000003" href="$dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html" title="OpenGL texture array." alt="" coords="224,561,400,801"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="315,524,315,561,309,561,309,524"/>
-<area shape="rect" id="Node000004" href="$d9/d28/classgalaxy_1_1graphics_1_1TextureView.html" title="OpenGL 2D TextureView." alt="" coords="424,569,632,794"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="409,442,473,567,468,570,404,444"/>
-</map>

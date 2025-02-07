@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['loader_0',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html',1,'galaxy::core::Loader'],['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource::Loader&lt; Resource &gt;']]],
-  ['loader_3c_20media_3a_3asound_20_3e_1',['Loader&lt; media::Sound &gt;',['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource']]],
-  ['log_2',['Log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html',1,'galaxy::logging']]],
-  ['logmessage_3',['LogMessage',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html',1,'galaxy::logging']]],
-  ['lostfocus_4',['LostFocus',['../d8/d4a/structgalaxy_1_1events_1_1LostFocus.html',1,'galaxy::events']]]
+  ['random_0',['Random',['../d9/deb/classgalaxy_1_1math_1_1Random.html',1,'galaxy::math']]],
+  ['rectpack_1',['RectPack',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html',1,'galaxy::math']]],
+  ['registry_2',['Registry',['../de/d2c/classgalaxy_1_1core_1_1Registry.html',1,'galaxy::core']]],
+  ['rendersystem_3',['RenderSystem',['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html',1,'galaxy::systems']]],
+  ['rigidbody_4',['RigidBody',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html',1,'galaxy::components']]],
+  ['ringbuffer_5',['RingBuffer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html',1,'galaxy::mem']]]
 ];

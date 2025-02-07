@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::Text::get_size" name="galaxy::graphics::Text::get_size">
-<area shape="rect" id="Node000001" title="Get text em size." alt="" coords="392,37,555,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="199,5,336,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,45,336,39,337,33,379,40"/>
-<area shape="rect" id="Node000004" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872" title="Serializes object." alt="" coords="191,69,344,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="379,75,345,80,344,75,378,69"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="185,28,143,28,143,23,185,23"/>
-</map>

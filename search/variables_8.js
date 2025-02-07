@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['json_0',['json',['../d6/d90/structgalaxy_1_1meta_1_1EntityMeta_1_1SerializationData.html#ac15e3c259754552b37625169eb47d9f6',1,'galaxy::meta::EntityMeta::SerializationData']]]
+  ['prime_5f32_5fconst_0',['prime_32_const',['../d1/d92/namespacegalaxy_1_1math.html#a1d787204f925d8dfbffdc89ad0522e99',1,'galaxy::math']]],
+  ['prime_5f64_5fconst_1',['prime_64_const',['../d1/d92/namespacegalaxy_1_1math.html#afcef1d71a1d37b4bf17ed1053d42c07d',1,'galaxy::math']]]
 ];

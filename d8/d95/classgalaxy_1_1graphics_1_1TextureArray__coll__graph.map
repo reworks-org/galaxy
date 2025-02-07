@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::TextureArray" name="galaxy::graphics::TextureArray">
-<area shape="rect" id="Node000001" title="OpenGL texture array." alt="" coords="5,559,181,799"/>
-<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html" title="OpenGL 2D Texture." alt="" coords="5,5,181,511"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,525,96,558,91,558,91,525"/>
-</map>

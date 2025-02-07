@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Shader::destroy" name="galaxy::graphics::Shader::destroy">
-<area shape="rect" id="Node000001" title="Destroys shader program." alt="" coords="248,37,429,77"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Cleanup renderer data." alt="" coords="5,5,200,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,46,200,41,201,36,235,41"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a98805bf1affebc423b1c74524c172304" title="Destructor." alt="" coords="12,69,193,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,74,194,80,193,74,234,69"/>
-</map>

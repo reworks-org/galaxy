@@ -106,9 +106,9 @@ $(function(){initNavTree('da/da5/Sprite_8hpp.html','../../'); initResizable(true
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d15/Serializable_8hpp_source.html">galaxy/fs/Serializable.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/dd2/Colour_8hpp_source.html">galaxy/graphics/Colour.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/def/Texture2D_8hpp_source.html">galaxy/graphics/gl/Texture2D.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d1c/VertexArray_8hpp_source.html">galaxy/graphics/gl/VertexArray.hpp</a>&quot;</code><br />
+<code>#include &quot;galaxy/graphics/Colour.hpp&quot;</code><br />
+<code>#include &quot;galaxy/graphics/gl/Texture2D.hpp&quot;</code><br />
+<code>#include &quot;galaxy/graphics/gl/VertexArray.hpp&quot;</code><br />
 <code>#include &quot;galaxy/math/Rect.hpp&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Sprite.hpp:</div>
@@ -117,50 +117,19 @@ $(function(){initNavTree('da/da5/Sprite_8hpp.html','../../'); initResizable(true
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/dd3/Sprite_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2components_2Sprite_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2components_2Sprite_8hpp" id="agalaxy_2src_2galaxy_2components_2Sprite_8hpp">
-<area shape="rect" title=" " alt="" coords="555,5,776,45"/>
-<area shape="rect" href="../../d0/d15/Serializable_8hpp.html" title=" " alt="" coords="79,101,270,126"/>
-<area shape="poly" title=" " alt="" coords="558,48,254,101,253,96,557,43"/>
-<area shape="rect" href="../../db/dd2/Colour_8hpp.html" title=" " alt="" coords="566,101,765,126"/>
-<area shape="poly" title=" " alt="" coords="668,46,668,87,663,87,663,46"/>
-<area shape="rect" href="../../d7/def/Texture2D_8hpp.html" title=" " alt="" coords="788,93,929,133"/>
-<area shape="poly" title=" " alt="" coords="709,43,805,85,803,90,707,48"/>
-<area shape="rect" href="../../dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="376,93,517,133"/>
-<area shape="poly" title=" " alt="" coords="618,48,508,91,506,86,616,43"/>
-<area shape="rect" title=" " alt="" coords="953,101,1119,126"/>
-<area shape="poly" title=" " alt="" coords="747,43,974,95,973,100,746,48"/>
-<area shape="rect" title=" " alt="" coords="5,189,181,214"/>
-<area shape="poly" title=" " alt="" coords="166,128,116,180,112,176,162,124"/>
-<area shape="rect" title=" " alt="" coords="595,357,651,383"/>
-<area shape="poly" title=" " alt="" coords="669,126,671,169,668,222,653,289,635,345,629,344,648,288,663,221,666,169,664,127"/>
-<area shape="rect" title=" " alt="" coords="729,189,807,214"/>
-<area shape="poly" title=" " alt="" coords="681,124,745,178,742,182,677,128"/>
-<area shape="rect" title=" " alt="" coords="542,189,653,214"/>
-<area shape="poly" title=" " alt="" coords="658,128,618,179,613,176,654,125"/>
-<area shape="rect" href="../../d0/ddc/Texture_8hpp.html" title=" " alt="" coords="832,181,973,221"/>
-<area shape="poly" title=" " alt="" coords="871,132,889,168,884,170,866,135"/>
-<area shape="rect" title=" " alt="" coords="541,277,595,302"/>
-<area shape="poly" title=" " alt="" coords="832,223,609,280,607,275,831,218"/>
-<area shape="rect" title=" " alt="" coords="791,277,889,302"/>
-<area shape="poly" title=" " alt="" coords="891,223,859,267,855,264,887,220"/>
-<area shape="rect" href="../../dd/de2/Enums_8hpp.html" title=" " alt="" coords="913,269,1055,309"/>
-<area shape="poly" title=" " alt="" coords="923,220,958,257,955,261,919,223"/>
-<area shape="rect" title=" " alt="" coords="937,357,1031,383"/>
-<area shape="poly" title=" " alt="" coords="987,310,987,343,981,343,981,310"/>
-<area shape="rect" href="../../dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="205,181,352,221"/>
-<area shape="poly" title=" " alt="" coords="411,136,329,178,326,173,409,131"/>
-<area shape="rect" href="../../d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="376,181,517,221"/>
-<area shape="poly" title=" " alt="" coords="449,134,449,167,444,167,444,134"/>
-<area shape="poly" title=" " alt="" coords="353,218,452,244,530,267,535,268,533,273,528,272,451,249,351,223"/>
-<area shape="rect" title=" " alt="" coords="214,277,343,302"/>
-<area shape="poly" title=" " alt="" coords="281,222,281,263,276,263,276,222"/>
-<area shape="poly" title=" " alt="" coords="475,219,542,266,539,271,472,224"/>
-<area shape="rect" href="../../d6/db0/Vertex_8hpp.html" title=" " alt="" coords="376,269,517,309"/>
-<area shape="poly" title=" " alt="" coords="449,222,449,255,444,255,444,222"/>
-<area shape="poly" title=" " alt="" coords="490,307,585,349,583,354,488,312"/>
-<area shape="rect" title=" " alt="" coords="425,357,535,383"/>
-<area shape="poly" title=" " alt="" coords="457,309,472,343,467,346,452,311"/>
-<area shape="rect" title=" " alt="" coords="213,357,401,383"/>
-<area shape="poly" title=" " alt="" coords="414,312,341,353,338,348,412,307"/>
+<area shape="rect" title=" " alt="" coords="402,5,623,45"/>
+<area shape="rect" href="../../d0/d15/Serializable_8hpp.html" title=" " alt="" coords="5,101,196,126"/>
+<area shape="poly" title=" " alt="" coords="423,48,169,100,168,95,422,43"/>
+<area shape="rect" title=" " alt="" coords="220,101,419,126"/>
+<area shape="poly" title=" " alt="" coords="471,48,359,98,357,93,469,43"/>
+<area shape="rect" title=" " alt="" coords="442,93,583,133"/>
+<area shape="poly" title=" " alt="" coords="515,46,515,79,510,79,510,46"/>
+<area shape="rect" title=" " alt="" coords="607,93,749,133"/>
+<area shape="poly" title=" " alt="" coords="550,43,631,85,628,89,548,48"/>
+<area shape="rect" title=" " alt="" coords="773,101,938,126"/>
+<area shape="poly" title=" " alt="" coords="589,43,797,95,796,100,587,48"/>
+<area shape="rect" title=" " alt="" coords="13,181,189,207"/>
+<area shape="poly" title=" " alt="" coords="103,126,103,167,98,167,98,126"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -238,7 +207,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2b954ff381b9b3885b7442a3ec8b9d3a.html">components</a></li><li class="navelem"><a class="el" href="../../da/da5/Sprite_8hpp.html">Sprite.hpp</a></li>
-    <li class="footer">Generated on Thu Feb 6 2025 14:34:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Feb 7 2025 10:43:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

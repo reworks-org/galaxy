@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::FontContext::set_dpi" name="galaxy::graphics::FontContext::set_dpi">
-<area shape="rect" id="Node000001" title="Set font DPI." alt="" coords="453,37,668,77"/>
-<area shape="rect" id="Node000002" href="$dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html#ae825ada12745ee16e5481cea7e80a604" title="Constructor." alt="" coords="191,5,405,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,45,405,41,406,36,440,40"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="229,69,367,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="440,75,367,84,366,78,439,69"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,77,143,102"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,92,143,92,143,87,216,87"/>
-</map>

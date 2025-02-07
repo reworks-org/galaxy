@@ -111,7 +111,7 @@ $(function(){initNavTree('dc/d61/RectPack_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>math</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a988c63c03643cdab6ea10c1cab39bd18">   14</a></span>        <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a988c63c03643cdab6ea10c1cab39bd18">RectPack::RectPack</a>()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a9a31546f41e513e8245c87d8ac2f5c7c">   14</a></span>        <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a9a31546f41e513e8245c87d8ac2f5c7c">RectPack::RectPack</a>() noexcept</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            : m_width {0}</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            , m_height {0}</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
@@ -119,125 +119,123 @@ $(function(){initNavTree('dc/d61/RectPack_8cpp_source.html','../../'); initResiz
 </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab7c03ffc842f84a16a275f5c3799c32b">   20</a></span>        <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab7c03ffc842f84a16a275f5c3799c32b">RectPack::~RectPack</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a4351eb23cb69168a8435f40ff246e38f">   20</a></span>        <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a4351eb23cb69168a8435f40ff246e38f">RectPack::~RectPack</a>() noexcept</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.clear();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43d87e38afc5055c4ff2a3dcb4b370f8">m_free_rects</a>.clear();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
 </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae1704e8895570620f1698f45339a8df3">   25</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae1704e8895570620f1698f45339a8df3">RectPack::init</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> width, <span class="keyword">const</span> <span class="keywordtype">float</span> height)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a0bd4b26ff1b5980159309b3a3e16c898">   25</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a0bd4b26ff1b5980159309b3a3e16c898">RectPack::init</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keyword">const</span> <span class="keywordtype">int</span> height) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">m_width</a>  = width;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">m_height</a> = height;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            m_width  = width;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            m_height = height;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.emplace_back(0, 0, <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">m_width</a>, <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">m_height</a>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            m_free_rects.emplace_back(sf::IntRect({0, 0}, {m_width, m_height}));</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
 </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a1db772ddf6042348e021cd13200bc78a">   33</a></span>        std::optional&lt;graphics::Rectangle&gt; <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a1db772ddf6042348e021cd13200bc78a">RectPack::pack</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> width, <span class="keyword">const</span> <span class="keywordtype">float</span> height)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14b383df2310ccb4501a371fc78d4f08">   33</a></span>        std::optional&lt;sf::IntRect&gt; <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14b383df2310ccb4501a371fc78d4f08">RectPack::pack</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> width, <span class="keyword">const</span> <span class="keywordtype">int</span> height) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="comment">// Result.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::optional&lt;graphics::Rectangle&gt; result = std::nullopt;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::optional&lt;sf::IntRect&gt; result = std::nullopt;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="comment">// Go over each space in the rectangle, in reverse order (i.e. smallest -&gt; largest).</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> rit = <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.rbegin(); rit != <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.rend();)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> rit = m_free_rects.rbegin(); rit != m_free_rects.rend();)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keyword">auto</span>&amp; space = *rit;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="comment">// Check if rect can fit into space.</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keywordflow">if</span> (width &lt;= space.width &amp;&amp; height &lt;= space.height)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keywordflow">if</span> (width &lt;= space.size.x &amp;&amp; height &lt;= space.size.y)</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                {</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                    <span class="comment">// Make the packed area rectangle.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    result = std::make_optional&lt;graphics::Rectangle&gt;(space.x, space.y, width, height);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    result = std::make_optional&lt;sf::IntRect&gt;(sf::IntRect({space.position.x, space.position.y}, {width, height}));</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    <span class="comment">// Check to see if shape fills completely.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <span class="keywordflow">if</span> (width == space.width &amp;&amp; height == space.height)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <span class="keywordflow">if</span> (width == space.size.x &amp;&amp; height == space.size.y)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    {</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                        <span class="comment">// Destroy since not free space anymore.</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                        std::advance(rit, 1);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                        <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.erase(rit.base());</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                        m_free_rects.erase(rit.base());</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (width == space.width)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (width == space.size.x)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    {</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                        <span class="comment">// If just width fits, shrink new space.</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                        space.y      += height;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                        space.height -= height;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                        space.position.y += height;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                        space.size.y     -= height;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                    }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (height == space.height)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (height == space.size.y)</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                    {</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                        <span class="comment">// Same as width, for height.</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                        space.x     += width;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                        space.width -= width;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                        space.position.x += width;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                        space.size.x     -= width;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                    }</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                        <span class="comment">// Otherwise, split up existing space.</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                        graphics::Rectangle temp = {space.x + width, space.y, space.width - width, height};</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                        m_free_rects.emplace_back(sf::IntRect({space.position.x + width, space.position.y}, {space.size.x - width, height}));</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                        space.y      += height;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                        space.height -= height;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                        <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.emplace_back(temp);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    <span class="comment">// If it can fit, no longer need to keep iterating through.</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    <span class="comment">// Try next space.</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    ++rit;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                        space.position.y += height;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                        space.size.y     -= height;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    <span class="comment">// If it can fit, no longer need to keep iterating through.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    <span class="comment">// Try next space.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    ++rit;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
 </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae6dbbd4ee6545ec94dc9dbcea79afc81">   92</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae6dbbd4ee6545ec94dc9dbcea79afc81">RectPack::clear</a>()</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.clear();</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>.emplace_back(0, 0, <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">m_width</a>, <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">m_height</a>);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43687ae4fd53301f712a0008f59d28b8">   90</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43687ae4fd53301f712a0008f59d28b8">RectPack::clear</a>() noexcept</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43d87e38afc5055c4ff2a3dcb4b370f8">m_free_rects</a>.clear();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43d87e38afc5055c4ff2a3dcb4b370f8">m_free_rects</a>.emplace_back(sf::IntRect({0, 0}, {<a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">m_width</a>, <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">m_height</a>}));</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a705a5341d96b2a1984a232f25c43b159">   98</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a705a5341d96b2a1984a232f25c43b159">RectPack::get_width</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">m_width</a>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14cb3b8f447e73681a2559fb879adfae">   96</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14cb3b8f447e73681a2559fb879adfae">RectPack::get_width</a>() const noexcept</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">m_width</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        }</div>
 </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a52fdaad91716290a1ec183997cfaddc4">  103</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a52fdaad91716290a1ec183997cfaddc4">RectPack::get_height</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">m_height</a>;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab07124b1c22a02461ef6e51a5c9a76d3">  101</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab07124b1c22a02461ef6e51a5c9a76d3">RectPack::get_height</a>() const noexcept</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">m_height</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        }</div>
 </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#aab4440715d935b73ddb37eb64a83b2fb">  108</a></span>        <span class="keyword">const</span> std::vector&lt;graphics::Rectangle&gt;&amp; <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#aab4440715d935b73ddb37eb64a83b2fb">RectPack::get_free_space</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">m_free_rects</a>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#aa632072d51beca7e82ee95d5dcfa30dd">  106</a></span>        <span class="keyword">const</span> std::vector&lt;sf::IntRect&gt;&amp; <a class="code hl_function" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#aa632072d51beca7e82ee95d5dcfa30dd">RectPack::get_free_space</a>() const noexcept</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43d87e38afc5055c4ff2a3dcb4b370f8">m_free_rects</a>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
 </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    } <span class="comment">// namespace math</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    } <span class="comment">// namespace math</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aRectPack_8hpp_html"><div class="ttname"><a href="../../da/d8d/RectPack_8hpp.html">RectPack.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a1db772ddf6042348e021cd13200bc78a"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a1db772ddf6042348e021cd13200bc78a">galaxy::math::RectPack::pack</a></div><div class="ttdeci">std::optional&lt; graphics::Rectangle &gt; pack(const float width, const float height)</div><div class="ttdoc">Pack a rectangle into the master rectangle.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">RectPack.cpp:33</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a0bd4b26ff1b5980159309b3a3e16c898"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a0bd4b26ff1b5980159309b3a3e16c898">galaxy::math::RectPack::init</a></div><div class="ttdeci">void init(const int width, const int height) noexcept</div><div class="ttdoc">Set starting width and height of rectangle.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">RectPack.cpp:25</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a14b383df2310ccb4501a371fc78d4f08"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14b383df2310ccb4501a371fc78d4f08">galaxy::math::RectPack::pack</a></div><div class="ttdeci">std::optional&lt; sf::IntRect &gt; pack(const int width, const int height) noexcept</div><div class="ttdoc">Pack a rectangle into the master rectangle.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">RectPack.cpp:33</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a14cb3b8f447e73681a2559fb879adfae"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14cb3b8f447e73681a2559fb879adfae">galaxy::math::RectPack::get_width</a></div><div class="ttdeci">int get_width() const noexcept</div><div class="ttdoc">Get total width.</div><div class="ttdef"><b>Definition</b> <a href="#l00096">RectPack.cpp:96</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a2e1e78a7dda060689a83e65e6abca854"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854">galaxy::math::RectPack::m_width</a></div><div class="ttdeci">int m_width</div><div class="ttdoc">The starting width of the rectangle.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d8d/RectPack_8hpp_source.html#l00091">RectPack.hpp:91</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a44749dfa05327c86f820ed77565027f8"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a44749dfa05327c86f820ed77565027f8">galaxy::math::RectPack::m_free_rects</a></div><div class="ttdeci">std::vector&lt; graphics::Rectangle &gt; m_free_rects</div><div class="ttdoc">Free space in master rectangle.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d8d/RectPack_8hpp_source.html#l00101">RectPack.hpp:101</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a52fdaad91716290a1ec183997cfaddc4"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a52fdaad91716290a1ec183997cfaddc4">galaxy::math::RectPack::get_height</a></div><div class="ttdeci">int get_height() const</div><div class="ttdoc">Get total height.</div><div class="ttdef"><b>Definition</b> <a href="#l00103">RectPack.cpp:103</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a4351eb23cb69168a8435f40ff246e38f"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a4351eb23cb69168a8435f40ff246e38f">galaxy::math::RectPack::~RectPack</a></div><div class="ttdeci">~RectPack() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">RectPack.cpp:20</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a43687ae4fd53301f712a0008f59d28b8"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43687ae4fd53301f712a0008f59d28b8">galaxy::math::RectPack::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdoc">Clear all data.</div><div class="ttdef"><b>Definition</b> <a href="#l00090">RectPack.cpp:90</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a43d87e38afc5055c4ff2a3dcb4b370f8"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a43d87e38afc5055c4ff2a3dcb4b370f8">galaxy::math::RectPack::m_free_rects</a></div><div class="ttdeci">std::vector&lt; sf::IntRect &gt; m_free_rects</div><div class="ttdoc">Free space in master rectangle.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d8d/RectPack_8hpp_source.html#l00101">RectPack.hpp:101</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a5f56657ea3aef024008b211edaeac33e"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a5f56657ea3aef024008b211edaeac33e">galaxy::math::RectPack::m_height</a></div><div class="ttdeci">int m_height</div><div class="ttdoc">The starting width of the rectangle.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d8d/RectPack_8hpp_source.html#l00096">RectPack.hpp:96</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a705a5341d96b2a1984a232f25c43b159"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a705a5341d96b2a1984a232f25c43b159">galaxy::math::RectPack::get_width</a></div><div class="ttdeci">int get_width() const</div><div class="ttdoc">Get total width.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">RectPack.cpp:98</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a988c63c03643cdab6ea10c1cab39bd18"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a988c63c03643cdab6ea10c1cab39bd18">galaxy::math::RectPack::RectPack</a></div><div class="ttdeci">RectPack()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">RectPack.cpp:14</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_aab4440715d935b73ddb37eb64a83b2fb"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#aab4440715d935b73ddb37eb64a83b2fb">galaxy::math::RectPack::get_free_space</a></div><div class="ttdeci">const std::vector&lt; graphics::Rectangle &gt; &amp; get_free_space() const</div><div class="ttdoc">Get free rectangles.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">RectPack.cpp:108</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_ab7c03ffc842f84a16a275f5c3799c32b"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab7c03ffc842f84a16a275f5c3799c32b">galaxy::math::RectPack::~RectPack</a></div><div class="ttdeci">~RectPack()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">RectPack.cpp:20</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_ae1704e8895570620f1698f45339a8df3"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae1704e8895570620f1698f45339a8df3">galaxy::math::RectPack::init</a></div><div class="ttdeci">void init(const float width, const float height)</div><div class="ttdoc">Set starting width and height of rectangle.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">RectPack.cpp:25</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_ae6dbbd4ee6545ec94dc9dbcea79afc81"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ae6dbbd4ee6545ec94dc9dbcea79afc81">galaxy::math::RectPack::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear all data.</div><div class="ttdef"><b>Definition</b> <a href="#l00092">RectPack.cpp:92</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_a9a31546f41e513e8245c87d8ac2f5c7c"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a9a31546f41e513e8245c87d8ac2f5c7c">galaxy::math::RectPack::RectPack</a></div><div class="ttdeci">RectPack() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">RectPack.cpp:14</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_aa632072d51beca7e82ee95d5dcfa30dd"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#aa632072d51beca7e82ee95d5dcfa30dd">galaxy::math::RectPack::get_free_space</a></div><div class="ttdeci">const std::vector&lt; sf::IntRect &gt; &amp; get_free_space() const noexcept</div><div class="ttdoc">Get free rectangles.</div><div class="ttdef"><b>Definition</b> <a href="#l00106">RectPack.cpp:106</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1math_1_1RectPack_html_ab07124b1c22a02461ef6e51a5c9a76d3"><div class="ttname"><a href="../../d3/d76/classgalaxy_1_1math_1_1RectPack.html#ab07124b1c22a02461ef6e51a5c9a76d3">galaxy::math::RectPack::get_height</a></div><div class="ttdeci">int get_height() const noexcept</div><div class="ttdoc">Get total height.</div><div class="ttdef"><b>Definition</b> <a href="#l00101">RectPack.cpp:101</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -245,7 +243,7 @@ $(function(){initNavTree('dc/d61/RectPack_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../dc/d61/RectPack_8cpp.html">RectPack.cpp</a></li>
-    <li class="footer">Generated on Thu Feb 6 2025 14:34:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Feb 7 2025 10:43:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

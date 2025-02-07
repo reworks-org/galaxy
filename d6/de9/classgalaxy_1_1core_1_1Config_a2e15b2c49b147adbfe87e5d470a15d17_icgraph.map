@@ -1,7 +1,0 @@
-<map id="galaxy::core::Config::set" name="galaxy::core::Config::set">
-<area shape="rect" id="Node000001" title="Set a new key&#45;value pair for the config." alt="" coords="204,45,383,70"/>
-<area shape="rect" id="Node000002" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a01ac93e63aa1eb717a8f125098be33d3" title="Sets a new setting, only if key or value is missing." alt="" coords="5,5,156,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,45,156,39,157,34,195,40"/>
-<area shape="rect" id="Node000003" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="5,69,156,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,75,157,81,156,75,195,69"/>
-</map>

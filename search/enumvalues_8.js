@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['left_0',['LEFT',['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a684d325a7303f52e64011467ff5c5758',1,'galaxy::graphics::Text']]],
-  ['low_1',['LOW',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda41bc94cbd8eebea13ce0491b2ac11b88',1,'galaxy::graphics::GaussianBlur']]]
+  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0a5c5cb337bb234e240912dc139048038c',1,'galaxy::fs']]],
+  ['yesno_1',['yesno',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455acc74e9b9aaac7367488cc146dfb078db',1,'galaxy::fs']]],
+  ['yesnocancel_2',['yesnocancel',['../d6/d19/namespacegalaxy_1_1fs.html#a92fb86ed1f37a379a03eec6ec85b1455a30cea79617be1bdc188511fdf0d582bd',1,'galaxy::fs']]]
 ];

@@ -1,9 +1,0 @@
-<map id="galaxy::fs::PhysfsStream::close" name="galaxy::fs::PhysfsStream::close">
-<area shape="rect" id="Node000001" title="Close the open physfs handle." alt="" coords="467,37,649,77"/>
-<area shape="rect" id="Node000002" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a86baaefea9fac6541073e274d4783a99" title="Open file in physfs." alt="" coords="236,5,419,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="453,45,418,41,419,35,454,40"/>
-<area shape="rect" id="Node000004" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a8203457592580d92e5347a99b632dd11" title="Virtual destructor." alt="" coords="236,69,419,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="454,74,419,79,418,74,453,69"/>
-<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#ac5d76f293649bcd0f0b50d60837c24c5" title="Argument constructor." alt="" coords="5,5,188,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
-</map>

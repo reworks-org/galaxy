@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::Animation::frames" name="galaxy::graphics::Animation::frames">
-<area shape="rect" id="Node000001" title="Get the frames." alt="" coords="441,37,644,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title="Injects graphics primitives, not routines, into lua." alt="" coords="223,5,361,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="427,45,360,37,361,31,428,40"/>
-<area shape="rect" id="Node000004" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#aae4dbe065775b2828ed0f978f4b31dcb" title="Set from an existing vector of frames." alt="" coords="191,69,393,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="428,75,394,79,393,74,427,69"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="210,28,143,28,143,23,210,23"/>
-</map>

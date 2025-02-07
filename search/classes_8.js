@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['joystickdisconnect_0',['JoystickDisconnect',['../d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect.html',1,'galaxy::events']]]
+  ['map_0',['Map',['../df/d2b/classgalaxy_1_1map_1_1Map.html',1,'galaxy::map']]],
+  ['musicloader_1',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
 ];

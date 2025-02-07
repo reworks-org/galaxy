@@ -139,15 +139,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e9a2963ec9f44d855d3a50bc3ce8c94" id="r_a8e9a2963ec9f44d855d3a50bc3ce8c94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e9a2963ec9f44d855d3a50bc3ce8c94">~ZLib</a> ()</td></tr>
 <tr class="memdesc:a8e9a2963ec9f44d855d3a50bc3ce8c94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a8e9a2963ec9f44d855d3a50bc3ce8c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a42fb1d47362f45425639bc6d2c931e" id="r_a9a42fb1d47362f45425639bc6d2c931e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a42fb1d47362f45425639bc6d2c931e">compress</a> (const std::string &amp;input)</td></tr>
-<tr class="memdesc:a9a42fb1d47362f45425639bc6d2c931e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compresses string.  <br /></td></tr>
-<tr class="separator:a9a42fb1d47362f45425639bc6d2c931e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a329f5b5488cabbdeac48213f89994" id="r_a16a329f5b5488cabbdeac48213f89994"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16a329f5b5488cabbdeac48213f89994">compressor</a> (const std::string &amp;input)</td></tr>
+<tr class="memdesc:a16a329f5b5488cabbdeac48213f89994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compresses string.  <br /></td></tr>
+<tr class="separator:a16a329f5b5488cabbdeac48213f89994"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a298a6c2b322b1f171236fdd1f2945c9d" id="r_a298a6c2b322b1f171236fdd1f2945c9d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a298a6c2b322b1f171236fdd1f2945c9d">finish</a> ()</td></tr>
 <tr class="memdesc:a298a6c2b322b1f171236fdd1f2945c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completes the compression.  <br /></td></tr>
 <tr class="separator:a298a6c2b322b1f171236fdd1f2945c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f39a89eaa6abc761d3e4cdbe8c5977e" id="r_a4f39a89eaa6abc761d3e4cdbe8c5977e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f39a89eaa6abc761d3e4cdbe8c5977e">decompress</a> (const std::string &amp;input)</td></tr>
-<tr class="memdesc:a4f39a89eaa6abc761d3e4cdbe8c5977e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompresses a zlib string.  <br /></td></tr>
-<tr class="separator:a4f39a89eaa6abc761d3e4cdbe8c5977e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155476eccd4dd7dbc7847fbe52f8400c" id="r_a155476eccd4dd7dbc7847fbe52f8400c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a155476eccd4dd7dbc7847fbe52f8400c">decompressor</a> (const std::string &amp;input)</td></tr>
+<tr class="memdesc:a155476eccd4dd7dbc7847fbe52f8400c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompresses a zlib string.  <br /></td></tr>
+<tr class="separator:a155476eccd4dd7dbc7847fbe52f8400c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -255,8 +255,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9a42fb1d47362f45425639bc6d2c931e" name="a9a42fb1d47362f45425639bc6d2c931e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a42fb1d47362f45425639bc6d2c931e">&#9670;&#160;</a></span>compress()</h2>
+<a id="a16a329f5b5488cabbdeac48213f89994" name="a16a329f5b5488cabbdeac48213f89994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a329f5b5488cabbdeac48213f89994">&#9670;&#160;</a></span>compressor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +265,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string galaxy::math::ZLib::compress </td>
+          <td class="memname">std::string galaxy::math::ZLib::compressor </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
@@ -288,20 +288,6 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Compressed string. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/dc9/classgalaxy_1_1math_1_1ZLib_a9a42fb1d47362f45425639bc6d2c931e_icgraph.png" border="0" usemap="#ad1/dc9/classgalaxy_1_1math_1_1ZLib_a9a42fb1d47362f45425639bc6d2c931e_icgraph" alt=""/></div>
-<map name="ad1/dc9/classgalaxy_1_1math_1_1ZLib_a9a42fb1d47362f45425639bc6d2c931e_icgraph" id="ad1/dc9/classgalaxy_1_1math_1_1ZLib_a9a42fb1d47362f45425639bc6d2c931e_icgraph">
-<area shape="rect" title="Compresses string." alt="" coords="417,5,560,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="191,13,369,38"/>
-<area shape="poly" title=" " alt="" coords="404,28,370,28,370,23,404,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -332,11 +318,11 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Compressed string containing termination block. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00138">138</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
-<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/dc9/classgalaxy_1_1math_1_1ZLib_a298a6c2b322b1f171236fdd1f2945c9d_icgraph.png" border="0" usemap="#ad1/dc9/classgalaxy_1_1math_1_1ZLib_a298a6c2b322b1f171236fdd1f2945c9d_icgraph" alt=""/></div>
 <map name="ad1/dc9/classgalaxy_1_1math_1_1ZLib_a298a6c2b322b1f171236fdd1f2945c9d_icgraph" id="ad1/dc9/classgalaxy_1_1math_1_1ZLib_a298a6c2b322b1f171236fdd1f2945c9d_icgraph">
 <area shape="rect" title="Completes the compression." alt="" coords="417,5,560,45"/>
@@ -349,8 +335,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4f39a89eaa6abc761d3e4cdbe8c5977e" name="a4f39a89eaa6abc761d3e4cdbe8c5977e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f39a89eaa6abc761d3e4cdbe8c5977e">&#9670;&#160;</a></span>decompress()</h2>
+<a id="a155476eccd4dd7dbc7847fbe52f8400c" name="a155476eccd4dd7dbc7847fbe52f8400c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155476eccd4dd7dbc7847fbe52f8400c">&#9670;&#160;</a></span>decompressor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -359,7 +345,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string galaxy::math::ZLib::decompress </td>
+          <td class="memname">std::string galaxy::math::ZLib::decompressor </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
@@ -382,20 +368,6 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>String containing decompressed data. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00184">184</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d1/dc9/classgalaxy_1_1math_1_1ZLib_a4f39a89eaa6abc761d3e4cdbe8c5977e_icgraph.png" border="0" usemap="#ad1/dc9/classgalaxy_1_1math_1_1ZLib_a4f39a89eaa6abc761d3e4cdbe8c5977e_icgraph" alt=""/></div>
-<map name="ad1/dc9/classgalaxy_1_1math_1_1ZLib_a4f39a89eaa6abc761d3e4cdbe8c5977e_icgraph" id="ad1/dc9/classgalaxy_1_1math_1_1ZLib_a4f39a89eaa6abc761d3e4cdbe8c5977e_icgraph">
-<area shape="rect" title="Decompresses a zlib string." alt="" coords="417,5,560,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="191,13,369,38"/>
-<area shape="poly" title=" " alt="" coords="404,28,370,28,370,23,404,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -540,7 +512,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/d92/namespacegalaxy_1_1math.html">math</a></li><li class="navelem"><a class="el" href="../../d1/dc9/classgalaxy_1_1math_1_1ZLib.html">ZLib</a></li>
-    <li class="footer">Generated on Thu Feb 6 2025 14:34:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Feb 7 2025 10:43:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

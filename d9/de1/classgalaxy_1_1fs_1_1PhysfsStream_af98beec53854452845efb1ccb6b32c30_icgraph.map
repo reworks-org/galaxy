@@ -1,0 +1,16 @@
+<map id="galaxy::fs::PhysfsStream::is_open" name="galaxy::fs::PhysfsStream::is_open">
+<area shape="rect" id="Node000001" title="Is the physfs file open." alt="" coords="467,133,649,173"/>
+<area shape="rect" id="Node000002" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#ac140cf5e552ce3819a6910cadc844129" title="Close the open physfs handle." alt="" coords="236,5,419,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="520,127,472,93,417,60,391,48,393,43,420,55,475,88,523,123"/>
+<area shape="rect" id="Node000004" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#adaaf69fc86103f4254e9f2bfe76f6459" title="Return the size of the stream." alt="" coords="236,69,419,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="471,132,399,112,401,107,473,127"/>
+<area shape="rect" id="Node000005" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a2bd95de7a1ed054461ccd4142735b48f" title="Read data from the stream." alt="" coords="236,133,419,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="453,156,419,156,419,151,453,151"/>
+<area shape="rect" id="Node000006" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a38dc6f6cc769e04ed733e7393ad25b33" title="Change the current reading position." alt="" coords="5,219,188,259"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="461,179,419,188,189,228,188,223,418,183,460,174"/>
+<area shape="rect" id="Node000007" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a466b85a103098a5d1ea798aeaf732137" title="Get the current reading position in the stream." alt="" coords="236,248,419,288"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="512,183,420,232,379,250,377,246,417,227,509,178"/>
+<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a617663d40c657b5c3c0bdbb37534b170" title="Virtual destructor." alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,28,188,28,188,23,223,23"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="222,257,188,253,189,248,223,252"/>
+</map>

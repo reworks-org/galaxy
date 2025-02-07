@@ -1,0 +1,8 @@
+<map id="galaxy::fs::PhysfsStream::seek" name="galaxy::fs::PhysfsStream::seek">
+<area shape="rect" id="Node000001" title="Change the current reading position." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30" title="Is the physfs file open." alt="" coords="467,5,649,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,20,236,19,419,19,453,19,453,25,419,24,236,24,188,25"/>
+<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a466b85a103098a5d1ea798aeaf732137" title="Get the current reading position in the stream." alt="" coords="236,33,419,73"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,34,223,38,222,43,188,39"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="418,40,453,35,453,41,419,45"/>
+</map>

@@ -6,10 +6,8 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,46,223,79,217,79,217,46"/>
 <area shape="rect" id="Node000004" href="$db/db6/PhysfsStream_8hpp.html" title=" " alt="" coords="358,93,498,119"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,43,386,86,384,91,269,48"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="235,167,293,192"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="403,121,304,164,302,159,401,116"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="317,167,539,192"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="431,119,431,153,425,153,425,119"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="564,167,793,192"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="469,116,626,160,624,165,468,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="316,167,375,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="416,121,371,160,368,155,413,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="398,167,621,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="443,117,488,156,484,160,439,121"/>
 </map>

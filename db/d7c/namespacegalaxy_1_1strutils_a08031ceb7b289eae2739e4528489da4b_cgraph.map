@@ -1,7 +1,0 @@
-<map id="galaxy::strutils::trim" name="galaxy::strutils::trim">
-<area shape="rect" id="Node000001" title="Trim both ends of string." alt="" coords="5,31,159,56"/>
-<area shape="rect" id="Node000002" href="$db/d7c/namespacegalaxy_1_1strutils.html#afff4d4bc591e6b700b5065afb2144125" title="Trim string from end." alt="" coords="207,5,365,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,31,193,27,194,32,159,36"/>
-<area shape="rect" id="Node000003" href="$db/d7c/namespacegalaxy_1_1strutils.html#ac5695a7c71384e1de6aa6cf8a9e46e5a" title="Trim string from start." alt="" coords="207,55,365,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,50,193,54,193,59,159,55"/>
-</map>

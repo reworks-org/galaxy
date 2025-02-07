@@ -1,9 +1,0 @@
-<map id="galaxy::input::int_to_mouse" name="galaxy::input::int_to_mouse">
-<area shape="rect" id="Node000001" title="Converts an int to a mouse button." alt="" coords="400,37,531,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7" title="Injects input handling into lua." alt="" coords="203,5,340,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="386,47,340,39,341,34,387,42"/>
-<area shape="rect" id="Node000004" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="191,69,352,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="387,73,352,79,352,73,386,68"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="189,28,143,28,143,23,189,23"/>
-</map>

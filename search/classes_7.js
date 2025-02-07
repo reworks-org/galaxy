@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['input_0',['Input',['../db/df9/classgalaxy_1_1input_1_1Input.html',1,'galaxy::input']]],
-  ['inputdevice_1',['InputDevice',['../da/def/classgalaxy_1_1input_1_1InputDevice.html',1,'galaxy::input']]],
-  ['instancebuffer_2',['InstanceBuffer',['../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html',1,'galaxy::graphics']]]
+  ['loader_0',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html',1,'galaxy::core::Loader'],['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource::Loader&lt; Resource &gt;']]],
+  ['loader_3c_20media_3a_3asound_20_3e_1',['Loader&lt; media::Sound &gt;',['../d0/d02/structgalaxy_1_1resource_1_1Loader.html',1,'galaxy::resource']]],
+  ['log_2',['Log',['../d9/dec/classgalaxy_1_1logging_1_1Log.html',1,'galaxy::logging']]],
+  ['logmessage_3',['LogMessage',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html',1,'galaxy::logging']]]
 ];

@@ -1,9 +1,0 @@
-<map id="galaxy::fs::PhysfsStream::~PhysfsStream" name="galaxy::fs::PhysfsStream::~PhysfsStream">
-<area shape="rect" id="Node000001" title="Virtual destructor." alt="" coords="5,37,188,77"/>
-<area shape="rect" id="Node000002" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#aaa6fb5130b3d920736bfa4b780375274" title="Close the open physfs handle." alt="" coords="236,37,419,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,55,222,55,222,60,188,60"/>
-<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#abfb6a8f1379297367c7d344ec039c371" title="Is the physfs file open." alt="" coords="467,5,649,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="418,42,453,37,453,43,419,47"/>
-<area shape="rect" id="Node000004" href="$dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="472,69,644,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="419,67,459,73,458,78,418,73"/>
-</map>

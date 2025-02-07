@@ -14,9 +14,12 @@ var classgalaxy_1_1core_1_1App =
     [ "setup_config", "d5/d5a/classgalaxy_1_1core_1_1App.html#a50474f937156e866d247c0b97f7840f2", null ],
     [ "setup_fs", "d5/d5a/classgalaxy_1_1core_1_1App.html#a9cafbb65a447e71c7f9c3b90587d43f5", null ],
     [ "setup_window", "d5/d5a/classgalaxy_1_1core_1_1App.html#a563a51eee271c3b21fd260c4789e04aa", null ],
+    [ "setup_events", "d5/d5a/classgalaxy_1_1core_1_1App.html#a82d0699e7d89d13ec2d2c4e5c505831e", null ],
     [ "setup_audio", "d5/d5a/classgalaxy_1_1core_1_1App.html#a3d5be31a79aa993e983817c88f8cf1a1", null ],
     [ "setup_renderer", "d5/d5a/classgalaxy_1_1core_1_1App.html#a91f77619db875ad7b883390fecc77d8a", null ],
     [ "setup_loader", "d5/d5a/classgalaxy_1_1core_1_1App.html#a46a63c1023f9cf67b4e6c9dc8d2a818b", null ],
     [ "setup_entity_metadata", "d5/d5a/classgalaxy_1_1core_1_1App.html#a975fab46a612c6517fe232226bdcfdbf", null ],
-    [ "setup_scripting", "d5/d5a/classgalaxy_1_1core_1_1App.html#a56ebef063d9636089ad20fca334690b2", null ]
+    [ "setup_scripting", "d5/d5a/classgalaxy_1_1core_1_1App.html#a56ebef063d9636089ad20fca334690b2", null ],
+    [ "handle_events", "d5/d5a/classgalaxy_1_1core_1_1App.html#ac64dbc35fdd151f5a0e3f0bff927bcf4", null ],
+    [ "m_cursor", "d5/d5a/classgalaxy_1_1core_1_1App.html#a9e839e0e828bbb17eca0471b68e731f0", null ]
 ];

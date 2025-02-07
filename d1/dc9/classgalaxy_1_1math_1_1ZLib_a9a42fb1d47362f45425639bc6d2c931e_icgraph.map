@@ -1,7 +1,0 @@
-<map id="galaxy::math::ZLib::compress" name="galaxy::math::ZLib::compress">
-<area shape="rect" id="Node000001" title="Compresses string." alt="" coords="417,5,560,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into lua." alt="" coords="191,13,369,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="404,28,370,28,370,23,404,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-</map>
