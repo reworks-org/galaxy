@@ -8,7 +8,6 @@
 #include <entt/locator/locator.hpp>
 #include <mimalloc.h>
 #include <physfs.h>
-#include <raylib.hpp>
 #include <tinyfiledialogs.h>
 #include <zip.h>
 

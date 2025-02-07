@@ -10,11 +10,10 @@
 
 #include <random>
 
-#include "galaxy/utils/Concepts.hpp"
+#include <SFML/System/Vector2.hpp>
+#include <SFML/System/Vector3.hpp>
 
-#include "galaxy/math/Vector2.hpp"
-#include "galaxy/math/Vector3.hpp"
-#include "galaxy/math/Vector4.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {
@@ -50,49 +49,45 @@ namespace galaxy
 			///
 			/// Generate a random number of type T.
 			///
-			/// \tparam Type The type of number to return. Must be arithmetic.
+			/// \tparam T The type of number to return. Must be arithmetic.
 			///
 			/// \param min Minimum number inclusive.
 			/// \param max Maximum number inclusive.
 			///
 			/// \return Returns number of the same type as inputs.
 			///
-			template<utils::is_arithmetic Type>
+			template<meta::is_arithmetic T>
 			[[nodiscard]]
-			Type gen(const Type min, const Type max) noexcept;
+			T gen(const T min, const T max) noexcept;
 
 			///
 			/// Generate a random vec2.
+			///
+			/// \tparam T The type of number to return. Must be arithmetic.
 			///
 			/// \param min Minimum vec2 inclusive.
 			/// \param max Maximum vec2 inclusive.
 			///
 			/// \return Pseudo-randomized vec2.
 			///
+
+			template<meta::is_arithmetic T>
 			[[nodiscard]]
-			Vector2 gen_vec2(const Vector2& min, const Vector2& max) noexcept;
+			sf::Vector2<T> gen_vec2(const sf::Vector2<T>& min, const sf::Vector2<T>& max) noexcept;
 
 			///
 			/// Generate a random vec3.
+			///
+			/// \tparam T The type of number to return. Must be arithmetic.
 			///
 			/// \param min Minimum vec3 inclusive.
 			/// \param max Maximum vec3 inclusive.
 			///
 			/// \return Pseudo-randomized vec3.
 			///
+			template<meta::is_arithmetic T>
 			[[nodiscard]]
-			Vector3 gen_vec3(const Vector3& min, const Vector3& max) noexcept;
-
-			///
-			/// Generate a random vec4.
-			///
-			/// \param min Minimum vec4 inclusive.
-			/// \param max Maximum vec4 inclusive.
-			///
-			/// \return Pseudo-randomized vec4.
-			///
-			[[nodiscard]]
-			Vector4 gen_vec4(const Vector4& min, const Vector4& max) noexcept;
+			sf::Vector3<T> gen_vec3(const sf::Vector3<T>& min, const sf::Vector3<T>& max) noexcept;
 
 		private:
 			///
@@ -106,11 +101,23 @@ namespace galaxy
 			std::mt19937_64 m_mt;
 		};
 
-		template<utils::is_arithmetic Type>
-		inline Type Random::gen(const Type min, const Type max) noexcept
+		template<meta::is_arithmetic T>
+		T Random::gen(const T min, const T max) noexcept
 		{
-			conditional_distribution<Type> dist {min, max};
+			conditional_distribution<T> dist {min, max};
 			return dist(m_mt);
+		}
+
+		template<meta::is_arithmetic T>
+		sf::Vector2<T> Random::gen_vec2(const sf::Vector2<T>& min, const sf::Vector2<T>& max) noexcept
+		{
+			return sf::Vector2<T> {gen<T>(min.x, max.x), gen<T>(min.y, max.y)};
+		}
+
+		template<meta::is_arithmetic T>
+		sf::Vector3<T> Random::gen_vec3(const sf::Vector3<T>& min, const sf::Vector3<T>& max) noexcept
+		{
+			return sf::Vector3<T> {gen<T>(min.x, max.x), gen<T>(min.y, max.y), gen<T>(min.z, max.z)};
 		}
 	} // namespace math
 } // namespace galaxy

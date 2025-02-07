@@ -15,23 +15,23 @@ namespace galaxy
 {
 	namespace fs
 	{
-		PhysfsStream::PhysfsStream(const std::string& filename)
+		PhysfsStream::PhysfsStream(const std::string& filename) noexcept
 			: m_file(nullptr)
 		{
 			open(filename);
 		}
 
-		PhysfsStream::~PhysfsStream()
+		PhysfsStream::~PhysfsStream() noexcept
 		{
 			close();
 		}
 
-		bool PhysfsStream::is_open() const
+		bool PhysfsStream::is_open() const noexcept
 		{
 			return m_file != nullptr;
 		}
 
-		bool PhysfsStream::open(const std::string& filename)
+		bool PhysfsStream::open(const std::string& filename) noexcept
 		{
 			if (!filename.empty())
 			{
@@ -47,7 +47,7 @@ namespace galaxy
 			}
 		}
 
-		void PhysfsStream::close()
+		void PhysfsStream::close() noexcept
 		{
 			if (is_open())
 			{
@@ -56,7 +56,7 @@ namespace galaxy
 			}
 		}
 
-		sf::Int64 PhysfsStream::read(void* data, sf::Int64 size)
+		std::optional<std::size_t> PhysfsStream::read(void* data, std::size_t size)
 		{
 			if (!is_open())
 			{
@@ -68,7 +68,7 @@ namespace galaxy
 			return PHYSFS_readBytes(m_file, data, static_cast<PHYSFS_uint32>(size));
 		}
 
-		sf::Int64 PhysfsStream::seek(sf::Int64 position)
+		std::optional<std::size_t> PhysfsStream::seek(std::size_t position)
 		{
 			if (!is_open())
 			{
@@ -86,7 +86,7 @@ namespace galaxy
 			}
 		}
 
-		sf::Int64 PhysfsStream::tell()
+		std::optional<std::size_t> PhysfsStream::tell()
 		{
 			if (!is_open())
 			{
@@ -97,7 +97,7 @@ namespace galaxy
 			return PHYSFS_tell(m_file);
 		}
 
-		sf::Int64 PhysfsStream::getSize()
+		std::optional<std::size_t> PhysfsStream::getSize()
 		{
 			if (!is_open())
 			{

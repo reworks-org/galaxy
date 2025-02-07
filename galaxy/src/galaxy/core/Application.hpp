@@ -8,8 +8,6 @@
 #ifndef GALAXY_CORE_APPLICATION_HPP_
 #define GALAXY_CORE_APPLICATION_HPP_
 
-#include <string_view>
-
 #if _WIN32 || _WIN64
 extern "C"
 {
@@ -25,6 +23,12 @@ extern "C"
 	inline std::uint32_t NvOptimusEnablement                  = 0x00000001;
 }
 #endif
+
+namespace sf
+{
+	class RenderWindow;
+	class Cursor;
+} // namespace sf
 
 namespace galaxy
 {
@@ -89,11 +93,20 @@ namespace galaxy
 			void setup_config(std::string_view config_file);
 			void setup_fs();
 			void setup_window();
+			void setup_events();
 			void setup_audio();
 			void setup_renderer();
 			void setup_loader();
 			void setup_entity_metadata();
 			void setup_scripting();
+
+			void handle_events(sf::RenderWindow& window);
+
+		private:
+			///
+			/// SFML cursor handle. Needs to be kept in memory.
+			///
+			std::optional<sf::Cursor> m_cursor;
 		};
 	} // namespace core
 } // namespace galaxy

@@ -17,11 +17,11 @@
 #include "galaxy/logging/LogLevel.hpp"
 #include "galaxy/logging/Sink.hpp"
 
-#define GALAXY_INFO                     galaxy::logging::LogLevel::INFO
-#define GALAXY_DEBUG                    galaxy::logging::LogLevel::DEBUG
-#define GALAXY_WARNING                  galaxy::logging::LogLevel::WARNING
-#define GALAXY_ERROR                    galaxy::logging::LogLevel::ERROR
-#define GALAXY_FATAL                    galaxy::logging::LogLevel::FATAL
+#define GALAXY_INFO                     galaxy::logging::LogLevel::_INFO_
+#define GALAXY_DEBUG                    galaxy::logging::LogLevel::_DEBUG_
+#define GALAXY_WARNING                  galaxy::logging::LogLevel::_WARNING_
+#define GALAXY_ERROR                    galaxy::logging::LogLevel::_ERROR_
+#define GALAXY_FATAL                    galaxy::logging::LogLevel::_FATAL_
 #define GALAXY_LOG_FINISH               galaxy::logging::Log::ref().finish
 #define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::logging::Log::ref().set_min_level<level>()
 #define GALAXY_ADD_SINK(sink, ...)      galaxy::logging::Log::ref().add_sink<sink>(__VA_ARGS__)
@@ -166,15 +166,15 @@ namespace galaxy
 
 				lm.level = magic_enum::enum_name<LogLevel>(level);
 
-				if constexpr (level == LogLevel::INFO || level == LogLevel::DEBUG)
+				if constexpr (level == LogLevel::_INFO_ || level == LogLevel::_DEBUG_)
 				{
 					lm.colour = "\x1b[1m\x1b[33m";
 				}
-				else if constexpr (level == LogLevel::WARNING)
+				else if constexpr (level == LogLevel::_WARNING_)
 				{
 					lm.colour = "\x1b[1m\x1b[31m";
 				}
-				else if constexpr (level == LogLevel::ERROR || level == LogLevel::FATAL)
+				else if constexpr (level == LogLevel::_ERROR_ || level == LogLevel::_FATAL_)
 				{
 					lm.colour = "\x1b[41m\x1b[37m";
 				}
@@ -184,7 +184,7 @@ namespace galaxy
 					sink->sink_message(lm);
 				}
 
-				if constexpr (level == LogLevel::FATAL)
+				if constexpr (level == LogLevel::_FATAL_)
 				{
 					throw std::runtime_error(std::to_string(trace));
 				}

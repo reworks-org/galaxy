@@ -57,7 +57,7 @@ namespace galaxy
 			m_repeat = repeat;
 		}
 
-		void Timer::start() noexcept
+		void Timer::start()
 		{
 			if (m_stopped && !m_paused)
 			{

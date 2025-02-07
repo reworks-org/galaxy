@@ -81,7 +81,7 @@ namespace galaxy
 			}
 		}
 
-		std::string ZLib::compress(const std::string& input)
+		std::string ZLib::compressor(const std::string& input)
 		{
 			std::string result;
 
@@ -181,7 +181,7 @@ namespace galaxy
 			return result;
 		}
 
-		std::string ZLib::decompress(const std::string& input)
+		std::string ZLib::decompressor(const std::string& input)
 		{
 			std::string result;
 
@@ -254,7 +254,7 @@ namespace galaxy
 
 					if (total_read != 0)
 					{
-						result += zlib->compress({in, total_read});
+						result += zlib->compressor({in, total_read});
 					}
 					else
 					{
@@ -296,7 +296,7 @@ namespace galaxy
 
 					if (total_read != 0)
 					{
-						result += zlib->decompress({in, total_read});
+						result += zlib->decompressor({in, total_read});
 					}
 					else
 					{

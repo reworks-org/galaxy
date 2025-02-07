@@ -141,7 +141,7 @@ namespace galaxy
 			return false;
 		}
 
-		bool Config::empty() const noexcept
+		bool Config::empty() const
 		{
 			if (m_loaded)
 			{

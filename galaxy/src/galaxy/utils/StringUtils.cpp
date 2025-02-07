@@ -14,7 +14,7 @@ namespace galaxy
 {
 	namespace strutils
 	{
-		std::vector<std::string> split(std::string_view input, std::string_view delim)
+		std::vector<std::string> split(std::string_view input, std::string_view delim) noexcept
 		{
 			std::size_t start = 0;
 			std::size_t end   = 0;
@@ -34,7 +34,7 @@ namespace galaxy
 			return splits;
 		}
 
-		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with)
+		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
 		{
 			const auto pos = input.find(to_replace);
 
@@ -44,7 +44,7 @@ namespace galaxy
 			}
 		}
 
-		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with)
+		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept
 		{
 			std::size_t pos = 0;
 
@@ -59,12 +59,12 @@ namespace galaxy
 			}
 		}
 
-		bool begins_with(const std::string& input, const std::string& find)
+		bool begins_with(const std::string& input, const std::string& find) noexcept
 		{
 			return (input.rfind(find, 0) == 0);
 		}
 
-		void ltrim(std::string& input)
+		void ltrim(std::string& input) noexcept
 		{
 			// clang-format off
 			input.erase(input.begin(), std::find_if(input.begin(), input.end(), [](const auto ch) {
@@ -72,7 +72,7 @@ namespace galaxy
 			}));
 		}
 
-		void rtrim(std::string& input)
+		void rtrim(std::string& input)noexcept
 		{
 			input.erase(std::find_if(input.rbegin(), input.rend(), [](const auto ch) {
                 return !std::isspace(ch);
@@ -80,13 +80,13 @@ namespace galaxy
 			// clang-format on
 		}
 
-		void trim(std::string& input)
+		void trim(std::string& input) noexcept
 		{
 			rtrim(input);
 			ltrim(input);
 		}
 
-		void make_single_spaced(std::string& input)
+		void make_single_spaced(std::string& input) noexcept
 		{
 			const auto trim_from = std::unique(input.begin(), input.end(), [](const auto lhs, const auto rhs) {
 				return (lhs == rhs) && (lhs == ' ');

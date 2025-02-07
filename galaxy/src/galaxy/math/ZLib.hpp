@@ -8,7 +8,7 @@
 #ifndef GALAXY_MATH_ZLIB_HPP_
 #define GALAXY_MATH_ZLIB_HPP_
 
-#include <zlib.h>
+#include <miniz.h>
 
 #include "galaxy/core/Settings.hpp"
 
@@ -60,7 +60,7 @@ namespace galaxy
 			/// \return Compressed string.
 			///
 			[[nodiscard]]
-			std::string compress(const std::string& input);
+			std::string compressor(const std::string& input);
 
 			///
 			/// Completes the compression.
@@ -78,7 +78,7 @@ namespace galaxy
 			/// \return String containing decompressed data.
 			///
 			[[nodiscard]]
-			std::string decompress(const std::string& input);
+			std::string decompressor(const std::string& input);
 
 		private:
 			///

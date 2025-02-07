@@ -68,7 +68,7 @@ namespace galaxy
 			/// \param value The variable value to set.
 			///
 			template<meta::standard_type Value>
-			void set(const std::string& key, const Value& value);
+			void set(const std::string& key, const Value& value) noexcept;
 
 			///
 			/// \brief Sets a new key-value pair in a section. Can use a delimiter to seperate sections.
@@ -94,7 +94,7 @@ namespace galaxy
 			/// \param value The variable value to set.
 			///
 			template<meta::standard_type Value>
-			void restore(const std::string& key, const Value& value);
+			void restore(const std::string& key, const Value& value) noexcept;
 
 			///
 			/// Sets a new setting, only if key or value is missing.
@@ -165,7 +165,7 @@ namespace galaxy
 			/// \return True if blank.
 			///
 			[[nodiscard]]
-			bool empty() const noexcept;
+			bool empty() const;
 
 			///
 			/// Set as external json object.
@@ -221,7 +221,7 @@ namespace galaxy
 		};
 
 		template<meta::standard_type Value>
-		inline void Config::set(const std::string& key, const Value& value)
+		inline void Config::set(const std::string& key, const Value& value) noexcept
 		{
 			if (m_loaded)
 			{
@@ -268,7 +268,7 @@ namespace galaxy
 		}
 
 		template<meta::standard_type Value>
-		inline void Config::restore(const std::string& key, const Value& value)
+		inline void Config::restore(const std::string& key, const Value& value) noexcept
 		{
 			if (!has(key))
 			{

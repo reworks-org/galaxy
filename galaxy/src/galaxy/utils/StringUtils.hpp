@@ -25,7 +25,7 @@ namespace galaxy
 		/// \return Array of strings split. Does not return empty entries or delimiter.
 		///
 		[[nodiscard]]
-		std::vector<std::string> split(std::string_view input, std::string_view delim);
+		std::vector<std::string> split(std::string_view input, std::string_view delim) noexcept;
 
 		///
 		/// \brief Replace first occurrence of a string.
@@ -36,7 +36,7 @@ namespace galaxy
 		/// \param to_replace Substring to be replaced.
 		/// \param replace_with String to be inserted.
 		///
-		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with);
+		void replace_first(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
 
 		///
 		/// \brief Replaces all occurrences of a string.
@@ -47,7 +47,7 @@ namespace galaxy
 		/// \param to_replace Substring to be replaced.
 		/// \param replace_with String to be inserted.
 		///
-		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with);
+		void replace_all(std::string& input, std::string_view to_replace, std::string_view replace_with) noexcept;
 
 		///
 		/// Check if string begins with another string.
@@ -58,35 +58,35 @@ namespace galaxy
 		/// \return True if input string begins with find string.
 		///
 		[[nodiscard]]
-		bool begins_with(const std::string& input, const std::string& find);
+		bool begins_with(const std::string& input, const std::string& find) noexcept;
 
 		///
 		/// Trim string from start.
 		///
 		/// \param input String to trim.
 		///
-		void rtrim(std::string& input);
+		void rtrim(std::string& input) noexcept;
 
 		///
 		/// Trim string from end.
 		///
 		/// \param input String to trim.
 		///
-		void ltrim(std::string& input);
+		void ltrim(std::string& input) noexcept;
 
 		///
 		/// Trim both ends of string.
 		///
 		/// \param input String to trim.
 		///
-		void trim(std::string& input);
+		void trim(std::string& input) noexcept;
 
 		///
 		/// Make a string single spaced.
 		///
 		/// \param input String to reduce spacing from.
 		///
-		void make_single_spaced(std::string& input);
+		void make_single_spaced(std::string& input) noexcept;
 	} // namespace strutils
 } // namespace galaxy
 

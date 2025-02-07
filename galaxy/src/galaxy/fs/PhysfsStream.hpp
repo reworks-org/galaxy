@@ -11,7 +11,6 @@
 #include <string>
 
 #include <SFML/System/InputStream.hpp>
-#include <SFML/System/NonCopyable.hpp>
 
 struct PHYSFS_File;
 
@@ -20,11 +19,16 @@ namespace galaxy
 	namespace fs
 	{
 		///
-		/// SFML <-> Physfs input stream.
+		/// Custom SFML input stream using PhysFS.
 		///
 		class PhysfsStream : public sf::InputStream
 		{
 		public:
+			///
+			/// Constructor.
+			///
+			PhysfsStream() noexcept;
+
 			///
 			/// Argument constructor.
 			///
@@ -32,22 +36,12 @@ namespace galaxy
 			///
 			/// \param filename Name of file in VFS to read.
 			///
-			PhysfsStream(const std::string& filename);
-
-			///
-			/// Move constructor.
-			///
-			PhysfsStream(PhysfsStream&&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			PhysfsStream& operator=(PhysfsStream&&) = delete;
+			PhysfsStream(const std::string& filename) noexcept;
 
 			///
 			/// Virtual destructor.
 			///
-			virtual ~PhysfsStream();
+			virtual ~PhysfsStream() noexcept;
 
 			///
 			/// Is the physfs file open.
@@ -55,7 +49,7 @@ namespace galaxy
 			/// \return True if open.
 			///
 			[[nodiscard]]
-			bool is_open() const;
+			bool is_open() const noexcept;
 
 			///
 			/// \brief Open file in physfs.
@@ -67,16 +61,15 @@ namespace galaxy
 			/// \return True if successful.
 			///
 			[[maybe_unused]]
-			bool open(const std::string& filename);
+			bool open(const std::string& filename) noexcept;
 
 			///
 			/// Close the open physfs handle.
 			///
-			void close();
+			void close() noexcept;
 
 			///
-			///
-			/// \brief Read data from the stream.
+			/// \brief Read data from the stream
 			///
 			/// After reading, the stream's reading position must be
 			/// advanced by the amount of bytes read.
@@ -84,36 +77,36 @@ namespace galaxy
 			/// \param data Buffer where to copy the read data.
 			/// \param size Desired number of bytes to read.
 			///
-			/// \return The number of bytes actually read, or -1 on error.
+			/// \return The number of bytes actually read, or std::nullopt on error.
 			///
 			[[nodiscard]]
-			sf::Int64 read(void* data, sf::Int64 size) override;
+			std::optional<std::size_t> read(void* data, std::size_t size) override;
 
 			///
-			/// Change the current reading position
+			/// Change the current reading position.
 			///
 			/// \param position The position to seek to, from the beginning.
 			///
-			/// \return The position actually sought to, or -1 on error.
+			/// \return The position actually sought to, or std::nullopt on error.
 			///
-			[[maybe_unused]]
-			sf::Int64 seek(sf::Int64 position) override;
+			[[nodiscard]]
+			std::optional<std::size_t> seek(std::size_t position) override;
 
 			///
 			/// Get the current reading position in the stream.
 			///
-			/// \return The current position, or -1 on error.
+			/// \return The current position, or std::nullopt on error.
 			///
 			[[nodiscard]]
-			sf::Int64 tell() override;
+			std::optional<std::size_t> tell() override;
 
 			///
-			/// Return the size of the stream.
+			/// Return the size of the stream
 			///
-			/// \return The total number of bytes available in the stream, or -1 on error.
+			/// \return The total number of bytes available in the stream, or std::nullopt on error.
 			///
 			[[nodiscard]]
-			sf::Int64 getSize() override;
+			std::optional<std::size_t> getSize() override;
 
 		private:
 			///
@@ -125,6 +118,16 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			PhysfsStream& operator=(const PhysfsStream&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			PhysfsStream(PhysfsStream&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			PhysfsStream& operator=(PhysfsStream&&) = delete;
 
 		private:
 			///

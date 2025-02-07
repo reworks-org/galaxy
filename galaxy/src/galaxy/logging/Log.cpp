@@ -14,7 +14,7 @@ namespace galaxy
 	namespace logging
 	{
 		Log::Log() noexcept
-			: m_min_level {LogLevel::INFO}
+			: m_min_level {LogLevel::_INFO_}
 		{
 			m_sinks.reserve(2);
 		}
@@ -31,7 +31,7 @@ namespace galaxy
 
 		void Log::finish() noexcept
 		{
-			m_min_level = LogLevel::INFO;
+			m_min_level = LogLevel::_INFO_;
 			m_sinks.clear();
 		}
 	} // namespace logging

@@ -7,11 +7,13 @@
 
 #include <BS_thread_pool.hpp>
 #include <entt/locator/locator.hpp>
+#include <entt/signal/dispatcher.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Settings.hpp"
-#include "galaxy/core/Window.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
@@ -31,6 +33,7 @@ namespace galaxy
 			setup_config(config_file);
 			setup_fs();
 			setup_window();
+			setup_events();
 			setup_audio();
 			setup_renderer();
 			setup_loader();
@@ -112,7 +115,8 @@ namespace galaxy
 		{
 			// https://stackoverflow.com/a/59446610
 
-			auto& window = entt::locator<Window>::value();
+			auto& window     = entt::locator<sf::RenderWindow>::value();
+			auto& dispatcher = entt::locator<entt::dispatcher>::value();
 
 			using clock      = std::chrono::high_resolution_clock;
 			using duration   = std::chrono::duration<double>;
@@ -135,7 +139,7 @@ namespace galaxy
 			unsigned int updates = 0u;
 			duration     perf_counter {0};
 
-			while (!window.should_close())
+			while (window.isOpen())
 			{
 				now      = clock::now();
 				elapsed  = now - previous;
@@ -150,22 +154,21 @@ namespace galaxy
 					alpha  = dt / one_second;
 					settings::set_delta_time(alpha);
 
-					window.poll_events();
+					handle_events(window);
 					// manager.update();
 
 					updates++;
 				}
 
-				// BeginDrawing();
-				//  manager.render();
-				// EndDrawing();
-				window.swap_buffers();
+				window.clear(sf::Color::White);
+				// manager.render();
+				window.display();
 
 				frames++;
 
 				if (perf_counter >= one_second)
 				{
-					window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
+					window.setTitle(std::format("{0} | UPS: {1}, FPS: {2}", settings::window_title(), updates, frames));
 
 					frames       = 0;
 					updates      = 0;
@@ -225,7 +228,98 @@ namespace galaxy
 
 		void App::setup_window()
 		{
-			entt::locator<Window>::emplace();
+			auto& window = entt::locator<sf::RenderWindow>::emplace();
+			window.setVisible(false);
+
+			sf::VideoMode mode;
+			mode.bitsPerPixel = sf::VideoMode::getDesktopMode().bitsPerPixel;
+			mode.size.x       = settings::window_width();
+			mode.size.y       = settings::window_height();
+
+			sf::ContextSettings context;
+			context.antiAliasingLevel = settings::msaa();
+			context.attributeFlags    = sf::ContextSettings::Default;
+			context.depthBits         = 24;
+			context.majorVersion      = 3;
+			context.minorVersion      = 2;
+			context.sRgbCapable       = false;
+			context.stencilBits       = 8;
+
+			const auto state = settings::fullscreen() ? sf::State::Fullscreen : sf::State::Windowed;
+			window.create(mode, settings::window_title(), sf::Style::Default, state, context);
+
+			if (!settings::window_icon().empty())
+			{
+				auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
+				auto  data = fs.read_binary(settings::window_icon());
+
+				sf::Image image;
+				if (image.loadFromMemory(data.data(), data.size()))
+				{
+					// Copies, so can delete image after.
+					window.setIcon(image);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load window icon '{0}'.", settings::window_icon());
+				}
+			}
+
+			if (!settings::cursor_icon().empty())
+			{
+				window.setMouseCursorVisible(true);
+
+				if (settings::cursor_icon_size().x == 0 || settings::cursor_icon_size().y == 0)
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Did not specify cursor size properly, must be same size as texture. Reverting to system default.");
+				}
+				else
+				{
+					auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
+					auto  data = fs.read_binary(settings::window_icon());
+
+					m_cursor = sf::Cursor::createFromPixels(data.data(), settings::cursor_icon_size(), settings::cursor_hotspot());
+					if (m_cursor.has_value())
+					{
+						window.setMouseCursor(m_cursor.value());
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to load custom cursor: {0}.", settings::cursor_icon());
+					}
+				}
+			}
+			else
+			{
+				window.setMouseCursorVisible(settings::cursor_visible());
+			}
+
+			window.setMouseCursorGrabbed(settings::cursor_grabbed());
+			window.setVerticalSyncEnabled(settings::vsync());
+
+			if (!window.setActive(true))
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to get OpenGL active context.");
+			}
+
+			window.setVisible(true);
+
+			if (!window.hasFocus())
+			{
+				window.requestFocus();
+			}
+		}
+
+		void App::setup_events()
+		{
+			entt::locator<entt::dispatcher>::emplace();
+			for (auto i = 0; i < sf::Joystick::Count; i++)
+			{
+				if (sf::Joystick::isConnected(i))
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Gamepad detected at index {0}. Gamepads are not supported.", i);
+				}
+			}
 		}
 
 		void App::setup_audio()
@@ -288,6 +382,22 @@ namespace galaxy
 				sol::lib::io,
 				sol::lib::utf8
 			);
+		}
+
+		void App::handle_events(sf::RenderWindow& window)
+		{
+			window.handleEvents([](auto&& event) {
+				using Event = std::decay_t<decltype(event)>;
+
+				if constexpr (std::is_same_v<Event, sf::Event::Closed>)
+				{
+					entt::locator<sf::RenderWindow>::value().close();
+				}
+				else
+				{
+					entt::locator<entt::dispatcher>::value().trigger(event);
+				}
+			});
 		}
 	} // namespace core
 } // namespace galaxy

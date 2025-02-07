@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "galaxy/utils/Concepts.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {
@@ -27,7 +27,7 @@ namespace galaxy
 		///
 		/// \return Normalized float.
 		///
-		template<utils::is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		[[nodiscard]]
 		inline float normalize(const Type val, const Type max) noexcept
 		{

@@ -11,23 +11,24 @@ namespace galaxy
 {
 	auto settings::set_config_to_default(core::Config& config) -> void
 	{
-		config.restore<int>("flag_bitset_count", 8, "misc");
-
-		config.restore<float>("world_to_box2d", 0.01f, "physics");
-		config.restore<float>("box2d_to_world", 100.0f, "physics");
 		config.restore<double>("ups", 60.0f, "physics");
 
 		config.restore<int>("width", 1920, "window");
 		config.restore<int>("height", 1080, "window");
 		config.restore<std::string>("title", "galaxy", "window");
-		config.restore<int>("screenmode", 1, "window");
-		config.restore<bool>("vsync", false, "window");
-		config.restore<bool>("mouse_visible", false, "window");
-		config.restore<bool>("msaa", false, "window");
-		config.restore<bool>("highdpi", false, "window");
 		config.restore<std::string>("icon", "", "window");
-		config.restore<std::string>("cursor_icon", "", "window");
-		config.restore<int>("ansiotrophic_filtering", 16, "window");
+		config.restore<bool>("fullscreen", false, "window");
+		config.restore<bool>("key_repeat", true, "window");
+		config.restore<bool>("vsync", false, "window");
+		config.restore<bool>("msaa", false, "window");
+
+		config.restore<bool>("visible", true, "cursor");
+		config.restore<bool>("grab", false, "cursor");
+		config.restore<std::string>("icon", "", "cursor");
+		config.restore<int>("x", 0, "cursor.icon_size");
+		config.restore<int>("y", 0, "cursor.icon_size");
+		config.restore<int>("x", 0, "cursor.hotspot");
+		config.restore<int>("y", 0, "cursor.hotspot");
 
 		config.restore<std::string>("assets_dir", "assets/", "fs");
 		config.restore<std::string>("editor_dir", "editor/", "fs");
@@ -51,23 +52,24 @@ namespace galaxy
 
 	auto settings::set_settings_from_config(core::Config& config) -> void
 	{
-		s_flag_bitset_count = config.get<int>("flag_bitset_count", "misc");
+		s_ups = config.get<double>("ups", "physics");
 
-		s_world_to_box2d = config.get<float>("world_to_box2d", "physics");
-		s_box2d_to_world = config.get<float>("box2d_to_world", "physics");
-		s_ups            = config.get<double>("ups", "physics");
+		s_window_width  = config.get<int>("width", "window");
+		s_window_height = config.get<int>("height", "window");
+		s_title         = config.get<std::string>("title", "window");
+		s_icon          = config.get<std::string>("icon", "window");
+		s_fullscreen    = config.get<bool>("fullscreen", "window");
+		s_key_repeat    = config.get<bool>("key_repeat", "window");
+		s_vsync         = config.get<bool>("vsync", "window");
+		s_msaa          = config.get<bool>("msaa", "window");
 
-		s_window_width    = config.get<int>("width", "window");
-		s_window_height   = config.get<int>("height", "window");
-		s_title           = config.get<std::string>("title", "window");
-		s_screenmode      = static_cast<graphics::ScreenMode>(config.get<int>("screenmode", "window"));
-		s_vsync           = config.get<bool>("vsync", "window");
-		s_mouse_visible   = config.get<bool>("mouse_visible", "window");
-		s_msaa            = config.get<bool>("msaa", "window");
-		s_highdpi         = config.get<bool>("highdpi", "window");
-		s_icon            = config.get<std::string>("icon", "window");
-		s_cursor_icon     = config.get<std::string>("cursor_icon", "window");
-		s_ansio_filtering = config.get<int>("ansiotrophic_filtering", "window");
+		s_cursor_visible     = config.get<bool>("visible", "cursor");
+		s_cursor_grabbed     = config.get<bool>("grab", "cursor");
+		s_cursor_icon        = config.get<std::string>("icon", "cursor");
+		s_cursor_icon_size.x = config.get<int>("x", "cursor.icon_size");
+		s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
+		s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
+		s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
 
 		s_assets_dir       = config.get<std::string>("assets_dir", "fs");
 		s_editor_dir       = config.get<std::string>("editor_dir", "fs");
@@ -97,29 +99,9 @@ namespace galaxy
 		return s_delta_time;
 	}
 
-	auto settings::flag_bitset_count() noexcept -> int
+	auto settings::ups() noexcept -> double
 	{
-		return s_flag_bitset_count;
-	}
-
-	auto settings::exit_success() noexcept -> int
-	{
-		return 0;
-	}
-
-	auto settings::exit_failure() noexcept -> int
-	{
-		return 1;
-	}
-
-	auto settings::world_to_box2d() noexcept -> float
-	{
-		return s_world_to_box2d;
-	}
-
-	auto settings::box2d_to_world() noexcept -> float
-	{
-		return s_box2d_to_world;
+		return s_ups;
 	}
 
 	auto settings::window_width() noexcept -> int
@@ -137,9 +119,19 @@ namespace galaxy
 		return s_title;
 	}
 
-	auto settings::screenmode() noexcept -> graphics::ScreenMode
+	auto settings::window_icon() noexcept -> const std::string&
 	{
-		return s_screenmode;
+		return s_icon;
+	}
+
+	auto settings::fullscreen() noexcept -> bool
+	{
+		return s_fullscreen;
+	}
+
+	auto settings::key_repeat() noexcept -> bool
+	{
+		return s_key_repeat;
 	}
 
 	auto settings::vsync() noexcept -> bool
@@ -147,24 +139,19 @@ namespace galaxy
 		return s_vsync;
 	}
 
-	auto settings::mouse_visible() noexcept -> bool
-	{
-		return s_mouse_visible;
-	}
-
 	auto settings::msaa() noexcept -> bool
 	{
 		return s_msaa;
 	}
 
-	auto settings::highdpi() noexcept -> bool
+	auto settings::cursor_visible() noexcept -> bool
 	{
-		return s_highdpi;
+		return s_cursor_visible;
 	}
 
-	auto settings::window_icon() noexcept -> const std::string&
+	auto settings::cursor_grabbed() noexcept -> bool
 	{
-		return s_icon;
+		return s_cursor_grabbed;
 	}
 
 	auto settings::cursor_icon() noexcept -> const std::string&
@@ -172,14 +159,14 @@ namespace galaxy
 		return s_cursor_icon;
 	}
 
-	auto settings::ansio_level() noexcept -> int
+	auto settings::cursor_icon_size() noexcept -> const sf::Vector2u&
 	{
-		return s_ansio_filtering;
+		return s_cursor_icon_size;
 	}
 
-	auto settings::ups() noexcept -> double
+	auto settings::cursor_hotspot() noexcept -> const sf::Vector2u&
 	{
-		return s_ups;
+		return s_cursor_hotspot;
 	}
 
 	auto settings::root_dir() noexcept -> std::filesystem::path

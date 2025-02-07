@@ -62,7 +62,7 @@ namespace galaxy
 			///
 			/// Start timer.
 			///
-			void start() noexcept;
+			void start();
 
 			///
 			/// Stop timer.

@@ -8,8 +8,6 @@
 #ifndef GALAXY_LOGGING_LOGLEVEL_HPP_
 #define GALAXY_LOGGING_LOGLEVEL_HPP_
 
-#undef ERROR
-
 namespace galaxy
 {
 	namespace logging
@@ -22,27 +20,27 @@ namespace galaxy
 			///
 			/// Info Log Level.
 			///
-			INFO = 0,
+			_INFO_ = 0,
 
 			///
 			/// Debug Log Level.
 			///
-			DEBUG = 1,
+			_DEBUG_ = 1,
 
 			///
 			/// Warning Log Level.
 			///
-			WARNING = 2,
+			_WARNING_ = 2,
 
 			///
 			/// Error Log Level.
 			///
-			ERROR = 3,
+			_ERROR_ = 3,
 
 			///
 			/// Fatal Log Level.
 			///
-			FATAL = 4
+			_FATAL_ = 4
 		};
 	} // namespace logging
 } // namespace galaxy

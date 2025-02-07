@@ -11,7 +11,7 @@
 #include <optional>
 #include <vector>
 
-#include "galaxy/graphics/Rectangle.hpp"
+#include <SFML/Graphics/Rect.hpp>
 
 namespace galaxy
 {
@@ -26,12 +26,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RectPack();
+			RectPack() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~RectPack();
+			~RectPack() noexcept;
 
 			///
 			/// Set starting width and height of rectangle.
@@ -41,7 +41,7 @@ namespace galaxy
 			/// \param width Width of the master rectangle.
 			/// \param height Height of the master rectangle.
 			///
-			void init(const float width, const float height);
+			void init(const int width, const int height) noexcept;
 
 			///
 			/// Pack a rectangle into the master rectangle.
@@ -53,12 +53,12 @@ namespace galaxy
 			///			Otherwise, returns a std::nullopt.
 			///
 			[[nodiscard]]
-			std::optional<graphics::Rectangle> pack(const float width, const float height);
+			std::optional<sf::IntRect> pack(const int width, const int height) noexcept;
 
 			///
 			/// Clear all data.
 			///
-			void clear();
+			void clear() noexcept;
 
 			///
 			/// Get total width.
@@ -66,7 +66,7 @@ namespace galaxy
 			/// \return Integer.
 			///
 			[[nodiscard]]
-			int get_width() const;
+			int get_width() const noexcept;
 
 			///
 			/// Get total height.
@@ -74,7 +74,7 @@ namespace galaxy
 			/// \return Integer.
 			///
 			[[nodiscard]]
-			int get_height() const;
+			int get_height() const noexcept;
 
 			///
 			/// Get free rectangles.
@@ -82,7 +82,7 @@ namespace galaxy
 			/// \return Const meta::vector.
 			///
 			[[nodiscard]]
-			const std::vector<graphics::Rectangle>& get_free_space() const;
+			const std::vector<sf::IntRect>& get_free_space() const noexcept;
 
 		private:
 			///
@@ -98,7 +98,7 @@ namespace galaxy
 			///
 			/// Free space in master rectangle.
 			///
-			std::vector<graphics::Rectangle> m_free_rects;
+			std::vector<sf::IntRect> m_free_rects;
 		};
 	} // namespace math
 } // namespace galaxy

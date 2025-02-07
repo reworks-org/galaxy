@@ -8,8 +8,9 @@
 #ifndef GALAXY_CORE_SETTINGS_HPP_
 #define GALAXY_CORE_SETTINGS_HPP_
 
+#include <SFML/System/Vector2.hpp>
+
 #include "galaxy/core/Config.hpp"
-#include "galaxy/graphics/ScreenMode.hpp"
 
 namespace galaxy
 {
@@ -49,34 +50,10 @@ namespace galaxy
 		static auto dt() noexcept -> double;
 
 		///
-		/// Number of bits in a flag bitset.
+		/// Game updates per second, independant of FPS, see "fixed timestep gameloop".
 		///
 		[[nodiscard]]
-		static auto flag_bitset_count() noexcept -> int;
-
-		///
-		/// Successful return.
-		///
-		[[nodiscard]]
-		static auto exit_success() noexcept -> int;
-
-		///
-		/// Failed main return.
-		///
-		[[nodiscard]]
-		static auto exit_failure() noexcept -> int;
-
-		///
-		/// Ratio to convert world coords to box2d.
-		///
-		[[nodiscard]]
-		static auto world_to_box2d() noexcept -> float;
-
-		///
-		/// Ratio to convert box2d to world coords.
-		///
-		[[nodiscard]]
-		static auto box2d_to_world() noexcept -> float;
+		static auto ups() noexcept -> double;
 
 		///
 		/// Window creation width.
@@ -97,10 +74,22 @@ namespace galaxy
 		static auto window_title() noexcept -> const std::string&;
 
 		///
-		/// Window fullscreen mode.
+		/// Window icon file in vfs.
 		///
 		[[nodiscard]]
-		static auto screenmode() noexcept -> graphics::ScreenMode;
+		static auto window_icon() noexcept -> const std::string&;
+
+		///
+		/// Window maximized state.
+		///
+		[[nodiscard]]
+		static auto fullscreen() noexcept -> bool;
+
+		///
+		/// Enable if a keypress will dispatch a single or repeating events.
+		///
+		[[nodiscard]]
+		static auto key_repeat() noexcept -> bool;
 
 		///
 		/// Vsync control.
@@ -109,28 +98,22 @@ namespace galaxy
 		static auto vsync() noexcept -> bool;
 
 		///
-		/// Show/hide mouse cursor.
-		///
-		[[nodiscard]]
-		static auto mouse_visible() noexcept -> bool;
-
-		///
-		/// Enable default 4x MSAA.
+		/// Enable MSAA.
 		///
 		[[nodiscard]]
 		static auto msaa() noexcept -> bool;
 
 		///
-		/// Enable High DPI support.
+		/// Show/hide mouse cursor.
 		///
 		[[nodiscard]]
-		static auto highdpi() noexcept -> bool;
+		static auto cursor_visible() noexcept -> bool;
 
 		///
-		/// Window icon file in vfs.
+		/// Grab/release mouse cursor.
 		///
 		[[nodiscard]]
-		static auto window_icon() noexcept -> const std::string&;
+		static auto cursor_grabbed() noexcept -> bool;
 
 		///
 		/// Cursor texture file in vfs.
@@ -139,16 +122,16 @@ namespace galaxy
 		static auto cursor_icon() noexcept -> const std::string&;
 
 		///
-		/// Ansiotropic filtering level.
+		/// Cursor icon texture size.
 		///
 		[[nodiscard]]
-		static auto ansio_level() noexcept -> int;
+		static auto cursor_icon_size() noexcept -> const sf::Vector2u&;
 
 		///
-		/// Game updates per second, independant of FPS, see "fixed timestep gameloop".
+		/// Cursor selector point (hotspot).
 		///
 		[[nodiscard]]
-		static auto ups() noexcept -> double;
+		static auto cursor_hotspot() noexcept -> const sf::Vector2u&;
 
 		///
 		/// Current root directory of application, unless it has been changed.
@@ -255,23 +238,22 @@ namespace galaxy
 	private:
 		inline static double s_delta_time;
 
-		inline static int s_flag_bitset_count;
-
-		inline static float  s_world_to_box2d;
-		inline static float  s_box2d_to_world;
 		inline static double s_ups;
 
-		inline static int                  s_window_width;
-		inline static int                  s_window_height;
-		inline static std::string          s_title;
-		inline static graphics::ScreenMode s_screenmode;
-		inline static bool                 s_vsync;
-		inline static bool                 s_mouse_visible;
-		inline static bool                 s_msaa;
-		inline static bool                 s_highdpi;
-		inline static std::string          s_icon;
-		inline static std::string          s_cursor_icon;
-		inline static int                  s_ansio_filtering;
+		inline static int         s_window_width;
+		inline static int         s_window_height;
+		inline static std::string s_title;
+		inline static std::string s_icon;
+		inline static bool        s_fullscreen;
+		inline static bool        s_key_repeat;
+		inline static bool        s_vsync;
+		inline static bool        s_msaa;
+
+		inline static bool         s_cursor_visible;
+		inline static bool         s_cursor_grabbed;
+		inline static std::string  s_cursor_icon;
+		inline static sf::Vector2u s_cursor_icon_size;
+		inline static sf::Vector2u s_cursor_hotspot;
 
 		inline static std::filesystem::path s_assets_dir;
 		inline static std::filesystem::path s_editor_dir;
@@ -293,11 +275,6 @@ namespace galaxy
 } // namespace galaxy
 
 ///
-/// Size of an entity handle.
-///
-#define GALAXY_ENTITY_SIZE std::uint64_t
-
-///
 /// ZLib inflate/deflate chunk size.
 ///
 #define GALAXY_ZLIB_COMPLETE_CHUNK 16384
@@ -308,9 +285,61 @@ namespace galaxy
 #define GALAXY_UNUSED(var) ((void)(var))
 
 /*
+// config.restore<int>("flag_bitset_count", 8, "misc");
+
+		// config.restore<float>("world_to_box2d", 0.01f, "physics");
+		// config.restore<float>("box2d_to_world", 100.0f, "physics");
+		// config.restore<int>("flag_bitset_count", 8, "misc");
+
+		// config.restore<float>("world_to_box2d", 0.01f, "physics");
+		// config.restore<float>("box2d_to_world", 100.0f, "physics");
+
+		// config.restore<int>("ansiotrophic_filtering", 16, "window");
+		// config.restore<bool>("highdpi", false, "window");
+		// s_flag_bitset_count = config.get<int>("flag_bitset_count", "misc");
+
+		// s_world_to_box2d = config.get<float>("world_to_box2d", "physics");
+		// s_box2d_to_world = config.get<float>("box2d_to_world", "physics");
+		// s_ansio_filtering = config.get<int>("ansiotrophic_filtering", "window");
+		// s_highdpi         = config.get<bool>("highdpi", "window");
+		///
+		/// Number of bits in a flag bitset.
+		///
+		//[[nodiscard]]
+		// static auto flag_bitset_count() noexcept -> int;
+
+		///
+		/// Ratio to convert world coords to box2d.
+		///
+		//[[nodiscard]]
+		// static auto world_to_box2d() noexcept -> float;
+
+		///
+		/// Ratio to convert box2d to world coords.
+		///
+		//[[nodiscard]]
+		// static auto box2d_to_world() noexcept -> float;
+
+		///
+		/// Ansiotropic filtering level.
+		///
+		//[[nodiscard]]
+		// static auto ansio_level() noexcept -> int;
+
+		///
+		/// Enable High DPI support.
+		///
+		//[[nodiscard]]
+		// static auto highdpi() noexcept -> bool;
+
+// inline static int s_flag_bitset_count;
+
+		// inline static float  s_world_to_box2d;
+		// inline static float  s_box2d_to_world;
+		// inline static int         s_ansio_filtering;
+		// inline static bool        s_highdpi;
 
 config.restore<float>("ui_font_size", 14.0f);
-config.restore<bool>("maximized", false, "window");
 config.restore<std::string>("default_lang", "en_au");
 
 config.restore<float>("sfx_volume", 1.0f, "audio");
@@ -339,6 +368,10 @@ config.restore<int>("camera_rotate_right", input::key_to_int(input::Keys::KEY_E)
 ///
 #define GALAXY_APPDATA 	inline static const std::string app_data {"app.galaxy"};
 
+///
+/// Size of an entity handle.
+///
+// #define GALAXY_ENTITY_SIZE std::uint64_t
 */
 
 #endif
