@@ -62,14 +62,6 @@ namespace galaxy
 			const std::string& to_string() const noexcept;
 
 			///
-			/// Check to make sure Guid is not empty.
-			///
-			/// \return True if guid is invalid or empty, usually from a move.
-			///
-			[[nodiscard]]
-			bool is_empty() const noexcept;
-
-			///
 			/// Equality comparison.
 			///
 			/// \param rhs Right-hand side comparison.

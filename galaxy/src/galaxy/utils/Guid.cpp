@@ -79,11 +79,6 @@ namespace galaxy
 			return m_id;
 		}
 
-		bool Guid::is_empty() const noexcept
-		{
-			return m_id.empty();
-		}
-
 		bool Guid::operator==(const Guid& rhs) noexcept
 		{
 			return m_id == rhs.m_id;

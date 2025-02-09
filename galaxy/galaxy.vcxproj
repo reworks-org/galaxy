@@ -43,6 +43,7 @@
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +79,7 @@
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -144,7 +146,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp23</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -204,7 +206,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp23</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
