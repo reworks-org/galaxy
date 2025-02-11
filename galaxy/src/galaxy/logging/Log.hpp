@@ -12,6 +12,7 @@
 #include <source_location>
 #include <stacktrace>
 
+#include <entt/locator/locator.hpp>
 #include <magic_enum/magic_enum.hpp>
 
 #include "galaxy/logging/LogLevel.hpp"
@@ -22,17 +23,16 @@
 #define GALAXY_WARNING                  galaxy::logging::LogLevel::_WARNING_
 #define GALAXY_ERROR                    galaxy::logging::LogLevel::_ERROR_
 #define GALAXY_FATAL                    galaxy::logging::LogLevel::_FATAL_
-#define GALAXY_LOG_FINISH               galaxy::logging::Log::ref().finish
-#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::logging::Log::ref().set_min_level<level>()
-#define GALAXY_ADD_SINK(sink, ...)      galaxy::logging::Log::ref().add_sink<sink>(__VA_ARGS__)
-#define GALAXY_LOG(level, msg, ...)     galaxy::logging::Log::ref().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
+#define GALAXY_LOG_SET_MIN_LEVEL(level) entt::locator<galaxy::logging::Log>::value().set_min_level<level>()
+#define GALAXY_ADD_SINK(sink, ...)      entt::locator<galaxy::logging::Log>::value().add_sink<sink>(__VA_ARGS__)
+#define GALAXY_LOG(level, msg, ...)     entt::locator<galaxy::logging::Log>::value().log<level>(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)
 
 namespace galaxy
 {
 	namespace logging
 	{
 		///
-		/// \brief Log singleton.
+		/// \brief Sink based logging system.
 		///
 		/// Use macros to access.
 		///
@@ -40,22 +40,14 @@ namespace galaxy
 		{
 		public:
 			///
+			/// Constructor.
+			///
+			Log() noexcept;
+
+			///
 			/// Destructor.
 			///
 			~Log() noexcept;
-
-			///
-			/// Retrieve log instance.
-			///
-			/// \return Returns static reference to Log class.
-			///
-			[[nodiscard]]
-			static Log& ref() noexcept;
-
-			///
-			/// Cleanup any static resources.
-			///
-			void finish() noexcept;
 
 			///
 			/// Add a sink to log to.
@@ -95,11 +87,6 @@ namespace galaxy
 			void log(const std::source_location& loc, std::string_view message, const MsgInputs&... args);
 
 		private:
-			///
-			/// Constructor.
-			///
-			Log() noexcept;
-
 			///
 			/// Copy constructor.
 			///

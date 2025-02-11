@@ -97,10 +97,7 @@ namespace galaxy
 			ServiceLocator<Config>::del();*/
 
 			GALAXY_LOG(GALAXY_INFO, "Application closed.");
-			GALAXY_LOG_FINISH();
-
-			/*ServiceLocator<BS::light_thread_pool>::ref().wait();
-			ServiceLocator<BS::light_thread_pool>::del();*/
+			entt::locator<logging::Log>::reset();
 		}
 
 		void App::load()
@@ -196,6 +193,7 @@ namespace galaxy
 				std::filesystem::create_directory(log_dir);
 			}
 
+			entt::locator<logging::Log>::emplace();
 			GALAXY_ADD_SINK(logging::FileSink, log_path);
 			GALAXY_ADD_SINK(logging::ConsoleSink);
 			GALAXY_LOG(GALAXY_INFO, "App started.");

@@ -21,16 +21,6 @@ namespace galaxy
 
 		Log::~Log() noexcept
 		{
-		}
-
-		Log& Log::ref() noexcept
-		{
-			static Log s_instance;
-			return s_instance;
-		}
-
-		void Log::finish() noexcept
-		{
 			m_min_level = LogLevel::_INFO_;
 			m_sinks.clear();
 		}
