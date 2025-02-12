@@ -2,66 +2,69 @@
 /// FNV1a.hpp
 /// galaxy
 ///
-/// License: public domain or equivalent
-/// Post: https://notes.underscorediscovery.com/constexpr-fnv1a/
-/// Modified for use in Galaxy Engine.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef GALAXY_MATH_FNV1A_HPP_
 #define GALAXY_MATH_FNV1A_HPP_
 
-#include <cstdint>
+#include <type_traits>
 
 namespace galaxy
 {
 	namespace math
 	{
 		///
-		/// Hash value 32bit.
+		/// Concept to enforce fnv bit types.
 		///
-		constexpr std::uint32_t val_32_const = 0x811c9dc5;
+		/// \tparam T Type to validate.
+		///
+		template<typename T>
+		concept valid_fnv_bits = std::is_same_v<T, std::uint32_t> || std::is_same_v<T, std::uint64_t>;
 
 		///
-		/// Prime value 32bit.
+		/// Base specialization for fnv1a params.
 		///
-		constexpr std::uint32_t prime_32_const = 0x1000193;
+		/// \tparam bits std::uint32_t or std::uint64_t.
+		///
+		template<valid_fnv_bits bits = std::uint64_t>
+		struct fnv_1a_params;
 
 		///
-		/// Hash value 64bit.
+		/// Fnv1a 32 bit specialization.
 		///
-		constexpr std::uint64_t val_64_const = 0xcbf29ce484222325;
+		template<>
+		struct fnv_1a_params<std::uint32_t>
+		{
+			static constexpr auto offset = 2166136261;
+			static constexpr auto prime  = 16777619;
+		};
 
 		///
-		/// Prime value 64bit.
+		/// Fnv1a 64 bit specialization.
 		///
-		constexpr std::uint64_t prime_64_const = 0x100000001b3;
+		template<>
+		struct fnv_1a_params<std::uint64_t>
+		{
+			static constexpr auto offset = 14695981039346656037ull;
+			static constexpr auto prime  = 1099511628211ull;
+		};
 
 		///
-		/// Convert string to 32bit hash.
+		/// Convert string to hash.
+		///
+		/// \tparam bits 32 or 64 bit type.
 		///
 		/// \param str String to hash.
-		/// \param value Not required.
+		/// \param value Hashing value passed recursively.
 		///
-		/// \return Unsigned 32bit integer.
+		/// \return Unsigned 32 or 64 bit integer.
 		///
-		constexpr inline std::uint32_t fnv1a_32(const char* const str, const std::uint32_t value = val_32_const) noexcept
+		template<valid_fnv_bits bits = std::uint64_t>
+		inline constexpr bits fnv1a(const char* const str, const bits value = fnv_1a_params<bits>::offset) noexcept
 		{
-			return (str[0] == '\0') ? value : fnv1a_32(&str[1], (value ^ static_cast<uint32_t>(static_cast<uint8_t>(str[0]))) * prime_32_const);
+			return (str[0] == '\0') ? fnv_1a_params<bits>::offset : fnv1a<bits>(&str[1], (fnv_1a_params<bits>::offset ^ static_cast<bits>(str[0])) * fnv_1a_params<bits>::prime);
 		}
-
-		///
-		/// Convert string to 64bit hash.
-		///
-		/// \param str String to hash.
-		/// \param value Not required.
-		///
-		/// \return Unsigned 64bit integer.
-		///
-		constexpr inline std::uint64_t fnv1a_64(const char* const str, const std::uint64_t value = val_64_const) noexcept
-		{
-			return (str[0] == '\0') ? value : fnv1a_64(&str[1], (value ^ static_cast<uint64_t>(static_cast<uint8_t>(str[0]))) * prime_64_const);
-		}
-
 	} // namespace math
 } // namespace galaxy
 

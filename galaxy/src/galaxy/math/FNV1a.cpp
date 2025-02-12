@@ -2,9 +2,7 @@
 /// FNV1a.cpp
 /// galaxy
 ///
-/// License: public domain or equivalent
-/// Post: https://notes.underscorediscovery.com/constexpr-fnv1a/
-/// Modified for use in Galaxy Engine.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "FNV1a.hpp"
