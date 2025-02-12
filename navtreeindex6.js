@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"da/d36/classgalaxy_1_1flags_1_1DenySerialization.html":[2,0,0,3,0],
 "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html#a240f1079002e447a51b9e0f235bc9d4f":[0,0,0,3,0,0],
 "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html#a240f1079002e447a51b9e0f235bc9d4f":[2,0,0,3,0,0],
 "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html#a3c4f41db1664d030225d061e1d91ea1c":[0,0,0,3,0,3],
@@ -163,7 +162,7 @@ var NAVTREEINDEX6 =
 "db/d40/classgalaxy_1_1components_1_1Script.html#afddf29111e585b9ab4493229f96d6731":[0,0,0,1,7,13],
 "db/d40/classgalaxy_1_1components_1_1Script.html#afddf29111e585b9ab4493229f96d6731":[2,0,0,1,7,13],
 "db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html":[0,0,0,13,6],
-"db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html":[1,0,0,5],
+"db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html":[1,0,1,5],
 "db/d4b/Fonts_8cpp.html":[3,0,0,0,0,12,5],
 "db/d4b/Fonts_8cpp_source.html":[3,0,0,0,0,12,5],
 "db/d4c/Tag_8cpp.html":[3,0,0,0,0,1,18],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aed1572280ceea9f8bc7da967c4c77214":[0,0,0,13,0,4],
 "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#aed1572280ceea9f8bc7da967c4c77214":[2,0,0,11,0,4],
 "db/dba/ZLib_8hpp.html":[3,0,0,0,0,8,11],
-"db/dba/ZLib_8hpp.html#aa268fcdadd51a019f66c4953e578694e":[3,0,0,0,0,8,11,1]
+"db/dba/ZLib_8hpp.html#aa268fcdadd51a019f66c4953e578694e":[3,0,0,0,0,8,11,1],
+"db/dba/ZLib_8hpp.html#ae0986fa60f67ffa327a0809ec9d5aa2a":[3,0,0,0,0,8,11,2]
 };

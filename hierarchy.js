@@ -6,6 +6,9 @@ var hierarchy =
     [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
     [ "galaxy::flags::DenySerialization", "da/d36/classgalaxy_1_1flags_1_1DenySerialization.html", null ],
     [ "galaxy::meta::EntityMeta", "db/db8/classgalaxy_1_1meta_1_1EntityMeta.html", null ],
+    [ "galaxy::math::fnv_1a_params< bits >", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
+    [ "galaxy::math::fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", null ],
+    [ "galaxy::math::fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", null ],
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
     [ "sf::InputStream", null, [

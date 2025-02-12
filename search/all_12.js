@@ -15,7 +15,7 @@ var searchData=
   ['rectpack_12',['RectPack',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html',1,'galaxy::math::RectPack'],['../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a9a31546f41e513e8245c87d8ac2f5c7c',1,'galaxy::math::RectPack::RectPack()']]],
   ['rectpack_2ecpp_13',['RectPack.cpp',['../dc/d61/RectPack_8cpp.html',1,'']]],
   ['rectpack_2ehpp_14',['RectPack.hpp',['../da/d8d/RectPack_8hpp.html',1,'']]],
-  ['ref_15',['ref',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1',1,'galaxy::logging::Log::ref()'],['../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032',1,'galaxy::mem::ref']]],
+  ['ref_15',['ref',['../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032',1,'galaxy::mem']]],
   ['register_5fcomponent_16',['register_component',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a061cdea5ce40a553eb1a23265236a6ed',1,'galaxy::meta::EntityMeta']]],
   ['register_5fdependencies_17',['register_dependencies',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a70b771ffaa7c6d36349bd5c481d7baea',1,'galaxy::meta::EntityMeta']]],
   ['registry_18',['Registry',['../de/d2c/classgalaxy_1_1core_1_1Registry.html',1,'galaxy::core::Registry'],['../de/d2c/classgalaxy_1_1core_1_1Registry.html#aacc103a7649d64b0e8975cada3750c1f',1,'galaxy::core::Registry::Registry()'],['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a18605a7b04fbf835e7d275e2efd57048',1,'galaxy::core::Registry::Registry(Registry &amp;&amp;)'],['../de/d2c/classgalaxy_1_1core_1_1Registry.html#adf0c2aaf80111897c863684a162e8f59',1,'galaxy::core::Registry::Registry(const Registry &amp;)=delete']]],

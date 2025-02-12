@@ -1,6 +1,0 @@
-<map id="galaxy::scene::SceneManager::remove" name="galaxy::scene::SceneManager::remove">
-<area shape="rect" id="Node000001" title="Remove a specific scene." alt="" coords="5,22,220,62"/>
-<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="268,29,443,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,39,254,39,254,45,220,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="316,31,307,21,312,11,328,5,355,3,390,7,399,11,403,17,399,20,396,15,388,12,355,8,329,10,315,15,313,20,320,27"/>
-</map>

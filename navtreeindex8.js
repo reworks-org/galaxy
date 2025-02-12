@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"de/d2c/classgalaxy_1_1core_1_1Registry.html#a73f52afd480c2dd31bf7533a9091e0c2":[2,0,0,2,4,0],
 "de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528":[0,0,0,2,4,9],
 "de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528":[2,0,0,2,4,9],
 "de/d2c/classgalaxy_1_1core_1_1Registry.html#a78a1a9d392280cd1d42ea4d65964af0f":[0,0,0,2,4,11],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "functions_func_b.html":[2,3,1,1],
 "functions_func_c.html":[2,3,1,2],
 "functions_func_d.html":[2,3,1,3],
-"functions_func_e.html":[2,3,1,4]
+"functions_func_e.html":[2,3,1,4],
+"functions_func_f.html":[2,3,1,5]
 };

@@ -1,6 +1,0 @@
-<map id="galaxy::scene::SceneManager::add" name="galaxy::scene::SceneManager::add">
-<area shape="rect" id="Node000001" title="Add a new scene." alt="" coords="5,29,252,55"/>
-<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="300,29,475,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,39,286,39,286,45,252,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="346,31,336,21,341,11,358,5,387,3,424,7,434,11,438,17,434,20,431,15,422,12,387,8,360,10,345,15,342,20,349,27"/>
-</map>

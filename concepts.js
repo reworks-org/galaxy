@@ -1,6 +1,9 @@
 var concepts =
 [
     [ "galaxy", "d0/d46/namespacegalaxy.html", [
+      [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
+        [ "valid_fnv_bits", "d8/de1/conceptgalaxy_1_1math_1_1valid__fnv__bits.html", null ]
+      ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
         [ "is_class", "d0/d17/conceptgalaxy_1_1meta_1_1is__class.html", null ],
         [ "not_memory", "d8/d0b/conceptgalaxy_1_1meta_1_1not__memory.html", null ],

@@ -50,9 +50,8 @@ var searchData=
   ['insert_47',['insert',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8',1,'galaxy::resource::Cache']]],
   ['is_5fbullet_48',['is_bullet',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386',1,'galaxy::components::RigidBody']]],
   ['is_5fdir_49',['is_dir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0627b16f69366b4ea91893323878e28c',1,'galaxy::fs::VirtualFileSystem']]],
-  ['is_5fempty_50',['is_empty',['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#afa2de4484429db634053da43a16f0894',1,'galaxy::utils::Guid']]],
-  ['is_5fopen_51',['is_open',['../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30',1,'galaxy::fs::PhysfsStream']]],
-  ['is_5frotation_5ffixed_52',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
-  ['is_5fvalid_53',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
-  ['is_5fwork_5fdone_54',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
+  ['is_5fopen_50',['is_open',['../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30',1,'galaxy::fs::PhysfsStream']]],
+  ['is_5frotation_5ffixed_51',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
+  ['is_5fvalid_52',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
+  ['is_5fwork_5fdone_53',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
 ];

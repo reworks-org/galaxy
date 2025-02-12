@@ -9,9 +9,8 @@ var searchData=
   ['galaxy_5ffatal_6',['GALAXY_FATAL',['../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73',1,'Log.hpp']]],
   ['galaxy_5finfo_7',['GALAXY_INFO',['../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71',1,'Log.hpp']]],
   ['galaxy_5flog_8',['GALAXY_LOG',['../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de',1,'Log.hpp']]],
-  ['galaxy_5flog_5ffinish_9',['GALAXY_LOG_FINISH',['../d0/d82/Log_8hpp.html#a75492570df028a88375594cadf6a6ba2',1,'Log.hpp']]],
-  ['galaxy_5flog_5fset_5fmin_5flevel_10',['GALAXY_LOG_SET_MIN_LEVEL',['../d0/d82/Log_8hpp.html#a7d8b20ad5d879ac7e861636036febd92',1,'Log.hpp']]],
-  ['galaxy_5funused_11',['GALAXY_UNUSED',['../db/d02/Settings_8hpp.html#aeea47fcf9ec981a261237221194b033f',1,'Settings.hpp']]],
-  ['galaxy_5fwarning_12',['GALAXY_WARNING',['../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a',1,'Log.hpp']]],
-  ['galaxy_5fzlib_5fcomplete_5fchunk_13',['GALAXY_ZLIB_COMPLETE_CHUNK',['../db/d02/Settings_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6',1,'Settings.hpp']]]
+  ['galaxy_5flog_5fset_5fmin_5flevel_9',['GALAXY_LOG_SET_MIN_LEVEL',['../d0/d82/Log_8hpp.html#a7d8b20ad5d879ac7e861636036febd92',1,'Log.hpp']]],
+  ['galaxy_5funused_10',['GALAXY_UNUSED',['../db/d02/Settings_8hpp.html#aeea47fcf9ec981a261237221194b033f',1,'Settings.hpp']]],
+  ['galaxy_5fwarning_11',['GALAXY_WARNING',['../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a',1,'Log.hpp']]],
+  ['galaxy_5fzlib_5fcomplete_5fchunk_12',['GALAXY_ZLIB_COMPLETE_CHUNK',['../db/d02/Settings_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6',1,'Settings.hpp']]]
 ];

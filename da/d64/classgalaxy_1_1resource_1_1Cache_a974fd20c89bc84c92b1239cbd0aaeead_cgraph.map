@@ -1,7 +1,4 @@
 <map id="galaxy::resource::Cache::hash" name="galaxy::resource::Cache::hash">
 <area shape="rect" id="Node000001" title="Hashes the key into an integer for faster map lookup time." alt="" coords="5,29,183,69"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="52,30,50,20,56,10,71,5,94,3,120,6,134,13,132,18,119,11,94,8,72,10,60,15,55,21,57,28"/>
-<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="231,37,405,62"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,47,217,47,217,52,183,52"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="281,38,274,28,278,18,293,12,318,10,350,14,362,23,358,27,348,19,318,15,294,17,281,22,279,28,286,35"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="60,30,58,20,64,11,76,5,94,3,115,6,126,13,123,17,113,11,94,8,77,10,67,15,64,21,66,28"/>
 </map>

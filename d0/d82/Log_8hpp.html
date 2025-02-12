@@ -109,6 +109,7 @@ $(function(){initNavTree('d0/d82/Log_8hpp.html','../../'); initResizable(true); 
 <div class="textblock"><code>#include &lt;filesystem&gt;</code><br />
 <code>#include &lt;source_location&gt;</code><br />
 <code>#include &lt;stacktrace&gt;</code><br />
+<code>#include &lt;entt/locator/locator.hpp&gt;</code><br />
 <code>#include &lt;magic_enum/magic_enum.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d8/d00/LogLevel_8hpp_source.html">galaxy/logging/LogLevel.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d8/d5e/Sink_8hpp_source.html">galaxy/logging/Sink.hpp</a>&quot;</code><br />
@@ -119,23 +120,25 @@ $(function(){initNavTree('d0/d82/Log_8hpp.html','../../'); initResizable(true); 
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d52/Log_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2logging_2Log_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2logging_2Log_8hpp" id="agalaxy_2src_2galaxy_2logging_2Log_8hpp">
-<area shape="rect" title=" " alt="" coords="311,5,500,45"/>
+<area shape="rect" title=" " alt="" coords="376,5,565,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,96,119"/>
-<area shape="poly" title=" " alt="" coords="321,48,110,94,109,89,320,43"/>
+<area shape="poly" title=" " alt="" coords="376,47,110,96,109,96,108,91,109,91,375,41"/>
 <area shape="rect" title=" " alt="" coords="121,93,245,119"/>
-<area shape="poly" title=" " alt="" coords="353,48,229,91,228,86,351,43"/>
+<area shape="poly" title=" " alt="" coords="402,48,239,92,237,87,401,43"/>
 <area shape="rect" title=" " alt="" coords="269,93,360,119"/>
-<area shape="poly" title=" " alt="" coords="385,48,340,86,337,82,382,44"/>
-<area shape="rect" title=" " alt="" coords="385,93,607,119"/>
-<area shape="poly" title=" " alt="" coords="429,44,474,82,470,86,426,48"/>
-<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="632,93,840,119"/>
-<area shape="poly" title=" " alt="" coords="485,43,675,88,674,93,484,48"/>
-<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="864,93,1043,119"/>
-<area shape="poly" title=" " alt="" coords="501,38,860,89,859,94,500,43"/>
-<area shape="rect" href="../../d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="838,167,1069,192"/>
-<area shape="poly" title=" " alt="" coords="956,119,956,153,951,153,951,119"/>
-<area shape="rect" title=" " alt="" coords="924,240,983,265"/>
-<area shape="poly" title=" " alt="" coords="956,192,956,226,951,226,951,192"/>
+<area shape="poly" title=" " alt="" coords="434,48,351,89,349,85,432,43"/>
+<area shape="rect" title=" " alt="" coords="384,93,557,119"/>
+<area shape="poly" title=" " alt="" coords="473,46,473,79,468,79,468,46"/>
+<area shape="rect" title=" " alt="" coords="582,93,805,119"/>
+<area shape="poly" title=" " alt="" coords="525,43,648,86,647,91,523,48"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="829,93,1037,119"/>
+<area shape="poly" title=" " alt="" coords="566,40,853,88,852,94,565,45"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="1061,93,1240,119"/>
+<area shape="poly" title=" " alt="" coords="566,35,1048,90,1047,95,565,40"/>
+<area shape="rect" href="../../d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="1035,167,1266,192"/>
+<area shape="poly" title=" " alt="" coords="1153,119,1153,153,1148,153,1148,119"/>
+<area shape="rect" title=" " alt="" coords="1121,240,1180,265"/>
+<area shape="poly" title=" " alt="" coords="1153,192,1153,226,1148,226,1148,192"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -194,7 +197,7 @@ $(function(){initNavTree('d0/d82/Log_8hpp.html','../../'); initResizable(true); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html">galaxy::logging::Log</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html" title="Log singleton.">Log</a> singleton.  <a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/d9f/classgalaxy_1_1logging_1_1Sink.html" title="A source for log messages to be recorded to.">Sink</a> based logging system.  <a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -218,8 +221,6 @@ Macros</h2></td></tr>
 <tr class="separator:ae283c992c2a365de68af65c7d418f2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70c9f68f8bab2b0fb4116377f9094a73" id="r_a70c9f68f8bab2b0fb4116377f9094a73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>&#160;&#160;&#160;<a class="el" href="../../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba91a11893267955993b18f8bdaa6b088c">galaxy::logging::LogLevel::_FATAL_</a></td></tr>
 <tr class="separator:a70c9f68f8bab2b0fb4116377f9094a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75492570df028a88375594cadf6a6ba2" id="r_a75492570df028a88375594cadf6a6ba2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75492570df028a88375594cadf6a6ba2">GALAXY_LOG_FINISH</a>&#160;&#160;&#160;<a class="el" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1">galaxy::logging::Log::ref</a>().finish</td></tr>
-<tr class="separator:a75492570df028a88375594cadf6a6ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d8b20ad5d879ac7e861636036febd92" id="r_a7d8b20ad5d879ac7e861636036febd92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d8b20ad5d879ac7e861636036febd92">GALAXY_LOG_SET_MIN_LEVEL</a>(level)</td></tr>
 <tr class="separator:a7d8b20ad5d879ac7e861636036febd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2565edfbb02a82906807dda458b849de" id="r_a2565edfbb02a82906807dda458b849de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2565edfbb02a82906807dda458b849de">GALAXY_ADD_SINK</a>(sink, ...)</td></tr>
@@ -243,7 +244,7 @@ Macros</h2></td></tr>
 <p><a class="el" href="../../d0/d82/Log_8hpp.html">Log.hpp</a> galaxy. </p>
 <p>See LICENSE.txt. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +260,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -275,7 +276,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -291,7 +292,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -303,22 +304,6 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define GALAXY_FATAL&#160;&#160;&#160;<a class="el" href="../../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba91a11893267955993b18f8bdaa6b088c">galaxy::logging::LogLevel::_FATAL_</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a75492570df028a88375594cadf6a6ba2" name="a75492570df028a88375594cadf6a6ba2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75492570df028a88375594cadf6a6ba2">&#9670;&#160;</a></span>GALAXY_LOG_FINISH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GALAXY_LOG_FINISH&#160;&#160;&#160;<a class="el" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1">galaxy::logging::Log::ref</a>().finish</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -341,9 +326,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1">galaxy::logging::Log::ref</a>().<a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a4a27738b9c25adb8877aea3cb14b9766">set_min_level</a>&lt;level&gt;()</div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_a4a27738b9c25adb8877aea3cb14b9766"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a4a27738b9c25adb8877aea3cb14b9766">galaxy::logging::Log::set_min_level</a></div><div class="ttdeci">void set_min_level() noexcept</div><div class="ttdoc">Set a minimum log level.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00144">Log.hpp:144</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_a5a3b07669026c45927cdf32aeb87e1c1"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1">galaxy::logging::Log::ref</a></div><div class="ttdeci">static Log &amp; ref() noexcept</div><div class="ttdoc">Retrieve log instance.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d88/Log_8cpp_source.html#l00026">Log.cpp:26</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">entt::locator&lt;galaxy::logging::Log&gt;::value().set_min_level&lt;level&gt;()</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
@@ -367,8 +350,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1">galaxy::logging::Log::ref</a>().<a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06">add_sink</a>&lt;sink&gt;(__VA_ARGS__)</div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_a941ba33c8c4f7fe7d66c7a559adc6c06"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06">galaxy::logging::Log::add_sink</a></div><div class="ttdeci">SinkTo &amp; add_sink(Args &amp;&amp;... args)</div><div class="ttdoc">Add a sink to log to.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00136">Log.hpp:136</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">entt::locator&lt;galaxy::logging::Log&gt;::value().add_sink&lt;sink&gt;(__VA_ARGS__)</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
@@ -397,8 +379,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1">galaxy::logging::Log::ref</a>().<a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#aa34d80cfd9c656f12cd28b0f6067feef">log</a>&lt;level&gt;(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)</div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_aa34d80cfd9c656f12cd28b0f6067feef"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#aa34d80cfd9c656f12cd28b0f6067feef">galaxy::logging::Log::log</a></div><div class="ttdeci">void log(const std::source_location &amp;loc, std::string_view message, const MsgInputs &amp;... args)</div><div class="ttdoc">Log a message.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00150">Log.hpp:150</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">entt::locator&lt;galaxy::logging::Log&gt;::value().log&lt;level&gt;(std::source_location::current(), msg __VA_OPT__(, ) __VA_ARGS__)</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
@@ -410,7 +391,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a724136a1f39cb6404ada524c6e6706e.html">logging</a></li><li class="navelem"><a class="el" href="../../d0/d82/Log_8hpp.html">Log.hpp</a></li>
-    <li class="footer">Generated on Fri Feb 7 2025 10:43:26 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Feb 12 2025 11:18:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

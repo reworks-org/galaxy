@@ -1,11 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae8929b0b704e5ddfaefc920f3a016d1e":[0,0,0,16,1,18],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae8929b0b704e5ddfaefc920f3a016d1e":[2,0,0,14,1,18],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae946ed0f522e697b47663e78c36142bb":[0,0,0,16,1,23],
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae946ed0f522e697b47663e78c36142bb":[2,0,0,14,1,23],
-"d4/d95/EntityMeta_8hpp.html":[3,0,0,0,0,10,3],
-"d4/d95/EntityMeta_8hpp_source.html":[3,0,0,0,0,10,3],
 "d4/dd0/namespacesf.html":[0,0,2],
 "d4/dd6/LuaInput_8cpp.html":[3,0,0,0,0,14,0,10],
 "d4/dd6/LuaInput_8cpp.html#a1cfa07f8f02c92f44d6971d4d98b3dc7":[3,0,0,0,0,14,0,10,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX3 =
 "d6/d55/DialogIcons_8cpp.html":[3,0,0,0,0,4,2],
 "d6/d55/DialogIcons_8cpp_source.html":[3,0,0,0,0,4,2],
 "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html":[0,0,0,8,1],
-"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html":[2,0,0,6,1]
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html":[2,0,0,6,1],
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a096caa73c80bfe1763d6f728103d9ed4":[0,0,0,8,1,0],
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a096caa73c80bfe1763d6f728103d9ed4":[2,0,0,6,1,0],
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a13d0e8e22d976899b51cf37e9f67b6ed":[0,0,0,8,1,1],
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a13d0e8e22d976899b51cf37e9f67b6ed":[2,0,0,6,1,1],
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a2c15123507b783d02f0a7ed0d2519b02":[0,0,0,8,1,2],
+"d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a2c15123507b783d02f0a7ed0d2519b02":[2,0,0,6,1,2]
 };

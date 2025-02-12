@@ -1,7 +1,7 @@
 <map id="galaxy::logging::Log" name="galaxy::logging::Log">
-<area shape="rect" id="Node000001" title="Log singleton." alt="" coords="180,732,324,997"/>
+<area shape="rect" id="Node000001" title="Sink based logging system." alt="" coords="180,732,324,957"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="167,575,337,669"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,670,255,716,249,716,249,670"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,669,255,715,249,715,249,669"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="85,432,256,512"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,511,221,559,216,562,190,513"/>
 <area shape="rect" id="Node000004" href="$d9/d9f/classgalaxy_1_1logging_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,133,155,319"/>

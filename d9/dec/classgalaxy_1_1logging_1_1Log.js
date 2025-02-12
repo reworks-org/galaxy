@@ -1,11 +1,9 @@
 var classgalaxy_1_1logging_1_1Log =
 [
-    [ "~Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html#af164c40a3b77e0a6468ce4960b8eb208", null ],
     [ "Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155", null ],
+    [ "~Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html#af164c40a3b77e0a6468ce4960b8eb208", null ],
     [ "Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html#ae0abeb8f10c0303ade8af03f274ab42d", null ],
     [ "Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html#a228dbb39fefefd31fa456e85554ba73e", null ],
-    [ "ref", "d9/dec/classgalaxy_1_1logging_1_1Log.html#a5a3b07669026c45927cdf32aeb87e1c1", null ],
-    [ "finish", "d9/dec/classgalaxy_1_1logging_1_1Log.html#aeaefd4fd1d3a632948e6dea05f21da7c", null ],
     [ "add_sink", "d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06", null ],
     [ "set_min_level", "d9/dec/classgalaxy_1_1logging_1_1Log.html#a4a27738b9c25adb8877aea3cb14b9766", null ],
     [ "log", "d9/dec/classgalaxy_1_1logging_1_1Log.html#aa34d80cfd9c656f12cd28b0f6067feef", null ],

@@ -53,6 +53,9 @@ var annotated_dup =
         [ "World", "d9/d75/classgalaxy_1_1map_1_1World.html", "d9/d75/classgalaxy_1_1map_1_1World" ]
       ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
+        [ "fnv_1a_params", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
+        [ "fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
+        [ "fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ],
         [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
         [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
         [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]

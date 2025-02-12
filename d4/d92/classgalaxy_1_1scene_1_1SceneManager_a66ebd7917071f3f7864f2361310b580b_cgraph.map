@@ -2,12 +2,8 @@
 <area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,55,220,95"/>
 <area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="268,5,515,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,53,267,41,315,31,316,36,269,46,211,58"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="284,55,499,95"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="220,73,270,73,270,78,220,78"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="284,119,499,159"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="201,93,291,114,290,119,200,98"/>
-<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#abd8c7673ede3f9834426b82f4690b5b3" title="Convert string to 64bit hash." alt="" coords="563,67,737,92"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,28,515,41,591,60,590,65,514,46,457,33"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="608,68,599,58,604,48,621,42,650,40,687,44,697,49,701,54,696,57,693,53,685,49,650,45,622,47,607,52,604,58,612,65"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="478,117,581,93,582,98,479,122"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="284,55,499,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,73,270,73,270,78,220,78"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="284,119,499,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,93,291,114,290,119,200,98"/>
 </map>
