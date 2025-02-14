@@ -17,6 +17,7 @@ namespace galaxy
 			inject_glm();
 			inject_entt();
 			inject_box2d();
+			inject_nuklear();
 			inject_components();
 			inject_core();
 			inject_error();

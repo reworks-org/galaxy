@@ -38,6 +38,11 @@ namespace galaxy
 		void inject_box2d();
 
 		///
+		/// Inject Nuklear into Lua.
+		///
+		void inject_nuklear();
+
+		///
 		/// Inject galaxy components into lua.
 		///
 		void inject_components();

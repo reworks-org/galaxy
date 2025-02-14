@@ -20,6 +20,7 @@
 #include <galaxy/math/ZLib.hpp>
 #include <galaxy/scripting/JSON.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
+#include <galaxy/ui/NuklearUI.hpp>
 
 #include "Editor.hpp"
 
@@ -178,6 +179,12 @@ namespace sc
 						}
 
 						graphics::Renderer::ref().draw();
+
+						auto& nui = core::ServiceLocator<ui::NuklearUI>::ref();
+
+						nui.new_frame();
+						m_project.current()->update_ui();
+						nui.render();
 					}
 
 					auto& w = core::ServiceLocator<core::Window>::ref();
@@ -761,6 +768,7 @@ namespace sc
 	void Editor::set_input_game()
 	{
 		ImGui_ImplGlfw_ToggleInput(false);
+		core::ServiceLocator<ui::NuklearUI>::ref().toggle_input(true);
 		core::ServiceLocator<core::Window>::ref().set_dispatcher(&m_project.current()->m_dispatcher);
 		core::ServiceLocator<core::Window>::ref().get_input<input::Cursor>().use_custom_else_pointer();
 	}
@@ -768,6 +776,7 @@ namespace sc
 	void Editor::set_input_editor()
 	{
 		ImGui_ImplGlfw_ToggleInput(true);
+		core::ServiceLocator<ui::NuklearUI>::ref().toggle_input(false);
 		core::ServiceLocator<core::Window>::ref().set_dispatcher(nullptr);
 		ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
 	}

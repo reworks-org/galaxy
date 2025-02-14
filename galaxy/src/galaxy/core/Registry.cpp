@@ -228,5 +228,56 @@ namespace galaxy
 				rb->m_body->SetEnabled(false);
 			}
 		}
+
+		void Registry::construct_nui(entt::registry& registry, entt::entity entity)
+		{
+			auto& ui    = registry.get<components::GUI>(entity);
+			auto& state = core::ServiceLocator<sol::state>::ref();
+			auto& nui   = core::ServiceLocator<ui::NuklearUI>::ref();
+			auto& fs    = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+
+			const auto script = fs.read(ui.file());
+			if (!script.empty())
+			{
+				auto result = state.load(script);
+
+				if (result.valid())
+				{
+					ui.m_self = result.call();
+
+					if (ui.m_self.valid())
+					{
+						ui.m_self["ctx"] = nui.ctx();
+						ui.m_update      = ui.m_self["do_ui"];
+
+						if (!ui.m_update.valid())
+						{
+							GALAXY_LOG(GALAXY_ERROR, "Update function not present in ui script '{0}'.", ui.file());
+						}
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to validate ui script '{0}'. Make sure its in the correct format.", ui.file());
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load ui script '{0}' because '{1}'.", ui.file(), magic_enum::enum_name(result.status()));
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read script '{0}'.", ui.file());
+			}
+		}
+
+		void Registry::destruct_nui(entt::registry& registry, entt::entity entity)
+		{
+			auto& ui = registry.get<components::GUI>(entity);
+			if (ui.m_self.valid())
+			{
+				ui.m_self.abandon();
+			}
+		}
 	} // namespace core
 } // namespace galaxy

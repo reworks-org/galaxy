@@ -8,9 +8,11 @@
 #include <galaxy/components/Animated.hpp>
 #include <galaxy/components/Circle.hpp>
 #include <galaxy/components/Ellipse.hpp>
+#include <galaxy/components/GUI.hpp>
 #include <galaxy/components/Point.hpp>
 #include <galaxy/components/Polygon.hpp>
 #include <galaxy/components/Polyline.hpp>
+#include <galaxy/components/RenderCommand.hpp>
 #include <galaxy/components/RigidBody.hpp>
 #include <galaxy/components/Script.hpp>
 #include <galaxy/components/Sprite.hpp>
@@ -349,6 +351,95 @@ namespace sc
 					}
 				});
 
+				draw_component<components::GUI>(selected, "GUI", [&](components::GUI* gui) {
+					if (ImGui::Button("Load"))
+					{
+						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
+						if (!path.empty())
+						{
+							auto str = "{\"file\":\"" + path + "\"}";
+							strutils::replace_all(str, "\\", "/");
+							selected.scene->m_registry.m_entt.emplace_or_replace<components::GUI>(selected.entity, nlohmann::json::parse(str));
+						}
+					}
+
+					ImGui::SameLine();
+
+					if (ImGui::Button("Reload"))
+					{
+						if (!gui->file().empty())
+						{
+							auto str = "{\"file\":\"" + gui->file() + "\"}";
+							strutils::replace_all(str, "\\", "/");
+							selected.scene->m_registry.m_entt.emplace_or_replace<components::GUI>(selected.entity, nlohmann::json::parse(str));
+						}
+					}
+
+					if (ImGui::CollapsingHeader("Data", ImGuiTreeNodeFlags_SpanAvailWidth))
+					{
+						if (gui->m_self.valid())
+						{
+							for (auto& [id, value] : gui->m_self)
+							{
+								const auto name = id.as<std::string>();
+								switch (value.get_type())
+								{
+									case sol::type::number:
+										{
+											auto num = value.as<double>();
+											if (ImGui::InputDouble(name.c_str(),
+													&num,
+													0.1,
+													1.0,
+													"%.1f",
+													ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
+											{
+												gui->m_self[name] = num;
+											}
+										}
+										break;
+
+									case sol::type::boolean:
+										{
+											auto var = value.as<bool>();
+											if (ImGui::Checkbox(name.c_str(), &var))
+											{
+												gui->m_self[name] = var;
+											}
+										}
+										break;
+
+									case sol::type::string:
+										{
+											auto str = value.as<std::string>();
+											if (ImGui::InputText(name.c_str(), &str, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll))
+											{
+												gui->m_self[name] = str;
+											}
+										}
+										break;
+
+									case sol::type::function:
+										ImGui::Text("Function: %s", name.c_str());
+										break;
+
+									case sol::type::userdata:
+									case sol::type::lightuserdata:
+										ImGui::Text("Userdata: %s", name.c_str());
+										break;
+
+									default:
+										{
+											const auto type = std::string {magic_enum::enum_name(value.get_type())};
+											ImGui::Text("%s: %s", type.c_str(), name.c_str());
+										}
+										break;
+								}
+							}
+						}
+					}
+				});
+
 				draw_component<components::Point>(selected, "Point", [&](components::Point* point) {
 					glm::vec2 pos = point->m_shape.pos();
 					if (ui::imgui_glm_vec2("Pos", pos))
@@ -439,6 +530,12 @@ namespace sc
 					{
 						polyline->m_shape.create(points);
 					}
+				});
+
+				draw_component<components::RenderCommand>(selected, "RenderCommand", [&](components::RenderCommand* cmd) {
+					ImGui::InputInt("Instances", &cmd->m_command.instances, 1, 10);
+					ImGui::InputInt("Layer", &cmd->m_command.layer, 1, 10);
+					ImGui::Checkbox("Textured", &cmd->m_command.uniforms.textured);
 				});
 
 				draw_component<components::RigidBody>(selected, "RigidBody", [&](components::RigidBody* body) {
