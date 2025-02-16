@@ -24,7 +24,7 @@
 	url = https://github.com/sheredom/subprocess.h.git
 [submodule "deps/sol"]
 	path = deps/sol
-	url = https://github.com/ThePhD/sol2.git
+	url = https://github.com/reworks-org/sol2.git
 [submodule "deps/dense"]
 	path = deps/dense
 	url = https://github.com/martinus/unordered_dense.git
