@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
 #include <nlohmann/json.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 
 #include "JSON.hpp"
@@ -18,7 +18,7 @@ namespace galaxy
 	{
 		nlohmann::json read(const std::string& entry)
 		{
-			auto& fs   = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
 			auto  data = fs.read(entry);
 
 			return nlohmann::json::parse(data);
@@ -31,7 +31,7 @@ namespace galaxy
 
 		bool write(const std::string& entry, const nlohmann::json& json)
 		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+			auto& fs = entt::locator<fs::VirtualFileSystem>::value();
 			return fs.write(json.dump(4), entry);
 		}
 	} // namespace json
