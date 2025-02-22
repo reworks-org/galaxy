@@ -7,7 +7,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/core/Settings.hpp"
 
 #include "Disabled.hpp"
 
@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace flags
 	{
-		Disabled::Disabled()
+		Disabled::Disabled() noexcept
 		{
 		}
 
@@ -24,16 +24,18 @@ namespace galaxy
 			GALAXY_UNUSED(json);
 		}
 
-		Disabled::Disabled(Disabled&&)
+		Disabled::Disabled(Disabled&& d) noexcept
 		{
+			GALAXY_UNUSED(d);
 		}
 
-		Disabled& Disabled::operator=(Disabled&&)
+		Disabled& Disabled::operator=(Disabled&& d) noexcept
 		{
+			GALAXY_UNUSED(d);
 			return *this;
 		}
 
-		Disabled::~Disabled()
+		Disabled::~Disabled() noexcept
 		{
 		}
 

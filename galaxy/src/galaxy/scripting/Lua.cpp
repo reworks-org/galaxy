@@ -13,27 +13,24 @@ namespace galaxy
 	{
 		void inject()
 		{
-			inject_miniaudio();
-			inject_glm();
 			inject_entt();
-			inject_box2d();
-			inject_nuklear();
-			inject_components();
-			inject_core();
-			inject_error();
-			inject_events();
+			// inject_nuklear();
+			// inject_sfml();
+			// inject_components();
+			// inject_core();
 			inject_flags();
 			inject_fs();
-			inject_graphics();
-			inject_input();
-			inject_map();
+			// inject_input();
+			inject_logging();
+			// inject_map();
 			inject_math();
-			inject_media();
-			inject_resources();
-			inject_scenes();
-			inject_states();
+			inject_mem();
+			inject_platform();
+			// inject_resource();
+			// inject_scene();
+			// inject_state();
 			inject_utils();
-			inject_services();
+			// inject_services();
 		}
 	} // namespace lua
 } // namespace galaxy

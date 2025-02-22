@@ -35,7 +35,20 @@
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
+    <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
+    <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaPlatform.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMem.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaMath.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaLogging.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaFlags.cpp" />
+    <ClCompile Include="src\galaxy\flags\NotSerializable.cpp" />
+    <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaEntt.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaFS.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaCore.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Async.hpp" />
@@ -72,6 +85,10 @@
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
+    <ClInclude Include="src\galaxy\systems\System.hpp" />
+    <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
+    <ClInclude Include="src\galaxy\flags\NotSerializable.hpp" />
+    <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
   </ItemGroup>
 </Project>

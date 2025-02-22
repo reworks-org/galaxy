@@ -1,12 +1,12 @@
 ///
-/// DenySerialization.hpp
+/// NotSerializable.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_FLAGS_DENYSERIALIZATION_HPP_
-#define GALAXY_FLAGS_DENYSERIALIZATION_HPP_
+#ifndef GALAXY_FLAGS_NOTSERIALIZABLE_HPP_
+#define GALAXY_FLAGS_NOTSERIALIZABLE_HPP_
 
 namespace galaxy
 {
@@ -15,41 +15,41 @@ namespace galaxy
 		///
 		/// Used to stop an entity from being updated/rendered.
 		///
-		class DenySerialization final
+		class NotSerializable final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			DenySerialization();
+			NotSerializable() noexcept = default;
 
 			///
 			/// Move constructor.
 			///
-			DenySerialization(DenySerialization&&);
+			NotSerializable(NotSerializable&&) noexcept = default;
 
 			///
 			/// Move assignment operator.
 			///
-			DenySerialization& operator=(DenySerialization&&);
+			NotSerializable& operator=(NotSerializable&&) noexcept = default;
 
 			///
 			/// \brief Destructor.
 			///
 			/// I dont know why this has to be virtual. Definitly a bug in MSVC somewhere.
 			///
-			virtual ~DenySerialization();
+			virtual ~NotSerializable() noexcept = default;
 
 		private:
 			///
 			/// Copy assignment operator.
 			///
-			DenySerialization& operator=(const DenySerialization&) = delete;
+			NotSerializable& operator=(const NotSerializable&) = delete;
 
 			///
 			/// Copy constructor.
 			///
-			DenySerialization(const DenySerialization&) = delete;
+			NotSerializable(const NotSerializable&) = delete;
 		};
 	} // namespace flags
 } // namespace galaxy

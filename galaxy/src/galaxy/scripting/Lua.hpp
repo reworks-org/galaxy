@@ -13,29 +13,14 @@ namespace galaxy
 	namespace lua
 	{
 		///
-		/// Inject everything into lua.
+		/// Inject everything into Lua.
 		///
 		void inject();
 
 		///
-		/// Inject miniaudio into lua.
-		///
-		void inject_miniaudio();
-
-		///
-		/// Injects GLM into lua.
-		///
-		void inject_glm();
-
-		///
-		/// Injects EnTT into lua.
+		/// Injects EnTT into Lua.
 		///
 		void inject_entt();
-
-		///
-		/// Injects Box2D into lua.
-		///
-		void inject_box2d();
 
 		///
 		/// Inject Nuklear into Lua.
@@ -43,74 +28,74 @@ namespace galaxy
 		void inject_nuklear();
 
 		///
-		/// Inject galaxy components into lua.
+		/// Inject SFML.
+		///
+		void inject_sfml();
+
+		///
+		/// Inject galaxy components into Lua.
 		///
 		void inject_components();
 
 		///
-		/// Inject galaxy core services into lua.
+		/// Inject galaxy core services into Lua.
 		///
 		void inject_core();
 
 		///
-		/// Injects error handling into lua.
-		///
-		void inject_error();
-
-		///
-		/// Injects galaxy events into lua.
-		///
-		void inject_events();
-
-		///
-		/// Injects galaxy flag components into lua.
+		/// Injects galaxy flag components into Lua.
 		///
 		void inject_flags();
 
 		///
-		/// Injects VFS support into lua.
+		/// Injects VFS support into Lua.
 		///
 		void inject_fs();
 
 		///
-		/// Injects graphics primitives, not routines, into lua.
-		///
-		void inject_graphics();
-
-		///
-		/// Injects input handling into lua.
+		/// Injects input handling into Lua.
 		///
 		void inject_input();
 
 		///
-		/// Injects mapping into lua.
+		/// Injects logging into Lua.
+		///
+		void inject_logging();
+
+		///
+		/// Injects mapping into Lua.
 		///
 		void inject_map();
 
 		///
-		/// Injects math stuff into lua.
+		/// Injects math stuff into Lua.
 		///
 		void inject_math();
 
 		///
-		/// Injects video and audio support into lua.
+		/// Inject custom memory stuff into Lua.
 		///
-		void inject_media();
+		void inject_mem();
+
+		///
+		/// Inject platform stuff into Lua.
+		///
+		void inject_platform();
 
 		///
 		/// Injects galaxy resource caches into lua.
 		///
-		void inject_resources();
+		void inject_resource();
 
 		///
 		/// Injects galaxy scene management into lua.
 		///
-		void inject_scenes();
+		void inject_scene();
 
 		///
 		/// Injects galaxy state machine into lua.
 		///
-		void inject_states();
+		void inject_state();
 
 		///
 		/// Injects misc galaxy utils into lua.
@@ -121,7 +106,6 @@ namespace galaxy
 		/// Regsiter static engine services in lua.
 		///
 		void inject_services();
-
 	} // namespace lua
 } // namespace galaxy
 

@@ -5,13 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
 #include <entt_sol/registry.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/flags/DenySerialization.hpp"
 #include "galaxy/flags/Disabled.hpp"
-
-#include "Lua.hpp"
+#include "galaxy/flags/NotSerializable.hpp"
 
 namespace galaxy
 {
@@ -19,18 +17,12 @@ namespace galaxy
 	{
 		void inject_flags()
 		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& lua = entt::locator<sol::state>::value();
 
-			lua.new_usertype<flags::DenySerialization>(
-				"DenySerialization",
-				sol::constructors<flags::DenySerialization()>(),
-				"type_id",
-				&entt::type_hash<flags::DenySerialization>::value
-			);
-
+			lua.new_usertype<flags::NotSerializable>("NotSerializable", sol::constructors<flags::NotSerializable()>(), "type_id", &entt::type_hash<flags::NotSerializable>::value);
 			lua.new_usertype<flags::Disabled>("Disabled", sol::constructors<flags::Disabled()>(), "type_id", &entt::type_hash<flags::Disabled>::value);
 
-			entt_sol::register_meta_component<flags::DenySerialization>();
+			entt_sol::register_meta_component<flags::NotSerializable>();
 			entt_sol::register_meta_component<flags::Disabled>();
 		}
 	} // namespace lua

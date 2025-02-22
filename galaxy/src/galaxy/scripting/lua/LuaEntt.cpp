@@ -10,10 +10,7 @@
 #include <entt_sol/dispatcher.hpp>
 #include <entt_sol/registry.hpp>
 #include <entt_sol/script_process.hpp>
-
-#include "galaxy/core/ServiceLocator.hpp"
-
-#include "Lua.hpp"
+#include <entt/locator/locator.hpp>
 
 namespace galaxy
 {
@@ -27,7 +24,7 @@ namespace galaxy
 			// https://github.com/skaarj1989/entt-meets-sol2/blob/main/examples/system/main.cpp
 			// https://github.com/skaarj1989/entt-meets-sol2/tree/main/scripts
 
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& lua = entt::locator<sol::state>::value();
 
 			lua.require("registry", sol::c_call<AUTO_ARG(&entt_sol::open_registry)>);
 			lua.require("dispatcher", sol::c_call<AUTO_ARG(&entt_sol::open_dispatcher)>);

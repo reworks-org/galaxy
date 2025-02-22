@@ -388,10 +388,10 @@
     <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
     <ClInclude Include="physfs\src\physfs_miniz.h" />
     <ClInclude Include="physfs\src\physfs_platforms.h" />
-    <ClInclude Include="entt_sol\dispatcher.hpp" />
-    <ClInclude Include="entt_sol\meta_helper.hpp" />
-    <ClInclude Include="entt_sol\registry.hpp" />
-    <ClInclude Include="entt_sol\script_process.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\dispatcher.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\meta_helper.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\registry.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\script_process.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />

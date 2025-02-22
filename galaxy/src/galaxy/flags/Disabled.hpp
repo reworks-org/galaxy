@@ -23,7 +23,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Disabled();
+			Disabled() noexcept;
 
 			///
 			/// JSON constructor.
@@ -35,17 +35,17 @@ namespace galaxy
 			///
 			/// Move constructor.
 			///
-			Disabled(Disabled&&);
+			Disabled(Disabled&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Disabled& operator=(Disabled&&);
+			Disabled& operator=(Disabled&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Disabled();
+			virtual ~Disabled() noexcept;
 
 			///
 			/// Serializes object.

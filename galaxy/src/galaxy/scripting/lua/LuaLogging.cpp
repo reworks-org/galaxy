@@ -7,60 +7,54 @@
 
 #include <sol/sol.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/error/OpenGLError.hpp"
-
-#include "Lua.hpp"
+#include "galaxy/logging/Log.hpp"
 
 namespace galaxy
 {
 	namespace lua
 	{
-		void log_wrapper(error::LogLevel error_level, std::string_view message)
+		void log_wrapper(logging::LogLevel error_level, std::string_view message)
 		{
 			switch (error_level)
 			{
-				case error::LogLevel::INFO:
+				case logging::LogLevel::_INFO_:
 					GALAXY_LOG(GALAXY_INFO, "{0}", message);
 					break;
 
-				case error::LogLevel::DEBUG:
+				case logging::LogLevel::_DEBUG_:
 					GALAXY_LOG(GALAXY_DEBUG, "{0}", message);
 					break;
 
-				case error::LogLevel::WARNING:
+				case logging::LogLevel::_WARNING_:
 					GALAXY_LOG(GALAXY_WARNING, "{0}", message);
 					break;
 
-				case error::LogLevel::ERROR:
+				case logging::LogLevel::_ERROR_:
 					GALAXY_LOG(GALAXY_ERROR, "{0}", message);
 					break;
 
-				case error::LogLevel::FATAL:
+				case logging::LogLevel::_FATAL_:
 					GALAXY_LOG(GALAXY_FATAL, "{0}", message);
 					break;
 			}
 		}
 
-		void inject_error()
+		void inject_logging()
 		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& lua = entt::locator<sol::state>::value();
 
 			// clang-format off
-			lua.new_enum<error::LogLevel>("LogLevels",
+			lua.new_enum<logging::LogLevel>("LogLevels",
 			{
-				{"INFO", error::LogLevel::INFO},
-				{"DEBUG", error::LogLevel::DEBUG},
-				{"WARNING", error::LogLevel::WARNING},
-				{"ERROR", error::LogLevel::ERROR},
-				{"FATAL", error::LogLevel::FATAL}
+				{"INFO", logging::LogLevel::_INFO_},
+				{"DEBUG", logging::LogLevel::_DEBUG_},
+				{"WARNING", logging::LogLevel::_WARNING_},
+				{"ERROR", logging::LogLevel::_ERROR_},
+				{"FATAL", logging::LogLevel::_FATAL_}
 			});
 			// clang-format on
 
 			lua.set_function("galaxy_log", &log_wrapper);
-			lua.set_function("galaxy_gl_errcode_as_string", &error::gl_errcode_as_string);
-			lua.set_function("galaxy_gl_get_all_errors", &error::gl_get_all_errors);
-			lua.set_function("galaxy_gl_add_error", &error::gl_add_error);
 		}
 	} // namespace lua
 } // namespace galaxy
