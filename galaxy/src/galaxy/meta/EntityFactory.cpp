@@ -1,5 +1,5 @@
 ///
-/// EntityMeta.cpp
+/// EntityFactory.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -9,7 +9,7 @@
 
 #include "galaxy/fs/Serializable.hpp"
 
-#include "EntityMeta.hpp"
+#include "EntityFactory.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM
 GALAXY_DISABLE_WARNING_PUSH
@@ -20,7 +20,7 @@ namespace galaxy
 {
 	namespace meta
 	{
-		void EntityMeta::json_factory(const std::string& type, const entt::entity entity, entt::registry& registry, const nlohmann::json& json)
+		void EntityFactory::json_factory(const std::string& type, const entt::entity entity, entt::registry& registry, const nlohmann::json& json)
 		{
 			if (m_json_factory.contains(type))
 			{
@@ -32,12 +32,12 @@ namespace galaxy
 			}
 		}
 
-		entt::any EntityMeta::any_from_json(const std::string& type, const nlohmann::json& json)
+		entt::any EntityFactory::any_from_json(const std::string& type, const nlohmann::json& json)
 		{
 			return m_json_any_factory[type](json);
 		}
 
-		nlohmann::json EntityMeta::serialize_entity(const entt::entity entity, entt::registry& registry)
+		nlohmann::json EntityFactory::serialize_entity(const entt::entity entity, entt::registry& registry)
 		{
 			nlohmann::json json = nlohmann::json::object();
 			json["components"]  = nlohmann::json::object();
@@ -57,7 +57,7 @@ namespace galaxy
 			return json;
 		}
 
-		entt::entity EntityMeta::deserialize_entity(const nlohmann::json& json, entt::registry& registry)
+		entt::entity EntityFactory::deserialize_entity(const nlohmann::json& json, entt::registry& registry)
 		{
 			const auto  entity     = registry.create();
 			const auto& components = json.at("components");
@@ -74,22 +74,22 @@ namespace galaxy
 			return entity;
 		}
 
-		const std::string& EntityMeta::get_type(const entt::id_type id)
+		const std::string& EntityFactory::get_type(const entt::id_type id)
 		{
 			return m_id_to_name.at(id);
 		}
 
-		entt::id_type EntityMeta::get_typeid(const std::string& name)
+		entt::id_type EntityFactory::get_typeid(const std::string& name)
 		{
 			return m_name_to_id.at(name);
 		}
 
-		EntityMeta::Validations& EntityMeta::get_validations()
+		EntityFactory::Validations& EntityFactory::get_validations()
 		{
 			return m_validations;
 		}
 
-		const meta::vector<entt::id_type>& EntityMeta::get_validation_list() const
+		const std::vector<entt::id_type>& EntityFactory::get_validation_list() const
 		{
 			return m_validations_to_run;
 		}

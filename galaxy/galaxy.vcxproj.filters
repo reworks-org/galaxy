@@ -36,6 +36,7 @@
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
+    <ClCompile Include="src\galaxy\meta\SystemFactory.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaUtils.cpp" />
@@ -49,6 +50,7 @@
     <ClCompile Include="src\galaxy\scripting\lua\LuaEntt.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaFS.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaCore.cpp" />
+    <ClCompile Include="src\galaxy\meta\EntityFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Async.hpp" />
@@ -86,9 +88,11 @@
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
+    <ClInclude Include="src\galaxy\meta\SystemFactory.hpp" />
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSON.hpp" />
     <ClInclude Include="src\galaxy\flags\NotSerializable.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
+    <ClInclude Include="src\galaxy\meta\EntityFactory.hpp" />
   </ItemGroup>
 </Project>

@@ -40,6 +40,8 @@
     <ClCompile Include="src\galaxy\mem\Memory.cpp" />
     <ClCompile Include="src\galaxy\mem\RingBuffer.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\meta\EntityFactory.cpp" />
+    <ClCompile Include="src\galaxy\meta\SystemFactory.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
@@ -90,6 +92,8 @@
     <ClInclude Include="src\galaxy\mem\Memory.hpp" />
     <ClInclude Include="src\galaxy\mem\RingBuffer.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\meta\EntityFactory.hpp" />
+    <ClInclude Include="src\galaxy\meta\SystemFactory.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />

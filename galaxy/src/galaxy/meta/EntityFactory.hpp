@@ -1,19 +1,20 @@
 ///
-/// EntityMeta.hpp
+/// EntityFactory.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_META_ENTITYMETA_HPP_
-#define GALAXY_META_ENTITYMETA_HPP_
+#ifndef GALAXY_META_ENTITYFACTORY_HPP_
+#define GALAXY_META_ENTITYFACTORY_HPP_
 
 #include <ankerl/unordered_dense.h>
 #include <entt/entt.hpp>
 #include <nlohmann/json.hpp>
 
-#include "galaxy/error/Log.hpp"
 #include "galaxy/fs/Serializable.hpp"
+#include "galaxy/logging/Log.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {
@@ -22,7 +23,7 @@ namespace galaxy
 		///
 		/// Handles entity meta (de)serialization.
 		///
-		class EntityMeta final
+		class EntityFactory final
 		{
 			///
 			/// Data needed to serialize an entity.
@@ -43,7 +44,7 @@ namespace galaxy
 			using Validations          = ankerl::unordered_dense::map<entt::id_type, std::move_only_function<bool(const entt::entity, entt::registry&)>>;
 			using ComponentJSONFactory = ankerl::unordered_dense::map<std::string, std::move_only_function<void(const entt::entity, entt::registry&, const nlohmann::json&)>>;
 			using AnyJSONFactory       = ankerl::unordered_dense::map<std::string, std::move_only_function<entt::any(const nlohmann::json&)>>;
-			using SerializeFactory     = ankerl::unordered_dense::map<std::string, std::move_only_function<EntityMeta::SerializationData(void*)>>;
+			using SerializeFactory     = ankerl::unordered_dense::map<std::string, std::move_only_function<EntityFactory::SerializationData(void*)>>;
 
 		public:
 			///
@@ -144,7 +145,7 @@ namespace galaxy
 			/// \return Const reference to list of validations to run.
 			///
 			[[nodiscard]]
-			const meta::vector<entt::id_type>& get_validation_list() const;
+			const std::vector<entt::id_type>& get_validation_list() const;
 
 		private:
 			///
@@ -180,11 +181,11 @@ namespace galaxy
 			///
 			/// Validations to run upon request.
 			///
-			meta::vector<entt::id_type> m_validations_to_run;
+			std::vector<entt::id_type> m_validations_to_run;
 		};
 
 		template<valid_component ToValidate, valid_component... Dependencies>
-		inline void EntityMeta::register_dependencies()
+		inline void EntityFactory::register_dependencies()
 		{
 			const auto hash = entt::type_id<ToValidate>().hash();
 			if (!m_validations.contains(hash))
@@ -211,7 +212,7 @@ namespace galaxy
 		}
 
 		template<valid_component Component>
-		inline void EntityMeta::register_component(const std::string& name)
+		inline void EntityFactory::register_component(const std::string& name)
 		{
 			if (!m_json_factory.contains(name))
 			{
