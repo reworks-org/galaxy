@@ -1,0 +1,19 @@
+scenemanager should have registry and pass to scenes.
+systems might need to be scripted in.
+    - might need to work out how to handle specific system groups such as UI -> menu ui system, game ui system, etc...
+    -> could just use a tag... mainmenuui for mainmenusystem, but still uses same shared ui component.
+    
+
+https://kylekukshtel.com/ecs-collisions-dinghy
+https://arielcoppes.dev/2023/07/13/design-decisions-when-building-games-using-ecs.html
+
+
+map is an entity -> there is a mapsystem which controls mapdata and events. it will destroy any components on level change that arent marked persistent. it will be responsible for enabling/disabling
+entities based on the current map, entites for the map such as maprender, map collision, etc would be toggleable. esp since a level is just a map.  
+systems can subscribe to events -> such as map load / map unload, can then flag the update loop for this to happen (and reset flag). level data arent unique -> your main scene would have a map with different levels, and to communicate you would trigger a command (event) component that gets called once and disposed.
+which would set player location to new level coords, and pop/push that maps entitys -> which you would verify by having a leveltag perhaps. or you would use a relationship component to control those subentities of i.e. the top level map parent entity. or flag them as a map enttiy anyway.
+
+https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sfml_opengl3/main.cpp
+
+about render system in ecs:
+https://david-delassus.medium.com/trying-out-sdl3-by-writing-a-c-game-engine-c9bb13156b74

@@ -364,11 +364,6 @@ config.restore<int>("camera_rotate_left", input::key_to_int(input::Keys::KEY_Q),
 config.restore<int>("camera_rotate_right", input::key_to_int(input::Keys::KEY_E), "input");
 
 ///
-/// Galaxy appdata file.
-///
-#define GALAXY_APPDATA 	inline static const std::string app_data {"app.galaxy"};
-
-///
 /// Size of an entity handle.
 ///
 // #define GALAXY_ENTITY_SIZE std::uint64_t

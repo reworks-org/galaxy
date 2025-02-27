@@ -8,6 +8,7 @@
 #ifndef GALAXY_MATH_ZLIB_HPP_
 #define GALAXY_MATH_ZLIB_HPP_
 
+#define MINIZ_HEADER_FILE_ONLY
 #include <miniz.h>
 
 #include "galaxy/core/Settings.hpp"

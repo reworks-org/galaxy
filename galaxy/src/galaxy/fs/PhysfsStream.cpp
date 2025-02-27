@@ -15,6 +15,11 @@ namespace galaxy
 {
 	namespace fs
 	{
+		PhysfsStream::PhysfsStream() noexcept
+			: m_file(nullptr)
+		{
+		}
+
 		PhysfsStream::PhysfsStream(const std::string& filename) noexcept
 			: m_file(nullptr)
 		{
