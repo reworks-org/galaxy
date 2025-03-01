@@ -17,6 +17,7 @@
 
 #include "galaxy/logging/LogLevel.hpp"
 #include "galaxy/logging/Sink.hpp"
+#include "galaxy/utils/StringUtils.hpp"
 
 #define GALAXY_INFO                     galaxy::logging::LogLevel::_INFO_
 #define GALAXY_DEBUG                    galaxy::logging::LogLevel::_DEBUG_
@@ -152,6 +153,7 @@ namespace galaxy
 				// clang-format on
 
 				lm.level = magic_enum::enum_name<LogLevel>(level);
+				strutils::replace_all(lm.level, "_", "");
 
 				if constexpr (level == LogLevel::_INFO_ || level == LogLevel::_DEBUG_)
 				{

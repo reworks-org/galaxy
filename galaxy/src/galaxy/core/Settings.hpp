@@ -284,6 +284,18 @@ namespace galaxy
 ///
 #define GALAXY_UNUSED(var) ((void)(var))
 
+#if defined(_DEBUG) || defined(DEBUG)
+///
+/// Define a constexpr compatible debug macro.
+///
+#define GALAXY_DEBUG_BUILD true
+#elif defined(_NDEBUG) || defined(NDEBUG)
+///
+/// Define a constexpr compatible debug macro.
+///
+#define GALAXY_DEBUG_BUILD false
+#endif
+
 /*
 // config.restore<int>("flag_bitset_count", 8, "misc");
 

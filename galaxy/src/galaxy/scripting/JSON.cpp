@@ -16,10 +16,10 @@ namespace galaxy
 {
 	namespace json
 	{
-		nlohmann::json read(const std::string& entry)
+		nlohmann::json read(const std::string& file)
 		{
 			auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
-			auto  data = fs.read(entry);
+			auto  data = fs.read(file);
 
 			return nlohmann::json::parse(data);
 		}
@@ -29,10 +29,11 @@ namespace galaxy
 			return nlohmann::json::parse(json);
 		}
 
-		bool write(const std::string& entry, const nlohmann::json& json)
+		bool write(const std::string& file, const nlohmann::json& json)
 		{
 			auto& fs = entt::locator<fs::VirtualFileSystem>::value();
-			return fs.write(json.dump(4), entry);
+			return fs.write(json.dump(4), file);
+		}
 		}
 	} // namespace json
 } // namespace galaxy

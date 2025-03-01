@@ -66,6 +66,8 @@ namespace galaxy
 			entt::locator<fs::VirtualFileSystem>::reset();
 			entt::locator<Config>::reset();
 			entt::locator<BS::light_thread_pool>::reset();
+
+			GALAXY_LOG(GALAXY_INFO, "Application closed.");
 			entt::locator<logging::Log>::reset();
 		}
 

@@ -16,6 +16,7 @@ namespace galaxy
 	{
 		///
 		/// Scene saving/loading, pushing, popping, creating.
+		/// Also manages entities.
 		///
 		class SceneManager final : public fs::Serializable
 		{

@@ -21,10 +21,8 @@ namespace galaxy
 		///
 		/// \brief Represents a scene in a game. Like the menu, game, etc.
 		///
-		/// Ideally each scene would have its own collection to be rendered/entity systems etc.
 		/// Scenes should be logically grouped -> i.e. a map, player data + ui, battle, menu, etc.
-		/// or a background scene with a 2d platformer infront, scenes should not share entitys/components for example. in general, you might only have 3 scenes - main menu, game,
-		/// battle. Each scene is an independant collection of systems, but not entities.
+		/// Each scene is an independant collection of systems, but not entities.
 		///
 		class Scene final : public fs::Serializable
 		{

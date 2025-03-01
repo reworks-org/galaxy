@@ -17,12 +17,12 @@ namespace galaxy
 		///
 		/// Read a json file in the vfs.
 		///
-		/// \param entry Entry in vfs to read and parse.
+		/// \param file File in vfs to read and parse.
 		///
 		/// \return Fully parsed json object.
 		///
 		[[nodiscard]]
-		nlohmann::json read(const std::string& entry);
+		nlohmann::json read(const std::string& file);
 
 		///
 		/// Read raw json string.
@@ -37,13 +37,13 @@ namespace galaxy
 		///
 		/// Write json to vfs.
 		///
-		/// \param Entry Entry in the vfs to write to.
+		/// \param file File in the vfs to write to.
 		/// \param json Json data to write.
 		///
 		/// \return True if file successfully saved.
 		///
 		[[nodiscard]]
-		bool write(const std::string& entry, const nlohmann::json& json);
+		bool write(const std::string& file, const nlohmann::json& json);
 	} // namespace json
 } // namespace galaxy
 
