@@ -1,5 +1,0 @@
-<map id="galaxy::components::RigidBody::set_fixed_rotation" name="galaxy::components::RigidBody::set_fixed_rotation">
-<area shape="rect" id="Node000001" title="Set rotation status of body." alt="" coords="191,5,352,60"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into Lua." alt="" coords="5,13,143,53"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,35,143,35,143,30,177,30"/>
-</map>

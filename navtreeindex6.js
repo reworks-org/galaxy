@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311":[0,0,0,11,3,6],
+"d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311":[2,0,0,9,3,6],
 "d9/dec/classgalaxy_1_1logging_1_1Log.html":[0,0,0,8,2],
 "d9/dec/classgalaxy_1_1logging_1_1Log.html":[2,0,0,6,2],
 "d9/dec/classgalaxy_1_1logging_1_1Log.html#a116e4b39ddb24429ab3bd765209f7ba7":[0,0,0,8,2,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "db/d4b/Fonts_8cpp_source.html":[3,0,0,0,0,12,5],
 "db/d4c/Tag_8cpp.html":[3,0,0,0,0,1,20],
 "db/d4c/Tag_8cpp_source.html":[3,0,0,0,0,1,20],
-"db/d58/NotSerializable_8hpp.html":[3,0,0,0,0,3,3],
-"db/d58/NotSerializable_8hpp_source.html":[3,0,0,0,0,3,3],
-"db/d6a/classgalaxy_1_1state_1_1State.html":[0,0,0,17,0]
+"db/d58/NotSerializable_8hpp.html":[3,0,0,0,0,3,3]
 };

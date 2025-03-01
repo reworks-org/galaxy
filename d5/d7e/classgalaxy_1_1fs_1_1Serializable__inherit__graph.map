@@ -30,6 +30,6 @@
 <area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1505,88,1700,97,1940,117,2058,133,2164,155,2252,182,2287,199,2314,217,2343,246,2364,280,2381,317,2392,355,2387,356,2376,319,2360,283,2338,249,2311,221,2284,203,2250,187,2163,160,2057,139,1939,122,1700,102,1504,94"/>
 <area shape="rect" id="Node000016" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc." alt="" coords="2509,326,2660,611"/>
 <area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1505,85,1738,88,1883,94,2033,105,2179,121,2312,144,2371,159,2422,175,2466,195,2500,217,2523,239,2541,266,2567,325,2562,327,2537,268,2519,243,2496,221,2463,199,2420,180,2369,164,2311,149,2179,126,2032,110,1882,99,1738,94,1504,91"/>
-<area shape="rect" id="Node000017" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, pushing, popping, creating." alt="" coords="2684,326,2891,611"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1504,91,1791,107,2157,133,2335,150,2490,170,2607,192,2648,204,2674,216,2700,239,2721,265,2754,325,2749,327,2717,268,2696,242,2671,221,2646,209,2606,197,2489,175,2334,156,2157,138,1790,112,1504,96"/>
+<area shape="rect" id="Node000017" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, pushing, popping, creating. Also manages entities." alt="" coords="2684,316,2891,621"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1504,91,1791,107,2157,133,2335,150,2490,170,2607,192,2648,204,2674,216,2698,237,2718,261,2749,314,2744,317,2714,264,2694,240,2671,221,2646,209,2606,197,2489,175,2334,156,2157,138,1790,112,1504,96"/>
 </map>

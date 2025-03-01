@@ -8,9 +8,10 @@ var namespacegalaxy =
     [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", null ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", "dd/d59/namespacegalaxy_1_1input" ],
     [ "json", "de/dd6/namespacegalaxy_1_1json.html", [
-      [ "read", "de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d", null ],
+      [ "read", "de/dd6/namespacegalaxy_1_1json.html#ae4702ab23fd84a35c8619017dd1dad5c", null ],
       [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707", null ],
-      [ "write", "de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a", null ]
+      [ "write", "de/dd6/namespacegalaxy_1_1json.html#a36147cbea09b500a27e6a9a78924f879", null ],
+      [ "dump", "de/dd6/namespacegalaxy_1_1json.html#ae239235c5258b78bf9e48dce38dbff27", null ]
     ] ],
     [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", "dd/dad/namespacegalaxy_1_1logging" ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],

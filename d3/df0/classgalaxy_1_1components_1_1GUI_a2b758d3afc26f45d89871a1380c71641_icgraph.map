@@ -1,13 +1,9 @@
 <map id="galaxy::components::GUI::file" name="galaxy::components::GUI::file">
-<area shape="rect" id="Node000001" title="Get script file." alt="" coords="619,37,772,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into Lua." alt="" coords="425,5,563,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="605,46,563,39,563,34,605,40"/>
-<area shape="rect" id="Node000003" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a5bf9d4c6e37cefe4607dda3d6d31f158" title="Load script and set context." alt="" coords="417,69,571,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="605,74,571,80,570,75,605,69"/>
-<area shape="rect" id="Node000004" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a1fe047fc8d45f03edcc1fbc9de7e53d7" title="Function that integrates nuklear init with entt on construct event." alt="" coords="207,37,369,77"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="403,78,369,73,370,67,404,73"/>
-<area shape="rect" id="Node000005" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a435c9746190832b1e1826b1b70c04d8f" title="Deserializes from object." alt="" coords="211,101,365,141"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="404,106,365,112,364,107,403,101"/>
-<area shape="rect" id="Node000006" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#ac9ae5d79716495c820d1167de5a7f8b8" title="JSON constructor." alt="" coords="5,101,159,141"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="198,124,159,124,159,119,198,119"/>
+<area shape="rect" id="Node000001" title="Get script file." alt="" coords="609,5,763,45"/>
+<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a5bf9d4c6e37cefe4607dda3d6d31f158" title="Load script and set context." alt="" coords="408,5,561,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,28,561,28,561,23,595,23"/>
+<area shape="rect" id="Node000003" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a435c9746190832b1e1826b1b70c04d8f" title="Deserializes from object." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,28,360,28,360,23,394,23"/>
+<area shape="rect" id="Node000004" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#ac9ae5d79716495c820d1167de5a7f8b8" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

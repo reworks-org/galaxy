@@ -2,14 +2,16 @@
 <area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,99,220,139"/>
 <area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="268,5,483,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,96,267,55,290,47,292,52,269,60,162,101"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a60d5677fc4d83c53350611aedd1ea56b" title="Create scene in engine." alt="" coords="268,69,483,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,104,254,100,255,105,220,109"/>
-<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="578,106,730,131"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="220,118,268,119,483,119,564,118,564,123,483,124,268,124,220,123"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="268,184,483,224"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="176,136,301,177,299,182,174,141"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="483,98,565,107,564,112,483,103"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="609,108,600,98,605,88,623,81,654,79,694,84,705,89,708,95,704,97,701,93,693,89,654,85,624,87,608,92,605,97,613,104"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="531,191,777,217"/>
-<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="483,201,517,201,517,207,483,207"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a60d5677fc4d83c53350611aedd1ea56b" title="Create scene in engine." alt="" coords="268,69,483,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,104,254,100,255,105,220,109"/>
+<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="578,114,730,139"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="220,118,268,119,564,123,564,128,268,124,220,123"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="268,184,483,224"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="176,136,301,177,299,182,174,141"/>
+<area shape="rect" id="Node000003" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a0d6c119110845b828a8dd3cf0bf962a3" title="Clear any pending data." alt="" coords="573,5,735,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,23,559,23,559,28,483,28"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="483,101,565,112,564,117,483,106"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="609,116,600,106,605,96,623,89,654,87,694,92,705,97,708,103,704,105,701,101,693,97,654,93,624,95,608,100,605,105,613,112"/>
+<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="531,191,777,217"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="483,201,517,201,517,207,483,207"/>
 </map>

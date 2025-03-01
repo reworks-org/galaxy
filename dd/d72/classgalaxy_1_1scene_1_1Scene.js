@@ -6,7 +6,7 @@ var classgalaxy_1_1scene_1_1Scene =
     [ "add_system", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a10bd61d40425228dad7199da082d4cca", null ],
     [ "load", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a1db8e6142cda3b7ca0d08ecfdd1479a4", null ],
     [ "unload", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c", null ],
-    [ "update", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760", null ],
+    [ "update", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#abcf12bd4337b4e548b4c3ccbcebf10d1", null ],
     [ "render", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98", null ],
     [ "name", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a359fdb52a84fb34d6124b55f3ab3d97b", null ],
     [ "serialize", "dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388", null ],

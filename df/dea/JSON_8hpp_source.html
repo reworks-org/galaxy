@@ -114,20 +114,24 @@ $(function(){initNavTree('df/dea/JSON_8hpp_source.html','../../'); initResizable
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">namespace </span>json</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        [[nodiscard]]</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        nlohmann::json <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d">read</a>(<span class="keyword">const</span> std::string&amp; entry);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        nlohmann::json <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#ae4702ab23fd84a35c8619017dd1dad5c">read</a>(<span class="keyword">const</span> std::string&amp; file);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        [[nodiscard]]</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        nlohmann::json <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707">read_raw</a>(<span class="keyword">const</span> std::string&amp; json);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        [[nodiscard]]</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a">write</a>(<span class="keyword">const</span> std::string&amp; entry, <span class="keyword">const</span> nlohmann::json&amp; json);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    } <span class="comment">// namespace json</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#a36147cbea09b500a27e6a9a78924f879">write</a>(<span class="keyword">const</span> std::string&amp; file, <span class="keyword">const</span> nlohmann::json&amp; json);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        std::string <a class="code hl_function" href="../../de/dd6/namespacegalaxy_1_1json.html#ae239235c5258b78bf9e48dce38dbff27">dump</a>(<span class="keyword">const</span> nlohmann::json&amp; json);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    } <span class="comment">// namespace json</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacegalaxy_1_1json_html_a16ec2f8525e7b1b49b84f8c6dfe5d707"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707">galaxy::json::read_raw</a></div><div class="ttdeci">nlohmann::json read_raw(const std::string &amp;json)</div><div class="ttdoc">Read raw json string.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00027">JSON.cpp:27</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1json_html_a9075672b169d5ecfcfea1e4be935fd3a"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#a9075672b169d5ecfcfea1e4be935fd3a">galaxy::json::write</a></div><div class="ttdeci">bool write(const std::string &amp;entry, const nlohmann::json &amp;json)</div><div class="ttdoc">Write json to vfs.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00032">JSON.cpp:32</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1json_html_aef84997e096a889464b801a4e502f73d"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#aef84997e096a889464b801a4e502f73d">galaxy::json::read</a></div><div class="ttdeci">nlohmann::json read(const std::string &amp;entry)</div><div class="ttdoc">Read a json file in the vfs.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00019">JSON.cpp:19</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1json_html_a36147cbea09b500a27e6a9a78924f879"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#a36147cbea09b500a27e6a9a78924f879">galaxy::json::write</a></div><div class="ttdeci">bool write(const std::string &amp;file, const nlohmann::json &amp;json)</div><div class="ttdoc">Write json to vfs.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00032">JSON.cpp:32</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1json_html_ae239235c5258b78bf9e48dce38dbff27"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#ae239235c5258b78bf9e48dce38dbff27">galaxy::json::dump</a></div><div class="ttdeci">std::string dump(const nlohmann::json &amp;json)</div><div class="ttdoc">Dump json to string.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00038">JSON.cpp:38</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1json_html_ae4702ab23fd84a35c8619017dd1dad5c"><div class="ttname"><a href="../../de/dd6/namespacegalaxy_1_1json.html#ae4702ab23fd84a35c8619017dd1dad5c">galaxy::json::read</a></div><div class="ttdeci">nlohmann::json read(const std::string &amp;file)</div><div class="ttdoc">Read a json file in the vfs.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d1d/JSON_8cpp_source.html#l00019">JSON.cpp:19</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -135,7 +139,7 @@ $(function(){initNavTree('df/dea/JSON_8hpp_source.html','../../'); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../df/dea/JSON_8hpp.html">JSON.hpp</a></li>
-    <li class="footer">Generated on Sat Mar 1 2025 05:26:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Mar 1 2025 14:49:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

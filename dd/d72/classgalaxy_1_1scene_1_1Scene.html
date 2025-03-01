@@ -172,9 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aff386bc34c414fbf3d983e675f80a79c" id="r_aff386bc34c414fbf3d983e675f80a79c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff386bc34c414fbf3d983e675f80a79c">unload</a> ()</td></tr>
 <tr class="memdesc:aff386bc34c414fbf3d983e675f80a79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">When scene is deactivated / unloaded.  <br /></td></tr>
 <tr class="separator:aff386bc34c414fbf3d983e675f80a79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a625712664fa4348b119dd9e541e71760" id="r_a625712664fa4348b119dd9e541e71760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a625712664fa4348b119dd9e541e71760">update</a> ()</td></tr>
-<tr class="memdesc:a625712664fa4348b119dd9e541e71760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process events and updates.  <br /></td></tr>
-<tr class="separator:a625712664fa4348b119dd9e541e71760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcf12bd4337b4e548b4c3ccbcebf10d1" id="r_abcf12bd4337b4e548b4c3ccbcebf10d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcf12bd4337b4e548b4c3ccbcebf10d1">update</a> (<a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">core::Registry</a> &amp;registry)</td></tr>
+<tr class="memdesc:abcf12bd4337b4e548b4c3ccbcebf10d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process events and updates.  <br /></td></tr>
+<tr class="separator:abcf12bd4337b4e548b4c3ccbcebf10d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54ec4f7cf4ee50600c2a4af95e0ffb98" id="r_a54ec4f7cf4ee50600c2a4af95e0ffb98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54ec4f7cf4ee50600c2a4af95e0ffb98">render</a> ()</td></tr>
 <tr class="memdesc:a54ec4f7cf4ee50600c2a4af95e0ffb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update ui.  <br /></td></tr>
 <tr class="separator:a54ec4f7cf4ee50600c2a4af95e0ffb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,9 +222,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a scene in a game. Like the menu, game, etc. </p>
-<p>Ideally each scene would have its own collection to be rendered/entity systems etc. Scenes should be logically grouped -&gt; i.e. a map, player data + ui, battle, menu, etc. or a background scene with a 2d platformer infront, scenes should not share entitys/components for example. in general, you might only have 3 scenes - main menu, game, battle. Each scene is an independant collection of systems, but not entities. </p>
+<p>Scenes should be logically grouped -&gt; i.e. a map, player data + ui, battle, menu, etc. Each scene is an independant collection of systems, but not entities. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abeb10711646276e1ddf72d9d5f3595df" name="abeb10711646276e1ddf72d9d5f3595df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abeb10711646276e1ddf72d9d5f3595df">&#9670;&#160;</a></span>Scene() <span class="overload">[1/2]</span></h2>
@@ -430,8 +430,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a625712664fa4348b119dd9e541e71760" name="a625712664fa4348b119dd9e541e71760"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a625712664fa4348b119dd9e541e71760">&#9670;&#160;</a></span>update()</h2>
+<a id="abcf12bd4337b4e548b4c3ccbcebf10d1" name="abcf12bd4337b4e548b4c3ccbcebf10d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcf12bd4337b4e548b4c3ccbcebf10d1">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,13 +439,19 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void galaxy::scene::Scene::update </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">core::Registry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Process events and updates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td>Registry to process. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -453,8 +459,8 @@ Additional Inherited Members</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../dd/d72/classgalaxy_1_1scene_1_1Scene_a625712664fa4348b119dd9e541e71760_icgraph.png" border="0" usemap="#add/d72/classgalaxy_1_1scene_1_1Scene_a625712664fa4348b119dd9e541e71760_icgraph" alt=""/></div>
-<map name="add/d72/classgalaxy_1_1scene_1_1Scene_a625712664fa4348b119dd9e541e71760_icgraph" id="add/d72/classgalaxy_1_1scene_1_1Scene_a625712664fa4348b119dd9e541e71760_icgraph">
+<div class="center"><img src="../../dd/d72/classgalaxy_1_1scene_1_1Scene_abcf12bd4337b4e548b4c3ccbcebf10d1_icgraph.png" border="0" usemap="#add/d72/classgalaxy_1_1scene_1_1Scene_abcf12bd4337b4e548b4c3ccbcebf10d1_icgraph" alt=""/></div>
+<map name="add/d72/classgalaxy_1_1scene_1_1Scene_abcf12bd4337b4e548b4c3ccbcebf10d1_icgraph" id="add/d72/classgalaxy_1_1scene_1_1Scene_abcf12bd4337b4e548b4c3ccbcebf10d1_icgraph">
 <area shape="rect" title="Process events and updates." alt="" coords="591,5,749,45"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
 <area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
@@ -617,7 +623,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d54/classgalaxy_1_1fs_1_1Serializable.html#a87464e16c184605735a79f9d18d17c74">galaxy::fs::Serializable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00161">161</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00151">151</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -658,7 +664,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> name for debug purposes. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00110">110</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -684,7 +690,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>List of systems to run. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -698,7 +704,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../de/d3c/namespacegalaxy_1_1scene.html">scene</a></li><li class="navelem"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a></li>
-    <li class="footer">Generated on Sat Mar 1 2025 05:26:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Mar 1 2025 14:49:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

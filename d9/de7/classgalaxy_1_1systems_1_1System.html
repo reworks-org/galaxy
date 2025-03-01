@@ -154,13 +154,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a20984a6cece0b3d14614c39eb32e8abf" id="r_a20984a6cece0b3d14614c39eb32e8abf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20984a6cece0b3d14614c39eb32e8abf">update</a> (entt::registry &amp;registry)=0</td></tr>
 <tr class="memdesc:a20984a6cece0b3d14614c39eb32e8abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract implementation for updating the system. Use the manager to retreive your components.  <br /></td></tr>
 <tr class="separator:a20984a6cece0b3d14614c39eb32e8abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb327a6e8dac559b5e6b8062379c5bf6" id="r_afb327a6e8dac559b5e6b8062379c5bf6"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb327a6e8dac559b5e6b8062379c5bf6">id</a> () const noexcept final</td></tr>
-<tr class="memdesc:afb327a6e8dac559b5e6b8062379c5bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get identifier.  <br /></td></tr>
-<tr class="separator:afb327a6e8dac559b5e6b8062379c5bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a990f67a650b4f79d80bc76398652d8bc" id="r_a990f67a650b4f79d80bc76398652d8bc"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a990f67a650b4f79d80bc76398652d8bc">id</a> () const noexcept</td></tr>
+<tr class="memdesc:a990f67a650b4f79d80bc76398652d8bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get identifier.  <br /></td></tr>
+<tr class="separator:a990f67a650b4f79d80bc76398652d8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a7a22f1d3b738e3cf72260752cb9b4550" id="r_a7a22f1d3b738e3cf72260752cb9b4550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a22f1d3b738e3cf72260752cb9b4550">System</a> (const std::string &amp;<a class="el" href="#afb327a6e8dac559b5e6b8062379c5bf6">id</a>) noexcept</td></tr>
+<tr class="memitem:a7a22f1d3b738e3cf72260752cb9b4550" id="r_a7a22f1d3b738e3cf72260752cb9b4550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a22f1d3b738e3cf72260752cb9b4550">System</a> (const std::string &amp;<a class="el" href="#a990f67a650b4f79d80bc76398652d8bc">id</a>) noexcept</td></tr>
 <tr class="memdesc:a7a22f1d3b738e3cf72260752cb9b4550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:a7a22f1d3b738e3cf72260752cb9b4550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -308,8 +308,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afb327a6e8dac559b5e6b8062379c5bf6" name="afb327a6e8dac559b5e6b8062379c5bf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb327a6e8dac559b5e6b8062379c5bf6">&#9670;&#160;</a></span>id()</h2>
+<a id="a990f67a650b4f79d80bc76398652d8bc" name="a990f67a650b4f79d80bc76398652d8bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990f67a650b4f79d80bc76398652d8bc">&#9670;&#160;</a></span>id()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +326,7 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">final</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -375,7 +375,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d2/d27/namespacegalaxy_1_1systems.html">systems</a></li><li class="navelem"><a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html">System</a></li>
-    <li class="footer">Generated on Sat Mar 1 2025 05:26:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Mar 1 2025 14:49:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
