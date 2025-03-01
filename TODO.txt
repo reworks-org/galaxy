@@ -17,3 +17,7 @@ https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sfml_opengl3/main.
 
 about render system in ecs:
 https://david-delassus.medium.com/trying-out-sdl3-by-writing-a-c-game-engine-c9bb13156b74
+
+loading/saving:
+- call load_app to load defaults
+- on load save, call load_app again.

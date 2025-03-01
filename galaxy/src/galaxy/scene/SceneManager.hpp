@@ -5,12 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_STATE_SCENEMANAGER_HPP_
-#define GALAXY_STATE_SCENEMANAGER_HPP_
+#ifndef GALAXY_SCENE_SCENEMANAGER_HPP_
+#define GALAXY_SCENE_SCENEMANAGER_HPP_
 
-#include <ankerl/unordered_dense.h>
-
-#include "galaxy/math/FNV1a.hpp"
 #include "galaxy/scene/Scene.hpp"
 
 namespace galaxy
@@ -18,93 +15,70 @@ namespace galaxy
 	namespace scene
 	{
 		///
-		/// Scene saving/loading, creation, changing and loading.
+		/// Scene saving/loading, pushing, popping, creating.
 		///
 		class SceneManager final : public fs::Serializable
 		{
-			using Map             = ankerl::unordered_dense::map<std::uint64_t, std::unique_ptr<Scene>>;
-			using SystemContainer = meta::vector<std::unique_ptr<systems::System>>;
-
 		public:
 			///
 			/// Constructor.
 			///
-			SceneManager();
+			SceneManager() noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~SceneManager();
+			virtual ~SceneManager() noexcept;
 
 			///
-			/// Add a new scene.
+			/// Create scene in engine.
 			///
-			/// \param name Scene name to assign.
+			/// \param scene Scene name.
 			///
-			/// \return Pointer to added scene.
+			/// \return Shared pointer to created scene, or nullptr on failure.
 			///
 			[[maybe_unused]]
-			Scene* add(const std::string& name);
+			std::shared_ptr<Scene> create(const std::string& scene);
 
 			///
-			/// Add a custom scene.
+			/// Clears all from stack and sets as active.
 			///
-			/// \tparam type Derived type of custom scene.
+			/// \param scene Scene name.
 			///
-			/// \param name Scene name to assign.
-			///
-			template<std::derived_from<Scene> Custom>
-			[[maybe_unused]]
-			Custom* add_custom(const std::string& name);
+			void set(const std::string& scene);
 
 			///
-			/// Get a specific scene.
+			/// Push a scene onto the top of stack.
 			///
-			/// \param name Name Id for scene.
+			/// \param scene Scene name.
 			///
-			/// \return Reference to requested scene.
+			void push(const std::string& scene);
+
+			///
+			/// Remove scene on top of stack.
+			///
+			void pop();
+
+			///
+			/// Pop all scenes.
+			///
+			void pop_all();
+
+			///
+			/// Get top scene.
 			///
 			[[nodiscard]]
-			Scene* get(const std::string& name);
+			std::shared_ptr<Scene> top() noexcept;
 
 			///
-			/// \brief Remove a specific scene.
+			/// Process events and updates.
 			///
-			/// Preserves insertion order.
-			///
-			/// \param name Id for scene.
-			///
-			void remove(const std::string& name);
+			void update();
 
 			///
-			/// Does a scene exist.
+			/// Render scenes.
 			///
-			/// \param name Id for scene.
-			///
-			/// \return True if exists.
-			///
-			[[nodiscard]]
-			bool has(const std::string& name);
-
-			///
-			/// Scene to set to currently active.
-			///
-			/// \param name Scene name.
-			///
-			void set_scene(const std::string& name);
-
-			///
-			/// \brief Add a system to the manager.
-			///
-			/// \tparam System Type of system to create.
-			/// \tparam Args Constructor arguments for system.
-			///
-			/// Systems will be updated in the order in which they are created.
-			///
-			/// \param args Constructor arguments for system.
-			///
-			template<meta::is_system System, typename... Args>
-			void create_system(Args&&... args);
+			void render();
 
 			///
 			/// \brief Load app data file into scene manager.
@@ -123,40 +97,9 @@ namespace galaxy
 			void save_app(const std::string& file);
 
 			///
-			/// Handle events and update logic.
-			///
-			void update();
-
-			///
-			/// Only update rendering.
-			///
-			void only_update_rendering();
-
-			///
-			/// Handle rendering.
-			///
-			void render();
-
-			///
 			/// Deletes all scene data.
 			///
 			void clear();
-
-			///
-			/// Get current scene.
-			///
-			/// \return Pointer to current scene, nullptr if no scene.
-			///
-			[[nodiscard]]
-			scene::Scene* current() const;
-
-			///
-			/// Get all scenes.
-			///
-			/// \return Reference to scene object.
-			///
-			[[nodiscard]]
-			const Map& map() const;
 
 			///
 			/// Are there any scenes.
@@ -164,7 +107,7 @@ namespace galaxy
 			/// \return True if no scenes.
 			///
 			[[nodiscard]]
-			bool empty() const;
+			bool empty() const noexcept;
 
 			///
 			/// Serializes object.
@@ -183,54 +126,15 @@ namespace galaxy
 
 		private:
 			///
-			/// Scene map.
+			/// Scene storage.
 			///
-			Map m_scenes;
+			ankerl::unordered_dense::map<std::uint64_t, std::shared_ptr<Scene>> m_scenes;
 
 			///
-			/// Current scene.
+			/// Active scenes.
 			///
-			scene::Scene* m_current;
-
-			///
-			/// Stores systems.
-			///
-			SystemContainer m_systems;
-
-			///
-			/// Rendersystem index.
-			///
-			std::size_t m_rendersystem_index;
+			std::vector<std::shared_ptr<Scene>> m_stack;
 		};
-
-		template<std::derived_from<Scene> Custom>
-		inline Custom* SceneManager::add_custom(const std::string& name)
-		{
-			const auto hash = math::fnv1a_64(name.c_str());
-
-			if (!m_scenes.contains(hash))
-			{
-				m_scenes[hash] = std::make_unique<Custom>(name);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Tried to add a duplicate scene '{0}'.", name);
-			}
-
-			return static_cast<Custom*>(m_scenes[hash].get());
-		}
-
-		template<meta::is_system System, typename... Args>
-		inline void SceneManager::create_system(Args&&... args)
-		{
-			auto ptr = std::make_unique<System>(std::forward<Args>(args)...);
-			m_systems.emplace_back(std::move(ptr));
-
-			if constexpr (std::is_same<System, systems::RenderSystem>::value)
-			{
-				m_rendersystem_index = m_systems.size() - 1;
-			}
-		}
 	} // namespace scene
 } // namespace galaxy
 

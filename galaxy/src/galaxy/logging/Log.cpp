@@ -21,6 +21,8 @@ namespace galaxy
 
 		Log::~Log() noexcept
 		{
+			GALAXY_LOG(GALAXY_INFO, "Logging closed.");
+
 			m_min_level = LogLevel::_INFO_;
 			m_sinks.clear();
 		}

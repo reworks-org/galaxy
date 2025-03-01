@@ -11,16 +11,16 @@ namespace galaxy
 {
 	namespace meta
 	{
-		void SystemFactory::create_system(const std::string& name, SystemStorage& storage)
+		void SystemFactory::create_system(const std::string& name, SystemStack& stack)
 		{
 			const auto hash = math::fnv1a(name.c_str());
 			if (m_factory.contains(hash))
 			{
-				m_factory[hash](storage);
+				m_factory[hash](stack);
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to create system {0} from factory.", name);
+				GALAXY_LOG(GALAXY_ERROR, "System {0} doesnt exist in factory.", name);
 			}
 		}
 	} // namespace meta

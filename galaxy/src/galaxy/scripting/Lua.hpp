@@ -90,7 +90,7 @@ namespace galaxy
 		///
 		/// Injects galaxy scene management into lua.
 		///
-		void inject_scene();
+		void inject_scene_control();
 
 		///
 		/// Injects galaxy state machine into lua.

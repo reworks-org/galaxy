@@ -9,8 +9,8 @@
 #define GALAXY_SYSTEMS_SYSTEM_HPP_
 
 #include <concepts>
+#include <string>
 
-#include <entt/core/family.hpp>
 #include <entt/entity/registry.hpp>
 
 namespace galaxy
@@ -26,7 +26,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~System();
+			virtual ~System() noexcept;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
@@ -35,11 +35,33 @@ namespace galaxy
 			///
 			virtual void update(entt::registry& registry) = 0;
 
+			///
+			/// Get identifier.
+			///
+			/// \return Const string reference.
+			///
+			[[nodiscard]]
+			virtual const std::string& id() const noexcept final;
+
 		protected:
 			///
 			/// Constructor.
 			///
-			System();
+			/// \param id System debug identifier.
+			///
+			System(const std::string& id) noexcept;
+
+		private:
+			///
+			/// Constructor.
+			///
+			System() = delete;
+
+		protected:
+			///
+			/// Debug id.
+			///
+			std::string m_id;
 		};
 	} // namespace systems
 

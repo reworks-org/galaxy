@@ -27,10 +27,10 @@ namespace galaxy
 			inject_mem();
 			inject_platform();
 			// inject_resource();
-			// inject_scene();
+			inject_scene_control();
 			// inject_state();
 			inject_utils();
-			// inject_services();
+			inject_services();
 		}
 	} // namespace lua
 } // namespace galaxy

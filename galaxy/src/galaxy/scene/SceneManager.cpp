@@ -5,17 +5,15 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <fstream>
+#include <sstream>
+
 #include <nlohmann/json.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/ZLib.hpp"
 #include "galaxy/scripting/JSON.hpp"
-#include "galaxy/systems/AnimationSystem.hpp"
-#include "galaxy/systems/PhysicsSystem.hpp"
-#include "galaxy/systems/ScriptSystem.hpp"
 
 #include "SceneManager.hpp"
 
@@ -23,73 +21,89 @@ namespace galaxy
 {
 	namespace scene
 	{
-		SceneManager::SceneManager()
-			: m_rendersystem_index {0}
+		SceneManager::SceneManager() noexcept
 		{
-			create_system<systems::ScriptSystem>();
-			create_system<systems::PhysicsSystem>();
-			create_system<systems::AnimationSystem>();
-			create_system<systems::RenderSystem>();
 		}
 
-		SceneManager::~SceneManager()
+		SceneManager::~SceneManager() noexcept
 		{
-			m_scenes.clear();
+			clear();
 		}
 
-		Scene* SceneManager::add(const std::string& name)
+		std::shared_ptr<Scene> SceneManager::create(const std::string& scene)
 		{
-			const auto hash = math::fnv1a_64(name.c_str());
-
+			const auto hash = math::fnv1a(scene.c_str());
 			if (!m_scenes.contains(hash))
 			{
-				m_scenes[hash] = std::make_unique<Scene>(name);
+				m_scenes[hash] = std::make_shared<Scene>(scene);
+				return m_scenes[hash];
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Tried to add a duplicate scene '{0}'.", name);
-			}
-
-			return m_scenes[hash].get();
-		}
-
-		Scene* SceneManager::get(const std::string& name)
-		{
-			const auto hash = math::fnv1a_64(name.c_str());
-
-			if (m_scenes.contains(hash))
-			{
-				return m_scenes[hash].get();
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to find '{0}'.", name);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create scene '{0}'.", scene);
 				return nullptr;
 			}
 		}
 
-		void SceneManager::remove(const std::string& name)
+		void SceneManager::set(const std::string& scene)
 		{
-			m_scenes.erase(math::fnv1a_64(name.c_str()));
+			pop_all();
+			push(scene);
 		}
 
-		bool SceneManager::has(const std::string& name)
+		void SceneManager::push(const std::string& scene)
 		{
-			return m_scenes.contains(math::fnv1a_64(name.c_str()));
+			const auto hash = math::fnv1a(scene.c_str());
+			m_stack.push_back(m_scenes[hash]);
+			m_stack.back()->load();
 		}
 
-		void SceneManager::set_scene(const std::string& name)
+		void SceneManager::pop()
 		{
-			const auto hash = math::fnv1a_64(name.c_str());
-			if (m_scenes.contains(hash))
+			if (m_stack.size() > 0)
 			{
-				m_current = m_scenes[hash].get();
+				m_stack.back()->unload();
+				m_stack.pop_back();
+			}
+		}
+
+		void SceneManager::pop_all()
+		{
+			while (m_stack.size() > 0)
+			{
+				pop();
+			}
+		}
+
+		std::shared_ptr<Scene> SceneManager::top() noexcept
+		{
+			return m_stack.back();
+		}
+
+		void SceneManager::update()
+		{
+			for (auto&& scene : m_stack)
+			{
+				scene->update();
+			}
+		}
+
+		void SceneManager::render()
+		{
+			for (auto&& scene : m_stack)
+			{
+				scene->render();
 			}
 		}
 
 		void SceneManager::load_app(const std::string& appdata_file)
 		{
-			const auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read(appdata_file);
+			std::ifstream in(appdata_file, std::ifstream::in);
+
+			std::stringstream buffer;
+			buffer << in.rdbuf();
+
+			const auto data = buffer.str();
 			if (!data.empty())
 			{
 				const auto decoded_zlib = math::decode_zlib(data);
@@ -136,62 +150,13 @@ namespace galaxy
 			}
 		}
 
-		void SceneManager::update()
-		{
-			if (m_current)
-			{
-				m_current->update();
-
-				for (auto&& system : m_systems)
-				{
-					system->update(m_current->m_registry.m_entt);
-
-					if (m_current->m_world.get_active())
-					{
-						system->update(m_current->m_world.get_active()->m_registry.m_entt);
-					}
-				}
-			}
-		}
-
-		void SceneManager::only_update_rendering()
-		{
-			if ((m_rendersystem_index >= 0 && m_rendersystem_index < m_systems.size()) && m_current != nullptr)
-			{
-				m_systems[m_rendersystem_index]->update(m_current->m_registry.m_entt);
-
-				if (m_current->m_world.get_active())
-				{
-					m_systems[m_rendersystem_index]->update(m_current->m_world.get_active()->m_registry.m_entt);
-				}
-			}
-		}
-
-		void SceneManager::render()
-		{
-			if (m_current)
-			{
-				m_current->render();
-			}
-		}
-
 		void SceneManager::clear()
 		{
-			m_current = nullptr;
+			m_stack.clear();
 			m_scenes.clear();
 		}
 
-		scene::Scene* SceneManager::current() const
-		{
-			return m_current;
-		}
-
-		const SceneManager::Map& SceneManager::map() const
-		{
-			return m_scenes;
-		}
-
-		bool SceneManager::empty() const
+		bool SceneManager::empty() const noexcept
 		{
 			return m_scenes.size() == 0;
 		}
@@ -200,14 +165,14 @@ namespace galaxy
 		{
 			nlohmann::json json = "{\"scenes\":{}}"_json;
 
-			for (auto& [name, scene] : m_scenes)
+			for (auto& [id, scene] : m_scenes)
 			{
-				json["scenes"][scene->m_name] = scene->serialize();
+				json["scenes"][scene->name()] = scene->serialize();
 			}
 
-			if (m_current)
+			for (auto i = 0; i < m_stack.size(); i++)
 			{
-				json["current"] = m_current->m_name;
+				json["stack"][std::to_string(i)] = m_stack[i]->name();
 			}
 
 			return json;
@@ -215,23 +180,26 @@ namespace galaxy
 
 		void SceneManager::deserialize(const nlohmann::json& json)
 		{
+			pop_all();
 			clear();
 
 			const auto& scenes = json.at("scenes");
-
 			m_scenes.reserve(scenes.size());
 			for (const auto& [name, data] : scenes.items())
 			{
-				auto scene = add(name);
+				auto scene = create(name);
 				if (scene)
 				{
 					scene->deserialize(data);
 				}
 			}
 
-			if (json.contains("current"))
+			const auto& stack = json.at("stack");
+			m_stack.reserve(stack.size());
+			for (const auto& [index, name] : stack.items())
 			{
-				set_scene(json.at("current"));
+				const auto hash = math::fnv1a(name.get<std::string>().c_str());
+				m_stack.insert(m_stack.begin() + std::stoi(index), m_scenes[hash]);
 			}
 		}
 	} // namespace scene

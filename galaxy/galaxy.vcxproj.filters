@@ -35,6 +35,8 @@
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\utils\Guid.cpp" />
+    <ClCompile Include="src\galaxy\scene\Scene.cpp" />
+    <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\meta\SystemFactory.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
@@ -51,6 +53,8 @@
     <ClCompile Include="src\galaxy\scripting\lua\LuaFS.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaCore.cpp" />
     <ClCompile Include="src\galaxy\meta\EntityFactory.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaScenes.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaServices.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Async.hpp" />
@@ -87,6 +91,8 @@
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\utils\Guid.hpp" />
+    <ClInclude Include="src\galaxy\scene\Scene.hpp" />
+    <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\meta\SystemFactory.hpp" />
     <ClInclude Include="src\galaxy\scripting\Lua.hpp" />

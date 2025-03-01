@@ -5,48 +5,40 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
 #include <sol/sol.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/scene/SceneManager.hpp"
-
-#include "Lua.hpp"
 
 namespace galaxy
 {
 	namespace lua
 	{
-		void inject_scenes()
+		void inject_scene_control()
 		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& lua = entt::locator<sol::state>::value();
 
-			auto scene_type                   = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
-			scene_type["load"]                = &scene::Scene::load;
-			scene_type["camera"]              = &scene::Scene::m_camera;
-			scene_type["name"]                = &scene::Scene::m_name;
-			scene_type["registry"]            = &scene::Scene::m_registry;
-			scene_type["velocity_iterations"] = &scene::Scene::m_velocity_iterations;
-			scene_type["position_iterations"] = &scene::Scene::m_position_iterations;
-			scene_type["unload"]              = &scene::Scene::unload;
-			scene_type["update"]              = &scene::Scene::update;
-			scene_type["b2world"]             = &scene::Scene::m_b2world;
-			scene_type["dispatcher"]          = &scene::Scene::m_dispatcher;
-			scene_type["render"]              = &scene::Scene::render;
-			scene_type["update_ui"]           = &scene::Scene::update_ui;
-			scene_type["load_world"]          = &scene::Scene::load_world;
-			scene_type["world"]               = &scene::Scene::m_world;
+			auto scene_type          = lua.new_usertype<scene::Scene>("Scene", sol::no_constructor);
+			scene_type["add_system"] = &scene::Scene::add_system;
+			scene_type["load"]       = &scene::Scene::load;
+			scene_type["name"]       = &scene::Scene::name;
+			scene_type["render"]     = &scene::Scene::render;
+			scene_type["unload"]     = &scene::Scene::unload;
+			scene_type["update"]     = &scene::Scene::update;
 
-			auto scenemanager_type         = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
-			scenemanager_type["add"]       = &scene::SceneManager::add;
-			scenemanager_type["clear"]     = &scene::SceneManager::clear;
-			scenemanager_type["empty"]     = &scene::SceneManager::empty;
-			scenemanager_type["get"]       = &scene::SceneManager::get;
-			scenemanager_type["has"]       = &scene::SceneManager::has;
-			scenemanager_type["load_app"]  = &scene::SceneManager::load_app;
-			scenemanager_type["remove"]    = &scene::SceneManager::remove;
-			scenemanager_type["save_app"]  = &scene::SceneManager::save_app;
-			scenemanager_type["set_scene"] = &scene::SceneManager::set_scene;
-			scenemanager_type["current"]   = &scene::SceneManager::current;
+			auto scenemanager_type        = lua.new_usertype<scene::SceneManager>("SceneManager", sol::no_constructor);
+			scenemanager_type["clear"]    = &scene::SceneManager::clear;
+			scenemanager_type["empty"]    = &scene::SceneManager::empty;
+			scenemanager_type["load_app"] = &scene::SceneManager::load_app;
+			scenemanager_type["save_app"] = &scene::SceneManager::save_app;
+			scenemanager_type["create"]   = &scene::SceneManager::create;
+			scenemanager_type["pop"]      = &scene::SceneManager::pop;
+			scenemanager_type["pop_all"]  = &scene::SceneManager::pop_all;
+			scenemanager_type["push"]     = &scene::SceneManager::push;
+			scenemanager_type["render"]   = &scene::SceneManager::render;
+			scenemanager_type["set"]      = &scene::SceneManager::set;
+			scenemanager_type["top"]      = &scene::SceneManager::top;
+			scenemanager_type["update"]   = &scene::SceneManager::update;
 		}
 	} // namespace lua
 } // namespace galaxy

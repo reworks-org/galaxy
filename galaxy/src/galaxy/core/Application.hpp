@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_APPLICATION_HPP_
 #define GALAXY_CORE_APPLICATION_HPP_
 
+#include <SFML/Window/Cursor.hpp>
+
 #if _WIN32 || _WIN64
 extern "C"
 {
@@ -27,7 +29,6 @@ extern "C"
 namespace sf
 {
 	class RenderWindow;
-	class Cursor;
 } // namespace sf
 
 namespace galaxy
@@ -94,11 +95,11 @@ namespace galaxy
 			void setup_fs();
 			void setup_window();
 			void setup_events();
-			void setup_audio();
-			void setup_renderer();
+			void setup_nuklear();
 			void setup_loader();
-			void setup_entity_metadata();
+			void setup_meta();
 			void setup_scripting();
+			void setup_services();
 
 			void handle_events(sf::RenderWindow& window);
 

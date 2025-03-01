@@ -17,7 +17,11 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
+#include "galaxy/meta/EntityFactory.hpp"
+#include "galaxy/meta/SystemFactory.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/scripting/Lua.hpp"
 
 #include "Application.hpp"
 
@@ -34,78 +38,43 @@ namespace galaxy
 			setup_fs();
 			setup_window();
 			setup_events();
-			setup_audio();
-			setup_renderer();
+			setup_nuklear();
 			setup_loader();
-			// ServiceLocator<graphics::FontContext>::make();
-			setup_entity_metadata();
+			setup_meta();
 			setup_scripting();
+			setup_services();
 
 			//
-			// Services.
+			// Add external libraries to Lua.
+			// Inject all configured galaxy into Lua.
+			// Add engine services to lua.
 			//
-			// const auto listener_count = config.get<int>("listener_count", "audio");
-			// ServiceLocator<media::SoundEngine>::make(listener_count);
-			// ServiceLocator<media::MusicEngine>::make(listener_count);
-			// ServiceLocator<media::VoiceEngine>::make(listener_count);
-			// ServiceLocator<resource::SoundCache>::make();
-			// ServiceLocator<resource::MusicCache>::make();
-			// ServiceLocator<resource::VoiceCache>::make();
-			// ServiceLocator<resource::VideoCache>::make();
-			// ServiceLocator<resource::Animations>::make();
-			// ServiceLocator<resource::Shaders>::make();
-			// ServiceLocator<resource::Fonts>::make();
-			// ServiceLocator<resource::Textures>::make();
-			// ServiceLocator<resource::Prefabs>::make();
-			// ServiceLocator<resource::Scripts>::make();
-			// ServiceLocator<scene::SceneManager>::make();
-
-			////
-			//// Add external libraries to Lua.
-			//// Inject all configured galaxy into Lua.
-			//// Add engine services to lua.
-			////
-			// lua::inject();
+			lua::inject();
 
 			//// Load game assets.
-			// core::ServiceLocator<core::Loader>::ref().load_all();
+			// core::entt::locator<core::Loader>::ref().load_all();
 		}
 
 		App::~App()
 		{
-			/*ServiceLocator<scene::SceneManager>::del();
-			ServiceLocator<resource::Scripts>::del();
-			ServiceLocator<resource::Prefabs>::del();
-			ServiceLocator<resource::Textures>::del();
-			ServiceLocator<resource::Fonts>::del();
-			ServiceLocator<resource::Shaders>::del();
-			ServiceLocator<resource::Animations>::del();
-			ServiceLocator<resource::VideoCache>::del();
-			ServiceLocator<resource::VoiceCache>::del();
-			ServiceLocator<resource::MusicCache>::del();
-			ServiceLocator<resource::SoundCache>::del();
-			ServiceLocator<media::VoiceEngine>::del();
-			ServiceLocator<media::MusicEngine>::del();
-			ServiceLocator<media::SoundEngine>::del();
-			ServiceLocator<sol::state>::del();
-			ServiceLocator<meta::EntityMeta>::del();
-			ServiceLocator<graphics::FontContext>::del();
-			ServiceLocator<Loader>::del();
-			graphics::Renderer::ref().destroy();
-			ServiceLocator<Window>::del();
-			ServiceLocator<fs::VirtualFileSystem>::del();
-			ServiceLocator<Config>::del();*/
-
-			GALAXY_LOG(GALAXY_INFO, "Application closed.");
+			entt::locator<scene::SceneManager>::reset();
+			entt::locator<sol::state>::reset();
+			entt::locator<meta::EntityFactory>::reset();
+			entt::locator<meta::SystemFactory>::reset();
+			entt::locator<entt::dispatcher>::reset();
+			entt::locator<sf::RenderWindow>::reset();
+			entt::locator<fs::VirtualFileSystem>::reset();
+			entt::locator<Config>::reset();
+			entt::locator<BS::light_thread_pool>::reset();
 			entt::locator<logging::Log>::reset();
 		}
 
 		void App::load()
 		{
-			/*const auto path = GALAXY_ROOT_DIR / GALAXY_APPDATA;
+			const auto path = settings::root_dir() / settings::asset_pack();
 
-			auto& sm = ServiceLocator<scene::SceneManager>::ref();
-			sm.load_app(path.string());*/
+			auto& sm = entt::locator<scene::SceneManager>::value();
+			sm.load_app(path.string());
 		}
 
 		void App::run()
@@ -114,6 +83,7 @@ namespace galaxy
 
 			auto& window     = entt::locator<sf::RenderWindow>::value();
 			auto& dispatcher = entt::locator<entt::dispatcher>::value();
+			auto& manager    = entt::locator<scene::SceneManager>::value();
 
 			using clock      = std::chrono::high_resolution_clock;
 			using duration   = std::chrono::duration<double>;
@@ -151,14 +121,16 @@ namespace galaxy
 					alpha  = dt / one_second;
 					settings::set_delta_time(alpha);
 
+					// nui.begin_input();
 					handle_events(window);
-					// manager.update();
+					// nui.end_input();
+					manager.update();
 
 					updates++;
 				}
 
 				window.clear(sf::Color::White);
-				// manager.render();
+				manager.render();
 				window.display();
 
 				frames++;
@@ -320,24 +292,21 @@ namespace galaxy
 			}
 		}
 
-		void App::setup_audio()
+		void App::setup_nuklear()
 		{
-		}
-
-		void App::setup_renderer()
-		{
-			// graphics::Renderer::ref().init();
 		}
 
 		void App::setup_loader()
 		{
-			// ServiceLocator<Loader>::make();
+			// entt::locator<Loader>::make();
 		}
 
-		void App::setup_entity_metadata()
+		void App::setup_meta()
 		{
+			auto& sf = entt::locator<meta::SystemFactory>::emplace();
+			auto& ef = entt::locator<meta::EntityFactory>::emplace();
+
 			/*
-			auto& em = ServiceLocator<meta::EntityMeta>::make();
 			em.register_component<components::Animated>("Animated");
 			em.register_component<components::Circle>("Circle");
 			em.register_component<components::Ellipse>("Ellipse");
@@ -380,6 +349,24 @@ namespace galaxy
 				sol::lib::io,
 				sol::lib::utf8
 			);
+		}
+
+		void App::setup_services()
+		{
+			// entt::locator<media::SoundEngine>::make(listener_count);
+			// entt::locator<media::MusicEngine>::make(listener_count);
+			// entt::locator<media::VoiceEngine>::make(listener_count);
+			// entt::locator<resource::SoundCache>::make();
+			// entt::locator<resource::MusicCache>::make();
+			// entt::locator<resource::VoiceCache>::make();
+			// entt::locator<resource::VideoCache>::make();
+			// entt::locator<resource::Animations>::make();
+			// entt::locator<resource::Shaders>::make();
+			// entt::locator<resource::Fonts>::make();
+			// entt::locator<resource::Textures>::make();
+			// entt::locator<resource::Prefabs>::make();
+			// entt::locator<resource::Scripts>::make();
+			entt::locator<scene::SceneManager>::emplace();
 		}
 
 		void App::handle_events(sf::RenderWindow& window)
