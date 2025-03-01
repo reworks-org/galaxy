@@ -10,6 +10,7 @@
 
 #include <ankerl/unordered_dense.h>
 
+#include "galaxy/core/Registry.hpp"
 #include "galaxy/fs/Serializable.hpp"
 #include "galaxy/meta/SystemFactory.hpp"
 #include "galaxy/systems/System.hpp"
@@ -61,7 +62,9 @@ namespace galaxy
 			///
 			/// Process events and updates.
 			///
-			void update(/*registry*/);
+			/// \param registry Registry to process.
+			///
+			void update(core::Registry& registry);
 
 			///
 			/// Update ui.
@@ -120,11 +123,6 @@ namespace galaxy
 			/// Scene event handler.
 			///
 			entt::dispatcher m_dispatcher;
-
-			///
-			/// Entity data.
-			///
-			core::Registry m_registry;
 
 			///
 			/// Box2D physics world.

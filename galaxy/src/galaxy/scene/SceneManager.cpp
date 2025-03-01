@@ -10,9 +10,12 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/components/Tag.hpp"
+#include "galaxy/flags/NotSerializable.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/ZLib.hpp"
+#include "galaxy/meta/EntityFactory.hpp"
 #include "galaxy/scripting/JSON.hpp"
 
 #include "SceneManager.hpp"
@@ -84,7 +87,7 @@ namespace galaxy
 		{
 			for (auto&& scene : m_stack)
 			{
-				scene->update();
+				scene->update(m_registry);
 			}
 		}
 
@@ -103,35 +106,40 @@ namespace galaxy
 			std::stringstream buffer;
 			buffer << in.rdbuf();
 
-			const auto data = buffer.str();
+			auto data = buffer.str();
 			if (!data.empty())
 			{
-				const auto decoded_zlib = math::decode_zlib(data);
-				if (!decoded_zlib.empty())
-
+				if constexpr (!GALAXY_DEBUG_BUILD)
 				{
-					const auto decoded_base64 = math::decode_base64(decoded_zlib);
-					if (!decoded_base64.empty())
+					data = math::decode_zlib(data);
+					if (!data.empty())
 					{
-						const auto parsed = nlohmann::json::parse(decoded_base64);
-
-						if (!parsed.empty())
+						data = math::decode_base64(data);
+						if (data.empty())
 						{
-							deserialize(parsed);
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_ERROR, "Failed to parse scenemanger JSON data from memory.");
+							GALAXY_LOG(GALAXY_ERROR, "Failed to decode base64 appdata '{0}'.", appdata_file);
 						}
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_ERROR, "Failed to decode base64 appdata '{0}'.", appdata_file);
+						GALAXY_LOG(GALAXY_ERROR, "Failed to decode zlib appdata '{0}'.", appdata_file);
 					}
+
+					if (data.empty())
+					{
+						return;
+					}
+				}
+
+				const auto parsed = nlohmann::json::parse(data);
+
+				if (!parsed.empty())
+				{
+					deserialize(parsed);
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to decode zlib appdata '{0}'.", appdata_file);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to parse scenemanger JSON data from memory.");
 				}
 			}
 			else
@@ -143,8 +151,32 @@ namespace galaxy
 		void SceneManager::save_app(const std::string& file)
 		{
 			const auto json = serialize();
+			auto       data = json::dump(json);
 
-			if (!json::write(file, json))
+			if constexpr (!GALAXY_DEBUG_BUILD)
+			{
+				data = math::encode_base64(data);
+				if (!data.empty())
+				{
+					data = math::encode_zlib(data);
+					if (data.empty())
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to encode scenemanager to zlib '{0}'.", file);
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to encode scenemanager to base64 '{0}'.", file);
+				}
+
+				if (data.empty())
+				{
+					return;
+				}
+			}
+
+			auto& fs = entt::locator<fs::VirtualFileSystem>::value();
+			if (!fs.write(data, file))
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", file);
 			}
@@ -152,6 +184,7 @@ namespace galaxy
 
 		void SceneManager::clear()
 		{
+			m_registry.clear();
 			m_stack.clear();
 			m_scenes.clear();
 		}
@@ -163,6 +196,8 @@ namespace galaxy
 
 		nlohmann::json SceneManager::serialize()
 		{
+			auto& em = entt::locator<meta::EntityFactory>::value();
+
 			nlohmann::json json = "{\"scenes\":{}}"_json;
 
 			for (auto& [id, scene] : m_scenes)
@@ -175,11 +210,19 @@ namespace galaxy
 				json["stack"][std::to_string(i)] = m_stack[i]->name();
 			}
 
+			json["entities"] = nlohmann::json::array();
+			for (const auto& [entity] : m_registry.m_entt.view<entt::entity>(entt::exclude<flags::NotSerializable>).each())
+			{
+				json["entities"].push_back(em.serialize_entity(entity, m_registry.m_entt));
+			}
+
 			return json;
 		}
 
 		void SceneManager::deserialize(const nlohmann::json& json)
 		{
+			auto& em = entt::locator<meta::EntityFactory>::value();
+
 			pop_all();
 			clear();
 
@@ -200,6 +243,18 @@ namespace galaxy
 			{
 				const auto hash = math::fnv1a(name.get<std::string>().c_str());
 				m_stack.insert(m_stack.begin() + std::stoi(index), m_scenes[hash]);
+			}
+
+			const auto& entity_json = json.at("entities");
+			for (const auto& data : entity_json)
+			{
+				const auto entity = em.deserialize_entity(data, m_registry.m_entt);
+
+				if (!m_registry.m_entt.all_of<components::Tag>(entity))
+				{
+					auto& tag = m_registry.m_entt.emplace<components::Tag>(entity);
+					tag.m_tag = "Untagged";
+				}
 			}
 		}
 	} // namespace scene

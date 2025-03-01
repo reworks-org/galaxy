@@ -44,6 +44,16 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		bool write(const std::string& file, const nlohmann::json& json);
+
+		///
+		/// Dump json to string.
+		///
+		/// \param json Json data to dump.
+		///
+		/// \return Json in string format.
+		///
+		[[nodiscard]]
+		std::string dump(const nlohmann::json& json);
 	} // namespace json
 } // namespace galaxy
 

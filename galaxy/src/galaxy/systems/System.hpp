@@ -41,7 +41,7 @@ namespace galaxy
 			/// \return Const string reference.
 			///
 			[[nodiscard]]
-			virtual const std::string& id() const noexcept final;
+			const std::string& id() const noexcept;
 
 		protected:
 			///

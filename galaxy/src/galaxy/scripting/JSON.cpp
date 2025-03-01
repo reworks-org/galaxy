@@ -34,6 +34,10 @@ namespace galaxy
 			auto& fs = entt::locator<fs::VirtualFileSystem>::value();
 			return fs.write(json.dump(4), file);
 		}
+
+		std::string dump(const nlohmann::json& json)
+		{
+			return json.dump(4);
 		}
 	} // namespace json
 } // namespace galaxy

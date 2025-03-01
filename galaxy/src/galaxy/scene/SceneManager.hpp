@@ -135,6 +135,11 @@ namespace galaxy
 			/// Active scenes.
 			///
 			std::vector<std::shared_ptr<Scene>> m_stack;
+
+			///
+			/// Entity data.
+			///
+			core::Registry m_registry;
 		};
 	} // namespace scene
 } // namespace galaxy

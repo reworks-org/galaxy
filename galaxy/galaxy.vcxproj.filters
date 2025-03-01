@@ -55,6 +55,9 @@
     <ClCompile Include="src\galaxy\meta\EntityFactory.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaScenes.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaServices.cpp" />
+    <ClCompile Include="src\galaxy\core\Registry.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaComponents.cpp" />
+    <ClCompile Include="src\galaxy\components\Tag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Async.hpp" />
@@ -100,5 +103,7 @@
     <ClInclude Include="src\galaxy\flags\NotSerializable.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />
     <ClInclude Include="src\galaxy\meta\EntityFactory.hpp" />
+    <ClInclude Include="src\galaxy\core\Registry.hpp" />
+    <ClInclude Include="src\galaxy\components\Tag.hpp" />
   </ItemGroup>
 </Project>

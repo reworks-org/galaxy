@@ -7,23 +7,7 @@
 
 #include <entt_sol/registry.hpp>
 
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Circle.hpp"
-#include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/GUI.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Polygon.hpp"
-#include "galaxy/components/Polyline.hpp"
-#include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Script.hpp"
-#include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Tag.hpp"
-#include "galaxy/components/Text.hpp"
-#include "galaxy/components/TileMap.hpp"
-#include "galaxy/components/Transform.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-
-#include "Lua.hpp"
 
 namespace galaxy
 {
@@ -31,9 +15,14 @@ namespace galaxy
 	{
 		void inject_components()
 		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& lua = entt::locator<sol::state>::value();
 
-			auto animated_type =
+			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);
+			tag_type["tag"] = &components::Tag::m_tag;
+
+			entt_sol::register_meta_component<components::Tag>();
+
+			/*auto animated_type =
 				lua.new_usertype<components::Animated>("Animated", sol::constructors<components::Animated()>(), "type_id", &entt::type_hash<components::Animated>::value);
 			animated_type["animation"] = &components::Animated::m_anim;
 			animated_type["duration"]  = &components::Animated::m_duration;
@@ -95,8 +84,7 @@ namespace galaxy
 			sprite_type["get_clip"]              = &components::Sprite::get_clip;
 			sprite_type["get_texture_name"]      = &components::Sprite::get_texture_name;
 
-			auto tag_type   = lua.new_usertype<components::Tag>("Tag", sol::constructors<components::Tag()>(), "type_id", &entt::type_hash<components::Tag>::value);
-			tag_type["tag"] = &components::Tag::m_tag;
+
 
 			auto text_type    = lua.new_usertype<components::Text>("Text", sol::constructors<components::Text()>(), "type_id", &entt::type_hash<components::Text>::value);
 			text_type["text"] = &components::Text::m_text;
@@ -122,10 +110,10 @@ namespace galaxy
 			entt_sol::register_meta_component<components::RigidBody>();
 			entt_sol::register_meta_component<components::Script>();
 			entt_sol::register_meta_component<components::Sprite>();
-			entt_sol::register_meta_component<components::Tag>();
+
 			entt_sol::register_meta_component<components::Text>();
 			entt_sol::register_meta_component<components::TileMap>();
-			entt_sol::register_meta_component<components::Transform>();
+			entt_sol::register_meta_component<components::Transform>();*/
 		}
 	} // namespace lua
 } // namespace galaxy

@@ -13,8 +13,10 @@
   <ItemGroup>
     <ClCompile Include="src\galaxy\async\Async.cpp" />
     <ClCompile Include="src\galaxy\async\Timer.cpp" />
+    <ClCompile Include="src\galaxy\components\Tag.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\core\Registry.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\flags\NotSerializable.cpp" />
     <ClCompile Include="src\galaxy\flags\Disabled.cpp" />
@@ -51,6 +53,7 @@
     <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSON.cpp" />
     <ClCompile Include="src\galaxy\scripting\Lua.cpp" />
+    <ClCompile Include="src\galaxy\scripting\lua\LuaComponents.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaCore.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaEntt.cpp" />
     <ClCompile Include="src\galaxy\scripting\lua\LuaFlags.cpp" />
@@ -69,8 +72,10 @@
   <ItemGroup>
     <ClInclude Include="src\galaxy\async\Async.hpp" />
     <ClInclude Include="src\galaxy\async\Timer.hpp" />
+    <ClInclude Include="src\galaxy\components\Tag.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\core\Registry.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\flags\NotSerializable.hpp" />
     <ClInclude Include="src\galaxy\flags\Disabled.hpp" />

@@ -12,6 +12,7 @@
 #include <SFML/Window.hpp>
 #include <sol/sol.hpp>
 
+#include "galaxy/components/Tag.hpp"
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
@@ -308,6 +309,7 @@ namespace galaxy
 			auto& sf = entt::locator<meta::SystemFactory>::emplace();
 			auto& ef = entt::locator<meta::EntityFactory>::emplace();
 
+			ef.register_component<components::Tag>("Tag");
 			/*
 			em.register_component<components::Animated>("Animated");
 			em.register_component<components::Circle>("Circle");
@@ -318,7 +320,6 @@ namespace galaxy
 			em.register_component<components::RigidBody>("RigidBody");
 			em.register_component<components::Script>("Script");
 			em.register_component<components::Sprite>("Sprite");
-			em.register_component<components::Tag>("Tag");
 			em.register_component<components::Text>("Text");
 			em.register_component<components::TileMap>("TileMap");
 			em.register_component<components::Transform>("Transform");

@@ -8,23 +8,7 @@
 #ifndef GALAXY_CORE_REGISTRY_HPP_
 #define GALAXY_CORE_REGISTRY_HPP_
 
-#include <box2d/b2_world.h>
 #include <entt/entity/registry.hpp>
-
-#include "galaxy/components/Animated.hpp"
-#include "galaxy/components/Circle.hpp"
-#include "galaxy/components/Ellipse.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Polygon.hpp"
-#include "galaxy/components/Polyline.hpp"
-#include "galaxy/components/RigidBody.hpp"
-#include "galaxy/components/Script.hpp"
-#include "galaxy/components/Sprite.hpp"
-#include "galaxy/components/Tag.hpp"
-#include "galaxy/components/Text.hpp"
-#include "galaxy/components/Transform.hpp"
-#include "galaxy/graphics/shapes/Shape.hpp"
-#include "galaxy/meta/Memory.hpp"
 
 namespace galaxy
 {
@@ -38,7 +22,7 @@ namespace galaxy
 			///
 			/// Typedef for creating b2 bodies from components.
 			///
-			using B2BodyConstruction = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
+			// using B2BodyConstruction = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
 
 		public:
 			///
@@ -69,7 +53,7 @@ namespace galaxy
 			[[maybe_unused]]
 			entt::entity create();
 
-			///
+			/*///
 			/// Create an entity from a prefab.
 			///
 			/// \param name Name of the prefab to load.
@@ -77,7 +61,7 @@ namespace galaxy
 			/// \return Created entity, or entt::null if failed.
 			///
 			[[maybe_unused]]
-			entt::entity create_from_prefab(const std::string& name);
+			entt::entity create_from_prefab(const std::string& name);*/
 
 			///
 			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
@@ -89,14 +73,14 @@ namespace galaxy
 			[[nodiscard]]
 			bool is_valid(const entt::entity entity);
 
-			///
+			/*///
 			/// \brief Updates pending component data.
 			///
 			/// For example, box2d bodies.
 			///
 			/// \param b2World Box2d world data.
 			///
-			void update(b2World& b2World);
+			void update(b2World& b2World);*/
 
 			///
 			/// Clear any pending data.
@@ -114,7 +98,7 @@ namespace galaxy
 			///
 			Registry& operator=(const Registry&) = delete;
 
-			///
+			/*///
 			/// Function that integrates a box2d construction with entt.
 			///
 			/// \param registry Registry component belongs to.
@@ -160,7 +144,7 @@ namespace galaxy
 			/// \param registry Registry component belongs to.
 			/// \param entity Entity component belongs to.
 			///
-			void destruct_nui(entt::registry& registry, entt::entity entity);
+			void destruct_nui(entt::registry& registry, entt::entity entity);*/
 
 			///
 			/// Function that runs when an entity is enabled.
@@ -188,7 +172,7 @@ namespace galaxy
 			///
 			/// List of rigid bodies that need to be constructed.
 			///
-			B2BodyConstruction m_bodies_to_construct;
+			// B2BodyConstruction m_bodies_to_construct;
 		};
 	} // namespace core
 } // namespace galaxy

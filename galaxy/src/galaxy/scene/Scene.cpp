@@ -52,7 +52,7 @@ namespace galaxy
 			entt::locator<sol::state>::value().collect_garbage();
 		}
 
-		void Scene::update(/*registry*/)
+		void Scene::update(core::Registry& registry)
 		{
 			// graphics::Renderer::ref().flush();
 			// m_registry.update(m_b2world);
@@ -120,15 +120,6 @@ namespace galaxy
 		{
 			/*
 			json["camera"]      = m_camera.serialize();
-			json["entities"]    = nlohmann::json::array();
-
-			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
-
-			for (const auto& [entity] : m_registry.m_entt.view<entt::entity>(entt::exclude<flags::DenySerialization>).each())
-			{
-				json["entities"].push_back(em.serialize_entity(entity, m_registry.m_entt));
-			}
-
 			json["physics"] = nlohmann::json::object();
 			auto& physics   = json.at("physics");
 
@@ -149,7 +140,6 @@ namespace galaxy
 			json["name"]        = m_name;
 
 			json["systems"] = nlohmann::json::object();
-
 			for (auto i = 0; i < m_systems.size(); i++)
 			{
 				json["systems"][std::to_string(i)] = m_systems[i]->id();
@@ -173,8 +163,6 @@ namespace galaxy
 			m_camera.deserialize(json.at("camera"));
 			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 
-			m_registry.clear();
-
 			const auto& physics = json.at("physics");
 			const auto& gravity = physics.at("gravity");
 
@@ -183,18 +171,6 @@ namespace galaxy
 			m_b2world.SetAutoClearForces(physics.at("allow_autoclearforces"));
 			m_velocity_iterations = physics.at("velocity_iterations");
 			m_position_iterations = physics.at("position_iterations");
-
-			const auto& entity_json = json.at("entities");
-			for (const auto& data : entity_json)
-			{
-				const auto entity = em.deserialize_entity(data, m_registry.m_entt);
-
-				if (!m_registry.m_entt.all_of<components::Tag>(entity))
-				{
-					auto& tag = m_registry.m_entt.emplace<components::Tag>(entity);
-					tag.m_tag = "Untagged";
-				}
-			}
 
 			if (load_world(json.at("ldtk_world")))
 			{
