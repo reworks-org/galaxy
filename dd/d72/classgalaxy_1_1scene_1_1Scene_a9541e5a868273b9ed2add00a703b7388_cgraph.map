@@ -1,9 +1,0 @@
-<map id="galaxy::scene::Scene::serialize" name="galaxy::scene::Scene::serialize">
-<area shape="rect" id="Node000001" title="Serializes object." alt="" coords="5,69,164,109"/>
-<area shape="rect" id="Node000002" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="230,5,377,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,67,221,47,222,52,155,72"/>
-<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615" title="Get currently active map." alt="" coords="230,69,377,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,87,216,87,216,92,165,92"/>
-<area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#ae8f648cab3324ae6cd9a25f00bcee1ef" title="Get map name." alt="" coords="212,134,395,159"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,107,241,128,240,133,161,112"/>
-</map>

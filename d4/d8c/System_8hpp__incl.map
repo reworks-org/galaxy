@@ -1,9 +1,9 @@
 <map id="galaxy/src/galaxy/systems/System.hpp" name="galaxy/src/galaxy/systems/System.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="87,5,283,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="41,5,237,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,85,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,48,79,89,77,84,151,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,261,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,46,188,79,183,79,183,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="285,93,456,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,43,332,85,330,90,229,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,48,72,86,68,82,114,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,168,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,46,141,79,136,79,136,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,93,363,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,43,246,84,244,89,171,48"/>
 </map>

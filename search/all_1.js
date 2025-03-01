@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['add_0',['add',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7',1,'galaxy::scene::SceneManager::add()'],['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3',1,'galaxy::state::StateMachine::add()']]],
+  ['add_0',['add',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3',1,'galaxy::state::StateMachine']]],
   ['add_5fcmd_1',['add_cmd',['../d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71',1,'galaxy::systems']]],
-  ['add_5fcustom_2',['add_custom',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a1a71295da930da92ce9eb3ca1246d59c',1,'galaxy::scene::SceneManager']]],
-  ['add_5fsink_3',['add_sink',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06',1,'galaxy::logging::Log']]],
+  ['add_5fsink_2',['add_sink',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06',1,'galaxy::logging::Log']]],
+  ['add_5fsystem_3',['add_system',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a10bd61d40425228dad7199da082d4cca',1,'galaxy::scene::Scene']]],
   ['alert_4',['alert',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa336bcf3a2dbc19d3ab4a7610412d861',1,'galaxy::fs::VirtualFileSystem']]],
   ['alive_5',['alive',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269',1,'galaxy::platform::Subprocess']]],
   ['animated_6',['Animated',['../da/d18/classgalaxy_1_1components_1_1Animated.html',1,'galaxy::components::Animated'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a27201816d702ff9fda9e6b7ae2d9d643',1,'galaxy::components::Animated::Animated()'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb',1,'galaxy::components::Animated::Animated(const nlohmann::json &amp;json)'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a3e51e33a707de12dc62c9f779aa56512',1,'galaxy::components::Animated::Animated(Animated &amp;&amp;)'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a84973042241996eb083b0a6a29bb3152',1,'galaxy::components::Animated::Animated(const Animated &amp;)=delete']]],
@@ -15,8 +15,8 @@ var searchData=
   ['animationsystem_12',['AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html',1,'galaxy::systems::AnimationSystem'],['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#abe4b779bb1d4174a16e875e881872c22',1,'galaxy::systems::AnimationSystem::AnimationSystem()']]],
   ['animationsystem_2ecpp_13',['AnimationSystem.cpp',['../d6/da7/AnimationSystem_8cpp.html',1,'']]],
   ['animationsystem_2ehpp_14',['AnimationSystem.hpp',['../d5/d42/AnimationSystem_8hpp.html',1,'']]],
-  ['any_5ffrom_5fjson_15',['any_from_json',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad1dc9b72af0c357b2f3f6c3ef0e4fa26',1,'galaxy::meta::EntityMeta']]],
-  ['anyjsonfactory_16',['AnyJSONFactory',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#a8216e3407119df1264b7def01ebb0e82',1,'galaxy::meta::EntityMeta']]],
+  ['any_5ffrom_5fjson_15',['any_from_json',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a80c20e0e31290d47180770220d4f3db4',1,'galaxy::meta::EntityFactory']]],
+  ['anyjsonfactory_16',['AnyJSONFactory',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a1b906badece910b2b3d34c1a0e08dc0a',1,'galaxy::meta::EntityFactory']]],
   ['app_17',['App',['../d5/d5a/classgalaxy_1_1core_1_1App.html',1,'galaxy::core::App'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4',1,'galaxy::core::App::App(std::string_view log_dir, std::string_view config_file)'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#a34e270ec493f7b27314569aa3d0a7b5f',1,'galaxy::core::App::App(const App &amp;)=delete'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#aa3549ecb6786d6fa07cb649e54712b54',1,'galaxy::core::App::App(App &amp;&amp;)=delete']]],
   ['application_2ecpp_18',['Application.cpp',['../d2/db6/Application_8cpp.html',1,'']]],
   ['application_2ehpp_19',['Application.hpp',['../df/d3c/Application_8hpp.html',1,'']]],
@@ -34,8 +34,9 @@ var searchData=
   ['assets_5fdir_5fui_31',['assets_dir_ui',['../d1/db3/structgalaxy_1_1settings.html#af758bee1dbc00d8210497aa707dd7e3d',1,'galaxy::settings']]],
   ['assets_5fdir_5fvideo_32',['assets_dir_video',['../d1/db3/structgalaxy_1_1settings.html#a116d451d1c8704884db33407c4e344ba',1,'galaxy::settings']]],
   ['assets_5fdir_5fvoice_33',['assets_dir_voice',['../d1/db3/structgalaxy_1_1settings.html#a1f4efd5062b1830cd05b56e8fc07c0bc',1,'galaxy::settings']]],
-  ['async_2ecpp_34',['Async.cpp',['../df/d28/Async_8cpp.html',1,'']]],
-  ['async_2ehpp_35',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]],
-  ['auto_5farg_36',['AUTO_ARG',['../d2/dc7/LuaEntt_8cpp.html#a41da4e65c770085ad2be1469e5433a49',1,'LuaEntt.cpp']]],
-  ['available_5fbytes_37',['available_bytes',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a8a18c7be556edc77b7e3dc03f72ccb9d',1,'galaxy::mem::RingBuffer']]]
+  ['assets_5fpath_5fwrapper_34',['assets_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66',1,'galaxy::lua']]],
+  ['async_2ecpp_35',['Async.cpp',['../df/d28/Async_8cpp.html',1,'']]],
+  ['async_2ehpp_36',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]],
+  ['auto_5farg_37',['AUTO_ARG',['../d2/dc7/LuaEntt_8cpp.html#a41da4e65c770085ad2be1469e5433a49',1,'LuaEntt.cpp']]],
+  ['available_5fbytes_38',['available_bytes',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a8a18c7be556edc77b7e3dc03f72ccb9d',1,'galaxy::mem::RingBuffer']]]
 ];

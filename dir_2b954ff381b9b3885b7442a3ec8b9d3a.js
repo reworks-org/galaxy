@@ -6,6 +6,8 @@ var dir_2b954ff381b9b3885b7442a3ec8b9d3a =
     [ "Circle.hpp", "d8/d85/Circle_8hpp.html", "d8/d85/Circle_8hpp" ],
     [ "Ellipse.cpp", "d2/d75/Ellipse_8cpp.html", null ],
     [ "Ellipse.hpp", "d0/d42/Ellipse_8hpp.html", "d0/d42/Ellipse_8hpp" ],
+    [ "GUI.cpp", "d8/d7b/GUI_8cpp.html", null ],
+    [ "GUI.hpp", "d1/d6f/GUI_8hpp.html", "d1/d6f/GUI_8hpp" ],
     [ "Point.cpp", "d3/d3f/Point_8cpp.html", null ],
     [ "Point.hpp", "d4/d76/Point_8hpp.html", "d4/d76/Point_8hpp" ],
     [ "Polygon.cpp", "d0/d97/Polygon_8cpp.html", null ],

@@ -1,10 +1,8 @@
 <map id="galaxy::resource::Cache::size" name="galaxy::resource::Cache::size">
-<area shape="rect" id="Node000001" title="Get amount of resources cached." alt="" coords="601,35,779,75"/>
-<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="376,5,553,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,44,553,40,554,34,588,39"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title="Injects galaxy resource caches into lua." alt="" coords="191,35,328,75"/>
-<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="588,60,553,60,376,60,328,59,328,54,376,55,553,55,588,54"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,43,329,48,328,42,362,37"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,42,143,67"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,57,143,57,143,52,177,52"/>
+<area shape="rect" id="Node000001" title="Get amount of resources cached." alt="" coords="416,35,593,75"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="191,5,368,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="402,44,368,40,368,34,403,39"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="5,35,143,75"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="402,60,368,60,191,60,143,59,143,54,191,55,368,55,402,54"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,43,143,48,143,42,176,37"/>
 </map>

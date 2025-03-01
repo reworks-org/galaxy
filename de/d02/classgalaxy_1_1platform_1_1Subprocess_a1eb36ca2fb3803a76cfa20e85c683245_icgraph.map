@@ -1,5 +1,11 @@
 <map id="galaxy::platform::Subprocess::create" name="galaxy::platform::Subprocess::create">
-<area shape="rect" id="Node000001" title="Launch a subprocess." alt="" coords="264,5,475,45"/>
-<area shape="rect" id="Node000002" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a99e8b2e5aa213978836dddf2c370e49a" title="Create constructor." alt="" coords="5,5,216,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,28,216,28,216,23,250,23"/>
+<area shape="rect" id="Node000001" title="Launch a subprocess." alt="" coords="664,37,875,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ac8b3c00560625a3841d7801f7c2d8fcb" title="Inject platform stuff into Lua." alt="" coords="442,5,579,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="650,45,579,36,580,31,651,40"/>
+<area shape="rect" id="Node000005" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a99e8b2e5aa213978836dddf2c370e49a" title="Create constructor." alt="" coords="405,69,616,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="651,75,616,79,616,74,650,69"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,28,357,28,357,23,428,23"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>

@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['add_0',['add',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7',1,'galaxy::scene::SceneManager::add()'],['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3',1,'galaxy::state::StateMachine::add()']]],
+  ['add_0',['add',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3',1,'galaxy::state::StateMachine']]],
   ['add_5fcmd_1',['add_cmd',['../d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71',1,'galaxy::systems']]],
-  ['add_5fcustom_2',['add_custom',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a1a71295da930da92ce9eb3ca1246d59c',1,'galaxy::scene::SceneManager']]],
-  ['add_5fsink_3',['add_sink',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06',1,'galaxy::logging::Log']]],
+  ['add_5fsink_2',['add_sink',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06',1,'galaxy::logging::Log']]],
+  ['add_5fsystem_3',['add_system',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a10bd61d40425228dad7199da082d4cca',1,'galaxy::scene::Scene']]],
   ['alert_4',['alert',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa336bcf3a2dbc19d3ab4a7610412d861',1,'galaxy::fs::VirtualFileSystem']]],
   ['alive_5',['alive',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269',1,'galaxy::platform::Subprocess']]],
   ['animated_6',['Animated',['../da/d18/classgalaxy_1_1components_1_1Animated.html#a27201816d702ff9fda9e6b7ae2d9d643',1,'galaxy::components::Animated::Animated()'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb',1,'galaxy::components::Animated::Animated(const nlohmann::json &amp;json)'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a3e51e33a707de12dc62c9f779aa56512',1,'galaxy::components::Animated::Animated(Animated &amp;&amp;)'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a84973042241996eb083b0a6a29bb3152',1,'galaxy::components::Animated::Animated(const Animated &amp;)=delete']]],
   ['animationsystem_7',['AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#abe4b779bb1d4174a16e875e881872c22',1,'galaxy::systems::AnimationSystem']]],
-  ['any_5ffrom_5fjson_8',['any_from_json',['../db/db8/classgalaxy_1_1meta_1_1EntityMeta.html#ad1dc9b72af0c357b2f3f6c3ef0e4fa26',1,'galaxy::meta::EntityMeta']]],
+  ['any_5ffrom_5fjson_8',['any_from_json',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a80c20e0e31290d47180770220d4f3db4',1,'galaxy::meta::EntityFactory']]],
   ['app_9',['App',['../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4',1,'galaxy::core::App::App(std::string_view log_dir, std::string_view config_file)'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#a34e270ec493f7b27314569aa3d0a7b5f',1,'galaxy::core::App::App(const App &amp;)=delete'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#aa3549ecb6786d6fa07cb649e54712b54',1,'galaxy::core::App::App(App &amp;&amp;)=delete']]],
   ['asset_5fpack_10',['asset_pack',['../d1/db3/structgalaxy_1_1settings.html#a5146b2ba963e52a9709212539af6e68a',1,'galaxy::settings']]],
   ['assets_5fdir_11',['assets_dir',['../d1/db3/structgalaxy_1_1settings.html#ab5ed71114ee3dd59ccbeb2fb7eb7d86c',1,'galaxy::settings']]],
@@ -24,5 +24,6 @@ var searchData=
   ['assets_5fdir_5fui_21',['assets_dir_ui',['../d1/db3/structgalaxy_1_1settings.html#af758bee1dbc00d8210497aa707dd7e3d',1,'galaxy::settings']]],
   ['assets_5fdir_5fvideo_22',['assets_dir_video',['../d1/db3/structgalaxy_1_1settings.html#a116d451d1c8704884db33407c4e344ba',1,'galaxy::settings']]],
   ['assets_5fdir_5fvoice_23',['assets_dir_voice',['../d1/db3/structgalaxy_1_1settings.html#a1f4efd5062b1830cd05b56e8fc07c0bc',1,'galaxy::settings']]],
-  ['available_5fbytes_24',['available_bytes',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a8a18c7be556edc77b7e3dc03f72ccb9d',1,'galaxy::mem::RingBuffer']]]
+  ['assets_5fpath_5fwrapper_24',['assets_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66',1,'galaxy::lua']]],
+  ['available_5fbytes_25',['available_bytes',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a8a18c7be556edc77b7e3dc03f72ccb9d',1,'galaxy::mem::RingBuffer']]]
 ];

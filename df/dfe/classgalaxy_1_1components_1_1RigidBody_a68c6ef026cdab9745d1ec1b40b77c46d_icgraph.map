@@ -1,7 +1,5 @@
 <map id="galaxy::components::RigidBody::set_restitution" name="galaxy::components::RigidBody::set_restitution">
-<area shape="rect" id="Node000001" title="Set restitution of body." alt="" coords="376,5,573,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="362,28,329,28,329,23,362,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" id="Node000001" title="Set restitution of body." alt="" coords="191,5,388,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb" title="Inject galaxy components into Lua." alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
 </map>

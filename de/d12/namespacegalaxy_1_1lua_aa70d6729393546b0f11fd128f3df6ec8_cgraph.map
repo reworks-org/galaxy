@@ -1,50 +1,74 @@
 <map id="galaxy::lua::inject_fs" name="galaxy::lua::inject_fs">
-<area shape="rect" id="Node000001" title="Injects VFS support into lua." alt="" coords="5,498,161,523"/>
+<area shape="rect" id="Node000001" title="Injects VFS support into Lua." alt="" coords="5,721,161,746"/>
 <area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa336bcf3a2dbc19d3ab4a7610412d861" title="Trigger a standard filesystem audio alert." alt="" coords="209,5,417,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,498,82,422,87,367,96,304,111,238,133,172,165,110,207,56,211,52,215,56,211,59,170,113,138,174,116,240,101,305,92,367,88,423,87,498"/>
-<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a544d3639474282cb574f3a71005cc" title="Does the file exist in the vfs." alt="" coords="209,69,417,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="82,498,86,431,103,330,119,274,140,218,170,166,207,119,212,115,216,119,211,123,174,169,145,220,124,276,108,331,92,432,87,498"/>
-<area shape="rect" id="Node000004" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a70fbf3f87cf7cc4cacda202b543957a7" title="Opens a platform specific text input box." alt="" coords="209,133,417,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="83,498,91,441,110,357,126,310,148,264,174,221,207,183,213,179,216,183,211,187,179,224,152,267,131,312,116,358,96,442,88,498"/>
-<area shape="rect" id="Node000005" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0627b16f69366b4ea91893323878e28c" title="Checks if a file is a folder." alt="" coords="209,197,417,237"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="85,497,97,451,120,387,157,316,180,283,208,254,224,242,228,246,211,258,184,287,161,319,125,389,102,453,90,498"/>
-<area shape="rect" id="Node000006" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7c5251b2802b396ce925d11da0286ebd" title="Get assets in an asset folder." alt="" coords="465,304,673,344"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="85,497,97,456,120,400,137,370,157,342,180,318,208,298,244,281,283,272,323,268,363,268,440,279,505,297,503,302,438,285,363,274,323,273,284,277,246,286,211,302,184,322,161,346,141,373,125,402,102,457,90,498"/>
-<area shape="rect" id="Node000008" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1c8e68d9e1714a071d58d44276931e16" title="Opens a platform specific message box." alt="" coords="209,312,417,352"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="91,496,136,436,169,400,208,368,231,355,233,360,211,373,173,404,140,440,95,500"/>
-<area shape="rect" id="Node000009" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="465,424,673,464"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="94,496,140,452,172,429,208,412,245,402,282,397,358,396,430,405,493,418,492,423,430,410,358,401,283,402,246,408,210,417,175,434,143,456,98,500"/>
-<area shape="rect" id="Node000010" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a68149d18f2002762f5c088eafbd85185" title="Trigger a system notification." alt="" coords="209,427,417,467"/>
-<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="129,495,227,468,228,473,131,500"/>
-<area shape="rect" id="Node000011" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="209,491,417,531"/>
-<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="162,508,196,508,196,513,162,513"/>
-<area shape="rect" id="Node000013" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481" title="Open a save file dialog." alt="" coords="209,555,417,595"/>
-<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="131,521,228,548,227,554,129,526"/>
-<area shape="rect" id="Node000014" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abb096bdd0cd7353e2f8418311ee2bb88" title="Read a file." alt="" coords="465,656,673,696"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="92,522,108,554,133,595,167,637,188,654,210,668,271,690,336,700,400,700,459,695,460,701,400,706,335,705,270,695,208,673,185,659,163,640,128,598,103,557,87,525"/>
-<area shape="rect" id="Node000015" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1a3e133cb00bf160d08d24df9a9fab03" title="Read a binary file." alt="" coords="465,720,673,760"/>
-<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="91,523,104,561,128,612,164,664,186,687,211,706,268,732,330,747,392,753,451,752,451,757,392,758,329,752,266,737,208,710,182,691,159,667,124,614,99,563,86,525"/>
-<area shape="rect" id="Node000016" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae3c7b2fab3fe92ca74c867fbe60a56bc" title="Delete a file or folder." alt="" coords="465,784,673,824"/>
-<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="89,523,100,569,122,634,138,669,158,702,182,733,211,758,238,774,267,787,329,805,392,813,452,814,452,819,392,818,328,810,265,792,235,779,208,762,178,736,153,705,133,671,117,636,95,571,84,524"/>
-<area shape="rect" id="Node000017" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7" title="Select a folder using a dialog." alt="" coords="209,619,417,659"/>
-<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="100,521,146,562,177,584,211,604,225,611,223,616,208,609,175,589,143,566,96,525"/>
-<area shape="rect" id="Node000018" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a62ac56b58a8bb758011b1b50a75ee2d8" title="Writes a file to disk." alt="" coords="209,835,417,875"/>
-<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="89,523,98,576,119,654,135,697,156,739,181,779,211,814,226,826,223,830,207,818,177,782,151,742,130,699,114,656,93,577,84,524"/>
-<area shape="rect" id="Node000019" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a276110547622b2aef0ebc1abc2a7f80c" title="Raw data writing." alt="" coords="465,867,673,907"/>
-<area shape="poly" id="edge28_Node000001_Node000019" title=" " alt="" coords="87,524,88,591,93,639,102,692,117,746,140,799,170,846,211,885,243,903,278,916,315,923,353,925,427,920,493,908,494,913,428,926,353,931,314,928,277,921,241,908,208,889,166,849,135,801,112,748,97,693,88,640,83,591,81,524"/>
-<area shape="rect" id="Node000020" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9370906700c846b004d8ca9f9c22ad74" title="Writes a binary file to disk." alt="" coords="209,949,417,989"/>
-<area shape="poly" id="edge26_Node000001_Node000020" title=" " alt="" coords="87,523,91,593,106,701,122,761,144,822,173,878,211,929,224,940,221,944,207,932,169,881,139,824,117,763,101,702,85,594,82,524"/>
-<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="525,304,522,294,530,285,545,279,569,277,597,280,612,287,610,292,596,285,569,283,546,285,533,289,528,295,530,303"/>
-<area shape="rect" id="Node000007" href="$dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="721,688,893,728"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="602,342,640,372,675,410,719,480,755,553,781,621,799,674,794,676,776,622,750,555,715,482,671,414,636,376,599,346"/>
-<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="597,462,635,495,675,534,738,609,787,675,782,678,734,612,671,538,631,499,594,466"/>
-<area shape="rect" id="Node000012" href="$d1/db3/structgalaxy_1_1settings.html#a566d989a8396d9f36754fb8d3084e41b" title="Current root directory of application, unless it has been changed." alt="" coords="478,549,661,574"/>
-<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="415,528,492,543,491,549,414,533"/>
-<area shape="poly" id="edge16_Node000014_Node000007" title=" " alt="" coords="674,687,708,692,708,697,673,693"/>
-<area shape="poly" id="edge18_Node000015_Node000007" title=" " alt="" coords="673,723,708,719,708,724,674,729"/>
-<area shape="poly" id="edge20_Node000016_Node000007" title=" " alt="" coords="639,781,672,770,755,732,758,736,674,774,641,786"/>
-<area shape="poly" id="edge22_Node000017_Node000012" title=" " alt="" coords="380,616,512,576,514,581,381,621"/>
-<area shape="poly" id="edge24_Node000018_Node000019" title=" " alt="" coords="418,865,452,869,451,875,417,870"/>
-<area shape="poly" id="edge25_Node000019_Node000007" title=" " alt="" coords="618,864,672,834,731,785,778,736,782,740,734,789,675,838,620,869"/>
-<area shape="poly" id="edge27_Node000020_Node000019" title=" " alt="" coords="375,947,493,908,494,914,377,952"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,720,92,598,113,400,130,296,151,199,176,118,191,87,207,62,219,51,223,55,211,66,196,89,181,120,156,200,135,297,119,401,97,598,88,721"/>
+<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#ac140cf5e552ce3819a6910cadc844129" title="Close the open physfs handle." alt="" coords="478,713,661,753"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,731,464,731,464,736,162,736"/>
+<area shape="rect" id="Node000004" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30" title="Is the physfs file open." alt="" coords="721,328,904,368"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="97,719,144,681,175,660,208,642,265,622,312,615,359,609,416,591,522,539,623,479,709,421,773,374,776,378,712,425,625,484,525,544,418,596,361,614,313,620,267,627,210,646,178,664,147,685,100,723"/>
+<area shape="rect" id="Node000006" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a12a544d3639474282cb574f3a71005cc" title="Does the file exist in the vfs." alt="" coords="209,171,417,211"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="83,720,96,623,121,473,138,394,158,322,181,262,207,221,211,217,215,221,211,224,186,264,164,323,144,395,127,474,101,624,89,721"/>
+<area shape="rect" id="Node000007" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a82847a245ea259020a0576448de57e55" title="Get pointer to extension for a filename string." alt="" coords="209,235,417,275"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="81,721,83,646,87,591,96,530,111,465,134,400,165,339,207,285,211,281,215,285,211,288,170,342,139,402,117,466,102,531,92,592,88,646,87,721"/>
+<area shape="rect" id="Node000008" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#adaaf69fc86103f4254e9f2bfe76f6459" title="Return the size of the stream." alt="" coords="478,92,661,132"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="83,720,90,604,110,421,126,325,147,238,174,167,190,140,208,121,239,100,273,85,310,76,348,72,422,75,489,86,488,91,422,80,348,77,311,81,275,90,241,104,211,125,194,143,179,169,152,240,131,326,115,422,95,604,88,721"/>
+<area shape="rect" id="Node000009" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a70fbf3f87cf7cc4cacda202b543957a7" title="Opens a platform specific text input box." alt="" coords="209,363,417,403"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="83,720,91,664,111,582,127,536,148,492,175,450,207,413,213,408,216,412,211,417,179,453,153,494,132,538,116,583,97,665,88,721"/>
+<area shape="rect" id="Node000010" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0627b16f69366b4ea91893323878e28c" title="Checks if a file is a folder." alt="" coords="209,427,417,467"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="85,720,97,676,121,612,157,544,181,512,208,483,225,471,228,475,211,487,185,515,162,547,126,615,103,677,90,721"/>
+<area shape="rect" id="Node000011" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a7c5251b2802b396ce925d11da0286ebd" title="Get assets in an asset folder." alt="" coords="465,1301,673,1341"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="88,746,99,848,123,1005,139,1088,160,1163,184,1224,197,1247,211,1263,236,1283,264,1299,326,1320,390,1330,452,1332,452,1337,390,1335,325,1325,262,1304,234,1288,207,1267,193,1250,179,1226,155,1164,134,1089,117,1006,94,849,83,747"/>
+<area shape="rect" id="Node000012" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1c8e68d9e1714a071d58d44276931e16" title="Opens a platform specific message box." alt="" coords="209,541,417,581"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="91,719,137,662,170,628,208,598,231,585,234,589,211,602,174,632,141,665,96,722"/>
+<area shape="rect" id="Node000013" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="465,1365,673,1405"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="88,746,96,860,117,1040,134,1134,155,1221,180,1291,195,1317,211,1337,236,1356,264,1372,326,1392,390,1400,452,1400,452,1405,390,1405,325,1397,262,1377,233,1361,207,1341,191,1320,176,1293,150,1222,129,1135,112,1041,91,861,83,746"/>
+<area shape="rect" id="Node000014" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a68149d18f2002762f5c088eafbd85185" title="Trigger a system notification." alt="" coords="209,656,417,696"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="134,718,219,697,220,702,136,723"/>
+<area shape="rect" id="Node000015" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a26bf2c276709e7e68a3634ede3360046" title="Open file in physfs." alt="" coords="478,1429,661,1469"/>
+<area shape="poly" id="edge19_Node000001_Node000015" title=" " alt="" coords="88,746,94,872,113,1073,129,1179,150,1276,177,1355,193,1384,211,1406,238,1427,267,1442,299,1454,332,1462,400,1468,464,1465,464,1470,400,1473,332,1467,298,1459,265,1447,235,1431,207,1410,189,1387,173,1357,145,1277,124,1180,108,1074,89,873,82,747"/>
+<area shape="rect" id="Node000016" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="209,771,417,811"/>
+<area shape="poly" id="edge21_Node000001_Node000016" title=" " alt="" coords="136,743,220,765,219,770,134,749"/>
+<area shape="rect" id="Node000018" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aabafca0b5522d2a3e9286dfc7a9bf481" title="Open a save file dialog." alt="" coords="209,835,417,875"/>
+<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="101,744,148,781,211,820,226,827,224,832,208,825,145,786,98,748"/>
+<area shape="rect" id="Node000019" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a2bd95de7a1ed054461ccd4142735b48f" title="Read data from the stream." alt="" coords="478,184,661,224"/>
+<area shape="poly" id="edge24_Node000001_Node000019" title=" " alt="" coords="83,720,91,610,112,438,128,348,149,266,175,200,191,175,208,157,244,135,285,123,327,121,370,125,413,134,453,147,520,175,518,180,451,152,411,139,369,130,327,126,285,129,246,140,211,161,195,178,180,202,154,268,133,349,117,439,96,611,88,721"/>
+<area shape="rect" id="Node000020" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#abb096bdd0cd7353e2f8418311ee2bb88" title="Read a file." alt="" coords="465,1085,673,1125"/>
+<area shape="poly" id="edge26_Node000001_Node000020" title=" " alt="" coords="87,746,88,814,93,862,102,914,117,969,140,1021,170,1069,211,1107,244,1126,279,1138,317,1145,355,1147,430,1141,496,1127,497,1132,431,1146,355,1152,316,1150,278,1143,241,1131,208,1111,166,1072,135,1024,112,971,97,916,88,862,83,814,81,746"/>
+<area shape="rect" id="Node000021" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1a3e133cb00bf160d08d24df9a9fab03" title="Read a binary file." alt="" coords="465,1149,673,1189"/>
+<area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="89,746,103,830,128,954,145,1018,165,1077,187,1123,211,1153,241,1172,274,1185,308,1194,344,1199,415,1198,480,1189,481,1195,415,1203,343,1204,307,1199,272,1190,238,1176,208,1157,183,1126,160,1079,140,1020,123,956,97,831,84,747"/>
+<area shape="rect" id="Node000022" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#ae3c7b2fab3fe92ca74c867fbe60a56bc" title="Delete a file or folder." alt="" coords="465,1213,673,1253"/>
+<area shape="poly" id="edge30_Node000001_Node000022" title=" " alt="" coords="89,746,101,839,125,979,142,1051,162,1117,185,1171,198,1190,211,1205,238,1224,268,1238,300,1248,334,1254,401,1257,464,1253,464,1258,401,1263,333,1259,299,1253,267,1243,236,1228,208,1209,194,1194,181,1173,157,1119,137,1053,120,980,96,839,83,747"/>
+<area shape="rect" id="Node000023" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a38dc6f6cc769e04ed733e7393ad25b33" title="Change the current reading position." alt="" coords="222,299,405,339"/>
+<area shape="poly" id="edge32_Node000001_Node000023" title=" " alt="" coords="82,720,87,655,104,556,119,501,141,446,170,394,207,349,212,345,216,349,211,353,175,397,146,448,124,502,109,557,92,656,87,721"/>
+<area shape="rect" id="Node000024" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a466b85a103098a5d1ea798aeaf732137" title="Get the current reading position in the stream." alt="" coords="478,356,661,396"/>
+<area shape="poly" id="edge38_Node000001_Node000024" title=" " alt="" coords="86,719,100,681,125,629,160,574,183,549,208,527,236,510,261,501,309,495,359,492,386,487,416,476,479,441,532,403,535,407,482,445,418,481,387,492,359,498,310,500,263,506,238,515,211,531,186,553,165,577,129,632,105,683,91,721"/>
+<area shape="rect" id="Node000025" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7" title="Select a folder using a dialog." alt="" coords="209,899,417,939"/>
+<area shape="poly" id="edge36_Node000001_Node000025" title=" " alt="" coords="94,745,137,811,171,851,211,885,221,890,218,895,208,889,167,854,133,815,89,748"/>
+<area shape="rect" id="Node000026" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a62ac56b58a8bb758011b1b50a75ee2d8" title="Writes a file to disk." alt="" coords="209,1027,417,1067"/>
+<area shape="poly" id="edge39_Node000001_Node000026" title=" " alt="" coords="89,746,99,795,121,867,137,907,157,945,182,981,211,1013,217,1017,213,1021,208,1017,178,985,153,948,132,909,116,869,94,797,84,747"/>
+<area shape="rect" id="Node000027" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a276110547622b2aef0ebc1abc2a7f80c" title="Raw data writing." alt="" coords="465,1021,673,1061"/>
+<area shape="poly" id="edge44_Node000001_Node000027" title=" " alt="" coords="87,746,91,808,106,901,122,951,143,999,173,1041,211,1077,237,1092,261,1100,284,1102,307,1100,356,1088,417,1076,488,1062,489,1067,418,1081,357,1093,308,1105,284,1108,260,1105,235,1097,208,1081,169,1045,139,1001,117,952,101,902,85,809,82,746"/>
+<area shape="rect" id="Node000028" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9370906700c846b004d8ca9f9c22ad74" title="Writes a binary file to disk." alt="" coords="209,963,417,1003"/>
+<area shape="poly" id="edge42_Node000001_Node000028" title=" " alt="" coords="91,745,105,785,129,840,164,898,186,925,211,949,218,953,214,958,208,953,182,929,160,901,124,842,100,787,86,747"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="596,711,634,678,671,636,714,568,750,497,798,380,803,382,755,500,719,571,675,639,637,682,599,715"/>
+<area shape="rect" id="Node000005" href="$dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="727,1181,899,1221"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="600,751,639,785,675,828,702,872,726,919,764,1015,791,1102,807,1168,802,1169,786,1103,759,1016,721,921,697,875,671,831,635,788,597,755"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="614,130,645,148,675,170,711,206,744,245,794,315,790,318,740,248,707,209,672,174,642,152,612,134"/>
+<area shape="poly" id="edge14_Node000011_Node000005" title=" " alt="" coords="610,1299,758,1225,760,1230,612,1304"/>
+<area shape="poly" id="edge13_Node000011_Node000011" title=" " alt="" coords="524,1302,521,1292,529,1282,545,1277,569,1275,598,1278,613,1285,611,1290,596,1283,569,1280,546,1282,532,1287,527,1293,529,1300"/>
+<area shape="poly" id="edge17_Node000013_Node000005" title=" " alt="" coords="649,1363,672,1351,707,1324,739,1292,788,1231,793,1235,743,1296,711,1328,675,1356,652,1368"/>
+<area shape="poly" id="edge20_Node000015_Node000005" title=" " alt="" coords="653,1427,672,1415,715,1373,750,1324,778,1275,797,1233,801,1235,782,1277,755,1327,719,1377,675,1419,655,1431"/>
+<area shape="rect" id="Node000017" href="$d1/db3/structgalaxy_1_1settings.html#a566d989a8396d9f36754fb8d3084e41b" title="Current root directory of application, unless it has been changed." alt="" coords="478,842,661,867"/>
+<area shape="poly" id="edge22_Node000016_Node000017" title=" " alt="" coords="395,808,505,836,504,841,393,813"/>
+<area shape="poly" id="edge25_Node000019_Node000004" title=" " alt="" coords="605,222,767,318,764,323,603,226"/>
+<area shape="poly" id="edge27_Node000020_Node000005" title=" " alt="" coords="640,1123,674,1135,761,1173,758,1178,672,1140,639,1128"/>
+<area shape="poly" id="edge29_Node000021_Node000005" title=" " alt="" coords="674,1180,713,1186,713,1191,673,1186"/>
+<area shape="poly" id="edge31_Node000022_Node000005" title=" " alt="" coords="673,1217,713,1212,713,1217,674,1222"/>
+<area shape="poly" id="edge33_Node000023_Node000004" title=" " alt="" coords="405,321,708,339,707,345,405,327"/>
+<area shape="poly" id="edge34_Node000023_Node000024" title=" " alt="" coords="404,336,467,350,465,356,403,341"/>
+<area shape="poly" id="edge35_Node000024_Node000004" title=" " alt="" coords="661,363,707,357,708,363,661,368"/>
+<area shape="poly" id="edge37_Node000025_Node000017" title=" " alt="" coords="393,896,504,868,505,873,395,901"/>
+<area shape="poly" id="edge40_Node000026_Node000027" title=" " alt="" coords="417,1042,452,1041,452,1046,417,1047"/>
+<area shape="poly" id="edge41_Node000027_Node000005" title=" " alt="" coords="650,1059,675,1071,708,1093,738,1119,788,1169,784,1173,735,1123,705,1098,672,1076,647,1064"/>
+<area shape="poly" id="edge43_Node000028_Node000027" title=" " alt="" coords="402,1000,469,1016,467,1021,401,1005"/>
 </map>

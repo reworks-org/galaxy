@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_map" name="galaxy::lua::inject_map">
-<area shape="rect" id="Node000001" title="Injects mapping into lua." alt="" coords="5,278,179,303"/>
+<area shape="rect" id="Node000001" title="Injects mapping into Lua." alt="" coords="5,278,179,303"/>
 <area shape="rect" id="Node000002" href="$d9/d75/classgalaxy_1_1map_1_1World.html#afce356e9a9bb64424165a18fd9eeba89" title="Clear all map and world data." alt="" coords="245,5,391,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,277,111,236,138,179,176,117,199,88,225,62,242,50,245,54,228,66,203,92,180,120,143,181,116,238,100,278"/>
 <area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1" title="Get file." alt="" coords="475,88,622,128"/>

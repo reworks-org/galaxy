@@ -1,9 +1,0 @@
-<map id="galaxy::core::Registry::clear" name="galaxy::core::Registry::clear">
-<area shape="rect" id="Node000001" title="Clear any pending data." alt="" coords="411,35,573,75"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="197,5,356,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="396,44,356,39,356,33,397,39"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into lua." alt="" coords="191,70,363,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="397,70,363,74,362,69,397,64"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,70,143,95"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,85,143,85,143,80,177,80"/>
-</map>

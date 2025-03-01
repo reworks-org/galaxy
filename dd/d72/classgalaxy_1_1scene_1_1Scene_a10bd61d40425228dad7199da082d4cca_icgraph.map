@@ -1,0 +1,11 @@
+<map id="galaxy::scene::Scene::add_system" name="galaxy::scene::Scene::add_system">
+<area shape="rect" id="Node000001" title="Add a system to operate on entities in this scene." alt="" coords="612,37,771,77"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="405,5,564,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,46,564,40,564,35,599,40"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="416,69,553,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="599,74,554,81,553,76,598,69"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,77,357,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="402,92,358,92,358,87,402,87"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,77,172,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,92,172,92,172,87,206,87"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="galaxy::core::App::load" name="galaxy::core::App::load">
+<area shape="rect" id="Node000001" title="Loads the default appdata file." alt="" coords="5,31,176,56"/>
+<area shape="rect" id="Node000002" href="$d1/db3/structgalaxy_1_1settings.html#a5146b2ba963e52a9709212539af6e68a" title="Name of packed assets file." alt="" coords="224,5,431,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,32,210,28,211,33,177,37"/>
+<area shape="rect" id="Node000003" href="$d1/db3/structgalaxy_1_1settings.html#a566d989a8396d9f36754fb8d3084e41b" title="Current root directory of application, unless it has been changed." alt="" coords="236,55,419,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,49,223,54,222,59,176,55"/>
+</map>

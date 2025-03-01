@@ -1,0 +1,3 @@
+<map id="galaxy::flags::NotSerializable" name="galaxy::flags::NotSerializable">
+<area shape="rect" id="Node000001" title="Used to stop an entity from being updated/rendered." alt="" coords="5,5,208,171"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="galaxy::meta::EntityFactory::SerializationData" name="galaxy::meta::EntityFactory::SerializationData">
+<area shape="rect" id="Node000001" title="Data needed to serialize an entity." alt="" coords="5,263,197,343"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="62,135,141,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,200,104,247,99,247,99,200"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="36,5,167,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,99,104,134,99,134,99,99"/>
+</map>

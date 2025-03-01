@@ -1,5 +1,5 @@
 <map id="galaxy::systems::RenderSystem" name="galaxy::systems::RenderSystem">
-<area shape="rect" id="Node000001" title="Processess entities with a renderable component." alt="" coords="5,159,228,264"/>
-<area shape="rect" id="Node000002" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="28,5,205,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,124,119,158,114,158,114,124"/>
+<area shape="rect" id="Node000001" title="Processess entities with a renderable component." alt="" coords="5,199,228,304"/>
+<area shape="rect" id="Node000002" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="28,5,205,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,164,119,199,114,199,114,164"/>
 </map>

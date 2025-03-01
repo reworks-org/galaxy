@@ -1,7 +1,9 @@
 <map id="galaxy::settings::msaa" name="galaxy::settings::msaa">
-<area shape="rect" id="Node000001" title="Enable MSAA." alt="" coords="411,13,580,38"/>
-<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a563a51eee271c3b21fd260c4789e04aa" title=" " alt="" coords="220,5,363,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,28,363,28,363,23,397,23"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" id="Node000001" title="Enable MSAA." alt="" coords="440,35,609,60"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="220,5,392,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="426,37,392,32,392,27,427,32"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a563a51eee271c3b21fd260c4789e04aa" title=" " alt="" coords="235,55,377,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="427,63,378,69,377,64,426,57"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,63,172,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="221,78,172,78,172,73,221,73"/>
 </map>

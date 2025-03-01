@@ -1,0 +1,5 @@
+<map id="galaxy::meta::EntityFactory::serialize_entity" name="galaxy::meta::EntityFactory::serialize_entity">
+<area shape="rect" id="Node000001" title="Serialise a single entity." alt="" coords="5,5,205,45"/>
+<area shape="rect" id="Node000002" href="$db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a3e207db5ffacfa6c4078b16cb4829afc" title="Get a string representation of an entity type id." alt="" coords="253,5,453,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,23,240,23,240,28,205,28"/>
+</map>

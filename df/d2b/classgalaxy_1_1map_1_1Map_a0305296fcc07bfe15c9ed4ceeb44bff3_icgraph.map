@@ -1,9 +1,7 @@
 <map id="galaxy::map::Map::parse_entitiy_layer" name="galaxy::map::Map::parse_entitiy_layer">
-<area shape="rect" id="Node000001" title="Parse LDTK entity layer." alt="" coords="635,5,817,45"/>
-<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="412,13,587,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="621,28,587,28,587,23,621,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="191,13,364,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="399,28,364,28,364,23,399,23"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" id="Node000001" title="Parse LDTK entity layer." alt="" coords="449,5,632,45"/>
+<area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="227,13,401,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="435,28,401,28,401,23,435,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,13,179,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
 </map>

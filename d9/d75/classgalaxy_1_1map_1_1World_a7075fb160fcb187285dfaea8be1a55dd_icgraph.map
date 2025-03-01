@@ -1,9 +1,5 @@
 <map id="galaxy::map::World::set_active" name="galaxy::map::World::set_active">
-<area shape="rect" id="Node000001" title="Set currently active map." alt="" coords="412,35,559,75"/>
-<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="198,5,357,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="398,45,356,39,357,34,398,40"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="191,70,364,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="398,69,364,74,364,68,398,64"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,70,143,95"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,85,143,85,143,80,177,80"/>
+<area shape="rect" id="Node000001" title="Set currently active map." alt="" coords="227,5,373,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,13,179,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
 </map>

@@ -1,0 +1,12 @@
+<map id="galaxy::scene::SceneManager::set" name="galaxy::scene::SceneManager::set">
+<area shape="rect" id="Node000001" title="Clears all from stack and sets as active." alt="" coords="5,47,248,73"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="296,5,511,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,45,282,38,282,43,229,50"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af113673c2da2b240dc858b6dbf87e188" title="Push a scene onto the top of stack." alt="" coords="296,72,511,112"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,70,283,75,282,81,236,75"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="559,10,805,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="511,22,545,21,545,27,511,27"/>
+<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="606,83,758,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="511,91,592,92,592,97,511,96"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="637,85,628,75,633,65,651,59,682,57,722,61,733,66,736,72,732,75,729,70,721,66,682,62,652,64,636,69,633,74,641,81"/>
+</map>

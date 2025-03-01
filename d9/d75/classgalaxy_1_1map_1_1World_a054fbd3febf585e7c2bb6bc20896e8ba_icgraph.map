@@ -1,16 +1,7 @@
 <map id="galaxy::map::World::load" name="galaxy::map::World::load">
-<area shape="rect" id="Node000001" title="Load a world." alt="" coords="619,55,765,95"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="191,5,364,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="610,55,570,46,463,32,364,24,364,19,464,26,571,41,611,49"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="412,55,571,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="605,78,571,78,571,73,605,73"/>
-<area shape="rect" id="Node000007" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="418,119,565,159"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="616,102,555,122,554,117,615,97"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,67,143,92"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="220,37,191,46,117,69,115,64,190,41,219,32"/>
-<area shape="rect" id="Node000005" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="198,55,357,95"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="398,78,357,78,357,73,398,73"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="209,119,346,159"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="411,102,345,122,344,117,410,97"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="195,118,117,95,118,89,196,113"/>
+<area shape="rect" id="Node000001" title="Load a world." alt="" coords="227,27,373,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,5,179,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,38,178,33,179,28,213,32"/>
+<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="19,55,165,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,62,166,68,165,63,212,56"/>
 </map>

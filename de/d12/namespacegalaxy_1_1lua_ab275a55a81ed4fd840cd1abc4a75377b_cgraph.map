@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_states" name="galaxy::lua::inject_states">
-<area shape="rect" id="Node000001" title="Injects galaxy state machine into lua." alt="" coords="5,156,143,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,156,143,196"/>
 <area shape="rect" id="Node000002" href="$db/d6a/classgalaxy_1_1state_1_1State.html#a35f29471b5fc7c75d5d35e77bcc08892" title="Triggered when state is popped off the stack." alt="" coords="234,5,382,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,154,129,104,158,78,189,55,220,41,222,46,192,60,161,82,133,108,92,157"/>
 <area shape="rect" id="Node000003" href="$db/d6a/classgalaxy_1_1state_1_1State.html#a64537135293a71e91f3aa39ae77fbdb8" title="Triggered when state is pushed onto the stack." alt="" coords="234,69,382,109"/>

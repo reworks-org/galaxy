@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_resources" name="galaxy::lua::inject_resources">
-<area shape="rect" id="Node000001" title="Injects galaxy resource caches into lua." alt="" coords="5,228,143,268"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,228,143,268"/>
 <area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a0d82589d0227945ced2656854b671a36" title="Destroy resources." alt="" coords="431,196,609,236"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,226,190,214,308,205,418,207,418,212,308,211,191,219,136,231"/>
 <area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ae3aae79de5281df1258e5fe95e9ba743" title="Does the cache have any resources." alt="" coords="191,50,368,90"/>

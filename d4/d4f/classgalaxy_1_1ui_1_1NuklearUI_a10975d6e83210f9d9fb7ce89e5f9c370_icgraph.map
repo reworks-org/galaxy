@@ -1,0 +1,7 @@
+<map id="galaxy::ui::NuklearUI::toggle_input" name="galaxy::ui::NuklearUI::toggle_input">
+<area shape="rect" id="Node000001" title="Control the input." alt="" coords="212,37,371,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554" title="Inject Nuklear into Lua." alt="" coords="16,5,153,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,46,153,39,154,33,199,40"/>
+<area shape="rect" id="Node000003" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c" title="Constructor." alt="" coords="5,69,164,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,74,164,80,164,74,198,69"/>
+</map>

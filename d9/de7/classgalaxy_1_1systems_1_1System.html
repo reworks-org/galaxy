@@ -102,6 +102,8 @@ $(function(){initNavTree('d9/de7/classgalaxy_1_1systems_1_1System.html','../../'
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="../../d9/d36/classgalaxy_1_1systems_1_1System-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">galaxy::systems::System Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -118,15 +120,15 @@ $(function(){initNavTree('d9/de7/classgalaxy_1_1systems_1_1System.html','../../'
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d9/dc7/classgalaxy_1_1systems_1_1System__inherit__graph.png" border="0" usemap="#agalaxy_1_1systems_1_1System_inherit__map" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1systems_1_1System_inherit__map" id="agalaxy_1_1systems_1_1System_inherit__map">
-<area shape="rect" title="Represents a system that operates on sets of components." alt="" coords="337,5,514,111"/>
-<area shape="rect" href="../../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html" title="Update entity animations." alt="" coords="5,159,200,279"/>
-<area shape="poly" title=" " alt="" coords="325,107,213,161,201,167,199,162,211,156,323,103"/>
-<area shape="rect" href="../../df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html" title="Update entities with a rigid body component." alt="" coords="225,159,402,279"/>
-<area shape="poly" title=" " alt="" coords="383,124,357,160,353,157,379,121"/>
-<area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html" title="Processess entities with a renderable component." alt="" coords="426,166,649,271"/>
-<area shape="poly" title=" " alt="" coords="472,121,503,164,498,167,468,124"/>
-<area shape="rect" href="../../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html" title="Update entities with a script component." alt="" coords="673,166,887,271"/>
-<area shape="poly" title=" " alt="" coords="528,98,662,156,678,163,676,168,660,161,526,103"/>
+<area shape="rect" title="Represents a system that operates on sets of components." alt="" coords="337,5,514,151"/>
+<area shape="rect" href="../../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html" title="Update entity animations." alt="" coords="5,199,200,319"/>
+<area shape="poly" title=" " alt="" coords="326,137,202,206,199,201,323,133"/>
+<area shape="rect" href="../../df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html" title="Update entities with a rigid body component." alt="" coords="225,199,402,319"/>
+<area shape="poly" title=" " alt="" coords="375,164,353,200,348,197,371,161"/>
+<area shape="rect" href="../../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html" title="Processess entities with a renderable component." alt="" coords="426,206,649,311"/>
+<area shape="poly" title=" " alt="" coords="480,161,507,204,503,207,475,163"/>
+<area shape="rect" href="../../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html" title="Update entities with a script component." alt="" coords="673,206,887,311"/>
+<area shape="poly" title=" " alt="" coords="528,128,678,203,676,208,526,133"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -136,32 +138,51 @@ $(function(){initNavTree('d9/de7/classgalaxy_1_1systems_1_1System.html','../../'
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/df8/classgalaxy_1_1systems_1_1System__coll__graph.png" border="0" usemap="#agalaxy_1_1systems_1_1System_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1systems_1_1System_coll__map" id="agalaxy_1_1systems_1_1System_coll__map">
-<area shape="rect" title="Represents a system that operates on sets of components." alt="" coords="5,5,183,111"/>
+<area shape="rect" title="Represents a system that operates on sets of components." alt="" coords="5,263,183,408"/>
+<area shape="rect" title=" " alt="" coords="55,135,133,200"/>
+<area shape="poly" title=" " alt="" coords="97,200,97,246,91,246,91,200"/>
+<area shape="rect" title=" " alt="" coords="29,5,159,85"/>
+<area shape="poly" title=" " alt="" coords="97,99,97,134,91,134,91,99"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac6167648fab69194fa2aa479b9185402" id="r_ac6167648fab69194fa2aa479b9185402"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6167648fab69194fa2aa479b9185402">~System</a> ()</td></tr>
-<tr class="memdesc:ac6167648fab69194fa2aa479b9185402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:ac6167648fab69194fa2aa479b9185402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e9351554e6bddfe27f753299f71ae5" id="r_a63e9351554e6bddfe27f753299f71ae5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63e9351554e6bddfe27f753299f71ae5">~System</a> () noexcept</td></tr>
+<tr class="memdesc:a63e9351554e6bddfe27f753299f71ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:a63e9351554e6bddfe27f753299f71ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20984a6cece0b3d14614c39eb32e8abf" id="r_a20984a6cece0b3d14614c39eb32e8abf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20984a6cece0b3d14614c39eb32e8abf">update</a> (entt::registry &amp;registry)=0</td></tr>
 <tr class="memdesc:a20984a6cece0b3d14614c39eb32e8abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract implementation for updating the system. Use the manager to retreive your components.  <br /></td></tr>
 <tr class="separator:a20984a6cece0b3d14614c39eb32e8abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb327a6e8dac559b5e6b8062379c5bf6" id="r_afb327a6e8dac559b5e6b8062379c5bf6"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb327a6e8dac559b5e6b8062379c5bf6">id</a> () const noexcept final</td></tr>
+<tr class="memdesc:afb327a6e8dac559b5e6b8062379c5bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get identifier.  <br /></td></tr>
+<tr class="separator:afb327a6e8dac559b5e6b8062379c5bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5349b29b4c4b318ea986768aa5958f64" id="r_a5349b29b4c4b318ea986768aa5958f64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5349b29b4c4b318ea986768aa5958f64">System</a> ()</td></tr>
-<tr class="memdesc:a5349b29b4c4b318ea986768aa5958f64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:a5349b29b4c4b318ea986768aa5958f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a22f1d3b738e3cf72260752cb9b4550" id="r_a7a22f1d3b738e3cf72260752cb9b4550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a22f1d3b738e3cf72260752cb9b4550">System</a> (const std::string &amp;<a class="el" href="#afb327a6e8dac559b5e6b8062379c5bf6">id</a>) noexcept</td></tr>
+<tr class="memdesc:a7a22f1d3b738e3cf72260752cb9b4550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:a7a22f1d3b738e3cf72260752cb9b4550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a9fab725cd8148e894e79b70070109c96" id="r_a9fab725cd8148e894e79b70070109c96"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fab725cd8148e894e79b70070109c96">m_id</a></td></tr>
+<tr class="memdesc:a9fab725cd8148e894e79b70070109c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug id.  <br /></td></tr>
+<tr class="separator:a9fab725cd8148e894e79b70070109c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1aaf88f205f0421d4aa07208c65108da" id="r_a1aaf88f205f0421d4aa07208c65108da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aaf88f205f0421d4aa07208c65108da">System</a> ()=delete</td></tr>
+<tr class="memdesc:a1aaf88f205f0421d4aa07208c65108da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:a1aaf88f205f0421d4aa07208c65108da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a system that operates on sets of components. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d25/System_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac6167648fab69194fa2aa479b9185402" name="ac6167648fab69194fa2aa479b9185402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6167648fab69194fa2aa479b9185402">&#9670;&#160;</a></span>~System()</h2>
+<a id="a63e9351554e6bddfe27f753299f71ae5" name="a63e9351554e6bddfe27f753299f71ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e9351554e6bddfe27f753299f71ae5">&#9670;&#160;</a></span>~System()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,19 +199,54 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d7c/System_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d3/d7c/System_8cpp_source.html">System.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d7c/System_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d3/d7c/System_8cpp_source.html">System.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a5349b29b4c4b318ea986768aa5958f64" name="a5349b29b4c4b318ea986768aa5958f64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5349b29b4c4b318ea986768aa5958f64">&#9670;&#160;</a></span>System()</h2>
+<a id="a7a22f1d3b738e3cf72260752cb9b4550" name="a7a22f1d3b738e3cf72260752cb9b4550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a22f1d3b738e3cf72260752cb9b4550">&#9670;&#160;</a></span>System() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">galaxy::systems::System::System </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components.">System</a> debug identifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d7c/System_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d3/d7c/System_8cpp_source.html">System.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1aaf88f205f0421d4aa07208c65108da" name="a1aaf88f205f0421d4aa07208c65108da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aaf88f205f0421d4aa07208c65108da">&#9670;&#160;</a></span>System() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,14 +263,12 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d7c/System_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d3/d7c/System_8cpp_source.html">System.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,6 +308,63 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afb327a6e8dac559b5e6b8062379c5bf6" name="afb327a6e8dac559b5e6b8062379c5bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb327a6e8dac559b5e6b8062379c5bf6">&#9670;&#160;</a></span>id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; galaxy::systems::System::id </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">final</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get identifier. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const string reference. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d7c/System_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d3/d7c/System_8cpp_source.html">System.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9fab725cd8148e894e79b70070109c96" name="a9fab725cd8148e894e79b70070109c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fab725cd8148e894e79b70070109c96">&#9670;&#160;</a></span>m_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string galaxy::systems::System::m_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Debug id. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d25/System_8hpp_source.html#l00064">64</a> of file <a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>galaxy/src/galaxy/systems/<a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a></li>
 <li>galaxy/src/galaxy/systems/<a class="el" href="../../d3/d7c/System_8cpp_source.html">System.cpp</a></li>
@@ -264,7 +375,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d2/d27/namespacegalaxy_1_1systems.html">systems</a></li><li class="navelem"><a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html">System</a></li>
-    <li class="footer">Generated on Wed Feb 12 2025 11:18:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Mar 1 2025 05:26:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

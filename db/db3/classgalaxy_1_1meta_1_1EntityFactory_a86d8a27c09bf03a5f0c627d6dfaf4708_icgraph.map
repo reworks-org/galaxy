@@ -1,0 +1,5 @@
+<map id="galaxy::meta::EntityFactory::json_factory" name="galaxy::meta::EntityFactory::json_factory">
+<area shape="rect" id="Node000001" title="Construct component from json and assign to provided entity and registry." alt="" coords="253,5,453,45"/>
+<area shape="rect" id="Node000002" href="$db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a67ab329f7845dd28cd7980d1f98bd63a" title="Create an entity from a JSON object." alt="" coords="5,5,205,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,28,206,28,206,23,240,23"/>
+</map>

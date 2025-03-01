@@ -1,22 +1,11 @@
 <map id="galaxy::map::World::file" name="galaxy::map::World::file">
-<area shape="rect" id="Node000001" title="Get file." alt="" coords="825,85,972,125"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into lua." alt="" coords="397,5,571,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="853,80,817,61,777,46,724,34,671,26,571,19,571,14,671,21,725,29,778,41,819,56,856,75"/>
-<area shape="rect" id="Node000004" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="625,55,771,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="812,95,771,89,772,83,812,89"/>
-<area shape="rect" id="Node000008" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="411,119,557,159"/>
-<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="812,115,558,136,557,131,811,109"/>
-<area shape="rect" id="Node000009" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388" title="Serializes object." alt="" coords="619,170,777,210"/>
-<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="840,132,747,172,745,168,838,128"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,67,143,92"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,24,290,31,191,46,110,69,108,64,190,41,289,26,383,19"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="611,55,532,33,533,28,612,50"/>
-<area shape="rect" id="Node000005" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="405,55,563,95"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="611,78,564,78,564,73,611,73"/>
-<area shape="poly" id="edge9_Node000004_Node000008" title=" " alt="" coords="618,102,552,122,551,117,616,97"/>
-<area shape="rect" id="Node000006" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="191,55,349,95"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="391,78,349,78,349,73,391,73"/>
-<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="201,119,339,159"/>
-<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="404,102,338,122,337,117,402,97"/>
-<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="190,118,115,95,117,89,192,113"/>
+<area shape="rect" id="Node000001" title="Get file." alt="" coords="421,41,568,81"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,5,179,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="415,40,373,31,273,22,179,19,179,14,273,16,374,26,416,35"/>
+<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#a054fbd3febf585e7c2bb6bc20896e8ba" title="Load a world." alt="" coords="227,41,373,81"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="408,63,374,63,374,58,408,58"/>
+<area shape="rect" id="Node000004" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="19,70,165,110"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="418,87,374,95,264,102,166,99,166,94,264,97,373,90,417,81"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="212,45,154,33,155,28,213,40"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="213,76,166,82,165,77,212,70"/>
 </map>

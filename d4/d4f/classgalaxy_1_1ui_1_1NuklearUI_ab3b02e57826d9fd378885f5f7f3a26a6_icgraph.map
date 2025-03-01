@@ -1,0 +1,31 @@
+<map id="galaxy::ui::NuklearUI::ctx" name="galaxy::ui::NuklearUI::ctx">
+<area shape="rect" id="Node000001" title="Nuklear Context." alt="" coords="608,222,795,247"/>
+<area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abe288e5597fa86c47990fb1965c7095d" title="Called before glfwPollEvents." alt="" coords="401,288,560,328"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="650,254,543,290,541,285,648,249"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554" title="Inject Nuklear into Lua." alt="" coords="5,292,143,332"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="663,218,575,180,518,160,455,143,389,132,321,130,255,139,223,148,192,161,154,188,124,224,101,262,86,293,81,291,96,259,119,221,150,184,189,156,221,143,253,134,321,125,389,127,456,138,520,155,577,175,665,213"/>
+<area shape="rect" id="Node000005" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a3c4d2225b090d54cbda4a645d0f1b908" title="Called after glfwPollEvents." alt="" coords="401,352,560,392"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="677,258,625,300,561,342,537,354,535,350,559,338,622,295,674,254"/>
+<area shape="rect" id="Node000006" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a508c6be58ee778ddf9497944d1929f61" title="Scale UI to monitor/window." alt="" coords="401,215,560,255"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="594,237,560,237,560,232,594,232"/>
+<area shape="rect" id="Node000009" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#af380f4368758244de1504b1d6fee76e9" title="Change the active font." alt="" coords="193,464,351,504"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="689,261,639,333,603,373,561,406,510,434,456,454,402,468,352,478,351,473,400,463,454,449,508,429,559,402,599,369,635,330,684,258"/>
+<area shape="rect" id="Node000010" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a06ad38fd7053c12c0d6c1894f380514b" title="Part of the loading screen. Informs the user that the atlas is being built." alt="" coords="191,5,353,45"/>
+<area shape="poly" id="edge15_Node000001_Node000010" title=" " alt="" coords="687,211,668,174,640,130,603,87,582,68,559,53,509,33,456,21,403,17,354,18,354,13,403,12,456,16,510,28,561,48,585,64,607,83,644,127,673,171,692,208"/>
+<area shape="rect" id="Node000011" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a109fc3ab2fe7a0ca81d43314aa3bee94" title="Shows a progress bar for loading screens." alt="" coords="401,63,560,103"/>
+<area shape="poly" id="edge17_Node000001_Node000011" title=" " alt="" coords="675,215,623,171,559,124,525,105,528,100,561,119,626,166,678,211"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="387,312,143,314,143,309,387,306"/>
+<area shape="rect" id="Node000004" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a0bb9e0266ef94a15b127aa2585053e17" title="Calls begin, end and glfwPollEvents." alt="" coords="193,349,351,389"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="400,335,341,352,340,347,398,329"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="188,348,143,335,144,329,190,343"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="408,398,359,409,304,416,246,416,190,404,160,390,133,372,92,334,95,330,137,368,163,386,192,399,246,410,303,411,358,404,407,393"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="387,373,352,373,352,368,387,368"/>
+<area shape="poly" id="edge12_Node000006_Node000006" title=" " alt="" coords="516,203,503,196,481,193,461,195,449,200,444,206,447,214,442,215,439,205,445,196,459,190,481,188,505,191,518,198"/>
+<area shape="rect" id="Node000007" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c" title="Constructor." alt="" coords="193,235,351,275"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="388,246,352,250,351,244,387,241"/>
+<area shape="rect" id="Node000008" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a7026658038898796e0d3715384396641" title="On content scale event." alt="" coords="193,171,351,211"/>
+<area shape="poly" id="edge11_Node000006_Node000008" title=" " alt="" coords="387,218,351,210,352,205,388,212"/>
+<area shape="poly" id="edge14_Node000009_Node000003" title=" " alt="" coords="208,460,189,447,157,420,129,389,87,334,91,331,133,385,161,416,192,443,211,455"/>
+<area shape="poly" id="edge16_Node000010_Node000003" title=" " alt="" coords="206,54,193,66,169,93,149,123,117,187,95,247,82,293,77,291,90,246,112,185,144,121,165,90,189,62,203,50"/>
+<area shape="poly" id="edge18_Node000011_Node000003" title=" " alt="" coords="387,75,339,76,288,81,238,94,192,117,170,135,150,156,118,205,96,253,83,292,78,291,91,251,113,202,146,153,166,131,189,112,236,89,287,76,339,70,387,70"/>
+</map>

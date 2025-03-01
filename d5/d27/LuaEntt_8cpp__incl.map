@@ -1,13 +1,11 @@
 <map id="galaxy/src/galaxy/scripting/lua/LuaEntt.cpp" name="galaxy/src/galaxy/scripting/lua/LuaEntt.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="383,5,580,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="281,5,479,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,179,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="389,48,163,93,162,88,388,43"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,48,148,92,147,87,310,43"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="203,93,357,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="434,48,323,91,321,86,432,43"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="357,48,307,87,304,82,354,43"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="382,93,581,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="484,46,484,79,479,79,479,46"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="605,93,830,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="539,43,671,87,669,92,537,48"/>
-<area shape="rect" id="Node000006" href="$de/d92/Lua_8hpp.html" title=" " alt="" coords="854,93,927,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="581,41,841,90,840,96,580,46"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="406,43,457,82,454,87,403,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="605,93,779,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="455,43,634,87,633,93,454,48"/>
 </map>

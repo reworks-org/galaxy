@@ -1,5 +1,5 @@
 <map id="galaxy::systems::ScriptSystem" name="galaxy::systems::ScriptSystem">
-<area shape="rect" id="Node000001" title="Update entities with a script component." alt="" coords="5,159,220,264"/>
-<area shape="rect" id="Node000002" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="24,5,201,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,124,115,158,110,158,110,124"/>
+<area shape="rect" id="Node000001" title="Update entities with a script component." alt="" coords="5,199,220,304"/>
+<area shape="rect" id="Node000002" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="24,5,201,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,164,115,199,110,199,110,164"/>
 </map>

@@ -1,5 +1,0 @@
-<map id="galaxy::scene::SceneManager::only_update_rendering" name="galaxy::scene::SceneManager::only_update_rendering">
-<area shape="rect" id="Node000001" title="Only update rendering." alt="" coords="5,5,220,45"/>
-<area shape="rect" id="Node000002" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615" title="Get currently active map." alt="" coords="268,5,415,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-</map>

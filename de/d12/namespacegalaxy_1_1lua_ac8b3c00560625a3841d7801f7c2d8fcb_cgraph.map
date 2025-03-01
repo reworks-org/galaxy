@@ -1,0 +1,16 @@
+<map id="galaxy::lua::inject_platform" name="galaxy::lua::inject_platform">
+<area shape="rect" id="Node000001" title="Inject platform stuff into Lua." alt="" coords="5,105,143,145"/>
+<area shape="rect" id="Node000002" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269" title="Check if subprocess is still alive and executing." alt="" coords="449,137,660,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,103,131,62,159,42,190,27,248,9,296,3,344,9,402,27,441,46,477,72,531,125,527,129,473,76,438,51,400,32,343,14,296,8,249,14,192,32,162,47,135,66,93,107"/>
+<area shape="rect" id="Node000003" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a1eb36ca2fb3803a76cfa20e85c683245" title="Launch a subprocess." alt="" coords="191,41,401,81"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,103,212,83,213,88,144,108"/>
+<area shape="rect" id="Node000004" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b" title="Destroy process, preserving if alive." alt="" coords="191,105,401,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,123,177,123,177,128,143,128"/>
+<area shape="rect" id="Node000005" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a246ad7e7bc9f5d2e8dc6e521a726c5c5" title="Wait for a process to finish execution." alt="" coords="191,169,401,209"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="144,142,213,163,212,168,142,148"/>
+<area shape="rect" id="Node000006" href="$de/d02/classgalaxy_1_1platform_1_1Subprocess.html#af23961055078494076ed487acf9d2a3d" title="Terminate process, killing if alive." alt="" coords="191,233,401,273"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="96,143,138,182,192,219,206,226,203,230,189,224,135,186,93,147"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="402,136,436,140,436,145,401,141"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="401,174,436,169,436,175,402,179"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="365,231,400,219,495,181,497,186,402,224,367,236"/>
+</map>

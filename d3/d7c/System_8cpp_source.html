@@ -111,21 +111,31 @@ $(function(){initNavTree('d3/d7c/System_8cpp_source.html','../../'); initResizab
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>systems</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a5349b29b4c4b318ea986768aa5958f64">   14</a></span>        <a class="code hl_function" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a5349b29b4c4b318ea986768aa5958f64">System::System</a>()</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a7a22f1d3b738e3cf72260752cb9b4550">   14</a></span>        <a class="code hl_function" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a1aaf88f205f0421d4aa07208c65108da">System::System</a>(<span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) noexcept</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            : m_id {<span class="keywordtype">id</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        }</div>
 </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#ac6167648fab69194fa2aa479b9185402">   18</a></span>        <a class="code hl_function" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#ac6167648fab69194fa2aa479b9185402">System::~System</a>()</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a63e9351554e6bddfe27f753299f71ae5">   19</a></span>        <a class="code hl_function" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a63e9351554e6bddfe27f753299f71ae5">System::~System</a>() noexcept</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        }</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    } <span class="comment">// namespace systems</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#afb327a6e8dac559b5e6b8062379c5bf6">   23</a></span>        <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#afb327a6e8dac559b5e6b8062379c5bf6">System::id</a>() const noexcept</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a9fab725cd8148e894e79b70070109c96">m_id</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        }</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    } <span class="comment">// namespace systems</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aSystem_8hpp_html"><div class="ttname"><a href="../../d4/d25/System_8hpp.html">System.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1systems_1_1System_html_a5349b29b4c4b318ea986768aa5958f64"><div class="ttname"><a href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a5349b29b4c4b318ea986768aa5958f64">galaxy::systems::System::System</a></div><div class="ttdeci">System()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">System.cpp:14</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1systems_1_1System_html_ac6167648fab69194fa2aa479b9185402"><div class="ttname"><a href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#ac6167648fab69194fa2aa479b9185402">galaxy::systems::System::~System</a></div><div class="ttdeci">virtual ~System()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">System.cpp:18</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1systems_1_1System_html_a1aaf88f205f0421d4aa07208c65108da"><div class="ttname"><a href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a1aaf88f205f0421d4aa07208c65108da">galaxy::systems::System::System</a></div><div class="ttdeci">System()=delete</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclassgalaxy_1_1systems_1_1System_html_a63e9351554e6bddfe27f753299f71ae5"><div class="ttname"><a href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a63e9351554e6bddfe27f753299f71ae5">galaxy::systems::System::~System</a></div><div class="ttdeci">virtual ~System() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">System.cpp:19</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1systems_1_1System_html_a9fab725cd8148e894e79b70070109c96"><div class="ttname"><a href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#a9fab725cd8148e894e79b70070109c96">galaxy::systems::System::m_id</a></div><div class="ttdeci">std::string m_id</div><div class="ttdoc">Debug id.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d25/System_8hpp_source.html#l00064">System.hpp:64</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1systems_1_1System_html_afb327a6e8dac559b5e6b8062379c5bf6"><div class="ttname"><a href="../../d9/de7/classgalaxy_1_1systems_1_1System.html#afb327a6e8dac559b5e6b8062379c5bf6">galaxy::systems::System::id</a></div><div class="ttdeci">virtual const std::string &amp; id() const noexcept final</div><div class="ttdoc">Get identifier.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">System.cpp:23</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -133,7 +143,7 @@ $(function(){initNavTree('d3/d7c/System_8cpp_source.html','../../'); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_998c186d51e0a7e9e97fc5ef3ee68646.html">systems</a></li><li class="navelem"><a class="el" href="../../d3/d7c/System_8cpp.html">System.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 12 2025 11:18:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Mar 1 2025 05:26:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

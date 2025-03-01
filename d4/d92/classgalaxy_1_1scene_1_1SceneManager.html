@@ -101,14 +101,13 @@ $(function(){initNavTree('d4/d92/classgalaxy_1_1scene_1_1SceneManager.html','../
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d3/d38/classgalaxy_1_1scene_1_1SceneManager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">galaxy::scene::SceneManager Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> saving/loading, creation, changing and loading.  
+<p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> saving/loading, pushing, popping, creating.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>&gt;</code></p>
@@ -119,9 +118,9 @@ $(function(){initNavTree('d4/d92/classgalaxy_1_1scene_1_1SceneManager.html','../
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d1c/classgalaxy_1_1scene_1_1SceneManager__inherit__graph.png" border="0" usemap="#agalaxy_1_1scene_1_1SceneManager_inherit__map" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1scene_1_1SceneManager_inherit__map" id="agalaxy_1_1scene_1_1SceneManager_inherit__map">
-<area shape="rect" title="Scene saving/loading, creation, changing and loading." alt="" coords="5,219,212,544"/>
+<area shape="rect" title="Scene saving/loading, pushing, popping, creating." alt="" coords="5,219,212,504"/>
 <area shape="rect" href="../../d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="28,5,189,171"/>
-<area shape="poly" title=" " alt="" coords="111,184,111,219,106,219,106,184"/>
+<area shape="poly" title=" " alt="" coords="111,184,111,218,106,218,106,184"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -131,86 +130,85 @@ $(function(){initNavTree('d4/d92/classgalaxy_1_1scene_1_1SceneManager.html','../
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d2/d84/classgalaxy_1_1scene_1_1SceneManager__coll__graph.png" border="0" usemap="#agalaxy_1_1scene_1_1SceneManager_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1scene_1_1SceneManager_coll__map" id="agalaxy_1_1scene_1_1SceneManager_coll__map">
-<area shape="rect" title="Scene saving/loading, creation, changing and loading." alt="" coords="5,1747,212,2052"/>
-<area shape="rect" href="../../d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="7,1051,168,1216"/>
-<area shape="poly" title=" " alt="" coords="93,1230,107,1746,102,1746,87,1230"/>
-<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="125,1359,295,1684"/>
-<area shape="poly" title=" " alt="" coords="120,1229,161,1358,156,1359,115,1230"/>
-<area shape="poly" title=" " alt="" coords="169,1685,156,1732,151,1730,164,1683"/>
-<area shape="rect" title=" " alt="" coords="417,325,496,390"/>
-<area shape="poly" title=" " alt="" coords="469,390,497,500,511,571,522,642,533,775,531,834,522,908,506,1022,489,1110,460,1195,410,1297,362,1368,308,1431,304,1428,358,1365,405,1295,455,1193,484,1109,501,1021,517,908,525,834,528,776,517,643,506,572,492,502,463,391"/>
-<area shape="rect" href="../../d9/d75/classgalaxy_1_1map_1_1World.html" title="An LDTK level." alt="" coords="257,971,395,1296"/>
-<area shape="poly" title=" " alt="" coords="463,390,469,487,469,627,463,707,452,789,435,870,410,948,404,962,399,960,405,946,430,868,447,788,458,706,464,627,464,487,457,390"/>
-<area shape="rect" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="244,643,408,908"/>
-<area shape="poly" title=" " alt="" coords="447,391,413,486,374,605,367,627,362,626,369,603,408,485,442,389"/>
-<area shape="rect" title=" " alt="" coords="391,5,522,85"/>
-<area shape="poly" title=" " alt="" coords="459,99,459,325,454,325,454,99"/>
-<area shape="rect" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="139,135,318,580"/>
-<area shape="poly" title=" " alt="" coords="228,580,216,1342,210,1342,222,580"/>
-<area shape="poly" title=" " alt="" coords="248,580,257,618,259,626,254,628,251,619,242,581"/>
-<area shape="poly" title=" " alt="" coords="280,1297,266,1343,261,1342,275,1296"/>
-<area shape="poly" title=" " alt="" coords="329,908,329,954,323,954,323,908"/>
+<area shape="rect" title="Scene saving/loading, pushing, popping, creating." alt="" coords="17,1520,224,1785"/>
+<area shape="rect" href="../../d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,679,167,844"/>
+<area shape="poly" title=" " alt="" coords="96,858,102,1038,102,1419,107,1520,102,1520,97,1419,97,1038,90,858"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc." alt="" coords="181,907,332,1172"/>
+<area shape="poly" title=" " alt="" coords="146,854,184,915,179,918,141,857"/>
+<area shape="rect" title=" " alt="" coords="371,1377,591,1457"/>
+<area shape="poly" title=" " alt="" coords="422,1460,239,1578,236,1573,419,1455"/>
+<area shape="rect" title=" " alt="" coords="395,1235,566,1315"/>
+<area shape="poly" title=" " alt="" coords="483,1315,483,1361,478,1361,478,1315"/>
+<area shape="poly" title=" " alt="" coords="334,1118,434,1221,430,1225,331,1121"/>
+<area shape="rect" title=" " alt="" coords="228,135,307,200"/>
+<area shape="poly" title=" " alt="" coords="250,201,222,262,211,297,207,334,207,763,211,827,221,890,216,891,206,827,202,763,202,334,206,296,217,260,245,199"/>
+<area shape="rect" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="243,263,420,408"/>
+<area shape="poly" title=" " alt="" coords="282,199,300,246,295,248,277,201"/>
+<area shape="rect" title=" " alt="" coords="202,5,333,85"/>
+<area shape="poly" title=" " alt="" coords="270,99,270,134,265,134,265,99"/>
+<area shape="rect" title=" " alt="" coords="288,721,484,801"/>
+<area shape="poly" title=" " alt="" coords="370,803,328,893,323,891,365,800"/>
+<area shape="rect" title=" " alt="" coords="295,521,477,601"/>
+<area shape="poly" title=" " alt="" coords="389,602,389,705,383,705,383,602"/>
+<area shape="poly" title=" " alt="" coords="352,408,375,504,370,506,346,409"/>
+<area shape="rect" title=" " alt="" coords="445,303,594,368"/>
+<area shape="poly" title=" " alt="" coords="496,381,411,522,407,520,491,378"/>
+<area shape="rect" title=" " alt="" coords="631,135,653,200"/>
+<area shape="poly" title=" " alt="" coords="633,181,592,226,548,290,544,287,588,222,629,178"/>
+<area shape="rect" title=" " alt="" coords="501,529,623,594"/>
+<area shape="poly" title=" " alt="" coords="644,200,637,356,629,439,615,498,605,517,601,514,610,496,623,438,632,355,639,200"/>
+<area shape="rect" title=" " alt="" coords="671,432,821,497"/>
+<area shape="poly" title=" " alt="" coords="655,176,692,210,712,234,727,262,740,301,748,342,752,416,746,416,742,342,735,302,722,264,707,237,688,214,652,180"/>
+<area shape="poly" title=" " alt="" coords="637,574,712,596,751,613,788,633,821,657,847,686,865,721,871,760,871,1276,864,1299,843,1319,812,1337,774,1354,683,1381,591,1401,590,1396,682,1376,772,1349,810,1333,840,1315,859,1296,866,1276,866,760,860,722,843,689,817,661,785,637,749,618,710,601,636,579"/>
+<area shape="poly" title=" " alt="" coords="519,605,497,627,417,723,413,719,493,624,515,602"/>
+<area shape="poly" title=" " alt="" coords="714,510,696,538,680,569,668,603,663,639,663,1041,660,1071,651,1101,638,1128,621,1154,581,1200,539,1237,535,1233,577,1196,617,1151,633,1126,646,1099,655,1070,658,1041,658,638,663,602,675,567,691,535,709,507"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acb5f4f55a4cedf3169c6948bbd76a410" id="r_acb5f4f55a4cedf3169c6948bbd76a410"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb5f4f55a4cedf3169c6948bbd76a410">SceneManager</a> ()</td></tr>
-<tr class="memdesc:acb5f4f55a4cedf3169c6948bbd76a410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:acb5f4f55a4cedf3169c6948bbd76a410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f4790b8ac97f7019a4245b41fdd81b" id="r_a46f4790b8ac97f7019a4245b41fdd81b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46f4790b8ac97f7019a4245b41fdd81b">~SceneManager</a> ()</td></tr>
-<tr class="memdesc:a46f4790b8ac97f7019a4245b41fdd81b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:a46f4790b8ac97f7019a4245b41fdd81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0baf7a3e80dcd668ef12a8a3abb10e7" id="r_aa0baf7a3e80dcd668ef12a8a3abb10e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0baf7a3e80dcd668ef12a8a3abb10e7">add</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:aa0baf7a3e80dcd668ef12a8a3abb10e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new scene.  <br /></td></tr>
-<tr class="separator:aa0baf7a3e80dcd668ef12a8a3abb10e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a71295da930da92ce9eb3ca1246d59c" id="r_a1a71295da930da92ce9eb3ca1246d59c"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt; Custom&gt; </td></tr>
-<tr class="memitem:a1a71295da930da92ce9eb3ca1246d59c"><td class="memTemplItemLeft" align="right" valign="top">Custom *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1a71295da930da92ce9eb3ca1246d59c">add_custom</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a1a71295da930da92ce9eb3ca1246d59c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a custom scene.  <br /></td></tr>
-<tr class="separator:a1a71295da930da92ce9eb3ca1246d59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a40cc4ea286604359ca20d342c2ca9a" id="r_a9a40cc4ea286604359ca20d342c2ca9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a40cc4ea286604359ca20d342c2ca9a">get</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a9a40cc4ea286604359ca20d342c2ca9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific scene.  <br /></td></tr>
-<tr class="separator:a9a40cc4ea286604359ca20d342c2ca9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad68da0b40675dc3a2abdbab3c40edf47" id="r_ad68da0b40675dc3a2abdbab3c40edf47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad68da0b40675dc3a2abdbab3c40edf47">remove</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:ad68da0b40675dc3a2abdbab3c40edf47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a specific scene.  <br /></td></tr>
-<tr class="separator:ad68da0b40675dc3a2abdbab3c40edf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c2830c7ee5f35464157163f2d688e9" id="r_a27c2830c7ee5f35464157163f2d688e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27c2830c7ee5f35464157163f2d688e9">has</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a27c2830c7ee5f35464157163f2d688e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does a scene exist.  <br /></td></tr>
-<tr class="separator:a27c2830c7ee5f35464157163f2d688e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3eb3c90efaeec3cd5694adbc0d0167f" id="r_ab3eb3c90efaeec3cd5694adbc0d0167f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3eb3c90efaeec3cd5694adbc0d0167f">set_scene</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:ab3eb3c90efaeec3cd5694adbc0d0167f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> to set to currently active.  <br /></td></tr>
-<tr class="separator:ab3eb3c90efaeec3cd5694adbc0d0167f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04f0b422dc6a199f23146c3a69663fc4" id="r_a04f0b422dc6a199f23146c3a69663fc4"><td class="memTemplParams" colspan="2">template&lt;meta::is_system System, typename... Args&gt; </td></tr>
-<tr class="memitem:a04f0b422dc6a199f23146c3a69663fc4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a04f0b422dc6a199f23146c3a69663fc4">create_system</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a04f0b422dc6a199f23146c3a69663fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a system to the manager.  <br /></td></tr>
-<tr class="separator:a04f0b422dc6a199f23146c3a69663fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3939a3004a76b76d97f01dc0258c43d3" id="r_a3939a3004a76b76d97f01dc0258c43d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3939a3004a76b76d97f01dc0258c43d3">SceneManager</a> () noexcept</td></tr>
+<tr class="memdesc:a3939a3004a76b76d97f01dc0258c43d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:a3939a3004a76b76d97f01dc0258c43d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae845a371e9b9fb011450d54520f76638" id="r_ae845a371e9b9fb011450d54520f76638"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae845a371e9b9fb011450d54520f76638">~SceneManager</a> () noexcept</td></tr>
+<tr class="memdesc:ae845a371e9b9fb011450d54520f76638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:ae845a371e9b9fb011450d54520f76638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60d5677fc4d83c53350611aedd1ea56b" id="r_a60d5677fc4d83c53350611aedd1ea56b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60d5677fc4d83c53350611aedd1ea56b">create</a> (const std::string &amp;scene)</td></tr>
+<tr class="memdesc:a60d5677fc4d83c53350611aedd1ea56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create scene in engine.  <br /></td></tr>
+<tr class="separator:a60d5677fc4d83c53350611aedd1ea56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46703a36f5e959f81f67de6939a050fe" id="r_a46703a36f5e959f81f67de6939a050fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46703a36f5e959f81f67de6939a050fe">set</a> (const std::string &amp;scene)</td></tr>
+<tr class="memdesc:a46703a36f5e959f81f67de6939a050fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all from stack and sets as active.  <br /></td></tr>
+<tr class="separator:a46703a36f5e959f81f67de6939a050fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af113673c2da2b240dc858b6dbf87e188" id="r_af113673c2da2b240dc858b6dbf87e188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af113673c2da2b240dc858b6dbf87e188">push</a> (const std::string &amp;scene)</td></tr>
+<tr class="memdesc:af113673c2da2b240dc858b6dbf87e188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a scene onto the top of stack.  <br /></td></tr>
+<tr class="separator:af113673c2da2b240dc858b6dbf87e188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4864a9277257c2b8f05e6205c7cad3" id="r_a3d4864a9277257c2b8f05e6205c7cad3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d4864a9277257c2b8f05e6205c7cad3">pop</a> ()</td></tr>
+<tr class="memdesc:a3d4864a9277257c2b8f05e6205c7cad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove scene on top of stack.  <br /></td></tr>
+<tr class="separator:a3d4864a9277257c2b8f05e6205c7cad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903c1e9f9a1ed6fb181077a0b9500fda" id="r_a903c1e9f9a1ed6fb181077a0b9500fda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a903c1e9f9a1ed6fb181077a0b9500fda">pop_all</a> ()</td></tr>
+<tr class="memdesc:a903c1e9f9a1ed6fb181077a0b9500fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop all scenes.  <br /></td></tr>
+<tr class="separator:a903c1e9f9a1ed6fb181077a0b9500fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27210221deaa36347a3f306dee7258ac" id="r_a27210221deaa36347a3f306dee7258ac"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27210221deaa36347a3f306dee7258ac">top</a> () noexcept</td></tr>
+<tr class="memdesc:a27210221deaa36347a3f306dee7258ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get top scene.  <br /></td></tr>
+<tr class="separator:a27210221deaa36347a3f306dee7258ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad3d7bf8412a264e4b1c2ff0939aa58" id="r_a6ad3d7bf8412a264e4b1c2ff0939aa58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ad3d7bf8412a264e4b1c2ff0939aa58">update</a> ()</td></tr>
+<tr class="memdesc:a6ad3d7bf8412a264e4b1c2ff0939aa58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process events and updates.  <br /></td></tr>
+<tr class="separator:a6ad3d7bf8412a264e4b1c2ff0939aa58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b60e06e0cb5cd4ecb07bf5af339df45" id="r_a7b60e06e0cb5cd4ecb07bf5af339df45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b60e06e0cb5cd4ecb07bf5af339df45">render</a> ()</td></tr>
+<tr class="memdesc:a7b60e06e0cb5cd4ecb07bf5af339df45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render scenes.  <br /></td></tr>
+<tr class="separator:a7b60e06e0cb5cd4ecb07bf5af339df45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9215cd97604eb9878516c73b3147dabd" id="r_a9215cd97604eb9878516c73b3147dabd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9215cd97604eb9878516c73b3147dabd">load_app</a> (const std::string &amp;appdata_file)</td></tr>
 <tr class="memdesc:a9215cd97604eb9878516c73b3147dabd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load app data file into scene manager.  <br /></td></tr>
 <tr class="separator:a9215cd97604eb9878516c73b3147dabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a186b4dc359e2d0e41fee1c2187aeaf9a" id="r_a186b4dc359e2d0e41fee1c2187aeaf9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a186b4dc359e2d0e41fee1c2187aeaf9a">save_app</a> (const std::string &amp;file)</td></tr>
 <tr class="memdesc:a186b4dc359e2d0e41fee1c2187aeaf9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save all active scenes and sub data within those scenes.  <br /></td></tr>
 <tr class="separator:a186b4dc359e2d0e41fee1c2187aeaf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ad3d7bf8412a264e4b1c2ff0939aa58" id="r_a6ad3d7bf8412a264e4b1c2ff0939aa58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ad3d7bf8412a264e4b1c2ff0939aa58">update</a> ()</td></tr>
-<tr class="memdesc:a6ad3d7bf8412a264e4b1c2ff0939aa58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle events and update logic.  <br /></td></tr>
-<tr class="separator:a6ad3d7bf8412a264e4b1c2ff0939aa58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05b20db2d243f6d287667f7c141972b8" id="r_a05b20db2d243f6d287667f7c141972b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05b20db2d243f6d287667f7c141972b8">only_update_rendering</a> ()</td></tr>
-<tr class="memdesc:a05b20db2d243f6d287667f7c141972b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only update rendering.  <br /></td></tr>
-<tr class="separator:a05b20db2d243f6d287667f7c141972b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b60e06e0cb5cd4ecb07bf5af339df45" id="r_a7b60e06e0cb5cd4ecb07bf5af339df45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b60e06e0cb5cd4ecb07bf5af339df45">render</a> ()</td></tr>
-<tr class="memdesc:a7b60e06e0cb5cd4ecb07bf5af339df45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle rendering.  <br /></td></tr>
-<tr class="separator:a7b60e06e0cb5cd4ecb07bf5af339df45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a624fe738044874f9874376081c381bd1" id="r_a624fe738044874f9874376081c381bd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a624fe738044874f9874376081c381bd1">clear</a> ()</td></tr>
 <tr class="memdesc:a624fe738044874f9874376081c381bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all scene data.  <br /></td></tr>
 <tr class="separator:a624fe738044874f9874376081c381bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ac342f096544a8231c11fafb7d32620" id="r_a3ac342f096544a8231c11fafb7d32620"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">scene::Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ac342f096544a8231c11fafb7d32620">current</a> () const</td></tr>
-<tr class="memdesc:a3ac342f096544a8231c11fafb7d32620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current scene.  <br /></td></tr>
-<tr class="separator:a3ac342f096544a8231c11fafb7d32620"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8929b0b704e5ddfaefc920f3a016d1e" id="r_ae8929b0b704e5ddfaefc920f3a016d1e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#aae24a5e812fd02c9647a244790f2e192">Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8929b0b704e5ddfaefc920f3a016d1e">map</a> () const</td></tr>
-<tr class="memdesc:ae8929b0b704e5ddfaefc920f3a016d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all scenes.  <br /></td></tr>
-<tr class="separator:ae8929b0b704e5ddfaefc920f3a016d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a97636e3deac16856f380f2932d416" id="r_ad8a97636e3deac16856f380f2932d416"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8a97636e3deac16856f380f2932d416">empty</a> () const</td></tr>
-<tr class="memdesc:ad8a97636e3deac16856f380f2932d416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are there any scenes.  <br /></td></tr>
-<tr class="separator:ad8a97636e3deac16856f380f2932d416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2283bc217c4ae21163a1050a2ac68f3f" id="r_a2283bc217c4ae21163a1050a2ac68f3f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2283bc217c4ae21163a1050a2ac68f3f">empty</a> () const noexcept</td></tr>
+<tr class="memdesc:a2283bc217c4ae21163a1050a2ac68f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are there any scenes.  <br /></td></tr>
+<tr class="separator:a2283bc217c4ae21163a1050a2ac68f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a873057f00a609e38666151a40674710e" id="r_a873057f00a609e38666151a40674710e"><td class="memItemLeft" align="right" valign="top">nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a873057f00a609e38666151a40674710e">serialize</a> () override</td></tr>
 <tr class="memdesc:a873057f00a609e38666151a40674710e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes object.  <br /></td></tr>
 <tr class="separator:a873057f00a609e38666151a40674710e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,27 +226,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab67041dc972c4cab09f40f9506e768a9 inherit pub_methods_classgalaxy_1_1fs_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
 <tr class="separator:ab67041dc972c4cab09f40f9506e768a9 inherit pub_methods_classgalaxy_1_1fs_1_1Serializable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:aae24a5e812fd02c9647a244790f2e192" id="r_aae24a5e812fd02c9647a244790f2e192"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae24a5e812fd02c9647a244790f2e192">Map</a> = ankerl::unordered_dense::map&lt;std::uint64_t, std::unique_ptr&lt;<a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a>&gt;&gt;</td></tr>
-<tr class="separator:aae24a5e812fd02c9647a244790f2e192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8510b39f435278171a9c8ec7e84a9ca" id="r_ad8510b39f435278171a9c8ec7e84a9ca"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8510b39f435278171a9c8ec7e84a9ca">SystemContainer</a> = meta::vector&lt;std::unique_ptr&lt;<a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html">systems::System</a>&gt;&gt;</td></tr>
-<tr class="separator:ad8510b39f435278171a9c8ec7e84a9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3c8484e04f61b7629432e7ba6d055b8c" id="r_a3c8484e04f61b7629432e7ba6d055b8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aae24a5e812fd02c9647a244790f2e192">Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c8484e04f61b7629432e7ba6d055b8c">m_scenes</a></td></tr>
-<tr class="memdesc:a3c8484e04f61b7629432e7ba6d055b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> map.  <br /></td></tr>
-<tr class="separator:a3c8484e04f61b7629432e7ba6d055b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae946ed0f522e697b47663e78c36142bb" id="r_ae946ed0f522e697b47663e78c36142bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">scene::Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae946ed0f522e697b47663e78c36142bb">m_current</a></td></tr>
-<tr class="memdesc:ae946ed0f522e697b47663e78c36142bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current scene.  <br /></td></tr>
-<tr class="separator:ae946ed0f522e697b47663e78c36142bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ced51058e02b8697c6bf2ead7c27112" id="r_a5ced51058e02b8697c6bf2ead7c27112"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ad8510b39f435278171a9c8ec7e84a9ca">SystemContainer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ced51058e02b8697c6bf2ead7c27112">m_systems</a></td></tr>
-<tr class="memdesc:a5ced51058e02b8697c6bf2ead7c27112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores systems.  <br /></td></tr>
-<tr class="separator:a5ced51058e02b8697c6bf2ead7c27112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55e34de572ffd0c6c84f2f291ff6ff35" id="r_a55e34de572ffd0c6c84f2f291ff6ff35"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55e34de572ffd0c6c84f2f291ff6ff35">m_rendersystem_index</a></td></tr>
-<tr class="memdesc:a55e34de572ffd0c6c84f2f291ff6ff35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendersystem index.  <br /></td></tr>
-<tr class="separator:a55e34de572ffd0c6c84f2f291ff6ff35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e8a04916f9e940666e979b4862bf2ac" id="r_a7e8a04916f9e940666e979b4862bf2ac"><td class="memItemLeft" align="right" valign="top">ankerl::unordered_dense::map&lt; std::uint64_t, std::shared_ptr&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e8a04916f9e940666e979b4862bf2ac">m_scenes</a></td></tr>
+<tr class="memdesc:a7e8a04916f9e940666e979b4862bf2ac"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> storage.  <br /></td></tr>
+<tr class="separator:a7e8a04916f9e940666e979b4862bf2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9043a5ab85358d89a6d7d37a92337c79" id="r_a9043a5ab85358d89a6d7d37a92337c79"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9043a5ab85358d89a6d7d37a92337c79">m_stack</a></td></tr>
+<tr class="memdesc:a9043a5ab85358d89a6d7d37a92337c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active scenes.  <br /></td></tr>
+<tr class="separator:a9043a5ab85358d89a6d7d37a92337c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -258,64 +243,18 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a74266e95060cb010451423f6c5ffc62d inherit pro_methods_classgalaxy_1_1fs_1_1Serializable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> saving/loading, creation, changing and loading. </p>
+<div class="textblock"><p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> saving/loading, pushing, popping, creating. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aae24a5e812fd02c9647a244790f2e192" name="aae24a5e812fd02c9647a244790f2e192"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae24a5e812fd02c9647a244790f2e192">&#9670;&#160;</a></span>Map</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#aae24a5e812fd02c9647a244790f2e192">galaxy::scene::SceneManager::Map</a> = ankerl::unordered_dense::map&lt;std::uint64_t, std::unique_ptr&lt;<a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a>&gt;&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad8510b39f435278171a9c8ec7e84a9ca" name="ad8510b39f435278171a9c8ec7e84a9ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8510b39f435278171a9c8ec7e84a9ca">&#9670;&#160;</a></span>SystemContainer</h2>
+<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3939a3004a76b76d97f01dc0258c43d3" name="a3939a3004a76b76d97f01dc0258c43d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3939a3004a76b76d97f01dc0258c43d3">&#9670;&#160;</a></span>SceneManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ad8510b39f435278171a9c8ec7e84a9ca">galaxy::scene::SceneManager::SystemContainer</a> = meta::vector&lt;std::unique_ptr&lt;<a class="el" href="../../d9/de7/classgalaxy_1_1systems_1_1System.html">systems::System</a>&gt;&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acb5f4f55a4cedf3169c6948bbd76a410" name="acb5f4f55a4cedf3169c6948bbd76a410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb5f4f55a4cedf3169c6948bbd76a410">&#9670;&#160;</a></span>SceneManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">galaxy::scene::SceneManager::SceneManager </td>
@@ -324,28 +263,21 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_acb5f4f55a4cedf3169c6948bbd76a410_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_acb5f4f55a4cedf3169c6948bbd76a410_cgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_acb5f4f55a4cedf3169c6948bbd76a410_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_acb5f4f55a4cedf3169c6948bbd76a410_cgraph">
-<area shape="rect" title="Constructor." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a04f0b422dc6a199f23146c3a69663fc4" title="Add a system to the manager." alt="" coords="268,5,483,45"/>
-<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a46f4790b8ac97f7019a4245b41fdd81b" name="a46f4790b8ac97f7019a4245b41fdd81b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46f4790b8ac97f7019a4245b41fdd81b">&#9670;&#160;</a></span>~SceneManager()</h2>
+<a id="ae845a371e9b9fb011450d54520f76638" name="ae845a371e9b9fb011450d54520f76638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae845a371e9b9fb011450d54520f76638">&#9670;&#160;</a></span>~SceneManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,348 +294,432 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa0baf7a3e80dcd668ef12a8a3abb10e7" name="aa0baf7a3e80dcd668ef12a8a3abb10e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0baf7a3e80dcd668ef12a8a3abb10e7">&#9670;&#160;</a></span>add()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> * galaxy::scene::SceneManager::add </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add a new scene. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> name to assign.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to added scene. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_aa0baf7a3e80dcd668ef12a8a3abb10e7_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_aa0baf7a3e80dcd668ef12a8a3abb10e7_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_aa0baf7a3e80dcd668ef12a8a3abb10e7_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_aa0baf7a3e80dcd668ef12a8a3abb10e7_icgraph">
-<area shape="rect" title="Add a new scene." alt="" coords="901,42,1148,67"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="639,5,853,45"/>
-<area shape="poly" title=" " alt="" coords="890,43,853,39,854,34,891,38"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,35,328,75"/>
-<area shape="poly" title=" " alt="" coords="888,60,853,60,376,60,328,59,328,54,376,55,853,55,888,54"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="376,5,591,45"/>
-<area shape="poly" title=" " alt="" coords="625,28,591,28,591,23,625,23"/>
-<area shape="poly" title=" " alt="" coords="363,44,329,48,328,43,362,39"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,42,143,67"/>
-<area shape="poly" title=" " alt="" coords="177,57,143,57,143,52,177,52"/>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_ae845a371e9b9fb011450d54520f76638_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ae845a371e9b9fb011450d54520f76638_cgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ae845a371e9b9fb011450d54520f76638_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ae845a371e9b9fb011450d54520f76638_cgraph">
+<area shape="rect" title="Destructor." alt="" coords="5,5,220,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="268,5,483,45"/>
+<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1a71295da930da92ce9eb3ca1246d59c" name="a1a71295da930da92ce9eb3ca1246d59c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a71295da930da92ce9eb3ca1246d59c">&#9670;&#160;</a></span>add_custom()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a60d5677fc4d83c53350611aedd1ea56b" name="a60d5677fc4d83c53350611aedd1ea56b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60d5677fc4d83c53350611aedd1ea56b">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::derived_from&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt; Custom&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Custom * galaxy::scene::SceneManager::add_custom </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt; galaxy::scene::SceneManager::create </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Add a custom scene. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">type</td><td>Derived type of custom scene.</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Create scene in engine. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> name to assign. </td></tr>
+    <tr><td class="paramname">scene</td><td><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> name.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to created scene, or nullptr on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00207">207</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_cgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_cgraph">
+<area shape="rect" title="Create scene in engine." alt="" coords="5,22,220,62"/>
+<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="268,29,420,55"/>
+<area shape="poly" title=" " alt="" coords="220,39,254,39,254,45,220,45"/>
+<area shape="poly" title=" " alt="" coords="307,31,299,21,303,11,318,5,344,3,376,7,389,16,385,20,374,11,344,8,319,10,306,15,304,20,311,27"/>
+</map>
 </div>
-<a id="a9a40cc4ea286604359ca20d342c2ca9a" name="a9a40cc4ea286604359ca20d342c2ca9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a40cc4ea286604359ca20d342c2ca9a">&#9670;&#160;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> * galaxy::scene::SceneManager::get </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a specific scene. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name Id for scene.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to requested scene. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a9a40cc4ea286604359ca20d342c2ca9a_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9a40cc4ea286604359ca20d342c2ca9a_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9a40cc4ea286604359ca20d342c2ca9a_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9a40cc4ea286604359ca20d342c2ca9a_icgraph">
-<area shape="rect" title="Get a specific scene." alt="" coords="376,13,620,38"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="363,28,328,28,328,23,363,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a60d5677fc4d83c53350611aedd1ea56b_icgraph">
+<area shape="rect" title="Create scene in engine." alt="" coords="1116,35,1331,75"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="853,5,1068,45"/>
+<area shape="poly" title=" " alt="" coords="1102,44,1068,40,1069,35,1103,39"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,35,543,75"/>
+<area shape="poly" title=" " alt="" coords="1102,60,1068,60,591,60,543,59,543,54,591,55,1068,55,1102,54"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="591,5,805,45"/>
+<area shape="poly" title=" " alt="" coords="840,28,806,28,806,23,840,23"/>
+<area shape="poly" title=" " alt="" coords="578,44,543,48,543,43,577,39"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,42,357,67"/>
+<area shape="poly" title=" " alt="" coords="392,57,358,57,358,52,392,52"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
+<area shape="poly" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad68da0b40675dc3a2abdbab3c40edf47" name="ad68da0b40675dc3a2abdbab3c40edf47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad68da0b40675dc3a2abdbab3c40edf47">&#9670;&#160;</a></span>remove()</h2>
+<a id="a46703a36f5e959f81f67de6939a050fe" name="a46703a36f5e959f81f67de6939a050fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46703a36f5e959f81f67de6939a050fe">&#9670;&#160;</a></span>set()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::scene::SceneManager::remove </td>
+          <td class="memname">void galaxy::scene::SceneManager::set </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Remove a specific scene. </p>
-<p>Preserves insertion order.</p>
+<p>Clears all from stack and sets as active. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Id for scene. </td></tr>
+    <tr><td class="paramname">scene</td><td><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> name. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00071">71</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_ad68da0b40675dc3a2abdbab3c40edf47_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ad68da0b40675dc3a2abdbab3c40edf47_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ad68da0b40675dc3a2abdbab3c40edf47_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ad68da0b40675dc3a2abdbab3c40edf47_icgraph">
-<area shape="rect" title="Remove a specific scene." alt="" coords="376,5,591,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_cgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_cgraph">
+<area shape="rect" title="Clears all from stack and sets as active." alt="" coords="5,47,248,73"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="296,5,511,45"/>
+<area shape="poly" title=" " alt="" coords="228,45,282,38,282,43,229,50"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af113673c2da2b240dc858b6dbf87e188" title="Push a scene onto the top of stack." alt="" coords="296,72,511,112"/>
+<area shape="poly" title=" " alt="" coords="237,70,283,75,282,81,236,75"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="559,10,805,35"/>
+<area shape="poly" title=" " alt="" coords="511,22,545,21,545,27,511,27"/>
+<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="606,83,758,109"/>
+<area shape="poly" title=" " alt="" coords="511,91,592,92,592,97,511,96"/>
+<area shape="poly" title=" " alt="" coords="637,85,628,75,633,65,651,59,682,57,722,61,733,66,736,72,732,75,729,70,721,66,682,62,652,64,636,69,633,74,641,81"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a27c2830c7ee5f35464157163f2d688e9" name="a27c2830c7ee5f35464157163f2d688e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27c2830c7ee5f35464157163f2d688e9">&#9670;&#160;</a></span>has()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool galaxy::scene::SceneManager::has </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Does a scene exist. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Id for scene.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if exists. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00076">76</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a27c2830c7ee5f35464157163f2d688e9_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a27c2830c7ee5f35464157163f2d688e9_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a27c2830c7ee5f35464157163f2d688e9_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a27c2830c7ee5f35464157163f2d688e9_icgraph">
-<area shape="rect" title="Does a scene exist." alt="" coords="376,13,623,38"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a46703a36f5e959f81f67de6939a050fe_icgraph">
+<area shape="rect" title="Clears all from stack and sets as active." alt="" coords="591,13,833,38"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab3eb3c90efaeec3cd5694adbc0d0167f" name="ab3eb3c90efaeec3cd5694adbc0d0167f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3eb3c90efaeec3cd5694adbc0d0167f">&#9670;&#160;</a></span>set_scene()</h2>
+<a id="af113673c2da2b240dc858b6dbf87e188" name="af113673c2da2b240dc858b6dbf87e188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af113673c2da2b240dc858b6dbf87e188">&#9670;&#160;</a></span>push()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::scene::SceneManager::set_scene </td>
+          <td class="memname">void galaxy::scene::SceneManager::push </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> to set to currently active. </p>
+<p>Push a scene onto the top of stack. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> name. </td></tr>
+    <tr><td class="paramname">scene</td><td><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> name. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00054">54</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
 <div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_ab3eb3c90efaeec3cd5694adbc0d0167f_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ab3eb3c90efaeec3cd5694adbc0d0167f_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ab3eb3c90efaeec3cd5694adbc0d0167f_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ab3eb3c90efaeec3cd5694adbc0d0167f_icgraph">
-<area shape="rect" title="Scene to set to currently active." alt="" coords="901,35,1116,75"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="639,5,853,45"/>
-<area shape="poly" title=" " alt="" coords="888,44,853,40,854,35,888,39"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,35,328,75"/>
-<area shape="poly" title=" " alt="" coords="888,60,853,60,376,60,328,59,328,54,376,55,853,55,888,54"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="376,5,591,45"/>
-<area shape="poly" title=" " alt="" coords="625,28,591,28,591,23,625,23"/>
-<area shape="poly" title=" " alt="" coords="363,44,329,48,328,43,362,39"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,42,143,67"/>
-<area shape="poly" title=" " alt="" coords="177,57,143,57,143,52,177,52"/>
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_cgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_cgraph">
+<area shape="rect" title="Push a scene onto the top of stack." alt="" coords="5,22,220,62"/>
+<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="268,29,420,55"/>
+<area shape="poly" title=" " alt="" coords="220,39,254,39,254,45,220,45"/>
+<area shape="poly" title=" " alt="" coords="307,31,299,21,303,11,318,5,344,3,376,7,389,16,385,20,374,11,344,8,319,10,306,15,304,20,311,27"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a04f0b422dc6a199f23146c3a69663fc4" name="a04f0b422dc6a199f23146c3a69663fc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04f0b422dc6a199f23146c3a69663fc4">&#9670;&#160;</a></span>create_system()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;meta::is_system System, typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::scene::SceneManager::create_system </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Add a system to the manager. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">System</td><td>Type of system to create. </td></tr>
-    <tr><td class="paramname">Args</td><td>Constructor arguments for system.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Systems will be updated in the order in which they are created.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>Constructor arguments for system. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00224">224</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a04f0b422dc6a199f23146c3a69663fc4_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a04f0b422dc6a199f23146c3a69663fc4_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a04f0b422dc6a199f23146c3a69663fc4_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a04f0b422dc6a199f23146c3a69663fc4_icgraph">
-<area shape="rect" title="Add a system to the manager." alt="" coords="268,5,483,45"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#acb5f4f55a4cedf3169c6948bbd76a410" title="Constructor." alt="" coords="5,5,220,45"/>
-<area shape="poly" title=" " alt="" coords="255,28,220,28,220,23,255,23"/>
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_af113673c2da2b240dc858b6dbf87e188_icgraph">
+<area shape="rect" title="Push a scene onto the top of stack." alt="" coords="881,5,1096,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="868,28,543,28,543,23,868,23"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="591,38,833,63"/>
+<area shape="poly" title=" " alt="" coords="868,39,834,42,833,37,867,34"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="poly" title=" " alt="" coords="579,39,543,35,543,30,579,34"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3d4864a9277257c2b8f05e6205c7cad3" name="a3d4864a9277257c2b8f05e6205c7cad3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4864a9277257c2b8f05e6205c7cad3">&#9670;&#160;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::scene::SceneManager::pop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove scene on top of stack. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a3d4864a9277257c2b8f05e6205c7cad3_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a3d4864a9277257c2b8f05e6205c7cad3_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a3d4864a9277257c2b8f05e6205c7cad3_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a3d4864a9277257c2b8f05e6205c7cad3_icgraph">
+<area shape="rect" title="Remove scene on top of stack." alt="" coords="1407,11,1653,36"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,29,543,69"/>
+<area shape="poly" title=" " alt="" coords="1393,23,1359,22,1142,16,974,9,806,11,591,27,543,35,542,30,590,22,806,5,974,4,1142,11,1359,17,1393,17"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="1144,31,1359,71"/>
+<area shape="poly" title=" " alt="" coords="1393,40,1359,43,1359,38,1393,34"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,36,357,61"/>
+<area shape="poly" title=" " alt="" coords="392,51,358,51,358,46,392,46"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,36,172,61"/>
+<area shape="poly" title=" " alt="" coords="206,51,172,51,172,46,206,46"/>
+<area shape="poly" title=" " alt="" coords="1130,48,1096,47,843,44,591,47,543,49,543,43,591,42,843,39,1096,42,1130,43"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="881,57,1096,97"/>
+<area shape="poly" title=" " alt="" coords="1131,66,1096,69,1096,64,1130,60"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="591,121,833,147"/>
+<area shape="poly" title=" " alt="" coords="1195,79,1148,97,1097,111,1030,123,961,131,834,138,833,132,961,126,1029,118,1095,106,1146,92,1193,74"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="605,57,819,97"/>
+<area shape="poly" title=" " alt="" coords="868,79,820,79,820,74,868,74"/>
+<area shape="poly" title=" " alt="" coords="591,65,542,59,543,54,591,60"/>
+<area shape="poly" title=" " alt="" coords="621,121,590,111,546,92,507,71,509,66,548,87,592,106,623,116"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a903c1e9f9a1ed6fb181077a0b9500fda" name="a903c1e9f9a1ed6fb181077a0b9500fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903c1e9f9a1ed6fb181077a0b9500fda">&#9670;&#160;</a></span>pop_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::scene::SceneManager::pop_all </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pop all scenes. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00070">70</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_cgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_cgraph">
+<area shape="rect" title="Pop all scenes." alt="" coords="5,5,220,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="268,13,515,38"/>
+<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
+</map>
+</div>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a903c1e9f9a1ed6fb181077a0b9500fda_icgraph">
+<area shape="rect" title="Pop all scenes." alt="" coords="1144,63,1359,103"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="881,5,1096,45"/>
+<area shape="poly" title=" " alt="" coords="1145,62,1080,48,1081,43,1146,57"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,63,543,103"/>
+<area shape="poly" title=" " alt="" coords="1130,85,543,85,543,80,1130,80"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="591,121,833,146"/>
+<area shape="poly" title=" " alt="" coords="1130,100,1096,104,834,127,833,122,1096,99,1130,95"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="605,5,819,45"/>
+<area shape="poly" title=" " alt="" coords="868,28,820,28,820,23,868,23"/>
+<area shape="poly" title=" " alt="" coords="616,51,543,69,542,64,615,46"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,70,357,95"/>
+<area shape="poly" title=" " alt="" coords="392,85,358,85,358,80,392,80"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,70,172,95"/>
+<area shape="poly" title=" " alt="" coords="206,85,172,85,172,80,206,80"/>
+<area shape="poly" title=" " alt="" coords="638,120,542,100,544,95,639,115"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a27210221deaa36347a3f306dee7258ac" name="a27210221deaa36347a3f306dee7258ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27210221deaa36347a3f306dee7258ac">&#9670;&#160;</a></span>top()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a> &gt; galaxy::scene::SceneManager::top </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get top scene. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a27210221deaa36347a3f306dee7258ac_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a27210221deaa36347a3f306dee7258ac_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a27210221deaa36347a3f306dee7258ac_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a27210221deaa36347a3f306dee7258ac_icgraph">
+<area shape="rect" title="Get top scene." alt="" coords="591,13,835,38"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6ad3d7bf8412a264e4b1c2ff0939aa58" name="a6ad3d7bf8412a264e4b1c2ff0939aa58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad3d7bf8412a264e4b1c2ff0939aa58">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::scene::SceneManager::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process events and updates. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00083">83</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_icgraph">
+<area shape="rect" title="Process events and updates." alt="" coords="591,5,805,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7b60e06e0cb5cd4ecb07bf5af339df45" name="a7b60e06e0cb5cd4ecb07bf5af339df45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b60e06e0cb5cd4ecb07bf5af339df45">&#9670;&#160;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::scene::SceneManager::render </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render scenes. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00091">91</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_icgraph">
+<area shape="rect" title="Render scenes." alt="" coords="591,5,805,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -733,12 +749,12 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_cgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_cgraph">
 <area shape="rect" title="Load app data file into scene manager." alt="" coords="5,63,220,103"/>
@@ -748,26 +764,34 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 <area shape="poly" title=" " alt="" coords="220,80,265,80,265,85,220,85"/>
 <area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="268,120,483,160"/>
 <area shape="poly" title=" " alt="" coords="206,100,270,114,269,120,204,105"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="531,70,777,95"/>
-<area shape="poly" title=" " alt="" coords="473,117,530,105,577,96,578,101,531,111,474,123"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="547,120,761,160"/>
-<area shape="poly" title=" " alt="" coords="483,137,533,137,533,143,483,143"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="547,184,761,224"/>
-<area shape="poly" title=" " alt="" coords="464,157,554,178,552,184,463,163"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="531,27,745,67"/>
+<area shape="poly" title=" " alt="" coords="447,117,482,104,505,90,530,76,549,69,551,74,532,81,508,95,484,109,449,122"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a60d5677fc4d83c53350611aedd1ea56b" title="Create scene in engine." alt="" coords="531,91,745,131"/>
+<area shape="poly" title=" " alt="" coords="482,125,517,122,517,127,483,131"/>
+<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="841,127,993,153"/>
+<area shape="poly" title=" " alt="" coords="483,139,531,140,745,140,827,139,827,144,745,145,531,145,483,145"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="531,205,745,245"/>
+<area shape="poly" title=" " alt="" coords="438,157,563,198,562,204,437,163"/>
+<area shape="poly" title=" " alt="" coords="746,119,827,128,827,133,745,125"/>
+<area shape="poly" title=" " alt="" coords="872,129,862,119,867,109,886,103,917,101,957,105,968,110,971,116,966,119,964,114,956,110,917,106,887,108,871,113,868,118,876,125"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="793,213,1040,238"/>
+<area shape="poly" title=" " alt="" coords="746,223,780,223,780,228,746,228"/>
 </map>
 </div>
-<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_icgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a9215cd97604eb9878516c73b3147dabd_icgraph">
-<area shape="rect" title="Load app data file into scene manager." alt="" coords="376,5,591,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" title="Load app data file into scene manager." alt="" coords="591,5,805,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -796,12 +820,12 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00129">129</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_cgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_cgraph">
 <area shape="rect" title="Save all active scenes and sub data within those scenes." alt="" coords="5,35,220,75"/>
@@ -811,121 +835,20 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 <area shape="poly" title=" " alt="" coords="220,63,291,71,291,76,220,69"/>
 </map>
 </div>
-<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_icgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a186b4dc359e2d0e41fee1c2187aeaf9a_icgraph">
-<area shape="rect" title="Save all active scenes and sub data within those scenes." alt="" coords="376,5,591,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a6ad3d7bf8412a264e4b1c2ff0939aa58" name="a6ad3d7bf8412a264e4b1c2ff0939aa58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ad3d7bf8412a264e4b1c2ff0939aa58">&#9670;&#160;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::scene::SceneManager::update </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle events and update logic. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_cgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a6ad3d7bf8412a264e4b1c2ff0939aa58_cgraph">
-<area shape="rect" title="Handle events and update logic." alt="" coords="5,37,220,77"/>
-<area shape="rect" href="../../d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615" title="Get currently active map." alt="" coords="274,5,421,45"/>
-<area shape="poly" title=" " alt="" coords="220,40,260,35,261,40,221,45"/>
-<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="268,69,427,109"/>
-<area shape="poly" title=" " alt="" coords="221,69,255,74,254,79,220,75"/>
-<area shape="rect" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html#a74c0864bb3955de13a761ac5a7300528" title="Updates pending component data." alt="" coords="475,69,637,109"/>
-<area shape="poly" title=" " alt="" coords="427,87,461,87,461,92,427,92"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a05b20db2d243f6d287667f7c141972b8" name="a05b20db2d243f6d287667f7c141972b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05b20db2d243f6d287667f7c141972b8">&#9670;&#160;</a></span>only_update_rendering()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::scene::SceneManager::only_update_rendering </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Only update rendering. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00157">157</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a05b20db2d243f6d287667f7c141972b8_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a05b20db2d243f6d287667f7c141972b8_cgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a05b20db2d243f6d287667f7c141972b8_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a05b20db2d243f6d287667f7c141972b8_cgraph">
-<area shape="rect" title="Only update rendering." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../d9/d75/classgalaxy_1_1map_1_1World.html#ad566a4041d9209a2369071c1c73c3615" title="Get currently active map." alt="" coords="268,5,415,45"/>
-<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a7b60e06e0cb5cd4ecb07bf5af339df45" name="a7b60e06e0cb5cd4ecb07bf5af339df45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b60e06e0cb5cd4ecb07bf5af339df45">&#9670;&#160;</a></span>render()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::scene::SceneManager::render </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle rendering. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00170">170</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_cgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a7b60e06e0cb5cd4ecb07bf5af339df45_cgraph">
-<area shape="rect" title="Handle rendering." alt="" coords="5,5,220,45"/>
-<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="268,5,427,45"/>
-<area shape="poly" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
+<area shape="rect" title="Save all active scenes and sub data within those scenes." alt="" coords="591,5,805,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -948,105 +871,35 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 
 <p>Deletes all scene data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00178">178</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a624fe738044874f9874376081c381bd1_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a624fe738044874f9874376081c381bd1_icgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a624fe738044874f9874376081c381bd1_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a624fe738044874f9874376081c381bd1_icgraph">
-<area shape="rect" title="Deletes all scene data." alt="" coords="901,35,1116,75"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="639,5,853,45"/>
-<area shape="poly" title=" " alt="" coords="888,44,853,40,854,35,888,39"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,35,328,75"/>
-<area shape="poly" title=" " alt="" coords="888,60,853,60,376,60,328,59,328,54,376,55,853,55,888,54"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="376,5,591,45"/>
-<area shape="poly" title=" " alt="" coords="625,28,591,28,591,23,625,23"/>
-<area shape="poly" title=" " alt="" coords="363,44,329,48,328,43,362,39"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,42,143,67"/>
-<area shape="poly" title=" " alt="" coords="177,57,143,57,143,52,177,52"/>
+<area shape="rect" title="Deletes all scene data." alt="" coords="1116,63,1331,103"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="853,5,1068,45"/>
+<area shape="poly" title=" " alt="" coords="1117,62,1052,48,1053,43,1118,57"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,35,543,75"/>
+<area shape="poly" title=" " alt="" coords="1102,81,543,60,543,55,1102,76"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae845a371e9b9fb011450d54520f76638" title="Destructor." alt="" coords="853,120,1068,160"/>
+<area shape="poly" title=" " alt="" coords="1118,108,1053,123,1052,117,1117,103"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="591,5,805,45"/>
+<area shape="poly" title=" " alt="" coords="840,28,806,28,806,23,840,23"/>
+<area shape="poly" title=" " alt="" coords="578,44,543,48,543,43,577,39"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,42,357,67"/>
+<area shape="poly" title=" " alt="" coords="392,57,358,57,358,52,392,52"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
+<area shape="poly" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a3ac342f096544a8231c11fafb7d32620" name="a3ac342f096544a8231c11fafb7d32620"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ac342f096544a8231c11fafb7d32620">&#9670;&#160;</a></span>current()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">scene::Scene</a> * galaxy::scene::SceneManager::current </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get current scene. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to current scene, nullptr if no scene. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00184">184</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a3ac342f096544a8231c11fafb7d32620_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a3ac342f096544a8231c11fafb7d32620_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a3ac342f096544a8231c11fafb7d32620_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a3ac342f096544a8231c11fafb7d32620_icgraph">
-<area shape="rect" title="Get current scene." alt="" coords="376,5,591,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae8929b0b704e5ddfaefc920f3a016d1e" name="ae8929b0b704e5ddfaefc920f3a016d1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8929b0b704e5ddfaefc920f3a016d1e">&#9670;&#160;</a></span>map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="#aae24a5e812fd02c9647a244790f2e192">SceneManager::Map</a> &amp; galaxy::scene::SceneManager::map </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get all scenes. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to scene object. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00189">189</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ad8a97636e3deac16856f380f2932d416" name="ad8a97636e3deac16856f380f2932d416"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8a97636e3deac16856f380f2932d416">&#9670;&#160;</a></span>empty()</h2>
+<a id="a2283bc217c4ae21163a1050a2ac68f3f" name="a2283bc217c4ae21163a1050a2ac68f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2283bc217c4ae21163a1050a2ac68f3f">&#9670;&#160;</a></span>empty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1063,7 +916,7 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1071,19 +924,21 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 <p>Are there any scenes. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if no scenes. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00194">194</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00159">159</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_ad8a97636e3deac16856f380f2932d416_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ad8a97636e3deac16856f380f2932d416_icgraph" alt=""/></div>
-<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ad8a97636e3deac16856f380f2932d416_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_ad8a97636e3deac16856f380f2932d416_icgraph">
-<area shape="rect" title="Are there any scenes." alt="" coords="376,5,591,45"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a2283bc217c4ae21163a1050a2ac68f3f_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a2283bc217c4ae21163a1050a2ac68f3f_icgraph" alt=""/></div>
+<map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a2283bc217c4ae21163a1050a2ac68f3f_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a2283bc217c4ae21163a1050a2ac68f3f_icgraph">
+<area shape="rect" title="Are there any scenes." alt="" coords="591,5,805,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -1117,21 +972,23 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 
 <p>Implements <a class="el" href="../../d2/d54/classgalaxy_1_1fs_1_1Serializable.html#ad950c8bca3178898f774238e9d096917">galaxy::fs::Serializable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00164">164</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a873057f00a609e38666151a40674710e_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a873057f00a609e38666151a40674710e_icgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a873057f00a609e38666151a40674710e_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a873057f00a609e38666151a40674710e_icgraph">
-<area shape="rect" title="Serializes object." alt="" coords="639,5,853,45"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a186b4dc359e2d0e41fee1c2187aeaf9a" title="Save all active scenes and sub data within those scenes." alt="" coords="376,5,591,45"/>
-<area shape="poly" title=" " alt="" coords="625,28,591,28,591,23,625,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" title="Serializes object." alt="" coords="853,5,1068,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a186b4dc359e2d0e41fee1c2187aeaf9a" title="Save all active scenes and sub data within those scenes." alt="" coords="591,5,805,45"/>
+<area shape="poly" title=" " alt="" coords="840,28,806,28,806,23,840,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
@@ -1170,45 +1027,53 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 
 <p>Implements <a class="el" href="../../d2/d54/classgalaxy_1_1fs_1_1Serializable.html#a87464e16c184605735a79f9d18d17c74">galaxy::fs::Serializable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00216">216</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
-<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html#l00181">181</a> of file <a class="el" href="../../da/d2c/SceneManager_8cpp_source.html">SceneManager.cpp</a>.</p>
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_cgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_cgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_cgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_cgraph">
-<area shape="rect" title="Deserializes from object." alt="" coords="5,55,220,95"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="268,5,515,31"/>
-<area shape="poly" title=" " alt="" coords="210,53,267,41,315,31,316,36,269,46,211,58"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="284,55,499,95"/>
-<area shape="poly" title=" " alt="" coords="220,73,270,73,270,78,220,78"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="284,119,499,159"/>
-<area shape="poly" title=" " alt="" coords="201,93,291,114,290,119,200,98"/>
+<area shape="rect" title="Deserializes from object." alt="" coords="5,99,220,139"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="268,5,483,45"/>
+<area shape="poly" title=" " alt="" coords="161,96,267,55,290,47,292,52,269,60,162,101"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a60d5677fc4d83c53350611aedd1ea56b" title="Create scene in engine." alt="" coords="268,69,483,109"/>
+<area shape="poly" title=" " alt="" coords="220,104,254,100,255,105,220,109"/>
+<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="578,106,730,131"/>
+<area shape="poly" title=" " alt="" coords="220,118,268,119,483,119,564,118,564,123,483,124,268,124,220,123"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="268,184,483,224"/>
+<area shape="poly" title=" " alt="" coords="176,136,301,177,299,182,174,141"/>
+<area shape="poly" title=" " alt="" coords="483,98,565,107,564,112,483,103"/>
+<area shape="poly" title=" " alt="" coords="609,108,600,98,605,88,623,81,654,79,694,84,705,89,708,95,704,97,701,93,693,89,654,85,624,87,608,92,605,97,613,104"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="531,191,777,217"/>
+<area shape="poly" title=" " alt="" coords="483,201,517,201,517,207,483,207"/>
 </map>
 </div>
-<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_icgraph.png" border="0" usemap="#ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_icgraph" alt=""/></div>
 <map name="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_icgraph" id="ad4/d92/classgalaxy_1_1scene_1_1SceneManager_a66ebd7917071f3f7864f2361310b580b_icgraph">
-<area shape="rect" title="Deserializes from object." alt="" coords="639,5,853,45"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="376,5,591,45"/>
-<area shape="poly" title=" " alt="" coords="625,28,591,28,591,23,625,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a41572759e8efdfd978920db53829eb47" title="Injects galaxy scene management into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" title=" " alt="" coords="362,28,328,28,328,23,362,23"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" title="Deserializes from object." alt="" coords="853,5,1068,45"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="591,5,805,45"/>
+<area shape="poly" title=" " alt="" coords="840,28,806,28,806,23,840,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
+<area shape="poly" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
+<area shape="poly" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
+<area shape="rect" href="../../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
+<area shape="poly" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3c8484e04f61b7629432e7ba6d055b8c" name="a3c8484e04f61b7629432e7ba6d055b8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c8484e04f61b7629432e7ba6d055b8c">&#9670;&#160;</a></span>m_scenes</h2>
+<a id="a7e8a04916f9e940666e979b4862bf2ac" name="a7e8a04916f9e940666e979b4862bf2ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e8a04916f9e940666e979b4862bf2ac">&#9670;&#160;</a></span>m_scenes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1217,7 +1082,7 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aae24a5e812fd02c9647a244790f2e192">Map</a> galaxy::scene::SceneManager::m_scenes</td>
+          <td class="memname">ankerl::unordered_dense::map&lt;std::uint64_t, std::shared_ptr&lt;<a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a>&gt; &gt; galaxy::scene::SceneManager::m_scenes</td>
         </tr>
       </table>
   </td>
@@ -1227,14 +1092,14 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources.">Scene</a> map. </p>
+<p><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc.">Scene</a> storage. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00188">188</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00131">131</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ae946ed0f522e697b47663e78c36142bb" name="ae946ed0f522e697b47663e78c36142bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae946ed0f522e697b47663e78c36142bb">&#9670;&#160;</a></span>m_current</h2>
+<a id="a9043a5ab85358d89a6d7d37a92337c79" name="a9043a5ab85358d89a6d7d37a92337c79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9043a5ab85358d89a6d7d37a92337c79">&#9670;&#160;</a></span>m_stack</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1243,7 +1108,7 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">scene::Scene</a>* galaxy::scene::SceneManager::m_current</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html">Scene</a>&gt; &gt; galaxy::scene::SceneManager::m_stack</td>
         </tr>
       </table>
   </td>
@@ -1253,61 +1118,9 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Current scene. </p>
+<p>Active scenes. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00193">193</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5ced51058e02b8697c6bf2ead7c27112" name="a5ced51058e02b8697c6bf2ead7c27112"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ced51058e02b8697c6bf2ead7c27112">&#9670;&#160;</a></span>m_systems</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad8510b39f435278171a9c8ec7e84a9ca">SystemContainer</a> galaxy::scene::SceneManager::m_systems</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stores systems. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00198">198</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a55e34de572ffd0c6c84f2f291ff6ff35" name="a55e34de572ffd0c6c84f2f291ff6ff35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55e34de572ffd0c6c84f2f291ff6ff35">&#9670;&#160;</a></span>m_rendersystem_index</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t galaxy::scene::SceneManager::m_rendersystem_index</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Rendersystem index. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d74/SceneManager_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../df/d74/SceneManager_8hpp_source.html">SceneManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -1321,7 +1134,7 @@ template&lt;meta::is_system System, typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../de/d3c/namespacegalaxy_1_1scene.html">scene</a></li><li class="navelem"><a class="el" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html">SceneManager</a></li>
-    <li class="footer">Generated on Wed Feb 12 2025 11:18:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Mar 1 2025 05:26:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

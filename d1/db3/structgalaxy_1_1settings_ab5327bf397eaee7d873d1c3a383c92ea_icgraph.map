@@ -1,5 +1,7 @@
 <map id="galaxy::settings::ups" name="galaxy::settings::ups">
-<area shape="rect" id="Node000001" title="Game updates per second, independant of FPS, see &quot;fixed timestep gameloop&quot;." alt="" coords="216,5,372,31"/>
-<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610" title="Runs the app." alt="" coords="5,5,168,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,21,168,21,168,15,202,15"/>
+<area shape="rect" id="Node000001" title="Game updates per second, independant of FPS, see &quot;fixed timestep gameloop&quot;." alt="" coords="225,31,381,56"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="5,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,35,177,31,178,26,212,30"/>
+<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610" title="Runs the app." alt="" coords="10,55,173,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,56,173,61,173,55,212,51"/>
 </map>

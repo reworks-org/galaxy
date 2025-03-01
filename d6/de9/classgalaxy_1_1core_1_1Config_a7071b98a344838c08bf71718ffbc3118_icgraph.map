@@ -1,9 +1,7 @@
 <map id="galaxy::core::Config::has" name="galaxy::core::Config::has">
-<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="411,35,592,60"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into lua." alt="" coords="191,5,363,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,36,363,32,363,27,397,31"/>
-<area shape="rect" id="Node000004" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="201,55,352,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,63,353,69,352,63,396,58"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into lua." alt="" coords="5,5,143,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,21,143,21,143,15,177,15"/>
+<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="225,35,407,60"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="5,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,36,177,32,178,27,212,31"/>
+<area shape="rect" id="Node000003" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="16,55,167,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,63,167,69,167,63,211,58"/>
 </map>

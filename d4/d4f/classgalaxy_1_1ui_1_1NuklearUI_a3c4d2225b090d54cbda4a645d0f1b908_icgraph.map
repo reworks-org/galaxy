@@ -1,0 +1,8 @@
+<map id="galaxy::ui::NuklearUI::end_input" name="galaxy::ui::NuklearUI::end_input">
+<area shape="rect" id="Node000001" title="Called after glfwPollEvents." alt="" coords="397,5,556,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554" title="Inject Nuklear into Lua." alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="384,25,349,24,191,24,143,25,143,20,191,19,349,19,384,19"/>
+<area shape="rect" id="Node000003" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a0bb9e0266ef94a15b127aa2585053e17" title="Calls begin, end and glfwPollEvents." alt="" coords="191,33,349,73"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="384,41,350,45,349,40,383,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="177,43,143,38,144,33,178,37"/>
+</map>
