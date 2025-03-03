@@ -39,13 +39,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "supercluster", "supercluste
 		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6} = {A4E8B354-F348-427F-9CF9-538FAE8F7AF6}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{64D6C3C8-8AB2-4E73-A578-F1107FD41465}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7D1068D5-2B05-46E2-8B93-1BB42F6B445F} = {7D1068D5-2B05-46E2-8B93-1BB42F6B445F}
-		{8E1756D4-2CA1-4F78-BF4F-C045D98D672D} = {8E1756D4-2CA1-4F78-BF4F-C045D98D672D}
-		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6} = {A4E8B354-F348-427F-9CF9-538FAE8F7AF6}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -68,10 +61,6 @@ Global
 		{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}.Debug|x64.Build.0 = Debug|x64
 		{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}.Release|x64.ActiveCfg = Release|x64
 		{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}.Release|x64.Build.0 = Release|x64
-		{64D6C3C8-8AB2-4E73-A578-F1107FD41465}.Debug|x64.ActiveCfg = Debug|x64
-		{64D6C3C8-8AB2-4E73-A578-F1107FD41465}.Debug|x64.Build.0 = Debug|x64
-		{64D6C3C8-8AB2-4E73-A578-F1107FD41465}.Release|x64.ActiveCfg = Release|x64
-		{64D6C3C8-8AB2-4E73-A578-F1107FD41465}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
