@@ -97,10 +97,10 @@ namespace galaxy
 			// Number of updates per second.
 			// Same as std::ratio<1, ups>, using 1000 with std::milli, etc.
 			const auto dt = one_second / settings::ups();
+			settings::set_delta_time(dt / one_second);
 
 			duration accum {0};
 			duration elapsed {0};
-			double   alpha {0.0};
 
 			time_point now      = clock::now();
 			time_point previous = now;
@@ -121,8 +121,6 @@ namespace galaxy
 				while (accum >= dt)
 				{
 					accum -= dt;
-					alpha  = dt / one_second;
-					settings::set_delta_time(alpha);
 
 					// nui.begin_input();
 					handle_events(window);
