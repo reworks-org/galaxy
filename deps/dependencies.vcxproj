@@ -11,6 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="imgui\imgui\extensions\sfml\imgui-SFML.cpp" />
+    <ClCompile Include="imgui\imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui\imgui_freetype.cpp" />
+    <ClCompile Include="imgui\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="imgui\imgui\imgui_tables.cpp" />
+    <ClCompile Include="imgui\imgui\imgui_widgets.cpp" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -74,6 +82,18 @@
     <ClInclude Include="entt_sol\entt_sol\meta_helper.hpp" />
     <ClInclude Include="entt_sol\entt_sol\registry.hpp" />
     <ClInclude Include="entt_sol\entt_sol\script_process.hpp" />
+    <ClInclude Include="imgui\imgui\extensions\sfml\imconfig-SFML.h" />
+    <ClInclude Include="imgui\imgui\extensions\sfml\imgui-SFML.h" />
+    <ClInclude Include="imgui\imgui\extensions\sfml\imgui-SFML_export.h" />
+    <ClInclude Include="imgui\imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui\imgui_freetype.h" />
+    <ClInclude Include="imgui\imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imgui\imgui_stdlib.h" />
+    <ClInclude Include="imgui\imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imgui\imstb_sprintf.h" />
+    <ClInclude Include="imgui\imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imgui\imstb_truetype.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />
     <ClInclude Include="lua\lcode.h" />
@@ -784,7 +804,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml/extlibs/headers/glad/include;$(SolutionDir)deps/sfml/extlibs/headers/mingw;$(SolutionDir)deps/sfml/extlibs/headers/miniaudio;$(SolutionDir)deps/sfml/extlibs/headers/minimp3;$(SolutionDir)deps/sfml/extlibs/headers/stb_image;$(SolutionDir)deps/sfml/extlibs/headers/vulkan;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/imgui;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml/extlibs/headers/glad/include;$(SolutionDir)deps/sfml/extlibs/headers/mingw;$(SolutionDir)deps/sfml/extlibs/headers/miniaudio;$(SolutionDir)deps/sfml/extlibs/headers/minimp3;$(SolutionDir)deps/sfml/extlibs/headers/stb_image;$(SolutionDir)deps/sfml/extlibs/headers/vulkan;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -841,7 +861,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml/extlibs/headers/glad/include;$(SolutionDir)deps/sfml/extlibs/headers/mingw;$(SolutionDir)deps/sfml/extlibs/headers/miniaudio;$(SolutionDir)deps/sfml/extlibs/headers/minimp3;$(SolutionDir)deps/sfml/extlibs/headers/stb_image;$(SolutionDir)deps/sfml/extlibs/headers/vulkan;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/imgui;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/sfml/include;$(SolutionDir)deps/sfml/src;$(SolutionDir)deps/sfml/extlibs/headers/glad/include;$(SolutionDir)deps/sfml/extlibs/headers/mingw;$(SolutionDir)deps/sfml/extlibs/headers/miniaudio;$(SolutionDir)deps/sfml/extlibs/headers/minimp3;$(SolutionDir)deps/sfml/extlibs/headers/stb_image;$(SolutionDir)deps/sfml/extlibs/headers/vulkan;$(SolutionDir)deps/sfml_deps/flac-build;$(SolutionDir)deps/sfml_deps/flac-src/include;$(SolutionDir)deps/sfml_deps/flac-src/src/libFLAC/include;$(SolutionDir)deps/sfml_deps/freetype-build/include;$(SolutionDir)deps/sfml_deps/freetype-build/include/freetype/config;$(SolutionDir)deps/sfml_deps/freetype-src/include;$(SolutionDir)deps/sfml_deps/ogg-build/include;$(SolutionDir)deps/sfml_deps/ogg-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/include;$(SolutionDir)deps/sfml_deps/vorbis-src/lib;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfiledialogs;$(SolutionDir)deps/zip/src;$(SolutionDir)galaxy/src;$(SolutionDir)dist/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
