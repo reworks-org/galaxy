@@ -432,6 +432,11 @@
     <ClInclude Include="imgui\imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imgui\imstb_truetype.h" />
     <ClInclude Include="imgui\imgui\stb_sprintf.h" />
+    <ClInclude Include="imgui\imgui\extensions\sfml\imconfig-SFML.h" />
+    <ClInclude Include="imgui\imgui\extensions\sfml\imgui-SFML.h" />
+    <ClInclude Include="imgui\imgui\extensions\notify\ImGuiNotify.hpp" />
+    <ClInclude Include="imgui\imgui\extensions\notify\material_design_icons.h" />
+    <ClInclude Include="imgui\imgui\extensions\notify\material_design_icons_ttf.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />
@@ -698,6 +703,7 @@
     <ClCompile Include="imgui\imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="imgui\imgui\extensions\sfml\imgui-SFML.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sfml_deps\freetype-src\src\base\ftver.rc" />
