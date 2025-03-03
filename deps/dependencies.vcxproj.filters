@@ -420,18 +420,18 @@
     <ClInclude Include="lua\lundump.h" />
     <ClInclude Include="lua\lvm.h" />
     <ClInclude Include="lua\lzio.h" />
-    <ClInclude Include="imgui\imgui\extensions\sfml\imconfig-SFML.h" />
-    <ClInclude Include="imgui\imgui\extensions\sfml\imgui-SFML.h" />
     <ClInclude Include="imgui\imgui\extensions\sfml\imgui-SFML_export.h" />
+    <ClInclude Include="imgui\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="imgui\imgui\misc\freetype\imgui_freetype.h" />
     <ClInclude Include="imgui\imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui\imgui_freetype.h" />
     <ClInclude Include="imgui\imgui\imgui_internal.h" />
-    <ClInclude Include="imgui\imgui\imgui_stdlib.h" />
+    <ClInclude Include="imgui\imgui\imgui_user.h" />
     <ClInclude Include="imgui\imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imgui\imstb_sprintf.h" />
     <ClInclude Include="imgui\imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imgui\imstb_truetype.h" />
+    <ClInclude Include="imgui\imgui\stb_sprintf.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />
@@ -691,12 +691,11 @@
     <ClCompile Include="lua\lutf8lib.c" />
     <ClCompile Include="lua\lvm.c" />
     <ClCompile Include="lua\lzio.c" />
-    <ClCompile Include="imgui\imgui\extensions\sfml\imgui-SFML.cpp" />
+    <ClCompile Include="imgui\imgui\misc\cpp\imgui_stdlib.cpp" />
+    <ClCompile Include="imgui\imgui\misc\freetype\imgui_freetype.cpp" />
     <ClCompile Include="imgui\imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui\imgui_draw.cpp" />
-    <ClCompile Include="imgui\imgui\imgui_freetype.cpp" />
-    <ClCompile Include="imgui\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="imgui\imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui\imgui_widgets.cpp" />
   </ItemGroup>
