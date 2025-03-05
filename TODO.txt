@@ -21,3 +21,13 @@ https://david-delassus.medium.com/trying-out-sdl3-by-writing-a-c-game-engine-c9b
 loading/saving:
 - call load_app to load defaults
 - on load save, call load_app again.
+
+https://trederia.blogspot.com/2013/03/further-enhancing-2d-sprites-with-3d.html
+https://github.com/fallahn/tmxlite
+https://github.com/SSBMTonberry/tileson
+https://github.com/gale93/randballs
+https://github.com/eXpl0it3r/LTBL?tab=readme-ov-file
+https://github.com/222464/LTBL2
+https://github.com/eXpl0it3r/sfTheora/tree/master
+https://github.com/skyrpex/RichText
+https://github.com/MiguelMJ/Candle

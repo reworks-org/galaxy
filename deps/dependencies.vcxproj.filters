@@ -437,6 +437,30 @@
     <ClInclude Include="imgui\imgui\extensions\notify\ImGuiNotify.hpp" />
     <ClInclude Include="imgui\imgui\extensions\notify\material_design_icons.h" />
     <ClInclude Include="imgui\imgui\extensions\notify\material_design_icons_ttf.h" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\BitmapFont.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\BitmapText.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Common.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\ConsoleScreen.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Crosshair.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\ElasticSprite.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\FrameTransition.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\GallerySprite.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Line.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\NinePatch.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\PaletteEnums.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\PieChart.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\PixelDisplay.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Polygon.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\ProgressBar.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Ring.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\SpinningCard.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Spline.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Sprite3d.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\SpriteBatch.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Starfield.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\Starfield3d.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard\TileMap.hpp" />
+    <ClInclude Include="sfml_addons\selba_ward\src\SelbaWard.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sfml_deps\freetype-src\src\autofit\autofit.c" />
@@ -704,6 +728,26 @@
     <ClCompile Include="imgui\imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui\imgui_widgets.cpp" />
     <ClCompile Include="imgui\imgui\extensions\sfml\imgui-SFML.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\BitmapFont.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\BitmapText.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\ConsoleScreen.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Crosshair.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\ElasticSprite.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\FrameTransition.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\GallerySprite.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Line.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\NinePatch.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\PieChart.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\PixelDisplay.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Polygon.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\ProgressBar.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Ring.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\SpinningCard.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Spline.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Sprite3d.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\SpriteBatch.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Starfield.cpp" />
+    <ClCompile Include="sfml_addons\selba_ward\src\SelbaWard\Starfield3d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sfml_deps\freetype-src\src\base\ftver.rc" />
@@ -712,5 +756,6 @@
     <None Include="sfml_deps\vorbis-src\win32\vorbisfile.def" />
     <None Include="sfml_deps\vorbis-src\win32\vorbisenc.def" />
     <None Include="sfml_deps\vorbis-src\win32\vorbis.def" />
+    <None Include="sfml_addons\selba_ward\src\SelbaWard\TileMap.inl" />
   </ItemGroup>
 </Project>

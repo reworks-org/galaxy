@@ -34,3 +34,9 @@
 [submodule "deps/sfml"]
 	path = deps/sfml
 	url = https://github.com/SFML/SFML.git
+[submodule "deps/sfml_addons/selba_ward"]
+	path = deps/sfml_addons/selba_ward
+	url = https://github.com/Hapaxia/SelbaWard.git
+[submodule "deps/sfml_addons/soundsystem"]
+	path = deps/sfml_addons/soundsystem
+	url = https://github.com/Hapaxia/SfmlSoundSystem.git
