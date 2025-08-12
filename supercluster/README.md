@@ -1,3 +1,3 @@
-# supercluster
+# Supercluster
 
-GUI Editor for Galaxy engine.
+Editor for Galaxy.

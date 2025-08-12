@@ -8,10 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.clang-format = .clang-format
 		.clang-tidy = .clang-tidy
 		.gitignore = .gitignore
-		.travis.yml = .travis.yml
+		.gitmodules = .gitmodules
 		appveyor.yml = appveyor.yml
 		CodeAnalysis.ruleset = CodeAnalysis.ruleset
-		DESIGN.md = DESIGN.md
 		Doxyfile = Doxyfile
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
@@ -28,15 +27,43 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "galaxy", "galaxy\galaxy.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dist", "dist\dist.vcxproj", "{8E1756D4-2CA1-4F78-BF4F-C045D98D672D}"
 	ProjectSection(ProjectDependencies) = postProject
+		{1D0B3F37-7A1F-413E-9859-6EF351362AB1} = {1D0B3F37-7A1F-413E-9859-6EF351362AB1}
+		{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3} = {69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}
 		{7D1068D5-2B05-46E2-8B93-1BB42F6B445F} = {7D1068D5-2B05-46E2-8B93-1BB42F6B445F}
 		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6} = {A4E8B354-F348-427F-9CF9-538FAE8F7AF6}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "supercluster", "supercluster\supercluster.vcxproj", "{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}"
 	ProjectSection(ProjectDependencies) = postProject
+		{1D0B3F37-7A1F-413E-9859-6EF351362AB1} = {1D0B3F37-7A1F-413E-9859-6EF351362AB1}
+		{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3} = {69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}
 		{7D1068D5-2B05-46E2-8B93-1BB42F6B445F} = {7D1068D5-2B05-46E2-8B93-1BB42F6B445F}
-		{8E1756D4-2CA1-4F78-BF4F-C045D98D672D} = {8E1756D4-2CA1-4F78-BF4F-C045D98D672D}
 		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6} = {A4E8B354-F348-427F-9CF9-538FAE8F7AF6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7D1068D5-2B05-46E2-8B93-1BB42F6B445F} = {7D1068D5-2B05-46E2-8B93-1BB42F6B445F}
+		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6} = {A4E8B354-F348-427F-9CF9-538FAE8F7AF6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{1D0B3F37-7A1F-413E-9859-6EF351362AB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7D1068D5-2B05-46E2-8B93-1BB42F6B445F} = {7D1068D5-2B05-46E2-8B93-1BB42F6B445F}
+		{A4E8B354-F348-427F-9CF9-538FAE8F7AF6} = {A4E8B354-F348-427F-9CF9-538FAE8F7AF6}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.github\CODE_OF_CONDUCT.md = .github\CODE_OF_CONDUCT.md
+		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
+		.github\ISSUE_TEMPLATE.md = .github\ISSUE_TEMPLATE.md
+		.github\PULL_REQUEST_TEMPLATE.md = .github\PULL_REQUEST_TEMPLATE.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CF2AA326-4C43-48A5-B5D7-EEBB17141A30}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\doxygen-gh-pages.yml = .github\workflows\doxygen-gh-pages.yml
 	EndProjectSection
 EndProject
 Global
@@ -61,9 +88,21 @@ Global
 		{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}.Debug|x64.Build.0 = Debug|x64
 		{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}.Release|x64.ActiveCfg = Release|x64
 		{1AE030A1-B79E-46C2-9AC1-E8A5024D2275}.Release|x64.Build.0 = Release|x64
+		{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}.Debug|x64.ActiveCfg = Debug|x64
+		{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}.Debug|x64.Build.0 = Debug|x64
+		{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}.Release|x64.ActiveCfg = Release|x64
+		{69BA67E6-7D19-42FD-AEC5-C75BA9D40BE3}.Release|x64.Build.0 = Release|x64
+		{1D0B3F37-7A1F-413E-9859-6EF351362AB1}.Debug|x64.ActiveCfg = Debug|x64
+		{1D0B3F37-7A1F-413E-9859-6EF351362AB1}.Debug|x64.Build.0 = Debug|x64
+		{1D0B3F37-7A1F-413E-9859-6EF351362AB1}.Release|x64.ActiveCfg = Release|x64
+		{1D0B3F37-7A1F-413E-9859-6EF351362AB1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {C7F24F59-A3D6-49D7-B7B0-774FB4D28394}
+		{CF2AA326-4C43-48A5-B5D7-EEBB17141A30} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55E7B59E-6DF5-4272-B5BD-FF3AD20E02E1}
