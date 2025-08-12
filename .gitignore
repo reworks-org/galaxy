@@ -8,3 +8,4 @@ build/
 
 sandbox/bin
 supercluster/bin
+tests/bin
