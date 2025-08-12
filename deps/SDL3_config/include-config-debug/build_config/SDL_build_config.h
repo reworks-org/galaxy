@@ -31,6 +31,12 @@
 /* General platform specific identifiers */
 #include <SDL3/SDL_platform_defines.h>
 
+/* #undef SDL_PLATFORM_PRIVATE */
+
+#ifdef SDL_PLATFORM_PRIVATE
+#include "SDL_begin_config_private.h"
+#endif
+
 /* #undef HAVE_GCC_ATOMICS */
 /* #undef HAVE_GCC_SYNC_LOCK_TEST_AND_SET */
 
@@ -225,6 +231,8 @@
 #define HAVE_SHELLSCALINGAPI_H 1
 
 /* #undef USE_POSIX_SPAWN */
+/* #undef HAVE_POSIX_SPAWN_FILE_ACTIONS_ADDCHDIR */
+/* #undef HAVE_POSIX_SPAWN_FILE_ACTIONS_ADDCHDIR_NP */
 
 /* SDL internal assertion support */
 /* #undef SDL_DEFAULT_ASSERT_LEVEL_CONFIGURED */
@@ -235,8 +243,8 @@
 /* Allow disabling of major subsystems */
 /* #undef SDL_AUDIO_DISABLED */
 /* #undef SDL_VIDEO_DISABLED */
-/* #undef SDL_GPU_DISABLED */
-/* #undef SDL_RENDER_DISABLED */
+#define SDL_GPU_DISABLED 1
+#define SDL_RENDER_DISABLED 1
 /* #undef SDL_CAMERA_DISABLED */
 /* #undef SDL_JOYSTICK_DISABLED */
 /* #undef SDL_HAPTIC_DISABLED */
@@ -272,7 +280,10 @@
 /* #undef SDL_AUDIO_DRIVER_PSP */
 /* #undef SDL_AUDIO_DRIVER_PS2 */
 /* #undef SDL_AUDIO_DRIVER_N3DS */
+/* #undef SDL_AUDIO_DRIVER_NGAGE */
 /* #undef SDL_AUDIO_DRIVER_QNX */
+
+/* #undef SDL_AUDIO_DRIVER_PRIVATE */
 
 /* Enable various input drivers */
 /* #undef SDL_INPUT_LINUXEV */
@@ -299,11 +310,17 @@
 /* #undef SDL_JOYSTICK_VITA */
 #define SDL_JOYSTICK_WGI 1
 #define SDL_JOYSTICK_XINPUT 1
+
+/* #undef SDL_JOYSTICK_PRIVATE */
+
 /* #undef SDL_HAPTIC_DUMMY */
 /* #undef SDL_HAPTIC_LINUX */
 /* #undef SDL_HAPTIC_IOKIT */
 #define SDL_HAPTIC_DINPUT 1
 /* #undef SDL_HAPTIC_ANDROID */
+
+/* #undef SDL_HAPTIC_PRIVATE */
+
 /* #undef SDL_LIBUSB_DYNAMIC */
 /* #undef SDL_UDEV_DYNAMIC */
 
@@ -311,6 +328,8 @@
 /* #undef SDL_PROCESS_DUMMY */
 /* #undef SDL_PROCESS_POSIX */
 #define SDL_PROCESS_WINDOWS 1
+
+/* #undef SDL_PROCESS_PRIVATE */
 
 /* Enable various sensor drivers */
 /* #undef SDL_SENSOR_ANDROID */
@@ -320,10 +339,14 @@
 /* #undef SDL_SENSOR_VITA */
 /* #undef SDL_SENSOR_N3DS */
 
+/* #undef SDL_SENSOR_PRIVATE */
+
 /* Enable various shared object loading systems */
 /* #undef SDL_LOADSO_DLOPEN */
 /* #undef SDL_LOADSO_DUMMY */
 #define SDL_LOADSO_WINDOWS 1
+
+/* #undef SDL_LOADSO_PRIVATE */
 
 /* Enable various threading systems */
 #define SDL_THREAD_GENERIC_COND_SUFFIX 1
@@ -337,6 +360,8 @@
 /* #undef SDL_THREAD_PS2 */
 /* #undef SDL_THREAD_N3DS */
 
+/* #undef SDL_THREAD_PRIVATE */
+
 /* Enable various RTC systems */
 /* #undef SDL_TIME_UNIX */
 #define SDL_TIME_WINDOWS 1
@@ -344,6 +369,9 @@
 /* #undef SDL_TIME_PSP */
 /* #undef SDL_TIME_PS2 */
 /* #undef SDL_TIME_N3DS */
+/* #undef SDL_TIME_NGAGE */
+
+/* #undef SDL_TIME_PRIVATE */
 
 /* Enable various timer systems */
 /* #undef SDL_TIMER_HAIKU */
@@ -353,6 +381,8 @@
 /* #undef SDL_TIMER_PSP */
 /* #undef SDL_TIMER_PS2 */
 /* #undef SDL_TIMER_N3DS */
+
+/* #undef SDL_TIMER_PRIVATE */
 
 /* Enable various video drivers */
 /* #undef SDL_VIDEO_DRIVER_ANDROID */
@@ -364,6 +394,7 @@
 /* #undef SDL_VIDEO_DRIVER_KMSDRM_DYNAMIC */
 /* #undef SDL_VIDEO_DRIVER_KMSDRM_DYNAMIC_GBM */
 /* #undef SDL_VIDEO_DRIVER_N3DS */
+/* #undef SDL_VIDEO_DRIVER_NGAGE */
 #define SDL_VIDEO_DRIVER_OFFSCREEN 1
 /* #undef SDL_VIDEO_DRIVER_PS2 */
 /* #undef SDL_VIDEO_DRIVER_PSP */
@@ -390,39 +421,49 @@
 /* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XINPUT2 */
 /* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XRANDR */
 /* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XSS */
-/* #undef SDL_VIDEO_DRIVER_X11_HAS_XKBLOOKUPKEYSYM */
+/* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XTEST */
+/* #undef SDL_VIDEO_DRIVER_X11_HAS_XKBLIB */
 /* #undef SDL_VIDEO_DRIVER_X11_SUPPORTS_GENERIC_EVENTS */
 /* #undef SDL_VIDEO_DRIVER_X11_XCURSOR */
 /* #undef SDL_VIDEO_DRIVER_X11_XDBE */
 /* #undef SDL_VIDEO_DRIVER_X11_XFIXES */
 /* #undef SDL_VIDEO_DRIVER_X11_XINPUT2 */
 /* #undef SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_MULTITOUCH */
+/* #undef SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_SCROLLINFO */
 /* #undef SDL_VIDEO_DRIVER_X11_XRANDR */
 /* #undef SDL_VIDEO_DRIVER_X11_XSCRNSAVER */
 /* #undef SDL_VIDEO_DRIVER_X11_XSHAPE */
 /* #undef SDL_VIDEO_DRIVER_X11_XSYNC */
+/* #undef SDL_VIDEO_DRIVER_X11_XTEST */
 /* #undef SDL_VIDEO_DRIVER_QNX */
 
-#define SDL_VIDEO_RENDER_D3D 1
-#define SDL_VIDEO_RENDER_D3D11 1
-#define SDL_VIDEO_RENDER_D3D12 1
-#define SDL_VIDEO_RENDER_GPU 1
+/* #undef SDL_VIDEO_DRIVER_PRIVATE */
+
+/* #undef SDL_VIDEO_RENDER_D3D */
+/* #undef SDL_VIDEO_RENDER_D3D11 */
+/* #undef SDL_VIDEO_RENDER_D3D12 */
+/* #undef SDL_VIDEO_RENDER_GPU */
 /* #undef SDL_VIDEO_RENDER_METAL */
 /* #undef SDL_VIDEO_RENDER_VULKAN */
 #define SDL_VIDEO_RENDER_OGL 1
-#define SDL_VIDEO_RENDER_OGL_ES2 1
+/* #undef SDL_VIDEO_RENDER_OGL_ES2 */
+/* #undef SDL_VIDEO_RENDER_NGAGE */
 /* #undef SDL_VIDEO_RENDER_PS2 */
 /* #undef SDL_VIDEO_RENDER_PSP */
 /* #undef SDL_VIDEO_RENDER_VITA_GXM */
 
+/* #undef SDL_VIDEO_RENDER_PRIVATE */
+
 /* Enable OpenGL support */
 #define SDL_VIDEO_OPENGL 1
 /* #undef SDL_VIDEO_OPENGL_ES */
-#define SDL_VIDEO_OPENGL_ES2 1
+/* #undef SDL_VIDEO_OPENGL_ES2 */
 /* #undef SDL_VIDEO_OPENGL_CGL */
 /* #undef SDL_VIDEO_OPENGL_GLX */
 #define SDL_VIDEO_OPENGL_WGL 1
-#define SDL_VIDEO_OPENGL_EGL 1
+/* #undef SDL_VIDEO_OPENGL_EGL */
+
+/* #undef SDL_VIDEO_STATIC_ANGLE */
 
 /* Enable Vulkan support */
 /* #undef SDL_VIDEO_VULKAN */
@@ -431,10 +472,12 @@
 /* #undef SDL_VIDEO_METAL */
 
 /* Enable GPU support */
-#define SDL_GPU_D3D11 1
-#define SDL_GPU_D3D12 1
+/* #undef SDL_GPU_D3D11 */
+/* #undef SDL_GPU_D3D12 */
 /* #undef SDL_GPU_VULKAN */
 /* #undef SDL_GPU_METAL */
+
+/* #undef SDL_GPU_PRIVATE */
 
 /* Enable system power support */
 /* #undef SDL_POWER_ANDROID */
@@ -448,6 +491,8 @@
 /* #undef SDL_POWER_VITA */
 /* #undef SDL_POWER_PSP */
 /* #undef SDL_POWER_N3DS */
+
+/* #undef SDL_POWER_PRIVATE */
 
 /* Enable system filesystem support */
 /* #undef SDL_FILESYSTEM_ANDROID */
@@ -463,13 +508,19 @@
 /* #undef SDL_FILESYSTEM_PS2 */
 /* #undef SDL_FILESYSTEM_N3DS */
 
+/* #undef SDL_FILESYSTEM_PRIVATE */
+
 /* Enable system storage support */
 #define SDL_STORAGE_STEAM 1
+
+/* #undef SDL_STORAGE_PRIVATE */
 
 /* Enable system FSops support */
 /* #undef SDL_FSOPS_POSIX */
 #define SDL_FSOPS_WINDOWS 1
 /* #undef SDL_FSOPS_DUMMY */
+
+/* #undef SDL_FSOPS_PRIVATE */
 
 /* Enable camera subsystem */
 #define SDL_CAMERA_DRIVER_DUMMY 1
@@ -482,6 +533,8 @@
 /* #undef SDL_CAMERA_DRIVER_PIPEWIRE */
 /* #undef SDL_CAMERA_DRIVER_PIPEWIRE_DYNAMIC */
 /* #undef SDL_CAMERA_DRIVER_VITA */
+
+/* #undef SDL_CAMERA_DRIVER_PRIVATE */
 
 /* Enable dialog subsystem */
 /* #undef SDL_DIALOG_DUMMY */
@@ -504,6 +557,11 @@
 /* #undef SDL_VIDEO_VITA_PIB */
 /* #undef SDL_VIDEO_VITA_PVR */
 /* #undef SDL_VIDEO_VITA_PVR_OGL */
+
+/* xkbcommon version info */
+#define SDL_XKBCOMMON_VERSION_MAJOR 
+#define SDL_XKBCOMMON_VERSION_MINOR 
+#define SDL_XKBCOMMON_VERSION_PATCH 
 
 /* Libdecor version info */
 #define SDL_LIBDECOR_VERSION_MAJOR 
@@ -544,5 +602,9 @@ typedef unsigned int uintptr_t;
 #define SDL_DISABLE_LSX 1
 #define SDL_DISABLE_LASX 1
 #define SDL_DISABLE_NEON 1
+
+#ifdef SDL_PLATFORM_PRIVATE
+#include "SDL_end_config_private.h"
+#endif
 
 #endif /* SDL_build_config_h_ */
