@@ -6,6 +6,12 @@ legacy/
 out/
 build/
 
-sandbox/bin
+sandbox/bin/Debug/*.dll
+sandbox/bin/Debug/*.exe
+sandbox/bin/Debug/*.pdb
+sandbox/bin/Release/*.dll
+sandbox/bin/Release/*.exe
+sandbox/bin/Release/*.pdb
+
 supercluster/bin
 tests/bin

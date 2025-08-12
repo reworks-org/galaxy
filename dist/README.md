@@ -1,3 +1,3 @@
-# dist
+# Dist
 
-Project used to build game distribution.
+Project used to build the game distribution.

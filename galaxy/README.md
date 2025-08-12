@@ -1,3 +1,3 @@
-# galaxy
+# Galaxy
 
-Main API is here.
+Main API.

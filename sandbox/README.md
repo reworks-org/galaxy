@@ -1,3 +1,3 @@
 # Sandbox
 
-For testing
+Integration testing.
