@@ -1,10 +1,9 @@
 name: Unit Tests
 
 on:
-  workflow_run:
-    workflows: ["Windows Release Build"]
-    types:
-      - completed
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -26,7 +25,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.1
 
       - name: Build solution
-        run: msbuild galaxy.sln /p:Configuration=Release /p:Platform=x64
+        run: msbuild galaxy.sln /p:Configuration=Debug /p:Platform=x64
 
       - name: Run tests
         run: tests\bin\Debug\tests.exe
