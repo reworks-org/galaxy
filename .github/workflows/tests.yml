@@ -1,0 +1,32 @@
+name: Unit Tests
+
+on:
+  workflow_run:
+    workflows: ["Windows Release Build"]
+    types:
+      - completed
+
+jobs:
+  test:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: cmd
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up MSBuild path
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Build solution
+        run: msbuild galaxy.sln /p:Configuration=Release /p:Platform=x64
+
+      - name: Run tests
+        run: tests\bin\Debug\tests.exe
