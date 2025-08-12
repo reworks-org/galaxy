@@ -96,12 +96,13 @@ var searchData=
   ['media_2ehpp_93',['Media.hpp',['../d7/db2/Media_8hpp.html',1,'']]],
   ['memory_2ecpp_94',['Memory.cpp',['../d8/dcc/Memory_8cpp.html',1,'']]],
   ['memory_2ehpp_95',['Memory.hpp',['../d4/d18/Memory_8hpp.html',1,'']]],
-  ['message_96',['message',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a9598e7787204dee21388e60422c89906',1,'galaxy::logging::LogMessage']]],
-  ['message_5fbox_97',['message_box',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1c8e68d9e1714a071d58d44276931e16',1,'galaxy::fs::VirtualFileSystem']]],
-  ['miniz_5fheader_5ffile_5fonly_98',['MINIZ_HEADER_FILE_ONLY',['../db/dba/ZLib_8hpp.html#aa0b5c57a0e5841814131917c6093f0e6',1,'ZLib.hpp']]],
-  ['mkdir_99',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322',1,'galaxy::fs::VirtualFileSystem']]],
-  ['mode_100',['Mode',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afb',1,'galaxy::math::ZLib']]],
-  ['msaa_101',['msaa',['../d1/db3/structgalaxy_1_1settings.html#a3be95127c054f5d3947c03c0f77970f6',1,'galaxy::settings']]],
-  ['musiccache_102',['MusicCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a6b48a53a4d4bb9fca0460bdf407ab69f',1,'galaxy::resource']]],
-  ['musicloader_103',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
+  ['memoryallocator_2ecpp_96',['MemoryAllocator.cpp',['../db/d29/MemoryAllocator_8cpp.html',1,'']]],
+  ['message_97',['message',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a9598e7787204dee21388e60422c89906',1,'galaxy::logging::LogMessage']]],
+  ['message_5fbox_98',['message_box',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a1c8e68d9e1714a071d58d44276931e16',1,'galaxy::fs::VirtualFileSystem']]],
+  ['miniz_5fheader_5ffile_5fonly_99',['MINIZ_HEADER_FILE_ONLY',['../db/dba/ZLib_8hpp.html#aa0b5c57a0e5841814131917c6093f0e6',1,'ZLib.hpp']]],
+  ['mkdir_100',['mkdir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a21d5cc7a772ac2a711b0cc2c0a2a2322',1,'galaxy::fs::VirtualFileSystem']]],
+  ['mode_101',['Mode',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afb',1,'galaxy::math::ZLib']]],
+  ['msaa_102',['msaa',['../d1/db3/structgalaxy_1_1settings.html#a3be95127c054f5d3947c03c0f77970f6',1,'galaxy::settings']]],
+  ['musiccache_103',['MusicCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a6b48a53a4d4bb9fca0460bdf407ab69f',1,'galaxy::resource']]],
+  ['musicloader_104',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
 ];

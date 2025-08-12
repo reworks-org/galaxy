@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"db/d4c/Tag_8cpp_source.html":[3,0,0,0,0,1,20],
+"db/d58/NotSerializable_8hpp.html":[3,0,0,0,0,3,3],
 "db/d58/NotSerializable_8hpp_source.html":[3,0,0,0,0,3,3],
 "db/d6a/classgalaxy_1_1state_1_1State.html":[0,0,0,17,0],
 "db/d6a/classgalaxy_1_1state_1_1State.html":[2,0,0,15,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e":[0,0,0,2,2,0],
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e":[2,0,0,2,2,0],
 "dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5":[0,0,0,2,2,5],
-"dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5":[2,0,0,2,2,5],
-"dd/df4/Cache_8cpp.html":[3,0,0,0,0,12,3],
-"dd/df4/Cache_8cpp_source.html":[3,0,0,0,0,12,3]
+"dd/ddf/classgalaxy_1_1core_1_1Loader.html#ae9179b2808cbffa7249ea372e4bcfda5":[2,0,0,2,2,5]
 };
