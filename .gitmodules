@@ -13,9 +13,6 @@
 [submodule "deps/zip"]
 	path = deps/zip
 	url = https://github.com/kuba--/zip.git
-[submodule "deps/tinyfiledialogs"]
-	path = deps/tinyfiledialogs
-	url = https://git.code.sf.net/p/tinyfiledialogs/code
 [submodule "deps/threadpool"]
 	path = deps/threadpool
 	url = https://github.com/bshoshany/thread-pool.git
