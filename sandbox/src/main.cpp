@@ -14,7 +14,7 @@
 // #include <galaxy/core/Settings.hpp>
 // #include <galaxy/scene/SceneManager.hpp>
 
-using namespace galaxy;
+// using namespace galaxy;
 
 int main(int argsc, char* argsv[])
 {
