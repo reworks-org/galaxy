@@ -1,0 +1,27 @@
+name: Windows Release Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: cmd
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up MSBuild path
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Build solution
+        run: msbuild galaxy.sln /p:Configuration=Release /p:Platform=x64
