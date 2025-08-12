@@ -31,12 +31,9 @@
 [submodule "deps/physfs"]
 	path = deps/physfs
 	url = https://github.com/icculus/physfs.git
-[submodule "deps/sfml"]
-	path = deps/sfml
-	url = https://github.com/SFML/SFML.git
-[submodule "deps/sfml_addons/selba_ward"]
-	path = deps/sfml_addons/selba_ward
-	url = https://github.com/Hapaxia/SelbaWard.git
-[submodule "deps/sfml_addons/soundsystem"]
-	path = deps/sfml_addons/soundsystem
-	url = https://github.com/Hapaxia/SfmlSoundSystem.git
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "deps/SDL3"]
+	path = deps/SDL3
+	url = https://github.com/libsdl-org/SDL.git
