@@ -34,3 +34,6 @@
 [submodule "deps/SDL3"]
 	path = deps/SDL3
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "deps/SDL3_mixer"]
+	path = deps/SDL3_mixer
+	url = https://github.com/libsdl-org/SDL_mixer.git
