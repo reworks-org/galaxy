@@ -22,13 +22,6 @@
 #define GALAXY_LINUX_PLATFORM
 #endif
 
-///
-/// Macro for macos platform detection.
-///
-#if defined(__APPLE__) || defined(TARGET_OS_MAC)
-#define GALAXY_MACOS_PLATFORM
-#endif
-
 #ifdef GALAXY_WIN_PLATFORM
 #define GALAXY_PLATFORM_PUSH       __pragma(warning(push))
 #define GALAXY_PLATFORM_POP        __pragma(warning(pop))

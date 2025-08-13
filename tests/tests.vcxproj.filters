@@ -3,5 +3,6 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
+    <ClCompile Include="src\platform\PlatformTests.cpp" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,8 @@ namespace galaxy
 	{
 		void inject()
 		{
+			inject_logging();
+			inject_platform();
 			inject_utils();
 		}
 	} // namespace lua

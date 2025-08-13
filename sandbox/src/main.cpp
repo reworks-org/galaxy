@@ -17,6 +17,7 @@
 
 #include <galaxy/logging/ConsoleSink.hpp>
 #include <galaxy/logging/FileSink.hpp>
+#include <galaxy/platform/Platform.hpp>
 
 #include "tests/LoggingTests.hpp"
 
@@ -30,6 +31,8 @@ int main(int argsc, char* argsv[])
 	// try
 	// {
 	// 	core::App sandbox("logs/", "config.json");
+
+	galaxy::platform::configure_terminal();
 
 	// Configure logging.
 	const auto        log_dir  = "logs/";

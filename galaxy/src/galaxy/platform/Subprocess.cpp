@@ -11,85 +11,82 @@
 
 namespace galaxy
 {
-	namespace platform
+	Subprocess::Subprocess() noexcept
+		: m_process {nullptr}
 	{
-		Subprocess::Subprocess() noexcept
-			: m_process {nullptr}
+	}
+
+	Subprocess::Subprocess(std::string_view process, std::span<std::string> args)
+		: m_process {nullptr}
+	{
+		create(process, args);
+	}
+
+	Subprocess::~Subprocess() noexcept
+	{
+		terminate();
+	}
+
+	void Subprocess::create(std::string_view process, std::span<std::string> args)
+	{
+		const auto sp_to_run = std::filesystem::absolute(process).replace_extension("").string();
+
+		std::vector<const char*> cmd_line;
+		cmd_line.reserve(args.size() + 2);
+
+		cmd_line.push_back(sp_to_run.c_str());
+		for (const auto& arg : args)
 		{
+			cmd_line.push_back(arg.c_str());
 		}
+		cmd_line.push_back(nullptr);
 
-		Subprocess::Subprocess(std::string_view process, std::span<std::string> args)
-			: m_process {nullptr}
+		if (subprocess_create(cmd_line.data(), subprocess_option_inherit_environment, &m_process) != 0)
 		{
-			create(process, args);
+			GALAXY_LOG(GALAXY_ERROR, "Failed to launch subprocess: {0}.", process);
 		}
+	}
 
-		Subprocess::~Subprocess() noexcept
+	int Subprocess::join() noexcept
+	{
+		if (alive())
 		{
-			terminate();
-		}
-
-		void Subprocess::create(std::string_view process, std::span<std::string> args)
-		{
-			const auto sp_to_run = std::filesystem::absolute(process).replace_extension("").string();
-
-			std::vector<const char*> cmd_line;
-			cmd_line.reserve(args.size() + 2);
-
-			cmd_line.push_back(sp_to_run.c_str());
-			for (const auto& arg : args)
+			int code = -1;
+			if (subprocess_join(&m_process, &code) != 0)
 			{
-				cmd_line.push_back(arg.c_str());
-			}
-			cmd_line.push_back(nullptr);
-
-			if (subprocess_create(cmd_line.data(), subprocess_option_inherit_environment, &m_process) != 0)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to launch subprocess: {0}.", process);
-			}
-		}
-
-		int Subprocess::join() noexcept
-		{
-			if (alive())
-			{
-				int code = -1;
-				if (subprocess_join(&m_process, &code) != 0)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to join subprocess.");
-				}
-
-				return code;
+				GALAXY_LOG(GALAXY_ERROR, "Failed to join subprocess.");
 			}
 
-			return -1;
+			return code;
 		}
 
-		void Subprocess::terminate() noexcept
+		return -1;
+	}
+
+	void Subprocess::terminate() noexcept
+	{
+		if (alive())
 		{
-			if (alive())
+			if (subprocess_terminate(&m_process) != 0)
 			{
-				if (subprocess_terminate(&m_process) != 0)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to terminate subprocess.");
-				}
+				GALAXY_LOG(GALAXY_ERROR, "Failed to terminate subprocess.");
 			}
 		}
+	}
 
-		void Subprocess::destroy() noexcept
+	void Subprocess::destroy() noexcept
+	{
+		if (alive())
 		{
-			if (alive())
+			if (subprocess_destroy(&m_process) != 0)
 			{
-				if (subprocess_destroy(&m_process) != 0)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to destroy subprocess.");
-				}
+				GALAXY_LOG(GALAXY_ERROR, "Failed to destroy subprocess.");
 			}
 		}
+	}
 
-		bool Subprocess::alive() noexcept
-		{
-			return subprocess_alive(&m_process) != 0 ? true : false;
-		}
-	} // namespace platform
+	bool Subprocess::alive() noexcept
+	{
+		return subprocess_alive(&m_process) != 0 ? true : false;
+	}
 } // namespace galaxy

@@ -14,6 +14,12 @@
     <ClCompile Include="src\galaxy\logging\Sink.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\logging\OpenGLError.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
+    <ClCompile Include="src\galaxy\platform\Platform.cpp" />
+    <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
+    <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -26,5 +32,10 @@
     <ClInclude Include="src\galaxy\logging\PhysFSError.hpp" />
     <ClInclude Include="src\galaxy\logging\Sink.hpp" />
     <ClInclude Include="src\galaxy\logging\OpenGLError.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
+    <ClInclude Include="src\galaxy\platform\Platform.hpp" />
+    <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
+    <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
   </ItemGroup>
 </Project>
