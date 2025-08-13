@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ASYNC_ASYNC_HPP_
-#define GALAXY_ASYNC_ASYNC_HPP_
+#ifndef GALAXY_UTILS_ASYNC_HPP_
+#define GALAXY_UTILS_ASYNC_HPP_
 
 #include <chrono>
 #include <future>
