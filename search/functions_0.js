@@ -2,10 +2,10 @@ var searchData=
 [
   ['add_0',['add',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad591f0fc406d41b42e1ceb417df2dfc3',1,'galaxy::state::StateMachine']]],
   ['add_5fcmd_1',['add_cmd',['../d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71',1,'galaxy::systems']]],
-  ['add_5fsink_2',['add_sink',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a941ba33c8c4f7fe7d66c7a559adc6c06',1,'galaxy::logging::Log']]],
+  ['add_5fsink_2',['add_sink',['../dd/dd3/classgalaxy_1_1Log.html#adc0efd63459a18b69e2d502e11cf7e49',1,'galaxy::Log']]],
   ['add_5fsystem_3',['add_system',['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a10bd61d40425228dad7199da082d4cca',1,'galaxy::scene::Scene']]],
   ['alert_4',['alert',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aa336bcf3a2dbc19d3ab4a7610412d861',1,'galaxy::fs::VirtualFileSystem']]],
-  ['alive_5',['alive',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269',1,'galaxy::platform::Subprocess']]],
+  ['alive_5',['alive',['../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4',1,'galaxy::Subprocess']]],
   ['animated_6',['Animated',['../da/d18/classgalaxy_1_1components_1_1Animated.html#a27201816d702ff9fda9e6b7ae2d9d643',1,'galaxy::components::Animated::Animated()'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a6b4b562fe0666524e4cb504729ec9fdb',1,'galaxy::components::Animated::Animated(const nlohmann::json &amp;json)'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a3e51e33a707de12dc62c9f779aa56512',1,'galaxy::components::Animated::Animated(Animated &amp;&amp;)'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a84973042241996eb083b0a6a29bb3152',1,'galaxy::components::Animated::Animated(const Animated &amp;)=delete']]],
   ['animationsystem_7',['AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#abe4b779bb1d4174a16e875e881872c22',1,'galaxy::systems::AnimationSystem']]],
   ['any_5ffrom_5fjson_8',['any_from_json',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a80c20e0e31290d47180770220d4f3db4',1,'galaxy::meta::EntityFactory']]],

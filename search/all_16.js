@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['validations_0',['Validations',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#ad80d3e3400d5782a9120943572858c7e',1,'galaxy::meta::EntityFactory']]],
-  ['video_5ffrag_5fshader_1',['video_frag_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6',1,'galaxy::resource']]],
-  ['video_5fvert_5fshader_2',['video_vert_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d',1,'galaxy::resource']]],
-  ['videocache_3',['VideoCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a77ecc744c1b541a6175f1bdebb07f731',1,'galaxy::resource']]],
-  ['videoshader_2ecpp_4',['VideoShader.cpp',['../d5/dff/VideoShader_8cpp.html',1,'']]],
-  ['videoshader_2ehpp_5',['VideoShader.hpp',['../dd/dad/VideoShader_8hpp.html',1,'']]],
-  ['virtualfilesystem_6',['VirtualFileSystem',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html',1,'galaxy::fs::VirtualFileSystem'],['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c',1,'galaxy::fs::VirtualFileSystem::VirtualFileSystem()'],['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a713915bf658a7fca56793b42edf020d7',1,'galaxy::fs::VirtualFileSystem::VirtualFileSystem(const VirtualFileSystem &amp;)=delete'],['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#afa8610dcc3da7ce83b9a01a956d35ed9',1,'galaxy::fs::VirtualFileSystem::VirtualFileSystem(VirtualFileSystem &amp;&amp;)=delete']]],
-  ['virtualfilesystem_2ecpp_7',['VirtualFileSystem.cpp',['../d5/deb/VirtualFileSystem_8cpp.html',1,'']]],
-  ['virtualfilesystem_2ehpp_8',['VirtualFileSystem.hpp',['../de/dc7/VirtualFileSystem_8hpp.html',1,'']]],
-  ['voicecache_9',['VoiceCache',['../d4/d1b/namespacegalaxy_1_1resource.html#aaacfdb74d8acbcb7b44270dd8a3e2adf',1,'galaxy::resource']]],
-  ['voiceloader_10',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]],
-  ['vsync_11',['vsync',['../d1/db3/structgalaxy_1_1settings.html#a3d34905152bf790a74b2f6224de6a0ec',1,'galaxy::settings']]]
+  ['warning_0',['WARNING',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a059e9861e0400dfbe05c98a841f3f96b',1,'galaxy']]],
+  ['warning_1',['warning',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13a7b83d3f08fa392b79e3f553b585971cd',1,'galaxy::fs']]],
+  ['window_5fheight_2',['window_height',['../d1/db3/structgalaxy_1_1settings.html#a5536c01533b8444bd4949cf145a9ba94',1,'galaxy::settings']]],
+  ['window_5ficon_3',['window_icon',['../d1/db3/structgalaxy_1_1settings.html#a31d19e04643333bf9db8db11497e0bce',1,'galaxy::settings']]],
+  ['window_5ftitle_4',['window_title',['../d1/db3/structgalaxy_1_1settings.html#a92ba249bd6e67b5d016d20c75b84d486',1,'galaxy::settings']]],
+  ['window_5fwidth_5',['window_width',['../d1/db3/structgalaxy_1_1settings.html#a4590426fcd7f7db01dfe570e22d9b0ba',1,'galaxy::settings']]],
+  ['windows_2ecpp_6',['Windows.cpp',['../dd/da6/Windows_8cpp.html',1,'']]],
+  ['windows_2ehpp_7',['Windows.hpp',['../de/d0e/Windows_8hpp.html',1,'']]],
+  ['world_8',['World',['../d9/d75/classgalaxy_1_1map_1_1World.html',1,'galaxy::map::World'],['../d9/d75/classgalaxy_1_1map_1_1World.html#a37a350b5e921a8c156eae3381431258a',1,'galaxy::map::World::World()'],['../d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9',1,'galaxy::map::World::World(const std::string &amp;file)']]],
+  ['world_2ecpp_9',['World.cpp',['../d7/dfe/World_8cpp.html',1,'']]],
+  ['world_2ehpp_10',['World.hpp',['../d0/dbb/World_8hpp.html',1,'']]],
+  ['write_11',['write',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a62ac56b58a8bb758011b1b50a75ee2d8',1,'galaxy::fs::VirtualFileSystem::write()'],['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a56a87ab60599425331907ff19e442a60',1,'galaxy::mem::RingBuffer::write()'],['../de/dd6/namespacegalaxy_1_1json.html#a36147cbea09b500a27e6a9a78924f879',1,'galaxy::json::write()']]],
+  ['write_5fbinary_12',['write_binary',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a9370906700c846b004d8ca9f9c22ad74',1,'galaxy::fs::VirtualFileSystem']]],
+  ['write_5fraw_13',['write_raw',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a276110547622b2aef0ebc1abc2a7f80c',1,'galaxy::fs::VirtualFileSystem']]]
 ];

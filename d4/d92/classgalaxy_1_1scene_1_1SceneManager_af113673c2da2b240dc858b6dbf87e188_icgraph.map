@@ -1,12 +1,8 @@
 <map id="galaxy::scene::SceneManager::push" name="galaxy::scene::SceneManager::push">
-<area shape="rect" id="Node000001" title="Push a scene onto the top of stack." alt="" coords="881,5,1096,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="405,5,543,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="868,28,543,28,543,23,868,23"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="591,38,833,63"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="868,39,834,42,833,37,867,34"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="579,39,543,35,543,30,579,34"/>
+<area shape="rect" id="Node000001" title="Push a scene onto the top of stack." alt="" coords="481,5,696,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="468,28,143,28,143,23,468,23"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="191,38,433,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="468,39,434,42,433,37,467,34"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="179,39,143,35,143,30,179,34"/>
 </map>

@@ -1,9 +1,9 @@
 <map id="galaxy/src/galaxy/flags/NotSerializable.hpp" name="galaxy/src/galaxy/flags/NotSerializable.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="205,5,377,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="196,5,368,45"/>
 <area shape="rect" id="Node000002" href="$de/d62/NotSerializable_8cpp.html" title=" " alt="" coords="5,93,177,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,53,136,96,134,91,234,48"/>
-<area shape="rect" id="Node000003" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="202,93,381,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="294,59,294,93,289,93,289,59"/>
-<area shape="rect" id="Node000004" href="$d8/df0/LuaFlags_8cpp.html" title=" " alt="" coords="405,93,602,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="351,48,458,91,456,96,349,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,53,134,96,132,91,227,49"/>
+<area shape="rect" id="Node000003" href="$d8/df0/LuaFlags_8cpp.html" title=" " alt="" coords="201,93,363,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,59,285,93,279,93,279,59"/>
+<area shape="rect" id="Node000004" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="387,93,566,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="338,48,435,91,433,96,336,53"/>
 </map>

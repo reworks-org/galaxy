@@ -1,11 +1,7 @@
 <map id="galaxy::fs::PhysfsStream::close" name="galaxy::fs::PhysfsStream::close">
-<area shape="rect" id="Node000001" title="Close the open physfs handle." alt="" coords="636,27,819,67"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="419,5,575,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="622,37,575,31,575,25,623,31"/>
-<area shape="rect" id="Node000005" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a617663d40c657b5c3c0bdbb37534b170" title="Virtual destructor." alt="" coords="405,55,588,95"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="623,63,589,67,588,62,622,57"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,5,357,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="405,21,357,21,357,15,405,15"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,5,172,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,21,172,21,172,15,206,15"/>
+<area shape="rect" id="Node000001" title="Close the open physfs handle." alt="" coords="236,27,419,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="19,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,37,175,31,175,25,223,31"/>
+<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a617663d40c657b5c3c0bdbb37534b170" title="Virtual destructor." alt="" coords="5,55,188,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,63,189,67,188,62,222,57"/>
 </map>

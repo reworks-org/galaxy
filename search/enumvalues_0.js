@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['_5fdebug_5f_0',['_DEBUG_',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba15c3b8b5169a44c13b7283dfa8015e0a',1,'galaxy::logging']]],
-  ['_5ferror_5f_1',['_ERROR_',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba3900b5df1bf164312fc18020104ffcbb',1,'galaxy::logging']]],
-  ['_5ffatal_5f_2',['_FATAL_',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fba91a11893267955993b18f8bdaa6b088c',1,'galaxy::logging']]],
-  ['_5finfo_5f_3',['_INFO_',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fbac723aa40c9e9173627c531eeb006fc24',1,'galaxy::logging']]],
-  ['_5fwarning_5f_4',['_WARNING_',['../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fbaef62fe9909a87d4b4f64373093863587',1,'galaxy::logging']]]
+  ['cancel_5fno_0',['cancel_no',['../d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0af86807c307d8fc00a32f9949a3da659d',1,'galaxy::fs']]],
+  ['compress_1',['COMPRESS',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a798b712fcb7fa032dffcd5b7d9b90afba08c078f425b1925fb4be9d7d0ee118b1',1,'galaxy::math::ZLib']]]
 ];

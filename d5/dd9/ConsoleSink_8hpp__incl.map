@@ -1,9 +1,15 @@
 <map id="galaxy/src/galaxy/logging/ConsoleSink.hpp" name="galaxy/src/galaxy/logging/ConsoleSink.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="26,5,215,45"/>
-<area shape="rect" id="Node000002" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="31,93,210,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,46,123,79,118,79,118,46"/>
-<area shape="rect" id="Node000003" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="5,167,236,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,119,123,153,118,153,118,119"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="91,240,150,265"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="123,192,123,226,118,226,118,192"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="31,5,220,45"/>
+<area shape="rect" id="Node000002" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="36,93,215,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,46,128,79,123,79,123,46"/>
+<area shape="rect" id="Node000003" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="10,167,241,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,119,128,153,123,153,123,119"/>
+<area shape="rect" id="Node000004" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="21,240,229,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="128,192,128,226,123,226,123,192"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,313,72,339"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="113,267,65,307,62,302,110,263"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="96,313,155,339"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="128,266,128,300,123,300,123,266"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="178,313,401,339"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="153,263,251,305,249,310,151,268"/>
 </map>

@@ -1,0 +1,15 @@
+<map id="galaxy::FileSink" name="galaxy::FileSink">
+<area shape="rect" id="Node000001" title=" " alt="" coords="21,741,137,847"/>
+<area shape="rect" id="Node000002" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,493,111,679"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,692,77,741,71,741,66,693"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="135,553,237,619"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,620,116,728,111,725,167,618"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="115,364,257,444"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="189,458,189,553,183,553,183,458"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="117,235,255,315"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="189,328,189,364,183,364,183,328"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="105,120,267,185"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="189,199,189,235,183,235,183,199"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="137,5,235,71"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="189,85,189,120,183,120,183,85"/>
+</map>

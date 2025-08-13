@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/scripting/lua/LuaUtils.cpp File Reference</title>
+<title>galaxy: galaxy/src/galaxy/lua/injects/LuaUtils.cpp File Reference</title>
 <link rel="icon" href="../../logo_docs.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -107,31 +107,27 @@ $(function(){initNavTree('da/dd6/LuaUtils_8cpp.html','../../'); initResizable(tr
 <div class="contents">
 <div class="textblock"><code>#include &lt;entt/locator/locator.hpp&gt;</code><br />
 <code>#include &lt;sol/sol.hpp&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/d38/Guid_8hpp_source.html">galaxy/utils/Guid.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d44/StringUtils_8hpp_source.html">galaxy/utils/StringUtils.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for LuaUtils.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../dd/d2f/LuaUtils_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2scripting_2lua_2LuaUtils_8cpp" alt=""/></div>
-<map name="agalaxy_2src_2galaxy_2scripting_2lua_2LuaUtils_8cpp" id="agalaxy_2src_2galaxy_2scripting_2lua_2LuaUtils_8cpp">
-<area shape="rect" title=" " alt="" coords="225,5,423,45"/>
+<div class="center"><img src="../../dd/d2f/LuaUtils_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2lua_2injects_2LuaUtils_8cpp" alt=""/></div>
+<map name="agalaxy_2src_2galaxy_2lua_2injects_2LuaUtils_8cpp" id="agalaxy_2src_2galaxy_2lua_2injects_2LuaUtils_8cpp">
+<area shape="rect" title=" " alt="" coords="169,5,330,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,179,119"/>
-<area shape="poly" title=" " alt="" coords="269,48,140,91,138,86,268,43"/>
+<area shape="poly" title=" " alt="" coords="213,48,129,89,126,85,210,43"/>
 <area shape="rect" title=" " alt="" coords="203,93,295,119"/>
-<area shape="poly" title=" " alt="" coords="308,47,272,85,268,81,304,44"/>
-<area shape="rect" href="../../d4/d38/Guid_8hpp.html" title=" " alt="" coords="320,93,480,119"/>
-<area shape="poly" title=" " alt="" coords="344,44,381,81,377,85,340,47"/>
-<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="505,93,703,119"/>
-<area shape="poly" title=" " alt="" coords="392,43,550,87,549,92,390,48"/>
-<area shape="rect" title=" " alt="" coords="421,167,480,192"/>
-<area shape="poly" title=" " alt="" coords="411,117,437,154,432,157,406,121"/>
-<area shape="poly" title=" " alt="" coords="580,121,489,163,487,158,578,116"/>
-<area shape="rect" title=" " alt="" coords="530,167,627,192"/>
-<area shape="poly" title=" " alt="" coords="602,120,590,155,585,153,597,118"/>
-<area shape="rect" title=" " alt="" coords="651,167,714,192"/>
-<area shape="poly" title=" " alt="" coords="618,117,662,156,658,159,615,121"/>
+<area shape="poly" title=" " alt="" coords="252,46,252,79,247,79,247,46"/>
+<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="319,93,518,119"/>
+<area shape="poly" title=" " alt="" coords="291,43,382,85,380,90,289,48"/>
+<area shape="rect" title=" " alt="" coords="267,167,365,192"/>
+<area shape="poly" title=" " alt="" coords="404,121,346,161,343,156,401,116"/>
+<area shape="rect" title=" " alt="" coords="389,167,448,192"/>
+<area shape="poly" title=" " alt="" coords="421,119,421,153,416,153,416,119"/>
+<area shape="rect" title=" " alt="" coords="473,167,535,192"/>
+<area shape="poly" title=" " alt="" coords="434,117,481,156,478,160,431,121"/>
 </map>
 </div>
 </div>
@@ -156,8 +152,8 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../dir_5166590be04beeb03b821b2adcb9d01a.html">lua</a></li><li class="navelem"><a class="el" href="../../da/dd6/LuaUtils_8cpp.html">LuaUtils.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 12 2025 13:45:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_79b316363302e8390d0b35e3c4a83cfb.html">lua</a></li><li class="navelem"><a class="el" href="../../dir_7db1507fc1775b8ca4bc86e9c6fd5e9d.html">injects</a></li><li class="navelem"><a class="el" href="../../da/dd6/LuaUtils_8cpp.html">LuaUtils.cpp</a></li>
+    <li class="footer">Generated on Wed Aug 13 2025 10:43:35 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

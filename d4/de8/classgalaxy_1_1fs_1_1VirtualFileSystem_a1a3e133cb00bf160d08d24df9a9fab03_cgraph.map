@@ -1,5 +1,0 @@
-<map id="galaxy::fs::VirtualFileSystem::read_binary" name="galaxy::fs::VirtualFileSystem::read_binary">
-<area shape="rect" id="Node000001" title="Read a binary file." alt="" coords="5,5,213,45"/>
-<area shape="rect" id="Node000002" href="$dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="261,5,433,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,23,248,23,248,28,214,28"/>
-</map>

@@ -1,11 +1,11 @@
-<map id="galaxy/src/galaxy/scripting/lua/LuaInput.cpp" name="galaxy/src/galaxy/scripting/lua/LuaInput.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="953,5,1150,45"/>
+<map id="galaxy/src/galaxy/lua/injects/LuaInput.cpp" name="galaxy/src/galaxy/lua/injects/LuaInput.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="971,5,1132,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,97,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="952,32,586,51,352,70,111,96,111,91,351,65,586,46,952,27"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="971,32,603,50,360,69,111,96,111,91,360,64,602,45,970,26"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="121,93,347,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="953,39,361,95,360,90,952,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="971,37,361,95,360,90,970,32"/>
 <area shape="rect" id="Node000004" href="$d5/de6/CameraController_8hpp.html" title=" " alt="" coords="371,93,620,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="953,43,590,94,589,89,952,38"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="971,41,590,94,589,89,970,35"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="645,93,842,119"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="978,48,802,92,801,87,977,43"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="866,93,1042,119"/>
@@ -15,11 +15,11 @@
 <area shape="rect" id="Node000011" title=" " alt="" coords="1258,93,1461,119"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1126,43,1302,87,1300,92,1124,48"/>
 <area shape="rect" id="Node000012" title=" " alt="" coords="1485,93,1681,119"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1151,39,1493,89,1492,94,1150,44"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1133,36,1493,89,1492,94,1132,41"/>
 <area shape="rect" id="Node000013" title=" " alt="" coords="1706,93,1885,119"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1151,34,1692,90,1692,96,1150,39"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1132,32,1692,90,1692,96,1132,37"/>
 <area shape="rect" id="Node000014" href="$de/d92/Lua_8hpp.html" title=" " alt="" coords="1909,93,1983,119"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1150,27,1477,45,1684,64,1896,91,1895,96,1684,69,1477,51,1150,32"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1132,26,1462,44,1676,63,1896,91,1895,96,1676,69,1462,50,1132,32"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="150,167,355,192"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="457,121,306,165,304,160,456,116"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="380,167,611,192"/>

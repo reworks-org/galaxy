@@ -113,9 +113,11 @@ $(function(){initNavTree('d0/dc2/Timer_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d0/d46/namespacegalaxy.html">   17</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">namespace </span>async</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d0/d7f/namespacegalaxy_1_1async.html">   19</a></span>    <span class="keyword">namespace </span>async</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3ceeaadf9fa6567438fd10bf6739046b">   21</a></span>        <a class="code hl_function" href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a3ceeaadf9fa6567438fd10bf6739046b">Timer::Timer</a>() noexcept</div>
@@ -227,7 +229,9 @@ $(function(){initNavTree('d0/dc2/Timer_8cpp_source.html','../../'); initResizabl
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
 </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    } <span class="comment">// namespace async</span></div>
+</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>} <span class="comment">// namespace galaxy</span></div>
+</div>
 <div class="ttc" id="aTimer_8hpp_html"><div class="ttname"><a href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a0e51d13462b1d82257c0fdc833fb8cde"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a0e51d13462b1d82257c0fdc833fb8cde">galaxy::async::Timer::set</a></div><div class="ttdeci">void set(Timer::Function &amp;&amp;func, const std::uint32_t delay) noexcept</div><div class="ttdoc">Run a function on a precision timer.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">Timer.cpp:49</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_a12d31ad886fd9f11b75a777f58c4fb36"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#a12d31ad886fd9f11b75a777f58c4fb36">galaxy::async::Timer::m_delay</a></div><div class="ttdeci">std::uint32_t m_delay</div><div class="ttdoc">Current delay on timer.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00125">Timer.hpp:125</a></div></div>
@@ -246,14 +250,14 @@ $(function(){initNavTree('d0/dc2/Timer_8cpp_source.html','../../'); initResizabl
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_ab07fa9a2451f570e7f50e04b0fb2dcd1"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ab07fa9a2451f570e7f50e04b0fb2dcd1">galaxy::async::Timer::Function</a></div><div class="ttdeci">std::move_only_function&lt; void(void)&gt; Function</div><div class="ttdoc">Timer callback type.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00027">Timer.hpp:27</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_ac03d6c8a909d579cfdf22ab65e557f09"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#ac03d6c8a909d579cfdf22ab65e557f09">galaxy::async::Timer::m_repeat</a></div><div class="ttdeci">std::atomic_bool m_repeat</div><div class="ttdoc">Is function repeating?</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbf/Timer_8hpp_source.html#l00120">Timer.hpp:120</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1async_1_1Timer_html_af579df85b2b55eb8865fd946423f5e39"><div class="ttname"><a href="../../da/d6d/classgalaxy_1_1async_1_1Timer.html#af579df85b2b55eb8865fd946423f5e39">galaxy::async::Timer::stopped</a></div><div class="ttdeci">bool stopped() const noexcept</div><div class="ttdoc">Is the timer finished?</div><div class="ttdef"><b>Definition</b> <a href="#l00101">Timer.cpp:101</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">Timer.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5f96bc83f9c3b09ebca36e7cfb485d9f.html">async</a></li><li class="navelem"><a class="el" href="../../d0/dc2/Timer_8cpp.html">Timer.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 12 2025 13:45:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 13 2025 10:43:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,25 +1,25 @@
-<map id="galaxy/src/galaxy/scripting/lua/LuaResource.cpp" name="galaxy/src/galaxy/scripting/lua/LuaResource.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="871,5,1069,45"/>
+<map id="galaxy/src/galaxy/lua/injects/LuaResource.cpp" name="galaxy/src/galaxy/lua/injects/LuaResource.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="879,5,1061,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,255,97,280"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="871,31,715,35,532,46,360,65,291,79,239,96,185,128,137,169,98,210,70,245,65,242,94,207,133,165,182,123,237,91,289,74,359,60,531,41,715,30,871,25"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="879,30,723,35,537,46,362,65,291,79,239,96,185,128,137,169,98,210,70,245,65,242,94,207,133,165,182,123,237,91,290,74,361,60,536,40,722,30,879,25"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="121,255,347,280"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="871,29,721,32,547,41,463,50,386,61,322,77,275,96,255,110,242,125,225,167,221,186,221,205,228,240,223,241,216,206,216,186,219,166,237,122,251,106,273,91,320,71,385,56,462,44,547,36,721,26,871,24"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="878,29,728,31,552,41,466,49,388,61,323,76,275,96,255,110,242,125,225,167,221,186,221,205,228,240,223,241,216,206,216,186,219,166,237,122,251,106,273,91,321,71,387,56,466,44,552,35,728,26,878,23"/>
 <area shape="rect" id="Node000004" href="$dc/d1a/Animations_8hpp.html" title=" " alt="" coords="731,93,963,119"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="942,48,878,88,876,84,939,43"/>
 <area shape="rect" id="Node000021" href="$d9/d7d/Fonts_8hpp.html" title=" " alt="" coords="513,93,707,119"/>
 <area shape="poly" id="edge23_Node000001_Node000021" title=" " alt="" coords="884,48,676,93,675,88,883,43"/>
 <area shape="rect" id="Node000023" href="$d7/db2/Media_8hpp.html" title=" " alt="" coords="1692,93,1891,119"/>
-<area shape="poly" id="edge27_Node000001_Node000023" title=" " alt="" coords="1069,33,1679,91,1678,96,1068,38"/>
+<area shape="poly" id="edge27_Node000001_Node000023" title=" " alt="" coords="1062,32,1679,91,1678,96,1062,38"/>
 <area shape="rect" id="Node000026" href="$d3/d96/Prefabs_8hpp.html" title=" " alt="" coords="1223,93,1429,119"/>
 <area shape="poly" id="edge32_Node000001_Node000026" title=" " alt="" coords="1056,43,1261,88,1260,93,1055,48"/>
 <area shape="rect" id="Node000030" href="$d7/d91/Scripts_8hpp.html" title=" " alt="" coords="286,93,489,119"/>
-<area shape="poly" id="edge38_Node000001_Node000030" title=" " alt="" coords="872,43,486,94,485,89,871,37"/>
+<area shape="poly" id="edge38_Node000001_Node000030" title=" " alt="" coords="879,42,486,94,485,89,878,36"/>
 <area shape="rect" id="Node000032" href="$d6/df6/Shaders_8hpp.html" title=" " alt="" coords="987,93,1198,119"/>
 <area shape="poly" id="edge43_Node000001_Node000032" title=" " alt="" coords="1001,43,1064,84,1062,88,998,48"/>
 <area shape="rect" id="Node000034" href="$da/d41/Textures_8hpp.html" title=" " alt="" coords="1454,93,1667,119"/>
-<area shape="poly" id="edge47_Node000001_Node000034" title=" " alt="" coords="1069,37,1461,89,1461,94,1069,42"/>
+<area shape="poly" id="edge47_Node000001_Node000034" title=" " alt="" coords="1062,36,1462,89,1461,94,1061,41"/>
 <area shape="rect" id="Node000036" href="$de/d92/Lua_8hpp.html" title=" " alt="" coords="1915,93,1988,119"/>
-<area shape="poly" id="edge51_Node000001_Node000036" title=" " alt="" coords="1069,26,1226,31,1432,42,1664,62,1901,91,1901,96,1664,67,1432,48,1226,37,1069,31"/>
+<area shape="poly" id="edge51_Node000001_Node000036" title=" " alt="" coords="1062,26,1219,31,1426,42,1661,61,1901,91,1900,96,1660,66,1426,47,1219,36,1062,31"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="631,167,794,207"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="829,121,758,162,756,157,826,117"/>
 <area shape="rect" id="Node000006" href="$d4/d1e/Cache_8hpp.html" title=" " alt="" coords="819,174,1017,199"/>

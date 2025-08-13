@@ -6,6 +6,12 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,44,174,81,170,85,133,47"/>
 <area shape="rect" id="Node000004" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="77,167,308,192"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,119,195,153,190,153,190,119"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="163,240,222,265"/>
+<area shape="rect" id="Node000005" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="89,240,297,265"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,192,195,226,190,226,190,192"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="73,313,139,339"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="180,267,132,307,129,302,177,263"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="163,313,222,339"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="195,266,195,300,190,300,190,266"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="245,313,468,339"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="220,263,319,305,316,310,218,268"/>
 </map>

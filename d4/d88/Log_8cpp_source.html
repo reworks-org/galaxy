@@ -110,39 +110,37 @@ $(function(){initNavTree('d4/d88/Log_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">namespace </span>logging</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155">   16</a></span>        <a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155">Log::Log</a>() noexcept</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : m_min_level {<a class="code hl_enumvalue" href="../../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fbac723aa40c9e9173627c531eeb006fc24">LogLevel::_INFO_</a>}</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            m_sinks.reserve(2);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">   14</a></span>    <a class="code hl_function" href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">Log::Log</a>() noexcept</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        : m_min_level {<a class="code hl_enumvalue" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        m_sinks.reserve(2);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#af164c40a3b77e0a6468ce4960b8eb208">   22</a></span>        <a class="code hl_function" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#af164c40a3b77e0a6468ce4960b8eb208">Log::~Log</a>() noexcept</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_variable" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#aad68c7eeea6ed8bfab25f079bdb9bd38">m_min_level</a> = <a class="code hl_enumvalue" href="../../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fbac723aa40c9e9173627c531eeb006fc24">LogLevel::_INFO_</a>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <a class="code hl_variable" href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5c424c1f9c4587d2d10e7d0abfddc583">m_sinks</a>.clear();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">   20</a></span>    <a class="code hl_function" href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">Log::~Log</a>() noexcept</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// We reset min level because logging is done as a singleton.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_variable" href="../../dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf">m_min_level</a> = <a class="code hl_enumvalue" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_variable" href="../../dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe">m_sinks</a>.clear();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    } <span class="comment">// namespace logging</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_a5c424c1f9c4587d2d10e7d0abfddc583"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5c424c1f9c4587d2d10e7d0abfddc583">galaxy::logging::Log::m_sinks</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Sink &gt; &gt; m_sinks</div><div class="ttdoc">List of sinks.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00120">Log.hpp:120</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_aad68c7eeea6ed8bfab25f079bdb9bd38"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#aad68c7eeea6ed8bfab25f079bdb9bd38">galaxy::logging::Log::m_min_level</a></div><div class="ttdeci">LogLevel m_min_level</div><div class="ttdoc">Minimum level for a message to be logged.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00115">Log.hpp:115</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_af164c40a3b77e0a6468ce4960b8eb208"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#af164c40a3b77e0a6468ce4960b8eb208">galaxy::logging::Log::~Log</a></div><div class="ttdeci">~Log() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">Log.cpp:22</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1logging_1_1Log_html_afc33e4c0b86105cb07c5d365e825b155"><div class="ttname"><a href="../../d9/dec/classgalaxy_1_1logging_1_1Log.html#afc33e4c0b86105cb07c5d365e825b155">galaxy::logging::Log::Log</a></div><div class="ttdeci">Log() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Log.cpp:16</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1logging_html_ace191b1221a6e7be9534cdcee14eb4fbac723aa40c9e9173627c531eeb006fc24"><div class="ttname"><a href="../../dd/dad/namespacegalaxy_1_1logging.html#ace191b1221a6e7be9534cdcee14eb4fbac723aa40c9e9173627c531eeb006fc24">galaxy::logging::LogLevel::_INFO_</a></div><div class="ttdeci">@ _INFO_</div><div class="ttdoc">Info Log Level.</div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Log_html_a2db84489382bb7f04702446893f2c7f5"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">galaxy::Log::Log</a></div><div class="ttdeci">Log() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Log.cpp:14</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Log_html_a46c37cc1fbcb426cb781fa3052e7c5e9"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">galaxy::Log::~Log</a></div><div class="ttdeci">~Log() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">Log.cpp:20</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Log_html_a4e839c49a101c2a78817342b1b3878fe"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe">galaxy::Log::m_sinks</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Sink &gt; &gt; m_sinks</div><div class="ttdoc">List of sinks.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00118">Log.hpp:118</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Log_html_a5bff49425d37440ad23185ef9726b1cf"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf">galaxy::Log::m_min_level</a></div><div class="ttdeci">LogLevel m_min_level</div><div class="ttdoc">Minimum level for a message to be logged.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00113">Log.hpp:113</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html_a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">galaxy::LogLevel::INFO</a></div><div class="ttdeci">@ INFO</div><div class="ttdoc">Info Log Level.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a724136a1f39cb6404ada524c6e6706e.html">logging</a></li><li class="navelem"><a class="el" href="../../d4/d88/Log_8cpp.html">Log.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 12 2025 13:45:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 13 2025 10:43:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

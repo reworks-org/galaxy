@@ -151,7 +151,7 @@ $(function(){initNavTree('d3/d8f/PhysfsStream_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                close();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                m_file = PHYSFS_openRead(filename.c_str());</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <a class="code hl_function" href="../../dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4">logging::physfs_check</a>(m_file);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                logging::physfs_check(m_file);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keywordflow">return</span> is_open();</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">else</span></div>
@@ -166,7 +166,7 @@ $(function(){initNavTree('d3/d8f/PhysfsStream_8cpp_source.html','../../'); initR
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30">is_open</a>())</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                <a class="code hl_function" href="../../dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4">logging::physfs_check</a>(PHYSFS_close(<a class="code hl_variable" href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a71a447ac7c0acd9fb017a17b233ebaa8">m_file</a>));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                logging::physfs_check(PHYSFS_close(<a class="code hl_variable" href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a71a447ac7c0acd9fb017a17b233ebaa8">m_file</a>));</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                <a class="code hl_variable" href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a71a447ac7c0acd9fb017a17b233ebaa8">m_file</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
@@ -245,15 +245,14 @@ $(function(){initNavTree('d3/d8f/PhysfsStream_8cpp_source.html','../../'); initR
 <div class="ttc" id="aclassgalaxy_1_1fs_1_1PhysfsStream_html_ac140cf5e552ce3819a6910cadc844129"><div class="ttname"><a href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#ac140cf5e552ce3819a6910cadc844129">galaxy::fs::PhysfsStream::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Close the open physfs handle.</div><div class="ttdef"><b>Definition</b> <a href="#l00055">PhysfsStream.cpp:55</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1fs_1_1PhysfsStream_html_adaaf69fc86103f4254e9f2bfe76f6459"><div class="ttname"><a href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#adaaf69fc86103f4254e9f2bfe76f6459">galaxy::fs::PhysfsStream::getSize</a></div><div class="ttdeci">std::optional&lt; std::size_t &gt; getSize() override</div><div class="ttdoc">Return the size of the stream.</div><div class="ttdef"><b>Definition</b> <a href="#l00105">PhysfsStream.cpp:105</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1fs_1_1PhysfsStream_html_af98beec53854452845efb1ccb6b32c30"><div class="ttname"><a href="../../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30">galaxy::fs::PhysfsStream::is_open</a></div><div class="ttdeci">bool is_open() const noexcept</div><div class="ttdoc">Is the physfs file open.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">PhysfsStream.cpp:34</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1logging_html_a61f0e0d98a05546e7071e5e931d259a4"><div class="ttname"><a href="../../dd/dad/namespacegalaxy_1_1logging.html#a61f0e0d98a05546e7071e5e931d259a4">galaxy::logging::physfs_check</a></div><div class="ttdeci">bool physfs_check(const int code) noexcept</div><div class="ttdoc">Call a physfs function with error handling and logs a message for you.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/df8/PhysFSError_8cpp_source.html#l00018">PhysFSError.cpp:18</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_1172629c230fd658e12a747419a13e17.html">fs</a></li><li class="navelem"><a class="el" href="../../d3/d8f/PhysfsStream_8cpp.html">PhysfsStream.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 12 2025 13:45:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 13 2025 10:43:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

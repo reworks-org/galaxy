@@ -1,5 +1,0 @@
-<map id="galaxy::logging::Log::log" name="galaxy::logging::Log::log">
-<area shape="rect" id="Node000001" title="Log a message." alt="" coords="5,5,185,31"/>
-<area shape="rect" id="Node000002" href="$db/d7c/namespacegalaxy_1_1strutils.html#ab1c81e310059a1904ba2f9e60fe30661" title="Replaces all occurrences of a string." alt="" coords="233,5,431,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,15,220,15,220,21,185,21"/>
-</map>

@@ -39,13 +39,6 @@ var annotated_dup =
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
         [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ]
       ] ],
-      [ "logging", "dd/dad/namespacegalaxy_1_1logging.html", [
-        [ "ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink" ],
-        [ "FileSink", "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html", "d6/d7a/classgalaxy_1_1logging_1_1FileSink" ],
-        [ "Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html", "d9/dec/classgalaxy_1_1logging_1_1Log" ],
-        [ "LogMessage", "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html", "d1/db0/structgalaxy_1_1logging_1_1LogMessage" ],
-        [ "Sink", "d9/d9f/classgalaxy_1_1logging_1_1Sink.html", "d9/d9f/classgalaxy_1_1logging_1_1Sink" ]
-      ] ],
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ]
       ] ],
@@ -67,9 +60,6 @@ var annotated_dup =
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
         [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ],
         [ "SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", "db/db0/classgalaxy_1_1meta_1_1SystemFactory" ]
-      ] ],
-      [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
-        [ "Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", "de/d02/classgalaxy_1_1platform_1_1Subprocess" ]
       ] ],
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
         [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
@@ -99,9 +89,17 @@ var annotated_dup =
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
       ] ],
-      [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ]
+      [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
+      [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
+      [ "Log", "dd/dd3/classgalaxy_1_1Log.html", "dd/dd3/classgalaxy_1_1Log" ],
+      [ "LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", "d6/d64/structgalaxy_1_1LogMessage" ],
+      [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
+      [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
+      [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [
+      [ "formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4" ],
+      [ "formatter< galaxy::LogMessage >", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4" ],
       [ "hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" ]
     ] ]
 ];

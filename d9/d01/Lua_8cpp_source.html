@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>galaxy: galaxy/src/galaxy/scripting/Lua.cpp Source File</title>
+<title>galaxy: galaxy/src/galaxy/lua/Lua.cpp Source File</title>
 <link rel="icon" href="../../logo_docs.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -108,55 +108,31 @@ $(function(){initNavTree('d9/d01/Lua_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../de/d12/namespacegalaxy_1_1lua.html">   12</a></span>    <span class="keyword">namespace </span>lua</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>lua</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276">   14</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276">inject</a>()</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a4816504ffd60d669ef3a2a9a4faface6">inject_entt</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="comment">// inject_nuklear();</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="comment">// inject_sfml();</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="comment">// inject_components();</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="comment">// inject_core();</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a85ff14314c4b58d8fe5dd8071c48e690">inject_flags</a>();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8">inject_fs</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="comment">// inject_input();</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a4a5a55f0cba99197792f5bb99bab9d19">inject_logging</a>();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="comment">// inject_map();</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a">inject_math</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#adfc21068aed4d7b28d73aa6eefbe0c81">inject_mem</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#ac8b3c00560625a3841d7801f7c2d8fcb">inject_platform</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="comment">// inject_resource();</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c">inject_scene_control</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="comment">// inject_state();</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3">inject_utils</a>();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a59f23ce23f852638e16b61a663a83005">inject_services</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a4a5a55f0cba99197792f5bb99bab9d19">inject_logging</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#ac8b3c00560625a3841d7801f7c2d8fcb">inject_platform</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <a class="code hl_function" href="../../de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3">inject_utils</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        }</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    } <span class="comment">// namespace lua</span></div>
-</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    } <span class="comment">// namespace lua</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_a3e70c78c95de9ab1b596a87f35e574d3"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3">galaxy::lua::inject_utils</a></div><div class="ttdeci">void inject_utils()</div><div class="ttdoc">Injects misc galaxy utils into lua.</div><div class="ttdef"><b>Definition</b> <a href="../../da/dd6/LuaUtils_8cpp_source.html#l00018">LuaUtils.cpp:18</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_a4320b66e1faebdc3e8a60bfaa753f95c"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c">galaxy::lua::inject_scene_control</a></div><div class="ttdeci">void inject_scene_control()</div><div class="ttdoc">Injects galaxy scene management into lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dc5/LuaScenes_8cpp_source.html#l00017">LuaScenes.cpp:17</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_a4816504ffd60d669ef3a2a9a4faface6"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a4816504ffd60d669ef3a2a9a4faface6">galaxy::lua::inject_entt</a></div><div class="ttdeci">void inject_entt()</div><div class="ttdoc">Injects EnTT into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc7/LuaEntt_8cpp_source.html#l00019">LuaEntt.cpp:19</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_a4a5a55f0cba99197792f5bb99bab9d19"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a4a5a55f0cba99197792f5bb99bab9d19">galaxy::lua::inject_logging</a></div><div class="ttdeci">void inject_logging()</div><div class="ttdoc">Injects logging into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc6/LuaLogging_8cpp_source.html#l00042">LuaLogging.cpp:42</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_a59f23ce23f852638e16b61a663a83005"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a59f23ce23f852638e16b61a663a83005">galaxy::lua::inject_services</a></div><div class="ttdeci">void inject_services()</div><div class="ttdoc">Regsiter static engine services in lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d50/LuaServices_8cpp_source.html#l00020">LuaServices.cpp:20</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_a85ff14314c4b58d8fe5dd8071c48e690"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a85ff14314c4b58d8fe5dd8071c48e690">galaxy::lua::inject_flags</a></div><div class="ttdeci">void inject_flags()</div><div class="ttdoc">Injects galaxy flag components into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/df0/LuaFlags_8cpp_source.html#l00018">LuaFlags.cpp:18</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_aa70d6729393546b0f11fd128f3df6ec8"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8">galaxy::lua::inject_fs</a></div><div class="ttdeci">void inject_fs()</div><div class="ttdoc">Injects VFS support into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d7f/LuaFS_8cpp_source.html#l00018">LuaFS.cpp:18</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_ab9d1ae8ad2cb00822ae4d309c33fe51a"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a">galaxy::lua::inject_math</a></div><div class="ttdeci">void inject_math()</div><div class="ttdoc">Injects math stuff into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d48/LuaMath_8cpp_source.html#l00022">LuaMath.cpp:22</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1lua_html_a3e70c78c95de9ab1b596a87f35e574d3"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3">galaxy::lua::inject_utils</a></div><div class="ttdeci">void inject_utils()</div><div class="ttdoc">Injects misc galaxy utils into lua.</div><div class="ttdef"><b>Definition</b> <a href="../../da/dd6/LuaUtils_8cpp_source.html#l00017">LuaUtils.cpp:17</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1lua_html_a4a5a55f0cba99197792f5bb99bab9d19"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#a4a5a55f0cba99197792f5bb99bab9d19">galaxy::lua::inject_logging</a></div><div class="ttdeci">void inject_logging()</div><div class="ttdoc">Injects logging into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc6/LuaLogging_8cpp_source.html#l00037">LuaLogging.cpp:37</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1lua_html_ac8b3c00560625a3841d7801f7c2d8fcb"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#ac8b3c00560625a3841d7801f7c2d8fcb">galaxy::lua::inject_platform</a></div><div class="ttdeci">void inject_platform()</div><div class="ttdoc">Inject platform stuff into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d96/LuaPlatform_8cpp_source.html#l00018">LuaPlatform.cpp:18</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1lua_html_adf650019918cec1a51e00ba9c9f9e276"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276">galaxy::lua::inject</a></div><div class="ttdeci">void inject()</div><div class="ttdoc">Inject everything into Lua.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Lua.cpp:14</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1lua_html_adfc21068aed4d7b28d73aa6eefbe0c81"><div class="ttname"><a href="../../de/d12/namespacegalaxy_1_1lua.html#adfc21068aed4d7b28d73aa6eefbe0c81">galaxy::lua::inject_mem</a></div><div class="ttdeci">void inject_mem()</div><div class="ttdoc">Inject custom memory stuff into Lua.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/df5/LuaMem_8cpp_source.html#l00017">LuaMem.cpp:17</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7eba3ad153a44eced68a1cf247fff29c.html">scripting</a></li><li class="navelem"><a class="el" href="../../d9/d01/Lua_8cpp.html">Lua.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 12 2025 13:45:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_79b316363302e8390d0b35e3c4a83cfb.html">lua</a></li><li class="navelem"><a class="el" href="../../d9/d01/Lua_8cpp.html">Lua.cpp</a></li>
+    <li class="footer">Generated on Wed Aug 13 2025 10:43:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

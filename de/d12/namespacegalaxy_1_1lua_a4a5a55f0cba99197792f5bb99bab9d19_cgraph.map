@@ -1,5 +1,14 @@
 <map id="galaxy::lua::inject_logging" name="galaxy::lua::inject_logging">
-<area shape="rect" id="Node000001" title="Injects logging into Lua." alt="" coords="5,5,143,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#af3a4ec16f409c9d3806a2511349d0a83" title=" " alt="" coords="191,13,372,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,23,177,23,177,28,143,28"/>
+<area shape="rect" id="Node000001" title="Injects logging into Lua." alt="" coords="5,106,143,146"/>
+<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a65666c7ef1fffcd354358e3c79e5474d" title="Insert a message into the OpenGL debug stack." alt="" coords="204,5,359,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,104,141,76,189,48,224,33,226,38,192,52,144,80,103,108"/>
+<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#ac53022b504e5cb2f4074d6ef1c04c849" title="Convert a GL error code to a string." alt="" coords="420,78,561,118"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,103,190,91,303,84,406,88,406,93,303,90,191,97,136,109"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#a31571be508ad20cc7d06cc3ac3011d82" title="Returns all GL errors on stack." alt="" coords="213,106,349,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,123,200,123,200,129,143,129"/>
+<area shape="rect" id="Node000005" href="$d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61" title="Call a physfs function with error handling and logs a message for you." alt="" coords="210,170,353,210"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="140,144,204,163,202,169,139,149"/>
+<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a585ce7a820af7f2a1c5b34a4bfd63ce7" title=" " alt="" coords="191,235,372,260"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="96,144,138,183,192,220,210,228,208,232,189,224,135,187,92,148"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="349,114,406,107,407,112,350,120"/>
 </map>

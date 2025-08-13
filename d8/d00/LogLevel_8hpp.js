@@ -1,10 +1,11 @@
 var LogLevel_8hpp =
 [
-    [ "LogLevel", "d8/d00/LogLevel_8hpp.html#ace191b1221a6e7be9534cdcee14eb4fb", [
-      [ "_INFO_", "d8/d00/LogLevel_8hpp.html#ace191b1221a6e7be9534cdcee14eb4fbac723aa40c9e9173627c531eeb006fc24", null ],
-      [ "_DEBUG_", "d8/d00/LogLevel_8hpp.html#ace191b1221a6e7be9534cdcee14eb4fba15c3b8b5169a44c13b7283dfa8015e0a", null ],
-      [ "_WARNING_", "d8/d00/LogLevel_8hpp.html#ace191b1221a6e7be9534cdcee14eb4fbaef62fe9909a87d4b4f64373093863587", null ],
-      [ "_ERROR_", "d8/d00/LogLevel_8hpp.html#ace191b1221a6e7be9534cdcee14eb4fba3900b5df1bf164312fc18020104ffcbb", null ],
-      [ "_FATAL_", "d8/d00/LogLevel_8hpp.html#ace191b1221a6e7be9534cdcee14eb4fba91a11893267955993b18f8bdaa6b088c", null ]
-    ] ]
+    [ "std::formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4" ],
+    [ "LogLevel", "d8/d00/LogLevel_8hpp.html#a4e15f13440e547247ba6615bce4e3395", [
+      [ "INFO", "d8/d00/LogLevel_8hpp.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3", null ],
+      [ "WARNING", "d8/d00/LogLevel_8hpp.html#a4e15f13440e547247ba6615bce4e3395a059e9861e0400dfbe05c98a841f3f96b", null ],
+      [ "ERROR", "d8/d00/LogLevel_8hpp.html#a4e15f13440e547247ba6615bce4e3395abb1ca97ec761fc37101737ba0aa2e7c5", null ],
+      [ "FATAL", "d8/d00/LogLevel_8hpp.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc", null ]
+    ] ],
+    [ "get_loglevel_colour", "d8/d00/LogLevel_8hpp.html#a6319b32641882789298150a015a96f74", null ]
 ];

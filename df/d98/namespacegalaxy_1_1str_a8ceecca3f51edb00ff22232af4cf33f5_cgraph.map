@@ -1,0 +1,7 @@
+<map id="galaxy::str::trim" name="galaxy::str::trim">
+<area shape="rect" id="Node000001" title="Trim both ends of string." alt="" coords="5,31,131,56"/>
+<area shape="rect" id="Node000002" href="$df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79" title="Trim string from end." alt="" coords="179,5,309,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,32,165,27,166,32,131,37"/>
+<area shape="rect" id="Node000003" href="$df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd" title="Trim string from start." alt="" coords="179,55,309,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,49,165,54,165,59,131,55"/>
+</map>

@@ -111,125 +111,120 @@ $(function(){initNavTree('de/df1/Subprocess_8cpp_source.html','../../'); initRes
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/dfc/namespacegalaxy_1_1platform.html">   14</a></span>    <span class="keyword">namespace </span>platform</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a6ee524822076b3aa82939e4a247612ad">   16</a></span>        <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a6ee524822076b3aa82939e4a247612ad">Subprocess::Subprocess</a>() noexcept</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            : m_process {<span class="keyword">nullptr</span>}</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a74fc9513708f431e1b1edffbf1e97823">   14</a></span>    <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a74fc9513708f431e1b1edffbf1e97823">Subprocess::Subprocess</a>() noexcept</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        : m_process {<span class="keyword">nullptr</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
 </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a99e8b2e5aa213978836dddf2c370e49a">   21</a></span>        <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a6ee524822076b3aa82939e4a247612ad">Subprocess::Subprocess</a>(std::string_view process, std::span&lt;std::string&gt; args)</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            : m_process {nullptr}</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a1eb36ca2fb3803a76cfa20e85c683245">create</a>(process, args);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#affeb82eb551d94ff1964ece2ce39ca19">   19</a></span>    <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a74fc9513708f431e1b1edffbf1e97823">Subprocess::Subprocess</a>(std::string_view process, std::span&lt;std::string&gt; args)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        : m_process {nullptr}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa">create</a>(process, args);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a50b4ae55d389933adaa9a592aed050f7">   27</a></span>        <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a50b4ae55d389933adaa9a592aed050f7">Subprocess::~Subprocess</a>() noexcept</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#af23961055078494076ed487acf9d2a3d">terminate</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a">   25</a></span>    <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a">Subprocess::~Subprocess</a>() noexcept</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a44d55609528c6ffb90935163d07267aa">terminate</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
 </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a1eb36ca2fb3803a76cfa20e85c683245">   32</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a1eb36ca2fb3803a76cfa20e85c683245">Subprocess::create</a>(std::string_view process, std::span&lt;std::string&gt; args)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">const</span> <span class="keyword">auto</span> sp_to_run = std::filesystem::absolute(process).replace_extension(<span class="stringliteral">&quot;&quot;</span>).string();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::vector&lt;const char*&gt; cmd_line;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            cmd_line.reserve(args.size() + 2);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            cmd_line.push_back(sp_to_run.c_str());</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; arg : args)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                cmd_line.push_back(arg.c_str());</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            cmd_line.push_back(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">if</span> (subprocess_create(cmd_line.data(), subprocess_option_inherit_environment, &amp;<a class="code hl_variable" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29">m_process</a>) != 0)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to launch subprocess: {0}.&quot;</span>, process);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa">Subprocess::create</a>(std::string_view process, std::span&lt;std::string&gt; args)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sp_to_run = std::filesystem::absolute(process).replace_extension(<span class="stringliteral">&quot;&quot;</span>).string();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        std::vector&lt;const char*&gt; cmd_line;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        cmd_line.reserve(args.size() + 2);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        cmd_line.push_back(sp_to_run.c_str());</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; arg : args)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            cmd_line.push_back(arg.c_str());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        cmd_line.push_back(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> (subprocess_create(cmd_line.data(), subprocess_option_inherit_environment, &amp;<a class="code hl_variable" href="../../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd">m_process</a>) != 0)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to launch subprocess: {0}.&quot;</span>, process);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
 </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a246ad7e7bc9f5d2e8dc6e521a726c5c5">   52</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a246ad7e7bc9f5d2e8dc6e521a726c5c5">Subprocess::join</a>() noexcept</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a805390f77897a6d9f76d1b7ea7799b12">   50</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a805390f77897a6d9f76d1b7ea7799b12">Subprocess::join</a>() noexcept</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4">alive</a>())</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269">alive</a>())</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <span class="keywordtype">int</span> code = -1;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">if</span> (subprocess_join(&amp;<a class="code hl_variable" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29">m_process</a>, &amp;code) != 0)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to join subprocess.&quot;</span>);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <span class="keywordflow">return</span> code;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordtype">int</span> code = -1;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">if</span> (subprocess_join(&amp;<a class="code hl_variable" href="../../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd">m_process</a>, &amp;code) != 0)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to join subprocess.&quot;</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> code;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#af23961055078494076ed487acf9d2a3d">   68</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#af23961055078494076ed487acf9d2a3d">Subprocess::terminate</a>() noexcept</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a44d55609528c6ffb90935163d07267aa">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#a44d55609528c6ffb90935163d07267aa">Subprocess::terminate</a>() noexcept</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4">alive</a>())</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269">alive</a>())</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">if</span> (subprocess_terminate(&amp;<a class="code hl_variable" href="../../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd">m_process</a>) != 0)</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <span class="keywordflow">if</span> (subprocess_terminate(&amp;<a class="code hl_variable" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29">m_process</a>) != 0)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to terminate subprocess.&quot;</span>);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to terminate subprocess.&quot;</span>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
 </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b">   79</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b">Subprocess::destroy</a>() noexcept</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#afaf110a215d46e68966a2c27240a0166">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#afaf110a215d46e68966a2c27240a0166">Subprocess::destroy</a>() noexcept</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4">alive</a>())</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269">alive</a>())</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">if</span> (subprocess_destroy(&amp;<a class="code hl_variable" href="../../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd">m_process</a>) != 0)</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <span class="keywordflow">if</span> (subprocess_destroy(&amp;<a class="code hl_variable" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29">m_process</a>) != 0)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to destroy subprocess.&quot;</span>);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to destroy subprocess.&quot;</span>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
 </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269">   90</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269">Subprocess::alive</a>() noexcept</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">return</span> subprocess_alive(&amp;<a class="code hl_variable" href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29">m_process</a>) != 0 ? true : <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4">   88</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4">Subprocess::alive</a>() noexcept</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> subprocess_alive(&amp;<a class="code hl_variable" href="../../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd">m_process</a>) != 0 ? true : <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
 </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    } <span class="comment">// namespace platform</span></div>
-</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
 <div class="ttc" id="aSubprocess_8hpp_html"><div class="ttname"><a href="../../d8/d31/Subprocess_8hpp.html">Subprocess.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_a15b5c18a960fc89dfc2a22572ba4644b"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a15b5c18a960fc89dfc2a22572ba4644b">galaxy::platform::Subprocess::destroy</a></div><div class="ttdeci">void destroy() noexcept</div><div class="ttdoc">Destroy process, preserving if alive.</div><div class="ttdef"><b>Definition</b> <a href="#l00079">Subprocess.cpp:79</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_a1eb36ca2fb3803a76cfa20e85c683245"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a1eb36ca2fb3803a76cfa20e85c683245">galaxy::platform::Subprocess::create</a></div><div class="ttdeci">void create(std::string_view process, std::span&lt; std::string &gt; args={})</div><div class="ttdoc">Launch a subprocess.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">Subprocess.cpp:32</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_a246ad7e7bc9f5d2e8dc6e521a726c5c5"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a246ad7e7bc9f5d2e8dc6e521a726c5c5">galaxy::platform::Subprocess::join</a></div><div class="ttdeci">int join() noexcept</div><div class="ttdoc">Wait for a process to finish execution.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">Subprocess.cpp:52</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_a50b4ae55d389933adaa9a592aed050f7"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a50b4ae55d389933adaa9a592aed050f7">galaxy::platform::Subprocess::~Subprocess</a></div><div class="ttdeci">~Subprocess() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">Subprocess.cpp:27</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_a6ee524822076b3aa82939e4a247612ad"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a6ee524822076b3aa82939e4a247612ad">galaxy::platform::Subprocess::Subprocess</a></div><div class="ttdeci">Subprocess() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Subprocess.cpp:16</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_a7ace6d5e75af34eb4018697180a31269"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#a7ace6d5e75af34eb4018697180a31269">galaxy::platform::Subprocess::alive</a></div><div class="ttdeci">bool alive() noexcept</div><div class="ttdoc">Check if subprocess is still alive and executing.</div><div class="ttdef"><b>Definition</b> <a href="#l00090">Subprocess.cpp:90</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_aed34aef228d16cc46b8cd9927701fa29"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29">galaxy::platform::Subprocess::m_process</a></div><div class="ttdeci">subprocess m_process</div><div class="ttdoc">Process information and handles.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d31/Subprocess_8hpp_source.html#l00090">Subprocess.hpp:90</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1platform_1_1Subprocess_html_af23961055078494076ed487acf9d2a3d"><div class="ttname"><a href="../../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#af23961055078494076ed487acf9d2a3d">galaxy::platform::Subprocess::terminate</a></div><div class="ttdeci">void terminate() noexcept</div><div class="ttdoc">Terminate process, killing if alive.</div><div class="ttdef"><b>Definition</b> <a href="#l00068">Subprocess.cpp:68</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d4b/Async_8hpp_source.html#l00016">Async.hpp:17</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_a44d55609528c6ffb90935163d07267aa"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#a44d55609528c6ffb90935163d07267aa">galaxy::Subprocess::terminate</a></div><div class="ttdeci">void terminate() noexcept</div><div class="ttdoc">Terminate process, killing if alive.</div><div class="ttdef"><b>Definition</b> <a href="#l00066">Subprocess.cpp:66</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_a712d9acafc18975cadb0e5e5016e871a"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a">galaxy::Subprocess::~Subprocess</a></div><div class="ttdeci">~Subprocess() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Subprocess.cpp:25</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_a74fc9513708f431e1b1edffbf1e97823"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#a74fc9513708f431e1b1edffbf1e97823">galaxy::Subprocess::Subprocess</a></div><div class="ttdeci">Subprocess() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Subprocess.cpp:14</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_a805390f77897a6d9f76d1b7ea7799b12"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#a805390f77897a6d9f76d1b7ea7799b12">galaxy::Subprocess::join</a></div><div class="ttdeci">int join() noexcept</div><div class="ttdoc">Wait for a process to finish execution.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Subprocess.cpp:50</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_aa18a258bfb667d25b92c879619b500bd"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd">galaxy::Subprocess::m_process</a></div><div class="ttdeci">subprocess m_process</div><div class="ttdoc">Process information and handles.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d31/Subprocess_8hpp_source.html#l00088">Subprocess.hpp:88</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_ad51e1a3e966d777eb1e1c0b2272b9db4"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4">galaxy::Subprocess::alive</a></div><div class="ttdeci">bool alive() noexcept</div><div class="ttdoc">Check if subprocess is still alive and executing.</div><div class="ttdef"><b>Definition</b> <a href="#l00088">Subprocess.cpp:88</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_ad693b155443b360c95cd2c3e9b6a6daa"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa">galaxy::Subprocess::create</a></div><div class="ttdeci">void create(std::string_view process, std::span&lt; std::string &gt; args={})</div><div class="ttdoc">Launch a subprocess.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">Subprocess.cpp:30</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Subprocess_html_afaf110a215d46e68966a2c27240a0166"><div class="ttname"><a href="../../db/d1d/classgalaxy_1_1Subprocess.html#afaf110a215d46e68966a2c27240a0166">galaxy::Subprocess::destroy</a></div><div class="ttdeci">void destroy() noexcept</div><div class="ttdoc">Destroy process, preserving if alive.</div><div class="ttdef"><b>Definition</b> <a href="#l00077">Subprocess.cpp:77</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_539763b671f38b158c533952648703b5.html">platform</a></li><li class="navelem"><a class="el" href="../../de/df1/Subprocess_8cpp.html">Subprocess.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 12 2025 13:45:58 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 13 2025 10:43:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

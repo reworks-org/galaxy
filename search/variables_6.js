@@ -21,7 +21,7 @@ var searchData=
   ['m_5fentt_18',['m_entt',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#af090fac31c9d4042dd5eaeb64eae5274',1,'galaxy::core::Registry']]],
   ['m_5ffactory_19',['m_factory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html#ace8a2b8383f023ccc1efd7c7234ddb25',1,'galaxy::meta::SystemFactory']]],
   ['m_5ffile_20',['m_file',['../d3/df0/classgalaxy_1_1components_1_1GUI.html#aba1ec2c50bfe42ee431e7b6f1a6c3c76',1,'galaxy::components::GUI::m_file'],['../db/d40/classgalaxy_1_1components_1_1Script.html#aec1f202a7a42c41bc95f696adada0f56',1,'galaxy::components::Script::m_file'],['../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a71a447ac7c0acd9fb017a17b233ebaa8',1,'galaxy::fs::PhysfsStream::m_file'],['../d9/d75/classgalaxy_1_1map_1_1World.html#aa84f7f81cc76543f7bf9134597a47ed7',1,'galaxy::map::World::m_file']]],
-  ['m_5ffile_5fstream_21',['m_file_stream',['../d6/d7a/classgalaxy_1_1logging_1_1FileSink.html#a49221fd721434db924a12509a1077caf',1,'galaxy::logging::FileSink']]],
+  ['m_5ffile_5fstream_21',['m_file_stream',['../d7/d7d/classgalaxy_1_1FileSink.html#a9c6a248232977add4c5c036adb59f1e1',1,'galaxy::FileSink']]],
   ['m_5ffinished_22',['m_finished',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a497edc558be6d10e116d3b5b7241a20c',1,'galaxy::math::ZLib']]],
   ['m_5ffixed_5frotation_23',['m_fixed_rotation',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a4480410ad063f38007dae3129f2662a2',1,'galaxy::components::RigidBody']]],
   ['m_5ffonts_24',['m_fonts',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abdf38b543566eae80f36356eae5a906c',1,'galaxy::ui::NuklearUI']]],
@@ -39,7 +39,7 @@ var searchData=
   ['m_5floaded_36',['m_loaded',['../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23',1,'galaxy::core::Config::m_loaded'],['../d9/d75/classgalaxy_1_1map_1_1World.html#ae5d9523be6a86f39515080920caa14dc',1,'galaxy::map::World::m_loaded'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9a80ce09cac97751bf2b20a08dec7ede',1,'galaxy::lua::Script::m_loaded']]],
   ['m_5floader_37',['m_loader',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a3a99066b3619cb0d297c9d794b6fcc6b',1,'galaxy::resource::Cache']]],
   ['m_5fmaps_38',['m_maps',['../d9/d75/classgalaxy_1_1map_1_1World.html#a81f6a6bff98018ad40ff3d33ecf0f4fc',1,'galaxy::map::World']]],
-  ['m_5fmin_5flevel_39',['m_min_level',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#aad68c7eeea6ed8bfab25f079bdb9bd38',1,'galaxy::logging::Log']]],
+  ['m_5fmin_5flevel_39',['m_min_level',['../dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf',1,'galaxy::Log']]],
   ['m_5fmode_40',['m_mode',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a00d134ade642d089dd4e289cbce8da93',1,'galaxy::math::ZLib']]],
   ['m_5fmt_41',['m_mt',['../d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311',1,'galaxy::math::Random']]],
   ['m_5fname_42',['m_name',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html#ad33fc82426aee8af0a62ceff3bfafa62',1,'galaxy::components::Sprite::m_name'],['../df/d2b/classgalaxy_1_1map_1_1Map.html#a14548dd85462ad03a8e1ec360d4481cd',1,'galaxy::map::Map::m_name'],['../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a8d690db6322eba978eeee8482e55d258',1,'galaxy::scene::Scene::m_name']]],
@@ -47,7 +47,7 @@ var searchData=
   ['m_5fout_44',['m_out',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a298ab64302d94b7fadf4a5fbb5d09037',1,'galaxy::math::ZLib']]],
   ['m_5fpath_45',['m_path',['../d6/de9/classgalaxy_1_1core_1_1Config.html#ae9d237d19a8bb828aa694b0df14d8512',1,'galaxy::core::Config']]],
   ['m_5fpaused_46',['m_paused',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#a611a079c0dc44617606d1ceee403ee17',1,'galaxy::async::Timer::m_paused'],['../da/d18/classgalaxy_1_1components_1_1Animated.html#a750b046d82112366425c389040eeaed6',1,'galaxy::components::Animated::m_paused']]],
-  ['m_5fprocess_47',['m_process',['../de/d02/classgalaxy_1_1platform_1_1Subprocess.html#aed34aef228d16cc46b8cd9927701fa29',1,'galaxy::platform::Subprocess']]],
+  ['m_5fprocess_47',['m_process',['../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd',1,'galaxy::Subprocess']]],
   ['m_5fproject_48',['m_project',['../d9/d75/classgalaxy_1_1map_1_1World.html#a201eaa443a321d5883289ec2c644c6f7',1,'galaxy::map::World']]],
   ['m_5frd_49',['m_rd',['../d9/deb/classgalaxy_1_1math_1_1Random.html#a06193a86320cb0fbe362a20c515f3846',1,'galaxy::math::Random']]],
   ['m_5fread_5findex_50',['m_read_index',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#ab3362feab9ff60709a56caf6d71b62c8',1,'galaxy::mem::RingBuffer']]],
@@ -64,7 +64,7 @@ var searchData=
   ['m_5fshow_5ffunctions_61',['m_show_functions',['../db/d40/classgalaxy_1_1components_1_1Script.html#aab0b0e6799fb0d4552c0dde131375e40',1,'galaxy::components::Script']]],
   ['m_5fshow_5funknown_62',['m_show_unknown',['../db/d40/classgalaxy_1_1components_1_1Script.html#a510bee379e033bcd32ff19c1f5ceac0a',1,'galaxy::components::Script']]],
   ['m_5fshow_5fuserdata_63',['m_show_userdata',['../db/d40/classgalaxy_1_1components_1_1Script.html#a240b4288e96b29a9df79439c166ead97',1,'galaxy::components::Script']]],
-  ['m_5fsinks_64',['m_sinks',['../d9/dec/classgalaxy_1_1logging_1_1Log.html#a5c424c1f9c4587d2d10e7d0abfddc583',1,'galaxy::logging::Log']]],
+  ['m_5fsinks_64',['m_sinks',['../dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe',1,'galaxy::Log']]],
   ['m_5fstack_65',['m_stack',['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9043a5ab85358d89a6d7d37a92337c79',1,'galaxy::scene::SceneManager::m_stack'],['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a79cbceedc9c9c4a1d2db45e7be515fa1',1,'galaxy::state::StateMachine::m_stack']]],
   ['m_5fstates_66',['m_states',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#ad089b7fbec2274ab2252468e18c9a4e6',1,'galaxy::state::StateMachine']]],
   ['m_5fstopped_67',['m_stopped',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#a42e6119a59e7b7b415638f9f67acb48c',1,'galaxy::async::Timer']]],
@@ -87,5 +87,5 @@ var searchData=
   ['m_5fwidth_84',['m_width',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a2e1e78a7dda060689a83e65e6abca854',1,'galaxy::math::RectPack']]],
   ['m_5fworld_85',['m_world',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#acabb1518fc6fdedd6a451b33dbdb5dc3',1,'galaxy::components::RigidBody']]],
   ['m_5fwrite_5findex_86',['m_write_index',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a3c76c7b4561a98d0e3d35edf562dd783',1,'galaxy::mem::RingBuffer']]],
-  ['message_87',['message',['../d1/db0/structgalaxy_1_1logging_1_1LogMessage.html#a9598e7787204dee21388e60422c89906',1,'galaxy::logging::LogMessage']]]
+  ['message_87',['message',['../d6/d64/structgalaxy_1_1LogMessage.html#aadc3d41bcfa262bd088268ea1042cd0e',1,'galaxy::LogMessage']]]
 ];

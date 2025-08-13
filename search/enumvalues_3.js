@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error_0',['error',['../d6/d19/namespacegalaxy_1_1fs.html#a5345aeafcb662e1605b55fa01fdf7a13acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy::fs']]]
+  ['fatal_0',['FATAL',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc',1,'galaxy']]]
 ];

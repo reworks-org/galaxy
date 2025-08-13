@@ -1,0 +1,10 @@
+<map id="galaxy::str::split" name="galaxy::str::split">
+<area shape="rect" id="Node000001" title="Split a string based on a delimiter." alt="" coords="591,29,717,55"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="685,19,676,11,654,8,635,10,625,15,623,20,629,28,624,31,618,21,621,11,634,5,654,3,679,6,689,15"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="405,22,543,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,45,543,45,543,39,577,39"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,29,357,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,45,358,45,358,39,392,39"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,29,172,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,45,172,45,172,39,206,39"/>
+</map>

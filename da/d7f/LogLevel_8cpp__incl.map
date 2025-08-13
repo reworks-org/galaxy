@@ -1,5 +1,11 @@
 <map id="galaxy/src/galaxy/logging/LogLevel.cpp" name="galaxy/src/galaxy/logging/LogLevel.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,195,45"/>
-<area shape="rect" id="Node000002" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="46,93,154,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,46,103,79,97,79,97,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="31,5,220,45"/>
+<area shape="rect" id="Node000002" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="71,93,179,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,46,128,79,123,79,123,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,72,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,121,65,160,62,156,110,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,167,155,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="128,119,128,153,123,153,123,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="178,167,401,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="153,116,251,159,249,164,151,121"/>
 </map>

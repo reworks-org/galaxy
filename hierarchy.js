@@ -8,6 +8,10 @@ var hierarchy =
     [ "galaxy::math::fnv_1a_params< bits >", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
     [ "galaxy::math::fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", null ],
     [ "galaxy::math::fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", null ],
+    [ "std::formatter", null, [
+      [ "std::formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", null ],
+      [ "std::formatter< galaxy::LogMessage >", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", null ]
+    ] ],
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
     [ "sf::InputStream", null, [
@@ -20,8 +24,8 @@ var hierarchy =
       [ "galaxy::resource::SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", null ],
       [ "galaxy::resource::VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", null ]
     ] ],
-    [ "galaxy::logging::Log", "d9/dec/classgalaxy_1_1logging_1_1Log.html", null ],
-    [ "galaxy::logging::LogMessage", "d1/db0/structgalaxy_1_1logging_1_1LogMessage.html", null ],
+    [ "galaxy::Log", "dd/dd3/classgalaxy_1_1Log.html", null ],
+    [ "galaxy::LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", null ],
     [ "galaxy::map::Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", null ],
     [ "galaxy::flags::NotSerializable", "d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html", null ],
     [ "galaxy::ui::NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", null ],
@@ -51,13 +55,13 @@ var hierarchy =
     ] ],
     [ "galaxy::meta::EntityFactory::SerializationData", "d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html", null ],
     [ "galaxy::settings", "d1/db3/structgalaxy_1_1settings.html", null ],
-    [ "galaxy::logging::Sink", "d9/d9f/classgalaxy_1_1logging_1_1Sink.html", [
-      [ "galaxy::logging::ConsoleSink", "d9/dce/classgalaxy_1_1logging_1_1ConsoleSink.html", null ],
-      [ "galaxy::logging::FileSink", "d6/d7a/classgalaxy_1_1logging_1_1FileSink.html", null ]
+    [ "galaxy::Sink", "d2/d42/classgalaxy_1_1Sink.html", [
+      [ "galaxy::ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", null ],
+      [ "galaxy::FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", null ]
     ] ],
     [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],
     [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
-    [ "galaxy::platform::Subprocess", "de/d02/classgalaxy_1_1platform_1_1Subprocess.html", null ],
+    [ "galaxy::Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
       [ "galaxy::systems::PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", null ],

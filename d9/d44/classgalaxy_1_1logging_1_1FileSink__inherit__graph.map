@@ -1,5 +1,0 @@
-<map id="galaxy::logging::FileSink" name="galaxy::logging::FileSink">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,239,177,344"/>
-<area shape="rect" id="Node000002" href="$d9/d9f/classgalaxy_1_1logging_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="17,5,166,191"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,204,94,239,89,239,89,204"/>
-</map>

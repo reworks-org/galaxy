@@ -1,13 +1,13 @@
 <map id="galaxy/src/galaxy/scripting/Script.hpp" name="galaxy/src/galaxy/scripting/Script.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="310,5,507,45"/>
-<area shape="rect" id="Node000002" href="$d7/d91/Scripts_8hpp.html" title=" " alt="" coords="199,93,397,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="375,56,324,95,321,91,372,52"/>
-<area shape="rect" id="Node000006" href="$d9/d5f/scripting_2Script_8cpp.html" title=" " alt="" coords="421,93,618,133"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="446,52,496,91,493,95,443,56"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="302,5,499,45"/>
+<area shape="rect" id="Node000002" href="$d7/d91/Scripts_8hpp.html" title=" " alt="" coords="191,93,389,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="367,56,316,95,313,91,364,52"/>
+<area shape="rect" id="Node000006" href="$d9/d5f/scripting_2Script_8cpp.html" title=" " alt="" coords="413,93,610,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="438,52,488,91,485,95,435,56"/>
 <area shape="rect" id="Node000003" href="$d0/dd0/core_2Loader_8cpp.html" title=" " alt="" coords="5,181,175,221"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,141,137,184,135,179,239,136"/>
-<area shape="rect" id="Node000004" href="$dc/dc6/Scripts_8cpp.html" title=" " alt="" coords="199,181,397,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="301,147,301,181,295,181,295,147"/>
-<area shape="rect" id="Node000005" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="421,181,618,221"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="360,136,472,179,470,184,358,141"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,141,135,184,133,179,232,136"/>
+<area shape="rect" id="Node000004" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="199,181,381,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="293,147,293,181,287,181,287,147"/>
+<area shape="rect" id="Node000005" href="$dc/dc6/Scripts_8cpp.html" title=" " alt="" coords="406,181,603,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="351,136,459,179,457,184,349,141"/>
 </map>

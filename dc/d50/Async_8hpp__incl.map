@@ -1,7 +1,7 @@
-<map id="galaxy/src/galaxy/async/Async.hpp" name="galaxy/src/galaxy/async/Async.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,184,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="17,93,84,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,47,66,83,62,80,82,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="108,93,169,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,44,128,80,123,83,103,47"/>
+<map id="galaxy/src/galaxy/utils/Async.hpp" name="galaxy/src/galaxy/utils/Async.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,175,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="13,93,79,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,47,62,83,57,80,77,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,93,165,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,44,123,80,118,83,98,47"/>
 </map>
