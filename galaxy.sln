@@ -63,6 +63,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CF2AA326-4C43-48A5-B5D7-EEBB17141A30}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\doxygen-gh-pages.yml = .github\workflows\doxygen-gh-pages.yml
+		.github\workflows\tests.yml = .github\workflows\tests.yml
 		.github\workflows\windows.yml = .github\workflows\windows.yml
 	EndProjectSection
 EndProject

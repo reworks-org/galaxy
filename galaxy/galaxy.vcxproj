@@ -11,7 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\lua\Lua.cpp" />
+    <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
     <ClCompile Include="src\MemoryAllocator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\galaxy\lua\Lua.hpp" />
+    <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
