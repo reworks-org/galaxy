@@ -9,9 +9,19 @@ build/
 sandbox/bin/Debug/*.dll
 sandbox/bin/Debug/*.exe
 sandbox/bin/Debug/*.pdb
+sandbox/bin/Debug/logs/
 sandbox/bin/Release/*.dll
 sandbox/bin/Release/*.exe
 sandbox/bin/Release/*.pdb
+sandbox/bin/Release/logs/
 
-supercluster/bin
+supercluster/bin/Debug/*.dll
+supercluster/bin/Debug/*.exe
+supercluster/bin/Debug/*.pdb
+supercluster/bin/Debug/logs/
+supercluster/bin/Release/*.dll
+supercluster/bin/Release/*.exe
+supercluster/bin/Release/*.pdb
+supercluster/bin/Release/logs/
+
 tests/bin

@@ -12,32 +12,29 @@
 
 namespace galaxy
 {
-	namespace logging
+	///
+	/// Logs a message to the console.
+	///
+	class ConsoleSink final : public Sink
 	{
+	public:
 		///
-		/// Logs a message to the console.
+		/// Constructor.
 		///
-		class ConsoleSink final : public Sink
-		{
-		public:
-			///
-			/// Constructor.
-			///
-			ConsoleSink();
+		ConsoleSink() noexcept;
 
-			///
-			/// Destructor.
-			///
-			virtual ~ConsoleSink();
+		///
+		/// Destructor.
+		///
+		virtual ~ConsoleSink() noexcept;
 
-			///
-			/// Sink the message.
-			///
-			/// \param message Message data to send to sink.
-			///
-			void sink_message(const LogMessage& message) override;
-		};
-	} // namespace logging
+		///
+		/// Sink the message.
+		///
+		/// \param message Message data to send to sink.
+		///
+		void sink(const LogMessage& message) override;
+	};
 } // namespace galaxy
 
 #endif

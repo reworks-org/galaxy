@@ -13,28 +13,25 @@
 
 namespace galaxy
 {
-	namespace logging
+	bool log_physfs_check(const int code) noexcept
 	{
-		bool physfs_check(const int code) noexcept
+		if (code == 0 || code == -1)
 		{
-			if (code == 0 || code == -1)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "PHYSFS: {0}.", PHYSFS_getLastError());
-				return false;
-			}
-
-			return true;
+			GALAXY_LOG(GALAXY_ERROR, "PHYSFS: {0}.", PHYSFS_getLastError());
+			return false;
 		}
 
-		bool physfs_check(void* ptr) noexcept
-		{
-			if (!ptr)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "PHYSFS: {0}.", PHYSFS_getLastError());
-				return false;
-			}
+		return true;
+	}
 
-			return true;
+	bool log_physfs_check(void* ptr) noexcept
+	{
+		if (!ptr)
+		{
+			GALAXY_LOG(GALAXY_ERROR, "PHYSFS: {0}.", PHYSFS_getLastError());
+			return false;
 		}
-	} // namespace logging
+
+		return true;
+	}
 } // namespace galaxy

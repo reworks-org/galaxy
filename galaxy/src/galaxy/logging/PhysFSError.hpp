@@ -10,28 +10,25 @@
 
 namespace galaxy
 {
-	namespace logging
-	{
-		///
-		/// Call a physfs function with error handling and logs a message for you.
-		///
-		/// \param code The code returned by physfs function.
-		///
-		/// \return True if function call succeeded.
-		///
-		[[maybe_unused]]
-		bool physfs_check(const int code) noexcept;
+	///
+	/// Call a physfs function with error handling and logs a message for you.
+	///
+	/// \param code The code returned by physfs function.
+	///
+	/// \return True if function call succeeded.
+	///
+	[[maybe_unused]]
+	bool log_physfs_check(const int code) noexcept;
 
-		///
-		/// Call a physfs function with error handling and logs a message for you.
-		///
-		/// \param ptr Pointer returned by physfs function.
-		///
-		/// \return True if function call succeeded.
-		///
-		[[maybe_unused]]
-		bool physfs_check(void* ptr) noexcept;
-	} // namespace logging
+	///
+	/// Call a physfs function with error handling and logs a message for you.
+	///
+	/// \param ptr Pointer returned by physfs function.
+	///
+	/// \return True if function call succeeded.
+	///
+	[[maybe_unused]]
+	bool log_physfs_check(void* ptr) noexcept;
 } // namespace galaxy
 
 #endif

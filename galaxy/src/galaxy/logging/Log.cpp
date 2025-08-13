@@ -11,18 +11,16 @@ using namespace std::chrono_literals;
 
 namespace galaxy
 {
-	namespace logging
+	Log::Log() noexcept
+		: m_min_level {LogLevel::INFO}
 	{
-		Log::Log() noexcept
-			: m_min_level {LogLevel::_INFO_}
-		{
-			m_sinks.reserve(2);
-		}
+		m_sinks.reserve(2);
+	}
 
-		Log::~Log() noexcept
-		{
-			m_min_level = LogLevel::_INFO_;
-			m_sinks.clear();
-		}
-	} // namespace logging
+	Log::~Log() noexcept
+	{
+		// We reset min level because logging is done as a singleton.
+		m_min_level = LogLevel::INFO;
+		m_sinks.clear();
+	}
 } // namespace galaxy

@@ -9,10 +9,7 @@
 
 namespace galaxy
 {
-	namespace logging
+	Sink::~Sink() noexcept
 	{
-		Sink::~Sink()
-		{
-		}
-	} // namespace logging
+	}
 } // namespace galaxy

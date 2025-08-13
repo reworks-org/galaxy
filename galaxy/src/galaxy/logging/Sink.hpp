@@ -12,57 +12,54 @@
 
 namespace galaxy
 {
-	namespace logging
+	///
+	/// \brief A source for log messages to be recorded to.
+	///
+	/// I.e. Console, File, Database...
+	///
+	class Sink
 	{
+	public:
 		///
-		/// \brief A source for log messages to be recorded to.
+		/// Virtual destructor.
 		///
-		/// I.e. Console, File, Database...
+		virtual ~Sink() noexcept;
+
 		///
-		class Sink
-		{
-		public:
-			///
-			/// Virtual destructor.
-			///
-			virtual ~Sink();
+		/// Sink the message.
+		///
+		/// \param message Message data to send to sink.
+		///
+		virtual void sink(const LogMessage& message) = 0;
 
-			///
-			/// Sink the message.
-			///
-			/// \param message Message data to send to sink.
-			///
-			virtual void sink_message(const LogMessage& message) = 0;
+	protected:
+		///
+		/// Constructor.
+		///
+		Sink() = default;
 
-		protected:
-			///
-			/// Constructor.
-			///
-			Sink() = default;
+		///
+		/// Copy constructor.
+		///
+		Sink(const Sink&) = default;
 
-			///
-			/// Copy constructor.
-			///
-			Sink(const Sink&) = default;
+		///
+		/// Move constructor.
+		///
+		Sink(Sink&&) = default;
 
-			///
-			/// Move constructor.
-			///
-			Sink(Sink&&) = default;
+		///
+		/// Copy assignment operator.
+		///
+		[[maybe_unused]]
+		Sink& operator=(const Sink&) = default;
 
-			///
-			/// Copy assignment operator.
-			///
-			[[maybe_unused]]
-			Sink& operator=(const Sink&) = default;
-
-			///
-			/// Move assignment operator.
-			///
-			[[maybe_unused]]
-			Sink& operator=(Sink&&) = default;
-		};
-	} // namespace logging
+		///
+		/// Move assignment operator.
+		///
+		[[maybe_unused]]
+		Sink& operator=(Sink&&) = default;
+	};
 } // namespace galaxy
 
 #endif
