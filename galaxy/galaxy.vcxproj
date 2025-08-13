@@ -28,6 +28,7 @@
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\utils\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
     <ClCompile Include="src\MemoryAllocator.cpp" />
   </ItemGroup>
@@ -46,6 +47,7 @@
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\utils\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

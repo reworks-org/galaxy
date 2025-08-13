@@ -4,5 +4,6 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
     <ClCompile Include="src\platform\PlatformTests.cpp" />
+    <ClCompile Include="src\utils\AsyncTest.cpp" />
   </ItemGroup>
 </Project>
