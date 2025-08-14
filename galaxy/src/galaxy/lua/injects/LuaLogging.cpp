@@ -49,10 +49,10 @@ namespace galaxy
 			// clang-format on
 
 			lua.set_function("galaxy_log", &log_wrapper);
-			lua.set_function("galaxy_log_physfs_check", sol::resolve<bool(const int)>(log_physfs_check));
-			lua.set_function("galaxy_gl_errcode_as_string", &gl_errcode_as_string);
-			lua.set_function("galaxy_gl_get_all_errors", &gl_get_all_errors);
-			lua.set_function("galaxy_gl_add_error", &gl_add_error);
+			lua.set_function("galaxy_log_physfs_check", sol::resolve<bool(const int)>(log::physfs_check));
+			lua.set_function("galaxy_gl_errcode_as_string", &log::gl_errcode_as_string);
+			lua.set_function("galaxy_gl_get_all_errors", &log::gl_get_all_errors);
+			lua.set_function("galaxy_gl_add_error", &log::gl_add_error);
 		}
 	} // namespace lua
 } // namespace galaxy
