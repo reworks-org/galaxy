@@ -24,9 +24,9 @@ var searchData=
   ['get_5fvolume_21',['get_volume',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#ab6faeacccbae94fbd39bd277925643f6',1,'galaxy::mem::RingBuffer']]],
   ['get_5fwidth_22',['get_width',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a14cb3b8f447e73681a2559fb879adfae',1,'galaxy::math::RectPack']]],
   ['getsize_23',['getSize',['../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#adaaf69fc86103f4254e9f2bfe76f6459',1,'galaxy::fs::PhysfsStream']]],
-  ['gl_5fadd_5ferror_24',['gl_add_error',['../d0/d46/namespacegalaxy.html#a65666c7ef1fffcd354358e3c79e5474d',1,'galaxy']]],
-  ['gl_5ferrcode_5fas_5fstring_25',['gl_errcode_as_string',['../d0/d46/namespacegalaxy.html#ac53022b504e5cb2f4074d6ef1c04c849',1,'galaxy']]],
-  ['gl_5fget_5fall_5ferrors_26',['gl_get_all_errors',['../d0/d46/namespacegalaxy.html#a31571be508ad20cc7d06cc3ac3011d82',1,'galaxy']]],
+  ['gl_5fadd_5ferror_24',['gl_add_error',['../d2/dc7/namespacegalaxy_1_1log.html#a704e5c0683e808fbad47ffab52e466ea',1,'galaxy::log']]],
+  ['gl_5ferrcode_5fas_5fstring_25',['gl_errcode_as_string',['../d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950',1,'galaxy::log']]],
+  ['gl_5fget_5fall_5ferrors_26',['gl_get_all_errors',['../d2/dc7/namespacegalaxy_1_1log.html#a6ace45b0939dfcd5a3a7a804f6a28fc9',1,'galaxy::log']]],
   ['gui_27',['GUI',['../d3/df0/classgalaxy_1_1components_1_1GUI.html#a20fa0960b38394a18a096e876784485e',1,'galaxy::components::GUI::GUI()'],['../d3/df0/classgalaxy_1_1components_1_1GUI.html#ac9ae5d79716495c820d1167de5a7f8b8',1,'galaxy::components::GUI::GUI(const nlohmann::json &amp;json)'],['../d3/df0/classgalaxy_1_1components_1_1GUI.html#afd0ce6554aa470f88d6a993d52f03d27',1,'galaxy::components::GUI::GUI(GUI &amp;&amp;)'],['../d3/df0/classgalaxy_1_1components_1_1GUI.html#aeb98e5837969b6ec47ae3baeeee822e1',1,'galaxy::components::GUI::GUI(const GUI &amp;)=delete']]],
   ['guid_28',['Guid',['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a322db6e727c157860b94db9315ebff5f',1,'galaxy::utils::Guid::Guid()'],['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a7dacb01057b8d5cdbfc032e7d572f53c',1,'galaxy::utils::Guid::Guid(Guid &amp;&amp;) noexcept'],['../d2/d4d/classgalaxy_1_1utils_1_1Guid.html#a9dcd673de0e44b5d908e7adb1060274d',1,'galaxy::utils::Guid::Guid(const Guid &amp;) noexcept']]]
 ];

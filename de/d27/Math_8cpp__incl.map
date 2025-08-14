@@ -1,0 +1,13 @@
+<map id="galaxy/src/galaxy/math/Math.cpp" name="galaxy/src/galaxy/math/Math.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="51,5,226,45"/>
+<area shape="rect" id="Node000002" href="$d8/df1/Math_8hpp.html" title=" " alt="" coords="97,93,180,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,46,141,79,136,79,136,46"/>
+<area shape="rect" id="Node000003" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="41,167,237,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,119,141,153,136,153,136,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,85,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="125,194,73,234,70,229,122,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,240,168,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="141,192,141,226,136,226,136,192"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="193,240,285,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="156,190,213,230,210,234,153,194"/>
+</map>

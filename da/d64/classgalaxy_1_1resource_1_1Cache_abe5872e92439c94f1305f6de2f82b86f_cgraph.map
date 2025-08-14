@@ -2,5 +2,10 @@
 <area shape="rect" id="Node000001" title="Check if a resource exists." alt="" coords="5,37,213,62"/>
 <area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="261,29,439,69"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,47,248,47,248,52,214,52"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="305,30,303,20,310,10,326,5,350,3,378,6,393,13,391,18,376,11,350,8,327,10,313,15,308,21,310,28"/>
+<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="308,30,306,20,312,10,327,5,350,3,376,6,390,13,388,18,375,11,350,8,328,10,316,15,311,21,313,28"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814" title="Convert string to 64bit hash." alt="" coords="487,37,661,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,47,473,47,473,52,439,52"/>
+<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="709,37,861,62"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="661,47,695,47,695,52,661,52"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="751,38,743,28,747,18,762,12,785,10,815,14,826,23,823,27,813,19,785,15,763,17,751,22,749,28,755,35"/>
 </map>

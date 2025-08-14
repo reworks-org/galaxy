@@ -11,8 +11,9 @@ var namespacegalaxy_1_1math =
     [ "encode_base64", "d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529", null ],
     [ "decode_base64", "d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d", null ],
     [ "fnv1a", "d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9", null ],
-    [ "normalize", "d1/d92/namespacegalaxy_1_1math.html#a8a514f195498da0f3e396364b10ad30e", null ],
-    [ "contains", "d1/d92/namespacegalaxy_1_1math.html#a31d8b4af7c3e101bea45ddd5566142b4", null ],
+    [ "fnv1a_32", "d1/d92/namespacegalaxy_1_1math.html#ad5d656c78b2808c52fd7ed8c456956b7", null ],
+    [ "fnv1a_64", "d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814", null ],
+    [ "normalize", "d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48", null ],
     [ "encode_zlib", "d1/d92/namespacegalaxy_1_1math.html#aa268fcdadd51a019f66c4953e578694e", null ],
     [ "decode_zlib", "d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a", null ]
 ];

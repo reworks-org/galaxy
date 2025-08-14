@@ -13,6 +13,13 @@ var namespacegalaxy =
       [ "write", "de/dd6/namespacegalaxy_1_1json.html#a36147cbea09b500a27e6a9a78924f879", null ],
       [ "dump", "de/dd6/namespacegalaxy_1_1json.html#ae239235c5258b78bf9e48dce38dbff27", null ]
     ] ],
+    [ "log", "d2/dc7/namespacegalaxy_1_1log.html", [
+      [ "gl_errcode_as_string", "d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950", null ],
+      [ "gl_get_all_errors", "d2/dc7/namespacegalaxy_1_1log.html#a6ace45b0939dfcd5a3a7a804f6a28fc9", null ],
+      [ "gl_add_error", "d2/dc7/namespacegalaxy_1_1log.html#a704e5c0683e808fbad47ffab52e466ea", null ],
+      [ "physfs_check", "d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4", null ],
+      [ "physfs_check", "d2/dc7/namespacegalaxy_1_1log.html#ab455f2b719a52a1539cc2e7dcb732942", null ]
+    ] ],
     [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
     [ "map", "d6/d4d/namespacegalaxy_1_1map.html", "d6/d4d/namespacegalaxy_1_1map" ],
     [ "math", "d1/d92/namespacegalaxy_1_1math.html", "d1/d92/namespacegalaxy_1_1math" ],
@@ -48,11 +55,6 @@ var namespacegalaxy =
       [ "FATAL", "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc", null ]
     ] ],
     [ "get_loglevel_colour", "d0/d46/namespacegalaxy.html#a6319b32641882789298150a015a96f74", null ],
-    [ "gl_errcode_as_string", "d0/d46/namespacegalaxy.html#ac53022b504e5cb2f4074d6ef1c04c849", null ],
-    [ "gl_get_all_errors", "d0/d46/namespacegalaxy.html#a31571be508ad20cc7d06cc3ac3011d82", null ],
-    [ "gl_add_error", "d0/d46/namespacegalaxy.html#a65666c7ef1fffcd354358e3c79e5474d", null ],
-    [ "log_physfs_check", "d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61", null ],
-    [ "log_physfs_check", "d0/d46/namespacegalaxy.html#ab10b05200965a90d72720aa3f92677ed", null ],
     [ "ImGuiMemAllocFunc", "d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404", null ],
     [ "ImGuiMemFreeFunc", "d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281", null ]
 ];

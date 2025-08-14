@@ -12,7 +12,6 @@ var searchData=
   ['loader_9',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e',1,'galaxy::core::Loader']]],
   ['log_10',['Log',['../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5',1,'galaxy::Log::Log() noexcept'],['../dd/dd3/classgalaxy_1_1Log.html#adb2d0bd5adbd11e413c5c42b5bde640c',1,'galaxy::Log::Log(const Log &amp;)=delete'],['../dd/dd3/classgalaxy_1_1Log.html#a43656a87e002d3fc391e93d588a04807',1,'galaxy::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_11',['log',['../dd/dd3/classgalaxy_1_1Log.html#a912eca54b8810af68b6f7be9c8fef722',1,'galaxy::Log']]],
-  ['log_5fphysfs_5fcheck_12',['log_physfs_check',['../d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61',1,'galaxy::log_physfs_check(const int code) noexcept'],['../d0/d46/namespacegalaxy.html#ab10b05200965a90d72720aa3f92677ed',1,'galaxy::log_physfs_check(void *ptr) noexcept']]],
-  ['log_5fwrapper_13',['log_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a585ce7a820af7f2a1c5b34a4bfd63ce7',1,'galaxy::lua']]],
-  ['ltrim_14',['ltrim',['../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79',1,'galaxy::str']]]
+  ['log_5fwrapper_12',['log_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a585ce7a820af7f2a1c5b34a4bfd63ce7',1,'galaxy::lua']]],
+  ['ltrim_13',['ltrim',['../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79',1,'galaxy::str']]]
 ];

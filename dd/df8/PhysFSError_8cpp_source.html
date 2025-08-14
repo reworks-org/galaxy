@@ -112,45 +112,48 @@ $(function(){initNavTree('dd/df8/PhysFSError_8cpp_source.html','../../'); initRe
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61">   16</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61">log_physfs_check</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> code) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">namespace </span>log</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">if</span> (code == 0 || code == -1)</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4">   18</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4">physfs_check</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> code) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;PHYSFS: {0}.&quot;</span>, PHYSFS_getLastError());</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keywordflow">if</span> (code == 0 || code == -1)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;PHYSFS: {0}.&quot;</span>, PHYSFS_getLastError());</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        }</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d0/d46/namespacegalaxy.html#ab10b05200965a90d72720aa3f92677ed">   27</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61">log_physfs_check</a>(<span class="keywordtype">void</span>* ptr) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">if</span> (!ptr)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d2/dc7/namespacegalaxy_1_1log.html#ab455f2b719a52a1539cc2e7dcb732942">   29</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4">physfs_check</a>(<span class="keywordtype">void</span>* ptr) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;PHYSFS: {0}.&quot;</span>, PHYSFS_getLastError());</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="keywordflow">if</span> (!ptr)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;PHYSFS: {0}.&quot;</span>, PHYSFS_getLastError());</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    } <span class="comment">// namespace log</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
 <div class="ttc" id="aPhysFSError_8hpp_html"><div class="ttname"><a href="../../d0/d44/PhysFSError_8hpp.html">PhysFSError.hpp</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1log_html_ab5128f3f602b3877607f258a52bc0ff4"><div class="ttname"><a href="../../d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4">galaxy::log::physfs_check</a></div><div class="ttdeci">bool physfs_check(const int code) noexcept</div><div class="ttdoc">Call a physfs function with error handling and logs a message for you.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">PhysFSError.cpp:18</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html_a375d248c2d39c90b161c1a6ea22b5e61"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html#a375d248c2d39c90b161c1a6ea22b5e61">galaxy::log_physfs_check</a></div><div class="ttdeci">bool log_physfs_check(const int code) noexcept</div><div class="ttdoc">Call a physfs function with error handling and logs a message for you.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">PhysFSError.cpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a724136a1f39cb6404ada524c6e6706e.html">logging</a></li><li class="navelem"><a class="el" href="../../dd/df8/PhysFSError_8cpp.html">PhysFSError.cpp</a></li>
-    <li class="footer">Generated on Wed Aug 13 2025 10:43:34 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Thu Aug 14 2025 14:43:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

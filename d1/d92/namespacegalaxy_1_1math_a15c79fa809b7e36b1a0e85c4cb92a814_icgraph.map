@@ -1,0 +1,28 @@
+<map id="galaxy::math::fnv1a_64" name="galaxy::math::fnv1a_64">
+<area shape="rect" id="Node000001" title="Convert string to 64bit hash." alt="" coords="899,175,1073,200"/>
+<area shape="rect" id="Node000002" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="673,106,850,146"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="925,174,835,149,836,143,926,168"/>
+<area shape="rect" id="Node000009" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="672,203,851,228"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="885,203,851,207,850,202,885,197"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="799,94,786,87,761,85,740,87,727,91,722,97,725,105,719,106,717,96,724,87,739,81,761,79,787,82,802,89"/>
+<area shape="rect" id="Node000003" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ac47053ba88ade10e8345dc90d6c6a84d" title="Retrieve a resource." alt="" coords="191,5,398,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="707,102,667,85,623,70,507,44,398,29,399,24,508,39,625,65,669,80,709,98"/>
+<area shape="rect" id="Node000005" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="191,55,399,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="670,106,624,97,507,83,399,74,399,69,508,77,624,91,671,100"/>
+<area shape="rect" id="Node000006" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8" title="Insert a resource directly into the cache." alt="" coords="447,106,624,146"/>
+<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="659,129,624,129,624,123,659,123"/>
+<area shape="rect" id="Node000007" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="447,170,624,210"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="677,152,607,173,606,167,676,147"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="5,98,143,138"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="211,37,192,44,143,71,102,100,99,96,140,67,190,40,210,32"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="226,86,143,105,142,100,224,81"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="433,127,143,122,143,117,433,122"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="433,177,143,131,143,126,434,172"/>
+<area shape="rect" id="Node000008" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="206,206,383,246"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="433,208,384,215,383,210,432,203"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="221,203,189,190,104,140,107,136,192,185,223,198"/>
+<area shape="rect" id="Node000010" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="467,252,604,277"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="690,234,595,255,594,249,689,228"/>
+<area shape="rect" id="Node000011" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="211,271,378,296"/>
+<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="453,274,378,280,378,274,453,268"/>
+</map>
