@@ -19,6 +19,9 @@ namespace galaxy
 		{
 			auto& lua = entt::locator<sol::state>::value();
 
+			lua.set("GALAXY_ZLIB_COMPLETE_CHUNK", GALAXY_ZLIB_COMPLETE_CHUNK);
+			lua.set("GALAXY_DEBUG_BUILD", GALAXY_DEBUG_BUILD);
+
 #ifdef GALAXY_WIN_PLATFORM
 			lua.set("GALAXY_WIN_PLATFORM", true);
 			lua.set("GALAXY_UNIX_PLATFORM", false);

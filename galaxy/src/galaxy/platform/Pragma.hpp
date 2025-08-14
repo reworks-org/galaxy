@@ -9,6 +9,28 @@
 #define GALAXY_PLATFORM_PRAGMA_HPP_
 
 ///
+/// ZLib inflate/deflate chunk size.
+///
+#define GALAXY_ZLIB_COMPLETE_CHUNK 16384
+
+///
+/// Prevents compiler warnings when applied to unused parameters.
+///
+#define GALAXY_UNUSED(var) ((void)(var))
+
+#if defined(_DEBUG) || defined(DEBUG)
+///
+/// Define a constexpr compatible debug macro.
+///
+#define GALAXY_DEBUG_BUILD true
+#elif defined(_NDEBUG) || defined(NDEBUG)
+///
+/// Define a constexpr compatible debug macro.
+///
+#define GALAXY_DEBUG_BUILD false
+#endif
+
+///
 /// Macro for windows platform detection.
 ///
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64) || defined(_MSC_VER)
