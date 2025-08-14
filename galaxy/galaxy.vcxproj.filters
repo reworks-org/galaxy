@@ -21,6 +21,11 @@
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
     <ClCompile Include="src\galaxy\utils\Async.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
+    <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\Math.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -39,5 +44,9 @@
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
+    <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\Math.hpp" />
   </ItemGroup>
 </Project>

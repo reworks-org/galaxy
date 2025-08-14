@@ -20,9 +20,14 @@
     <ClCompile Include="src\galaxy\logging\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\logging\Sink.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\lua\Lua.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\Math.cpp" />
+    <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
@@ -42,6 +47,10 @@
     <ClInclude Include="src\galaxy\logging\PhysFSError.hpp" />
     <ClInclude Include="src\galaxy\logging\Sink.hpp" />
     <ClInclude Include="src\galaxy\lua\Lua.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\Math.hpp" />
+    <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />

@@ -65,6 +65,34 @@ namespace galaxy
 		{
 			return (str[0] == '\0') ? fnv_1a_params<bits>::offset : fnv1a<bits>(&str[1], (fnv_1a_params<bits>::offset ^ static_cast<bits>(str[0])) * fnv_1a_params<bits>::prime);
 		}
+
+		///
+		/// \brief Convert string to 32bit hash.
+		///
+		/// Convenience function.
+		///
+		/// \param str String to hash.
+		///
+		/// \return Unsigned 32bit integer.
+		///
+		inline constexpr std::uint32_t fnv1a_32(const char* const str) noexcept
+		{
+			return fnv1a<std::uint32_t>(str);
+		}
+
+		///
+		/// \brief Convert string to 64bit hash.
+		///
+		/// Convenience function.
+		///
+		/// \param str String to hash.
+		///
+		/// \return Unsigned 64bit integer.
+		///
+		inline constexpr std::uint64_t fnv1a_64(const char* const str) noexcept
+		{
+			return fnv1a<std::uint64_t>(str);
+		}
 	} // namespace math
 } // namespace galaxy
 

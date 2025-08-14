@@ -5,5 +5,8 @@
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
     <ClCompile Include="src\platform\PlatformTests.cpp" />
     <ClCompile Include="src\utils\AsyncTest.cpp" />
+    <ClCompile Include="src\math\Base64Test.cpp" />
+    <ClCompile Include="src\math\FNV1aTest.cpp" />
+    <ClCompile Include="src\math\MathTest.cpp" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 ///
-/// Generic.hpp
+/// Math.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Generic.hpp"
+#include "Math.hpp"

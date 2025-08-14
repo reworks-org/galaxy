@@ -14,6 +14,7 @@ namespace galaxy
 		void inject()
 		{
 			inject_logging();
+			inject_math();
 			inject_platform();
 			inject_utils();
 		}

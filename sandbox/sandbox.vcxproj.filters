@@ -5,4 +5,7 @@
     <ClCompile Include="src\tests\LoggingTests.hpp" />
     <ClCompile Include="src\tests\PlatformTests.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\TestConfig.hpp" />
+  </ItemGroup>
 </Project>

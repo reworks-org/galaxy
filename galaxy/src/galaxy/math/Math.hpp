@@ -1,15 +1,12 @@
 ///
-/// Generic.hpp
+/// Math.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_MATH_GENERIC_HPP_
-#define GALAXY_MATH_GENERIC_HPP_
-
-#include <algorithm>
-#include <vector>
+#ifndef GALAXY_MATH_MATH_HPP_
+#define GALAXY_MATH_MATH_HPP_
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -20,43 +17,18 @@ namespace galaxy
 		///
 		/// Calc normalized value from range.
 		///
-		/// \tparam Type Arithmetic type to normalize.
+		/// \tparam Arithmetic Type to normalize.
 		///
 		/// \param val Value to divide by max.
-		/// \param max Value representing 1.0f.
+		/// \param max Value representing 1.0f. I.e. 255.
 		///
 		/// \return Normalized float.
 		///
-		template<meta::is_arithmetic Type>
+		template<meta::is_arithmetic Arithmetic>
 		[[nodiscard]]
-		inline float normalize(const Type val, const Type max) noexcept
+		inline float constexpr normalize(const Arithmetic val, const Arithmetic max) noexcept
 		{
-			return (static_cast<float>(val) / static_cast<float>(max));
-		}
-
-		///
-		/// See if a vector contains a value.
-		///
-		/// \tparam Type Vector type. Must have an overloaded '==' operator.
-		///
-		/// \param cont Container to check.
-		/// \param val Value to look for.
-		///
-		/// \return True if found.
-		///
-		template<typename Type>
-		[[nodiscard]]
-		inline bool contains(const std::vector<Type>& cont, const Type& val) noexcept
-		{
-			auto out = false;
-			std::for_each(cont.begin(), cont.end(), [&](const Type& var) {
-				if (val == var)
-				{
-					out = true;
-				}
-			});
-
-			return out;
+			return static_cast<float>(val) / static_cast<float>(max);
 		}
 	} // namespace math
 } // namespace galaxy
