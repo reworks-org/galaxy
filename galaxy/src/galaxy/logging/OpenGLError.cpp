@@ -11,59 +11,62 @@
 
 namespace galaxy
 {
-	std::string gl_errcode_as_string(const int code) noexcept
+	namespace log
 	{
-		switch (code)
+		std::string gl_errcode_as_string(const int code) noexcept
 		{
-			case GL_INVALID_ENUM:
-				return "GL_INVALID_ENUM";
-				break;
+			switch (code)
+			{
+				case GL_INVALID_ENUM:
+					return "GL_INVALID_ENUM";
+					break;
 
-			case GL_INVALID_VALUE:
-				return "GL_INVALID_VALUE";
-				break;
+				case GL_INVALID_VALUE:
+					return "GL_INVALID_VALUE";
+					break;
 
-			case GL_INVALID_OPERATION:
-				return "GL_INVALID_OPERATION";
-				break;
+				case GL_INVALID_OPERATION:
+					return "GL_INVALID_OPERATION";
+					break;
 
-			case GL_STACK_OVERFLOW:
-				return "GL_STACK_OVERFLOW";
-				break;
+				case GL_STACK_OVERFLOW:
+					return "GL_STACK_OVERFLOW";
+					break;
 
-			case GL_STACK_UNDERFLOW:
-				return "GL_STACK_UNDERFLOW";
-				break;
+				case GL_STACK_UNDERFLOW:
+					return "GL_STACK_UNDERFLOW";
+					break;
 
-			case GL_OUT_OF_MEMORY:
-				return "GL_OUT_OF_MEMORY";
-				break;
+				case GL_OUT_OF_MEMORY:
+					return "GL_OUT_OF_MEMORY";
+					break;
 
-			case GL_INVALID_FRAMEBUFFER_OPERATION:
-				return "GL_INVALID_FRAMEBUFFER_OPERATION";
-				break;
+				case GL_INVALID_FRAMEBUFFER_OPERATION:
+					return "GL_INVALID_FRAMEBUFFER_OPERATION";
+					break;
 
-			default:
-				return "GL_NO_ERROR";
-				break;
-		}
-	}
-
-	std::vector<std::string> gl_get_all_errors() noexcept
-	{
-		std::vector<std::string> errors;
-
-		GLenum code;
-		while ((code = glGetError()) != GL_NO_ERROR)
-		{
-			errors.emplace_back(gl_errcode_as_string(code));
+				default:
+					return "GL_NO_ERROR";
+					break;
+			}
 		}
 
-		return errors;
-	}
+		std::vector<std::string> gl_get_all_errors() noexcept
+		{
+			std::vector<std::string> errors;
 
-	void gl_add_error(const unsigned int source, const unsigned int type, const unsigned int id, const unsigned int severity, const int length, const char* buf) noexcept
-	{
-		glDebugMessageInsert(source, type, id, severity, length, buf);
-	}
+			GLenum code;
+			while ((code = glGetError()) != GL_NO_ERROR)
+			{
+				errors.emplace_back(gl_errcode_as_string(code));
+			}
+
+			return errors;
+		}
+
+		void gl_add_error(const unsigned int source, const unsigned int type, const unsigned int id, const unsigned int severity, const int length, const char* buf) noexcept
+		{
+			glDebugMessageInsert(source, type, id, severity, length, buf);
+		}
+	} // namespace log
 } // namespace galaxy
