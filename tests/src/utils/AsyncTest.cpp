@@ -9,7 +9,7 @@
 
 #include <galaxy/utils/Async.hpp>
 
-TEST(Utils, AsyncIsWorkDone)
+TEST(Async, IsWorkDone)
 {
 	std::future<int> future = std::async(std::launch::async, [] {
 		std::this_thread::sleep_for(1s);

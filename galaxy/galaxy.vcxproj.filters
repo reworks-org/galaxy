@@ -26,6 +26,10 @@
     <ClCompile Include="src\galaxy\math\Base64.cpp" />
     <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
     <ClCompile Include="src\galaxy\math\Math.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\math\Rect.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -48,5 +52,9 @@
     <ClInclude Include="src\galaxy\math\Base64.hpp" />
     <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
     <ClInclude Include="src\galaxy\math\Math.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\math\Rect.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
   </ItemGroup>
 </Project>

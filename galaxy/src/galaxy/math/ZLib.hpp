@@ -11,102 +11,36 @@
 #define MINIZ_HEADER_FILE_ONLY
 #include <miniz.h>
 
-#include "galaxy/core/Settings.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 namespace galaxy
 {
-	namespace math
+	///
+	/// Zip (de)compressor.
+	///
+	class ZLib final
 	{
+	public:
 		///
-		/// \brief Compressor and Decompressor.
+		/// ZLib mode to start in.
 		///
-		/// Do not create on stack due to class size.
-		///
-		class ZLib final
+		enum class Mode : int
 		{
-		public:
 			///
-			/// ZLib mode to start in.
+			/// ZLib deflation.
 			///
-			enum class Mode : int
-			{
-				///
-				/// ZLib deflation.
-				///
-				COMPRESS = 0,
-
-				///
-				/// ZLib inflation.
-				///
-				DECOMPRESS = 1
-			};
+			COMPRESS = 0,
 
 			///
-			/// Constructor.
+			/// ZLib inflation.
 			///
-			/// \param mode ZLib mode to start in.
-			///
-			ZLib(const Mode mode);
-
-			///
-			/// Destructor.
-			///
-			~ZLib();
-
-			///
-			/// Compresses string.
-			///
-			/// \param input Data to compress.
-			///
-			/// \return Compressed string.
-			///
-			[[nodiscard]]
-			std::string compressor(const std::string& input);
-
-			///
-			/// Completes the compression.
-			///
-			/// \return Compressed string containing termination block.
-			///
-			[[nodiscard]]
-			std::string finish();
-
-			///
-			/// Decompresses a zlib string.
-			///
-			/// \param input Data to decompress.
-			///
-			/// \return String containing decompressed data.
-			///
-			[[nodiscard]]
-			std::string decompressor(const std::string& input);
-
-		private:
-			///
-			/// ZLib mode.
-			///
-			Mode m_mode;
-
-			///
-			/// Stream object.
-			///
-			z_stream m_stream;
-
-			///
-			/// Has the compression finished.
-			///
-			bool m_finished;
-
-			///
-			/// Input buffer.
-			///
-			char m_in[GALAXY_ZLIB_COMPLETE_CHUNK];
-
-			///
-			/// Output buffer.
-			///
-			char m_out[GALAXY_ZLIB_COMPLETE_CHUNK];
+			DECOMPRESS = 1
 		};
+
+		///
+		/// Destructor.
+		///
+		~ZLib();
 
 		///
 		/// Compresses string into ZLib.
@@ -116,7 +50,7 @@ namespace galaxy
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
 		[[nodiscard]]
-		std::string encode_zlib(const std::string& input);
+		static std::string encode(const std::string& input);
 
 		///
 		/// Decompresses string into ZLib.
@@ -126,8 +60,70 @@ namespace galaxy
 		/// \return Returns output data if successful, std::nullopt otherwise.
 		///
 		[[nodiscard]]
-		std::string decode_zlib(const std::string& input);
-	} // namespace math
+		static std::string decode(const std::string& input);
+
+	private:
+		///
+		/// Constructor.
+		///
+		/// \param mode ZLib mode to start in.
+		///
+		ZLib(const Mode mode);
+
+		///
+		/// Compresses string.
+		///
+		/// \param input Data to compress.
+		///
+		/// \return Compressed string.
+		///
+		[[nodiscard]]
+		std::string compressor(const std::string& input);
+
+		///
+		/// Completes the compression.
+		///
+		/// \return Compressed string containing termination block.
+		///
+		[[nodiscard]]
+		std::string finish();
+
+		///
+		/// Decompresses a zlib string.
+		///
+		/// \param input Data to decompress.
+		///
+		/// \return String containing decompressed data.
+		///
+		[[nodiscard]]
+		std::string decompressor(const std::string& input);
+
+	private:
+		///
+		/// ZLib mode.
+		///
+		Mode m_mode;
+
+		///
+		/// Stream object.
+		///
+		z_stream m_stream;
+
+		///
+		/// Has the compression finished.
+		///
+		bool m_finished;
+
+		///
+		/// Input buffer.
+		///
+		char m_in[GALAXY_ZLIB_COMPLETE_CHUNK];
+
+		///
+		/// Output buffer.
+		///
+		char m_out[GALAXY_ZLIB_COMPLETE_CHUNK];
+	};
 } // namespace galaxy
 
 #endif

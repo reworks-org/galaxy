@@ -9,7 +9,7 @@
 
 #include <galaxy/math/FNV1a.hpp>
 
-TEST(Math, FNV1a32)
+TEST(FNV1a, 32bit)
 {
 	auto       input = "test";
 	const auto a     = galaxy::math::fnv1a_32(input);
@@ -18,7 +18,7 @@ TEST(Math, FNV1a32)
 	ASSERT_EQ(a, b);
 }
 
-TEST(Math, FNV1a64)
+TEST(FNV1a, 64bit)
 {
 	auto       input = "test";
 	const auto a     = galaxy::math::fnv1a_64(input);
@@ -27,7 +27,7 @@ TEST(Math, FNV1a64)
 	ASSERT_EQ(a, b);
 }
 
-TEST(Math, FNV1a3264Different)
+TEST(FNV1a, 3264Different)
 {
 	auto       input = "test";
 	const auto a     = galaxy::math::fnv1a_32(input);

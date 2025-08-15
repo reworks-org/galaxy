@@ -8,5 +8,9 @@
     <ClCompile Include="src\math\Base64Test.cpp" />
     <ClCompile Include="src\math\FNV1aTest.cpp" />
     <ClCompile Include="src\math\MathTest.cpp" />
+    <ClCompile Include="src\math\RandomTest.cpp" />
+    <ClCompile Include="src\math\ZLibTest.cpp" />
+    <ClCompile Include="src\math\RectTest.cpp" />
+    <ClCompile Include="src\math\RectPackTest.cpp" />
   </ItemGroup>
 </Project>

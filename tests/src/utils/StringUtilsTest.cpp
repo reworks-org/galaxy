@@ -11,7 +11,7 @@
 
 #include <galaxy/utils/StringUtils.hpp>
 
-TEST(Utils, StringSplit)
+TEST(StrUtils, StringSplit)
 {
 	std::string input = "a.b";
 	const auto  out   = galaxy::str::split(input, ".");
@@ -22,7 +22,7 @@ TEST(Utils, StringSplit)
 	EXPECT_EQ(out[1], "b");
 }
 
-TEST(Utils, ReplaceFirst)
+TEST(StrUtils, ReplaceFirst)
 {
 	std::string test = "123.456";
 
@@ -36,7 +36,7 @@ TEST(Utils, ReplaceFirst)
 	EXPECT_EQ(test, "123.123");
 }
 
-TEST(Utils, ReplaceAll)
+TEST(StrUtils, ReplaceAll)
 {
 	std::string test = "123.456.123";
 
@@ -47,7 +47,7 @@ TEST(Utils, ReplaceAll)
 	EXPECT_EQ(test, "123.123.123");
 }
 
-TEST(Utils, BeginsWith)
+TEST(StrUtils, BeginsWith)
 {
 	std::string test = "testFooBar";
 
@@ -55,7 +55,7 @@ TEST(Utils, BeginsWith)
 	EXPECT_FALSE(galaxy::str::begins_with(test, "Bar"));
 }
 
-TEST(Utils, LeftTrim)
+TEST(StrUtils, LeftTrim)
 {
 	std::string test = "  test    ";
 
@@ -63,7 +63,7 @@ TEST(Utils, LeftTrim)
 	EXPECT_EQ(test, "test    ");
 }
 
-TEST(Utils, RightTrim)
+TEST(StrUtils, RightTrim)
 {
 	std::string test = "  test    ";
 
@@ -71,7 +71,7 @@ TEST(Utils, RightTrim)
 	EXPECT_EQ(test, "  test");
 }
 
-TEST(Utils, Trim)
+TEST(StrUtils, Trim)
 {
 	std::string test = "  test    ";
 
@@ -79,7 +79,7 @@ TEST(Utils, Trim)
 	EXPECT_EQ(test, "test");
 }
 
-TEST(Utils, MakeSingleSpaced)
+TEST(StrUtils, MakeSingleSpaced)
 {
 	std::string test = "t  e  s  t";
 

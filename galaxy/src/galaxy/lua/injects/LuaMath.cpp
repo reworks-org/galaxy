@@ -11,10 +11,10 @@
 #include "galaxy/math/Base64.hpp"
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/math/Math.hpp"
-
-// #include "galaxy/math/Random.hpp"
-// #include "galaxy/math/RectPack.hpp"
-// #include "galaxy/math/ZLib.hpp"
+#include "galaxy/math/Random.hpp"
+#include "galaxy/math/Rect.hpp"
+#include "galaxy/math/RectPack.hpp"
+#include "galaxy/math/ZLib.hpp"
 
 namespace galaxy
 {
@@ -26,45 +26,61 @@ namespace galaxy
 
 			lua.set_function("encode_base64", &math::encode_base64);
 			lua.set_function("decode_base64", &math::decode_base64);
+
 			lua.set_function("fnv1a_32", &math::fnv1a_32);
 			lua.set_function("fnv1a_64", &math::fnv1a_64);
+
 			lua.set_function("normalize_f", &math::normalize<float>);
 			lua.set_function("normalize_i", &math::normalize<int>);
 
-			// auto random_type         = lua.new_usertype<math::Random>("Random", sol::constructors<math::Random()>());
-			// random_type["gen_int"]   = &math::Random::gen<int>;
-			// random_type["gen_float"] = &math::Random::gen<float>;
-			// random_type["gen_vec2f"] = &math::Random::gen_vec2<float>;
-			// random_type["gen_vec3f"] = &math::Random::gen_vec3<float>;
-			// random_type["gen_vec2i"] = &math::Random::gen_vec2<int>;
-			// random_type["gen_vec3i"] = &math::Random::gen_vec3<int>;
+			lua.set_function("random_int", &math::random<int>);
+			lua.set_function("random_float", &math::random<float>);
+			lua.set_function("random_vec2", &math::random_vec2);
+			lua.set_function("random_vec3", &math::random_vec3);
+			lua.set_function("random_vec4", &math::random_vec4);
 
-			// auto frect_type      = lua.new_usertype<math::fRect>("Rect", sol::constructors<math::fRect(), math::fRect(const float, const float, const float, const float)>());
-			// frect_type["x"]      = &math::fRect::x;
-			// frect_type["y"]      = &math::fRect::y;
-			// frect_type["width"]  = &math::fRect::width;
-			// frect_type["height"] = &math::fRect::height;
-			//// frect_type["contains_point"] = sol::resolve<bool(const float, const float)>(&math::fRect::contains);
-			//// frect_type["contains"]       = sol::resolve<bool(const math::fRect&)>(&math::fRect::contains);
-			// frect_type["overlaps"]     = &math::fRect::overlaps;
-			// frect_type["intersects"]   = &math::fRect::intersects;
-			// frect_type["set_top_left"] = &math::fRect::set_top_left;
-			// frect_type["get_right"]    = &math::fRect::get_right;
-			// frect_type["get_bottom"]   = &math::fRect::get_bottom;
-			// frect_type["get_top_left"] = &math::fRect::get_top_left;
-			// frect_type["get_center"]   = &math::fRect::get_center;
-			// frect_type["get_size"]     = &math::fRect::get_size;
+			lua.set_function("encode_zlib", &ZLib::encode);
+			lua.set_function("decode_zlib", &ZLib::decode);
 
-			// auto rectpack_type              = lua.new_usertype<math::RectPack>("RectPack", sol::constructors<math::RectPack()>());
-			// rectpack_type["init"]           = &math::RectPack::init;
-			// rectpack_type["pack"]           = &math::RectPack::pack;
-			// rectpack_type["clear"]          = &math::RectPack::clear;
-			// rectpack_type["get_width"]      = &math::RectPack::get_width;
-			// rectpack_type["get_height"]     = &math::RectPack::get_height;
-			// rectpack_type["get_free_space"] = &math::RectPack::get_free_space;
+			auto frect_type              = lua.new_usertype<fRect>("fRect", sol::constructors<fRect(), fRect(const float, const float, const float, const float)>());
+			frect_type["x"]              = &fRect::x;
+			frect_type["y"]              = &fRect::y;
+			frect_type["width"]          = &fRect::width;
+			frect_type["height"]         = &fRect::height;
+			frect_type["contains_point"] = sol::resolve<bool(const float, const float) const>(&fRect::contains);
+			frect_type["contains"]       = sol::resolve<bool(const fRect&) const>(&fRect::contains);
+			frect_type["overlaps"]       = &fRect::overlaps;
+			frect_type["intersects"]     = &fRect::intersects;
+			frect_type["set_top_left"]   = &fRect::set_top_left;
+			frect_type["get_right"]      = &fRect::get_right;
+			frect_type["get_bottom"]     = &fRect::get_bottom;
+			frect_type["get_top_left"]   = &fRect::get_top_left;
+			frect_type["get_center"]     = &fRect::get_center;
+			frect_type["get_size"]       = &fRect::get_size;
 
-			// lua.set_function("encode_zlib", &math::encode_zlib);
-			// lua.set_function("decode_zlib", &math::decode_zlib);
+			auto irect_type              = lua.new_usertype<iRect>("iRect", sol::constructors<iRect(), iRect(const int, const int, const int, const int)>());
+			irect_type["x"]              = &iRect::x;
+			irect_type["y"]              = &iRect::y;
+			irect_type["width"]          = &iRect::width;
+			irect_type["height"]         = &iRect::height;
+			irect_type["contains_point"] = sol::resolve<bool(const int, const int) const>(&iRect::contains);
+			irect_type["contains"]       = sol::resolve<bool(const iRect&) const>(&iRect::contains);
+			irect_type["overlaps"]       = &iRect::overlaps;
+			irect_type["intersects"]     = &iRect::intersects;
+			irect_type["set_top_left"]   = &iRect::set_top_left;
+			irect_type["get_right"]      = &iRect::get_right;
+			irect_type["get_bottom"]     = &iRect::get_bottom;
+			irect_type["get_top_left"]   = &iRect::get_top_left;
+			irect_type["get_center"]     = &iRect::get_center;
+			irect_type["get_size"]       = &iRect::get_size;
+
+			auto rectpack_type              = lua.new_usertype<RectPack>("RectPack", sol::constructors<RectPack()>());
+			rectpack_type["init"]           = &RectPack::init;
+			rectpack_type["pack"]           = &RectPack::pack;
+			rectpack_type["clear"]          = &RectPack::clear;
+			rectpack_type["get_width"]      = &RectPack::get_width;
+			rectpack_type["get_height"]     = &RectPack::get_height;
+			rectpack_type["get_free_space"] = &RectPack::get_free_space;
 		}
 	} // namespace lua
 } // namespace galaxy

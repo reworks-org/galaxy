@@ -10,8 +10,9 @@
 
 #include <random>
 
-#include <SFML/System/Vector2.hpp>
-#include <SFML/System/Vector3.hpp>
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -29,96 +30,58 @@ namespace galaxy
 			std::conditional_t<std::is_floating_point<Type>::value, std::uniform_real_distribution<Type>, void>>;
 
 		///
-		/// \brief Generates random numbers.
+		/// Generate a random number of type T.
 		///
-		/// Different than the function in that it doesnt create a new device each call. Essentially faster when needing lots of random numbers.
+		/// \tparam T The type of number to return. Must be arithmetic.
 		///
-		class Random final
-		{
-		public:
-			///
-			/// Constructor.
-			///
-			Random() noexcept;
-
-			///
-			/// Destructor.
-			///
-			~Random() noexcept;
-
-			///
-			/// Generate a random number of type T.
-			///
-			/// \tparam T The type of number to return. Must be arithmetic.
-			///
-			/// \param min Minimum number inclusive.
-			/// \param max Maximum number inclusive.
-			///
-			/// \return Returns number of the same type as inputs.
-			///
-			template<meta::is_arithmetic T>
-			[[nodiscard]]
-			T gen(const T min, const T max) noexcept;
-
-			///
-			/// Generate a random vec2.
-			///
-			/// \tparam T The type of number to return. Must be arithmetic.
-			///
-			/// \param min Minimum vec2 inclusive.
-			/// \param max Maximum vec2 inclusive.
-			///
-			/// \return Pseudo-randomized vec2.
-			///
-
-			template<meta::is_arithmetic T>
-			[[nodiscard]]
-			sf::Vector2<T> gen_vec2(const sf::Vector2<T>& min, const sf::Vector2<T>& max) noexcept;
-
-			///
-			/// Generate a random vec3.
-			///
-			/// \tparam T The type of number to return. Must be arithmetic.
-			///
-			/// \param min Minimum vec3 inclusive.
-			/// \param max Maximum vec3 inclusive.
-			///
-			/// \return Pseudo-randomized vec3.
-			///
-			template<meta::is_arithmetic T>
-			[[nodiscard]]
-			sf::Vector3<T> gen_vec3(const sf::Vector3<T>& min, const sf::Vector3<T>& max) noexcept;
-
-		private:
-			///
-			/// Randomizer device.
-			///
-			std::random_device m_rd;
-
-			///
-			/// Pseudo-random algorithm.
-			///
-			std::mt19937_64 m_mt;
-		};
-
+		/// \param min Minimum number inclusive.
+		/// \param max Maximum number inclusive.
+		///
+		/// \return Returns number of the same type as inputs.
+		///
 		template<meta::is_arithmetic T>
-		T Random::gen(const T min, const T max) noexcept
+		[[nodiscard]]
+		inline T random(const T min, const T max) noexcept
 		{
+			thread_local std::random_device rd;
+			thread_local std::mt19937_64    mt {rd()};
+
 			conditional_distribution<T> dist {min, max};
-			return dist(m_mt);
+			return dist(mt);
 		}
 
-		template<meta::is_arithmetic T>
-		sf::Vector2<T> Random::gen_vec2(const sf::Vector2<T>& min, const sf::Vector2<T>& max) noexcept
-		{
-			return sf::Vector2<T> {gen<T>(min.x, max.x), gen<T>(min.y, max.y)};
-		}
+		///
+		/// Generate a random vec2.
+		///
+		/// \param min Minimum vec2 inclusive.
+		/// \param max Maximum vec2 inclusive.
+		///
+		/// \return Pseudo-randomized vec2.
+		///
+		[[nodiscard]]
+		glm::vec2 random_vec2(const glm::vec2& min, const glm::vec2& max) noexcept;
 
-		template<meta::is_arithmetic T>
-		sf::Vector3<T> Random::gen_vec3(const sf::Vector3<T>& min, const sf::Vector3<T>& max) noexcept
-		{
-			return sf::Vector3<T> {gen<T>(min.x, max.x), gen<T>(min.y, max.y), gen<T>(min.z, max.z)};
-		}
+		///
+		/// Generate a random vec3.
+		///
+		/// \param min Minimum vec3 inclusive.
+		/// \param max Maximum vec3 inclusive.
+		///
+		/// \return Pseudo-randomized vec3.
+		///
+		[[nodiscard]]
+		glm::vec3 random_vec3(const glm::vec3& min, const glm::vec3& max) noexcept;
+
+		///
+		/// Generate a random vec4.
+		///
+		/// \param min Minimum vec4 inclusive.
+		/// \param max Maximum vec4 inclusive.
+		///
+		/// \return Pseudo-randomized vec4.
+		///
+		[[nodiscard]]
+		glm::vec4 random_vec4(const glm::vec4& min, const glm::vec4& max) noexcept;
 	} // namespace math
 } // namespace galaxy
 

@@ -11,96 +11,93 @@
 #include <optional>
 #include <vector>
 
-#include <SFML/Graphics/Rect.hpp>
+#include "galaxy/math/Rect.hpp"
 
 namespace galaxy
 {
-	namespace math
+	///
+	///	Rectangle 2D bin packing class.
+	///
+	class RectPack final
 	{
+	public:
 		///
-		///	Rectangle 2D bin packing class.
+		/// Constructor.
 		///
-		class RectPack final
-		{
-		public:
-			///
-			/// Constructor.
-			///
-			RectPack() noexcept;
+		RectPack() noexcept;
 
-			///
-			/// Destructor.
-			///
-			~RectPack() noexcept;
+		///
+		/// Destructor.
+		///
+		~RectPack() noexcept;
 
-			///
-			/// Set starting width and height of rectangle.
-			///
-			/// Generally should be a power of 2.
-			///
-			/// \param width Width of the master rectangle.
-			/// \param height Height of the master rectangle.
-			///
-			void init(const int width, const int height) noexcept;
+		///
+		/// Set starting width and height of rectangle.
+		///
+		/// Generally should be a power of 2.
+		///
+		/// \param width Width of the master rectangle.
+		/// \param height Height of the master rectangle.
+		///
+		void init(const int width, const int height) noexcept;
 
-			///
-			/// Pack a rectangle into the master rectangle.
-			///
-			/// \param width Width of the rectangle to pack.
-			/// \param height Height of the rectangle to pack.
-			///
-			/// \return Returns the location of the packed rectangle on the master rectangle.
-			///			Otherwise, returns a std::nullopt.
-			///
-			[[nodiscard]]
-			std::optional<sf::IntRect> pack(const int width, const int height) noexcept;
+		///
+		/// Pack a rectangle into the master rectangle.
+		///
+		/// \param width Width of the rectangle to pack.
+		/// \param height Height of the rectangle to pack.
+		///
+		/// \return Returns the location of the packed rectangle on the master rectangle.
+		///			Otherwise, returns a std::nullopt.
+		///
+		[[nodiscard]]
+		std::optional<iRect> pack(const int width, const int height);
 
-			///
-			/// Clear all data.
-			///
-			void clear() noexcept;
+		///
+		/// Clear all data.
+		///
+		void clear() noexcept;
 
-			///
-			/// Get total width.
-			///
-			/// \return Integer.
-			///
-			[[nodiscard]]
-			int get_width() const noexcept;
+		///
+		/// Get total width.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int get_width() const noexcept;
 
-			///
-			/// Get total height.
-			///
-			/// \return Integer.
-			///
-			[[nodiscard]]
-			int get_height() const noexcept;
+		///
+		/// Get total height.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int get_height() const noexcept;
 
-			///
-			/// Get free rectangles.
-			///
-			/// \return Const meta::vector.
-			///
-			[[nodiscard]]
-			const std::vector<sf::IntRect>& get_free_space() const noexcept;
+		///
+		/// Get free rectangles.
+		///
+		/// \return Const meta::vector.
+		///
+		[[nodiscard]]
+		const std::vector<iRect>& get_free_space() const noexcept;
 
-		private:
-			///
-			/// The starting width of the rectangle.
-			///
-			int m_width;
+	private:
+		///
+		/// The starting width of the rectangle.
+		///
+		int m_width;
 
-			///
-			/// The starting width of the rectangle.
-			///
-			int m_height;
+		///
+		/// The starting width of the rectangle.
+		///
+		int m_height;
 
-			///
-			/// Free space in master rectangle.
-			///
-			std::vector<sf::IntRect> m_free_rects;
-		};
-	} // namespace math
+		///
+		/// Free space in master rectangle.
+		///
+		std::vector<iRect> m_free_rects;
+	};
 } // namespace galaxy
 
 #endif

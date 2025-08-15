@@ -9,7 +9,7 @@
 
 #include <galaxy/math/Base64.hpp>
 
-TEST(Math, Base64)
+TEST(Base64, EncodeDecode)
 {
 	auto input = "test";
 
