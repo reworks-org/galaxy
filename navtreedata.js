@@ -63,15 +63,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/db3/structgalaxy_1_1settings.html#aaf1ee68ab46f923a7a6b2bc228f63491",
-"d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a973847125412ec9880384da085cb13bb",
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#a19f7039aa3d2c8dcd5bb5d11a4050678",
-"d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b",
-"d8/d0b/conceptgalaxy_1_1meta_1_1not__memory.html",
-"d9/de7/classgalaxy_1_1systems_1_1System.html#a1aaf88f205f0421d4aa07208c65108da",
-"db/d40/classgalaxy_1_1components_1_1Script.html#aab0b0e6799fb0d4552c0dde131375e40",
-"dd/dd3/classgalaxy_1_1Log.html#a29c0aff67aac82d1e5609fbf0d2934cc",
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a5ea2bd53ff1a8b4b79346de838d6cc8c"
+"d1/db3/structgalaxy_1_1settings.html#a9c7f6ad3fb4b8a1da42c759f67d3233b",
+"d3/dd9/namespacegalaxy_1_1ui.html#a0d1e4d1b532d5dc92c036921e844b0a0",
+"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3939a3004a76b76d97f01dc0258c43d3",
+"d5/df3/ImGuiHelpers_8cpp.html",
+"d8/d5e/Sink_8hpp_source.html",
+"d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a71a447ac7c0acd9fb017a17b233ebaa8",
+"db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3",
+"dd/dad/VideoShader_8hpp.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d",
+"df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a959ca5d0f7f9afb8b614e1c8e02f1f83"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

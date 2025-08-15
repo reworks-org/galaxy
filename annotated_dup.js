@@ -49,10 +49,7 @@ var annotated_dup =
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "fnv_1a_params", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
         [ "fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
-        [ "fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ],
-        [ "Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", "d9/deb/classgalaxy_1_1math_1_1Random" ],
-        [ "RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", "d3/d76/classgalaxy_1_1math_1_1RectPack" ],
-        [ "ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", "d1/dc9/classgalaxy_1_1math_1_1ZLib" ]
+        [ "fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ]
       ] ],
       [ "mem", "dd/d0d/namespacegalaxy_1_1mem.html", [
         [ "RingBuffer", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer" ]
@@ -93,9 +90,12 @@ var annotated_dup =
       [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
       [ "Log", "dd/dd3/classgalaxy_1_1Log.html", "dd/dd3/classgalaxy_1_1Log" ],
       [ "LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", "d6/d64/structgalaxy_1_1LogMessage" ],
+      [ "Rect", "d5/d58/classgalaxy_1_1Rect.html", "d5/d58/classgalaxy_1_1Rect" ],
+      [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
       [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
-      [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ]
+      [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
+      [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [
       [ "formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4" ],

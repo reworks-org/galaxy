@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_0',['json',['../d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html#ab69ccd1427274e42f53b87336c451e4b',1,'galaxy::meta::EntityFactory::SerializationData']]]
+  ['height_0',['height',['../d5/d58/classgalaxy_1_1Rect.html#a5ec58ee996665562e7366eaecc4973f9',1,'galaxy::Rect']]]
 ];

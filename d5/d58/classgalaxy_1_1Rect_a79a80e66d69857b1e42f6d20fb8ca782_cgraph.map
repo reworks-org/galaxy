@@ -1,0 +1,7 @@
+<map id="galaxy::Rect::contains" name="galaxy::Rect::contains">
+<area shape="rect" id="Node000001" title="Does the rectangle contain another rectangle." alt="" coords="5,31,171,56"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c" title="Get bottom left corner." alt="" coords="219,5,404,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,31,205,27,205,33,171,37"/>
+<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63" title="Get top right corner." alt="" coords="227,55,395,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,50,214,54,213,60,171,55"/>
+</map>

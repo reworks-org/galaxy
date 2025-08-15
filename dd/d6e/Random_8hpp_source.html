@@ -109,87 +109,53 @@ $(function(){initNavTree('dd/d6e/Random_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;SFML/System/Vector2.hpp&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;SFML/System/Vector3.hpp&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/meta/Concepts.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">namespace </span>math</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">   26</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">conditional_distribution</a> = std::conditional_t&lt;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            std::is_integral&lt;Type&gt;::value,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            std::uniform_int_distribution&lt;Type&gt;,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            std::conditional_t&lt;std::is_floating_point&lt;Type&gt;::value, std::uniform_real_distribution&lt;Type&gt;, <span class="keywordtype">void</span>&gt;&gt;;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html">   36</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html">Random</a> final</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#aadc60e1ce65f28056faa6408a73a0a39">Random</a>() <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a12ac9bcbcbe80b35bdb04f9268456549">~Random</a>() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;glm/vec2.hpp&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;glm/vec3.hpp&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;glm/vec4.hpp&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/meta/Concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">namespace </span>math</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">   27</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">conditional_distribution</a> = std::conditional_t&lt;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            std::is_integral&lt;Type&gt;::value,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            std::uniform_int_distribution&lt;Type&gt;,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            std::conditional_t&lt;std::is_floating_point&lt;Type&gt;::value, std::uniform_real_distribution&lt;Type&gt;, <span class="keywordtype">void</span>&gt;&gt;;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d92/namespacegalaxy_1_1math.html#adf0344db54bbd7135212f9ab4c6b142a">   44</a></span>        <span class="keyword">inline</span> T <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#adf0344db54bbd7135212f9ab4c6b142a">random</a>(<span class="keyword">const</span> T min, <span class="keyword">const</span> T max) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keyword">thread_local</span> std::random_device rd;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keyword">thread_local</span> std::mt19937_64    mt {rd()};</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            T <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a17a10df07fcb32ce36e1315c3f75c73b">gen</a>(<span class="keyword">const</span> T min, <span class="keyword">const</span> T max) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            sf::Vector2&lt;T&gt; <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a1a7a47270054cea32fd16c22200658b3">gen_vec2</a>(<span class="keyword">const</span> sf::Vector2&lt;T&gt;&amp; min, <span class="keyword">const</span> sf::Vector2&lt;T&gt;&amp; max) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            sf::Vector3&lt;T&gt; <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a4176e8269d29359ed80202007c257eee">gen_vec3</a>(<span class="keyword">const</span> sf::Vector3&lt;T&gt;&amp; min, <span class="keyword">const</span> sf::Vector3&lt;T&gt;&amp; max) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a06193a86320cb0fbe362a20c515f3846">   96</a></span>            std::random_device <a class="code hl_variable" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a06193a86320cb0fbe362a20c515f3846">m_rd</a>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311">  101</a></span>            std::mt19937_64 <a class="code hl_variable" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311">m_mt</a>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        };</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_typedef" href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">conditional_distribution&lt;T&gt;</a> dist {min, max};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">return</span> dist(mt);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
 </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a17a10df07fcb32ce36e1315c3f75c73b">  105</a></span>        T <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a17a10df07fcb32ce36e1315c3f75c73b">Random::gen</a>(<span class="keyword">const</span> T min, <span class="keyword">const</span> T max) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <a class="code hl_typedef" href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">conditional_distribution&lt;T&gt;</a> dist {min, max};</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">return</span> dist(m_mt);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
-</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
-<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a1a7a47270054cea32fd16c22200658b3">  112</a></span>        sf::Vector2&lt;T&gt; <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a1a7a47270054cea32fd16c22200658b3">Random::gen_vec2</a>(<span class="keyword">const</span> sf::Vector2&lt;T&gt;&amp; min, <span class="keyword">const</span> sf::Vector2&lt;T&gt;&amp; max) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">return</span> sf::Vector2&lt;T&gt; {gen&lt;T&gt;(min.x, max.x), gen&lt;T&gt;(min.y, max.y)};</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
-</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keyword">template</span>&lt;meta::is_arithmetic T&gt;</div>
-<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a4176e8269d29359ed80202007c257eee">  118</a></span>        sf::Vector3&lt;T&gt; <a class="code hl_function" href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a4176e8269d29359ed80202007c257eee">Random::gen_vec3</a>(<span class="keyword">const</span> sf::Vector3&lt;T&gt;&amp; min, <span class="keyword">const</span> sf::Vector3&lt;T&gt;&amp; max) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> sf::Vector3&lt;T&gt; {gen&lt;T&gt;(min.x, max.x), gen&lt;T&gt;(min.y, max.y), gen&lt;T&gt;(min.z, max.z)};</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
-</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    } <span class="comment">// namespace math</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        glm::vec2 <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9">random_vec2</a>(<span class="keyword">const</span> glm::vec2&amp; min, <span class="keyword">const</span> glm::vec2&amp; max) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        glm::vec3 <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa">random_vec3</a>(<span class="keyword">const</span> glm::vec3&amp; min, <span class="keyword">const</span> glm::vec3&amp; max) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        glm::vec4 <a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf">random_vec4</a>(<span class="keyword">const</span> glm::vec4&amp; min, <span class="keyword">const</span> glm::vec4&amp; max) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    } <span class="comment">// namespace math</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html">galaxy::math::Random</a></div><div class="ttdoc">Generates random numbers.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Random.hpp:37</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a06193a86320cb0fbe362a20c515f3846"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a06193a86320cb0fbe362a20c515f3846">galaxy::math::Random::m_rd</a></div><div class="ttdeci">std::random_device m_rd</div><div class="ttdoc">Randomizer device.</div><div class="ttdef"><b>Definition</b> <a href="#l00096">Random.hpp:96</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a12ac9bcbcbe80b35bdb04f9268456549"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a12ac9bcbcbe80b35bdb04f9268456549">galaxy::math::Random::~Random</a></div><div class="ttdeci">~Random() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00020">Random.cpp:20</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a17a10df07fcb32ce36e1315c3f75c73b"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a17a10df07fcb32ce36e1315c3f75c73b">galaxy::math::Random::gen</a></div><div class="ttdeci">T gen(const T min, const T max) noexcept</div><div class="ttdoc">Generate a random number of type T.</div><div class="ttdef"><b>Definition</b> <a href="#l00105">Random.hpp:105</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a1a7a47270054cea32fd16c22200658b3"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a1a7a47270054cea32fd16c22200658b3">galaxy::math::Random::gen_vec2</a></div><div class="ttdeci">sf::Vector2&lt; T &gt; gen_vec2(const sf::Vector2&lt; T &gt; &amp;min, const sf::Vector2&lt; T &gt; &amp;max) noexcept</div><div class="ttdoc">Generate a random vec2.</div><div class="ttdef"><b>Definition</b> <a href="#l00112">Random.hpp:112</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_a4176e8269d29359ed80202007c257eee"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#a4176e8269d29359ed80202007c257eee">galaxy::math::Random::gen_vec3</a></div><div class="ttdeci">sf::Vector3&lt; T &gt; gen_vec3(const sf::Vector3&lt; T &gt; &amp;min, const sf::Vector3&lt; T &gt; &amp;max) noexcept</div><div class="ttdoc">Generate a random vec3.</div><div class="ttdef"><b>Definition</b> <a href="#l00118">Random.hpp:118</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_aadc60e1ce65f28056faa6408a73a0a39"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#aadc60e1ce65f28056faa6408a73a0a39">galaxy::math::Random::Random</a></div><div class="ttdeci">Random() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00014">Random.cpp:14</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1math_1_1Random_html_ae1003810c5386906bb75edc08bbb6311"><div class="ttname"><a href="../../d9/deb/classgalaxy_1_1math_1_1Random.html#ae1003810c5386906bb75edc08bbb6311">galaxy::math::Random::m_mt</a></div><div class="ttdeci">std::mt19937_64 m_mt</div><div class="ttdoc">Pseudo-random algorithm.</div><div class="ttdef"><b>Definition</b> <a href="#l00101">Random.hpp:101</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1math_html_a9118924b023ec1589ae238e571b12e6f"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">galaxy::math::conditional_distribution</a></div><div class="ttdeci">std::conditional_t&lt; std::is_integral&lt; Type &gt;::value, std::uniform_int_distribution&lt; Type &gt;, std::conditional_t&lt; std::is_floating_point&lt; Type &gt;::value, std::uniform_real_distribution&lt; Type &gt;, void &gt; &gt; conditional_distribution</div><div class="ttdoc">Source: http://stackoverflow.com/a/32907541.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">Random.hpp:26</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_a50ce6c7f3195fd6b4686ba572a33b1aa"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa">galaxy::math::random_vec3</a></div><div class="ttdeci">glm::vec3 random_vec3(const glm::vec3 &amp;min, const glm::vec3 &amp;max) noexcept</div><div class="ttdoc">Generate a random vec3.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00019">Random.cpp:19</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_a9118924b023ec1589ae238e571b12e6f"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f">galaxy::math::conditional_distribution</a></div><div class="ttdeci">std::conditional_t&lt; std::is_integral&lt; Type &gt;::value, std::uniform_int_distribution&lt; Type &gt;, std::conditional_t&lt; std::is_floating_point&lt; Type &gt;::value, std::uniform_real_distribution&lt; Type &gt;, void &gt; &gt; conditional_distribution</div><div class="ttdoc">Source: http://stackoverflow.com/a/32907541.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">Random.hpp:27</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_ab59c723d503abbbac0e87b58ad6efcf9"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9">galaxy::math::random_vec2</a></div><div class="ttdeci">glm::vec2 random_vec2(const glm::vec2 &amp;min, const glm::vec2 &amp;max) noexcept</div><div class="ttdoc">Generate a random vec2.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00014">Random.cpp:14</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_acc85c39820381d5834ca43090cf05fcf"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf">galaxy::math::random_vec4</a></div><div class="ttdeci">glm::vec4 random_vec4(const glm::vec4 &amp;min, const glm::vec4 &amp;max) noexcept</div><div class="ttdoc">Generate a random vec4.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dde/Random_8cpp_source.html#l00024">Random.cpp:24</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_adf0344db54bbd7135212f9ab4c6b142a"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#adf0344db54bbd7135212f9ab4c6b142a">galaxy::math::random</a></div><div class="ttdeci">T random(const T min, const T max) noexcept</div><div class="ttdoc">Generate a random number of type T.</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Random.hpp:44</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -197,7 +163,7 @@ $(function(){initNavTree('dd/d6e/Random_8hpp_source.html','../../'); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../dd/d6e/Random_8hpp.html">Random.hpp</a></li>
-    <li class="footer">Generated on Thu Aug 14 2025 14:43:42 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Aug 15 2025 05:09:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

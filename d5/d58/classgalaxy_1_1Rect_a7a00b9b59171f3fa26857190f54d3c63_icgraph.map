@@ -1,0 +1,14 @@
+<map id="galaxy::Rect::get_right" name="galaxy::Rect::get_right">
+<area shape="rect" id="Node000001" title="Get top right corner." alt="" coords="855,56,1023,81"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#a79a80e66d69857b1e42f6d20fb8ca782" title="Does the rectangle contain another rectangle." alt="" coords="637,5,802,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="869,55,774,33,776,28,870,50"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="405,81,584,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="841,77,584,92,584,86,841,72"/>
+<area shape="rect" id="Node000006" href="$d5/d58/classgalaxy_1_1Rect.html#a0850694437a41e6220f0e5c48ead332b" title="Do two rectangles intersect." alt="" coords="632,107,807,132"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="870,87,776,109,774,104,869,82"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,81,357,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,97,358,97,358,91,392,91"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,81,172,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,97,172,97,172,91,206,91"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="618,111,584,107,584,101,619,105"/>
+</map>

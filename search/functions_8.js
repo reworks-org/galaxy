@@ -22,7 +22,7 @@ var searchData=
   ['imgui_5fset_5ftheme_19',['imgui_set_theme',['../d3/dd9/namespacegalaxy_1_1ui.html#a0d1e4d1b532d5dc92c036921e844b0a0',1,'galaxy::ui']]],
   ['imguimemallocfunc_20',['ImGuiMemAllocFunc',['../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404',1,'galaxy']]],
   ['imguimemfreefunc_21',['ImGuiMemFreeFunc',['../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281',1,'galaxy']]],
-  ['init_22',['init',['../d3/d76/classgalaxy_1_1math_1_1RectPack.html#a0bd4b26ff1b5980159309b3a3e16c898',1,'galaxy::math::RectPack']]],
+  ['init_22',['init',['../d9/d9f/classgalaxy_1_1RectPack.html#aba5a364702dbddce33ed245ff7777532',1,'galaxy::RectPack']]],
   ['inject_23',['inject',['../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276',1,'galaxy::lua']]],
   ['inject_5fcomponents_24',['inject_components',['../de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb',1,'galaxy::lua']]],
   ['inject_5fcore_25',['inject_core',['../de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102',1,'galaxy::lua']]],
@@ -46,10 +46,11 @@ var searchData=
   ['inject_5futils_43',['inject_utils',['../de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3',1,'galaxy::lua']]],
   ['input_5fbox_44',['input_box',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a70fbf3f87cf7cc4cacda202b543957a7',1,'galaxy::fs::VirtualFileSystem']]],
   ['insert_45',['insert',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8',1,'galaxy::resource::Cache']]],
-  ['is_5fbullet_46',['is_bullet',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386',1,'galaxy::components::RigidBody']]],
-  ['is_5fdir_47',['is_dir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0627b16f69366b4ea91893323878e28c',1,'galaxy::fs::VirtualFileSystem']]],
-  ['is_5fopen_48',['is_open',['../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30',1,'galaxy::fs::PhysfsStream']]],
-  ['is_5frotation_5ffixed_49',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
-  ['is_5fvalid_50',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
-  ['is_5fwork_5fdone_51',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
+  ['intersects_46',['intersects',['../d5/d58/classgalaxy_1_1Rect.html#a0850694437a41e6220f0e5c48ead332b',1,'galaxy::Rect']]],
+  ['is_5fbullet_47',['is_bullet',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386',1,'galaxy::components::RigidBody']]],
+  ['is_5fdir_48',['is_dir',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a0627b16f69366b4ea91893323878e28c',1,'galaxy::fs::VirtualFileSystem']]],
+  ['is_5fopen_49',['is_open',['../d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30',1,'galaxy::fs::PhysfsStream']]],
+  ['is_5frotation_5ffixed_50',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
+  ['is_5fvalid_51',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
+  ['is_5fwork_5fdone_52',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
 ];

@@ -1,7 +1,0 @@
-<map id="galaxy::math::encode_zlib" name="galaxy::math::encode_zlib">
-<area shape="rect" id="Node000001" title="Compresses string into ZLib." alt="" coords="453,13,645,38"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a186b4dc359e2d0e41fee1c2187aeaf9a" title="Save all active scenes and sub data within those scenes." alt="" coords="191,5,405,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,28,405,28,405,23,440,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,5,143,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-</map>

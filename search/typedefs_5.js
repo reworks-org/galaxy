@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prefabs_0',['Prefabs',['../d4/d1b/namespacegalaxy_1_1resource.html#a3dc6697074b2967cf24f22d66ceb7cfb',1,'galaxy::resource']]]
+  ['optional_5fref_0',['optional_ref',['../dd/d0d/namespacegalaxy_1_1mem.html#a05847280c7c3ecfc6dabb9c1b9ab0028',1,'galaxy::mem']]]
 ];

@@ -1,0 +1,7 @@
+<map id="galaxy::Rect::intersects" name="galaxy::Rect::intersects">
+<area shape="rect" id="Node000001" title="Do two rectangles intersect." alt="" coords="5,31,180,56"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c" title="Get bottom left corner." alt="" coords="228,5,413,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,31,214,27,215,32,181,36"/>
+<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63" title="Get top right corner." alt="" coords="237,55,405,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,50,223,54,223,60,180,55"/>
+</map>

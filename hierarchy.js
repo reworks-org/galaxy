@@ -30,8 +30,9 @@ var hierarchy =
     [ "galaxy::flags::NotSerializable", "d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html", null ],
     [ "galaxy::ui::NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", null ],
     [ "galaxy::core::Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", null ],
-    [ "galaxy::math::Random", "d9/deb/classgalaxy_1_1math_1_1Random.html", null ],
-    [ "galaxy::math::RectPack", "d3/d76/classgalaxy_1_1math_1_1RectPack.html", null ],
+    [ "galaxy::Rect< Type >", "d5/d58/classgalaxy_1_1Rect.html", null ],
+    [ "galaxy::Rect< float >", "d5/d58/classgalaxy_1_1Rect.html", null ],
+    [ "galaxy::RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", null ],
     [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", null ],
     [ "galaxy::mem::RingBuffer", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html", null ],
     [ "galaxy::lua::Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", null ],
@@ -73,5 +74,5 @@ var hierarchy =
     [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
     [ "galaxy::fs::VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", null ],
     [ "galaxy::map::World", "d9/d75/classgalaxy_1_1map_1_1World.html", null ],
-    [ "galaxy::math::ZLib", "d1/dc9/classgalaxy_1_1math_1_1ZLib.html", null ]
+    [ "galaxy::ZLib", "df/d85/classgalaxy_1_1ZLib.html", null ]
 ];

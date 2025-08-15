@@ -2,7 +2,7 @@ var searchData=
 [
   ['file_0',['file',['../d3/df0/classgalaxy_1_1components_1_1GUI.html#a2b758d3afc26f45d89871a1380c71641',1,'galaxy::components::GUI::file()'],['../db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b',1,'galaxy::components::Script::file()'],['../d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1',1,'galaxy::map::World::file()']]],
   ['filesink_1',['FileSink',['../d7/d7d/classgalaxy_1_1FileSink.html#a95f1e6f66356492ac05f3396a7a0ec68',1,'galaxy::FileSink']]],
-  ['finish_2',['finish',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a298a6c2b322b1f171236fdd1f2945c9d',1,'galaxy::math::ZLib']]],
+  ['finish_2',['finish',['../df/d85/classgalaxy_1_1ZLib.html#a327ef010e2590eabde7829010c25e8b0',1,'galaxy::ZLib']]],
   ['fnv1a_3',['fnv1a',['../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9',1,'galaxy::math']]],
   ['fnv1a_5f32_4',['fnv1a_32',['../d1/d92/namespacegalaxy_1_1math.html#ad5d656c78b2808c52fd7ed8c456956b7',1,'galaxy::math']]],
   ['fnv1a_5f64_5',['fnv1a_64',['../d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814',1,'galaxy::math']]],

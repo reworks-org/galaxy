@@ -1,9 +1,7 @@
 <map id="galaxy::core::Prefab::load" name="galaxy::core::Prefab::load">
-<area shape="rect" id="Node000001" title="Loads from a json file on disk." alt="" coords="5,63,156,103"/>
-<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="219,5,381,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,60,209,46,210,51,157,66"/>
-<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#ae0986fa60f67ffa327a0809ec9d5aa2a" title="Decompresses string into ZLib." alt="" coords="204,70,396,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,80,190,80,190,85,157,85"/>
-<area shape="rect" id="Node000004" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66" title="Creates the prefab from a json object." alt="" coords="225,120,375,160"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,100,212,114,211,119,156,105"/>
+<area shape="rect" id="Node000001" title="Loads from a json file on disk." alt="" coords="5,37,156,77"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="204,5,367,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,43,190,38,191,43,156,48"/>
+<area shape="rect" id="Node000003" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66" title="Creates the prefab from a json object." alt="" coords="210,69,361,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,66,197,73,196,78,156,72"/>
 </map>

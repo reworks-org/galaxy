@@ -5,7 +5,7 @@ var searchData=
   ['filesink_2',['FileSink',['../d7/d7d/classgalaxy_1_1FileSink.html',1,'galaxy::FileSink'],['../d7/d7d/classgalaxy_1_1FileSink.html#a95f1e6f66356492ac05f3396a7a0ec68',1,'galaxy::FileSink::FileSink()']]],
   ['filesink_2ecpp_3',['FileSink.cpp',['../d3/dcc/FileSink_8cpp.html',1,'']]],
   ['filesink_2ehpp_4',['FileSink.hpp',['../dd/d0e/FileSink_8hpp.html',1,'']]],
-  ['finish_5',['finish',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a298a6c2b322b1f171236fdd1f2945c9d',1,'galaxy::math::ZLib']]],
+  ['finish_5',['finish',['../df/d85/classgalaxy_1_1ZLib.html#a327ef010e2590eabde7829010c25e8b0',1,'galaxy::ZLib']]],
   ['fnv1a_6',['fnv1a',['../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9',1,'galaxy::math']]],
   ['fnv1a_2ecpp_7',['FNV1a.cpp',['../d6/db1/FNV1a_8cpp.html',1,'']]],
   ['fnv1a_2ehpp_8',['FNV1a.hpp',['../d9/d43/FNV1a_8hpp.html',1,'']]],
@@ -20,8 +20,9 @@ var searchData=
   ['format_17',['format',['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html#a0b9233b060a1ef1935a628fcd9ef8bc7',1,'std::formatter&lt; galaxy::LogLevel &gt;::format()'],['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a5b83e138b0cc94922a5a44766f704c36',1,'std::formatter&lt; galaxy::LogMessage &gt;::format()']]],
   ['formatter_3c_20galaxy_3a_3aloglevel_20_3e_18',['formatter&lt; galaxy::LogLevel &gt;',['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html',1,'std']]],
   ['formatter_3c_20galaxy_3a_3alogmessage_20_3e_19',['formatter&lt; galaxy::LogMessage &gt;',['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html',1,'std']]],
-  ['from_5fentity_20',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_21',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
-  ['fullscreen_22',['fullscreen',['../d1/db3/structgalaxy_1_1settings.html#afa393a023bf0637550ebfa3831fa7130',1,'galaxy::settings']]],
-  ['function_23',['Function',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#ab07fa9a2451f570e7f50e04b0fb2dcd1',1,'galaxy::async::Timer']]]
+  ['frect_20',['fRect',['../d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730',1,'galaxy']]],
+  ['from_5fentity_21',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
+  ['from_5fjson_22',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['fullscreen_23',['fullscreen',['../d1/db3/structgalaxy_1_1settings.html#afa393a023bf0637550ebfa3831fa7130',1,'galaxy::settings']]],
+  ['function_24',['Function',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#ab07fa9a2451f570e7f50e04b0fb2dcd1',1,'galaxy::async::Timer']]]
 ];

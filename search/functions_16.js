@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zlib_0',['ZLib',['../d1/dc9/classgalaxy_1_1math_1_1ZLib.html#a0af37971bf7d7d56b85cd9abcf83e50a',1,'galaxy::math::ZLib']]]
+  ['zlib_0',['ZLib',['../df/d85/classgalaxy_1_1ZLib.html#ab5f4ed375e0a125145163f43359d80b9',1,'galaxy::ZLib']]]
 ];

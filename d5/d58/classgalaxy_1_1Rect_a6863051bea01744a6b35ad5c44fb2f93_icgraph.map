@@ -1,0 +1,9 @@
+<map id="galaxy::Rect::set_top_left" name="galaxy::Rect::set_top_left">
+<area shape="rect" id="Node000001" title="Set the top&#45;left position." alt="" coords="632,5,819,31"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="405,5,584,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="619,21,584,21,584,15,619,15"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,5,357,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,21,358,21,358,15,392,15"/>
+<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,5,172,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,21,172,21,172,15,206,15"/>
+</map>

@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html" title="Hash specialization template overload for Guid." alt="" coords="5,5,152,45"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,45,117,70"/>
+<area shape="rect" id="Node000001" href="$d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html" title=" " alt="" coords="165,5,336,45"/>
+<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="131,43,165,37,166,42,131,48"/>
+<area shape="rect" id="Node000002" href="$dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html" title=" " alt="" coords="165,69,336,109"/>
+<area shape="poly" id="edge28_Node000000_Node000002" title=" " alt="" coords="131,66,166,72,165,78,131,72"/>
 </map>

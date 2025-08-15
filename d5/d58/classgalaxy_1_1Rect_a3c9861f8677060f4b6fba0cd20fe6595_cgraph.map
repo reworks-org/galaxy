@@ -1,0 +1,5 @@
+<map id="galaxy::Rect::overlaps" name="galaxy::Rect::overlaps">
+<area shape="rect" id="Node000001" title="Do the rectangles a and b overlap." alt="" coords="5,13,172,38"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba" title="Private function to determine if value is in range. Inclusive. Credits: https://stackoverflow...." alt="" coords="220,5,367,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,23,206,23,206,28,172,28"/>
+</map>
