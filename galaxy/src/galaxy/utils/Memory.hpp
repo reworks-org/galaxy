@@ -21,18 +21,18 @@ namespace galaxy
 		///
 		/// Stores a pointer that can only be accessed as a reference.
 		///
-		/// \tparam Type Any type that can be a reference.
+		/// \tparam Object Any type that can be a reference.
 		///
-		template<meta::is_object Type>
-		using ref = std::reference_wrapper<Type>;
+		template<meta::is_object Object>
+		using ref = std::reference_wrapper<Object>;
 
 		///
 		/// Optional reference.
 		///
-		/// \tparam Type Any type that can be a reference.
+		/// \tparam Object Any type that can be a reference.
 		///
-		template<typename Type>
-		using optional_ref = std::optional<std::reference_wrapper<Type>>;
+		template<meta::is_object Object>
+		using opt_ref = std::optional<std::reference_wrapper<Object>>;
 	} // namespace mem
 } // namespace galaxy
 
