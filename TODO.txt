@@ -1,3 +1,4 @@
 physfs logging test
 opengl logging test
 subprocess test
+laptop test
