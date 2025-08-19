@@ -653,7 +653,6 @@
     <ClCompile Include="freetype\src\winfonts\winfnt.c" />
     <ClCompile Include="freetype\builds\windows\ftsystem.c" />
     <ClCompile Include="freetype\builds\windows\ftdebug.c" />
-    <ClInclude Include="subprocess\subprocess.h" />
     <ClInclude Include="threadpool\include\BS_thread_pool.hpp" />
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />

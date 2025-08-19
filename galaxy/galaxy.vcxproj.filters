@@ -30,6 +30,7 @@
     <ClCompile Include="src\galaxy\math\Rect.cpp" />
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
+    <ClCompile Include="src\galaxy\platform\Laptop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -57,5 +58,6 @@
     <ClInclude Include="src\galaxy\math\Rect.hpp" />
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />
+    <ClInclude Include="src\galaxy\platform\Laptop.hpp" />
   </ItemGroup>
 </Project>

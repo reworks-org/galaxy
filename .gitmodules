@@ -16,9 +16,6 @@
 [submodule "deps/threadpool"]
 	path = deps/threadpool
 	url = https://github.com/bshoshany/thread-pool.git
-[submodule "deps/subprocess"]
-	path = deps/subprocess
-	url = https://github.com/sheredom/subprocess.h.git
 [submodule "deps/sol"]
 	path = deps/sol
 	url = https://github.com/reworks-org/sol2.git
