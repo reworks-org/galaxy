@@ -3,6 +3,11 @@ var namespacegalaxy =
     [ "async", "d0/d7f/namespacegalaxy_1_1async.html", "d0/d7f/namespacegalaxy_1_1async" ],
     [ "components", "d3/db5/namespacegalaxy_1_1components.html", "d3/db5/namespacegalaxy_1_1components" ],
     [ "core", "d1/dcb/namespacegalaxy_1_1core.html", "d1/dcb/namespacegalaxy_1_1core" ],
+    [ "fileutils", "d8/d23/namespacegalaxy_1_1fileutils.html", [
+      [ "extension", "d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1", null ],
+      [ "read", "d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92", null ],
+      [ "write", "d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e", null ]
+    ] ],
     [ "flags", "df/d31/namespacegalaxy_1_1flags.html", "df/d31/namespacegalaxy_1_1flags" ],
     [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", "d6/d19/namespacegalaxy_1_1fs" ],
     [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", null ],
@@ -12,6 +17,10 @@ var namespacegalaxy =
       [ "read_raw", "de/dd6/namespacegalaxy_1_1json.html#a16ec2f8525e7b1b49b84f8c6dfe5d707", null ],
       [ "write", "de/dd6/namespacegalaxy_1_1json.html#a36147cbea09b500a27e6a9a78924f879", null ],
       [ "dump", "de/dd6/namespacegalaxy_1_1json.html#ae239235c5258b78bf9e48dce38dbff27", null ]
+    ] ],
+    [ "laptop", "d8/dd6/namespacegalaxy_1_1laptop.html", [
+      [ "get_battery_remaining", "d8/dd6/namespacegalaxy_1_1laptop.html#abd075cd614737c754483507fc86400fe", null ],
+      [ "get_battery_status", "d8/dd6/namespacegalaxy_1_1laptop.html#a8b56b612d7b0fcbdc0df4eeaa2f7ed41", null ]
     ] ],
     [ "log", "d2/dc7/namespacegalaxy_1_1log.html", [
       [ "gl_errcode_as_string", "d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950", null ],
@@ -41,7 +50,9 @@ var namespacegalaxy =
     [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", "d2/d27/namespacegalaxy_1_1systems" ],
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", "d3/dd9/namespacegalaxy_1_1ui" ],
     [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
+    [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
+    [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
     [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
     [ "Log", "dd/dd3/classgalaxy_1_1Log.html", "dd/dd3/classgalaxy_1_1Log" ],
     [ "LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", "d6/d64/structgalaxy_1_1LogMessage" ],
@@ -50,6 +61,7 @@ var namespacegalaxy =
     [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
     [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
     [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
+    [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
     [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ],
     [ "iRect", "d0/d46/namespacegalaxy.html#a9b3b4aa5d37e03fe45aca3556b1a1f05", null ],
     [ "fRect", "d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730", null ],

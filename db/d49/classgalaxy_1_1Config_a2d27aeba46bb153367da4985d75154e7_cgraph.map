@@ -1,0 +1,5 @@
+<map id="galaxy::Config::save" name="galaxy::Config::save">
+<area shape="rect" id="Node000001" title="Save the config file. Must be opened first." alt="" coords="5,13,159,38"/>
+<area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="207,5,336,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
+</map>

@@ -1,6 +1,0 @@
-<map id="galaxy::fs::VirtualFileSystem::list" name="galaxy::fs::VirtualFileSystem::list">
-<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="209,29,417,69"/>
-<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="352,18,339,11,313,8,291,10,278,15,273,21,276,28,270,30,268,20,275,10,290,5,313,3,340,6,355,13"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="5,37,161,62"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,52,161,52,161,47,195,47"/>
-</map>

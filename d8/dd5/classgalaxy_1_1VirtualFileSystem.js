@@ -1,0 +1,26 @@
+var classgalaxy_1_1VirtualFileSystem =
+[
+    [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169", null ],
+    [ "~VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a23eb5073536b4eab2621d8d7a84f55c8", null ],
+    [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7", null ],
+    [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#abb23c7a1ebc3c08ca0c2597fc7963bf9", null ],
+    [ "read", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a5714f1be5d091e5e20d6c6d9ae8de541", null ],
+    [ "read_binary", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af5d6601c81e250d33fc7bb13912c8545", null ],
+    [ "write", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a6cbcf8ba11e8e51be045c168e802a90f", null ],
+    [ "write_binary", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a47bcceba1a6260628db6e3821caec273", null ],
+    [ "write_raw", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1", null ],
+    [ "mkdir", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14", null ],
+    [ "remove", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#aca348e65708b9e1ec6095de6ec11d110", null ],
+    [ "exists", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e", null ],
+    [ "is_dir", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0", null ],
+    [ "list", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a4aa6a65d69a7595f79b09f9ef35455e7", null ],
+    [ "alert", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a00ee72cd861c0d33f3668bce5c48b45f", null ],
+    [ "notification", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab5f8391219ad93ac4a677eecf36b3dde", null ],
+    [ "message_box", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a74dea22e5366b4d361ef4beeb62d6dcd", null ],
+    [ "input_box", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a77c59a61e3d8a0dbd8bac30149f79c11", null ],
+    [ "open_save_dialog", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a9a49804951501cf4b742865ca5ef2a88", null ],
+    [ "open_file_dialog", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a803b87252d75800508ee4fa4dff433b3", null ],
+    [ "select_folder_dialog", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab7c4aaec31a37cf0863f43997240fcff", null ],
+    [ "operator=", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a615ad37308eaac397c39b3a0f3f8bdfe", null ],
+    [ "operator=", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ac71e4e9706f6ccc99e585aaee790c539", null ]
+];

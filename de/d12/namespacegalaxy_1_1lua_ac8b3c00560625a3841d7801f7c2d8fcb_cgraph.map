@@ -1,16 +1,9 @@
 <map id="galaxy::lua::inject_platform" name="galaxy::lua::inject_platform">
-<area shape="rect" id="Node000001" title="Inject platform stuff into Lua." alt="" coords="5,100,143,140"/>
-<area shape="rect" id="Node000002" href="$db/d1d/classgalaxy_1_1Subprocess.html#ad51e1a3e966d777eb1e1c0b2272b9db4" title="Check if subprocess is still alive and executing." alt="" coords="385,132,532,172"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,98,131,56,159,36,190,21,230,8,265,3,298,7,338,21,371,40,399,65,441,118,436,121,395,69,368,45,336,26,297,12,265,8,232,13,192,26,162,41,135,60,93,101"/>
-<area shape="rect" id="Node000003" href="$db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa" title="Launch a subprocess." alt="" coords="191,36,337,76"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,97,190,77,192,83,135,102"/>
-<area shape="rect" id="Node000004" href="$db/d1d/classgalaxy_1_1Subprocess.html#afaf110a215d46e68966a2c27240a0166" title="Destroy process, preserving if alive." alt="" coords="191,100,337,140"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,117,176,117,176,122,143,122"/>
-<area shape="rect" id="Node000005" href="$db/d1d/classgalaxy_1_1Subprocess.html#a805390f77897a6d9f76d1b7ea7799b12" title="Wait for a process to finish execution." alt="" coords="191,164,337,204"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="135,137,192,157,190,162,133,142"/>
-<area shape="rect" id="Node000006" href="$db/d1d/classgalaxy_1_1Subprocess.html#a44d55609528c6ffb90935163d07267aa" title="Terminate process, killing if alive." alt="" coords="191,228,337,268"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="98,138,140,175,192,213,202,219,199,224,189,218,137,179,94,142"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="338,129,372,135,371,140,337,134"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="337,169,371,163,372,169,338,174"/>
-<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="311,225,336,213,408,176,410,181,339,218,313,230"/>
+<area shape="rect" id="Node000001" title="Inject platform stuff into Lua." alt="" coords="5,69,143,109"/>
+<area shape="rect" id="Node000002" href="$db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa" title="Launch a subprocess." alt="" coords="191,5,337,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,67,190,47,192,52,135,72"/>
+<area shape="rect" id="Node000003" href="$db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99" title="Terminates process." alt="" coords="191,69,337,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,87,176,87,176,92,143,92"/>
+<area shape="rect" id="Node000004" href="$db/d1d/classgalaxy_1_1Subprocess.html#ae453f3c0015bdd5ad882cc19a5d955b2" title="Wait for a process to finish execution." alt="" coords="191,133,337,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="135,107,192,126,190,131,133,112"/>
 </map>

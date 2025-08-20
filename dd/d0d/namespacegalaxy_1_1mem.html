@@ -114,26 +114,26 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a55c54c3f75e6137ba58990cf6aac9032" id="r_a55c54c3f75e6137ba58990cf6aac9032"><td class="memTemplParams" colspan="2">template&lt;meta::is_object Type&gt; </td></tr>
-<tr class="memitem:a55c54c3f75e6137ba58990cf6aac9032"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a55c54c3f75e6137ba58990cf6aac9032">ref</a> = std::reference_wrapper&lt;Type&gt;</td></tr>
-<tr class="memdesc:a55c54c3f75e6137ba58990cf6aac9032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference wrapper.  <br /></td></tr>
-<tr class="separator:a55c54c3f75e6137ba58990cf6aac9032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05847280c7c3ecfc6dabb9c1b9ab0028" id="r_a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a05847280c7c3ecfc6dabb9c1b9ab0028">optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;</td></tr>
-<tr class="memdesc:a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference.  <br /></td></tr>
-<tr class="separator:a05847280c7c3ecfc6dabb9c1b9ab0028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b83473b28650a3105cc20e9366c2f75" id="r_a7b83473b28650a3105cc20e9366c2f75"><td class="memTemplParams" colspan="2">template&lt;meta::is_object Object&gt; </td></tr>
+<tr class="memitem:a7b83473b28650a3105cc20e9366c2f75"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7b83473b28650a3105cc20e9366c2f75">ref</a> = std::reference_wrapper&lt;Object&gt;</td></tr>
+<tr class="memdesc:a7b83473b28650a3105cc20e9366c2f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference wrapper.  <br /></td></tr>
+<tr class="separator:a7b83473b28650a3105cc20e9366c2f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88726f6aa5b0886038d8174591afedb9" id="r_a88726f6aa5b0886038d8174591afedb9"><td class="memTemplParams" colspan="2">template&lt;meta::is_object Object&gt; </td></tr>
+<tr class="memitem:a88726f6aa5b0886038d8174591afedb9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a88726f6aa5b0886038d8174591afedb9">opt_ref</a> = std::optional&lt;std::reference_wrapper&lt;Object&gt;&gt;</td></tr>
+<tr class="memdesc:a88726f6aa5b0886038d8174591afedb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference.  <br /></td></tr>
+<tr class="separator:a88726f6aa5b0886038d8174591afedb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a55c54c3f75e6137ba58990cf6aac9032" name="a55c54c3f75e6137ba58990cf6aac9032"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55c54c3f75e6137ba58990cf6aac9032">&#9670;&#160;</a></span>ref</h2>
+<a id="a7b83473b28650a3105cc20e9366c2f75" name="a7b83473b28650a3105cc20e9366c2f75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b83473b28650a3105cc20e9366c2f75">&#9670;&#160;</a></span>ref</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;meta::is_object Type&gt; </div>
+template&lt;meta::is_object Object&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a55c54c3f75e6137ba58990cf6aac9032">galaxy::mem::ref</a> = std::reference_wrapper&lt;Type&gt;</td>
+          <td class="memname">using <a class="el" href="#a7b83473b28650a3105cc20e9366c2f75">galaxy::mem::ref</a> = std::reference_wrapper&lt;Object&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -142,7 +142,7 @@ template&lt;meta::is_object Type&gt; </div>
 <p>Stores a pointer that can only be accessed as a reference.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Type</td><td>Any type that can be a reference. </td></tr>
+    <tr><td class="paramname">Object</td><td>Any type that can be a reference. </td></tr>
   </table>
   </dd>
 </dl>
@@ -151,16 +151,16 @@ template&lt;meta::is_object Type&gt; </div>
 
 </div>
 </div>
-<a id="a05847280c7c3ecfc6dabb9c1b9ab0028" name="a05847280c7c3ecfc6dabb9c1b9ab0028"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05847280c7c3ecfc6dabb9c1b9ab0028">&#9670;&#160;</a></span>optional_ref</h2>
+<a id="a88726f6aa5b0886038d8174591afedb9" name="a88726f6aa5b0886038d8174591afedb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88726f6aa5b0886038d8174591afedb9">&#9670;&#160;</a></span>opt_ref</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Type &gt; </div>
+template&lt;meta::is_object Object&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a05847280c7c3ecfc6dabb9c1b9ab0028">galaxy::mem::optional_ref</a> = std::optional&lt;std::reference_wrapper&lt;Type&gt;&gt;</td>
+          <td class="memname">using <a class="el" href="#a88726f6aa5b0886038d8174591afedb9">galaxy::mem::opt_ref</a> = std::optional&lt;std::reference_wrapper&lt;Object&gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -168,7 +168,7 @@ template&lt;typename Type &gt; </div>
 <p>Optional reference. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Type</td><td>Any type that can be a reference. </td></tr>
+    <tr><td class="paramname">Object</td><td>Any type that can be a reference. </td></tr>
   </table>
   </dd>
 </dl>
@@ -183,7 +183,7 @@ template&lt;typename Type &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dd/d0d/namespacegalaxy_1_1mem.html">mem</a></li>
-    <li class="footer">Generated on Fri Aug 15 2025 05:09:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 20 2025 08:06:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

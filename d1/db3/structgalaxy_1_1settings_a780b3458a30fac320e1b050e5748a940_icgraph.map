@@ -1,9 +1,0 @@
-<map id="galaxy::settings::cursor_visible" name="galaxy::settings::cursor_visible">
-<area shape="rect" id="Node000001" title="Show/hide mouse cursor." alt="" coords="440,27,613,67"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="220,5,392,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="426,37,392,32,393,27,427,31"/>
-<area shape="rect" id="Node000003" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a563a51eee271c3b21fd260c4789e04aa" title=" " alt="" coords="235,55,377,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="426,63,378,69,377,64,426,57"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,63,172,88"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="221,78,172,78,172,73,221,73"/>
-</map>

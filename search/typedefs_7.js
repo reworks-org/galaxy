@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ref_0',['ref',['../dd/d0d/namespacegalaxy_1_1mem.html#a55c54c3f75e6137ba58990cf6aac9032',1,'galaxy::mem']]]
+  ['ref_0',['ref',['../dd/d0d/namespacegalaxy_1_1mem.html#a7b83473b28650a3105cc20e9366c2f75',1,'galaxy::mem']]]
 ];

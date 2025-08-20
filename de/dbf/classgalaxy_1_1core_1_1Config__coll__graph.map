@@ -1,7 +1,0 @@
-<map id="galaxy::core::Config" name="galaxy::core::Config">
-<area shape="rect" id="Node000001" title="Allows you to read, write and manipulate JSON config files." alt="" coords="5,263,148,628"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="37,135,116,200"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,200,79,246,74,246,74,200"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="11,5,142,85"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,99,79,134,74,134,74,99"/>
-</map>

@@ -22,7 +22,6 @@ var annotated_dup =
       ] ],
       [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
         [ "App", "d5/d5a/classgalaxy_1_1core_1_1App.html", "d5/d5a/classgalaxy_1_1core_1_1App" ],
-        [ "Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", "d6/de9/classgalaxy_1_1core_1_1Config" ],
         [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
         [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ],
         [ "Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", "de/d2c/classgalaxy_1_1core_1_1Registry" ]
@@ -32,9 +31,7 @@ var annotated_dup =
         [ "NotSerializable", "d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html", "d8/dc1/classgalaxy_1_1flags_1_1NotSerializable" ]
       ] ],
       [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", [
-        [ "PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream" ],
-        [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ],
-        [ "VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem" ]
+        [ "Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", "d2/d54/classgalaxy_1_1fs_1_1Serializable" ]
       ] ],
       [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
         [ "CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", "d0/d15/classgalaxy_1_1input_1_1CameraController" ]
@@ -86,7 +83,9 @@ var annotated_dup =
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
       ] ],
+      [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
       [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
+      [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
       [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
       [ "Log", "dd/dd3/classgalaxy_1_1Log.html", "dd/dd3/classgalaxy_1_1Log" ],
       [ "LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", "d6/d64/structgalaxy_1_1LogMessage" ],
@@ -95,11 +94,14 @@ var annotated_dup =
       [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
       [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
+      [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [
+      [ "formatter< galaxy::FileError >", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4" ],
       [ "formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4" ],
       [ "formatter< galaxy::LogMessage >", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4" ],
+      [ "formatter< std::filesystem::path >", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4" ],
       [ "hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" ]
     ] ]
 ];

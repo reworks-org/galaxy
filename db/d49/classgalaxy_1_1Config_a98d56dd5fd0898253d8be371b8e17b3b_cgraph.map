@@ -1,0 +1,7 @@
+<map id="galaxy::Config::restore" name="galaxy::Config::restore">
+<area shape="rect" id="Node000001" title="Sets a new setting, only if key or value does not already exist." alt="" coords="5,31,173,56"/>
+<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#af361c1dd482db3fb195151ae2499b597" title="Check if the config file actually has a value." alt="" coords="221,5,367,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,30,207,26,208,31,174,36"/>
+<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87" title="Set a new key&#45;value pair for the config." alt="" coords="223,55,365,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,51,209,55,209,60,173,56"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="galaxy/src/galaxy/platform/Laptop.cpp" name="galaxy/src/galaxy/platform/Laptop.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,246,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,148,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,47,98,85,94,81,128,44"/>
+<area shape="rect" id="Node000003" href="$d9/d53/Laptop_8hpp.html" title=" " alt="" coords="172,93,267,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,44,201,81,197,85,163,47"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,167,171,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,121,163,160,160,156,205,117"/>
+<area shape="rect" id="Node000005" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="195,167,403,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="234,117,278,156,274,160,230,121"/>
+</map>

@@ -1,7 +1,0 @@
-<map id="galaxy::fs::PhysfsStream::~PhysfsStream" name="galaxy::fs::PhysfsStream::~PhysfsStream">
-<area shape="rect" id="Node000001" title="Virtual destructor." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="Node000002" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#ac140cf5e552ce3819a6910cadc844129" title="Close the open physfs handle." alt="" coords="236,5,419,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
-<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#af98beec53854452845efb1ccb6b32c30" title="Is the physfs file open." alt="" coords="467,5,649,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="419,23,453,23,453,28,419,28"/>
-</map>

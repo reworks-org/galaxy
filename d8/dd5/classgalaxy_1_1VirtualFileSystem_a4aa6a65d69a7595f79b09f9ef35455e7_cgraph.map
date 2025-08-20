@@ -1,0 +1,6 @@
+<map id="galaxy::VirtualFileSystem::list" name="galaxy::VirtualFileSystem::list">
+<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="5,29,193,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="59,30,57,20,63,10,78,5,99,3,124,6,138,13,135,18,123,11,99,8,79,10,67,15,62,21,64,28"/>
+<area shape="rect" id="Node000002" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="241,29,385,69"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="193,47,227,47,227,52,193,52"/>
+</map>

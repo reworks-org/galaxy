@@ -1,5 +1,5 @@
 var Memory_8hpp =
 [
-    [ "ref", "d4/d18/Memory_8hpp.html#a55c54c3f75e6137ba58990cf6aac9032", null ],
-    [ "optional_ref", "d4/d18/Memory_8hpp.html#a05847280c7c3ecfc6dabb9c1b9ab0028", null ]
+    [ "ref", "d4/d18/Memory_8hpp.html#a7b83473b28650a3105cc20e9366c2f75", null ],
+    [ "opt_ref", "d4/d18/Memory_8hpp.html#a88726f6aa5b0886038d8174591afedb9", null ]
 ];

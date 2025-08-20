@@ -1,8 +1,0 @@
-<map id="galaxy::fs::PhysfsStream::tell" name="galaxy::fs::PhysfsStream::tell">
-<area shape="rect" id="Node000001" title="Get the current reading position in the stream." alt="" coords="440,5,623,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="5,13,161,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="426,25,392,24,209,24,162,25,162,20,209,19,392,19,426,19"/>
-<area shape="rect" id="Node000003" href="$d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a38dc6f6cc769e04ed733e7393ad25b33" title="Change the current reading position." alt="" coords="209,33,392,73"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="427,41,393,45,392,40,426,35"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="195,42,161,38,162,33,196,37"/>
-</map>

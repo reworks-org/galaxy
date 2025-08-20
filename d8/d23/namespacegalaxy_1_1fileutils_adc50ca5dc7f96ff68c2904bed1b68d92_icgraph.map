@@ -1,0 +1,16 @@
+<map id="galaxy::fileutils::read" name="galaxy::fileutils::read">
+<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="824,42,983,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a92f7ad2d1294082ebec9047d6b50ad64" title=" " alt="" coords="626,5,775,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="810,44,775,39,776,34,810,39"/>
+<area shape="rect" id="Node000006" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="625,70,776,95"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="811,70,777,75,776,70,810,65"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="413,15,569,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="612,29,569,30,569,24,612,24"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,42,357,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="400,43,358,48,357,43,399,37"/>
+<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,42,172,67"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,57,172,57,172,52,206,52"/>
+<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="405,66,577,91"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="612,84,577,83,577,78,612,78"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="391,70,357,65,358,60,392,64"/>
+</map>

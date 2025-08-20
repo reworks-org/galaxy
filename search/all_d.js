@@ -4,7 +4,7 @@ var searchData=
   ['new_5fframe_1',['new_frame',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ace9596eaa4daf51faafd1c66be98bb2f',1,'galaxy::ui::NuklearUI']]],
   ['nk_5fglfw_5fgl4_5fimplementation_2',['NK_GLFW_GL4_IMPLEMENTATION',['../d8/d99/NuklearUI_8cpp.html#a5d25e9845b21d43de3fe644c6b25913b',1,'NuklearUI.cpp']]],
   ['normalize_3',['normalize',['../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48',1,'galaxy::math']]],
-  ['notification_4',['notification',['../d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a68149d18f2002762f5c088eafbd85185',1,'galaxy::fs::VirtualFileSystem']]],
+  ['notification_4',['notification',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab5f8391219ad93ac4a677eecf36b3dde',1,'galaxy::VirtualFileSystem']]],
   ['notserializable_5',['NotSerializable',['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html',1,'galaxy::flags::NotSerializable'],['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#a3e609969fa1b6f10538d8cadf5306123',1,'galaxy::flags::NotSerializable::NotSerializable() noexcept=default'],['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#ab4040612670127318f39e1043d9596f9',1,'galaxy::flags::NotSerializable::NotSerializable(NotSerializable &amp;&amp;) noexcept=default'],['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#a43e6afc140a5c56a2fe9ae6561c96d9b',1,'galaxy::flags::NotSerializable::NotSerializable(const NotSerializable &amp;)=delete']]],
   ['notserializable_2ecpp_6',['NotSerializable.cpp',['../de/d62/NotSerializable_8cpp.html',1,'']]],
   ['notserializable_2ehpp_7',['NotSerializable.hpp',['../db/d58/NotSerializable_8hpp.html',1,'']]],

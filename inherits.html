@@ -115,14 +115,14 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(true); });
 <area shape="rect" href="d2/db4/classgalaxy_1_1components_1_1TileMap.html" title="Rendering data for a single level/map in a LDTK world." alt="" coords="5,5,159,45"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" usemap="#agalaxy_1_1core_1_1App" alt=""/>
-<map name="agalaxy_1_1core_1_1App" id="agalaxy_1_1core_1_1App">
-<area shape="rect" href="d5/d5a/classgalaxy_1_1core_1_1App.html" title="Base level class for any galaxy app." alt="" coords="5,5,140,31"/>
+<tr><td><img src="inherit_graph_2.png" border="0" usemap="#agalaxy_1_1Config" alt=""/>
+<map name="agalaxy_1_1Config" id="agalaxy_1_1Config">
+<area shape="rect" href="db/d49/classgalaxy_1_1Config.html" title="Allows you to read, write and manipulate JSON config files." alt="" coords="5,5,120,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" usemap="#agalaxy_1_1core_1_1Config" alt=""/>
-<map name="agalaxy_1_1core_1_1Config" id="agalaxy_1_1core_1_1Config">
-<area shape="rect" href="d6/de9/classgalaxy_1_1core_1_1Config.html" title="Allows you to read, write and manipulate JSON config files." alt="" coords="5,5,156,31"/>
+<tr><td><img src="inherit_graph_3.png" border="0" usemap="#agalaxy_1_1core_1_1App" alt=""/>
+<map name="agalaxy_1_1core_1_1App" id="agalaxy_1_1core_1_1App">
+<area shape="rect" href="d5/d5a/classgalaxy_1_1core_1_1App.html" title="Base level class for any galaxy app." alt="" coords="5,5,140,31"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_4.png" border="0" usemap="#agalaxy_1_1core_1_1Loader" alt=""/>
@@ -140,12 +140,17 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(true); });
 <area shape="rect" href="de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,5,168,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" usemap="#agalaxy_1_1flags_1_1NotSerializable" alt=""/>
+<tr><td><img src="inherit_graph_7.png" border="0" usemap="#agalaxy_1_1FileError" alt=""/>
+<map name="agalaxy_1_1FileError" id="agalaxy_1_1FileError">
+<area shape="rect" href="d5/d13/classgalaxy_1_1FileError.html" title="Stores information about a File I/O error." alt="" coords="5,5,132,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_8.png" border="0" usemap="#agalaxy_1_1flags_1_1NotSerializable" alt=""/>
 <map name="agalaxy_1_1flags_1_1NotSerializable" id="agalaxy_1_1flags_1_1NotSerializable">
 <area shape="rect" href="d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html" title="Used to stop an entity from being updated/rendered." alt="" coords="5,5,216,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" usemap="#agalaxy_1_1fs_1_1Serializable" alt=""/>
+<tr><td><img src="inherit_graph_9.png" border="0" usemap="#agalaxy_1_1fs_1_1Serializable" alt=""/>
 <map name="agalaxy_1_1fs_1_1Serializable" id="agalaxy_1_1fs_1_1Serializable">
 <area shape="rect" href="d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,479,175,505"/>
 <area shape="rect" href="da/d18/classgalaxy_1_1components_1_1Animated.html" title="Allows for an entity to be animated." alt="" coords="253,5,407,45"/>
@@ -180,11 +185,6 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(true); });
 <area shape="poly" title=" " alt="" coords="96,518,104,584,124,673,141,721,163,767,190,809,224,846,252,862,249,866,221,850,186,812,158,769,136,723,119,675,99,585,90,518"/>
 <area shape="rect" href="d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, pushing, popping, creating. Also manages entities." alt="" coords="223,910,437,935"/>
 <area shape="poly" title=" " alt="" coords="94,518,100,593,118,695,135,750,157,803,187,853,224,895,243,908,240,912,221,899,183,856,152,806,130,752,113,697,94,594,89,519"/>
-</map>
-</td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" usemap="#agalaxy_1_1fs_1_1VirtualFileSystem" alt=""/>
-<map name="agalaxy_1_1fs_1_1VirtualFileSystem" id="agalaxy_1_1fs_1_1VirtualFileSystem">
-<area shape="rect" href="d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html" title="File System to make managing files easier." alt="" coords="5,5,213,31"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_10.png" border="0" usemap="#agalaxy_1_1input_1_1CameraController" alt=""/>
@@ -340,25 +340,27 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(true); });
 <area shape="rect" href="d2/d4d/classgalaxy_1_1utils_1_1Guid.html" title="Contains a 128bit randomly generated GUID, along with helper functions." alt="" coords="5,5,144,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_37.png" border="0" usemap="#agalaxy_1_1ZLib" alt=""/>
+<tr><td><img src="inherit_graph_37.png" border="0" usemap="#agalaxy_1_1VirtualFileSystem" alt=""/>
+<map name="agalaxy_1_1VirtualFileSystem" id="agalaxy_1_1VirtualFileSystem">
+<area shape="rect" href="d8/dd5/classgalaxy_1_1VirtualFileSystem.html" title="File System to make managing files easier." alt="" coords="5,5,193,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_38.png" border="0" usemap="#agalaxy_1_1ZLib" alt=""/>
 <map name="agalaxy_1_1ZLib" id="agalaxy_1_1ZLib">
 <area shape="rect" href="df/d85/classgalaxy_1_1ZLib.html" title="Zip (de)compressor." alt="" coords="5,5,107,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_38.png" border="0" usemap="#asf_1_1InputStream" alt=""/>
-<map name="asf_1_1InputStream" id="asf_1_1InputStream">
-<area shape="rect" title=" " alt="" coords="5,5,127,31"/>
-<area shape="rect" href="d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html" title="Custom SFML input stream using PhysFS." alt="" coords="175,5,357,31"/>
-<area shape="poly" title=" " alt="" coords="141,15,175,15,175,21,141,21"/>
-</map>
-</td></tr>
 <tr><td><img src="inherit_graph_39.png" border="0" usemap="#astd_1_1formatter" alt=""/>
 <map name="astd_1_1formatter" id="astd_1_1formatter">
-<area shape="rect" title=" " alt="" coords="5,45,117,70"/>
-<area shape="rect" href="d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html" title=" " alt="" coords="165,5,336,45"/>
-<area shape="poly" title=" " alt="" coords="131,43,165,37,166,42,131,48"/>
-<area shape="rect" href="dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html" title=" " alt="" coords="165,69,336,109"/>
-<area shape="poly" title=" " alt="" coords="131,66,166,72,165,78,131,72"/>
+<area shape="rect" title=" " alt="" coords="5,109,117,134"/>
+<area shape="rect" href="d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html" title=" " alt="" coords="165,5,336,45"/>
+<area shape="poly" title=" " alt="" coords="91,99,164,55,191,43,193,48,167,60,93,103"/>
+<area shape="rect" href="d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html" title=" " alt="" coords="165,69,336,109"/>
+<area shape="poly" title=" " alt="" coords="131,107,165,101,166,106,131,112"/>
+<area shape="rect" href="dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html" title=" " alt="" coords="165,133,336,173"/>
+<area shape="poly" title=" " alt="" coords="131,130,166,136,165,142,131,136"/>
+<area shape="rect" href="d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html" title=" " alt="" coords="175,197,326,237"/>
+<area shape="poly" title=" " alt="" coords="93,139,167,183,193,195,191,200,164,188,91,144"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_40.png" border="0" usemap="#astd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4" alt=""/>
@@ -372,7 +374,7 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Aug 15 2025 05:09:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 20 2025 08:06:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

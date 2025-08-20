@@ -1,18 +1,15 @@
 <map id="galaxy::settings::root_dir" name="galaxy::settings::root_dir">
-<area shape="rect" id="Node000001" title="Current root directory of application, unless it has been changed." alt="" coords="481,127,664,152"/>
-<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a7a52c301b358032b46f6809ba738cd9a" title="Loads the default appdata file." alt="" coords="244,5,415,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="545,120,494,82,432,46,397,33,398,28,434,41,497,77,548,115"/>
-<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#aae6c8eabf6a33d372e65c4fa71c87e14" title="Open a file dialog." alt="" coords="225,55,433,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="509,126,406,98,407,93,511,120"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a1f6f6354f0b228b58b3a3943df38d68e" title=" " alt="" coords="248,183,411,223"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="511,158,407,186,406,181,509,153"/>
-<area shape="rect" id="Node000007" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a44948c8e8b112f2bd0b1a604756644b7" title="Select a folder using a dialog." alt="" coords="225,119,433,159"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="467,142,434,142,434,137,467,137"/>
-<area shape="rect" id="Node000008" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="225,247,433,287"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="547,163,497,201,435,238,406,250,404,245,432,233,494,196,544,159"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="13,95,169,120"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="212,94,170,100,169,94,211,89"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="5,191,177,216"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="234,206,177,206,177,201,234,201"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="211,126,169,120,170,115,212,121"/>
+<area shape="rect" id="Node000001" title="Current root directory of application, unless it has been changed." alt="" coords="861,63,1044,88"/>
+<area shape="rect" id="Node000002" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#a7a52c301b358032b46f6809ba738cd9a" title="Loads the default appdata file." alt="" coords="634,5,805,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="886,62,771,33,772,28,888,57"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a1f6f6354f0b228b58b3a3943df38d68e" title=" " alt="" coords="638,55,801,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="847,78,801,78,801,73,847,73"/>
+<area shape="rect" id="Node000007" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="625,119,813,159"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="893,94,794,122,792,117,892,89"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="405,63,577,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="624,78,577,78,577,73,624,73"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,63,357,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="392,78,357,78,357,73,392,73"/>
+<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,63,172,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="206,78,172,78,172,73,206,73"/>
 </map>

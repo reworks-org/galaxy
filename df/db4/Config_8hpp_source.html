@@ -115,252 +115,209 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">namespace </span>core</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">   24</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a> final</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ac906955da5a102f9ebb052a8cb5c3f13">Config</a>() <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ac906955da5a102f9ebb052a8cb5c3f13">Config</a>(std::string_view file) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a3c2754c30c6952a8895be27dfbf84751">~Config</a>() <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a8d6d1dd5aa2d03549338d1c0139a0583">load</a>(std::string_view file);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a64468bfba46746622e82d637e8c3ffe9">save</a>();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a0c844541676e2dee2b0be4f1d6c99954">restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a0c844541676e2dee2b0be4f1d6c99954">restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a7071b98a344838c08bf71718ffbc3118">has</a>(<span class="keyword">const</span> std::string&amp; key) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a7071b98a344838c08bf71718ffbc3118">has</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">get</a>(<span class="keyword">const</span> std::string&amp; key);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">get</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae">empty</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a1a5db0fc9b5f8f1827105ac0c6161f77">raw</a>(<span class="keyword">const</span> nlohmann::json&amp; json) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            [[nodiscard]]</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keyword">const</span> nlohmann::json&amp; <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a1a5db0fc9b5f8f1827105ac0c6161f77">raw</a>() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a250760e25955ac4851152d80dbca5167">  189</a></span>            <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a250760e25955ac4851152d80dbca5167">Config</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a1c8731bf696fe2406c803525f2750c0a">  194</a></span>            <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a1c8731bf696fe2406c803525f2750c0a">Config</a>(<a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a93f018b9a4154e0f74d6824cc2a1ca96">  199</a></span>            <a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a>&amp; <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a93f018b9a4154e0f74d6824cc2a1ca96">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae53d93746660df6d78d2aa4e70355fa5">  204</a></span>            <a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a>&amp; <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae53d93746660df6d78d2aa4e70355fa5">operator=</a>(<a class="code hl_class" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">Config</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23">  210</a></span>            <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23">m_loaded</a>;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">  215</a></span>            nlohmann::json <a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">m_config</a>;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae9d237d19a8bb828aa694b0df14d8512">  220</a></span>            std::string <a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae9d237d19a8bb828aa694b0df14d8512">m_path</a>;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        };</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html">   22</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a> final</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8">Config</a>() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8">Config</a>(std::string_view file) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a4716f5bccc91a84de5daa9f10d36c845">~Config</a>() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b">load</a>(std::string_view file);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a2d27aeba46bb153367da4985d75154e7">save</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945">restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945">restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#af361c1dd482db3fb195151ae2499b597">has</a>(<span class="keyword">const</span> std::string&amp; key) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#af361c1dd482db3fb195151ae2499b597">has</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        std::optional&lt;Value&gt; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b">get</a>(<span class="keyword">const</span> std::string&amp; key);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        std::optional&lt;Value&gt; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b">get</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim = <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a983023901515bdf9686b07c9853c056c">empty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#aed66deba74b35484061b889c06db04ea">raw</a>(<span class="keyword">const</span> nlohmann::json&amp; json) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keyword">const</span> nlohmann::json&amp; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#aed66deba74b35484061b889c06db04ea">raw</a>() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a6c28c31b357ffb03e18ba81157b20d1c">  187</a></span>        <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a6c28c31b357ffb03e18ba81157b20d1c">Config</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a22f2fb7ca7999bcc5c230c77fda41787">  192</a></span>        <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a22f2fb7ca7999bcc5c230c77fda41787">Config</a>(<a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#af764a21579e18690157ae4c66416d630">  197</a></span>        <a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a>&amp; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#af764a21579e18690157ae4c66416d630">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a6f3f2626c95bde8deb77d9bc723289cf">  202</a></span>        <a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a>&amp; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a6f3f2626c95bde8deb77d9bc723289cf">operator=</a>(<a class="code hl_class" href="../../db/d49/classgalaxy_1_1Config.html">Config</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">  208</a></span>        nlohmann::json <a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">m_config</a>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#aabb4be74348fee1b3663ac1edade4dd9">  213</a></span>        std::string <a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#aabb4be74348fee1b3663ac1edade4dd9">m_path</a>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    };</div>
 </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="foldopen" id="foldopen00224" data-start="{" data-end="}">
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">  224</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">Config::set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        {</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            <span class="keywordflow">if</span> (m_loaded)</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                m_config[<span class="stringliteral">&quot;config&quot;</span>][key] = value;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Attempted to set value of an unloaded config file.&quot;</span>);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            }</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">  217</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">Config::set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        m_config[key] = value;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
 </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a4fb4ce2d77d558a751f8b0c407b6196c">  237</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">Config::set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        {</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23">m_loaded</a>)</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            {</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                <span class="keyword">const</span> <span class="keyword">auto</span> sections = strutils::split(section, delim);</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                <span class="keywordflow">if</span> (sections.empty())</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                {</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                    <span class="comment">// Single section.</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                    <a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">m_config</a>[<span class="stringliteral">&quot;config&quot;</span>][section][key] = value;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                }</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                {</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                    <span class="comment">// Multiple sections.</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                    nlohmann::json* leaf = &amp;<a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">m_config</a>[<span class="stringliteral">&quot;config&quot;</span>];</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sec : sections)</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                    {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                        <span class="keywordflow">if</span> (!leaf-&gt;contains(sec))</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                        {</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                            (*leaf)[sec] = nlohmann::json::object();</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                        }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="foldopen" id="foldopen00223" data-start="{" data-end="}">
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a5718bbf3837f08d5023818d5e01e4a99">  223</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">Config::set</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sections = <a class="code hl_function" href="../../df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572">str::split</a>(section, delim);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">if</span> (sections.empty())</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="comment">// Single section.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">m_config</a>[section][key] = value;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="comment">// Multiple sections.</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            nlohmann::json* leaf = &amp;<a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">m_config</a>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sec : sections)</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                <span class="keywordflow">if</span> (!leaf-&gt;contains(sec))</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                    (*leaf)[sec] = nlohmann::json::object();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                leaf = &amp;leaf-&gt;at(sec);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            (*leaf)[key] = value;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945">  250</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945">Config::restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">if</span> (!has(key))</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            set(key, value);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        }</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
+</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                        leaf = &amp;leaf-&gt;at(sec);</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                    }</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                    (*leaf)[key] = value;</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                }</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            }</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Attempted to set value of an unloaded config file.&quot;</span>);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            }</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b">  259</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945">Config::restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#af361c1dd482db3fb195151ae2499b597">has</a>(key, section, delim))</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        {</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">set</a>(key, value, section, delim);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        }</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    }</div>
 </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a0c844541676e2dee2b0be4f1d6c99954">  271</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a0c844541676e2dee2b0be4f1d6c99954">Config::restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        {</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keywordflow">if</span> (!has(key))</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            {</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                set(key, value);</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b">  268</a></span>    <span class="keyword">inline</span> std::optional&lt;Value&gt; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b">Config::get</a>(<span class="keyword">const</span> std::string&amp; key)</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; section = <a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">m_config</a>;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keywordflow">if</span> (section.contains(key))</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            <span class="keywordflow">return</span> section[key].get&lt;Value&gt;();</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
 </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="foldopen" id="foldopen00280" data-start="{" data-end="}">
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d">  280</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a0c844541676e2dee2b0be4f1d6c99954">Config::restore</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> Value&amp; value, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        {</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a7071b98a344838c08bf71718ffbc3118">has</a>(key, section, delim))</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            {</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">set</a>(key, value, section, delim);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
+<div class="foldopen" id="foldopen00281" data-start="{" data-end="}">
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="../../db/d49/classgalaxy_1_1Config.html#a46be7b5a1ab10c9e95163da42b3e23e3">  281</a></span>    <span class="keyword">inline</span> std::optional&lt;Value&gt; <a class="code hl_function" href="../../db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b">Config::get</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sections = <a class="code hl_function" href="../../df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572">str::split</a>(section, delim);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keywordflow">if</span> (sections.empty())</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            <span class="comment">// Single section.</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; root = <a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">m_config</a>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            <span class="keywordflow">if</span> (root.contains(section))</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; obj = root[section];</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>                <span class="keywordflow">if</span> (obj.contains(key))</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                {</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                    <span class="keywordflow">return</span> obj[key].get&lt;Value&gt;();</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                }</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            }</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        }</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        {</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            <span class="comment">// Multiple sections.</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            nlohmann::json* leaf = &amp;<a class="code hl_variable" href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">m_config</a>;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sec : sections)</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            {</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                <span class="keywordflow">if</span> (leaf-&gt;contains(sec))</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                {</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                    leaf = &amp;leaf-&gt;at(sec);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                }</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            }</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            <span class="keywordflow">if</span> (leaf-&gt;contains(key))</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            {</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>                <span class="keywordflow">return</span> (*leaf)[key].get&lt;Value&gt;();</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        }</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    }</div>
 </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">  289</a></span>        <span class="keyword">inline</span> Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">Config::get</a>(<span class="keyword">const</span> std::string&amp; key)</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        {</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23">m_loaded</a>)</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            {</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; section = <a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">m_config</a>[<span class="stringliteral">&quot;config&quot;</span>];</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                <span class="keywordflow">if</span> (section.contains(key))</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                {</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                    <span class="keywordflow">return</span> section[key].get&lt;Value&gt;();</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                }</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            }</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Attempted to get value of an unloaded config file.&quot;</span>);</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            }</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Failed to retrieve &#39;{0}&#39; from config.&quot;</span>, key);</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            <span class="keywordflow">return</span> Value {};</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        }</div>
-</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <span class="keyword">template</span>&lt;meta::standard_type Value&gt;</div>
-<div class="foldopen" id="foldopen00311" data-start="{" data-end="}">
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#aa4677cef788381727a4c2e904134ff9d">  311</a></span>        <span class="keyword">inline</span> Value <a class="code hl_function" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">Config::get</a>(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; section, <span class="keyword">const</span> std::string&amp; delim)</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        {</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23">m_loaded</a>)</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            {</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>                <span class="keyword">const</span> <span class="keyword">auto</span> sections = strutils::split(section, delim);</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>                <span class="keywordflow">if</span> (sections.empty())</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>                {</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>                    <span class="comment">// Single section.</span></div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>                    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; root = <a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">m_config</a>[<span class="stringliteral">&quot;config&quot;</span>];</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>                    <span class="keywordflow">if</span> (root.contains(section))</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>                    {</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>                        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; obj = root[section];</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>                        <span class="keywordflow">if</span> (obj.contains(key))</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>                        {</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>                            <span class="keywordflow">return</span> obj[key].get&lt;Value&gt;();</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>                        }</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                    }</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Failed to retrieve &#39;{0}&#39; from config.&quot;</span>, key);</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>                    <span class="keywordflow">return</span> Value {};</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                }</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>                {</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                    <span class="comment">// Multiple sections.</span></div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>                    nlohmann::json* leaf = &amp;<a class="code hl_variable" href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">m_config</a>[<span class="stringliteral">&quot;config&quot;</span>];</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>                    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sec : sections)</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>                    {</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>                        <span class="keywordflow">if</span> (leaf-&gt;contains(sec))</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>                        {</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>                            leaf = &amp;leaf-&gt;at(sec);</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>                        }</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>                    }</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>                    <span class="keywordflow">if</span> (leaf-&gt;contains(key))</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>                    {</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>                        <span class="keywordflow">return</span> (*leaf)[key].get&lt;Value&gt;();</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>                    }</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Failed to retrieve &#39;{0}&#39; from config.&quot;</span>, key);</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>                    <span class="keywordflow">return</span> Value {};</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>                }</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>            }</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            {</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Attempted to get value of an unloaded config file.&quot;</span>);</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>            }</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Failed to retrieve &#39;{0}&#39; from config.&quot;</span>, key);</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>            <span class="keywordflow">return</span> Value {};</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        }</div>
-</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    } <span class="comment">// namespace core</span></div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
 <div class="ttc" id="aStringUtils_8hpp_html"><div class="ttname"><a href="../../d1/d44/StringUtils_8hpp.html">StringUtils.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html">galaxy::core::Config</a></div><div class="ttdoc">Allows you to read, write and manipulate JSON config files.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Config.hpp:25</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a00df181519aa3dee2434545d32b484aa"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a00df181519aa3dee2434545d32b484aa">galaxy::core::Config::m_config</a></div><div class="ttdeci">nlohmann::json m_config</div><div class="ttdoc">Config file as JSON.</div><div class="ttdef"><b>Definition</b> <a href="#l00215">Config.hpp:215</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a07b2d9ab165218ec42f616dffeba1af2"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a07b2d9ab165218ec42f616dffeba1af2">galaxy::core::Config::get</a></div><div class="ttdeci">Value get(const std::string &amp;key)</div><div class="ttdoc">Retrieve a root config value.</div><div class="ttdef"><b>Definition</b> <a href="#l00289">Config.hpp:289</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a0c844541676e2dee2b0be4f1d6c99954"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a0c844541676e2dee2b0be4f1d6c99954">galaxy::core::Config::restore</a></div><div class="ttdeci">void restore(const std::string &amp;key, const Value &amp;value) noexcept</div><div class="ttdoc">Sets a new setting, only if key or value is missing.</div><div class="ttdef"><b>Definition</b> <a href="#l00271">Config.hpp:271</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a1a5db0fc9b5f8f1827105ac0c6161f77"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a1a5db0fc9b5f8f1827105ac0c6161f77">galaxy::core::Config::raw</a></div><div class="ttdeci">const nlohmann::json &amp; raw() const noexcept</div><div class="ttdoc">Get raw json object.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00160">Config.cpp:160</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a1c8731bf696fe2406c803525f2750c0a"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a1c8731bf696fe2406c803525f2750c0a">galaxy::core::Config::Config</a></div><div class="ttdeci">Config(Config &amp;&amp;)=delete</div><div class="ttdoc">Move constructor.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a250760e25955ac4851152d80dbca5167"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a250760e25955ac4851152d80dbca5167">galaxy::core::Config::Config</a></div><div class="ttdeci">Config(const Config &amp;)=delete</div><div class="ttdoc">Copy constructor.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a3c2754c30c6952a8895be27dfbf84751"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a3c2754c30c6952a8895be27dfbf84751">galaxy::core::Config::~Config</a></div><div class="ttdeci">~Config() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00030">Config.cpp:30</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a5fd6e25aec581ea6e9a17de610fdecae"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a5fd6e25aec581ea6e9a17de610fdecae">galaxy::core::Config::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Is the config file blank.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00144">Config.cpp:144</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a64468bfba46746622e82d637e8c3ffe9"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a64468bfba46746622e82d637e8c3ffe9">galaxy::core::Config::save</a></div><div class="ttdeci">void save()</div><div class="ttdoc">Save the config file. Must be opened first.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00075">Config.cpp:75</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a7071b98a344838c08bf71718ffbc3118"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a7071b98a344838c08bf71718ffbc3118">galaxy::core::Config::has</a></div><div class="ttdeci">bool has(const std::string &amp;key) noexcept</div><div class="ttdoc">Check if the config file actually has a value.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00098">Config.cpp:98</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a8d6d1dd5aa2d03549338d1c0139a0583"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a8d6d1dd5aa2d03549338d1c0139a0583">galaxy::core::Config::load</a></div><div class="ttdeci">void load(std::string_view file)</div><div class="ttdoc">Checks if config exists and flags if a config needs to be created.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00036">Config.cpp:36</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a93f018b9a4154e0f74d6824cc2a1ca96"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a93f018b9a4154e0f74d6824cc2a1ca96">galaxy::core::Config::operator=</a></div><div class="ttdeci">Config &amp; operator=(const Config &amp;)=delete</div><div class="ttdoc">Copy assignment operator.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_a9e625f055024c5d210dd2416f785e2e4"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#a9e625f055024c5d210dd2416f785e2e4">galaxy::core::Config::set</a></div><div class="ttdeci">void set(const std::string &amp;key, const Value &amp;value) noexcept</div><div class="ttdoc">Set a new key-value pair for the config.</div><div class="ttdef"><b>Definition</b> <a href="#l00224">Config.hpp:224</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_ac906955da5a102f9ebb052a8cb5c3f13"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ac906955da5a102f9ebb052a8cb5c3f13">galaxy::core::Config::Config</a></div><div class="ttdeci">Config() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00016">Config.cpp:16</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_ae05a962ca07a73f326b51fafc9684b23"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae05a962ca07a73f326b51fafc9684b23">galaxy::core::Config::m_loaded</a></div><div class="ttdeci">bool m_loaded</div><div class="ttdoc">Config loaded flag.</div><div class="ttdef"><b>Definition</b> <a href="#l00210">Config.hpp:210</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_ae53d93746660df6d78d2aa4e70355fa5"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae53d93746660df6d78d2aa4e70355fa5">galaxy::core::Config::operator=</a></div><div class="ttdeci">Config &amp; operator=(Config &amp;&amp;)=delete</div><div class="ttdoc">Move assignment operator.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Config_html_ae9d237d19a8bb828aa694b0df14d8512"><div class="ttname"><a href="../../d6/de9/classgalaxy_1_1core_1_1Config.html#ae9d237d19a8bb828aa694b0df14d8512">galaxy::core::Config::m_path</a></div><div class="ttdeci">std::string m_path</div><div class="ttdoc">Filepath.</div><div class="ttdef"><b>Definition</b> <a href="#l00220">Config.hpp:220</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html">galaxy::Config</a></div><div class="ttdoc">Allows you to read, write and manipulate JSON config files.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">Config.hpp:23</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a07c3fbca13a1cb6da48aa0acfdf5d5e8"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8">galaxy::Config::Config</a></div><div class="ttdeci">Config() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00014">Config.cpp:14</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a22f2fb7ca7999bcc5c230c77fda41787"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a22f2fb7ca7999bcc5c230c77fda41787">galaxy::Config::Config</a></div><div class="ttdeci">Config(Config &amp;&amp;)=delete</div><div class="ttdoc">Move constructor.</div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a2d27aeba46bb153367da4985d75154e7"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a2d27aeba46bb153367da4985d75154e7">galaxy::Config::save</a></div><div class="ttdeci">void save()</div><div class="ttdoc">Save the config file. Must be opened first.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00059">Config.cpp:59</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a373e4b1f5c0f44dde560f73909d85a3b"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b">galaxy::Config::load</a></div><div class="ttdeci">void load(std::string_view file)</div><div class="ttdoc">Loads config json from disk.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00030">Config.cpp:30</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a4716f5bccc91a84de5daa9f10d36c845"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a4716f5bccc91a84de5daa9f10d36c845">galaxy::Config::~Config</a></div><div class="ttdeci">~Config() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00025">Config.cpp:25</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a516d635c5d39e6041bcb99a13ad10d0b"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b">galaxy::Config::get</a></div><div class="ttdeci">std::optional&lt; Value &gt; get(const std::string &amp;key)</div><div class="ttdoc">Retrieve a root config value.</div><div class="ttdef"><b>Definition</b> <a href="#l00268">Config.hpp:268</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a68d5ddcb6584df19fdf3e9dadf71f462"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a68d5ddcb6584df19fdf3e9dadf71f462">galaxy::Config::m_config</a></div><div class="ttdeci">nlohmann::json m_config</div><div class="ttdoc">Config file as JSON.</div><div class="ttdef"><b>Definition</b> <a href="#l00208">Config.hpp:208</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a6c28c31b357ffb03e18ba81157b20d1c"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a6c28c31b357ffb03e18ba81157b20d1c">galaxy::Config::Config</a></div><div class="ttdeci">Config(const Config &amp;)=delete</div><div class="ttdoc">Copy constructor.</div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a6f3f2626c95bde8deb77d9bc723289cf"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a6f3f2626c95bde8deb77d9bc723289cf">galaxy::Config::operator=</a></div><div class="ttdeci">Config &amp; operator=(Config &amp;&amp;)=delete</div><div class="ttdoc">Move assignment operator.</div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a928bde516c403fa791cf6d017da24945"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945">galaxy::Config::restore</a></div><div class="ttdeci">void restore(const std::string &amp;key, const Value &amp;value) noexcept</div><div class="ttdoc">Sets a new setting, only if key or value does not already exist.</div><div class="ttdef"><b>Definition</b> <a href="#l00250">Config.hpp:250</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_a983023901515bdf9686b07c9853c056c"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#a983023901515bdf9686b07c9853c056c">galaxy::Config::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Is the config file blank.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00106">Config.cpp:106</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_aabb4be74348fee1b3663ac1edade4dd9"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#aabb4be74348fee1b3663ac1edade4dd9">galaxy::Config::m_path</a></div><div class="ttdeci">std::string m_path</div><div class="ttdoc">Filepath.</div><div class="ttdef"><b>Definition</b> <a href="#l00213">Config.hpp:213</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_adf81f41178b29991ae5e049fb97aca87"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87">galaxy::Config::set</a></div><div class="ttdeci">void set(const std::string &amp;key, const Value &amp;value) noexcept</div><div class="ttdoc">Set a new key-value pair for the config.</div><div class="ttdef"><b>Definition</b> <a href="#l00217">Config.hpp:217</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_aed66deba74b35484061b889c06db04ea"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#aed66deba74b35484061b889c06db04ea">galaxy::Config::raw</a></div><div class="ttdeci">const nlohmann::json &amp; raw() const noexcept</div><div class="ttdoc">Get raw json object.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00116">Config.cpp:116</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_af361c1dd482db3fb195151ae2499b597"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#af361c1dd482db3fb195151ae2499b597">galaxy::Config::has</a></div><div class="ttdeci">bool has(const std::string &amp;key) noexcept</div><div class="ttdoc">Check if the config file actually has a value.</div><div class="ttdef"><b>Definition</b> <a href="../../de/da7/Config_8cpp_source.html#l00068">Config.cpp:68</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Config_html_af764a21579e18690157ae4c66416d630"><div class="ttname"><a href="../../db/d49/classgalaxy_1_1Config.html#af764a21579e18690157ae4c66416d630">galaxy::Config::operator=</a></div><div class="ttdeci">Config &amp; operator=(const Config &amp;)=delete</div><div class="ttdoc">Copy assignment operator.</div></div>
+<div class="ttc" id="anamespacegalaxy_1_1str_html_a7f59cc153df4977d094f04b5f0584572"><div class="ttname"><a href="../../df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572">galaxy::str::split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; split(std::string_view input, std::string_view delim) noexcept</div><div class="ttdoc">Split a string based on a delimiter.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d44/StringUtils_8cpp_source.html#l00017">StringUtils.cpp:17</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -368,7 +325,7 @@ $(function(){initNavTree('df/db4/Config_8hpp_source.html','../../'); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_2fca6cf9c244716c7cc7db0f05b66bc2.html">core</a></li><li class="navelem"><a class="el" href="../../df/db4/Config_8hpp.html">Config.hpp</a></li>
-    <li class="footer">Generated on Fri Aug 15 2025 05:09:18 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Aug 20 2025 08:06:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

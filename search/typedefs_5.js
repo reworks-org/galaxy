@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['optional_5fref_0',['optional_ref',['../dd/d0d/namespacegalaxy_1_1mem.html#a05847280c7c3ecfc6dabb9c1b9ab0028',1,'galaxy::mem']]]
+  ['opt_5fref_0',['opt_ref',['../dd/d0d/namespacegalaxy_1_1mem.html#a88726f6aa5b0886038d8174591afedb9',1,'galaxy::mem']]]
 ];

@@ -1,0 +1,13 @@
+<map id="galaxy/src/galaxy/fs/FileUtils.hpp" name="galaxy/src/galaxy/fs/FileUtils.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="73,5,226,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,88,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,48,74,87,71,83,123,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="112,93,187,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,46,152,79,147,79,147,46"/>
+<area shape="rect" id="Node000004" href="$d8/db6/FileError_8hpp.html" title=" " alt="" coords="211,93,378,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,43,263,84,260,89,183,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="197,167,288,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="288,121,261,157,257,154,284,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="312,167,379,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="305,117,331,154,327,157,301,121"/>
+</map>

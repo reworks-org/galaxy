@@ -1,5 +1,0 @@
-<map id="galaxy::settings::dt" name="galaxy::settings::dt">
-<area shape="rect" id="Node000001" title="Get galaxy delta time." alt="" coords="225,5,372,31"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="5,5,177,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,21,177,21,177,15,212,15"/>
-</map>

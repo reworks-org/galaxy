@@ -8,6 +8,7 @@ var namespacegalaxy_1_1lua =
     [ "inject_core", "de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102", null ],
     [ "inject_entt", "de/d12/namespacegalaxy_1_1lua.html#a4816504ffd60d669ef3a2a9a4faface6", null ],
     [ "inject_flags", "de/d12/namespacegalaxy_1_1lua.html#a85ff14314c4b58d8fe5dd8071c48e690", null ],
+    [ "fileutils_read_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a92f7ad2d1294082ebec9047d6b50ad64", null ],
     [ "inject_fs", "de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8", null ],
     [ "inject_input", "de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7", null ],
     [ "log_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a585ce7a820af7f2a1c5b34a4bfd63ce7", null ],

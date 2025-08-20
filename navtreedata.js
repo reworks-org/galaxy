@@ -53,7 +53,6 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -63,15 +62,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/db3/structgalaxy_1_1settings.html#a9c7f6ad3fb4b8a1da42c759f67d3233b",
-"d3/dd9/namespacegalaxy_1_1ui.html#a0d1e4d1b532d5dc92c036921e844b0a0",
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3939a3004a76b76d97f01dc0258c43d3",
-"d5/df3/ImGuiHelpers_8cpp.html",
-"d8/d5e/Sink_8hpp_source.html",
-"d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html#a71a447ac7c0acd9fb017a17b233ebaa8",
-"db/d40/classgalaxy_1_1components_1_1Script.html#a85e3b160cb47cd86ba313e3d38093ee3",
-"dd/dad/VideoShader_8hpp.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d",
-"df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a959ca5d0f7f9afb8b614e1c8e02f1f83"
+"d2/d01/LuaCore_8cpp.html#a2d3a3d9bb05e911106d8815404ed46d2",
+"d4/d0e/classgalaxy_1_1components_1_1Point.html",
+"d4/de5/Base64_8cpp_source.html",
+"d6/d4f/Registry_8cpp.html",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169",
+"da/d64/classgalaxy_1_1resource_1_1Cache.html",
+"db/db0/classgalaxy_1_1meta_1_1SystemFactory.html",
+"de/d03/TileMap_8hpp.html",
+"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a836982800491e8b41f7afa59c036cabd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

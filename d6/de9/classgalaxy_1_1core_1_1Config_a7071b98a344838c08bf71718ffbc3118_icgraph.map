@@ -1,7 +1,0 @@
-<map id="galaxy::core::Config::has" name="galaxy::core::Config::has">
-<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="225,35,407,60"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="5,5,177,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,36,177,32,178,27,212,31"/>
-<area shape="rect" id="Node000003" href="$d6/de9/classgalaxy_1_1core_1_1Config.html#a706e94d5b554741b27c0331f4de21e8d" title="Sets a new setting, only if key or value is missing." alt="" coords="16,55,167,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,63,167,69,167,63,211,58"/>
-</map>

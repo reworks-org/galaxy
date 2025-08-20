@@ -1,7 +1,0 @@
-<map id="galaxy::fs::VirtualFileSystem::mkdir" name="galaxy::fs::VirtualFileSystem::mkdir">
-<area shape="rect" id="Node000001" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="261,27,469,67"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="31,5,187,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,37,187,30,188,24,248,31"/>
-<area shape="rect" id="Node000003" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a8d45cbb5bfb52b2fc1a3b6435ed3741c" title="Constructor." alt="" coords="5,55,213,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="248,63,214,67,213,61,248,58"/>
-</map>

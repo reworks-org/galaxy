@@ -15,21 +15,6 @@ var searchData=
   ['s_5fassets_5fvideo_12',['s_assets_video',['../d1/db3/structgalaxy_1_1settings.html#aaf1ee68ab46f923a7a6b2bc228f63491',1,'galaxy::settings']]],
   ['s_5fassets_5fvoice_13',['s_assets_voice',['../d1/db3/structgalaxy_1_1settings.html#a4a2f2c471d5540b5915f044e9086e43e',1,'galaxy::settings']]],
   ['s_5fchars_14',['s_chars',['../dd/dc0/Guid_8cpp.html#a57fd49033bf363cbc1ec9a8bf3704268',1,'Guid.cpp']]],
-  ['s_5fcursor_5fgrabbed_15',['s_cursor_grabbed',['../d1/db3/structgalaxy_1_1settings.html#a95ca67e74204b66480995a14b4c1ac2c',1,'galaxy::settings']]],
-  ['s_5fcursor_5fhotspot_16',['s_cursor_hotspot',['../d1/db3/structgalaxy_1_1settings.html#a31051ddcd0c0d8f8e347973a3fcc4cd4',1,'galaxy::settings']]],
-  ['s_5fcursor_5ficon_17',['s_cursor_icon',['../d1/db3/structgalaxy_1_1settings.html#a1ca28cc52232b929fa36db4609b8d4c5',1,'galaxy::settings']]],
-  ['s_5fcursor_5ficon_5fsize_18',['s_cursor_icon_size',['../d1/db3/structgalaxy_1_1settings.html#ae8677dd7ae1af5bb74353bb4e9a46ca8',1,'galaxy::settings']]],
-  ['s_5fcursor_5fvisible_19',['s_cursor_visible',['../d1/db3/structgalaxy_1_1settings.html#ab9eee44f41ff0499cf108581f0443a2d',1,'galaxy::settings']]],
-  ['s_5fdelta_5ftime_20',['s_delta_time',['../d1/db3/structgalaxy_1_1settings.html#a53b8c3a51b8a431060e5d753685518d2',1,'galaxy::settings']]],
-  ['s_5feditor_5fdir_21',['s_editor_dir',['../d1/db3/structgalaxy_1_1settings.html#a4fb27f6b6fb6181a293eb2e99a2391cf',1,'galaxy::settings']]],
-  ['s_5ffullscreen_22',['s_fullscreen',['../d1/db3/structgalaxy_1_1settings.html#a204128c9c31be0d8e9da3bd8b1982732',1,'galaxy::settings']]],
-  ['s_5ficon_23',['s_icon',['../d1/db3/structgalaxy_1_1settings.html#a1fa8976281ac4ec45dc7680a67d859aa',1,'galaxy::settings']]],
-  ['s_5fkey_5frepeat_24',['s_key_repeat',['../d1/db3/structgalaxy_1_1settings.html#abf2e8d86691a1822b6a007f0894bc668',1,'galaxy::settings']]],
-  ['s_5fmsaa_25',['s_msaa',['../d1/db3/structgalaxy_1_1settings.html#ac5a135ce286ee8316f52833f76e29b9f',1,'galaxy::settings']]],
-  ['s_5ftitle_26',['s_title',['../d1/db3/structgalaxy_1_1settings.html#a0efd67bffecb280e202424f140f0b5d1',1,'galaxy::settings']]],
-  ['s_5fups_27',['s_ups',['../d1/db3/structgalaxy_1_1settings.html#a5ecc4afd586ac80e4de2b0c3f4d8d77b',1,'galaxy::settings']]],
-  ['s_5fuse_5floose_5fassets_28',['s_use_loose_assets',['../d1/db3/structgalaxy_1_1settings.html#a20c4e7455028bc50ffde4f3465cdbaac',1,'galaxy::settings']]],
-  ['s_5fvsync_29',['s_vsync',['../d1/db3/structgalaxy_1_1settings.html#ac8cde56172b47a97e2eb025753bb620d',1,'galaxy::settings']]],
-  ['s_5fwindow_5fheight_30',['s_window_height',['../d1/db3/structgalaxy_1_1settings.html#a62c86cdc61115e7c2baa39baec7397cb',1,'galaxy::settings']]],
-  ['s_5fwindow_5fwidth_31',['s_window_width',['../d1/db3/structgalaxy_1_1settings.html#a56ef99573e06b863b6faf90587418fba',1,'galaxy::settings']]]
+  ['s_5feditor_5fdir_15',['s_editor_dir',['../d1/db3/structgalaxy_1_1settings.html#a4fb27f6b6fb6181a293eb2e99a2391cf',1,'galaxy::settings']]],
+  ['s_5fuse_5floose_5fassets_16',['s_use_loose_assets',['../d1/db3/structgalaxy_1_1settings.html#a20c4e7455028bc50ffde4f3465cdbaac',1,'galaxy::settings']]]
 ];

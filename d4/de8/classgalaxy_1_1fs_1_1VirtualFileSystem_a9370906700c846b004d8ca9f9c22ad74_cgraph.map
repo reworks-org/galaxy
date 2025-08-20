@@ -1,5 +1,0 @@
-<map id="galaxy::fs::VirtualFileSystem::write_binary" name="galaxy::fs::VirtualFileSystem::write_binary">
-<area shape="rect" id="Node000001" title="Writes a binary file to disk." alt="" coords="5,5,213,45"/>
-<area shape="rect" id="Node000002" href="$d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html#a276110547622b2aef0ebc1abc2a7f80c" title="Raw data writing." alt="" coords="261,5,469,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,23,248,23,248,28,213,28"/>
-</map>

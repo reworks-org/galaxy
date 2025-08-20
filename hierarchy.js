@@ -3,20 +3,20 @@ var hierarchy =
     [ "galaxy::core::App", "d5/d5a/classgalaxy_1_1core_1_1App.html", null ],
     [ "galaxy::resource::Cache< Resource, Loader >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
     [ "galaxy::input::CameraController", "d0/d15/classgalaxy_1_1input_1_1CameraController.html", null ],
-    [ "galaxy::core::Config", "d6/de9/classgalaxy_1_1core_1_1Config.html", null ],
+    [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
     [ "galaxy::meta::EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", null ],
+    [ "galaxy::FileError", "d5/d13/classgalaxy_1_1FileError.html", null ],
     [ "galaxy::math::fnv_1a_params< bits >", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
     [ "galaxy::math::fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", null ],
     [ "galaxy::math::fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", null ],
     [ "std::formatter", null, [
+      [ "std::formatter< galaxy::FileError >", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html", null ],
       [ "std::formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", null ],
-      [ "std::formatter< galaxy::LogMessage >", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", null ]
+      [ "std::formatter< galaxy::LogMessage >", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", null ],
+      [ "std::formatter< std::filesystem::path >", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html", null ]
     ] ],
     [ "galaxy::utils::Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", null ],
     [ "std::hash< galaxy::utils::Guid >", "d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html", null ],
-    [ "sf::InputStream", null, [
-      [ "galaxy::fs::PhysfsStream", "d9/de1/classgalaxy_1_1fs_1_1PhysfsStream.html", null ]
-    ] ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::resource::Loader< Resource >", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", null ],
     [ "galaxy::resource::Loader< media::Sound >", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", [
@@ -72,7 +72,7 @@ var hierarchy =
     [ "galaxy::meta::SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", null ],
     [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],
     [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
-    [ "galaxy::fs::VirtualFileSystem", "d4/de8/classgalaxy_1_1fs_1_1VirtualFileSystem.html", null ],
+    [ "galaxy::VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", null ],
     [ "galaxy::map::World", "d9/d75/classgalaxy_1_1map_1_1World.html", null ],
     [ "galaxy::ZLib", "df/d85/classgalaxy_1_1ZLib.html", null ]
 ];
