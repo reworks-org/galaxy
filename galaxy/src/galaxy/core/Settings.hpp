@@ -8,9 +8,7 @@
 #ifndef GALAXY_CORE_SETTINGS_HPP_
 #define GALAXY_CORE_SETTINGS_HPP_
 
-#include <SFML/System/Vector2.hpp>
-
-#include "galaxy/core/Config.hpp"
+#include <filesystem>
 
 namespace galaxy
 {
@@ -23,18 +21,14 @@ namespace galaxy
 		///
 		/// Restore all config settings to default.
 		///
-		/// \param dt Config option to restore defaults to.
-		///
-		static auto set_config_to_default(core::Config& config) -> void;
+		static auto set_config_to_default() -> void;
 
 		///
 		/// Set all our settings using the provided config file.
 		///
-		/// \param dt Config option to set settings from.
-		///
-		static auto set_settings_from_config(core::Config& config) -> void;
+		static auto set_settings_from_config() -> void;
 
-		///
+		/*///
 		/// Set galaxy delta time.
 		///
 		/// \param dt Time lag from game loop.
@@ -66,6 +60,18 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		static auto window_height() noexcept -> int;
+
+		///
+		/// Resolution independent view width.
+		///
+		[[nodiscard]]
+		static auto view_width() noexcept -> int;
+
+		///
+		/// Resolution independent view height.
+		///
+		[[nodiscard]]
+		static auto view_height() noexcept -> int;
 
 		///
 		/// Window title.
@@ -131,7 +137,7 @@ namespace galaxy
 		/// Cursor selector point (hotspot).
 		///
 		[[nodiscard]]
-		static auto cursor_hotspot() noexcept -> const sf::Vector2u&;
+		static auto cursor_hotspot() noexcept -> const sf::Vector2u&;*/
 
 		///
 		/// Current root directory of application, unless it has been changed.
@@ -236,12 +242,14 @@ namespace galaxy
 		static auto assets_dir_ui() noexcept -> const std::string&;
 
 	private:
-		inline static double s_delta_time;
+		/*inline static double s_delta_time;
 
 		inline static double s_ups;
 
 		inline static int         s_window_width;
 		inline static int         s_window_height;
+		inline static int         s_view_width;
+		inline static int         s_view_height;
 		inline static std::string s_title;
 		inline static std::string s_icon;
 		inline static bool        s_fullscreen;
@@ -253,7 +261,7 @@ namespace galaxy
 		inline static bool         s_cursor_grabbed;
 		inline static std::string  s_cursor_icon;
 		inline static sf::Vector2u s_cursor_icon_size;
-		inline static sf::Vector2u s_cursor_hotspot;
+		inline static sf::Vector2u s_cursor_hotspot;*/
 
 		inline static std::filesystem::path s_assets_dir;
 		inline static std::filesystem::path s_editor_dir;
@@ -273,28 +281,6 @@ namespace galaxy
 		inline static std::string           s_assets_ui;
 	};
 } // namespace galaxy
-
-///
-/// ZLib inflate/deflate chunk size.
-///
-#define GALAXY_ZLIB_COMPLETE_CHUNK 16384
-
-///
-/// Prevents compiler warnings when applied to unused parameters.
-///
-#define GALAXY_UNUSED(var) ((void)(var))
-
-#if defined(_DEBUG) || defined(DEBUG)
-///
-/// Define a constexpr compatible debug macro.
-///
-#define GALAXY_DEBUG_BUILD true
-#elif defined(_NDEBUG) || defined(NDEBUG)
-///
-/// Define a constexpr compatible debug macro.
-///
-#define GALAXY_DEBUG_BUILD false
-#endif
 
 /*
 // config.restore<int>("flag_bitset_count", 8, "misc");

@@ -15,7 +15,7 @@ namespace galaxy
 		///
 		/// Type of dialog box for use with tinyfd.
 		///
-		enum class DialogType
+		enum class DialogType : int
 		{
 			ok,
 			okcancel,

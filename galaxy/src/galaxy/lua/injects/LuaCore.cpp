@@ -9,12 +9,13 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Settings.hpp"
 
 namespace galaxy
 {
 	namespace lua
 	{
-		/*std::string root_path_wrapper() noexcept
+		std::string root_path_wrapper() noexcept
 		{
 			return settings::root_dir().string();
 		}
@@ -27,7 +28,7 @@ namespace galaxy
 		std::string editor_path_wrapper() noexcept
 		{
 			return settings::editor_dir().string();
-		}*/
+		}
 
 		/*void load_config_wrapper()
 		{
@@ -92,7 +93,7 @@ namespace galaxy
 			lua.set_function("settings_cursor_grabbed", &settings::cursor_grabbed);
 			lua.set_function("settings_cursor_icon", &settings::cursor_icon);
 			lua.set_function("settings_cursor_icon_size", &settings::cursor_icon_size);
-			lua.set_function("settings_cursor_hotspot", &settings::cursor_hotspot);
+			lua.set_function("settings_cursor_hotspot", &settings::cursor_hotspot);*/
 			lua.set_function("settings_root_dir", &root_path_wrapper);
 			lua.set_function("settings_assets_dir", &assets_path_wrapper);
 			lua.set_function("settings_editor_dir", &editor_path_wrapper);
@@ -109,7 +110,7 @@ namespace galaxy
 			lua.set_function("settings_assets_dir_prefabs", &settings::assets_dir_prefabs);
 			lua.set_function("settings_assets_dir_maps", &settings::assets_dir_maps);
 			lua.set_function("settings_assets_dir_video", &settings::assets_dir_video);
-			lua.set_function("settings_assets_dir_ui", &settings::assets_dir_ui);*/
+			lua.set_function("settings_assets_dir_ui", &settings::assets_dir_ui);
 
 			/*auto registry_type                  = lua.new_usertype<Registry>("Registry", sol::constructors<Registry()>());
 			registry_type["clear"]              = &Registry::clear;

@@ -12,7 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\core\Settings.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
     <ClCompile Include="src\galaxy\fs\FileError.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
     <ClCompile Include="src\galaxy\logging\FileSink.cpp" />
     <ClCompile Include="src\galaxy\logging\Log.cpp" />
@@ -49,7 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\core\Settings.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
     <ClInclude Include="src\galaxy\fs\FileError.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
     <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
     <ClInclude Include="src\galaxy\logging\Log.hpp" />

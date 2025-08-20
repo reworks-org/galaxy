@@ -5,5 +5,6 @@ laptop test
 filerror tests
 fileutils tests
 config load/save
+vfs tests
 
 https://wiki.libsdl.org/SDL3/APIByCategory

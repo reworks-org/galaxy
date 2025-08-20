@@ -5,16 +5,30 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
+
+#include "galaxy/core/Config.hpp"
+#include "galaxy/platform/Pragma.hpp"
+
 #include "Settings.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26860)
+#endif
 
 namespace galaxy
 {
-	auto settings::set_config_to_default(core::Config& config) -> void
+	auto settings::set_config_to_default() -> void
 	{
-		config.restore<double>("ups", 60.0f, "physics");
+		auto& config = entt::locator<Config>::value();
+
+		/*config.restore<double>("ups", 60.0f, "physics");
 
 		config.restore<int>("width", 1920, "window");
 		config.restore<int>("height", 1080, "window");
+		config.restore<int>("view_width", 1280, "window");
+		config.restore<int>("view_height", 720, "window");
 		config.restore<std::string>("title", "galaxy", "window");
 		config.restore<std::string>("icon", "", "window");
 		config.restore<bool>("fullscreen", false, "window");
@@ -28,7 +42,7 @@ namespace galaxy
 		config.restore<int>("x", 0, "cursor.icon_size");
 		config.restore<int>("y", 0, "cursor.icon_size");
 		config.restore<int>("x", 0, "cursor.hotspot");
-		config.restore<int>("y", 0, "cursor.hotspot");
+		config.restore<int>("y", 0, "cursor.hotspot");*/
 
 		config.restore<std::string>("assets_dir", "assets/", "fs");
 		config.restore<std::string>("editor_dir", "editor/", "fs");
@@ -50,46 +64,50 @@ namespace galaxy
 		config.save();
 	}
 
-	auto settings::set_settings_from_config(core::Config& config) -> void
+	auto settings::set_settings_from_config() -> void
 	{
-		s_ups = config.get<double>("ups", "physics");
+		auto& config = entt::locator<Config>::value();
 
-		s_window_width  = config.get<int>("width", "window");
-		s_window_height = config.get<int>("height", "window");
-		s_title         = config.get<std::string>("title", "window");
-		s_icon          = config.get<std::string>("icon", "window");
-		s_fullscreen    = config.get<bool>("fullscreen", "window");
-		s_key_repeat    = config.get<bool>("key_repeat", "window");
-		s_vsync         = config.get<bool>("vsync", "window");
-		s_msaa          = config.get<bool>("msaa", "window");
+		// s_ups = config.get<double>("ups", "physics");
 
-		s_cursor_visible     = config.get<bool>("visible", "cursor");
-		s_cursor_grabbed     = config.get<bool>("grab", "cursor");
-		s_cursor_icon        = config.get<std::string>("icon", "cursor");
-		s_cursor_icon_size.x = config.get<int>("x", "cursor.icon_size");
-		s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
-		s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
-		s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
+		// s_window_width  = config.get<int>("width", "window");
+		// s_window_height = config.get<int>("height", "window");
+		// s_view_width    = config.get<int>("view_width", "window");
+		// s_view_height   = config.get<int>("view_height", "window");
+		// s_title         = config.get<std::string>("title", "window");
+		// s_icon          = config.get<std::string>("icon", "window");
+		// s_fullscreen    = config.get<bool>("fullscreen", "window");
+		// s_key_repeat    = config.get<bool>("key_repeat", "window");
+		// s_vsync         = config.get<bool>("vsync", "window");
+		// s_msaa          = config.get<bool>("msaa", "window");
 
-		s_assets_dir       = config.get<std::string>("assets_dir", "fs");
-		s_editor_dir       = config.get<std::string>("editor_dir", "fs");
-		s_asset_pack       = config.get<std::string>("asset_pack", "fs");
-		s_use_loose_assets = config.get<bool>("use_loose_assets", "fs");
-		s_assets_music     = config.get<std::string>("assets_music", "fs");
-		s_assets_sfx       = config.get<std::string>("assets_sfx", "fs");
-		s_assets_voice     = config.get<std::string>("assets_voice", "fs");
-		s_assets_font      = config.get<std::string>("assets_font", "fs");
-		s_assets_script    = config.get<std::string>("assets_script", "fs");
-		s_assets_shaders   = config.get<std::string>("assets_shaders", "fs");
-		s_assets_animation = config.get<std::string>("assets_animation", "fs");
-		s_assets_texture   = config.get<std::string>("assets_texture", "fs");
-		s_assets_prefabs   = config.get<std::string>("assets_prefabs", "fs");
-		s_assets_maps      = config.get<std::string>("assets_maps", "fs");
-		s_assets_video     = config.get<std::string>("assets_video", "fs");
-		s_assets_ui        = config.get<std::string>("assets_ui", "fs");
+		// s_cursor_visible     = config.get<bool>("visible", "cursor");
+		// s_cursor_grabbed     = config.get<bool>("grab", "cursor");
+		// s_cursor_icon        = config.get<std::string>("icon", "cursor");
+		// s_cursor_icon_size.x = config.get<int>("x", "cursor.icon_size");
+		// s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
+		// s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
+		// s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
+
+		s_assets_dir       = config.get<std::string>("assets_dir", "fs").value();
+		s_editor_dir       = config.get<std::string>("editor_dir", "fs").value();
+		s_asset_pack       = config.get<std::string>("asset_pack", "fs").value();
+		s_use_loose_assets = config.get<bool>("use_loose_assets", "fs").value();
+		s_assets_music     = config.get<std::string>("assets_music", "fs").value();
+		s_assets_sfx       = config.get<std::string>("assets_sfx", "fs").value();
+		s_assets_voice     = config.get<std::string>("assets_voice", "fs").value();
+		s_assets_font      = config.get<std::string>("assets_font", "fs").value();
+		s_assets_script    = config.get<std::string>("assets_script", "fs").value();
+		s_assets_shaders   = config.get<std::string>("assets_shaders", "fs").value();
+		s_assets_animation = config.get<std::string>("assets_animation", "fs").value();
+		s_assets_texture   = config.get<std::string>("assets_texture", "fs").value();
+		s_assets_prefabs   = config.get<std::string>("assets_prefabs", "fs").value();
+		s_assets_maps      = config.get<std::string>("assets_maps", "fs").value();
+		s_assets_video     = config.get<std::string>("assets_video", "fs").value();
+		s_assets_ui        = config.get<std::string>("assets_ui", "fs").value();
 	}
 
-	auto settings::set_delta_time(const double dt) noexcept -> void
+	/*auto settings::set_delta_time(const double dt) noexcept -> void
 	{
 		s_delta_time = dt;
 	}
@@ -112,6 +130,16 @@ namespace galaxy
 	auto settings::window_height() noexcept -> int
 	{
 		return s_window_height;
+	}
+
+	auto settings::view_width() noexcept -> int
+	{
+		return s_view_width;
+	}
+
+	auto settings::view_height() noexcept -> int
+	{
+		return s_view_height;
 	}
 
 	auto settings::window_title() noexcept -> const std::string&
@@ -167,7 +195,7 @@ namespace galaxy
 	auto settings::cursor_hotspot() noexcept -> const sf::Vector2u&
 	{
 		return s_cursor_hotspot;
-	}
+	}*/
 
 	auto settings::root_dir() noexcept -> std::filesystem::path
 	{
@@ -254,3 +282,7 @@ namespace galaxy
 		return s_assets_ui;
 	}
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif

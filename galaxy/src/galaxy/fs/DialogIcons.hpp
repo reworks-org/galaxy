@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		/// Enums are in lowercase for tinyfiledialogs.
 		///
-		enum class DialogIcon
+		enum class DialogIcon : int
 		{
 			info,
 			warning,

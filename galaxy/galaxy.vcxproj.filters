@@ -36,6 +36,11 @@
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\fs\FileError.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaFS.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\core\Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -67,5 +72,10 @@
     <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\fs\FileError.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\core\Settings.hpp" />
   </ItemGroup>
 </Project>
