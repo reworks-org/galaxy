@@ -9,13 +9,12 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
-#include "galaxy/core/Settings.hpp"
 
 namespace galaxy
 {
 	namespace lua
 	{
-		std::string root_path_wrapper() noexcept
+		/*std::string root_path_wrapper() noexcept
 		{
 			return settings::root_dir().string();
 		}
@@ -28,63 +27,58 @@ namespace galaxy
 		std::string editor_path_wrapper() noexcept
 		{
 			return settings::editor_dir().string();
-		}
+		}*/
 
 		/*void load_config_wrapper()
 		{
-			core::ServiceLocator<core::Loader>::ref().load_user_config();
+			ServiceLocator<Loader>::ref().load_user_config();
 		}
 
 		void load_window_wrapper()
 		{
-			core::ServiceLocator<core::Loader>::ref().load_window();
+			ServiceLocator<Loader>::ref().load_window();
 		}*/
 
 		void inject_core()
 		{
 			auto& lua = entt::locator<sol::state>::value();
 
+			auto config_type                     = lua.new_usertype<Config>("Config", sol::no_constructor);
+			config_type["load"]                  = &Config::load;
+			config_type["save"]                  = &Config::save;
+			config_type["set_bool"]              = sol::resolve<void(const std::string&, const bool&)>(&Config::set<bool>);
+			config_type["set_int"]               = sol::resolve<void(const std::string&, const int&)>(&Config::set<int>);
+			config_type["set_float"]             = sol::resolve<void(const std::string&, const float&)>(&Config::set<float>);
+			config_type["set_string"]            = sol::resolve<void(const std::string&, const std::string&)>(&Config::set<std::string>);
+			config_type["set_section_bool"]      = sol::resolve<void(const std::string&, const bool&, const std::string&, const std::string&)>(&Config::set<bool>);
+			config_type["set_section_int"]       = sol::resolve<void(const std::string&, const int&, const std::string&, const std::string&)>(&Config::set<int>);
+			config_type["set_section_float"]     = sol::resolve<void(const std::string&, const float&, const std::string&, const std::string&)>(&Config::set<float>);
+			config_type["set_section_string"]    = sol::resolve<void(const std::string&, const std::string&, const std::string&, const std::string&)>(&Config::set<std::string>);
+			config_type["restore_bool"]          = sol::resolve<void(const std::string&, const bool&)>(&Config::restore<bool>);
+			config_type["restore_int"]           = sol::resolve<void(const std::string&, const int&)>(&Config::restore<int>);
+			config_type["restore_float"]         = sol::resolve<void(const std::string&, const float&)>(&Config::restore<float>);
+			config_type["restore_string"]        = sol::resolve<void(const std::string&, const std::string&)>(&Config::restore<std::string>);
+			config_type["restore_section_bool"]  = sol::resolve<void(const std::string&, const bool&, const std::string&, const std::string&)>(&Config::restore<bool>);
+			config_type["restore_section_int"]   = sol::resolve<void(const std::string&, const int&, const std::string&, const std::string&)>(&Config::restore<int>);
+			config_type["restore_section_float"] = sol::resolve<void(const std::string&, const float&, const std::string&, const std::string&)>(&Config::restore<float>);
+			config_type["restore_section_string"] =
+				sol::resolve<void(const std::string&, const std::string&, const std::string&, const std::string&)>(&Config::restore<std::string>);
+			config_type["has"]                = sol::resolve<bool(const std::string&)>(&Config::has);
+			config_type["has_section"]        = sol::resolve<bool(const std::string&, const std::string&, const std::string&)>(&Config::has);
+			config_type["get_bool"]           = sol::resolve<std::optional<bool>(const std::string&)>(&Config::get<bool>);
+			config_type["get_int"]            = sol::resolve<std::optional<int>(const std::string&)>(&Config::get<int>);
+			config_type["get_float"]          = sol::resolve<std::optional<float>(const std::string&)>(&Config::get<float>);
+			config_type["get_string"]         = sol::resolve<std::optional<std::string>(const std::string&)>(&Config::get<std::string>);
+			config_type["get_section_int"]    = sol::resolve<std::optional<int>(const std::string&, const std::string&, const std::string&)>(&Config::get<int>);
+			config_type["get_section_float"]  = sol::resolve<std::optional<float>(const std::string&, const std::string&, const std::string&)>(&Config::get<float>);
+			config_type["get_section_string"] = sol::resolve<std::optional<std::string>(const std::string&, const std::string&, const std::string&)>(&Config::get<std::string>);
+			config_type["get_section_bool"]   = sol::resolve<std::optional<bool>(const std::string&, const std::string&, const std::string&)>(&Config::get<bool>);
+			config_type["empty"]              = &Config::empty;
+
 			// lua.set_function("galaxy_load_user_config", &load_config_wrapper);
 			// lua.set_function("galaxy_load_window_config", &load_window_wrapper);
 
-			auto config_type                  = lua.new_usertype<core::Config>("Config", sol::no_constructor);
-			config_type["save"]               = &core::Config::save;
-			config_type["empty"]              = &core::Config::empty;
-			config_type["has_at_root"]        = sol::resolve<bool(const std::string&)>(&core::Config::has);
-			config_type["has_in_section"]     = sol::resolve<bool(const std::string&, const std::string&, const std::string&)>(&core::Config::has);
-			config_type["set_bool"]           = sol::resolve<void(const std::string&, const bool&)>(&core::Config::set<bool>);
-			config_type["set_int"]            = sol::resolve<void(const std::string&, const int&)>(&core::Config::set<int>);
-			config_type["set_float"]          = sol::resolve<void(const std::string&, const float&)>(&core::Config::set<float>);
-			config_type["set_string"]         = sol::resolve<void(const std::string&, const std::string&)>(&core::Config::set<std::string>);
-			config_type["restore_bool"]       = sol::resolve<void(const std::string&, const bool&)>(&core::Config::restore<bool>);
-			config_type["restore_int"]        = sol::resolve<void(const std::string&, const int&)>(&core::Config::restore<int>);
-			config_type["restore_float"]      = sol::resolve<void(const std::string&, const float&)>(&core::Config::restore<float>);
-			config_type["restore_string"]     = sol::resolve<void(const std::string&, const std::string&)>(&core::Config::restore<std::string>);
-			config_type["get_bool"]           = sol::resolve<bool(const std::string&)>(&core::Config::get<bool>);
-			config_type["get_int"]            = sol::resolve<int(const std::string&)>(&core::Config::get<int>);
-			config_type["get_float"]          = sol::resolve<float(const std::string&)>(&core::Config::get<float>);
-			config_type["get_string"]         = sol::resolve<std::string(const std::string&)>(&core::Config::get<std::string>);
-			config_type["set_section_bool"]   = sol::resolve<void(const std::string&, const bool&, const std::string&, const std::string&)>(&core::Config::set<bool>);
-			config_type["set_section_int"]    = sol::resolve<void(const std::string&, const int&, const std::string&, const std::string&)>(&core::Config::set<int>);
-			config_type["set_section_float"]  = sol::resolve<void(const std::string&, const float&, const std::string&, const std::string&)>(&core::Config::set<float>);
-			config_type["set_section_string"] = sol::resolve<void(const std::string&, const std::string&, const std::string&, const std::string&)>(&core::Config::set<std::string>);
-			config_type["restore_section_bool"]  = sol::resolve<void(const std::string&, const bool&, const std::string&, const std::string&)>(&core::Config::restore<bool>);
-			config_type["restore_section_int"]   = sol::resolve<void(const std::string&, const int&, const std::string&, const std::string&)>(&core::Config::restore<int>);
-			config_type["restore_section_float"] = sol::resolve<void(const std::string&, const float&, const std::string&, const std::string&)>(&core::Config::restore<float>);
-			config_type["restore_section_string"] =
-				sol::resolve<void(const std::string&, const std::string&, const std::string&, const std::string&)>(&core::Config::restore<std::string>);
-			config_type["get_section_bool"]   = sol::resolve<bool(const std::string&, const std::string&, const std::string&)>(&core::Config::get<bool>);
-			config_type["get_section_int"]    = sol::resolve<int(const std::string&, const std::string&, const std::string&)>(&core::Config::get<int>);
-			config_type["get_section_float"]  = sol::resolve<float(const std::string&, const std::string&, const std::string&)>(&core::Config::get<float>);
-			config_type["get_section_string"] = sol::resolve<std::string(const std::string&, const std::string&, const std::string&)>(&core::Config::get<std::string>);
-
-			//
-			// SETTINGS FUNCTIONS.
-			//
-
-			lua.set("GALAXY_ZLIB_COMPLETE_CHUNK", GALAXY_ZLIB_COMPLETE_CHUNK);
-
-			lua.set_function("settings_dt", &settings::dt);
+			/*lua.set_function("settings_dt", &settings::dt);
 			lua.set_function("settings_ups", &settings::ups);
 			lua.set_function("settings_window_width", &settings::window_width);
 			lua.set_function("settings_window_height", &settings::window_height);
@@ -115,21 +109,23 @@ namespace galaxy
 			lua.set_function("settings_assets_dir_prefabs", &settings::assets_dir_prefabs);
 			lua.set_function("settings_assets_dir_maps", &settings::assets_dir_maps);
 			lua.set_function("settings_assets_dir_video", &settings::assets_dir_video);
-			lua.set_function("settings_assets_dir_ui", &settings::assets_dir_ui);
+			lua.set_function("settings_assets_dir_ui", &settings::assets_dir_ui);*/
 
-			/*auto registry_type                  = lua.new_usertype<core::Registry>("Registry", sol::constructors<core::Registry()>());
-			registry_type["clear"]              = &core::Registry::clear;
-			registry_type["create"]             = &core::Registry::create;
-			registry_type["create_from_prefab"] = &core::Registry::create_from_prefab;
-			registry_type["is_valid"]           = &core::Registry::is_valid;
-			registry_type["entt"]               = &core::Registry::m_entt;
+			/*auto registry_type                  = lua.new_usertype<Registry>("Registry", sol::constructors<Registry()>());
+			registry_type["clear"]              = &Registry::clear;
+			registry_type["create"]             = &Registry::create;
+			registry_type["create_from_prefab"] = &Registry::create_from_prefab;
+			registry_type["is_valid"]           = &Registry::is_valid;
+			registry_type["entt"]               = &Registry::m_entt;
 
-			auto prefab_type = lua.new_usertype<core::Prefab>("Prefab", sol::constructors<core::Prefab(entt::entity, entt::registry&), core::Prefab(const nlohmann::json&)>());
-			prefab_type["from_entity"] = &core::Prefab::from_entity;
-			prefab_type["from_json"]   = &core::Prefab::from_json;
-			prefab_type["to_entity"]   = &core::Prefab::to_entity;
-			prefab_type["to_json"]     = &core::Prefab::to_json;
-			prefab_type["load"]        = &core::Prefab::load;*/
+			auto prefab_type = lua.new_usertype<Prefab>("Prefab", sol::constructors<Prefab(entt::entity, entt::registry&), Prefab(const nlohmann::json&)>());
+			prefab_type["from_entity"] = &Prefab::from_entity;
+			prefab_type["from_json"]   = &Prefab::from_json;
+			prefab_type["to_entity"]   = &Prefab::to_entity;
+			prefab_type["to_json"]     = &Prefab::to_json;
+			prefab_type["load"]        = &Prefab::load;
+			lua.set_function("galaxy_load_user_config", &load_config_wrapper);
+			lua.set_function("galaxy_load_window_config", &load_window_wrapper);*/
 		}
 	} // namespace lua
 } // namespace galaxy

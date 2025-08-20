@@ -2,3 +2,8 @@ physfs logging test
 opengl logging test
 subprocess test
 laptop test
+filerror tests
+fileutils tests
+config load/save
+
+https://wiki.libsdl.org/SDL3/APIByCategory

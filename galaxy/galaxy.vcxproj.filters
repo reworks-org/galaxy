@@ -31,6 +31,11 @@
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
     <ClCompile Include="src\galaxy\platform\Laptop.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaCore.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileUtils.cpp" />
+    <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileError.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaFS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -59,5 +64,8 @@
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />
     <ClInclude Include="src\galaxy\platform\Laptop.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
+    <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileError.hpp" />
   </ItemGroup>
 </Project>

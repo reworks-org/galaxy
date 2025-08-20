@@ -13,6 +13,8 @@ namespace galaxy
 	{
 		void inject()
 		{
+			inject_core();
+			inject_fs();
 			inject_logging();
 			inject_math();
 			inject_platform();
