@@ -143,6 +143,12 @@ namespace galaxy
 		/// Current root directory of application, unless it has been changed.
 		///
 		[[nodiscard]]
+		static auto log_dir() noexcept -> const std::string&;
+
+		///
+		/// Current root directory of application, unless it has been changed.
+		///
+		[[nodiscard]]
 		static auto root_dir() noexcept -> std::filesystem::path;
 
 		///

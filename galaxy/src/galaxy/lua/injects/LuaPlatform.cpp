@@ -8,7 +8,7 @@
 #include <entt/locator/locator.hpp>
 #include <sol/sol.hpp>
 
-#include "galaxy/platform/Pragma.hpp"
+#include "galaxy/platform/Platform.hpp"
 #include "galaxy/platform/Subprocess.hpp"
 
 namespace galaxy
@@ -34,6 +34,8 @@ namespace galaxy
 			sub_type["create"] = &Subprocess::create;
 			sub_type["kill"]   = &Subprocess::kill;
 			sub_type["wait"]   = &Subprocess::wait;
+
+			lua.set_function("seed_random", &platform::seed_random);
 		}
 	} // namespace lua
 } // namespace galaxy

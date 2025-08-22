@@ -197,6 +197,12 @@ namespace galaxy
 		return s_cursor_hotspot;
 	}*/
 
+	auto settings::log_dir() noexcept -> const std::string&
+	{
+		static std::string log_dir = "logs/";
+		return log_dir;
+	}
+
 	auto settings::root_dir() noexcept -> std::filesystem::path
 	{
 		return std::filesystem::current_path();

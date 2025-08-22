@@ -16,4 +16,12 @@
 #include "galaxy/platform/specific/Unix.hpp"
 #endif
 
+namespace galaxy
+{
+	namespace platform
+	{
+		void seed_random() noexcept;
+	}
+} // namespace galaxy
+
 #endif
