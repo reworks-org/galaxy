@@ -21,10 +21,27 @@ var annotated_dup =
         [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ]
       ] ],
       [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
-        [ "App", "d5/d5a/classgalaxy_1_1core_1_1App.html", "d5/d5a/classgalaxy_1_1core_1_1App" ],
         [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
         [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ],
         [ "Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", "de/d2c/classgalaxy_1_1core_1_1Registry" ]
+      ] ],
+      [ "events", "d6/d3d/namespacegalaxy_1_1events.html", [
+        [ "ContentScale", "d8/d2a/structgalaxy_1_1events_1_1ContentScale.html", "d8/d2a/structgalaxy_1_1events_1_1ContentScale" ],
+        [ "GainedFocus", "d1/d4c/structgalaxy_1_1events_1_1GainedFocus.html", null ],
+        [ "JoystickDisconnect", "d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect.html", "d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect" ],
+        [ "KeyChar", "dc/d97/structgalaxy_1_1events_1_1KeyChar.html", "dc/d97/structgalaxy_1_1events_1_1KeyChar" ],
+        [ "KeyPress", "d0/d92/structgalaxy_1_1events_1_1KeyPress.html", "d0/d92/structgalaxy_1_1events_1_1KeyPress" ],
+        [ "KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat" ],
+        [ "LostFocus", "d8/d4a/structgalaxy_1_1events_1_1LostFocus.html", null ],
+        [ "MouseEnter", "d0/d34/structgalaxy_1_1events_1_1MouseEnter.html", "d0/d34/structgalaxy_1_1events_1_1MouseEnter" ],
+        [ "MouseEntered", "d2/d71/structgalaxy_1_1events_1_1MouseEntered.html", null ],
+        [ "MouseLeft", "d8/dfe/structgalaxy_1_1events_1_1MouseLeft.html", null ],
+        [ "MouseMoved", "db/da7/structgalaxy_1_1events_1_1MouseMoved.html", "db/da7/structgalaxy_1_1events_1_1MouseMoved" ],
+        [ "MousePressed", "d5/d15/structgalaxy_1_1events_1_1MousePressed.html", "d5/d15/structgalaxy_1_1events_1_1MousePressed" ],
+        [ "MouseReleased", "dc/d78/structgalaxy_1_1events_1_1MouseReleased.html", "dc/d78/structgalaxy_1_1events_1_1MouseReleased" ],
+        [ "MouseWheel", "d6/d70/structgalaxy_1_1events_1_1MouseWheel.html", "d6/d70/structgalaxy_1_1events_1_1MouseWheel" ],
+        [ "WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],
+        [ "WindowResized", "d9/dd9/structgalaxy_1_1events_1_1WindowResized.html", "d9/dd9/structgalaxy_1_1events_1_1WindowResized" ]
       ] ],
       [ "flags", "df/d31/namespacegalaxy_1_1flags.html", [
         [ "Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", "d3/d72/classgalaxy_1_1flags_1_1Disabled" ],
@@ -83,6 +100,7 @@ var annotated_dup =
       [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", [
         [ "Guid", "d2/d4d/classgalaxy_1_1utils_1_1Guid.html", "d2/d4d/classgalaxy_1_1utils_1_1Guid" ]
       ] ],
+      [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
       [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
       [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
       [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],

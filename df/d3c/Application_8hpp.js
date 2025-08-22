@@ -1,4 +1,4 @@
 var Application_8hpp =
 [
-    [ "galaxy::core::App", "d5/d5a/classgalaxy_1_1core_1_1App.html", "d5/d5a/classgalaxy_1_1core_1_1App" ]
+    [ "galaxy::App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ]
 ];

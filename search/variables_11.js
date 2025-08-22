@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../d5/d58/classgalaxy_1_1Rect.html#a8d992ebd9a1e2e2cf086cb4bd2acba47',1,'galaxy::Rect']]]
+  ['video_5ffrag_5fshader_0',['video_frag_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6',1,'galaxy::resource']]],
+  ['video_5fvert_5fshader_1',['video_vert_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d',1,'galaxy::resource']]]
 ];

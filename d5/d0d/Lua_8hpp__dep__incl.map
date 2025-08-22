@@ -1,15 +1,17 @@
 <map id="galaxy/src/galaxy/lua/Lua.hpp" name="galaxy/src/galaxy/lua/Lua.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="472,5,633,45"/>
-<area shape="rect" id="Node000002" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="5,93,167,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="459,45,178,96,167,98,166,93,178,91,458,40"/>
-<area shape="rect" id="Node000003" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="191,93,352,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="479,52,334,96,332,91,477,47"/>
-<area shape="rect" id="Node000004" href="$d8/d09/LuaMap_8cpp.html" title=" " alt="" coords="376,93,537,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="523,57,480,95,476,91,519,53"/>
-<area shape="rect" id="Node000005" href="$d9/d2b/LuaNuklear_8cpp.html" title=" " alt="" coords="562,93,735,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="586,53,629,91,626,95,583,57"/>
-<area shape="rect" id="Node000006" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="760,93,943,133"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="632,47,787,91,785,96,631,52"/>
-<area shape="rect" id="Node000007" href="$db/d27/LuaState_8cpp.html" title=" " alt="" coords="967,93,1128,133"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="647,39,956,91,967,93,966,98,955,96,646,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="569,5,731,45"/>
+<area shape="rect" id="Node000002" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="556,41,384,65,186,96,175,98,174,93,186,91,383,60,555,36"/>
+<area shape="rect" id="Node000003" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="199,93,360,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="557,51,361,96,359,91,555,46"/>
+<area shape="rect" id="Node000004" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="384,93,545,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="598,54,506,96,504,91,596,49"/>
+<area shape="rect" id="Node000005" href="$d8/d09/LuaMap_8cpp.html" title=" " alt="" coords="569,93,731,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="653,59,653,93,647,93,647,59"/>
+<area shape="rect" id="Node000006" href="$d9/d2b/LuaNuklear_8cpp.html" title=" " alt="" coords="755,93,929,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="706,49,801,91,799,96,704,53"/>
+<area shape="rect" id="Node000007" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="953,93,1136,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="745,44,959,91,958,96,743,50"/>
+<area shape="rect" id="Node000008" href="$db/d27/LuaState_8cpp.html" title=" " alt="" coords="1160,93,1321,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="745,35,932,58,1149,91,1160,93,1159,98,1148,96,932,64,744,40"/>
 </map>

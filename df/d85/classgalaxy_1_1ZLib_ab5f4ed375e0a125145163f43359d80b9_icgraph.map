@@ -1,14 +1,14 @@
 <map id="galaxy::ZLib::ZLib" name="galaxy::ZLib::ZLib">
-<area shape="rect" id="Node000001" title="Constructor." alt="" coords="836,31,973,56"/>
-<area shape="rect" id="Node000002" href="$df/d85/classgalaxy_1_1ZLib.html#a18b0bd8e4ebb825882fbd63e6e2f550a" title="Decompresses string into ZLib." alt="" coords="632,5,788,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="822,35,788,31,789,26,822,30"/>
-<area shape="rect" id="Node000006" href="$df/d85/classgalaxy_1_1ZLib.html#ada997046aa986c5b458ca141fef2495f" title="Compresses string into ZLib." alt="" coords="632,55,788,80"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="822,56,789,60,788,55,822,51"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="405,31,584,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="619,31,585,35,584,30,618,26"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,31,357,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,46,358,46,358,41,392,41"/>
-<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,31,172,56"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,46,172,46,172,41,206,41"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="618,60,584,56,585,51,619,54"/>
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="800,31,937,56"/>
+<area shape="rect" id="Node000002" href="$df/d85/classgalaxy_1_1ZLib.html#a18b0bd8e4ebb825882fbd63e6e2f550a" title="Decompresses string into ZLib." alt="" coords="596,5,752,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,35,752,31,753,26,786,30"/>
+<area shape="rect" id="Node000006" href="$df/d85/classgalaxy_1_1ZLib.html#ada997046aa986c5b458ca141fef2495f" title="Compresses string into ZLib." alt="" coords="596,55,752,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="786,56,753,60,752,55,786,51"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="369,31,548,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="583,31,549,35,548,30,582,26"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,31,321,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="356,46,322,46,322,41,356,41"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,31,136,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,46,136,46,136,41,170,41"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="582,60,548,56,549,51,583,54"/>
 </map>

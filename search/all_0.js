@@ -16,7 +16,7 @@ var searchData=
   ['animationsystem_2ehpp_13',['AnimationSystem.hpp',['../d5/d42/AnimationSystem_8hpp.html',1,'']]],
   ['any_5ffrom_5fjson_14',['any_from_json',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a80c20e0e31290d47180770220d4f3db4',1,'galaxy::meta::EntityFactory']]],
   ['anyjsonfactory_15',['AnyJSONFactory',['../db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a1b906badece910b2b3d34c1a0e08dc0a',1,'galaxy::meta::EntityFactory']]],
-  ['app_16',['App',['../d5/d5a/classgalaxy_1_1core_1_1App.html',1,'galaxy::core::App'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4',1,'galaxy::core::App::App(std::string_view log_dir, std::string_view config_file)'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#a34e270ec493f7b27314569aa3d0a7b5f',1,'galaxy::core::App::App(const App &amp;)=delete'],['../d5/d5a/classgalaxy_1_1core_1_1App.html#aa3549ecb6786d6fa07cb649e54712b54',1,'galaxy::core::App::App(App &amp;&amp;)=delete']]],
+  ['app_16',['App',['../dd/d33/classgalaxy_1_1App.html',1,'galaxy::App'],['../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150',1,'galaxy::App::App(const std::string &amp;config_file=&quot;config.json&quot;)'],['../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134',1,'galaxy::App::App(const App &amp;)=delete'],['../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09',1,'galaxy::App::App(App &amp;&amp;)=delete']]],
   ['application_2ecpp_17',['Application.cpp',['../d2/db6/Application_8cpp.html',1,'']]],
   ['application_2ehpp_18',['Application.hpp',['../df/d3c/Application_8hpp.html',1,'']]],
   ['asset_5fpack_19',['asset_pack',['../d1/db3/structgalaxy_1_1settings.html#a5146b2ba963e52a9709212539af6e68a',1,'galaxy::settings']]],

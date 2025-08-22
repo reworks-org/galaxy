@@ -25,8 +25,8 @@
 <area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="1006,251,934,251,934,245,1006,245"/>
 <area shape="rect" id="Node000009" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="499,225,637,250"/>
 <area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="741,247,637,243,637,237,742,241"/>
-<area shape="rect" id="Node000010" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="211,225,378,250"/>
-<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="485,240,378,240,378,235,485,235"/>
+<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="229,225,360,250"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="485,240,360,240,360,235,485,235"/>
 <area shape="poly" id="edge26_Node000011_Node000008" title=" " alt="" coords="1025,285,913,263,914,258,1026,279"/>
 <area shape="rect" id="Node000012" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a974fd20c89bc84c92b1239cbd0aaeead" title="Hashes the key into an integer for faster map lookup time." alt="" coords="756,319,933,359"/>
 <area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="1013,315,934,327,933,322,1013,309"/>

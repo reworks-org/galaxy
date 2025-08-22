@@ -26,6 +26,6 @@ var searchData=
   ['root_5fdir_23',['root_dir',['../d1/db3/structgalaxy_1_1settings.html#a566d989a8396d9f36754fb8d3084e41b',1,'galaxy::settings']]],
   ['root_5fpath_5fwrapper_24',['root_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a1f6f6354f0b228b58b3a3943df38d68e',1,'galaxy::lua']]],
   ['rtrim_25',['rtrim',['../df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd',1,'galaxy::str']]],
-  ['run_26',['run',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610',1,'galaxy::core::App::run()'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3',1,'galaxy::lua::Script::run()']]],
+  ['run_26',['run',['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3',1,'galaxy::lua::Script']]],
   ['run_5fand_5freturn_27',['run_and_return',['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a31ef0f29c7ffff47290b9a16f5a4b1b5',1,'galaxy::lua::Script']]]
 ];

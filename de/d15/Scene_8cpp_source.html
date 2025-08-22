@@ -144,8 +144,8 @@ $(function(){initNavTree('de/d15/Scene_8cpp_source.html','../../'); initResizabl
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a10bd61d40425228dad7199da082d4cca">   40</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a10bd61d40425228dad7199da082d4cca">Scene::add_system</a>(<span class="keyword">const</span> std::string&amp; system)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keyword">auto</span>&amp; <a class="code hl_namespace" href="../../d4/dd0/namespacesf.html">sf</a> = entt::locator&lt;meta::SystemFactory&gt;::value();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_namespace" href="../../d4/dd0/namespacesf.html">sf</a>.create_system(system, <a class="code hl_variable" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a5d9c940d5bbfcb5a47c9045d6becf9f1">m_systems</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keyword">auto</span>&amp; sf = entt::locator&lt;meta::SystemFactory&gt;::value();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            sf.create_system(system, <a class="code hl_variable" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a5d9c940d5bbfcb5a47c9045d6becf9f1">m_systems</a>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
 </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
@@ -316,14 +316,13 @@ $(function(){initNavTree('de/d15/Scene_8cpp_source.html','../../'); initResizabl
 <div class="ttc" id="aclassgalaxy_1_1scene_1_1Scene_html_ad8efd200032fff3cbdedb2082684e35c"><div class="ttname"><a href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c">galaxy::scene::Scene::deserialize</a></div><div class="ttdeci">void deserialize(const nlohmann::json &amp;json) override</div><div class="ttdoc">Deserializes from object.</div><div class="ttdef"><b>Definition</b> <a href="#l00151">Scene.cpp:151</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1scene_1_1Scene_html_aff386bc34c414fbf3d983e675f80a79c"><div class="ttname"><a href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#aff386bc34c414fbf3d983e675f80a79c">galaxy::scene::Scene::unload</a></div><div class="ttdeci">void unload()</div><div class="ttdoc">When scene is deactivated / unloaded.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Scene.cpp:50</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
-<div class="ttc" id="anamespacesf_html"><div class="ttname"><a href="../../d4/dd0/namespacesf.html">sf</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d3c/Application_8hpp_source.html#l00029">Application.hpp:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_9e0270b3885e0d3bc9dee23586b25531.html">scene</a></li><li class="navelem"><a class="el" href="../../de/d15/Scene_8cpp.html">Scene.cpp</a></li>
-    <li class="footer">Generated on Wed Aug 20 2025 08:06:51 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Aug 22 2025 10:17:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,7 +1,9 @@
 <map id="galaxy/src/galaxy/platform/Platform.hpp" name="galaxy/src/galaxy/platform/Platform.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="95,5,293,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="190,5,387,45"/>
 <area shape="rect" id="Node000002" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,56,115,95,111,91,159,52"/>
-<area shape="rect" id="Node000003" href="$d5/d0a/Platform_8cpp.html" title=" " alt="" coords="199,93,397,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,52,277,91,273,95,226,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,53,135,96,132,91,231,48"/>
+<area shape="rect" id="Node000003" href="$da/d96/LuaPlatform_8cpp.html" title=" " alt="" coords="199,93,378,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,59,291,93,286,93,286,59"/>
+<area shape="rect" id="Node000004" href="$d5/d0a/Platform_8cpp.html" title=" " alt="" coords="402,93,599,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,48,455,91,453,96,347,53"/>
 </map>

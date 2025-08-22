@@ -1,9 +1,9 @@
 <map id="galaxy::str::make_single_spaced" name="galaxy::str::make_single_spaced">
-<area shape="rect" id="Node000001" title="Make a string single spaced." alt="" coords="591,5,771,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="405,5,543,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,28,543,28,543,23,577,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" id="Node000004" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" id="Node000001" title="Make a string single spaced." alt="" coords="555,5,735,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="369,5,507,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="541,28,507,28,507,23,541,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,13,321,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="356,28,322,28,322,23,356,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

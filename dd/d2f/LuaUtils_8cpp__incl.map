@@ -1,15 +1,19 @@
 <map id="galaxy/src/galaxy/lua/injects/LuaUtils.cpp" name="galaxy/src/galaxy/lua/injects/LuaUtils.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="169,5,330,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,5,414,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,179,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,48,129,89,126,85,210,43"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,48,141,92,140,86,275,43"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="203,93,295,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="252,46,252,79,247,79,247,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="315,48,274,86,270,82,311,44"/>
 <area shape="rect" id="Node000004" href="$d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="319,93,518,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="291,43,382,85,380,90,289,48"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="356,44,398,82,394,86,352,48"/>
+<area shape="rect" id="Node000008" href="$d9/de7/Time_8hpp.html" title=" " alt="" coords="543,93,705,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="404,43,569,87,568,92,402,48"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="267,167,365,192"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="404,121,346,161,343,156,401,116"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="389,167,448,192"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="421,119,421,153,416,153,416,119"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="473,167,535,192"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="434,117,481,156,478,160,431,121"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="591,167,657,192"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="627,119,627,153,621,153,621,119"/>
 </map>

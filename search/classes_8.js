@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['map_0',['Map',['../df/d2b/classgalaxy_1_1map_1_1Map.html',1,'galaxy::map']]],
-  ['musicloader_1',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
+  ['keychar_0',['KeyChar',['../dc/d97/structgalaxy_1_1events_1_1KeyChar.html',1,'galaxy::events']]],
+  ['keypress_1',['KeyPress',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html',1,'galaxy::events']]],
+  ['keyrepeat_2',['KeyRepeat',['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html',1,'galaxy::events']]]
 ];

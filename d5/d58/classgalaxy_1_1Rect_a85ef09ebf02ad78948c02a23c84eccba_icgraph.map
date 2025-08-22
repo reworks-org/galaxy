@@ -1,11 +1,11 @@
 <map id="galaxy::Rect::value_in_range" name="galaxy::Rect::value_in_range">
-<area shape="rect" id="Node000001" title="Private function to determine if value is in range. Inclusive. Credits: https://stackoverflow...." alt="" coords="847,5,993,45"/>
-<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#a3c9861f8677060f4b6fba0cd20fe6595" title="Do the rectangles a and b overlap." alt="" coords="632,13,799,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="833,28,799,28,799,23,833,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="405,13,584,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="618,28,584,28,584,23,618,23"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,13,357,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="392,28,358,28,358,23,392,23"/>
-<area shape="rect" id="Node000005" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,13,172,38"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+<area shape="rect" id="Node000001" title="Private function to determine if value is in range. Inclusive. Credits: https://stackoverflow...." alt="" coords="811,5,957,45"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#a3c9861f8677060f4b6fba0cd20fe6595" title="Do the rectangles a and b overlap." alt="" coords="596,13,763,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="797,28,763,28,763,23,797,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="369,13,548,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="582,28,548,28,548,23,582,23"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,13,321,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="356,28,322,28,322,23,356,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['decoding_5ftable_0',['decoding_table',['../d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc',1,'Base64.cpp']]]
+  ['codepoint_0',['codepoint',['../dc/d97/structgalaxy_1_1events_1_1KeyChar.html#a88d81328a066e4e956b65beb0d153f13',1,'galaxy::events::KeyChar']]],
+  ['colour_1',['colour',['../d6/d64/structgalaxy_1_1LogMessage.html#ad4f717cd9912b645a64b3de9bc1cb770',1,'galaxy::LogMessage']]]
 ];

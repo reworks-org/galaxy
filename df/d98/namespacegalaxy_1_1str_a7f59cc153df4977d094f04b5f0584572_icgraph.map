@@ -1,16 +1,16 @@
 <map id="galaxy::str::split" name="galaxy::str::split">
-<area shape="rect" id="Node000001" title="Split a string based on a delimiter." alt="" coords="599,84,725,109"/>
-<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="695,74,685,66,662,63,643,65,632,69,630,75,636,82,631,85,625,76,628,66,641,60,662,57,687,61,698,70"/>
-<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a46be7b5a1ab10c9e95163da42b3e23e3" title="Retrieve a config value in a section." alt="" coords="407,5,549,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="624,80,550,44,519,33,521,28,552,40,626,75"/>
-<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7" title="Check if the config file actually has a value." alt="" coords="405,55,551,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="584,87,551,82,552,76,585,82"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="409,105,547,145"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="585,111,547,117,546,112,584,106"/>
-<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a5718bbf3837f08d5023818d5e01e4a99" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="407,169,549,195"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="629,119,552,159,520,172,518,167,550,154,627,114"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="220,112,357,137"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="396,127,358,127,358,122,396,122"/>
-<area shape="rect" id="Node000006" href="$d5/d5a/classgalaxy_1_1core_1_1App.html#af2be4202f6ce3e9d662ff52fa522eaa4" title="Default constructor." alt="" coords="5,112,172,137"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="206,127,172,127,172,122,206,122"/>
+<area shape="rect" id="Node000001" title="Split a string based on a delimiter." alt="" coords="563,84,689,109"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="659,74,649,66,626,63,607,65,596,69,594,75,600,82,595,85,589,76,592,66,605,60,626,57,651,61,662,70"/>
+<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a46be7b5a1ab10c9e95163da42b3e23e3" title="Retrieve a config value in a section." alt="" coords="371,5,513,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,80,514,44,483,33,485,28,516,40,590,75"/>
+<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7" title="Check if the config file actually has a value." alt="" coords="369,55,515,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="548,87,515,82,516,76,549,82"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="373,105,511,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="549,111,511,117,510,112,548,106"/>
+<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a5718bbf3837f08d5023818d5e01e4a99" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="371,169,513,195"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="593,119,516,159,484,172,482,167,514,154,591,114"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,112,321,137"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="360,127,322,127,322,122,360,122"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,112,136,137"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,127,136,127,136,122,170,122"/>
 </map>

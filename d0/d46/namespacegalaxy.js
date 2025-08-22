@@ -3,6 +3,7 @@ var namespacegalaxy =
     [ "async", "d0/d7f/namespacegalaxy_1_1async.html", "d0/d7f/namespacegalaxy_1_1async" ],
     [ "components", "d3/db5/namespacegalaxy_1_1components.html", "d3/db5/namespacegalaxy_1_1components" ],
     [ "core", "d1/dcb/namespacegalaxy_1_1core.html", "d1/dcb/namespacegalaxy_1_1core" ],
+    [ "events", "d6/d3d/namespacegalaxy_1_1events.html", "d6/d3d/namespacegalaxy_1_1events" ],
     [ "fileutils", "d8/d23/namespacegalaxy_1_1fileutils.html", [
       [ "extension", "d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1", null ],
       [ "read", "d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92", null ],
@@ -34,6 +35,9 @@ var namespacegalaxy =
     [ "math", "d1/d92/namespacegalaxy_1_1math.html", "d1/d92/namespacegalaxy_1_1math" ],
     [ "mem", "dd/d0d/namespacegalaxy_1_1mem.html", "dd/d0d/namespacegalaxy_1_1mem" ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
+    [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
+      [ "seed_random", "dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366", null ]
+    ] ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", "de/d3c/namespacegalaxy_1_1scene" ],
     [ "state", "df/dcc/namespacegalaxy_1_1state.html", "df/dcc/namespacegalaxy_1_1state" ],
@@ -48,8 +52,12 @@ var namespacegalaxy =
       [ "make_single_spaced", "df/d98/namespacegalaxy_1_1str.html#ac2460a7064f04edb82dabf39d869831c", null ]
     ] ],
     [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", "d2/d27/namespacegalaxy_1_1systems" ],
+    [ "time", "d2/d2f/namespacegalaxy_1_1time.html", [
+      [ "now", "d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d", null ]
+    ] ],
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", "d3/dd9/namespacegalaxy_1_1ui" ],
     [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
+    [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
     [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],

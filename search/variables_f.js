@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['width_0',['width',['../d5/d58/classgalaxy_1_1Rect.html#a86e2462f6dcd83e4c0cde6eae1237294',1,'galaxy::Rect']]]
+  ['s_5fasset_5fpack_0',['s_asset_pack',['../d1/db3/structgalaxy_1_1settings.html#ab6feb840cbcc8cbfab6d4326c6cdeab9',1,'galaxy::settings']]],
+  ['s_5fassets_5fanimation_1',['s_assets_animation',['../d1/db3/structgalaxy_1_1settings.html#a48f4d7588750a141e85a969b3f7ca765',1,'galaxy::settings']]],
+  ['s_5fassets_5fdir_2',['s_assets_dir',['../d1/db3/structgalaxy_1_1settings.html#a0fa2e2b7d04714e328d25cb5282800d6',1,'galaxy::settings']]],
+  ['s_5fassets_5ffont_3',['s_assets_font',['../d1/db3/structgalaxy_1_1settings.html#afd6935a9a0978182dc60f97b117f9455',1,'galaxy::settings']]],
+  ['s_5fassets_5fmaps_4',['s_assets_maps',['../d1/db3/structgalaxy_1_1settings.html#af34221974e3ead32c934031a3f673b95',1,'galaxy::settings']]],
+  ['s_5fassets_5fmusic_5',['s_assets_music',['../d1/db3/structgalaxy_1_1settings.html#a968d0fdf637821fd9536ac442797501b',1,'galaxy::settings']]],
+  ['s_5fassets_5fprefabs_6',['s_assets_prefabs',['../d1/db3/structgalaxy_1_1settings.html#a80103b8c531bc07b8c464c76a3456425',1,'galaxy::settings']]],
+  ['s_5fassets_5fscript_7',['s_assets_script',['../d1/db3/structgalaxy_1_1settings.html#afebea9b6feb2b86fa8f388e202f1cf4e',1,'galaxy::settings']]],
+  ['s_5fassets_5fsfx_8',['s_assets_sfx',['../d1/db3/structgalaxy_1_1settings.html#a97675ffd17d4a01b711226d203dbca48',1,'galaxy::settings']]],
+  ['s_5fassets_5fshaders_9',['s_assets_shaders',['../d1/db3/structgalaxy_1_1settings.html#af430ada934ba1832f973e5e54ae9767b',1,'galaxy::settings']]],
+  ['s_5fassets_5ftexture_10',['s_assets_texture',['../d1/db3/structgalaxy_1_1settings.html#a870ed18fc9197d0e2a7902cbfc1c5a64',1,'galaxy::settings']]],
+  ['s_5fassets_5fui_11',['s_assets_ui',['../d1/db3/structgalaxy_1_1settings.html#ab1b1a8b1a805ae813087e5a2bd4c645e',1,'galaxy::settings']]],
+  ['s_5fassets_5fvideo_12',['s_assets_video',['../d1/db3/structgalaxy_1_1settings.html#aaf1ee68ab46f923a7a6b2bc228f63491',1,'galaxy::settings']]],
+  ['s_5fassets_5fvoice_13',['s_assets_voice',['../d1/db3/structgalaxy_1_1settings.html#a4a2f2c471d5540b5915f044e9086e43e',1,'galaxy::settings']]],
+  ['s_5fchars_14',['s_chars',['../dd/dc0/Guid_8cpp.html#a57fd49033bf363cbc1ec9a8bf3704268',1,'Guid.cpp']]],
+  ['s_5feditor_5fdir_15',['s_editor_dir',['../d1/db3/structgalaxy_1_1settings.html#a4fb27f6b6fb6181a293eb2e99a2391cf',1,'galaxy::settings']]],
+  ['s_5fuse_5floose_5fassets_16',['s_use_loose_assets',['../d1/db3/structgalaxy_1_1settings.html#a20c4e7455028bc50ffde4f3465cdbaac',1,'galaxy::settings']]],
+  ['scancode_17',['scancode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a77300939739fec91c09a401d95b375ef',1,'galaxy::events::KeyPress::scancode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#afe95375d94754e1b60f3c65d72763569',1,'galaxy::events::KeyRepeat::scancode']]]
 ];

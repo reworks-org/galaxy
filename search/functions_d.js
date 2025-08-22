@@ -5,5 +5,6 @@ var searchData=
   ['normalize_2',['normalize',['../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48',1,'galaxy::math']]],
   ['notification_3',['notification',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab5f8391219ad93ac4a677eecf36b3dde',1,'galaxy::VirtualFileSystem']]],
   ['notserializable_4',['NotSerializable',['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#a3e609969fa1b6f10538d8cadf5306123',1,'galaxy::flags::NotSerializable::NotSerializable() noexcept=default'],['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#ab4040612670127318f39e1043d9596f9',1,'galaxy::flags::NotSerializable::NotSerializable(NotSerializable &amp;&amp;) noexcept=default'],['../d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#a43e6afc140a5c56a2fe9ae6561c96d9b',1,'galaxy::flags::NotSerializable::NotSerializable(const NotSerializable &amp;)=delete']]],
-  ['nuklearui_5',['NuklearUI',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c',1,'galaxy::ui::NuklearUI']]]
+  ['now_5',['now',['../d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d',1,'galaxy::time']]],
+  ['nuklearui_6',['NuklearUI',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ae22f6da1861162849e6f0cd5fb9bb39c',1,'galaxy::ui::NuklearUI']]]
 ];

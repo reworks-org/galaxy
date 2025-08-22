@@ -1,11 +1,9 @@
 <map id="galaxy/src/galaxy/meta/EntityFactory.hpp" name="galaxy/src/galaxy/meta/EntityFactory.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="293,5,468,45"/>
-<area shape="rect" id="Node000002" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,52,154,96,153,91,303,47"/>
-<area shape="rect" id="Node000003" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="199,93,368,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="351,56,307,95,303,91,347,52"/>
-<area shape="rect" id="Node000004" href="$d0/de3/EntityFactory_8cpp.html" title=" " alt="" coords="392,93,567,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="414,52,459,91,456,95,411,56"/>
-<area shape="rect" id="Node000005" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="591,93,770,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="461,47,616,91,614,96,459,52"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="199,5,373,45"/>
+<area shape="rect" id="Node000002" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,53,134,96,132,91,230,48"/>
+<area shape="rect" id="Node000003" href="$d0/de3/EntityFactory_8cpp.html" title=" " alt="" coords="199,93,373,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="289,59,289,93,283,93,283,59"/>
+<area shape="rect" id="Node000004" href="$da/d2c/SceneManager_8cpp.html" title=" " alt="" coords="398,93,577,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="344,48,444,91,442,96,342,53"/>
 </map>

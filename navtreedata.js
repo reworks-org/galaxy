@@ -62,15 +62,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d2/d01/LuaCore_8cpp.html#a2d3a3d9bb05e911106d8815404ed46d2",
-"d4/d0e/classgalaxy_1_1components_1_1Point.html",
-"d4/de5/Base64_8cpp_source.html",
-"d6/d4f/Registry_8cpp.html",
-"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169",
-"da/d64/classgalaxy_1_1resource_1_1Cache.html",
-"db/db0/classgalaxy_1_1meta_1_1SystemFactory.html",
-"de/d03/TileMap_8hpp.html",
-"df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a836982800491e8b41f7afa59c036cabd"
+"d1/db3/structgalaxy_1_1settings.html#ab5ed71114ee3dd59ccbeb2fb7eb7d86c",
+"d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1",
+"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3",
+"d6/d19/namespacegalaxy_1_1fs.html#af0caa5495ffa107a7f96c8e61451d7b0",
+"d8/db6/FileError_8hpp_source.html",
+"d9/de7/Time_8hpp.html",
+"db/d40/classgalaxy_1_1components_1_1Script.html#ac7bb892d9cf148588d9037a8970e245a",
+"dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a6abb0a40e437aecc6f125fe515203e43",
+"de/df5/components_2Script_8cpp.html",
+"functions_g.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

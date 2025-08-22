@@ -1,0 +1,7 @@
+<map id="galaxy::App::setup_config" name="galaxy::App::setup_config">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,148,77"/>
+<area shape="rect" id="Node000002" href="$d1/db3/structgalaxy_1_1settings.html#ac494dd0b4cd1d99fe9bd878524dc8e60" title="Restore all config settings to default." alt="" coords="202,5,355,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,43,188,37,189,42,149,49"/>
+<area shape="rect" id="Node000003" href="$d1/db3/structgalaxy_1_1settings.html#a2c23f3c7654aec06ae7813900072f2b0" title="Set all our settings using the provided config file." alt="" coords="196,69,361,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,66,183,71,182,77,148,71"/>
+</map>

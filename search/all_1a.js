@@ -2,7 +2,7 @@ var searchData=
 [
   ['_7eanimated_0',['~Animated',['../da/d18/classgalaxy_1_1components_1_1Animated.html#a054198ddd1c32ca1c358806236c9174c',1,'galaxy::components::Animated']]],
   ['_7eanimationsystem_1',['~AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131',1,'galaxy::systems::AnimationSystem']]],
-  ['_7eapp_2',['~App',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a38af8530b6b890cb970af612a8de441b',1,'galaxy::core::App']]],
+  ['_7eapp_2',['~App',['../dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f',1,'galaxy::App']]],
   ['_7ecache_3',['~Cache',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa72ede435c24df982931ba59882379f1',1,'galaxy::resource::Cache']]],
   ['_7ecameracontroller_4',['~CameraController',['../d0/d15/classgalaxy_1_1input_1_1CameraController.html#aa2267405c55f6b18c3081e32a205d53d',1,'galaxy::input::CameraController']]],
   ['_7ecircle_5',['~Circle',['../da/d0d/classgalaxy_1_1components_1_1Circle.html#a5b78b5bc0e89b02c24f876d018d60314',1,'galaxy::components::Circle']]],

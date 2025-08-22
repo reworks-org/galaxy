@@ -2,6 +2,7 @@ var structgalaxy_1_1settings =
 [
     [ "set_config_to_default", "d1/db3/structgalaxy_1_1settings.html#ac494dd0b4cd1d99fe9bd878524dc8e60", null ],
     [ "set_settings_from_config", "d1/db3/structgalaxy_1_1settings.html#a2c23f3c7654aec06ae7813900072f2b0", null ],
+    [ "log_dir", "d1/db3/structgalaxy_1_1settings.html#ad824d90bb5660e356f83789cf00d6e2d", null ],
     [ "root_dir", "d1/db3/structgalaxy_1_1settings.html#a566d989a8396d9f36754fb8d3084e41b", null ],
     [ "assets_dir", "d1/db3/structgalaxy_1_1settings.html#ab5ed71114ee3dd59ccbeb2fb7eb7d86c", null ],
     [ "editor_dir", "d1/db3/structgalaxy_1_1settings.html#a89f510a96bebe3f40924cd387c570976", null ],

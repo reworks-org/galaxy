@@ -1,9 +1,13 @@
 <map id="galaxy/src/galaxy/input/CameraController.hpp" name="galaxy/src/galaxy/input/CameraController.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="263,5,438,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,211,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,48,157,92,156,86,292,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="235,93,466,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,46,353,79,348,79,348,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="491,93,699,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="410,43,547,86,545,92,408,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="366,5,541,45"/>
+<area shape="rect" id="Node000002" href="$d4/ddc/KeyPress_8hpp.html" title=" " alt="" coords="108,93,313,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="396,48,260,92,258,86,394,43"/>
+<area shape="rect" id="Node000005" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="338,93,569,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="456,46,456,79,451,79,451,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="593,93,801,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="513,43,649,86,648,92,511,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,208,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="195,121,137,161,134,156,192,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="233,167,399,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="229,116,289,157,286,161,226,121"/>
 </map>

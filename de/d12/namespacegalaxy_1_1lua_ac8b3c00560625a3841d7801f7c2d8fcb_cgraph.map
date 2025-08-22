@@ -1,9 +1,11 @@
 <map id="galaxy::lua::inject_platform" name="galaxy::lua::inject_platform">
-<area shape="rect" id="Node000001" title="Inject platform stuff into Lua." alt="" coords="5,69,143,109"/>
-<area shape="rect" id="Node000002" href="$db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa" title="Launch a subprocess." alt="" coords="191,5,337,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,67,190,47,192,52,135,72"/>
-<area shape="rect" id="Node000003" href="$db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99" title="Terminates process." alt="" coords="191,69,337,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,87,176,87,176,92,143,92"/>
-<area shape="rect" id="Node000004" href="$db/d1d/classgalaxy_1_1Subprocess.html#ae453f3c0015bdd5ad882cc19a5d955b2" title="Wait for a process to finish execution." alt="" coords="191,133,337,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="135,107,192,126,190,131,133,112"/>
+<area shape="rect" id="Node000001" title="Inject platform stuff into Lua." alt="" coords="5,101,143,141"/>
+<area shape="rect" id="Node000002" href="$db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa" title="Launch a subprocess." alt="" coords="201,5,348,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,99,189,55,204,48,207,53,192,60,110,104"/>
+<area shape="rect" id="Node000003" href="$db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99" title="Terminates process." alt="" coords="201,69,348,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,108,187,101,188,106,143,113"/>
+<area shape="rect" id="Node000004" href="$dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366" title=" " alt="" coords="191,133,359,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,130,178,135,177,140,142,135"/>
+<area shape="rect" id="Node000005" href="$db/d1d/classgalaxy_1_1Subprocess.html#ae453f3c0015bdd5ad882cc19a5d955b2" title="Wait for a process to finish execution." alt="" coords="201,197,348,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="110,139,192,183,207,190,204,194,189,188,107,144"/>
 </map>

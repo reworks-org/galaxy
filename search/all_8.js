@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['id_0',['id',['../d9/de7/classgalaxy_1_1systems_1_1System.html#a990f67a650b4f79d80bc76398652d8bc',1,'galaxy::systems::System']]],
+  ['id_0',['id',['../d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect.html#a99afd376fcadda66a63a01c024dd859f',1,'galaxy::events::JoystickDisconnect::id'],['../d9/de7/classgalaxy_1_1systems_1_1System.html#a990f67a650b4f79d80bc76398652d8bc',1,'galaxy::systems::System::id()']]],
   ['imgui_5fcenter_5fnext_5fwindow_1',['imgui_center_next_window',['../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e',1,'galaxy::ui']]],
   ['imgui_5fconfirm_2',['imgui_confirm',['../d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c',1,'galaxy::ui']]],
   ['imgui_5fdestroy_5fcontext_3',['imgui_destroy_context',['../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94',1,'galaxy::ui']]],

@@ -38,7 +38,7 @@ var searchData=
   ['rendersystem_2ehpp_35',['RenderSystem.hpp',['../da/d4c/RenderSystem_8hpp.html',1,'']]],
   ['rendertextureshader_2ecpp_36',['RenderTextureShader.cpp',['../d3/d97/RenderTextureShader_8cpp.html',1,'']]],
   ['rendertextureshader_2ehpp_37',['RenderTextureShader.hpp',['../db/da8/RenderTextureShader_8hpp.html',1,'']]],
-  ['repeat_38',['repeat',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#a21ac9368b1418233fc25c54087fbce79',1,'galaxy::async::Timer']]],
+  ['repeat_38',['repeat',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#aa3b0eef31211af1510553a97746e6ca2',1,'galaxy::events::KeyPress::repeat'],['../da/d6d/classgalaxy_1_1async_1_1Timer.html#a21ac9368b1418233fc25c54087fbce79',1,'galaxy::async::Timer::repeat()']]],
   ['replace_5fall_39',['replace_all',['../df/d98/namespacegalaxy_1_1str.html#a68cef8525cd038dbfacf06b977df2381',1,'galaxy::str']]],
   ['replace_5ffirst_40',['replace_first',['../df/d98/namespacegalaxy_1_1str.html#ac7da95a6162660909185af790134481a',1,'galaxy::str']]],
   ['restore_41',['restore',['../db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945',1,'galaxy::Config::restore(const std::string &amp;key, const Value &amp;value) noexcept'],['../db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b',1,'galaxy::Config::restore(const std::string &amp;key, const Value &amp;value, const std::string &amp;section, const std::string &amp;delim=&quot;.&quot;)']]],
@@ -55,6 +55,6 @@ var searchData=
   ['root_5fdir_52',['root_dir',['../d1/db3/structgalaxy_1_1settings.html#a566d989a8396d9f36754fb8d3084e41b',1,'galaxy::settings']]],
   ['root_5fpath_5fwrapper_53',['root_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a1f6f6354f0b228b58b3a3943df38d68e',1,'galaxy::lua']]],
   ['rtrim_54',['rtrim',['../df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd',1,'galaxy::str']]],
-  ['run_55',['run',['../d5/d5a/classgalaxy_1_1core_1_1App.html#a32d74395db8162f3dcff20a69674a610',1,'galaxy::core::App::run()'],['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3',1,'galaxy::lua::Script::run()']]],
+  ['run_55',['run',['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3',1,'galaxy::lua::Script']]],
   ['run_5fand_5freturn_56',['run_and_return',['../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a31ef0f29c7ffff47290b9a16f5a4b1b5',1,'galaxy::lua::Script']]]
 ];
