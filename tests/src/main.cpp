@@ -8,8 +8,10 @@
 #include <gtest/gtest.h>
 #include <mimalloc.h>
 #include <mimalloc-new-delete.h>
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
 
-int main(int argsc, char* argsv[])
+int main(int argc, char* argv[])
 {
 	mi_version();
 
