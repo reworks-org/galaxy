@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['windowclosed_0',['WindowClosed',['../dc/dad/structgalaxy_1_1events_1_1WindowClosed.html',1,'galaxy::events']]],
-  ['windowresized_1',['WindowResized',['../d9/dd9/structgalaxy_1_1events_1_1WindowResized.html',1,'galaxy::events']]],
-  ['world_2',['World',['../d9/d75/classgalaxy_1_1map_1_1World.html',1,'galaxy::map']]]
+  ['virtualfilesystem_0',['VirtualFileSystem',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html',1,'galaxy']]],
+  ['voiceloader_1',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]]
 ];

@@ -1,9 +1,11 @@
 <map id="galaxy::fileutils::read" name="galaxy::fileutils::read">
-<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="788,42,947,67"/>
+<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="788,70,947,95"/>
 <area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a92f7ad2d1294082ebec9047d6b50ad64" title=" " alt="" coords="590,5,739,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="774,44,739,39,740,34,774,39"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="808,69,735,48,737,43,809,64"/>
 <area shape="rect" id="Node000006" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="589,70,740,95"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="775,70,741,75,740,70,774,65"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="774,85,740,85,740,80,774,80"/>
+<area shape="rect" id="Node000008" href="$d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094" title="Read a json file from disk." alt="" coords="600,120,729,160"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="809,102,730,124,729,119,808,97"/>
 <area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="377,15,533,41"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="576,29,533,30,533,24,576,24"/>
 <area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,42,321,67"/>

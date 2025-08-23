@@ -49,7 +49,8 @@ var searchData=
   ['statemachine_46',['StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#abd7ced0266acb828a126f5a5be4acbfd',1,'galaxy::state::StateMachine']]],
   ['stop_47',['stop',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#a189708568cb24f187d71afd3b36ffe39',1,'galaxy::async::Timer']]],
   ['stopped_48',['stopped',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#af579df85b2b55eb8865fd946423f5e39',1,'galaxy::async::Timer']]],
-  ['subprocess_49',['Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html#a74fc9513708f431e1b1edffbf1e97823',1,'galaxy::Subprocess::Subprocess() noexcept'],['../db/d1d/classgalaxy_1_1Subprocess.html#affeb82eb551d94ff1964ece2ce39ca19',1,'galaxy::Subprocess::Subprocess(std::string_view process, std::span&lt; std::string &gt; args={})']]],
-  ['system_50',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html#a7a22f1d3b738e3cf72260752cb9b4550',1,'galaxy::systems::System::System(const std::string &amp;id) noexcept'],['../d9/de7/classgalaxy_1_1systems_1_1System.html#a1aaf88f205f0421d4aa07208c65108da',1,'galaxy::systems::System::System()=delete']]],
-  ['systemfactory_51',['SystemFactory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html#a8248bfef02b6ca45903e6e0f96f5694f',1,'galaxy::meta::SystemFactory']]]
+  ['str_49',['str',['../dd/da7/classgalaxy_1_1UUID.html#a2c2949a1885f9d4ca14f8dd229b6d642',1,'galaxy::UUID']]],
+  ['subprocess_50',['Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html#a74fc9513708f431e1b1edffbf1e97823',1,'galaxy::Subprocess::Subprocess() noexcept'],['../db/d1d/classgalaxy_1_1Subprocess.html#affeb82eb551d94ff1964ece2ce39ca19',1,'galaxy::Subprocess::Subprocess(std::string_view process, std::span&lt; std::string &gt; args={})']]],
+  ['system_51',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html#a7a22f1d3b738e3cf72260752cb9b4550',1,'galaxy::systems::System::System(const std::string &amp;id) noexcept'],['../d9/de7/classgalaxy_1_1systems_1_1System.html#a1aaf88f205f0421d4aa07208c65108da',1,'galaxy::systems::System::System()=delete']]],
+  ['systemfactory_52',['SystemFactory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html#a8248bfef02b6ca45903e6e0f96f5694f',1,'galaxy::meta::SystemFactory']]]
 ];

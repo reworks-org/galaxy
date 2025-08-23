@@ -1,5 +1,0 @@
-<map id="galaxy::utils::Guid::to_string" name="galaxy::utils::Guid::to_string">
-<area shape="rect" id="Node000001" title="Get the GUID as a string." alt="" coords="229,5,368,45"/>
-<area shape="rect" id="Node000002" href="$d4/d20/structstd_1_1hash_3_01galaxy_1_1utils_1_1Guid_01_4.html#a8ed67cf52598a7c589878d5f9146d107" title="Hash specialization function for Guid." alt="" coords="5,5,181,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,28,182,28,182,23,216,23"/>
-</map>

@@ -107,6 +107,7 @@ $(function(){initNavTree('da/dc2/FileUtils_8hpp.html','../../'); initResizable(t
 <div class="contents">
 <div class="textblock"><code>#include &lt;expected&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;nlohmann/json_fwd.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d8/db6/FileError_8hpp_source.html">galaxy/fs/FileError.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for FileUtils.hpp:</div>
@@ -115,17 +116,19 @@ $(function(){initNavTree('da/dc2/FileUtils_8hpp.html','../../'); initResizable(t
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d3b/FileUtils_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2fs_2FileUtils_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2fs_2FileUtils_8hpp" id="agalaxy_2src_2galaxy_2fs_2FileUtils_8hpp">
-<area shape="rect" title=" " alt="" coords="73,5,226,45"/>
+<area shape="rect" title=" " alt="" coords="147,5,301,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,88,119"/>
-<area shape="poly" title=" " alt="" coords="126,48,74,87,71,83,123,43"/>
+<area shape="poly" title=" " alt="" coords="183,48,86,90,84,85,180,43"/>
 <area shape="rect" title=" " alt="" coords="112,93,187,119"/>
-<area shape="poly" title=" " alt="" coords="152,46,152,79,147,79,147,46"/>
-<area shape="rect" href="../../d8/db6/FileError_8hpp.html" title=" " alt="" coords="211,93,378,119"/>
-<area shape="poly" title=" " alt="" coords="185,43,263,84,260,89,183,48"/>
-<area shape="rect" title=" " alt="" coords="197,167,288,192"/>
-<area shape="poly" title=" " alt="" coords="288,121,261,157,257,154,284,117"/>
-<area shape="rect" title=" " alt="" coords="312,167,379,192"/>
-<area shape="poly" title=" " alt="" coords="305,117,331,154,327,157,301,121"/>
+<area shape="poly" title=" " alt="" coords="208,47,172,85,168,81,204,44"/>
+<area shape="rect" title=" " alt="" coords="211,93,387,119"/>
+<area shape="poly" title=" " alt="" coords="244,44,280,81,276,85,240,47"/>
+<area shape="rect" href="../../d8/db6/FileError_8hpp.html" title=" " alt="" coords="411,93,578,119"/>
+<area shape="poly" title=" " alt="" coords="290,43,443,87,441,92,288,48"/>
+<area shape="rect" title=" " alt="" coords="397,167,488,192"/>
+<area shape="poly" title=" " alt="" coords="488,121,461,157,457,154,484,117"/>
+<area shape="rect" title=" " alt="" coords="512,167,579,192"/>
+<area shape="poly" title=" " alt="" coords="505,117,531,154,527,157,501,121"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -166,6 +169,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a08aa5cf80f6e7f648fd96f850acf1e7e" id="r_a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e">galaxy::fileutils::write</a> (const std::string &amp;filepath, const std::string &amp;data)</td></tr>
 <tr class="memdesc:a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a non-binary file to disk.  <br /></td></tr>
 <tr class="separator:a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2b4b065386c19c0911c9953f565094" id="r_afa2b4b065386c19c0911c9953f565094"><td class="memItemLeft" align="right" valign="top">std::optional&lt; nlohmann::json &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094">galaxy::fileutils::read_json</a> (const std::string &amp;filepath)</td></tr>
+<tr class="memdesc:afa2b4b065386c19c0911c9953f565094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a json file from disk.  <br /></td></tr>
+<tr class="separator:afa2b4b065386c19c0911c9953f565094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b4eead3698b8ab97d50c6cd2c86c78" id="r_aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78">galaxy::fileutils::write_json</a> (const std::string &amp;filepath, const nlohmann::json &amp;json)</td></tr>
+<tr class="memdesc:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write json to disk.  <br /></td></tr>
+<tr class="separator:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -173,7 +182,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_1172629c230fd658e12a747419a13e17.html">fs</a></li><li class="navelem"><a class="el" href="../../da/dc2/FileUtils_8hpp.html">FileUtils.hpp</a></li>
-    <li class="footer">Generated on Fri Aug 22 2025 10:17:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Aug 23 2025 07:52:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

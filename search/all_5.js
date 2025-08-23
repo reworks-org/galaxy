@@ -23,13 +23,14 @@ var searchData=
   ['fonts_20',['Fonts',['../d4/d1b/namespacegalaxy_1_1resource.html#abc6c983b26fb1f6f45b9cff17f8fe4e9',1,'galaxy::resource']]],
   ['fonts_2ecpp_21',['Fonts.cpp',['../db/d4b/Fonts_8cpp.html',1,'']]],
   ['fonts_2ehpp_22',['Fonts.hpp',['../d9/d7d/Fonts_8hpp.html',1,'']]],
-  ['format_23',['format',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html#afd4a9d6e65946d4fe112ed766bcd0c6a',1,'std::formatter&lt; std::filesystem::path &gt;::format()'],['../d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html#ab154f94887f53a8195448d78b185cb8b',1,'std::formatter&lt; galaxy::FileError &gt;::format()'],['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html#a0b9233b060a1ef1935a628fcd9ef8bc7',1,'std::formatter&lt; galaxy::LogLevel &gt;::format()'],['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a5b83e138b0cc94922a5a44766f704c36',1,'std::formatter&lt; galaxy::LogMessage &gt;::format()']]],
+  ['format_23',['format',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html#ab5b7393ab900218e1bf77c533a74a0fc',1,'std::formatter&lt; std::filesystem::path &gt;::format()'],['../d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html#a89983c8e58224e66e6e051018f3c9f35',1,'std::formatter&lt; galaxy::FileError &gt;::format()'],['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html#a629973e3d4a1ea4e1e09b69011887ff5',1,'std::formatter&lt; galaxy::LogLevel &gt;::format()'],['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a70a0b34589e5fb89ac9f851c5793a819',1,'std::formatter&lt; galaxy::LogMessage &gt;::format()'],['../d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html#ad373f1230194fa26fa4fea670fd21f3f',1,'std::formatter&lt; galaxy::UUID &gt;::format()']]],
   ['formatter_3c_20galaxy_3a_3afileerror_20_3e_24',['formatter&lt; galaxy::FileError &gt;',['../d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html',1,'std']]],
   ['formatter_3c_20galaxy_3a_3aloglevel_20_3e_25',['formatter&lt; galaxy::LogLevel &gt;',['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html',1,'std']]],
   ['formatter_3c_20galaxy_3a_3alogmessage_20_3e_26',['formatter&lt; galaxy::LogMessage &gt;',['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html',1,'std']]],
-  ['formatter_3c_20std_3a_3afilesystem_3a_3apath_20_3e_27',['formatter&lt; std::filesystem::path &gt;',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html',1,'std']]],
-  ['frect_28',['fRect',['../d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730',1,'galaxy']]],
-  ['from_5fentity_29',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_30',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
-  ['function_31',['Function',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#ab07fa9a2451f570e7f50e04b0fb2dcd1',1,'galaxy::async::Timer']]]
+  ['formatter_3c_20galaxy_3a_3auuid_20_3e_27',['formatter&lt; galaxy::UUID &gt;',['../d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html',1,'std']]],
+  ['formatter_3c_20std_3a_3afilesystem_3a_3apath_20_3e_28',['formatter&lt; std::filesystem::path &gt;',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html',1,'std']]],
+  ['frect_29',['fRect',['../d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730',1,'galaxy']]],
+  ['from_5fentity_30',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
+  ['from_5fjson_31',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['function_32',['Function',['../da/d6d/classgalaxy_1_1async_1_1Timer.html#ab07fa9a2451f570e7f50e04b0fb2dcd1',1,'galaxy::async::Timer']]]
 ];

@@ -8,5 +8,6 @@ var searchData=
   ['formatter_3c_20galaxy_3a_3afileerror_20_3e_5',['formatter&lt; galaxy::FileError &gt;',['../d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html',1,'std']]],
   ['formatter_3c_20galaxy_3a_3aloglevel_20_3e_6',['formatter&lt; galaxy::LogLevel &gt;',['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html',1,'std']]],
   ['formatter_3c_20galaxy_3a_3alogmessage_20_3e_7',['formatter&lt; galaxy::LogMessage &gt;',['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html',1,'std']]],
-  ['formatter_3c_20std_3a_3afilesystem_3a_3apath_20_3e_8',['formatter&lt; std::filesystem::path &gt;',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html',1,'std']]]
+  ['formatter_3c_20galaxy_3a_3auuid_20_3e_8',['formatter&lt; galaxy::UUID &gt;',['../d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html',1,'std']]],
+  ['formatter_3c_20std_3a_3afilesystem_3a_3apath_20_3e_9',['formatter&lt; std::filesystem::path &gt;',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html',1,'std']]]
 ];

@@ -116,6 +116,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a08aa5cf80f6e7f648fd96f850acf1e7e" id="r_a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08aa5cf80f6e7f648fd96f850acf1e7e">write</a> (const std::string &amp;filepath, const std::string &amp;data)</td></tr>
 <tr class="memdesc:a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a non-binary file to disk.  <br /></td></tr>
 <tr class="separator:a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2b4b065386c19c0911c9953f565094" id="r_afa2b4b065386c19c0911c9953f565094"><td class="memItemLeft" align="right" valign="top">std::optional&lt; nlohmann::json &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa2b4b065386c19c0911c9953f565094">read_json</a> (const std::string &amp;filepath)</td></tr>
+<tr class="memdesc:afa2b4b065386c19c0911c9953f565094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a json file from disk.  <br /></td></tr>
+<tr class="separator:afa2b4b065386c19c0911c9953f565094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b4eead3698b8ab97d50c6cd2c86c78" id="r_aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1b4eead3698b8ab97d50c6cd2c86c78">write_json</a> (const std::string &amp;filepath, const nlohmann::json &amp;json)</td></tr>
+<tr class="memdesc:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write json to disk.  <br /></td></tr>
+<tr class="separator:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a508e266dc3b9a1f83e32bb098a1e98b1" name="a508e266dc3b9a1f83e32bb098a1e98b1"></a>
@@ -150,7 +156,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Extension, including dot. Nullopt if errors. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -202,7 +208,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Data, or filerror if an unexpected error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -210,11 +216,13 @@ Functions</h2></td></tr>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d23/namespacegalaxy_1_1fileutils_adc50ca5dc7f96ff68c2904bed1b68d92_icgraph.png" border="0" usemap="#ad8/d23/namespacegalaxy_1_1fileutils_adc50ca5dc7f96ff68c2904bed1b68d92_icgraph" alt=""/></div>
 <map name="ad8/d23/namespacegalaxy_1_1fileutils_adc50ca5dc7f96ff68c2904bed1b68d92_icgraph" id="ad8/d23/namespacegalaxy_1_1fileutils_adc50ca5dc7f96ff68c2904bed1b68d92_icgraph">
-<area shape="rect" title="Read a non&#45;binary file on disk." alt="" coords="788,42,947,67"/>
+<area shape="rect" title="Read a non&#45;binary file on disk." alt="" coords="788,70,947,95"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a92f7ad2d1294082ebec9047d6b50ad64" title=" " alt="" coords="590,5,739,45"/>
-<area shape="poly" title=" " alt="" coords="774,44,739,39,740,34,774,39"/>
+<area shape="poly" title=" " alt="" coords="808,69,735,48,737,43,809,64"/>
 <area shape="rect" href="../../db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="589,70,740,95"/>
-<area shape="poly" title=" " alt="" coords="775,70,741,75,740,70,774,65"/>
+<area shape="poly" title=" " alt="" coords="774,85,740,85,740,80,774,80"/>
+<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094" title="Read a json file from disk." alt="" coords="600,120,729,160"/>
+<area shape="poly" title=" " alt="" coords="809,102,730,124,729,119,808,97"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="377,15,533,41"/>
 <area shape="poly" title=" " alt="" coords="576,29,533,30,533,24,576,24"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,42,321,67"/>
@@ -266,7 +274,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Nullopt on success, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html" title="Stores information about a File I/O error.">FileError</a> on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -274,13 +282,15 @@ Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d23/namespacegalaxy_1_1fileutils_a08aa5cf80f6e7f648fd96f850acf1e7e_icgraph.png" border="0" usemap="#ad8/d23/namespacegalaxy_1_1fileutils_a08aa5cf80f6e7f648fd96f850acf1e7e_icgraph" alt=""/></div>
 <map name="ad8/d23/namespacegalaxy_1_1fileutils_a08aa5cf80f6e7f648fd96f850acf1e7e_icgraph" id="ad8/d23/namespacegalaxy_1_1fileutils_a08aa5cf80f6e7f648fd96f850acf1e7e_icgraph">
-<area shape="rect" title="Writes a non&#45;binary file to disk." alt="" coords="791,47,920,87"/>
+<area shape="rect" title="Writes a non&#45;binary file to disk." alt="" coords="791,73,920,113"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="377,5,533,31"/>
-<area shape="poly" title=" " alt="" coords="776,51,742,45,633,32,533,24,534,19,634,26,743,39,777,46"/>
+<area shape="poly" title=" " alt="" coords="805,69,742,45,689,33,634,26,534,20,534,15,634,21,689,28,743,39,807,64"/>
 <area shape="rect" href="../../db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="591,55,741,80"/>
-<area shape="poly" title=" " alt="" coords="777,70,742,70,742,65,777,65"/>
+<area shape="poly" title=" " alt="" coords="776,85,741,80,742,75,777,80"/>
 <area shape="rect" href="../../db/d49/classgalaxy_1_1Config.html#a2d27aeba46bb153367da4985d75154e7" title="Save the config file. Must be opened first." alt="" coords="589,104,743,129"/>
-<area shape="poly" title=" " alt="" coords="778,90,716,107,715,101,776,85"/>
+<area shape="poly" title=" " alt="" coords="777,105,743,110,743,104,777,100"/>
+<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78" title="Write json to disk." alt="" coords="601,154,731,194"/>
+<area shape="poly" title=" " alt="" coords="798,121,744,144,716,156,714,152,742,140,796,116"/>
 <area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,31,321,56"/>
 <area shape="poly" title=" " alt="" coords="364,32,322,37,321,32,363,27"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,31,136,56"/>
@@ -294,13 +304,114 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afa2b4b065386c19c0911c9953f565094" name="afa2b4b065386c19c0911c9953f565094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2b4b065386c19c0911c9953f565094">&#9670;&#160;</a></span>read_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; nlohmann::json &gt; galaxy::fileutils::read_json </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read a json file from disk. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>Path to file to read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Fully parsed json object. Nullopt if parsing failed. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00085">85</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d23/namespacegalaxy_1_1fileutils_afa2b4b065386c19c0911c9953f565094_cgraph.png" border="0" usemap="#ad8/d23/namespacegalaxy_1_1fileutils_afa2b4b065386c19c0911c9953f565094_cgraph" alt=""/></div>
+<map name="ad8/d23/namespacegalaxy_1_1fileutils_afa2b4b065386c19c0911c9953f565094_cgraph" id="ad8/d23/namespacegalaxy_1_1fileutils_afa2b4b065386c19c0911c9953f565094_cgraph">
+<area shape="rect" title="Read a json file from disk." alt="" coords="5,5,135,45"/>
+<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="183,13,341,38"/>
+<area shape="poly" title=" " alt="" coords="135,23,169,23,169,28,135,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa1b4eead3698b8ab97d50c6cd2c86c78" name="aa1b4eead3698b8ab97d50c6cd2c86c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1b4eead3698b8ab97d50c6cd2c86c78">&#9670;&#160;</a></span>write_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::fileutils::write_json </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const nlohmann::json &amp;</td>          <td class="paramname"><span class="paramname"><em>json</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write json to disk. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filepath</td><td>Path to file to write to. </td></tr>
+    <tr><td class="paramname">json</td><td>Json data to write.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d23/namespacegalaxy_1_1fileutils_aa1b4eead3698b8ab97d50c6cd2c86c78_cgraph.png" border="0" usemap="#ad8/d23/namespacegalaxy_1_1fileutils_aa1b4eead3698b8ab97d50c6cd2c86c78_cgraph" alt=""/></div>
+<map name="ad8/d23/namespacegalaxy_1_1fileutils_aa1b4eead3698b8ab97d50c6cd2c86c78_cgraph" id="ad8/d23/namespacegalaxy_1_1fileutils_aa1b4eead3698b8ab97d50c6cd2c86c78_cgraph">
+<area shape="rect" title="Write json to disk." alt="" coords="5,5,135,45"/>
+<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="183,5,312,45"/>
+<area shape="poly" title=" " alt="" coords="135,23,169,23,169,28,135,28"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html">fileutils</a></li>
-    <li class="footer">Generated on Fri Aug 22 2025 10:17:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Aug 23 2025 07:52:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

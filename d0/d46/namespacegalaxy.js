@@ -7,7 +7,9 @@ var namespacegalaxy =
     [ "fileutils", "d8/d23/namespacegalaxy_1_1fileutils.html", [
       [ "extension", "d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1", null ],
       [ "read", "d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92", null ],
-      [ "write", "d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e", null ]
+      [ "write", "d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e", null ],
+      [ "read_json", "d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094", null ],
+      [ "write_json", "d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78", null ]
     ] ],
     [ "flags", "df/d31/namespacegalaxy_1_1flags.html", "df/d31/namespacegalaxy_1_1flags" ],
     [ "fs", "d6/d19/namespacegalaxy_1_1fs.html", "d6/d19/namespacegalaxy_1_1fs" ],
@@ -56,7 +58,6 @@ var namespacegalaxy =
       [ "now", "d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d", null ]
     ] ],
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", "d3/dd9/namespacegalaxy_1_1ui" ],
-    [ "utils", "d2/d10/namespacegalaxy_1_1utils.html", "d2/d10/namespacegalaxy_1_1utils" ],
     [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
@@ -69,6 +70,7 @@ var namespacegalaxy =
     [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
     [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
     [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
+    [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
     [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
     [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ],
     [ "iRect", "d0/d46/namespacegalaxy.html#a9b3b4aa5d37e03fe45aca3556b1a1f05", null ],
