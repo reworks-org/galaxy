@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 {
 	mi_version();
 
-	testing::InitGoogleTest(&argsc, argsv);
+	testing::InitGoogleTest(&argc, argv);
 
 	return RUN_ALL_TESTS();
 }

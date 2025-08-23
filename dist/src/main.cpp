@@ -36,4 +36,5 @@ int main(int argc, char* argv[])
 	// }
 
 	// return GALAXY_EXIT_SUCCESS;
+	return 0;
 }
