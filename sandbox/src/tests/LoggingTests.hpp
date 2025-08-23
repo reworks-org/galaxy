@@ -34,7 +34,7 @@ inline void print_all_levels()
 	// Sinks are handled by the application.
 
 	GALAXY_LOG(GALAXY_INFO, "INFO TEST.");
-	GALAXY_LOG(GALAXY_WARNING, "WARNING TEST.");
+	GALAXY_LOG(GALAXY_WARN, "WARNING TEST.");
 	GALAXY_LOG(GALAXY_ERROR, "ERROR TEST.");
 
 	try

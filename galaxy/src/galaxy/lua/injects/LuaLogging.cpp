@@ -24,7 +24,7 @@ namespace galaxy
 					break;
 
 				case LogLevel::WARNING:
-					GALAXY_LOG(GALAXY_WARNING, "{0}", message);
+					GALAXY_LOG(GALAXY_WARN, "{0}", message);
 					break;
 
 				case LogLevel::ERROR:

@@ -20,7 +20,7 @@
 #include "galaxy/utils/StringUtils.hpp"
 
 #define GALAXY_INFO                     galaxy::LogLevel::INFO
-#define GALAXY_WARNING                  galaxy::LogLevel::WARNING
+#define GALAXY_WARN                     galaxy::LogLevel::WARNING
 #define GALAXY_ERROR                    galaxy::LogLevel::ERROR
 #define GALAXY_FATAL                    galaxy::LogLevel::FATAL
 #define GALAXY_LOG_SET_MIN_LEVEL(level) entt::locator<galaxy::Log>::value().set_min_level<level>()
