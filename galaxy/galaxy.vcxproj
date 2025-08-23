@@ -53,6 +53,7 @@
     <ClCompile Include="src\galaxy\utils\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
     <ClCompile Include="src\galaxy\utils\Time.cpp" />
+    <ClCompile Include="src\galaxy\utils\UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
     <ClInclude Include="src\galaxy\utils\Time.hpp" />
+    <ClInclude Include="src\galaxy\utils\UUID.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

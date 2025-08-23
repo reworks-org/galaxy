@@ -1,92 +1,107 @@
 ///
-/// Guid.cpp
+/// UUID.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <iomanip>
+#include <random>
 #include <sstream>
 
-#include "galaxy/math/Random.hpp"
-
-#include "Guid.hpp"
-
-static constexpr const char* const s_chars {"abcdef"};
+#include "UUID.hpp"
 
 namespace galaxy
 {
-	namespace utils
+	UUID::UUID()
 	{
-		Guid::Guid()
-			: m_id {""}
+		std::mt19937_64                              engine {std::random_device()()};
+		std::uniform_int_distribution<std::uint64_t> dist {0, 255};
+
+		for (auto index = 0; index < 16; ++index)
 		{
-			math::Random rng;
+			m_uuid[index] = static_cast<unsigned char>(dist(engine));
+		}
 
-			m_id += s_chars[static_cast<int>(std::floor(rng.gen<float>(0.0f, 1.0f) * 6))];
+		m_uuid[6] = ((m_uuid[6] & 0x0f) | 0x40); // Version 4
+		m_uuid[8] = ((m_uuid[8] & 0x3f) | 0x80); // Variant is 10
 
-			for (auto i = 1; i < 32; i++)
+		std::stringstream hex;
+		hex << std::hex << std::setfill('0');
+
+		for (int i = 0; i < 16; ++i)
+		{
+			hex << std::setw(2) << static_cast<int>(m_uuid[i]);
+
+			if (i == 3 || i == 5 || i == 7 || i == 9)
 			{
-				const auto random = static_cast<int>(rng.gen<float>(0.0f, 1.0f) * 16);
-
-				if (i == 8 || i == 12 || i == 16 || i == 20)
-				{
-					m_id += '-';
-				}
-
-				std::stringstream hex;
-				hex << std::hex << (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random));
-
-				m_id += hex.str();
+				hex << '-';
 			}
 		}
 
-		Guid::Guid(Guid&& g) noexcept
+		m_str = hex.str();
+	}
+
+	UUID::UUID(UUID&& g) noexcept
+	{
+		this->m_uuid = std::move(g.m_uuid);
+		this->m_str  = std::move(g.m_str);
+	}
+
+	UUID& UUID::operator=(UUID&& g) noexcept
+	{
+		if (this != &g)
 		{
-			this->m_id = std::move(g.m_id);
+			this->m_uuid = std::move(g.m_uuid);
+			this->m_str  = std::move(g.m_str);
 		}
 
-		Guid& Guid::operator=(Guid&& g) noexcept
-		{
-			if (this != &g)
-			{
-				this->m_id = std::move(g.m_id);
-			}
+		return *this;
+	}
 
-			return *this;
+	UUID::UUID(const UUID& g) noexcept
+	{
+		this->m_uuid = g.m_uuid;
+		this->m_str  = g.m_str;
+	}
+
+	UUID& UUID::operator=(const UUID& g) noexcept
+	{
+		if (this != &g)
+		{
+			this->m_uuid = g.m_uuid;
+			this->m_str  = g.m_str;
 		}
 
-		Guid::Guid(const Guid& g) noexcept
-		{
-			this->m_id = g.m_id;
-		}
+		return *this;
+	}
 
-		Guid& Guid::operator=(const Guid& g) noexcept
-		{
-			if (this != &g)
-			{
-				this->m_id = g.m_id;
-			}
+	UUID::~UUID() noexcept
+	{
+	}
 
-			return *this;
-		}
-
-		Guid::~Guid() noexcept
+	std::size_t UUID::hash() noexcept
+	{
+		std::size_t h = 0;
+		for (auto b : m_uuid)
 		{
+			h ^= static_cast<std::size_t>(b) + 0x9e3779b9 + (h << 6) + (h >> 2);
 		}
+		return h;
+	}
 
-		const std::string& Guid::to_string() const noexcept
-		{
-			return m_id;
-		}
+	const std::string& UUID::str() const noexcept
+	{
+		return m_str;
+	}
 
-		bool Guid::operator==(const Guid& rhs) noexcept
-		{
-			return m_id == rhs.m_id;
-		}
+	bool UUID::operator==(const UUID& rhs) noexcept
+	{
+		return m_uuid == rhs.m_uuid;
+	}
 
-		bool Guid::operator!=(const Guid& rhs) noexcept
-		{
-			return !operator==(rhs);
-		}
-	} // namespace utils
+	bool UUID::operator!=(const UUID& rhs) noexcept
+	{
+		return !operator==(rhs);
+	}
 } // namespace galaxy

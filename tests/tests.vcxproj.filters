@@ -13,5 +13,6 @@
     <ClCompile Include="src\math\RectTest.cpp" />
     <ClCompile Include="src\math\RectPackTest.cpp" />
     <ClCompile Include="src\core\ConfigTest.cpp" />
+    <ClCompile Include="src\utils\UUIDTest.cpp" />
   </ItemGroup>
 </Project>

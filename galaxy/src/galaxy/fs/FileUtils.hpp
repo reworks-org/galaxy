@@ -11,6 +11,8 @@
 #include <expected>
 #include <optional>
 
+#include <nlohmann/json_fwd.hpp>
+
 #include "galaxy/fs/FileError.hpp"
 
 namespace galaxy
@@ -47,6 +49,27 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		std::optional<FileError> write(const std::string& filepath, const std::string& data);
+
+		///
+		/// Read a json file from disk.
+		///
+		/// \param filepath Path to file to read.
+		///
+		/// \return Fully parsed json object. Nullopt if parsing failed.
+		///
+		[[nodiscard]]
+		std::optional<nlohmann::json> read_json(const std::string& filepath);
+
+		///
+		/// Write json to disk.
+		///
+		/// \param filepath Path to file to write to.
+		/// \param json Json data to write.
+		///
+		/// \return True on success.
+		///
+		[[nodiscard]]
+		bool write_json(const std::string& filepath, const nlohmann::json& json);
 	} // namespace fileutils
 } // namespace galaxy
 

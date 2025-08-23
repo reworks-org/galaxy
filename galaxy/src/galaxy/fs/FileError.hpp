@@ -64,7 +64,7 @@ namespace galaxy
 template<>
 struct std::formatter<std::filesystem::path> : std::formatter<std::string>
 {
-	auto format(const std::filesystem::path& path, format_context& ctx) const
+	auto format(const std::filesystem::path& path, format_context& ctx) const noexcept
 	{
 		return std::formatter<std::string>::format(path.string(), ctx);
 	}
@@ -73,7 +73,7 @@ struct std::formatter<std::filesystem::path> : std::formatter<std::string>
 template<>
 struct std::formatter<galaxy::FileError> : std::formatter<std::string>
 {
-	auto format(const galaxy::FileError& fe, format_context& ctx) const
+	auto format(const galaxy::FileError& fe, format_context& ctx) const noexcept
 	{
 		return std::formatter<std::string>::format(std::format("Failed to {0} {2} because {1}", fe.m_mode, fe.m_reason, fe.m_path), ctx);
 	}

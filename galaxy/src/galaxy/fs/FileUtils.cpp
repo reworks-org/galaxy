@@ -7,6 +7,8 @@
 
 #include <fstream>
 
+#include <nlohmann/json.hpp>
+
 #include "FileUtils.hpp"
 
 namespace galaxy
@@ -78,6 +80,32 @@ namespace galaxy
 			}
 
 			return std::nullopt;
+		}
+
+		std::optional<nlohmann::json> read_json(const std::string& filepath)
+		{
+			const auto read = fileutils::read(filepath);
+			if (read)
+			{
+				return std::make_optional(nlohmann::json::parse(read.value()));
+			}
+			else
+			{
+				read.error().log();
+				return std::nullopt;
+			}
+		}
+
+		bool write_json(const std::string& filepath, const nlohmann::json& json)
+		{
+			const auto write = fileutils::write(filepath, json.dump(4));
+			if (write)
+			{
+				write.value().log();
+				return false;
+			}
+
+			return true;
 		}
 	} // namespace fileutils
 } // namespace galaxy

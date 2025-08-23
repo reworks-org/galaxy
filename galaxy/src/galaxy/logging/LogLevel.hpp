@@ -66,7 +66,7 @@ namespace galaxy
 template<>
 struct std::formatter<galaxy::LogLevel> : std::formatter<std::string>
 {
-	auto format(const galaxy::LogLevel& level, format_context& ctx) const
+	auto format(const galaxy::LogLevel& level, format_context& ctx) const noexcept
 	{
 		return std::formatter<std::string>::format(std::string {magic_enum::enum_name<galaxy::LogLevel>(level)}, ctx);
 	}

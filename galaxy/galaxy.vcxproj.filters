@@ -43,6 +43,7 @@
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\utils\Time.cpp" />
+    <ClCompile Include="src\galaxy\utils\UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -81,5 +82,6 @@
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\utils\Time.hpp" />
+    <ClInclude Include="src\galaxy\utils\UUID.hpp" />
   </ItemGroup>
 </Project>

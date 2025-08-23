@@ -58,7 +58,7 @@ namespace galaxy
 template<>
 struct std::formatter<galaxy::LogMessage> : std::formatter<std::string>
 {
-	auto format(const galaxy::LogMessage& lm, format_context& ctx) const
+	auto format(const galaxy::LogMessage& lm, format_context& ctx) const noexcept
 	{
 		return std::formatter<std::string>::format(std::format("{0}[{1}] [{3}, Ln {4}] {2}: {5}\x1b[0m", lm.colour, lm.time, lm.level, lm.file, lm.line, lm.message), ctx);
 	}

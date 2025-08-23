@@ -23,6 +23,7 @@
     <ClCompile Include="src\platform\PlatformTests.cpp" />
     <ClCompile Include="src\utils\AsyncTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
+    <ClCompile Include="src\utils\UUIDTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
