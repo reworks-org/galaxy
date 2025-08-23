@@ -11,8 +11,6 @@
 #define MINIZ_HEADER_FILE_ONLY
 #include <miniz.h>
 
-#include "galaxy/platform/Pragma.hpp"
-
 namespace galaxy
 {
 	///
@@ -21,6 +19,11 @@ namespace galaxy
 	class ZLib final
 	{
 	public:
+		///
+		/// ZLib parsing chunk size.
+		///
+		static constexpr const auto ChunkSize = 16384;
+
 		///
 		/// ZLib mode to start in.
 		///
@@ -117,12 +120,12 @@ namespace galaxy
 		///
 		/// Input buffer.
 		///
-		char m_in[GALAXY_ZLIB_COMPLETE_CHUNK];
+		char m_in[ZLib::ChunkSize];
 
 		///
 		/// Output buffer.
 		///
-		char m_out[GALAXY_ZLIB_COMPLETE_CHUNK];
+		char m_out[ZLib::ChunkSize];
 	};
 } // namespace galaxy
 

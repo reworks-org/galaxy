@@ -9,11 +9,6 @@
 #define GALAXY_PLATFORM_PRAGMA_HPP_
 
 ///
-/// ZLib inflate/deflate chunk size.
-///
-#define GALAXY_ZLIB_COMPLETE_CHUNK 16384
-
-///
 /// Prevents compiler warnings when applied to unused parameters.
 ///
 #define GALAXY_UNUSED(var) ((void)(var))
