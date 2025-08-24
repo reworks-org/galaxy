@@ -70,6 +70,13 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		bool write_json(const std::string& filepath, const nlohmann::json& json);
+
+		///
+		/// Open URL in default webbrowser.
+		///
+		/// \param url URL to website to open.
+		///
+		void open_url(const std::string& url) noexcept;
 	} // namespace fileutils
 } // namespace galaxy
 

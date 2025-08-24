@@ -8,6 +8,9 @@
 #include <fstream>
 
 #include <nlohmann/json.hpp>
+#include <SDL3/SDL_misc.h>
+
+#include "galaxy/logging/Log.hpp"
 
 #include "FileUtils.hpp"
 
@@ -106,6 +109,14 @@ namespace galaxy
 			}
 
 			return true;
+		}
+
+		void open_url(const std::string& url) noexcept
+		{
+			if (!SDL_OpenURL(url.c_str()))
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to open url: {0}.", SDL_GetError());
+			}
 		}
 	} // namespace fileutils
 } // namespace galaxy

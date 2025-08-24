@@ -73,6 +73,7 @@ namespace galaxy
 			lua.set_function("fs_extension", &fileutils::extension);
 			lua.set_function("fs_read", &fileutils_read_wrapper);
 			lua.set_function("fs_write", &fileutils::write);
+			lua.set_function("fs_open_url", &fileutils::open_url);
 
 			auto vfs_type                    = lua.new_usertype<VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
 			vfs_type["read"]                 = &VirtualFileSystem::read;
