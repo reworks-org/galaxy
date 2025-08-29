@@ -32,6 +32,7 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\lua\Lua.cpp" />
     <ClCompile Include="src\galaxy\math\Base64.cpp" />
@@ -43,6 +44,8 @@
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
     <ClCompile Include="src\galaxy\platform\Laptop.cpp" />
     <ClCompile Include="src\galaxy\fs\FileUtils.cpp" />
+    <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
+    <ClCompile Include="src\galaxy\time\Timer.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
     <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
@@ -52,7 +55,7 @@
     <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
     <ClCompile Include="src\galaxy\utils\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
-    <ClCompile Include="src\galaxy\utils\Time.cpp" />
+    <ClCompile Include="src\galaxy\time\Time.cpp" />
     <ClCompile Include="src\galaxy\utils\UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +85,8 @@
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
     <ClInclude Include="src\galaxy\platform\Laptop.hpp" />
     <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
+    <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
+    <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />
     <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
@@ -91,7 +96,7 @@
     <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
-    <ClInclude Include="src\galaxy\utils\Time.hpp" />
+    <ClInclude Include="src\galaxy\time\Time.hpp" />
     <ClInclude Include="src\galaxy\utils\UUID.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

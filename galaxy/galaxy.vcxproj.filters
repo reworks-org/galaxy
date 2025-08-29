@@ -42,8 +42,11 @@
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
-    <ClCompile Include="src\galaxy\utils\Time.cpp" />
+    <ClCompile Include="src\galaxy\time\Time.cpp" />
     <ClCompile Include="src\galaxy\utils\UUID.cpp" />
+    <ClCompile Include="src\galaxy\time\Timer.cpp" />
+    <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -81,7 +84,9 @@
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\utils\Time.hpp" />
+    <ClInclude Include="src\galaxy\time\Time.hpp" />
     <ClInclude Include="src\galaxy\utils\UUID.hpp" />
+    <ClInclude Include="src\galaxy\time\Timer.hpp" />
+    <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
   </ItemGroup>
 </Project>

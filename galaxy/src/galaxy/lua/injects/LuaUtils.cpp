@@ -9,7 +9,6 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/utils/StringUtils.hpp"
-#include "galaxy/utils/Time.hpp"
 #include "galaxy/utils/UUID.hpp"
 
 namespace galaxy
@@ -28,8 +27,6 @@ namespace galaxy
 			lua.set_function("str_ltrim", &str::ltrim);
 			lua.set_function("str_trim", &str::trim);
 			lua.set_function("str_make_single_spaced", &str::make_single_spaced);
-
-			lua.set_function("time_now", &time::now);
 
 			auto uuid_type    = lua.new_usertype<UUID>("UUID", sol::constructors<UUID()>());
 			uuid_type["hash"] = &UUID::hash;

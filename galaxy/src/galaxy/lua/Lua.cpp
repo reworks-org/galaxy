@@ -18,6 +18,7 @@ namespace galaxy
 			inject_logging();
 			inject_math();
 			inject_platform();
+			inject_time();
 			inject_utils();
 		}
 	} // namespace lua

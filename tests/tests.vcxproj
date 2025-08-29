@@ -21,6 +21,7 @@
     <ClCompile Include="src\math\RectTest.cpp" />
     <ClCompile Include="src\math\ZLibTest.cpp" />
     <ClCompile Include="src\platform\PlatformTests.cpp" />
+    <ClCompile Include="src\time\TimeTest.cpp" />
     <ClCompile Include="src\utils\AsyncTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
     <ClCompile Include="src\utils\UUIDTest.cpp" />
