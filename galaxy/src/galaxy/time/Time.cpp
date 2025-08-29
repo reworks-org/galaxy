@@ -7,8 +7,6 @@
 
 #include "Time.hpp"
 
-using namespace std::chrono_literals;
-
 namespace galaxy
 {
 	namespace time
