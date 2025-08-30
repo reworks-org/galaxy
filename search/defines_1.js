@@ -10,6 +10,5 @@ var searchData=
   ['galaxy_5flog_7',['GALAXY_LOG',['../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de',1,'Log.hpp']]],
   ['galaxy_5flog_5fset_5fmin_5flevel_8',['GALAXY_LOG_SET_MIN_LEVEL',['../d0/d82/Log_8hpp.html#a7d8b20ad5d879ac7e861636036febd92',1,'Log.hpp']]],
   ['galaxy_5funused_9',['GALAXY_UNUSED',['../d5/ddd/Pragma_8hpp.html#aeea47fcf9ec981a261237221194b033f',1,'Pragma.hpp']]],
-  ['galaxy_5fwarning_10',['GALAXY_WARNING',['../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a',1,'Log.hpp']]],
-  ['galaxy_5fzlib_5fcomplete_5fchunk_11',['GALAXY_ZLIB_COMPLETE_CHUNK',['../d5/ddd/Pragma_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6',1,'Pragma.hpp']]]
+  ['galaxy_5fwarn_10',['GALAXY_WARN',['../d0/d82/Log_8hpp.html#a5f2d15e40e464a054d1e70685de48339',1,'Log.hpp']]]
 ];

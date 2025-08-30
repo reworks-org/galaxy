@@ -1,4 +1,4 @@
 var Timer_8hpp =
 [
-    [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ]
+    [ "galaxy::Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ]
 ];

@@ -11,9 +11,10 @@ var classgalaxy_1_1ZLib =
     [ "compressor", "df/d85/classgalaxy_1_1ZLib.html#a5e76cc9081418c9793bf923f2cf0c967", null ],
     [ "finish", "df/d85/classgalaxy_1_1ZLib.html#a327ef010e2590eabde7829010c25e8b0", null ],
     [ "decompressor", "df/d85/classgalaxy_1_1ZLib.html#a81950c3d2cf784eb8ebcdb7e2f233d83", null ],
+    [ "ChunkSize", "df/d85/classgalaxy_1_1ZLib.html#ae336d4d8e76284523f9066b5cfea2fde", null ],
     [ "m_mode", "df/d85/classgalaxy_1_1ZLib.html#acfde08648c50a029fd051202ccb9fa33", null ],
     [ "m_stream", "df/d85/classgalaxy_1_1ZLib.html#ab052584c8458890e1cf5317c7155cc28", null ],
     [ "m_finished", "df/d85/classgalaxy_1_1ZLib.html#ab58569fd82f11a3dd7db5dc9100ba5dc", null ],
-    [ "m_in", "df/d85/classgalaxy_1_1ZLib.html#a0aa1b7c4cc3d41f696ade537c07bfb35", null ],
-    [ "m_out", "df/d85/classgalaxy_1_1ZLib.html#ac4980c3a3c27d8b6396c7b3bd5be1ff8", null ]
+    [ "m_in", "df/d85/classgalaxy_1_1ZLib.html#a76474503c2676336c58a11cad223fdcc", null ],
+    [ "m_out", "df/d85/classgalaxy_1_1ZLib.html#a043c4328ca1dc32459072ca53947345e", null ]
 ];

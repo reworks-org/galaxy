@@ -1,7 +1,5 @@
 <map id="galaxy/src/galaxy/math/ZLib.hpp" name="galaxy/src/galaxy/math/ZLib.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="35,5,209,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,76,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,47,65,85,61,82,100,44"/>
-<area shape="rect" id="Node000003" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="101,93,309,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,44,184,82,181,86,140,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,180,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="57,93,128,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,46,95,79,90,79,90,46"/>
 </map>

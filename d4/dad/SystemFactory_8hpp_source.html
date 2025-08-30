@@ -154,7 +154,7 @@ $(function(){initNavTree('d4/dad/SystemFactory_8hpp_source.html','../../'); init
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                        <span class="keywordflow">if</span> (sys-&gt;id() == name)</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                        {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a>, <span class="stringliteral">&quot;Tried to create a create a duplicate system &#39;{0}&#39;.&quot;</span>, name);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(GALAXY_WARNING, <span class="stringliteral">&quot;Tried to create a create a duplicate system &#39;{0}&#39;.&quot;</span>, name);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                        }</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    }</div>
@@ -164,7 +164,7 @@ $(function(){initNavTree('d4/dad/SystemFactory_8hpp_source.html','../../'); init
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            }</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a>, <span class="stringliteral">&quot;Tried to create a duplicate register system &#39;{0}&#39;.&quot;</span>, name);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(GALAXY_WARNING, <span class="stringliteral">&quot;Tried to create a duplicate register system &#39;{0}&#39;.&quot;</span>, name);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            }</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
 </div>
@@ -175,7 +175,6 @@ $(function(){initNavTree('d4/dad/SystemFactory_8hpp_source.html','../../'); init
 <div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
 <div class="ttc" id="aFNV1a_8hpp_html"><div class="ttname"><a href="../../d9/d43/FNV1a_8hpp.html">FNV1a.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a53202bc4345b46f5adc4a3c78e603f1a"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a53202bc4345b46f5adc4a3c78e603f1a">GALAXY_WARNING</a></div><div class="ttdeci">#define GALAXY_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00023">Log.hpp:23</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1meta_1_1SystemFactory_html"><div class="ttname"><a href="../../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html">galaxy::meta::SystemFactory</a></div><div class="ttdoc">Meta factory for creating system objects.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">SystemFactory.hpp:32</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1meta_1_1SystemFactory_html_a0498406e6a57098bfa30a642fc6e3c62"><div class="ttname"><a href="../../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html#a0498406e6a57098bfa30a642fc6e3c62">galaxy::meta::SystemFactory::create_system</a></div><div class="ttdeci">void create_system(const std::string &amp;name, SystemStack &amp;stack)</div><div class="ttdoc">Create a system using the factory.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d0e/SystemFactory_8cpp_source.html#l00014">SystemFactory.cpp:14</a></div></div>
@@ -185,7 +184,7 @@ $(function(){initNavTree('d4/dad/SystemFactory_8hpp_source.html','../../'); init
 <div class="ttc" id="aconceptgalaxy_1_1meta_1_1valid__component_html"><div class="ttname"><a href="../../d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html">galaxy::meta::valid_component</a></div><div class="ttdoc">Makes sure a type is a valid component.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d84/Concepts_8hpp_source.html#l00087">Concepts.hpp:87</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1math_html_a71762d96d3da54f4838b91d092cb0fe9"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9">galaxy::math::fnv1a</a></div><div class="ttdeci">constexpr bits fnv1a(const char *const str, const bits value=fnv_1a_params&lt; bits &gt;::offset) noexcept</div><div class="ttdoc">Convert string to hash.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d43/FNV1a_8hpp_source.html#l00064">FNV1a.hpp:64</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1meta_html_af798b9f14f1eb2b5b28e508ea42e4734"><div class="ttname"><a href="../../d3/d12/namespacegalaxy_1_1meta.html#af798b9f14f1eb2b5b28e508ea42e4734">galaxy::meta::SystemStack</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; systems::System &gt; &gt; SystemStack</div><div class="ttdef"><b>Definition</b> <a href="#l00026">SystemFactory.hpp:26</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Timer.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dc2/Timer_8cpp_source.html#l00017">Timer.cpp:18</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="../../d8/dcc/namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -193,7 +192,7 @@ $(function(){initNavTree('d4/dad/SystemFactory_8hpp_source.html','../../'); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7f735fbad00ad2f3f96d935c571f321a.html">meta</a></li><li class="navelem"><a class="el" href="../../d4/dad/SystemFactory_8hpp.html">SystemFactory.hpp</a></li>
-    <li class="footer">Generated on Sat Aug 23 2025 07:52:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Aug 30 2025 08:40:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,0 +1,7 @@
+<map id="galaxy::Stopwatch::update" name="galaxy::Stopwatch::update">
+<area shape="rect" id="Node000001" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="5,35,155,75"/>
+<area shape="rect" id="Node000002" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e" title="Time passed in milliseconds." alt="" coords="217,5,366,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,42,203,35,203,40,155,47"/>
+<area shape="rect" id="Node000003" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0449a10e0a78d1413305b2ddc86bde9a" title="Stop Stopwatch." alt="" coords="203,70,380,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,62,189,66,189,72,155,67"/>
+</map>

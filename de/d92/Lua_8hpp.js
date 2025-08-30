@@ -18,5 +18,6 @@ var Lua_8hpp =
     [ "inject_scene_control", "de/d92/Lua_8hpp.html#a4320b66e1faebdc3e8a60bfaa753f95c", null ],
     [ "inject_state", "de/d92/Lua_8hpp.html#a10ceac3905fa40dbef5ef38f15d8d1f3", null ],
     [ "inject_utils", "de/d92/Lua_8hpp.html#a3e70c78c95de9ab1b596a87f35e574d3", null ],
+    [ "inject_time", "de/d92/Lua_8hpp.html#a4f10f303381c21297ccb42b79808c00f", null ],
     [ "inject_services", "de/d92/Lua_8hpp.html#a59f23ce23f852638e16b61a663a83005", null ]
 ];

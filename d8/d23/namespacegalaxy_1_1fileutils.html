@@ -122,6 +122,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa1b4eead3698b8ab97d50c6cd2c86c78" id="r_aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1b4eead3698b8ab97d50c6cd2c86c78">write_json</a> (const std::string &amp;filepath, const nlohmann::json &amp;json)</td></tr>
 <tr class="memdesc:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write json to disk.  <br /></td></tr>
 <tr class="separator:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c21036c5b5a679c39939d39422df99" id="r_a26c21036c5b5a679c39939d39422df99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26c21036c5b5a679c39939d39422df99">open_url</a> (const std::string &amp;url) noexcept</td></tr>
+<tr class="memdesc:a26c21036c5b5a679c39939d39422df99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open URL in default webbrowser.  <br /></td></tr>
+<tr class="separator:a26c21036c5b5a679c39939d39422df99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a508e266dc3b9a1f83e32bb098a1e98b1" name="a508e266dc3b9a1f83e32bb098a1e98b1"></a>
@@ -156,7 +159,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Extension, including dot. Nullopt if errors. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -208,7 +211,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Data, or filerror if an unexpected error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -274,7 +277,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Nullopt on success, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html" title="Stores information about a File I/O error.">FileError</a> on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -336,7 +339,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Fully parsed json object. Nullopt if parsing failed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00085">85</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -389,7 +392,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00102">102</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -405,13 +408,64 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a26c21036c5b5a679c39939d39422df99" name="a26c21036c5b5a679c39939d39422df99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c21036c5b5a679c39939d39422df99">&#9670;&#160;</a></span>open_url()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::fileutils::open_url </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>url</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open URL in default webbrowser. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>URL to website to open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html#l00114">114</a> of file <a class="el" href="../../d1/d23/FileUtils_8cpp_source.html">FileUtils.cpp</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d23/namespacegalaxy_1_1fileutils_a26c21036c5b5a679c39939d39422df99_icgraph.png" border="0" usemap="#ad8/d23/namespacegalaxy_1_1fileutils_a26c21036c5b5a679c39939d39422df99_icgraph" alt=""/></div>
+<map name="ad8/d23/namespacegalaxy_1_1fileutils_a26c21036c5b5a679c39939d39422df99_icgraph" id="ad8/d23/namespacegalaxy_1_1fileutils_a26c21036c5b5a679c39939d39422df99_icgraph">
+<area shape="rect" title="Open URL in default webbrowser." alt="" coords="573,5,703,45"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="369,13,525,38"/>
+<area shape="poly" title=" " alt="" coords="560,28,526,28,526,23,560,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,13,321,38"/>
+<area shape="poly" title=" " alt="" coords="355,28,322,28,322,23,355,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html">fileutils</a></li>
-    <li class="footer">Generated on Sat Aug 23 2025 07:52:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Aug 30 2025 08:40:40 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

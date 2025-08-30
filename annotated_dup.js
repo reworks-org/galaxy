@@ -1,9 +1,6 @@
 var annotated_dup =
 [
     [ "galaxy", "d0/d46/namespacegalaxy.html", [
-      [ "async", "d0/d7f/namespacegalaxy_1_1async.html", [
-        [ "Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", "da/d6d/classgalaxy_1_1async_1_1Timer" ]
-      ] ],
       [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
         [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
         [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
@@ -65,9 +62,6 @@ var annotated_dup =
         [ "fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
         [ "fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ]
       ] ],
-      [ "mem", "dd/d0d/namespacegalaxy_1_1mem.html", [
-        [ "RingBuffer", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer" ]
-      ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
         [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ],
         [ "SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", "db/db0/classgalaxy_1_1meta_1_1SystemFactory" ]
@@ -108,7 +102,9 @@ var annotated_dup =
       [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
       [ "settings", "d1/db3/structgalaxy_1_1settings.html", "d1/db3/structgalaxy_1_1settings" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
+      [ "Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", "d4/d22/classgalaxy_1_1Stopwatch" ],
       [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
+      [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
       [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
       [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]

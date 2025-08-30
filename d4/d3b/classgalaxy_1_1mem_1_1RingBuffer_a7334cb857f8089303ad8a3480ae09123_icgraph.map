@@ -1,5 +1,0 @@
-<map id="galaxy::mem::RingBuffer::set_volume" name="galaxy::mem::RingBuffer::set_volume">
-<area shape="rect" id="Node000001" title="Sets audio volume of the buffer." alt="" coords="232,5,415,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#adfc21068aed4d7b28d73aa6eefbe0c81" title="Inject custom memory stuff into Lua." alt="" coords="5,13,184,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,28,184,28,184,23,218,23"/>
-</map>

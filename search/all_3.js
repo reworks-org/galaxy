@@ -16,10 +16,8 @@ var searchData=
   ['dialogtype_13',['DialogType',['../d6/d19/namespacegalaxy_1_1fs.html#ac553b2901e8f914b196cb4ee377e449c',1,'galaxy::fs']]],
   ['dialogtype_2ecpp_14',['DialogType.cpp',['../dd/d03/DialogType_8cpp.html',1,'']]],
   ['dialogtype_2ehpp_15',['DialogType.hpp',['../df/da3/DialogType_8hpp.html',1,'']]],
-  ['direct_5fread_5fpointer_16',['direct_read_pointer',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#af54f563f573a6c2654773b5197cd6e71',1,'galaxy::mem::RingBuffer']]],
-  ['disable_5fentity_17',['disable_entity',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a362641d71c6340e1419d64b91789bcda',1,'galaxy::core::Registry']]],
-  ['disabled_18',['Disabled',['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html',1,'galaxy::flags::Disabled'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a5cbdfd9f8c31ff119fcad263bfc2bdb4',1,'galaxy::flags::Disabled::Disabled() noexcept'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a71b7affbb5b86278c2d929f18928e771',1,'galaxy::flags::Disabled::Disabled(const nlohmann::json &amp;json)'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a50332042d0cb9948fe43abca93f2d766',1,'galaxy::flags::Disabled::Disabled(Disabled &amp;&amp;) noexcept'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a79e52e5266e6f53d3239e4c72c165b8b',1,'galaxy::flags::Disabled::Disabled(const Disabled &amp;)=delete']]],
-  ['disabled_2ecpp_19',['Disabled.cpp',['../d0/dfa/Disabled_8cpp.html',1,'']]],
-  ['disabled_2ehpp_20',['Disabled.hpp',['../d9/df4/Disabled_8hpp.html',1,'']]],
-  ['dump_21',['dump',['../de/dd6/namespacegalaxy_1_1json.html#ae239235c5258b78bf9e48dce38dbff27',1,'galaxy::json']]]
+  ['disable_5fentity_16',['disable_entity',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#a362641d71c6340e1419d64b91789bcda',1,'galaxy::core::Registry']]],
+  ['disabled_17',['Disabled',['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html',1,'galaxy::flags::Disabled'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a5cbdfd9f8c31ff119fcad263bfc2bdb4',1,'galaxy::flags::Disabled::Disabled() noexcept'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a71b7affbb5b86278c2d929f18928e771',1,'galaxy::flags::Disabled::Disabled(const nlohmann::json &amp;json)'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a50332042d0cb9948fe43abca93f2d766',1,'galaxy::flags::Disabled::Disabled(Disabled &amp;&amp;) noexcept'],['../d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a79e52e5266e6f53d3239e4c72c165b8b',1,'galaxy::flags::Disabled::Disabled(const Disabled &amp;)=delete']]],
+  ['disabled_2ecpp_18',['Disabled.cpp',['../d0/dfa/Disabled_8cpp.html',1,'']]],
+  ['disabled_2ehpp_19',['Disabled.hpp',['../d9/df4/Disabled_8hpp.html',1,'']]]
 ];

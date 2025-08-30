@@ -17,8 +17,6 @@ var searchData=
   ['rendertextureshader_2ehpp_14',['RenderTextureShader.hpp',['../db/da8/RenderTextureShader_8hpp.html',1,'']]],
   ['rigidbody_2ecpp_15',['RigidBody.cpp',['../db/d7e/RigidBody_8cpp.html',1,'']]],
   ['rigidbody_2ehpp_16',['RigidBody.hpp',['../d3/def/RigidBody_8hpp.html',1,'']]],
-  ['ringbuffer_2ecpp_17',['RingBuffer.cpp',['../d0/dc1/RingBuffer_8cpp.html',1,'']]],
-  ['ringbuffer_2ehpp_18',['RingBuffer.hpp',['../d4/ded/RingBuffer_8hpp.html',1,'']]],
-  ['robotolight_2ecpp_19',['RobotoLight.cpp',['../d7/d8c/RobotoLight_8cpp.html',1,'']]],
-  ['robotolight_2ehpp_20',['RobotoLight.hpp',['../d1/df0/RobotoLight_8hpp.html',1,'']]]
+  ['robotolight_2ecpp_17',['RobotoLight.cpp',['../d7/d8c/RobotoLight_8cpp.html',1,'']]],
+  ['robotolight_2ehpp_18',['RobotoLight.hpp',['../d1/df0/RobotoLight_8hpp.html',1,'']]]
 ];

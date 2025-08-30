@@ -1,0 +1,12 @@
+<map id="galaxy::settings::creator" name="galaxy::settings::creator">
+<area shape="rect" id="Node000001" title="Owner." alt="" coords="595,35,773,60"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="375,8,547,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="581,38,547,34,547,28,581,32"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="184,55,327,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="581,57,327,73,327,68,581,51"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="187,5,324,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,22,324,22,325,16,361,17"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,35,136,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="173,34,137,40,136,34,173,28"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="170,65,136,60,137,55,171,60"/>
+</map>

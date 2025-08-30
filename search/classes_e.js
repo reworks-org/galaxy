@@ -12,7 +12,8 @@ var searchData=
   ['sprite_9',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],
   ['state_10',['State',['../db/d6a/classgalaxy_1_1state_1_1State.html',1,'galaxy::state']]],
   ['statemachine_11',['StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html',1,'galaxy::state']]],
-  ['subprocess_12',['Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html',1,'galaxy']]],
-  ['system_13',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html',1,'galaxy::systems']]],
-  ['systemfactory_14',['SystemFactory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html',1,'galaxy::meta']]]
+  ['stopwatch_12',['Stopwatch',['../d4/d22/classgalaxy_1_1Stopwatch.html',1,'galaxy']]],
+  ['subprocess_13',['Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html',1,'galaxy']]],
+  ['system_14',['System',['../d9/de7/classgalaxy_1_1systems_1_1System.html',1,'galaxy::systems']]],
+  ['systemfactory_15',['SystemFactory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html',1,'galaxy::meta']]]
 ];

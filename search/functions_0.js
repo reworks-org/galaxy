@@ -24,5 +24,5 @@ var searchData=
   ['assets_5fdir_5fvideo_21',['assets_dir_video',['../d1/db3/structgalaxy_1_1settings.html#a116d451d1c8704884db33407c4e344ba',1,'galaxy::settings']]],
   ['assets_5fdir_5fvoice_22',['assets_dir_voice',['../d1/db3/structgalaxy_1_1settings.html#a1f4efd5062b1830cd05b56e8fc07c0bc',1,'galaxy::settings']]],
   ['assets_5fpath_5fwrapper_23',['assets_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66',1,'galaxy::lua']]],
-  ['available_5fbytes_24',['available_bytes',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a8a18c7be556edc77b7e3dc03f72ccb9d',1,'galaxy::mem::RingBuffer']]]
+  ['audio_5ffreq_24',['audio_freq',['../d1/db3/structgalaxy_1_1settings.html#a6cdbb2d42c303fef66a3b49fac18846f',1,'galaxy::settings']]]
 ];

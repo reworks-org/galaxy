@@ -31,5 +31,6 @@ var searchData=
   ['luaservices_2ecpp_28',['LuaServices.cpp',['../d1/d50/LuaServices_8cpp.html',1,'']]],
   ['luasfml_2ecpp_29',['LuaSFML.cpp',['../dc/da1/LuaSFML_8cpp.html',1,'']]],
   ['luastate_2ecpp_30',['LuaState.cpp',['../db/d27/LuaState_8cpp.html',1,'']]],
-  ['luautils_2ecpp_31',['LuaUtils.cpp',['../da/dd6/LuaUtils_8cpp.html',1,'']]]
+  ['luatime_2ecpp_31',['LuaTime.cpp',['../d9/d86/LuaTime_8cpp.html',1,'']]],
+  ['luautils_2ecpp_32',['LuaUtils.cpp',['../da/dd6/LuaUtils_8cpp.html',1,'']]]
 ];

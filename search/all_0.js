@@ -36,6 +36,6 @@ var searchData=
   ['assets_5fpath_5fwrapper_33',['assets_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66',1,'galaxy::lua']]],
   ['async_2ecpp_34',['Async.cpp',['../df/d28/Async_8cpp.html',1,'']]],
   ['async_2ehpp_35',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]],
-  ['auto_5farg_36',['AUTO_ARG',['../d2/dc7/LuaEntt_8cpp.html#a41da4e65c770085ad2be1469e5433a49',1,'LuaEntt.cpp']]],
-  ['available_5fbytes_37',['available_bytes',['../d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html#a8a18c7be556edc77b7e3dc03f72ccb9d',1,'galaxy::mem::RingBuffer']]]
+  ['audio_5ffreq_36',['audio_freq',['../d1/db3/structgalaxy_1_1settings.html#a6cdbb2d42c303fef66a3b49fac18846f',1,'galaxy::settings']]],
+  ['auto_5farg_37',['AUTO_ARG',['../d2/dc7/LuaEntt_8cpp.html#a41da4e65c770085ad2be1469e5433a49',1,'LuaEntt.cpp']]]
 ];

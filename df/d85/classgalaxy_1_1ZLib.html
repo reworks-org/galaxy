@@ -103,6 +103,7 @@ $(function(){initNavTree('df/d85/classgalaxy_1_1ZLib.html','../../'); initResiza
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d1/d9c/classgalaxy_1_1ZLib-members.html">List of all members</a>  </div>
@@ -121,7 +122,7 @@ $(function(){initNavTree('df/d85/classgalaxy_1_1ZLib.html','../../'); initResiza
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/d35/classgalaxy_1_1ZLib__coll__graph.png" border="0" usemap="#agalaxy_1_1ZLib_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1ZLib_coll__map" id="agalaxy_1_1ZLib_coll__map">
-<area shape="rect" title="Zip (de)compressor." alt="" coords="5,5,136,271"/>
+<area shape="rect" title="Zip (de)compressor." alt="" coords="5,5,136,291"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -147,6 +148,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a18b0bd8e4ebb825882fbd63e6e2f550a" id="r_a18b0bd8e4ebb825882fbd63e6e2f550a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18b0bd8e4ebb825882fbd63e6e2f550a">decode</a> (const std::string &amp;input)</td></tr>
 <tr class="memdesc:a18b0bd8e4ebb825882fbd63e6e2f550a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompresses string into <a class="el" href="../../df/d85/classgalaxy_1_1ZLib.html" title="Zip (de)compressor.">ZLib</a>.  <br /></td></tr>
 <tr class="separator:a18b0bd8e4ebb825882fbd63e6e2f550a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae336d4d8e76284523f9066b5cfea2fde" id="r_ae336d4d8e76284523f9066b5cfea2fde"><td class="memItemLeft" align="right" valign="top">static constexpr const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae336d4d8e76284523f9066b5cfea2fde">ChunkSize</a> = 16384</td></tr>
+<tr class="memdesc:ae336d4d8e76284523f9066b5cfea2fde"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d85/classgalaxy_1_1ZLib.html" title="Zip (de)compressor.">ZLib</a> parsing chunk size.  <br /></td></tr>
+<tr class="separator:ae336d4d8e76284523f9066b5cfea2fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -174,17 +181,17 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab58569fd82f11a3dd7db5dc9100ba5dc" id="r_ab58569fd82f11a3dd7db5dc9100ba5dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab58569fd82f11a3dd7db5dc9100ba5dc">m_finished</a></td></tr>
 <tr class="memdesc:ab58569fd82f11a3dd7db5dc9100ba5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has the compression finished.  <br /></td></tr>
 <tr class="separator:ab58569fd82f11a3dd7db5dc9100ba5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aa1b7c4cc3d41f696ade537c07bfb35" id="r_a0aa1b7c4cc3d41f696ade537c07bfb35"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aa1b7c4cc3d41f696ade537c07bfb35">m_in</a> [<a class="el" href="../../d5/ddd/Pragma_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6">GALAXY_ZLIB_COMPLETE_CHUNK</a>]</td></tr>
-<tr class="memdesc:a0aa1b7c4cc3d41f696ade537c07bfb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input buffer.  <br /></td></tr>
-<tr class="separator:a0aa1b7c4cc3d41f696ade537c07bfb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4980c3a3c27d8b6396c7b3bd5be1ff8" id="r_ac4980c3a3c27d8b6396c7b3bd5be1ff8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4980c3a3c27d8b6396c7b3bd5be1ff8">m_out</a> [<a class="el" href="../../d5/ddd/Pragma_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6">GALAXY_ZLIB_COMPLETE_CHUNK</a>]</td></tr>
-<tr class="memdesc:ac4980c3a3c27d8b6396c7b3bd5be1ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output buffer.  <br /></td></tr>
-<tr class="separator:ac4980c3a3c27d8b6396c7b3bd5be1ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76474503c2676336c58a11cad223fdcc" id="r_a76474503c2676336c58a11cad223fdcc"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76474503c2676336c58a11cad223fdcc">m_in</a> [<a class="el" href="#ae336d4d8e76284523f9066b5cfea2fde">ZLib::ChunkSize</a>]</td></tr>
+<tr class="memdesc:a76474503c2676336c58a11cad223fdcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input buffer.  <br /></td></tr>
+<tr class="separator:a76474503c2676336c58a11cad223fdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a043c4328ca1dc32459072ca53947345e" id="r_a043c4328ca1dc32459072ca53947345e"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a043c4328ca1dc32459072ca53947345e">m_out</a> [<a class="el" href="#ae336d4d8e76284523f9066b5cfea2fde">ZLib::ChunkSize</a>]</td></tr>
+<tr class="memdesc:a043c4328ca1dc32459072ca53947345e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output buffer.  <br /></td></tr>
+<tr class="separator:a043c4328ca1dc32459072ca53947345e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Zip (de)compressor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="aab468f85dc70b68e02c835fe223fcb12" name="aab468f85dc70b68e02c835fe223fcb12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab468f85dc70b68e02c835fe223fcb12">&#9670;&#160;</a></span>Mode</h2>
@@ -214,7 +221,7 @@ Private Attributes</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00030">30</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 
 </div>
 </div>
@@ -236,7 +243,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +278,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -329,7 +336,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns output data if successful, std::nullopt otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -393,7 +400,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns output data if successful, std::nullopt otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00124">124</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00125">125</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -457,7 +464,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Compressed string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00165">165</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00166">166</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 
 </div>
 </div>
@@ -487,7 +494,7 @@ Private Attributes</h2></td></tr>
 <p>Completes the compression. </p>
 <dl class="section return"><dt>Returns</dt><dd>Compressed string containing termination block. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00219">219</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 
 </div>
 </div>
@@ -523,11 +530,37 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String containing decompressed data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d16/ZLib_8cpp_source.html#l00266">266</a> of file <a class="el" href="../../d1/d16/ZLib_8cpp_source.html">ZLib.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae336d4d8e76284523f9066b5cfea2fde" name="ae336d4d8e76284523f9066b5cfea2fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae336d4d8e76284523f9066b5cfea2fde">&#9670;&#160;</a></span>ChunkSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto galaxy::ZLib::ChunkSize = 16384</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../df/d85/classgalaxy_1_1ZLib.html" title="Zip (de)compressor.">ZLib</a> parsing chunk size. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+
+</div>
+</div>
 <a id="acfde08648c50a029fd051202ccb9fa33" name="acfde08648c50a029fd051202ccb9fa33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfde08648c50a029fd051202ccb9fa33">&#9670;&#160;</a></span>m_mode</h2>
 
@@ -550,7 +583,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../df/d85/classgalaxy_1_1ZLib.html" title="Zip (de)compressor.">ZLib</a> mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 
 </div>
 </div>
@@ -576,7 +609,7 @@ Private Attributes</h2></td></tr>
 
 <p>Stream object. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00110">110</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 
 </div>
 </div>
@@ -602,12 +635,12 @@ Private Attributes</h2></td></tr>
 
 <p>Has the compression finished. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0aa1b7c4cc3d41f696ade537c07bfb35" name="a0aa1b7c4cc3d41f696ade537c07bfb35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aa1b7c4cc3d41f696ade537c07bfb35">&#9670;&#160;</a></span>m_in</h2>
+<a id="a76474503c2676336c58a11cad223fdcc" name="a76474503c2676336c58a11cad223fdcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76474503c2676336c58a11cad223fdcc">&#9670;&#160;</a></span>m_in</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -616,7 +649,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char galaxy::ZLib::m_in[<a class="el" href="../../d5/ddd/Pragma_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6">GALAXY_ZLIB_COMPLETE_CHUNK</a>]</td>
+          <td class="memname">char galaxy::ZLib::m_in[<a class="el" href="#ae336d4d8e76284523f9066b5cfea2fde">ZLib::ChunkSize</a>]</td>
         </tr>
       </table>
   </td>
@@ -628,12 +661,12 @@ Private Attributes</h2></td></tr>
 
 <p>Input buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00120">120</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac4980c3a3c27d8b6396c7b3bd5be1ff8" name="ac4980c3a3c27d8b6396c7b3bd5be1ff8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4980c3a3c27d8b6396c7b3bd5be1ff8">&#9670;&#160;</a></span>m_out</h2>
+<a id="a043c4328ca1dc32459072ca53947345e" name="a043c4328ca1dc32459072ca53947345e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a043c4328ca1dc32459072ca53947345e">&#9670;&#160;</a></span>m_out</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,7 +675,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char galaxy::ZLib::m_out[<a class="el" href="../../d5/ddd/Pragma_8hpp.html#afeacc1a76367281d4ca3bc3c2b1826b6">GALAXY_ZLIB_COMPLETE_CHUNK</a>]</td>
+          <td class="memname">char galaxy::ZLib::m_out[<a class="el" href="#ae336d4d8e76284523f9066b5cfea2fde">ZLib::ChunkSize</a>]</td>
         </tr>
       </table>
   </td>
@@ -654,7 +687,7 @@ Private Attributes</h2></td></tr>
 
 <p>Output buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00125">125</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/ZLib_8hpp_source.html#l00128">128</a> of file <a class="el" href="../../db/dba/ZLib_8hpp_source.html">ZLib.hpp</a>.</p>
 
 </div>
 </div>
@@ -668,7 +701,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../df/d85/classgalaxy_1_1ZLib.html">ZLib</a></li>
-    <li class="footer">Generated on Sat Aug 23 2025 07:52:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Aug 30 2025 08:40:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

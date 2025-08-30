@@ -48,7 +48,6 @@ var hierarchy =
     [ "galaxy::Rect< float >", "d5/d58/classgalaxy_1_1Rect.html", null ],
     [ "galaxy::RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", null ],
     [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", null ],
-    [ "galaxy::mem::RingBuffer", "d4/d3b/classgalaxy_1_1mem_1_1RingBuffer.html", null ],
     [ "galaxy::lua::Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", null ],
     [ "galaxy::fs::Serializable", "d2/d54/classgalaxy_1_1fs_1_1Serializable.html", [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
@@ -76,6 +75,7 @@ var hierarchy =
     ] ],
     [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],
     [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
+    [ "galaxy::Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", null ],
     [ "galaxy::Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", null ],
     [ "galaxy::systems::System", "d9/de7/classgalaxy_1_1systems_1_1System.html", [
       [ "galaxy::systems::AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", null ],
@@ -85,7 +85,7 @@ var hierarchy =
     ] ],
     [ "galaxy::meta::SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", null ],
     [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],
-    [ "galaxy::async::Timer", "da/d6d/classgalaxy_1_1async_1_1Timer.html", null ],
+    [ "galaxy::Timer", "d0/d7b/classgalaxy_1_1Timer.html", null ],
     [ "galaxy::UUID", "dd/da7/classgalaxy_1_1UUID.html", null ],
     [ "galaxy::VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", null ],
     [ "galaxy::events::WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ],

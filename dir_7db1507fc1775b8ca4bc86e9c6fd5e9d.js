@@ -17,5 +17,6 @@ var dir_7db1507fc1775b8ca4bc86e9c6fd5e9d =
     [ "LuaServices.cpp", "d1/d50/LuaServices_8cpp.html", "d1/d50/LuaServices_8cpp" ],
     [ "LuaSFML.cpp", "dc/da1/LuaSFML_8cpp.html", null ],
     [ "LuaState.cpp", "db/d27/LuaState_8cpp.html", "db/d27/LuaState_8cpp" ],
+    [ "LuaTime.cpp", "d9/d86/LuaTime_8cpp.html", "d9/d86/LuaTime_8cpp" ],
     [ "LuaUtils.cpp", "da/dd6/LuaUtils_8cpp.html", "da/dd6/LuaUtils_8cpp" ]
 ];

@@ -14,7 +14,15 @@ var searchData=
   ['s_5fassets_5fui_11',['s_assets_ui',['../d1/db3/structgalaxy_1_1settings.html#ab1b1a8b1a805ae813087e5a2bd4c645e',1,'galaxy::settings']]],
   ['s_5fassets_5fvideo_12',['s_assets_video',['../d1/db3/structgalaxy_1_1settings.html#aaf1ee68ab46f923a7a6b2bc228f63491',1,'galaxy::settings']]],
   ['s_5fassets_5fvoice_13',['s_assets_voice',['../d1/db3/structgalaxy_1_1settings.html#a4a2f2c471d5540b5915f044e9086e43e',1,'galaxy::settings']]],
-  ['s_5feditor_5fdir_14',['s_editor_dir',['../d1/db3/structgalaxy_1_1settings.html#a4fb27f6b6fb6181a293eb2e99a2391cf',1,'galaxy::settings']]],
-  ['s_5fuse_5floose_5fassets_15',['s_use_loose_assets',['../d1/db3/structgalaxy_1_1settings.html#a20c4e7455028bc50ffde4f3465cdbaac',1,'galaxy::settings']]],
-  ['scancode_16',['scancode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a77300939739fec91c09a401d95b375ef',1,'galaxy::events::KeyPress::scancode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#afe95375d94754e1b60f3c65d72763569',1,'galaxy::events::KeyRepeat::scancode']]]
+  ['s_5faudio_5ffreq_14',['s_audio_freq',['../d1/db3/structgalaxy_1_1settings.html#abb7da46d970bcbfa89cd6a65ee88302d',1,'galaxy::settings']]],
+  ['s_5fcopyright_15',['s_copyright',['../d1/db3/structgalaxy_1_1settings.html#afb860be45e758298aca2d1bb36e362e3',1,'galaxy::settings']]],
+  ['s_5fcreator_16',['s_creator',['../d1/db3/structgalaxy_1_1settings.html#a9c0acdfa624b36ba6605f25dae32f7c1',1,'galaxy::settings']]],
+  ['s_5feditor_5fdir_17',['s_editor_dir',['../d1/db3/structgalaxy_1_1settings.html#a4fb27f6b6fb6181a293eb2e99a2391cf',1,'galaxy::settings']]],
+  ['s_5fidentifier_18',['s_identifier',['../d1/db3/structgalaxy_1_1settings.html#ace90eb1b9b812a52b1057265660a71ff',1,'galaxy::settings']]],
+  ['s_5ftitle_19',['s_title',['../d1/db3/structgalaxy_1_1settings.html#a0efd67bffecb280e202424f140f0b5d1',1,'galaxy::settings']]],
+  ['s_5fuse_5floose_5fassets_20',['s_use_loose_assets',['../d1/db3/structgalaxy_1_1settings.html#a20c4e7455028bc50ffde4f3465cdbaac',1,'galaxy::settings']]],
+  ['s_5fversion_21',['s_version',['../d1/db3/structgalaxy_1_1settings.html#a86b19101bc27808404c6d85f3b744aad',1,'galaxy::settings']]],
+  ['s_5fvsync_22',['s_vsync',['../d1/db3/structgalaxy_1_1settings.html#ac8cde56172b47a97e2eb025753bb620d',1,'galaxy::settings']]],
+  ['s_5fwebsite_23',['s_website',['../d1/db3/structgalaxy_1_1settings.html#a0e8fed818d3e22b0620a7004d656e908',1,'galaxy::settings']]],
+  ['scancode_24',['scancode',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html#a77300939739fec91c09a401d95b375ef',1,'galaxy::events::KeyPress::scancode'],['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html#afe95375d94754e1b60f3c65d72763569',1,'galaxy::events::KeyRepeat::scancode']]]
 ];

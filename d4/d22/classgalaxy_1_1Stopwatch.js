@@ -1,0 +1,25 @@
+var classgalaxy_1_1Stopwatch =
+[
+    [ "Function", "d4/d22/classgalaxy_1_1Stopwatch.html#acc875745b0bceebce4b83a2852c8c3e1", null ],
+    [ "Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html#aac46f0441be6ff6594577da7173a4148", null ],
+    [ "~Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html#ac605add936b96e239f25546a2200b3ff", null ],
+    [ "Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html#a8f48cd7d4c3c72e2b9e2e2d94850ffcc", null ],
+    [ "set", "d4/d22/classgalaxy_1_1Stopwatch.html#a5c1e4ef5982d1be8548f377cd759c99b", null ],
+    [ "repeat", "d4/d22/classgalaxy_1_1Stopwatch.html#a7e03d3166670edad50f5693c377a8da8", null ],
+    [ "start", "d4/d22/classgalaxy_1_1Stopwatch.html#a210374bce91d24678f7a80a95d0d2532", null ],
+    [ "stop", "d4/d22/classgalaxy_1_1Stopwatch.html#a0449a10e0a78d1413305b2ddc86bde9a", null ],
+    [ "pause", "d4/d22/classgalaxy_1_1Stopwatch.html#a0a032b952afcb140cd332bc4ea57cbf0", null ],
+    [ "unpause", "d4/d22/classgalaxy_1_1Stopwatch.html#a14bf40363e1867dd4bb7ae406c8b3175", null ],
+    [ "update", "d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee", null ],
+    [ "stopped", "d4/d22/classgalaxy_1_1Stopwatch.html#af13ca67e10c4cc05793186448e6ca952", null ],
+    [ "paused", "d4/d22/classgalaxy_1_1Stopwatch.html#a81bcdc1a7aa0685dc7cc29829cdaf214", null ],
+    [ "get_time_passed", "d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e", null ],
+    [ "operator=", "d4/d22/classgalaxy_1_1Stopwatch.html#a550c7e47ea81126eff29c4049a33c868", null ],
+    [ "m_stopped", "d4/d22/classgalaxy_1_1Stopwatch.html#aa7787f9f25fd7e4716a6ef4d625dc205", null ],
+    [ "m_paused", "d4/d22/classgalaxy_1_1Stopwatch.html#a83182e8092e8920646b4d8b07e0547dc", null ],
+    [ "m_repeat", "d4/d22/classgalaxy_1_1Stopwatch.html#ade91d65efb372319d55f233c9672d736", null ],
+    [ "m_start_ticks", "d4/d22/classgalaxy_1_1Stopwatch.html#a0d6865d4508db0953897f3525b1b490c", null ],
+    [ "m_paused_ticks", "d4/d22/classgalaxy_1_1Stopwatch.html#ad9aad9a0c8087302ed480eb1d3557ff0", null ],
+    [ "m_delay", "d4/d22/classgalaxy_1_1Stopwatch.html#ae3cf5b92af30c8c4c8e7be78ec910a00", null ],
+    [ "m_callback", "d4/d22/classgalaxy_1_1Stopwatch.html#ae1ae3fbd84ea3ac425d9a41eed1427bf", null ]
+];

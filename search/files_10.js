@@ -24,12 +24,14 @@ var searchData=
   ['state_2ehpp_21',['State.hpp',['../d0/db5/State_8hpp.html',1,'']]],
   ['statemachine_2ecpp_22',['StateMachine.cpp',['../d6/d82/StateMachine_8cpp.html',1,'']]],
   ['statemachine_2ehpp_23',['StateMachine.hpp',['../d6/dd7/StateMachine_8hpp.html',1,'']]],
-  ['stringutils_2ecpp_24',['StringUtils.cpp',['../d1/d44/StringUtils_8cpp.html',1,'']]],
-  ['stringutils_2ehpp_25',['StringUtils.hpp',['../d1/d44/StringUtils_8hpp.html',1,'']]],
-  ['subprocess_2ecpp_26',['Subprocess.cpp',['../de/df1/Subprocess_8cpp.html',1,'']]],
-  ['subprocess_2ehpp_27',['Subprocess.hpp',['../d8/d31/Subprocess_8hpp.html',1,'']]],
-  ['system_2ecpp_28',['System.cpp',['../d3/d7c/System_8cpp.html',1,'']]],
-  ['system_2ehpp_29',['System.hpp',['../d4/d25/System_8hpp.html',1,'']]],
-  ['systemfactory_2ecpp_30',['SystemFactory.cpp',['../db/d0e/SystemFactory_8cpp.html',1,'']]],
-  ['systemfactory_2ehpp_31',['SystemFactory.hpp',['../d4/dad/SystemFactory_8hpp.html',1,'']]]
+  ['stopwatch_2ecpp_24',['Stopwatch.cpp',['../d7/d55/Stopwatch_8cpp.html',1,'']]],
+  ['stopwatch_2ehpp_25',['Stopwatch.hpp',['../d7/dfd/Stopwatch_8hpp.html',1,'']]],
+  ['stringutils_2ecpp_26',['StringUtils.cpp',['../d1/d44/StringUtils_8cpp.html',1,'']]],
+  ['stringutils_2ehpp_27',['StringUtils.hpp',['../d1/d44/StringUtils_8hpp.html',1,'']]],
+  ['subprocess_2ecpp_28',['Subprocess.cpp',['../de/df1/Subprocess_8cpp.html',1,'']]],
+  ['subprocess_2ehpp_29',['Subprocess.hpp',['../d8/d31/Subprocess_8hpp.html',1,'']]],
+  ['system_2ecpp_30',['System.cpp',['../d3/d7c/System_8cpp.html',1,'']]],
+  ['system_2ehpp_31',['System.hpp',['../d4/d25/System_8hpp.html',1,'']]],
+  ['systemfactory_2ecpp_32',['SystemFactory.cpp',['../db/d0e/SystemFactory_8cpp.html',1,'']]],
+  ['systemfactory_2ehpp_33',['SystemFactory.hpp',['../d4/dad/SystemFactory_8hpp.html',1,'']]]
 ];

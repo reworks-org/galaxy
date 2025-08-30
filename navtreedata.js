@@ -62,16 +62,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/db3/structgalaxy_1_1settings.html#ab1b1a8b1a805ae813087e5a2bd4c645e",
-"d3/df0/classgalaxy_1_1components_1_1GUI.html#a435c9746190832b1e1826b1b70c04d8f",
-"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#af113673c2da2b240dc858b6dbf87e188",
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66",
-"d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html#afb13af9f01e183e1b1874a77e2c84e0c",
-"d9/de7/classgalaxy_1_1systems_1_1System.html#a9fab725cd8148e894e79b70070109c96",
-"db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8",
-"dd/d2d/classgalaxy_1_1components_1_1Polyline.html#ad713c5c3b5ebf4ac1e7c320399449c89",
-"de/dae/MousePressed_8hpp_source.html",
-"functions_func_m.html"
+"d1/db3/structgalaxy_1_1settings.html#a1f4efd5062b1830cd05b56e8fc07c0bc",
+"d3/d72/classgalaxy_1_1flags_1_1Disabled.html",
+"d4/d86/classgalaxy_1_1components_1_1Sprite.html#a28764f95f6198b764692275f0d08886b",
+"d5/ddd/Pragma_8hpp.html#aeea47fcf9ec981a261237221194b033f",
+"d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html#ad373f1230194fa26fa4fea670fd21f3f",
+"d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1",
+"db/d27/LuaState_8cpp.html",
+"dc/dbe/Map_8hpp.html",
+"de/d2c/classgalaxy_1_1core_1_1Registry.html#a6462c6c08376fa3a6bc053b90e07b584",
+"dir_7eba3ad153a44eced68a1cf247fff29c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
