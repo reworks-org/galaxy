@@ -64,10 +64,10 @@ namespace galaxy
 		///
 		App& operator=(App&&) = delete;
 
-		void setup_platform();
 		void setup_logging();
 		void setup_async();
 		void setup_config(std::string_view config_file);
+		void setup_platform();
 		void setup_fs();
 		// void setup_window();
 		// void setup_events();

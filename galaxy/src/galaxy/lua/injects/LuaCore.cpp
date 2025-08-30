@@ -94,6 +94,13 @@ namespace galaxy
 			lua.set_function("settings_cursor_icon", &settings::cursor_icon);
 			lua.set_function("settings_cursor_icon_size", &settings::cursor_icon_size);
 			lua.set_function("settings_cursor_hotspot", &settings::cursor_hotspot);*/
+
+			lua.set_function("settings_title", &settings::title);
+			lua.set_function("settings_version", &settings::version);
+			lua.set_function("settings_identifier", &settings::identifier);
+			lua.set_function("settings_creator", &settings::creator);
+			lua.set_function("settings_copyright", &settings::copyright);
+			lua.set_function("settings_website", &settings::website);
 			lua.set_function("settings_log_dir", &settings::log_dir);
 			lua.set_function("settings_root_dir", &root_path_wrapper);
 			lua.set_function("settings_assets_dir", &assets_path_wrapper);

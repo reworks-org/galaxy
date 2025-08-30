@@ -5,13 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <entt/signal/dispatcher.hpp>
 #include <entt/locator/locator.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/scene/SceneManager.hpp"
 
 namespace galaxy
 {
@@ -21,16 +19,17 @@ namespace galaxy
 		{
 			auto& lua = entt::locator<sol::state>::value();
 
-			// logging
-			// thread_pool
-			lua["galaxy_config"] = std::ref(entt::locator<core::Config>::value());
-			lua["galaxy_fs"]     = std::ref(entt::locator<fs::VirtualFileSystem>::value());
+			// logging -> already added.
+			// thread_pool -> not compatible.
+			lua["galaxy_config"] = std::ref(entt::locator<Config>::value());
+			lua["galaxy_fs"]     = std::ref(entt::locator<VirtualFileSystem>::value());
+
 			// render window
-			lua["galaxy_dispatcher"] = std::ref(entt::locator<entt::dispatcher>::value());
+			// lua["galaxy_dispatcher"] = std::ref(entt::locator<entt::dispatcher>::value());
 			// system factory
 			// entity factory
 			// lua state
-			lua["galaxy_scenes"] = std::ref(entt::locator<scene::SceneManager>::value());
+			// lua["galaxy_scenes"] = std::ref(entt::locator<scene::SceneManager>::value());
 
 			/*lua["galaxy_nui"]         = std::ref(entt::locator<ui::NuklearUI>::value());
 			lua["galaxy_entitymeta"]  = std::ref(entt::locator<meta::EntityMeta>::value());

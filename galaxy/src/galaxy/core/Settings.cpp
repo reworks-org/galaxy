@@ -29,11 +29,9 @@ namespace galaxy
 		config.restore<int>("height", 1080, "window");
 		config.restore<int>("view_width", 1280, "window");
 		config.restore<int>("view_height", 720, "window");
-		config.restore<std::string>("title", "galaxy", "window");
 		config.restore<std::string>("icon", "", "window");
 		config.restore<bool>("fullscreen", false, "window");
 		config.restore<bool>("key_repeat", true, "window");
-		config.restore<bool>("vsync", false, "window");
 		config.restore<bool>("msaa", false, "window");
 
 		config.restore<bool>("visible", true, "cursor");
@@ -43,6 +41,17 @@ namespace galaxy
 		config.restore<int>("y", 0, "cursor.icon_size");
 		config.restore<int>("x", 0, "cursor.hotspot");
 		config.restore<int>("y", 0, "cursor.hotspot");*/
+
+		config.restore<bool>("vsync", false, "video");
+
+		config.restore<int>("audio_freq", 44100, "audio");
+
+		config.restore<std::string>("title", "galaxy app", "meta");
+		config.restore<std::string>("version", "1.0", "meta");
+		config.restore<std::string>("identifier", "com.galaxy.app", "meta");
+		config.restore<std::string>("creator", "reworks", "meta");
+		config.restore<std::string>("copyright", "2025+ reworks", "meta");
+		config.restore<std::string>("website", "https://reworks-org.github.io/galaxy/", "meta");
 
 		config.restore<std::string>("assets_dir", "assets/", "fs");
 		config.restore<std::string>("editor_dir", "editor/", "fs");
@@ -74,11 +83,9 @@ namespace galaxy
 		// s_window_height = config.get<int>("height", "window");
 		// s_view_width    = config.get<int>("view_width", "window");
 		// s_view_height   = config.get<int>("view_height", "window");
-		// s_title         = config.get<std::string>("title", "window");
 		// s_icon          = config.get<std::string>("icon", "window");
 		// s_fullscreen    = config.get<bool>("fullscreen", "window");
 		// s_key_repeat    = config.get<bool>("key_repeat", "window");
-		// s_vsync         = config.get<bool>("vsync", "window");
 		// s_msaa          = config.get<bool>("msaa", "window");
 
 		// s_cursor_visible     = config.get<bool>("visible", "cursor");
@@ -88,6 +95,17 @@ namespace galaxy
 		// s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
 		// s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
 		// s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
+
+		s_vsync = config.get<bool>("video", "window").value();
+
+		s_audio_freq = config.get<int>("audio_freq", "audio").value();
+
+		s_title      = config.get<std::string>("title", "meta").value();
+		s_version    = config.get<std::string>("version", "meta").value();
+		s_identifier = config.get<std::string>("identifier", "meta").value();
+		s_creator    = config.get<std::string>("creator", "meta").value();
+		s_copyright  = config.get<std::string>("copyright", "meta").value();
+		s_website    = config.get<std::string>("website", "meta").value();
 
 		s_assets_dir       = config.get<std::string>("assets_dir", "fs").value();
 		s_editor_dir       = config.get<std::string>("editor_dir", "fs").value();
@@ -142,11 +160,6 @@ namespace galaxy
 		return s_view_height;
 	}
 
-	auto settings::window_title() noexcept -> const std::string&
-	{
-		return s_title;
-	}
-
 	auto settings::window_icon() noexcept -> const std::string&
 	{
 		return s_icon;
@@ -162,10 +175,6 @@ namespace galaxy
 		return s_key_repeat;
 	}
 
-	auto settings::vsync() noexcept -> bool
-	{
-		return s_vsync;
-	}
 
 	auto settings::msaa() noexcept -> bool
 	{
@@ -196,6 +205,46 @@ namespace galaxy
 	{
 		return s_cursor_hotspot;
 	}*/
+
+	auto settings::vsync() noexcept -> bool
+	{
+		return s_vsync;
+	}
+
+	auto settings::audio_freq() noexcept -> int
+	{
+		return s_audio_freq;
+	}
+
+	auto settings::title() noexcept -> const std::string&
+	{
+		return s_title;
+	}
+
+	auto settings::version() noexcept -> const std::string&
+	{
+		return s_version;
+	}
+
+	auto settings::identifier() noexcept -> const std::string&
+	{
+		return s_identifier;
+	}
+
+	auto settings::creator() noexcept -> const std::string&
+	{
+		return s_creator;
+	}
+
+	auto settings::copyright() noexcept -> const std::string&
+	{
+		return s_copyright;
+	}
+
+	auto settings::website() noexcept -> const std::string&
+	{
+		return s_website;
+	}
 
 	auto settings::log_dir() noexcept -> const std::string&
 	{

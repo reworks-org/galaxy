@@ -74,12 +74,6 @@ namespace galaxy
 		static auto view_height() noexcept -> int;
 
 		///
-		/// Window title.
-		///
-		[[nodiscard]]
-		static auto window_title() noexcept -> const std::string&;
-
-		///
 		/// Window icon file in vfs.
 		///
 		[[nodiscard]]
@@ -97,11 +91,6 @@ namespace galaxy
 		[[nodiscard]]
 		static auto key_repeat() noexcept -> bool;
 
-		///
-		/// Vsync control.
-		///
-		[[nodiscard]]
-		static auto vsync() noexcept -> bool;
 
 		///
 		/// Enable MSAA.
@@ -140,7 +129,71 @@ namespace galaxy
 		static auto cursor_hotspot() noexcept -> const sf::Vector2u&;*/
 
 		///
+		/// Vsync control.
+		///
+		[[nodiscard]]
+		static auto vsync() noexcept -> bool;
+
+		///
+		/// Set audio frequency to use with SDL.
+		///
+		/// \return Int.
+		///
+		[[nodiscard]]
+		static auto audio_freq() noexcept -> int;
+
+		///
+		/// Game title.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto title() noexcept -> const std::string&;
+
+		///
+		/// Game semver.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto version() noexcept -> const std::string&;
+
+		///
+		/// Game identifier i.e. com.galaxy.app.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto identifier() noexcept -> const std::string&;
+
+		///
+		/// Owner.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto creator() noexcept -> const std::string&;
+
+		///
+		/// Copyright message.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto copyright() noexcept -> const std::string&;
+
+		///
+		/// Website URL.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto website() noexcept -> const std::string&;
+
+		///
 		/// Current root directory of application, unless it has been changed.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto log_dir() noexcept -> const std::string&;
@@ -148,11 +201,15 @@ namespace galaxy
 		///
 		/// Current root directory of application, unless it has been changed.
 		///
+		/// \return Filesystem path.
+		///
 		[[nodiscard]]
 		static auto root_dir() noexcept -> std::filesystem::path;
 
 		///
 		/// Main data directory.
+		///
+		/// \return Filesystem path.
 		///
 		[[nodiscard]]
 		static auto assets_dir() noexcept -> std::filesystem::path;
@@ -160,11 +217,15 @@ namespace galaxy
 		///
 		/// Directory for editor specific stuff.
 		///
+		/// \return Filesystem path.
+		///
 		[[nodiscard]]
 		static auto editor_dir() noexcept -> std::filesystem::path;
 
 		///
 		/// Name of packed assets file.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto asset_pack() noexcept -> const std::string&;
@@ -172,11 +233,15 @@ namespace galaxy
 		///
 		/// Should asset data be read from pack or assets dir.
 		///
+		/// \return Boolean.
+		///
 		[[nodiscard]]
 		static auto use_loose_assets() noexcept -> bool;
 
 		///
 		/// Music asset location.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto assets_dir_music() noexcept -> const std::string&;
@@ -184,11 +249,15 @@ namespace galaxy
 		///
 		/// SFX asset location.
 		///
+		/// \return Const string.
+		///
 		[[nodiscard]]
 		static auto assets_dir_sfx() noexcept -> const std::string&;
 
 		///
 		/// Voice asset location.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto assets_dir_voice() noexcept -> const std::string&;
@@ -196,11 +265,15 @@ namespace galaxy
 		///
 		/// Font asset location.
 		///
+		/// \return Const string.
+		///
 		[[nodiscard]]
 		static auto assets_dir_font() noexcept -> const std::string&;
 
 		///
 		/// Scripts asset location.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto assets_dir_script() noexcept -> const std::string&;
@@ -208,11 +281,15 @@ namespace galaxy
 		///
 		/// Shaders asset location.
 		///
+		/// \return Const string.
+		///
 		[[nodiscard]]
 		static auto assets_dir_shaders() noexcept -> const std::string&;
 
 		///
 		/// Animation data location.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto assets_dir_animation() noexcept -> const std::string&;
@@ -220,11 +297,15 @@ namespace galaxy
 		///
 		/// Textures asset location.
 		///
+		/// \return Const string.
+		///
 		[[nodiscard]]
 		static auto assets_dir_texture() noexcept -> const std::string&;
 
 		///
 		/// Prefab asset location.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto assets_dir_prefabs() noexcept -> const std::string&;
@@ -232,17 +313,23 @@ namespace galaxy
 		///
 		/// Maps asset location.
 		///
+		/// \return Const string.
+		///
 		[[nodiscard]]
 		static auto assets_dir_maps() noexcept -> const std::string&;
 
 		///
 		/// Video asset location.
 		///
+		/// \return Const string.
+		///
 		[[nodiscard]]
 		static auto assets_dir_video() noexcept -> const std::string&;
 
 		///
 		/// UI asset location.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto assets_dir_ui() noexcept -> const std::string&;
@@ -256,11 +343,9 @@ namespace galaxy
 		inline static int         s_window_height;
 		inline static int         s_view_width;
 		inline static int         s_view_height;
-		inline static std::string s_title;
 		inline static std::string s_icon;
 		inline static bool        s_fullscreen;
 		inline static bool        s_key_repeat;
-		inline static bool        s_vsync;
 		inline static bool        s_msaa;
 
 		inline static bool         s_cursor_visible;
@@ -268,6 +353,17 @@ namespace galaxy
 		inline static std::string  s_cursor_icon;
 		inline static sf::Vector2u s_cursor_icon_size;
 		inline static sf::Vector2u s_cursor_hotspot;*/
+
+		inline static bool s_vsync;
+
+		inline static int s_audio_freq;
+
+		inline static std::string s_title;
+		inline static std::string s_version;
+		inline static std::string s_identifier;
+		inline static std::string s_creator;
+		inline static std::string s_copyright;
+		inline static std::string s_website;
 
 		inline static std::filesystem::path s_assets_dir;
 		inline static std::filesystem::path s_editor_dir;
