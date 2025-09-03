@@ -454,6 +454,7 @@
     <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="tinyfd\tinyfiledialogs.c" />
+    <ClCompile Include="stb\SDL_stbimage.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entt_sol\entt_sol\dispatcher.hpp" />
@@ -1141,6 +1142,7 @@
     <ClInclude Include="googletest\googlemock\include\gmock\gmock-spec-builders.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="tinyfd\tinyfiledialogs.h" />
+    <ClInclude Include="stb\SDL_stbimage.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
