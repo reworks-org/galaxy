@@ -7,7 +7,9 @@ fileutils tests
 config load/save
 vfs tests
 
-https://wiki.libsdl.org/SDL3/APIByCategory#video
 https://wiki.libsdl.org/SDL3/APIByCategory#input-events
+
 https://wiki.libsdl.org/SDL3_mixer/FrontPage
+
 https://wiki.libsdl.org/SDL3/CategoryHaptic
+https://wiki.libsdl.org/SDL3/CategoryClipboard

@@ -21,7 +21,7 @@ namespace galaxy
 	namespace platform
 	{
 		///
-		///
+		/// Seed the cstdlib rng algos.
 		///
 		void seed_random() noexcept;
 
