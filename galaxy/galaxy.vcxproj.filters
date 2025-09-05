@@ -47,6 +47,7 @@
     <ClCompile Include="src\galaxy\time\Timer.cpp" />
     <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
+    <ClCompile Include="src\galaxy\core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -88,5 +89,6 @@
     <ClInclude Include="src\galaxy\utils\UUID.hpp" />
     <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
+    <ClInclude Include="src\galaxy\core\Window.hpp" />
   </ItemGroup>
 </Project>

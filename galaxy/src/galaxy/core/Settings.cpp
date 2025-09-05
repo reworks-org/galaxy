@@ -23,26 +23,15 @@ namespace galaxy
 	{
 		auto& config = entt::locator<Config>::value();
 
-		/*config.restore<double>("ups", 60.0f, "physics");
-
 		config.restore<int>("width", 1920, "window");
 		config.restore<int>("height", 1080, "window");
-		config.restore<int>("view_width", 1280, "window");
-		config.restore<int>("view_height", 720, "window");
 		config.restore<std::string>("icon", "", "window");
 		config.restore<bool>("fullscreen", false, "window");
-		config.restore<bool>("key_repeat", true, "window");
-		config.restore<bool>("msaa", false, "window");
-
-		config.restore<bool>("visible", true, "cursor");
-		config.restore<bool>("grab", false, "cursor");
-		config.restore<std::string>("icon", "", "cursor");
-		config.restore<int>("x", 0, "cursor.icon_size");
-		config.restore<int>("y", 0, "cursor.icon_size");
-		config.restore<int>("x", 0, "cursor.hotspot");
-		config.restore<int>("y", 0, "cursor.hotspot");*/
-
-		config.restore<bool>("vsync", false, "video");
+		config.restore<bool>("maximized", true, "window");
+		config.restore<bool>("vsync", false, "window");
+		config.restore<bool>("mouse_grabbed", false, "window");
+		config.restore<bool>("resizable", true, "window");
+		config.restore<bool>("border", true, "window");
 
 		config.restore<int>("audio_freq", 44100, "audio");
 
@@ -77,26 +66,15 @@ namespace galaxy
 	{
 		auto& config = entt::locator<Config>::value();
 
-		// s_ups = config.get<double>("ups", "physics");
-
-		// s_window_width  = config.get<int>("width", "window");
-		// s_window_height = config.get<int>("height", "window");
-		// s_view_width    = config.get<int>("view_width", "window");
-		// s_view_height   = config.get<int>("view_height", "window");
-		// s_icon          = config.get<std::string>("icon", "window");
-		// s_fullscreen    = config.get<bool>("fullscreen", "window");
-		// s_key_repeat    = config.get<bool>("key_repeat", "window");
-		// s_msaa          = config.get<bool>("msaa", "window");
-
-		// s_cursor_visible     = config.get<bool>("visible", "cursor");
-		// s_cursor_grabbed     = config.get<bool>("grab", "cursor");
-		// s_cursor_icon        = config.get<std::string>("icon", "cursor");
-		// s_cursor_icon_size.x = config.get<int>("x", "cursor.icon_size");
-		// s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
-		// s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
-		// s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
-
-		s_vsync = config.get<bool>("video", "window").value();
+		s_window_width  = config.get<int>("width", "window").value();
+		s_window_height = config.get<int>("height", "window").value();
+		s_window_icon   = config.get<std::string>("icon", "window").value();
+		s_fullscreen    = config.get<bool>("fullscreen", "window").value();
+		s_maximized     = config.get<bool>("maximized", "window").value();
+		s_vsync         = config.get<bool>("vsync", "window").value();
+		s_mouse_grabbed = config.get<bool>("mouse_grabbed", "window").value();
+		s_resizable     = config.get<bool>("resizable", "window").value();
+		s_border        = config.get<bool>("border", "window").value();
 
 		s_audio_freq = config.get<int>("audio_freq", "audio").value();
 
@@ -125,21 +103,6 @@ namespace galaxy
 		s_assets_ui        = config.get<std::string>("assets_ui", "fs").value();
 	}
 
-	/*auto settings::set_delta_time(const double dt) noexcept -> void
-	{
-		s_delta_time = dt;
-	}
-
-	auto settings::dt() noexcept -> double
-	{
-		return s_delta_time;
-	}
-
-	auto settings::ups() noexcept -> double
-	{
-		return s_ups;
-	}
-
 	auto settings::window_width() noexcept -> int
 	{
 		return s_window_width;
@@ -150,19 +113,9 @@ namespace galaxy
 		return s_window_height;
 	}
 
-	auto settings::view_width() noexcept -> int
-	{
-		return s_view_width;
-	}
-
-	auto settings::view_height() noexcept -> int
-	{
-		return s_view_height;
-	}
-
 	auto settings::window_icon() noexcept -> const std::string&
 	{
-		return s_icon;
+		return s_window_icon;
 	}
 
 	auto settings::fullscreen() noexcept -> bool
@@ -170,45 +123,29 @@ namespace galaxy
 		return s_fullscreen;
 	}
 
-	auto settings::key_repeat() noexcept -> bool
+	auto settings::maximized() noexcept -> bool
 	{
-		return s_key_repeat;
+		return s_maximized;
 	}
-
-
-	auto settings::msaa() noexcept -> bool
-	{
-		return s_msaa;
-	}
-
-	auto settings::cursor_visible() noexcept -> bool
-	{
-		return s_cursor_visible;
-	}
-
-	auto settings::cursor_grabbed() noexcept -> bool
-	{
-		return s_cursor_grabbed;
-	}
-
-	auto settings::cursor_icon() noexcept -> const std::string&
-	{
-		return s_cursor_icon;
-	}
-
-	auto settings::cursor_icon_size() noexcept -> const sf::Vector2u&
-	{
-		return s_cursor_icon_size;
-	}
-
-	auto settings::cursor_hotspot() noexcept -> const sf::Vector2u&
-	{
-		return s_cursor_hotspot;
-	}*/
 
 	auto settings::vsync() noexcept -> bool
 	{
 		return s_vsync;
+	}
+
+	auto settings::mouse_grabbed() noexcept -> bool
+	{
+		return s_mouse_grabbed;
+	}
+
+	auto settings::window_resizable() noexcept -> bool
+	{
+		return s_resizable;
+	}
+
+	auto settings::window_border() noexcept -> bool
+	{
+		return s_border;
 	}
 
 	auto settings::audio_freq() noexcept -> int

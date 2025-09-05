@@ -28,29 +28,10 @@ namespace galaxy
 		///
 		static auto set_settings_from_config() -> void;
 
-		/*///
-		/// Set galaxy delta time.
-		///
-		/// \param dt Time lag from game loop.
-		///
-		static auto set_delta_time(const double dt) noexcept -> void;
-
-		///
-		/// Get galaxy delta time.
-		///
-		/// \return Current lag from gameloop.
-		///
-		[[nodiscard]]
-		static auto dt() noexcept -> double;
-
-		///
-		/// Game updates per second, independant of FPS, see "fixed timestep gameloop".
-		///
-		[[nodiscard]]
-		static auto ups() noexcept -> double;
-
 		///
 		/// Window creation width.
+		///
+		/// \return Integer.
 		///
 		[[nodiscard]]
 		static auto window_width() noexcept -> int;
@@ -58,81 +39,68 @@ namespace galaxy
 		///
 		/// Window creation height.
 		///
+		/// \return Integer.
+		///
 		[[nodiscard]]
 		static auto window_height() noexcept -> int;
 
 		///
-		/// Resolution independent view width.
-		///
-		[[nodiscard]]
-		static auto view_width() noexcept -> int;
-
-		///
-		/// Resolution independent view height.
-		///
-		[[nodiscard]]
-		static auto view_height() noexcept -> int;
-
-		///
 		/// Window icon file in vfs.
+		///
+		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto window_icon() noexcept -> const std::string&;
 
 		///
-		/// Window maximized state.
+		/// Is window started fullscreen.
+		///
+		/// \return Boolean.
 		///
 		[[nodiscard]]
 		static auto fullscreen() noexcept -> bool;
 
 		///
-		/// Enable if a keypress will dispatch a single or repeating events.
+		/// \brief Is window started maximized?
+		///
+		/// Fullscreen takes priority.
+		///
+		/// \return Boolean.
 		///
 		[[nodiscard]]
-		static auto key_repeat() noexcept -> bool;
-
-
-		///
-		/// Enable MSAA.
-		///
-		[[nodiscard]]
-		static auto msaa() noexcept -> bool;
-
-		///
-		/// Show/hide mouse cursor.
-		///
-		[[nodiscard]]
-		static auto cursor_visible() noexcept -> bool;
-
-		///
-		/// Grab/release mouse cursor.
-		///
-		[[nodiscard]]
-		static auto cursor_grabbed() noexcept -> bool;
-
-		///
-		/// Cursor texture file in vfs.
-		///
-		[[nodiscard]]
-		static auto cursor_icon() noexcept -> const std::string&;
-
-		///
-		/// Cursor icon texture size.
-		///
-		[[nodiscard]]
-		static auto cursor_icon_size() noexcept -> const sf::Vector2u&;
-
-		///
-		/// Cursor selector point (hotspot).
-		///
-		[[nodiscard]]
-		static auto cursor_hotspot() noexcept -> const sf::Vector2u&;*/
+		static auto maximized() noexcept -> bool;
 
 		///
 		/// Vsync control.
 		///
+		/// \return Boolean.
+		///
 		[[nodiscard]]
 		static auto vsync() noexcept -> bool;
+
+		///
+		/// Is the cursor grabbed.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto mouse_grabbed() noexcept -> bool;
+
+		///
+		/// Is the window resizable.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto window_resizable() noexcept -> bool;
+
+		///
+		/// Controls if a window has a border around it (including titlebar).
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto window_border() noexcept -> bool;
 
 		///
 		/// Set audio frequency to use with SDL.
@@ -335,26 +303,15 @@ namespace galaxy
 		static auto assets_dir_ui() noexcept -> const std::string&;
 
 	private:
-		/*inline static double s_delta_time;
-
-		inline static double s_ups;
-
 		inline static int         s_window_width;
 		inline static int         s_window_height;
-		inline static int         s_view_width;
-		inline static int         s_view_height;
-		inline static std::string s_icon;
+		inline static std::string s_window_icon;
 		inline static bool        s_fullscreen;
-		inline static bool        s_key_repeat;
-		inline static bool        s_msaa;
-
-		inline static bool         s_cursor_visible;
-		inline static bool         s_cursor_grabbed;
-		inline static std::string  s_cursor_icon;
-		inline static sf::Vector2u s_cursor_icon_size;
-		inline static sf::Vector2u s_cursor_hotspot;*/
-
-		inline static bool s_vsync;
+		inline static bool        s_maximized;
+		inline static bool        s_vsync;
+		inline static bool        s_mouse_grabbed;
+		inline static bool        s_resizable;
+		inline static bool        s_border;
 
 		inline static int s_audio_freq;
 
@@ -385,59 +342,179 @@ namespace galaxy
 } // namespace galaxy
 
 /*
+
+auto settings::view_width() noexcept -> int
+	{
+		return s_view_width;
+	}
+
+	auto settings::view_height() noexcept -> int
+	{
+		return s_view_height;
+	}
+
+	auto settings::key_repeat() noexcept -> bool
+	{
+		return s_key_repeat;
+	}
+
+
+	auto settings::msaa() noexcept -> bool
+	{
+		return s_msaa;
+	}
+
+	auto settings::cursor_visible() noexcept -> bool
+	{
+		return s_cursor_visible;
+	}
+
+	auto settings::cursor_icon() noexcept -> const std::string&
+	{
+		return s_cursor_icon;
+	}
+
+	auto settings::cursor_icon_size() noexcept -> const sf::Vector2u&
+	{
+		return s_cursor_icon_size;
+	}
+
+	auto settings::cursor_hotspot() noexcept -> const sf::Vector2u&
+	{
+		return s_cursor_hotspot;
+	}
+
+		config.restore<int>("view_width", 1280, "window");
+		config.restore<int>("view_height", 720, "window");
+		config.restore<bool>("key_repeat", true, "window");
+		config.restore<bool>("msaa", false, "window");
+		config.restore<bool>("visible", true, "cursor");
+		config.restore<std::string>("icon", "", "cursor");
+		config.restore<int>("x", 0, "cursor.icon_size");
+		config.restore<int>("y", 0, "cursor.icon_size");
+		config.restore<int>("x", 0, "cursor.hotspot");
+		config.restore<int>("y", 0, "cursor.hotspot");
+// s_view_width    = config.get<int>("view_width", "window");
+// s_view_height   = config.get<int>("view_height", "window");
+// s_key_repeat    = config.get<bool>("key_repeat", "window");
+// s_msaa          = config.get<bool>("msaa", "window");
+// s_cursor_visible     = config.get<bool>("visible", "cursor");
+// s_cursor_icon        = config.get<std::string>("icon", "cursor");
+// s_cursor_icon_size.x = config.get<int>("x", "cursor.icon_size");
+// s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
+// s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
+// s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
+
+		inline static int         s_view_width;
+		inline static int         s_view_height;
+		inline static bool        s_key_repeat;
+		inline static bool        s_msaa;
+
+		inline static bool         s_cursor_visible;
+		inline static std::string  s_cursor_icon;
+		inline static sf::Vector2u s_cursor_icon_size;
+		inline static sf::Vector2u s_cursor_hotspot;
+
+		///
+	  /// Resolution independent view width.
+	  ///
+	[[nodiscard]]
+	static auto view_width() noexcept -> int;
+
+///
+/// Resolution independent view height.
+///
+[[nodiscard]]
+static auto view_height() noexcept -> int;
+
+///
+/// Enable if a keypress will dispatch a single or repeating events.
+///
+[[nodiscard]]
+static auto key_repeat() noexcept -> bool;
+
+///
+/// Enable MSAA.
+///
+[[nodiscard]]
+static auto msaa() noexcept -> bool;
+
+///
+/// Show/hide mouse cursor.
+///
+[[nodiscard]]
+static auto cursor_visible() noexcept -> bool;
+
+///
+/// Cursor texture file in vfs.
+///
+[[nodiscard]]
+static auto cursor_icon() noexcept -> const std::string&;
+
+///
+/// Cursor icon texture size.
+///
+[[nodiscard]]
+static auto cursor_icon_size() noexcept -> const sf::Vector2u&;
+
+///
+/// Cursor selector point (hotspot).
+///
+[[nodiscard]]
+static auto cursor_hotspot() noexcept -> const sf::Vector2u&;
 // config.restore<int>("flag_bitset_count", 8, "misc");
 
-		// config.restore<float>("world_to_box2d", 0.01f, "physics");
-		// config.restore<float>("box2d_to_world", 100.0f, "physics");
-		// config.restore<int>("flag_bitset_count", 8, "misc");
+// config.restore<float>("world_to_box2d", 0.01f, "physics");
+// config.restore<float>("box2d_to_world", 100.0f, "physics");
+// config.restore<int>("flag_bitset_count", 8, "misc");
 
-		// config.restore<float>("world_to_box2d", 0.01f, "physics");
-		// config.restore<float>("box2d_to_world", 100.0f, "physics");
+// config.restore<float>("world_to_box2d", 0.01f, "physics");
+// config.restore<float>("box2d_to_world", 100.0f, "physics");
 
-		// config.restore<int>("ansiotrophic_filtering", 16, "window");
-		// config.restore<bool>("highdpi", false, "window");
-		// s_flag_bitset_count = config.get<int>("flag_bitset_count", "misc");
+// config.restore<int>("ansiotrophic_filtering", 16, "window");
+// config.restore<bool>("highdpi", false, "window");
+// s_flag_bitset_count = config.get<int>("flag_bitset_count", "misc");
 
-		// s_world_to_box2d = config.get<float>("world_to_box2d", "physics");
-		// s_box2d_to_world = config.get<float>("box2d_to_world", "physics");
-		// s_ansio_filtering = config.get<int>("ansiotrophic_filtering", "window");
-		// s_highdpi         = config.get<bool>("highdpi", "window");
-		///
-		/// Number of bits in a flag bitset.
-		///
-		//[[nodiscard]]
-		// static auto flag_bitset_count() noexcept -> int;
+// s_world_to_box2d = config.get<float>("world_to_box2d", "physics");
+// s_box2d_to_world = config.get<float>("box2d_to_world", "physics");
+// s_ansio_filtering = config.get<int>("ansiotrophic_filtering", "window");
+// s_highdpi         = config.get<bool>("highdpi", "window");
+///
+/// Number of bits in a flag bitset.
+///
+//[[nodiscard]]
+// static auto flag_bitset_count() noexcept -> int;
 
-		///
-		/// Ratio to convert world coords to box2d.
-		///
-		//[[nodiscard]]
-		// static auto world_to_box2d() noexcept -> float;
+///
+/// Ratio to convert world coords to box2d.
+///
+//[[nodiscard]]
+// static auto world_to_box2d() noexcept -> float;
 
-		///
-		/// Ratio to convert box2d to world coords.
-		///
-		//[[nodiscard]]
-		// static auto box2d_to_world() noexcept -> float;
+///
+/// Ratio to convert box2d to world coords.
+///
+//[[nodiscard]]
+// static auto box2d_to_world() noexcept -> float;
 
-		///
-		/// Ansiotropic filtering level.
-		///
-		//[[nodiscard]]
-		// static auto ansio_level() noexcept -> int;
+///
+/// Ansiotropic filtering level.
+///
+//[[nodiscard]]
+// static auto ansio_level() noexcept -> int;
 
-		///
-		/// Enable High DPI support.
-		///
-		//[[nodiscard]]
-		// static auto highdpi() noexcept -> bool;
+///
+/// Enable High DPI support.
+///
+//[[nodiscard]]
+// static auto highdpi() noexcept -> bool;
 
 // inline static int s_flag_bitset_count;
 
-		// inline static float  s_world_to_box2d;
-		// inline static float  s_box2d_to_world;
-		// inline static int         s_ansio_filtering;
-		// inline static bool        s_highdpi;
+// inline static float  s_world_to_box2d;
+// inline static float  s_box2d_to_world;
+// inline static int         s_ansio_filtering;
+// inline static bool        s_highdpi;
 
 config.restore<float>("ui_font_size", 14.0f);
 config.restore<std::string>("default_lang", "en_au");

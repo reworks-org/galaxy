@@ -14,6 +14,7 @@
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
+    <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
@@ -62,6 +63,7 @@
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
+    <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />

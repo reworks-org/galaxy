@@ -12,6 +12,7 @@
 #include <gtest/gtest.h>
 
 #include <galaxy/time/Stopwatch.hpp>
+#include <galaxy/time/Time.hpp>
 #include <galaxy/time/Timer.hpp>
 
 using namespace std::chrono_literals;
@@ -202,4 +203,15 @@ TEST(Timer, Unpause)
 	}
 
 	entt::locator<BS::light_thread_pool>::reset();
+}
+
+TEST(Time, DeltaTime)
+{
+	auto dt = galaxy::time::dt();
+	ASSERT_EQ(dt, 0.0);
+
+	galaxy::time::dt(10.0);
+	dt = galaxy::time::dt();
+
+	ASSERT_EQ(dt, 10.0);
 }

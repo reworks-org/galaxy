@@ -13,3 +13,4 @@ https://wiki.libsdl.org/SDL3_mixer/FrontPage
 
 https://wiki.libsdl.org/SDL3/CategoryHaptic
 https://wiki.libsdl.org/SDL3/CategoryClipboard
+https://lazyfoo.net/tutorials/SDL3/19-state-machines/index.php

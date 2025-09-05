@@ -8,10 +8,12 @@
 #include <format>
 
 #include <BS_thread_pool.hpp>
+#include <entt/signal/dispatcher.hpp>
 #include <mimalloc.h>
 #include <SDL3/SDL.h>
 
 #include "galaxy/core/Config.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
@@ -22,6 +24,8 @@
 #include "galaxy/time/Time.hpp"
 
 #include "Application.hpp"
+
+using namespace std::chrono_literals;
 
 namespace galaxy
 {
@@ -34,8 +38,8 @@ namespace galaxy
 		setup_config(config_file);
 		setup_platform();
 		setup_fs();
-		// setup_window();
-		// setup_events();
+		setup_window();
+		setup_events();
 		// setup_nuklear();
 		// setup_loader();
 		// setup_meta();
@@ -47,10 +51,10 @@ namespace galaxy
 		// Inject all configured galaxy into Lua.
 		// Add engine services to lua.
 		//
-		lua::inject();
+		// lua::inject();
 
-		////// Load game assets.
-		//// core::entt::locator<core::Loader>::ref().load_all();
+		// Load game assets.
+		// core::entt::locator<core::Loader>::ref().load_all();
 	}
 
 	App::~App()
@@ -73,72 +77,96 @@ namespace galaxy
 		sm.load_app(path.string());
 	}*/
 
-	// void App::run()
-	//{
-	//	// https://stackoverflow.com/a/59446610
+	void App::run()
+	{
+		// https://stackoverflow.com/a/59446610
+		// We dont need 't' or 'alpha/render' sections.
 
-	//	auto& window     = entt::locator<sf::RenderWindow>::value();
-	//	auto& dispatcher = entt::locator<entt::dispatcher>::value();
-	//	auto& manager    = entt::locator<scene::SceneManager>::value();
+		auto& window     = entt::locator<Window>::value();
+		auto& dispatcher = entt::locator<entt::dispatcher>::value();
+		// auto& manager    = entt::locator<scene::SceneManager>::value();
 
-	//	using clock      = std::chrono::high_resolution_clock;
-	//	using duration   = std::chrono::duration<double>;
-	//	using time_point = std::chrono::time_point<clock, duration>;
+		// The expression dt/1s simply converts the double-based chrono seconds
+		// into a double so it can participate in the physics computation.
+		constexpr const auto dt = std::chrono::duration<long long, std::ratio<1, 60>> {1};
+		time::dt(dt / 1.0s);
 
-	//	constexpr const auto one_second = std::chrono::seconds {1};
+		using clock      = std::chrono::steady_clock;
+		using duration   = decltype(clock::duration {} + dt);
+		using time_point = std::chrono::time_point<clock, duration>;
 
-	//	// Number of updates per second.
-	//	// Same as std::ratio<1, ups>, using 1000 with std::milli, etc.
-	//	const auto dt = one_second / settings::ups();
-	//	settings::set_delta_time(dt / one_second);
+		duration   accum = 0s;
+		time_point prev  = clock::now();
+		time_point now   = clock::now();
 
-	//	duration accum {0};
-	//	duration elapsed {0};
+		auto     updates = 0u;
+		auto     frames  = 0u;
+		duration perf    = 0s;
 
-	//	time_point now      = clock::now();
-	//	time_point previous = now;
+		while (window.is_open())
+		{
+			now          = clock::now();
+			auto elapsed = now - prev;
 
-	//	unsigned int frames  = 0u;
-	//	unsigned int updates = 0u;
-	//	duration     perf_counter {0};
+			// 250ms is the limit put in place on the frame time to cope with the spiral of death.
+			// It doesn't have to be 250ms exactly but it should be sufficiently high enough to deal with spikes in load.
+			if (elapsed > 250ms)
+			{
+				elapsed = 250ms;
+			}
 
-	//	while (window.isOpen())
-	//	{
-	//		now      = clock::now();
-	//		elapsed  = now - previous;
-	//		previous = now;
+			prev   = now;
+			accum += elapsed;
 
-	//		accum        += elapsed;
-	//		perf_counter += elapsed;
+			while (accum >= dt)
+			{
+				perf  += dt;
+				accum -= dt;
 
-	//		while (accum >= dt)
-	//		{
-	//			accum -= dt;
+				// nui.begin_input();
+				handle_events(window, dispatcher);
+				// nui.end_input();
+				// manager.update();
 
-	//			// nui.begin_input();
-	//			handle_events(window);
-	//			// nui.end_input();
-	//			manager.update();
+				updates++;
+			}
 
-	//			updates++;
-	//		}
+			// graphics::renderer::begin();
+			// manager.render();
+			// graphics::renderer::end();
 
-	//		graphics::renderer::begin();
-	//		manager.render();
-	//		graphics::renderer::end();
+			frames++;
 
-	//		frames++;
+			if (perf >= 1s)
+			{
+				window.append_title(std::format("{0} | UPS: {1}, FPS: {2}", settings::title(), updates, frames));
 
-	//		if (perf_counter >= one_second)
-	//		{
-	//			window.setTitle(std::format("{0} | UPS: {1}, FPS: {2}", settings::window_title(), updates, frames));
+				frames  = 0;
+				updates = 0;
+				perf    = 0s;
+			}
+		}
+	}
 
-	//			frames       = 0;
-	//			updates      = 0;
-	//			perf_counter = std::chrono::nanoseconds {0};
-	//		}
-	//	}
-	//}
+	void App::handle_events(Window& window, entt::dispatcher& dispatcher)
+	{
+		SDL_Event events;
+		SDL_zero(events);
+
+		while (SDL_PollEvent(&events))
+		{
+			switch (events.type)
+			{
+				case SDL_EVENT_QUIT:
+					window.close();
+					break;
+
+				default:
+					// entt::locator<entt::dispatcher>::value().trigger(event);
+					break;
+			}
+		}
+	}
 
 	void App::setup_logging()
 	{
@@ -250,103 +278,46 @@ namespace galaxy
 		entt::locator<VirtualFileSystem>::emplace();
 	}
 
-	// void App::setup_window()
-	//{
-	//	auto& window = entt::locator<sf::RenderWindow>::emplace();
-	//	window.setVisible(false);
+	void App::setup_window()
+	{
+		auto& window = entt::locator<Window>::emplace();
 
-	//	sf::VideoMode mode;
-	//	mode.bitsPerPixel = sf::VideoMode::getDesktopMode().bitsPerPixel;
-	//	mode.size.x       = settings::window_width();
-	//	mode.size.y       = settings::window_height();
+		window.set_icon(settings::window_icon());
+		window.show();
 
-	//	auto& context             = entt::locator<sf::ContextSettings>::emplace();
-	//	context.antiAliasingLevel = 0;
-	//	context.attributeFlags    = sf::ContextSettings::Default;
-	//	context.depthBits         = 24;
-	//	context.majorVersion      = 3;
-	//	context.minorVersion      = 2;
-	//	context.sRgbCapable       = false;
-	//	context.stencilBits       = 8;
+		/*if (!settings::cursor_icon().empty())
+		{
+			window.setMouseCursorVisible(true);
+			if (settings::cursor_icon_size().x == 0 || settings::cursor_icon_size().y == 0)
+			{
+				GALAXY_LOG(GALAXY_WARN, "Did not specify cursor size properly, must be same size as texture. Reverting to system default.");
+			}
+			else
+			{
+				auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
+				auto  data = fs.read_binary(settings::window_icon());
 
-	//	const auto state = settings::fullscreen() ? sf::State::Fullscreen : sf::State::Windowed;
-	//	window.create(mode, settings::window_title(), sf::Style::Default, state, context);
+				m_cursor = sf::Cursor::createFromPixels(data.data(), settings::cursor_icon_size(), settings::cursor_hotspot());
+				if (m_cursor.has_value())
+				{
+					window.setMouseCursor(m_cursor.value());
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load custom cursor: {0}.", settings::cursor_icon());
+				}
+			}
+		}
+		else
+		{
+			window.setMouseCursorVisible(settings::cursor_visible());
+		}*/
+	}
 
-	//	if (!settings::window_icon().empty())
-	//	{
-	//		auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
-	//		auto  data = fs.read_binary(settings::window_icon());
-
-	//		sf::Image image;
-	//		if (image.loadFromMemory(data.data(), data.size()))
-	//		{
-	//			// Copies, so can delete image after.
-	//			window.setIcon(image);
-	//		}
-	//		else
-	//		{
-	//			GALAXY_LOG(GALAXY_ERROR, "Failed to load window icon '{0}'.", settings::window_icon());
-	//		}
-	//	}
-
-	//	if (!settings::cursor_icon().empty())
-	//	{
-	//		window.setMouseCursorVisible(true);
-
-	//		if (settings::cursor_icon_size().x == 0 || settings::cursor_icon_size().y == 0)
-	//		{
-	//			GALAXY_LOG(GALAXY_WARN, "Did not specify cursor size properly, must be same size as texture. Reverting to system default.");
-	//		}
-	//		else
-	//		{
-	//			auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
-	//			auto  data = fs.read_binary(settings::window_icon());
-
-	//			m_cursor = sf::Cursor::createFromPixels(data.data(), settings::cursor_icon_size(), settings::cursor_hotspot());
-	//			if (m_cursor.has_value())
-	//			{
-	//				window.setMouseCursor(m_cursor.value());
-	//			}
-	//			else
-	//			{
-	//				GALAXY_LOG(GALAXY_ERROR, "Failed to load custom cursor: {0}.", settings::cursor_icon());
-	//			}
-	//		}
-	//	}
-	//	else
-	//	{
-	//		window.setMouseCursorVisible(settings::cursor_visible());
-	//	}
-
-	//	window.setMouseCursorGrabbed(settings::cursor_grabbed());
-	//	window.setVerticalSyncEnabled(settings::vsync());
-
-	//	if (!window.setActive(true))
-	//	{
-	//		GALAXY_LOG(GALAXY_FATAL, "Failed to get OpenGL active context.");
-	//	}
-
-	//	window.setVisible(true);
-
-	//	if (!window.hasFocus())
-	//	{
-	//		window.requestFocus();
-	//	}
-
-	//	graphics::renderer::init();
-	//}
-
-	// void App::setup_events()
-	//{
-	//	entt::locator<entt::dispatcher>::emplace();
-	//	for (auto i = 0; i < sf::Joystick::Count; i++)
-	//	{
-	//		if (sf::Joystick::isConnected(i))
-	//		{
-	//			GALAXY_LOG(GALAXY_WARN, "Gamepad detected at index {0}. Gamepads are not supported.", i);
-	//		}
-	//	}
-	// }
+	void App::setup_events()
+	{
+		entt::locator<entt::dispatcher>::emplace();
+	}
 
 	// void App::setup_nuklear()
 	//{
@@ -414,20 +385,4 @@ namespace galaxy
 	//	// entt::locator<resource::Scripts>::make();
 	//	entt::locator<scene::SceneManager>::emplace();
 	// }
-
-	// void App::handle_events(sf::RenderWindow& window)
-	//{
-	//	window.handleEvents([](auto&& event) {
-	//		using Event = std::decay_t<decltype(event)>;
-
-	//		if constexpr (std::is_same_v<Event, sf::Event::Closed>)
-	//		{
-	//			entt::locator<sf::RenderWindow>::value().close();
-	//		}
-	//		else
-	//		{
-	//			entt::locator<entt::dispatcher>::value().trigger(event);
-	//		}
-	//	});
-	//}
 } // namespace galaxy

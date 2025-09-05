@@ -10,8 +10,12 @@
 
 #include <string>
 
+#include <entt/signal/fwd.hpp>
+
 namespace galaxy
 {
+	class Window;
+
 	///
 	/// Base level class for any galaxy app.
 	///
@@ -39,9 +43,9 @@ namespace galaxy
 		// void load();
 
 		///
-		/// Runs the app.
+		/// Main game loop.
 		///
-		// void run();
+		void run();
 
 	private:
 		///
@@ -64,19 +68,20 @@ namespace galaxy
 		///
 		App& operator=(App&&) = delete;
 
+		void handle_events(Window& window, entt::dispatcher& dispatcher);
+
 		void setup_logging();
 		void setup_async();
 		void setup_config(std::string_view config_file);
 		void setup_platform();
 		void setup_fs();
-		// void setup_window();
-		// void setup_events();
+		void setup_window();
+		void setup_events();
 		// void setup_nuklear();
 		// void setup_loader();
 		// void setup_meta();
 		// void setup_scripting();
 		// void setup_services();
-		// void handle_events(sf::RenderWindow& window);
 	};
 } // namespace galaxy
 

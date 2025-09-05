@@ -30,16 +30,6 @@ namespace galaxy
 			return settings::editor_dir().string();
 		}
 
-		/*void load_config_wrapper()
-		{
-			ServiceLocator<Loader>::ref().load_user_config();
-		}
-
-		void load_window_wrapper()
-		{
-			ServiceLocator<Loader>::ref().load_window();
-		}*/
-
 		void inject_core()
 		{
 			auto& lua = entt::locator<sol::state>::value();
@@ -76,25 +66,18 @@ namespace galaxy
 			config_type["get_section_bool"]   = sol::resolve<std::optional<bool>(const std::string&, const std::string&, const std::string&)>(&Config::get<bool>);
 			config_type["empty"]              = &Config::empty;
 
-			// lua.set_function("galaxy_load_user_config", &load_config_wrapper);
-			// lua.set_function("galaxy_load_window_config", &load_window_wrapper);
-
-			/*lua.set_function("settings_dt", &settings::dt);
-			lua.set_function("settings_ups", &settings::ups);
+			lua.set_function("settings_set_to_default", &settings::set_config_to_default);
+			lua.set_function("settings_set_from_config", &settings::set_settings_from_config);
 			lua.set_function("settings_window_width", &settings::window_width);
 			lua.set_function("settings_window_height", &settings::window_height);
-			lua.set_function("settings_window_title", &settings::window_title);
 			lua.set_function("settings_window_icon", &settings::window_icon);
 			lua.set_function("settings_fullscreen", &settings::fullscreen);
-			lua.set_function("settings_key_repeat", &settings::key_repeat);
+			lua.set_function("settings_maximized", &settings::maximized);
 			lua.set_function("settings_vsync", &settings::vsync);
-			lua.set_function("settings_msaa", &settings::msaa);
-			lua.set_function("settings_cursor_visible", &settings::cursor_visible);
-			lua.set_function("settings_cursor_grabbed", &settings::cursor_grabbed);
-			lua.set_function("settings_cursor_icon", &settings::cursor_icon);
-			lua.set_function("settings_cursor_icon_size", &settings::cursor_icon_size);
-			lua.set_function("settings_cursor_hotspot", &settings::cursor_hotspot);*/
-
+			lua.set_function("settings_mouse_grabbed", &settings::mouse_grabbed);
+			lua.set_function("settings_window_resizable", &settings::window_resizable);
+			lua.set_function("settings_window_border", &settings::window_border);
+			lua.set_function("settings_audio_freq", &settings::audio_freq);
 			lua.set_function("settings_title", &settings::title);
 			lua.set_function("settings_version", &settings::version);
 			lua.set_function("settings_identifier", &settings::identifier);

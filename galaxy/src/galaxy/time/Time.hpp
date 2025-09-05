@@ -21,6 +21,21 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		auto now() noexcept -> std::chrono::local_time<std::chrono::system_clock::duration>;
+
+		///
+		/// Set galaxy delta time.
+		///
+		/// \param dt Delta-Time.
+		///
+		void dt(const double dt) noexcept;
+
+		///
+		/// Get galaxy delta time.
+		///
+		/// \return Current lag from gameloop.
+		///
+		[[nodiscard]]
+		double dt() noexcept;
 	} // namespace time
 } // namespace galaxy
 
