@@ -10,29 +10,21 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// Contains mouse wheel movement data.
+	///
+	struct MouseWheel final : public HandleableEvent
 	{
 		///
-		/// Contains mouse wheel movement data.
+		/// -1 or 1.
 		///
-		struct MouseWheel final
-		{
-			///
-			/// -1 or 1.
-			///
-			double xoff = 0.0;
+		double m_xoff = 0.0;
 
-			///
-			/// -1 or 1.
-			///
-			double yoff = 0.0;
-
-			///
-			/// Has this event been handled?
-			///
-			bool handled = false;
-		};
-	} // namespace events
+		///
+		/// -1 or 1.
+		///
+		double m_yoff = 0.0;
+	};
 } // namespace galaxy
 
 #endif

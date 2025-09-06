@@ -13,39 +13,31 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// Contains data relating to a mouse released event.
+	///
+	struct MouseReleased final : public HandleableEvent
 	{
 		///
-		/// Contains data relating to a mouse released event.
+		/// Mouse x position.
 		///
-		struct MouseReleased final
-		{
-			///
-			/// Mouse x position.
-			///
-			double xpos = 0.0;
+		double m_xpos = 0.0;
 
-			///
-			/// Mouse y position.
-			///
-			double ypos = 0.0;
+		///
+		/// Mouse y position.
+		///
+		double m_ypos = 0.0;
 
-			///
-			/// Mouse button released.
-			///
-			input::MouseButtons button = input::MouseButtons::UNKNOWN;
+		///
+		/// Mouse button released.
+		///
+		input::MouseButtons m_button = input::MouseButtons::UNKNOWN;
 
-			///
-			/// Modifier Key.
-			///
-			input::InputMods mod = input::InputMods::UNKNOWN;
-
-			///
-			/// Has this event been handled?
-			///
-			bool handled = false;
-		};
-	} // namespace events
+		///
+		/// Modifier Key.
+		///
+		input::InputMods m_mod = input::InputMods::UNKNOWN;
+	};
 } // namespace galaxy
 
 #endif

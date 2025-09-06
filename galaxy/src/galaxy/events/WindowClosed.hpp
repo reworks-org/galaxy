@@ -10,15 +10,12 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// Blank "Tag" class/type to signal the window is being closed.
+	///
+	struct WindowClosed final
 	{
-		///
-		/// Blank "Tag" class/type to signal the window is being closed.
-		///
-		struct WindowClosed
-		{
-		};
-	} // namespace events
+	};
 } // namespace galaxy
 
 #endif

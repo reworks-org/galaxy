@@ -10,15 +10,12 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// POD tag to allow a function to accept a dispatched focus gained event.
+	///
+	struct GainedFocus final
 	{
-		///
-		/// POD tag to allow a function to accept a dispatched focus gained event.
-		///
-		struct GainedFocus
-		{
-		};
-	} // namespace events
+	};
 } // namespace galaxy
 
 #endif

@@ -10,29 +10,21 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// Contains data relating to a mouse moved event.
+	///
+	struct MouseMoved final : public HandleableEvent
 	{
 		///
-		/// Contains data relating to a mouse moved event.
+		/// Mouse x position.
 		///
-		struct MouseMoved final
-		{
-			///
-			/// Mouse x position.
-			///
-			double xpos = 0.0;
+		double m_xpos = 0.0;
 
-			///
-			/// Mouse y position.
-			///
-			double ypos = 0.0;
-
-			///
-			/// Has this event been handled?
-			///
-			bool handled = false;
-		};
-	} // namespace events
+		///
+		/// Mouse y position.
+		///
+		double m_ypos = 0.0;
+	};
 } // namespace galaxy
 
 #endif

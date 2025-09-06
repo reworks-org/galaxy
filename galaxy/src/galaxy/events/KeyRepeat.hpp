@@ -13,34 +13,26 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// Contains the key that was pressed down.
+	///
+	struct KeyRepeat final : public HandleableEvent
 	{
 		///
-		/// Contains the key that was pressed down.
+		/// Keycode for the key that is repeating.
 		///
-		struct KeyRepeat final
-		{
-			///
-			/// Keycode for the key that is repeating.
-			///
-			input::Keys keycode = input::Keys::KEY_UNKNOWN;
+		input::Keys m_keycode = input::Keys::KEY_UNKNOWN;
 
-			///
-			/// Modifier Key.
-			///
-			input::InputMods mod = input::InputMods::UNKNOWN;
+		///
+		/// Modifier Key.
+		///
+		input::InputMods m_mod = input::InputMods::UNKNOWN;
 
-			///
-			/// Platform scancode.
-			///
-			int scancode = 0;
-
-			///
-			/// Has this event been handled?
-			///
-			bool handled = false;
-		};
-	} // namespace events
+		///
+		/// Platform scancode.
+		///
+		int m_scancode = 0;
+	};
 } // namespace galaxy
 
 #endif

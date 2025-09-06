@@ -10,26 +10,21 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// New width and height of window being resized.
+	///
+	struct WindowResized final
 	{
 		///
-		/// \brief New width and height of window being resized.
+		/// New width of window.
 		///
-		/// Does not have an "handled" member, since all listeners are expected to handle this.
-		///
-		struct WindowResized final
-		{
-			///
-			/// New width of window.
-			///
-			int width = 0;
+		int m_width = 0;
 
-			///
-			/// New height of window.
-			///
-			int height = 0;
-		};
-	} // namespace events
+		///
+		/// New height of window.
+		///
+		int m_height = 0;
+	};
 } // namespace galaxy
 
 #endif

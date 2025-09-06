@@ -10,15 +10,14 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// \brief POD tag to allow a function to accept a dispatched focus lost event.
+	///
+	/// Does not have an "handled" member, since all listeners are expected to handle this.
+	///
+	struct LostFocus final
 	{
-		///
-		/// POD tag to allow a function to accept a dispatched focus lost event.
-		///
-		struct LostFocus
-		{
-		};
-	} // namespace events
+	};
 } // namespace galaxy
 
 #endif

@@ -10,24 +10,16 @@
 
 namespace galaxy
 {
-	namespace events
+	///
+	/// Contains UTF codepoint.
+	///
+	struct KeyChar final : public HandleableEvent
 	{
 		///
-		/// Contains UTF codepoint.
+		/// UTF codepoint.
 		///
-		struct KeyChar final
-		{
-			///
-			/// UTF codepoint.
-			///
-			unsigned int codepoint = 0u;
-
-			///
-			/// Has this event been handled?
-			///
-			bool handled = false;
-		};
-	} // namespace events
+		unsigned int m_codepoint = 0u;
+	};
 } // namespace galaxy
 
 #endif
