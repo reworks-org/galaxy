@@ -17,17 +17,17 @@ namespace galaxy
 	{
 		std::string root_path_wrapper() noexcept
 		{
-			return settings::root_dir().string();
+			return Settings::root_dir().string();
 		}
 
 		std::string assets_path_wrapper() noexcept
 		{
-			return settings::assets_dir().string();
+			return Settings::assets_dir().string();
 		}
 
 		std::string editor_path_wrapper() noexcept
 		{
-			return settings::editor_dir().string();
+			return Settings::editor_dir().string();
 		}
 
 		void inject_core()
@@ -66,42 +66,42 @@ namespace galaxy
 			config_type["get_section_bool"]   = sol::resolve<std::optional<bool>(const std::string&, const std::string&, const std::string&)>(&Config::get<bool>);
 			config_type["empty"]              = &Config::empty;
 
-			lua.set_function("settings_set_to_default", &settings::set_config_to_default);
-			lua.set_function("settings_set_from_config", &settings::set_settings_from_config);
-			lua.set_function("settings_window_width", &settings::window_width);
-			lua.set_function("settings_window_height", &settings::window_height);
-			lua.set_function("settings_window_icon", &settings::window_icon);
-			lua.set_function("settings_fullscreen", &settings::fullscreen);
-			lua.set_function("settings_maximized", &settings::maximized);
-			lua.set_function("settings_vsync", &settings::vsync);
-			lua.set_function("settings_mouse_grabbed", &settings::mouse_grabbed);
-			lua.set_function("settings_window_resizable", &settings::window_resizable);
-			lua.set_function("settings_window_border", &settings::window_border);
-			lua.set_function("settings_audio_freq", &settings::audio_freq);
-			lua.set_function("settings_title", &settings::title);
-			lua.set_function("settings_version", &settings::version);
-			lua.set_function("settings_identifier", &settings::identifier);
-			lua.set_function("settings_creator", &settings::creator);
-			lua.set_function("settings_copyright", &settings::copyright);
-			lua.set_function("settings_website", &settings::website);
-			lua.set_function("settings_log_dir", &settings::log_dir);
+			lua.set_function("settings_set_to_default", &Settings::set_config_to_default);
+			lua.set_function("settings_set_from_config", &Settings::set_settings_from_config);
+			lua.set_function("settings_window_width", &Settings::window_width);
+			lua.set_function("settings_window_height", &Settings::window_height);
+			lua.set_function("settings_window_icon", &Settings::window_icon);
+			lua.set_function("settings_fullscreen", &Settings::fullscreen);
+			lua.set_function("settings_maximized", &Settings::maximized);
+			lua.set_function("settings_vsync", &Settings::vsync);
+			lua.set_function("settings_mouse_grabbed", &Settings::mouse_grabbed);
+			lua.set_function("settings_window_resizable", &Settings::window_resizable);
+			lua.set_function("settings_window_border", &Settings::window_border);
+			lua.set_function("settings_audio_freq", &Settings::audio_freq);
+			lua.set_function("settings_title", &Settings::title);
+			lua.set_function("settings_version", &Settings::version);
+			lua.set_function("settings_identifier", &Settings::identifier);
+			lua.set_function("settings_creator", &Settings::creator);
+			lua.set_function("settings_copyright", &Settings::copyright);
+			lua.set_function("settings_website", &Settings::website);
+			lua.set_function("settings_log_dir", &Settings::log_dir);
 			lua.set_function("settings_root_dir", &root_path_wrapper);
 			lua.set_function("settings_assets_dir", &assets_path_wrapper);
 			lua.set_function("settings_editor_dir", &editor_path_wrapper);
-			lua.set_function("settings_asset_pack", &settings::asset_pack);
-			lua.set_function("settings_use_loose_assets", &settings::use_loose_assets);
-			lua.set_function("settings_assets_dir_music", &settings::assets_dir_music);
-			lua.set_function("settings_assets_dir_sfx", &settings::assets_dir_sfx);
-			lua.set_function("settings_assets_dir_voice", &settings::assets_dir_voice);
-			lua.set_function("settings_assets_dir_font", &settings::assets_dir_font);
-			lua.set_function("settings_assets_dir_script", &settings::assets_dir_script);
-			lua.set_function("settings_assets_dir_shaders", &settings::assets_dir_shaders);
-			lua.set_function("settings_assets_dir_animation", &settings::assets_dir_animation);
-			lua.set_function("settings_assets_dir_texture", &settings::assets_dir_texture);
-			lua.set_function("settings_assets_dir_prefabs", &settings::assets_dir_prefabs);
-			lua.set_function("settings_assets_dir_maps", &settings::assets_dir_maps);
-			lua.set_function("settings_assets_dir_video", &settings::assets_dir_video);
-			lua.set_function("settings_assets_dir_ui", &settings::assets_dir_ui);
+			lua.set_function("settings_asset_pack", &Settings::asset_pack);
+			lua.set_function("settings_use_loose_assets", &Settings::use_loose_assets);
+			lua.set_function("settings_assets_dir_music", &Settings::assets_dir_music);
+			lua.set_function("settings_assets_dir_sfx", &Settings::assets_dir_sfx);
+			lua.set_function("settings_assets_dir_voice", &Settings::assets_dir_voice);
+			lua.set_function("settings_assets_dir_font", &Settings::assets_dir_font);
+			lua.set_function("settings_assets_dir_script", &Settings::assets_dir_script);
+			lua.set_function("settings_assets_dir_shaders", &Settings::assets_dir_shaders);
+			lua.set_function("settings_assets_dir_animation", &Settings::assets_dir_animation);
+			lua.set_function("settings_assets_dir_texture", &Settings::assets_dir_texture);
+			lua.set_function("settings_assets_dir_prefabs", &Settings::assets_dir_prefabs);
+			lua.set_function("settings_assets_dir_maps", &Settings::assets_dir_maps);
+			lua.set_function("settings_assets_dir_video", &Settings::assets_dir_video);
+			lua.set_function("settings_assets_dir_ui", &Settings::assets_dir_ui);
 
 			/*auto registry_type                  = lua.new_usertype<Registry>("Registry", sol::constructors<Registry()>());
 			registry_type["clear"]              = &Registry::clear;

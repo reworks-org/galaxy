@@ -152,7 +152,7 @@ namespace galaxy
 		/// \param msg Body text of notification.
 		/// \param icon Icon to display alongside text.
 		///
-		void notification(const std::string& title, const std::string& msg, const fs::DialogIcon icon) noexcept;
+		void notification(const std::string& title, const std::string& msg, const DialogIcon icon) noexcept;
 
 		///
 		/// Opens a platform specific message box.
@@ -166,7 +166,7 @@ namespace galaxy
 		/// \return Integer with outcome. 0 for cancel/no , 1 for ok/yes , 2 for no in yesnocancel.
 		///
 		[[nodiscard]]
-		int message_box(const std::string& title, const std::string& msg, const fs::DialogType type, const fs::DialogIcon icon, const fs::DialogButton btn) noexcept;
+		int message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn) noexcept;
 
 		///
 		/// Opens a platform specific text input box.

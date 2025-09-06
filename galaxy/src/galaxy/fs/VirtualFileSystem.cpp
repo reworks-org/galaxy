@@ -29,8 +29,8 @@ namespace galaxy
 	VirtualFileSystem::VirtualFileSystem() noexcept
 	{
 		// Create data directories.
-		std::filesystem::create_directories(settings::root_dir() / settings::assets_dir());
-		std::filesystem::create_directories(settings::root_dir() / settings::editor_dir());
+		std::filesystem::create_directories(Settings::root_dir() / Settings::assets_dir());
+		std::filesystem::create_directories(Settings::root_dir() / Settings::editor_dir());
 
 		// Set up allocators for physfs.
 		PHYSFS_Allocator a = {};
@@ -46,34 +46,34 @@ namespace galaxy
 		{
 			PHYSFS_permitSymbolicLinks(false);
 
-			auto write_dir = settings::root_dir() / settings::assets_dir();
+			auto write_dir = Settings::root_dir() / Settings::assets_dir();
 			write_dir.make_preferred();
 			log::physfs_check(PHYSFS_setWriteDir(write_dir.string().c_str()));
 
-			auto read_dir = settings::root_dir() / settings::asset_pack();
+			auto read_dir = Settings::root_dir() / Settings::asset_pack();
 			read_dir.make_preferred();
 
-			if (settings::use_loose_assets())
+			if (Settings::use_loose_assets())
 			{
-				mkdir(settings::assets_dir_music());
-				mkdir(settings::assets_dir_sfx());
-				mkdir(settings::assets_dir_voice());
-				mkdir(settings::assets_dir_font());
-				mkdir(settings::assets_dir_script());
-				mkdir(settings::assets_dir_shaders());
-				mkdir(settings::assets_dir_animation());
-				mkdir(settings::assets_dir_texture());
-				mkdir(settings::assets_dir_prefabs());
-				mkdir(settings::assets_dir_maps());
-				mkdir(settings::assets_dir_video());
-				mkdir(settings::assets_dir_ui());
+				mkdir(Settings::assets_dir_music());
+				mkdir(Settings::assets_dir_sfx());
+				mkdir(Settings::assets_dir_voice());
+				mkdir(Settings::assets_dir_font());
+				mkdir(Settings::assets_dir_script());
+				mkdir(Settings::assets_dir_shaders());
+				mkdir(Settings::assets_dir_animation());
+				mkdir(Settings::assets_dir_texture());
+				mkdir(Settings::assets_dir_prefabs());
+				mkdir(Settings::assets_dir_maps());
+				mkdir(Settings::assets_dir_video());
+				mkdir(Settings::assets_dir_ui());
 
 				read_dir = write_dir;
 			}
 
 			log::physfs_check(PHYSFS_mount(read_dir.string().c_str(), nullptr, true));
 
-			const auto merged = settings::root_dir() / settings::editor_dir();
+			const auto merged = Settings::root_dir() / Settings::editor_dir();
 			log::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
 		}
 	}
@@ -249,13 +249,13 @@ namespace galaxy
 		tinyfd_beep();
 	}
 
-	void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const fs::DialogIcon icon) noexcept
+	void VirtualFileSystem::notification(const std::string& title, const std::string& msg, const DialogIcon icon) noexcept
 	{
 		std::string tinyfd_icon {magic_enum::enum_name(icon)};
 		tinyfd_notifyPopup(title.c_str(), msg.c_str(), tinyfd_icon.c_str());
 	}
 
-	int VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const fs::DialogType type, const fs::DialogIcon icon, const fs::DialogButton btn) noexcept
+	int VirtualFileSystem::message_box(const std::string& title, const std::string& msg, const DialogType type, const DialogIcon icon, const DialogButton btn) noexcept
 	{
 		std::string tinyfd_type {magic_enum::enum_name(type)};
 		std::string tinyfd_icon {magic_enum::enum_name(icon)};
@@ -286,7 +286,7 @@ namespace galaxy
 
 	std::string VirtualFileSystem::open_file_dialog(const std::vector<const char*>& filters, const std::string& def_path)
 	{
-		const auto default_path = (settings::root_dir() / def_path).string();
+		const auto default_path = (Settings::root_dir() / def_path).string();
 
 		const char* const* filter_patterns = (filters.size() > 0) ? filters.data() : nullptr;
 		const char*        result          = tinyfd_openFileDialog("Open file", default_path.c_str(), static_cast<int>(filters.size()), filter_patterns, "Select a file", false);
@@ -303,7 +303,7 @@ namespace galaxy
 
 	std::string VirtualFileSystem::select_folder_dialog(const std::string& def_path)
 	{
-		const auto  default_path = (settings::root_dir() / def_path).string();
+		const auto  default_path = (Settings::root_dir() / def_path).string();
 		const char* result       = tinyfd_selectFolderDialog("Select folder", default_path.c_str());
 
 		if (result != nullptr)

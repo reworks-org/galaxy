@@ -48,6 +48,7 @@
     <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaServices.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />

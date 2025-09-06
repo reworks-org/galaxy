@@ -15,7 +15,7 @@ namespace galaxy
 	///
 	/// Helper class to encapsulate our global settings we want to quickly access across app.
 	///
-	struct settings
+	struct Settings
 	{
 	public:
 		///
@@ -343,43 +343,43 @@ namespace galaxy
 
 /*
 
-auto settings::view_width() noexcept -> int
+auto Settings::view_width() noexcept -> int
 	{
 		return s_view_width;
 	}
 
-	auto settings::view_height() noexcept -> int
+	auto Settings::view_height() noexcept -> int
 	{
 		return s_view_height;
 	}
 
-	auto settings::key_repeat() noexcept -> bool
+	auto Settings::key_repeat() noexcept -> bool
 	{
 		return s_key_repeat;
 	}
 
 
-	auto settings::msaa() noexcept -> bool
+	auto Settings::msaa() noexcept -> bool
 	{
 		return s_msaa;
 	}
 
-	auto settings::cursor_visible() noexcept -> bool
+	auto Settings::cursor_visible() noexcept -> bool
 	{
 		return s_cursor_visible;
 	}
 
-	auto settings::cursor_icon() noexcept -> const std::string&
+	auto Settings::cursor_icon() noexcept -> const std::string&
 	{
 		return s_cursor_icon;
 	}
 
-	auto settings::cursor_icon_size() noexcept -> const sf::Vector2u&
+	auto Settings::cursor_icon_size() noexcept -> const sf::Vector2u&
 	{
 		return s_cursor_icon_size;
 	}
 
-	auto settings::cursor_hotspot() noexcept -> const sf::Vector2u&
+	auto Settings::cursor_hotspot() noexcept -> const sf::Vector2u&
 	{
 		return s_cursor_hotspot;
 	}

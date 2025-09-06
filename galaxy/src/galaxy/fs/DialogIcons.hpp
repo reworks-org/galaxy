@@ -10,21 +10,18 @@
 
 namespace galaxy
 {
-	namespace fs
+	///
+	/// \brief Type of native system icon to display on file dialogs.
+	///
+	/// Enums are in lowercase for tinyfiledialogs.
+	///
+	enum class DialogIcon : int
 	{
-		///
-		/// \brief Type of native system icon to display on file dialogs.
-		///
-		/// Enums are in lowercase for tinyfiledialogs.
-		///
-		enum class DialogIcon : int
-		{
-			info,
-			warning,
-			error,
-			question
-		};
-	} // namespace fs
+		info,
+		warning,
+		error,
+		question
+	};
 } // namespace galaxy
 
 #endif

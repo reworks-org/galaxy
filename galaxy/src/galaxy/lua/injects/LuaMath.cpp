@@ -43,10 +43,10 @@ namespace galaxy
 			lua.set_function("decode_zlib", &ZLib::decode);
 
 			auto frect_type              = lua.new_usertype<fRect>("fRect", sol::constructors<fRect(), fRect(const float, const float, const float, const float)>());
-			frect_type["x"]              = &fRect::x;
-			frect_type["y"]              = &fRect::y;
-			frect_type["width"]          = &fRect::width;
-			frect_type["height"]         = &fRect::height;
+			frect_type["x"]              = &fRect::m_xpos;
+			frect_type["y"]              = &fRect::m_ypos;
+			frect_type["width"]          = &fRect::m_width;
+			frect_type["height"]         = &fRect::m_height;
 			frect_type["contains_point"] = sol::resolve<bool(const float, const float) const>(&fRect::contains);
 			frect_type["contains"]       = sol::resolve<bool(const fRect&) const>(&fRect::contains);
 			frect_type["overlaps"]       = &fRect::overlaps;
@@ -59,10 +59,10 @@ namespace galaxy
 			frect_type["get_size"]       = &fRect::get_size;
 
 			auto irect_type              = lua.new_usertype<iRect>("iRect", sol::constructors<iRect(), iRect(const int, const int, const int, const int)>());
-			irect_type["x"]              = &iRect::x;
-			irect_type["y"]              = &iRect::y;
-			irect_type["width"]          = &iRect::width;
-			irect_type["height"]         = &iRect::height;
+			irect_type["x"]              = &iRect::m_xpos;
+			irect_type["y"]              = &iRect::m_ypos;
+			irect_type["width"]          = &iRect::m_width;
+			irect_type["height"]         = &iRect::m_height;
 			irect_type["contains_point"] = sol::resolve<bool(const int, const int) const>(&iRect::contains);
 			irect_type["contains"]       = sol::resolve<bool(const iRect&) const>(&iRect::contains);
 			irect_type["overlaps"]       = &iRect::overlaps;

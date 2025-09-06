@@ -143,22 +143,22 @@ namespace galaxy
 		///
 		/// X position.
 		///
-		Type x;
+		Type m_xpos;
 
 		///
 		/// Y position.
 		///
-		Type y;
+		Type m_ypos;
 
 		///
 		/// Width of rectangle.
 		///
-		Type width;
+		Type m_width;
 
 		///
 		/// Height of rectangle.
 		///
-		Type height;
+		Type m_height;
 
 	private:
 		///
@@ -187,19 +187,19 @@ namespace galaxy
 
 	template<meta::is_arithmetic Type>
 	inline Rect<Type>::Rect() noexcept
-		: x {0}
-		, y {0}
-		, width {0}
-		, height {0}
+		: m_xpos {0}
+		, m_ypos {0}
+		, m_width {0}
+		, m_height {0}
 	{
 	}
 
 	template<meta::is_arithmetic Type>
 	inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
-		: x {x}
-		, y {y}
-		, width {width}
-		, height {height}
+		: m_xpos {x}
+		, m_ypos {y}
+		, m_width {width}
+		, m_height {height}
 	{
 	}
 
@@ -209,69 +209,69 @@ namespace galaxy
 	}
 
 	template<meta::is_arithmetic Type>
-	inline bool Rect<Type>::contains(const Type _x, const Type _y) const noexcept
+	inline bool Rect<Type>::contains(const Type x, const Type y) const noexcept
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
-		return ((_x > x) && (_x < (x + width)) && (_y > y) && (_y < (y + height)));
+		return ((x > m_xpos) && (x < (m_xpos + m_width)) && (y > m_ypos) && (y < (m_ypos + m_height)));
 	}
 
 	template<meta::is_arithmetic Type>
 	inline bool Rect<Type>::contains(const Rect<Type>& b) const noexcept
 	{
-		return x <= b.x && b.get_right() <= get_right() && y <= b.y && b.get_bottom() <= get_bottom();
+		return m_xpos <= b.m_xpos && b.get_right() <= get_right() && m_ypos <= b.m_ypos && b.get_bottom() <= get_bottom();
 	}
 
 	template<meta::is_arithmetic Type>
 	inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
 	{
 		// Check for overlaps using math.
-		const auto _x = value_in_range(x, b.x, b.x + b.width) || value_in_range(b.x, x, x + width);
-		const auto _y = value_in_range(y, b.y, b.y + b.height) || value_in_range(b.y, y, y + height);
+		const auto x = value_in_range(m_xpos, b.m_xpos, b.m_xpos + b.m_width) || value_in_range(b.m_xpos, m_xpos, m_xpos + m_width);
+		const auto y = value_in_range(m_ypos, b.m_ypos, b.m_ypos + b.m_height) || value_in_range(b.m_ypos, m_ypos, m_ypos + m_height);
 
-		return _x && _y;
+		return x && y;
 	}
 
 	template<meta::is_arithmetic Type>
 	inline bool Rect<Type>::intersects(const Rect<Type>& b) const noexcept
 	{
-		return !(x >= b.get_right() || get_right() <= b.x || y >= b.get_bottom() || get_bottom() <= b.y);
+		return !(m_xpos >= b.get_right() || get_right() <= b.m_xpos || m_ypos >= b.get_bottom() || get_bottom() <= b.m_ypos);
 	}
 
 	template<meta::is_arithmetic Type>
 	inline void Rect<Type>::set_top_left(const glm::vec<2, Type, glm::defaultp>& pos) noexcept
 	{
-		x = pos.x;
-		y = pos.y;
+		m_xpos = pos.x;
+		m_ypos = pos.y;
 	}
 
 	template<meta::is_arithmetic Type>
 	inline Type Rect<Type>::get_right() const noexcept
 	{
-		return x + width;
+		return m_xpos + m_width;
 	}
 
 	template<meta::is_arithmetic Type>
 	inline Type Rect<Type>::get_bottom() const noexcept
 	{
-		return y + height;
+		return m_ypos + m_height;
 	}
 
 	template<meta::is_arithmetic Type>
 	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_top_left() const noexcept
 	{
-		return {x, y};
+		return {m_xpos, m_ypos};
 	}
 
 	template<meta::is_arithmetic Type>
 	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_center() const noexcept
 	{
-		return {(x + width) / 2.0, (y + height) / 2.0};
+		return {(m_xpos + m_width) / 2.0, (m_ypos + m_height) / 2.0};
 	}
 
 	template<meta::is_arithmetic Type>
 	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_size() const noexcept
 	{
-		return {width, height};
+		return {m_width, m_height};
 	}
 
 	template<meta::is_arithmetic Type>

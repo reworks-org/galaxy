@@ -71,7 +71,7 @@ namespace galaxy
 
 	/*void App::load()
 	{
-		const auto path = settings::root_dir() / settings::asset_pack();
+		const auto path = Settings::root_dir() / Settings::asset_pack();
 
 		auto& sm = entt::locator<scene::SceneManager>::value();
 		sm.load_app(path.string());
@@ -139,7 +139,7 @@ namespace galaxy
 
 			if (perf >= 1s)
 			{
-				window.append_title(std::format("{0} | UPS: {1}, FPS: {2}", settings::title(), updates, frames));
+				window.append_title(std::format("{0} | UPS: {1}, FPS: {2}", Settings::title(), updates, frames));
 
 				frames  = 0;
 				updates = 0;
@@ -171,13 +171,13 @@ namespace galaxy
 	void App::setup_logging()
 	{
 		platform::configure_terminal();
-		if (!std::filesystem::exists(settings::log_dir()))
+		if (!std::filesystem::exists(Settings::log_dir()))
 		{
-			std::filesystem::create_directory(settings::log_dir());
+			std::filesystem::create_directory(Settings::log_dir());
 		}
 		entt::locator<Log>::emplace();
 
-		const auto path = std::format("{0}{1}{2}", settings::log_dir(), std::format("{0:%d-%m-%Y-[%H-%M]}", time::now()), ".log");
+		const auto path = std::format("{0}{1}{2}", Settings::log_dir(), std::format("{0:%d-%m-%Y-[%H-%M]}", time::now()), ".log");
 		GALAXY_ADD_SINK(FileSink, path);
 
 		GALAXY_ADD_SINK(ConsoleSink);
@@ -201,20 +201,20 @@ namespace galaxy
 	void App::setup_config(std::string_view config_file)
 	{
 		auto& config = entt::locator<Config>::emplace(config_file);
-		settings::set_config_to_default();
-		settings::set_settings_from_config();
+		Settings::set_config_to_default();
+		Settings::set_settings_from_config();
 	}
 
 	void App::setup_platform()
 	{
 		platform::seed_random();
 
-		platform::set_metadata(SDL_PROP_APP_METADATA_NAME_STRING, settings::title().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_VERSION_STRING, settings::version().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_IDENTIFIER_STRING, settings::identifier().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_CREATOR_STRING, settings::creator().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_COPYRIGHT_STRING, settings::copyright().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_URL_STRING, settings::website().c_str());
+		platform::set_metadata(SDL_PROP_APP_METADATA_NAME_STRING, Settings::title().c_str());
+		platform::set_metadata(SDL_PROP_APP_METADATA_VERSION_STRING, Settings::version().c_str());
+		platform::set_metadata(SDL_PROP_APP_METADATA_IDENTIFIER_STRING, Settings::identifier().c_str());
+		platform::set_metadata(SDL_PROP_APP_METADATA_CREATOR_STRING, Settings::creator().c_str());
+		platform::set_metadata(SDL_PROP_APP_METADATA_COPYRIGHT_STRING, Settings::copyright().c_str());
+		platform::set_metadata(SDL_PROP_APP_METADATA_URL_STRING, Settings::website().c_str());
 		platform::set_metadata(SDL_PROP_APP_METADATA_TYPE_STRING, "game");
 
 		platform::set_hint(SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED, "1");
@@ -260,10 +260,10 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_WINDOWS_GAMEINPUT, "1");
 		platform::set_hint(SDL_HINT_WINDOWS_RAW_KEYBOARD, "0");
 
-		const auto vsync = settings::vsync() ? "1" : "0";
+		const auto vsync = Settings::vsync() ? "1" : "0";
 		platform::set_hint(SDL_HINT_RENDER_VSYNC, vsync);
 
-		const auto audio_freq = std::to_string(settings::audio_freq());
+		const auto audio_freq = std::to_string(Settings::audio_freq());
 		platform::set_hint(SDL_HINT_AUDIO_FREQUENCY, audio_freq.c_str());
 
 		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC | SDL_INIT_SENSOR | SDL_INIT_CAMERA))
@@ -281,35 +281,35 @@ namespace galaxy
 	{
 		auto& window = entt::locator<Window>::emplace();
 
-		window.set_icon(settings::window_icon());
+		window.set_icon(Settings::window_icon());
 		window.show();
 
-		/*if (!settings::cursor_icon().empty())
+		/*if (!Settings::cursor_icon().empty())
 		{
 			window.setMouseCursorVisible(true);
-			if (settings::cursor_icon_size().x == 0 || settings::cursor_icon_size().y == 0)
+			if (Settings::cursor_icon_size().x == 0 || Settings::cursor_icon_size().y == 0)
 			{
 				GALAXY_LOG(GALAXY_WARN, "Did not specify cursor size properly, must be same size as texture. Reverting to system default.");
 			}
 			else
 			{
 				auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
-				auto  data = fs.read_binary(settings::window_icon());
+				auto  data = fs.read_binary(Settings::window_icon());
 
-				m_cursor = sf::Cursor::createFromPixels(data.data(), settings::cursor_icon_size(), settings::cursor_hotspot());
+				m_cursor = sf::Cursor::createFromPixels(data.data(), Settings::cursor_icon_size(), Settings::cursor_hotspot());
 				if (m_cursor.has_value())
 				{
 					window.setMouseCursor(m_cursor.value());
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load custom cursor: {0}.", settings::cursor_icon());
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load custom cursor: {0}.", Settings::cursor_icon());
 				}
 			}
 		}
 		else
 		{
-			window.setMouseCursorVisible(settings::cursor_visible());
+			window.setMouseCursorVisible(Settings::cursor_visible());
 		}*/
 	}
 

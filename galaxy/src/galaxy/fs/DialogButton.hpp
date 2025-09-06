@@ -10,18 +10,15 @@
 
 namespace galaxy
 {
-	namespace fs
+	///
+	/// Type of button for tinyfd boxes.
+	///
+	enum class DialogButton : int
 	{
-		///
-		/// Type of button for tinyfd boxes.
-		///
-		enum class DialogButton : int
-		{
-			cancel_no     = 0,
-			ok_yes        = 1,
-			yes_no_cancel = 2
-		};
-	} // namespace fs
+		cancel_no     = 0,
+		ok_yes        = 1,
+		yes_no_cancel = 2
+	};
 } // namespace galaxy
 
 #endif

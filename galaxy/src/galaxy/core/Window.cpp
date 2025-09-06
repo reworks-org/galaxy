@@ -30,24 +30,24 @@ namespace galaxy
 		}
 
 		SDL_WindowFlags flags = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
-		if (settings::fullscreen())
+		if (Settings::fullscreen())
 		{
 			flags |= SDL_WINDOW_FULLSCREEN;
 		}
 		else
 		{
-			if (settings::maximized())
+			if (Settings::maximized())
 			{
 				flags |= SDL_WINDOW_MAXIMIZED;
 			}
 		}
 
-		if (settings::mouse_grabbed())
+		if (Settings::mouse_grabbed())
 		{
 			flags |= SDL_WINDOW_MOUSE_GRABBED;
 		}
 
-		if (settings::window_resizable())
+		if (Settings::window_resizable())
 		{
 			flags |= SDL_WINDOW_RESIZABLE;
 		}
@@ -77,7 +77,7 @@ namespace galaxy
 		// SDL_GL_SetAttribute(SDL_GL_CONTEXT_RELEASE_BEHAVIOR, );   /**< sets context the release behavior. See SDL_GLContextReleaseFlag; defaults to FLUSH. */
 		// SDL_GL_SetAttribute(SDL_GL_CONTEXT_RESET_NOTIFICATION, ); /**< set context reset notification. See SDL_GLContextResetNotification; defaults to NO_NOTIFICATION. */
 
-		m_window = SDL_CreateWindow(settings::title().c_str(), settings::window_width(), settings::window_height(), flags);
+		m_window = SDL_CreateWindow(Settings::title().c_str(), Settings::window_width(), Settings::window_height(), flags);
 		if (m_window)
 		{
 			m_context = SDL_GL_CreateContext(m_window);
@@ -87,9 +87,9 @@ namespace galaxy
 				{
 					if (gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
 					{
-						SDL_GL_SetSwapInterval(settings::vsync());
+						SDL_GL_SetSwapInterval(Settings::vsync());
 						SDL_SetWindowAlwaysOnTop(m_window, false);
-						SDL_SetWindowBordered(m_window, settings::window_border());
+						SDL_SetWindowBordered(m_window, Settings::window_border());
 						SDL_SetWindowFocusable(m_window, true);
 						SDL_SetWindowFullscreenMode(m_window, nullptr); // Borderless Fullscreen mode.
 						SDL_SetWindowKeyboardGrab(m_window, false);
@@ -187,7 +187,7 @@ namespace galaxy
 
 	void Window::append_title(const std::string& append)
 	{
-		const auto title = settings::title() + append;
+		const auto title = Settings::title() + append;
 		SDL_SetWindowTitle(m_window, title.c_str());
 	}
 

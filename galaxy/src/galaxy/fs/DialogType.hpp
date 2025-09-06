@@ -10,19 +10,16 @@
 
 namespace galaxy
 {
-	namespace fs
+	///
+	/// Type of dialog box for use with tinyfd.
+	///
+	enum class DialogType : int
 	{
-		///
-		/// Type of dialog box for use with tinyfd.
-		///
-		enum class DialogType : int
-		{
-			ok,
-			okcancel,
-			yesno,
-			yesnocancel
-		};
-	} // namespace fs
+		ok,
+		okcancel,
+		yesno,
+		yesnocancel
+	};
 } // namespace galaxy
 
 #endif

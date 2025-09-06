@@ -33,6 +33,7 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaServices.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\lua\Lua.cpp" />

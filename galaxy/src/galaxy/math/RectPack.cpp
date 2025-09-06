@@ -39,37 +39,37 @@ namespace galaxy
 			auto& space = *rit;
 
 			// Check if rect can fit into space.
-			if (width <= space.width && height <= space.height)
+			if (width <= space.m_width && height <= space.m_height)
 			{
 				// Make the packed area rectangle.
-				result = std::make_optional<iRect>(space.x, space.y, width, height);
+				result = std::make_optional<iRect>(space.m_xpos, space.m_ypos, width, height);
 
 				// Check to see if shape fills completely.
-				if (width == space.width && height == space.height)
+				if (width == space.m_width && height == space.m_height)
 				{
 					// Destroy since not free space anymore.
 					std::advance(rit, 1);
 					m_free_rects.erase(rit.base());
 				}
-				else if (width == space.width)
+				else if (width == space.m_width)
 				{
 					// If just width fits, shrink new space.
-					space.y      += height;
-					space.height -= height;
+					space.m_ypos   += height;
+					space.m_height -= height;
 				}
-				else if (height == space.height)
+				else if (height == space.m_height)
 				{
 					// Same as width, for height.
-					space.x     += width;
-					space.width -= width;
+					space.m_xpos  += width;
+					space.m_width -= width;
 				}
 				else
 				{
 					// Otherwise, split up existing space.
-					iRect temp = {space.x + width, space.y, space.width - width, height};
+					iRect temp = {space.m_xpos + width, space.m_ypos, space.m_width - width, height};
 
-					space.y      += height;
-					space.height -= height;
+					space.m_ypos   += height;
+					space.m_height -= height;
 
 					m_free_rects.emplace_back(temp);
 				}

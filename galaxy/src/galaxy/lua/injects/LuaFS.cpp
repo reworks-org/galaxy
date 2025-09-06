@@ -38,26 +38,26 @@ namespace galaxy
 			auto& lua = entt::locator<sol::state>::value();
 
 			// clang-format off
-			lua.new_enum<fs::DialogButton>("DialogButton",
+			lua.new_enum<DialogButton>("DialogButton",
 			{
-				{"cancel_no", fs::DialogButton::cancel_no},
-				{"ok_yes", fs::DialogButton::ok_yes},
-				{"yes_no_cancel", fs::DialogButton::yes_no_cancel}
+				{"cancel_no", DialogButton::cancel_no},
+				{"ok_yes", DialogButton::ok_yes},
+				{"yes_no_cancel", DialogButton::yes_no_cancel}
 			});
 
-			lua.new_enum<fs::DialogIcon>("DialogIcons",
+			lua.new_enum<DialogIcon>("DialogIcons",
 			{
-				{"info", fs::DialogIcon::info},
-				{"warning", fs::DialogIcon::warning},
-				{"error", fs::DialogIcon::error}
+				{"info", DialogIcon::info},
+				{"warning", DialogIcon::warning},
+				{"error", DialogIcon::error}
 			});
 
-			lua.new_enum<fs::DialogType>("DialogType",
+			lua.new_enum<DialogType>("DialogType",
 			{
-				{"ok", fs::DialogType::ok},
-				{"okcancel", fs::DialogType::okcancel},
-				{"yesno", fs::DialogType::yesno},
-				{"yesnocancel", fs::DialogType::yesnocancel}
+				{"ok", DialogType::ok},
+				{"okcancel", DialogType::okcancel},
+				{"yesno", DialogType::yesno},
+				{"yesnocancel", DialogType::yesnocancel}
 			});
 			// clang-format on
 
