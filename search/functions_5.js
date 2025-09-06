@@ -10,5 +10,6 @@ var searchData=
   ['fnv1a_5f64_7',['fnv1a_64',['../d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814',1,'galaxy::math']]],
   ['format_8',['format',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html#ab5b7393ab900218e1bf77c533a74a0fc',1,'std::formatter&lt; std::filesystem::path &gt;::format()'],['../d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html#a89983c8e58224e66e6e051018f3c9f35',1,'std::formatter&lt; galaxy::FileError &gt;::format()'],['../d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html#a629973e3d4a1ea4e1e09b69011887ff5',1,'std::formatter&lt; galaxy::LogLevel &gt;::format()'],['../dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a70a0b34589e5fb89ac9f851c5793a819',1,'std::formatter&lt; galaxy::LogMessage &gt;::format()'],['../d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html#ad373f1230194fa26fa4fea670fd21f3f',1,'std::formatter&lt; galaxy::UUID &gt;::format()']]],
   ['from_5fentity_9',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_10',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]]
+  ['from_5fjson_10',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
+  ['fullscreen_11',['fullscreen',['../df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261',1,'galaxy::Settings']]]
 ];

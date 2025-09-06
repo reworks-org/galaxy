@@ -1,0 +1,11 @@
+<map id="galaxy::App::run" name="galaxy::App::run">
+<area shape="rect" id="Node000001" title="Loads the default appdata file." alt="" coords="5,63,132,88"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="198,5,322,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,60,203,32,205,37,113,65"/>
+<area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#af033e35cdc11851ad22f6eed08e7022a" title=" " alt="" coords="185,55,335,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,73,171,73,171,78,132,78"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="180,120,340,145"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="113,86,205,113,203,119,111,91"/>
+<area shape="rect" id="Node000004" href="$d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe" title="Close window." alt="" coords="388,63,555,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="335,73,374,73,374,78,335,78"/>
+</map>

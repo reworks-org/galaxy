@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id_0',['id',['../d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect.html#a99afd376fcadda66a63a01c024dd859f',1,'galaxy::events::JoystickDisconnect']]]
+  ['json_0',['json',['../d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html#ab69ccd1427274e42f53b87336c451e4b',1,'galaxy::meta::EntityFactory::SerializationData']]]
 ];

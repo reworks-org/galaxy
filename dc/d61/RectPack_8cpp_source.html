@@ -145,37 +145,37 @@ $(function(){initNavTree('dc/d61/RectPack_8cpp_source.html','../../'); initResiz
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keyword">auto</span>&amp; space = *rit;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="comment">// Check if rect can fit into space.</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (width &lt;= space.width &amp;&amp; height &lt;= space.height)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (width &lt;= space.m_width &amp;&amp; height &lt;= space.m_height)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            {</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="comment">// Make the packed area rectangle.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                result = std::make_optional&lt;iRect&gt;(space.x, space.y, width, height);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                result = std::make_optional&lt;iRect&gt;(space.m_xpos, space.m_ypos, width, height);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="comment">// Check to see if shape fills completely.</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keywordflow">if</span> (width == space.width &amp;&amp; height == space.height)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keywordflow">if</span> (width == space.m_width &amp;&amp; height == space.m_height)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <span class="comment">// Destroy since not free space anymore.</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    std::advance(rit, 1);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <a class="code hl_variable" href="../../d9/d9f/classgalaxy_1_1RectPack.html#af6f094030df47f8f0a62e192fe307a9a">m_free_rects</a>.erase(rit.base());</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (width == space.width)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (width == space.m_width)</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                {</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    <span class="comment">// If just width fits, shrink new space.</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    space.y      += height;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    space.height -= height;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    space.m_ypos   += height;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                    space.m_height -= height;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (height == space.height)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (height == space.m_height)</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                    <span class="comment">// Same as width, for height.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                    space.x     += width;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                    space.width -= width;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                    space.m_xpos  += width;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                    space.m_width -= width;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                {</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    <span class="comment">// Otherwise, split up existing space.</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <a class="code hl_class" href="../../d5/d58/classgalaxy_1_1Rect.html">iRect</a> temp = {space.x + width, space.y, space.width - width, height};</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <a class="code hl_class" href="../../d5/d58/classgalaxy_1_1Rect.html">iRect</a> temp = {space.m_xpos + width, space.m_ypos, space.m_width - width, height};</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                    space.<a class="code hl_variable" href="../../d5/d58/classgalaxy_1_1Rect.html#a8d992ebd9a1e2e2cf086cb4bd2acba47">y</a>      += height;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                    space.height -= height;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                    space.<a class="code hl_variable" href="../../d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac">m_ypos</a>   += height;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                    space.m_height -= height;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    <a class="code hl_variable" href="../../d9/d9f/classgalaxy_1_1RectPack.html#af6f094030df47f8f0a62e192fe307a9a">m_free_rects</a>.emplace_back(temp);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                }</div>
@@ -236,7 +236,7 @@ $(function(){initNavTree('dc/d61/RectPack_8cpp_source.html','../../'); initResiz
 <div class="ttc" id="aclassgalaxy_1_1RectPack_html_ad870ab8a9bd5f13f4b959773102026ca"><div class="ttname"><a href="../../d9/d9f/classgalaxy_1_1RectPack.html#ad870ab8a9bd5f13f4b959773102026ca">galaxy::RectPack::~RectPack</a></div><div class="ttdeci">~RectPack() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">RectPack.cpp:18</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1RectPack_html_af6f094030df47f8f0a62e192fe307a9a"><div class="ttname"><a href="../../d9/d9f/classgalaxy_1_1RectPack.html#af6f094030df47f8f0a62e192fe307a9a">galaxy::RectPack::m_free_rects</a></div><div class="ttdeci">std::vector&lt; iRect &gt; m_free_rects</div><div class="ttdoc">Free space in master rectangle.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d8d/RectPack_8hpp_source.html#l00099">RectPack.hpp:99</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Rect_html"><div class="ttname"><a href="../../d5/d58/classgalaxy_1_1Rect.html">galaxy::Rect</a></div><div class="ttdoc">Represents a rectangle object.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/dd2/Rect_8hpp_source.html#l00025">Rect.hpp:26</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Rect_html_a8d992ebd9a1e2e2cf086cb4bd2acba47"><div class="ttname"><a href="../../d5/d58/classgalaxy_1_1Rect.html#a8d992ebd9a1e2e2cf086cb4bd2acba47">galaxy::Rect::y</a></div><div class="ttdeci">Type y</div><div class="ttdoc">Y position.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/dd2/Rect_8hpp_source.html#l00151">Rect.hpp:151</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Rect_html_a948137d14ca82c77d3a156c77c90c0ac"><div class="ttname"><a href="../../d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac">galaxy::Rect::m_ypos</a></div><div class="ttdeci">Type m_ypos</div><div class="ttdoc">Y position.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/dd2/Rect_8hpp_source.html#l00151">Rect.hpp:151</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -244,7 +244,7 @@ $(function(){initNavTree('dc/d61/RectPack_8cpp_source.html','../../'); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_5adffbad0d676b36ea4ec849c81f774b.html">math</a></li><li class="navelem"><a class="el" href="../../dc/d61/RectPack_8cpp.html">RectPack.cpp</a></li>
-    <li class="footer">Generated on Sat Aug 30 2025 08:40:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 6 2025 13:10:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -100,16 +100,28 @@ $(function(){initNavTree('d2/d2f/namespacegalaxy_1_1time.html','../../'); initRe
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">galaxy::time Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac2912cac7c23670337aa8fbff785ab0d" id="r_ac2912cac7c23670337aa8fbff785ab0d"><td class="memItemLeft" align="right" valign="top">std::chrono::local_time&lt; std::chrono::system_clock::duration &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2912cac7c23670337aa8fbff785ab0d">now</a> () noexcept -&gt; std::chrono::local_time&lt; std::chrono::system_clock::duration &gt;</td></tr>
+<tr class="memitem:ac2912cac7c23670337aa8fbff785ab0d" id="r_ac2912cac7c23670337aa8fbff785ab0d"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2912cac7c23670337aa8fbff785ab0d">now</a> () noexcept -&gt; std::chrono::local_time&lt; std::chrono::system_clock::duration &gt;</td></tr>
 <tr class="memdesc:ac2912cac7c23670337aa8fbff785ab0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current local time.  <br /></td></tr>
 <tr class="separator:ac2912cac7c23670337aa8fbff785ab0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56d88ffe18246f10ff8c110d1c64a53" id="r_ab56d88ffe18246f10ff8c110d1c64a53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab56d88ffe18246f10ff8c110d1c64a53">dt</a> (const double dt) noexcept</td></tr>
+<tr class="memdesc:ab56d88ffe18246f10ff8c110d1c64a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set galaxy delta time.  <br /></td></tr>
+<tr class="separator:ab56d88ffe18246f10ff8c110d1c64a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4773252d26c35ee971645b7b00c910ed" id="r_a4773252d26c35ee971645b7b00c910ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4773252d26c35ee971645b7b00c910ed">dt</a> () noexcept</td></tr>
+<tr class="memdesc:a4773252d26c35ee971645b7b00c910ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get galaxy delta time.  <br /></td></tr>
+<tr class="separator:a4773252d26c35ee971645b7b00c910ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aac7c9842cf05e61375649a239e5be089" id="r_aac7c9842cf05e61375649a239e5be089"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac7c9842cf05e61375649a239e5be089">s_delta_time</a> = 0.0</td></tr>
+<tr class="separator:aac7c9842cf05e61375649a239e5be089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac2912cac7c23670337aa8fbff785ab0d" name="ac2912cac7c23670337aa8fbff785ab0d"></a>
@@ -138,7 +150,7 @@ Functions</h2></td></tr>
 <p>Current local time. </p>
 <dl class="section return"><dt>Returns</dt><dd>Time as a chrono duration. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d38/Time_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d8/d38/Time_8cpp_source.html">Time.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d38/Time_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../d8/d38/Time_8cpp_source.html">Time.cpp</a>.</p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -146,18 +158,137 @@ Functions</h2></td></tr>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d2/d2f/namespacegalaxy_1_1time_ac2912cac7c23670337aa8fbff785ab0d_icgraph.png" border="0" usemap="#ad2/d2f/namespacegalaxy_1_1time_ac2912cac7c23670337aa8fbff785ab0d_icgraph" alt=""/></div>
 <map name="ad2/d2f/namespacegalaxy_1_1time_ac2912cac7c23670337aa8fbff785ab0d_icgraph" id="ad2/d2f/namespacegalaxy_1_1time_ac2912cac7c23670337aa8fbff785ab0d_icgraph">
-<area shape="rect" title="Current local time." alt="" coords="597,35,736,60"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4f10f303381c21297ccb42b79808c00f" title=" " alt="" coords="375,8,549,33"/>
-<area shape="poly" title=" " alt="" coords="583,39,549,35,550,29,584,34"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a6a77663e1d276911baecbfe17dc079e6" title=" " alt="" coords="184,55,327,95"/>
-<area shape="poly" title=" " alt="" coords="584,56,327,73,327,68,583,50"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="187,5,324,31"/>
-<area shape="poly" title=" " alt="" coords="361,22,324,22,324,16,361,17"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,35,136,60"/>
-<area shape="poly" title=" " alt="" coords="173,34,137,40,136,34,173,28"/>
-<area shape="poly" title=" " alt="" coords="170,65,136,60,137,55,171,60"/>
+<area shape="rect" title="Current local time." alt="" coords="413,35,552,60"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4f10f303381c21297ccb42b79808c00f" title=" " alt="" coords="191,5,365,31"/>
+<area shape="poly" title=" " alt="" coords="399,38,365,33,366,28,400,33"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a6a77663e1d276911baecbfe17dc079e6" title=" " alt="" coords="207,55,349,95"/>
+<area shape="poly" title=" " alt="" coords="400,61,350,68,349,63,399,56"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
+<area shape="poly" title=" " alt="" coords="177,21,143,21,143,15,177,15"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="9,63,139,88"/>
+<area shape="poly" title=" " alt="" coords="193,78,140,78,140,73,193,73"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ab56d88ffe18246f10ff8c110d1c64a53" name="ab56d88ffe18246f10ff8c110d1c64a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab56d88ffe18246f10ff8c110d1c64a53">&#9670;&#160;</a></span>dt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::time::dt </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set galaxy delta time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>Delta-Time. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d38/Time_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d8/d38/Time_8cpp_source.html">Time.cpp</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d2f/namespacegalaxy_1_1time_ab56d88ffe18246f10ff8c110d1c64a53_cgraph.png" border="0" usemap="#ad2/d2f/namespacegalaxy_1_1time_ab56d88ffe18246f10ff8c110d1c64a53_cgraph" alt=""/></div>
+<map name="ad2/d2f/namespacegalaxy_1_1time_ab56d88ffe18246f10ff8c110d1c64a53_cgraph" id="ad2/d2f/namespacegalaxy_1_1time_ab56d88ffe18246f10ff8c110d1c64a53_cgraph">
+<area shape="rect" title="Set galaxy delta time." alt="" coords="5,5,129,31"/>
+<area shape="rect" href="../../d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="177,5,301,31"/>
+<area shape="poly" title=" " alt="" coords="130,15,163,15,163,21,130,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4773252d26c35ee971645b7b00c910ed" name="a4773252d26c35ee971645b7b00c910ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4773252d26c35ee971645b7b00c910ed">&#9670;&#160;</a></span>dt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double galaxy::time::dt </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get galaxy delta time. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current lag from gameloop. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d38/Time_8cpp_source.html#l00026">26</a> of file <a class="el" href="../../d8/d38/Time_8cpp_source.html">Time.cpp</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d2f/namespacegalaxy_1_1time_a4773252d26c35ee971645b7b00c910ed_icgraph.png" border="0" usemap="#ad2/d2f/namespacegalaxy_1_1time_a4773252d26c35ee971645b7b00c910ed_icgraph" alt=""/></div>
+<map name="ad2/d2f/namespacegalaxy_1_1time_a4773252d26c35ee971645b7b00c910ed_icgraph" id="ad2/d2f/namespacegalaxy_1_1time_a4773252d26c35ee971645b7b00c910ed_icgraph">
+<area shape="rect" title="Get galaxy delta time." alt="" coords="413,55,537,80"/>
+<area shape="rect" href="../../d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53" title="Set galaxy delta time." alt="" coords="216,5,340,31"/>
+<area shape="poly" title=" " alt="" coords="410,54,329,33,330,28,412,49"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4f10f303381c21297ccb42b79808c00f" title=" " alt="" coords="191,55,365,80"/>
+<area shape="poly" title=" " alt="" coords="400,70,365,70,365,65,400,65"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="215,104,341,129"/>
+<area shape="poly" title=" " alt="" coords="412,86,330,107,329,101,410,81"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,55,143,80"/>
+<area shape="poly" title=" " alt="" coords="177,70,143,70,143,65,177,65"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aac7c9842cf05e61375649a239e5be089" name="aac7c9842cf05e61375649a239e5be089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac7c9842cf05e61375649a239e5be089">&#9670;&#160;</a></span>s_delta_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double galaxy::time::s_delta_time = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d38/Time_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d8/d38/Time_8cpp_source.html">Time.cpp</a>.</p>
 
 </div>
 </div>
@@ -167,7 +298,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d2/d2f/namespacegalaxy_1_1time.html">time</a></li>
-    <li class="footer">Generated on Sat Aug 30 2025 08:40:40 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 6 2025 13:10:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

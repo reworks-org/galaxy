@@ -1,9 +1,7 @@
 <map id="galaxy::FileError::log" name="galaxy::FileError::log">
-<area shape="rect" id="Node000001" title="Prints the file error in a nice format to the console." alt="" coords="573,5,728,31"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="369,5,525,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="559,21,526,21,526,15,559,15"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,5,321,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="355,21,322,21,322,15,355,15"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,5,136,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,21,136,21,136,15,170,15"/>
+<area shape="rect" id="Node000001" title="Prints the file error in a nice format to the console." alt="" coords="395,5,549,31"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="191,5,347,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,21,347,21,347,15,381,15"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,21,143,21,143,15,177,15"/>
 </map>

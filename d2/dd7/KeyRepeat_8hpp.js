@@ -1,4 +1,4 @@
 var KeyRepeat_8hpp =
 [
-    [ "galaxy::events::KeyRepeat", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html", "d5/d05/structgalaxy_1_1events_1_1KeyRepeat" ]
+    [ "galaxy::KeyRepeat", "d8/d9f/structgalaxy_1_1KeyRepeat.html", "d8/d9f/structgalaxy_1_1KeyRepeat" ]
 ];

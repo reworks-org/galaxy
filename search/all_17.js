@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['x_0',['x',['../d5/d58/classgalaxy_1_1Rect.html#a4c4deabc88429cb6fa35f01e922bc2d2',1,'galaxy::Rect']]],
-  ['xoff_1',['xoff',['../d6/d70/structgalaxy_1_1events_1_1MouseWheel.html#a9fe04d69aa151aa54efb15b0bc8192f5',1,'galaxy::events::MouseWheel']]],
-  ['xpos_2',['xpos',['../db/da7/structgalaxy_1_1events_1_1MouseMoved.html#a1f9c52901fe99bcb28a36af77e8cd9d0',1,'galaxy::events::MouseMoved::xpos'],['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html#af35a5ff23336a3db09b77574b040af58',1,'galaxy::events::MousePressed::xpos'],['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html#ac443eff92679a0c44c35fdeba20fce63',1,'galaxy::events::MouseReleased::xpos']]],
-  ['xscale_3',['xscale',['../d8/d2a/structgalaxy_1_1events_1_1ContentScale.html#a6b61dc6b0ffa5a776f8844b108d9bd99',1,'galaxy::events::ContentScale']]]
+  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010a5c5cb337bb234e240912dc139048038c',1,'galaxy']]],
+  ['yesno_1',['yesno',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9dacc74e9b9aaac7367488cc146dfb078db',1,'galaxy']]],
+  ['yesnocancel_2',['yesnocancel',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da30cea79617be1bdc188511fdf0d582bd',1,'galaxy']]]
 ];

@@ -12,7 +12,7 @@ var searchData=
   ['loader_9',['Loader',['../dd/ddf/classgalaxy_1_1core_1_1Loader.html#ad908f3e74eea4859060e95d3e989941e',1,'galaxy::core::Loader']]],
   ['log_10',['Log',['../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5',1,'galaxy::Log::Log() noexcept'],['../dd/dd3/classgalaxy_1_1Log.html#adb2d0bd5adbd11e413c5c42b5bde640c',1,'galaxy::Log::Log(const Log &amp;)=delete'],['../dd/dd3/classgalaxy_1_1Log.html#a43656a87e002d3fc391e93d588a04807',1,'galaxy::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_11',['log',['../d5/d13/classgalaxy_1_1FileError.html#a6fddfe48f26194025a033ce89482b990',1,'galaxy::FileError::log()'],['../dd/dd3/classgalaxy_1_1Log.html#a912eca54b8810af68b6f7be9c8fef722',1,'galaxy::Log::log()']]],
-  ['log_5fdir_12',['log_dir',['../d1/db3/structgalaxy_1_1settings.html#ad824d90bb5660e356f83789cf00d6e2d',1,'galaxy::settings']]],
+  ['log_5fdir_12',['log_dir',['../df/d23/structgalaxy_1_1Settings.html#a1d94a85eab4dd45d82a23deb78f40a1b',1,'galaxy::Settings']]],
   ['log_5fwrapper_13',['log_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a585ce7a820af7f2a1c5b34a4bfd63ce7',1,'galaxy::lua']]],
   ['ltrim_14',['ltrim',['../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79',1,'galaxy::str']]]
 ];

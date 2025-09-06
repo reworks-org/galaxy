@@ -1,9 +1,7 @@
 <map id="galaxy::VirtualFileSystem::write" name="galaxy::VirtualFileSystem::write">
-<area shape="rect" id="Node000001" title="Writes a file to disk." alt="" coords="573,5,761,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="369,13,525,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="560,28,525,28,525,23,560,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,13,321,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="355,28,322,28,322,23,355,23"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+<area shape="rect" id="Node000001" title="Writes a file to disk." alt="" coords="395,5,583,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="191,13,347,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,28,347,28,347,23,381,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,13,143,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
 </map>

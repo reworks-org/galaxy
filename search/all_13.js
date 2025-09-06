@@ -18,7 +18,7 @@ var searchData=
   ['timer_15',['Timer',['../d0/d7b/classgalaxy_1_1Timer.html',1,'galaxy::Timer'],['../d0/d7b/classgalaxy_1_1Timer.html#a0887c5f4327eaa322ad07f42633a2ab0',1,'galaxy::Timer::Timer() noexcept'],['../d0/d7b/classgalaxy_1_1Timer.html#aca737829a14a6f6619de2694a7789f55',1,'galaxy::Timer::Timer(const Timer &amp;)=delete']]],
   ['timer_2ecpp_16',['Timer.cpp',['../d0/dc2/Timer_8cpp.html',1,'']]],
   ['timer_2ehpp_17',['Timer.hpp',['../d8/dbf/Timer_8hpp.html',1,'']]],
-  ['title_18',['title',['../d1/db3/structgalaxy_1_1settings.html#ac22f63c8ad28b34b6edbe59989adf69a',1,'galaxy::settings']]],
+  ['title_18',['title',['../df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682',1,'galaxy::Settings']]],
   ['to_5fentity_19',['to_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a07c6f7f4b50815a361fda814ce36e6e3',1,'galaxy::core::Prefab']]],
   ['to_5fjson_20',['to_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a9df04473e253ce8748c6414eaf6ac5',1,'galaxy::core::Prefab']]],
   ['toggle_5finput_21',['toggle_input',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a10975d6e83210f9d9fb7ce89e5f9c370',1,'galaxy::ui::NuklearUI']]],

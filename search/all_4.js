@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['editor_5fdir_0',['editor_dir',['../d1/db3/structgalaxy_1_1settings.html#a89f510a96bebe3f40924cd387c570976',1,'galaxy::settings']]],
+  ['editor_5fdir_0',['editor_dir',['../df/d23/structgalaxy_1_1Settings.html#aba7589e93d0cea374b1cf93e94421f99',1,'galaxy::Settings']]],
   ['editor_5fpath_5fwrapper_1',['editor_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a2d3a3d9bb05e911106d8815404ed46d2',1,'galaxy::lua']]],
   ['ellipse_2',['Ellipse',['../d9/ddf/classgalaxy_1_1components_1_1Ellipse.html',1,'galaxy::components::Ellipse'],['../d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a74cadc0cafcda49715b1a85fee04e5bd',1,'galaxy::components::Ellipse::Ellipse()'],['../d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a4b4a8a8c30470f6e94c2cf31d590c64b',1,'galaxy::components::Ellipse::Ellipse(const nlohmann::json &amp;json)'],['../d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a7c19d3f1412e28fd83f0647954427c84',1,'galaxy::components::Ellipse::Ellipse(Ellipse &amp;&amp;)'],['../d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#ae1010ffc7019a5fef93f0185e1d3e2f6',1,'galaxy::components::Ellipse::Ellipse(const Ellipse &amp;)=delete']]],
   ['ellipse_2ecpp_3',['Ellipse.cpp',['../d2/d75/Ellipse_8cpp.html',1,'']]],
@@ -16,7 +16,7 @@ var searchData=
   ['entityfactory_2ecpp_13',['EntityFactory.cpp',['../d0/de3/EntityFactory_8cpp.html',1,'']]],
   ['entityfactory_2ehpp_14',['EntityFactory.hpp',['../db/deb/EntityFactory_8hpp.html',1,'']]],
   ['error_15',['ERROR',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395abb1ca97ec761fc37101737ba0aa2e7c5',1,'galaxy']]],
-  ['error_16',['error',['../d6/d19/namespacegalaxy_1_1fs.html#aefc63d8332d373e79d3c875f3416aa75acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy::fs']]],
+  ['error_16',['error',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy']]],
   ['exists_17',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
   ['extension_18',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
 ];

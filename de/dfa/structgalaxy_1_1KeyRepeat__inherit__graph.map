@@ -1,0 +1,5 @@
+<map id="galaxy::KeyRepeat" name="galaxy::KeyRepeat">
+<area shape="rect" id="Node000001" title="Contains the key that was pressed down." alt="" coords="5,119,140,224"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="10,5,135,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,85,75,118,70,118,70,85"/>
+</map>

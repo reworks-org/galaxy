@@ -6,7 +6,7 @@ var searchData=
   ['scriptsystem_3',['ScriptSystem',['../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html',1,'galaxy::systems']]],
   ['serializable_4',['Serializable',['../d2/d54/classgalaxy_1_1fs_1_1Serializable.html',1,'galaxy::fs']]],
   ['serializationdata_5',['SerializationData',['../d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html',1,'galaxy::meta::EntityFactory']]],
-  ['settings_6',['settings',['../d1/db3/structgalaxy_1_1settings.html',1,'galaxy']]],
+  ['settings_6',['Settings',['../df/d23/structgalaxy_1_1Settings.html',1,'galaxy']]],
   ['sink_7',['Sink',['../d2/d42/classgalaxy_1_1Sink.html',1,'galaxy']]],
   ['soundloader_8',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],
   ['sprite_9',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],

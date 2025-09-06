@@ -1,4 +1,4 @@
 var WindowClosed_8hpp =
 [
-    [ "galaxy::events::WindowClosed", "dc/dad/structgalaxy_1_1events_1_1WindowClosed.html", null ]
+    [ "galaxy::WindowClosed", "d9/ddc/structgalaxy_1_1WindowClosed.html", null ]
 ];

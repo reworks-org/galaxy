@@ -15,8 +15,8 @@ var classgalaxy_1_1Rect =
     [ "get_size", "d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9", null ],
     [ "operator<=>", "d5/d58/classgalaxy_1_1Rect.html#ae14aef4e95a8011d209a0acc816c7192", null ],
     [ "value_in_range", "d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba", null ],
-    [ "x", "d5/d58/classgalaxy_1_1Rect.html#a4c4deabc88429cb6fa35f01e922bc2d2", null ],
-    [ "y", "d5/d58/classgalaxy_1_1Rect.html#a8d992ebd9a1e2e2cf086cb4bd2acba47", null ],
-    [ "width", "d5/d58/classgalaxy_1_1Rect.html#a86e2462f6dcd83e4c0cde6eae1237294", null ],
-    [ "height", "d5/d58/classgalaxy_1_1Rect.html#a5ec58ee996665562e7366eaecc4973f9", null ]
+    [ "m_xpos", "d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44", null ],
+    [ "m_ypos", "d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac", null ],
+    [ "m_width", "d5/d58/classgalaxy_1_1Rect.html#ad7b7b6122dfbb4ecd1689d937a50aeb1", null ],
+    [ "m_height", "d5/d58/classgalaxy_1_1Rect.html#a142b88a9faf982299d3955d10cfd11d4", null ]
 ];

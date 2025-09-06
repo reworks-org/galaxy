@@ -1,16 +1,14 @@
 <map id="galaxy::str::split" name="galaxy::str::split">
-<area shape="rect" id="Node000001" title="Split a string based on a delimiter." alt="" coords="563,84,689,109"/>
-<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="659,74,649,66,626,63,607,65,596,69,594,75,600,82,595,85,589,76,592,66,605,60,626,57,651,61,662,70"/>
-<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a46be7b5a1ab10c9e95163da42b3e23e3" title="Retrieve a config value in a section." alt="" coords="371,5,513,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,80,514,44,483,33,485,28,516,40,590,75"/>
-<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7" title="Check if the config file actually has a value." alt="" coords="369,55,515,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="548,87,515,82,516,76,549,82"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="373,105,511,145"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="549,111,511,117,510,112,548,106"/>
-<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a5718bbf3837f08d5023818d5e01e4a99" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="371,169,513,195"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="593,119,516,159,484,172,482,167,514,154,591,114"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,112,321,137"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="360,127,322,127,322,122,360,122"/>
-<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,112,136,137"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,127,136,127,136,122,170,122"/>
+<area shape="rect" id="Node000001" title="Split a string based on a delimiter." alt="" coords="384,84,511,109"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="480,74,471,66,447,63,428,65,418,69,416,75,421,82,417,85,410,76,414,66,426,60,447,57,473,61,483,70"/>
+<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a46be7b5a1ab10c9e95163da42b3e23e3" title="Retrieve a config value in a section." alt="" coords="192,5,335,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="409,80,335,44,305,33,307,28,337,40,412,75"/>
+<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7" title="Check if the config file actually has a value." alt="" coords="191,55,336,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="370,87,336,82,337,76,371,82"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="195,105,332,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="371,111,333,117,332,112,370,106"/>
+<area shape="rect" id="Node000006" href="$db/d49/classgalaxy_1_1Config.html#a5718bbf3837f08d5023818d5e01e4a99" title="Sets a new key&#45;value pair in a section. Can use a delimiter to seperate sections." alt="" coords="192,169,335,195"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="415,119,337,159,305,172,303,167,335,154,412,114"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,112,143,137"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="181,127,143,127,143,122,181,122"/>
 </map>

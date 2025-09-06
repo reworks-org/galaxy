@@ -1,0 +1,7 @@
+<map id="galaxy::Window::close" name="galaxy::Window::close">
+<area shape="rect" id="Node000001" title="Close window." alt="" coords="379,13,545,38"/>
+<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#af033e35cdc11851ad22f6eed08e7022a" title=" " alt="" coords="180,5,331,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="365,28,331,28,331,23,365,23"/>
+<area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="5,13,132,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="166,28,132,28,132,23,166,23"/>
+</map>

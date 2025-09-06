@@ -48,6 +48,7 @@ var searchData=
   ['_7etransform_45',['~Transform',['../d8/d8a/classgalaxy_1_1components_1_1Transform.html#ad7dfc9fe691f1990107a98d0ac5acb0c',1,'galaxy::components::Transform']]],
   ['_7euuid_46',['~UUID',['../dd/da7/classgalaxy_1_1UUID.html#abca48d33167607b3618f16e55b9511b2',1,'galaxy::UUID']]],
   ['_7evirtualfilesystem_47',['~VirtualFileSystem',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a23eb5073536b4eab2621d8d7a84f55c8',1,'galaxy::VirtualFileSystem']]],
-  ['_7eworld_48',['~World',['../d9/d75/classgalaxy_1_1map_1_1World.html#a54c05cbabb5531623059cba4636efd59',1,'galaxy::map::World']]],
-  ['_7ezlib_49',['~ZLib',['../df/d85/classgalaxy_1_1ZLib.html#a0a3646e8a2cf87e5aa52536717d147c0',1,'galaxy::ZLib']]]
+  ['_7ewindow_48',['~Window',['../d0/d84/classgalaxy_1_1Window.html#a186581ec2fa1e75aa0d4a1d543e198fc',1,'galaxy::Window']]],
+  ['_7eworld_49',['~World',['../d9/d75/classgalaxy_1_1map_1_1World.html#a54c05cbabb5531623059cba4636efd59',1,'galaxy::map::World']]],
+  ['_7ezlib_50',['~ZLib',['../df/d85/classgalaxy_1_1ZLib.html#a0a3646e8a2cf87e5aa52536717d147c0',1,'galaxy::ZLib']]]
 ];

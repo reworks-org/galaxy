@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['keychar_0',['KeyChar',['../dc/d97/structgalaxy_1_1events_1_1KeyChar.html',1,'galaxy::events']]],
-  ['keypress_1',['KeyPress',['../d0/d92/structgalaxy_1_1events_1_1KeyPress.html',1,'galaxy::events']]],
-  ['keyrepeat_2',['KeyRepeat',['../d5/d05/structgalaxy_1_1events_1_1KeyRepeat.html',1,'galaxy::events']]]
+  ['keychar_0',['KeyChar',['../db/da4/structgalaxy_1_1KeyChar.html',1,'galaxy']]],
+  ['keypress_1',['KeyPress',['../db/df2/structgalaxy_1_1KeyPress.html',1,'galaxy']]],
+  ['keyrepeat_2',['KeyRepeat',['../d8/d9f/structgalaxy_1_1KeyRepeat.html',1,'galaxy']]]
 ];

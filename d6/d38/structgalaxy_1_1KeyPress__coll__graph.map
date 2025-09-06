@@ -1,0 +1,5 @@
+<map id="galaxy::KeyPress" name="galaxy::KeyPress">
+<area shape="rect" id="Node000001" title="Contains the key that was pressed down." alt="" coords="6,119,130,264"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,131,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,84,71,118,65,118,65,84"/>
+</map>

@@ -14,9 +14,9 @@
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="375,71,375,301,370,301,370,71"/>
 <area shape="rect" id="Node000008" href="$d5/d58/classgalaxy_1_1Rect.html" title=" " alt="" coords="467,585,620,931"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="469,907,455,932,387,1049,383,1047,450,929,464,904"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="572,5,616,71"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="585,72,570,121,558,178,546,278,540,379,538,569,533,569,535,379,541,277,553,177,565,120,580,70"/>
-<area shape="rect" id="Node000010" href="$d5/d58/classgalaxy_1_1Rect.html" title="Represents a rectangle object." alt="" coords="625,177,779,523"/>
-<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="607,70,639,161,634,163,602,72"/>
-<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="632,537,613,586,608,584,627,535"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="576,5,620,71"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="588,72,571,121,558,178,545,277,539,379,537,569,531,569,533,379,540,277,553,177,566,120,583,70"/>
+<area shape="rect" id="Node000010" href="$d5/d58/classgalaxy_1_1Rect.html" title="Represents a rectangle object." alt="" coords="645,177,799,523"/>
+<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="613,70,650,161,645,163,608,72"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="643,537,621,586,616,584,638,535"/>
 </map>

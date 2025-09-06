@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['button_0',['button',['../d5/d15/structgalaxy_1_1events_1_1MousePressed.html#a8a041f95eabfcb32a468d6943a82c71e',1,'galaxy::events::MousePressed::button'],['../dc/d78/structgalaxy_1_1events_1_1MouseReleased.html#a739bed01d0e7044b1e9e66d04a121d17',1,'galaxy::events::MouseReleased::button']]]
+  ['chunksize_0',['ChunkSize',['../df/d85/classgalaxy_1_1ZLib.html#ae336d4d8e76284523f9066b5cfea2fde',1,'galaxy::ZLib']]],
+  ['colour_1',['colour',['../d6/d64/structgalaxy_1_1LogMessage.html#ad4f717cd9912b645a64b3de9bc1cb770',1,'galaxy::LogMessage']]]
 ];

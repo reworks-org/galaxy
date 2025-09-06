@@ -1,10 +1,8 @@
 <map id="galaxy::VirtualFileSystem::list" name="galaxy::VirtualFileSystem::list">
-<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="573,29,761,69"/>
-<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="704,18,691,11,667,8,646,10,634,15,629,21,631,28,626,30,624,20,630,10,645,5,667,3,693,6,707,13"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="369,37,525,62"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="560,52,525,52,525,47,560,47"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="184,37,321,62"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="355,52,322,52,322,47,355,47"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,37,136,62"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,52,136,52,136,47,170,47"/>
+<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="395,29,583,69"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="526,18,513,11,489,8,468,10,455,15,450,21,453,28,448,30,445,20,452,10,466,5,489,3,514,6,528,13"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="191,37,347,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,52,347,52,347,47,381,47"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,37,143,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,52,143,52,143,47,177,47"/>
 </map>

@@ -1,8 +1,8 @@
 <map id="galaxy::App::setup_logging" name="galaxy::App::setup_logging">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,47,148,87"/>
-<area shape="rect" id="Node000002" href="$d1/db3/structgalaxy_1_1settings.html#ad824d90bb5660e356f83789cf00d6e2d" title="Current root directory of application, unless it has been changed." alt="" coords="196,29,373,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,56,182,52,183,57,148,61"/>
-<area shape="rect" id="Node000003" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="215,79,354,104"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="148,73,202,79,202,84,148,78"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="251,31,243,21,247,11,261,5,285,3,314,6,325,15,322,20,312,11,285,8,263,10,251,15,248,20,255,28"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a1d94a85eab4dd45d82a23deb78f40a1b" title="Current root directory of application, unless it has been changed." alt="" coords="196,29,375,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,56,182,52,183,57,149,61"/>
+<area shape="rect" id="Node000003" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="216,79,355,104"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="149,73,203,79,202,84,148,78"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="251,31,244,21,248,11,262,5,285,3,314,6,326,15,322,20,312,11,285,8,263,10,251,15,249,20,255,28"/>
 </map>

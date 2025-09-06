@@ -1,0 +1,5 @@
+<map id="galaxy::MouseMoved" name="galaxy::MouseMoved">
+<area shape="rect" id="Node000001" title="Contains data relating to a mouse moved event." alt="" coords="5,119,157,204"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="19,5,144,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,85,84,119,79,119,79,85"/>
+</map>

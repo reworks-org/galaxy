@@ -121,42 +121,46 @@ $(function(){initNavTree('d4/d88/Log_8cpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_DEBUG:</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_INFO:</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a>, message);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_WARN:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5f2d15e40e464a054d1e70685de48339">GALAXY_WARN</a>, message);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_ERROR:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_CRITICAL:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, message);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a>, message);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_WARN:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5f2d15e40e464a054d1e70685de48339">GALAXY_WARN</a>, message);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_ERROR:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordflow">case</span> SDL_LOG_PRIORITY_CRITICAL:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, message);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a>, message);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
 </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">   34</a></span>    <a class="code hl_function" href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">Log::Log</a>() noexcept</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        : m_min_level {<a class="code hl_enumvalue" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a>}</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        m_sinks.reserve(2);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        SDL_SetLogOutputFunction(&amp;<a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#a6ab4be042a306ac849b975c9e7045f3f">sdl_log_callback</a>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">   38</a></span>    <a class="code hl_function" href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">Log::Log</a>() noexcept</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        : m_min_level {<a class="code hl_enumvalue" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        m_sinks.reserve(2);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        SDL_SetLogOutputFunction(&amp;<a class="code hl_function" href="../../d0/d46/namespacegalaxy.html#a6ab4be042a306ac849b975c9e7045f3f">sdl_log_callback</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">   41</a></span>    <a class="code hl_function" href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">Log::~Log</a>() noexcept</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">// We reset min level because logging is done as a singleton.</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="../../dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf">m_min_level</a> = <a class="code hl_enumvalue" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_variable" href="../../dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe">m_sinks</a>.clear();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">   45</a></span>    <a class="code hl_function" href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">Log::~Log</a>() noexcept</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// We reset min level because logging is done as a singleton.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_variable" href="../../dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf">m_min_level</a> = <a class="code hl_enumvalue" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3">LogLevel::INFO</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_variable" href="../../dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe">m_sinks</a>.clear();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a4a69bff052e7518f4b037b6f2888fb71"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a4a69bff052e7518f4b037b6f2888fb71">GALAXY_INFO</a></div><div class="ttdeci">#define GALAXY_INFO</div><div class="ttdoc">Log.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00022">Log.hpp:22</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5f2d15e40e464a054d1e70685de48339"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5f2d15e40e464a054d1e70685de48339">GALAXY_WARN</a></div><div class="ttdeci">#define GALAXY_WARN</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00023">Log.hpp:23</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Log_html_a2db84489382bb7f04702446893f2c7f5"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">galaxy::Log::Log</a></div><div class="ttdeci">Log() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">Log.cpp:34</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Log_html_a46c37cc1fbcb426cb781fa3052e7c5e9"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">galaxy::Log::~Log</a></div><div class="ttdeci">~Log() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">Log.cpp:41</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Log_html_a2db84489382bb7f04702446893f2c7f5"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5">galaxy::Log::Log</a></div><div class="ttdeci">Log() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">Log.cpp:38</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Log_html_a46c37cc1fbcb426cb781fa3052e7c5e9"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a46c37cc1fbcb426cb781fa3052e7c5e9">galaxy::Log::~Log</a></div><div class="ttdeci">~Log() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">Log.cpp:45</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Log_html_a4e839c49a101c2a78817342b1b3878fe"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe">galaxy::Log::m_sinks</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Sink &gt; &gt; m_sinks</div><div class="ttdoc">List of sinks.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00118">Log.hpp:118</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Log_html_a5bff49425d37440ad23185ef9726b1cf"><div class="ttname"><a href="../../dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf">galaxy::Log::m_min_level</a></div><div class="ttdeci">LogLevel m_min_level</div><div class="ttdoc">Minimum level for a message to be logged.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00113">Log.hpp:113</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
@@ -168,7 +172,7 @@ $(function(){initNavTree('d4/d88/Log_8cpp_source.html','../../'); initResizable(
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a724136a1f39cb6404ada524c6e6706e.html">logging</a></li><li class="navelem"><a class="el" href="../../d4/d88/Log_8cpp.html">Log.cpp</a></li>
-    <li class="footer">Generated on Sat Aug 30 2025 08:40:39 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 6 2025 13:10:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

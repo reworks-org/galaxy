@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gainedfocus_0',['GainedFocus',['../d1/d4c/structgalaxy_1_1events_1_1GainedFocus.html',1,'galaxy::events']]],
+  ['gainedfocus_0',['GainedFocus',['../d4/db4/structgalaxy_1_1GainedFocus.html',1,'galaxy']]],
   ['gainedfocus_2ecpp_1',['GainedFocus.cpp',['../d9/d15/GainedFocus_8cpp.html',1,'']]],
   ['gainedfocus_2ehpp_2',['GainedFocus.hpp',['../d4/dd8/GainedFocus_8hpp.html',1,'']]],
   ['galaxy_3',['galaxy',['../d0/d46/namespacegalaxy.html',1,'galaxy'],['../index.html',1,'galaxy']]],

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['id_0',['id',['../d0/d45/structgalaxy_1_1events_1_1JoystickDisconnect.html#a99afd376fcadda66a63a01c024dd859f',1,'galaxy::events::JoystickDisconnect::id'],['../d9/de7/classgalaxy_1_1systems_1_1System.html#a990f67a650b4f79d80bc76398652d8bc',1,'galaxy::systems::System::id()']]],
-  ['identifier_1',['identifier',['../d1/db3/structgalaxy_1_1settings.html#a76075d8a3fb6582f5d52ffc87b756dd7',1,'galaxy::settings']]],
+  ['identifier_1',['identifier',['../df/d23/structgalaxy_1_1Settings.html#a79fab905c1018adefe65ba76e9d2b5da',1,'galaxy::Settings']]],
   ['imgui_5fcenter_5fnext_5fwindow_2',['imgui_center_next_window',['../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e',1,'galaxy::ui']]],
   ['imgui_5fconfirm_3',['imgui_confirm',['../d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c',1,'galaxy::ui']]],
   ['imgui_5fdestroy_5fcontext_4',['imgui_destroy_context',['../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94',1,'galaxy::ui']]],
@@ -26,7 +26,7 @@ var searchData=
   ['imguimemallocfunc_23',['ImGuiMemAllocFunc',['../d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404',1,'galaxy']]],
   ['imguimemfreefunc_24',['ImGuiMemFreeFunc',['../d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281',1,'galaxy']]],
   ['info_25',['INFO',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a551b723eafd6a31d444fcb2f5920fbd3',1,'galaxy']]],
-  ['info_26',['info',['../d6/d19/namespacegalaxy_1_1fs.html#aefc63d8332d373e79d3c875f3416aa75acaf9b6b99962bf5c2264824231d7a40c',1,'galaxy::fs']]],
+  ['info_26',['info',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803acaf9b6b99962bf5c2264824231d7a40c',1,'galaxy']]],
   ['init_27',['init',['../d9/d9f/classgalaxy_1_1RectPack.html#aba5a364702dbddce33ed245ff7777532',1,'galaxy::RectPack']]],
   ['inject_28',['inject',['../de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276',1,'galaxy::lua']]],
   ['inject_5fcomponents_29',['inject_components',['../de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb',1,'galaxy::lua']]],
@@ -56,7 +56,8 @@ var searchData=
   ['irect_53',['iRect',['../d0/d46/namespacegalaxy.html#a9b3b4aa5d37e03fe45aca3556b1a1f05',1,'galaxy']]],
   ['is_5fbullet_54',['is_bullet',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386',1,'galaxy::components::RigidBody']]],
   ['is_5fdir_55',['is_dir',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0',1,'galaxy::VirtualFileSystem']]],
-  ['is_5frotation_5ffixed_56',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
-  ['is_5fvalid_57',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
-  ['is_5fwork_5fdone_58',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
+  ['is_5fopen_56',['is_open',['../d0/d84/classgalaxy_1_1Window.html#a5d700bc84cf9b0877891f56464d12e46',1,'galaxy::Window']]],
+  ['is_5frotation_5ffixed_57',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
+  ['is_5fvalid_58',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
+  ['is_5fwork_5fdone_59',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
 ];

@@ -16,11 +16,11 @@
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="84,644,95,599,118,538,134,506,154,475,179,448,208,426,257,404,300,401,345,410,398,425,456,450,504,480,501,485,453,454,396,431,343,415,300,406,258,409,211,430,182,452,158,478,139,509,123,540,100,601,90,645"/>
 <area shape="rect" id="Node000011" href="$d5/d13/classgalaxy_1_1FileError.html#a6fddfe48f26194025a033ce89482b990" title="Prints the file error in a nice format to the console." alt="" coords="226,441,381,466"/>
 <area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="88,643,103,609,129,564,164,517,208,477,220,469,223,474,211,481,168,521,133,567,108,612,92,645"/>
-<area shape="rect" id="Node000012" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a74dea22e5366b4d361ef4beeb62d6dcd" title="Opens a platform specific message box." alt="" coords="209,491,397,531"/>
+<area shape="rect" id="Node000012" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0d32700de2c56498333e7f2bfc54a542" title="Opens a platform specific message box." alt="" coords="209,491,397,531"/>
 <area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="95,643,142,597,208,547,232,534,235,539,211,552,145,601,99,646"/>
 <area shape="rect" id="Node000013" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="445,663,633,703"/>
 <area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="101,642,148,614,178,601,209,591,261,579,304,575,346,578,398,591,429,602,458,618,506,652,503,656,455,622,426,607,397,596,345,583,304,580,262,584,210,596,180,606,151,619,104,647"/>
-<area shape="rect" id="Node000014" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab5f8391219ad93ac4a677eecf36b3dde" title="Trigger a system notification." alt="" coords="209,605,397,645"/>
+<area shape="rect" id="Node000014" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a72470275dbda0532a188b0fdea86f32d" title="Trigger a system notification." alt="" coords="209,605,397,645"/>
 <area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="162,643,195,638,196,644,162,649"/>
 <area shape="rect" id="Node000015" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a803b87252d75800508ee4fa4dff433b3" title="Open a file dialog." alt="" coords="209,669,397,709"/>
 <area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="162,666,196,671,195,676,162,671"/>

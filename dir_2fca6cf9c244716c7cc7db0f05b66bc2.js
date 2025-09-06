@@ -11,5 +11,7 @@ var dir_2fca6cf9c244716c7cc7db0f05b66bc2 =
     [ "Registry.cpp", "d6/d4f/Registry_8cpp.html", null ],
     [ "Registry.hpp", "db/dd1/Registry_8hpp.html", "db/dd1/Registry_8hpp" ],
     [ "Settings.cpp", "db/dd8/Settings_8cpp.html", null ],
-    [ "Settings.hpp", "db/d02/Settings_8hpp.html", "db/d02/Settings_8hpp" ]
+    [ "Settings.hpp", "db/d02/Settings_8hpp.html", "db/d02/Settings_8hpp" ],
+    [ "Window.cpp", "d2/d84/Window_8cpp.html", "d2/d84/Window_8cpp" ],
+    [ "Window.hpp", "d0/de3/Window_8hpp.html", "d0/de3/Window_8hpp" ]
 ];

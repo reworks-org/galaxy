@@ -1,0 +1,9 @@
+<map id="galaxy::Settings::assets_dir_maps" name="galaxy::Settings::assets_dir_maps">
+<area shape="rect" id="Node000001" title="Maps asset location." alt="" coords="427,27,603,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="199,5,371,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="412,37,370,32,371,26,413,32"/>
+<area shape="rect" id="Node000004" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="191,55,379,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="413,62,379,67,378,61,413,57"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="185,21,143,21,143,15,185,15"/>
+</map>

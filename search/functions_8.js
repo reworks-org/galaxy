@@ -1,7 +1,7 @@
 var searchData=
 [
   ['id_0',['id',['../d9/de7/classgalaxy_1_1systems_1_1System.html#a990f67a650b4f79d80bc76398652d8bc',1,'galaxy::systems::System']]],
-  ['identifier_1',['identifier',['../d1/db3/structgalaxy_1_1settings.html#a76075d8a3fb6582f5d52ffc87b756dd7',1,'galaxy::settings']]],
+  ['identifier_1',['identifier',['../df/d23/structgalaxy_1_1Settings.html#a79fab905c1018adefe65ba76e9d2b5da',1,'galaxy::Settings']]],
   ['imgui_5fcenter_5fnext_5fwindow_2',['imgui_center_next_window',['../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e',1,'galaxy::ui']]],
   ['imgui_5fconfirm_3',['imgui_confirm',['../d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c',1,'galaxy::ui']]],
   ['imgui_5fdestroy_5fcontext_4',['imgui_destroy_context',['../d3/dd9/namespacegalaxy_1_1ui.html#a9b448428ad6a24f04383d3d99a76fb94',1,'galaxy::ui']]],
@@ -51,7 +51,8 @@ var searchData=
   ['intersects_48',['intersects',['../d5/d58/classgalaxy_1_1Rect.html#a0850694437a41e6220f0e5c48ead332b',1,'galaxy::Rect']]],
   ['is_5fbullet_49',['is_bullet',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#a7e8e9c22ceebb3ca3badc5a459ae2386',1,'galaxy::components::RigidBody']]],
   ['is_5fdir_50',['is_dir',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0',1,'galaxy::VirtualFileSystem']]],
-  ['is_5frotation_5ffixed_51',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
-  ['is_5fvalid_52',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
-  ['is_5fwork_5fdone_53',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
+  ['is_5fopen_51',['is_open',['../d0/d84/classgalaxy_1_1Window.html#a5d700bc84cf9b0877891f56464d12e46',1,'galaxy::Window']]],
+  ['is_5frotation_5ffixed_52',['is_rotation_fixed',['../df/dfe/classgalaxy_1_1components_1_1RigidBody.html#afbb314f81d200579e3cea737c70783a3',1,'galaxy::components::RigidBody']]],
+  ['is_5fvalid_53',['is_valid',['../de/d2c/classgalaxy_1_1core_1_1Registry.html#afc922cc4182594eec812ed8f202c90ee',1,'galaxy::core::Registry']]],
+  ['is_5fwork_5fdone_54',['is_work_done',['../d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b',1,'galaxy::async']]]
 ];
