@@ -234,8 +234,8 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "0");
 		platform::set_hint(SDL_HINT_JOYSTICK_DIRECTINPUT, "1");
 		// platform::set_hint(SDL_HINT_LOG_BACKENDS, "1");
-		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "1");
-		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "0");
+		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "0");
+		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
 		platform::set_hint(SDL_HINT_MOUSE_RELATIVE_MODE_CENTER, "0");
 		platform::set_hint(SDL_HINT_MOUSE_TOUCH_EVENTS, "1");
 		platform::set_hint(SDL_HINT_PEN_MOUSE_EVENTS, "0");
@@ -266,8 +266,7 @@ namespace galaxy
 		const auto audio_freq = std::to_string(settings::audio_freq());
 		platform::set_hint(SDL_HINT_AUDIO_FREQUENCY, audio_freq.c_str());
 
-		// Disabled: SDL_INIT_SENSOR, SDL_INIT_CAMERA
-		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC))
+		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC | SDL_INIT_SENSOR | SDL_INIT_CAMERA))
 		{
 			GALAXY_LOG(GALAXY_FATAL, SDL_GetError());
 		}

@@ -29,7 +29,7 @@ namespace galaxy
 			SDL_DisableScreenSaver();
 		}
 
-		SDL_WindowFlags flags = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN;
+		SDL_WindowFlags flags = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
 		if (settings::fullscreen())
 		{
 			flags |= SDL_WINDOW_FULLSCREEN;
@@ -216,8 +216,6 @@ namespace galaxy
 			auto data = fs.read_binary(icon);
 			if (!data.empty())
 			{
-				// stbi_set_flip_vertically_on_load(true);
-
 				auto surface = STBIMG_LoadFromMemory(data.data(), static_cast<int>(data.size()));
 				if (surface)
 				{

@@ -21,13 +21,17 @@ namespace galaxy
 			case SDL_LOG_PRIORITY_DEBUG:
 			case SDL_LOG_PRIORITY_INFO:
 				GALAXY_LOG(GALAXY_INFO, message);
+				break;
 			case SDL_LOG_PRIORITY_WARN:
 				GALAXY_LOG(GALAXY_WARN, message);
+				break;
 			case SDL_LOG_PRIORITY_ERROR:
 			case SDL_LOG_PRIORITY_CRITICAL:
 				GALAXY_LOG(GALAXY_ERROR, message);
+				break;
 			default:
 				GALAXY_LOG(GALAXY_INFO, message);
+				break;
 		}
 	}
 

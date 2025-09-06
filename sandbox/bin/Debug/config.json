@@ -1,0 +1,42 @@
+{
+    "audio": {
+        "audio_freq": 44100
+    },
+    "fs": {
+        "asset_pack": "assets.galaxy",
+        "assets_animation": "animations/",
+        "assets_dir": "assets/",
+        "assets_font": "fonts/",
+        "assets_maps": "maps/",
+        "assets_music": "music/",
+        "assets_prefabs": "prefabs/",
+        "assets_script": "scripts/",
+        "assets_sfx": "sfx/",
+        "assets_shaders": "shaders/",
+        "assets_texture": "textures/",
+        "assets_ui": "ui/",
+        "assets_video": "video/",
+        "assets_voice": "voice/",
+        "editor_dir": "editor/",
+        "use_loose_assets": true
+    },
+    "meta": {
+        "copyright": "2025+ reworks",
+        "creator": "reworks",
+        "identifier": "com.galaxy.app",
+        "title": "galaxy app",
+        "version": "1.0",
+        "website": "https://reworks-org.github.io/galaxy/"
+    },
+    "window": {
+        "border": true,
+        "fullscreen": false,
+        "height": 1080,
+        "icon": "textures/icon.png",
+        "maximized": true,
+        "mouse_grabbed": false,
+        "resizable": true,
+        "vsync": false,
+        "width": 1920
+    }
+}

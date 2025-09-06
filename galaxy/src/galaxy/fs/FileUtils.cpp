@@ -50,7 +50,8 @@ namespace galaxy
 
 			std::string buffer(std::filesystem::file_size(path), '\0');
 			input.read(buffer.data(), buffer.size());
-			if (!input.good())
+
+			if (buffer.empty())
 			{
 				return std::unexpected(FileError("read", "Failed to read file.", path));
 			}
