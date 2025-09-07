@@ -1,5 +1,4 @@
 https://wiki.libsdl.org/SDL3/SDL_EventType
-https://wiki.libsdl.org/SDL3/CategoryClipboard
 https://wiki.libsdl.org/SDL3/CategoryMouse
 https://wiki.libsdl.org/SDL3/CategoryKeyboard
 https://wiki.libsdl.org/SDL3/BestKeyboardPractices
@@ -9,7 +8,6 @@ https://lazyfoo.net/tutorials/SDL3/19-state-machines/index.php
 
 Future:
 https://wiki.libsdl.org/SDL3/CategoryHaptic
-https://wiki.libsdl.org/SDL3/CategoryHIDAPI
 https://wiki.libsdl.org/SDL3/CategorySensor
 https://wiki.libsdl.org/SDL3/CategoryPen
 https://wiki.libsdl.org/SDL3/CategoryTouch

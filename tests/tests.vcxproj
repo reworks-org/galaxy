@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\ConfigTest.cpp" />
+    <ClCompile Include="src\input\ClipboardTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\MathTest.cpp" />
     <ClCompile Include="src\math\Base64Test.cpp" />

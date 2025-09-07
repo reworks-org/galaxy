@@ -15,5 +15,6 @@
     <ClCompile Include="src\core\ConfigTest.cpp" />
     <ClCompile Include="src\utils\UUIDTest.cpp" />
     <ClCompile Include="src\time\TimeTest.cpp" />
+    <ClCompile Include="src\input\ClipboardTest.cpp" />
   </ItemGroup>
 </Project>
