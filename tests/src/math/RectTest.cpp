@@ -76,8 +76,8 @@ TEST(Rect, SetTopLeft)
 	galaxy::iRect a {0, 0, 10, 10};
 	a.set_top_left({10, 10});
 
-	ASSERT_EQ(a.x, 10);
-	ASSERT_EQ(a.y, 10);
+	ASSERT_EQ(a.m_xpos, 10);
+	ASSERT_EQ(a.m_ypos, 10);
 }
 
 TEST(Rect, GetRight)
