@@ -11,32 +11,31 @@
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/platform/Subprocess.hpp"
 
+#include "../Lua.hpp"
+
 namespace galaxy
 {
-	namespace lua
+	void Lua::inject_platform() noexcept
 	{
-		void inject_platform()
-		{
-			auto& lua = entt::locator<sol::state>::value();
+		auto& lua = entt::locator<sol::state>::value();
 
-			lua.set("GALAXY_DEBUG_BUILD", GALAXY_DEBUG_BUILD);
+		lua.set("GALAXY_DEBUG_BUILD", GALAXY_DEBUG_BUILD);
 
 #ifdef GALAXY_WIN_PLATFORM
-			lua.set("GALAXY_WIN_PLATFORM", true);
-			lua.set("GALAXY_UNIX_PLATFORM", false);
+		lua.set("GALAXY_WIN_PLATFORM", true);
+		lua.set("GALAXY_UNIX_PLATFORM", false);
 #elif GALAXY_UNIX_PLATFORM
-			lua.set("GALAXY_WIN_PLATFORM", false);
-			lua.set("GALAXY_UNIX_PLATFORM", true);
+		lua.set("GALAXY_WIN_PLATFORM", false);
+		lua.set("GALAXY_UNIX_PLATFORM", true);
 #endif
 
-			auto sub_type      = lua.new_usertype<Subprocess>("Subprocess", sol::constructors<Subprocess(), Subprocess(std::string_view)>());
-			sub_type["create"] = &Subprocess::create;
-			sub_type["kill"]   = &Subprocess::kill;
-			sub_type["wait"]   = &Subprocess::wait;
+		auto sub_type      = lua.new_usertype<Subprocess>("Subprocess", sol::constructors<Subprocess(), Subprocess(std::string_view)>());
+		sub_type["create"] = &Subprocess::create;
+		sub_type["kill"]   = &Subprocess::kill;
+		sub_type["wait"]   = &Subprocess::wait;
 
-			lua.set_function("galaxy_seed_random", &platform::seed_random);
-			lua.set_function("galaxy_set_metadata", &platform::set_metadata);
-			lua.set_function("galaxy_set_hint", &platform::set_hint);
-		}
-	} // namespace lua
+		lua.set_function("galaxy_seed_random", &platform::seed_random);
+		lua.set_function("galaxy_set_metadata", &platform::set_metadata);
+		lua.set_function("galaxy_set_hint", &platform::set_hint);
+	}
 } // namespace galaxy

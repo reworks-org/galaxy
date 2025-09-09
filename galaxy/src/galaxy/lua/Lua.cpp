@@ -9,19 +9,17 @@
 
 namespace galaxy
 {
-	namespace lua
+	void Lua::inject() noexcept
 	{
-		void inject()
-		{
-			inject_core();
-			inject_events();
-			inject_fs();
-			inject_input();
-			inject_logging();
-			inject_math();
-			inject_platform();
-			inject_time();
-			inject_utils();
-		}
-	} // namespace lua
+		Lua::inject_core();
+		Lua::inject_events();
+		Lua::inject_fs();
+		Lua::inject_input();
+		Lua::inject_logging();
+		Lua::inject_math();
+		Lua::inject_platform();
+		Lua::inject_services();
+		Lua::inject_time();
+		Lua::inject_utils();
+	}
 } // namespace galaxy
