@@ -10,7 +10,8 @@
 
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/GainedFocus.hpp"
-#include "galaxy/events/KeyPress.hpp"
+#include "galaxy/events/KeyPressed.hpp"
+#include "galaxy/events/KeyReleased.hpp"
 #include "galaxy/events/LostFocus.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -92,34 +93,34 @@ namespace galaxy
 					case SDL_EVENT_KEY_DOWN:
 						{
 							// clang-format off
-							auto kd = KeyPress
+							auto kp = KeyPressed
 							{
 								.m_scancode = events.key.scancode,
-								.m_key = events.key.key,
-								.m_mod = events.key.mod,
+								.m_key = static_cast<Keys>(events.key.key),
+								.m_mod = static_cast<KeyMods>(events.key.mod),
 								.m_raw = events.key.raw,
 								.m_repeat = events.key.repeat
 							};
 							// clang-format on
 
-							dispatcher.trigger(kd);
+							dispatcher.trigger(kp);
 						}
 						break;
 
 					case SDL_EVENT_KEY_UP:
 						{
 							// clang-format off
-							auto ku = KeyPress
+							auto kr = KeyReleased
 							{
 								.m_scancode = events.key.scancode,
-								.m_key = events.key.key,
-								.m_mod = events.key.mod,
+								.m_key = static_cast<Keys>(events.key.key),
+								.m_mod = static_cast<KeyMods>(events.key.mod),
 								.m_raw = events.key.raw,
 								.m_repeat = events.key.repeat
 							};
 							// clang-format on
 
-							dispatcher.trigger(ku);
+							dispatcher.trigger(kr);
 						}
 						break;
 
@@ -153,7 +154,7 @@ namespace galaxy
 								.m_xpos = events.button.x,
 								.m_ypos = events.button.y,
 								.m_clicks = events.button.clicks,
-								.m_button = input::int_to_mouse_btn(events.button.button)
+								.m_button = static_cast<MouseButton>(events.button.button)
 							};
 							// clang-format on
 
@@ -169,7 +170,7 @@ namespace galaxy
 								.m_xpos = events.button.x,
 								.m_ypos = events.button.y,
 								.m_clicks = events.button.clicks,
-								.m_button = input::int_to_mouse_btn(events.button.button)
+								.m_button = static_cast<MouseButton>(events.button.button)
 							};
 							// clang-format on
 
@@ -184,7 +185,7 @@ namespace galaxy
 							{
 								.m_amount_x = events.wheel.x,
 								.m_amount_y = events.wheel.y,
-								.m_direction = input::int_to_mousewheel_dir(events.wheel.direction),
+								.m_direction = events.wheel.direction,
 								.m_mouse_x = events.wheel.mouse_x,
 								.m_mouse_y = events.wheel.mouse_y,
 								.m_total_x = events.wheel.integer_x,
@@ -197,6 +198,7 @@ namespace galaxy
 						break;
 
 					case SDL_EVENT_DROP_BEGIN:
+						// TODO
 						/*Drag and drop events
 						SDL_EVENT_DROP_FILE = 0x1000, /**< The system requests a file open *
 						SDL_EVENT_DROP_TEXT,      /**< text/plain drag-and-drop event *

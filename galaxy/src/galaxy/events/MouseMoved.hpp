@@ -20,22 +20,22 @@ namespace galaxy
 		///
 		/// X coordinate, relative to window.
 		///
-		float m_xpos;
+		float m_xpos = 0.0f;
 
 		///
 		/// Y coordinate, relative to window.
 		///
-		float m_ypos;
+		float m_ypos = 0.0f;
 
 		///
 		/// The relative motion in the X direction.
 		///
-		float m_xrel;
+		float m_xrel = 0.0f;
 
 		///
 		/// The relative motion in the Y direction.
 		///
-		float m_yrel;
+		float m_yrel = 0.0f;
 	};
 } // namespace galaxy
 

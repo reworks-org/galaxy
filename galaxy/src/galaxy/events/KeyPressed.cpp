@@ -1,8 +1,8 @@
 ///
-/// KeyPress.cpp
+/// KeyPressed.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "KeyPress.hpp"
+#include "KeyPressed.hpp"

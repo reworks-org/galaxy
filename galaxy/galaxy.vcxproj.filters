@@ -61,11 +61,13 @@
     <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
     <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
     <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
-    <ClCompile Include="src\galaxy\events\KeyPress.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyPressed.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaEvents.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButton.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\meta\WindowBindable.cpp" />
+    <ClCompile Include="src\galaxy\input\Keys.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyReleased.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -119,9 +121,11 @@
     <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
     <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
     <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
-    <ClInclude Include="src\galaxy\events\KeyPress.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyPressed.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButton.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\meta\WindowBindable.hpp" />
+    <ClInclude Include="src\galaxy\input\Keys.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyReleased.hpp" />
   </ItemGroup>
 </Project>

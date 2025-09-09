@@ -9,7 +9,8 @@
 #include <entt_sol/dispatcher.hpp>
 
 #include "galaxy/events/GainedFocus.hpp"
-#include "galaxy/events/KeyPress.hpp"
+#include "galaxy/events/KeyPressed.hpp"
+#include "galaxy/events/KeyReleased.hpp"
 #include "galaxy/events/LostFocus.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
@@ -29,14 +30,23 @@ namespace galaxy
 			auto gf_type       = lua.new_usertype<GainedFocus>(sol::constructors<GainedFocus()>());
 			gf_type["type_id"] = &entt::type_hash<GainedFocus>::value;
 
-			auto kp_type        = lua.new_usertype<KeyPress>("KeyPress", sol::constructors<KeyPress()>());
-			kp_type["type_id"]  = &entt::type_hash<KeyPress>::value;
-			kp_type["handled"]  = &KeyPress::m_handled;
-			kp_type["key"]      = &KeyPress::m_key;
-			kp_type["mod"]      = &KeyPress::m_mod;
-			kp_type["raw"]      = &KeyPress::m_raw;
-			kp_type["repeat"]   = &KeyPress::m_repeat;
-			kp_type["scancode"] = &KeyPress::m_scancode;
+			auto kp_type        = lua.new_usertype<KeyPressed>("KeyPressed", sol::constructors<KeyPressed()>());
+			kp_type["type_id"]  = &entt::type_hash<KeyPressed>::value;
+			kp_type["handled"]  = &KeyPressed::m_handled;
+			kp_type["key"]      = &KeyPressed::m_key;
+			kp_type["mod"]      = &KeyPressed::m_mod;
+			kp_type["raw"]      = &KeyPressed::m_raw;
+			kp_type["repeat"]   = &KeyPressed::m_repeat;
+			kp_type["scancode"] = &KeyPressed::m_scancode;
+
+			auto kr_type        = lua.new_usertype<KeyReleased>("KeyReleased", sol::constructors<KeyReleased()>());
+			kr_type["type_id"]  = &entt::type_hash<KeyReleased>::value;
+			kr_type["handled"]  = &KeyReleased::m_handled;
+			kr_type["key"]      = &KeyReleased::m_key;
+			kr_type["mod"]      = &KeyReleased::m_mod;
+			kr_type["raw"]      = &KeyReleased::m_raw;
+			kr_type["repeat"]   = &KeyReleased::m_repeat;
+			kr_type["scancode"] = &KeyReleased::m_scancode;
 
 			auto lf_type       = lua.new_usertype<LostFocus>(sol::constructors<LostFocus()>());
 			lf_type["type_id"] = &entt::type_hash<LostFocus>::value;
@@ -79,7 +89,8 @@ namespace galaxy
 			wr_type["width"]   = &WindowResized::m_width;
 
 			entt_sol::register_meta_event<GainedFocus>();
-			entt_sol::register_meta_event<KeyPress>();
+			entt_sol::register_meta_event<KeyPressed>();
+			entt_sol::register_meta_event<KeyReleased>();
 			entt_sol::register_meta_event<LostFocus>();
 			entt_sol::register_meta_event<MouseMoved>();
 			entt_sol::register_meta_event<MousePressed>();

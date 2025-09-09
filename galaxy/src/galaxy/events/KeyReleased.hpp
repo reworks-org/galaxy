@@ -1,48 +1,47 @@
 ///
-/// KeyPress.hpp
+/// KeyReleased.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_EVENTS_KEYPRESS_HPP_
-#define GALAXY_EVENTS_KEYPRESS_HPP_
-
-#include <SDL3/SDL_keyboard.h>
+#ifndef GALAXY_EVENTS_KEYRELEASED_HPP_
+#define GALAXY_EVENTS_KEYRELEASED_HPP_
 
 #include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/input/Keys.hpp"
 
 namespace galaxy
 {
 	///
-	/// Contains the key that was pressed down.
+	/// Contains data on key that was released.
 	///
-	struct KeyPress final : public HandleableEvent
+	struct KeyReleased final : public HandleableEvent
 	{
 		///
 		/// SDL physical key code.
 		///
-		SDL_Scancode m_scancode;
+		SDL_Scancode m_scancode = SDL_SCANCODE_UNKNOWN;
 
 		///
 		/// SDL virtual key code.
 		///
-		SDL_Keycode m_key;
+		Keys m_key = Keys::KEY_UNKNOWN;
 
 		///
 		/// Current key modifiers.
 		///
-		SDL_Keymod m_mod;
+		KeyMods m_mod = KeyMods::MOD_NONE;
 
 		///
 		/// The platform dependent scancode for this event.
 		///
-		Uint16 m_raw;
+		unsigned short m_raw = 0;
 
 		///
 		/// True if this is a key repeat.
 		///
-		bool m_repeat;
+		bool m_repeat = false;
 	};
 } // namespace galaxy
 
