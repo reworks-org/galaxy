@@ -8,6 +8,9 @@
 #ifndef GALAXY_EVENTS_MOUSEWHEEL_HPP_
 #define GALAXY_EVENTS_MOUSEWHEEL_HPP_
 
+#include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/input/MouseButton.hpp"
+
 namespace galaxy
 {
 	///
@@ -16,14 +19,40 @@ namespace galaxy
 	struct MouseWheel final : public HandleableEvent
 	{
 		///
-		/// -1 or 1.
+		/// The amount scrolled horizontally, positive to the right and negative to the left.
 		///
-		double m_xoff = 0.0;
+		float m_amount_x;
 
 		///
-		/// -1 or 1.
+		/// The amount scrolled vertically, positive away from the user and negative toward the user.
 		///
-		double m_yoff = 0.0;
+		float m_amount_y;
+
+		///
+		/// When FLIPPED the values in X and Y will be opposite.
+		/// Multiply by -1 to change them back.
+		///
+		MouseWheelDirection m_direction;
+
+		///
+		/// X coordinate, relative to window.
+		///
+		float m_mouse_x;
+
+		///
+		/// Y coordinate, relative to window.
+		///
+		float m_mouse_y;
+
+		///
+		/// The amount scrolled horizontally, accumulated to whole scroll "ticks".
+		///
+		int m_total_x;
+
+		///
+		/// The amount scrolled vertically, accumulated to whole scroll "ticks".
+		///
+		int m_total_y;
 	};
 } // namespace galaxy
 

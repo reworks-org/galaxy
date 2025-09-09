@@ -9,73 +9,97 @@
 #define GALAXY_INPUT_MOUSE_HPP_
 
 #include <glm/vec2.hpp>
+#include <SDL3/SDL_mouse.h>
 
-#include "galaxy/input/InputDevice.hpp"
+#include "galaxy/meta/WindowBindable.hpp"
 
 namespace galaxy
 {
-	namespace input
+	///
+	/// Physical mouse device and state management.
+	///
+	class Mouse final : public WindowBindable
 	{
+		friend class Window;
+
+	public:
 		///
-		/// Physical mouse device and state management.
+		/// Destructor.
 		///
-		class Mouse final : public InputDevice
-		{
-			friend class core::Window;
+		~Mouse();
 
-		public:
-			///
-			/// Destructor.
-			///
-			virtual ~Mouse();
+		///
+		/// Check if there is a mouse connected.
+		///
+		/// \return True if there is a mouse device connected.
+		///
+		[[nodiscard]]
+		bool has_mouse() const noexcept;
 
-			///
-			/// \brief Enable sticky mouse.
-			///
-			/// The pollable state of a nouse button will remain pressed until the state of that button is polled.
-			///
-			void enable_sticky_mouse() const;
+		///
+		/// Toggle mouse grab.
+		///
+		/// \param grabbed This is true to grab keyboard, and false to release.
+		///
+		void set_mouse_grab(const bool grabbed) const noexcept;
 
-			///
-			/// Disable sticky mouse.
-			///
-			void disable_sticky_mouse() const;
+		///
+		/// \brief Move the mouse cursor to the given position within the window.
+		///
+		/// This function generates a mouse motion event.
+		///
+		/// \param x The x coordinate within the window.
+		/// \param y The y coordinate within the window.
+		///
+		void warp_mouse(const float x, const float y) const noexcept;
 
-			///
-			/// Get last recorded mouse position.
-			///
-			/// \return XY vector position of cursor.
-			///
-			[[nodiscard]]
-			glm::dvec2 get_pos();
+		///
+		/// Show cursor.
+		///
+		void show_cursor() const noexcept;
 
-		private:
-			///
-			/// Constructor.
-			///
-			Mouse();
+		///
+		/// Hide cursor.
+		///
+		void hide_cursor() const noexcept;
 
-			///
-			/// Move constructor.
-			///
-			Mouse(Mouse&&) = delete;
+		///
+		/// Set cursor to a system cursor.
+		///
+		/// \param cursor SDL_SystemCursor enum.
+		///
+		void set_cursor_system(const SDL_SystemCursor cursor) noexcept;
 
-			///
-			/// Move assignment operator.
-			///
-			Mouse& operator=(Mouse&&) = delete;
+		///
+		/// Set custom cursor texture.
+		///
+		/// \param cursor Cursor texture in VFS.
+		/// \param hotspot The position of the cursor hot spot where the click is triggered.
+		///
+		void set_cursor_custom(const std::string& cursor, const glm::ivec2& hotspot) noexcept;
 
-			///
-			/// Copy constructor.
-			///
-			Mouse(const Mouse&) = delete;
+		///
+		/// Set the cursor back to default.
+		///
+		void restore_cursor();
 
-			///
-			/// Copy assignment operator.
-			///
-			Mouse& operator=(const Mouse&) = delete;
-		};
-	} // namespace input
+	private:
+		///
+		/// Constructor.
+		///
+		Mouse();
+
+		///
+		/// Destroy any existing cursor.
+		///
+		void destroy_cursor() noexcept;
+
+	private:
+		///
+		/// Holds data for a custom cursor.
+		///
+		SDL_Cursor* m_cursor;
+	};
 } // namespace galaxy
 
 #endif

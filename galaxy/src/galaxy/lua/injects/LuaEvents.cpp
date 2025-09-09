@@ -5,14 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
 #include <entt_sol/dispatcher.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/events/ContentScale.hpp"
-#include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/GainedFocus.hpp"
 #include "galaxy/events/KeyPress.hpp"
-#include "galaxy/events/KeyRepeat.hpp"
-#include "galaxy/events/MouseEnter.hpp"
+#include "galaxy/events/LostFocus.hpp"
 #include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
@@ -20,94 +18,75 @@
 #include "galaxy/events/WindowClosed.hpp"
 #include "galaxy/events/WindowResized.hpp"
 
-#include "Lua.hpp"
-
 namespace galaxy
 {
 	namespace lua
 	{
 		void inject_events()
 		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			auto& lua = entt::locator<sol::state>::value();
 
-			auto contentscale_type       = lua.new_usertype<events::ContentScale>("ContentScale", sol::constructors<events::ContentScale()>());
-			contentscale_type["type_id"] = &entt::type_hash<events::ContentScale>::value;
-			contentscale_type["xscale"]  = &events::ContentScale::xscale;
-			contentscale_type["yscale"]  = &events::ContentScale::yscale;
+			auto gf_type       = lua.new_usertype<GainedFocus>(sol::constructors<GainedFocus()>());
+			gf_type["type_id"] = &entt::type_hash<GainedFocus>::value;
 
-			auto keychar_type         = lua.new_usertype<events::KeyChar>("KeyChar", sol::constructors<events::KeyChar()>());
-			keychar_type["type_id"]   = &entt::type_hash<events::KeyChar>::value;
-			keychar_type["codepoint"] = &events::KeyChar::codepoint;
-			keychar_type["handled"]   = &events::KeyChar::handled;
+			auto kp_type        = lua.new_usertype<KeyPress>("KeyPress", sol::constructors<KeyPress()>());
+			kp_type["type_id"]  = &entt::type_hash<KeyPress>::value;
+			kp_type["handled"]  = &KeyPress::m_handled;
+			kp_type["key"]      = &KeyPress::m_key;
+			kp_type["mod"]      = &KeyPress::m_mod;
+			kp_type["raw"]      = &KeyPress::m_raw;
+			kp_type["repeat"]   = &KeyPress::m_repeat;
+			kp_type["scancode"] = &KeyPress::m_scancode;
 
-			auto keypress_type        = lua.new_usertype<events::KeyPress>("KeyPress", sol::constructors<events::KeyPress()>());
-			keypress_type["type_id"]  = &entt::type_hash<events::KeyPress>::value;
-			keypress_type["keycode"]  = &events::KeyPress::keycode;
-			keypress_type["mod"]      = &events::KeyPress::mod;
-			keypress_type["scancode"] = &events::KeyPress::scancode;
-			keypress_type["handled"]  = &events::KeyPress::handled;
-			keypress_type["pressed"]  = &events::KeyPress::pressed;
-			keypress_type["repeat"]   = &events::KeyPress::repeat;
+			auto lf_type       = lua.new_usertype<LostFocus>(sol::constructors<LostFocus()>());
+			lf_type["type_id"] = &entt::type_hash<LostFocus>::value;
 
-			auto keyrepeat_type        = lua.new_usertype<events::KeyRepeat>("KeyRepeat", sol::constructors<events::KeyRepeat()>());
-			keyrepeat_type["type_id"]  = &entt::type_hash<events::KeyRepeat>::value;
-			keyrepeat_type["keycode"]  = &events::KeyRepeat::keycode;
-			keyrepeat_type["mod"]      = &events::KeyRepeat::mod;
-			keyrepeat_type["scancode"] = &events::KeyRepeat::scancode;
-			keyrepeat_type["handled"]  = &events::KeyRepeat::handled;
+			auto mm_type       = lua.new_usertype<MouseMoved>("MouseMoved", sol::constructors<MouseMoved()>());
+			mm_type["type_id"] = &entt::type_hash<MouseMoved>::value;
 
-			auto mouseentered_type       = lua.new_usertype<events::MouseEnter>("MouseEnter", sol::constructors<events::MouseEnter()>());
-			mouseentered_type["type_id"] = &entt::type_hash<events::MouseEnter>::value;
-			mouseentered_type["entered"] = &events::MouseEnter::entered;
-			mouseentered_type["handled"] = &events::MouseEnter::handled;
+			auto mp_type       = lua.new_usertype<MousePressed>("MousePressed", sol::constructors<MousePressed()>());
+			mp_type["type_id"] = &entt::type_hash<MousePressed>::value;
+			mp_type["clicks"]  = &MousePressed::m_clicks;
+			mp_type["handled"] = &MousePressed::m_handled;
+			mp_type["xpos"]    = &MousePressed::m_xpos;
+			mp_type["ypos"]    = &MousePressed::m_ypos;
+			mp_type["button"]  = &MousePressed::m_button;
 
-			auto mousemoved_type       = lua.new_usertype<events::MouseMoved>("MouseMoved", sol::constructors<events::MouseMoved()>());
-			mousemoved_type["type_id"] = &entt::type_hash<events::MouseMoved>::value;
-			mousemoved_type["xpos"]    = &events::MouseMoved::xpos;
-			mousemoved_type["ypos"]    = &events::MouseMoved::ypos;
-			mousemoved_type["handled"] = &events::MouseMoved::handled;
+			auto mr_type       = lua.new_usertype<MouseReleased>("MouseReleased", sol::constructors<MouseReleased()>());
+			mr_type["type_id"] = &entt::type_hash<MouseReleased>::value;
+			mr_type["clicks"]  = &MouseReleased::m_clicks;
+			mr_type["handled"] = &MouseReleased::m_handled;
+			mr_type["xpos"]    = &MouseReleased::m_xpos;
+			mr_type["ypos"]    = &MouseReleased::m_ypos;
+			mr_type["button"]  = &MouseReleased::m_button;
 
-			auto mousepressed_type       = lua.new_usertype<events::MousePressed>("MousePressed", sol::constructors<events::MousePressed()>());
-			mousepressed_type["type_id"] = &entt::type_hash<events::MousePressed>::value;
-			mousepressed_type["button"]  = &events::MousePressed::button;
-			mousepressed_type["mod"]     = &events::MousePressed::mod;
-			mousepressed_type["xpos"]    = &events::MousePressed::xpos;
-			mousepressed_type["ypos"]    = &events::MousePressed::ypos;
-			mousepressed_type["handled"] = &events::MousePressed::handled;
+			auto mw_type        = lua.new_usertype<MouseWheel>("MouseWheel", sol::constructors<MouseWheel()>());
+			mw_type["type_id"]  = &entt::type_hash<MouseWheel>::value;
+			mw_type["amount_x"] = &MouseWheel::m_amount_x;
+			mw_type["amount_y"] = &MouseWheel::m_amount_y;
+			mw_type["handled"]  = &MouseWheel::m_handled;
+			mw_type["mouse_x"]  = &MouseWheel::m_mouse_x;
+			mw_type["mouse_y"]  = &MouseWheel::m_mouse_y;
+			mw_type["total_x"]  = &MouseWheel::m_total_x;
+			mw_type["total_y"]  = &MouseWheel::m_total_y;
 
-			auto mousereleased_type       = lua.new_usertype<events::MouseReleased>("MouseReleased", sol::constructors<events::MouseReleased()>());
-			mousereleased_type["type_id"] = &entt::type_hash<events::MouseReleased>::value;
-			mousereleased_type["button"]  = &events::MouseReleased::button;
-			mousereleased_type["mod"]     = &events::MouseReleased::mod;
-			mousereleased_type["xpos"]    = &events::MouseReleased::xpos;
-			mousereleased_type["ypos"]    = &events::MouseReleased::ypos;
-			mousereleased_type["handled"] = &events::MouseReleased::handled;
+			auto wc_type       = lua.new_usertype<WindowClosed>("WindowClosed", sol::constructors<WindowClosed()>());
+			wc_type["type_id"] = &entt::type_hash<WindowClosed>::value;
 
-			auto mousewheel_type       = lua.new_usertype<events::MouseWheel>("MouseWheel", sol::constructors<events::MouseWheel()>());
-			mousewheel_type["type_id"] = &entt::type_hash<events::MouseWheel>::value;
-			mousewheel_type["xoff"]    = &events::MouseWheel::xoff;
-			mousewheel_type["yoff"]    = &events::MouseWheel::yoff;
-			mousewheel_type["handled"] = &events::MouseWheel::handled;
+			auto wr_type       = lua.new_usertype<WindowResized>("WindowResized", sol::constructors<WindowResized()>());
+			wr_type["type_id"] = &entt::type_hash<WindowResized>::value;
+			wr_type["height"]  = &WindowResized::m_height;
+			wr_type["width"]   = &WindowResized::m_width;
 
-			auto windowclosed_type       = lua.new_usertype<events::WindowClosed>("WindowClosed", sol::constructors<events::WindowClosed()>());
-			windowclosed_type["type_id"] = &entt::type_hash<events::WindowClosed>::value;
-
-			auto windowresized_type       = lua.new_usertype<events::WindowResized>("WindowResized", sol::constructors<events::WindowResized()>());
-			windowresized_type["type_id"] = &entt::type_hash<events::WindowResized>::value;
-			windowresized_type["width"]   = &events::WindowResized::width;
-			windowresized_type["height"]  = &events::WindowResized::height;
-
-			entt_sol::register_meta_event<events::ContentScale>();
-			entt_sol::register_meta_event<events::KeyChar>();
-			entt_sol::register_meta_event<events::KeyPress>();
-			entt_sol::register_meta_event<events::KeyRepeat>();
-			entt_sol::register_meta_event<events::MouseEnter>();
-			entt_sol::register_meta_event<events::MouseMoved>();
-			entt_sol::register_meta_event<events::MousePressed>();
-			entt_sol::register_meta_event<events::MouseReleased>();
-			entt_sol::register_meta_event<events::MouseWheel>();
-			entt_sol::register_meta_event<events::WindowClosed>();
-			entt_sol::register_meta_event<events::WindowResized>();
+			entt_sol::register_meta_event<GainedFocus>();
+			entt_sol::register_meta_event<KeyPress>();
+			entt_sol::register_meta_event<LostFocus>();
+			entt_sol::register_meta_event<MouseMoved>();
+			entt_sol::register_meta_event<MousePressed>();
+			entt_sol::register_meta_event<MouseReleased>();
+			entt_sol::register_meta_event<MouseWheel>();
+			entt_sol::register_meta_event<WindowClosed>();
+			entt_sol::register_meta_event<WindowResized>();
 		}
 	} // namespace lua
 } // namespace galaxy

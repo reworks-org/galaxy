@@ -8,8 +8,8 @@
 #ifndef GALAXY_EVENTS_MOUSERELEASED_HPP_
 #define GALAXY_EVENTS_MOUSERELEASED_HPP_
 
-#include "galaxy/input/InputMods.hpp"
-#include "galaxy/input/MouseButtons.hpp"
+#include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/input/MouseButton.hpp"
 
 namespace galaxy
 {
@@ -19,24 +19,24 @@ namespace galaxy
 	struct MouseReleased final : public HandleableEvent
 	{
 		///
-		/// Mouse x position.
+		/// X coordinate, relative to window.
 		///
-		double m_xpos = 0.0;
+		float m_xpos;
 
 		///
-		/// Mouse y position.
+		/// Y coordinate, relative to window.
 		///
-		double m_ypos = 0.0;
+		float m_ypos;
 
 		///
-		/// Mouse button released.
+		/// 1 for single-click, 2 for double-click, etc.
 		///
-		input::MouseButtons m_button = input::MouseButtons::UNKNOWN;
+		int m_clicks;
 
 		///
-		/// Modifier Key.
+		/// The mouse button index.
 		///
-		input::InputMods m_mod = input::InputMods::UNKNOWN;
+		MouseButton m_button;
 	};
 } // namespace galaxy
 

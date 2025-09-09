@@ -8,6 +8,8 @@
 #ifndef GALAXY_EVENTS_MOUSEMOVED_HPP_
 #define GALAXY_EVENTS_MOUSEMOVED_HPP_
 
+#include "galaxy/events/HandleableEvent.hpp"
+
 namespace galaxy
 {
 	///
@@ -16,14 +18,24 @@ namespace galaxy
 	struct MouseMoved final : public HandleableEvent
 	{
 		///
-		/// Mouse x position.
+		/// X coordinate, relative to window.
 		///
-		double m_xpos = 0.0;
+		float m_xpos;
 
 		///
-		/// Mouse y position.
+		/// Y coordinate, relative to window.
 		///
-		double m_ypos = 0.0;
+		float m_ypos;
+
+		///
+		/// The relative motion in the X direction.
+		///
+		float m_xrel;
+
+		///
+		/// The relative motion in the Y direction.
+		///
+		float m_yrel;
 	};
 } // namespace galaxy
 

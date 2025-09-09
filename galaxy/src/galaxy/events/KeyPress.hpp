@@ -8,8 +8,9 @@
 #ifndef GALAXY_EVENTS_KEYPRESS_HPP_
 #define GALAXY_EVENTS_KEYPRESS_HPP_
 
-#include "galaxy/input/InputMods.hpp"
-#include "galaxy/input/Keys.hpp"
+#include <SDL3/SDL_keyboard.h>
+
+#include "galaxy/events/HandleableEvent.hpp"
 
 namespace galaxy
 {
@@ -19,29 +20,29 @@ namespace galaxy
 	struct KeyPress final : public HandleableEvent
 	{
 		///
-		/// Keycode for the key that was pressed.
+		/// SDL physical key code.
 		///
-		input::Keys m_keycode = input::Keys::KEY_UNKNOWN;
+		SDL_Scancode m_scancode;
 
 		///
-		/// Modifier Key.
+		/// SDL virtual key code.
 		///
-		input::InputMods m_mod = input::InputMods::UNKNOWN;
+		SDL_Keycode m_key;
 
 		///
-		/// Platform scancode.
+		/// Current key modifiers.
 		///
-		int m_scancode = 0;
+		SDL_Keymod m_mod;
 
 		///
-		/// Was this a press (down) or release (up) event.
+		/// The platform dependent scancode for this event.
 		///
-		bool m_pressed = false;
+		Uint16 m_raw;
 
 		///
-		/// Is key repeating?
+		/// True if this is a key repeat.
 		///
-		bool m_repeat = false;
+		bool m_repeat;
 	};
 } // namespace galaxy
 

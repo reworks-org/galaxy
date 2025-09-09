@@ -48,7 +48,24 @@
     <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
+    <ClCompile Include="src\galaxy\events\GainedFocus.cpp" />
+    <ClCompile Include="src\galaxy\events\LostFocus.cpp" />
+    <ClCompile Include="src\galaxy\events\EventHandler.cpp" />
+    <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
+    <ClCompile Include="src\galaxy\events\HandleableEvent.cpp" />
+    <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaServices.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaInput.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseMoved.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
+    <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
+    <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyPress.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaEvents.cpp" />
+    <ClCompile Include="src\galaxy\input\MouseButton.cpp" />
+    <ClCompile Include="src\galaxy\input\Mouse.cpp" />
+    <ClCompile Include="src\galaxy\meta\WindowBindable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -91,5 +108,20 @@
     <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
+    <ClInclude Include="src\galaxy\events\GainedFocus.hpp" />
+    <ClInclude Include="src\galaxy\events\LostFocus.hpp" />
+    <ClInclude Include="src\galaxy\events\EventHandler.hpp" />
+    <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
+    <ClInclude Include="src\galaxy\events\HandleableEvent.hpp" />
+    <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseMoved.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
+    <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
+    <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyPress.hpp" />
+    <ClInclude Include="src\galaxy\input\MouseButton.hpp" />
+    <ClInclude Include="src\galaxy\input\Mouse.hpp" />
+    <ClInclude Include="src\galaxy\meta\WindowBindable.hpp" />
   </ItemGroup>
 </Project>

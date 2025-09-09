@@ -14,6 +14,7 @@ namespace galaxy
 		void inject()
 		{
 			inject_core();
+			inject_events();
 			inject_fs();
 			inject_input();
 			inject_logging();

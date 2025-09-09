@@ -103,6 +103,7 @@ namespace galaxy
 		void inject_utils();
 
 		void inject_time();
+		void inject_events();
 
 		///
 		/// Regsiter static engine services in lua.

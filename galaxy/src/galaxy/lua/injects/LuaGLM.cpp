@@ -21,32 +21,33 @@ namespace galaxy
 	{
 		void inject_glm()
 		{
-			auto& lua = core::ServiceLocator<sol::state>::ref();
+			// TODO: ivec2
 
-			auto vec2_type = lua.new_usertype<glm::vec2>(
-				"vec2",
-				sol::constructors<glm::vec2(), glm::vec2(float, float)>(),
-				sol::meta_function::addition,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a + b;
-				},
-				sol::meta_function::multiplication,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a * b;
-				},
-				sol::meta_function::subtraction,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a - b;
-				},
-				sol::meta_function::division,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a / b;
-				},
-				sol::meta_function::equal_to,
-				[](const glm::vec2& a, const glm::vec2& b) {
-					return a == b;
-				}
-			);
+			auto& lua       = core::ServiceLocator<sol::state>::ref();
+			auto  vec2_type = lua.new_usertype<glm::vec2>(
+                "vec2",
+                sol::constructors<glm::vec2(), glm::vec2(float, float)>(),
+                sol::meta_function::addition,
+                [](const glm::vec2& a, const glm::vec2& b) {
+                    return a + b;
+                },
+                sol::meta_function::multiplication,
+                [](const glm::vec2& a, const glm::vec2& b) {
+                    return a * b;
+                },
+                sol::meta_function::subtraction,
+                [](const glm::vec2& a, const glm::vec2& b) {
+                    return a - b;
+                },
+                sol::meta_function::division,
+                [](const glm::vec2& a, const glm::vec2& b) {
+                    return a / b;
+                },
+                sol::meta_function::equal_to,
+                [](const glm::vec2& a, const glm::vec2& b) {
+                    return a == b;
+                }
+            );
 
 			vec2_type["x"] = &glm::vec2::x;
 			vec2_type["y"] = &glm::vec2::y;
