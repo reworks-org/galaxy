@@ -50,7 +50,6 @@
     <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\events\GainedFocus.cpp" />
     <ClCompile Include="src\galaxy\events\LostFocus.cpp" />
-    <ClCompile Include="src\galaxy\events\EventHandler.cpp" />
     <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
     <ClCompile Include="src\galaxy\events\HandleableEvent.cpp" />
     <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
@@ -112,7 +111,6 @@
     <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\events\GainedFocus.hpp" />
     <ClInclude Include="src\galaxy\events\LostFocus.hpp" />
-    <ClInclude Include="src\galaxy\events\EventHandler.hpp" />
     <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
     <ClInclude Include="src\galaxy\events\HandleableEvent.hpp" />
     <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
