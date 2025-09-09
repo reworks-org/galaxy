@@ -28,13 +28,21 @@
         "version": "1.0",
         "website": "https://reworks-org.github.io/galaxy/"
     },
+    "mouse": {
+        "cursor_hotspot": {
+            "x": 0,
+            "y": 0
+        },
+        "cursor_icon": "",
+        "cursor_show": true,
+        "mouse_grabbed": false
+    },
     "window": {
         "border": true,
         "fullscreen": false,
         "height": 1080,
         "icon": "textures/icon.png",
         "maximized": true,
-        "mouse_grabbed": false,
         "resizable": true,
         "vsync": false,
         "width": 1920

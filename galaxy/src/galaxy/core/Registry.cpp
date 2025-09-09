@@ -5,11 +5,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <entt/locator/locator.hpp>
+#include <box2d/b2_fixture.h>
+#include <box2d/b2_polygon_shape.h>
+#include <glm/trigonometric.hpp>
 
-#include "galaxy/components/Tag.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/flags/Disabled.hpp"
-#include "galaxy/meta/EntityFactory.hpp"
+#include "galaxy/meta/EntityMeta.hpp"
+#include "galaxy/resource/Prefabs.hpp"
 
 #include "Registry.hpp"
 
@@ -20,26 +23,26 @@ namespace galaxy
 		Registry::Registry()
 		{
 			// Handle on_* events.
-			/*m_entt.on_construct<components::RigidBody>().connect<&Registry::construct_rigidbody>(this);
+			m_entt.on_construct<components::RigidBody>().connect<&Registry::construct_rigidbody>(this);
 			m_entt.on_destroy<components::RigidBody>().connect<&Registry::destroy_rigidbody>(this);
 			m_entt.on_construct<components::Script>().connect<&Registry::construct_script>(this);
-			m_entt.on_destroy<components::Script>().connect<&Registry::destruct_script>(this);*/
+			m_entt.on_destroy<components::Script>().connect<&Registry::destruct_script>(this);
 			m_entt.on_construct<flags::Disabled>().connect<&Registry::disable_entity>(this);
 			m_entt.on_destroy<flags::Disabled>().connect<&Registry::enable_entity>(this);
 		}
 
 		Registry::Registry(Registry&& r)
 		{
-			// this->m_bodies_to_construct = std::move(r.m_bodies_to_construct);
-			this->m_entt = std::move(r.m_entt);
+			this->m_bodies_to_construct = std::move(r.m_bodies_to_construct);
+			this->m_entt                = std::move(r.m_entt);
 		}
 
 		Registry& Registry::operator=(Registry&& r)
 		{
 			if (this != &r)
 			{
-				// this->m_bodies_to_construct = std::move(r.m_bodies_to_construct);
-				this->m_entt = std::move(r.m_entt);
+				this->m_bodies_to_construct = std::move(r.m_bodies_to_construct);
+				this->m_entt                = std::move(r.m_entt);
 			}
 
 			return *this;
@@ -61,9 +64,9 @@ namespace galaxy
 			return entity;
 		}
 
-		/*entt::entity Registry::create_from_prefab(const std::string& name)
+		entt::entity Registry::create_from_prefab(const std::string& name)
 		{
-			auto& prefabs = entt::locator<resource::Prefabs>::value();
+			auto& prefabs = core::ServiceLocator<resource::Prefabs>::ref();
 			if (prefabs.has(name))
 			{
 				return prefabs.get(name)->to_entity(m_entt);
@@ -73,11 +76,11 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_WARNING, "Tried to load missing prefab '{0}'.", name);
 				return entt::null;
 			}
-		}*/
+		}
 
 		bool Registry::is_valid(const entt::entity entity)
 		{
-			auto& em = entt::locator<meta::EntityFactory>::value();
+			auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 
 			for (const auto& hash : em.get_validation_list())
 			{
@@ -90,7 +93,7 @@ namespace galaxy
 			return true;
 		}
 
-		/*void Registry::update(b2World& b2World)
+		void Registry::update(b2World& b2World)
 		{
 			for (const auto& [rigidbody, transform] : m_bodies_to_construct)
 			{
@@ -119,15 +122,15 @@ namespace galaxy
 			}
 
 			m_bodies_to_construct.clear();
-		}*/
+		}
 
 		void Registry::clear()
 		{
-			// m_bodies_to_construct.clear();
+			m_bodies_to_construct.clear();
 			m_entt.clear();
 		}
 
-		/*void Registry::construct_rigidbody(entt::registry& registry, entt::entity entity)
+		void Registry::construct_rigidbody(entt::registry& registry, entt::entity entity)
 		{
 			auto transform = registry.try_get<components::Transform>(entity);
 			if (!transform)
@@ -154,7 +157,7 @@ namespace galaxy
 		void Registry::construct_script(entt::registry& registry, entt::entity entity)
 		{
 			auto& script = registry.get<components::Script>(entity);
-			auto& state  = entt::locator<sol::state>::value();
+			auto& state  = core::ServiceLocator<sol::state>::ref();
 
 			auto result = state.load_file(script.file());
 			if (result.valid())
@@ -172,8 +175,8 @@ namespace galaxy
 
 					script.m_self["owner"] = std::ref(registry);
 					script.m_self["id"]    = sol::readonly_property([entity] {
-						return entity;
-					});
+                        return entity;
+                    });
 
 					sol::function init = script.m_self["construct"];
 					if (init.valid())
@@ -270,11 +273,11 @@ namespace galaxy
 
 		void Registry::disable_entity(entt::registry& registry, entt::entity entity)
 		{
-			/*auto rb = registry.try_get<components::RigidBody>(entity);
+			auto rb = registry.try_get<components::RigidBody>(entity);
 			if (rb)
 			{
 				rb->m_body->SetEnabled(false);
-			}*/
+			}
 		}
 	} // namespace core
 } // namespace galaxy

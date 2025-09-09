@@ -22,9 +22,9 @@ namespace galaxy
 			///
 			/// Typedef for creating b2 bodies from components.
 			///
-			// using B2BodyConstruction = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
+			using B2BodyConstruction = meta::vector<std::pair<components::RigidBody*, components::Transform*>>;
 
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -50,18 +50,16 @@ namespace galaxy
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]]
-			entt::entity create();
+			[[maybe_unused]] entt::entity create();
 
-			/*///
+			///
 			/// Create an entity from a prefab.
 			///
 			/// \param name Name of the prefab to load.
 			///
 			/// \return Created entity, or entt::null if failed.
 			///
-			[[maybe_unused]]
-			entt::entity create_from_prefab(const std::string& name);*/
+			[[maybe_unused]] entt::entity create_from_prefab(const std::string& name);
 
 			///
 			/// Validate an entity to make sure all components have met their requirements as defined by register_dependencies().
@@ -70,24 +68,23 @@ namespace galaxy
 			///
 			/// \return True if entity is valid.
 			///
-			[[nodiscard]]
-			bool is_valid(const entt::entity entity);
+			[[nodiscard]] bool is_valid(const entt::entity entity);
 
-			/*///
+			///
 			/// \brief Updates pending component data.
 			///
 			/// For example, box2d bodies.
 			///
 			/// \param b2World Box2d world data.
 			///
-			void update(b2World& b2World);*/
+			void update(b2World& b2World);
 
 			///
 			/// Clear any pending data.
 			///
 			void clear();
 
-		private:
+		  private:
 			///
 			/// Copy constructor.
 			///
@@ -98,7 +95,7 @@ namespace galaxy
 			///
 			Registry& operator=(const Registry&) = delete;
 
-			/*///
+			///
 			/// Function that integrates a box2d construction with entt.
 			///
 			/// \param registry Registry component belongs to.
@@ -144,7 +141,7 @@ namespace galaxy
 			/// \param registry Registry component belongs to.
 			/// \param entity Entity component belongs to.
 			///
-			void destruct_nui(entt::registry& registry, entt::entity entity);*/
+			void destruct_nui(entt::registry& registry, entt::entity entity);
 
 			///
 			/// Function that runs when an entity is enabled.
@@ -162,17 +159,17 @@ namespace galaxy
 			///
 			void disable_entity(entt::registry& registry, entt::entity entity);
 
-		public:
+		  public:
 			///
 			/// Scene entities.
 			///
 			entt::registry m_entt;
 
-		private:
+		  private:
 			///
 			/// List of rigid bodies that need to be constructed.
 			///
-			// B2BodyConstruction m_bodies_to_construct;
+			B2BodyConstruction m_bodies_to_construct;
 		};
 	} // namespace core
 } // namespace galaxy
