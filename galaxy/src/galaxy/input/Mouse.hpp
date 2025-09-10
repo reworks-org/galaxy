@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~Mouse();
+		~Mouse() noexcept;
 
 		///
 		/// Check if there is a mouse connected.
@@ -81,13 +81,33 @@ namespace galaxy
 		///
 		/// Set the cursor back to default.
 		///
-		void restore_cursor();
+		void restore_cursor() noexcept;
 
 	private:
 		///
 		/// Constructor.
 		///
-		Mouse();
+		Mouse() noexcept;
+
+		///
+		/// Move constructor.
+		///
+		Mouse(Mouse&&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Mouse& operator=(Mouse&&) = delete;
+
+		///
+		/// Copy constructor.
+		///
+		Mouse(const Mouse&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Mouse& operator=(const Mouse&) = delete;
 
 		///
 		/// Destroy any existing cursor.

@@ -16,12 +16,12 @@
 
 namespace galaxy
 {
-	Mouse::Mouse()
+	Mouse::Mouse() noexcept
 		: m_cursor {nullptr}
 	{
 	}
 
-	Mouse::~Mouse()
+	Mouse::~Mouse() noexcept
 	{
 		destroy_cursor();
 	}
@@ -104,7 +104,7 @@ namespace galaxy
 		}
 	}
 
-	void Mouse::restore_cursor()
+	void Mouse::restore_cursor() noexcept
 	{
 		destroy_cursor();
 		SDL_SetCursor(SDL_GetDefaultCursor());
