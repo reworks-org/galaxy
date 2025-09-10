@@ -5,64 +5,55 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <GLFW/glfw3.h>
-
 #include "Keyboard.hpp"
 
 namespace galaxy
 {
-	namespace input
+	Keyboard::Keyboard() noexcept
 	{
-		Keyboard::Keyboard()
-			: InputDevice {}
-			, m_text_input_enabled {false}
-		{
-		}
+	}
 
-		Keyboard::~Keyboard()
-		{
-		}
+	Keyboard::~Keyboard() noexcept
+	{
+	}
 
-		void Keyboard::begin_text_input()
+	void Keyboard::begin_text_input(const SDL_TextInputType input_type, const SDL_Capitalization capitals, const bool multiline) const noexcept
+	{
+		if (!SDL_TextInputActive(m_window))
 		{
-			m_text_input_enabled = true;
-		}
+			const auto props = SDL_CreateProperties();
+			SDL_SetNumberProperty(props, SDL_PROP_TEXTINPUT_TYPE_NUMBER, input_type);
+			SDL_SetNumberProperty(props, SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER, capitals);
+			SDL_SetBooleanProperty(props, SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN, false);
+			SDL_SetBooleanProperty(props, SDL_PROP_TEXTINPUT_MULTILINE_BOOLEAN, multiline);
 
-		void Keyboard::end_text_input()
-		{
-			m_text_input_enabled = false;
+			SDL_StartTextInputWithProperties(m_window, props);
+			SDL_DestroyProperties(props);
 		}
+	}
 
-		void Keyboard::enable_sticky_keys() const
-		{
-			glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_TRUE);
-			glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
-		}
+	void Keyboard::end_text_input() const noexcept
+	{
+		SDL_StopTextInput(m_window);
+	}
 
-		void Keyboard::disable_sticky_keys() const
-		{
-			glfwSetInputMode(m_window, GLFW_STICKY_KEYS, GLFW_FALSE);
-			glfwSetInputMode(m_window, GLFW_LOCK_KEY_MODS, GLFW_FALSE);
-		}
+	void Keyboard::clear_state() const noexcept
+	{
+		SDL_ResetKeyboard();
+	}
 
-		bool Keyboard::is_text_input_enabled() const
-		{
-			return m_text_input_enabled;
-		}
+	bool Keyboard::has_keyboard() const noexcept
+	{
+		return SDL_HasKeyboard();
+	}
 
-		int Keyboard::get_scancode(const input::Keys key) const
-		{
-			return glfwGetKeyScancode(static_cast<int>(key));
-		}
+	bool Keyboard::has_onscreen_keyboard() const noexcept
+	{
+		return SDL_HasScreenKeyboardSupport();
+	}
 
-		std::string Keyboard::get_key_name(const input::Keys key) const
-		{
-			return glfwGetKeyName(static_cast<int>(key), 0);
-		}
-
-		std::string Keyboard::get_scancode_name(const int scancode) const
-		{
-			return glfwGetKeyName(GLFW_KEY_UNKNOWN, scancode);
-		}
-	} // namespace input
+	bool Keyboard::onscreen_keyboard_active() const noexcept
+	{
+		return SDL_ScreenKeyboardShown(m_window);
+	}
 } // namespace galaxy

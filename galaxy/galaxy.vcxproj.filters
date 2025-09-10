@@ -67,6 +67,8 @@
     <ClCompile Include="src\galaxy\meta\WindowBindable.cpp" />
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\events\KeyReleased.cpp" />
+    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -125,5 +127,7 @@
     <ClInclude Include="src\galaxy\meta\WindowBindable.hpp" />
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\events\KeyReleased.hpp" />
+    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyInput.hpp" />
   </ItemGroup>
 </Project>

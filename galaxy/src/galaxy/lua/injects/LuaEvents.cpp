@@ -9,6 +9,7 @@
 #include <entt_sol/dispatcher.hpp>
 
 #include "galaxy/events/GainedFocus.hpp"
+#include "galaxy/events/KeyInput.hpp"
 #include "galaxy/events/KeyPressed.hpp"
 #include "galaxy/events/KeyReleased.hpp"
 #include "galaxy/events/LostFocus.hpp"
@@ -29,6 +30,10 @@ namespace galaxy
 
 		auto gf_type       = lua.new_usertype<GainedFocus>(sol::constructors<GainedFocus()>());
 		gf_type["type_id"] = &entt::type_hash<GainedFocus>::value;
+
+		auto ki_type       = lua.new_usertype<KeyInput>("KeyInput", sol::constructors<KeyInput()>());
+		ki_type["type_id"] = &entt::type_hash<KeyInput>::value;
+		ki_type["text"]    = &KeyInput::m_text;
 
 		auto kp_type        = lua.new_usertype<KeyPressed>("KeyPressed", sol::constructors<KeyPressed()>());
 		kp_type["type_id"]  = &entt::type_hash<KeyPressed>::value;

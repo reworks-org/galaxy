@@ -17,6 +17,7 @@
     <ClCompile Include="src\galaxy\core\Window.cpp" />
     <ClCompile Include="src\galaxy\events\GainedFocus.cpp" />
     <ClCompile Include="src\galaxy\events\HandleableEvent.cpp" />
+    <ClCompile Include="src\galaxy\events\KeyInput.cpp" />
     <ClCompile Include="src\galaxy\events\KeyPressed.cpp" />
     <ClCompile Include="src\galaxy\events\KeyReleased.cpp" />
     <ClCompile Include="src\galaxy\events\LostFocus.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="src\galaxy\fs\FileError.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButton.cpp" />
@@ -85,6 +87,7 @@
     <ClInclude Include="src\galaxy\core\Window.hpp" />
     <ClInclude Include="src\galaxy\events\GainedFocus.hpp" />
     <ClInclude Include="src\galaxy\events\HandleableEvent.hpp" />
+    <ClInclude Include="src\galaxy\events\KeyInput.hpp" />
     <ClInclude Include="src\galaxy\events\KeyPressed.hpp" />
     <ClInclude Include="src\galaxy\events\KeyReleased.hpp" />
     <ClInclude Include="src\galaxy\events\LostFocus.hpp" />
@@ -100,6 +103,7 @@
     <ClInclude Include="src\galaxy\fs\FileError.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButton.hpp" />
