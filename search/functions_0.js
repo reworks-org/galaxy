@@ -35,6 +35,6 @@ var searchData=
   ['assets_5fdir_5fui_32',['assets_dir_ui',['../df/d23/structgalaxy_1_1Settings.html#a591b1a40295208bdabb68802b0c70dd3',1,'galaxy::Settings']]],
   ['assets_5fdir_5fvideo_33',['assets_dir_video',['../df/d23/structgalaxy_1_1Settings.html#ac8246651c6c35d660db4da72c15cc487',1,'galaxy::Settings']]],
   ['assets_5fdir_5fvoice_34',['assets_dir_voice',['../df/d23/structgalaxy_1_1Settings.html#a3447c1313b393c9cc00c3ddc438f2599',1,'galaxy::Settings']]],
-  ['assets_5fpath_5fwrapper_35',['assets_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66',1,'galaxy::lua']]],
+  ['assets_5fpath_5fwrapper_35',['assets_path_wrapper',['../d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57',1,'galaxy']]],
   ['audio_5ffreq_36',['audio_freq',['../df/d23/structgalaxy_1_1Settings.html#a9db4ecfad6dd65a63d3ed656be4053c4',1,'galaxy::Settings']]]
 ];

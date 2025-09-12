@@ -12,34 +12,38 @@
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1057,232,886,310,884,305,1055,227"/>
 <area shape="rect" id="Node000016" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="749,436,930,461"/>
 <area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="1090,238,1073,280,1047,331,1011,383,989,406,964,426,931,441,929,436,961,421,985,402,1006,379,1042,328,1068,278,1085,236"/>
-<area shape="rect" id="Node000018" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad68da0b40675dc3a2abdbab3c40edf47" title="Remove a specific scene." alt="" coords="732,371,947,411"/>
-<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="1083,237,1035,300,1002,333,964,362,940,374,937,369,961,357,999,329,1031,296,1079,234"/>
-<area shape="rect" id="Node000019" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="732,219,947,259"/>
-<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="997,225,947,230,947,225,997,220"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="453,66,668,106"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="760,36,717,46,631,68,630,63,715,41,759,31"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="191,66,405,106"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="440,89,406,89,406,83,440,83"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,66,143,106"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="177,89,143,89,143,83,177,83"/>
+<area shape="rect" id="Node000020" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ad68da0b40675dc3a2abdbab3c40edf47" title="Remove a specific scene." alt="" coords="732,371,947,411"/>
+<area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="1083,237,1035,300,1002,333,964,362,940,374,937,369,961,357,999,329,1031,296,1079,234"/>
+<area shape="rect" id="Node000021" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="732,219,947,259"/>
+<area shape="poly" id="edge25_Node000001_Node000021" title=" " alt="" coords="997,225,947,230,947,225,997,220"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="453,70,668,110"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="759,36,717,46,624,73,623,67,715,41,757,31"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="191,70,405,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="440,93,406,93,406,87,440,87"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,70,143,110"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="177,93,143,93,143,87,177,87"/>
 <area shape="poly" id="edge13_Node000009_Node000009" title=" " alt="" coords="884,296,868,289,839,286,814,288,799,293,794,299,796,306,791,308,788,298,796,288,813,283,839,281,869,284,886,291"/>
-<area shape="rect" id="Node000010" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ac47053ba88ade10e8345dc90d6c6a84d" title="Retrieve a resource." alt="" coords="195,413,401,439"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="738,352,668,366,380,416,379,411,668,361,737,347"/>
-<area shape="rect" id="Node000012" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="194,197,402,223"/>
-<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="774,304,715,274,691,254,681,245,667,238,600,219,531,208,464,204,402,204,402,199,464,199,532,203,602,214,669,233,684,241,695,250,717,269,777,299"/>
-<area shape="rect" id="Node000013" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8" title="Insert a resource directly into the cache." alt="" coords="472,247,649,287"/>
-<area shape="poly" id="edge14_Node000009_Node000013" title=" " alt="" coords="737,308,649,289,650,284,738,303"/>
-<area shape="rect" id="Node000014" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="472,311,649,351"/>
-<area shape="poly" id="edge16_Node000009_Node000014" title=" " alt="" coords="737,331,650,333,649,327,737,326"/>
-<area shape="rect" id="Node000011" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="5,291,143,331"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="211,412,189,403,136,369,94,333,97,329,139,365,192,398,213,407"/>
-<area shape="poly" id="edge12_Node000012_Node000011" title=" " alt="" coords="233,229,192,244,146,268,106,294,103,289,143,264,190,240,231,224"/>
-<area shape="poly" id="edge15_Node000013_Node000011" title=" " alt="" coords="458,279,143,308,143,303,458,274"/>
-<area shape="poly" id="edge17_Node000014_Node000011" title=" " alt="" coords="458,330,143,317,143,311,458,324"/>
-<area shape="rect" id="Node000015" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="209,349,387,389"/>
-<area shape="poly" id="edge18_Node000014_Node000015" title=" " alt="" coords="458,349,387,359,387,353,458,343"/>
-<area shape="poly" id="edge19_Node000015_Node000011" title=" " alt="" coords="206,348,142,331,143,326,207,343"/>
-<area shape="rect" id="Node000017" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="491,436,631,461"/>
-<area shape="poly" id="edge21_Node000016_Node000017" title=" " alt="" coords="735,451,631,451,631,446,735,446"/>
-<area shape="poly" id="edge24_Node000019_Node000003" title=" " alt="" coords="734,217,715,208,675,185,638,158,580,108,584,104,641,154,678,181,717,204,737,212"/>
+<area shape="rect" id="Node000010" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#ac47053ba88ade10e8345dc90d6c6a84d" title="Retrieve a resource." alt="" coords="195,207,401,232"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="776,305,724,286,667,270,529,244,401,230,402,224,530,239,669,265,725,281,778,300"/>
+<area shape="rect" id="Node000012" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#abe5872e92439c94f1305f6de2f82b86f" title="Check if a resource exists." alt="" coords="194,256,402,281"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="737,309,668,298,529,284,402,276,402,270,530,279,668,293,738,304"/>
+<area shape="rect" id="Node000013" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a923c9c7dbc1dc364cff1437795022ce8" title="Insert a resource directly into the cache." alt="" coords="472,307,649,347"/>
+<area shape="poly" id="edge14_Node000009_Node000013" title=" " alt="" coords="737,330,649,330,649,325,737,325"/>
+<area shape="rect" id="Node000014" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a5997cc9e94dd886ddc447cb618d7b3e5" title="Load a resource." alt="" coords="472,371,649,411"/>
+<area shape="poly" id="edge16_Node000009_Node000014" title=" " alt="" coords="739,353,649,374,648,369,738,348"/>
+<area shape="rect" id="Node000011" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="5,299,143,339"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="212,238,192,246,142,273,101,301,98,297,140,268,190,241,210,233"/>
+<area shape="poly" id="edge12_Node000012_Node000011" title=" " alt="" coords="228,287,144,306,142,301,227,282"/>
+<area shape="poly" id="edge15_Node000013_Node000011" title=" " alt="" coords="458,328,143,323,143,318,458,323"/>
+<area shape="poly" id="edge17_Node000014_Node000011" title=" " alt="" coords="468,417,405,426,335,431,261,427,190,411,160,398,133,379,92,342,95,338,137,375,163,393,192,406,262,422,335,426,405,421,467,411"/>
+<area shape="rect" id="Node000015" href="$da/d64/classgalaxy_1_1resource_1_1Cache.html#a96a568e39a57141aba45285e0a644506" title="Load resources of a specific type." alt="" coords="209,357,387,397"/>
+<area shape="poly" id="edge18_Node000014_Node000015" title=" " alt="" coords="458,388,387,384,387,379,458,383"/>
+<area shape="poly" id="edge19_Node000015_Node000011" title=" " alt="" coords="206,356,142,339,143,334,207,351"/>
+<area shape="rect" id="Node000017" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="491,457,631,483"/>
+<area shape="poly" id="edge21_Node000016_Node000017" title=" " alt="" coords="735,459,631,467,631,462,735,454"/>
+<area shape="rect" id="Node000018" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="227,471,369,511"/>
+<area shape="poly" id="edge22_Node000017_Node000018" title=" " alt="" coords="477,479,370,488,369,483,477,474"/>
+<area shape="rect" id="Node000019" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="9,479,139,504"/>
+<area shape="poly" id="edge23_Node000018_Node000019" title=" " alt="" coords="213,494,140,494,140,489,213,489"/>
+<area shape="poly" id="edge26_Node000021_Node000003" title=" " alt="" coords="734,217,715,208,676,186,639,160,581,112,585,108,642,156,679,182,717,204,737,212"/>
 </map>

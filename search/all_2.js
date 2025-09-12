@@ -63,5 +63,8 @@ var searchData=
   ['create_5ftexture_60',['create_texture',['../de/d0b/classgalaxy_1_1media_1_1Video.html#adad32168338ab8785bf9104d1f4e3860',1,'galaxy::media::Video']]],
   ['creator_61',['creator',['../df/d23/structgalaxy_1_1Settings.html#ae5123c5e578157596e05918c8729fe04',1,'galaxy::Settings']]],
   ['ctx_62',['ctx',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6',1,'galaxy::ui::NuklearUI']]],
-  ['current_63',['current',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#affdabfd8aea71ea1611a833bdc535eff',1,'galaxy::graphics::Animation::current()'],['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3ac342f096544a8231c11fafb7d32620',1,'galaxy::scene::SceneManager::current()']]]
+  ['current_63',['current',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#affdabfd8aea71ea1611a833bdc535eff',1,'galaxy::graphics::Animation::current()'],['../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3ac342f096544a8231c11fafb7d32620',1,'galaxy::scene::SceneManager::current()']]],
+  ['cursor_5fhotspot_64',['cursor_hotspot',['../df/d23/structgalaxy_1_1Settings.html#a9398c6fd9695f01783053e2780a1cb65',1,'galaxy::Settings']]],
+  ['cursor_5ficon_65',['cursor_icon',['../df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca',1,'galaxy::Settings']]],
+  ['cursor_5fshow_66',['cursor_show',['../df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453',1,'galaxy::Settings']]]
 ];

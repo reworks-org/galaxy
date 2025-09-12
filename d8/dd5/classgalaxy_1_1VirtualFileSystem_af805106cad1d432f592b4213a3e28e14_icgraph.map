@@ -1,9 +1,13 @@
 <map id="galaxy::VirtualFileSystem::mkdir" name="galaxy::VirtualFileSystem::mkdir">
-<area shape="rect" id="Node000001" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="429,27,617,67"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="208,5,367,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="415,37,367,30,367,25,416,31"/>
-<area shape="rect" id="Node000004" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="193,55,381,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="416,63,382,67,381,62,415,57"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,5,145,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,21,145,21,145,15,194,15"/>
+<area shape="rect" id="Node000001" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="799,35,987,75"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="577,13,736,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="784,44,736,38,737,33,785,39"/>
+<area shape="rect" id="Node000006" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="563,63,751,103"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="785,70,751,74,751,69,785,65"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="563,28,515,28,515,23,563,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

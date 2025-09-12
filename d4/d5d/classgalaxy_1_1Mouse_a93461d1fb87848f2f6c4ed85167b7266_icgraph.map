@@ -1,7 +1,13 @@
 <map id="galaxy::Mouse::hide_cursor" name="galaxy::Mouse::hide_cursor">
-<area shape="rect" id="Node000001" title="Hide cursor." alt="" coords="381,5,533,45"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="193,5,333,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="367,28,334,28,334,23,367,23"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,28,146,28,146,23,179,23"/>
+<area shape="rect" id="Node000001" title="Hide cursor." alt="" coords="795,35,947,75"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="585,5,725,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="780,45,724,37,725,32,781,40"/>
+<area shape="rect" id="Node000006" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="563,70,747,95"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="781,69,747,73,747,68,780,64"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="571,28,515,28,515,23,571,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

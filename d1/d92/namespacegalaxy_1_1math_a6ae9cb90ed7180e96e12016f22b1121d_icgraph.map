@@ -1,13 +1,17 @@
 <map id="galaxy::math::decode_base64" name="galaxy::math::decode_base64">
-<area shape="rect" id="Node000001" title="Decompresses string into Base64." alt="" coords="456,55,619,95"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="210,5,391,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,55,407,46,355,33,357,28,409,41,444,49"/>
-<area shape="rect" id="Node000004" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="225,55,376,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="442,78,376,78,376,73,442,73"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="193,119,408,159"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="450,102,376,122,374,117,449,96"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,5,145,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,21,145,21,145,15,196,15"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="7,119,144,159"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="180,142,144,142,144,137,180,137"/>
+<area shape="rect" id="Node000001" title="Decompresses string into Base64." alt="" coords="825,63,988,103"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="579,13,761,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="812,62,777,53,725,41,726,36,778,48,813,57"/>
+<area shape="rect" id="Node000006" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="595,63,745,103"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="811,85,746,85,746,80,811,80"/>
+<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="563,127,777,167"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="820,109,745,129,744,124,818,104"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="565,28,515,28,515,23,565,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+<area shape="rect" id="Node000008" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="376,127,513,167"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="549,149,514,149,514,144,549,144"/>
 </map>

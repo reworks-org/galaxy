@@ -52,7 +52,7 @@ var searchData=
   ['assets_5fdir_5fui_49',['assets_dir_ui',['../df/d23/structgalaxy_1_1Settings.html#a591b1a40295208bdabb68802b0c70dd3',1,'galaxy::Settings']]],
   ['assets_5fdir_5fvideo_50',['assets_dir_video',['../df/d23/structgalaxy_1_1Settings.html#ac8246651c6c35d660db4da72c15cc487',1,'galaxy::Settings']]],
   ['assets_5fdir_5fvoice_51',['assets_dir_voice',['../df/d23/structgalaxy_1_1Settings.html#a3447c1313b393c9cc00c3ddc438f2599',1,'galaxy::Settings']]],
-  ['assets_5fpath_5fwrapper_52',['assets_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66',1,'galaxy::lua']]],
+  ['assets_5fpath_5fwrapper_52',['assets_path_wrapper',['../d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57',1,'galaxy']]],
   ['async_2ecpp_53',['Async.cpp',['../df/d28/Async_8cpp.html',1,'']]],
   ['async_2ehpp_54',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]],
   ['attributebinding_55',['AttributeBinding',['../db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019',1,'galaxy::graphics']]],

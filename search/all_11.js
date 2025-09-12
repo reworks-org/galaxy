@@ -81,7 +81,7 @@ var searchData=
   ['robotolight_2ecpp_78',['RobotoLight.cpp',['../d7/d8c/RobotoLight_8cpp.html',1,'']]],
   ['robotolight_2ehpp_79',['RobotoLight.hpp',['../d1/df0/RobotoLight_8hpp.html',1,'']]],
   ['root_5fdir_80',['root_dir',['../df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2',1,'galaxy::Settings']]],
-  ['root_5fpath_5fwrapper_81',['root_path_wrapper',['../de/d12/namespacegalaxy_1_1lua.html#a1f6f6354f0b228b58b3a3943df38d68e',1,'galaxy::lua']]],
+  ['root_5fpath_5fwrapper_81',['root_path_wrapper',['../d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21',1,'galaxy']]],
   ['rotate_82',['rotate',['../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#af5fbd80ab67a2ceb32a0150f34ec3415',1,'galaxy::graphics::Camera::rotate()'],['../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a25d343b86ff11e6eff91474ef1e2d645',1,'galaxy::graphics::Transform::rotate()']]],
   ['rotation_5fvec_83',['rotation_vec',['../dd/d1d/graphics_2Transform_8cpp.html#aae52476a15ca65ecb7a43069e718d78c',1,'Transform.cpp']]],
   ['rtrim_84',['rtrim',['../df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd',1,'galaxy::str']]],

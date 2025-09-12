@@ -1,15 +1,20 @@
 <map id="galaxy::fileutils::read" name="galaxy::fileutils::read">
-<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="619,70,777,95"/>
-<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f" title=" " alt="" coords="413,5,571,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="638,69,564,48,565,43,639,64"/>
-<area shape="rect" id="Node000005" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="417,70,567,95"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="605,85,567,85,567,80,605,80"/>
-<area shape="rect" id="Node000007" href="$d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094" title="Read a json file from disk." alt="" coords="427,120,557,160"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="639,102,558,125,556,120,638,96"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="200,13,359,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="400,28,359,28,359,23,400,23"/>
-<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="186,28,145,28,145,23,186,23"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="193,70,365,95"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="403,85,366,85,366,80,403,80"/>
+<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="991,70,1149,95"/>
+<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f" title=" " alt="" coords="785,5,943,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1010,69,936,48,937,43,1011,64"/>
+<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="789,70,939,95"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="977,85,939,85,939,80,977,80"/>
+<area shape="rect" id="Node000009" href="$d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094" title="Read a json file from disk." alt="" coords="799,120,929,160"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1011,102,930,125,928,120,1010,96"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="571,15,729,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="772,29,730,30,729,24,772,24"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,42,515,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="557,43,515,48,515,43,557,37"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,35,327,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,57,327,57,327,52,361,52"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,42,136,67"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,57,136,57,136,52,170,52"/>
+<area shape="rect" id="Node000008" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="563,66,737,91"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="774,84,737,83,737,78,775,78"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="548,69,515,65,515,60,549,64"/>
 </map>

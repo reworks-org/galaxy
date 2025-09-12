@@ -1,16 +1,20 @@
 <map id="galaxy::math::random" name="galaxy::math::random">
-<area shape="rect" id="Node000001" title="Generate a random number of type T." alt="" coords="673,56,839,81"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="193,56,375,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="717,52,673,34,625,20,568,11,524,8,480,11,423,20,363,37,312,58,310,53,361,32,422,15,479,6,524,3,569,6,626,15,675,29,719,47"/>
-<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9" title="Generate a random vec2." alt="" coords="423,30,625,56"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="659,60,625,57,626,51,660,55"/>
-<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa" title="Generate a random vec3." alt="" coords="423,80,625,105"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="660,81,626,84,625,79,659,76"/>
-<area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf" title="Generate a random vec4." alt="" coords="423,129,625,154"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="711,89,626,119,581,131,579,126,625,114,710,84"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,56,145,81"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,71,146,71,146,66,179,66"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="409,58,375,61,374,56,409,52"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="409,83,374,80,375,75,409,78"/>
-<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="455,128,422,119,318,83,320,78,423,114,457,123"/>
+<area shape="rect" id="Node000001" title="Generate a random number of type T." alt="" coords="1043,56,1208,81"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="563,56,744,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1086,52,1043,34,994,20,938,11,893,8,849,11,793,20,732,37,682,58,680,53,731,32,791,15,848,6,893,3,938,6,995,15,1045,29,1088,47"/>
+<area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9" title="Generate a random vec2." alt="" coords="792,30,995,56"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1029,60,994,57,995,51,1029,55"/>
+<area shape="rect" id="Node000007" href="$d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa" title="Generate a random vec3." alt="" coords="792,80,995,105"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1029,81,995,84,994,79,1029,76"/>
+<area shape="rect" id="Node000008" href="$d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf" title="Generate a random vec4." alt="" coords="792,129,995,154"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="1081,89,995,119,950,131,949,126,994,114,1079,84"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,56,515,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="549,71,515,71,515,66,549,66"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,48,327,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,71,327,71,327,66,361,66"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,56,136,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,71,136,71,136,66,170,66"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="779,58,744,61,744,56,778,52"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="778,83,744,80,744,75,779,78"/>
+<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="825,128,791,119,687,83,689,78,793,114,826,123"/>
 </map>

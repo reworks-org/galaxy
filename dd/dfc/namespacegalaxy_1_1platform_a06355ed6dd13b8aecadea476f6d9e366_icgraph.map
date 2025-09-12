@@ -1,11 +1,14 @@
 <map id="galaxy::platform::seed_random" name="galaxy::platform::seed_random">
-<area shape="rect" id="Node000001" title="Seed the cstdlib rng algos." alt="" coords="384,37,552,77"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="195,5,335,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="370,45,335,39,336,34,371,39"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="193,69,336,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="371,75,337,81,336,75,370,70"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,28,145,28,145,23,181,23"/>
-<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="10,77,141,102"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="180,92,141,92,141,87,180,87"/>
+<area shape="rect" id="Node000001" title="Seed the cstdlib rng algos." alt="" coords="753,35,921,75"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="565,5,705,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="739,43,705,38,706,33,740,38"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="375,63,517,103"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="740,64,518,80,518,75,739,59"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="376,13,516,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="551,28,516,28,516,23,551,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="362,28,327,28,327,23,362,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,42,136,67"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="171,41,137,47,136,42,170,36"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="361,79,136,62,136,57,361,74"/>
 </map>

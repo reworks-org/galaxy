@@ -1,7 +1,13 @@
 <map id="galaxy::Settings::assets_dir_texture" name="galaxy::Settings::assets_dir_texture">
-<area shape="rect" id="Node000001" title="Textures asset location." alt="" coords="241,27,417,67"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="13,5,185,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,37,185,32,186,26,228,32"/>
-<area shape="rect" id="Node000003" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="5,55,193,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,62,194,67,193,61,227,57"/>
+<area shape="rect" id="Node000001" title="Textures asset location." alt="" coords="799,35,975,75"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="569,13,744,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="784,44,744,39,745,34,785,39"/>
+<area shape="rect" id="Node000006" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="563,63,751,103"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="785,70,751,74,750,69,785,64"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="555,28,515,28,515,23,555,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

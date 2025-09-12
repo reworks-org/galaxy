@@ -42,7 +42,7 @@ var NAVTREEINDEX0 =
 "d0/d44/PhysFSError_8hpp.html#ab5128f3f602b3877607f258a52bc0ff4":[3,0,0,0,0,7,13,0],
 "d0/d44/PhysFSError_8hpp_source.html":[3,0,0,0,0,7,13],
 "d0/d46/namespacegalaxy.html":[0,0,0],
-"d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404":[0,0,0,71],
+"d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404":[0,0,0,74],
 "d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010":[0,0,0,60],
 "d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010a5c5cb337bb234e240912dc139048038c":[0,0,0,60,2],
 "d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010aa9f72a0065aa944d677a1018eb40c452":[0,0,0,60,1],
@@ -52,8 +52,9 @@ var NAVTREEINDEX0 =
 "d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da444bcb3a3fcf8389296c49467f27e1d6":[0,0,0,62,0],
 "d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da5e8e0e395dfe620cc4df524eb4294d1b":[0,0,0,62,1],
 "d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9dacc74e9b9aaac7367488cc146dfb078db":[0,0,0,62,2],
-"d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92":[0,0,0,70],
-"d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f":[0,0,0,69],
+"d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92":[0,0,0,73],
+"d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f":[0,0,0,72],
+"d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57":[0,0,0,70],
 "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395":[0,0,0,66],
 "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a059e9861e0400dfbe05c98a841f3f96b":[0,0,0,66,1],
 "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc":[0,0,0,66,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83abe73eb72b0c2b5c54d89ddb783a0c66d":[0,0,0,63,115],
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83abe8c42628328fa071e92e9d714c92e3a":[0,0,0,63,88],
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83abfae7b0a0074925f6e8efa2af5179633":[0,0,0,63,119],
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ac248b44c41333613a8ad29b656f8950e":[0,0,0,63,100],
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ac332c432b41a7b3e844025b9e5c590f1":[0,0,0,63,56]
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ac248b44c41333613a8ad29b656f8950e":[0,0,0,63,100]
 };

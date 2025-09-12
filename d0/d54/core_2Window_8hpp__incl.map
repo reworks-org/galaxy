@@ -1,5 +1,26 @@
 <map id="galaxy/src/galaxy/core/Window.hpp" name="galaxy/src/galaxy/core/Window.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,175,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="21,93,159,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,46,93,79,87,79,87,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="404,5,574,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="44,167,102,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="404,28,298,31,181,41,126,50,78,61,39,76,14,95,8,110,14,126,28,142,45,157,42,161,24,146,9,129,3,110,10,92,37,72,76,56,125,44,180,36,298,26,404,23"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="24,93,170,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="405,46,168,93,167,88,404,41"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="910,167,1020,192"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="574,26,672,31,780,43,877,62,915,75,941,91,953,105,960,121,967,152,962,154,955,122,948,108,938,95,912,80,876,67,780,48,672,37,574,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="416,93,562,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="492,46,492,79,486,79,486,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="586,93,725,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="530,43,620,85,618,90,528,48"/>
+<area shape="rect" id="Node000007" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="195,93,391,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="443,48,336,91,334,86,441,43"/>
+<area shape="rect" id="Node000010" href="$d5/d78/Mouse_8hpp.html" title=" " alt="" coords="749,93,928,119"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="573,43,775,88,774,93,572,48"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="259,121,117,167,115,162,257,116"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="212,167,374,192"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="296,119,296,153,290,153,290,119"/>
+<area shape="rect" id="Node000009" href="$d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="434,167,680,192"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="336,116,502,160,500,166,335,121"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="860,116,934,157,931,162,857,121"/>
+<area shape="poly" id="edge13_Node000010_Node000009" title=" " alt="" coords="794,121,617,166,615,161,793,116"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="738,167,885,192"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="837,120,823,155,818,153,832,118"/>
 </map>

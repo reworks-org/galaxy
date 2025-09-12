@@ -1,7 +1,13 @@
 <map id="galaxy::Settings::window_resizable" name="galaxy::Settings::window_resizable">
-<area shape="rect" id="Node000001" title="Is the window resizable." alt="" coords="237,23,421,63"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="11,5,183,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,34,183,30,184,25,223,29"/>
-<area shape="rect" id="Node000003" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="5,55,189,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,57,190,60,189,55,223,52"/>
+<area shape="rect" id="Node000001" title="Is the window resizable." alt="" coords="795,31,979,71"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="567,13,742,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="780,42,742,37,742,32,781,36"/>
+<area shape="rect" id="Node000006" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="563,62,747,87"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="781,64,747,68,747,62,780,59"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="554,28,515,28,515,23,554,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

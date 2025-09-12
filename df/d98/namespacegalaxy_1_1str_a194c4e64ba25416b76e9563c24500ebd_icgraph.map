@@ -1,10 +1,14 @@
 <map id="galaxy::str::rtrim" name="galaxy::str::rtrim">
-<area shape="rect" id="Node000001" title="Trim string from start." alt="" coords="555,13,685,38"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609" title="Injects misc galaxy utils into Lua." alt="" coords="193,5,333,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="541,28,334,28,334,23,541,23"/>
-<area shape="rect" id="Node000004" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="381,38,507,63"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="542,39,507,44,506,39,541,34"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,28,146,28,146,23,179,23"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="367,43,333,38,334,33,368,37"/>
+<area shape="rect" id="Node000001" title="Trim string from start." alt="" coords="924,13,1055,38"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609" title="Injects misc galaxy utils into Lua." alt="" coords="563,5,703,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="910,28,703,28,703,23,910,23"/>
+<area shape="rect" id="Node000006" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="751,38,876,63"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="911,39,877,44,876,39,910,34"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="736,43,703,38,703,33,737,37"/>
 </map>

@@ -1,9 +1,13 @@
 <map id="galaxy::Subprocess::kill" name="galaxy::Subprocess::kill">
-<area shape="rect" id="Node000001" title="Terminates process." alt="" coords="388,37,535,77"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="197,5,337,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,46,337,40,338,34,375,40"/>
-<area shape="rect" id="Node000004" href="$db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a" title="Destructor." alt="" coords="193,69,340,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="375,74,341,80,340,75,374,69"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,28,146,28,146,23,182,23"/>
+<area shape="rect" id="Node000001" title="Terminates process." alt="" coords="757,37,904,77"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="566,5,706,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="743,46,706,40,707,34,744,40"/>
+<area shape="rect" id="Node000006" href="$db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a" title="Destructor." alt="" coords="563,69,709,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="744,74,710,80,709,75,744,69"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="552,28,515,28,515,23,552,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>

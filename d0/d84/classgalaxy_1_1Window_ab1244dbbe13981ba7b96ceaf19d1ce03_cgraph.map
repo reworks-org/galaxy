@@ -1,0 +1,7 @@
+<map id="galaxy::Window::process_events" name="galaxy::Window::process_events">
+<area shape="rect" id="Node000001" title="Handles all events for the window in this frame and sends to the dispatcher." alt="" coords="5,27,188,67"/>
+<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe" title="Close window." alt="" coords="236,5,403,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,33,222,28,223,33,188,38"/>
+<area shape="rect" id="Node000003" href="$d0/d84/classgalaxy_1_1Window.html#aada22a825f4b880f305d8d18f22cd9dc" title="Get window size in pixels." alt="" coords="243,55,396,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,56,229,61,229,67,188,61"/>
+</map>
