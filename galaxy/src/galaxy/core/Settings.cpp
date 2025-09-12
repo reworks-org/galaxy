@@ -29,9 +29,14 @@ namespace galaxy
 		config.restore<bool>("fullscreen", false, "window");
 		config.restore<bool>("maximized", true, "window");
 		config.restore<bool>("vsync", false, "window");
-		config.restore<bool>("mouse_grabbed", false, "window");
 		config.restore<bool>("resizable", true, "window");
 		config.restore<bool>("border", true, "window");
+
+		config.restore<bool>("mouse_grabbed", false, "mouse");
+		config.restore<bool>("cursor_show", true, "mouse");
+		config.restore<std::string>("cursor_icon", "", "mouse");
+		config.restore<int>("x", 0, "mouse.cursor_hotspot");
+		config.restore<int>("y", 0, "mouse.cursor_hotspot");
 
 		config.restore<int>("audio_freq", 44100, "audio");
 
@@ -72,9 +77,14 @@ namespace galaxy
 		s_fullscreen    = config.get<bool>("fullscreen", "window").value();
 		s_maximized     = config.get<bool>("maximized", "window").value();
 		s_vsync         = config.get<bool>("vsync", "window").value();
-		s_mouse_grabbed = config.get<bool>("mouse_grabbed", "window").value();
 		s_resizable     = config.get<bool>("resizable", "window").value();
 		s_border        = config.get<bool>("border", "window").value();
+
+		s_mouse_grabbed    = config.get<bool>("mouse_grabbed", "mouse").value();
+		s_cursor_show      = config.get<bool>("cursor_show", "mouse").value();
+		s_cursor_icon      = config.get<std::string>("cursor_icon", "mouse").value();
+		s_cursor_hotspot.x = config.get<int>("x", "mouse.cursor_hotspot").value();
+		s_cursor_hotspot.y = config.get<int>("y", "mouse.cursor_hotspot").value();
 
 		s_audio_freq = config.get<int>("audio_freq", "audio").value();
 
@@ -133,11 +143,6 @@ namespace galaxy
 		return s_vsync;
 	}
 
-	auto Settings::mouse_grabbed() noexcept -> bool
-	{
-		return s_mouse_grabbed;
-	}
-
 	auto Settings::window_resizable() noexcept -> bool
 	{
 		return s_resizable;
@@ -146,6 +151,26 @@ namespace galaxy
 	auto Settings::window_border() noexcept -> bool
 	{
 		return s_border;
+	}
+
+	auto Settings::mouse_grabbed() noexcept -> bool
+	{
+		return s_mouse_grabbed;
+	}
+
+	auto Settings::cursor_show() noexcept -> bool
+	{
+		return s_cursor_show;
+	}
+
+	auto Settings::cursor_icon() noexcept -> const std::string&
+	{
+		return s_cursor_icon;
+	}
+
+	auto Settings::cursor_hotspot() noexcept -> const glm::ivec2&
+	{
+		return s_cursor_hotspot;
 	}
 
 	auto Settings::audio_freq() noexcept -> int

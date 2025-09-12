@@ -10,6 +10,8 @@
 
 #include <filesystem>
 
+#include <glm/vec2.hpp>
+
 namespace galaxy
 {
 	///
@@ -79,14 +81,6 @@ namespace galaxy
 		static auto vsync() noexcept -> bool;
 
 		///
-		/// Is the cursor grabbed.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto mouse_grabbed() noexcept -> bool;
-
-		///
 		/// Is the window resizable.
 		///
 		/// \return Boolean.
@@ -101,6 +95,38 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		static auto window_border() noexcept -> bool;
+
+		///
+		/// Is the cursor grabbed.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto mouse_grabbed() noexcept -> bool;
+
+		///
+		/// Is the mouse cursor visible or not.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto cursor_show() noexcept -> bool;
+
+		///
+		/// Cursor texture file in vfs.
+		///
+		/// \return Const std::string.
+		///
+		[[nodiscard]]
+		static auto cursor_icon() noexcept -> const std::string&;
+
+		///
+		/// Cursor selector point (hotspot).
+		///
+		/// \return Integer Vector2.
+		///
+		[[nodiscard]]
+		static auto cursor_hotspot() noexcept -> const glm::ivec2&;
 
 		///
 		/// Set audio frequency to use with SDL.
@@ -309,9 +335,13 @@ namespace galaxy
 		inline static bool        s_fullscreen;
 		inline static bool        s_maximized;
 		inline static bool        s_vsync;
-		inline static bool        s_mouse_grabbed;
 		inline static bool        s_resizable;
 		inline static bool        s_border;
+
+		inline static bool        s_mouse_grabbed;
+		inline static bool        s_cursor_show;
+		inline static std::string s_cursor_icon;
+		inline static glm::ivec2  s_cursor_hotspot;
 
 		inline static int s_audio_freq;
 
@@ -342,126 +372,6 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-
-auto Settings::view_width() noexcept -> int
-	{
-		return s_view_width;
-	}
-
-	auto Settings::view_height() noexcept -> int
-	{
-		return s_view_height;
-	}
-
-	auto Settings::key_repeat() noexcept -> bool
-	{
-		return s_key_repeat;
-	}
-
-
-	auto Settings::msaa() noexcept -> bool
-	{
-		return s_msaa;
-	}
-
-	auto Settings::cursor_visible() noexcept -> bool
-	{
-		return s_cursor_visible;
-	}
-
-	auto Settings::cursor_icon() noexcept -> const std::string&
-	{
-		return s_cursor_icon;
-	}
-
-	auto Settings::cursor_icon_size() noexcept -> const sf::Vector2u&
-	{
-		return s_cursor_icon_size;
-	}
-
-	auto Settings::cursor_hotspot() noexcept -> const sf::Vector2u&
-	{
-		return s_cursor_hotspot;
-	}
-
-		config.restore<int>("view_width", 1280, "window");
-		config.restore<int>("view_height", 720, "window");
-		config.restore<bool>("key_repeat", true, "window");
-		config.restore<bool>("msaa", false, "window");
-		config.restore<bool>("visible", true, "cursor");
-		config.restore<std::string>("icon", "", "cursor");
-		config.restore<int>("x", 0, "cursor.icon_size");
-		config.restore<int>("y", 0, "cursor.icon_size");
-		config.restore<int>("x", 0, "cursor.hotspot");
-		config.restore<int>("y", 0, "cursor.hotspot");
-// s_view_width    = config.get<int>("view_width", "window");
-// s_view_height   = config.get<int>("view_height", "window");
-// s_key_repeat    = config.get<bool>("key_repeat", "window");
-// s_msaa          = config.get<bool>("msaa", "window");
-// s_cursor_visible     = config.get<bool>("visible", "cursor");
-// s_cursor_icon        = config.get<std::string>("icon", "cursor");
-// s_cursor_icon_size.x = config.get<int>("x", "cursor.icon_size");
-// s_cursor_icon_size.y = config.get<int>("y", "cursor.icon_size");
-// s_cursor_hotspot.x   = config.get<int>("x", "cursor.hotspot");
-// s_cursor_hotspot.y   = config.get<int>("y", "cursor.hotspot");
-
-		inline static int         s_view_width;
-		inline static int         s_view_height;
-		inline static bool        s_key_repeat;
-		inline static bool        s_msaa;
-
-		inline static bool         s_cursor_visible;
-		inline static std::string  s_cursor_icon;
-		inline static sf::Vector2u s_cursor_icon_size;
-		inline static sf::Vector2u s_cursor_hotspot;
-
-		///
-	  /// Resolution independent view width.
-	  ///
-	[[nodiscard]]
-	static auto view_width() noexcept -> int;
-
-///
-/// Resolution independent view height.
-///
-[[nodiscard]]
-static auto view_height() noexcept -> int;
-
-///
-/// Enable if a keypress will dispatch a single or repeating events.
-///
-[[nodiscard]]
-static auto key_repeat() noexcept -> bool;
-
-///
-/// Enable MSAA.
-///
-[[nodiscard]]
-static auto msaa() noexcept -> bool;
-
-///
-/// Show/hide mouse cursor.
-///
-[[nodiscard]]
-static auto cursor_visible() noexcept -> bool;
-
-///
-/// Cursor texture file in vfs.
-///
-[[nodiscard]]
-static auto cursor_icon() noexcept -> const std::string&;
-
-///
-/// Cursor icon texture size.
-///
-[[nodiscard]]
-static auto cursor_icon_size() noexcept -> const sf::Vector2u&;
-
-///
-/// Cursor selector point (hotspot).
-///
-[[nodiscard]]
-static auto cursor_hotspot() noexcept -> const sf::Vector2u&;
 // config.restore<int>("flag_bitset_count", 8, "misc");
 
 // config.restore<float>("world_to_box2d", 0.01f, "physics");

@@ -8,7 +8,20 @@
 #ifndef GALAXY_CORE_WINDOW_HPP_
 #define GALAXY_CORE_WINDOW_HPP_
 
+#include <string>
+
+#include <entt/signal/fwd.hpp>
+#include <glm/vec2.hpp>
+#include <SDL3/SDL_events.h>
 #include <SDL3/SDL_video.h>
+
+#include "galaxy/input/Keyboard.hpp"
+#include "galaxy/input/Mouse.hpp"
+
+///
+/// Forward declaration.
+///
+union SDL_Event;
 
 namespace galaxy
 {
@@ -30,19 +43,23 @@ namespace galaxy
 		~Window();
 
 		///
-		/// Maximize window.
+		/// Handles all events for the window in this frame and sends to the dispatcher.
 		///
-		void maximize() const noexcept;
+		/// \param dispatcher Dispatcher to send event triggers to.
+		///
+		void process_events(entt::dispatcher& dispatcher);
 
 		///
-		/// Minimize window.
+		/// \brief Close window.
 		///
-		void minimize() const noexcept;
+		/// This will exit game loop.
+		///
+		void close() noexcept;
 
 		///
-		/// Restore window.
+		/// Swap backbuffer with window framebuffer.
 		///
-		void restore() const noexcept;
+		void swap() const noexcept;
 
 		///
 		/// Show window.
@@ -55,6 +72,21 @@ namespace galaxy
 		void hide() const noexcept;
 
 		///
+		/// Minimize window.
+		///
+		void minimize() const noexcept;
+
+		///
+		/// Maximize window.
+		///
+		void maximize() const noexcept;
+
+		///
+		/// Restore window to previous *mize state.
+		///
+		void restore() const noexcept;
+
+		///
 		/// Raise the window to be on top of other windows.
 		///
 		void raise() const noexcept;
@@ -65,24 +97,26 @@ namespace galaxy
 		void request_attention() const noexcept;
 
 		///
-		/// Swap backbuffer with window framebuffer.
-		///
-		void swap() const noexcept;
-
-		///
-		/// \brief Close window.
-		///
-		/// This will exit game loop.
-		///
-		void close() noexcept;
-
-		///
 		/// Resizes window.
 		///
 		/// \param width Width of the window.
 		/// \param height Height of the window.
 		///
 		void resize(const int width, const int height) const noexcept;
+
+		///
+		/// Toggle fullscreen.
+		///
+		/// \param fullscreen True for fullscreen mode, False for windowed mode.
+		///
+		void set_fullscreen(const bool fullscreen) const noexcept;
+
+		///
+		/// Sets the taskbar icon progress overlay.
+		///
+		/// \param progress Clamps from 0.0f (0%) to 1.0f (100%).
+		///
+		void set_taskbar_progress(const float progress) noexcept;
 
 		///
 		/// \brief Append to window title.
@@ -94,30 +128,9 @@ namespace galaxy
 		void append_title(const std::string& append);
 
 		///
-		/// Toggle fullscreen.
-		///
-		/// \param fullscreen True for fullscreen mode, False for windowed mode.
-		///
-		void set_fullscreen(const bool fullscreen) const noexcept;
-
-		///
-		/// Toggle mouse grab.
-		///
-		/// \param grabbed This is true to grab keyboard, and false to release.
-		///
-		void set_mouse_grab(const bool grabbed) const noexcept;
-
-		///
-		/// Sets the taskbar icon progress overlay.
-		///
-		/// \param progress Clamps from 0.0f (0%) to 1.0f (100%).
-		///
-		void set_taskbar_progress(const float progress) noexcept;
-
-		///
 		/// Set window icon.
 		///
-		/// \param icon Icon to load.
+		/// \param icon Icon to load in VFS.
 		///
 		void set_icon(const std::string& icon) noexcept;
 
@@ -128,6 +141,30 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		bool is_open() const noexcept;
+
+		///
+		/// Get mouse cursor.
+		///
+		/// \return Mouse ref.
+		///
+		[[nodiscard]]
+		Mouse& get_mouse() noexcept;
+
+		///
+		/// Get keyboard.
+		///
+		/// \return Keyboard ref.
+		///
+		[[nodiscard]]
+		Keyboard& get_keyboard() noexcept;
+
+		///
+		/// Get window size in pixels.
+		///
+		/// \return Integer vec2.
+		///
+		[[nodiscard]]
+		glm::ivec2 get_pixel_size() noexcept;
 
 		///
 		/// Get SDL window pointer.
@@ -181,6 +218,21 @@ namespace galaxy
 		/// Window state flag.
 		///
 		bool m_open;
+
+		///
+		/// Core event data.
+		///
+		SDL_Event m_events;
+
+		///
+		/// Keyboard assigned to window.
+		///
+		Keyboard m_keyboard;
+
+		///
+		/// Mouse assigned to window.
+		///
+		Mouse m_mouse;
 	};
 } // namespace galaxy
 

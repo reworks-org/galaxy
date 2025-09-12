@@ -11,6 +11,7 @@
 #include <entt/signal/dispatcher.hpp>
 #include <mimalloc.h>
 #include <SDL3/SDL.h>
+#include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Window.hpp"
@@ -43,15 +44,8 @@ namespace galaxy
 		// setup_nuklear();
 		// setup_loader();
 		// setup_meta();
-		// setup_scripting();
 		// setup_services();
-
-		//
-		// Add external libraries to Lua.
-		// Inject all configured galaxy into Lua.
-		// Add engine services to lua.
-		//
-		// lua::inject();
+		setup_scripting();
 
 		// Load game assets.
 		// core::entt::locator<core::Loader>::ref().load_all();
@@ -124,7 +118,7 @@ namespace galaxy
 				accum -= dt;
 
 				// nui.begin_input();
-				handle_events(window, dispatcher);
+				window.process_events(dispatcher);
 				// nui.end_input();
 				// manager.update();
 
@@ -144,26 +138,6 @@ namespace galaxy
 				frames  = 0;
 				updates = 0;
 				perf    = 0s;
-			}
-		}
-	}
-
-	void App::handle_events(Window& window, entt::dispatcher& dispatcher)
-	{
-		SDL_Event events;
-		SDL_zero(events);
-
-		while (SDL_PollEvent(&events))
-		{
-			switch (events.type)
-			{
-				case SDL_EVENT_QUIT:
-					window.close();
-					break;
-
-				default:
-					// entt::locator<entt::dispatcher>::value().trigger(event);
-					break;
 			}
 		}
 	}
@@ -228,18 +202,19 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_ENABLE_SCREEN_KEYBOARD, "0");
 		platform::set_hint(SDL_HINT_EVENT_LOGGING, "0");
 		platform::set_hint(SDL_HINT_FRAMEBUFFER_ACCELERATION, "opengl");
-		platform::set_hint(SDL_HINT_GAMECONTROLLER_SENSOR_FUSION, "0");
+		platform::set_hint(SDL_HINT_GAMECONTROLLER_SENSOR_FUSION, "1");
 		platform::set_hint(SDL_HINT_GPU_DRIVER, "vulkan");
 		platform::set_hint(SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS, "1");
 		platform::set_hint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "0");
 		platform::set_hint(SDL_HINT_JOYSTICK_DIRECTINPUT, "1");
+		platform::set_hint(SDL_HINT_TV_REMOTE_AS_JOYSTICK, "1");
 		// platform::set_hint(SDL_HINT_LOG_BACKENDS, "1");
 		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "0");
 		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
 		platform::set_hint(SDL_HINT_MOUSE_RELATIVE_MODE_CENTER, "0");
 		platform::set_hint(SDL_HINT_MOUSE_TOUCH_EVENTS, "1");
-		platform::set_hint(SDL_HINT_PEN_MOUSE_EVENTS, "0");
-		platform::set_hint(SDL_HINT_PEN_TOUCH_EVENTS, "0");
+		platform::set_hint(SDL_HINT_PEN_MOUSE_EVENTS, "1");
+		platform::set_hint(SDL_HINT_PEN_TOUCH_EVENTS, "1");
 		platform::set_hint(SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE, "1");
 		platform::set_hint(SDL_HINT_RENDER_DRIVER, "opengl");
 		platform::set_hint(SDL_HINT_RENDER_GPU_DEBUG, "0");
@@ -259,6 +234,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS, "0");
 		platform::set_hint(SDL_HINT_WINDOWS_GAMEINPUT, "1");
 		platform::set_hint(SDL_HINT_WINDOWS_RAW_KEYBOARD, "0");
+		// platform::set_hint(SDL_HINT_IME_IMPLEMENTED_UI, "0");
 
 		const auto vsync = Settings::vsync() ? "1" : "0";
 		platform::set_hint(SDL_HINT_RENDER_VSYNC, vsync);
@@ -266,7 +242,7 @@ namespace galaxy
 		const auto audio_freq = std::to_string(Settings::audio_freq());
 		platform::set_hint(SDL_HINT_AUDIO_FREQUENCY, audio_freq.c_str());
 
-		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC | SDL_INIT_SENSOR | SDL_INIT_CAMERA))
+		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC | SDL_INIT_SENSOR))
 		{
 			GALAXY_LOG(GALAXY_FATAL, SDL_GetError());
 		}
@@ -283,34 +259,6 @@ namespace galaxy
 
 		window.set_icon(Settings::window_icon());
 		window.show();
-
-		/*if (!Settings::cursor_icon().empty())
-		{
-			window.setMouseCursorVisible(true);
-			if (Settings::cursor_icon_size().x == 0 || Settings::cursor_icon_size().y == 0)
-			{
-				GALAXY_LOG(GALAXY_WARN, "Did not specify cursor size properly, must be same size as texture. Reverting to system default.");
-			}
-			else
-			{
-				auto& fs   = entt::locator<fs::VirtualFileSystem>::value();
-				auto  data = fs.read_binary(Settings::window_icon());
-
-				m_cursor = sf::Cursor::createFromPixels(data.data(), Settings::cursor_icon_size(), Settings::cursor_hotspot());
-				if (m_cursor.has_value())
-				{
-					window.setMouseCursor(m_cursor.value());
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load custom cursor: {0}.", Settings::cursor_icon());
-				}
-			}
-		}
-		else
-		{
-			window.setMouseCursorVisible(Settings::cursor_visible());
-		}*/
 	}
 
 	void App::setup_events()
@@ -361,12 +309,6 @@ namespace galaxy
 	//	*/
 	//}
 
-	// void App::setup_scripting()
-	//{
-	//	auto& lua = entt::locator<sol::state>::emplace();
-	//	lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
-	// }
-
 	// void App::setup_services()
 	//{
 	//	// entt::locator<media::SoundEngine>::make(listener_count);
@@ -384,4 +326,17 @@ namespace galaxy
 	//	// entt::locator<resource::Scripts>::make();
 	//	entt::locator<scene::SceneManager>::emplace();
 	// }
+
+	void App::setup_scripting()
+	{
+		auto& lua = entt::locator<sol::state>::emplace();
+		lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
+
+		//
+		// Add external libraries to Lua.
+		// Inject all configured galaxy into Lua.
+		// Add engine services to lua.
+		//
+		Lua::inject();
+	}
 } // namespace galaxy
