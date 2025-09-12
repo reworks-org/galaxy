@@ -14,4 +14,4 @@
 #define NK_MAX_ELEMENT_BUFFER 128 * 1024
 
 #include "nuklear.h"
-#include "nuklear_glfw_gl4.h"
+#include "nuklear_sdl_gl3.h"

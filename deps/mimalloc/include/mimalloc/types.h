@@ -22,6 +22,7 @@ terms of the MIT license. A copy of the license can be found in the file
 // --------------------------------------------------------------------------
 
 
+#include <mimalloc-stats.h>
 #include <stddef.h>   // ptrdiff_t
 #include <stdint.h>   // uintptr_t, uint16_t, etc
 #include "atomic.h"   // _Atomic
@@ -66,10 +67,10 @@ terms of the MIT license. A copy of the license can be found in the file
 // #define MI_DEBUG 2  // + internal assertion checks
 // #define MI_DEBUG 3  // + extensive internal invariant checking (cmake -DMI_DEBUG_FULL=ON)
 #if !defined(MI_DEBUG)
-#if !defined(NDEBUG) || defined(_DEBUG)
-#define MI_DEBUG 2
-#else
+#if defined(MI_BUILD_RELEASE) || defined(NDEBUG)
 #define MI_DEBUG 0
+#else
+#define MI_DEBUG 2
 #endif
 #endif
 
@@ -204,7 +205,9 @@ typedef int32_t  mi_ssize_t;
 #define MI_LARGE_OBJ_WSIZE_MAX            (MI_LARGE_OBJ_SIZE_MAX/MI_INTPTR_SIZE)
 
 // Maximum number of size classes. (spaced exponentially in 12.5% increments)
-#define MI_BIN_HUGE  (73U)
+#if MI_BIN_HUGE != 73U
+#error "mimalloc internal: expecting 73 bins"
+#endif
 
 #if (MI_MEDIUM_OBJ_WSIZE_MAX >= 655360)
 #error "mimalloc internal: define more bins"
@@ -559,6 +562,8 @@ struct mi_heap_s {
   size_t                page_count;                          // total number of pages in the `pages` queues.
   size_t                page_retired_min;                    // smallest retired index (retired pages are fully free, but still in the page queues)
   size_t                page_retired_max;                    // largest retired index into the `pages` array.
+  long                  generic_count;                       // how often is `_mi_malloc_generic` called?
+  long                  generic_collect_count;               // how often is `_mi_malloc_generic` called without collecting?
   mi_heap_t*            next;                                // list of heaps per thread
   bool                  no_reclaim;                          // `true` if this heap should not reclaim abandoned pages
   uint8_t               tag;                                 // custom tag, can be used for separating heaps based on the object types
@@ -566,7 +571,6 @@ struct mi_heap_s {
   size_t                guarded_size_min;                    // minimal size for guarded objects
   size_t                guarded_size_max;                    // maximal size for guarded objects
   size_t                guarded_sample_rate;                 // sample rate (set to 0 to disable guarded pages)
-  size_t                guarded_sample_seed;                 // starting sample count
   size_t                guarded_sample_count;                // current sample count (counting down to 0)
   #endif
   mi_page_t*            pages_free_direct[MI_PAGES_DIRECT];  // optimize: array where every entry points a page with possibly free blocks in the corresponding queue for that size.
@@ -574,132 +578,10 @@ struct mi_heap_s {
 };
 
 
-
-// ------------------------------------------------------
-// Debug
-// ------------------------------------------------------
-
-#if !defined(MI_DEBUG_UNINIT)
-#define MI_DEBUG_UNINIT     (0xD0)
-#endif
-#if !defined(MI_DEBUG_FREED)
-#define MI_DEBUG_FREED      (0xDF)
-#endif
-#if !defined(MI_DEBUG_PADDING)
-#define MI_DEBUG_PADDING    (0xDE)
-#endif
-
-#if (MI_DEBUG)
-// use our own assertion to print without memory allocation
-void _mi_assert_fail(const char* assertion, const char* fname, unsigned int line, const char* func );
-#define mi_assert(expr)     ((expr) ? (void)0 : _mi_assert_fail(#expr,__FILE__,__LINE__,__func__))
-#else
-#define mi_assert(x)
-#endif
-
-#if (MI_DEBUG>1)
-#define mi_assert_internal    mi_assert
-#else
-#define mi_assert_internal(x)
-#endif
-
-#if (MI_DEBUG>2)
-#define mi_assert_expensive   mi_assert
-#else
-#define mi_assert_expensive(x)
-#endif
-
-// ------------------------------------------------------
-// Statistics
-// ------------------------------------------------------
-
-#ifndef MI_STAT
-#if (MI_DEBUG>0)
-#define MI_STAT 2
-#else
-#define MI_STAT 0
-#endif
-#endif
-
-typedef struct mi_stat_count_s {
-  int64_t allocated;
-  int64_t freed;
-  int64_t peak;
-  int64_t current;
-} mi_stat_count_t;
-
-typedef struct mi_stat_counter_s {
-  int64_t total;
-  int64_t count;
-} mi_stat_counter_t;
-
-typedef struct mi_stats_s {
-  mi_stat_count_t segments;
-  mi_stat_count_t pages;
-  mi_stat_count_t reserved;
-  mi_stat_count_t committed;
-  mi_stat_count_t reset;
-  mi_stat_count_t purged;
-  mi_stat_count_t page_committed;
-  mi_stat_count_t segments_abandoned;
-  mi_stat_count_t pages_abandoned;
-  mi_stat_count_t threads;
-  mi_stat_count_t normal;
-  mi_stat_count_t huge;
-  mi_stat_count_t large;
-  mi_stat_count_t malloc;
-  mi_stat_count_t segments_cache;
-  mi_stat_counter_t pages_extended;
-  mi_stat_counter_t mmap_calls;
-  mi_stat_counter_t commit_calls;
-  mi_stat_counter_t reset_calls;
-  mi_stat_counter_t purge_calls;
-  mi_stat_counter_t page_no_retire;
-  mi_stat_counter_t searches;
-  mi_stat_counter_t normal_count;
-  mi_stat_counter_t huge_count;
-  mi_stat_counter_t large_count;
-  mi_stat_counter_t arena_count;
-  mi_stat_counter_t arena_crossover_count;
-  mi_stat_counter_t arena_rollback_count;
-  mi_stat_counter_t guarded_alloc_count;
-#if MI_STAT>1
-  mi_stat_count_t normal_bins[MI_BIN_HUGE+1];
-#endif
-} mi_stats_t;
-
-
-// add to stat keeping track of the peak
-void _mi_stat_increase(mi_stat_count_t* stat, size_t amount);
-void _mi_stat_decrease(mi_stat_count_t* stat, size_t amount);
-// adjust stat in special cases to compensate for double counting
-void _mi_stat_adjust_increase(mi_stat_count_t* stat, size_t amount);
-void _mi_stat_adjust_decrease(mi_stat_count_t* stat, size_t amount);
-// counters can just be increased
-void _mi_stat_counter_increase(mi_stat_counter_t* stat, size_t amount);
-
-#if (MI_STAT)
-#define mi_stat_increase(stat,amount)         _mi_stat_increase( &(stat), amount)
-#define mi_stat_decrease(stat,amount)         _mi_stat_decrease( &(stat), amount)
-#define mi_stat_counter_increase(stat,amount) _mi_stat_counter_increase( &(stat), amount)
-#define mi_stat_adjust_increase(stat,amount)  _mi_stat_adjust_increase( &(stat), amount)
-#define mi_stat_adjust_decrease(stat,amount)  _mi_stat_adjust_decrease( &(stat), amount)
-#else
-#define mi_stat_increase(stat,amount)         ((void)0)
-#define mi_stat_decrease(stat,amount)         ((void)0)
-#define mi_stat_counter_increase(stat,amount) ((void)0)
-#define mi_stat_adjuct_increase(stat,amount)  ((void)0)
-#define mi_stat_adjust_decrease(stat,amount)  ((void)0)
-#endif
-
-#define mi_heap_stat_counter_increase(heap,stat,amount)  mi_stat_counter_increase( (heap)->tld->stats.stat, amount)
-#define mi_heap_stat_increase(heap,stat,amount)  mi_stat_increase( (heap)->tld->stats.stat, amount)
-#define mi_heap_stat_decrease(heap,stat,amount)  mi_stat_decrease( (heap)->tld->stats.stat, amount)
-
-
 // ------------------------------------------------------
 // Sub processes do not reclaim or visit segments
-// from other sub processes
+// from other sub processes. These are essentially the
+// static variables of a process.
 // ------------------------------------------------------
 
 struct mi_subproc_s {
@@ -711,6 +593,7 @@ struct mi_subproc_s {
   mi_segment_t*      abandoned_os_list_tail;  // the tail-end of the list
   mi_memid_t         memid;                   // provenance of this memory block
 };
+
 
 // ------------------------------------------------------
 // Thread Local data
@@ -747,5 +630,56 @@ struct mi_tld_s {
   mi_segments_tld_t   segments;      // segment tld
   mi_stats_t          stats;         // statistics
 };
+
+
+// ------------------------------------------------------
+// Debug
+// ------------------------------------------------------
+
+#if !defined(MI_DEBUG_UNINIT)
+#define MI_DEBUG_UNINIT     (0xD0)
+#endif
+#if !defined(MI_DEBUG_FREED)
+#define MI_DEBUG_FREED      (0xDF)
+#endif
+#if !defined(MI_DEBUG_PADDING)
+#define MI_DEBUG_PADDING    (0xDE)
+#endif
+
+
+// ------------------------------------------------------
+// Statistics
+// ------------------------------------------------------
+#ifndef MI_STAT
+#if (MI_DEBUG>0)
+#define MI_STAT 2
+#else
+#define MI_STAT 0
+#endif
+#endif
+
+// add to stat keeping track of the peak
+void _mi_stat_increase(mi_stat_count_t* stat, size_t amount);
+void _mi_stat_decrease(mi_stat_count_t* stat, size_t amount);
+void _mi_stat_adjust_decrease(mi_stat_count_t* stat, size_t amount);
+// counters can just be increased
+void _mi_stat_counter_increase(mi_stat_counter_t* stat, size_t amount);
+
+#if (MI_STAT)
+#define mi_stat_increase(stat,amount)         _mi_stat_increase( &(stat), amount)
+#define mi_stat_decrease(stat,amount)         _mi_stat_decrease( &(stat), amount)
+#define mi_stat_adjust_decrease(stat,amount)  _mi_stat_adjust_decrease( &(stat), amount)
+#define mi_stat_counter_increase(stat,amount) _mi_stat_counter_increase( &(stat), amount)
+#else
+#define mi_stat_increase(stat,amount)         ((void)0)
+#define mi_stat_decrease(stat,amount)         ((void)0)
+#define mi_stat_adjust_decrease(stat,amount)  ((void)0)
+#define mi_stat_counter_increase(stat,amount) ((void)0)
+#endif
+
+#define mi_heap_stat_counter_increase(heap,stat,amount)  mi_stat_counter_increase( (heap)->tld->stats.stat, amount)
+#define mi_heap_stat_increase(heap,stat,amount)  mi_stat_increase( (heap)->tld->stats.stat, amount)
+#define mi_heap_stat_decrease(heap,stat,amount)  mi_stat_decrease( (heap)->tld->stats.stat, amount)
+#define mi_heap_stat_adjust_decrease(heap,stat,amount)  mi_stat_adjust_decrease( (heap)->tld->stats.stat, amount)
 
 #endif
