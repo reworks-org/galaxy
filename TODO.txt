@@ -1,6 +1,3 @@
-https://wiki.libsdl.org/SDL3/CategoryKeyboard
-https://wiki.libsdl.org/SDL3/BestKeyboardPractices
-
 https://wiki.libsdl.org/SDL3_mixer/FrontPage
 https://lazyfoo.net/tutorials/SDL3/19-state-machines/index.php
 
@@ -16,5 +13,3 @@ https://wiki.libsdl.org/SDL3/CategoryJoystick
 TODO:
 - Scale mouse cursor to display size i.e. 50%, 200%, etc.
     - https://wiki.libsdl.org/SDL3/SDL_CreateColorCursor#remarks
-- SDL_GetMouseState
-    - https://www.studyplan.dev/sdl2/sdl2-mouse-state

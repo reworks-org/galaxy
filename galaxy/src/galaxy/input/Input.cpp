@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <GLFW/glfw3.h>
+#include <SDL3/SDL_keyboard.h>
 
 #include "Input.hpp"
 
@@ -13,23 +13,30 @@ namespace galaxy
 {
 	namespace input
 	{
-		GLFWwindow* Input::s_window     = nullptr;
-		glm::dvec2  Input::s_cursor_pos = {0.0, 0.0};
-
-		bool Input::key_down(input::Keys key)
+		bool is_key_mod_down(const KeyMods modifier) noexcept
 		{
-			return glfwGetKey(s_window, static_cast<int>(key)) == GLFW_PRESS;
+			const auto mod = static_cast<SDL_Keymod>(modifier);
+			return SDL_GetModState() & mod;
 		}
 
-		bool Input::mouse_button_down(input::MouseButtons button)
+		bool is_key_down(const Keys key) noexcept
 		{
-			return glfwGetMouseButton(s_window, static_cast<int>(button)) == GLFW_PRESS;
+			const auto keys = SDL_GetKeyboardState(nullptr);
+			return keys[static_cast<SDL_Keycode>(key)];
 		}
 
-		const glm::dvec2& Input::get_cursor_pos()
+		bool is_mouse_down(const MouseButton btn) noexcept
 		{
-			glfwGetCursorPos(s_window, &s_cursor_pos.x, &s_cursor_pos.y);
-			return s_cursor_pos;
+			const auto buttons = SDL_GetMouseState(nullptr, nullptr);
+			return buttons & SDL_BUTTON_MASK(static_cast<SDL_MouseButtonFlags>(btn));
+		}
+
+		glm::vec2 get_cursor_pos() noexcept
+		{
+			glm::vec2 vec2;
+			SDL_GetMouseState(&vec2.x, &vec2.y);
+
+			return vec2;
 		}
 	} // namespace input
 } // namespace galaxy

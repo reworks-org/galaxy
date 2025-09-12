@@ -9,443 +9,338 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/input/Clipboard.hpp"
+#include "galaxy/input/Input.hpp"
+#include "galaxy/input/Keyboard.hpp"
+#include "galaxy/input/Keys.hpp"
+#include "galaxy/input/Mouse.hpp"
+#include "galaxy/input/MouseButton.hpp"
+
+#include "../Lua.hpp"
 
 namespace galaxy
 {
-	namespace lua
+	void Lua::inject_input() noexcept
 	{
-		void inject_input()
+		auto& lua = entt::locator<sol::state>::value();
+
+		lua.set_function("input_clipboard_set", &input::set_clipboard);
+		lua.set_function("input_clipboard_get", &input::get_clipboard);
+
+		lua.set_function("input_is_key_mod_down", &input::is_key_mod_down);
+		lua.set_function("input_is_key_down", &input::is_key_down);
+		lua.set_function("input_is_mouse_down", &input::is_mouse_down);
+		lua.set_function("input_get_cursor_pos", &input::get_cursor_pos);
+
+		auto keyboard_type                        = lua.new_usertype<Keyboard>("Keyboard", sol::no_constructor);
+		keyboard_type["begin_text_input"]         = &Keyboard::begin_text_input;
+		keyboard_type["clear_state"]              = &Keyboard::clear_state;
+		keyboard_type["end_text_input"]           = &Keyboard::end_text_input;
+		keyboard_type["has_keyboard"]             = &Keyboard::has_keyboard;
+		keyboard_type["has_onscreen_keyboard"]    = &Keyboard::has_onscreen_keyboard;
+		keyboard_type["onscreen_keyboard_active"] = &Keyboard::onscreen_keyboard_active;
+
+		auto mouse_type                 = lua.new_usertype<Mouse>("Mouse", sol::no_constructor);
+		mouse_type["has_mouse"]         = &Mouse::has_mouse;
+		mouse_type["hide_cursor"]       = &Mouse::hide_cursor;
+		mouse_type["restore_cursor"]    = &Mouse::restore_cursor;
+		mouse_type["set_cursor_custom"] = &Mouse::set_cursor_custom;
+		mouse_type["set_cursor_system"] = &Mouse::set_cursor_system;
+		mouse_type["set_mouse_grab"]    = &Mouse::set_mouse_grab;
+		mouse_type["show_cursor"]       = &Mouse::show_cursor;
+		mouse_type["warp_mouse"]        = &Mouse::warp_mouse;
+
+		// clang-format off
+		lua.new_enum<MouseButton>("MouseButton",
 		{
-			auto& lua = entt::locator<sol::state>::value();
+			{"UNKNOWN", MouseButton::UNKNOWN},
+			{"LEFT", MouseButton::LEFT},
+			{"MIDDLE", MouseButton::MIDDLE},
+			{"RIGHT", MouseButton::RIGHT},
+			{"SIDE_1", MouseButton::SIDE_1},
+			{"SIDE_2", MouseButton::SIDE_2}
+		});
 
-			lua.set_function("clipboard_set", &input::set_clipboard);
-			lua.set_function("clipboard_get", &input::get_clipboard);
-
-			/*auto camera_controller = lua.new_usertype<input::CameraController>("CameraController", sol::constructors<input::CameraController(graphics::Camera&)>());
-			camera_controller["camera"] = &input::CameraController::m_camera;
-
-			auto cursor_type                       = lua.new_usertype<input::Cursor>("Cursor", sol::no_constructor);
-			cursor_type["toggle"]                  = &input::Cursor::toggle;
-			cursor_type["load_custom"]             = &input::Cursor::load_custom;
-			cursor_type["load_custom_mem"]         = &input::Cursor::load_custom_mem;
-			cursor_type["use_custom"]              = &input::Cursor::use_custom;
-			cursor_type["use_pointer"]             = &input::Cursor::use_pointer;
-			cursor_type["use_hand"]                = &input::Cursor::use_hand;
-			cursor_type["use_cross"]               = &input::Cursor::use_cross;
-			cursor_type["use_text"]                = &input::Cursor::use_text;
-			cursor_type["use_custom_else_pointer"] = &input::Cursor::use_custom_else_pointer;
-			cursor_type["within_window"]           = &input::Cursor::within_window;
-			cursor_type["destroy"]                 = &input::Cursor::destroy;
-
-			lua.set_function("galaxy_input_key_down", &input::Input::key_down);
-			lua.set_function("galaxy_input_mouse_down", &input::Input::mouse_button_down);
-			lua.set_function("galaxy_input_cursor_pos", &input::Input::get_cursor_pos);
-
-			lua.set("galaxy_camera_forward", &input::CameraKeys::FORWARD);
-			lua.set("galaxy_camera_backward", &input::CameraKeys::BACKWARD);
-			lua.set("galaxy_camera_left", &input::CameraKeys::LEFT);
-			lua.set("galaxy_camera_right", &input::CameraKeys::RIGHT);
-			lua.set("galaxy_camera_rotate_left", &input::CameraKeys::ROTATE_LEFT);
-			lua.set("galaxy_camera_rotate_right", &input::CameraKeys::ROTATE_RIGHT);
-
-			// clang-format off
-			lua.new_enum<input::InputMods>("InputMods",
-			{
-				{"UNKNOWN", input::InputMods::UNKNOWN},
-				{"SHIFT", input::InputMods::SHIFT},
-				{"CONTROL", input::InputMods::CONTROL},
-				{"ALT", input::InputMods::ALT},
-				{"SUPER", input::InputMods::SUPER},
-				{"CAPS_LOCK", input::InputMods::CAPS_LOCK},
-				{"NUM_LOCK", input::InputMods::NUM_LOCK}
-			});
-			// clang-format on
-
-			lua.set_function("galaxy_int_to_mod", &input::int_to_mod);
-			lua.set_function("galaxy_mod_to_int", &input::mod_to_int);
-
-			auto keyboard_type                     = lua.new_usertype<input::Keyboard>("Keyboard", sol::no_constructor);
-			keyboard_type["begin_text_input"]      = &input::Keyboard::begin_text_input;
-			keyboard_type["end_text_input"]        = &input::Keyboard::end_text_input;
-			keyboard_type["enable_sticky_keys"]    = &input::Keyboard::enable_sticky_keys;
-			keyboard_type["disable_sticky_keys"]   = &input::Keyboard::disable_sticky_keys;
-			keyboard_type["is_text_input_enabled"] = &input::Keyboard::is_text_input_enabled;
-			keyboard_type["get_scancode"]          = &input::Keyboard::get_scancode;
-			keyboard_type["get_key_name"]          = &input::Keyboard::get_key_name;
-			keyboard_type["get_scancode_name"]     = &input::Keyboard::get_scancode_name;
-
-			// clang-format off
-			lua.new_enum<input::Keys>("Keys",
-			{
-				{"KEY_UNKNOWN", input::Keys::KEY_UNKNOWN},
-				{"KEY_SPACE", input::Keys::KEY_SPACE},
-				{"KEY_APOSTROPHE", input::Keys::KEY_APOSTROPHE},
-				{"KEY_COMMA", input::Keys::KEY_COMMA},
-				{"KEY_MINUS", input::Keys::KEY_MINUS},
-				{"KEY_PERIOD", input::Keys::KEY_PERIOD},
-				{"KEY_SLASH", input::Keys::KEY_SLASH},
-				{"KEY_0", input::Keys::KEY_0},
-				{"KEY_1", input::Keys::KEY_1},
-				{"KEY_2", input::Keys::KEY_2},
-				{"KEY_3", input::Keys::KEY_3},
-				{"KEY_4", input::Keys::KEY_4},
-				{"KEY_5", input::Keys::KEY_5},
-				{"KEY_6", input::Keys::KEY_6},
-				{"KEY_7", input::Keys::KEY_7},
-				{"KEY_8", input::Keys::KEY_8},
-				{"KEY_9", input::Keys::KEY_9},
-				{"KEY_SEMICOLON", input::Keys::KEY_SEMICOLON},
-				{"KEY_EQUAL", input::Keys::KEY_EQUAL},
-				{"KEY_A", input::Keys::KEY_A},
-				{"KEY_B", input::Keys::KEY_B},
-				{"KEY_C", input::Keys::KEY_C},
-				{"KEY_D", input::Keys::KEY_D},
-				{"KEY_E", input::Keys::KEY_E},
-				{"KEY_F", input::Keys::KEY_F},
-				{"KEY_G", input::Keys::KEY_G},
-				{"KEY_H", input::Keys::KEY_H},
-				{"KEY_I", input::Keys::KEY_I},
-				{"KEY_J", input::Keys::KEY_J},
-				{"KEY_K", input::Keys::KEY_K},
-				{"KEY_L", input::Keys::KEY_L},
-				{"KEY_M", input::Keys::KEY_M},
-				{"KEY_N", input::Keys::KEY_N},
-				{"KEY_O", input::Keys::KEY_O},
-				{"KEY_P", input::Keys::KEY_P},
-				{"KEY_Q", input::Keys::KEY_Q},
-				{"KEY_R", input::Keys::KEY_R},
-				{"KEY_S", input::Keys::KEY_S},
-				{"KEY_T", input::Keys::KEY_T},
-				{"KEY_U", input::Keys::KEY_U},
-				{"KEY_V", input::Keys::KEY_V},
-				{"KEY_W", input::Keys::KEY_W},
-				{"KEY_X", input::Keys::KEY_X},
-				{"KEY_Y", input::Keys::KEY_Y},
-				{"KEY_Z", input::Keys::KEY_Z},
-				{"KEY_LEFT_BRACKET", input::Keys::KEY_LEFT_BRACKET},
-				{"KEY_BACKSLASH", input::Keys::KEY_BACKSLASH},
-				{"KEY_RIGHT_BRACKET", input::Keys::KEY_RIGHT_BRACKET},
-				{"KEY_GRAVE_ACCENT", input::Keys::KEY_GRAVE_ACCENT},
-				{"KEY_WORLD_1", input::Keys::KEY_WORLD_1},
-				{"KEY_WORLD_2", input::Keys::KEY_WORLD_2},
-				{"KEY_ESCAPE", input::Keys::KEY_ESCAPE},
-				{"KEY_ENTER", input::Keys::KEY_ENTER},
-				{"KEY_TAB", input::Keys::KEY_TAB},
-				{"KEY_BACKSPACE", input::Keys::KEY_BACKSPACE},
-				{"KEY_INSERT", input::Keys::KEY_INSERT},
-				{"KEY_DELETE", input::Keys::KEY_DELETE},
-				{"KEY_RIGHT", input::Keys::KEY_RIGHT},
-				{"KEY_LEFT", input::Keys::KEY_LEFT},
-				{"KEY_DOWN", input::Keys::KEY_DOWN},
-				{"KEY_UP", input::Keys::KEY_UP},
-				{"KEY_PAGE_UP", input::Keys::KEY_PAGE_UP},
-				{"KEY_PAGE_DOWN", input::Keys::KEY_PAGE_DOWN},
-				{"KEY_HOME", input::Keys::KEY_HOME},
-				{"KEY_END", input::Keys::KEY_END},
-				{"KEY_CAPS_LOCK", input::Keys::KEY_CAPS_LOCK},
-				{"KEY_SCROLL_LOCK", input::Keys::KEY_SCROLL_LOCK},
-				{"KEY_NUM_LOCK", input::Keys::KEY_NUM_LOCK},
-				{"KEY_PRINT_SCREEN", input::Keys::KEY_PRINT_SCREEN},
-				{"KEY_PAUSE", input::Keys::KEY_PAUSE},
-				{"KEY_F1", input::Keys::KEY_F1},
-				{"KEY_F2", input::Keys::KEY_F2},
-				{"KEY_F3", input::Keys::KEY_F3},
-				{"KEY_F4", input::Keys::KEY_F4},
-				{"KEY_F5", input::Keys::KEY_F5},
-				{"KEY_F6", input::Keys::KEY_F6},
-				{"KEY_F7", input::Keys::KEY_F7},
-				{"KEY_F8", input::Keys::KEY_F8},
-				{"KEY_F9", input::Keys::KEY_F9},
-				{"KEY_F10", input::Keys::KEY_F10},
-				{"KEY_F11", input::Keys::KEY_F11},
-				{"KEY_F12", input::Keys::KEY_F12},
-				{"KEY_F13", input::Keys::KEY_F13},
-				{"KEY_F14", input::Keys::KEY_F14},
-				{"KEY_F15", input::Keys::KEY_F15},
-				{"KEY_F16", input::Keys::KEY_F16},
-				{"KEY_F17", input::Keys::KEY_F17},
-				{"KEY_F18", input::Keys::KEY_F18},
-				{"KEY_F19", input::Keys::KEY_F19},
-				{"KEY_F20", input::Keys::KEY_F20},
-				{"KEY_F21", input::Keys::KEY_F21},
-				{"KEY_F22", input::Keys::KEY_F22},
-				{"KEY_F23", input::Keys::KEY_F23},
-				{"KEY_F24", input::Keys::KEY_F24},
-				{"KEY_F25", input::Keys::KEY_F25},
-				{"KEY_KP_0", input::Keys::KEY_KP_0},
-				{"KEY_KP_1", input::Keys::KEY_KP_1},
-				{"KEY_KP_2", input::Keys::KEY_KP_2},
-				{"KEY_KP_3", input::Keys::KEY_KP_3},
-				{"KEY_KP_4", input::Keys::KEY_KP_4},
-				{"KEY_KP_5", input::Keys::KEY_KP_5},
-				{"KEY_KP_6", input::Keys::KEY_KP_6},
-				{"KEY_KP_7", input::Keys::KEY_KP_7},
-				{"KEY_KP_8", input::Keys::KEY_KP_8},
-				{"KEY_KP_9", input::Keys::KEY_KP_9},
-				{"KEY_KP_DECIMAL", input::Keys::KEY_KP_DECIMAL},
-				{"KEY_KP_DIVIDE", input::Keys::KEY_KP_DIVIDE},
-				{"KEY_KP_MULTIPLY", input::Keys::KEY_KP_MULTIPLY},
-				{"KEY_KP_SUBTRACT", input::Keys::KEY_KP_SUBTRACT},
-				{"KEY_KP_ADD", input::Keys::KEY_KP_ADD},
-				{"KEY_KP_ENTER", input::Keys::KEY_KP_ENTER},
-				{"KEY_KP_EQUAL", input::Keys::KEY_KP_EQUAL},
-				{"KEY_LEFT_SHIFT", input::Keys::KEY_LEFT_SHIFT},
-				{"KEY_LEFT_CONTROL", input::Keys::KEY_LEFT_CONTROL},
-				{"KEY_LEFT_ALT", input::Keys::KEY_LEFT_ALT},
-				{"KEY_LEFT_SUPER", input::Keys::KEY_LEFT_SUPER},
-				{"KEY_RIGHT_SHIFT", input::Keys::KEY_RIGHT_SHIFT},
-				{"KEY_RIGHT_CONTROL", input::Keys::KEY_RIGHT_CONTROL},
-				{"KEY_RIGHT_ALT", input::Keys::KEY_RIGHT_ALT},
-				{"KEY_RIGHT_SUPER", input::Keys::KEY_RIGHT_SUPER},
-				{"KEY_MENU", input::Keys::KEY_MENU}
-			});
-			// clang-format on
-
-			lua.set_function("galaxy_int_to_key", &input::int_to_key);
-			lua.set_function("galaxy_key_to_int", &input::key_to_int);
-
-			auto mouse_type                    = lua.new_usertype<input::Mouse>("Mouse", sol::no_constructor);
-			mouse_type["disable_sticky_mouse"] = &input::Mouse::disable_sticky_mouse;
-			mouse_type["enable_sticky_mouse"]  = &input::Mouse::enable_sticky_mouse;
-			mouse_type["get_pos"]              = &input::Mouse::get_pos;
-
-			// clang-format off
-			lua.new_enum<input::MouseButtons>("MouseButtons",
-			{
-				{"UNKNOWN", input::MouseButtons::UNKNOWN},
-				{"BTN_1", input::MouseButtons::BTN_1},
-				{"BTN_2", input::MouseButtons::BTN_2},
-				{"BTN_3", input::MouseButtons::BTN_3},
-				{"BTN_4", input::MouseButtons::BTN_4},
-				{"BTN_5", input::MouseButtons::BTN_5},
-				{"BTN_6", input::MouseButtons::BTN_6},
-				{"BTN_7", input::MouseButtons::BTN_7},
-				{"BTN_8", input::MouseButtons::BTN_8},
-				{"BTN_LAST", input::MouseButtons::BTN_LAST},
-				{"BTN_LEFT", input::MouseButtons::BTN_LEFT},
-				{"BTN_RIGHT", input::MouseButtons::BTN_RIGHT},
-				{"BTN_MIDDLE", input::MouseButtons::BTN_MIDDLE}
-			});
-			// clang-format on
-
-			lua.set_function("galaxy_int_to_mouse", &input::int_to_mouse);
-			lua.set_function("galaxy_mouse_to_int", &input::mouse_to_int);
-			auto& lua = core::ServiceLocator<sol::state>::ref();
-
-			auto camera_controller      = lua.new_usertype<input::CameraController>("CameraController", sol::constructors<input::CameraController(graphics::Camera&)>());
-			camera_controller["camera"] = &input::CameraController::m_camera;
-
-			auto clipboard_type   = lua.new_usertype<input::Clipboard>("Clipboard", sol::no_constructor);
-			clipboard_type["set"] = &input::Clipboard::set;
-			clipboard_type["get"] = &input::Clipboard::get;
-
-			auto cursor_type                       = lua.new_usertype<input::Cursor>("Cursor", sol::no_constructor);
-			cursor_type["toggle"]                  = &input::Cursor::toggle;
-			cursor_type["load_custom"]             = &input::Cursor::load_custom;
-			cursor_type["load_custom_mem"]         = &input::Cursor::load_custom_mem;
-			cursor_type["use_custom"]              = &input::Cursor::use_custom;
-			cursor_type["use_pointer"]             = &input::Cursor::use_pointer;
-			cursor_type["use_hand"]                = &input::Cursor::use_hand;
-			cursor_type["use_cross"]               = &input::Cursor::use_cross;
-			cursor_type["use_text"]                = &input::Cursor::use_text;
-			cursor_type["use_custom_else_pointer"] = &input::Cursor::use_custom_else_pointer;
-			cursor_type["within_window"]           = &input::Cursor::within_window;
-			cursor_type["destroy"]                 = &input::Cursor::destroy;
-
-			lua.set_function("galaxy_input_key_down", &input::Input::key_down);
-			lua.set_function("galaxy_input_mouse_down", &input::Input::mouse_button_down);
-			lua.set_function("galaxy_input_cursor_pos", &input::Input::get_cursor_pos);
-
-			lua.set("galaxy_camera_forward", &input::CameraKeys::FORWARD);
-			lua.set("galaxy_camera_backward", &input::CameraKeys::BACKWARD);
-			lua.set("galaxy_camera_left", &input::CameraKeys::LEFT);
-			lua.set("galaxy_camera_right", &input::CameraKeys::RIGHT);
-			lua.set("galaxy_camera_rotate_left", &input::CameraKeys::ROTATE_LEFT);
-			lua.set("galaxy_camera_rotate_right", &input::CameraKeys::ROTATE_RIGHT);
-
-			// clang-format off
-			lua.new_enum<input::InputMods>("InputMods",
-			{
-				{"UNKNOWN", input::InputMods::UNKNOWN},
-				{"SHIFT", input::InputMods::SHIFT},
-				{"CONTROL", input::InputMods::CONTROL},
-				{"ALT", input::InputMods::ALT},
-				{"SUPER", input::InputMods::SUPER},
-				{"CAPS_LOCK", input::InputMods::CAPS_LOCK},
-				{"NUM_LOCK", input::InputMods::NUM_LOCK}
-			});
-			// clang-format on
-
-			lua.set_function("galaxy_int_to_mod", &input::int_to_mod);
-			lua.set_function("galaxy_mod_to_int", &input::mod_to_int);
-
-			auto keyboard_type                     = lua.new_usertype<input::Keyboard>("Keyboard", sol::no_constructor);
-			keyboard_type["begin_text_input"]      = &input::Keyboard::begin_text_input;
-			keyboard_type["end_text_input"]        = &input::Keyboard::end_text_input;
-			keyboard_type["enable_sticky_keys"]    = &input::Keyboard::enable_sticky_keys;
-			keyboard_type["disable_sticky_keys"]   = &input::Keyboard::disable_sticky_keys;
-			keyboard_type["is_text_input_enabled"] = &input::Keyboard::is_text_input_enabled;
-			keyboard_type["get_scancode"]          = &input::Keyboard::get_scancode;
-			keyboard_type["get_key_name"]          = &input::Keyboard::get_key_name;
-			keyboard_type["get_scancode_name"]     = &input::Keyboard::get_scancode_name;
-
-			// clang-format off
-			lua.new_enum<input::Keys>("Keys",
-			{
-				{"KEY_UNKNOWN", input::Keys::KEY_UNKNOWN},
-				{"KEY_SPACE", input::Keys::KEY_SPACE},
-				{"KEY_APOSTROPHE", input::Keys::KEY_APOSTROPHE},
-				{"KEY_COMMA", input::Keys::KEY_COMMA},
-				{"KEY_MINUS", input::Keys::KEY_MINUS},
-				{"KEY_PERIOD", input::Keys::KEY_PERIOD},
-				{"KEY_SLASH", input::Keys::KEY_SLASH},
-				{"KEY_0", input::Keys::KEY_0},
-				{"KEY_1", input::Keys::KEY_1},
-				{"KEY_2", input::Keys::KEY_2},
-				{"KEY_3", input::Keys::KEY_3},
-				{"KEY_4", input::Keys::KEY_4},
-				{"KEY_5", input::Keys::KEY_5},
-				{"KEY_6", input::Keys::KEY_6},
-				{"KEY_7", input::Keys::KEY_7},
-				{"KEY_8", input::Keys::KEY_8},
-				{"KEY_9", input::Keys::KEY_9},
-				{"KEY_SEMICOLON", input::Keys::KEY_SEMICOLON},
-				{"KEY_EQUAL", input::Keys::KEY_EQUAL},
-				{"KEY_A", input::Keys::KEY_A},
-				{"KEY_B", input::Keys::KEY_B},
-				{"KEY_C", input::Keys::KEY_C},
-				{"KEY_D", input::Keys::KEY_D},
-				{"KEY_E", input::Keys::KEY_E},
-				{"KEY_F", input::Keys::KEY_F},
-				{"KEY_G", input::Keys::KEY_G},
-				{"KEY_H", input::Keys::KEY_H},
-				{"KEY_I", input::Keys::KEY_I},
-				{"KEY_J", input::Keys::KEY_J},
-				{"KEY_K", input::Keys::KEY_K},
-				{"KEY_L", input::Keys::KEY_L},
-				{"KEY_M", input::Keys::KEY_M},
-				{"KEY_N", input::Keys::KEY_N},
-				{"KEY_O", input::Keys::KEY_O},
-				{"KEY_P", input::Keys::KEY_P},
-				{"KEY_Q", input::Keys::KEY_Q},
-				{"KEY_R", input::Keys::KEY_R},
-				{"KEY_S", input::Keys::KEY_S},
-				{"KEY_T", input::Keys::KEY_T},
-				{"KEY_U", input::Keys::KEY_U},
-				{"KEY_V", input::Keys::KEY_V},
-				{"KEY_W", input::Keys::KEY_W},
-				{"KEY_X", input::Keys::KEY_X},
-				{"KEY_Y", input::Keys::KEY_Y},
-				{"KEY_Z", input::Keys::KEY_Z},
-				{"KEY_LEFT_BRACKET", input::Keys::KEY_LEFT_BRACKET},
-				{"KEY_BACKSLASH", input::Keys::KEY_BACKSLASH},
-				{"KEY_RIGHT_BRACKET", input::Keys::KEY_RIGHT_BRACKET},
-				{"KEY_GRAVE_ACCENT", input::Keys::KEY_GRAVE_ACCENT},
-				{"KEY_WORLD_1", input::Keys::KEY_WORLD_1},
-				{"KEY_WORLD_2", input::Keys::KEY_WORLD_2},
-				{"KEY_ESCAPE", input::Keys::KEY_ESCAPE},
-				{"KEY_ENTER", input::Keys::KEY_ENTER},
-				{"KEY_TAB", input::Keys::KEY_TAB},
-				{"KEY_BACKSPACE", input::Keys::KEY_BACKSPACE},
-				{"KEY_INSERT", input::Keys::KEY_INSERT},
-				{"KEY_DELETE", input::Keys::KEY_DELETE},
-				{"KEY_RIGHT", input::Keys::KEY_RIGHT},
-				{"KEY_LEFT", input::Keys::KEY_LEFT},
-				{"KEY_DOWN", input::Keys::KEY_DOWN},
-				{"KEY_UP", input::Keys::KEY_UP},
-				{"KEY_PAGE_UP", input::Keys::KEY_PAGE_UP},
-				{"KEY_PAGE_DOWN", input::Keys::KEY_PAGE_DOWN},
-				{"KEY_HOME", input::Keys::KEY_HOME},
-				{"KEY_END", input::Keys::KEY_END},
-				{"KEY_CAPS_LOCK", input::Keys::KEY_CAPS_LOCK},
-				{"KEY_SCROLL_LOCK", input::Keys::KEY_SCROLL_LOCK},
-				{"KEY_NUM_LOCK", input::Keys::KEY_NUM_LOCK},
-				{"KEY_PRINT_SCREEN", input::Keys::KEY_PRINT_SCREEN},
-				{"KEY_PAUSE", input::Keys::KEY_PAUSE},
-				{"KEY_F1", input::Keys::KEY_F1},
-				{"KEY_F2", input::Keys::KEY_F2},
-				{"KEY_F3", input::Keys::KEY_F3},
-				{"KEY_F4", input::Keys::KEY_F4},
-				{"KEY_F5", input::Keys::KEY_F5},
-				{"KEY_F6", input::Keys::KEY_F6},
-				{"KEY_F7", input::Keys::KEY_F7},
-				{"KEY_F8", input::Keys::KEY_F8},
-				{"KEY_F9", input::Keys::KEY_F9},
-				{"KEY_F10", input::Keys::KEY_F10},
-				{"KEY_F11", input::Keys::KEY_F11},
-				{"KEY_F12", input::Keys::KEY_F12},
-				{"KEY_F13", input::Keys::KEY_F13},
-				{"KEY_F14", input::Keys::KEY_F14},
-				{"KEY_F15", input::Keys::KEY_F15},
-				{"KEY_F16", input::Keys::KEY_F16},
-				{"KEY_F17", input::Keys::KEY_F17},
-				{"KEY_F18", input::Keys::KEY_F18},
-				{"KEY_F19", input::Keys::KEY_F19},
-				{"KEY_F20", input::Keys::KEY_F20},
-				{"KEY_F21", input::Keys::KEY_F21},
-				{"KEY_F22", input::Keys::KEY_F22},
-				{"KEY_F23", input::Keys::KEY_F23},
-				{"KEY_F24", input::Keys::KEY_F24},
-				{"KEY_F25", input::Keys::KEY_F25},
-				{"KEY_KP_0", input::Keys::KEY_KP_0},
-				{"KEY_KP_1", input::Keys::KEY_KP_1},
-				{"KEY_KP_2", input::Keys::KEY_KP_2},
-				{"KEY_KP_3", input::Keys::KEY_KP_3},
-				{"KEY_KP_4", input::Keys::KEY_KP_4},
-				{"KEY_KP_5", input::Keys::KEY_KP_5},
-				{"KEY_KP_6", input::Keys::KEY_KP_6},
-				{"KEY_KP_7", input::Keys::KEY_KP_7},
-				{"KEY_KP_8", input::Keys::KEY_KP_8},
-				{"KEY_KP_9", input::Keys::KEY_KP_9},
-				{"KEY_KP_DECIMAL", input::Keys::KEY_KP_DECIMAL},
-				{"KEY_KP_DIVIDE", input::Keys::KEY_KP_DIVIDE},
-				{"KEY_KP_MULTIPLY", input::Keys::KEY_KP_MULTIPLY},
-				{"KEY_KP_SUBTRACT", input::Keys::KEY_KP_SUBTRACT},
-				{"KEY_KP_ADD", input::Keys::KEY_KP_ADD},
-				{"KEY_KP_ENTER", input::Keys::KEY_KP_ENTER},
-				{"KEY_KP_EQUAL", input::Keys::KEY_KP_EQUAL},
-				{"KEY_LEFT_SHIFT", input::Keys::KEY_LEFT_SHIFT},
-				{"KEY_LEFT_CONTROL", input::Keys::KEY_LEFT_CONTROL},
-				{"KEY_LEFT_ALT", input::Keys::KEY_LEFT_ALT},
-				{"KEY_LEFT_SUPER", input::Keys::KEY_LEFT_SUPER},
-				{"KEY_RIGHT_SHIFT", input::Keys::KEY_RIGHT_SHIFT},
-				{"KEY_RIGHT_CONTROL", input::Keys::KEY_RIGHT_CONTROL},
-				{"KEY_RIGHT_ALT", input::Keys::KEY_RIGHT_ALT},
-				{"KEY_RIGHT_SUPER", input::Keys::KEY_RIGHT_SUPER},
-				{"KEY_MENU", input::Keys::KEY_MENU}
-			});
-			// clang-format on
-
-			lua.set_function("galaxy_int_to_key", &input::int_to_key);
-			lua.set_function("galaxy_key_to_int", &input::key_to_int);
-
-			auto mouse_type                    = lua.new_usertype<input::Mouse>("Mouse", sol::no_constructor);
-			mouse_type["disable_sticky_mouse"] = &input::Mouse::disable_sticky_mouse;
-			mouse_type["enable_sticky_mouse"]  = &input::Mouse::enable_sticky_mouse;
-			mouse_type["get_pos"]              = &input::Mouse::get_pos;
-
-			// clang-format off
-			lua.new_enum<input::MouseButtons>("MouseButtons",
-			{
-				{"UNKNOWN", input::MouseButtons::UNKNOWN},
-				{"BTN_1", input::MouseButtons::BTN_1},
-				{"BTN_2", input::MouseButtons::BTN_2},
-				{"BTN_3", input::MouseButtons::BTN_3},
-				{"BTN_4", input::MouseButtons::BTN_4},
-				{"BTN_5", input::MouseButtons::BTN_5},
-				{"BTN_6", input::MouseButtons::BTN_6},
-				{"BTN_7", input::MouseButtons::BTN_7},
-				{"BTN_8", input::MouseButtons::BTN_8},
-				{"BTN_LAST", input::MouseButtons::BTN_LAST},
-				{"BTN_LEFT", input::MouseButtons::BTN_LEFT},
-				{"BTN_RIGHT", input::MouseButtons::BTN_RIGHT},
-				{"BTN_MIDDLE", input::MouseButtons::BTN_MIDDLE}
-			});
-			// clang-format on
-
-			lua.set_function("galaxy_int_to_mouse", &input::int_to_mouse);
-			lua.set_function("galaxy_mouse_to_int", &input::mouse_to_int);
-			*/
-		}
-	} // namespace lua
+		lua.new_enum<Keys>("Keys",
+		{
+			{"KEY_UNKNOWN", Keys::KEY_UNKNOWN},
+			{"KEY_RETURN", Keys::KEY_RETURN},
+			{"KEY_ESCAPE", Keys::KEY_ESCAPE},
+			{"KEY_BACKSPACE", Keys::KEY_BACKSPACE},
+			{"KEY_TAB", Keys::KEY_TAB},
+			{"KEY_SPACE", Keys::KEY_SPACE},
+			{"KEY_EXCLAIM", Keys::KEY_EXCLAIM},
+			{"KEY_DBLAPOSTROPHE", Keys::KEY_DBLAPOSTROPHE},
+			{"KEY_HASH", Keys::KEY_HASH},
+			{"KEY_DOLLAR", Keys::KEY_DOLLAR},
+			{"KEY_PERCENT", Keys::KEY_PERCENT},
+			{"KEY_AMPERSAND", Keys::KEY_AMPERSAND},
+			{"KEY_APOSTROPHE", Keys::KEY_APOSTROPHE},
+			{"KEY_LEFTPAREN", Keys::KEY_LEFTPAREN},
+			{"KEY_RIGHTPAREN", Keys::KEY_RIGHTPAREN},
+			{"KEY_ASTERISK", Keys::KEY_ASTERISK},
+			{"KEY_PLUS", Keys::KEY_PLUS},
+			{"KEY_COMMA", Keys::KEY_COMMA},
+			{"KEY_MINUS", Keys::KEY_MINUS},
+			{"KEY_PERIOD", Keys::KEY_PERIOD},
+			{"KEY_SLASH", Keys::KEY_SLASH},
+			{"KEY_0", Keys::KEY_0},
+			{"KEY_1", Keys::KEY_1},
+			{"KEY_2", Keys::KEY_2},
+			{"KEY_3", Keys::KEY_3},
+			{"KEY_4", Keys::KEY_4},
+			{"KEY_5", Keys::KEY_5},
+			{"KEY_6", Keys::KEY_6},
+			{"KEY_7", Keys::KEY_7},
+			{"KEY_8", Keys::KEY_8},
+			{"KEY_9", Keys::KEY_9},
+			{"KEY_COLON", Keys::KEY_COLON},
+			{"KEY_SEMICOLON", Keys::KEY_SEMICOLON},
+			{"KEY_LESS", Keys::KEY_LESS},
+			{"KEY_EQUALS", Keys::KEY_EQUALS},
+			{"KEY_GREATER", Keys::KEY_GREATER},
+			{"KEY_QUESTION", Keys::KEY_QUESTION},
+			{"KEY_AT", Keys::KEY_AT},
+			{"KEY_LEFTBRACKET", Keys::KEY_LEFTBRACKET},
+			{"KEY_BACKSLASH", Keys::KEY_BACKSLASH},
+			{"KEY_RIGHTBRACKET", Keys::KEY_RIGHTBRACKET},
+			{"KEY_CARET", Keys::KEY_CARET},
+			{"KEY_UNDERSCORE", Keys::KEY_UNDERSCORE},
+			{"KEY_GRAVE", Keys::KEY_GRAVE},
+			{"KEY_A", Keys::KEY_A},
+			{"KEY_B", Keys::KEY_B},
+			{"KEY_C", Keys::KEY_C},
+			{"KEY_D", Keys::KEY_D},
+			{"KEY_E", Keys::KEY_E},
+			{"KEY_F", Keys::KEY_F},
+			{"KEY_G", Keys::KEY_G},
+			{"KEY_H", Keys::KEY_H},
+			{"KEY_I", Keys::KEY_I},
+			{"KEY_J", Keys::KEY_J},
+			{"KEY_K", Keys::KEY_K},
+			{"KEY_L", Keys::KEY_L},
+			{"KEY_M", Keys::KEY_M},
+			{"KEY_N", Keys::KEY_N},
+			{"KEY_O", Keys::KEY_O},
+			{"KEY_P", Keys::KEY_P},
+			{"KEY_Q", Keys::KEY_Q},
+			{"KEY_R", Keys::KEY_R},
+			{"KEY_S", Keys::KEY_S},
+			{"KEY_T", Keys::KEY_T},
+			{"KEY_U", Keys::KEY_U},
+			{"KEY_V", Keys::KEY_V},
+			{"KEY_W", Keys::KEY_W},
+			{"KEY_X", Keys::KEY_X},
+			{"KEY_Y", Keys::KEY_Y},
+			{"KEY_Z", Keys::KEY_Z},
+			{"KEY_LEFTBRACE", Keys::KEY_LEFTBRACE},
+			{"KEY_PIPE", Keys::KEY_PIPE},
+			{"KEY_RIGHTBRACE", Keys::KEY_RIGHTBRACE},
+			{"KEY_TILDE", Keys::KEY_TILDE},
+			{"KEY_DELETE", Keys::KEY_DELETE},
+			{"KEY_PLUSMINUS", Keys::KEY_PLUSMINUS},
+			{"KEY_CAPSLOCK", Keys::KEY_CAPSLOCK},
+			{"KEY_F1", Keys::KEY_F1},
+			{"KEY_F2", Keys::KEY_F2},
+			{"KEY_F3", Keys::KEY_F3},
+			{"KEY_F4", Keys::KEY_F4},
+			{"KEY_F5", Keys::KEY_F5},
+			{"KEY_F6", Keys::KEY_F6},
+			{"KEY_F7", Keys::KEY_F7},
+			{"KEY_F8", Keys::KEY_F8},
+			{"KEY_F9", Keys::KEY_F9},
+			{"KEY_F10", Keys::KEY_F10},
+			{"KEY_F11", Keys::KEY_F11},
+			{"KEY_F12", Keys::KEY_F12},
+			{"KEY_PRINTSCREEN", Keys::KEY_PRINTSCREEN},
+			{"KEY_SCROLLLOCK", Keys::KEY_SCROLLLOCK},
+			{"KEY_PAUSE", Keys::KEY_PAUSE},
+			{"KEY_INSERT", Keys::KEY_INSERT},
+			{"KEY_HOME", Keys::KEY_HOME},
+			{"KEY_PAGEUP", Keys::KEY_PAGEUP},
+			{"KEY_END", Keys::KEY_END},
+			{"KEY_PAGEDOWN", Keys::KEY_PAGEDOWN},
+			{"KEY_RIGHT", Keys::KEY_RIGHT},
+			{"KEY_LEFT", Keys::KEY_LEFT},
+			{"KEY_DOWN", Keys::KEY_DOWN},
+			{"KEY_UP", Keys::KEY_UP},
+			{"KEY_NUMLOCKCLEAR", Keys::KEY_NUMLOCKCLEAR},
+			{"KEY_KP_DIVIDE", Keys::KEY_KP_DIVIDE},
+			{"KEY_KP_MULTIPLY", Keys::KEY_KP_MULTIPLY},
+			{"KEY_KP_MINUS", Keys::KEY_KP_MINUS},
+			{"KEY_KP_PLUS", Keys::KEY_KP_PLUS},
+			{"KEY_KP_ENTER", Keys::KEY_KP_ENTER},
+			{"KEY_KP_1", Keys::KEY_KP_1},
+			{"KEY_KP_2", Keys::KEY_KP_2},
+			{"KEY_KP_3", Keys::KEY_KP_3},
+			{"KEY_KP_4", Keys::KEY_KP_4},
+			{"KEY_KP_5", Keys::KEY_KP_5},
+			{"KEY_KP_6", Keys::KEY_KP_6},
+			{"KEY_KP_7", Keys::KEY_KP_7},
+			{"KEY_KP_8", Keys::KEY_KP_8},
+			{"KEY_KP_9", Keys::KEY_KP_9},
+			{"KEY_KP_0", Keys::KEY_KP_0},
+			{"KEY_KP_PERIOD", Keys::KEY_KP_PERIOD},
+			{"KEY_APPLICATION", Keys::KEY_APPLICATION},
+			{"KEY_POWER", Keys::KEY_POWER},
+			{"KEY_KP_EQUALS", Keys::KEY_KP_EQUALS},
+			{"KEY_F13", Keys::KEY_F13},
+			{"KEY_F14", Keys::KEY_F14},
+			{"KEY_F15", Keys::KEY_F15},
+			{"KEY_F16", Keys::KEY_F16},
+			{"KEY_F17", Keys::KEY_F17},
+			{"KEY_F18", Keys::KEY_F18},
+			{"KEY_F19", Keys::KEY_F19},
+			{"KEY_F20", Keys::KEY_F20},
+			{"KEY_F21", Keys::KEY_F21},
+			{"KEY_F22", Keys::KEY_F22},
+			{"KEY_F23", Keys::KEY_F23},
+			{"KEY_F24", Keys::KEY_F24},
+			{"KEY_EXECUTE", Keys::KEY_EXECUTE},
+			{"KEY_HELP", Keys::KEY_HELP},
+			{"KEY_MENU", Keys::KEY_MENU},
+			{"KEY_SELECT", Keys::KEY_SELECT},
+			{"KEY_STOP", Keys::KEY_STOP},
+			{"KEY_AGAIN", Keys::KEY_AGAIN},
+			{"KEY_UNDO", Keys::KEY_UNDO},
+			{"KEY_CUT", Keys::KEY_CUT},
+			{"KEY_COPY", Keys::KEY_COPY},
+			{"KEY_PASTE", Keys::KEY_PASTE},
+			{"KEY_FIND", Keys::KEY_FIND},
+			{"KEY_MUTE", Keys::KEY_MUTE},
+			{"KEY_VOLUMEUP", Keys::KEY_VOLUMEUP},
+			{"KEY_VOLUMEDOWN", Keys::KEY_VOLUMEDOWN},
+			{"KEY_KP_COMMA", Keys::KEY_KP_COMMA},
+			{"KEY_KP_EQUALSAS400", Keys::KEY_KP_EQUALSAS400},
+			{"KEY_ALTERASE", Keys::KEY_ALTERASE},
+			{"KEY_SYSREQ", Keys::KEY_SYSREQ},
+			{"KEY_CANCEL", Keys::KEY_CANCEL},
+			{"KEY_CLEAR", Keys::KEY_CLEAR},
+			{"KEY_PRIOR", Keys::KEY_PRIOR},
+			{"KEY_RETURN2", Keys::KEY_RETURN2},
+			{"KEY_SEPARATOR", Keys::KEY_SEPARATOR},
+			{"KEY_OUT", Keys::KEY_OUT},
+			{"KEY_OPER", Keys::KEY_OPER},
+			{"KEY_CLEARAGAIN", Keys::KEY_CLEARAGAIN},
+			{"KEY_CRSEL", Keys::KEY_CRSEL},
+			{"KEY_EXSEL", Keys::KEY_EXSEL},
+			{"KEY_KP_00", Keys::KEY_KP_00},
+			{"KEY_KP_000", Keys::KEY_KP_000},
+			{"KEY_THOUSANDSSEPARATOR", Keys::KEY_THOUSANDSSEPARATOR},
+			{"KEY_DECIMALSEPARATOR", Keys::KEY_DECIMALSEPARATOR},
+			{"KEY_CURRENCYUNIT", Keys::KEY_CURRENCYUNIT},
+			{"KEY_CURRENCYSUBUNIT", Keys::KEY_CURRENCYSUBUNIT},
+			{"KEY_KP_LEFTPAREN", Keys::KEY_KP_LEFTPAREN},
+			{"KEY_KP_RIGHTPAREN", Keys::KEY_KP_RIGHTPAREN},
+			{"KEY_KP_LEFTBRACE", Keys::KEY_KP_LEFTBRACE},
+			{"KEY_KP_RIGHTBRACE", Keys::KEY_KP_RIGHTBRACE},
+			{"KEY_KP_TAB", Keys::KEY_KP_TAB},
+			{"KEY_KP_BACKSPACE", Keys::KEY_KP_BACKSPACE},
+			{"KEY_KP_A", Keys::KEY_KP_A},
+			{"KEY_KP_B", Keys::KEY_KP_B},
+			{"KEY_KP_C", Keys::KEY_KP_C},
+			{"KEY_KP_D", Keys::KEY_KP_D},
+			{"KEY_KP_E", Keys::KEY_KP_E},
+			{"KEY_KP_F", Keys::KEY_KP_F},
+			{"KEY_KP_XOR", Keys::KEY_KP_XOR},
+			{"KEY_KP_POWER", Keys::KEY_KP_POWER},
+			{"KEY_KP_PERCENT", Keys::KEY_KP_PERCENT},
+			{"KEY_KP_LESS", Keys::KEY_KP_LESS},
+			{"KEY_KP_GREATER", Keys::KEY_KP_GREATER},
+			{"KEY_KP_AMPERSAND", Keys::KEY_KP_AMPERSAND},
+			{"KEY_KP_DBLAMPERSAND", Keys::KEY_KP_DBLAMPERSAND},
+			{"KEY_KP_VERTICALBAR", Keys::KEY_KP_VERTICALBAR},
+			{"KEY_KP_DBLVERTICALBAR", Keys::KEY_KP_DBLVERTICALBAR},
+			{"KEY_KP_COLON", Keys::KEY_KP_COLON},
+			{"KEY_KP_HASH", Keys::KEY_KP_HASH},
+			{"KEY_KP_SPACE", Keys::KEY_KP_SPACE},
+			{"KEY_KP_AT", Keys::KEY_KP_AT},
+			{"KEY_KP_EXCLAM", Keys::KEY_KP_EXCLAM},
+			{"KEY_KP_MEMSTORE", Keys::KEY_KP_MEMSTORE},
+			{"KEY_KP_MEMRECALL", Keys::KEY_KP_MEMRECALL},
+			{"KEY_KP_MEMCLEAR", Keys::KEY_KP_MEMCLEAR},
+			{"KEY_KP_MEMADD", Keys::KEY_KP_MEMADD},
+			{"KEY_KP_MEMSUBTRACT", Keys::KEY_KP_MEMSUBTRACT},
+			{"KEY_KP_MEMMULTIPLY", Keys::KEY_KP_MEMMULTIPLY},
+			{"KEY_KP_MEMDIVIDE", Keys::KEY_KP_MEMDIVIDE},
+			{"KEY_KP_PLUSMINUS", Keys::KEY_KP_PLUSMINUS},
+			{"KEY_KP_CLEAR", Keys::KEY_KP_CLEAR},
+			{"KEY_KP_CLEARENTRY", Keys::KEY_KP_CLEARENTRY},
+			{"KEY_KP_BINARY", Keys::KEY_KP_BINARY},
+			{"KEY_KP_OCTAL", Keys::KEY_KP_OCTAL},
+			{"KEY_KP_DECIMAL", Keys::KEY_KP_DECIMAL},
+			{"KEY_KP_HEXADECIMAL", Keys::KEY_KP_HEXADECIMAL},
+			{"KEY_LCTRL", Keys::KEY_LCTRL},
+			{"KEY_LSHIFT", Keys::KEY_LSHIFT},
+			{"KEY_LALT", Keys::KEY_LALT},
+			{"KEY_LGUI", Keys::KEY_LGUI},
+			{"KEY_RCTRL", Keys::KEY_RCTRL},
+			{"KEY_RSHIFT", Keys::KEY_RSHIFT},
+			{"KEY_RALT", Keys::KEY_RALT},
+			{"KEY_RGUI", Keys::KEY_RGUI},
+			{"KEY_MODE", Keys::KEY_MODE},
+			{"KEY_SLEEP", Keys::KEY_SLEEP},
+			{"KEY_WAKE", Keys::KEY_WAKE},
+			{"KEY_CHANNEL_INCREMENT", Keys::KEY_CHANNEL_INCREMENT},
+			{"KEY_CHANNEL_DECREMENT", Keys::KEY_CHANNEL_DECREMENT},
+			{"KEY_MEDIA_PLAY", Keys::KEY_MEDIA_PLAY},
+			{"KEY_MEDIA_PAUSE", Keys::KEY_MEDIA_PAUSE},
+			{"KEY_MEDIA_RECORD", Keys::KEY_MEDIA_RECORD},
+			{"KEY_MEDIA_FAST_FORWARD", Keys::KEY_MEDIA_FAST_FORWARD},
+			{"KEY_MEDIA_REWIND", Keys::KEY_MEDIA_REWIND},
+			{"KEY_MEDIA_NEXT_TRACK", Keys::KEY_MEDIA_NEXT_TRACK},
+			{"KEY_MEDIA_PREVIOUS_TRACK", Keys::KEY_MEDIA_PREVIOUS_TRACK},
+			{"KEY_MEDIA_STOP", Keys::KEY_MEDIA_STOP},
+			{"KEY_MEDIA_EJECT", Keys::KEY_MEDIA_EJECT},
+			{"KEY_MEDIA_PLAY_PAUSE", Keys::KEY_MEDIA_PLAY_PAUSE},
+			{"KEY_MEDIA_SELECT", Keys::KEY_MEDIA_SELECT},
+			{"KEY_AC_NEW", Keys::KEY_AC_NEW},
+			{"KEY_AC_OPEN", Keys::KEY_AC_OPEN},
+			{"KEY_AC_CLOSE", Keys::KEY_AC_CLOSE},
+			{"KEY_AC_EXIT", Keys::KEY_AC_EXIT},
+			{"KEY_AC_SAVE", Keys::KEY_AC_SAVE},
+			{"KEY_AC_PRINT", Keys::KEY_AC_PRINT},
+			{"KEY_AC_PROPERTIES", Keys::KEY_AC_PROPERTIES},
+			{"KEY_AC_SEARCH", Keys::KEY_AC_SEARCH},
+			{"KEY_AC_HOME", Keys::KEY_AC_HOME},
+			{"KEY_AC_BACK", Keys::KEY_AC_BACK},
+			{"KEY_AC_FORWARD", Keys::KEY_AC_FORWARD},
+			{"KEY_AC_STOP", Keys::KEY_AC_STOP},
+			{"KEY_AC_REFRESH", Keys::KEY_AC_REFRESH},
+			{"KEY_AC_BOOKMARKS", Keys::KEY_AC_BOOKMARKS},
+			{"KEY_SOFTLEFT", Keys::KEY_SOFTLEFT},
+			{"KEY_SOFTRIGHT", Keys::KEY_SOFTRIGHT},
+			{"KEY_CALL", Keys::KEY_CALL},
+			{"KEY_ENDCALL", Keys::KEY_ENDCALL},
+			{"KEY_LEFT_TAB", Keys::KEY_LEFT_TAB},
+			{"KEY_LEVEL5_SHIFT", Keys::KEY_LEVEL5_SHIFT},
+			{"KEY_MULTI_KEY_COMPOSE", Keys::KEY_MULTI_KEY_COMPOSE},
+			{"KEY_LMETA", Keys::KEY_LMETA},
+			{"KEY_RMETA", Keys::KEY_RMETA},
+			{"KEY_LHYPER", Keys::KEY_LHYPER},
+			{"KEY_RHYPER", Keys::KEY_RHYPER}
+		});
+		
+		lua.new_enum<KeyMods>("KeyMods",
+		{
+			{"MOD_NONE", KeyMods::MOD_NONE},
+			{"MOD_LSHIFT", KeyMods::MOD_LSHIFT},
+			{"MOD_RSHIFT", KeyMods::MOD_RSHIFT},
+			{"MOD_LEVEL5", KeyMods::MOD_LEVEL5},
+			{"MOD_LCTRL", KeyMods::MOD_LCTRL},
+			{"MOD_RCTRL", KeyMods::MOD_RCTRL},
+			{"MOD_LALT", KeyMods::MOD_LALT},
+			{"MOD_RALT", KeyMods::MOD_RALT},
+			{"MOD_LGUI", KeyMods::MOD_LGUI},
+			{"MOD_RGUI", KeyMods::MOD_RGUI},
+			{"MOD_NUM", KeyMods::MOD_NUM},
+			{"MOD_CAPS", KeyMods::MOD_CAPS},
+			{"MOD_MODE", KeyMods::MOD_MODE},
+			{"MOD_SCROLL", KeyMods::MOD_SCROLL},
+			{"MOD_CTRL", KeyMods::MOD_CTRL},
+			{"MOD_SHIFT", KeyMods::MOD_SHIFT},
+			{"MOD_ALT", KeyMods::MOD_ALT},
+			{"MOD_GUI", KeyMods::MOD_GUI}
+		});
+		// clang-format on
+	}
 } // namespace galaxy

@@ -33,6 +33,7 @@
     <ClCompile Include="src\galaxy\fs\FileError.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Input.cpp" />
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
     <ClCompile Include="src\galaxy\input\Keys.cpp" />
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="src\galaxy\fs\FileError.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Input.hpp" />
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
     <ClInclude Include="src\galaxy\input\Keys.hpp" />
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />

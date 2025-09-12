@@ -69,6 +69,7 @@
     <ClCompile Include="src\galaxy\events\KeyReleased.cpp" />
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
     <ClCompile Include="src\galaxy\events\KeyInput.cpp" />
+    <ClCompile Include="src\galaxy\input\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -129,5 +130,6 @@
     <ClInclude Include="src\galaxy\events\KeyReleased.hpp" />
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
     <ClInclude Include="src\galaxy\events\KeyInput.hpp" />
+    <ClInclude Include="src\galaxy\input\Input.hpp" />
   </ItemGroup>
 </Project>

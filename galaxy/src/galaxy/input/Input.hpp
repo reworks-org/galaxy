@@ -8,130 +8,52 @@
 #ifndef GALAXY_INPUT_INPUT_HPP_
 #define GALAXY_INPUT_INPUT_HPP_
 
-struct GLFWwindow;
-
 #include <glm/vec2.hpp>
 
 #include "galaxy/input/Keys.hpp"
-#include "galaxy/input/MouseButtons.hpp"
+#include "galaxy/input/MouseButton.hpp"
 
 namespace galaxy
 {
-	namespace core
-	{
-		class Window;
-	} // namespace core
-
 	namespace input
 	{
-		class Input final
-		{
-			friend class core::Window;
-
-		public:
-			///
-			/// \brief See if a key is being held down.
-			///
-			/// This will pick up repeated events.
-			///
-			/// \param key Key to check.
-			///
-			/// \return True if key is currently down.
-			///
-			[[nodiscard]]
-			static bool key_down(input::Keys key);
-
-			///
-			/// Check if a mouse button was pressed.
-			///
-			/// \param button mouse button keycode.
-			///
-			/// \return True if button was pressed.
-			///
-			[[nodiscard]]
-			static bool mouse_button_down(input::MouseButtons button);
-
-			///
-			/// Get current cursor position.
-			///
-			/// \return Returns position as a const vec2 reference.
-			///
-			[[nodiscard]]
-			static const glm::dvec2& get_cursor_pos();
-
-		private:
-			///
-			/// Constructor.
-			///
-			Input() = delete;
-
-			///
-			/// Move constructor.
-			///
-			Input(Input&&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Input& operator=(Input&&) = delete;
-
-			///
-			/// Copy constructor.
-			///
-			Input(const Input&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Input& operator=(const Input&) = delete;
-
-		private:
-			///
-			/// Static cursor pos cache.
-			///
-			static glm::dvec2 s_cursor_pos;
-
-			///
-			/// Pointer to glfw window.
-			///
-			static GLFWwindow* s_window;
-		};
+		///
+		/// See if a key mod is being held down.
+		///
+		/// \param modifier Keymod to check.
+		///
+		/// \return True if keymod is currently down.
+		///
+		[[nodiscard]]
+		bool is_key_mod_down(const KeyMods modifier) noexcept;
 
 		///
-		/// Struct holding camera key data.
+		/// See if a key is being held down.
 		///
-		struct CameraKeys
-		{
-			///
-			/// Key used to move camera FORWARD.
-			///
-			static inline input::Keys FORWARD;
+		/// \param key Key to check.
+		///
+		/// \return True if key is currently down.
+		///
+		[[nodiscard]]
+		bool is_key_down(const Keys key) noexcept;
 
-			///
-			/// Key to move camera BACKWARD.
-			///
-			static inline input::Keys BACKWARD;
+		///
+		/// Check if a mouse button was pressed.
+		///
+		/// \param btn Mouse button keycode.
+		///
+		/// \return True if button was pressed.
+		///
+		[[nodiscard]]
+		bool is_mouse_down(const MouseButton btn) noexcept;
 
-			///
-			/// Key to move camera LEFT.
-			///
-			static inline input::Keys LEFT;
-
-			///
-			/// Key to move camera RIGHT.
-			///
-			static inline input::Keys RIGHT;
-
-			///
-			/// Key to rotate camera LEFT.
-			///
-			static inline input::Keys ROTATE_LEFT;
-
-			///
-			/// Key to rotate camera RIGHT.
-			///
-			static inline input::Keys ROTATE_RIGHT;
-		};
+		///
+		/// Get current cursor position.
+		///
+		/// \return Returns position as a vec2.
+		///
+		[[nodiscard]]
+		glm::vec2 get_cursor_pos() noexcept;
 	} // namespace input
 } // namespace galaxy
 
