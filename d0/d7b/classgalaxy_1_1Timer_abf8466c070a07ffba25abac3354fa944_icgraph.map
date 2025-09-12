@@ -1,7 +1,7 @@
 <map id="galaxy::Timer::stopped" name="galaxy::Timer::stopped">
-<area shape="rect" id="Node000001" title="Is the timer finished?" alt="" coords="413,5,584,31"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4f10f303381c21297ccb42b79808c00f" title=" " alt="" coords="191,5,365,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,21,366,21,366,15,399,15"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,21,143,21,143,15,177,15"/>
+<area shape="rect" id="Node000001" title="Is the timer finished?" alt="" coords="419,5,589,31"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32" title="Register galaxy time support functions into Lua." alt="" coords="193,5,371,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="405,21,371,21,371,15,405,15"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,5,145,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="180,21,146,21,146,15,180,15"/>
 </map>

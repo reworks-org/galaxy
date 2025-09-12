@@ -1,0 +1,8 @@
+<map id="galaxy::scene::SceneManager::get" name="galaxy::scene::SceneManager::get">
+<area shape="rect" id="Node000001" title="Get a specific scene." alt="" coords="5,29,249,55"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814" title="Convert string to 64bit hash." alt="" coords="297,29,472,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,39,284,39,284,45,250,45"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="520,29,672,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="472,39,506,39,506,45,472,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="561,31,554,21,558,11,572,5,596,3,625,6,637,15,634,20,623,11,596,8,574,10,562,15,559,20,566,28"/>
+</map>

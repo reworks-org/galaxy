@@ -1,0 +1,13 @@
+<map id="galaxy::graphics::TextureArray::build" name="galaxy::graphics::TextureArray::build">
+<area shape="rect" id="Node000001" title="Creates the array texture." alt="" coords="5,133,189,173"/>
+<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a3aa4307076d4929453eb8ca27f260ee2" title="Get current anisotropy level." alt="" coords="237,5,421,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,131,173,93,236,55,251,48,253,53,239,60,176,98,125,135"/>
+<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aeb2485daf7ad649d9180d102ce5c6e92" title="Get texture filter." alt="" coords="237,69,421,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,131,243,110,244,116,171,136"/>
+<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a8223f419eb7a8cd8f1be25592544d954" title="Get texture height." alt="" coords="237,133,421,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,151,223,151,223,156,190,156"/>
+<area shape="rect" id="Node000005" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc" title="Get texture mode." alt="" coords="237,197,421,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="171,171,244,191,243,196,170,176"/>
+<area shape="rect" id="Node000006" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a5961fcc6224b3525f8639fcdbc8aceb3" title="Get texture width." alt="" coords="237,261,421,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="125,171,176,209,239,247,253,254,251,259,236,252,173,213,122,176"/>
+</map>

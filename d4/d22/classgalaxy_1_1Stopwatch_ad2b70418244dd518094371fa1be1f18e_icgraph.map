@@ -1,10 +1,10 @@
 <map id="galaxy::Stopwatch::get_time_passed" name="galaxy::Stopwatch::get_time_passed">
-<area shape="rect" id="Node000001" title="Time passed in milliseconds." alt="" coords="611,5,760,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4f10f303381c21297ccb42b79808c00f" title=" " alt="" coords="191,13,365,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="597,25,563,24,413,24,366,25,365,20,413,19,563,19,597,19"/>
-<area shape="rect" id="Node000004" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="413,33,563,73"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="598,40,563,45,563,40,597,35"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="399,44,365,40,366,34,400,39"/>
+<area shape="rect" id="Node000001" title="Time passed in milliseconds." alt="" coords="616,5,765,45"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32" title="Register galaxy time support functions into Lua." alt="" coords="193,13,371,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="602,25,568,24,419,24,371,25,371,20,419,19,568,19,602,19"/>
+<area shape="rect" id="Node000004" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="419,33,568,73"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="603,40,569,45,568,40,602,35"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="180,28,146,28,146,23,180,23"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="405,44,371,40,371,34,405,39"/>
 </map>

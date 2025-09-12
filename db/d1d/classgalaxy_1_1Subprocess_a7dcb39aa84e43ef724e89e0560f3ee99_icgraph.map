@@ -1,9 +1,9 @@
 <map id="galaxy::Subprocess::kill" name="galaxy::Subprocess::kill">
-<area shape="rect" id="Node000001" title="Terminates process." alt="" coords="385,37,532,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ac8b3c00560625a3841d7801f7c2d8fcb" title="Inject platform stuff into Lua." alt="" coords="195,5,333,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="371,46,332,39,333,34,372,40"/>
-<area shape="rect" id="Node000004" href="$db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a" title="Destructor." alt="" coords="191,69,337,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="372,74,338,80,337,75,372,69"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,28,143,28,143,23,182,23"/>
+<area shape="rect" id="Node000001" title="Terminates process." alt="" coords="388,37,535,77"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="197,5,337,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,46,337,40,338,34,375,40"/>
+<area shape="rect" id="Node000004" href="$db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a" title="Destructor." alt="" coords="193,69,340,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="375,74,341,80,340,75,374,69"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,28,146,28,146,23,182,23"/>
 </map>

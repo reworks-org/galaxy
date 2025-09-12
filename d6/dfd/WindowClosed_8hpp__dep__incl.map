@@ -1,5 +1,9 @@
 <map id="galaxy/src/galaxy/events/WindowClosed.hpp" name="galaxy/src/galaxy/events/WindowClosed.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="220,5,405,45"/>
 <area shape="rect" id="Node000002" href="$d5/d84/WindowClosed_8cpp.html" title=" " alt="" coords="5,93,191,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,59,101,93,95,93,95,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,53,146,96,144,91,252,48"/>
+<area shape="rect" id="Node000003" href="$d5/d5e/graphics_2Window_8cpp.html" title=" " alt="" coords="215,93,411,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="315,59,315,93,310,93,310,59"/>
+<area shape="rect" id="Node000004" href="$df/d33/LuaEvents_8cpp.html" title=" " alt="" coords="435,93,601,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="371,48,474,91,472,96,369,53"/>
 </map>

@@ -6,19 +6,20 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="624,43,334,96,333,91,623,38"/>
 <area shape="rect" id="Node000004" href="$dd/d0e/ContentScale_8hpp.html" title=" " alt="" coords="345,93,577,119"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="644,48,510,92,508,87,642,43"/>
-<area shape="rect" id="Node000005" href="$d5/dd0/KeyChar_8hpp.html" title=" " alt="" coords="601,93,800,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="601,93,800,119"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="703,46,703,79,698,79,698,46"/>
-<area shape="rect" id="Node000006" href="$d4/ddc/KeyPress_8hpp.html" title=" " alt="" coords="825,93,1030,119"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="825,93,1030,119"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="756,43,882,86,880,91,754,48"/>
-<area shape="rect" id="Node000009" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="1054,93,1294,119"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="778,37,1092,88,1091,94,777,42"/>
-<area shape="rect" id="Node000011" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="1319,93,1549,119"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="778,32,1314,89,1313,95,777,37"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="934,167,1137,192"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="946,116,1008,157,1005,161,943,121"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="743,167,909,192"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="913,121,855,161,852,156,910,116"/>
-<area shape="poly" id="edge9_Node000009_Node000007" title=" " alt="" coords="1153,121,1071,163,1069,158,1151,116"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="1161,167,1389,192"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1192,116,1249,156,1246,161,1189,121"/>
+<area shape="rect" id="Node000007" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="1310,93,1550,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="778,32,1311,89,1310,95,777,38"/>
+<area shape="rect" id="Node000011" href="$dd/dd7/MouseWheel_8hpp.html" title=" " alt="" coords="1055,93,1285,119"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="778,37,1089,88,1088,94,777,42"/>
+<area shape="rect" id="Node000008" href="$d2/de4/HandleableEvent_8hpp.html" title=" " alt="" coords="1089,167,1281,207"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1395,121,1258,165,1256,160,1394,116"/>
+<area shape="rect" id="Node000009" href="$d6/d34/MouseButton_8hpp.html" title=" " alt="" coords="1311,174,1533,199"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="1431,119,1427,160,1422,160,1426,119"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1349,255,1495,280"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1425,200,1425,241,1419,241,1419,200"/>
+<area shape="poly" id="edge11_Node000011_Node000008" title=" " alt="" coords="1175,118,1181,153,1176,154,1170,119"/>
+<area shape="poly" id="edge12_Node000011_Node000009" title=" " alt="" coords="1207,116,1373,167,1371,172,1206,121"/>
 </map>

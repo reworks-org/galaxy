@@ -1,10 +1,5 @@
 <map id="galaxy::scene::SceneManager::create" name="galaxy::scene::SceneManager::create">
-<area shape="rect" id="Node000001" title="Create scene in engine." alt="" coords="716,35,931,75"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="453,5,668,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="702,44,668,40,669,35,703,39"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,35,143,75"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="702,60,668,60,191,60,143,59,143,54,191,55,668,55,702,54"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="191,5,405,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,28,406,28,406,23,440,23"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="178,44,143,48,143,43,177,39"/>
+<area shape="rect" id="Node000001" title="Create scene in engine." alt="" coords="191,5,405,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
 </map>

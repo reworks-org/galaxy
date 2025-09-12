@@ -1,0 +1,3 @@
+<map id="galaxy::HandleableEvent" name="galaxy::HandleableEvent">
+<area shape="rect" id="Node000001" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="5,5,181,71"/>
+</map>

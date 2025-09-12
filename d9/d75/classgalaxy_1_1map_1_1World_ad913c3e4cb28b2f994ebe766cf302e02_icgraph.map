@@ -1,5 +1,9 @@
 <map id="galaxy::map::World::parse" name="galaxy::map::World::parse">
-<area shape="rect" id="Node000001" title="Parse world and create entities." alt="" coords="227,5,373,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,13,179,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
+<area shape="rect" id="Node000001" title="Parse world and create entities." alt="" coords="433,27,580,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="212,5,385,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="419,38,385,33,386,28,420,32"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="219,55,378,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="420,62,378,67,378,62,419,56"/>
+<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,55,164,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,78,164,78,164,73,206,73"/>
 </map>

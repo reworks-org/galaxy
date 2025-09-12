@@ -1,0 +1,9 @@
+<map id="galaxy/src/galaxy/input/Mouse.hpp" name="galaxy/src/galaxy/input/Mouse.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="127,5,301,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,116,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,48,96,89,94,85,176,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="141,93,287,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,46,217,79,211,79,211,46"/>
+<area shape="rect" id="Node000004" href="$d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="311,93,557,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="268,43,390,86,388,91,266,48"/>
+</map>

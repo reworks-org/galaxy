@@ -1,0 +1,13 @@
+<map id="galaxy::graphics::PostProcess::bind" name="galaxy::graphics::PostProcess::bind">
+<area shape="rect" id="Node000001" title="Bind to draw to post processor framebuffer." alt="" coords="5,37,220,77"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad" title="Activate context." alt="" coords="268,37,451,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,55,254,55,254,60,220,60"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee" title="Bind framebuffer for rendering to." alt="" coords="499,5,713,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,43,485,38,485,44,451,48"/>
+<area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#ac483154c72921badaa1e38da077f9db5" title="Clear framebuffer attachments." alt="" coords="515,69,697,109"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="451,67,502,73,501,78,450,72"/>
+<area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#ad64d7e58142b73120baf687d1dddba7c" title="Clear framebuffer attachments." alt="" coords="761,37,976,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="714,36,748,40,747,45,713,41"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="820,38,817,28,825,18,842,13,869,11,899,14,915,21,913,26,898,19,869,16,843,18,828,23,822,29,825,36"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="697,76,747,69,748,75,698,81"/>
+</map>

@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="Parse LDTK tile layer / auto layer." alt="" coords="449,5,632,45"/>
 <area shape="rect" id="Node000002" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="227,13,401,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="435,28,401,28,401,23,435,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,13,179,38"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="5,13,179,38"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
 </map>

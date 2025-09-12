@@ -117,9 +117,9 @@ $(function(){initNavTree('da/d9e/structgalaxy_1_1MouseWheel.html','../../'); ini
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dbe/structgalaxy_1_1MouseWheel__inherit__graph.png" border="0" usemap="#agalaxy_1_1MouseWheel_inherit__map" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1MouseWheel_inherit__map" id="agalaxy_1_1MouseWheel_inherit__map">
-<area shape="rect" title="Contains mouse wheel movement data." alt="" coords="5,119,155,204"/>
-<area shape="rect" title=" " alt="" coords="17,5,143,71"/>
-<area shape="poly" title=" " alt="" coords="83,85,83,119,77,119,77,85"/>
+<area shape="rect" title="Contains mouse wheel movement data." alt="" coords="19,119,168,304"/>
+<area shape="rect" href="../../d6/d1e/structgalaxy_1_1HandleableEvent.html" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="5,5,181,71"/>
+<area shape="poly" title=" " alt="" coords="96,85,96,119,91,119,91,85"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -129,59 +129,168 @@ $(function(){initNavTree('da/d9e/structgalaxy_1_1MouseWheel.html','../../'); ini
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/df4/structgalaxy_1_1MouseWheel__coll__graph.png" border="0" usemap="#agalaxy_1_1MouseWheel_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1MouseWheel_coll__map" id="agalaxy_1_1MouseWheel_coll__map">
-<area shape="rect" title="Contains mouse wheel movement data." alt="" coords="5,119,155,204"/>
-<area shape="rect" title=" " alt="" coords="17,5,143,71"/>
-<area shape="poly" title=" " alt="" coords="83,85,83,119,77,119,77,85"/>
+<area shape="rect" title="Contains mouse wheel movement data." alt="" coords="19,119,168,304"/>
+<area shape="rect" href="../../d6/d1e/structgalaxy_1_1HandleableEvent.html" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="5,5,181,71"/>
+<area shape="poly" title=" " alt="" coords="96,85,96,119,91,119,91,85"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a289c60b17b20384b66252fbe7204ae5f" id="r_a289c60b17b20384b66252fbe7204ae5f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a289c60b17b20384b66252fbe7204ae5f">m_xoff</a> = 0.0</td></tr>
-<tr class="memdesc:a289c60b17b20384b66252fbe7204ae5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1 or 1.  <br /></td></tr>
-<tr class="separator:a289c60b17b20384b66252fbe7204ae5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6cc780d124f98d5350625179f68e41c" id="r_ac6cc780d124f98d5350625179f68e41c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6cc780d124f98d5350625179f68e41c">m_yoff</a> = 0.0</td></tr>
-<tr class="memdesc:ac6cc780d124f98d5350625179f68e41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1 or 1.  <br /></td></tr>
-<tr class="separator:ac6cc780d124f98d5350625179f68e41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac750043ab8f0430a086b6ee77303bb67" id="r_ac750043ab8f0430a086b6ee77303bb67"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac750043ab8f0430a086b6ee77303bb67">m_amount_x</a> = 0.0f</td></tr>
+<tr class="memdesc:ac750043ab8f0430a086b6ee77303bb67"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount scrolled horizontally, positive to the right and negative to the left.  <br /></td></tr>
+<tr class="separator:ac750043ab8f0430a086b6ee77303bb67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15455392efcbd713db28e46efa951b18" id="r_a15455392efcbd713db28e46efa951b18"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15455392efcbd713db28e46efa951b18">m_amount_y</a> = 0.0f</td></tr>
+<tr class="memdesc:a15455392efcbd713db28e46efa951b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount scrolled vertically, positive away from the user and negative toward the user.  <br /></td></tr>
+<tr class="separator:a15455392efcbd713db28e46efa951b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adacc7274243bae6236f9ecd613be15a5" id="r_adacc7274243bae6236f9ecd613be15a5"><td class="memItemLeft" align="right" valign="top">SDL_MouseWheelDirection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adacc7274243bae6236f9ecd613be15a5">m_direction</a> = SDL_MOUSEWHEEL_NORMAL</td></tr>
+<tr class="memdesc:adacc7274243bae6236f9ecd613be15a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">When FLIPPED the values in X and Y will be opposite. Multiply by -1 to change them back.  <br /></td></tr>
+<tr class="separator:adacc7274243bae6236f9ecd613be15a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2fc334b42ea4ed1a30172b351e91ed" id="r_aac2fc334b42ea4ed1a30172b351e91ed"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac2fc334b42ea4ed1a30172b351e91ed">m_mouse_x</a> = 0.0f</td></tr>
+<tr class="memdesc:aac2fc334b42ea4ed1a30172b351e91ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">X coordinate, relative to window.  <br /></td></tr>
+<tr class="separator:aac2fc334b42ea4ed1a30172b351e91ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6eac7e84337aecebf5579fa07ab5a3" id="r_a8d6eac7e84337aecebf5579fa07ab5a3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d6eac7e84337aecebf5579fa07ab5a3">m_mouse_y</a> = 0.0f</td></tr>
+<tr class="memdesc:a8d6eac7e84337aecebf5579fa07ab5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y coordinate, relative to window.  <br /></td></tr>
+<tr class="separator:a8d6eac7e84337aecebf5579fa07ab5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b02ade56f9b880f7892917c424772d0" id="r_a5b02ade56f9b880f7892917c424772d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b02ade56f9b880f7892917c424772d0">m_total_x</a> = 0</td></tr>
+<tr class="memdesc:a5b02ade56f9b880f7892917c424772d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount scrolled horizontally, accumulated to whole scroll "ticks".  <br /></td></tr>
+<tr class="separator:a5b02ade56f9b880f7892917c424772d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a333520cd8cb80db0d4238392641bb794" id="r_a333520cd8cb80db0d4238392641bb794"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a333520cd8cb80db0d4238392641bb794">m_total_y</a> = 0</td></tr>
+<tr class="memdesc:a333520cd8cb80db0d4238392641bb794"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount scrolled vertically, accumulated to whole scroll "ticks".  <br /></td></tr>
+<tr class="separator:a333520cd8cb80db0d4238392641bb794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_structgalaxy_1_1HandleableEvent"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_structgalaxy_1_1HandleableEvent')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../d6/d1e/structgalaxy_1_1HandleableEvent.html">galaxy::HandleableEvent</a></td></tr>
+<tr class="memitem:a1f7eab6dfe1d008564ea73ddff179a49 inherit pub_attribs_structgalaxy_1_1HandleableEvent" id="r_a1f7eab6dfe1d008564ea73ddff179a49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d1e/structgalaxy_1_1HandleableEvent.html#a1f7eab6dfe1d008564ea73ddff179a49">m_handled</a> = false</td></tr>
+<tr class="memdesc:a1f7eab6dfe1d008564ea73ddff179a49 inherit pub_attribs_structgalaxy_1_1HandleableEvent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has this event been handled/consumed/processed already.  <br /></td></tr>
+<tr class="separator:a1f7eab6dfe1d008564ea73ddff179a49 inherit pub_attribs_structgalaxy_1_1HandleableEvent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains mouse wheel movement data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a289c60b17b20384b66252fbe7204ae5f" name="a289c60b17b20384b66252fbe7204ae5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a289c60b17b20384b66252fbe7204ae5f">&#9670;&#160;</a></span>m_xoff</h2>
+<a id="ac750043ab8f0430a086b6ee77303bb67" name="ac750043ab8f0430a086b6ee77303bb67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac750043ab8f0430a086b6ee77303bb67">&#9670;&#160;</a></span>m_amount_x</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double galaxy::MouseWheel::m_xoff = 0.0</td>
+          <td class="memname">float galaxy::MouseWheel::m_amount_x = 0.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>-1 or 1. </p>
+<p>The amount scrolled horizontally, positive to the right and negative to the left. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac6cc780d124f98d5350625179f68e41c" name="ac6cc780d124f98d5350625179f68e41c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6cc780d124f98d5350625179f68e41c">&#9670;&#160;</a></span>m_yoff</h2>
+<a id="a15455392efcbd713db28e46efa951b18" name="a15455392efcbd713db28e46efa951b18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15455392efcbd713db28e46efa951b18">&#9670;&#160;</a></span>m_amount_y</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double galaxy::MouseWheel::m_yoff = 0.0</td>
+          <td class="memname">float galaxy::MouseWheel::m_amount_y = 0.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>-1 or 1. </p>
+<p>The amount scrolled vertically, positive away from the user and negative toward the user. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+
+</div>
+</div>
+<a id="adacc7274243bae6236f9ecd613be15a5" name="adacc7274243bae6236f9ecd613be15a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adacc7274243bae6236f9ecd613be15a5">&#9670;&#160;</a></span>m_direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_MouseWheelDirection galaxy::MouseWheel::m_direction = SDL_MOUSEWHEEL_NORMAL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>When FLIPPED the values in X and Y will be opposite. Multiply by -1 to change them back. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00035">35</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aac2fc334b42ea4ed1a30172b351e91ed" name="aac2fc334b42ea4ed1a30172b351e91ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac2fc334b42ea4ed1a30172b351e91ed">&#9670;&#160;</a></span>m_mouse_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float galaxy::MouseWheel::m_mouse_x = 0.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>X coordinate, relative to window. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00040">40</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8d6eac7e84337aecebf5579fa07ab5a3" name="a8d6eac7e84337aecebf5579fa07ab5a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6eac7e84337aecebf5579fa07ab5a3">&#9670;&#160;</a></span>m_mouse_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float galaxy::MouseWheel::m_mouse_y = 0.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Y coordinate, relative to window. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5b02ade56f9b880f7892917c424772d0" name="a5b02ade56f9b880f7892917c424772d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b02ade56f9b880f7892917c424772d0">&#9670;&#160;</a></span>m_total_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::MouseWheel::m_total_x = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The amount scrolled horizontally, accumulated to whole scroll "ticks". </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00050">50</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a333520cd8cb80db0d4238392641bb794" name="a333520cd8cb80db0d4238392641bb794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a333520cd8cb80db0d4238392641bb794">&#9670;&#160;</a></span>m_total_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::MouseWheel::m_total_y = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The amount scrolled vertically, accumulated to whole scroll "ticks". </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html#l00055">55</a> of file <a class="el" href="../../dd/dd7/MouseWheel_8hpp_source.html">MouseWheel.hpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +303,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../da/d9e/structgalaxy_1_1MouseWheel.html">MouseWheel</a></li>
-    <li class="footer">Generated on Sat Sep 6 2025 13:10:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Sep 12 2025 04:28:53 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

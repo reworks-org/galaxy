@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Ellipse::create" name="galaxy::graphics::Ellipse::create">
+<area shape="rect" id="Node000001" title="Create the ellipse." alt="" coords="408,37,587,77"/>
+<area shape="rect" id="Node000002" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630" title="Deserializes from object." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,45,360,39,361,34,395,39"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="215,69,352,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="394,75,353,82,352,76,394,70"/>
+<area shape="rect" id="Node000003" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a4b4a8a8c30470f6e94c2cf31d590c64b" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+</map>

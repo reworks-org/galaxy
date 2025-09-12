@@ -1,0 +1,13 @@
+<map id="galaxy::resource::TextureAtlas" name="galaxy::resource::TextureAtlas">
+<area shape="rect" id="Node000001" title="Parses raw texture files and stiches them into a large altas." alt="" coords="93,916,270,1356"/>
+<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="5,433,176,853"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,853,140,899,135,900,127,854"/>
+<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="5,8,176,368"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,368,93,417,88,417,88,368"/>
+<area shape="rect" id="Node000004" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="201,523,346,763"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="254,764,228,900,223,899,248,763"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="209,155,319,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,234,274,523,268,523,262,235"/>
+<area shape="rect" id="Node000006" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="343,5,537,371"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="376,372,325,509,320,507,371,370"/>
+</map>

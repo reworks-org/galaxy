@@ -1,0 +1,7 @@
+<map id="galaxy::input::is_key_mod_down" name="galaxy::input::is_key_mod_down">
+<area shape="rect" id="Node000001" title="See if a key mod is being held down." alt="" coords="381,5,536,45"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="193,5,333,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="368,28,333,28,333,23,368,23"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,28,146,28,146,23,179,23"/>
+</map>

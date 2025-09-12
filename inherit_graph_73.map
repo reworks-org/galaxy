@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$d3/d81/classgalaxy_1_1WindowBindable.html" title="Binds the mouse to the window." alt="" coords="5,31,188,56"/>
+<area shape="rect" id="Node000001" href="$d8/db2/classgalaxy_1_1Keyboard.html" title="Physical keyboard device and state management." alt="" coords="236,5,371,31"/>
+<area shape="poly" id="edge49_Node000000_Node000001" title=" " alt="" coords="201,28,235,24,236,29,202,33"/>
+<area shape="rect" id="Node000002" href="$d4/d5d/classgalaxy_1_1Mouse.html" title="Physical mouse device and state management." alt="" coords="245,55,361,80"/>
+<area shape="poly" id="edge50_Node000000_Node000002" title=" " alt="" coords="202,53,246,58,245,63,201,58"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="galaxy::graphics::Renderer::begin_default" name="galaxy::graphics::Renderer::begin_default">
+<area shape="rect" id="Node000001" title="Start rendering to default framebuffer." alt="" coords="660,37,855,77"/>
+<area shape="rect" id="Node000002" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="456,5,609,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="646,44,609,39,610,34,647,39"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="453,69,612,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="647,76,613,81,612,75,646,70"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,69,143,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="440,89,405,88,191,88,143,89,143,84,191,83,405,83,440,83"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="191,97,405,137"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="440,103,406,107,405,102,439,98"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="177,105,143,101,143,95,178,100"/>
+</map>

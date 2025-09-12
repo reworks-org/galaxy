@@ -1,16 +1,11 @@
 <map id="galaxy::scene::SceneManager::pop" name="galaxy::scene::SceneManager::pop">
-<area shape="rect" id="Node000001" title="Remove scene on top of stack." alt="" coords="1007,11,1253,36"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,29,143,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="993,23,959,22,742,16,574,9,406,11,191,27,143,35,142,30,190,22,406,5,574,4,742,11,959,17,993,17"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="744,31,959,71"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="993,40,959,43,959,38,993,34"/>
-<area shape="poly" id="edge6_Node000003_Node000002" title=" " alt="" coords="730,48,696,47,443,44,191,47,143,49,143,43,191,42,443,39,696,42,730,43"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="481,57,696,97"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="731,66,696,69,696,64,730,60"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="191,121,433,147"/>
-<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="795,79,748,97,697,111,630,123,561,131,434,138,433,132,561,126,629,118,695,106,746,92,793,74"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="205,57,419,97"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="468,79,420,79,420,74,468,74"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="191,65,142,59,143,54,191,60"/>
-<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="221,121,190,111,146,92,107,71,109,66,148,87,192,106,223,116"/>
+<area shape="rect" id="Node000001" title="Remove scene on top of stack." alt="" coords="744,5,991,31"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,19,143,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,17,696,17,443,13,333,16,191,26,143,31,143,26,190,21,332,11,443,8,696,11,730,12"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="481,26,696,66"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="731,34,696,38,696,33,730,29"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="468,47,143,43,143,38,468,42"/>
+<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="191,77,433,103"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="468,68,393,80,392,75,467,63"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="238,77,142,57,144,51,239,72"/>
 </map>

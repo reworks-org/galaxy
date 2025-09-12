@@ -1,0 +1,15 @@
+<map id="galaxy::graphics::PostProcess" name="galaxy::graphics::PostProcess">
+<area shape="rect" id="Node000001" title="Manages post processing effects to apply to combined scene." alt="" coords="173,1360,380,1665"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="40,857,215,1297"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,1297,222,1343,216,1345,200,1298"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="5,389,249,795"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,795,130,841,125,841,125,795"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="52,261,203,327"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,327,130,373,125,373,125,327"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="70,133,185,199"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="130,213,130,261,125,261,125,213"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="116,5,139,71"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="130,71,130,117,125,117,125,71"/>
+<area shape="rect" id="Node000007" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="239,885,416,1270"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="308,1271,299,1344,294,1343,302,1270"/>
+</map>

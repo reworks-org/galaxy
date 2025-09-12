@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Animation::set_frames" name="galaxy::graphics::Animation::set_frames">
+<area shape="rect" id="Node000001" title="Loads frames from json object." alt="" coords="441,5,644,45"/>
+<area shape="rect" id="Node000002" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#a52134ecb66e64746e257ce4c9358dc6c" title="Load a json file from VFS and set frames from that." alt="" coords="191,5,393,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="428,28,393,28,393,23,428,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="galaxy::HandleableEvent" name="galaxy::HandleableEvent">
+<area shape="rect" id="Node000001" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="479,5,655,71"/>
+<area shape="rect" id="Node000002" href="$d6/d71/structgalaxy_1_1KeyInput.html" title="Unicode text data from a textinput event." alt="" coords="5,179,128,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="465,53,282,80,199,99,141,121,110,148,86,180,82,177,106,144,139,116,197,94,281,75,464,47"/>
+<area shape="rect" id="Node000003" href="$d0/d11/structgalaxy_1_1KeyPressed.html" title="Contains data on key that was pressed." alt="" coords="153,139,293,284"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="466,59,385,83,345,100,307,121,282,141,278,136,304,116,342,95,383,78,464,54"/>
+<area shape="rect" id="Node000004" href="$d5/d60/structgalaxy_1_1KeyReleased.html" title="Contains data on key that was released." alt="" coords="317,139,467,284"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="522,82,481,121,461,140,457,136,477,117,519,78"/>
+<area shape="rect" id="Node000005" href="$d5/d1a/structgalaxy_1_1MouseMoved.html" title="Contains data relating to a mouse moved event." alt="" coords="491,149,643,274"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="569,85,569,148,564,148,564,85"/>
+<area shape="rect" id="Node000006" href="$de/d27/structgalaxy_1_1MousePressed.html" title="Contains data relating to a mouse pressed event." alt="" coords="667,149,826,274"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="615,78,656,117,688,147,684,151,653,121,611,82"/>
+<area shape="rect" id="Node000007" href="$d1/d0d/structgalaxy_1_1MouseReleased.html" title="Contains data relating to a mouse released event." alt="" coords="851,149,1019,274"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="669,54,755,78,798,96,840,116,880,146,877,151,837,121,796,100,753,84,667,59"/>
+<area shape="rect" id="Node000008" href="$da/d9e/structgalaxy_1_1MouseWheel.html" title="Contains mouse wheel movement data." alt="" coords="1043,119,1192,304"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="669,47,871,74,965,93,1003,104,1032,116,1044,124,1041,128,1029,121,1001,109,964,98,870,79,668,52"/>
+</map>

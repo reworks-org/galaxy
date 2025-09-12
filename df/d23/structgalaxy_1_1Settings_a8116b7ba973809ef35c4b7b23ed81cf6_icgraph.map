@@ -1,9 +1,7 @@
 <map id="galaxy::Settings::maximized" name="galaxy::Settings::maximized">
-<area shape="rect" id="Node000001" title="Is window started maximized?" alt="" coords="423,31,629,56"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="197,5,369,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="409,34,368,30,369,24,409,29"/>
-<area shape="rect" id="Node000004" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="191,55,375,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="409,58,375,61,375,56,409,52"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,21,143,21,143,15,183,15"/>
+<area shape="rect" id="Node000001" title="Is window started maximized?" alt="" coords="237,31,444,56"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="11,5,183,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,34,183,30,184,24,224,29"/>
+<area shape="rect" id="Node000003" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="5,55,189,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,58,190,61,189,56,224,52"/>
 </map>

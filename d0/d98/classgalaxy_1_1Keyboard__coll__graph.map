@@ -1,0 +1,5 @@
+<map id="galaxy::Keyboard" name="galaxy::Keyboard">
+<area shape="rect" id="Node000001" title="Physical keyboard device and state management." alt="" coords="5,239,217,524"/>
+<area shape="rect" id="Node000002" href="$d3/d81/classgalaxy_1_1WindowBindable.html" title="Binds the mouse to the window." alt="" coords="24,5,199,191"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,204,114,238,109,238,109,204"/>
+</map>

@@ -1,13 +1,15 @@
 <map id="galaxy/src/galaxy/lua/injects/LuaLogging.cpp" name="galaxy/src/galaxy/lua/injects/LuaLogging.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="619,5,794,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="731,5,906,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="391,93,483,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="643,48,490,92,489,87,641,43"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="732,47,498,95,497,90,731,42"/>
 <area shape="rect" id="Node000003" href="$d0/d82/Log_8hpp.html" title=" " alt="" coords="508,93,681,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="681,48,624,87,621,83,678,43"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="766,48,641,91,639,86,764,43"/>
 <area shape="rect" id="Node000017" href="$d0/d44/PhysFSError_8hpp.html" title=" " alt="" coords="705,93,932,119"/>
-<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="735,43,792,83,789,87,732,48"/>
+<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="821,46,821,79,816,79,816,46"/>
 <area shape="rect" id="Node000018" href="$d5/dd1/OpenGLError_8hpp.html" title=" " alt="" coords="1109,167,1339,192"/>
-<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="776,43,945,91,1175,160,1173,165,943,96,774,48"/>
+<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="855,43,996,116,1076,142,1152,161,1151,166,1074,147,994,121,853,48"/>
+<area shape="rect" id="Node000019" href="$de/d92/Lua_8hpp.html" title=" " alt="" coords="1007,93,1092,119"/>
+<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="875,43,1003,86,1002,91,873,48"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,167,96,192"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="508,120,110,169,110,164,508,115"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="121,167,245,192"/>

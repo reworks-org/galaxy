@@ -1,6 +1,9 @@
 var concepts =
 [
     [ "galaxy", "d0/d46/namespacegalaxy.html", [
+      [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
+        [ "is_posteffect", "d7/de6/conceptgalaxy_1_1graphics_1_1is__posteffect.html", null ]
+      ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "valid_fnv_bits", "d8/de1/conceptgalaxy_1_1math_1_1valid__fnv__bits.html", null ]
       ] ],

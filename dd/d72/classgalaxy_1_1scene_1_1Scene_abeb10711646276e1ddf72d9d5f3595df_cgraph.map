@@ -1,0 +1,7 @@
+<map id="galaxy::scene::Scene::Scene" name="galaxy::scene::Scene::Scene">
+<area shape="rect" id="Node000001" title="Name constructor." alt="" coords="5,5,164,45"/>
+<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="212,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
+<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a2c66f5713108072f417c1b3b2400c60d" title="Set camera projection." alt="" coords="447,5,633,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="399,23,433,23,433,28,399,28"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Transform::get_origin" name="galaxy::graphics::Transform::get_origin">
+<area shape="rect" id="Node000001" title="Get origin point." alt="" coords="212,37,413,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="16,5,153,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,44,154,38,154,32,199,39"/>
+<area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#af99221c730584c670ba61f6fa7cf593e" title="Serializes object." alt="" coords="5,69,164,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,76,165,81,164,76,198,71"/>
+</map>

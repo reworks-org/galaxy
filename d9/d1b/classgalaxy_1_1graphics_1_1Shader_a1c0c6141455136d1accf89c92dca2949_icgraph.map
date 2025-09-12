@@ -1,0 +1,39 @@
+<map id="galaxy::graphics::Shader::set_uniform" name="galaxy::graphics::Shader::set_uniform">
+<area shape="rect" id="Node000001" title="Specialized variadic template for setting shader uniforms." alt="" coords="515,517,696,557"/>
+<area shape="rect" id="Node000002" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="223,5,456,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="602,503,599,414,593,357,581,295,564,231,540,168,507,110,465,59,449,48,453,43,469,55,512,107,545,166,569,229,587,293,598,356,604,414,608,503"/>
+<area shape="rect" id="Node000003" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#adad32168338ab8785bf9104d1f4e3860" title="Internal function to generate video frame texture." alt="" coords="260,69,419,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="601,504,594,426,573,323,556,268,533,215,502,166,465,123,443,108,418,99,420,94,446,104,468,119,507,163,537,213,561,267,578,321,599,425,606,503"/>
+<area shape="rect" id="Node000005" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="252,133,427,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="598,504,587,437,564,351,547,306,525,263,498,222,465,187,447,175,426,166,428,161,449,170,468,183,502,219,530,260,552,304,570,349,593,436,604,503"/>
+<area shape="rect" id="Node000006" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="212,197,467,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="595,504,581,449,555,380,518,310,493,279,465,251,447,240,450,235,468,247,497,275,522,307,560,378,586,447,600,503"/>
+<area shape="rect" id="Node000007" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="241,261,437,301"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="591,506,573,462,546,410,510,359,489,336,465,316,436,300,439,295,468,311,492,332,514,355,550,408,577,460,596,504"/>
+<area shape="rect" id="Node000008" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="252,325,427,365"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="583,507,535,442,502,408,465,380,426,362,428,357,468,375,506,404,539,438,588,504"/>
+<area shape="rect" id="Node000009" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="241,389,437,429"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="569,511,521,476,466,444,434,432,436,427,468,439,524,471,572,506"/>
+<area shape="rect" id="Node000010" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9d9cd0292a128bb4c6833b75f1448124" title="Set intensity of film grain effect." alt="" coords="252,453,427,493"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="508,517,422,496,424,491,509,511"/>
+<area shape="rect" id="Node000011" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a267e818bc73fe7b822793a16f1c65dea" title="Set sharpening amount." alt="" coords="245,517,434,557"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="501,540,434,540,434,535,501,535"/>
+<area shape="rect" id="Node000012" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#af7d50585c8247d2fa3cbffadc85814b8" title="Set chromatic r offset." alt="" coords="238,581,441,621"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="509,563,424,584,422,579,508,558"/>
+<area shape="rect" id="Node000013" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a81c0f30cb89fb4d430a5e34745973bb7" title="Set chromatic r offset." alt="" coords="238,645,441,685"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="572,568,524,603,468,636,436,648,434,643,466,631,521,599,569,564"/>
+<area shape="rect" id="Node000014" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a3472b63448d76f82bbd98b36c89454ec" title="Set gamma modifier." alt="" coords="212,709,467,749"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="588,571,539,636,506,671,468,700,445,711,442,707,465,695,502,667,535,633,583,567"/>
+<area shape="rect" id="Node000015" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a9606017ca6970fa6b8b5f86baaae13c3" title="Set chromatic r offset." alt="" coords="238,773,441,813"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="596,571,577,615,550,667,514,719,492,743,468,764,442,778,440,773,465,759,489,739,510,716,546,664,573,613,591,569"/>
+<area shape="rect" id="Node000016" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ab01ff8c14c873ceff579794d9ff3ff82" title="Set chromatic rgb offset." alt="" coords="238,837,441,877"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="600,572,586,628,560,697,522,767,497,799,468,827,442,843,440,839,465,823,493,796,518,764,555,695,581,626,595,570"/>
+<area shape="rect" id="Node000017" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ab656ebc49de966239daf7b3471beedcf" title="Set gaussian blur strength." alt="" coords="241,901,437,941"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="604,572,593,639,570,725,552,771,530,815,502,856,468,891,439,909,436,905,465,887,498,852,525,812,547,769,564,724,587,638,598,571"/>
+<area shape="rect" id="Node000018" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="245,965,434,1005"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="606,571,599,650,578,753,561,808,537,862,507,912,468,955,436,975,433,971,465,951,502,908,533,859,556,806,573,752,594,649,601,571"/>
+<area shape="rect" id="Node000019" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="252,1029,427,1069"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="608,571,604,661,598,719,587,781,569,846,545,909,512,968,468,1019,449,1033,428,1043,426,1038,447,1029,465,1015,507,965,540,906,564,844,581,780,593,718,599,660,602,571"/>
+<area shape="rect" id="Node000004" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a2b07380cb1b31f12defa395debb9c18f" title="Build opengl data." alt="" coords="5,69,164,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="247,92,164,92,164,87,247,87"/>
+</map>

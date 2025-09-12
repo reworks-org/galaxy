@@ -1,11 +1,9 @@
 <map id="galaxy::Settings::set_config_to_default" name="galaxy::Settings::set_config_to_default">
-<area shape="rect" id="Node000001" title="Restore all config settings to default." alt="" coords="411,27,565,67"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="191,5,363,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="396,37,363,33,363,27,397,32"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9" title=" " alt="" coords="205,55,348,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,62,349,69,348,63,396,57"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,21,143,21,143,15,177,15"/>
-<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="9,63,139,88"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="191,78,140,78,140,73,191,73"/>
+<area shape="rect" id="Node000001" title="Restore all config settings to default." alt="" coords="404,27,559,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="184,5,356,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,37,356,33,357,27,390,32"/>
+<area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9" title=" " alt="" coords="199,55,341,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="390,62,342,69,341,63,390,57"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,63,136,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="185,78,136,78,136,73,185,73"/>
 </map>

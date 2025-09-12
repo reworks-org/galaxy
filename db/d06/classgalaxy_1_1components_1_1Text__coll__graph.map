@@ -1,5 +1,32 @@
 <map id="galaxy::components::Text" name="galaxy::components::Text">
-<area shape="rect" id="Node000001" title="String of glyphs rendered with a font." alt="" coords="13,219,159,459"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,5,167,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,184,89,218,83,218,83,184"/>
+<area shape="rect" id="Node000001" title="String of glyphs rendered with a font." alt="" coords="274,2088,419,2328"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="270,1820,381,1885"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,1900,342,2088,337,2088,325,1900"/>
+<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="405,1680,560,2025"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="419,2027,401,2074,396,2072,414,2025"/>
+<area shape="rect" id="Node000004" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="9,833,180,1139"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="55,1139,37,1251,33,1311,34,1373,41,1434,56,1494,79,1550,111,1601,142,1630,174,1644,207,1648,242,1647,279,1644,317,1645,355,1655,394,1678,395,1679,392,1683,390,1682,353,1660,316,1651,279,1649,243,1652,207,1653,172,1649,139,1634,107,1604,74,1552,51,1495,36,1435,29,1373,28,1311,32,1250,49,1138"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,261,157,341"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="85,342,94,817,89,817,79,342"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="112,133,227,199"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="112,210,101,224,92,242,87,262,82,260,87,240,96,221,108,207"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="182,269,333,334"/>
+<area shape="poly" id="edge12_Node000012_Node000006" title=" " alt="" coords="214,207,225,221,249,267,244,270,220,224,210,211"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="158,5,181,71"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="172,71,172,117,167,117,167,71"/>
+<area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="397,1173,568,1593"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="485,1593,485,1664,480,1664,480,1593"/>
+<area shape="rect" id="Node000009" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="400,427,571,787"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="487,787,486,1157,481,1157,482,787"/>
+<area shape="rect" id="Node000010" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="198,1163,373,1603"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="375,1590,406,1664,401,1666,370,1592"/>
+<area shape="rect" id="Node000011" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="131,404,375,809"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="264,810,278,1146,273,1146,259,810"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="260,335,259,388,254,388,254,334"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="593,1350,671,1415"/>
+<area shape="poly" id="edge13_Node000003_Node000013" title=" " alt="" coords="629,1416,610,1501,583,1603,561,1666,556,1664,577,1602,605,1500,623,1415"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="595,567,725,647"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="661,661,636,1350,630,1350,655,660"/>
+<area shape="rect" id="Node000015" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html" title="A font is a MSDF atlas of glyphs." alt="" coords="695,1250,851,1515"/>
+<area shape="poly" id="edge15_Node000003_Node000015" title=" " alt="" coords="742,1517,714,1588,678,1657,629,1722,574,1778,570,1775,625,1719,674,1655,709,1586,737,1515"/>
 </map>

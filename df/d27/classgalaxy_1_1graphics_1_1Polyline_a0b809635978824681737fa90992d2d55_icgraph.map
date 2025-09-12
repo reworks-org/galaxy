@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Polyline::create" name="galaxy::graphics::Polyline::create">
+<area shape="rect" id="Node000001" title="List of points to create a line from." alt="" coords="416,37,604,77"/>
+<area shape="rect" id="Node000002" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a90cd4c96eb57e37637939b471c95bfc1" title="Deserializes from object." alt="" coords="207,5,368,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="402,44,368,40,369,34,402,39"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="219,69,356,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="402,76,356,82,356,77,401,70"/>
+<area shape="rect" id="Node000003" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a4277a1142e80708cdb92b9b9466998a8" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+</map>

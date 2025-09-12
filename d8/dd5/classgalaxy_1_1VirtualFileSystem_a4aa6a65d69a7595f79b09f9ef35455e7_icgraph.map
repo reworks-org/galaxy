@@ -1,8 +1,8 @@
 <map id="galaxy::VirtualFileSystem::list" name="galaxy::VirtualFileSystem::list">
-<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="395,29,583,69"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="526,18,513,11,489,8,468,10,455,15,450,21,453,28,448,30,445,20,452,10,466,5,489,3,514,6,528,13"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8" title="Injects VFS support into Lua." alt="" coords="191,37,347,62"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,52,347,52,347,47,381,47"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,37,143,62"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,52,143,52,143,47,177,47"/>
+<area shape="rect" id="Node000001" title="Get assets in an asset folder." alt="" coords="400,29,588,69"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="532,18,518,11,494,8,473,10,460,15,455,21,458,28,453,30,450,20,457,10,472,5,494,3,520,6,534,13"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="193,37,352,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="386,52,352,52,352,47,386,47"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,37,145,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="180,52,146,52,146,47,180,47"/>
 </map>

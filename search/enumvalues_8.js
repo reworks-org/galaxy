@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010a5c5cb337bb234e240912dc139048038c',1,'galaxy']]],
-  ['yesno_1',['yesno',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9dacc74e9b9aaac7367488cc146dfb078db',1,'galaxy']]],
-  ['yesnocancel_2',['yesnocancel',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da30cea79617be1bdc188511fdf0d582bd',1,'galaxy']]]
+  ['nearest_0',['NEAREST',['../db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaaad135772d7cf93dd0ccf9d2474b34e6a',1,'galaxy::graphics']]],
+  ['normal_1',['NORMAL',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda1e23852820b9154316c7c06e2b7ba051',1,'galaxy::graphics::GaussianBlur']]]
 ];

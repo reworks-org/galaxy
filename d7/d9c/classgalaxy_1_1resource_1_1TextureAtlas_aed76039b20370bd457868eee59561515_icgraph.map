@@ -1,0 +1,7 @@
+<map id="galaxy::resource::TextureAtlas::map_x_texel" name="galaxy::resource::TextureAtlas::map_x_texel">
+<area shape="rect" id="Node000001" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="472,5,657,45"/>
+<area shape="rect" id="Node000002" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#abf3d2a3448d3840d92cfe7d3a04ff813" title="Add a single file." alt="" coords="239,5,424,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="458,28,424,28,424,23,458,23"/>
+<area shape="rect" id="Node000003" href="$d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a84ac1faaf7b2da2864227d4b8431ae4b" title="Loads all atlas textures in the vfs." alt="" coords="5,5,191,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="225,28,191,28,191,23,225,23"/>
+</map>

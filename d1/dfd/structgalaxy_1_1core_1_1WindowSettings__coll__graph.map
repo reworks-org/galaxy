@@ -1,0 +1,7 @@
+<map id="galaxy::core::WindowSettings" name="galaxy::core::WindowSettings">
+<area shape="rect" id="Node000001" title="Holds window related settings." alt="" coords="5,263,212,468"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="69,135,148,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,200,111,246,106,246,106,200"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="43,5,174,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,99,111,134,106,134,106,99"/>
+</map>

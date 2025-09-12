@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_core" name="galaxy::lua::inject_core">
-<area shape="rect" id="Node000001" title="Inject galaxy core services into Lua." alt="" coords="5,1249,177,1275"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,1249,177,1275"/>
 <area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a973d4cb94dea385fd095e99cb8d79c20" title="Name of packed assets file." alt="" coords="231,5,438,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,1249,101,1021,127,635,145,434,167,254,193,117,208,70,223,42,228,37,232,41,227,45,212,72,198,118,172,255,150,434,132,635,107,1022,96,1249"/>
 <area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a688bb9fb459a4a5b10e547daea875832" title="Animation data location." alt="" coords="247,55,423,95"/>

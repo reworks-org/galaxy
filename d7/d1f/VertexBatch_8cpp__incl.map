@@ -1,0 +1,26 @@
+<map id="galaxy/src/galaxy/graphics/VertexBatch.cpp" name="galaxy/src/galaxy/graphics/VertexBatch.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="68,5,264,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,161,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,47,107,86,104,82,144,44"/>
+<area shape="rect" id="Node000003" href="$d7/d4a/VertexBatch_8hpp.html" title=" " alt="" coords="185,93,315,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,44,229,82,226,86,185,48"/>
+<area shape="rect" id="Node000004" href="$dd/d1c/VertexArray_8hpp.html" title=" " alt="" coords="179,167,321,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="253,119,253,153,247,153,247,119"/>
+<area shape="rect" id="Node000005" href="$dd/d53/InstanceBuffer_8hpp.html" title=" " alt="" coords="93,255,239,295"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="233,209,196,247,192,243,229,205"/>
+<area shape="rect" id="Node000008" href="$d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="263,255,405,295"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="271,205,308,243,304,247,267,209"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="221,350,274,375"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="186,293,229,338,225,342,182,297"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="67,350,196,375"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="161,296,144,338,139,336,156,294"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="317,297,271,342,267,338,313,293"/>
+<area shape="rect" id="Node000009" href="$d6/db0/Vertex_8hpp.html" title=" " alt="" coords="298,343,439,383"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="344,294,358,329,353,331,339,296"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="233,431,289,456"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="344,385,290,424,287,420,341,381"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="313,431,424,456"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="371,383,371,417,366,417,366,383"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="448,431,636,456"/>
+<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="411,380,505,422,503,427,409,385"/>
+</map>

@@ -1,9 +1,7 @@
 <map id="galaxy::Config::set" name="galaxy::Config::set">
-<area shape="rect" id="Node000001" title="Set a new key&#45;value pair for the config." alt="" coords="411,31,553,56"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="191,5,363,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,36,363,31,363,26,397,30"/>
-<area shape="rect" id="Node000004" href="$db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b" title="Sets a new setting, only if key or value does not already exist." alt="" coords="193,55,361,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,56,361,60,360,55,397,51"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,5,143,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,21,143,21,143,15,177,15"/>
+<area shape="rect" id="Node000001" title="Set a new key&#45;value pair for the config." alt="" coords="225,31,368,56"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="5,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,36,177,31,178,26,212,30"/>
+<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b" title="Sets a new setting, only if key or value does not already exist." alt="" coords="7,55,175,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,56,176,60,175,55,211,51"/>
 </map>

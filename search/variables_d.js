@@ -32,5 +32,21 @@ var searchData=
   ['s_5fwebsite_29',['s_website',['../df/d23/structgalaxy_1_1Settings.html#abf961cb82f3a4eb04650bde9eb5d9ea4',1,'galaxy::Settings']]],
   ['s_5fwindow_5fheight_30',['s_window_height',['../df/d23/structgalaxy_1_1Settings.html#a45b7dd5e87bb825664693186df740766',1,'galaxy::Settings']]],
   ['s_5fwindow_5ficon_31',['s_window_icon',['../df/d23/structgalaxy_1_1Settings.html#af1e4c96f5f481560663eccd6212c81b6',1,'galaxy::Settings']]],
-  ['s_5fwindow_5fwidth_32',['s_window_width',['../df/d23/structgalaxy_1_1Settings.html#a6d360b7a6e70179ab8982b8ed832945c',1,'galaxy::Settings']]]
+  ['s_5fwindow_5fwidth_32',['s_window_width',['../df/d23/structgalaxy_1_1Settings.html#a6d360b7a6e70179ab8982b8ed832945c',1,'galaxy::Settings']]],
+  ['sharpen_5ffrag_33',['sharpen_frag',['../d2/d44/Sharpen_8cpp.html#a51a8562e7b1ca4ee31eb33bbda648074',1,'Sharpen.cpp']]],
+  ['sharpen_5fvert_34',['sharpen_vert',['../d2/d44/Sharpen_8cpp.html#aa4c1b78d973941eab9aca355e8430419',1,'Sharpen.cpp']]],
+  ['smaa_5farea_5ftex_35',['smaa_area_tex',['../d4/dad/SMAA_8cpp.html#ade83426ad41bac14affedd95865fc3f6',1,'SMAA.cpp']]],
+  ['smaa_5fblend_5ffrag_36',['smaa_blend_frag',['../d4/dad/SMAA_8cpp.html#a1f97b157586d4a6cb9efc9b2cd5d0e75',1,'SMAA.cpp']]],
+  ['smaa_5fblend_5fvert_37',['smaa_blend_vert',['../d4/dad/SMAA_8cpp.html#a07db1ea74e5407674895547422b94890',1,'SMAA.cpp']]],
+  ['smaa_5fcore_5fpart1_38',['smaa_core_part1',['../d4/dad/SMAA_8cpp.html#ac6776105f566b9b71b151a84ed9dbf29',1,'SMAA.cpp']]],
+  ['smaa_5fcore_5fpart2_39',['smaa_core_part2',['../d4/dad/SMAA_8cpp.html#aa5d9fd909cc032ba09c55bab06673ae0',1,'SMAA.cpp']]],
+  ['smaa_5fcore_5fpart3_40',['smaa_core_part3',['../d4/dad/SMAA_8cpp.html#adef7f3c817e823f6bedfd0e5375d2606',1,'SMAA.cpp']]],
+  ['smaa_5fcore_5fpart4_41',['smaa_core_part4',['../d4/dad/SMAA_8cpp.html#a2ae3f6d8ca15fbe3f4716acd8dacff4a',1,'SMAA.cpp']]],
+  ['smaa_5fedge_5ffrag_42',['smaa_edge_frag',['../d4/dad/SMAA_8cpp.html#ac743c083251ae7e435362bb7dcedb90e',1,'SMAA.cpp']]],
+  ['smaa_5fedge_5fvert_43',['smaa_edge_vert',['../d4/dad/SMAA_8cpp.html#afe57d350f6c416ba9c8294f656453b26',1,'SMAA.cpp']]],
+  ['smaa_5fheader_5ffrag_44',['smaa_header_frag',['../d4/dad/SMAA_8cpp.html#a9abfe628c76188a2a5a2ed301e37b28d',1,'SMAA.cpp']]],
+  ['smaa_5fheader_5fvert_45',['smaa_header_vert',['../d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40',1,'SMAA.cpp']]],
+  ['smaa_5fneighbour_5ffrag_46',['smaa_neighbour_frag',['../d4/dad/SMAA_8cpp.html#ac37b371046f325b2d5012cdd497fa24c',1,'SMAA.cpp']]],
+  ['smaa_5fneighbour_5fvert_47',['smaa_neighbour_vert',['../d4/dad/SMAA_8cpp.html#a7fad5dd0d7400c340b2aa0fba2a9e1a2',1,'SMAA.cpp']]],
+  ['smaa_5fsearch_5ftex_48',['smaa_search_tex',['../d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae',1,'SMAA.cpp']]]
 ];

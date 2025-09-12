@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Camera::deserialize" name="galaxy::graphics::Camera::deserialize">
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="240,37,427,77"/>
+<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9aaea1dbd55a7f3105756f45b4492d73" title="JSON constructor." alt="" coords="5,5,192,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,45,192,41,193,35,227,40"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="19,69,178,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,75,178,81,178,76,226,69"/>
+</map>

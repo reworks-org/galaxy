@@ -43,7 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
@@ -52,6 +52,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
@@ -62,16 +63,26 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d23/FileUtils_8cpp.html",
-"d3/dcc/FileSink_8cpp_source.html",
-"d4/d86/classgalaxy_1_1components_1_1Sprite.html#afdf942709f094caef8087cabd95e0ca0",
-"d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af",
-"d8/db6/FileError_8hpp.html",
-"d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630",
-"db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b",
-"dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5",
-"de/dae/MousePressed_8hpp_source.html",
-"df/db4/Config_8hpp_source.html"
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ac3ace690c986914bed8f7b4778447f7d",
+"d0/db5/State_8hpp_source.html",
+"d2/d42/classgalaxy_1_1Sink.html#a1e505dd4c47e3b8ca81acff9fc560944",
+"d3/d72/classgalaxy_1_1flags_1_1Disabled.html#a71b7affbb5b86278c2d929f18928e771",
+"d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e",
+"d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b",
+"d5/d4a/classgalaxy_1_1lua_1_1Script.html#a0edfe5c609d7b4fe0e80c937400a5159",
+"d6/d82/StateMachine_8cpp_source.html",
+"d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a3ff9f73ee1378dc5d38e7d675488facb",
+"d8/d96/classgalaxy_1_1components_1_1Tag.html#a6f8f521aef2a83f8134ebb9f66516c2b",
+"d9/d28/classgalaxy_1_1graphics_1_1TextureView.html#a248eba5ee969e4dde04958383551ffc0",
+"da/d0d/classgalaxy_1_1components_1_1Circle.html#a019272572b3f29863fb47d3bf424c4f6",
+"da/dd6/LuaUtils_8cpp.html",
+"db/dc5/conceptgalaxy_1_1meta_1_1is__arithmetic.html",
+"dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#af76831351a97e0ac8177045fadd70831",
+"dd/d25/Keys_8hpp.html#a649e37db9438582b9449f8b91738dd83ae7c445342320cb4a69ac127ad8ba3048",
+"dd/da6/Windows_8cpp.html",
+"de/d32/LuaBox2D_8cpp.html",
+"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0",
+"df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#adb50a1ce98330ad7c529d599b410e99b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

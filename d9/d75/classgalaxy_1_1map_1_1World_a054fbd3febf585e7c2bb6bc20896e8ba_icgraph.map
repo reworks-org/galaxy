@@ -1,7 +1,11 @@
 <map id="galaxy::map::World::load" name="galaxy::map::World::load">
-<area shape="rect" id="Node000001" title="Load a world." alt="" coords="227,27,373,67"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,5,179,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,38,178,33,179,28,213,32"/>
-<area shape="rect" id="Node000003" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="19,55,165,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,62,166,68,165,63,212,56"/>
+<area shape="rect" id="Node000001" title="Load a world." alt="" coords="433,55,580,95"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="212,5,385,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="420,54,345,33,346,28,421,49"/>
+<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#aca1a089349411b4e5a680838a43fe3b5" title="Loads an LDTK world for this scene." alt="" coords="219,55,378,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="419,78,378,78,378,73,419,73"/>
+<area shape="rect" id="Node000005" href="$d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9" title="Argument Constructor." alt="" coords="225,119,372,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="429,102,365,122,363,117,427,97"/>
+<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,55,164,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,78,164,78,164,73,206,73"/>
 </map>

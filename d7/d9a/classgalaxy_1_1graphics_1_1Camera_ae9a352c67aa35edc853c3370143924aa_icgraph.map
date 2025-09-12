@@ -1,0 +1,14 @@
+<map id="galaxy::graphics::Camera::get_data" name="galaxy::graphics::Camera::get_data">
+<area shape="rect" id="Node000001" title="Get camera view and proj." alt="" coords="903,37,1089,77"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="689,5,826,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="889,46,826,37,826,32,890,40"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="660,69,855,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="889,74,855,79,854,74,889,69"/>
+<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="453,69,612,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="646,92,612,92,612,87,646,87"/>
+<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,69,143,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="440,89,405,88,191,88,143,89,143,84,191,83,405,83,440,83"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="191,97,405,137"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="440,103,406,107,405,102,439,98"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="177,105,143,101,143,95,178,100"/>
+</map>

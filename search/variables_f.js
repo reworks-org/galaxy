@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['video_5ffrag_5fshader_0',['video_frag_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6',1,'galaxy::resource']]],
-  ['video_5fvert_5fshader_1',['video_vert_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d',1,'galaxy::resource']]]
+  ['uniforms_0',['uniforms',['../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#ab44bebfa1a44c3572d6ac788687ec145',1,'galaxy::graphics::RenderCommand']]]
 ];

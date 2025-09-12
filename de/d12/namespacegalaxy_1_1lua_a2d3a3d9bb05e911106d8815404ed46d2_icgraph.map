@@ -1,7 +1,5 @@
 <map id="galaxy::lua::editor_path_wrapper" name="galaxy::lua::editor_path_wrapper">
-<area shape="rect" id="Node000001" title=" " alt="" coords="411,5,549,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title="Inject galaxy core services into Lua." alt="" coords="191,13,363,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,28,363,28,363,23,397,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="225,5,364,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102" title=" " alt="" coords="5,13,177,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,28,178,28,178,23,211,23"/>
 </map>

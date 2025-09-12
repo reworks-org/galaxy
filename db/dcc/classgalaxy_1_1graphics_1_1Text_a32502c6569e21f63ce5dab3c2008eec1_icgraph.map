@@ -1,0 +1,9 @@
+<map id="galaxy::graphics::Text::create" name="galaxy::graphics::Text::create">
+<area shape="rect" id="Node000001" title="Creates the rendered text." alt="" coords="408,37,571,77"/>
+<area shape="rect" id="Node000002" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,45,360,40,361,35,395,40"/>
+<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="215,69,352,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="395,75,353,81,352,76,394,69"/>
+<area shape="rect" id="Node000003" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+</map>

@@ -1,10 +1,10 @@
 <map id="galaxy::str::rtrim" name="galaxy::str::rtrim">
-<area shape="rect" id="Node000001" title="Trim string from start." alt="" coords="549,13,680,38"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3" title="Injects misc galaxy utils into lua." alt="" coords="191,5,328,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="535,28,328,28,328,23,535,23"/>
-<area shape="rect" id="Node000004" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="376,38,501,63"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="536,39,502,44,501,39,536,34"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,13,143,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="362,43,328,38,329,32,362,37"/>
+<area shape="rect" id="Node000001" title="Trim string from start." alt="" coords="555,13,685,38"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609" title="Injects misc galaxy utils into Lua." alt="" coords="193,5,333,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="541,28,334,28,334,23,541,23"/>
+<area shape="rect" id="Node000004" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="381,38,507,63"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="542,39,507,44,506,39,541,34"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,28,146,28,146,23,179,23"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="367,43,333,38,334,33,368,37"/>
 </map>

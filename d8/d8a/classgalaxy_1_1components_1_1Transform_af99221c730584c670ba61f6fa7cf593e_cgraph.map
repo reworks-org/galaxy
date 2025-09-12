@@ -1,0 +1,11 @@
+<map id="galaxy::components::Transform::serialize" name="galaxy::components::Transform::serialize">
+<area shape="rect" id="Node000001" title="Serializes object." alt="" coords="5,101,164,141"/>
+<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a188710dfd37d76679980758e06627040" title="Get origin point." alt="" coords="212,5,413,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,99,211,55,230,47,232,52,213,60,123,104"/>
+<area shape="rect" id="Node000003" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a4c020f0bde57762c9ec44cbb9af5b2b6" title="Get stored position." alt="" coords="212,69,413,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,108,198,103,199,108,165,113"/>
+<area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a81457773e05d41ebdb9f0b67e01fa892" title="Get stored rotation." alt="" coords="212,133,413,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,130,199,135,198,140,164,135"/>
+<area shape="rect" id="Node000005" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a7f208c162c59867ce589336f11c3db4c" title="Get stored scale." alt="" coords="212,197,413,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="123,139,213,183,232,190,230,195,211,188,121,144"/>
+</map>

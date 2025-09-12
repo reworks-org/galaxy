@@ -1,3 +1,39 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$dd/d33/classgalaxy_1_1App.html" title="Base level class for any galaxy app." alt="" coords="5,5,104,31"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="47,511,165,537"/>
+<area shape="rect" id="Node000001" href="$da/d18/classgalaxy_1_1components_1_1Animated.html" title="Allows for an entity to be animated." alt="" coords="285,5,439,45"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="105,497,111,413,119,356,132,294,150,230,176,167,210,108,253,55,283,36,286,40,256,59,214,111,181,169,155,232,137,296,124,357,116,413,110,498"/>
+<area shape="rect" id="Node000002" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html" title="2D shape." alt="" coords="285,69,439,109"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="106,497,116,423,139,322,158,267,183,214,214,163,253,119,284,100,287,105,256,123,219,167,188,216,163,269,145,323,121,424,112,498"/>
+<area shape="rect" id="Node000003" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html" title="2D shape." alt="" coords="285,133,439,173"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="109,497,122,434,148,349,167,304,190,260,219,219,253,183,284,165,286,169,256,187,223,223,195,263,172,307,153,351,127,435,114,498"/>
+<area shape="rect" id="Node000004" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html" title="Script for running an active UI." alt="" coords="269,198,455,223"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="110,497,126,442,153,370,172,333,195,297,222,263,253,234,275,221,278,226,256,238,226,267,199,300,177,336,158,373,131,444,115,499"/>
+<area shape="rect" id="Node000005" href="$d4/d0e/classgalaxy_1_1components_1_1Point.html" title="2D shape." alt="" coords="285,248,439,288"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="115,497,134,454,164,400,204,345,227,320,253,298,284,281,286,286,256,302,231,324,208,349,169,403,139,456,120,500"/>
+<area shape="rect" id="Node000006" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html" title="2D shape." alt="" coords="285,312,439,352"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="121,498,175,430,212,393,253,362,284,347,286,352,256,366,215,397,179,434,125,501"/>
+<area shape="rect" id="Node000007" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html" title="2D shape." alt="" coords="285,376,439,416"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="133,501,187,463,254,426,284,413,286,418,256,430,190,468,136,505"/>
+<area shape="rect" id="Node000008" href="$df/dfe/classgalaxy_1_1components_1_1RigidBody.html" title="Box2D physics body." alt="" coords="285,440,439,480"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="171,505,284,477,286,482,172,510"/>
+<area shape="rect" id="Node000009" href="$db/d40/classgalaxy_1_1components_1_1Script.html" title="High level abstraction of a lua script." alt="" coords="285,504,439,544"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="179,521,285,521,285,527,179,527"/>
+<area shape="rect" id="Node000010" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html" title="A sprite is a texture with vertex data." alt="" coords="285,568,439,608"/>
+<area shape="poly" id="edge10_Node000000_Node000010" title=" " alt="" coords="172,538,286,566,284,571,171,543"/>
+<area shape="rect" id="Node000011" href="$d8/d96/classgalaxy_1_1components_1_1Tag.html" title="Tag an entity." alt="" coords="271,633,453,658"/>
+<area shape="poly" id="edge11_Node000000_Node000011" title=" " alt="" coords="135,543,189,581,256,618,293,630,291,635,254,622,186,586,132,547"/>
+<area shape="rect" id="Node000012" href="$d2/d81/classgalaxy_1_1components_1_1Text.html" title="String of glyphs rendered with a font." alt="" coords="285,683,439,723"/>
+<area shape="poly" id="edge12_Node000000_Node000012" title=" " alt="" coords="127,546,181,606,217,639,256,667,286,681,284,686,253,672,213,643,177,610,123,549"/>
+<area shape="rect" id="Node000013" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="285,747,439,787"/>
+<area shape="poly" id="edge13_Node000000_Node000013" title=" " alt="" coords="121,549,141,589,171,639,209,689,256,732,287,748,284,753,253,737,206,693,166,642,136,592,116,551"/>
+<area shape="rect" id="Node000014" href="$d3/d72/classgalaxy_1_1flags_1_1Disabled.html" title="Used to stop an entity from being updated/rendered." alt="" coords="277,811,447,837"/>
+<area shape="poly" id="edge14_Node000000_Node000014" title=" " alt="" coords="116,549,132,602,160,669,201,738,227,770,256,797,278,809,276,814,253,801,223,773,197,741,155,672,127,604,111,551"/>
+<area shape="rect" id="Node000015" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html" title="Orthographic 2D camera." alt="" coords="269,959,455,985"/>
+<area shape="poly" id="edge15_Node000000_Node000015" title=" " alt="" coords="111,550,118,629,127,680,140,736,158,793,183,849,216,901,256,946,273,957,270,962,253,950,212,904,179,852,153,795,135,737,121,681,113,629,105,551"/>
+<area shape="rect" id="Node000017" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html" title="Represents a scene in a game. Like the menu, game, etc. Does not share resources." alt="" coords="283,861,441,886"/>
+<area shape="poly" id="edge16_Node000000_Node000017" title=" " alt="" coords="114,550,127,611,153,692,172,734,195,775,223,813,256,846,284,861,281,866,253,850,219,817,191,778,167,736,148,694,122,612,109,551"/>
+<area shape="rect" id="Node000018" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html" title="Scene saving/loading, creation, changing and loading." alt="" coords="255,910,469,935"/>
+<area shape="poly" id="edge17_Node000000_Node000018" title=" " alt="" coords="112,550,123,620,147,714,166,763,190,812,220,857,256,895,276,908,273,912,253,899,216,860,185,814,161,765,142,715,118,621,107,551"/>
+<area shape="rect" id="Node000016" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html" title="Defines the 2D transformation of an entity." alt="" coords="5,959,207,985"/>
+<area shape="poly" id="edge18_Node000016_Node000015" title=" " alt="" coords="220,969,269,969,269,975,220,975"/>
 </map>

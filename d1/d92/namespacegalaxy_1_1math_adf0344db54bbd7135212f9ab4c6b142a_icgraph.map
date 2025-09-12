@@ -1,16 +1,16 @@
 <map id="galaxy::math::random" name="galaxy::math::random">
-<area shape="rect" id="Node000001" title="Generate a random number of type T." alt="" coords="668,56,833,81"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a" title="Injects math stuff into Lua." alt="" coords="191,56,369,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="712,52,668,34,619,20,563,11,519,8,474,11,418,20,358,37,308,58,306,53,356,32,417,15,474,6,519,3,564,6,621,15,670,29,714,47"/>
-<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9" title="Generate a random vec2." alt="" coords="417,30,620,56"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="654,60,620,57,620,51,655,55"/>
-<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa" title="Generate a random vec3." alt="" coords="417,80,620,105"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="655,81,620,84,620,79,654,76"/>
-<area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf" title="Generate a random vec4." alt="" coords="417,129,620,154"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="706,89,621,119,576,131,574,126,619,114,704,84"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276" title="Inject everything into Lua." alt="" coords="5,56,143,81"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,71,143,71,143,66,177,66"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="404,58,370,61,369,56,404,53"/>
-<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="404,83,369,80,370,75,404,78"/>
-<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="449,128,417,119,314,84,315,78,418,114,451,123"/>
+<area shape="rect" id="Node000001" title="Generate a random number of type T." alt="" coords="673,56,839,81"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="193,56,375,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="717,52,673,34,625,20,568,11,524,8,480,11,423,20,363,37,312,58,310,53,361,32,422,15,479,6,524,3,569,6,626,15,675,29,719,47"/>
+<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9" title="Generate a random vec2." alt="" coords="423,30,625,56"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="659,60,625,57,626,51,660,55"/>
+<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa" title="Generate a random vec3." alt="" coords="423,80,625,105"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="660,81,626,84,625,79,659,76"/>
+<area shape="rect" id="Node000006" href="$d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf" title="Generate a random vec4." alt="" coords="423,129,625,154"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="711,89,626,119,581,131,579,126,625,114,710,84"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,56,145,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,71,146,71,146,66,179,66"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="409,58,375,61,374,56,409,52"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="409,83,374,80,375,75,409,78"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="455,128,422,119,318,83,320,78,423,114,457,123"/>
 </map>

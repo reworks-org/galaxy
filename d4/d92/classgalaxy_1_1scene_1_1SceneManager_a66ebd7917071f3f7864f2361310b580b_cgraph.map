@@ -1,17 +1,15 @@
 <map id="galaxy::scene::SceneManager::deserialize" name="galaxy::scene::SceneManager::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,99,220,139"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="268,5,483,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,96,267,55,290,47,292,52,269,60,162,101"/>
-<area shape="rect" id="Node000004" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a60d5677fc4d83c53350611aedd1ea56b" title="Create scene in engine." alt="" coords="268,69,483,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,104,254,100,255,105,220,109"/>
-<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="578,114,730,139"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="220,118,268,119,564,123,564,128,268,124,220,123"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a903c1e9f9a1ed6fb181077a0b9500fda" title="Pop all scenes." alt="" coords="268,184,483,224"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="176,136,301,177,299,182,174,141"/>
-<area shape="rect" id="Node000003" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a0d6c119110845b828a8dd3cf0bf962a3" title="Clear any pending data." alt="" coords="573,5,735,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,23,559,23,559,28,483,28"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="483,101,565,112,564,117,483,106"/>
-<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="609,116,600,106,605,96,623,89,654,87,694,92,705,97,708,103,704,105,701,101,693,97,654,93,624,95,608,100,605,105,613,112"/>
-<area shape="rect" id="Node000007" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a3d4864a9277257c2b8f05e6205c7cad3" title="Remove scene on top of stack." alt="" coords="531,191,777,217"/>
-<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="483,201,517,201,517,207,483,207"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,55,220,95"/>
+<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#aa0baf7a3e80dcd668ef12a8a3abb10e7" title="Add a new scene." alt="" coords="268,5,515,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,53,267,41,315,31,316,36,269,46,211,58"/>
+<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="284,55,499,95"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="220,73,270,73,270,78,220,78"/>
+<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ab3eb3c90efaeec3cd5694adbc0d0167f" title="Scene to set to currently active." alt="" coords="284,119,499,159"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="201,93,291,114,290,119,200,98"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814" title="Convert string to 64bit hash." alt="" coords="563,67,737,92"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,28,515,41,591,60,590,65,514,46,457,33"/>
+<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="785,67,937,92"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="737,77,771,77,771,82,737,82"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="827,68,819,58,823,48,838,42,861,40,891,44,902,53,899,57,889,49,861,45,839,47,827,52,825,58,831,65"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="478,117,581,93,582,98,479,122"/>
 </map>

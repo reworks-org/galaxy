@@ -1,9 +1,9 @@
 <map id="galaxy::components::Script" name="galaxy::components::Script">
-<area shape="rect" id="Node000001" title="High level abstraction of a lua script." alt="" coords="58,363,207,723"/>
-<area shape="rect" id="Node000002" href="$d2/d54/classgalaxy_1_1fs_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,135,167,300"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,313,109,362,104,363,97,314"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="191,185,269,250"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,251,194,348,189,346,218,249"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="165,5,295,85"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="233,99,233,184,227,184,227,99"/>
+<area shape="rect" id="Node000001" title="High level abstraction of a lua script." alt="" coords="26,263,175,623"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,135,116,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,213,77,262,72,263,65,214"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="140,135,219,200"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,201,159,247,154,246,168,200"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="114,5,245,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="182,99,182,134,177,134,177,99"/>
 </map>

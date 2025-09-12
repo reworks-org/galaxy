@@ -1,0 +1,5 @@
+<map id="galaxy::Lua::inject_platform" name="galaxy::Lua::inject_platform">
+<area shape="rect" id="Node000001" title="Inject platform stuff into Lua." alt="" coords="193,5,333,45"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,13,145,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,28,146,28,146,23,179,23"/>
+</map>

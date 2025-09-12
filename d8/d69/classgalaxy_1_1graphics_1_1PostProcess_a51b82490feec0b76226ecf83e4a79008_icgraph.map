@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::PostProcess::destroy" name="galaxy::graphics::PostProcess::destroy">
+<area shape="rect" id="Node000001" title="Cleanup used memory." alt="" coords="268,37,483,77"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae7418db4e6f75360088294d39c5627fe" title="Cleanup renderer data." alt="" coords="15,5,210,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,45,210,40,210,35,255,40"/>
+<area shape="rect" id="Node000003" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a8d0c143c7723243bac125c5da83a98aa" title="Destructor." alt="" coords="5,69,220,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,75,221,79,220,74,254,69"/>
+</map>

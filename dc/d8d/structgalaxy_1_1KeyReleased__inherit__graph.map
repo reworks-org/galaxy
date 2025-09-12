@@ -1,0 +1,5 @@
+<map id="galaxy::KeyReleased" name="galaxy::KeyReleased">
+<area shape="rect" id="Node000001" title="Contains data on key that was released." alt="" coords="19,119,168,264"/>
+<area shape="rect" id="Node000002" href="$d6/d1e/structgalaxy_1_1HandleableEvent.html" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="5,5,181,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,84,96,118,91,118,91,84"/>
+</map>

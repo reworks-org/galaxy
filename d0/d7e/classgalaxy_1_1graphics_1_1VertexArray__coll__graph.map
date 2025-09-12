@@ -1,0 +1,5 @@
+<map id="galaxy::graphics::VertexArray" name="galaxy::graphics::VertexArray">
+<area shape="rect" id="Node000001" title="Abstraction for OpenGL vertex array objects." alt="" coords="5,428,176,848"/>
+<area shape="rect" id="Node000002" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="5,5,176,365"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,366,93,412,88,412,88,366"/>
+</map>

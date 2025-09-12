@@ -1,0 +1,14 @@
+<map id="galaxy::Lua::inject_logging" name="galaxy::Lua::inject_logging">
+<area shape="rect" id="Node000001" title="Injects logging into Lua." alt="" coords="5,120,145,160"/>
+<area shape="rect" id="Node000002" href="$d2/dc7/namespacegalaxy_1_1log.html#a704e5c0683e808fbad47ffab52e466ea" title="Insert a message into the OpenGL debug stack." alt="" coords="198,5,342,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,118,192,62,214,50,217,54,195,66,107,122"/>
+<area shape="rect" id="Node000003" href="$d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950" title="Convert a GL error code to a string." alt="" coords="395,92,564,132"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,117,193,105,290,99,381,101,381,106,290,104,194,111,138,123"/>
+<area shape="rect" id="Node000004" href="$d2/dc7/namespacegalaxy_1_1log.html#a6ace45b0939dfcd5a3a7a804f6a28fc9" title="Returns all GL errors on stack." alt="" coords="199,120,341,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,137,185,137,185,143,145,143"/>
+<area shape="rect" id="Node000005" href="$d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92" title=" " alt="" coords="193,185,347,210"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="145,157,214,178,212,183,143,163"/>
+<area shape="rect" id="Node000006" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="198,235,342,275"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="104,158,146,188,195,219,208,226,206,231,192,224,143,193,101,162"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="340,128,381,123,381,128,341,133"/>
+</map>

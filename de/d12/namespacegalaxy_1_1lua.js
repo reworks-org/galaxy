@@ -1,6 +1,7 @@
 var namespacegalaxy_1_1lua =
 [
     [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ],
+    [ "inject_box2d", "de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6", null ],
     [ "inject_components", "de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb", null ],
     [ "root_path_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a1f6f6354f0b228b58b3a3943df38d68e", null ],
     [ "assets_path_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a3c0baaac478cdd8d938c2afea1791e66", null ],
@@ -8,24 +9,12 @@ var namespacegalaxy_1_1lua =
     [ "inject_core", "de/d12/namespacegalaxy_1_1lua.html#a7673c3a353bc1c63652f6e0d149a8102", null ],
     [ "inject_entt", "de/d12/namespacegalaxy_1_1lua.html#a4816504ffd60d669ef3a2a9a4faface6", null ],
     [ "inject_flags", "de/d12/namespacegalaxy_1_1lua.html#a85ff14314c4b58d8fe5dd8071c48e690", null ],
-    [ "fileutils_read_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a92f7ad2d1294082ebec9047d6b50ad64", null ],
-    [ "inject_fs", "de/d12/namespacegalaxy_1_1lua.html#aa70d6729393546b0f11fd128f3df6ec8", null ],
-    [ "inject_input", "de/d12/namespacegalaxy_1_1lua.html#a1cfa07f8f02c92f44d6971d4d98b3dc7", null ],
-    [ "log_wrapper", "de/d12/namespacegalaxy_1_1lua.html#a585ce7a820af7f2a1c5b34a4bfd63ce7", null ],
-    [ "inject_logging", "de/d12/namespacegalaxy_1_1lua.html#a4a5a55f0cba99197792f5bb99bab9d19", null ],
+    [ "inject_glm", "de/d12/namespacegalaxy_1_1lua.html#ab14c600adcb93bb9edf95f0c3372d4d3", null ],
+    [ "inject_graphics", "de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64", null ],
     [ "inject_map", "de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc", null ],
-    [ "inject_math", "de/d12/namespacegalaxy_1_1lua.html#ab9d1ae8ad2cb00822ae4d309c33fe51a", null ],
-    [ "inject_mem", "de/d12/namespacegalaxy_1_1lua.html#adfc21068aed4d7b28d73aa6eefbe0c81", null ],
     [ "inject_nuklear", "de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554", null ],
-    [ "inject_platform", "de/d12/namespacegalaxy_1_1lua.html#ac8b3c00560625a3841d7801f7c2d8fcb", null ],
     [ "inject_resources", "de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5", null ],
     [ "inject_scene_control", "de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c", null ],
     [ "inject_services", "de/d12/namespacegalaxy_1_1lua.html#a59f23ce23f852638e16b61a663a83005", null ],
-    [ "inject_states", "de/d12/namespacegalaxy_1_1lua.html#ab275a55a81ed4fd840cd1abc4a75377b", null ],
-    [ "inject_time", "de/d12/namespacegalaxy_1_1lua.html#a4f10f303381c21297ccb42b79808c00f", null ],
-    [ "inject_utils", "de/d12/namespacegalaxy_1_1lua.html#a3e70c78c95de9ab1b596a87f35e574d3", null ],
-    [ "inject", "de/d12/namespacegalaxy_1_1lua.html#adf650019918cec1a51e00ba9c9f9e276", null ],
-    [ "inject_sfml", "de/d12/namespacegalaxy_1_1lua.html#a637835d52728c2437a32e1c8eb6ea10f", null ],
-    [ "inject_resource", "de/d12/namespacegalaxy_1_1lua.html#acd732c2a69a7fb6930b6d87e264631cd", null ],
-    [ "inject_state", "de/d12/namespacegalaxy_1_1lua.html#a10ceac3905fa40dbef5ef38f15d8d1f3", null ]
+    [ "inject_states", "de/d12/namespacegalaxy_1_1lua.html#ab275a55a81ed4fd840cd1abc4a75377b", null ]
 ];

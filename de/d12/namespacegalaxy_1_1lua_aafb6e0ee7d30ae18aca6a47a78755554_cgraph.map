@@ -1,5 +1,5 @@
 <map id="galaxy::lua::inject_nuklear" name="galaxy::lua::inject_nuklear">
-<area shape="rect" id="Node000001" title="Inject Nuklear into Lua." alt="" coords="5,173,143,213"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,173,143,213"/>
 <area shape="rect" id="Node000002" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#abe288e5597fa86c47990fb1965c7095d" title="Called before glfwPollEvents." alt="" coords="399,27,558,67"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,172,94,138,117,97,149,57,168,39,189,26,216,14,244,7,302,3,358,9,409,20,407,25,358,14,302,9,245,13,218,19,192,30,171,44,152,60,121,100,99,141,85,174"/>
 <area shape="rect" id="Node000003" href="$d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ab3b02e57826d9fd378885f5f7f3a26a6" title="Nuklear Context." alt="" coords="608,185,795,210"/>

@@ -1,0 +1,26 @@
+<map id="galaxy::Lua::inject_utils" name="galaxy::Lua::inject_utils">
+<area shape="rect" id="Node000001" title="Injects misc galaxy utils into Lua." alt="" coords="5,242,145,282"/>
+<area shape="rect" id="Node000002" href="$df/d98/namespacegalaxy_1_1str.html#a872b29b8a64350f32966d80e587e609a" title="Check if string begins with another string." alt="" coords="195,5,371,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,241,92,198,114,144,147,88,168,62,192,40,199,35,202,39,195,44,172,66,151,91,119,147,97,200,84,242"/>
+<area shape="rect" id="Node000003" href="$dd/da7/classgalaxy_1_1UUID.html#abd4a87cceb1e700365b4b4ae42282241" title="Get the UUID as a hash." alt="" coords="210,55,357,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,240,124,171,155,131,192,97,216,83,219,88,195,101,159,135,129,174,89,243"/>
+<area shape="rect" id="Node000004" href="$df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79" title="Trim string from end." alt="" coords="422,280,551,305"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="87,240,128,188,158,161,192,141,242,123,284,116,326,121,375,141,411,167,440,200,462,235,478,266,473,269,458,238,436,203,407,171,372,146,325,126,284,121,243,128,194,146,161,165,132,191,91,243"/>
+<area shape="rect" id="Node000005" href="$df/d98/namespacegalaxy_1_1str.html#ac2460a7064f04edb82dabf39d869831c" title="Make a string single spaced." alt="" coords="193,155,373,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="116,239,192,205,210,198,212,203,194,210,118,244"/>
+<area shape="rect" id="Node000006" href="$df/d98/namespacegalaxy_1_1str.html#a68cef8525cd038dbfacf06b977df2381" title="Replaces all occurrences of a string." alt="" coords="199,220,368,245"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="145,250,185,244,186,249,146,255"/>
+<area shape="rect" id="Node000007" href="$df/d98/namespacegalaxy_1_1str.html#ac7da95a6162660909185af790134481a" title="Replace first occurrence of a string." alt="" coords="210,270,357,310"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="146,269,197,276,196,281,145,274"/>
+<area shape="rect" id="Node000008" href="$df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd" title="Trim string from start." alt="" coords="421,391,552,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="82,282,93,328,113,388,128,418,146,447,168,472,195,493,240,514,280,519,322,510,372,493,400,480,425,462,464,424,468,428,428,466,402,484,374,498,324,515,281,524,239,519,192,498,165,476,142,450,123,421,108,390,87,330,77,283"/>
+<area shape="rect" id="Node000009" href="$df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572" title="Split a string based on a delimiter." alt="" coords="220,408,347,433"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="97,280,140,323,195,369,244,399,241,404,192,373,137,327,93,284"/>
+<area shape="rect" id="Node000010" href="$dd/da7/classgalaxy_1_1UUID.html#a2c2949a1885f9d4ca14f8dd229b6d642" title="Get the UUID as a string." alt="" coords="217,457,349,483"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="86,281,102,317,125,360,156,405,195,443,206,450,203,454,192,447,152,408,120,363,97,319,82,283"/>
+<area shape="rect" id="Node000011" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="221,335,346,360"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="113,280,194,320,219,328,217,333,192,324,110,285"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="250,410,243,400,247,390,260,384,283,381,312,385,323,394,319,398,309,390,283,387,262,389,250,393,248,399,254,406"/>
+<area shape="poly" id="edge12_Node000011_Node000004" title=" " alt="" coords="331,332,425,306,426,311,332,337"/>
+<area shape="poly" id="edge13_Node000011_Node000008" title=" " alt="" coords="333,357,374,369,429,384,427,389,373,374,331,363"/>
+</map>

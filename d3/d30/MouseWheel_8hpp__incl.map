@@ -1,0 +1,9 @@
+<map id="galaxy/src/galaxy/events/MouseWheel.hpp" name="galaxy/src/galaxy/events/MouseWheel.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,309,45"/>
+<area shape="rect" id="Node000002" href="$d2/de4/HandleableEvent_8hpp.html" title=" " alt="" coords="5,93,197,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,48,139,87,136,83,189,43"/>
+<area shape="rect" id="Node000003" href="$d6/d34/MouseButton_8hpp.html" title=" " alt="" coords="221,101,443,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,43,307,90,304,95,240,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="259,181,405,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="335,126,335,167,329,167,329,126"/>
+</map>

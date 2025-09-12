@@ -1,17 +1,37 @@
 <map id="galaxy/src/galaxy/lua/Lua.hpp" name="galaxy/src/galaxy/lua/Lua.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="569,5,731,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1532,5,1693,45"/>
 <area shape="rect" id="Node000002" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="556,41,384,65,186,96,175,98,174,93,186,91,383,60,555,36"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1518,29,1284,31,954,40,573,60,377,76,186,96,175,97,174,92,186,91,377,71,572,55,953,35,1284,26,1518,24"/>
 <area shape="rect" id="Node000003" href="$d9/d01/Lua_8cpp.html" title=" " alt="" coords="199,93,360,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="557,51,361,96,359,91,555,46"/>
-<area shape="rect" id="Node000004" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="384,93,545,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="598,54,506,96,504,91,596,49"/>
-<area shape="rect" id="Node000005" href="$d8/d09/LuaMap_8cpp.html" title=" " alt="" coords="569,93,731,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="653,59,653,93,647,93,647,59"/>
-<area shape="rect" id="Node000006" href="$d9/d2b/LuaNuklear_8cpp.html" title=" " alt="" coords="755,93,929,133"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="706,49,801,91,799,96,704,53"/>
-<area shape="rect" id="Node000007" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="953,93,1136,133"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="745,44,959,91,958,96,743,50"/>
-<area shape="rect" id="Node000008" href="$db/d27/LuaState_8cpp.html" title=" " alt="" coords="1160,93,1321,133"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="745,35,932,58,1149,91,1160,93,1159,98,1148,96,932,64,744,40"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1518,30,1311,33,1026,43,701,63,534,78,372,96,361,98,360,92,371,91,534,72,700,58,1026,38,1311,28,1518,24"/>
+<area shape="rect" id="Node000004" href="$de/d32/LuaBox2D_8cpp.html" title=" " alt="" coords="384,93,551,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1519,31,1341,37,1103,48,834,67,562,96,551,98,550,92,562,91,833,62,1103,43,1341,31,1518,26"/>
+<area shape="rect" id="Node000005" href="$df/d33/LuaEvents_8cpp.html" title=" " alt="" coords="575,93,741,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1518,33,1180,53,967,71,753,96,742,98,741,92,752,91,966,66,1180,48,1518,28"/>
+<area shape="rect" id="Node000006" href="$d8/d7f/LuaFS_8cpp.html" title=" " alt="" coords="765,93,927,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1519,36,1257,58,1098,75,938,96,927,98,926,93,938,91,1097,69,1256,52,1518,30"/>
+<area shape="rect" id="Node000007" href="$d6/db3/LuaGLM_8cpp.html" title=" " alt="" coords="951,93,1112,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1519,40,1336,64,1124,96,1113,98,1112,93,1123,91,1335,59,1518,35"/>
+<area shape="rect" id="Node000008" href="$dd/d97/LuaGraphics_8cpp.html" title=" " alt="" coords="1136,93,1316,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1519,50,1311,96,1310,91,1518,45"/>
+<area shape="rect" id="Node000009" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="1340,93,1501,133"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1559,53,1464,96,1462,91,1557,49"/>
+<area shape="rect" id="Node000010" href="$d2/dc6/LuaLogging_8cpp.html" title=" " alt="" coords="1525,93,1700,133"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1615,59,1615,93,1610,93,1610,59"/>
+<area shape="rect" id="Node000011" href="$d8/d09/LuaMap_8cpp.html" title=" " alt="" coords="1724,93,1885,133"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1668,49,1764,91,1762,96,1666,53"/>
+<area shape="rect" id="Node000012" href="$df/d48/LuaMath_8cpp.html" title=" " alt="" coords="1909,93,2071,133"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1708,45,1910,91,1909,96,1706,51"/>
+<area shape="rect" id="Node000013" href="$d9/d2b/LuaNuklear_8cpp.html" title=" " alt="" coords="2095,93,2269,133"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1708,36,2084,91,2095,93,2094,98,2083,96,1707,41"/>
+<area shape="rect" id="Node000014" href="$da/d96/LuaPlatform_8cpp.html" title=" " alt="" coords="2293,93,2471,133"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1707,31,1966,54,2281,91,2293,92,2292,98,2280,96,1966,59,1707,36"/>
+<area shape="rect" id="Node000015" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="2496,93,2679,133"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1707,28,2050,49,2266,67,2484,91,2496,92,2495,98,2483,96,2266,72,2049,54,1707,33"/>
+<area shape="rect" id="Node000016" href="$db/d27/LuaState_8cpp.html" title=" " alt="" coords="2703,93,2864,133"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1707,25,1890,31,2134,42,2412,61,2692,91,2703,92,2702,98,2691,96,2411,66,2134,47,1889,36,1707,31"/>
+<area shape="rect" id="Node000017" href="$d9/d86/LuaTime_8cpp.html" title=" " alt="" coords="2888,93,3049,133"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1707,24,1918,28,2208,37,2540,57,2711,72,2877,91,2888,92,2887,97,2876,96,2710,77,2540,63,2208,43,1918,33,1707,30"/>
+<area shape="rect" id="Node000018" href="$da/dd6/LuaUtils_8cpp.html" title=" " alt="" coords="3073,93,3235,133"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="1707,23,1945,25,2281,33,2669,54,2868,70,3062,91,3073,92,3072,97,3062,96,2867,75,2668,59,2281,39,1945,30,1707,29"/>
 </map>

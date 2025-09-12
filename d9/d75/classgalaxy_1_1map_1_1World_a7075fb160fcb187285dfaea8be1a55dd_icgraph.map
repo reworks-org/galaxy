@@ -1,5 +1,7 @@
 <map id="galaxy::map::World::set_active" name="galaxy::map::World::set_active">
-<area shape="rect" id="Node000001" title="Set currently active map." alt="" coords="227,5,373,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,13,179,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
+<area shape="rect" id="Node000001" title="Set currently active map." alt="" coords="227,35,373,75"/>
+<area shape="rect" id="Node000002" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="13,5,171,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,45,171,39,172,34,213,40"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="5,70,179,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,69,179,74,178,68,212,64"/>
 </map>

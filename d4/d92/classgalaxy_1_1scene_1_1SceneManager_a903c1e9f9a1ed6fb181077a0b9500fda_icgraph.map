@@ -1,13 +1,8 @@
 <map id="galaxy::scene::SceneManager::pop_all" name="galaxy::scene::SceneManager::pop_all">
-<area shape="rect" id="Node000001" title="Pop all scenes." alt="" coords="744,63,959,103"/>
-<area shape="rect" id="Node000002" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="481,5,696,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="745,62,680,48,681,43,746,57"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,63,143,103"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="730,85,143,85,143,80,730,80"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="191,121,433,146"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="730,100,696,104,434,127,433,122,696,99,730,95"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="205,5,419,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="468,28,420,28,420,23,468,23"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,51,143,69,142,64,215,46"/>
-<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="238,120,142,100,144,95,239,115"/>
+<area shape="rect" id="Node000001" title="Pop all scenes." alt="" coords="481,5,696,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="468,28,143,28,143,23,468,23"/>
+<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="191,38,433,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="468,39,434,42,433,37,467,34"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="179,39,143,35,143,30,179,34"/>
 </map>

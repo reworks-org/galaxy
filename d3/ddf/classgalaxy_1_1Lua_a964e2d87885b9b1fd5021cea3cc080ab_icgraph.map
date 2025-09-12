@@ -1,0 +1,5 @@
+<map id="galaxy::Lua::inject_fs" name="galaxy::Lua::inject_fs">
+<area shape="rect" id="Node000001" title="Injects VFS support into Lua." alt="" coords="193,5,352,31"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="5,5,145,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,21,146,21,146,15,180,15"/>
+</map>

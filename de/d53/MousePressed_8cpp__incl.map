@@ -1,9 +1,11 @@
 <map id="galaxy/src/galaxy/events/MousePressed.cpp" name="galaxy/src/galaxy/events/MousePressed.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="134,5,319,45"/>
-<area shape="rect" id="Node000002" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="155,93,299,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,46,229,79,224,79,224,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,208,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,121,140,162,137,157,206,116"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="233,167,461,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="247,116,316,157,314,162,245,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,309,45"/>
+<area shape="rect" id="Node000002" href="$de/dae/MousePressed_8hpp.html" title=" " alt="" coords="144,93,288,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,46,219,79,213,79,213,46"/>
+<area shape="rect" id="Node000003" href="$d2/de4/HandleableEvent_8hpp.html" title=" " alt="" coords="5,167,197,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,121,142,161,139,157,198,117"/>
+<area shape="rect" id="Node000004" href="$d6/d34/MouseButton_8hpp.html" title=" " alt="" coords="221,174,443,199"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="235,117,305,164,302,168,232,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="259,255,405,280"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="335,200,335,241,329,241,329,200"/>
 </map>

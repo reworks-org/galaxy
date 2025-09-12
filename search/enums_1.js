@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loglevel_0',['LogLevel',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395',1,'galaxy']]]
+  ['bufferbinding_0',['BufferBinding',['../db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45b',1,'galaxy::graphics']]]
 ];

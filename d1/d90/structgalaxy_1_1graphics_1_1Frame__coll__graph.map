@@ -1,0 +1,10 @@
+<map id="galaxy::graphics::Frame" name="galaxy::graphics::Frame">
+<area shape="rect" id="Node000001" title="Single frame of an animation." alt="" coords="5,993,175,1059"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html" title=" " alt="" coords="13,585,167,931"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,931,93,977,87,977,87,931"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="68,5,112,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,71,83,177,80,350,83,523,85,569,79,569,78,523,75,350,78,177,85,71"/>
+<area shape="rect" id="Node000004" href="$d5/d58/classgalaxy_1_1Rect.html" title="Represents a rectangle object." alt="" coords="170,177,325,523"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="108,69,165,181,160,183,104,72"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="178,537,159,586,154,584,173,535"/>
+</map>

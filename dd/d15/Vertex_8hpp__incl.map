@@ -1,0 +1,9 @@
+<map id="galaxy/src/galaxy/graphics/gl/Vertex.hpp" name="galaxy/src/galaxy/graphics/gl/Vertex.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="43,5,239,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,61,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,48,62,87,59,83,114,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="86,93,197,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,46,144,79,139,79,139,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="221,93,409,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,43,278,85,276,90,182,48"/>
+</map>

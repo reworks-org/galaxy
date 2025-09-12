@@ -1,0 +1,29 @@
+<map id="galaxy::components::Polyline::deserialize" name="galaxy::components::Polyline::deserialize">
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,225,167,265"/>
+<area shape="rect" id="Node000002" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#a0b809635978824681737fa90992d2d55" title="List of points to create a line from." alt="" coords="215,97,403,137"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,223,155,185,213,147,227,140,230,145,216,152,158,190,111,227"/>
+<area shape="rect" id="Node000007" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ad3ffb31eb7b707f437b6b0ace6d8277f" title="Alpha." alt="" coords="219,161,398,201"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="156,223,225,203,226,208,157,228"/>
+<area shape="rect" id="Node000009" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ab417167636cc93ce7ae0569bf665e2ee" title="Blue." alt="" coords="219,225,398,265"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="167,243,206,243,206,248,167,248"/>
+<area shape="rect" id="Node000011" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0db9c22461a60650eebe6d97442b8297" title="Green." alt="" coords="219,289,398,329"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="157,263,226,283,225,288,156,268"/>
+<area shape="rect" id="Node000013" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e9f7104e1bff2c2fd29e9cf659e7035" title="Red." alt="" coords="219,353,398,393"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="111,263,158,301,216,339,230,346,227,350,213,344,155,305,108,267"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="459,37,637,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,95,454,78,455,83,390,100"/>
+<area shape="rect" id="Node000006" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#aa334c55c81e523c83a19a1993f8b6b65" title="Get list of points." alt="" coords="454,101,642,141"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="403,116,440,117,440,122,403,122"/>
+<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="693,5,872,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="637,43,679,37,680,42,638,48"/>
+<area shape="rect" id="Node000005" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="693,69,872,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="638,67,680,73,679,78,637,72"/>
+<area shape="rect" id="Node000008" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c" title="Get alpha." alt="" coords="451,169,645,194"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="398,179,437,179,437,184,398,184"/>
+<area shape="rect" id="Node000010" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37" title="Get blue." alt="" coords="451,233,645,258"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="398,243,437,243,437,248,398,248"/>
+<area shape="rect" id="Node000012" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a" title="Get green." alt="" coords="451,297,645,322"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="398,307,437,307,437,312,398,312"/>
+<area shape="rect" id="Node000014" href="$d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c" title="Get red." alt="" coords="453,361,643,386"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="398,371,439,371,439,376,398,376"/>
+</map>

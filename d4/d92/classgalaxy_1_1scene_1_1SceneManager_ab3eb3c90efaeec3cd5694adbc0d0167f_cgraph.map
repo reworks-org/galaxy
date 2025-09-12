@@ -1,0 +1,8 @@
+<map id="galaxy::scene::SceneManager::set_scene" name="galaxy::scene::SceneManager::set_scene">
+<area shape="rect" id="Node000001" title="Scene to set to currently active." alt="" coords="5,22,220,62"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814" title="Convert string to 64bit hash." alt="" coords="268,29,443,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,39,254,39,254,45,220,45"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="491,29,643,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="443,39,477,39,477,45,443,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="532,31,525,21,529,11,543,5,567,3,596,6,608,15,604,20,594,11,567,8,544,10,532,15,530,20,536,28"/>
+</map>

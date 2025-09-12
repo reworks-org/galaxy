@@ -1,6 +1,6 @@
 <map id="galaxy::scene::SceneManager::push" name="galaxy::scene::SceneManager::push">
 <area shape="rect" id="Node000001" title="Push a scene onto the top of stack." alt="" coords="481,5,696,45"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,5,143,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,5,143,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="468,28,143,28,143,23,468,23"/>
 <area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a46703a36f5e959f81f67de6939a050fe" title="Clears all from stack and sets as active." alt="" coords="191,38,433,63"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="468,39,434,42,433,37,467,34"/>

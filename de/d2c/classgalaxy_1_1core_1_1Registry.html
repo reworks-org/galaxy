@@ -102,7 +102,9 @@ $(function(){initNavTree('de/d2c/classgalaxy_1_1core_1_1Registry.html','../../')
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d0/d1d/classgalaxy_1_1core_1_1Registry-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">galaxy::core::Registry Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
@@ -119,14 +121,14 @@ $(function(){initNavTree('de/d2c/classgalaxy_1_1core_1_1Registry.html','../../')
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d6/d3b/classgalaxy_1_1core_1_1Registry__coll__graph.png" border="0" usemap="#agalaxy_1_1core_1_1Registry_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1core_1_1Registry_coll__map" id="agalaxy_1_1core_1_1Registry_coll__map">
-<area shape="rect" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,5,160,271"/>
+<area shape="rect" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,5,184,451"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aacc103a7649d64b0e8975cada3750c1f" id="r_aacc103a7649d64b0e8975cada3750c1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacc103a7649d64b0e8975cada3750c1f">Registry</a> ()</td></tr>
-<tr class="memdesc:aacc103a7649d64b0e8975cada3750c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for creating b2 bodies from components.  <br /></td></tr>
+<tr class="memdesc:aacc103a7649d64b0e8975cada3750c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:aacc103a7649d64b0e8975cada3750c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18605a7b04fbf835e7d275e2efd57048" id="r_a18605a7b04fbf835e7d275e2efd57048"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18605a7b04fbf835e7d275e2efd57048">Registry</a> (<a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">Registry</a> &amp;&amp;)</td></tr>
 <tr class="memdesc:a18605a7b04fbf835e7d275e2efd57048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
@@ -140,9 +142,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a47df3d4e42282a102e703f407106788b" id="r_a47df3d4e42282a102e703f407106788b"><td class="memItemLeft" align="right" valign="top">entt::entity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47df3d4e42282a102e703f407106788b">create</a> ()</td></tr>
 <tr class="memdesc:a47df3d4e42282a102e703f407106788b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an entity with some default components.  <br /></td></tr>
 <tr class="separator:a47df3d4e42282a102e703f407106788b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1072eec42027e3e667a2b18322f61cf" id="r_aa1072eec42027e3e667a2b18322f61cf"><td class="memItemLeft" align="right" valign="top">entt::entity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1072eec42027e3e667a2b18322f61cf">create_from_prefab</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:aa1072eec42027e3e667a2b18322f61cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an entity from a prefab.  <br /></td></tr>
+<tr class="separator:aa1072eec42027e3e667a2b18322f61cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc922cc4182594eec812ed8f202c90ee" id="r_afc922cc4182594eec812ed8f202c90ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc922cc4182594eec812ed8f202c90ee">is_valid</a> (const entt::entity entity)</td></tr>
 <tr class="memdesc:afc922cc4182594eec812ed8f202c90ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate an entity to make sure all components have met their requirements as defined by register_dependencies().  <br /></td></tr>
 <tr class="separator:afc922cc4182594eec812ed8f202c90ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74c0864bb3955de13a761ac5a7300528" id="r_a74c0864bb3955de13a761ac5a7300528"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74c0864bb3955de13a761ac5a7300528">update</a> (b2World &amp;b2World)</td></tr>
+<tr class="memdesc:a74c0864bb3955de13a761ac5a7300528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates pending component data.  <br /></td></tr>
+<tr class="separator:a74c0864bb3955de13a761ac5a7300528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d6c119110845b828a8dd3cf0bf962a3" id="r_a0d6c119110845b828a8dd3cf0bf962a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d6c119110845b828a8dd3cf0bf962a3">clear</a> ()</td></tr>
 <tr class="memdesc:a0d6c119110845b828a8dd3cf0bf962a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear any pending data.  <br /></td></tr>
 <tr class="separator:a0d6c119110845b828a8dd3cf0bf962a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +161,12 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:af090fac31c9d4042dd5eaeb64eae5274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scene entities.  <br /></td></tr>
 <tr class="separator:af090fac31c9d4042dd5eaeb64eae5274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a73f52afd480c2dd31bf7533a9091e0c2" id="r_a73f52afd480c2dd31bf7533a9091e0c2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73f52afd480c2dd31bf7533a9091e0c2">B2BodyConstruction</a> = meta::vector&lt;std::pair&lt;<a class="el" href="../../df/dfe/classgalaxy_1_1components_1_1RigidBody.html">components::RigidBody</a>*, <a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a>*&gt;&gt;</td></tr>
+<tr class="memdesc:a73f52afd480c2dd31bf7533a9091e0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for creating b2 bodies from components.  <br /></td></tr>
+<tr class="separator:a73f52afd480c2dd31bf7533a9091e0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:adf0c2aaf80111897c863684a162e8f59" id="r_adf0c2aaf80111897c863684a162e8f59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf0c2aaf80111897c863684a162e8f59">Registry</a> (const <a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">Registry</a> &amp;)=delete</td></tr>
@@ -161,18 +175,69 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a78a1a9d392280cd1d42ea4d65964af0f" id="r_a78a1a9d392280cd1d42ea4d65964af0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78a1a9d392280cd1d42ea4d65964af0f">operator=</a> (const <a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">Registry</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a78a1a9d392280cd1d42ea4d65964af0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
 <tr class="separator:a78a1a9d392280cd1d42ea4d65964af0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80aba122170ee5bdab5877b5f46ac9bb" id="r_a80aba122170ee5bdab5877b5f46ac9bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80aba122170ee5bdab5877b5f46ac9bb">enable_entity</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
-<tr class="memdesc:a80aba122170ee5bdab5877b5f46ac9bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that runs when an entity is enabled.  <br /></td></tr>
-<tr class="separator:a80aba122170ee5bdab5877b5f46ac9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f9a92a5603a1691779362dbde6297a9" id="r_a5f9a92a5603a1691779362dbde6297a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f9a92a5603a1691779362dbde6297a9">construct_rigidbody</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:a5f9a92a5603a1691779362dbde6297a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that integrates a box2d construction with entt.  <br /></td></tr>
+<tr class="separator:a5f9a92a5603a1691779362dbde6297a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a6058b1d1e45d83be2904fdcc89a21" id="r_a46a6058b1d1e45d83be2904fdcc89a21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46a6058b1d1e45d83be2904fdcc89a21">destroy_rigidbody</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:a46a6058b1d1e45d83be2904fdcc89a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that integrates a box2d destruction with entt.  <br /></td></tr>
+<tr class="separator:a46a6058b1d1e45d83be2904fdcc89a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4da3a8f6440d4e32e0ae0a2c89a8c4" id="r_a0a4da3a8f6440d4e32e0ae0a2c89a8c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a4da3a8f6440d4e32e0ae0a2c89a8c4">construct_script</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:a0a4da3a8f6440d4e32e0ae0a2c89a8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that integrates lua init with entt on construct event.  <br /></td></tr>
+<tr class="separator:a0a4da3a8f6440d4e32e0ae0a2c89a8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2394fd36450c27b406a5e1b151226e16" id="r_a2394fd36450c27b406a5e1b151226e16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2394fd36450c27b406a5e1b151226e16">destruct_script</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:a2394fd36450c27b406a5e1b151226e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that integrates lua destroy with entt on destruction event.  <br /></td></tr>
+<tr class="separator:a2394fd36450c27b406a5e1b151226e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe047fc8d45f03edcc1fbc9de7e53d7" id="r_a1fe047fc8d45f03edcc1fbc9de7e53d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fe047fc8d45f03edcc1fbc9de7e53d7">construct_nui</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:a1fe047fc8d45f03edcc1fbc9de7e53d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that integrates nuklear init with entt on construct event.  <br /></td></tr>
+<tr class="separator:a1fe047fc8d45f03edcc1fbc9de7e53d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20b4a5ffd50bb0f4687e6437fecee561" id="r_a20b4a5ffd50bb0f4687e6437fecee561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20b4a5ffd50bb0f4687e6437fecee561">destruct_nui</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:a20b4a5ffd50bb0f4687e6437fecee561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that integrates nuklear destroy with entt on destruction event.  <br /></td></tr>
+<tr class="separator:a20b4a5ffd50bb0f4687e6437fecee561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0d19ff06b1b38b1a8ad60195e6518be" id="r_ae0d19ff06b1b38b1a8ad60195e6518be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0d19ff06b1b38b1a8ad60195e6518be">enable_entity</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
+<tr class="memdesc:ae0d19ff06b1b38b1a8ad60195e6518be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that runs when an entity is enabled.  <br /></td></tr>
+<tr class="separator:ae0d19ff06b1b38b1a8ad60195e6518be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a362641d71c6340e1419d64b91789bcda" id="r_a362641d71c6340e1419d64b91789bcda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a362641d71c6340e1419d64b91789bcda">disable_entity</a> (entt::registry &amp;registry, entt::entity entity)</td></tr>
 <tr class="memdesc:a362641d71c6340e1419d64b91789bcda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that runs when an entity is disabled.  <br /></td></tr>
 <tr class="separator:a362641d71c6340e1419d64b91789bcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae20920045b4a384573a87eaeb52061dd" id="r_ae20920045b4a384573a87eaeb52061dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a73f52afd480c2dd31bf7533a9091e0c2">B2BodyConstruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae20920045b4a384573a87eaeb52061dd">m_bodies_to_construct</a></td></tr>
+<tr class="memdesc:ae20920045b4a384573a87eaeb52061dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of rigid bodies that need to be constructed.  <br /></td></tr>
+<tr class="separator:ae20920045b4a384573a87eaeb52061dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Wrapper around entt::registry to expand functionality. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../db/dd1/Registry_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../db/dd1/Registry_8hpp_source.html">Registry.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a73f52afd480c2dd31bf7533a9091e0c2" name="a73f52afd480c2dd31bf7533a9091e0c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f52afd480c2dd31bf7533a9091e0c2">&#9670;&#160;</a></span>B2BodyConstruction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a73f52afd480c2dd31bf7533a9091e0c2">galaxy::core::Registry::B2BodyConstruction</a> = meta::vector&lt;std::pair&lt;<a class="el" href="../../df/dfe/classgalaxy_1_1components_1_1RigidBody.html">components::RigidBody</a>*, <a class="el" href="../../d8/d8a/classgalaxy_1_1components_1_1Transform.html">components::Transform</a>*&gt;&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Typedef for creating b2 bodies from components. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/Registry_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../db/dd1/Registry_8hpp_source.html">Registry.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aacc103a7649d64b0e8975cada3750c1f" name="aacc103a7649d64b0e8975cada3750c1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacc103a7649d64b0e8975cada3750c1f">&#9670;&#160;</a></span>Registry() <span class="overload">[1/3]</span></h2>
 
@@ -188,10 +253,9 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Typedef for creating b2 bodies from components. </p>
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -212,7 +276,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Move constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -233,7 +297,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00051">51</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -282,7 +346,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Move assignment operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00037">37</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -304,7 +368,7 @@ Private Member Functions</h2></td></tr>
 <p>Create an entity with some default components. </p>
 <dl class="section return"><dt>Returns</dt><dd>Created entity, or entt::null if failed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -331,11 +395,39 @@ Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="666,74,633,79,632,73,666,69"/>
 <area shape="rect" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="227,45,401,70"/>
 <area shape="poly" title=" " alt="" coords="436,43,402,48,401,42,435,38"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title="Injects mapping into Lua." alt="" coords="5,45,179,70"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="5,45,179,70"/>
 <area shape="poly" title=" " alt="" coords="213,60,179,60,179,55,213,55"/>
 <area shape="poly" title=" " alt="" coords="435,77,401,72,402,67,436,72"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="aa1072eec42027e3e667a2b18322f61cf" name="aa1072eec42027e3e667a2b18322f61cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1072eec42027e3e667a2b18322f61cf">&#9670;&#160;</a></span>create_from_prefab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">entt::entity galaxy::core::Registry::create_from_prefab </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an entity from a prefab. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the prefab to load.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Created entity, or entt::null if failed. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00067">67</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -371,7 +463,52 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if entity is valid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a74c0864bb3955de13a761ac5a7300528" name="a74c0864bb3955de13a761ac5a7300528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c0864bb3955de13a761ac5a7300528">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Registry::update </td>
+          <td>(</td>
+          <td class="paramtype">b2World &amp;</td>          <td class="paramname"><span class="paramname"><em>b2World</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates pending component data. </p>
+<p>For example, box2d bodies.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b2World</td><td>Box2d world data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00096">96</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d2c/classgalaxy_1_1core_1_1Registry_a74c0864bb3955de13a761ac5a7300528_icgraph.png" border="0" usemap="#ade/d2c/classgalaxy_1_1core_1_1Registry_a74c0864bb3955de13a761ac5a7300528_icgraph" alt=""/></div>
+<map name="ade/d2c/classgalaxy_1_1core_1_1Registry_a74c0864bb3955de13a761ac5a7300528_icgraph" id="ade/d2c/classgalaxy_1_1core_1_1Registry_a74c0864bb3955de13a761ac5a7300528_icgraph">
+<area shape="rect" title="Updates pending component data." alt="" coords="660,5,823,45"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#a625712664fa4348b119dd9e541e71760" title="Process events and updates." alt="" coords="453,5,612,45"/>
+<area shape="poly" title=" " alt="" coords="646,28,612,28,612,23,646,23"/>
+<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,5,143,45"/>
+<area shape="poly" title=" " alt="" coords="440,25,405,24,191,24,143,25,143,20,191,19,405,19,440,19"/>
+<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6ad3d7bf8412a264e4b1c2ff0939aa58" title="Handle events and update logic." alt="" coords="191,33,405,73"/>
+<area shape="poly" title=" " alt="" coords="440,39,406,43,405,38,439,34"/>
+<area shape="poly" title=" " alt="" coords="177,41,143,37,143,31,178,36"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -392,26 +529,17 @@ Private Member Functions</h2></td></tr>
 
 <p>Clear any pending data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00124">124</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00127">127</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../de/d2c/classgalaxy_1_1core_1_1Registry_a0d6c119110845b828a8dd3cf0bf962a3_icgraph.png" border="0" usemap="#ade/d2c/classgalaxy_1_1core_1_1Registry_a0d6c119110845b828a8dd3cf0bf962a3_icgraph" alt=""/></div>
 <map name="ade/d2c/classgalaxy_1_1core_1_1Registry_a0d6c119110845b828a8dd3cf0bf962a3_icgraph" id="ade/d2c/classgalaxy_1_1core_1_1Registry_a0d6c119110845b828a8dd3cf0bf962a3_icgraph">
-<area shape="rect" title="Clear any pending data." alt="" coords="979,63,1141,103"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a624fe738044874f9874376081c381bd1" title="Deletes all scene data." alt="" coords="716,63,931,103"/>
-<area shape="poly" title=" " alt="" coords="965,85,931,85,931,80,965,80"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a66ebd7917071f3f7864f2361310b580b" title="Deserializes from object." alt="" coords="453,5,668,45"/>
-<area shape="poly" title=" " alt="" coords="717,62,652,48,653,43,718,57"/>
-<area shape="rect" href="../../de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title="Injects galaxy scene management into lua." alt="" coords="5,35,143,75"/>
-<area shape="poly" title=" " alt="" coords="702,81,143,60,143,55,702,76"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#ae845a371e9b9fb011450d54520f76638" title="Destructor." alt="" coords="453,120,668,160"/>
-<area shape="poly" title=" " alt="" coords="718,108,653,123,652,117,717,103"/>
-<area shape="rect" href="../../d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a9215cd97604eb9878516c73b3147dabd" title="Load app data file into scene manager." alt="" coords="191,5,405,45"/>
-<area shape="poly" title=" " alt="" coords="440,28,406,28,406,23,440,23"/>
-<area shape="poly" title=" " alt="" coords="178,44,143,48,143,43,177,39"/>
+<area shape="rect" title="Clear any pending data." alt="" coords="212,5,375,45"/>
+<area shape="rect" href="../../dd/d72/classgalaxy_1_1scene_1_1Scene.html#ad8efd200032fff3cbdedb2082684e35c" title="Deserializes from object." alt="" coords="5,5,164,45"/>
+<area shape="poly" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>
 </div>
 
@@ -444,8 +572,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a80aba122170ee5bdab5877b5f46ac9bb" name="a80aba122170ee5bdab5877b5f46ac9bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80aba122170ee5bdab5877b5f46ac9bb">&#9670;&#160;</a></span>enable_entity()</h2>
+<a id="a5f9a92a5603a1691779362dbde6297a9" name="a5f9a92a5603a1691779362dbde6297a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9a92a5603a1691779362dbde6297a9">&#9670;&#160;</a></span>construct_rigidbody()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,7 +582,261 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::core::Registry::enable_entity </td>
+          <td class="memname">void galaxy::core::Registry::construct_rigidbody </td>
+          <td>(</td>
+          <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::entity</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that integrates a box2d construction with entt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality.">Registry</a> component belongs to. </td></tr>
+    <tr><td class="paramname">entity</td><td>Entity component belongs to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00133">133</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a46a6058b1d1e45d83be2904fdcc89a21" name="a46a6058b1d1e45d83be2904fdcc89a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a6058b1d1e45d83be2904fdcc89a21">&#9670;&#160;</a></span>destroy_rigidbody()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Registry::destroy_rigidbody </td>
+          <td>(</td>
+          <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::entity</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that integrates a box2d destruction with entt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality.">Registry</a> component belongs to. </td></tr>
+    <tr><td class="paramname">entity</td><td>Entity component belongs to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00144">144</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0a4da3a8f6440d4e32e0ae0a2c89a8c4" name="a0a4da3a8f6440d4e32e0ae0a2c89a8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4da3a8f6440d4e32e0ae0a2c89a8c4">&#9670;&#160;</a></span>construct_script()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Registry::construct_script </td>
+          <td>(</td>
+          <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::entity</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that integrates lua init with entt on construct event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality.">Registry</a> component belongs to. </td></tr>
+    <tr><td class="paramname">entity</td><td>Entity component belongs to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00157">157</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2394fd36450c27b406a5e1b151226e16" name="a2394fd36450c27b406a5e1b151226e16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2394fd36450c27b406a5e1b151226e16">&#9670;&#160;</a></span>destruct_script()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Registry::destruct_script </td>
+          <td>(</td>
+          <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::entity</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that integrates lua destroy with entt on destruction event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality.">Registry</a> component belongs to. </td></tr>
+    <tr><td class="paramname">entity</td><td>Entity component belongs to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00198">198</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1fe047fc8d45f03edcc1fbc9de7e53d7" name="a1fe047fc8d45f03edcc1fbc9de7e53d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe047fc8d45f03edcc1fbc9de7e53d7">&#9670;&#160;</a></span>construct_nui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Registry::construct_nui </td>
+          <td>(</td>
+          <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::entity</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that integrates nuklear init with entt on construct event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality.">Registry</a> component belongs to. </td></tr>
+    <tr><td class="paramname">entity</td><td>Entity component belongs to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00214">214</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d2c/classgalaxy_1_1core_1_1Registry_a1fe047fc8d45f03edcc1fbc9de7e53d7_cgraph.png" border="0" usemap="#ade/d2c/classgalaxy_1_1core_1_1Registry_a1fe047fc8d45f03edcc1fbc9de7e53d7_cgraph" alt=""/></div>
+<map name="ade/d2c/classgalaxy_1_1core_1_1Registry_a1fe047fc8d45f03edcc1fbc9de7e53d7_cgraph" id="ade/d2c/classgalaxy_1_1core_1_1Registry_a1fe047fc8d45f03edcc1fbc9de7e53d7_cgraph">
+<area shape="rect" title="Function that integrates nuklear init with entt on construct event." alt="" coords="5,5,168,45"/>
+<area shape="rect" href="../../d3/df0/classgalaxy_1_1components_1_1GUI.html#a5bf9d4c6e37cefe4607dda3d6d31f158" title="Load script and set context." alt="" coords="216,5,369,45"/>
+<area shape="poly" title=" " alt="" coords="168,23,202,23,202,28,168,28"/>
+<area shape="rect" href="../../d3/df0/classgalaxy_1_1components_1_1GUI.html#a2b758d3afc26f45d89871a1380c71641" title="Get script file." alt="" coords="417,5,571,45"/>
+<area shape="poly" title=" " alt="" coords="370,23,404,23,404,28,370,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a20b4a5ffd50bb0f4687e6437fecee561" name="a20b4a5ffd50bb0f4687e6437fecee561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20b4a5ffd50bb0f4687e6437fecee561">&#9670;&#160;</a></span>destruct_nui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::core::Registry::destruct_nui </td>
+          <td>(</td>
+          <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">entt::entity</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function that integrates nuklear destroy with entt on destruction event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">registry</td><td><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality.">Registry</a> component belongs to. </td></tr>
+    <tr><td class="paramname">entity</td><td>Entity component belongs to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00256">256</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae0d19ff06b1b38b1a8ad60195e6518be" name="ae0d19ff06b1b38b1a8ad60195e6518be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d19ff06b1b38b1a8ad60195e6518be">&#9670;&#160;</a></span>enable_entity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">*void galaxy::core::Registry::enable_entity </td>
           <td>(</td>
           <td class="paramtype">entt::registry &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
         </tr>
@@ -480,7 +862,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00262">262</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -520,7 +902,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00271">271</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d4f/Registry_8cpp_source.html#l00274">274</a> of file <a class="el" href="../../d6/d4f/Registry_8cpp_source.html">Registry.cpp</a>.</p>
 
 </div>
 </div>
@@ -539,7 +921,33 @@ Private Member Functions</h2></td></tr>
 
 <p>Scene entities. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/Registry_8hpp_source.html#l00169">169</a> of file <a class="el" href="../../db/dd1/Registry_8hpp_source.html">Registry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/Registry_8hpp_source.html#l00166">166</a> of file <a class="el" href="../../db/dd1/Registry_8hpp_source.html">Registry.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae20920045b4a384573a87eaeb52061dd" name="ae20920045b4a384573a87eaeb52061dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20920045b4a384573a87eaeb52061dd">&#9670;&#160;</a></span>m_bodies_to_construct</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a73f52afd480c2dd31bf7533a9091e0c2">B2BodyConstruction</a> galaxy::core::Registry::m_bodies_to_construct</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of rigid bodies that need to be constructed. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/Registry_8hpp_source.html#l00172">172</a> of file <a class="el" href="../../db/dd1/Registry_8hpp_source.html">Registry.hpp</a>.</p>
 
 </div>
 </div>
@@ -553,7 +961,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d1/dcb/namespacegalaxy_1_1core.html">core</a></li><li class="navelem"><a class="el" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">Registry</a></li>
-    <li class="footer">Generated on Sat Sep 6 2025 13:10:24 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Sep 12 2025 04:28:53 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
