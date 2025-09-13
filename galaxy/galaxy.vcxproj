@@ -67,6 +67,8 @@
     <ClCompile Include="src\galaxy\meta\WindowBindable.cpp" />
     <ClCompile Include="src\galaxy\platform\Laptop.cpp" />
     <ClCompile Include="src\galaxy\fs\FileUtils.cpp" />
+    <ClCompile Include="src\galaxy\scene\Scene.cpp" />
+    <ClCompile Include="src\galaxy\scene\World.cpp" />
     <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
     <ClCompile Include="src\galaxy\time\Timer.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
@@ -128,6 +130,8 @@
     <ClInclude Include="src\galaxy\meta\WindowBindable.hpp" />
     <ClInclude Include="src\galaxy\platform\Laptop.hpp" />
     <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
+    <ClInclude Include="src\galaxy\scene\Scene.hpp" />
+    <ClInclude Include="src\galaxy\scene\World.hpp" />
     <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
     <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />

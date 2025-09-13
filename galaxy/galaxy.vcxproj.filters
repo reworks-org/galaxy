@@ -70,6 +70,8 @@
     <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
     <ClCompile Include="src\galaxy\events\KeyInput.cpp" />
     <ClCompile Include="src\galaxy\input\Input.cpp" />
+    <ClCompile Include="src\galaxy\scene\Scene.cpp" />
+    <ClCompile Include="src\galaxy\scene\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -131,5 +133,7 @@
     <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
     <ClInclude Include="src\galaxy\events\KeyInput.hpp" />
     <ClInclude Include="src\galaxy\input\Input.hpp" />
+    <ClInclude Include="src\galaxy\scene\Scene.hpp" />
+    <ClInclude Include="src\galaxy\scene\World.hpp" />
   </ItemGroup>
 </Project>

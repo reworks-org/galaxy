@@ -5,25 +5,27 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_STATE_SCENE_HPP_
-#define GALAXY_STATE_SCENE_HPP_
+#ifndef GALAXY_SCENE_SCENE_HPP_
+#define GALAXY_SCENE_SCENE_HPP_
 
-#include <entt/signal/dispatcher.hpp>
+#include <ankerl/unordered_dense.h>
 
 #include "galaxy/core/Registry.hpp"
-#include "galaxy/graphics/Camera.hpp"
-#include "galaxy/map/World.hpp"
-#include "galaxy/systems/RenderSystem.hpp"
+#include "galaxy/fs/Serializable.hpp"
+#include "galaxy/meta/SystemFactory.hpp"
+#include "galaxy/systems/System.hpp"
 
 namespace galaxy
 {
 	namespace scene
 	{
 		///
-		/// Represents a scene in a game. Like the menu, game, etc.
-		///	Does not share resources.
+		/// \brief Represents a scene in a game. Like the menu, game, etc.
 		///
-		class Scene : public fs::Serializable
+		/// Scenes should be logically grouped -> i.e. a map, player data + ui, battle, menu, etc.
+		/// Each scene is an independant collection of systems, but not entities.
+		///
+		class Scene final : public fs::Serializable
 		{
 		public:
 			///
@@ -39,24 +41,40 @@ namespace galaxy
 			virtual ~Scene();
 
 			///
+			/// \brief Add a system to operate on entities in this scene.
+			///
+			/// Scene is called in order of adding. So i.e. if you add anim then render, systems are called in that order.
+			///
+			/// \param system Name of system to add to this scene.
+			///
+			void add_system(const std::string& system);
+
+			///
 			/// When scene is loaded and made active.
 			///
-			virtual void load();
+			void load();
 
 			///
 			/// When scene is deactivated / unloaded.
 			///
-			virtual void unload();
+			void unload();
 
 			///
 			/// Process events and updates.
 			///
-			virtual void update();
+			/// \param registry Registry to process.
+			///
+			void update(core::Registry& registry);
+
+			///
+			/// Update ui.
+			///
+			// void update_ui();
 
 			///
 			/// Render scene.
 			///
-			virtual void render();
+			void render();
 
 			///
 			/// Loads an LDTK world for this scene.
@@ -67,6 +85,12 @@ namespace galaxy
 			///
 			[[nodiscard]]
 			bool load_world(const std::string& file);
+
+			///
+			/// Get scene name.
+			///
+			[[nodiscard]]
+			const std::string& name() const noexcept;
 
 			///
 			/// Serializes object.
@@ -89,13 +113,18 @@ namespace galaxy
 			///
 			Scene() = delete;
 
-		public:
+		private:
 			///
 			/// Scene name for debug purposes.
 			///
 			std::string m_name;
 
 			///
+			/// List of systems to run.
+			///
+			meta::SystemStack m_systems;
+
+			/*///
 			/// Camera.
 			///
 			graphics::Camera m_camera;
@@ -104,11 +133,6 @@ namespace galaxy
 			/// Scene event handler.
 			///
 			entt::dispatcher m_dispatcher;
-
-			///
-			/// Entity data.
-			///
-			core::Registry m_registry;
 
 			///
 			/// Box2D physics world.
@@ -128,7 +152,7 @@ namespace galaxy
 			///
 			/// Box2d world position iterations.
 			///
-			int m_position_iterations;
+			int m_position_iterations;*/
 		};
 	} // namespace scene
 } // namespace galaxy
