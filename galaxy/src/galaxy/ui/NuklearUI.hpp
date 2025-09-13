@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		class NuklearUI final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///
@@ -130,9 +130,10 @@ namespace galaxy
 			///
 			/// \return Pointer to context. DO NOT FREE.
 			///
-			[[nodiscard]] nk_context* ctx() const;
+			[[nodiscard]]
+			nk_context* ctx() const;
 
-		  private:
+		private:
 			///
 			/// Scale UI to monitor/window.
 			///
@@ -140,7 +141,7 @@ namespace galaxy
 			///
 			void scale(const float scale);
 
-		  private:
+		private:
 			///
 			/// Nuklear context pointer.
 			///

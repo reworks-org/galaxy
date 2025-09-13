@@ -30,14 +30,14 @@ namespace sc
 
 	class Viewport final
 	{
-	  public:
+	public:
 		Viewport();
 		~Viewport();
 
 		void set_active();
 		void render(EditorState state, graphics::Camera& editor_camera);
 
-	  public:
+	public:
 		bool                     m_show;
 		bool                     m_editor_cam_enabled = true;
 		bool                     m_viewport_focused;
@@ -46,7 +46,7 @@ namespace sc
 		std::array<glm::vec2, 2> m_viewport_bounds;
 		graphics::RenderTexture  m_framebuffer;
 
-	  private:
+	private:
 		ImVec2              m_padding;
 		graphics::Texture2D m_camera_btn;
 		graphics::Texture2D m_editor_cam_btn;

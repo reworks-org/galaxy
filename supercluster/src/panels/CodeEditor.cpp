@@ -62,25 +62,29 @@ namespace sc
 	void CreateNewFolderViewer(const std::string& folderPath)
 	{
 		int folderViewerId = folderViewers.size();
-		folderViewers.push_back(new DirectoryTreeView(folderPath,
+		folderViewers.push_back(new DirectoryTreeView(
+			folderPath,
 			OnFolderViewNodeFound,
 			OnFileClickedInFolderView,
 			OnPanelFocused,
 			&folderViewFileContextMenuOptions,
 			&folderViewFolderContextMenuOptions,
-			folderViewerId));
+			folderViewerId
+		));
 	}
 
 	void CreateNewFolderSearch(const std::string& folderPath, int fromFolderView)
 	{
 		int folderSearchId = folderFinders.size();
-		folderFinders.push_back(new DirectoryFinder(folderPath,
+		folderFinders.push_back(new DirectoryFinder(
+			folderPath,
 			OnFolderSearchResultClick,
 			OnFolderSearchResultFoundOrSearchFinished,
 			OnFolderSearchResultFoundOrSearchFinished,
 			OnPanelFocused,
 			folderSearchId,
-			fromFolderView));
+			fromFolderView
+		));
 	}
 
 	void InitializeLayout(ImGuiID dock_main_id)

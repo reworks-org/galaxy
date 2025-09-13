@@ -27,23 +27,23 @@ namespace sc
 {
 	class EntityPanel final
 	{
-	  public:
+	public:
 		EntityPanel();
 		~EntityPanel();
 
 		void render(meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected);
 
-	  private:
+	private:
 		template<meta::valid_component Component>
 		void draw_entry(Selected& selected, const std::string& name);
 
 		template<meta::valid_component Component, typename Func>
 		void draw_component(Selected& selected, const std::string& name, Func&& func);
 
-	  public:
+	public:
 		bool m_show = true;
 
-	  private:
+	private:
 		bool m_open_flags      = false;
 		bool m_open_components = false;
 
@@ -84,8 +84,8 @@ namespace sc
 	inline void EntityPanel::draw_component(Selected& selected, const std::string& name, Func&& func)
 	{
 		const constexpr auto               spacing = ImVec2 {4, 4};
-		const constexpr ImGuiTreeNodeFlags flags   = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth |
-												   ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
+		const constexpr ImGuiTreeNodeFlags flags =
+			ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
 
 		auto component = selected.scene->m_registry.m_entt.try_get<Component>(selected.entity);
 		if (component)

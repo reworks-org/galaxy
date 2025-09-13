@@ -387,12 +387,7 @@ namespace sc
 									case sol::type::number:
 										{
 											auto num = value.as<double>();
-											if (ImGui::InputDouble(name.c_str(),
-													&num,
-													0.1,
-													1.0,
-													"%.1f",
-													ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
+											if (ImGui::InputDouble(name.c_str(), &num, 0.1, 1.0, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
 											{
 												gui->m_self[name] = num;
 											}
@@ -580,23 +575,13 @@ namespace sc
 					}
 
 					auto restitution = body->get_restitution();
-					if (ImGui::InputFloat("Restitution",
-							&restitution,
-							0.1f,
-							1.0f,
-							"%.1f",
-							ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+					if (ImGui::InputFloat("Restitution", &restitution, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
 					{
 						body->set_restitution(restitution);
 					}
 
 					auto rt = body->get_restitution_threshold();
-					if (ImGui::InputFloat("Restitution Threshold",
-							&rt,
-							0.1f,
-							1.0f,
-							"%.1f",
-							ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
+					if (ImGui::InputFloat("Restitution Threshold", &rt, 0.1f, 1.0f, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll))
 					{
 						body->set_restitution_threshold(rt);
 					}
@@ -654,12 +639,7 @@ namespace sc
 									case sol::type::number:
 										{
 											auto num = value.as<double>();
-											if (ImGui::InputDouble(name.c_str(),
-													&num,
-													0.1,
-													1.0,
-													"%.1f",
-													ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
+											if (ImGui::InputDouble(name.c_str(), &num, 0.1, 1.0, "%.1f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
 											{
 												script->m_self[name] = num;
 											}

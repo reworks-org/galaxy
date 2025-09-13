@@ -20,22 +20,22 @@ namespace sc
 {
 	class ScenePanel final
 	{
-	  public:
+	public:
 		ScenePanel();
 		~ScenePanel();
 
 		void render(scene::SceneManager& project, meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected);
 
-	  private:
+	private:
 		void draw_camera(scene::Scene* scene);
 		void draw_physics(scene::Scene* scene);
 		void draw_mapping(meta::vector<std::move_only_function<void(void)>>& tasks, scene::Scene* scene, Selected& selected);
 		void draw_registry(Selected& selected, scene::Scene* scene, core::Registry& registry, ImGuiTextFilter& filter);
 
-	  public:
+	public:
 		bool m_show = true;
 
-	  private:
+	private:
 		bool                       m_show_new     = false;
 		bool                       m_show_clear   = false;
 		bool                       m_prefab_popup = false;

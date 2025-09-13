@@ -430,10 +430,12 @@ namespace sc
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0, 0});
-		ImGui::Begin("Main Viewport",
+		ImGui::Begin(
+			"Main Viewport",
 			nullptr,
 			ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
-				ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground);
+				ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground
+		);
 		ImGui::PopStyleVar(3);
 
 		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), {0, 0}, ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode);
@@ -682,10 +684,12 @@ namespace sc
 		if (m_show_export)
 		{
 			ui::imgui_center_next_window();
-			if (ImGui::Begin("Exporting...",
+			if (ImGui::Begin(
+					"Exporting...",
 					nullptr,
-					ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoInputs |
-						ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoMove))
+					ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoSavedSettings |
+						ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoMove
+				))
 			{
 				ImGuiContext& g      = *GImGui;
 				ImGuiWindow*  window = ImGui::GetCurrentWindow();

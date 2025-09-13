@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		class Loader final
 		{
-		  public:
+		public:
 			///
 			/// Constructor.
 			///

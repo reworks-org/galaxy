@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class Scene : public fs::Serializable
 		{
-		  public:
+		public:
 			///
 			/// Name constructor.
 			///
@@ -65,14 +65,16 @@ namespace galaxy
 			///
 			/// \return True if loaded successfully.
 			///
-			[[nodiscard]] bool load_world(const std::string& file);
+			[[nodiscard]]
+			bool load_world(const std::string& file);
 
 			///
 			/// Serializes object.
 			///
 			/// \return JSON object containing data to write out.
 			///
-			[[nodiscard]] nlohmann::json serialize() override;
+			[[nodiscard]]
+			nlohmann::json serialize() override;
 
 			///
 			/// Deserializes from object.
@@ -81,13 +83,13 @@ namespace galaxy
 			///
 			void deserialize(const nlohmann::json& json) override;
 
-		  private:
+		private:
 			///
 			/// Constructor.
 			///
 			Scene() = delete;
 
-		  public:
+		public:
 			///
 			/// Scene name for debug purposes.
 			///

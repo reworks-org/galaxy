@@ -12,14 +12,14 @@ namespace sc
 {
 	class CodeEditor final
 	{
-	  public:
+	public:
 		CodeEditor();
 		~CodeEditor();
 
 		void render();
 		void load(const std::string& file);
 
-	  public:
+	public:
 		bool m_show;
 	};
 } // namespace sc

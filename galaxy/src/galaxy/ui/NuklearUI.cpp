@@ -115,11 +115,7 @@ namespace galaxy
 				glfwGetCursorPos(glfw.win, &x, &y);
 				nk_input_motion(&glfw.ctx, static_cast<int>(x), static_cast<int>(y));
 
-				nk_input_button(&glfw.ctx,
-					NK_BUTTON_DOUBLE,
-					static_cast<int>(glfw.double_click_pos.x),
-					static_cast<int>(glfw.double_click_pos.y),
-					glfw.is_double_click_down);
+				nk_input_button(&glfw.ctx, NK_BUTTON_DOUBLE, static_cast<int>(glfw.double_click_pos.x), static_cast<int>(glfw.double_click_pos.y), glfw.is_double_click_down);
 				nk_input_scroll(&glfw.ctx, glfw.scroll);
 				nk_input_end(ctx());
 				glfw.text_len = 0;
@@ -176,10 +172,12 @@ namespace galaxy
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
 
-			if (nk_begin(ctx(),
+			if (nk_begin(
+					ctx(),
 					"loading_window",
 					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 30, 400, 60),
-					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
+					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR
+				))
 			{
 				nk_layout_row_dynamic(ctx(), 20, 1);
 				nk_label(ctx(), text, NK_TEXT_CENTERED);
@@ -194,10 +192,12 @@ namespace galaxy
 		{
 			auto& window = core::ServiceLocator<core::Window>::ref();
 
-			if (nk_begin(ctx(),
+			if (nk_begin(
+					ctx(),
 					"building_window",
 					nk_rect((window.get_widthf() / 2.0f) - 200, (window.get_heightf() / 2.0f) - 20, 400, 40),
-					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR))
+					NK_WINDOW_BORDER | NK_WINDOW_NO_SCROLLBAR
+				))
 			{
 				nk_layout_row_dynamic(ctx(), 20, 1);
 				nk_label(ctx(), "Building Textures...", NK_TEXT_CENTERED);

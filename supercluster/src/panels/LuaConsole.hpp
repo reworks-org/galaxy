@@ -16,16 +16,16 @@ namespace sc
 {
 	class LuaConsole final
 	{
-	  public:
+	public:
 		LuaConsole();
 		~LuaConsole();
 
 		void render();
 
-	  public:
+	public:
 		bool m_show;
 
-	  private:
+	private:
 		std::string               m_buff;
 		meta::vector<std::string> m_history;
 	};

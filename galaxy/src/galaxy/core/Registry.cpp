@@ -260,9 +260,11 @@ namespace galaxy
 			{
 				ui.m_self.abandon();
 			}
-		}*/
+		}
 
-		void Registry::enable_entity(entt::registry& registry, entt::entity entity)
+		* /
+
+			void Registry::enable_entity(entt::registry& registry, entt::entity entity)
 		{
 			/*auto rb = registry.try_get<components::RigidBody>(entity);
 			if (rb)

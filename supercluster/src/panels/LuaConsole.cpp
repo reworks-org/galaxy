@@ -38,7 +38,7 @@ namespace
 	const struct luaL_Reg printlib[] = {
 		{"print", l_my_print},
 		{   NULL,       NULL}
-    };
+	};
 } // namespace
 
 namespace sc
@@ -141,9 +141,7 @@ namespace sc
 					ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
 					ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
 
-					if (ImGui::InputText("",
-							&m_buff,
-							ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
+					if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 					{
 						m_history.push_back(std::format("[INPUT]:  {0}.", m_buff));
 

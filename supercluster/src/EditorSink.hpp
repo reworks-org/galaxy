@@ -19,7 +19,7 @@ namespace sc
 {
 	class EditorSink final : public error::Sink
 	{
-	  public:
+	public:
 		EditorSink() = default;
 		virtual ~EditorSink();
 
@@ -28,7 +28,7 @@ namespace sc
 
 		const meta::vector<error::LogMessage>& get_messages() const;
 
-	  private:
+	private:
 		meta::vector<error::LogMessage> m_logs;
 	};
 } // namespace sc

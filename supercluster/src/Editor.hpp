@@ -32,13 +32,13 @@ namespace sc
 {
 	class Editor final : public scene::Scene
 	{
-	  public:
+	public:
 		using Tasks = meta::vector<std::move_only_function<void(void)>>;
 
 		Editor(const std::string& name);
 		virtual ~Editor();
 
-	  private:
+	private:
 		void load() override;
 		void unload() override;
 		void update() override;
@@ -70,7 +70,7 @@ namespace sc
 		void set_input_game();
 		void set_input_editor();
 
-	  private:
+	private:
 		// game data independant from editor.
 		nlohmann::json      m_backup;
 		scene::SceneManager m_project;

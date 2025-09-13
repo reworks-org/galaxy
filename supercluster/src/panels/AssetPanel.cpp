@@ -162,10 +162,12 @@ namespace sc
 			{
 				top();
 
-				if (ImGui::BeginTable("AssetPanelLayoutTable",
+				if (ImGui::BeginTable(
+						"AssetPanelLayoutTable",
 						2,
 						ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX,
-						ImGui::GetContentRegionAvail()))
+						ImGui::GetContentRegionAvail()
+					))
 				{
 					ImGui::TableNextRow();
 					ImGui::TableNextColumn();
@@ -274,8 +276,7 @@ namespace sc
 
 	void AssetPanel::tree()
 	{
-		constexpr const ImGuiTableFlags flags =
-			ImGuiTableFlags_NoBordersInBody | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX | ImGuiTableFlags_ScrollY;
+		constexpr const ImGuiTableFlags flags = ImGuiTableFlags_NoBordersInBody | ImGuiTableFlags_NoPadOuterX | ImGuiTableFlags_NoPadInnerX | ImGuiTableFlags_ScrollY;
 
 		if (ImGui::BeginTable("AssetPanelTreeViewTable", 1, flags))
 		{
@@ -353,14 +354,12 @@ namespace sc
 						ImGui::EndDragDropSource();
 					}
 
-					if (!ImGui::IsItemHovered() && !m_contextmenu_opened &&
-						(ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
+					if (!ImGui::IsItemHovered() && !m_contextmenu_opened && (ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
 					{
 						m_selected = {};
 					}
 
-					if (path.has_extension() && ImGui::IsItemHovered() &&
-						(ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
+					if (path.has_extension() && ImGui::IsItemHovered() && (ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right)))
 					{
 						m_selected.path      = path;
 						m_selected.extension = ext;

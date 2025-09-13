@@ -140,10 +140,7 @@ namespace sc
 		if (ImGui::CollapsingHeader("Physics"))
 		{
 			float gravity[2] = {scene->m_b2world.GetGravity().x, scene->m_b2world.GetGravity().y};
-			if (ImGui::InputFloat2("Gravity",
-					&gravity[0],
-					"%.2f",
-					ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+			if (ImGui::InputFloat2("Gravity", &gravity[0], "%.2f", ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 			{
 				scene->m_b2world.SetGravity({gravity[0], gravity[1]});
 			}

@@ -28,7 +28,7 @@ namespace galaxy
 		///
 		class TextureAtlas final
 		{
-		  public:
+		public:
 			///
 			/// A sheet of textures in the atlas.
 			///
@@ -122,7 +122,8 @@ namespace galaxy
 			///
 			/// \return True if found.
 			///
-			[[nodiscard]] bool contains(const std::string& key);
+			[[nodiscard]]
+			bool contains(const std::string& key);
 
 			///
 			/// Get data about texture in atlas.
@@ -131,7 +132,8 @@ namespace galaxy
 			///
 			/// \return TextureAtlas::Info, as an optional reference.
 			///
-			[[nodiscard]] meta::optional_ref<Info> query(const std::string& key);
+			[[nodiscard]]
+			meta::optional_ref<Info> query(const std::string& key);
 
 			///
 			/// Takes in a x positon texture coord and maps it to a texel.
@@ -144,7 +146,8 @@ namespace galaxy
 			/// \return OpenGL shader compatible texel.
 			///
 			template<meta::is_arithmetic Type>
-			[[nodiscard]] static float map_x_texel(const Type x, const Type width);
+			[[nodiscard]]
+			static float map_x_texel(const Type x, const Type width);
 
 			///
 			/// Takes in a y positon texture coord and maps it to a texel.
@@ -157,16 +160,18 @@ namespace galaxy
 			/// \return OpenGL shader compatible texel.
 			///
 			template<meta::is_arithmetic Type>
-			[[nodiscard]] static float map_y_texel(const Type y, const Type height);
+			[[nodiscard]]
+			static float map_y_texel(const Type y, const Type height);
 
 			///
 			/// Get a list of keys in the cache.
 			///
 			/// \return A vector of strings.
 			///
-			[[nodiscard]] meta::vector<std::string> keys();
+			[[nodiscard]]
+			meta::vector<std::string> keys();
 
-		  private:
+		private:
 			///
 			/// Move constructor.
 			///
@@ -192,7 +197,7 @@ namespace galaxy
 			///
 			void init();
 
-		  private:
+		private:
 			///
 			/// Max number of active textures allowed.
 			///

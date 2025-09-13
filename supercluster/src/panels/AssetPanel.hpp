@@ -21,7 +21,7 @@ namespace sc
 	// currently doesnt support deleting or selecting folders, or files without extensions.
 	class AssetPanel final
 	{
-	  public:
+	public:
 		enum class FileType : int
 		{
 			AUDIO,
@@ -52,17 +52,17 @@ namespace sc
 		void tree();
 		void body(CodeEditor& editor);
 
-	  private:
+	private:
 		void load_lua_script(CodeEditor& editor);
 		void load_preview();
 
 		void directory_tree_view_recursive(const std::filesystem::path& path, uint32_t* count);
 		void update_directories(const std::filesystem::path& path);
 
-	  public:
+	public:
 		bool m_show = true;
 
-	  private:
+	private:
 		Selected        m_selected;
 		ImGuiTextFilter m_filter;
 

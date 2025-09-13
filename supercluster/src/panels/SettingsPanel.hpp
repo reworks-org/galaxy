@@ -17,7 +17,7 @@ namespace sc
 {
 	class SettingsPanel final
 	{
-	  public:
+	public:
 		SettingsPanel();
 		~SettingsPanel();
 
@@ -25,14 +25,14 @@ namespace sc
 		void                  render();
 		const nlohmann::json& save();
 
-	  private:
+	private:
 		void do_object(nlohmann::json& json);
 		void do_array(nlohmann::json& json);
 
-	  public:
+	public:
 		bool m_show = false;
 
-	  private:
+	private:
 		int            m_counter;
 		nlohmann::json m_root;
 	};
