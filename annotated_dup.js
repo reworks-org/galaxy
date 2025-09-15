@@ -20,7 +20,6 @@ var annotated_dup =
       [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
         [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
         [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ],
-        [ "Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", "de/d2c/classgalaxy_1_1core_1_1Registry" ],
         [ "Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", "d5/d25/classgalaxy_1_1core_1_1Window" ],
         [ "WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings" ]
       ] ],
@@ -95,10 +94,6 @@ var annotated_dup =
         [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
         [ "VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader" ]
       ] ],
-      [ "scene", "de/d3c/namespacegalaxy_1_1scene.html", [
-        [ "Scene", "dd/d72/classgalaxy_1_1scene_1_1Scene.html", "dd/d72/classgalaxy_1_1scene_1_1Scene" ],
-        [ "SceneManager", "d4/d92/classgalaxy_1_1scene_1_1SceneManager.html", "d4/d92/classgalaxy_1_1scene_1_1SceneManager" ]
-      ] ],
       [ "state", "df/dcc/namespacegalaxy_1_1state.html", [
         [ "State", "db/d6a/classgalaxy_1_1state_1_1State.html", "db/d6a/classgalaxy_1_1state_1_1State" ],
         [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
@@ -107,8 +102,7 @@ var annotated_dup =
         [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],
         [ "PhysicsSystem", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html", "df/da4/classgalaxy_1_1systems_1_1PhysicsSystem" ],
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
-        [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ],
-        [ "System", "d9/de7/classgalaxy_1_1systems_1_1System.html", "d9/de7/classgalaxy_1_1systems_1_1System" ]
+        [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ]
       ] ],
       [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", [
         [ "NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI" ]
@@ -136,10 +130,13 @@ var annotated_dup =
       [ "MouseWheel", "da/d9e/structgalaxy_1_1MouseWheel.html", "da/d9e/structgalaxy_1_1MouseWheel" ],
       [ "Rect", "d5/d58/classgalaxy_1_1Rect.html", "d5/d58/classgalaxy_1_1Rect" ],
       [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
+      [ "Registry", "df/dbe/classgalaxy_1_1Registry.html", "df/dbe/classgalaxy_1_1Registry" ],
+      [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
       [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
       [ "Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", "d4/d22/classgalaxy_1_1Stopwatch" ],
       [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
+      [ "System", "dc/dd4/classgalaxy_1_1System.html", "dc/dd4/classgalaxy_1_1System" ],
       [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
       [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
       [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
@@ -147,6 +144,7 @@ var annotated_dup =
       [ "WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", "d3/d81/classgalaxy_1_1WindowBindable" ],
       [ "WindowClosed", "d9/ddc/structgalaxy_1_1WindowClosed.html", null ],
       [ "WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", "d9/d35/structgalaxy_1_1WindowResized" ],
+      [ "World", "d3/d38/classgalaxy_1_1World.html", "d3/d38/classgalaxy_1_1World" ],
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [

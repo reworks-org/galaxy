@@ -1,11 +1,9 @@
 <map id="galaxy::components::GUI::file" name="galaxy::components::GUI::file">
-<area shape="rect" id="Node000001" title="Get script file." alt="" coords="619,37,772,77"/>
-<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a5bf9d4c6e37cefe4607dda3d6d31f158" title="Load script and set context." alt="" coords="417,37,571,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="605,60,571,60,571,55,605,55"/>
-<area shape="rect" id="Node000003" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html#a1fe047fc8d45f03edcc1fbc9de7e53d7" title="Function that integrates nuklear init with entt on construct event." alt="" coords="207,5,369,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="403,46,369,41,370,35,404,41"/>
-<area shape="rect" id="Node000004" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a435c9746190832b1e1826b1b70c04d8f" title="Deserializes from object." alt="" coords="211,69,365,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="404,74,365,80,364,75,403,69"/>
-<area shape="rect" id="Node000005" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#ac9ae5d79716495c820d1167de5a7f8b8" title="JSON constructor." alt="" coords="5,69,159,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="198,92,159,92,159,87,198,87"/>
+<area shape="rect" id="Node000001" title="Get script file." alt="" coords="609,5,763,45"/>
+<area shape="rect" id="Node000002" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a5bf9d4c6e37cefe4607dda3d6d31f158" title="Load script and set context." alt="" coords="408,5,561,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,28,561,28,561,23,595,23"/>
+<area shape="rect" id="Node000003" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#a435c9746190832b1e1826b1b70c04d8f" title="Deserializes from object." alt="" coords="207,5,360,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,28,360,28,360,23,394,23"/>
+<area shape="rect" id="Node000004" href="$d3/df0/classgalaxy_1_1components_1_1GUI.html#ac9ae5d79716495c820d1167de5a7f8b8" title="JSON constructor." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

@@ -1,12 +1,10 @@
 <map id="galaxy::map::World" name="galaxy::map::World">
-<area shape="rect" id="Node000001" title="An LDTK level." alt="" coords="163,971,301,1296"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="233,325,311,390"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,390,286,484,293,622,293,783,289,866,281,947,280,955,275,954,276,946,284,866,288,783,287,622,281,485,273,390"/>
-<area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="85,643,249,908"/>
-<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="267,391,207,627,201,626,261,390"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="207,5,337,85"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,99,275,325,269,325,269,99"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="194,908,202,954,197,955,188,909"/>
-<area shape="rect" id="Node000005" href="$de/d2c/classgalaxy_1_1core_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="5,135,184,580"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="92,580,99,618,101,626,95,627,93,619,87,581"/>
+<area shape="rect" id="Node000001" title="An LDTK level." alt="" coords="5,591,144,916"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,135,114,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,201,68,263,65,422,68,574,63,574,60,422,63,263,68,200"/>
+<area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html" title="An LDTK level." alt="" coords="127,263,291,528"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="96,199,125,247,120,250,91,202"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="9,5,140,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,99,77,134,72,134,72,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,529,144,576,139,574,157,528"/>
 </map>

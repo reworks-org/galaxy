@@ -1,17 +1,5 @@
-<map id="galaxy/src/galaxy/core/Prefab.hpp" name="galaxy/src/galaxy/core/Prefab.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="295,5,464,45"/>
-<area shape="rect" id="Node000002" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="191,93,360,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="347,56,300,95,297,91,344,52"/>
-<area shape="rect" id="Node000003" href="$d3/d96/Prefabs_8hpp.html" title=" " alt="" coords="385,93,582,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="415,52,462,91,459,95,411,56"/>
-<area shape="rect" id="Node000004" href="$d0/dd0/core_2Loader_8cpp.html" title=" " alt="" coords="5,181,175,221"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="385,139,175,184,174,179,383,134"/>
-<area shape="rect" id="Node000005" href="$d6/d4f/Registry_8cpp.html" title=" " alt="" coords="199,181,368,221"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="428,141,328,184,326,179,426,136"/>
-<area shape="rect" id="Node000006" href="$d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="392,181,575,221"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="486,147,486,181,481,181,481,147"/>
-<area shape="rect" id="Node000007" href="$dc/d7a/Prefabs_8cpp.html" title=" " alt="" coords="599,181,797,221"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="544,136,652,179,650,184,542,141"/>
-<area shape="rect" id="Node000008" href="$d4/d43/old__scene_2Scene_8cpp.html" title=" " alt="" coords="821,181,999,221"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="591,133,821,180,820,185,590,139"/>
+<map id="galaxy/src/galaxy/entity/Prefab.hpp" name="galaxy/src/galaxy/entity/Prefab.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,184,45"/>
+<area shape="rect" id="Node000002" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="5,93,184,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,59,97,93,92,93,92,59"/>
 </map>

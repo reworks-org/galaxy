@@ -1,9 +1,7 @@
 <map id="galaxy::graphics::Camera::set_projection" name="galaxy::graphics::Camera::set_projection">
-<area shape="rect" id="Node000001" title="Set camera projection." alt="" coords="447,37,633,77"/>
-<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="212,37,399,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="433,60,399,60,399,55,433,55"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="16,5,153,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,44,153,38,154,33,199,39"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#abeb10711646276e1ddf72d9d5f3595df" title="Name constructor." alt="" coords="5,69,164,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,76,165,81,164,75,198,70"/>
+<area shape="rect" id="Node000001" title="Set camera projection." alt="" coords="425,5,612,45"/>
+<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="191,5,377,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="412,28,378,28,378,23,412,23"/>
+<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="5,5,143,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
 </map>

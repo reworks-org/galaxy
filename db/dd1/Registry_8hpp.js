@@ -1,4 +1,4 @@
 var Registry_8hpp =
 [
-    [ "galaxy::core::Registry", "de/d2c/classgalaxy_1_1core_1_1Registry.html", "de/d2c/classgalaxy_1_1core_1_1Registry" ]
+    [ "galaxy::Registry", "df/dbe/classgalaxy_1_1Registry.html", "df/dbe/classgalaxy_1_1Registry" ]
 ];

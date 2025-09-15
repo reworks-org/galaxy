@@ -1,0 +1,17 @@
+<map id="galaxy/src/galaxy/scene/World.hpp" name="galaxy/src/galaxy/scene/World.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="115,5,294,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,196,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,48,129,87,125,83,178,43"/>
+<area shape="rect" id="Node000003" href="$db/de8/Scene_8hpp.html" title=" " alt="" coords="221,93,399,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,43,285,83,282,87,229,48"/>
+<area shape="rect" id="Node000004" href="$d4/d25/System_8hpp.html" title=" " alt="" coords="207,167,413,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,119,313,153,307,153,307,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="177,240,257,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="297,194,244,234,241,229,293,190"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="281,240,339,265"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="313,192,313,226,307,226,307,192"/>
+<area shape="rect" id="Node000007" href="$db/dd1/Registry_8hpp.html" title=" " alt="" coords="363,240,555,265"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="335,190,424,232,421,236,333,194"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="374,313,545,339"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="462,266,462,300,457,300,457,266"/>
+</map>

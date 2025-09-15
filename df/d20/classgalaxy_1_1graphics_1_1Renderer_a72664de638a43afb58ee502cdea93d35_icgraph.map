@@ -1,18 +1,10 @@
 <map id="galaxy::graphics::Renderer::clear_active" name="galaxy::graphics::Renderer::clear_active">
-<area shape="rect" id="Node000001" title="Clears currently active framebuffer." alt="" coords="903,33,1097,73"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af2810f49a72158adbf57af81a1cb7191" title="Start rendering to default framebuffer." alt="" coords="660,33,855,73"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="889,56,855,56,855,51,889,51"/>
-<area shape="rect" id="Node000003" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="456,5,609,45"/>
-<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="909,33,854,24,800,20,758,20,660,24,610,25,610,20,660,19,757,15,800,14,855,19,910,28"/>
-<area shape="rect" id="Node000007" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56" title="Begin rendering to post process framebuffer." alt="" coords="660,97,855,137"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="911,79,834,100,833,95,910,74"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="646,42,609,38,610,32,647,37"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="453,83,612,123"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="653,79,613,88,612,83,652,74"/>
-<area shape="rect" id="Node000005" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,83,143,123"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="440,102,405,101,191,101,143,103,143,97,191,96,405,96,440,97"/>
-<area shape="rect" id="Node000006" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="191,111,405,151"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="440,116,406,121,405,115,439,111"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="177,118,143,114,143,109,178,113"/>
-<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="646,113,612,110,612,105,647,107"/>
+<area shape="rect" id="Node000001" title="Clears currently active framebuffer." alt="" coords="449,63,644,103"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#af2810f49a72158adbf57af81a1cb7191" title="Start rendering to default framebuffer." alt="" coords="207,5,401,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="447,62,389,48,390,43,449,57"/>
+<area shape="rect" id="Node000003" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="5,35,159,75"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="435,79,159,62,159,57,436,73"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5cc20dd006fbed6f129b9b209ce7cf56" title="Begin rendering to post process framebuffer." alt="" coords="207,120,401,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="449,108,390,123,389,117,447,103"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,43,159,47,159,42,193,37"/>
 </map>

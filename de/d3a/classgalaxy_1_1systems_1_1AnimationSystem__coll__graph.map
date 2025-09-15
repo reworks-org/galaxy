@@ -1,9 +1,5 @@
 <map id="galaxy::systems::AnimationSystem" name="galaxy::systems::AnimationSystem">
-<area shape="rect" id="Node000001" title="Update entity animations." alt="" coords="5,457,200,577"/>
-<area shape="rect" id="Node000002" href="$d9/de7/classgalaxy_1_1systems_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="14,263,191,408"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,422,105,457,100,457,100,422"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="63,135,142,200"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,200,105,246,100,246,100,200"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="37,5,168,85"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="105,99,105,134,100,134,100,99"/>
+<area shape="rect" id="Node000001" title="Update entity animations." alt="" coords="5,119,200,239"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="39,5,166,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,85,105,118,100,118,100,85"/>
 </map>

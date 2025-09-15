@@ -1,0 +1,16 @@
+<map id="galaxy::Scene" name="galaxy::Scene">
+<area shape="rect" id="Node000001" title="Represents a scene in a game." alt="" coords="226,613,343,859"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="265,135,344,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="318,200,323,224,336,326,339,407,335,487,323,590,322,597,317,597,318,589,330,487,334,406,330,326,318,224,313,201"/>
+<area shape="rect" id="Node000005" href="$dc/dd4/classgalaxy_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="181,263,295,408"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="287,201,275,225,266,248,261,246,270,223,282,199"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="239,5,370,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="307,99,307,134,302,134,302,99"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="159,471,301,551"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,550,238,589,240,597,234,598,233,590,228,551"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="236,409,235,432,234,454,229,454,230,432,231,408"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,303,127,368"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="70,381,77,415,93,445,124,471,160,489,157,494,121,475,89,448,72,417,65,383"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="55,135,77,200"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="69,200,69,286,63,286,63,200"/>
+</map>

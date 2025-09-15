@@ -1,19 +1,19 @@
-<map id="galaxy/src/galaxy/core/Prefab.cpp" name="galaxy/src/galaxy/core/Prefab.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="735,5,904,45"/>
+<map id="galaxy/src/galaxy/entity/Prefab.cpp" name="galaxy/src/galaxy/entity/Prefab.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="730,5,909,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,231,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="735,39,234,94,233,89,734,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,39,234,94,233,89,730,34"/>
 <area shape="rect" id="Node000003" href="$de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="463,93,693,119"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="762,48,627,92,626,86,761,43"/>
 <area shape="rect" id="Node000010" href="$d0/d79/Base64_8hpp.html" title=" " alt="" coords="255,93,439,119"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="735,43,430,94,429,88,734,38"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="730,44,430,94,429,88,730,39"/>
 <area shape="rect" id="Node000011" href="$db/dba/ZLib_8hpp.html" title=" " alt="" coords="737,93,901,119"/>
 <area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="822,46,822,79,817,79,817,46"/>
 <area shape="rect" id="Node000013" title=" " alt="" coords="925,93,1132,119"/>
 <area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="870,43,986,86,984,91,869,48"/>
 <area shape="rect" id="Node000014" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="1167,93,1375,119"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="905,39,1192,88,1191,94,904,44"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="910,40,1193,88,1192,94,909,45"/>
 <area shape="rect" id="Node000016" href="$d1/d98/Prefab_8hpp.html" title=" " alt="" coords="1405,93,1497,119"/>
-<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="905,32,1124,56,1388,91,1392,91,1391,97,1387,96,1123,62,904,38"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="909,33,1127,57,1388,91,1392,91,1391,97,1387,96,1127,62,909,38"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="309,167,362,192"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="540,121,376,169,375,164,538,116"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="226,167,285,192"/>

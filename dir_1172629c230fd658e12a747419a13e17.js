@@ -10,6 +10,8 @@ var dir_1172629c230fd658e12a747419a13e17 =
     [ "FileError.hpp", "d8/db6/FileError_8hpp.html", "d8/db6/FileError_8hpp" ],
     [ "FileUtils.cpp", "d1/d23/FileUtils_8cpp.html", "d1/d23/FileUtils_8cpp" ],
     [ "FileUtils.hpp", "da/dc2/FileUtils_8hpp.html", "da/dc2/FileUtils_8hpp" ],
+    [ "Loader.cpp", "d2/dd0/fs_2Loader_8cpp.html", null ],
+    [ "Loader.hpp", "de/da0/fs_2Loader_8hpp.html", "de/da0/fs_2Loader_8hpp" ],
     [ "VirtualFileSystem.cpp", "d5/deb/VirtualFileSystem_8cpp.html", null ],
     [ "VirtualFileSystem.hpp", "de/dc7/VirtualFileSystem_8hpp.html", "de/dc7/VirtualFileSystem_8hpp" ]
 ];

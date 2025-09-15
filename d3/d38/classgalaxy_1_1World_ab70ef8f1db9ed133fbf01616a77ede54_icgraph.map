@@ -1,0 +1,5 @@
+<map id="galaxy::World::pop" name="galaxy::World::pop">
+<area shape="rect" id="Node000001" title="Remove scene on top of stack." alt="" coords="219,5,361,31"/>
+<area shape="rect" id="Node000002" href="$d3/d38/classgalaxy_1_1World.html#a5d5dd553d5f3b7d347f2a5a39886e890" title="Remove all scenes in stack." alt="" coords="5,5,171,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,21,171,21,171,15,205,15"/>
+</map>

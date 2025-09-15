@@ -1,12 +1,5 @@
 <map id="galaxy::graphics::PostProcess::render_effects" name="galaxy::graphics::PostProcess::render_effects">
-<area shape="rect" id="Node000001" title="Draw post effects to stored framebuffer." alt="" coords="903,5,1117,45"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="660,5,855,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="889,28,855,28,855,23,889,23"/>
-<area shape="rect" id="Node000003" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a54ec4f7cf4ee50600c2a4af95e0ffb98" title="Render scene." alt="" coords="453,5,612,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="646,28,612,28,612,23,646,23"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,5,143,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="440,25,405,24,191,24,143,25,143,20,191,19,405,19,440,19"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a7b60e06e0cb5cd4ecb07bf5af339df45" title="Handle rendering." alt="" coords="191,33,405,73"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="440,39,406,43,405,38,439,34"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="177,41,143,37,143,31,178,36"/>
+<area shape="rect" id="Node000001" title="Draw post effects to stored framebuffer." alt="" coords="248,5,463,45"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
 </map>

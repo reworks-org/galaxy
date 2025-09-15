@@ -1,13 +1,5 @@
 <map id="galaxy::map::World::get_active" name="galaxy::map::World::get_active">
-<area shape="rect" id="Node000001" title="Get currently active map." alt="" coords="453,87,600,127"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="211,5,385,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,83,404,46,363,33,365,28,406,41,482,78"/>
-<area shape="rect" id="Node000003" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a05b20db2d243f6d287667f7c141972b8" title="Only update rendering." alt="" coords="191,55,405,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="439,98,405,93,406,88,440,93"/>
-<area shape="rect" id="Node000004" href="$dd/d72/classgalaxy_1_1scene_1_1Scene.html#a9541e5a868273b9ed2add00a703b7388" title="Serializes object." alt="" coords="219,119,377,159"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="440,122,378,131,377,126,440,117"/>
-<area shape="rect" id="Node000005" href="$d4/d92/classgalaxy_1_1scene_1_1SceneManager.html#a6ad3d7bf8412a264e4b1c2ff0939aa58" title="Handle events and update logic." alt="" coords="191,183,405,223"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="482,136,406,174,374,186,372,181,404,169,479,132"/>
-<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c" title=" " alt="" coords="5,183,143,223"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="177,206,143,206,143,201,177,201"/>
+<area shape="rect" id="Node000001" title="Get currently active map." alt="" coords="227,5,373,45"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="5,13,179,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
 </map>

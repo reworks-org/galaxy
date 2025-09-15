@@ -109,7 +109,7 @@ $(function(){initNavTree('dc/dbe/Map_8hpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;LDtkLoader/Level.hpp&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dd1/Registry_8hpp.html">galaxy/core/Registry.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;galaxy/core/Registry.hpp&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
@@ -144,7 +144,7 @@ $(function(){initNavTree('dc/dbe/Map_8hpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960">parse_tile_layer</a>(<span class="keyword">const</span> ldtk::Layer&amp; layer, <span class="keyword">const</span> <span class="keywordtype">int</span> render_layer);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a13c96db2cc926e88490cbb515c8ed9a6">  103</a></span>            <a class="code hl_class" href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">core::Registry</a> <a class="code hl_variable" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a13c96db2cc926e88490cbb515c8ed9a6">m_registry</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a13c96db2cc926e88490cbb515c8ed9a6">  103</a></span>            core::Registry <a class="code hl_variable" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a13c96db2cc926e88490cbb515c8ed9a6">m_registry</a>;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a14548dd85462ad03a8e1ec360d4481cd">  109</a></span>            std::string <a class="code hl_variable" href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a14548dd85462ad03a8e1ec360d4481cd">m_name</a>;</div>
@@ -154,8 +154,6 @@ $(function(){initNavTree('dc/dbe/Map_8hpp_source.html','../../'); initResizable(
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aRegistry_8hpp_html"><div class="ttname"><a href="../../db/dd1/Registry_8hpp.html">Registry.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1core_1_1Registry_html"><div class="ttname"><a href="../../de/d2c/classgalaxy_1_1core_1_1Registry.html">galaxy::core::Registry</a></div><div class="ttdoc">Wrapper around entt::registry to expand functionality.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd1/Registry_8hpp_source.html#l00020">Registry.hpp:21</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1map_1_1Map_html"><div class="ttname"><a href="../../df/d2b/classgalaxy_1_1map_1_1Map.html">galaxy::map::Map</a></div><div class="ttdoc">An LDTK level.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Map.hpp:26</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1map_1_1Map_html_a0305296fcc07bfe15c9ed4ceeb44bff3"><div class="ttname"><a href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a0305296fcc07bfe15c9ed4ceeb44bff3">galaxy::map::Map::parse_entitiy_layer</a></div><div class="ttdeci">void parse_entitiy_layer(const ldtk::Layer &amp;layer)</div><div class="ttdoc">Parse LDTK entity layer.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d92/Map_8cpp_source.html#l00086">Map.cpp:86</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1map_1_1Map_html_a0d6be26d3180167f47ea5bd3ec073f8a"><div class="ttname"><a href="../../df/d2b/classgalaxy_1_1map_1_1Map.html#a0d6be26d3180167f47ea5bd3ec073f8a">galaxy::map::Map::operator=</a></div><div class="ttdeci">Map &amp; operator=(const Map &amp;)=delete</div><div class="ttdoc">Copy assignment operator.</div></div>
@@ -176,7 +174,7 @@ $(function(){initNavTree('dc/dbe/Map_8hpp_source.html','../../'); initResizable(
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_66fc11cfaed6a3f099b7f5543b36868d.html">map</a></li><li class="navelem"><a class="el" href="../../dc/dbe/Map_8hpp.html">Map.hpp</a></li>
-    <li class="footer">Generated on Fri Sep 12 2025 07:29:48 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Mon Sep 15 2025 04:14:01 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
