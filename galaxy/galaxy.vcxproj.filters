@@ -72,6 +72,8 @@
     <ClCompile Include="src\galaxy\input\Input.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\World.cpp" />
+    <ClCompile Include="src\galaxy\systems\System.cpp" />
+    <ClCompile Include="src\galaxy\entity\Registry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -135,5 +137,7 @@
     <ClInclude Include="src\galaxy\input\Input.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\World.hpp" />
+    <ClInclude Include="src\galaxy\systems\System.hpp" />
+    <ClInclude Include="src\galaxy\entity\Registry.hpp" />
   </ItemGroup>
 </Project>

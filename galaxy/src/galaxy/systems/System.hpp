@@ -11,59 +11,56 @@
 #include <concepts>
 #include <string>
 
-#include <entt/entity/registry.hpp>
+#include "galaxy/entity/Registry.hpp"
 
 namespace galaxy
 {
-	namespace systems
+	///
+	/// Represents a system that operates on sets of components.
+	///
+	class System
 	{
+	public:
 		///
-		/// Represents a system that operates on sets of components.
+		/// Destructor.
 		///
-		class System
-		{
-		public:
-			///
-			/// Destructor.
-			///
-			virtual ~System() noexcept;
+		virtual ~System() noexcept;
 
-			///
-			/// Abstract implementation for updating the system. Use the manager to retreive your components.
-			///
-			/// \param EnTT registry to process entities from.
-			///
-			virtual void update(entt::registry& registry) = 0;
+		///
+		/// Abstract implementation for updating the system. Use the manager to retreive your components.
+		///
+		/// \param registry Entity registry to process.
+		///
+		virtual void update(Registry& registry) = 0;
 
-			///
-			/// Get identifier.
-			///
-			/// \return Const string reference.
-			///
-			[[nodiscard]]
-			const std::string& id() const noexcept;
+		///
+		/// Get identifier.
+		///
+		/// \return Const string reference.
+		///
+		[[nodiscard]]
+		const std::string& id() const noexcept;
 
-		protected:
-			///
-			/// Constructor.
-			///
-			/// \param id System debug identifier.
-			///
-			System(const std::string& id) noexcept;
+	protected:
+		///
+		/// Constructor.
+		///
+		/// \param id System debug identifier.
+		///
+		System(const std::string& id) noexcept;
 
-		private:
-			///
-			/// Constructor.
-			///
-			System() = delete;
+	private:
+		///
+		/// Constructor.
+		///
+		System() = delete;
 
-		protected:
-			///
-			/// Debug id.
-			///
-			std::string m_id;
-		};
-	} // namespace systems
+	protected:
+		///
+		/// Debug id.
+		///
+		std::string m_id;
+	};
 
 	namespace meta
 	{
@@ -73,7 +70,7 @@ namespace galaxy
 		/// \tparam Type Type to test.
 		///
 		template<typename Type>
-		concept is_system = std::derived_from<Type, systems::System>;
+		concept is_system = std::derived_from<Type, System>;
 	} // namespace meta
 } // namespace galaxy
 

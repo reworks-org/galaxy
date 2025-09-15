@@ -15,6 +15,7 @@
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
+    <ClCompile Include="src\galaxy\entity\Registry.cpp" />
     <ClCompile Include="src\galaxy\events\GainedFocus.cpp" />
     <ClCompile Include="src\galaxy\events\HandleableEvent.cpp" />
     <ClCompile Include="src\galaxy\events\KeyInput.cpp" />
@@ -69,6 +70,7 @@
     <ClCompile Include="src\galaxy\fs\FileUtils.cpp" />
     <ClCompile Include="src\galaxy\scene\Scene.cpp" />
     <ClCompile Include="src\galaxy\scene\World.cpp" />
+    <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
     <ClCompile Include="src\galaxy\time\Timer.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
@@ -88,6 +90,7 @@
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
+    <ClInclude Include="src\galaxy\entity\Registry.hpp" />
     <ClInclude Include="src\galaxy\events\GainedFocus.hpp" />
     <ClInclude Include="src\galaxy\events\HandleableEvent.hpp" />
     <ClInclude Include="src\galaxy\events\KeyInput.hpp" />
@@ -132,6 +135,7 @@
     <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
     <ClInclude Include="src\galaxy\scene\Scene.hpp" />
     <ClInclude Include="src\galaxy\scene\World.hpp" />
+    <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
     <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />
