@@ -63,7 +63,7 @@ namespace galaxy
 		template<valid_fnv_bits bits = std::uint64_t>
 		inline constexpr bits fnv1a(const char* const str, const bits value = fnv_1a_params<bits>::offset) noexcept
 		{
-			return (str[0] == '\0') ? fnv_1a_params<bits>::offset : fnv1a<bits>(&str[1], (fnv_1a_params<bits>::offset ^ static_cast<bits>(str[0])) * fnv_1a_params<bits>::prime);
+			return (str[0] == '\0') ? value : fnv1a<bits>(&str[1], (value ^ static_cast<bits>(str[0])) * fnv_1a_params<bits>::prime);
 		}
 
 		///

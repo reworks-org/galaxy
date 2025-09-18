@@ -27,10 +27,10 @@ TEST(FNV1a, 64bit)
 	ASSERT_EQ(a, b);
 }
 
-TEST(FNV1a, 3264Different)
+TEST(FNV1a, Different)
 {
 	auto       input = "test";
-	const auto a     = galaxy::math::fnv1a_32(input);
+	const auto a     = galaxy::math::fnv1a_64(input);
 
 	input        = "test2";
 	const auto b = galaxy::math::fnv1a_64(input);
