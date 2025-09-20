@@ -8,7 +8,8 @@
 #ifndef GALAXY_SCENE_SCENE_HPP_
 #define GALAXY_SCENE_SCENE_HPP_
 
-#include "galaxy/systems/System.hpp"
+#include "galaxy/state/State.hpp"
+#include "galaxy/meta/SystemFactory.hpp"
 
 namespace galaxy
 {
@@ -18,7 +19,7 @@ namespace galaxy
 	/// Scenes should be logically grouped -> i.e. a map, player data + ui, battle, menu, etc.
 	/// Each scene is an independant collection of systems, but not entities.
 	///
-	class Scene final
+	class Scene final : public State
 	{
 	public:
 		///
@@ -31,17 +32,17 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~Scene();
+		virtual ~Scene();
 
 		///
 		/// When scene is pushed to the stack.
 		///
-		void load();
+		void on_push() override;
 
 		///
 		/// When scene is popped from the stack.
 		///
-		void unload();
+		void on_pop() override;
 
 		///
 		/// Process events and updates.
@@ -56,6 +57,11 @@ namespace galaxy
 		void render();
 
 		///
+		/// Remove all scene data.
+		///
+		void clear();
+
+		///
 		/// \brief Add a system to operate on entities in this scene.
 		///
 		/// Scene is called in order of adding. So i.e. if you add anim then render, systems are called in that order.
@@ -64,35 +70,27 @@ namespace galaxy
 		///
 		void add_system(const std::string& system);
 
-		///
-		/// Remove all scene data.
-		///
-		void clear();
-
-		///
-		/// Get scene name.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		const std::string& name() const noexcept;
-
 	private:
 		///
 		/// Constructor.
 		///
 		Scene() = delete;
 
-	private:
 		///
-		/// Scene name for debug purposes.
+		/// Copy constructor.
 		///
-		std::string m_name;
+		Scene(const Scene&) = delete;
 
+		///
+		/// Copy assignment operator.
+		///
+		Scene& operator=(const Scene&) = delete;
+
+	private:
 		///
 		/// List of systems to process.
 		///
-		std::vector<System> m_systems;
+		SystemStack m_systems;
 	};
 } // namespace galaxy
 

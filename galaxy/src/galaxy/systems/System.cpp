@@ -14,6 +14,21 @@ namespace galaxy
 	{
 	}
 
+	System::System(System&& s) noexcept
+	{
+		this->m_id = std::move(s.m_id);
+	}
+
+	System& System::operator=(System&& s) noexcept
+	{
+		if (this != &s)
+		{
+			this->m_id = std::move(s.m_id);
+		}
+
+		return *this;
+	}
+
 	System::~System() noexcept
 	{
 	}

@@ -18,8 +18,11 @@ namespace galaxy
 		Lua::inject_logging();
 		Lua::inject_math();
 		Lua::inject_platform();
-		Lua::inject_services();
+		Lua::inject_scene();
+		Lua::inject_state();
 		Lua::inject_time();
 		Lua::inject_utils();
+
+		Lua::inject_services();
 	}
 } // namespace galaxy

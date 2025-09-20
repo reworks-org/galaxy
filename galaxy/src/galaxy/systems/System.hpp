@@ -22,6 +22,16 @@ namespace galaxy
 	{
 	public:
 		///
+		/// Move constructor.
+		///
+		System(System&&) noexcept;
+
+		///
+		/// Move assignment operator.
+		///
+		System& operator=(System&&) noexcept;
+
+		///
 		/// Destructor.
 		///
 		virtual ~System() noexcept;
@@ -54,6 +64,15 @@ namespace galaxy
 		/// Constructor.
 		///
 		System() = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		System& operator=(const System&) = delete;
+		///
+		/// Copy constructor.
+		///
+		System(const System&) = delete;
 
 	protected:
 		///

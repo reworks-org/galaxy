@@ -5,136 +5,57 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/math/FNV1a.hpp"
-#include "galaxy/logging/Log.hpp"
-
 #include "World.hpp"
-#include "Scene.hpp"
 
 namespace galaxy
 {
 	World::World() noexcept
+		: StateMachine {}
 	{
 	}
 
-	World::~World() noexcept
+	World::World(World&& w)
+		: StateMachine {std::move(w)}
+	{
+	}
+
+	World& World::operator=(World&& w)
+	{
+		if (this != &w)
+		{
+			StateMachine::operator=(std::move(w));
+		}
+
+		return *this;
+	}
+
+	World::~World()
 	{
 		clear();
 	}
 
-	std::shared_ptr<Scene> World::add(const std::string& name)
-	{
-		const auto hash = math::fnv1a(name.c_str());
-
-		if (!m_scenes.contains(hash))
-		{
-			m_scenes[hash] = std::make_shared<Scene>(name);
-			return m_scenes[hash];
-		}
-		else
-		{
-			GALAXY_LOG(GALAXY_WARN, "Tried to create a scene with a duplicate name of '{0}'.", name);
-			return nullptr;
-		}
-	}
-
-	std::shared_ptr<Scene> World::get(const std::string& name) noexcept
-	{
-		const auto hash = math::fnv1a(name.c_str());
-
-		if (m_scenes.contains(hash))
-		{
-			return m_scenes[hash];
-		}
-		else
-		{
-			GALAXY_LOG(GALAXY_WARN, "Scene '{0}' does not exist.", name);
-			return nullptr;
-		}
-	}
-
-	void World::remove(const std::string& name)
-	{
-		const auto hash = math::fnv1a(name.c_str());
-		m_scenes.erase(hash);
-	}
-
-	bool World::has(const std::string& name) noexcept
-	{
-		const auto hash = math::fnv1a(name.c_str());
-		return m_scenes.contains(hash);
-	}
-
-	void World::push(const std::string& name) noexcept
-	{
-		if (auto scene = get(name))
-		{
-			m_scene_stack.push_back(scene);
-			m_scene_stack.back()->load();
-		}
-		else
-		{
-			GALAXY_LOG(GALAXY_WARN, "Tried to push non-existent scene '{0}'.", name);
-		}
-	}
-
-	void World::pop() noexcept
-	{
-		if (m_scene_stack.size() > 0)
-		{
-			m_scene_stack.back()->unload();
-			m_scene_stack.pop_back();
-		}
-	}
-
-	void World::pop_all() noexcept
-	{
-		while (m_scene_stack.size() > 0)
-		{
-			pop();
-		}
-	}
-
-	std::shared_ptr<Scene> World::top() const noexcept
-	{
-		if (m_scene_stack.size() > 0)
-		{
-			return m_scene_stack.back();
-		}
-
-		return nullptr;
-	}
-
 	void World::update()
 	{
-		if (m_scene_stack.size() > 0)
+		if (auto state = top())
 		{
-			return m_scene_stack.back()->update(m_registry);
+			state->update(m_registry);
 		}
 	}
 
 	void World::render()
 	{
-		if (m_scene_stack.size() > 0)
+		if (auto state = top())
 		{
-			return m_scene_stack.back()->render();
+			state->render();
 		}
 	}
 
 	void World::clear()
 	{
-		m_scene_stack.clear();
-		m_scenes.clear();
-	}
+		pop_all();
 
-	World::SceneMap& World::get_scenes() noexcept
-	{
-		return m_scenes;
-	}
-
-	World::SceneStack& World::get_scene_stack() noexcept
-	{
-		return m_scene_stack;
+		m_stack.clear();
+		m_storage.clear();
 	}
 } // namespace galaxy
 

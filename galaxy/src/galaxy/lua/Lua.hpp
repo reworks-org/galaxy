@@ -70,9 +70,19 @@ namespace galaxy
 		static void inject_platform() noexcept;
 
 		///
+		/// Injects galaxy scene management into lua.
+		///
+		static void inject_scene() noexcept;
+
+		///
 		/// Regsiter static engine services in Lua.
 		///
 		static void inject_services() noexcept;
+
+		///
+		/// Injects galaxy state machine requirements into lua.
+		///
+		static void inject_state() noexcept;
 
 		///
 		/// Register galaxy time support functions into Lua.
@@ -122,15 +132,6 @@ void inject_mem();
 ///
 void inject_resource();
 
-///
-/// Injects galaxy scene management into lua.
-///
-void inject_scene_control();
-
-///
-/// Injects galaxy state machine into lua.
-///
-void inject_state();
 */
 
 #endif

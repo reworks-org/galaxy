@@ -8,21 +8,16 @@
 #ifndef GALAXY_SCENE_WORLD_HPP_
 #define GALAXY_SCENE_WORLD_HPP_
 
-#include <ankerl/unordered_dense.h>
-
 #include "galaxy/scene/Scene.hpp"
+#include "galaxy/state/StateMachine.hpp"
 
 namespace galaxy
 {
 	///
-	/// Scene saving/loading, pushing, popping, creating,
-	/// Entity management.
+	/// Scene, Entity and global game management.
 	///
-	class World final
+	class World final : public StateMachine<Scene>
 	{
-		using SceneMap   = ankerl::unordered_dense::map<std::uint64_t, std::shared_ptr<Scene>>;
-		using SceneStack = std::vector<std::shared_ptr<Scene>>;
-
 	public:
 		///
 		/// Constructor.
@@ -30,76 +25,24 @@ namespace galaxy
 		World() noexcept;
 
 		///
+		/// Move constructor.
+		///
+		World(World&&);
+
+		///
+		/// Move assignment operator.
+		///
+		World& operator=(World&&);
+
+		///
 		/// Destructor.
 		///
-		~World() noexcept;
-
-		///
-		/// Add a new scene.
-		///
-		/// \param name Scene name.
-		///
-		/// \return Shared pointer to added scene.
-		///
-		[[maybe_unused]]
-		std::shared_ptr<Scene> add(const std::string& name);
-
-		///
-		/// Get a specific scene.
-		///
-		/// \param name Name of scene.
-		///
-		/// \return Shared pointer to scene.
-		///
-		[[nodiscard]]
-		std::shared_ptr<Scene> get(const std::string& name) noexcept;
-
-		///
-		/// Remove a specific scene.
-		///
-		/// \param name Name of scene.
-		///
-		void remove(const std::string& name);
-
-		///
-		/// Does a scene exist.
-		///
-		/// \param name Name of scene.
-		///
-		/// \return True if exists.
-		///
-		[[nodiscard]]
-		bool has(const std::string& name) noexcept;
-
-		///
-		/// Push a scene onto the top of stack.
-		///
-		/// \param name Name of scene.
-		///
-		void push(const std::string& name) noexcept;
-
-		///
-		/// Remove scene on top of stack.
-		///
-		void pop() noexcept;
-
-		///
-		/// Remove all scenes in stack.
-		///
-		void pop_all() noexcept;
-
-		///
-		/// Get top scene in stack.
-		///
-		/// \return Shared pointer to top scene.
-		///
-		[[nodiscard]]
-		std::shared_ptr<Scene> top() const noexcept;
+		virtual ~World();
 
 		///
 		/// Process events and updates.
 		///
-		void update();
+		void update() override;
 
 		///
 		/// Render scenes.
@@ -111,37 +54,22 @@ namespace galaxy
 		///
 		void clear();
 
+	private:
 		///
-		/// Get Scene storage.
+		/// Copy constructor.
 		///
-		/// \return Reference.
-		///
-		[[nodiscard]]
-		SceneMap& get_scenes() noexcept;
+		World(const World&) = delete;
 
 		///
-		/// Get Scene stack.
+		/// Copy assignment operator.
 		///
-		/// \return Reference.
-		///
-		[[nodiscard]]
-		SceneStack& get_scene_stack() noexcept;
+		World& operator=(const World&) = delete;
 
 	private:
 		///
 		/// Entity data.
 		///
 		Registry m_registry;
-
-		///
-		/// Scene storage.
-		///
-		SceneMap m_scenes;
-
-		///
-		/// Active scenes.
-		///
-		SceneStack m_scene_stack;
 	};
 } // namespace galaxy
 

@@ -73,8 +73,8 @@ namespace galaxy
 		void setup_events();
 		// void setup_nuklear();
 		// void setup_loader();
-		// void setup_meta();
-		// void setup_services();
+		void setup_meta();
+		void setup_services();
 		void setup_scripting();
 	};
 } // namespace galaxy

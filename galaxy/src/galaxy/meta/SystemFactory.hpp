@@ -13,84 +13,81 @@
 #include "galaxy/math/FNV1a.hpp"
 #include "galaxy/meta/Concepts.hpp"
 #include "galaxy/logging/Log.hpp"
+#include "galaxy/systems/System.hpp"
 
 namespace galaxy
 {
-	namespace systems
-	{
-		class System;
-	} // namespace systems
+	///
+	/// System stack typedef.
+	///
+	using SystemStack = std::vector<std::shared_ptr<System>>;
 
-	namespace meta
+	///
+	/// Meta factory for creating systems.
+	///
+	class SystemFactory final
 	{
-		using SystemStack = std::vector<std::unique_ptr<systems::System>>;
+	public:
+		///
+		/// Constructor.
+		///
+		SystemFactory() noexcept = default;
 
 		///
-		/// Meta factory for creating system objects.
+		/// Destructor.
 		///
-		class SystemFactory final
+		~SystemFactory() noexcept = default;
+
+		///
+		/// Registers a system into the engine.
+		///
+		/// \tparam _System Must be a class that is move constructable and assignable.
+		///
+		/// \param name Name of system class in string format.
+		///
+		template<meta::valid_component _System>
+		void register_system(const std::string& name);
+
+		///
+		/// Create a system using the factory.
+		///
+		/// \param name Name of system class in string format.
+		/// \param stack System stack where the systems are created in.
+		///
+		void create_system(const std::string& name, SystemStack& stack);
+
+	private:
+		///
+		/// Lets us construct a system class from a string representation.
+		///
+		ankerl::unordered_dense::map<std::uint64_t, std::move_only_function<void(SystemStack&)>> m_factory;
+	};
+
+	template<meta::valid_component _System>
+	inline void SystemFactory::register_system(const std::string& name)
+	{
+		const auto hash = math::fnv1a(name.c_str());
+		if (!m_factory.contains(hash))
 		{
-		public:
-			///
-			/// Constructor.
-			///
-			SystemFactory() noexcept = default;
-
-			///
-			/// Destructor.
-			///
-			~SystemFactory() noexcept = default;
-
-			///
-			/// Registers a system definition.
-			///
-			/// \tparam System Must be a class that is move constructable and assignable.
-			///
-			/// \param name Name of system class in string format.
-			///
-			template<valid_component System>
-			void register_system(const std::string& name);
-
-			///
-			/// Create a system using the factory.
-			///
-			/// \param name Name of system class in string format.
-			/// \param storage Storage map to create the system in.
-			///
-			void create_system(const std::string& name, SystemStack& stack);
-
-		private:
-			///
-			/// Lets us construct a system class from a string representation.
-			///
-			ankerl::unordered_dense::map<std::uint64_t, std::move_only_function<void(SystemStack&)>> m_factory;
-		};
-
-		template<valid_component System>
-		inline void SystemFactory::register_system(const std::string& name)
-		{
-			const auto hash = math::fnv1a(name.c_str());
-			if (!m_factory.contains(hash))
-			{
-				m_factory.emplace(hash, [](SystemStack& stack) {
-					for (auto&& sys : stack)
+			m_factory.emplace(hash, [name](SystemStack& stack) {
+				for (auto&& sys : stack)
+				{
+					if (sys->id() == name)
 					{
-						if (sys->id() == name)
-						{
-							GALAXY_LOG(GALAXY_WARNING, "Tried to create a create a duplicate system '{0}'.", name);
-							return;
-						}
+						GALAXY_LOG(GALAXY_WARN, "Tried to create a create a duplicate system '{0}'.", name);
+						return;
 					}
+				}
 
-					stack.emplace_back(std::move(std::make_unique<System>()));
-				});
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_WARNING, "Tried to create a duplicate register system '{0}'.", name);
-			}
+				auto ptr = std::make_shared<_System>(name);
+				stack.push_back(std::static_pointer_cast<System>(ptr));
+			});
 		}
-	} // namespace meta
+		else
+		{
+			GALAXY_LOG(GALAXY_WARN, "Tried to create a duplicate register system '{0}'.", name);
+		}
+	}
 } // namespace galaxy
 
 #endif

@@ -21,7 +21,9 @@
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/lua/Lua.hpp"
+#include "galaxy/meta/SystemFactory.hpp"
 #include "galaxy/platform/Platform.hpp"
+#include "galaxy/scene/World.hpp"
 #include "galaxy/time/Time.hpp"
 
 #include "Application.hpp"
@@ -43,8 +45,8 @@ namespace galaxy
 		setup_events();
 		// setup_nuklear();
 		// setup_loader();
-		// setup_meta();
-		// setup_services();
+		setup_meta();
+		setup_services();
 		setup_scripting();
 
 		// Load game assets.
@@ -78,7 +80,7 @@ namespace galaxy
 
 		auto& window     = entt::locator<Window>::value();
 		auto& dispatcher = entt::locator<entt::dispatcher>::value();
-		// auto& manager    = entt::locator<scene::SceneManager>::value();
+		auto& world      = entt::locator<World>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
 		// into a double so it can participate in the physics computation.
@@ -120,20 +122,20 @@ namespace galaxy
 				// nui.begin_input();
 				window.process_events(dispatcher);
 				// nui.end_input();
-				// manager.update();
+				world.update();
 
 				updates++;
 			}
 
 			// graphics::renderer::begin();
-			// manager.render();
+			world.render();
 			// graphics::renderer::end();
 
 			frames++;
 
 			if (perf >= 1s)
 			{
-				window.append_title(std::format("{0} | UPS: {1}, FPS: {2}", Settings::title(), updates, frames));
+				window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
 
 				frames  = 0;
 				updates = 0;
@@ -275,57 +277,57 @@ namespace galaxy
 	//	// entt::locator<Loader>::make();
 	// }
 
-	// void App::setup_meta()
-	//{
-	//	auto& sf = entt::locator<meta::SystemFactory>::emplace();
-	//	auto& ef = entt::locator<meta::EntityFactory>::emplace();
+	void App::setup_meta()
+	{
+		auto& sf = entt::locator<SystemFactory>::emplace();
+		// auto& ef = entt::locator<meta::EntityFactory>::emplace();
 
-	//	ef.register_component<components::Tag>("Tag");
-	//	/*
-	//	em.register_component<components::Animated>("Animated");
-	//	em.register_component<components::Circle>("Circle");
-	//	em.register_component<components::Ellipse>("Ellipse");
-	//	em.register_component<components::Point>("Point");
-	//	em.register_component<components::Polygon>("Polygon");
-	//	em.register_component<components::Polyline>("Polyline");
-	//	em.register_component<components::RigidBody>("RigidBody");
-	//	em.register_component<components::Script>("Script");
-	//	em.register_component<components::Sprite>("Sprite");
-	//	em.register_component<components::Text>("Text");
-	//	em.register_component<components::TileMap>("TileMap");
-	//	em.register_component<components::Transform>("Transform");
-	//	em.register_component<flags::DenySerialization>("DenySerialization");
-	//	em.register_component<flags::Disabled>("Disabled");
+		/*ef.register_component<components::Tag>("Tag");
 
-	//	em.register_dependencies<components::Animated, components::Sprite>();
-	//	em.register_dependencies<components::Circle, components::Transform>();
-	//	em.register_dependencies<components::Ellipse, components::Transform>();
-	//	em.register_dependencies<components::Point, components::Transform>();
-	//	em.register_dependencies<components::Polygon, components::Transform>();
-	//	em.register_dependencies<components::Polyline, components::Transform>();
-	//	em.register_dependencies<components::RigidBody, components::Transform>();
-	//	em.register_dependencies<components::Sprite, components::Transform>();
-	//	em.register_dependencies<components::Text, components::Transform>();
-	//	*/
-	//}
+		em.register_component<components::Animated>("Animated");
+		em.register_component<components::Circle>("Circle");
+		em.register_component<components::Ellipse>("Ellipse");
+		em.register_component<components::Point>("Point");
+		em.register_component<components::Polygon>("Polygon");
+		em.register_component<components::Polyline>("Polyline");
+		em.register_component<components::RigidBody>("RigidBody");
+		em.register_component<components::Script>("Script");
+		em.register_component<components::Sprite>("Sprite");
+		em.register_component<components::Text>("Text");
+		em.register_component<components::TileMap>("TileMap");
+		em.register_component<components::Transform>("Transform");
+		em.register_component<flags::DenySerialization>("DenySerialization");
+		em.register_component<flags::Disabled>("Disabled");
 
-	// void App::setup_services()
-	//{
-	//	// entt::locator<media::SoundEngine>::make(listener_count);
-	//	// entt::locator<media::MusicEngine>::make(listener_count);
-	//	// entt::locator<media::VoiceEngine>::make(listener_count);
-	//	// entt::locator<resource::SoundCache>::make();
-	//	// entt::locator<resource::MusicCache>::make();
-	//	// entt::locator<resource::VoiceCache>::make();
-	//	// entt::locator<resource::VideoCache>::make();
-	//	// entt::locator<resource::Animations>::make();
-	//	// entt::locator<resource::Shaders>::make();
-	//	// entt::locator<resource::Fonts>::make();
-	//	// entt::locator<resource::Textures>::make();
-	//	// entt::locator<resource::Prefabs>::make();
-	//	// entt::locator<resource::Scripts>::make();
-	//	entt::locator<scene::SceneManager>::emplace();
-	// }
+		em.register_dependencies<components::Animated, components::Sprite>();
+		em.register_dependencies<components::Circle, components::Transform>();
+		em.register_dependencies<components::Ellipse, components::Transform>();
+		em.register_dependencies<components::Point, components::Transform>();
+		em.register_dependencies<components::Polygon, components::Transform>();
+		em.register_dependencies<components::Polyline, components::Transform>();
+		em.register_dependencies<components::RigidBody, components::Transform>();
+		em.register_dependencies<components::Sprite, components::Transform>();
+		em.register_dependencies<components::Text, components::Transform>();
+		*/
+	}
+
+	void App::setup_services()
+	{
+		// entt::locator<media::SoundEngine>::make(listener_count);
+		// entt::locator<media::MusicEngine>::make(listener_count);
+		// entt::locator<media::VoiceEngine>::make(listener_count);
+		// entt::locator<resource::SoundCache>::make();
+		// entt::locator<resource::MusicCache>::make();
+		// entt::locator<resource::VoiceCache>::make();
+		// entt::locator<resource::VideoCache>::make();
+		// entt::locator<resource::Animations>::make();
+		// entt::locator<resource::Shaders>::make();
+		// entt::locator<resource::Fonts>::make();
+		// entt::locator<resource::Textures>::make();
+		// entt::locator<resource::Prefabs>::make();
+		//	  entt::locator<resource::Scripts>::make();
+		entt::locator<World>::emplace();
+	}
 
 	void App::setup_scripting()
 	{

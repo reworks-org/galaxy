@@ -1,5 +1,4 @@
 https://wiki.libsdl.org/SDL3_mixer/FrontPage
-https://lazyfoo.net/tutorials/SDL3/19-state-machines/index.php
 
 Future:
 https://wiki.libsdl.org/SDL3/CategoryHaptic

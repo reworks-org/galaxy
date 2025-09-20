@@ -16,5 +16,7 @@
     <ClCompile Include="src\utils\UUIDTest.cpp" />
     <ClCompile Include="src\time\TimeTest.cpp" />
     <ClCompile Include="src\input\ClipboardTest.cpp" />
+    <ClCompile Include="src\meta\MetaTest.cpp" />
+    <ClCompile Include="src\scene\SceneTest.cpp" />
   </ItemGroup>
 </Project>

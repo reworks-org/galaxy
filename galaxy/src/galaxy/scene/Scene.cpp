@@ -13,8 +13,9 @@
 namespace galaxy
 {
 	Scene::Scene(const std::string& name) noexcept
-		: m_name {name}
-	{ /*
+		: State {name}
+	{
+		/*
 			 auto& w = core::ServiceLocator<core::Window>::ref();
 			 m_camera.set_viewport(w.frame_width(), w.frame_height());
 			 auto& nui = core::ServiceLocator<ui::NuklearUI>::ref();
@@ -24,7 +25,7 @@ namespace galaxy
 			 m_dispatcher.sink<events::KeyChar>().connect<&ui::NuklearUI::on_key_char>(nui);
 			 m_dispatcher.sink<events::KeyPress>().connect<&ui::NuklearUI::on_key_press>(nui);
 			 m_dispatcher.sink<events::ContentScale>().connect<&ui::NuklearUI::on_content_scale>(nui);
-			 */
+		*/
 	}
 
 	Scene::~Scene()
@@ -32,13 +33,16 @@ namespace galaxy
 		clear();
 	}
 
-	void Scene::load()
+	void Scene::on_push()
 	{
 	}
 
-	void Scene::unload()
+	void Scene::on_pop()
 	{
-		entt::locator<sol::state>::value().collect_garbage();
+		if (entt::locator<sol::state>::has_value())
+		{
+			entt::locator<sol::state>::value().collect_garbage();
+		}
 	}
 
 	void Scene::update(Registry& registry)
@@ -48,7 +52,7 @@ namespace galaxy
 		// m_b2world.Step(GALAXY_DT, m_velocity_iterations, m_position_iterations);
 		for (auto&& system : m_systems)
 		{
-			system.update(registry);
+			system->update(registry);
 		}
 	}
 
@@ -77,20 +81,15 @@ namespace galaxy
 			*/
 	}
 
-	void Scene::add_system(const std::string& system)
-	{
-		// auto& sf = entt::locator<meta::SystemFactory>::value();
-		// sf.create_system(system, m_systems);
-	}
-
 	void Scene::clear()
 	{
 		m_systems.clear();
 	}
 
-	const std::string& Scene::name() const noexcept
+	void Scene::add_system(const std::string& system)
 	{
-		return m_name;
+		auto& sf = entt::locator<SystemFactory>::value();
+		sf.create_system(system, m_systems);
 	}
 
 	/*void Scene::update_ui()

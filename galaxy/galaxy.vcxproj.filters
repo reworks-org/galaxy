@@ -74,6 +74,11 @@
     <ClCompile Include="src\galaxy\scene\World.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\entity\Registry.cpp" />
+    <ClCompile Include="src\galaxy\meta\SystemFactory.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaScene.cpp" />
+    <ClCompile Include="src\galaxy\state\State.cpp" />
+    <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -139,5 +144,8 @@
     <ClInclude Include="src\galaxy\scene\World.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\entity\Registry.hpp" />
+    <ClInclude Include="src\galaxy\meta\SystemFactory.hpp" />
+    <ClInclude Include="src\galaxy\state\State.hpp" />
+    <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
   </ItemGroup>
 </Project>
