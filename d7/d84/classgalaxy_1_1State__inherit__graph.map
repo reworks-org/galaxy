@@ -1,0 +1,5 @@
+<map id="galaxy::State" name="galaxy::State">
+<area shape="rect" id="Node000001" title="A state to use in a finite state machine." alt="" coords="11,5,117,251"/>
+<area shape="rect" id="Node000002" href="$df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game." alt="" coords="5,299,123,564"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,264,67,298,61,298,61,264"/>
+</map>

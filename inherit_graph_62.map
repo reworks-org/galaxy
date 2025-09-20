@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$df/d23/structgalaxy_1_1Settings.html" title="Helper class to encapsulate our global settings we want to quickly access across app." alt="" coords="5,5,132,31"/>
+<area shape="rect" id="Node000000" href="$d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="5,5,112,31"/>
+<area shape="rect" id="Node000001" href="$df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game." alt="" coords="160,5,272,31"/>
+<area shape="poly" id="edge43_Node000000_Node000001" title=" " alt="" coords="126,15,160,15,160,21,126,21"/>
 </map>

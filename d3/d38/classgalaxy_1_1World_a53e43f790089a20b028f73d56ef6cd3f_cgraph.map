@@ -1,6 +1,0 @@
-<map id="galaxy::World::has" name="galaxy::World::has">
-<area shape="rect" id="Node000001" title="Does a scene exist." alt="" coords="5,29,147,55"/>
-<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="195,29,347,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,39,180,39,180,45,147,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="239,31,232,21,235,11,249,5,271,3,297,6,309,15,305,19,295,11,271,8,250,10,239,15,237,20,243,28"/>
-</map>

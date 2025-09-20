@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../df/d2b/classgalaxy_1_1map_1_1Map.html#ae8f648cab3324ae6cd9a25f00bcee1ef',1,'galaxy::map::Map::name()'],['../d9/d75/classgalaxy_1_1map_1_1World.html#a3029750f1e795df5614ba901171b9933',1,'galaxy::map::World::name()'],['../df/dba/classgalaxy_1_1Scene.html#a45074fd89a939c4886fcce89c19c92fa',1,'galaxy::Scene::name()']]],
+  ['name_0',['name',['../df/d2b/classgalaxy_1_1map_1_1Map.html#ae8f648cab3324ae6cd9a25f00bcee1ef',1,'galaxy::map::Map::name()'],['../d9/d75/classgalaxy_1_1map_1_1World.html#a3029750f1e795df5614ba901171b9933',1,'galaxy::map::World::name()'],['../d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92',1,'galaxy::State::name()']]],
   ['new_5fframe_1',['new_frame',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#ace9596eaa4daf51faafd1c66be98bb2f',1,'galaxy::ui::NuklearUI']]],
   ['next_2',['next',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#afa711a61af70905b654c3dcace0aa711',1,'galaxy::graphics::Animation']]],
   ['normalize_3',['normalize',['../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48',1,'galaxy::math']]],

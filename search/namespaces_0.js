@@ -18,9 +18,8 @@ var searchData=
   ['galaxy_3a_3ameta_15',['meta',['../d3/d12/namespacegalaxy_1_1meta.html',1,'galaxy']]],
   ['galaxy_3a_3aplatform_16',['platform',['../dd/dfc/namespacegalaxy_1_1platform.html',1,'galaxy']]],
   ['galaxy_3a_3aresource_17',['resource',['../d4/d1b/namespacegalaxy_1_1resource.html',1,'galaxy']]],
-  ['galaxy_3a_3astate_18',['state',['../df/dcc/namespacegalaxy_1_1state.html',1,'galaxy']]],
-  ['galaxy_3a_3astr_19',['str',['../df/d98/namespacegalaxy_1_1str.html',1,'galaxy']]],
-  ['galaxy_3a_3asystems_20',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
-  ['galaxy_3a_3atime_21',['time',['../d2/d2f/namespacegalaxy_1_1time.html',1,'galaxy']]],
-  ['galaxy_3a_3aui_22',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]]
+  ['galaxy_3a_3astr_18',['str',['../df/d98/namespacegalaxy_1_1str.html',1,'galaxy']]],
+  ['galaxy_3a_3asystems_19',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
+  ['galaxy_3a_3atime_20',['time',['../d2/d2f/namespacegalaxy_1_1time.html',1,'galaxy']]],
+  ['galaxy_3a_3aui_21',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]]
 ];

@@ -1,6 +1,0 @@
-<map id="galaxy::World::remove" name="galaxy::World::remove">
-<area shape="rect" id="Node000001" title="Remove a specific scene." alt="" coords="5,29,173,55"/>
-<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="221,29,373,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,39,207,39,207,45,174,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="263,31,256,21,260,11,274,5,297,3,326,6,338,15,334,20,324,11,297,8,275,10,263,15,261,20,267,28"/>
-</map>

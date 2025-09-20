@@ -14,10 +14,11 @@ var searchData=
   ['smaa_11',['SMAA',['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html',1,'galaxy::graphics']]],
   ['soundloader_12',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],
   ['sprite_13',['Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html',1,'galaxy::components']]],
-  ['state_14',['State',['../db/d6a/classgalaxy_1_1state_1_1State.html',1,'galaxy::state']]],
-  ['statemachine_15',['StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html',1,'galaxy::state']]],
-  ['stopwatch_16',['Stopwatch',['../d4/d22/classgalaxy_1_1Stopwatch.html',1,'galaxy']]],
-  ['subprocess_17',['Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html',1,'galaxy']]],
-  ['system_18',['System',['../dc/dd4/classgalaxy_1_1System.html',1,'galaxy']]],
-  ['systemfactory_19',['SystemFactory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html',1,'galaxy::meta']]]
+  ['state_14',['State',['../d4/d7c/classgalaxy_1_1State.html',1,'galaxy']]],
+  ['statemachine_15',['StateMachine',['../da/d52/classgalaxy_1_1StateMachine.html',1,'galaxy']]],
+  ['statemachine_3c_20scene_20_3e_16',['StateMachine&lt; Scene &gt;',['../da/d52/classgalaxy_1_1StateMachine.html',1,'galaxy']]],
+  ['stopwatch_17',['Stopwatch',['../d4/d22/classgalaxy_1_1Stopwatch.html',1,'galaxy']]],
+  ['subprocess_18',['Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html',1,'galaxy']]],
+  ['system_19',['System',['../dc/dd4/classgalaxy_1_1System.html',1,'galaxy']]],
+  ['systemfactory_20',['SystemFactory',['../d3/dac/classgalaxy_1_1SystemFactory.html',1,'galaxy']]]
 ];

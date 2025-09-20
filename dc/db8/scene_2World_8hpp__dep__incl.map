@@ -1,5 +1,9 @@
 <map id="galaxy/src/galaxy/scene/World.hpp" name="galaxy/src/galaxy/scene/World.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,184,45"/>
-<area shape="rect" id="Node000002" href="$df/d54/scene_2World_8cpp.html" title=" " alt="" coords="5,93,184,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,59,97,93,92,93,92,59"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="191,5,370,45"/>
+<area shape="rect" id="Node000002" href="$d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,53,133,96,131,91,225,49"/>
+<area shape="rect" id="Node000003" href="$da/dda/LuaScene_8cpp.html" title=" " alt="" coords="199,93,362,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,59,283,93,278,93,278,59"/>
+<area shape="rect" id="Node000004" href="$df/d54/scene_2World_8cpp.html" title=" " alt="" coords="386,93,565,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="337,48,434,91,432,96,335,53"/>
 </map>

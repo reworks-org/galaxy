@@ -101,50 +101,57 @@ $(function(){initNavTree('d3/d38/classgalaxy_1_1World.html','../../'); initResiz
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../dd/d60/classgalaxy_1_1World-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">galaxy::World Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> saving/loading, pushing, popping, creating, Entity management.  
+<p><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a>, Entity and global game management.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for galaxy::World:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for galaxy::World:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d1b/classgalaxy_1_1World__inherit__graph.png" border="0" usemap="#agalaxy_1_1World_inherit__map" alt="Inheritance graph"/></div>
+<map name="agalaxy_1_1World_inherit__map" id="agalaxy_1_1World_inherit__map">
+<area shape="rect" title="Scene, Entity and global game management." alt="" coords="30,957,135,1183"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="5,488,160,908"/>
+<area shape="poly" title=" " alt="" coords="85,922,85,957,80,957,80,922"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html" title="A finite state machine." alt="" coords="5,5,160,425"/>
+<area shape="poly" title=" " alt="" coords="85,439,85,488,80,488,80,439"/>
+</map>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for galaxy::World:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d6/de1/classgalaxy_1_1World__coll__graph.png" border="0" usemap="#agalaxy_1_1World_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1World_coll__map" id="agalaxy_1_1World_coll__map">
-<area shape="rect" title="Scene saving/loading, pushing, popping, creating, Entity management." alt="" coords="163,1328,309,1673"/>
-<area shape="rect" href="../../df/dbe/classgalaxy_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="122,1100,241,1265"/>
-<area shape="poly" title=" " alt="" coords="198,1265,206,1311,201,1312,193,1266"/>
-<area shape="rect" title=" " alt="" coords="265,1143,436,1223"/>
-<area shape="poly" title=" " alt="" coords="339,1224,306,1313,301,1312,334,1222"/>
-<area shape="rect" title=" " alt="" coords="189,972,369,1037"/>
-<area shape="poly" title=" " alt="" coords="294,1036,331,1126,326,1128,289,1038"/>
-<area shape="rect" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game." alt="" coords="128,664,245,909"/>
-<area shape="poly" title=" " alt="" coords="241,908,261,956,256,958,236,911"/>
-<area shape="rect" title=" " alt="" coords="31,135,110,200"/>
-<area shape="poly" title=" " alt="" coords="68,201,62,257,57,331,57,414,67,497,74,527,83,549,106,600,127,647,122,649,102,602,78,551,69,528,61,498,52,414,52,331,57,256,63,200"/>
-<area shape="rect" href="../../dc/dd4/classgalaxy_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="85,263,200,408"/>
-<area shape="poly" title=" " alt="" coords="87,199,107,247,103,249,82,201"/>
-<area shape="rect" title=" " alt="" coords="5,5,136,85"/>
-<area shape="poly" title=" " alt="" coords="73,99,73,134,68,134,68,99"/>
-<area shape="rect" title=" " alt="" coords="115,521,258,601"/>
-<area shape="poly" title=" " alt="" coords="189,601,189,647,184,647,184,601"/>
-<area shape="poly" title=" " alt="" coords="138,408,139,452,148,497,151,506,146,508,143,498,134,453,133,408"/>
-<area shape="rect" title=" " alt="" coords="346,303,467,368"/>
-<area shape="poly" title=" " alt="" coords="409,382,409,560,409,1006,406,1043,397,1080,373,1143,368,1141,392,1079,401,1043,404,1006,404,560,404,382"/>
-<area shape="poly" title=" " alt="" coords="336,373,293,400,255,434,244,450,238,464,225,498,212,522,207,520,220,496,233,462,239,447,251,430,290,396,333,368"/>
-<area shape="rect" title=" " alt="" coords="478,135,501,200"/>
-<area shape="poly" title=" " alt="" coords="480,185,453,225,425,288,420,286,448,223,476,182"/>
-<area shape="rect" title=" " alt="" coords="491,432,640,497"/>
-<area shape="poly" title=" " alt="" coords="503,180,518,199,530,223,547,273,557,325,567,415,562,416,552,325,541,274,526,225,513,202,499,183"/>
-<area shape="poly" title=" " alt="" coords="580,510,595,592,601,643,603,698,599,754,589,809,571,863,542,911,506,946,463,971,415,988,369,998,368,993,414,983,460,966,503,942,538,908,566,860,584,808,594,753,597,698,596,644,590,593,575,511"/>
+<area shape="rect" title="Scene, Entity and global game management." alt="" coords="195,1508,300,1733"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="90,1045,245,1445"/>
+<area shape="poly" title=" " alt="" coords="216,1458,226,1507,221,1508,210,1460"/>
+<area shape="rect" title=" " alt="" coords="82,440,253,520"/>
+<area shape="poly" title=" " alt="" coords="166,520,161,583,156,813,160,1029,155,1029,151,813,155,583,160,520"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html" title="A finite state machine." alt="" coords="241,583,395,983"/>
+<area shape="poly" title=" " alt="" coords="191,519,224,581,236,604,231,606,220,584,186,521"/>
+<area shape="rect" title=" " alt="" coords="5,312,188,377"/>
+<area shape="poly" title=" " alt="" coords="116,376,141,424,137,427,111,379"/>
+<area shape="rect" title=" " alt="" coords="35,133,185,199"/>
+<area shape="poly" title=" " alt="" coords="94,212,91,223,89,269,93,312,88,312,83,269,86,222,89,211"/>
+<area shape="rect" title=" " alt="" coords="163,5,185,71"/>
+<area shape="poly" title=" " alt="" coords="165,63,136,120,131,118,160,61"/>
+<area shape="rect" title=" " alt="" coords="179,223,300,288"/>
+<area shape="poly" title=" " alt="" coords="186,70,228,206,223,208,181,72"/>
+<area shape="poly" title=" " alt="" coords="241,302,235,358,218,417,204,441,199,438,213,415,229,357,236,302"/>
+<area shape="poly" title=" " alt="" coords="251,997,235,1046,230,1044,246,995"/>
+<area shape="rect" href="../../df/dbe/classgalaxy_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="269,1163,388,1328"/>
+<area shape="poly" title=" " alt="" coords="313,1329,278,1492,273,1491,308,1328"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -153,124 +160,100 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a701b5f0dea0ac96ac015d13e5154a424" id="r_a701b5f0dea0ac96ac015d13e5154a424"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a701b5f0dea0ac96ac015d13e5154a424">World</a> () noexcept</td></tr>
 <tr class="memdesc:a701b5f0dea0ac96ac015d13e5154a424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:a701b5f0dea0ac96ac015d13e5154a424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7384bfdba74b81aea2152576fb437d" id="r_a3a7384bfdba74b81aea2152576fb437d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a7384bfdba74b81aea2152576fb437d">~World</a> () noexcept</td></tr>
-<tr class="memdesc:a3a7384bfdba74b81aea2152576fb437d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="separator:a3a7384bfdba74b81aea2152576fb437d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d65a796dc4482fbad99a748142fb4f2" id="r_a3d65a796dc4482fbad99a748142fb4f2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d65a796dc4482fbad99a748142fb4f2">add</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a3d65a796dc4482fbad99a748142fb4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new scene.  <br /></td></tr>
-<tr class="separator:a3d65a796dc4482fbad99a748142fb4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad99f5019e4508b0e278ca1ac1fe3b438" id="r_ad99f5019e4508b0e278ca1ac1fe3b438"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad99f5019e4508b0e278ca1ac1fe3b438">get</a> (const std::string &amp;name) noexcept</td></tr>
-<tr class="memdesc:ad99f5019e4508b0e278ca1ac1fe3b438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific scene.  <br /></td></tr>
-<tr class="separator:ad99f5019e4508b0e278ca1ac1fe3b438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d02226003d6678aba34f4c2791f7751" id="r_a0d02226003d6678aba34f4c2791f7751"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d02226003d6678aba34f4c2791f7751">remove</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a0d02226003d6678aba34f4c2791f7751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a specific scene.  <br /></td></tr>
-<tr class="separator:a0d02226003d6678aba34f4c2791f7751"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53e43f790089a20b028f73d56ef6cd3f" id="r_a53e43f790089a20b028f73d56ef6cd3f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53e43f790089a20b028f73d56ef6cd3f">has</a> (const std::string &amp;name) noexcept</td></tr>
-<tr class="memdesc:a53e43f790089a20b028f73d56ef6cd3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does a scene exist.  <br /></td></tr>
-<tr class="separator:a53e43f790089a20b028f73d56ef6cd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accb7305239e3b43db8982149f1fd66ad" id="r_accb7305239e3b43db8982149f1fd66ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accb7305239e3b43db8982149f1fd66ad">push</a> (const std::string &amp;name) noexcept</td></tr>
-<tr class="memdesc:accb7305239e3b43db8982149f1fd66ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a scene onto the top of stack.  <br /></td></tr>
-<tr class="separator:accb7305239e3b43db8982149f1fd66ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70ef8f1db9ed133fbf01616a77ede54" id="r_ab70ef8f1db9ed133fbf01616a77ede54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab70ef8f1db9ed133fbf01616a77ede54">pop</a> () noexcept</td></tr>
-<tr class="memdesc:ab70ef8f1db9ed133fbf01616a77ede54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove scene on top of stack.  <br /></td></tr>
-<tr class="separator:ab70ef8f1db9ed133fbf01616a77ede54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d5dd553d5f3b7d347f2a5a39886e890" id="r_a5d5dd553d5f3b7d347f2a5a39886e890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d5dd553d5f3b7d347f2a5a39886e890">pop_all</a> () noexcept</td></tr>
-<tr class="memdesc:a5d5dd553d5f3b7d347f2a5a39886e890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all scenes in stack.  <br /></td></tr>
-<tr class="separator:a5d5dd553d5f3b7d347f2a5a39886e890"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ef6739ee259ad243128371afeb46698" id="r_a9ef6739ee259ad243128371afeb46698"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ef6739ee259ad243128371afeb46698">top</a> () const noexcept</td></tr>
-<tr class="memdesc:a9ef6739ee259ad243128371afeb46698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get top scene in stack.  <br /></td></tr>
-<tr class="separator:a9ef6739ee259ad243128371afeb46698"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a736327b22ab883245d86e8264b1af33d" id="r_a736327b22ab883245d86e8264b1af33d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a736327b22ab883245d86e8264b1af33d">update</a> ()</td></tr>
-<tr class="memdesc:a736327b22ab883245d86e8264b1af33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process events and updates.  <br /></td></tr>
-<tr class="separator:a736327b22ab883245d86e8264b1af33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684a56395954f9ec596a7b2836842547" id="r_a684a56395954f9ec596a7b2836842547"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a684a56395954f9ec596a7b2836842547">World</a> (<a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;&amp;)</td></tr>
+<tr class="memdesc:a684a56395954f9ec596a7b2836842547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="separator:a684a56395954f9ec596a7b2836842547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04cec5c68df1fe2fecc0a1e2a6f0266" id="r_aa04cec5c68df1fe2fecc0a1e2a6f0266"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa04cec5c68df1fe2fecc0a1e2a6f0266">operator=</a> (<a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;&amp;)</td></tr>
+<tr class="memdesc:aa04cec5c68df1fe2fecc0a1e2a6f0266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="separator:aa04cec5c68df1fe2fecc0a1e2a6f0266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a21ce42814c1b25b88272f5590cb0a" id="r_a96a21ce42814c1b25b88272f5590cb0a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96a21ce42814c1b25b88272f5590cb0a">~World</a> ()</td></tr>
+<tr class="memdesc:a96a21ce42814c1b25b88272f5590cb0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:a96a21ce42814c1b25b88272f5590cb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2200b47768c9fc8899169257ca0abe1" id="r_ae2200b47768c9fc8899169257ca0abe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2200b47768c9fc8899169257ca0abe1">update</a> () override</td></tr>
+<tr class="memdesc:ae2200b47768c9fc8899169257ca0abe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process events and updates.  <br /></td></tr>
+<tr class="separator:ae2200b47768c9fc8899169257ca0abe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a90bf1b9aee0d0e99575da959e61e63" id="r_a7a90bf1b9aee0d0e99575da959e61e63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a90bf1b9aee0d0e99575da959e61e63">render</a> ()</td></tr>
 <tr class="memdesc:a7a90bf1b9aee0d0e99575da959e61e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render scenes.  <br /></td></tr>
 <tr class="separator:a7a90bf1b9aee0d0e99575da959e61e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a290ff0c9c5236124a7d7cd695820a58e" id="r_a290ff0c9c5236124a7d7cd695820a58e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a290ff0c9c5236124a7d7cd695820a58e">clear</a> ()</td></tr>
 <tr class="memdesc:a290ff0c9c5236124a7d7cd695820a58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all data.  <br /></td></tr>
 <tr class="separator:a290ff0c9c5236124a7d7cd695820a58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f0125fb7d1bec2d30a562ab90add3b9" id="r_a3f0125fb7d1bec2d30a562ab90add3b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#afa9c3b8fc6353d3f713b8fabf208ba26">SceneMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f0125fb7d1bec2d30a562ab90add3b9">get_scenes</a> () noexcept</td></tr>
-<tr class="memdesc:a3f0125fb7d1bec2d30a562ab90add3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> storage.  <br /></td></tr>
-<tr class="separator:a3f0125fb7d1bec2d30a562ab90add3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4944f5108d0252ca454b3ef105c7d185" id="r_a4944f5108d0252ca454b3ef105c7d185"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abfd20e01357bf1da69fec9dbbd4dee94">SceneStack</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4944f5108d0252ca454b3ef105c7d185">get_scene_stack</a> () noexcept</td></tr>
-<tr class="memdesc:a4944f5108d0252ca454b3ef105c7d185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> stack.  <br /></td></tr>
-<tr class="separator:a4944f5108d0252ca454b3ef105c7d185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classgalaxy_1_1StateMachine"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classgalaxy_1_1StateMachine')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html">galaxy::StateMachine&lt; Scene &gt;</a></td></tr>
+<tr class="memitem:ad2dda84912bd37a5d3ee4bcfc3781875 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_ad2dda84912bd37a5d3ee4bcfc3781875"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#ad2dda84912bd37a5d3ee4bcfc3781875">StateMachine</a> () noexcept</td></tr>
+<tr class="memdesc:ad2dda84912bd37a5d3ee4bcfc3781875 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:ad2dda84912bd37a5d3ee4bcfc3781875 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376dda4cf58b26b89e49e15c216b45bd inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a376dda4cf58b26b89e49e15c216b45bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a376dda4cf58b26b89e49e15c216b45bd">StateMachine</a> (<a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html">StateMachine</a>&lt; Stored &gt; &amp;&amp;)</td></tr>
+<tr class="memdesc:a376dda4cf58b26b89e49e15c216b45bd inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="separator:a376dda4cf58b26b89e49e15c216b45bd inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a2976ae3ca7532a7afc89f2eb1ac66 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_ab9a2976ae3ca7532a7afc89f2eb1ac66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html">StateMachine</a>&lt; Stored &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#ab9a2976ae3ca7532a7afc89f2eb1ac66">operator=</a> (<a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html">StateMachine</a>&lt; Stored &gt; &amp;&amp;)</td></tr>
+<tr class="memdesc:ab9a2976ae3ca7532a7afc89f2eb1ac66 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="separator:ab9a2976ae3ca7532a7afc89f2eb1ac66 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f957847b9bb7845890072209b05143e inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a3f957847b9bb7845890072209b05143e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a3f957847b9bb7845890072209b05143e">~StateMachine</a> ()</td></tr>
+<tr class="memdesc:a3f957847b9bb7845890072209b05143e inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:a3f957847b9bb7845890072209b05143e inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0274886de7a56bca279738f16f43ed45 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a0274886de7a56bca279738f16f43ed45"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Stored &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a0274886de7a56bca279738f16f43ed45">add</a> (const std::string &amp;key, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a0274886de7a56bca279738f16f43ed45 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new state.  <br /></td></tr>
+<tr class="separator:a0274886de7a56bca279738f16f43ed45 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4f4c0a625683eed4fb573f5927c8dcd inherit pub_methods_classgalaxy_1_1StateMachine" id="r_ad4f4c0a625683eed4fb573f5927c8dcd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Stored &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#ad4f4c0a625683eed4fb573f5927c8dcd">get</a> (const std::string &amp;key) noexcept</td></tr>
+<tr class="memdesc:ad4f4c0a625683eed4fb573f5927c8dcd inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific state.  <br /></td></tr>
+<tr class="separator:ad4f4c0a625683eed4fb573f5927c8dcd inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79bd08879ade02418a4cca85b479dd1 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_aa79bd08879ade02418a4cca85b479dd1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#aa79bd08879ade02418a4cca85b479dd1">has</a> (const std::string &amp;key) noexcept</td></tr>
+<tr class="memdesc:aa79bd08879ade02418a4cca85b479dd1 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does a state exist.  <br /></td></tr>
+<tr class="separator:aa79bd08879ade02418a4cca85b479dd1 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b458339fae2313edabd5b34f2f91a34 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a3b458339fae2313edabd5b34f2f91a34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a3b458339fae2313edabd5b34f2f91a34">remove</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a3b458339fae2313edabd5b34f2f91a34 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a specific state.  <br /></td></tr>
+<tr class="separator:a3b458339fae2313edabd5b34f2f91a34 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae927822dcf8e43be2e5550db475806d5 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_ae927822dcf8e43be2e5550db475806d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5">push</a> (const std::string &amp;key) noexcept</td></tr>
+<tr class="memdesc:ae927822dcf8e43be2e5550db475806d5 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a state onto the top of stack.  <br /></td></tr>
+<tr class="separator:ae927822dcf8e43be2e5550db475806d5 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa5e82e8a5d71b68bd408e065c82443 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a0fa5e82e8a5d71b68bd408e065c82443"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443">pop</a> () noexcept</td></tr>
+<tr class="memdesc:a0fa5e82e8a5d71b68bd408e065c82443 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove state on top of stack.  <br /></td></tr>
+<tr class="separator:a0fa5e82e8a5d71b68bd408e065c82443 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580241845f7f49dcc9183d8bbf38d616 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a580241845f7f49dcc9183d8bbf38d616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616">pop_all</a> () noexcept</td></tr>
+<tr class="memdesc:a580241845f7f49dcc9183d8bbf38d616 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all states in stack.  <br /></td></tr>
+<tr class="separator:a580241845f7f49dcc9183d8bbf38d616 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc7f34c55b4ccee27ea812fce84efe5f inherit pub_methods_classgalaxy_1_1StateMachine" id="r_afc7f34c55b4ccee27ea812fce84efe5f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Stored &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f">top</a> () const noexcept</td></tr>
+<tr class="memdesc:afc7f34c55b4ccee27ea812fce84efe5f inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get top state in stack.  <br /></td></tr>
+<tr class="separator:afc7f34c55b4ccee27ea812fce84efe5f inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afacc93b18c0f29fef01a0d538d82e8a9 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_afacc93b18c0f29fef01a0d538d82e8a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#ad7fbad99eda1c9e31c38a456091a3d33">Stack</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#afacc93b18c0f29fef01a0d538d82e8a9">stack</a> () noexcept</td></tr>
+<tr class="memdesc:afacc93b18c0f29fef01a0d538d82e8a9 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get stack.  <br /></td></tr>
+<tr class="separator:afacc93b18c0f29fef01a0d538d82e8a9 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa4267551f156f32e5f84a7ca946222 inherit pub_methods_classgalaxy_1_1StateMachine" id="r_a0fa4267551f156f32e5f84a7ca946222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a809847e6a8b7c548ec23a01172e2e75d">Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a0fa4267551f156f32e5f84a7ca946222">storage</a> () noexcept</td></tr>
+<tr class="memdesc:a0fa4267551f156f32e5f84a7ca946222 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get storage.  <br /></td></tr>
+<tr class="separator:a0fa4267551f156f32e5f84a7ca946222 inherit pub_methods_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:afa9c3b8fc6353d3f713b8fabf208ba26" id="r_afa9c3b8fc6353d3f713b8fabf208ba26"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa9c3b8fc6353d3f713b8fabf208ba26">SceneMap</a> = ankerl::unordered_dense::map&lt;std::uint64_t, std::shared_ptr&lt;<a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a>&gt;&gt;</td></tr>
-<tr class="separator:afa9c3b8fc6353d3f713b8fabf208ba26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfd20e01357bf1da69fec9dbbd4dee94" id="r_abfd20e01357bf1da69fec9dbbd4dee94"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfd20e01357bf1da69fec9dbbd4dee94">SceneStack</a> = std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a>&gt;&gt;</td></tr>
-<tr class="separator:abfd20e01357bf1da69fec9dbbd4dee94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae6a1b3d49ea94da595e28baf39b91c38" id="r_ae6a1b3d49ea94da595e28baf39b91c38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6a1b3d49ea94da595e28baf39b91c38">World</a> (const <a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ae6a1b3d49ea94da595e28baf39b91c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
+<tr class="separator:ae6a1b3d49ea94da595e28baf39b91c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5f50858cda8f1eb9ab83415abdfc99b" id="r_aa5f50858cda8f1eb9ab83415abdfc99b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5f50858cda8f1eb9ab83415abdfc99b">operator=</a> (const <a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;)=delete</td></tr>
+<tr class="memdesc:aa5f50858cda8f1eb9ab83415abdfc99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
+<tr class="separator:aa5f50858cda8f1eb9ab83415abdfc99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ae8e35fd0575229e9f9281b905010518e" id="r_ae8e35fd0575229e9f9281b905010518e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dbe/classgalaxy_1_1Registry.html">Registry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8e35fd0575229e9f9281b905010518e">m_registry</a></td></tr>
 <tr class="memdesc:ae8e35fd0575229e9f9281b905010518e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entity data.  <br /></td></tr>
 <tr class="separator:ae8e35fd0575229e9f9281b905010518e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4462a34b0c3eaf32506dc80b4009a865" id="r_a4462a34b0c3eaf32506dc80b4009a865"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#afa9c3b8fc6353d3f713b8fabf208ba26">SceneMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4462a34b0c3eaf32506dc80b4009a865">m_scenes</a></td></tr>
-<tr class="memdesc:a4462a34b0c3eaf32506dc80b4009a865"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> storage.  <br /></td></tr>
-<tr class="separator:a4462a34b0c3eaf32506dc80b4009a865"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd9f0894b4a324e66559381a9ff961dd" id="r_afd9f0894b4a324e66559381a9ff961dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abfd20e01357bf1da69fec9dbbd4dee94">SceneStack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd9f0894b4a324e66559381a9ff961dd">m_scene_stack</a></td></tr>
-<tr class="memdesc:afd9f0894b4a324e66559381a9ff961dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active scenes.  <br /></td></tr>
-<tr class="separator:afd9f0894b4a324e66559381a9ff961dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classgalaxy_1_1StateMachine"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classgalaxy_1_1StateMachine')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html">galaxy::StateMachine&lt; Scene &gt;</a></td></tr>
+<tr class="memitem:af162c561c877cc2fee5943b731ff6bea inherit pro_attribs_classgalaxy_1_1StateMachine" id="r_af162c561c877cc2fee5943b731ff6bea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#ad7fbad99eda1c9e31c38a456091a3d33">Stack</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#af162c561c877cc2fee5943b731ff6bea">m_stack</a></td></tr>
+<tr class="memdesc:af162c561c877cc2fee5943b731ff6bea inherit pro_attribs_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine.">State</a> stack.  <br /></td></tr>
+<tr class="separator:af162c561c877cc2fee5943b731ff6bea inherit pro_attribs_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1811a973f671c1dcfd1f5a5d4b9b2fac inherit pro_attribs_classgalaxy_1_1StateMachine" id="r_a1811a973f671c1dcfd1f5a5d4b9b2fac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a809847e6a8b7c548ec23a01172e2e75d">Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a1811a973f671c1dcfd1f5a5d4b9b2fac">m_storage</a></td></tr>
+<tr class="memdesc:a1811a973f671c1dcfd1f5a5d4b9b2fac inherit pro_attribs_classgalaxy_1_1StateMachine"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine.">State</a> cache.  <br /></td></tr>
+<tr class="separator:a1811a973f671c1dcfd1f5a5d4b9b2fac inherit pro_attribs_classgalaxy_1_1StateMachine"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> saving/loading, pushing, popping, creating, Entity management. </p>
+<div class="textblock"><p><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a>, Entity and global game management. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="afa9c3b8fc6353d3f713b8fabf208ba26" name="afa9c3b8fc6353d3f713b8fabf208ba26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa9c3b8fc6353d3f713b8fabf208ba26">&#9670;&#160;</a></span>SceneMap</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#afa9c3b8fc6353d3f713b8fabf208ba26">galaxy::World::SceneMap</a> = ankerl::unordered_dense::map&lt;std::uint64_t, std::shared_ptr&lt;<a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a>&gt;&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abfd20e01357bf1da69fec9dbbd4dee94" name="abfd20e01357bf1da69fec9dbbd4dee94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfd20e01357bf1da69fec9dbbd4dee94">&#9670;&#160;</a></span>SceneStack</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#abfd20e01357bf1da69fec9dbbd4dee94">galaxy::World::SceneStack</a> = std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a>&gt;&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a701b5f0dea0ac96ac015d13e5154a424" name="a701b5f0dea0ac96ac015d13e5154a424"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a701b5f0dea0ac96ac015d13e5154a424">&#9670;&#160;</a></span>World()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a701b5f0dea0ac96ac015d13e5154a424">&#9670;&#160;</a></span>World() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,12 +277,33 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a3a7384bfdba74b81aea2152576fb437d" name="a3a7384bfdba74b81aea2152576fb437d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a7384bfdba74b81aea2152576fb437d">&#9670;&#160;</a></span>~World()</h2>
+<a id="a684a56395954f9ec596a7b2836842547" name="a684a56395954f9ec596a7b2836842547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684a56395954f9ec596a7b2836842547">&#9670;&#160;</a></span>World() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">galaxy::World::World </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>w</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a96a21ce42814c1b25b88272f5590cb0a" name="a96a21ce42814c1b25b88272f5590cb0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a21ce42814c1b25b88272f5590cb0a">&#9670;&#160;</a></span>~World()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,73 +320,33 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a3a7384bfdba74b81aea2152576fb437d_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a3a7384bfdba74b81aea2152576fb437d_cgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_a3a7384bfdba74b81aea2152576fb437d_cgraph" id="ad3/d38/classgalaxy_1_1World_a3a7384bfdba74b81aea2152576fb437d_cgraph">
-<area shape="rect" title="Destructor." alt="" coords="5,5,172,31"/>
-<area shape="rect" href="../../d3/d38/classgalaxy_1_1World.html#a290ff0c9c5236124a7d7cd695820a58e" title="Removes all data." alt="" coords="220,5,371,31"/>
-<area shape="poly" title=" " alt="" coords="172,15,206,15,206,21,172,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3d65a796dc4482fbad99a748142fb4f2" name="a3d65a796dc4482fbad99a748142fb4f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d65a796dc4482fbad99a748142fb4f2">&#9670;&#160;</a></span>add()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> &gt; galaxy::World::add </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add a new scene. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> name.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Shared pointer to added scene. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a3d65a796dc4482fbad99a748142fb4f2_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a3d65a796dc4482fbad99a748142fb4f2_cgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_a3d65a796dc4482fbad99a748142fb4f2_cgraph" id="ad3/d38/classgalaxy_1_1World_a3d65a796dc4482fbad99a748142fb4f2_cgraph">
-<area shape="rect" title="Add a new scene." alt="" coords="5,29,148,55"/>
-<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="196,29,348,55"/>
-<area shape="poly" title=" " alt="" coords="148,39,182,39,182,45,148,45"/>
-<area shape="poly" title=" " alt="" coords="240,31,233,21,237,11,250,5,272,3,299,6,310,15,307,19,297,11,272,8,251,10,240,15,238,20,244,28"/>
+<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a96a21ce42814c1b25b88272f5590cb0a_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a96a21ce42814c1b25b88272f5590cb0a_cgraph" alt=""/></div>
+<map name="ad3/d38/classgalaxy_1_1World_a96a21ce42814c1b25b88272f5590cb0a_cgraph" id="ad3/d38/classgalaxy_1_1World_a96a21ce42814c1b25b88272f5590cb0a_cgraph">
+<area shape="rect" title="Destructor." alt="" coords="5,13,172,38"/>
+<area shape="rect" href="../../d3/d38/classgalaxy_1_1World.html#a290ff0c9c5236124a7d7cd695820a58e" title="Removes all data." alt="" coords="220,13,371,38"/>
+<area shape="poly" title=" " alt="" coords="172,23,206,23,206,28,172,28"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616" title=" " alt="" coords="419,5,581,45"/>
+<area shape="poly" title=" " alt="" coords="371,23,405,23,405,28,371,28"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad99f5019e4508b0e278ca1ac1fe3b438" name="ad99f5019e4508b0e278ca1ac1fe3b438"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad99f5019e4508b0e278ca1ac1fe3b438">&#9670;&#160;</a></span>get()</h2>
+<a id="ae6a1b3d49ea94da595e28baf39b91c38" name="ae6a1b3d49ea94da595e28baf39b91c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6a1b3d49ea94da595e28baf39b91c38">&#9670;&#160;</a></span>World() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,286 +355,65 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> &gt; galaxy::World::get </td>
+          <td class="memname">galaxy::World::World </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get a specific scene. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name of scene.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Shared pointer to scene. </dd></dl>
+<p>Copy constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa04cec5c68df1fe2fecc0a1e2a6f0266" name="aa04cec5c68df1fe2fecc0a1e2a6f0266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa04cec5c68df1fe2fecc0a1e2a6f0266">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp; galaxy::World::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>w</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move assignment operator. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00022">22</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_ad99f5019e4508b0e278ca1ac1fe3b438_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_ad99f5019e4508b0e278ca1ac1fe3b438_cgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_ad99f5019e4508b0e278ca1ac1fe3b438_cgraph" id="ad3/d38/classgalaxy_1_1World_ad99f5019e4508b0e278ca1ac1fe3b438_cgraph">
-<area shape="rect" title="Get a specific scene." alt="" coords="5,29,144,55"/>
-<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="192,29,344,55"/>
-<area shape="poly" title=" " alt="" coords="144,39,178,39,178,45,144,45"/>
-<area shape="poly" title=" " alt="" coords="236,31,230,21,233,11,246,5,268,3,294,6,305,15,302,19,292,11,268,8,248,10,237,15,235,20,241,28"/>
+<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_aa04cec5c68df1fe2fecc0a1e2a6f0266_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_aa04cec5c68df1fe2fecc0a1e2a6f0266_cgraph" alt=""/></div>
+<map name="ad3/d38/classgalaxy_1_1World_aa04cec5c68df1fe2fecc0a1e2a6f0266_cgraph" id="ad3/d38/classgalaxy_1_1World_aa04cec5c68df1fe2fecc0a1e2a6f0266_cgraph">
+<area shape="rect" title="Move assignment operator." alt="" coords="5,13,189,38"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html#ab9a2976ae3ca7532a7afc89f2eb1ac66" title="Move assignment operator." alt="" coords="237,5,400,45"/>
+<area shape="poly" title=" " alt="" coords="190,23,224,23,224,28,190,28"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a0d02226003d6678aba34f4c2791f7751" name="a0d02226003d6678aba34f4c2791f7751"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d02226003d6678aba34f4c2791f7751">&#9670;&#160;</a></span>remove()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::World::remove </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Remove a specific scene. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name of scene. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a0d02226003d6678aba34f4c2791f7751_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a0d02226003d6678aba34f4c2791f7751_cgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_a0d02226003d6678aba34f4c2791f7751_cgraph" id="ad3/d38/classgalaxy_1_1World_a0d02226003d6678aba34f4c2791f7751_cgraph">
-<area shape="rect" title="Remove a specific scene." alt="" coords="5,29,173,55"/>
-<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="221,29,373,55"/>
-<area shape="poly" title=" " alt="" coords="174,39,207,39,207,45,174,45"/>
-<area shape="poly" title=" " alt="" coords="263,31,256,21,260,11,274,5,297,3,326,6,338,15,334,20,324,11,297,8,275,10,263,15,261,20,267,28"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a53e43f790089a20b028f73d56ef6cd3f" name="a53e43f790089a20b028f73d56ef6cd3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53e43f790089a20b028f73d56ef6cd3f">&#9670;&#160;</a></span>has()</h2>
+<a id="ae2200b47768c9fc8899169257ca0abe1" name="ae2200b47768c9fc8899169257ca0abe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2200b47768c9fc8899169257ca0abe1">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool galaxy::World::has </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Does a scene exist. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name of scene.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if exists. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a53e43f790089a20b028f73d56ef6cd3f_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a53e43f790089a20b028f73d56ef6cd3f_cgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_a53e43f790089a20b028f73d56ef6cd3f_cgraph" id="ad3/d38/classgalaxy_1_1World_a53e43f790089a20b028f73d56ef6cd3f_cgraph">
-<area shape="rect" title="Does a scene exist." alt="" coords="5,29,147,55"/>
-<area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="195,29,347,55"/>
-<area shape="poly" title=" " alt="" coords="147,39,180,39,180,45,147,45"/>
-<area shape="poly" title=" " alt="" coords="239,31,232,21,235,11,249,5,271,3,297,6,309,15,305,19,295,11,271,8,250,10,239,15,237,20,243,28"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="accb7305239e3b43db8982149f1fd66ad" name="accb7305239e3b43db8982149f1fd66ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accb7305239e3b43db8982149f1fd66ad">&#9670;&#160;</a></span>push()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::World::push </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Push a scene onto the top of stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name of scene. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ab70ef8f1db9ed133fbf01616a77ede54" name="ab70ef8f1db9ed133fbf01616a77ede54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab70ef8f1db9ed133fbf01616a77ede54">&#9670;&#160;</a></span>pop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::World::pop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove scene on top of stack. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_ab70ef8f1db9ed133fbf01616a77ede54_icgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_ab70ef8f1db9ed133fbf01616a77ede54_icgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_ab70ef8f1db9ed133fbf01616a77ede54_icgraph" id="ad3/d38/classgalaxy_1_1World_ab70ef8f1db9ed133fbf01616a77ede54_icgraph">
-<area shape="rect" title="Remove scene on top of stack." alt="" coords="219,5,361,31"/>
-<area shape="rect" href="../../d3/d38/classgalaxy_1_1World.html#a5d5dd553d5f3b7d347f2a5a39886e890" title="Remove all scenes in stack." alt="" coords="5,5,171,31"/>
-<area shape="poly" title=" " alt="" coords="205,21,171,21,171,15,205,15"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a5d5dd553d5f3b7d347f2a5a39886e890" name="a5d5dd553d5f3b7d347f2a5a39886e890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d5dd553d5f3b7d347f2a5a39886e890">&#9670;&#160;</a></span>pop_all()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::World::pop_all </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove all scenes in stack. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00090">90</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a5d5dd553d5f3b7d347f2a5a39886e890_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a5d5dd553d5f3b7d347f2a5a39886e890_cgraph" alt=""/></div>
-<map name="ad3/d38/classgalaxy_1_1World_a5d5dd553d5f3b7d347f2a5a39886e890_cgraph" id="ad3/d38/classgalaxy_1_1World_a5d5dd553d5f3b7d347f2a5a39886e890_cgraph">
-<area shape="rect" title="Remove all scenes in stack." alt="" coords="5,5,171,31"/>
-<area shape="rect" href="../../d3/d38/classgalaxy_1_1World.html#ab70ef8f1db9ed133fbf01616a77ede54" title="Remove scene on top of stack." alt="" coords="219,5,361,31"/>
-<area shape="poly" title=" " alt="" coords="171,15,205,15,205,21,171,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9ef6739ee259ad243128371afeb46698" name="a9ef6739ee259ad243128371afeb46698"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ef6739ee259ad243128371afeb46698">&#9670;&#160;</a></span>top()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> &gt; galaxy::World::top </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get top scene in stack. </p>
-<dl class="section return"><dt>Returns</dt><dd>Shared pointer to top scene. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00098">98</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a736327b22ab883245d86e8264b1af33d" name="a736327b22ab883245d86e8264b1af33d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a736327b22ab883245d86e8264b1af33d">&#9670;&#160;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void galaxy::World::update </td>
@@ -679,11 +422,30 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Process events and updates. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00108">108</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<p>Implements <a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html#a393024d5668e907bc95e6a942bb65919">galaxy::StateMachine&lt; Scene &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00037">37</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_ae2200b47768c9fc8899169257ca0abe1_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_ae2200b47768c9fc8899169257ca0abe1_cgraph" alt=""/></div>
+<map name="ad3/d38/classgalaxy_1_1World_ae2200b47768c9fc8899169257ca0abe1_cgraph" id="ad3/d38/classgalaxy_1_1World_ae2200b47768c9fc8899169257ca0abe1_cgraph">
+<area shape="rect" title="Process events and updates." alt="" coords="5,13,168,38"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f" title=" " alt="" coords="216,5,379,45"/>
+<area shape="poly" title=" " alt="" coords="168,23,202,23,202,28,168,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -704,7 +466,19 @@ Private Attributes</h2></td></tr>
 
 <p>Render scenes. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00045">45</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a7a90bf1b9aee0d0e99575da959e61e63_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a7a90bf1b9aee0d0e99575da959e61e63_cgraph" alt=""/></div>
+<map name="ad3/d38/classgalaxy_1_1World_a7a90bf1b9aee0d0e99575da959e61e63_cgraph" id="ad3/d38/classgalaxy_1_1World_a7a90bf1b9aee0d0e99575da959e61e63_cgraph">
+<area shape="rect" title="Render scenes." alt="" coords="5,13,165,38"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f" title=" " alt="" coords="213,5,376,45"/>
+<area shape="poly" title=" " alt="" coords="165,23,200,23,200,28,165,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -725,24 +499,44 @@ Private Attributes</h2></td></tr>
 
 <p>Removes all data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00124">124</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00053">53</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_cgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_cgraph" alt=""/></div>
+<map name="ad3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_cgraph" id="ad3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_cgraph">
+<area shape="rect" title="Removes all data." alt="" coords="5,13,156,38"/>
+<area shape="rect" href="../../da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616" title=" " alt="" coords="204,5,367,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_icgraph.png" border="0" usemap="#ad3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_icgraph" alt=""/></div>
 <map name="ad3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_icgraph" id="ad3/d38/classgalaxy_1_1World_a290ff0c9c5236124a7d7cd695820a58e_icgraph">
-<area shape="rect" title="Removes all data." alt="" coords="220,5,371,31"/>
-<area shape="rect" href="../../d3/d38/classgalaxy_1_1World.html#a3a7384bfdba74b81aea2152576fb437d" title="Destructor." alt="" coords="5,5,172,31"/>
-<area shape="poly" title=" " alt="" coords="206,21,172,21,172,15,206,15"/>
+<area shape="rect" title="Removes all data." alt="" coords="777,42,928,67"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="576,5,716,45"/>
+<area shape="poly" title=" " alt="" coords="763,45,716,38,716,33,764,39"/>
+<area shape="rect" href="../../d3/d38/classgalaxy_1_1World.html#a96a21ce42814c1b25b88272f5590cb0a" title="Destructor." alt="" coords="563,70,729,95"/>
+<area shape="poly" title=" " alt="" coords="764,69,730,74,729,69,763,64"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" title=" " alt="" coords="562,28,515,28,515,23,562,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a3f0125fb7d1bec2d30a562ab90add3b9" name="a3f0125fb7d1bec2d30a562ab90add3b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f0125fb7d1bec2d30a562ab90add3b9">&#9670;&#160;</a></span>get_scenes()</h2>
+<a id="aa5f50858cda8f1eb9ab83415abdfc99b" name="aa5f50858cda8f1eb9ab83415abdfc99b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f50858cda8f1eb9ab83415abdfc99b">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -751,53 +545,20 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#afa9c3b8fc6353d3f713b8fabf208ba26">World::SceneMap</a> &amp; galaxy::World::get_scenes </td>
+          <td class="memname"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp; galaxy::World::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> storage. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00130">130</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a4944f5108d0252ca454b3ef105c7d185" name="a4944f5108d0252ca454b3ef105c7d185"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4944f5108d0252ca454b3ef105c7d185">&#9670;&#160;</a></span>get_scene_stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#abfd20e01357bf1da69fec9dbbd4dee94">World::SceneStack</a> &amp; galaxy::World::get_scene_stack </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">nodiscard</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> stack. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../df/d54/scene_2World_8cpp_source.html#l00135">135</a> of file <a class="el" href="../../df/d54/scene_2World_8cpp_source.html">World.cpp</a>.</p>
+<p>Copy assignment operator. </p>
 
 </div>
 </div>
@@ -824,59 +585,7 @@ Private Attributes</h2></td></tr>
 
 <p>Entity data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00134">134</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4462a34b0c3eaf32506dc80b4009a865" name="a4462a34b0c3eaf32506dc80b4009a865"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4462a34b0c3eaf32506dc80b4009a865">&#9670;&#160;</a></span>m_scenes</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#afa9c3b8fc6353d3f713b8fabf208ba26">SceneMap</a> galaxy::World::m_scenes</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> storage. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00139">139</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
-
-</div>
-</div>
-<a id="afd9f0894b4a324e66559381a9ff961dd" name="afd9f0894b4a324e66559381a9ff961dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd9f0894b4a324e66559381a9ff961dd">&#9670;&#160;</a></span>m_scene_stack</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#abfd20e01357bf1da69fec9dbbd4dee94">SceneStack</a> galaxy::World::m_scene_stack</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Active scenes. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00144">144</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html#l00072">72</a> of file <a class="el" href="../../d1/d68/scene_2World_8hpp_source.html">World.hpp</a>.</p>
 
 </div>
 </div>
@@ -890,7 +599,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">World</a></li>
-    <li class="footer">Generated on Mon Sep 15 2025 04:14:02 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 20 2025 08:51:55 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

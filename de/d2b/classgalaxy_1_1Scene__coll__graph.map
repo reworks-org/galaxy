@@ -1,16 +1,23 @@
 <map id="galaxy::Scene" name="galaxy::Scene">
-<area shape="rect" id="Node000001" title="Represents a scene in a game." alt="" coords="226,613,343,859"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="265,135,344,200"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="318,200,323,224,336,326,339,407,335,487,323,590,322,597,317,597,318,589,330,487,334,406,330,326,318,224,313,201"/>
-<area shape="rect" id="Node000005" href="$dc/dd4/classgalaxy_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="181,263,295,408"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="287,201,275,225,266,248,261,246,270,223,282,199"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="239,5,370,85"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="307,99,307,134,302,134,302,99"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="159,471,301,551"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,550,238,589,240,597,234,598,233,590,228,551"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="236,409,235,432,234,454,229,454,230,432,231,408"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="5,303,127,368"/>
-<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="70,381,77,415,93,445,124,471,160,489,157,494,121,475,89,448,72,417,65,383"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="55,135,77,200"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="69,200,69,286,63,286,63,200"/>
+<area shape="rect" id="Node000001" title="Represents a scene in a game." alt="" coords="27,1052,145,1317"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="5,512,111,757"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,771,82,1052,77,1052,62,771"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="53,135,132,200"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="55,201,39,225,39,239,51,495,46,495,34,239,34,223,51,198"/>
+<area shape="rect" id="Node000007" href="$dc/dd4/classgalaxy_1_1System.html" title="Represents a system that operates on sets of components." alt="" coords="82,263,197,488"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="110,200,118,223,124,246,118,247,113,225,105,201"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="27,5,158,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,99,95,134,90,134,90,99"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="115,909,286,989"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="184,991,154,1051,150,1048,179,988"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="105,781,296,847"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="203,847,203,893,198,893,198,847"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="141,488,149,618,160,688,175,757,178,766,173,767,170,758,154,689,144,619,135,488"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="221,343,370,408"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="279,422,247,513,225,641,207,781,202,781,220,640,242,511,274,420"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="364,135,387,200"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="366,188,347,225,311,328,306,326,342,223,362,186"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="340,602,461,667"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="380,200,385,263,401,585,396,586,379,263,375,201"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="391,681,376,728,353,782,323,837,285,887,259,911,256,907,281,884,319,834,349,780,371,726,386,680"/>
 </map>

@@ -83,8 +83,7 @@ var annotated_dup =
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
       ] ],
       [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
-        [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ],
-        [ "SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", "db/db0/classgalaxy_1_1meta_1_1SystemFactory" ]
+        [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ]
       ] ],
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
         [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
@@ -93,10 +92,6 @@ var annotated_dup =
         [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
         [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
         [ "VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader" ]
-      ] ],
-      [ "state", "df/dcc/namespacegalaxy_1_1state.html", [
-        [ "State", "db/d6a/classgalaxy_1_1state_1_1State.html", "db/d6a/classgalaxy_1_1state_1_1State" ],
-        [ "StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
       ] ],
       [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", [
         [ "AnimationSystem", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html", "d5/d63/classgalaxy_1_1systems_1_1AnimationSystem" ],
@@ -134,9 +129,12 @@ var annotated_dup =
       [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
       [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
+      [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],
+      [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ],
       [ "Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", "d4/d22/classgalaxy_1_1Stopwatch" ],
       [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
       [ "System", "dc/dd4/classgalaxy_1_1System.html", "dc/dd4/classgalaxy_1_1System" ],
+      [ "SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", "d3/dac/classgalaxy_1_1SystemFactory" ],
       [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
       [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
       [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],

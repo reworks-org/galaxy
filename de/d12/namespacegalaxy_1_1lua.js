@@ -9,7 +9,5 @@ var namespacegalaxy_1_1lua =
     [ "inject_graphics", "de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64", null ],
     [ "inject_map", "de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc", null ],
     [ "inject_nuklear", "de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554", null ],
-    [ "inject_resources", "de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5", null ],
-    [ "inject_scene_control", "de/d12/namespacegalaxy_1_1lua.html#a4320b66e1faebdc3e8a60bfaa753f95c", null ],
-    [ "inject_states", "de/d12/namespacegalaxy_1_1lua.html#ab275a55a81ed4fd840cd1abc4a75377b", null ]
+    [ "inject_resources", "de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5", null ]
 ];

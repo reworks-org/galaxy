@@ -55,12 +55,12 @@ var searchData=
   ['_7esink_52',['~Sink',['../d2/d42/classgalaxy_1_1Sink.html#a41f72f5d67e62947d423e32316959993',1,'galaxy::Sink']]],
   ['_7esmaa_53',['~SMAA',['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#ad85bb3527e7297e162994f5e466d7c40',1,'galaxy::graphics::SMAA']]],
   ['_7esprite_54',['~Sprite',['../d4/d86/classgalaxy_1_1components_1_1Sprite.html#ad4db7d78d660d88f125b668840406a1c',1,'galaxy::components::Sprite']]],
-  ['_7estate_55',['~State',['../db/d6a/classgalaxy_1_1state_1_1State.html#a5ae377372c4fa8956165484b37157689',1,'galaxy::state::State']]],
-  ['_7estatemachine_56',['~StateMachine',['../d9/d5c/classgalaxy_1_1state_1_1StateMachine.html#a12338104eb306110f1e96eceaee9e739',1,'galaxy::state::StateMachine']]],
+  ['_7estate_55',['~State',['../d4/d7c/classgalaxy_1_1State.html#a6a668d6307265d96975125ebd2617331',1,'galaxy::State']]],
+  ['_7estatemachine_56',['~StateMachine',['../da/d52/classgalaxy_1_1StateMachine.html#a3f957847b9bb7845890072209b05143e',1,'galaxy::StateMachine']]],
   ['_7estopwatch_57',['~Stopwatch',['../d4/d22/classgalaxy_1_1Stopwatch.html#ac605add936b96e239f25546a2200b3ff',1,'galaxy::Stopwatch']]],
   ['_7esubprocess_58',['~Subprocess',['../db/d1d/classgalaxy_1_1Subprocess.html#a712d9acafc18975cadb0e5e5016e871a',1,'galaxy::Subprocess']]],
   ['_7esystem_59',['~System',['../dc/dd4/classgalaxy_1_1System.html#af0ca10126718f592dc977387cee13ace',1,'galaxy::System']]],
-  ['_7esystemfactory_60',['~SystemFactory',['../db/db0/classgalaxy_1_1meta_1_1SystemFactory.html#a81e2a6565b531a32d0eee49f7d57a6cb',1,'galaxy::meta::SystemFactory']]],
+  ['_7esystemfactory_60',['~SystemFactory',['../d3/dac/classgalaxy_1_1SystemFactory.html#a73a0fd8fcf068cc6875ae2500087c211',1,'galaxy::SystemFactory']]],
   ['_7etag_61',['~Tag',['../d8/d96/classgalaxy_1_1components_1_1Tag.html#ad9ce3e630edd793c552b2fc89f5e44a6',1,'galaxy::components::Tag']]],
   ['_7etext_62',['~Text',['../d2/d81/classgalaxy_1_1components_1_1Text.html#a7b94e919884fc379f65bf9579cba3270',1,'galaxy::components::Text::~Text()'],['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a4d95ad6e29676c5319099fae452deaff',1,'galaxy::graphics::Text::~Text()']]],
   ['_7etexture_63',['~Texture',['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a48408bf7dfd48a4977a7cb745367ff19',1,'galaxy::graphics::Texture']]],
@@ -79,6 +79,6 @@ var searchData=
   ['_7evirtualfilesystem_76',['~VirtualFileSystem',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a23eb5073536b4eab2621d8d7a84f55c8',1,'galaxy::VirtualFileSystem']]],
   ['_7ewindow_77',['~Window',['../d0/d84/classgalaxy_1_1Window.html#a186581ec2fa1e75aa0d4a1d543e198fc',1,'galaxy::Window::~Window()'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#a6b5ad227efab9c4d309486fd70fc851b',1,'galaxy::core::Window::~Window()']]],
   ['_7ewindowbindable_78',['~WindowBindable',['../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1',1,'galaxy::WindowBindable']]],
-  ['_7eworld_79',['~World',['../d9/d75/classgalaxy_1_1map_1_1World.html#a54c05cbabb5531623059cba4636efd59',1,'galaxy::map::World::~World()'],['../d3/d38/classgalaxy_1_1World.html#a3a7384bfdba74b81aea2152576fb437d',1,'galaxy::World::~World()']]],
+  ['_7eworld_79',['~World',['../d9/d75/classgalaxy_1_1map_1_1World.html#a54c05cbabb5531623059cba4636efd59',1,'galaxy::map::World::~World()'],['../d3/d38/classgalaxy_1_1World.html#a96a21ce42814c1b25b88272f5590cb0a',1,'galaxy::World::~World()']]],
   ['_7ezlib_80',['~ZLib',['../df/d85/classgalaxy_1_1ZLib.html#a0a3646e8a2cf87e5aa52536717d147c0',1,'galaxy::ZLib']]]
 ];

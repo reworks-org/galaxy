@@ -1,0 +1,5 @@
+<map id="galaxy::StateMachine::get" name="galaxy::StateMachine::get">
+<area shape="rect" id="Node000001" title="Get a specific state." alt="" coords="216,13,407,38"/>
+<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5" title="Push a state onto the top of stack." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,28,168,28,168,23,202,23"/>
+</map>

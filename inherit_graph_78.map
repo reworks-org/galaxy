@@ -1,3 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$df/d85/classgalaxy_1_1ZLib.html" title="Zip (de)compressor." alt="" coords="5,5,107,31"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,141,117,166"/>
+<area shape="rect" id="Node000001" href="$d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html" title=" " alt="" coords="165,5,336,45"/>
+<area shape="poly" id="edge47_Node000000_Node000001" title=" " alt="" coords="80,128,117,91,164,55,187,43,189,48,167,60,121,95,84,132"/>
+<area shape="rect" id="Node000002" href="$d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html" title=" " alt="" coords="165,69,336,109"/>
+<area shape="poly" id="edge48_Node000000_Node000002" title=" " alt="" coords="112,134,190,107,192,112,114,139"/>
+<area shape="rect" id="Node000003" href="$dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html" title=" " alt="" coords="165,133,336,173"/>
+<area shape="poly" id="edge49_Node000000_Node000003" title=" " alt="" coords="131,151,165,151,165,156,131,156"/>
+<area shape="rect" id="Node000004" href="$d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html" title=" " alt="" coords="165,197,336,237"/>
+<area shape="poly" id="edge50_Node000000_Node000004" title=" " alt="" coords="114,168,192,195,190,200,112,173"/>
+<area shape="rect" id="Node000005" href="$d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html" title=" " alt="" coords="175,261,326,301"/>
+<area shape="poly" id="edge51_Node000000_Node000005" title=" " alt="" coords="84,174,121,211,167,247,189,259,187,264,164,252,117,215,80,178"/>
 </map>

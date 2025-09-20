@@ -1,7 +1,5 @@
 <map id="galaxy::App::run" name="galaxy::App::run">
-<area shape="rect" id="Node000001" title="Loads the default appdata file." alt="" coords="5,31,132,56"/>
-<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="198,5,322,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,32,184,25,185,31,133,38"/>
-<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="180,55,340,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,49,167,53,166,58,132,54"/>
+<area shape="rect" id="Node000001" title="Loads the default appdata file." alt="" coords="5,5,132,31"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="180,5,304,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,15,166,15,166,21,132,21"/>
 </map>

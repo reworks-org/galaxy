@@ -1,5 +1,5 @@
 var SystemFactory_8hpp =
 [
-    [ "galaxy::meta::SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", "db/db0/classgalaxy_1_1meta_1_1SystemFactory" ],
-    [ "SystemStack", "d4/dad/SystemFactory_8hpp.html#af798b9f14f1eb2b5b28e508ea42e4734", null ]
+    [ "galaxy::SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", "d3/dac/classgalaxy_1_1SystemFactory" ],
+    [ "SystemStack", "d4/dad/SystemFactory_8hpp.html#a0f00c2ec1649b8c321e5b0d7ae3c56f7", null ]
 ];

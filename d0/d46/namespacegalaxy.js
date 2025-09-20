@@ -49,7 +49,6 @@ var namespacegalaxy =
       [ "set_hint", "dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d", null ]
     ] ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
-    [ "state", "df/dcc/namespacegalaxy_1_1state.html", "df/dcc/namespacegalaxy_1_1state" ],
     [ "str", "df/d98/namespacegalaxy_1_1str.html", [
       [ "split", "df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572", null ],
       [ "replace_first", "df/d98/namespacegalaxy_1_1str.html#ac7da95a6162660909185af790134481a", null ],
@@ -95,9 +94,12 @@ var namespacegalaxy =
     [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
     [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
     [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
+    [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],
+    [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ],
     [ "Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", "d4/d22/classgalaxy_1_1Stopwatch" ],
     [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
     [ "System", "dc/dd4/classgalaxy_1_1System.html", "dc/dd4/classgalaxy_1_1System" ],
+    [ "SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", "d3/dac/classgalaxy_1_1SystemFactory" ],
     [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
     [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
     [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
@@ -109,6 +111,7 @@ var namespacegalaxy =
     [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ],
     [ "iRect", "d0/d46/namespacegalaxy.html#a9b3b4aa5d37e03fe45aca3556b1a1f05", null ],
     [ "fRect", "d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730", null ],
+    [ "SystemStack", "d0/d46/namespacegalaxy.html#a0f00c2ec1649b8c321e5b0d7ae3c56f7", null ],
     [ "DialogButton", "d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010", [
       [ "cancel_no", "d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010af86807c307d8fc00a32f9949a3da659d", null ],
       [ "ok_yes", "d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010aa9f72a0065aa944d677a1018eb40c452", null ],
@@ -425,6 +428,7 @@ var namespacegalaxy =
     [ "editor_path_wrapper", "d0/d46/namespacegalaxy.html#ae75c97fd983f82b9ac19a20d72886c49", null ],
     [ "fileutils_read_wrapper", "d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f", null ],
     [ "log_wrapper", "d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92", null ],
+    [ "add_wrapper", "d0/d46/namespacegalaxy.html#ae94ff75886f8d8d0d853df1f037036d0", null ],
     [ "ImGuiMemAllocFunc", "d0/d46/namespacegalaxy.html#a0ba085ee345772400c32c7217d2bc404", null ],
     [ "ImGuiMemFreeFunc", "d0/d46/namespacegalaxy.html#add0e8b4f2e8e872b3b7702430b1a1281", null ]
 ];

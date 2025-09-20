@@ -105,8 +105,8 @@ $(function(){initNavTree('d1/d68/scene_2World_8hpp.html','../../'); initResizabl
   <div class="headertitle"><div class="title">World.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;ankerl/unordered_dense.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../db/de8/Scene_8hpp_source.html">galaxy/scene/Scene.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/de8/Scene_8hpp_source.html">galaxy/scene/Scene.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">galaxy/state/StateMachine.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for World.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -114,21 +114,71 @@ $(function(){initNavTree('d1/d68/scene_2World_8hpp.html','../../'); initResizabl
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d4/d9f/scene_2World_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2scene_2World_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2scene_2World_8hpp" id="agalaxy_2src_2galaxy_2scene_2World_8hpp">
-<area shape="rect" title=" " alt="" coords="115,5,294,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,196,119"/>
-<area shape="poly" title=" " alt="" coords="181,48,129,87,125,83,178,43"/>
-<area shape="rect" href="../../db/de8/Scene_8hpp.html" title=" " alt="" coords="221,93,399,119"/>
-<area shape="poly" title=" " alt="" coords="232,43,285,83,282,87,229,48"/>
-<area shape="rect" href="../../d4/d25/System_8hpp.html" title=" " alt="" coords="207,167,413,192"/>
-<area shape="poly" title=" " alt="" coords="313,119,313,153,307,153,307,119"/>
-<area shape="rect" title=" " alt="" coords="177,240,257,265"/>
-<area shape="poly" title=" " alt="" coords="297,194,244,234,241,229,293,190"/>
-<area shape="rect" title=" " alt="" coords="281,240,339,265"/>
-<area shape="poly" title=" " alt="" coords="313,192,313,226,307,226,307,192"/>
-<area shape="rect" href="../../db/dd1/Registry_8hpp.html" title=" " alt="" coords="363,240,555,265"/>
-<area shape="poly" title=" " alt="" coords="335,190,424,232,421,236,333,194"/>
-<area shape="rect" title=" " alt="" coords="374,313,545,339"/>
-<area shape="poly" title=" " alt="" coords="462,266,462,300,457,300,457,266"/>
+<area shape="rect" title=" " alt="" coords="419,5,598,45"/>
+<area shape="rect" href="../../db/de8/Scene_8hpp.html" title=" " alt="" coords="357,93,535,119"/>
+<area shape="poly" title=" " alt="" coords="496,47,466,84,462,81,491,44"/>
+<area shape="rect" href="../../d6/dd7/StateMachine_8hpp.html" title=" " alt="" coords="461,167,685,192"/>
+<area shape="poly" title=" " alt="" coords="524,45,550,92,569,152,564,154,545,94,519,47"/>
+<area shape="rect" href="../../d0/db5/State_8hpp.html" title=" " alt="" coords="253,240,423,265"/>
+<area shape="poly" title=" " alt="" coords="439,121,357,230,353,227,435,118"/>
+<area shape="rect" href="../../d4/dad/SystemFactory_8hpp.html" title=" " alt="" coords="788,167,1019,192"/>
+<area shape="poly" title=" " alt="" coords="520,116,817,162,816,167,519,121"/>
+<area shape="rect" title=" " alt="" coords="1022,533,1081,559"/>
+<area shape="poly" title=" " alt="" coords="253,261,187,267,119,278,62,294,41,304,27,315,22,326,27,337,54,355,94,367,143,374,197,377,306,379,389,384,571,421,749,463,1009,530,1008,535,748,468,570,427,388,389,305,384,197,383,142,380,92,373,51,360,23,340,17,326,23,312,38,299,60,289,118,273,186,262,253,256"/>
+<area shape="rect" title=" " alt="" coords="848,240,1039,265"/>
+<area shape="poly" title=" " alt="" coords="912,191,932,227,928,229,908,194"/>
+<area shape="rect" href="../../d9/d43/FNV1a_8hpp.html" title=" " alt="" coords="645,240,823,265"/>
+<area shape="poly" title=" " alt="" coords="877,194,775,237,773,232,875,190"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="1063,240,1259,265"/>
+<area shape="poly" title=" " alt="" coords="945,189,1107,234,1105,239,944,195"/>
+<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="447,240,621,265"/>
+<area shape="poly" title=" " alt="" coords="844,195,608,240,607,235,843,189"/>
+<area shape="rect" href="../../d4/d25/System_8hpp.html" title=" " alt="" coords="1283,240,1489,265"/>
+<area shape="poly" title=" " alt="" coords="981,189,1295,235,1294,241,980,195"/>
+<area shape="rect" title=" " alt="" coords="1088,313,1180,339"/>
+<area shape="poly" title=" " alt="" coords="802,263,1075,311,1074,316,801,268"/>
+<area shape="poly" title=" " alt="" coords="1172,264,1192,297,1197,318,1195,339,1171,396,1139,448,1104,492,1075,525,1071,521,1100,488,1134,445,1166,393,1190,338,1192,318,1187,299,1168,267"/>
+<area shape="poly" title=" " alt="" coords="1159,267,1146,302,1141,300,1154,265"/>
+<area shape="rect" title=" " alt="" coords="1255,313,1335,339"/>
+<area shape="poly" title=" " alt="" coords="1184,263,1262,304,1260,309,1181,268"/>
+<area shape="rect" title=" " alt="" coords="239,313,330,339"/>
+<area shape="poly" title=" " alt="" coords="495,268,339,312,338,307,493,263"/>
+<area shape="rect" title=" " alt="" coords="355,313,479,339"/>
+<area shape="poly" title=" " alt="" coords="517,268,449,308,446,304,514,263"/>
+<area shape="rect" title=" " alt="" coords="503,313,594,339"/>
+<area shape="poly" title=" " alt="" coords="539,265,546,299,541,300,534,266"/>
+<area shape="rect" title=" " alt="" coords="618,313,791,339"/>
+<area shape="poly" title=" " alt="" coords="562,263,665,306,663,310,560,268"/>
+<area shape="rect" title=" " alt="" coords="5,533,228,559"/>
+<area shape="poly" title=" " alt="" coords="448,267,26,316,12,340,9,367,13,395,25,424,60,479,97,521,93,525,56,482,20,427,8,397,3,367,7,338,23,311,447,261"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="298,460,506,485"/>
+<area shape="poly" title=" " alt="" coords="608,263,730,286,779,299,805,312,811,326,806,340,778,371,747,397,711,418,674,435,595,458,520,470,519,465,594,453,672,430,709,413,744,393,775,367,801,337,806,326,801,315,777,304,729,291,607,268"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="37,313,215,339"/>
+<area shape="poly" title=" " alt="" coords="469,268,206,314,205,308,468,263"/>
+<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="865,313,1064,339"/>
+<area shape="poly" title=" " alt="" coords="604,263,882,308,881,314,603,268"/>
+<area shape="poly" title=" " alt="" coords="507,483,1008,537,1008,543,506,488"/>
+<area shape="poly" title=" " alt="" coords="357,488,177,533,175,527,356,483"/>
+<area shape="rect" title=" " alt="" coords="369,533,435,559"/>
+<area shape="poly" title=" " alt="" coords="405,486,405,520,399,520,399,486"/>
+<area shape="rect" href="../../d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="147,387,377,412"/>
+<area shape="poly" title=" " alt="" coords="149,336,229,378,227,383,147,341"/>
+<area shape="poly" title=" " alt="" coords="286,410,368,451,366,456,283,414"/>
+<area shape="poly" title=" " alt="" coords="983,337,1007,357,1028,385,1042,420,1050,457,1055,520,1049,520,1045,458,1037,422,1024,388,1003,361,980,341"/>
+<area shape="rect" title=" " alt="" coords="916,387,1013,412"/>
+<area shape="poly" title=" " alt="" coords="967,339,967,373,962,373,962,339"/>
+<area shape="rect" title=" " alt="" coords="829,387,892,412"/>
+<area shape="poly" title=" " alt="" coords="949,341,891,381,888,376,946,336"/>
+<area shape="poly" title=" " alt="" coords="1385,266,1373,301,1349,340,1319,373,1286,404,1214,457,1145,500,1089,530,1087,525,1143,495,1211,453,1282,400,1315,369,1345,337,1368,299,1380,265"/>
+<area shape="poly" title=" " alt="" coords="1373,267,1323,307,1319,302,1370,263"/>
+<area shape="rect" href="../../db/dd1/Registry_8hpp.html" title=" " alt="" coords="1410,313,1602,339"/>
+<area shape="poly" title=" " alt="" coords="1407,263,1476,304,1473,308,1404,268"/>
+<area shape="rect" title=" " alt="" coords="1421,387,1591,412"/>
+<area shape="poly" title=" " alt="" coords="1509,339,1509,373,1503,373,1503,339"/>
+<area shape="poly" title=" " alt="" coords="536,195,390,239,388,233,534,189"/>
+<area shape="poly" title=" " alt="" coords="633,189,870,235,869,240,632,195"/>
+<area shape="poly" title=" " alt="" coords="600,190,696,232,694,237,598,194"/>
+<area shape="poly" title=" " alt="" coords="569,194,549,229,544,227,564,191"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -138,9 +188,13 @@ $(function(){initNavTree('d1/d68/scene_2World_8hpp.html','../../'); initResizabl
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/db8/scene_2World_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2scene_2World_8hppdep" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2scene_2World_8hppdep" id="agalaxy_2src_2galaxy_2scene_2World_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,184,45"/>
-<area shape="rect" href="../../df/d54/scene_2World_8cpp.html" title=" " alt="" coords="5,93,184,133"/>
-<area shape="poly" title=" " alt="" coords="97,59,97,93,92,93,92,59"/>
+<area shape="rect" title=" " alt="" coords="191,5,370,45"/>
+<area shape="rect" href="../../d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" title=" " alt="" coords="227,53,133,96,131,91,225,49"/>
+<area shape="rect" href="../../da/dda/LuaScene_8cpp.html" title=" " alt="" coords="199,93,362,133"/>
+<area shape="poly" title=" " alt="" coords="283,59,283,93,278,93,278,59"/>
+<area shape="rect" href="../../df/d54/scene_2World_8cpp.html" title=" " alt="" coords="386,93,565,133"/>
+<area shape="poly" title=" " alt="" coords="337,48,434,91,432,96,335,53"/>
 </map>
 </div>
 </div>
@@ -149,7 +203,7 @@ $(function(){initNavTree('d1/d68/scene_2World_8hpp.html','../../'); initResizabl
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d38/classgalaxy_1_1World.html">galaxy::World</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> saving/loading, pushing, popping, creating, Entity management.  <a href="../../d3/d38/classgalaxy_1_1World.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a>, Entity and global game management.  <a href="../../d3/d38/classgalaxy_1_1World.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -164,7 +218,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_9e0270b3885e0d3bc9dee23586b25531.html">scene</a></li><li class="navelem"><a class="el" href="../../d1/d68/scene_2World_8hpp.html">World.hpp</a></li>
-    <li class="footer">Generated on Mon Sep 15 2025 04:14:02 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sat Sep 20 2025 08:51:54 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

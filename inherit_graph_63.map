@@ -1,7 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,31,107,56"/>
-<area shape="rect" id="Node000001" href="$d9/d14/classgalaxy_1_1ConsoleSink.html" title="Logs a message to the console." alt="" coords="155,5,308,31"/>
-<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="120,31,154,26,154,32,121,37"/>
-<area shape="rect" id="Node000002" href="$d7/d7d/classgalaxy_1_1FileSink.html" title=" " alt="" coords="169,55,293,80"/>
-<area shape="poly" id="edge42_Node000000_Node000002" title=" " alt="" coords="121,49,169,56,168,61,120,55"/>
+<area shape="rect" id="Node000000" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="5,5,168,45"/>
+<area shape="rect" id="Node000001" href="$d3/d38/classgalaxy_1_1World.html" title="Scene, Entity and global game management." alt="" coords="216,13,327,38"/>
+<area shape="poly" id="edge44_Node000000_Node000001" title=" " alt="" coords="182,23,216,23,216,28,182,28"/>
 </map>

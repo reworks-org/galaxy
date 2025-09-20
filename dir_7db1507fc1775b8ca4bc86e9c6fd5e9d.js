@@ -16,9 +16,9 @@ var dir_7db1507fc1775b8ca4bc86e9c6fd5e9d =
     [ "LuaNuklear.cpp", "d9/d2b/LuaNuklear_8cpp.html", "d9/d2b/LuaNuklear_8cpp" ],
     [ "LuaPlatform.cpp", "da/d96/LuaPlatform_8cpp.html", null ],
     [ "LuaResource.cpp", "d6/de5/LuaResource_8cpp.html", "d6/de5/LuaResource_8cpp" ],
-    [ "LuaScenes.cpp", "d9/dc5/LuaScenes_8cpp.html", "d9/dc5/LuaScenes_8cpp" ],
+    [ "LuaScene.cpp", "da/dda/LuaScene_8cpp.html", "da/dda/LuaScene_8cpp" ],
     [ "LuaServices.cpp", "d1/d50/LuaServices_8cpp.html", null ],
-    [ "LuaState.cpp", "db/d27/LuaState_8cpp.html", "db/d27/LuaState_8cpp" ],
+    [ "LuaState.cpp", "db/d27/LuaState_8cpp.html", null ],
     [ "LuaTime.cpp", "d9/d86/LuaTime_8cpp.html", null ],
     [ "LuaUtils.cpp", "da/dd6/LuaUtils_8cpp.html", null ]
 ];

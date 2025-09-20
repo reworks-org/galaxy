@@ -1,0 +1,5 @@
+<map id="galaxy::Scene" name="galaxy::Scene">
+<area shape="rect" id="Node000001" title="Represents a scene in a game." alt="" coords="5,299,123,564"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="11,5,117,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,264,67,298,61,298,61,264"/>
+</map>

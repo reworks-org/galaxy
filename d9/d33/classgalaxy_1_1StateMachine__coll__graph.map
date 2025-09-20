@@ -1,0 +1,14 @@
+<map id="galaxy::StateMachine&lt; Stored &gt;" name="galaxy::StateMachine&lt; Stored &gt;">
+<area shape="rect" id="Node000001" title="A finite state machine." alt="" coords="90,583,245,983"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="82,440,253,520"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,521,170,566,165,566,165,521"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,312,188,377"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="116,376,141,424,137,427,111,379"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="35,133,185,199"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,212,91,223,89,269,93,312,88,312,83,269,86,222,89,211"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="163,5,185,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="165,63,136,120,131,118,160,61"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="179,223,300,288"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="186,70,228,206,223,208,181,72"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="241,302,235,358,218,417,204,441,199,438,213,415,229,357,236,302"/>
+</map>

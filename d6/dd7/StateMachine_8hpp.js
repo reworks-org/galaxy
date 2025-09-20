@@ -1,4 +1,4 @@
 var StateMachine_8hpp =
 [
-    [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", "d9/d5c/classgalaxy_1_1state_1_1StateMachine" ]
+    [ "galaxy::StateMachine< Stored >", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ]
 ];

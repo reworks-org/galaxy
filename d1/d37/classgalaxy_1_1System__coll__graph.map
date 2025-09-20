@@ -1,5 +1,5 @@
 <map id="galaxy::System" name="galaxy::System">
-<area shape="rect" id="Node000001" title="Represents a system that operates on sets of components." alt="" coords="13,263,128,408"/>
+<area shape="rect" id="Node000001" title="Represents a system that operates on sets of components." alt="" coords="13,263,128,488"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="31,135,110,200"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,200,73,246,68,246,68,200"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,5,136,85"/>

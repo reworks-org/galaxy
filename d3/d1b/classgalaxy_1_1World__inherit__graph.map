@@ -1,0 +1,7 @@
+<map id="galaxy::World" name="galaxy::World">
+<area shape="rect" id="Node000001" title="Scene, Entity and global game management." alt="" coords="30,957,135,1183"/>
+<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="5,488,160,908"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,922,85,957,80,957,80,922"/>
+<area shape="rect" id="Node000003" href="$da/d52/classgalaxy_1_1StateMachine.html" title="A finite state machine." alt="" coords="5,5,160,425"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,439,85,488,80,488,80,439"/>
+</map>

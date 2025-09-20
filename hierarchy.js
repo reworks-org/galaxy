@@ -69,7 +69,6 @@ var hierarchy =
     [ "galaxy::graphics::RenderData", "de/df1/structgalaxy_1_1graphics_1_1RenderData.html", null ],
     [ "galaxy::graphics::Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", null ],
     [ "galaxy::graphics::RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", null ],
-    [ "galaxy::Scene", "df/dba/classgalaxy_1_1Scene.html", null ],
     [ "galaxy::lua::Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", null ],
     [ "fs::Serializable", null, [
       [ "galaxy::components::Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", null ],
@@ -104,8 +103,13 @@ var hierarchy =
       [ "galaxy::ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", null ],
       [ "galaxy::FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", null ]
     ] ],
-    [ "galaxy::state::State", "db/d6a/classgalaxy_1_1state_1_1State.html", null ],
-    [ "galaxy::state::StateMachine", "d9/d5c/classgalaxy_1_1state_1_1StateMachine.html", null ],
+    [ "galaxy::State", "d4/d7c/classgalaxy_1_1State.html", [
+      [ "galaxy::Scene", "df/dba/classgalaxy_1_1Scene.html", null ]
+    ] ],
+    [ "galaxy::StateMachine< Stored >", "da/d52/classgalaxy_1_1StateMachine.html", null ],
+    [ "galaxy::StateMachine< Scene >", "da/d52/classgalaxy_1_1StateMachine.html", [
+      [ "galaxy::World", "d3/d38/classgalaxy_1_1World.html", null ]
+    ] ],
     [ "galaxy::Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", null ],
     [ "galaxy::Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", null ],
     [ "galaxy::System", "dc/dd4/classgalaxy_1_1System.html", null ],
@@ -115,7 +119,7 @@ var hierarchy =
       [ "galaxy::systems::RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", null ],
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]
     ] ],
-    [ "galaxy::meta::SystemFactory", "db/db0/classgalaxy_1_1meta_1_1SystemFactory.html", null ],
+    [ "galaxy::SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", null ],
     [ "galaxy::graphics::Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", null ],
     [ "galaxy::graphics::Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", [
       [ "galaxy::graphics::Texture2D", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html", null ],
@@ -145,6 +149,5 @@ var hierarchy =
     [ "galaxy::WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", null ],
     [ "galaxy::core::WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", null ],
     [ "galaxy::map::World", "d9/d75/classgalaxy_1_1map_1_1World.html", null ],
-    [ "galaxy::World", "d3/d38/classgalaxy_1_1World.html", null ],
     [ "galaxy::ZLib", "df/d85/classgalaxy_1_1ZLib.html", null ]
 ];
