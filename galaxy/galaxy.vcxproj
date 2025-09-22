@@ -48,8 +48,10 @@
     <ClCompile Include="src\galaxy\logging\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\logging\Sink.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaCore.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaEntt.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaEvents.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaFS.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaGLM.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaInput.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />

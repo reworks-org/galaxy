@@ -40,6 +40,11 @@ namespace galaxy
 		static void inject_core() noexcept;
 
 		///
+		/// Injects EnTT into Lua.
+		///
+		static void inject_entt() noexcept;
+
+		///
 		/// Inject galaxy event data objects into Lua.
 		///
 		static void inject_events() noexcept;
@@ -48,6 +53,11 @@ namespace galaxy
 		/// Injects VFS support into Lua.
 		///
 		static void inject_fs() noexcept;
+
+		///
+		/// Injects GLM into Lua.
+		///
+		static void inject_glm() noexcept;
 
 		///
 		/// Injects input handling into Lua.
@@ -97,10 +107,7 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-///
-/// Injects EnTT into Lua.
-///
-void inject_entt();
+
 
 ///
 /// Inject Nuklear into Lua.

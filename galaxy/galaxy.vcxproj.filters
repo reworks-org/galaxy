@@ -79,6 +79,8 @@
     <ClCompile Include="src\galaxy\state\State.cpp" />
     <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaState.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaEntt.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaGLM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
