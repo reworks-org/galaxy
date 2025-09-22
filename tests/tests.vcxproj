@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\resource\CacheTest.cpp" />
     <ClCompile Include="src\core\ConfigTest.cpp" />
     <ClCompile Include="src\input\ClipboardTest.cpp" />
     <ClCompile Include="src\main.cpp" />

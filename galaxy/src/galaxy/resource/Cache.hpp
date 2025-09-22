@@ -9,219 +9,278 @@
 #define GALAXY_RESOURCE_CACHE_HPP_
 
 #include <ankerl/unordered_dense.h>
+#include <entt/locator/locator.hpp>
 
-#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/logging/Log.hpp"
 #include "galaxy/math/FNV1a.hpp"
-#include "galaxy/meta/Concepts.hpp"
+#include "galaxy/resource/Loader.hpp"
 
 namespace galaxy
 {
-	namespace resource
+	///
+	/// Cache for resources such as audio, fonts, etc.
+	///
+	/// \tparam Resource  A resource is a class containing data, and cannot be a ref or ptr.
+	/// \tparam SpecLoader A template specialization of a Loader, to load the Resource.
+	///
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	class Cache final
 	{
 		///
-		/// Cache for resources such as audio, fonts, etc.
+		/// Use a dense map for storage.
 		///
-		/// \tparam Resource Type of resource to manage.
-		/// \tparam Loader Loader to use when loading the resource.
+		using Map = ankerl::unordered_dense::map<std::uint64_t, std::shared_ptr<Resource>>;
+
+	public:
 		///
-		template<meta::not_memory Resource, meta::not_memory Loader>
-		// requires meta::is_class < Resource>&& meta::is_loader < Loader, Resource>
-		class Cache final
+		/// Constructor.
+		///
+		Cache() noexcept;
+
+		///
+		/// Destructor.
+		///
+		~Cache();
+
+		///
+		/// \brief Load a resource.
+		///
+		/// Key becomes filename.
+		/// This expects the resource to have a compatible string constructor.
+		///
+		/// \param file File to load in VFS.
+		///
+		void load_file(const std::string& file);
+
+		///
+		/// Loads a resource with custom args.
+		///
+		/// \tparam Args Argument types.
+		///
+		/// \param key Access key / resource name.
+		/// \param args Forward constructor args.
+		///
+		template<typename... Args>
+		void load_resource(const std::string& key, Args&&... args);
+
+		///
+		/// \brief Load all resources in a folder.
+		///
+		/// Key becomes filename.
+		/// This expects the resource to have a compatible string constructor.
+		///
+		/// \param dir The directory in the vfs to load from.
+		///
+		void load_folder(const std::string& dir);
+
+		///
+		/// Insert a resource directly into the cache.
+		///
+		/// \param key Access key / resource name.
+		/// \param resource Shared pointer to resource.
+		///
+		void insert(const std::string& key, std::shared_ptr<Resource> resource) noexcept;
+
+		///
+		/// Get a resource.
+		///
+		/// \param key Name/id of resource.
+		///
+		/// \return Returns a shared pointer to the resource.
+		///
+		[[nodiscard]]
+		std::shared_ptr<Resource> get(const std::string& key) noexcept;
+
+		///
+		/// Check if a resource exists.
+		///
+		/// \param key Name/id of resource.
+		///
+		/// \return True if resource was found.
+		///
+		[[nodiscard]]
+		bool has(const std::string& key) noexcept;
+
+		///
+		/// Destroy all data in cache.
+		///
+		void clear();
+
+		///
+		/// Does the cache have any resources.
+		///
+		/// \return True if empty, false otherwise.
+		///
+		[[nodiscard]]
+		bool empty() const noexcept;
+
+		///
+		/// Get amount of resources cached.
+		///
+		[[nodiscard]]
+		std::size_t size() const noexcept;
+
+		///
+		/// Get entire resource cache.
+		///
+		/// \return Const reference to the resource cache.
+		///
+		[[nodiscard]]
+		const Map& cache() const noexcept;
+
+	private:
+		///
+		/// Copy constructor.
+		///
+		Cache(const Cache&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		Cache(Cache&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Cache& operator=(const Cache&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Cache& operator=(Cache&&) = delete;
+
+	private:
+		///
+		/// Flexible Loader used to create/load a Resource into the cache.
+		///
+		SpecLoader m_loader;
+
+		///
+		/// Resource storage map.
+		///
+		Map m_cache;
+	};
+
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline Cache<Resource, SpecLoader>::Cache() noexcept
+	{
+	}
+
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline Cache<Resource, SpecLoader>::~Cache()
+	{
+		clear();
+	}
+
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline void Cache<Resource, SpecLoader>::load_file(const std::string& file)
+	{
+		const auto hash = math::fnv1a(file.c_str());
+		if (!m_cache.contains(hash))
 		{
-			using CacheType = ankerl::unordered_dense::map<std::uint64_t, std::unique_ptr<Resource>>;
+			m_cache[hash] = m_loader(file);
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_WARN, "Tried to load duplicate resource: '{0}'.", file);
+		}
+	}
 
-		public:
-			///
-			/// Constructor.
-			///
-			inline Cache() noexcept
-			{
-			}
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	template<typename... Args>
+	inline void Cache<Resource, SpecLoader>::load_resource(const std::string& key, Args&&... args)
+	{
+		const auto hash = math::fnv1a(key.c_str());
+		if (!m_cache.contains(hash))
+		{
+			m_cache[hash] = m_loader(std::forward<Args>(args)...);
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_WARN, "Tried to load duplicate resource: '{0}'.", key);
+		}
+	}
 
-			///
-			/// Destructor.
-			///
-			inline ~Cache()
-			{
-				clear();
-			}
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline void Cache<Resource, SpecLoader>::load_folder(const std::string& dir)
+	{
+		auto& fs = entt::locator<VirtualFileSystem>::value();
+		for (const auto& file : fs.list(dir))
+		{
+			load_file(file);
+		}
+	}
 
-			///
-			/// Load a resource.
-			///
-			/// \param file File to load. Also serves as key hash.
-			///
-			inline void load(const std::string& file)
-			{
-				m_keys.push_back(file);
-				m_cache[hash(file)] = std::move(m_loader(file));
-			}
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline void Cache<Resource, SpecLoader>::insert(const std::string& key, std::shared_ptr<Resource> resource) noexcept
+	{
+		const auto hash = math::fnv1a(key.c_str());
+		if (!m_cache.contains(hash))
+		{
+			m_cache[hash] = resource;
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_WARN, "Tried to load duplicate resource: '{0}'.", key);
+		}
+	}
 
-			///
-			/// Load resources of a specific type.
-			///
-			/// \param dir The directory in the vfs to load assets from.
-			///
-			inline void load_folder(const std::string& dir)
-			{
-				clear();
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline std::shared_ptr<Resource> Cache<Resource, SpecLoader>::get(const std::string& key) noexcept
+	{
+		const auto hash = math::fnv1a(key.c_str());
+		if (m_cache.contains(hash))
+		{
+			return m_cache[hash];
+		}
 
-				for (const auto& file : core::ServiceLocator<fs::VirtualFileSystem>::ref().list(dir))
-				{
-					load(file);
-				}
-			}
+		return nullptr;
+	}
 
-			///
-			/// Insert a resource directly into the cache.
-			///
-			/// \param id Key to use to access resource.
-			/// \param resource Pointer to resource to take ownership of.
-			///
-			inline void insert(std::string_view id, std::unique_ptr<Resource>& resource)
-			{
-				const auto hashed = hash(id);
-				if (!m_cache.contains(hashed))
-				{
-					m_cache[hashed] = std::move(resource);
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_WARNING, "Tried to load duplicate resource '{0}'.", id);
-				}
-			}
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline bool Cache<Resource, SpecLoader>::has(const std::string& key) noexcept
+	{
+		const auto hash = math::fnv1a(key.c_str());
+		return m_cache.contains(hash);
+	}
 
-			///
-			/// Retrieve a resource.
-			///
-			/// \param id Key to use to access resource.
-			///
-			/// \return Returns a shared pointer to the resource.
-			///
-			[[nodiscard]]
-			inline Resource* get(std::string_view id)
-			{
-				const auto hashed = hash(id);
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline void Cache<Resource, SpecLoader>::clear()
+	{
+		m_cache.clear();
+	}
 
-				if (m_cache.contains(hashed))
-				{
-					return m_cache[hashed].get();
-				}
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline bool Cache<Resource, SpecLoader>::empty() const noexcept
+	{
+		return size() == 0;
+	}
 
-				return nullptr;
-			}
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline std::size_t Cache<Resource, SpecLoader>::size() const noexcept
+	{
+		return m_cache.size();
+	}
 
-			///
-			/// Destroy resources.
-			///
-			inline void clear()
-			{
-				m_cache.clear();
-			}
-
-			///
-			/// Check if a resource exists.
-			///
-			/// \param id Key to use to access resource.
-			///
-			/// \return True if resource was found.
-			///
-			[[nodiscard]]
-			inline bool has(std::string_view id)
-			{
-				return m_cache.contains(hash(id));
-			}
-
-			///
-			/// Does the cache have any resources.
-			///
-			/// \return True if empty, false otherwise.
-			///
-			[[nodiscard]]
-			inline bool empty() const
-			{
-				return size() == 0;
-			}
-
-			///
-			/// Get amount of resources cached.
-			///
-			[[nodiscard]]
-			inline std::size_t size() const
-			{
-				return m_cache.size();
-			}
-
-			///
-			/// Get entire resource cache.
-			///
-			/// \return Const reference to the resource cache.
-			///
-			[[nodiscard]]
-			inline const CacheType& cache() const
-			{
-				return m_cache;
-			}
-
-			///
-			/// Get a list of keys in the cache.
-			///
-			/// \return A vector of char pointers.
-			///
-			[[nodiscard]]
-			inline const meta::vector<std::string>& keys()
-			{
-				return m_keys;
-			}
-
-		private:
-			///
-			/// Copy constructor.
-			///
-			Cache(const Cache&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Cache(Cache&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Cache& operator=(const Cache&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Cache& operator=(Cache&&) = delete;
-
-			///
-			/// Hashes the key into an integer for faster map lookup time.
-			///
-			inline std::uint64_t hash(std::string_view str)
-			{
-				const auto hash = math::fnv1a_64(str.data());
-				return hash;
-			}
-
-		private:
-			///
-			/// Used to load a resource into the cache. Allows for flexiblity.
-			///
-			Loader m_loader;
-
-			///
-			/// The actual data store.
-			///
-			CacheType m_cache;
-
-			///
-			/// A list of keys currently in the cache.
-			///
-			meta::vector<std::string> m_keys;
-		};
-	} // namespace resource
+	template<typename Resource, typename SpecLoader>
+	requires meta::not_memory<Resource> && meta::is_class<Resource> && meta::is_instance_of_v<SpecLoader, Loader>
+	inline const Cache<Resource, SpecLoader>::Map& Cache<Resource, SpecLoader>::cache() const noexcept
+	{
+		return m_cache;
+	}
 } // namespace galaxy
 
 #endif

@@ -8,41 +8,36 @@
 #ifndef GALAXY_RESOURCE_LOADER_HPP_
 #define GALAXY_RESOURCE_LOADER_HPP_
 
-#include "galaxy/error/Log.hpp"
+#include <memory>
+
+#include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
 {
-	namespace resource
+	///
+	/// Loads resources for a resource cache.
+	///
+	/// \tparam Resource A resource is a class containing data, and cannot be a ref or ptr.
+	///
+	template<typename Resource>
+	requires meta::not_memory<Resource> && meta::is_class<Resource>
+	struct Loader
 	{
 		///
-		/// Loads resources for a resource cache.
+		/// Overloaded operator() used to load a resource.
 		///
-		/// \tparam Resource A resource is a class containing data.
+		/// \tparam Args Argument types.
 		///
-		template<typename Resource>
-		requires meta::not_memory<Resource> && meta::is_class<Resource>
-		struct Loader
+		/// \param args Forward constructor args.
+		///
+		/// \return Shared ptr to created resource.
+		///
+		template<typename... Args>
+		inline std::shared_ptr<Resource> operator()(Args&&... args)
 		{
-			///
-			/// Overloaded operator() used to load a resource.
-			///
-			/// \param file Path on disk/archive to load file from.
-			///
-			/// \return Handle to created resource.
-			///
-			inline std::unique_ptr<Resource> operator()(const std::string& file)
-			{
-				auto resource = std::make_unique<Resource>();
-				if (!resource->load(file))
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to load resource '{0}'.", file);
-					return nullptr;
-				}
-
-				return resource;
-			}
-		};
-	} // namespace resource
+			return std::make_shared<Resource>(std::forward<Args>(args)...);
+		}
+	};
 } // namespace galaxy
 
 #endif

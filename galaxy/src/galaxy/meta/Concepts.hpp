@@ -87,13 +87,15 @@ namespace galaxy
 		concept valid_component = std::is_move_assignable<Type>::value && std::is_move_constructible<Type>::value && std::is_class<Type>::value;
 
 		///
-		/// Ensures that the provided loader has an operator() that returns a shared pointer.
+		/// Makes sure a template specialization is an instance of a template class.
 		///
-		/// \tparam Loader The loader you want to test.
-		/// \tparam Resource The resource being loaded.
+		/// \tparam T Base type i.e. std::vector.
+		/// \tparam U Specialization i.e. std::vector<int>
 		///
-		template<typename Loader, typename Resource>
-		concept is_loader = requires(Loader loader) { loader.operator() && std::is_class<Loader>::value; };
+		template<class T, template<class...> class U>
+		inline constexpr bool is_instance_of_v = std::false_type {};
+		template<template<class...> class U, class... Vs>
+		inline constexpr bool is_instance_of_v<U<Vs...>, U> = std::true_type {};
 	} // namespace meta
 } // namespace galaxy
 

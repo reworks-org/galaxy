@@ -81,6 +81,8 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaState.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaEntt.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaGLM.cpp" />
+    <ClCompile Include="src\galaxy\resource\Loader.cpp" />
+    <ClCompile Include="src\galaxy\resource\Cache.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -149,5 +151,7 @@
     <ClInclude Include="src\galaxy\meta\SystemFactory.hpp" />
     <ClInclude Include="src\galaxy\state\State.hpp" />
     <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
+    <ClInclude Include="src\galaxy\resource\Loader.hpp" />
+    <ClInclude Include="src\galaxy\resource\Cache.hpp" />
   </ItemGroup>
 </Project>
