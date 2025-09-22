@@ -4,7 +4,7 @@ var searchData=
   ['_7eanimation_1',['~Animation',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a76b0a4c1310027a8f3a3b5ad769c590c',1,'galaxy::graphics::Animation']]],
   ['_7eanimationsystem_2',['~AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131',1,'galaxy::systems::AnimationSystem']]],
   ['_7eapp_3',['~App',['../dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f',1,'galaxy::App']]],
-  ['_7ecache_4',['~Cache',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#aa72ede435c24df982931ba59882379f1',1,'galaxy::resource::Cache']]],
+  ['_7ecache_4',['~Cache',['../d1/d4d/classgalaxy_1_1Cache.html#ace32ff28ae9db099557e1f59b396334f',1,'galaxy::Cache']]],
   ['_7ecamera_5',['~Camera',['../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9d28a72d2fd1d1c2e902058264cc9c36',1,'galaxy::graphics::Camera']]],
   ['_7echromaticaberration_6',['~ChromaticAberration',['../dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#a175073047a7b665ce7e7498f5c02b1a3',1,'galaxy::graphics::ChromaticAberration']]],
   ['_7ecircle_7',['~Circle',['../da/d0d/classgalaxy_1_1components_1_1Circle.html#a5b78b5bc0e89b02c24f876d018d60314',1,'galaxy::components::Circle::~Circle()'],['../d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#a76e9d8fdef7b9565dfa3133a16c2f468',1,'galaxy::graphics::Circle::~Circle()']]],

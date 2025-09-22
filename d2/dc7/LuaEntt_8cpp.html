@@ -101,8 +101,7 @@ $(function(){initNavTree('d2/dc7/LuaEntt_8cpp.html','../../'); initResizable(tru
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">LuaEntt.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -110,6 +109,7 @@ $(function(){initNavTree('d2/dc7/LuaEntt_8cpp.html','../../'); initResizable(tru
 <code>#include &lt;entt_sol/registry.hpp&gt;</code><br />
 <code>#include &lt;entt_sol/script_process.hpp&gt;</code><br />
 <code>#include &lt;entt/locator/locator.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d92/Lua_8hpp_source.html">../Lua.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for LuaEntt.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -117,15 +117,17 @@ $(function(){initNavTree('d2/dc7/LuaEntt_8cpp.html','../../'); initResizable(tru
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d27/LuaEntt_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2lua_2injects_2LuaEntt_8cpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2lua_2injects_2LuaEntt_8cpp" id="agalaxy_2src_2galaxy_2lua_2injects_2LuaEntt_8cpp">
-<area shape="rect" title=" " alt="" coords="299,5,461,45"/>
+<area shape="rect" title=" " alt="" coords="401,5,562,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,179,119"/>
-<area shape="poly" title=" " alt="" coords="312,48,148,92,147,87,310,43"/>
+<area shape="poly" title=" " alt="" coords="401,45,163,93,161,88,400,40"/>
 <area shape="rect" title=" " alt="" coords="203,93,357,119"/>
-<area shape="poly" title=" " alt="" coords="357,48,307,87,304,82,354,43"/>
+<area shape="poly" title=" " alt="" coords="434,48,323,91,321,86,432,43"/>
 <area shape="rect" title=" " alt="" coords="382,93,581,119"/>
-<area shape="poly" title=" " alt="" coords="406,43,457,82,454,87,403,48"/>
+<area shape="poly" title=" " alt="" coords="484,46,484,79,479,79,479,46"/>
 <area shape="rect" title=" " alt="" coords="605,93,779,119"/>
-<area shape="poly" title=" " alt="" coords="455,43,634,87,633,93,454,48"/>
+<area shape="poly" title=" " alt="" coords="533,43,649,86,647,91,531,48"/>
+<area shape="rect" href="../../de/d92/Lua_8hpp.html" title=" " alt="" coords="803,93,888,119"/>
+<area shape="poly" title=" " alt="" coords="563,41,790,90,789,95,562,47"/>
 </map>
 </div>
 </div>
@@ -136,19 +138,12 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
 <tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d12/namespacegalaxy_1_1lua.html">galaxy::lua</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a41da4e65c770085ad2be1469e5433a49" id="r_a41da4e65c770085ad2be1469e5433a49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41da4e65c770085ad2be1469e5433a49">AUTO_ARG</a>(x)</td></tr>
 <tr class="memdesc:a41da4e65c770085ad2be1469e5433a49"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d2/dc7/LuaEntt_8cpp.html">LuaEntt.cpp</a> galaxy.  <br /></td></tr>
 <tr class="separator:a41da4e65c770085ad2be1469e5433a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a4816504ffd60d669ef3a2a9a4faface6" id="r_a4816504ffd60d669ef3a2a9a4faface6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d12/namespacegalaxy_1_1lua.html#a4816504ffd60d669ef3a2a9a4faface6">galaxy::lua::inject_entt</a> ()</td></tr>
-<tr class="separator:a4816504ffd60d669ef3a2a9a4faface6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a41da4e65c770085ad2be1469e5433a49" name="a41da4e65c770085ad2be1469e5433a49"></a>
@@ -180,7 +175,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_79b316363302e8390d0b35e3c4a83cfb.html">lua</a></li><li class="navelem"><a class="el" href="../../dir_7db1507fc1775b8ca4bc86e9c6fd5e9d.html">injects</a></li><li class="navelem"><a class="el" href="../../d2/dc7/LuaEntt_8cpp.html">LuaEntt.cpp</a></li>
-    <li class="footer">Generated on Sat Sep 20 2025 08:51:54 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Mon Sep 22 2025 04:28:37 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

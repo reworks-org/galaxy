@@ -107,48 +107,40 @@ $(function(){initNavTree('dc/d7c/resource_2Loader_8hpp_source.html','../../'); i
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef GALAXY_RESOURCE_LOADER_HPP_</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define GALAXY_RESOURCE_LOADER_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;galaxy/error/Log.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">namespace </span>resource</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Resource&gt;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keyword">requires</span> meta::not_memory&lt;Resource&gt; &amp;&amp; meta::is_class&lt;Resource&gt;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d84/Concepts_8hpp.html">galaxy/meta/Concepts.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Resource&gt;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">requires</span> meta::not_memory&lt;Resource&gt; &amp;&amp; meta::is_class&lt;Resource&gt;</div>
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">   24</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">Loader</a></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html#a1e21e68fc45fd87f9a57c2b80883cb77">   33</a></span>            <span class="keyword">inline</span> std::unique_ptr&lt;Resource&gt; <a class="code hl_function" href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html#a1e21e68fc45fd87f9a57c2b80883cb77">operator()</a>(<span class="keyword">const</span> std::string&amp; file)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                <span class="keyword">auto</span> resource = std::make_unique&lt;Resource&gt;();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                <span class="keywordflow">if</span> (!resource-&gt;load(file))</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a>, <span class="stringliteral">&quot;Failed to load resource &#39;{0}&#39;.&quot;</span>, file);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                <span class="keywordflow">return</span> resource;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../db/dbf/structgalaxy_1_1Loader.html">   24</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../db/dbf/structgalaxy_1_1Loader.html">Loader</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../db/dbf/structgalaxy_1_1Loader.html#a247794c4798f75927ddd4e1038ee5ad6">   36</a></span>        <span class="keyword">inline</span> std::shared_ptr&lt;Resource&gt; <a class="code hl_function" href="../../db/dbf/structgalaxy_1_1Loader.html#a247794c4798f75927ddd4e1038ee5ad6">operator()</a>(Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> std::make_shared&lt;Resource&gt;(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        };</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    };</div>
 </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    } <span class="comment">// namespace resource</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a70c9f68f8bab2b0fb4116377f9094a73"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a70c9f68f8bab2b0fb4116377f9094a73">GALAXY_FATAL</a></div><div class="ttdeci">#define GALAXY_FATAL</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aConcepts_8hpp_html"><div class="ttname"><a href="../../d3/d84/Concepts_8hpp.html">Concepts.hpp</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1resource_1_1Loader_html"><div class="ttname"><a href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html">galaxy::resource::Loader</a></div><div class="ttdoc">Loads resources for a resource cache.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Loader.hpp:25</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1resource_1_1Loader_html_a1e21e68fc45fd87f9a57c2b80883cb77"><div class="ttname"><a href="../../d0/d02/structgalaxy_1_1resource_1_1Loader.html#a1e21e68fc45fd87f9a57c2b80883cb77">galaxy::resource::Loader::operator()</a></div><div class="ttdeci">std::unique_ptr&lt; Resource &gt; operator()(const std::string &amp;file)</div><div class="ttdoc">Overloaded operator() used to load a resource.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Loader.hpp:33</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1Loader_html"><div class="ttname"><a href="../../db/dbf/structgalaxy_1_1Loader.html">galaxy::Loader</a></div><div class="ttdoc">Loads resources for a resource cache.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Loader.hpp:25</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1Loader_html_a247794c4798f75927ddd4e1038ee5ad6"><div class="ttname"><a href="../../db/dbf/structgalaxy_1_1Loader.html#a247794c4798f75927ddd4e1038ee5ad6">galaxy::Loader::operator()</a></div><div class="ttdeci">std::shared_ptr&lt; Resource &gt; operator()(Args &amp;&amp;... args)</div><div class="ttdoc">Overloaded operator() used to load a resource.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Loader.hpp:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_6861e931fb99faa1379ff4c0e1a1bd9e.html">resource</a></li><li class="navelem"><a class="el" href="../../dc/d7c/resource_2Loader_8hpp.html">Loader.hpp</a></li>
-    <li class="footer">Generated on Sat Sep 20 2025 08:51:54 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Mon Sep 22 2025 04:28:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

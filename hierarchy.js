@@ -2,7 +2,7 @@ var hierarchy =
 [
     [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
     [ "galaxy::App", "dd/d33/classgalaxy_1_1App.html", null ],
-    [ "galaxy::resource::Cache< Resource, Loader >", "da/d64/classgalaxy_1_1resource_1_1Cache.html", null ],
+    [ "galaxy::Cache< Resource, SpecLoader >", "d1/d4d/classgalaxy_1_1Cache.html", null ],
     [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ],
     [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
     [ "galaxy::ContentScale", "dd/d27/structgalaxy_1_1ContentScale.html", null ],
@@ -37,8 +37,8 @@ var hierarchy =
     [ "galaxy::resource::TextureAtlas::Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", null ],
     [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
-    [ "galaxy::resource::Loader< Resource >", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", null ],
-    [ "galaxy::resource::Loader< media::Sound >", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", [
+    [ "galaxy::Loader< Resource >", "db/dbf/structgalaxy_1_1Loader.html", null ],
+    [ "galaxy::Loader< media::Sound >", "db/dbf/structgalaxy_1_1Loader.html", [
       [ "galaxy::resource::MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", null ],
       [ "galaxy::resource::SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", null ],
       [ "galaxy::resource::VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", null ]

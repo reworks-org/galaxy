@@ -270,7 +270,7 @@ var searchData=
   ['keyreleased_2ecpp_267',['KeyReleased.cpp',['../d8/d23/KeyReleased_8cpp.html',1,'']]],
   ['keyreleased_2ehpp_268',['KeyReleased.hpp',['../d9/dab/KeyReleased_8hpp.html',1,'']]],
   ['keys_269',['Keys',['../d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83',1,'galaxy']]],
-  ['keys_270',['keys',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a65e3fa552586fc92ea9d609ada1de176',1,'galaxy::resource::TextureAtlas::keys()'],['../da/d64/classgalaxy_1_1resource_1_1Cache.html#acf4efd74aac7b3775f0f9695f1b0da53',1,'galaxy::resource::Cache::keys()']]],
+  ['keys_270',['keys',['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a65e3fa552586fc92ea9d609ada1de176',1,'galaxy::resource::TextureAtlas']]],
   ['keys_2ecpp_271',['Keys.cpp',['../d4/d76/Keys_8cpp.html',1,'']]],
   ['keys_2ehpp_272',['Keys.hpp',['../dd/d25/Keys_8hpp.html',1,'']]],
   ['kill_273',['kill',['../db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99',1,'galaxy::Subprocess']]]

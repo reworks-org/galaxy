@@ -1,0 +1,8 @@
+<map id="galaxy::Cache::load_folder" name="galaxy::Cache::load_folder">
+<area shape="rect" id="Node000001" title="Load all resources in a folder." alt="" coords="5,22,155,62"/>
+<area shape="rect" id="Node000002" href="$d1/d4d/classgalaxy_1_1Cache.html#a49af33561efab77c3752557129803fc6" title="Load a resource." alt="" coords="203,29,379,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,39,189,39,189,45,155,45"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="427,29,579,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="379,39,413,39,413,45,379,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="468,31,461,21,465,11,479,5,503,3,532,6,544,15,540,20,530,11,503,8,480,10,468,15,466,20,472,28"/>
+</map>

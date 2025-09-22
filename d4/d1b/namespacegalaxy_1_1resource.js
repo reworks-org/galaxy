@@ -1,7 +1,5 @@
 var namespacegalaxy_1_1resource =
 [
-    [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
-    [ "Loader", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", "d0/d02/structgalaxy_1_1resource_1_1Loader" ],
     [ "MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
     [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
     [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],

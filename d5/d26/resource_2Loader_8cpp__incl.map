@@ -1,7 +1,15 @@
 <map id="galaxy/src/galaxy/resource/Loader.cpp" name="galaxy/src/galaxy/resource/Loader.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,203,45"/>
-<area shape="rect" id="Node000002" href="$dc/d7c/resource_2Loader_8hpp.html" title=" " alt="" coords="57,93,151,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,46,107,79,101,79,101,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="26,167,182,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,119,107,153,101,153,101,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,5,223,45"/>
+<area shape="rect" id="Node000002" href="$dc/d7c/resource_2Loader_8hpp.html" title=" " alt="" coords="77,93,171,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,46,127,79,121,79,121,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,83,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,121,69,160,65,156,109,117"/>
+<area shape="rect" id="Node000004" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="107,167,303,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="139,117,184,156,180,160,135,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="72,240,152,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="192,194,140,234,136,229,189,190"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="176,240,235,265"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="208,192,208,226,203,226,203,192"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="259,240,351,265"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="223,190,279,230,276,234,220,194"/>
 </map>

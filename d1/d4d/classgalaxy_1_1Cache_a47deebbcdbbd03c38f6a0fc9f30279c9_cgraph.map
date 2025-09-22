@@ -1,0 +1,6 @@
+<map id="galaxy::Cache::get" name="galaxy::Cache::get">
+<area shape="rect" id="Node000001" title="Get a resource." alt="" coords="5,29,148,55"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="196,29,348,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,39,182,39,182,45,148,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="240,31,233,21,237,11,250,5,272,3,299,6,310,15,307,19,297,11,272,8,251,10,240,15,238,20,244,28"/>
+</map>

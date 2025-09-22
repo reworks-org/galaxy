@@ -86,8 +86,6 @@ var annotated_dup =
         [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ]
       ] ],
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
-        [ "Cache", "da/d64/classgalaxy_1_1resource_1_1Cache.html", "da/d64/classgalaxy_1_1resource_1_1Cache" ],
-        [ "Loader", "d0/d02/structgalaxy_1_1resource_1_1Loader.html", "d0/d02/structgalaxy_1_1resource_1_1Loader" ],
         [ "MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
         [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
         [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas" ],
@@ -103,6 +101,7 @@ var annotated_dup =
         [ "NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI" ]
       ] ],
       [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
+      [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
       [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
       [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
       [ "ContentScale", "dd/d27/structgalaxy_1_1ContentScale.html", "dd/d27/structgalaxy_1_1ContentScale" ],
@@ -114,6 +113,7 @@ var annotated_dup =
       [ "KeyInput", "d6/d71/structgalaxy_1_1KeyInput.html", "d6/d71/structgalaxy_1_1KeyInput" ],
       [ "KeyPressed", "d0/d11/structgalaxy_1_1KeyPressed.html", "d0/d11/structgalaxy_1_1KeyPressed" ],
       [ "KeyReleased", "d5/d60/structgalaxy_1_1KeyReleased.html", "d5/d60/structgalaxy_1_1KeyReleased" ],
+      [ "Loader", "db/dbf/structgalaxy_1_1Loader.html", "db/dbf/structgalaxy_1_1Loader" ],
       [ "Log", "dd/dd3/classgalaxy_1_1Log.html", "dd/dd3/classgalaxy_1_1Log" ],
       [ "LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", "d6/d64/structgalaxy_1_1LogMessage" ],
       [ "LostFocus", "dc/d92/structgalaxy_1_1LostFocus.html", null ],

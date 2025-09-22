@@ -1,0 +1,7 @@
+<map id="galaxy::Cache::clear" name="galaxy::Cache::clear">
+<area shape="rect" id="Node000001" title="Destroy all data in cache." alt="" coords="225,42,379,67"/>
+<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5" title=" " alt="" coords="23,5,160,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,45,160,37,160,32,212,39"/>
+<area shape="rect" id="Node000003" href="$d1/d4d/classgalaxy_1_1Cache.html#ace32ff28ae9db099557e1f59b396334f" title="Destructor." alt="" coords="5,70,177,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,69,178,74,177,69,211,64"/>
+</map>

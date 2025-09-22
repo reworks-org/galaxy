@@ -15,7 +15,6 @@ var concepts =
         [ "is_object", "d1/d92/conceptgalaxy_1_1meta_1_1is__object.html", null ],
         [ "is_bitset_flag", "db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html", null ],
         [ "valid_component", "d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html", null ],
-        [ "is_loader", "db/dba/conceptgalaxy_1_1meta_1_1is__loader.html", null ],
         [ "is_system", "dd/d60/conceptgalaxy_1_1meta_1_1is__system.html", null ]
       ] ]
     ] ]

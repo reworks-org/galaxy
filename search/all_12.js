@@ -167,7 +167,7 @@ var searchData=
   ['sink_164',['sink',['../d9/d14/classgalaxy_1_1ConsoleSink.html#acc4c64da6550a49616aa141e67da1be8',1,'galaxy::ConsoleSink::sink()'],['../d7/d7d/classgalaxy_1_1FileSink.html#a76697fb80e8975d8c2045371ccce5ae5',1,'galaxy::FileSink::sink()'],['../d2/d42/classgalaxy_1_1Sink.html#a1e505dd4c47e3b8ca81acff9fc560944',1,'galaxy::Sink::sink()']]],
   ['sink_2ecpp_165',['Sink.cpp',['../d6/d18/Sink_8cpp.html',1,'']]],
   ['sink_2ehpp_166',['Sink.hpp',['../d8/d5e/Sink_8hpp.html',1,'']]],
-  ['size_167',['size',['../da/d64/classgalaxy_1_1resource_1_1Cache.html#a62054464d35f0835a63bbef10f94b492',1,'galaxy::resource::Cache']]],
+  ['size_167',['size',['../d1/d4d/classgalaxy_1_1Cache.html#a8f04ed01142a652911a5bbbe39c93775',1,'galaxy::Cache']]],
   ['smaa_168',['SMAA',['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html',1,'galaxy::graphics::SMAA'],['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad',1,'galaxy::graphics::SMAA::SMAA(const int width, const int height)'],['../d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#aeefda1a8d4941e4fb9ce5755bf892b95',1,'galaxy::graphics::SMAA::SMAA()=delete']]],
   ['smaa_2ecpp_169',['SMAA.cpp',['../d4/dad/SMAA_8cpp.html',1,'']]],
   ['smaa_2ehpp_170',['SMAA.hpp',['../d3/d37/SMAA_8hpp.html',1,'']]],

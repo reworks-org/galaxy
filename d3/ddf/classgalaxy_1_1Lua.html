@@ -120,7 +120,7 @@ $(function(){initNavTree('d3/ddf/classgalaxy_1_1Lua.html','../../'); initResizab
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d8/de9/classgalaxy_1_1Lua__coll__graph.png" border="0" usemap="#agalaxy_1_1Lua_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1Lua_coll__map" id="agalaxy_1_1Lua_coll__map">
-<area shape="rect" title="Just a wrapper around static injection functions." alt="" coords="5,5,143,351"/>
+<area shape="rect" title="Just a wrapper around static injection functions." alt="" coords="5,5,143,391"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -147,12 +147,18 @@ Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a6be6c0213bb0810c1785b71e4da75f01" id="r_a6be6c0213bb0810c1785b71e4da75f01"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6be6c0213bb0810c1785b71e4da75f01">inject_core</a> () noexcept</td></tr>
 <tr class="memdesc:a6be6c0213bb0810c1785b71e4da75f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject galaxy core services into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>.  <br /></td></tr>
 <tr class="separator:a6be6c0213bb0810c1785b71e4da75f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b2f90e0343d46ebeecbdfc1ec4976c0" id="r_a8b2f90e0343d46ebeecbdfc1ec4976c0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b2f90e0343d46ebeecbdfc1ec4976c0">inject_entt</a> () noexcept</td></tr>
+<tr class="memdesc:a8b2f90e0343d46ebeecbdfc1ec4976c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Injects EnTT into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>.  <br /></td></tr>
+<tr class="separator:a8b2f90e0343d46ebeecbdfc1ec4976c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee24f50784e2532af6656b5139e880c0" id="r_aee24f50784e2532af6656b5139e880c0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee24f50784e2532af6656b5139e880c0">inject_events</a> () noexcept</td></tr>
 <tr class="memdesc:aee24f50784e2532af6656b5139e880c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject galaxy event data objects into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>.  <br /></td></tr>
 <tr class="separator:aee24f50784e2532af6656b5139e880c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a964e2d87885b9b1fd5021cea3cc080ab" id="r_a964e2d87885b9b1fd5021cea3cc080ab"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a964e2d87885b9b1fd5021cea3cc080ab">inject_fs</a> () noexcept</td></tr>
 <tr class="memdesc:a964e2d87885b9b1fd5021cea3cc080ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Injects VFS support into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>.  <br /></td></tr>
 <tr class="separator:a964e2d87885b9b1fd5021cea3cc080ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74316878e18db65927ce3261722412e" id="r_aa74316878e18db65927ce3261722412e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa74316878e18db65927ce3261722412e">inject_glm</a> () noexcept</td></tr>
+<tr class="memdesc:aa74316878e18db65927ce3261722412e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Injects GLM into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>.  <br /></td></tr>
+<tr class="separator:aa74316878e18db65927ce3261722412e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb88beaf9458550f3302ed5226e88aa" id="r_a3fb88beaf9458550f3302ed5226e88aa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb88beaf9458550f3302ed5226e88aa">inject_input</a> () noexcept</td></tr>
 <tr class="memdesc:a3fb88beaf9458550f3302ed5226e88aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Injects input handling into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>.  <br /></td></tr>
 <tr class="separator:a3fb88beaf9458550f3302ed5226e88aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,31 +280,35 @@ Static Private Member Functions</h2></td></tr>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a455bec072291685272d4817e5a524b8e_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a455bec072291685272d4817e5a524b8e_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a455bec072291685272d4817e5a524b8e_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a455bec072291685272d4817e5a524b8e_cgraph">
-<area shape="rect" title="Inject everything into Lua." alt="" coords="5,7623,145,7649"/>
+<area shape="rect" title="Inject everything into Lua." alt="" coords="5,6702,145,6727"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="197,1753,371,1778"/>
-<area shape="poly" title=" " alt="" coords="74,7623,191,4209,279,1791,284,1792,196,4209,80,7623"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0" title="Inject galaxy event data objects into Lua." alt="" coords="214,4221,354,4261"/>
-<area shape="poly" title=" " alt="" coords="74,7623,78,7027,93,5920,107,5339,128,4827,141,4617,155,4450,172,4332,181,4294,191,4272,201,4262,205,4265,196,4275,186,4296,177,4333,161,4450,146,4618,133,4827,113,5339,98,5920,83,7027,79,7623"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="205,4286,363,4311"/>
-<area shape="poly" title=" " alt="" coords="75,7623,114,6855,150,6206,191,5525,242,4793,278,4325,283,4325,247,4793,196,5526,155,6206,119,6855,80,7623"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="214,5537,354,5577"/>
-<area shape="poly" title=" " alt="" coords="75,7623,114,7120,149,6707,191,6276,238,5873,275,5591,281,5592,243,5874,196,6276,154,6708,119,7121,80,7623"/>
+<area shape="poly" title=" " alt="" coords="75,6702,279,1792,284,1792,80,6702"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a8b2f90e0343d46ebeecbdfc1ec4976c0" title="Injects EnTT into Lua." alt="" coords="197,4203,371,4229"/>
+<area shape="poly" title=" " alt="" coords="74,6702,82,6253,103,5440,119,5016,138,4643,162,4369,176,4283,183,4256,191,4240,195,4236,199,4239,196,4243,188,4258,181,4284,168,4369,144,4643,124,5016,108,5440,87,6253,80,6702"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0" title="Inject galaxy event data objects into Lua." alt="" coords="214,4253,354,4293"/>
+<area shape="poly" title=" " alt="" coords="74,6702,83,6264,105,5473,121,5060,141,4697,164,4430,177,4347,191,4304,201,4294,205,4297,196,4307,182,4348,169,4431,146,4697,126,5060,110,5473,88,6264,80,6702"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="205,4318,363,4343"/>
+<area shape="poly" title=" " alt="" coords="75,6702,278,4357,283,4357,80,6702"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e" title="Injects GLM into Lua." alt="" coords="198,5519,370,5545"/>
+<area shape="poly" title=" " alt="" coords="74,6702,83,6485,105,6119,121,5928,140,5758,164,5627,177,5583,191,5556,196,5551,200,5555,196,5559,182,5585,169,5629,146,5759,126,5928,110,6119,89,6485,80,6702"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="214,5569,354,5609"/>
+<area shape="poly" title=" " alt="" coords="76,6701,274,5622,279,5623,82,6702"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8" title="Injects logging into Lua." alt="" coords="214,6288,354,6328"/>
-<area shape="poly" title=" " alt="" coords="76,7623,275,6341,280,6342,81,7624"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="193,7154,375,7179"/>
-<area shape="poly" title=" " alt="" coords="80,7622,269,7191,274,7193,85,7624"/>
+<area shape="poly" title=" " alt="" coords="81,6700,264,6339,269,6341,86,6703"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="193,7105,375,7130"/>
+<area shape="poly" title=" " alt="" coords="86,6726,272,7091,268,7094,81,6729"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="214,8059,354,8099"/>
-<area shape="poly" title=" " alt="" coords="85,7648,270,8044,265,8047,80,7650"/>
+<area shape="poly" title=" " alt="" coords="81,6727,280,8044,275,8045,76,6728"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="214,8675,354,8715"/>
-<area shape="poly" title=" " alt="" coords="82,7648,279,8660,273,8661,77,7650"/>
+<area shape="poly" title=" " alt="" coords="80,6728,115,7244,150,7668,196,8110,241,8431,279,8661,274,8662,236,8432,191,8111,145,7669,110,7244,75,6728"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a64011dd468d6b31d16aaa74a9d95cd5b" title="Regsiter static engine services in Lua." alt="" coords="214,8739,354,8779"/>
-<area shape="poly" title=" " alt="" coords="80,7649,90,7854,114,8198,130,8377,149,8537,171,8659,183,8700,195,8725,205,8734,201,8738,191,8728,178,8702,166,8660,144,8537,124,8378,108,8198,85,7854,75,7649"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="214,9197,354,9237"/>
-<area shape="poly" title=" " alt="" coords="80,7649,91,7801,113,8080,148,8428,196,8790,238,9015,277,9183,272,9184,233,9016,191,8791,143,8429,108,8080,85,7802,75,7649"/>
+<area shape="poly" title=" " alt="" coords="79,6727,79,7084,82,7386,89,7724,103,8062,124,8365,138,8492,154,8598,174,8677,184,8705,195,8725,205,8735,201,8738,191,8728,179,8708,168,8679,149,8599,132,8493,118,8365,97,8062,84,7724,77,7386,74,7084,74,6727"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="214,9196,354,9236"/>
+<area shape="poly" title=" " alt="" coords="79,6727,82,6983,95,7485,109,7794,130,8124,158,8460,196,8790,214,8904,237,9015,276,9182,271,9183,231,9016,209,8905,191,8791,153,8461,124,8124,104,7794,90,7485,76,6983,74,6728"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32" title="Register galaxy time support functions into Lua." alt="" coords="195,9729,373,9754"/>
-<area shape="poly" title=" " alt="" coords="80,7649,88,7853,108,8243,143,8735,167,8995,196,9249,216,9387,240,9521,279,9714,274,9716,235,9522,211,9388,191,9250,162,8995,138,8736,102,8243,82,7853,74,7649"/>
+<area shape="poly" title=" " alt="" coords="79,6727,80,7033,93,7645,106,8023,127,8428,157,8842,196,9248,215,9386,239,9522,279,9715,274,9716,234,9523,210,9387,191,9248,151,8842,122,8428,101,8024,87,7645,75,7033,74,6728"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609" title="Injects misc galaxy utils into Lua." alt="" coords="214,10471,354,10511"/>
-<area shape="poly" title=" " alt="" coords="80,7649,88,7909,110,8423,145,9079,169,9425,196,9765,217,9971,241,10172,280,10457,275,10457,236,10173,212,9972,191,9766,163,9425,140,9079,104,8423,83,7910,74,7649"/>
+<area shape="poly" title=" " alt="" coords="79,6728,83,7089,99,7824,114,8282,134,8771,161,9273,196,9765,216,9971,240,10172,280,10457,275,10457,235,10173,211,9972,191,9766,156,9273,129,8772,109,8282,94,7825,78,7089,74,6728"/>
 <area shape="rect" href="../../d0/d84/classgalaxy_1_1Window.html#a7d364f223de4e950def0c3201eb1e11f" title="Append to window title." alt="" coords="442,2753,622,2793"/>
 <area shape="poly" title=" " alt="" coords="288,1778,291,1951,297,2088,307,2241,324,2396,348,2540,363,2604,381,2659,402,2705,425,2740,432,2747,428,2751,421,2743,397,2708,376,2661,358,2605,343,2541,318,2397,302,2241,291,2088,285,1951,283,1778"/>
 <area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="713,2911,873,2937"/>
@@ -430,181 +440,181 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="607,215,680,215,680,220,607,220"/>
 <area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#aba7589e93d0cea374b1cf93e94421f99" title="Directory for editor specific stuff." alt="" coords="695,631,891,657"/>
 <area shape="poly" title=" " alt="" coords="605,641,682,641,682,647,605,647"/>
-<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="714,3782,873,3807"/>
-<area shape="poly" title=" " alt="" coords="556,3569,597,3597,643,3633,718,3706,775,3770,771,3773,714,3709,640,3637,594,3601,553,3574"/>
+<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="714,3870,873,3895"/>
+<area shape="poly" title=" " alt="" coords="558,3569,600,3596,643,3633,690,3691,730,3753,783,3856,778,3858,725,3756,686,3694,639,3637,597,3600,555,3574"/>
 <area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="729,3539,858,3579"/>
 <area shape="poly" title=" " alt="" coords="607,3556,715,3556,715,3561,607,3561"/>
 <area shape="poly" title=" " alt="" coords="492,1302,483,1292,488,1282,504,1276,532,1274,567,1278,577,1283,581,1288,576,1291,573,1287,566,1283,532,1279,505,1281,491,1286,488,1292,496,1299"/>
 <area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="701,1227,885,1253"/>
 <area shape="poly" title=" " alt="" coords="630,1237,687,1237,687,1243,630,1243"/>
 <area shape="poly" title=" " alt="" coords="610,3129,627,3137,643,3147,682,3190,714,3238,739,3291,759,3345,783,3447,793,3524,787,3525,777,3448,753,3346,734,3293,710,3241,678,3193,640,3151,625,3141,608,3134"/>
-<area shape="poly" title=" " alt="" coords="358,4284,373,4272,387,4248,396,4218,402,4182,404,4142,402,4051,395,3953,387,3855,386,3764,388,3724,395,3688,405,3657,421,3633,457,3620,532,3604,714,3569,715,3575,533,3609,458,3625,424,3637,410,3659,400,3689,394,3724,391,3764,393,3855,400,3953,407,4051,410,4142,407,4183,401,4219,391,4250,377,4275,361,4288"/>
+<area shape="poly" title=" " alt="" coords="358,4316,373,4304,387,4279,397,4247,403,4210,405,4167,403,4072,394,3969,386,3866,384,3771,387,3728,394,3690,405,3658,421,3633,457,3620,532,3604,714,3569,715,3575,533,3609,458,3625,424,3637,409,3661,399,3692,392,3729,390,3771,392,3866,400,3968,408,4072,411,4167,408,4210,402,4248,392,4281,377,4307,361,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a00ee72cd861c0d33f3668bce5c48b45f" title="Trigger a standard filesystem audio alert." alt="" coords="438,4553,626,4593"/>
-<area shape="poly" title=" " alt="" coords="292,4311,307,4353,334,4412,373,4477,397,4506,424,4533,443,4545,440,4549,421,4537,393,4510,369,4480,329,4415,302,4355,287,4312"/>
+<area shape="poly" title=" " alt="" coords="293,4343,310,4380,338,4431,377,4485,399,4510,424,4533,444,4545,441,4550,421,4537,396,4514,373,4489,334,4434,305,4382,288,4345"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e" title="Does the file exist in the vfs." alt="" coords="438,4668,626,4708"/>
-<area shape="poly" title=" " alt="" coords="289,4311,298,4371,321,4461,338,4511,361,4560,390,4607,425,4647,439,4659,436,4663,421,4651,385,4610,356,4563,333,4513,315,4463,293,4372,284,4312"/>
+<area shape="poly" title=" " alt="" coords="290,4343,301,4398,324,4480,342,4525,364,4569,392,4611,424,4647,440,4659,437,4663,421,4651,388,4614,360,4572,337,4527,319,4482,295,4400,285,4344"/>
 <area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1" title="Get a file or path&#39;s extension." alt="" coords="467,4783,597,4823"/>
-<area shape="poly" title=" " alt="" coords="288,4311,291,4388,297,4444,308,4508,324,4575,349,4643,382,4706,425,4762,439,4774,456,4783,453,4788,436,4779,421,4766,377,4709,344,4645,319,4577,302,4509,292,4445,286,4388,282,4312"/>
+<area shape="poly" title=" " alt="" coords="288,4344,293,4416,311,4527,328,4590,352,4652,384,4710,425,4762,439,4774,456,4783,454,4788,436,4779,421,4766,379,4713,347,4654,323,4591,306,4528,288,4416,283,4344"/>
 <area shape="rect" href="../../d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f" title=" " alt="" coords="453,3953,611,3993"/>
-<area shape="poly" title=" " alt="" coords="357,4284,373,4272,394,4240,402,4208,402,4176,397,4144,392,4111,391,4078,399,4044,421,4010,439,3994,443,3998,425,4014,404,4047,397,4079,397,4111,402,4143,407,4176,408,4209,399,4242,377,4275,360,4288"/>
+<area shape="poly" title=" " alt="" coords="357,4316,373,4304,396,4268,405,4232,404,4196,397,4160,391,4124,389,4087,397,4049,421,4010,439,3994,443,3998,425,4014,402,4051,395,4087,396,4123,403,4159,409,4196,410,4232,401,4270,377,4307,360,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a77c59a61e3d8a0dbd8bac30149f79c11" title="Opens a platform specific text input box." alt="" coords="438,3647,626,3687"/>
-<area shape="poly" title=" " alt="" coords="358,4284,373,4272,385,4251,394,4224,402,4156,402,4074,396,3986,391,3898,390,3816,398,3747,407,3719,421,3697,425,3692,429,3695,425,3700,412,3722,403,3748,395,3817,396,3898,402,3986,407,4074,408,4156,399,4225,390,4253,377,4275,361,4288"/>
+<area shape="poly" title=" " alt="" coords="358,4316,373,4304,386,4281,395,4253,404,4181,402,4095,396,4002,390,3909,389,3823,397,3750,407,3721,421,3697,425,3692,429,3695,425,3700,411,3723,402,3751,394,3823,395,3909,402,4002,408,4095,409,4181,400,4254,391,4284,377,4307,361,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0" title="Checks if a file is a folder." alt="" coords="438,3711,626,3751"/>
-<area shape="poly" title=" " alt="" coords="358,4284,373,4272,384,4253,392,4229,400,4169,400,4097,396,4018,392,3940,392,3867,400,3806,409,3781,421,3761,425,3756,429,3759,425,3764,413,3783,405,3807,398,3867,398,3940,402,4018,405,4096,405,4169,397,4230,389,4255,377,4275,361,4288"/>
-<area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a4aa6a65d69a7595f79b09f9ef35455e7" title="Get assets in an asset folder." alt="" coords="699,4521,887,4561"/>
-<area shape="poly" title=" " alt="" coords="293,4311,309,4347,337,4397,375,4447,398,4470,424,4488,470,4505,536,4518,686,4533,685,4539,535,4523,468,4510,421,4493,395,4474,371,4451,332,4400,304,4350,288,4313"/>
+<area shape="poly" title=" " alt="" coords="358,4316,373,4304,385,4284,393,4258,401,4194,401,4117,396,4034,391,3951,391,3874,399,3808,408,3782,421,3761,425,3756,429,3759,425,3764,413,3784,404,3810,396,3874,397,3951,402,4034,406,4117,407,4195,398,4260,390,4286,377,4307,361,4320"/>
+<area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a4aa6a65d69a7595f79b09f9ef35455e7" title="Get assets in an asset folder." alt="" coords="699,4516,887,4556"/>
+<area shape="poly" title=" " alt="" coords="294,4342,312,4373,341,4414,379,4455,424,4488,470,4504,536,4515,686,4529,685,4534,536,4521,469,4509,421,4493,375,4459,337,4417,308,4376,290,4345"/>
 <area shape="rect" href="../../d5/d13/classgalaxy_1_1FileError.html#a6fddfe48f26194025a033ce89482b990" title="Prints the file error in a nice format to the console." alt="" coords="455,3775,609,3801"/>
-<area shape="poly" title=" " alt="" coords="358,4284,373,4272,393,4243,407,4214,414,4185,416,4157,410,4100,395,4043,380,3986,374,3928,376,3899,385,3870,399,3841,421,3811,440,3797,443,3801,425,3815,403,3844,390,3872,382,3900,379,3928,385,3985,400,4042,415,4099,422,4157,419,4186,412,4216,398,4245,377,4275,361,4288"/>
+<area shape="poly" title=" " alt="" coords="358,4316,373,4304,384,4286,391,4263,399,4204,399,4134,395,4059,392,3983,392,3913,400,3854,409,3830,421,3812,440,3797,443,3801,425,3815,413,3833,405,3855,397,3913,397,3983,401,4059,404,4134,404,4205,397,4264,388,4288,377,4307,361,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0d32700de2c56498333e7f2bfc54a542" title="Opens a platform specific message box." alt="" coords="438,3825,626,3865"/>
-<area shape="poly" title=" " alt="" coords="357,4284,373,4271,391,4247,403,4222,409,4198,412,4174,408,4125,396,4076,385,4027,380,3977,383,3952,390,3927,402,3901,421,3876,425,3871,429,3875,425,3879,407,3904,395,3929,388,3953,386,3977,390,4026,402,4075,413,4124,417,4174,415,4199,408,4224,395,4250,377,4275,361,4288"/>
+<area shape="poly" title=" " alt="" coords="357,4316,373,4304,392,4277,405,4250,412,4224,414,4197,409,4145,396,4092,383,4039,378,3986,381,3958,388,3931,401,3903,421,3876,426,3870,429,3874,425,3879,406,3906,393,3933,386,3959,383,3986,389,4038,402,4091,414,4144,420,4197,417,4225,410,4252,397,4279,377,4307,361,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="699,4611,887,4651"/>
-<area shape="poly" title=" " alt="" coords="289,4311,298,4367,320,4448,337,4492,360,4534,389,4572,424,4603,454,4620,485,4634,553,4649,622,4652,685,4648,686,4653,622,4658,552,4654,484,4639,451,4625,421,4607,385,4576,356,4537,333,4494,315,4450,293,4368,284,4312"/>
+<area shape="poly" title=" " alt="" coords="290,4343,301,4394,324,4466,342,4505,364,4542,391,4576,424,4603,454,4620,486,4633,554,4647,622,4651,686,4647,686,4653,622,4656,553,4653,484,4638,452,4625,421,4608,388,4579,360,4545,337,4507,319,4468,295,4395,285,4344"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a72470275dbda0532a188b0fdea86f32d" title="Trigger a system notification." alt="" coords="438,3889,626,3929"/>
-<area shape="poly" title=" " alt="" coords="357,4284,373,4271,388,4251,398,4231,407,4190,405,4149,396,4108,388,4067,385,4025,394,3982,405,3961,421,3940,425,3935,429,3939,425,3943,409,3964,399,3984,390,4025,393,4066,402,4107,410,4148,413,4190,403,4232,393,4254,377,4275,361,4288"/>
+<area shape="poly" title=" " alt="" coords="357,4316,373,4303,389,4281,401,4258,407,4236,410,4214,406,4169,396,4124,386,4079,383,4033,385,4010,392,3987,404,3963,421,3940,425,3935,429,3939,425,3943,408,3966,397,3988,391,4011,388,4033,392,4078,402,4123,411,4168,415,4214,412,4237,406,4260,394,4284,377,4307,361,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a803b87252d75800508ee4fa4dff433b3" title="Open a file dialog." alt="" coords="438,4068,626,4108"/>
-<area shape="poly" title=" " alt="" coords="355,4284,373,4271,387,4253,394,4235,396,4197,398,4158,406,4138,421,4118,425,4114,429,4118,425,4122,410,4140,404,4159,401,4197,399,4236,392,4256,376,4275,358,4288"/>
+<area shape="poly" title=" " alt="" coords="355,4316,373,4303,389,4281,396,4259,398,4236,396,4213,395,4190,396,4166,404,4142,421,4118,425,4114,428,4118,425,4122,408,4144,401,4167,400,4189,401,4213,403,4236,402,4260,394,4284,377,4307,359,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a9a49804951501cf4b742865ca5ef2a88" title="Open a save file dialog." alt="" coords="438,4247,626,4287"/>
-<area shape="poly" title=" " alt="" coords="363,4286,424,4278,425,4283,364,4291"/>
+<area shape="poly" title=" " alt="" coords="334,4315,440,4288,441,4293,335,4320"/>
 <area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a26c21036c5b5a679c39939d39422df99" title="Open URL in default webbrowser." alt="" coords="467,4311,597,4351"/>
-<area shape="poly" title=" " alt="" coords="364,4306,454,4318,453,4323,363,4312"/>
+<area shape="poly" title=" " alt="" coords="364,4328,453,4328,453,4333,364,4333"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a5714f1be5d091e5e20d6c6d9ae8de541" title="Read a file." alt="" coords="699,4700,887,4740"/>
-<area shape="poly" title=" " alt="" coords="287,4312,288,4386,293,4440,303,4499,320,4561,344,4621,379,4674,400,4697,424,4718,458,4737,494,4750,533,4758,572,4760,649,4755,717,4741,718,4746,650,4760,572,4765,532,4763,493,4755,456,4742,421,4722,396,4701,374,4677,339,4623,315,4563,298,4501,288,4441,283,4386,282,4312"/>
+<area shape="poly" title=" " alt="" coords="288,4343,291,4413,297,4463,307,4518,324,4574,348,4629,381,4678,424,4718,458,4737,494,4750,533,4757,572,4759,649,4754,716,4741,717,4746,649,4759,572,4765,532,4762,493,4755,456,4742,421,4722,377,4681,344,4631,319,4576,302,4519,291,4463,285,4413,282,4344"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af5d6601c81e250d33fc7bb13912c8545" title="Read a binary file." alt="" coords="699,4803,887,4843"/>
-<area shape="poly" title=" " alt="" coords="289,4311,301,4415,327,4575,346,4658,368,4734,394,4795,409,4817,424,4833,459,4853,497,4866,537,4873,578,4874,658,4863,727,4845,729,4850,659,4868,578,4879,536,4878,495,4872,457,4858,421,4837,405,4820,390,4797,363,4736,341,4660,322,4576,296,4416,284,4312"/>
-<area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#aca348e65708b9e1ec6095de6ec11d110" title="Delete a file or folder." alt="" coords="699,4123,887,4163"/>
-<area shape="poly" title=" " alt="" coords="356,4284,373,4271,391,4245,397,4217,397,4189,393,4161,389,4133,390,4105,399,4079,421,4054,461,4031,506,4022,552,4024,599,4035,644,4051,686,4071,755,4113,752,4117,684,4076,642,4056,597,4040,551,4029,506,4027,463,4036,424,4058,404,4082,395,4106,394,4133,398,4161,402,4189,403,4218,395,4247,377,4275,359,4288"/>
+<area shape="poly" title=" " alt="" coords="289,4343,303,4442,329,4592,348,4670,370,4741,396,4797,410,4818,424,4833,459,4853,497,4866,537,4872,578,4873,658,4863,727,4845,728,4850,659,4868,578,4878,536,4878,496,4871,457,4858,421,4837,406,4821,391,4800,365,4742,343,4671,324,4593,297,4443,284,4344"/>
+<area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#aca348e65708b9e1ec6095de6ec11d110" title="Delete a file or folder." alt="" coords="699,4101,887,4141"/>
+<area shape="poly" title=" " alt="" coords="357,4316,373,4304,393,4273,399,4241,398,4209,392,4177,387,4145,387,4113,396,4083,421,4054,460,4031,503,4020,548,4019,594,4027,638,4040,681,4056,750,4092,748,4097,678,4061,637,4045,593,4032,548,4025,503,4025,462,4036,424,4058,401,4085,392,4114,392,4144,397,4176,403,4209,405,4242,398,4275,377,4307,360,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab7c4aaec31a37cf0863f43997240fcff" title="Select a folder using a dialog." alt="" coords="438,4375,626,4415"/>
-<area shape="poly" title=" " alt="" coords="311,4309,362,4334,424,4360,446,4368,444,4373,422,4365,360,4339,309,4314"/>
+<area shape="poly" title=" " alt="" coords="335,4341,441,4369,440,4374,334,4346"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a6cbcf8ba11e8e51be045c168e802a90f" title="Writes a file to disk." alt="" coords="438,4439,626,4479"/>
-<area shape="poly" title=" " alt="" coords="298,4310,348,4365,384,4397,424,4424,437,4431,435,4436,421,4429,381,4401,344,4369,294,4313"/>
-<area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1" title="Raw data writing." alt="" coords="699,4299,887,4339"/>
-<area shape="poly" title=" " alt="" coords="342,4283,373,4271,387,4261,396,4251,406,4241,422,4232,482,4215,531,4211,581,4217,642,4232,673,4243,704,4257,756,4288,753,4293,701,4261,671,4248,641,4237,580,4222,531,4216,483,4220,424,4237,409,4245,400,4255,391,4265,376,4276,344,4288"/>
+<area shape="poly" title=" " alt="" coords="302,4342,354,4382,424,4424,440,4431,438,4436,421,4429,351,4386,299,4346"/>
+<area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1" title="Raw data writing." alt="" coords="699,4419,887,4459"/>
+<area shape="poly" title=" " alt="" coords="350,4316,373,4303,388,4286,395,4267,403,4249,421,4232,480,4207,506,4200,532,4199,583,4207,643,4232,668,4248,692,4268,731,4314,761,4362,781,4404,777,4407,756,4365,727,4317,688,4272,665,4253,640,4237,582,4212,532,4204,507,4206,482,4212,424,4237,408,4252,400,4269,393,4289,376,4307,352,4320"/>
 <area shape="rect" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a47bcceba1a6260628db6e3821caec273" title="Writes a binary file to disk." alt="" coords="438,4132,626,4172"/>
-<area shape="poly" title=" " alt="" coords="351,4284,373,4271,389,4252,396,4232,404,4210,421,4189,440,4176,443,4180,424,4193,408,4213,402,4233,394,4255,376,4275,354,4288"/>
-<area shape="poly" title=" " alt="" coords="610,3953,640,3939,680,3911,717,3878,772,3816,776,3820,721,3881,684,3915,643,3944,612,3958"/>
-<area shape="poly" title=" " alt="" coords="751,4522,749,4512,756,4502,771,4497,793,4495,819,4498,834,4505,831,4510,818,4503,793,4500,772,4502,759,4507,754,4513,757,4520"/>
+<area shape="poly" title=" " alt="" coords="354,4316,373,4303,385,4290,391,4276,397,4248,402,4219,409,4204,421,4189,437,4177,440,4181,425,4193,413,4206,407,4220,402,4249,397,4278,389,4293,376,4307,356,4320"/>
+<area shape="poly" title=" " alt="" coords="604,3951,640,3939,748,3898,750,3903,642,3944,605,3956"/>
+<area shape="poly" title=" " alt="" coords="751,4516,749,4506,756,4497,771,4491,793,4489,819,4492,834,4499,831,4504,818,4497,793,4495,772,4497,759,4501,754,4507,757,4515"/>
 <area shape="rect" href="../../d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="945,4611,1089,4651"/>
-<area shape="poly" title=" " alt="" coords="845,4559,954,4603,952,4608,843,4564"/>
+<area shape="poly" title=" " alt="" coords="843,4554,958,4603,956,4608,841,4559"/>
 <area shape="poly" title=" " alt="" coords="888,4628,932,4628,932,4633,888,4633"/>
 <area shape="poly" title=" " alt="" coords="843,4697,952,4654,954,4658,845,4702"/>
 <area shape="poly" title=" " alt="" coords="826,4800,896,4750,946,4703,987,4659,991,4663,949,4707,899,4754,829,4805"/>
-<area shape="poly" title=" " alt="" coords="814,4161,856,4216,900,4285,938,4371,970,4458,1010,4596,1005,4598,965,4460,933,4373,895,4288,852,4219,810,4165"/>
-<area shape="poly" title=" " alt="" coords="611,4436,640,4424,704,4386,757,4345,760,4350,707,4390,643,4429,613,4441"/>
-<area shape="poly" title=" " alt="" coords="811,4338,996,4598,992,4601,807,4341"/>
-<area shape="poly" title=" " alt="" coords="602,4170,643,4188,711,4237,765,4287,761,4290,707,4241,640,4193,600,4175"/>
+<area shape="poly" title=" " alt="" coords="806,4141,1004,4597,999,4599,801,4143"/>
+<area shape="poly" title=" " alt="" coords="626,4449,685,4444,686,4450,627,4454"/>
+<area shape="poly" title=" " alt="" coords="861,4456,899,4478,930,4506,958,4537,1000,4597,995,4600,954,4540,927,4509,896,4482,858,4461"/>
+<area shape="poly" title=" " alt="" coords="611,4170,643,4189,669,4213,693,4240,733,4299,763,4357,783,4405,778,4407,758,4360,728,4302,689,4243,665,4217,640,4193,609,4174"/>
 <area shape="rect" href="../../d8/db2/classgalaxy_1_1Keyboard.html#ad9f89c849d9d51cc649143a74ada4de4" title="Enable window to begin processing text input." alt="" coords="443,5217,621,5257"/>
-<area shape="poly" title=" " alt="" coords="286,5537,300,5483,325,5410,343,5372,364,5334,390,5298,421,5267,429,5261,432,5265,424,5271,394,5302,369,5337,347,5374,330,5412,305,5484,292,5538"/>
+<area shape="poly" title=" " alt="" coords="353,5570,373,5554,394,5518,402,5483,401,5447,395,5412,389,5377,388,5341,397,5304,421,5268,429,5259,433,5263,425,5271,402,5306,393,5341,394,5376,400,5411,406,5447,407,5483,399,5520,377,5558,356,5575"/>
 <area shape="rect" href="../../d8/db2/classgalaxy_1_1Keyboard.html#a1999303a18134c1999e072d9131d855a" title="Will clear any existing keyboard state." alt="" coords="445,5281,619,5321"/>
-<area shape="poly" title=" " alt="" coords="290,5536,306,5494,334,5438,372,5381,395,5354,421,5331,431,5324,434,5329,424,5335,399,5358,376,5384,338,5441,311,5496,294,5538"/>
+<area shape="poly" title=" " alt="" coords="353,5570,373,5554,390,5526,398,5499,398,5472,395,5444,392,5416,393,5388,401,5360,421,5332,431,5322,434,5326,425,5335,406,5362,398,5389,397,5416,400,5443,403,5471,403,5500,395,5529,377,5558,356,5574"/>
 <area shape="rect" href="../../d8/db2/classgalaxy_1_1Keyboard.html#a2336aeb1e295b1a64053b1f69ee641e5" title="Disable text input." alt="" coords="449,5345,615,5385"/>
-<area shape="poly" title=" " alt="" coords="295,5535,344,5467,380,5428,421,5395,435,5388,437,5392,424,5400,384,5432,348,5470,300,5538"/>
+<area shape="poly" title=" " alt="" coords="353,5569,373,5554,387,5535,393,5515,395,5476,398,5436,405,5416,421,5395,435,5384,438,5389,425,5399,410,5418,403,5437,401,5476,399,5516,391,5537,377,5558,356,5573"/>
 <area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#ae2d79d9b95b9983f6513d0aeb3b38ada" title="Get clipboard contents." alt="" coords="465,5409,599,5449"/>
-<area shape="poly" title=" " alt="" coords="308,5535,358,5497,421,5459,450,5447,452,5452,424,5464,361,5501,311,5539"/>
+<area shape="poly" title=" " alt="" coords="353,5568,373,5554,390,5531,396,5508,402,5483,421,5459,450,5442,453,5447,424,5463,407,5486,401,5509,394,5533,377,5558,356,5572"/>
 <area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a7583b70eec34e14b210812880e951522" title="Get current cursor position." alt="" coords="465,5473,599,5513"/>
-<area shape="poly" title=" " alt="" coords="354,5537,451,5511,452,5517,355,5542"/>
+<area shape="poly" title=" " alt="" coords="344,5567,373,5554,397,5538,421,5523,450,5512,452,5517,424,5528,400,5543,376,5558,346,5572"/>
 <area shape="rect" href="../../d8/db2/classgalaxy_1_1Keyboard.html#ac30aaebb6af4975787ed7e30c347785d" title="Check if there is a keyboard connected." alt="" coords="449,5537,615,5577"/>
-<area shape="poly" title=" " alt="" coords="354,5555,436,5555,436,5560,354,5560"/>
+<area shape="poly" title=" " alt="" coords="354,5578,435,5567,436,5572,355,5583"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#acd71312528a78efb4c36df2bdea78735" title="Check if there is a mouse connected." alt="" coords="459,5601,605,5641"/>
-<area shape="poly" title=" " alt="" coords="355,5573,446,5597,445,5602,354,5578"/>
+<area shape="poly" title=" " alt="" coords="355,5596,445,5608,445,5613,354,5601"/>
 <area shape="rect" href="../../d8/db2/classgalaxy_1_1Keyboard.html#afe35fdf7b24c9be0ec56b44365ad78b7" title="Check if an onscreen keyboard is supported." alt="" coords="449,5665,615,5705"/>
-<area shape="poly" title=" " alt="" coords="311,5575,361,5614,424,5651,440,5658,438,5663,421,5656,358,5618,308,5580"/>
+<area shape="poly" title=" " alt="" coords="325,5607,424,5651,446,5659,444,5664,422,5656,323,5612"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266" title="Hide cursor." alt="" coords="456,5729,608,5769"/>
-<area shape="poly" title=" " alt="" coords="300,5576,348,5645,384,5683,424,5715,444,5726,441,5730,421,5720,380,5687,344,5648,295,5579"/>
+<area shape="poly" title=" " alt="" coords="304,5608,354,5661,387,5690,424,5715,444,5725,442,5730,421,5720,384,5694,350,5665,300,5612"/>
 <area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a9ae81b722326a313a1d1721825d7f0da" title="See if a key is being held down." alt="" coords="433,5794,631,5819"/>
-<area shape="poly" title=" " alt="" coords="294,5577,311,5619,337,5675,375,5732,398,5757,424,5779,435,5786,433,5791,421,5783,395,5761,371,5735,333,5677,306,5622,289,5578"/>
+<area shape="poly" title=" " alt="" coords="296,5609,315,5646,342,5692,379,5740,424,5779,437,5786,434,5791,421,5784,375,5743,338,5695,310,5648,292,5611"/>
 <area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a8effd0c4f610b629a6b8926cf5a00e74" title="See if a key mod is being held down." alt="" coords="455,5844,609,5884"/>
-<area shape="poly" title=" " alt="" coords="292,5577,306,5628,332,5696,371,5767,396,5800,424,5829,444,5841,441,5846,421,5833,392,5803,366,5770,327,5698,301,5629,287,5578"/>
+<area shape="poly" title=" " alt="" coords="294,5609,310,5654,336,5713,374,5775,398,5804,424,5829,443,5841,440,5845,421,5833,394,5807,370,5779,332,5716,305,5656,289,5610"/>
 <area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#ae1faa66f3b5b7bb59121727a12f3a9f0" title="Check if a mouse button was pressed." alt="" coords="423,5909,641,5934"/>
-<area shape="poly" title=" " alt="" coords="290,5577,299,5639,322,5725,339,5771,362,5816,390,5858,424,5894,433,5900,429,5904,421,5898,386,5861,357,5819,335,5774,317,5727,294,5640,285,5578"/>
+<area shape="poly" title=" " alt="" coords="291,5609,302,5666,326,5744,344,5785,366,5825,392,5862,424,5894,433,5900,430,5904,421,5898,388,5866,361,5828,339,5787,321,5745,297,5667,286,5610"/>
 <area shape="rect" href="../../d8/db2/classgalaxy_1_1Keyboard.html#a27144e69e2b40a9f233c5fecba49f6f9" title="Check if onscreen keyboard is shown." alt="" coords="431,5959,633,5999"/>
-<area shape="poly" title=" " alt="" coords="289,5577,297,5647,318,5745,335,5799,358,5851,388,5900,425,5943,431,5949,428,5953,421,5947,383,5903,353,5854,330,5800,312,5747,291,5648,284,5578"/>
+<area shape="poly" title=" " alt="" coords="290,5609,299,5674,321,5764,339,5812,362,5860,390,5904,425,5943,431,5949,428,5953,421,5947,386,5908,357,5862,334,5814,316,5765,294,5675,284,5610"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee" title="Set the cursor back to default." alt="" coords="447,6023,617,6063"/>
-<area shape="poly" title=" " alt="" coords="288,5577,292,5657,298,5712,309,5773,326,5836,350,5899,383,5957,425,6009,436,6018,433,6022,421,6013,378,5960,346,5901,321,5838,304,5774,293,5713,286,5657,282,5578"/>
+<area shape="poly" title=" " alt="" coords="288,5609,294,5684,313,5791,330,5850,354,5908,385,5962,425,6009,436,6018,433,6022,421,6013,381,5965,349,5910,325,5852,308,5793,289,5685,283,5610"/>
 <area shape="rect" href="../../dd/d59/namespacegalaxy_1_1input.html#a2fce3445e15cb1035e0ba4b4dad9b105" title="Set clipboard contents." alt="" coords="465,6087,599,6127"/>
-<area shape="poly" title=" " alt="" coords="291,5577,307,5681,335,5830,354,5907,375,5977,399,6034,425,6073,453,6091,450,6096,421,6077,394,6037,370,5979,349,5908,330,5831,301,5682,285,5578"/>
+<area shape="poly" title=" " alt="" coords="287,5610,289,5694,295,5753,306,5819,322,5887,347,5954,380,6017,424,6073,453,6091,450,6096,421,6077,376,6020,342,5956,317,5888,300,5820,290,5754,284,5695,282,5610"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae166b3f2d1f5afbc0fe4691ee0f0c4e0" title="Set custom cursor texture." alt="" coords="460,4897,604,4937"/>
-<area shape="poly" title=" " alt="" coords="285,5537,298,5418,324,5241,343,5149,365,5065,391,4995,405,4968,421,4947,445,4930,448,4934,425,4951,410,4971,396,4997,370,5066,348,5150,330,5242,303,5418,290,5538"/>
+<area shape="poly" title=" " alt="" coords="353,5571,373,5554,385,5532,394,5503,402,5430,401,5344,395,5252,389,5159,388,5073,397,5001,407,4971,421,4948,445,4929,448,4933,425,4951,411,4973,402,5002,393,5073,394,5159,400,5251,406,5344,407,5431,399,5504,390,5534,377,5558,356,5575"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d" title="Set cursor to a system cursor." alt="" coords="460,4961,604,5001"/>
-<area shape="poly" title=" " alt="" coords="285,5537,300,5428,328,5271,347,5189,369,5115,393,5053,421,5011,446,4994,449,4998,425,5015,398,5056,374,5117,352,5191,334,5272,306,5429,290,5537"/>
+<area shape="poly" title=" " alt="" coords="353,5571,373,5554,384,5534,392,5508,400,5444,399,5367,395,5284,390,5201,390,5124,399,5059,408,5033,421,5012,445,4993,448,4997,425,5015,413,5035,404,5060,396,5124,396,5201,400,5284,405,5367,405,5444,397,5509,389,5536,377,5558,356,5575"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5" title="Toggle mouse grab." alt="" coords="460,5025,604,5065"/>
-<area shape="poly" title=" " alt="" coords="282,5537,284,5453,290,5395,301,5330,318,5262,343,5194,376,5131,421,5075,446,5058,449,5063,424,5079,381,5134,347,5196,323,5263,306,5331,296,5395,290,5453,287,5537"/>
+<area shape="poly" title=" " alt="" coords="353,5571,373,5554,393,5523,406,5493,413,5463,415,5433,409,5374,394,5316,379,5257,373,5198,376,5168,384,5137,399,5107,421,5075,445,5057,448,5061,425,5079,403,5109,389,5139,381,5169,379,5198,385,5256,399,5314,414,5373,421,5433,419,5463,411,5494,398,5526,377,5558,356,5575"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1" title="Show cursor." alt="" coords="453,5089,611,5129"/>
-<area shape="poly" title=" " alt="" coords="283,5537,289,5463,309,5356,326,5298,350,5240,381,5187,421,5139,439,5126,442,5130,424,5143,385,5190,355,5243,331,5300,314,5357,294,5463,288,5537"/>
+<area shape="poly" title=" " alt="" coords="352,5571,373,5554,390,5528,402,5501,409,5475,411,5450,406,5398,394,5348,383,5297,378,5245,381,5219,389,5193,401,5166,421,5140,438,5125,442,5129,425,5143,406,5169,394,5195,386,5220,384,5246,388,5296,399,5347,411,5398,416,5450,414,5476,407,5503,395,5530,377,5558,356,5575"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c" title="Move the mouse cursor to the given position within the window." alt="" coords="454,5153,610,5193"/>
-<area shape="poly" title=" " alt="" coords="284,5537,294,5473,317,5383,334,5335,357,5287,386,5242,421,5203,440,5190,443,5194,424,5207,390,5246,362,5290,339,5337,322,5385,299,5474,290,5538"/>
+<area shape="poly" title=" " alt="" coords="353,5571,373,5554,388,5532,398,5510,407,5466,403,5423,394,5380,386,5337,383,5293,393,5249,404,5226,421,5203,440,5188,443,5192,425,5207,409,5229,398,5251,388,5293,391,5336,400,5379,409,5422,412,5466,403,5511,393,5534,377,5558,356,5575"/>
 <area shape="rect" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a" title="Destroy any existing cursor." alt="" coords="707,6023,880,6063"/>
 <area shape="poly" title=" " alt="" coords="618,6040,693,6040,693,6045,618,6045"/>
 <area shape="poly" title=" " alt="" coords="301,6286,351,6236,385,6209,421,6187,457,6171,492,6160,559,6151,621,6151,680,6155,736,6155,790,6146,817,6136,843,6121,869,6100,895,6073,912,6042,927,5990,940,5921,952,5837,973,5634,988,5406,1006,4957,1013,4665,1018,4665,1012,4957,993,5406,978,5635,958,5837,946,5922,932,5991,917,6044,899,6076,873,6104,846,6125,819,6141,792,6151,737,6160,680,6160,621,6156,559,6156,493,6166,459,6176,424,6192,388,6214,355,6240,305,6290"/>
 <area shape="rect" href="../../d2/dc7/namespacegalaxy_1_1log.html#a704e5c0683e808fbad47ffab52e466ea" title="Insert a message into the OpenGL debug stack." alt="" coords="460,6201,604,6241"/>
 <area shape="poly" title=" " alt="" coords="341,6285,460,6244,462,6249,343,6290"/>
-<area shape="rect" href="../../d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950" title="Convert a GL error code to a string." alt="" coords="709,6287,878,6327"/>
-<area shape="poly" title=" " alt="" coords="354,6303,423,6301,641,6301,695,6302,695,6307,641,6307,423,6307,354,6308"/>
+<area shape="rect" href="../../d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950" title="Convert a GL error code to a string." alt="" coords="709,6288,878,6328"/>
+<area shape="poly" title=" " alt="" coords="354,6303,423,6301,641,6301,695,6302,695,6308,641,6307,423,6307,354,6308"/>
 <area shape="rect" href="../../d2/dc7/namespacegalaxy_1_1log.html#a6ace45b0939dfcd5a3a7a804f6a28fc9" title="Returns all GL errors on stack." alt="" coords="461,6316,603,6356"/>
 <area shape="poly" title=" " alt="" coords="355,6313,448,6324,447,6329,354,6319"/>
 <area shape="rect" href="../../d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92" title=" " alt="" coords="455,6381,609,6406"/>
 <area shape="poly" title=" " alt="" coords="327,6326,424,6365,455,6375,454,6380,422,6371,325,6331"/>
-<area shape="poly" title=" " alt="" coords="603,6325,695,6315,695,6320,603,6331"/>
+<area shape="poly" title=" " alt="" coords="603,6326,695,6316,695,6321,603,6331"/>
 <area shape="rect" href="../../d9/d9f/classgalaxy_1_1RectPack.html#ab9926f88e2c0f81f17723d271c41d051" title="Clear all data." alt="" coords="446,7345,618,7370"/>
-<area shape="poly" title=" " alt="" coords="294,7178,313,7209,342,7251,379,7294,424,7330,438,7337,436,7342,421,7334,376,7298,337,7254,308,7212,290,7181"/>
+<area shape="poly" title=" " alt="" coords="292,7129,308,7169,335,7224,374,7282,398,7308,424,7330,435,7337,433,7341,421,7334,394,7311,370,7285,330,7227,303,7171,287,7131"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#a1f29b6d6017a9fcbd5e565410fae9c1f" title=" " alt="" coords="459,7395,605,7435"/>
-<area shape="poly" title=" " alt="" coords="291,7179,306,7220,333,7278,373,7339,397,7367,424,7391,448,7405,445,7409,421,7395,393,7371,369,7342,329,7281,301,7223,286,7181"/>
-<area shape="poly" title=" " alt="" coords="295,7178,312,7216,340,7267,377,7321,399,7345,424,7367,444,7379,465,7388,463,7393,441,7384,421,7371,396,7349,373,7324,335,7269,307,7218,290,7181"/>
+<area shape="poly" title=" " alt="" coords="290,7130,302,7179,328,7250,346,7288,368,7326,394,7361,424,7391,447,7406,445,7410,421,7395,390,7365,363,7329,341,7291,323,7252,297,7181,285,7131"/>
+<area shape="poly" title=" " alt="" coords="292,7129,307,7175,332,7239,371,7308,396,7339,424,7367,442,7379,462,7388,460,7393,440,7384,421,7371,392,7343,367,7311,328,7241,302,7176,287,7131"/>
 <area shape="rect" href="../../df/d85/classgalaxy_1_1ZLib.html#a18b0bd8e4ebb825882fbd63e6e2f550a" title="Decompresses string into ZLib." alt="" coords="454,7459,610,7485"/>
-<area shape="poly" title=" " alt="" coords="290,7179,302,7229,327,7302,344,7341,366,7379,393,7414,424,7445,442,7455,439,7460,421,7449,389,7418,362,7382,340,7343,322,7304,297,7231,285,7180"/>
+<area shape="poly" title=" " alt="" coords="289,7130,298,7188,320,7273,338,7320,361,7366,389,7408,424,7445,443,7456,440,7461,421,7449,385,7412,356,7368,333,7322,315,7275,293,7189,284,7131"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="451,7509,613,7549"/>
-<area shape="poly" title=" " alt="" coords="289,7179,299,7236,322,7321,340,7368,362,7414,390,7457,424,7494,440,7505,437,7509,421,7498,386,7460,358,7416,335,7370,317,7323,294,7237,284,7180"/>
+<area shape="poly" title=" " alt="" coords="289,7130,296,7195,316,7292,334,7346,357,7400,387,7450,424,7494,440,7506,437,7510,421,7498,383,7453,352,7403,329,7348,311,7294,290,7195,283,7131"/>
 <area shape="rect" href="../../df/d85/classgalaxy_1_1ZLib.html#ada997046aa986c5b458ca141fef2495f" title="Compresses string into ZLib." alt="" coords="454,7230,610,7255"/>
-<area shape="poly" title=" " alt="" coords="325,7177,423,7208,475,7224,473,7229,422,7213,324,7182"/>
+<area shape="poly" title=" " alt="" coords="302,7128,355,7167,424,7208,464,7224,462,7229,422,7213,352,7172,299,7132"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529" title="Compresses string into Base64." alt="" coords="451,7624,613,7664"/>
-<area shape="poly" title=" " alt="" coords="288,7179,291,7253,298,7307,309,7368,325,7432,350,7496,382,7556,425,7609,440,7621,437,7625,421,7613,378,7559,345,7499,320,7434,303,7369,292,7308,286,7254,283,7179"/>
+<area shape="poly" title=" " alt="" coords="287,7130,288,7211,293,7271,303,7339,320,7411,344,7483,379,7550,400,7581,425,7609,440,7621,437,7625,421,7613,396,7584,374,7553,339,7485,314,7412,298,7340,288,7272,283,7211,282,7130"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#ad5d656c78b2808c52fd7ed8c456956b7" title="Convert string to 32bit hash." alt="" coords="445,7689,619,7714"/>
-<area shape="poly" title=" " alt="" coords="290,7179,304,7277,333,7427,352,7505,373,7577,398,7635,425,7674,434,7682,431,7686,421,7678,393,7638,368,7579,347,7506,328,7428,299,7278,284,7180"/>
+<area shape="poly" title=" " alt="" coords="289,7130,303,7236,330,7401,348,7487,371,7567,396,7631,410,7656,425,7674,434,7682,431,7686,421,7678,406,7659,391,7634,366,7568,343,7489,325,7402,297,7237,284,7131"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814" title="Convert string to 64bit hash." alt="" coords="445,7574,619,7599"/>
-<area shape="poly" title=" " alt="" coords="288,7179,294,7247,312,7350,330,7407,353,7463,385,7515,424,7559,434,7567,431,7571,421,7563,380,7518,349,7465,325,7409,307,7351,288,7248,283,7180"/>
+<area shape="poly" title=" " alt="" coords="288,7130,290,7205,296,7260,307,7321,323,7385,348,7449,381,7508,425,7559,434,7567,431,7571,421,7563,377,7511,343,7451,318,7387,301,7322,291,7260,285,7205,282,7130"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c" title=" " alt="" coords="459,7739,605,7779"/>
-<area shape="poly" title=" " alt="" coords="289,7179,302,7287,330,7455,349,7544,371,7625,397,7691,410,7717,425,7735,447,7752,444,7756,421,7739,406,7719,392,7693,366,7626,344,7545,325,7456,297,7288,284,7180"/>
-<area shape="poly" title=" " alt="" coords="290,7179,304,7283,332,7443,351,7528,373,7605,397,7669,425,7712,438,7723,454,7731,452,7736,435,7727,421,7715,393,7671,368,7607,346,7529,327,7444,299,7284,285,7180"/>
+<area shape="poly" title=" " alt="" coords="289,7130,301,7246,327,7429,346,7525,368,7614,395,7687,409,7715,425,7735,447,7752,444,7756,421,7739,405,7717,390,7689,363,7615,341,7526,322,7430,296,7247,284,7131"/>
+<area shape="poly" title=" " alt="" coords="289,7130,302,7242,329,7417,348,7509,370,7594,395,7664,410,7691,425,7712,438,7723,454,7731,451,7736,435,7727,421,7715,405,7694,391,7667,365,7596,342,7510,324,7418,297,7242,284,7131"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#ae496c4d7c4e06d7482593f6cb72effd1" title=" " alt="" coords="459,7803,605,7843"/>
-<area shape="poly" title=" " alt="" coords="289,7179,300,7298,326,7486,345,7585,367,7676,394,7751,409,7779,425,7801,447,7817,444,7821,421,7805,404,7782,389,7753,362,7677,339,7586,321,7486,295,7298,284,7180"/>
-<area shape="poly" title=" " alt="" coords="289,7179,302,7294,328,7474,346,7569,369,7656,395,7728,409,7756,425,7777,451,7795,448,7800,421,7781,405,7759,390,7731,363,7658,341,7570,323,7475,296,7294,284,7180"/>
+<area shape="poly" title=" " alt="" coords="289,7130,299,7257,323,7459,342,7567,365,7665,392,7747,408,7778,425,7801,447,7817,444,7821,421,7805,403,7780,387,7749,359,7667,336,7568,318,7460,294,7257,283,7130"/>
+<area shape="poly" title=" " alt="" coords="289,7130,300,7253,325,7448,343,7551,366,7646,393,7724,408,7754,425,7777,451,7795,448,7800,421,7781,404,7757,388,7726,361,7647,338,7552,320,7449,295,7253,284,7131"/>
 <area shape="rect" href="../../d9/d9f/classgalaxy_1_1RectPack.html#a1fa3ed643f1715fe336dcaba3a388900" title="Get free rectangles." alt="" coords="451,7867,613,7907"/>
-<area shape="poly" title=" " alt="" coords="289,7180,299,7307,323,7510,342,7617,364,7716,392,7798,408,7829,425,7853,441,7866,437,7870,421,7856,403,7832,387,7800,359,7718,336,7618,318,7511,294,7307,283,7180"/>
+<area shape="poly" title=" " alt="" coords="289,7130,297,7265,320,7483,338,7599,361,7706,390,7794,407,7827,425,7853,441,7866,437,7870,421,7856,402,7830,385,7796,356,7707,333,7600,315,7484,292,7265,283,7130"/>
 <area shape="rect" href="../../d9/d9f/classgalaxy_1_1RectPack.html#aba268a4100dc078d40c424079ef83586" title="Get total height." alt="" coords="451,6431,613,6471"/>
-<area shape="poly" title=" " alt="" coords="283,7153,294,7027,318,6825,337,6718,359,6619,387,6537,403,6505,421,6481,437,6467,441,6472,425,6484,408,6508,392,6539,365,6620,342,6719,323,6825,299,7028,289,7154"/>
+<area shape="poly" title=" " alt="" coords="284,7104,295,6986,321,6798,340,6699,362,6608,389,6532,404,6503,421,6481,437,6467,441,6472,425,6485,409,6506,394,6535,367,6609,345,6700,326,6799,301,6986,289,7104"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63" title=" " alt="" coords="459,6495,605,6535"/>
-<area shape="poly" title=" " alt="" coords="284,7154,297,7040,323,6861,341,6766,364,6679,390,6606,405,6578,421,6557,448,6538,451,6542,425,6561,409,6581,395,6609,369,6680,347,6767,328,6861,302,7041,289,7154"/>
-<area shape="poly" title=" " alt="" coords="284,7153,295,7035,321,6848,340,6750,363,6659,389,6584,404,6555,421,6533,444,6516,447,6520,425,6537,409,6558,394,6586,368,6660,345,6751,326,6849,300,7036,289,7154"/>
+<area shape="poly" title=" " alt="" coords="284,7104,298,6998,326,6834,345,6748,367,6668,392,6602,406,6576,421,6557,449,6537,452,6542,425,6561,410,6579,397,6604,372,6670,350,6749,331,6835,304,6999,290,7105"/>
+<area shape="poly" title=" " alt="" coords="284,7104,297,6994,324,6822,343,6732,365,6648,391,6580,405,6553,421,6533,444,6516,447,6520,425,6537,410,6556,396,6582,370,6650,348,6733,329,6823,302,6995,289,7105"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9" title=" " alt="" coords="459,6559,605,6599"/>
-<area shape="poly" title=" " alt="" coords="285,7153,299,7050,327,6890,346,6806,367,6729,392,6665,406,6640,421,6621,449,6602,452,6606,424,6625,411,6643,397,6667,373,6730,351,6807,332,6891,304,7051,290,7154"/>
-<area shape="poly" title=" " alt="" coords="284,7153,297,7046,325,6878,344,6790,366,6709,392,6642,406,6616,421,6597,444,6580,447,6584,425,6601,410,6619,397,6645,371,6711,349,6791,330,6879,302,7046,289,7154"/>
+<area shape="poly" title=" " alt="" coords="285,7104,301,7009,330,6864,349,6788,370,6718,394,6660,421,6621,450,6602,453,6606,425,6625,399,6663,375,6720,354,6789,335,6865,306,7010,290,7105"/>
+<area shape="poly" title=" " alt="" coords="284,7104,299,7004,328,6852,347,6772,369,6698,394,6638,421,6597,444,6580,447,6585,425,6601,398,6640,374,6700,352,6773,333,6853,304,7005,289,7105"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420" title=" " alt="" coords="459,6623,605,6663"/>
-<area shape="poly" title=" " alt="" coords="282,7154,283,7074,289,7015,299,6949,316,6879,340,6809,375,6743,396,6713,421,6685,450,6665,453,6670,424,6689,401,6716,379,6746,345,6811,321,6880,304,6950,294,7016,289,7074,287,7154"/>
-<area shape="poly" title=" " alt="" coords="282,7154,283,7070,287,7008,297,6938,313,6864,338,6791,373,6721,395,6690,421,6661,444,6644,447,6649,424,6665,400,6693,378,6724,343,6793,318,6866,302,6939,292,7009,288,7070,288,7154"/>
+<area shape="poly" title=" " alt="" coords="283,7104,287,7032,293,6979,305,6920,322,6857,346,6795,379,6736,421,6685,451,6665,454,6670,424,6689,383,6739,351,6797,327,6859,310,6921,299,6980,292,7032,288,7105"/>
+<area shape="poly" title=" " alt="" coords="283,7104,286,7028,291,6972,302,6909,319,6843,343,6777,377,6715,421,6661,444,6645,447,6649,424,6665,381,6718,348,6779,324,6844,307,6910,297,6973,291,7028,288,7105"/>
 <area shape="rect" href="../../d9/d9f/classgalaxy_1_1RectPack.html#ac1e13bbfea5b2af6946b037d107708fc" title="Get total width." alt="" coords="451,6687,613,6727"/>
-<area shape="poly" title=" " alt="" coords="283,7153,287,7081,294,7029,305,6970,322,6907,346,6846,379,6788,421,6737,437,6725,440,6729,425,6741,383,6791,351,6848,327,6909,310,6971,299,7030,292,7082,288,7154"/>
+<area shape="poly" title=" " alt="" coords="283,7104,290,7039,311,6941,328,6886,352,6832,382,6781,421,6737,437,6725,440,6729,424,6741,387,6784,357,6834,333,6888,316,6942,296,7040,289,7105"/>
 <area shape="rect" href="../../d9/d9f/classgalaxy_1_1RectPack.html#aba5a364702dbddce33ed245ff7777532" title="Set starting width and height of rectangle." alt="" coords="451,6751,613,6777"/>
-<area shape="poly" title=" " alt="" coords="283,7154,289,7088,309,6989,327,6935,350,6881,382,6831,421,6787,437,6776,440,6781,424,6791,386,6834,355,6883,332,6937,314,6991,295,7089,288,7154"/>
+<area shape="poly" title=" " alt="" coords="284,7104,293,7046,315,6961,333,6914,356,6867,385,6824,421,6787,437,6777,440,6781,424,6791,389,6828,361,6870,338,6916,320,6962,298,7047,289,7105"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#a0850694437a41e6220f0e5c48ead332b" title=" " alt="" coords="459,6801,605,6841"/>
-<area shape="poly" title=" " alt="" coords="285,7153,297,7100,321,7022,339,6980,361,6937,388,6898,421,6863,455,6844,457,6848,424,6867,392,6901,365,6940,343,6982,326,7024,302,7102,290,7155"/>
-<area shape="poly" title=" " alt="" coords="284,7153,294,7095,317,7011,335,6964,358,6919,386,6876,421,6839,444,6824,447,6829,424,6843,391,6880,362,6922,340,6967,322,7012,299,7096,289,7154"/>
+<area shape="poly" title=" " alt="" coords="287,7104,301,7058,327,6993,367,6924,392,6892,421,6863,457,6843,460,6848,424,6867,396,6895,371,6927,332,6996,306,7060,292,7105"/>
+<area shape="poly" title=" " alt="" coords="285,7104,297,7054,323,6982,341,6943,363,6905,390,6870,421,6839,445,6825,447,6829,424,6843,394,6873,368,6908,346,6946,327,6984,302,7055,290,7105"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48" title="Calc normalized value from range." alt="" coords="442,6915,622,6941"/>
-<area shape="poly" title=" " alt="" coords="287,7153,303,7113,331,7058,370,7000,394,6974,421,6951,433,6944,435,6949,424,6956,398,6978,374,7004,335,7061,308,7115,292,7155"/>
+<area shape="poly" title=" " alt="" coords="290,7103,309,7072,338,7030,376,6987,421,6951,436,6943,438,6948,424,6956,380,6991,342,7033,313,7074,295,7106"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#a3c9861f8677060f4b6fba0cd20fe6595" title=" " alt="" coords="459,6965,605,7005"/>
-<area shape="poly" title=" " alt="" coords="297,7152,346,7092,381,7057,421,7027,467,7007,469,7012,424,7032,385,7061,350,7096,301,7155"/>
-<area shape="poly" title=" " alt="" coords="288,7152,307,7121,337,7081,376,7039,421,7003,445,6991,447,6996,424,7008,379,7043,341,7084,311,7124,293,7155"/>
+<area shape="poly" title=" " alt="" coords="308,7103,358,7066,421,7027,474,7007,476,7012,424,7032,361,7070,311,7107"/>
+<area shape="poly" title=" " alt="" coords="291,7102,343,7054,381,7026,421,7003,444,6993,446,6998,424,7008,384,7031,347,7058,295,7106"/>
 <area shape="rect" href="../../d9/d9f/classgalaxy_1_1RectPack.html#a65fdd1c9bcff2ff1f01e9ba060f24c57" title="Pack a rectangle into the master rectangle." alt="" coords="447,7030,617,7055"/>
-<area shape="poly" title=" " alt="" coords="297,7152,349,7109,384,7085,422,7064,440,7057,442,7062,424,7069,387,7089,352,7113,301,7156"/>
+<area shape="poly" title=" " alt="" coords="315,7102,422,7064,453,7056,454,7061,423,7069,317,7107"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#adf0344db54bbd7135212f9ab4c6b142a" title="Generate a random number of type T." alt="" coords="711,7103,876,7129"/>
-<area shape="poly" title=" " alt="" coords="375,7171,502,7174,572,7171,641,7163,698,7149,749,7131,751,7136,699,7154,642,7168,572,7176,502,7179,375,7177"/>
+<area shape="poly" title=" " alt="" coords="314,7128,364,7147,423,7163,484,7172,532,7175,580,7171,641,7163,698,7149,749,7131,751,7136,700,7154,642,7168,580,7177,532,7180,483,7177,422,7168,362,7152,312,7133"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9" title="Generate a random vec2." alt="" coords="431,6866,633,6891"/>
-<area shape="poly" title=" " alt="" coords="285,7153,298,7105,323,7036,342,6999,364,6963,390,6929,421,6901,428,6896,431,6900,424,6905,394,6933,368,6966,346,7002,328,7038,303,7107,291,7154"/>
+<area shape="poly" title=" " alt="" coords="287,7103,303,7063,330,7008,370,6950,394,6923,421,6901,430,6895,433,6899,424,6905,397,6927,374,6953,335,7011,308,7065,292,7105"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa" title="Generate a random vec3." alt="" coords="431,7079,633,7105"/>
-<area shape="poly" title=" " alt="" coords="315,7151,422,7113,453,7105,454,7110,423,7119,317,7157"/>
+<area shape="poly" title=" " alt="" coords="375,7105,417,7101,417,7106,375,7111"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf" title="Generate a random vec4." alt="" coords="431,7129,633,7154"/>
-<area shape="poly" title=" " alt="" coords="375,7155,417,7150,417,7156,375,7160"/>
+<area shape="poly" title=" " alt="" coords="375,7123,417,7128,417,7133,375,7129"/>
 <area shape="rect" href="../../d5/d58/classgalaxy_1_1Rect.html#a6863051bea01744a6b35ad5c44fb2f93" title=" " alt="" coords="459,7280,605,7320"/>
-<area shape="poly" title=" " alt="" coords="295,7178,347,7226,384,7253,424,7276,447,7286,445,7291,421,7281,381,7257,343,7230,291,7182"/>
-<area shape="poly" title=" " alt="" coords="312,7177,362,7214,424,7252,477,7273,475,7278,421,7257,359,7219,308,7182"/>
+<area shape="poly" title=" " alt="" coords="293,7129,311,7160,341,7200,379,7241,424,7276,447,7288,445,7293,421,7281,376,7245,337,7203,307,7163,288,7132"/>
+<area shape="poly" title=" " alt="" coords="301,7129,350,7188,385,7223,424,7252,471,7273,469,7278,421,7257,382,7227,347,7192,297,7132"/>
 <area shape="rect" href="../../df/d85/classgalaxy_1_1ZLib.html#ab5f4ed375e0a125145163f43359d80b9" title="Constructor." alt="" coords="725,7345,862,7370"/>
 <area shape="poly" title=" " alt="" coords="601,7457,640,7444,707,7411,762,7376,765,7380,710,7415,642,7449,603,7462"/>
 <area shape="poly" title=" " alt="" coords="603,7253,642,7266,710,7299,765,7334,762,7339,707,7304,640,7270,601,7258"/>
@@ -661,11 +671,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="356,8711,377,8725,394,8750,401,8774,407,8798,425,8821,439,8831,436,8835,421,8825,402,8800,396,8776,390,8752,373,8729,353,8715"/>
 <area shape="poly" title=" " alt="" coords="623,8462,639,8450,658,8426,675,8394,705,8310,729,8207,749,8095,776,7877,788,7728,793,7728,781,7877,755,8095,735,8208,710,8311,680,8396,662,8429,643,8454,626,8467"/>
 <area shape="poly" title=" " alt="" coords="607,9067,698,9059,699,9064,608,9073"/>
-<area shape="poly" title=" " alt="" coords="354,9208,442,9198,443,9204,355,9213"/>
+<area shape="poly" title=" " alt="" coords="354,9207,442,9198,442,9203,355,9212"/>
 <area shape="rect" href="../../d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="451,9229,613,9254"/>
-<area shape="poly" title=" " alt="" coords="355,9221,437,9230,437,9235,354,9227"/>
+<area shape="poly" title=" " alt="" coords="355,9220,437,9229,437,9234,354,9226"/>
 <area shape="rect" href="../../d4/d7c/classgalaxy_1_1State.html#a57cfda12d640367d90ebab4feed2855e" title="Triggered when state is pushed onto the stack." alt="" coords="447,9278,617,9303"/>
-<area shape="poly" title=" " alt="" coords="339,9235,423,9263,459,9272,458,9277,422,9268,338,9240"/>
+<area shape="poly" title=" " alt="" coords="338,9234,423,9263,458,9272,457,9277,422,9268,336,9239"/>
 <area shape="rect" href="../../d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="470,9786,594,9811"/>
 <area shape="poly" title=" " alt="" coords="340,9751,464,9780,462,9785,339,9757"/>
 <area shape="rect" href="../../d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e" title="Time passed in milliseconds." alt="" coords="719,9775,868,9815"/>
@@ -707,16 +717,16 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="354,10488,430,10488,430,10493,354,10493"/>
 <area shape="rect" href="../../dd/da7/classgalaxy_1_1UUID.html#abd4a87cceb1e700365b4b4ae42282241" title="Get the UUID as a hash." alt="" coords="459,10527,605,10553"/>
 <area shape="poly" title=" " alt="" coords="355,10502,455,10522,454,10527,354,10507"/>
-<area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79" title="Trim string from end." alt="" coords="729,10317,858,10342"/>
-<area shape="poly" title=" " alt="" coords="290,10469,307,10429,334,10379,372,10329,395,10308,421,10291,464,10274,509,10266,555,10264,601,10268,685,10286,752,10309,750,10314,684,10291,600,10273,555,10270,510,10271,465,10279,424,10296,398,10312,376,10333,338,10382,311,10431,295,10471"/>
+<area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79" title="Trim string from end." alt="" coords="729,10379,858,10405"/>
+<area shape="poly" title=" " alt="" coords="290,10469,307,10429,334,10379,372,10329,395,10308,421,10291,479,10268,505,10264,530,10263,581,10273,642,10291,679,10306,715,10326,770,10368,767,10372,712,10330,677,10311,640,10296,579,10278,529,10269,505,10269,481,10273,424,10296,398,10312,376,10333,338,10382,311,10431,295,10471"/>
 <area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#ac2460a7064f04edb82dabf39d869831c" title="Make a string single spaced." alt="" coords="442,10628,622,10668"/>
 <area shape="poly" title=" " alt="" coords="306,10509,357,10557,389,10584,424,10607,451,10620,449,10625,421,10612,386,10588,353,10561,302,10513"/>
 <area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a68cef8525cd038dbfacf06b977df2381" title="Replaces all occurrences of a string." alt="" coords="447,10693,617,10718"/>
 <area shape="poly" title=" " alt="" coords="296,10510,315,10546,343,10592,379,10639,424,10678,437,10685,434,10689,421,10682,375,10643,338,10595,310,10549,292,10512"/>
 <area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#ac7da95a6162660909185af790134481a" title="Replace first occurrence of a string." alt="" coords="459,10743,605,10783"/>
 <area shape="poly" title=" " alt="" coords="294,10510,310,10555,336,10614,374,10676,398,10704,424,10729,447,10742,445,10747,421,10733,394,10708,370,10679,332,10617,305,10557,289,10512"/>
-<area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd" title="Trim string from start." alt="" coords="728,10503,859,10529"/>
-<area shape="poly" title=" " alt="" coords="314,10509,363,10539,393,10552,423,10563,483,10575,531,10577,580,10573,641,10563,698,10549,749,10531,751,10536,700,10554,642,10568,580,10578,531,10583,483,10580,422,10568,391,10557,361,10543,311,10513"/>
+<area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd" title="Trim string from start." alt="" coords="728,10478,859,10503"/>
+<area shape="poly" title=" " alt="" coords="314,10509,363,10539,393,10552,423,10563,484,10576,532,10580,580,10575,641,10563,674,10552,706,10539,761,10508,763,10513,709,10543,676,10557,642,10568,581,10581,532,10585,483,10581,422,10568,391,10557,361,10543,311,10513"/>
 <area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572" title="Split a string based on a delimiter." alt="" coords="469,10330,595,10355"/>
 <area shape="poly" title=" " alt="" coords="300,10469,350,10416,384,10388,421,10364,454,10352,456,10357,424,10369,387,10392,354,10420,304,10472"/>
 <area shape="rect" href="../../dd/da7/classgalaxy_1_1UUID.html#a2c2949a1885f9d4ca14f8dd229b6d642" title="Get the UUID as a string." alt="" coords="466,10379,598,10405"/>
@@ -724,8 +734,8 @@ Static Private Member Functions</h2></td></tr>
 <area shape="rect" href="../../df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="469,10429,595,10454"/>
 <area shape="poly" title=" " alt="" coords="354,10474,455,10454,456,10459,355,10479"/>
 <area shape="poly" title=" " alt="" coords="492,10332,483,10322,488,10312,504,10306,532,10303,567,10307,577,10312,581,10318,576,10321,573,10316,566,10312,532,10309,505,10311,491,10316,488,10321,496,10328"/>
-<area shape="poly" title=" " alt="" coords="594,10428,640,10414,706,10381,761,10347,764,10352,709,10386,642,10418,596,10433"/>
-<area shape="poly" title=" " alt="" coords="595,10451,642,10463,746,10496,744,10501,641,10468,594,10456"/>
+<area shape="poly" title=" " alt="" coords="595,10427,715,10404,716,10409,596,10432"/>
+<area shape="poly" title=" " alt="" coords="596,10451,715,10473,714,10479,595,10456"/>
 </map>
 </div>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -939,6 +949,51 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8b2f90e0343d46ebeecbdfc1ec4976c0" name="a8b2f90e0343d46ebeecbdfc1ec4976c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b2f90e0343d46ebeecbdfc1ec4976c0">&#9670;&#160;</a></span>inject_entt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::Lua::inject_entt </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Injects EnTT into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/dc7/LuaEntt_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d2/dc7/LuaEntt_8cpp_source.html">LuaEntt.cpp</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a8b2f90e0343d46ebeecbdfc1ec4976c0_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a8b2f90e0343d46ebeecbdfc1ec4976c0_icgraph" alt=""/></div>
+<map name="ad3/ddf/classgalaxy_1_1Lua_a8b2f90e0343d46ebeecbdfc1ec4976c0_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a8b2f90e0343d46ebeecbdfc1ec4976c0_icgraph">
+<area shape="rect" title="Injects EnTT into Lua." alt="" coords="563,13,736,38"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aee24f50784e2532af6656b5139e880c0" name="aee24f50784e2532af6656b5139e880c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee24f50784e2532af6656b5139e880c0">&#9670;&#160;</a></span>inject_events()</h2>
 
@@ -965,11 +1020,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Inject galaxy event data objects into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d33/LuaEvents_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../df/d33/LuaEvents_8cpp_source.html">LuaEvents.cpp</a>.</p>
-<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_aee24f50784e2532af6656b5139e880c0_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_aee24f50784e2532af6656b5139e880c0_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_aee24f50784e2532af6656b5139e880c0_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_aee24f50784e2532af6656b5139e880c0_icgraph">
 <area shape="rect" title="Inject galaxy event data objects into Lua." alt="" coords="563,5,703,45"/>
@@ -1010,11 +1065,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects VFS support into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html">LuaFS.cpp</a>.</p>
-<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_cgraph">
 <area shape="rect" title="Injects VFS support into Lua." alt="" coords="5,645,164,670"/>
@@ -1076,14 +1131,59 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="361,1253,473,1212,475,1217,362,1258"/>
 </map>
 </div>
-<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a964e2d87885b9b1fd5021cea3cc080ab_icgraph">
 <area shape="rect" title="Injects VFS support into Lua." alt="" coords="563,13,721,38"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa74316878e18db65927ce3261722412e" name="aa74316878e18db65927ce3261722412e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74316878e18db65927ce3261722412e">&#9670;&#160;</a></span>inject_glm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::Lua::inject_glm </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Injects GLM into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/db3/LuaGLM_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d6/db3/LuaGLM_8cpp_source.html">LuaGLM.cpp</a>.</p>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_aa74316878e18db65927ce3261722412e_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_aa74316878e18db65927ce3261722412e_icgraph" alt=""/></div>
+<map name="ad3/ddf/classgalaxy_1_1Lua_aa74316878e18db65927ce3261722412e_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_aa74316878e18db65927ce3261722412e_icgraph">
+<area shape="rect" title="Injects GLM into Lua." alt="" coords="563,13,735,38"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
 <area shape="poly" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
@@ -1121,11 +1221,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects input handling into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/dd6/LuaInput_8cpp_source.html#l00022">22</a> of file <a class="el" href="../../d4/dd6/LuaInput_8cpp_source.html">LuaInput.cpp</a>.</p>
-<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_cgraph">
 <area shape="rect" title="Injects input handling into Lua." alt="" coords="5,604,145,644"/>
@@ -1173,11 +1273,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="388,828,446,828,446,833,388,833"/>
 </map>
 </div>
-<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a3fb88beaf9458550f3302ed5226e88aa_icgraph">
 <area shape="rect" title="Injects input handling into Lua." alt="" coords="563,5,703,45"/>
@@ -1218,11 +1318,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects logging into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html#l00037">37</a> of file <a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html">LuaLogging.cpp</a>.</p>
-<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_cgraph">
 <area shape="rect" title="Injects logging into Lua." alt="" coords="5,120,145,160"/>
@@ -1239,11 +1339,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="340,128,381,123,381,128,341,133"/>
 </map>
 </div>
-<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_aeb0b11bf428cf9ccf609edbceddddfa8_icgraph">
 <area shape="rect" title="Injects logging into Lua." alt="" coords="563,5,703,45"/>
@@ -1284,11 +1384,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects math stuff into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d48/LuaMath_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../df/d48/LuaMath_8cpp_source.html">LuaMath.cpp</a>.</p>
-<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_cgraph">
 <area shape="rect" title="Injects math stuff into Lua." alt="" coords="5,776,187,801"/>
@@ -1365,11 +1465,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="396,1388,437,1377,524,1344,526,1349,438,1382,397,1393"/>
 </map>
 </div>
-<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a666436b73710f7291b6526df08bb5570_icgraph">
 <area shape="rect" title="Injects math stuff into Lua." alt="" coords="563,13,744,38"/>
@@ -1410,11 +1510,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Inject platform stuff into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d96/LuaPlatform_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../da/d96/LuaPlatform_8cpp_source.html">LuaPlatform.cpp</a>.</p>
-<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_cgraph">
 <area shape="rect" title="Inject platform stuff into Lua." alt="" coords="5,163,145,203"/>
@@ -1432,11 +1532,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="94,201,136,249,164,275,195,298,205,304,203,308,192,302,161,279,132,253,90,205"/>
 </map>
 </div>
-<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_aec2df93287e65ec6adf7d5ec536f0a12_icgraph">
 <area shape="rect" title="Inject platform stuff into Lua." alt="" coords="563,5,703,45"/>
@@ -1477,11 +1577,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects galaxy scene management into lua. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../da/dda/LuaScene_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../da/dda/LuaScene_8cpp_source.html">LuaScene.cpp</a>.</p>
-<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_cgraph">
 <area shape="rect" title="Injects galaxy scene management into lua." alt="" coords="5,441,145,481"/>
@@ -1523,11 +1623,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="367,212,423,218,422,223,366,217"/>
 </map>
 </div>
-<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a3ab67c3bb8af50ec86d20caac87116cc_icgraph">
 <area shape="rect" title="Injects galaxy scene management into lua." alt="" coords="563,5,703,45"/>
@@ -1568,11 +1668,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Regsiter static engine services in <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d50/LuaServices_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d1/d50/LuaServices_8cpp_source.html">LuaServices.cpp</a>.</p>
-<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a64011dd468d6b31d16aaa74a9d95cd5b_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a64011dd468d6b31d16aaa74a9d95cd5b_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a64011dd468d6b31d16aaa74a9d95cd5b_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a64011dd468d6b31d16aaa74a9d95cd5b_icgraph">
 <area shape="rect" title="Regsiter static engine services in Lua." alt="" coords="563,5,703,45"/>
@@ -1613,11 +1713,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects galaxy state machine requirements into lua. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d27/LuaState_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../db/d27/LuaState_8cpp_source.html">LuaState.cpp</a>.</p>
-<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_cgraph">
 <area shape="rect" title="Injects galaxy state machine requirements into lua." alt="" coords="5,47,145,87"/>
@@ -1629,11 +1729,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="146,82,212,98,211,103,145,87"/>
 </map>
 </div>
-<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a1b063296fdd0ace336c7d6d57db3af78_icgraph">
 <area shape="rect" title="Injects galaxy state machine requirements into lua." alt="" coords="563,5,703,45"/>
@@ -1674,11 +1774,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Register galaxy time support functions into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d9/d86/LuaTime_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d9/d86/LuaTime_8cpp_source.html">LuaTime.cpp</a>.</p>
-<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_cgraph">
 <area shape="rect" title="Register galaxy time support functions into Lua." alt="" coords="5,449,183,475"/>
@@ -1721,11 +1821,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="391,615,451,623,450,628,391,621"/>
 </map>
 </div>
-<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a0d36fa52739bcca8487f9f8f5efd4b32_icgraph">
 <area shape="rect" title="Register galaxy time support functions into Lua." alt="" coords="563,13,740,38"/>
@@ -1766,11 +1866,11 @@ Static Private Member Functions</h2></td></tr>
 <p>Injects misc galaxy utils into <a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html" title="Just a wrapper around static injection functions.">Lua</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../da/dd6/LuaUtils_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../da/dd6/LuaUtils_8cpp_source.html">LuaUtils.cpp</a>.</p>
-<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_cgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_cgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_cgraph" id="ad3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_cgraph">
 <area shape="rect" title="Injects misc galaxy utils into Lua." alt="" coords="5,242,145,282"/>
@@ -1799,11 +1899,11 @@ Static Private Member Functions</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="333,357,374,369,429,384,427,389,373,374,331,363"/>
 </map>
 </div>
-<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_icgraph.png" border="0" usemap="#ad3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_icgraph" alt=""/></div>
 <map name="ad3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_icgraph" id="ad3/ddf/classgalaxy_1_1Lua_a6e8190d6fa4df4d86cf09cbcea645609_icgraph">
 <area shape="rect" title="Injects misc galaxy utils into Lua." alt="" coords="563,5,703,45"/>
@@ -1821,8 +1921,10 @@ Static Private Member Functions</h2></td></tr>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>galaxy/src/galaxy/lua/<a class="el" href="../../de/d92/Lua_8hpp_source.html">Lua.hpp</a></li>
 <li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a></li>
+<li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../d2/dc7/LuaEntt_8cpp_source.html">LuaEntt.cpp</a></li>
 <li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../df/d33/LuaEvents_8cpp_source.html">LuaEvents.cpp</a></li>
 <li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html">LuaFS.cpp</a></li>
+<li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../d6/db3/LuaGLM_8cpp_source.html">LuaGLM.cpp</a></li>
 <li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../d4/dd6/LuaInput_8cpp_source.html">LuaInput.cpp</a></li>
 <li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html">LuaLogging.cpp</a></li>
 <li>galaxy/src/galaxy/lua/injects/<a class="el" href="../../df/d48/LuaMath_8cpp_source.html">LuaMath.cpp</a></li>
@@ -1840,7 +1942,7 @@ Static Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/ddf/classgalaxy_1_1Lua.html">Lua</a></li>
-    <li class="footer">Generated on Sat Sep 20 2025 08:51:55 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Mon Sep 22 2025 04:28:37 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

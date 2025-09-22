@@ -101,7 +101,8 @@ $(function(){initNavTree('d3/d12/namespacegalaxy_1_1meta.html','../../'); initRe
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#concepts">Concepts</a>  </div>
+<a href="#concepts">Concepts</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">galaxy::meta Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -135,20 +136,89 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d72/conceptgalaxy_1_1meta_1_1valid__component.html">valid_component</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure a type is a valid component. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dba/conceptgalaxy_1_1meta_1_1is__loader.html">is_loader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensures that the provided loader has an operator() that returns a shared pointer. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d60/conceptgalaxy_1_1meta_1_1is__system.html">is_system</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept to ensure a system is actually derived from a System. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7b05438835481541bd19f7029bb89954" id="r_a7b05438835481541bd19f7029bb89954"><td class="memTemplParams" colspan="2">template&lt;class T , template&lt; class... &gt; class U&gt; </td></tr>
+<tr class="memitem:a7b05438835481541bd19f7029bb89954"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7b05438835481541bd19f7029bb89954">is_instance_of_v</a> = std::false_type {}</td></tr>
+<tr class="memdesc:a7b05438835481541bd19f7029bb89954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure a template specialization is an instance of a template class.  <br /></td></tr>
+<tr class="separator:a7b05438835481541bd19f7029bb89954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9ae13e04349db97ffe1d630bc33306" id="r_aeb9ae13e04349db97ffe1d630bc33306"><td class="memTemplParams" colspan="2">template&lt;template&lt; class... &gt; class U, class... Vs&gt; </td></tr>
+<tr class="memitem:aeb9ae13e04349db97ffe1d630bc33306"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aeb9ae13e04349db97ffe1d630bc33306">is_instance_of_v&lt; U&lt; Vs... &gt;, U &gt;</a> = std::true_type {}</td></tr>
+<tr class="separator:aeb9ae13e04349db97ffe1d630bc33306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a7b05438835481541bd19f7029bb89954" name="a7b05438835481541bd19f7029bb89954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b05438835481541bd19f7029bb89954">&#9670;&#160;</a></span>is_instance_of_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , template&lt; class... &gt; class U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::meta::is_instance_of_v = std::false_type {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Makes sure a template specialization is an instance of a template class. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Base type i.e. std::vector. </td></tr>
+    <tr><td class="paramname">U</td><td>Specialization i.e. std::vector&lt;int&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d84/Concepts_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../d3/d84/Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aeb9ae13e04349db97ffe1d630bc33306" name="aeb9ae13e04349db97ffe1d630bc33306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9ae13e04349db97ffe1d630bc33306">&#9670;&#160;</a></span>is_instance_of_v&lt; U&lt; Vs... &gt;, U &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;template&lt; class... &gt; class U, class... Vs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="#a7b05438835481541bd19f7029bb89954">galaxy::meta::is_instance_of_v</a>&lt; U&lt; Vs... &gt;, U &gt; = std::true_type {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d84/Concepts_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../d3/d84/Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d3/d12/namespacegalaxy_1_1meta.html">meta</a></li>
-    <li class="footer">Generated on Sat Sep 20 2025 08:51:55 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Mon Sep 22 2025 04:28:37 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
