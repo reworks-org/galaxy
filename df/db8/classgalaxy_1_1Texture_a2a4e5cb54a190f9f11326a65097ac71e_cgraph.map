@@ -1,0 +1,17 @@
+<map id="galaxy::Texture::load" name="galaxy::Texture::load">
+<area shape="rect" id="Node000001" title="Load a texture from vfs." alt="" coords="5,77,163,102"/>
+<area shape="rect" id="Node000002" href="$df/db8/classgalaxy_1_1Texture.html#a2c7ced67bd68629c2a1f61df88e26798" title="Loads texture from memory." alt="" coords="211,77,409,102"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,87,197,87,197,92,163,92"/>
+<area shape="rect" id="Node000003" href="$df/db8/classgalaxy_1_1Texture.html#a04d5c054f6cf6db2a84bf18d658a206a" title="Set ansiotropic filtering level." alt="" coords="479,5,629,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,74,466,46,467,51,360,79"/>
+<area shape="rect" id="Node000005" href="$df/db8/classgalaxy_1_1Texture.html#a3815f18a58b3a43d3bea069ea3afa862" title="Sets filter when texture is (up/down)scaled in OpenGL." alt="" coords="479,69,629,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="409,87,465,87,465,92,409,92"/>
+<area shape="rect" id="Node000008" href="$df/db8/classgalaxy_1_1Texture.html#a8161177d4173b526c58479889743ad3c" title="Set texture mode." alt="" coords="457,134,651,159"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="366,99,487,128,486,133,364,105"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f" title="Ansiotropic filtering level." alt="" coords="699,13,909,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="629,23,685,23,685,28,629,28"/>
+<area shape="rect" id="Node000006" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="710,69,898,94"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="629,84,696,82,696,87,629,90"/>
+<area shape="rect" id="Node000007" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="713,119,895,159"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="629,101,701,116,700,121,628,107"/>
+</map>

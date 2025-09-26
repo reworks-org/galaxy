@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Chromatic Aberration pass." alt="" coords="214,1360,409,1660"/>
 <area shape="rect" id="Node000002" href="$d0/dd9/classgalaxy_1_1graphics_1_1PostEffect.html" title="Manages post processing effects to apply to combined scene." alt="" coords="5,965,199,1190"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,1202,241,1359,236,1361,160,1204"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="223,885,400,1270"/>
+<area shape="rect" id="Node000003" href="$d1/d5e/classgalaxy_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="223,885,400,1270"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="314,1270,314,1344,309,1344,309,1270"/>
 <area shape="rect" id="Node000004" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="424,857,599,1297"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="426,1274,415,1298,393,1346,388,1344,410,1296,421,1272"/>

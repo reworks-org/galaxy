@@ -1,0 +1,29 @@
+<map id="galaxy::Shader::bind" name="galaxy::Shader::bind">
+<area shape="rect" id="Node000001" title="Make active shader." alt="" coords="920,269,1075,294"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted render commands to screen." alt="" coords="647,5,842,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="986,256,972,212,948,159,914,105,894,81,870,60,841,43,843,38,874,55,898,77,919,102,953,157,977,210,991,254"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="675,69,815,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="981,258,938,190,907,154,871,124,843,110,814,101,816,96,845,105,873,119,911,150,943,187,986,255"/>
+<area shape="rect" id="Node000007" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#abcf40a636c99f7840878d4689aa749ec" title="Render effect to input texture." alt="" coords="643,133,846,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="971,261,927,223,871,188,841,176,843,171,873,183,930,219,975,257"/>
+<area shape="rect" id="Node000008" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557" title="Render effect to input texture." alt="" coords="657,197,832,237"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="933,268,871,252,824,240,826,235,873,247,934,263"/>
+<area shape="rect" id="Node000009" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#a7684ec987ef74bc19f0d0db6ccb414ef" title="Render effect to input texture." alt="" coords="617,261,872,301"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="907,284,872,284,872,279,907,279"/>
+<area shape="rect" id="Node000010" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a8f1639b0fcc42f8b3c6e5e3f5397df8f" title="Render effect to input texture." alt="" coords="647,325,843,365"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="934,300,873,316,826,328,824,323,871,311,933,295"/>
+<area shape="rect" id="Node000011" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a4b749b593ab5d7a14ff293f62ea73820" title="Render effect to input texture." alt="" coords="650,389,839,429"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="975,306,930,344,873,380,840,393,838,388,871,375,927,340,971,302"/>
+<area shape="rect" id="Node000012" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a14aee8043926b9ba865e4f16d46821b5" title="Render effect to input texture." alt="" coords="657,453,832,493"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="986,308,943,376,911,412,873,444,834,462,831,457,871,439,907,409,938,372,981,305"/>
+<area shape="rect" id="Node000013" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#ac5b96405859083751eb4d279c6ac421d" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="637,517,852,557"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="991,309,977,352,953,406,919,461,898,486,874,507,854,520,851,515,870,503,894,482,914,458,948,404,972,350,986,307"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="402,77,542,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="661,92,542,92,542,87,661,87"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,69,327,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="388,92,327,92,327,87,388,87"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,77,136,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,92,136,92,136,87,170,87"/>
+<area shape="rect" id="Node000014" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d" title="Renders final post processing output to active framebuffer." alt="" coords="375,517,569,557"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="623,540,569,540,569,535,623,535"/>
+</map>

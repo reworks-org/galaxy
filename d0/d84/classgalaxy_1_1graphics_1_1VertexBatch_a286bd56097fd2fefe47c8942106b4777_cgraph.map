@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::VertexBatch::clear" name="galaxy::graphics::VertexBatch::clear">
-<area shape="rect" id="Node000001" title="Clears out vertex buffer." alt="" coords="5,37,184,77"/>
-<area shape="rect" id="Node000002" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a08634dd8270cd5b12287a3ec34d61d87" title="Clear buffer data." alt="" coords="232,5,411,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,42,218,37,219,42,185,47"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#ae1db91ab22330b4133495b64dafdece5" title="Get vertex buffer." alt="" coords="232,69,411,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,67,219,72,218,77,184,73"/>
+<area shape="rect" id="Node000001" title="Clears out vertex buffer." alt="" coords="5,35,184,75"/>
+<area shape="rect" id="Node000002" href="$da/d97/classgalaxy_1_1VertexBuffer.html#acae411a9e1e92a7bb145fcd16c624d28" title="Clear buffer data." alt="" coords="245,5,400,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,41,231,34,232,40,185,46"/>
+<area shape="rect" id="Node000003" href="$db/d02/classgalaxy_1_1VertexArray.html#a671c4c92e4ec7a2c7494cb56fbae985f" title="Get vertex buffer." alt="" coords="232,70,413,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,63,219,67,218,73,184,68"/>
 </map>

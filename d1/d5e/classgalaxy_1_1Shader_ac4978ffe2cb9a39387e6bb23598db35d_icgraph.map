@@ -1,0 +1,28 @@
+<map id="galaxy::Shader::parse" name="galaxy::Shader::parse">
+<area shape="rect" id="Node000001" title="Loads a combined raw shader." alt="" coords="920,269,1083,294"/>
+<area shape="rect" id="Node000002" href="$dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html#ac04e3403f6ff7b90d1c646e6346019b8" title="Argument constructor." alt="" coords="628,5,861,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="990,256,975,213,950,160,915,105,894,81,870,59,851,48,854,43,874,55,898,77,920,102,955,157,980,211,995,255"/>
+<area shape="rect" id="Node000003" href="$d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c" title="Argument constructor." alt="" coords="657,69,832,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="985,258,940,190,908,154,871,124,831,106,834,101,873,119,912,150,944,187,989,255"/>
+<area shape="rect" id="Node000004" href="$d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html#ad53b44ed497844a7418910a696b58b79" title="Argument constructor." alt="" coords="617,133,872,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="975,261,929,223,871,188,841,176,843,171,873,183,932,219,978,257"/>
+<area shape="rect" id="Node000005" href="$dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#ac876656763850b565d2cec9a9d272886" title="Argument constructor." alt="" coords="647,197,843,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="935,268,825,240,826,235,937,263"/>
+<area shape="rect" id="Node000006" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#aff50aa4f34ed88707d692cc9d122e779" title="Initialize post processor and GL buffers." alt="" coords="637,261,852,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="907,284,852,284,852,279,907,279"/>
+<area shape="rect" id="Node000007" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a963da01f36efc37847a2974c2a9976dd" title="Initialize renderer." alt="" coords="375,291,569,331"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="947,300,872,316,793,323,713,325,570,321,570,316,713,320,793,317,872,311,946,295"/>
+<area shape="rect" id="Node000008" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="675,376,815,416"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="972,304,926,332,873,360,816,381,814,376,871,355,924,328,969,299"/>
+<area shape="rect" id="Node000012" href="$de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a22f96d01d9aa5ad00d75bbff23f1d835" title="Argument constructor." alt="" coords="650,440,839,480"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="988,307,942,369,910,402,873,430,841,446,838,441,871,426,906,398,938,366,983,304"/>
+<area shape="rect" id="Node000013" href="$d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a95ff62e21eb024bc66537bde6d52efad" title="Argument constructor." alt="" coords="657,504,832,544"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="994,308,978,349,953,399,918,451,897,474,873,494,833,514,831,509,871,490,893,470,914,447,948,397,973,347,989,306"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="624,297,570,303,569,298,623,292"/>
+<area shape="rect" id="Node000009" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="402,383,542,409"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="661,399,542,399,542,393,661,393"/>
+<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,376,327,416"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="388,399,327,399,327,393,388,393"/>
+<area shape="rect" id="Node000011" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,383,136,409"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="170,399,136,399,136,393,170,393"/>
+</map>

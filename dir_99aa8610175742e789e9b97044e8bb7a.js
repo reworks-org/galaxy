@@ -7,8 +7,10 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "text", "dir_b17ffddb03673327e70de50848ad0375.html", "dir_b17ffddb03673327e70de50848ad0375" ],
     [ "Camera.cpp", "da/d8c/Camera_8cpp.html", null ],
     [ "Camera.hpp", "d6/d80/Camera_8hpp.html", "d6/d80/Camera_8hpp" ],
-    [ "Colour.cpp", "dd/db2/Colour_8cpp.html", "dd/db2/Colour_8cpp" ],
+    [ "Colour.cpp", "dd/db2/Colour_8cpp.html", null ],
     [ "Colour.hpp", "db/dd2/Colour_8hpp.html", "db/dd2/Colour_8hpp" ],
+    [ "Enums.cpp", "d5/d75/Enums_8cpp.html", null ],
+    [ "Enums.hpp", "dd/de2/Enums_8hpp.html", "dd/de2/Enums_8hpp" ],
     [ "PostEffect.cpp", "de/d66/PostEffect_8cpp.html", null ],
     [ "PostEffect.hpp", "d7/d2d/PostEffect_8hpp.html", "d7/d2d/PostEffect_8hpp" ],
     [ "PostProcess.cpp", "d8/d9f/PostProcess_8cpp.html", "d8/d9f/PostProcess_8cpp" ],
@@ -28,9 +30,5 @@ var dir_99aa8610175742e789e9b97044e8bb7a =
     [ "VertexBatch.cpp", "d9/d3a/VertexBatch_8cpp.html", null ],
     [ "VertexBatch.hpp", "d7/d4a/VertexBatch_8hpp.html", "d7/d4a/VertexBatch_8hpp" ],
     [ "Video.cpp", "df/da9/Video_8cpp.html", "df/da9/Video_8cpp" ],
-    [ "Video.hpp", "d7/d4c/Video_8hpp.html", "d7/d4c/Video_8hpp" ],
-    [ "Window.cpp", "d5/d5e/graphics_2Window_8cpp.html", "d5/d5e/graphics_2Window_8cpp" ],
-    [ "Window.hpp", "d3/d29/graphics_2Window_8hpp.html", "d3/d29/graphics_2Window_8hpp" ],
-    [ "WindowSettings.cpp", "d5/da4/WindowSettings_8cpp.html", null ],
-    [ "WindowSettings.hpp", "df/da8/WindowSettings_8hpp.html", "df/da8/WindowSettings_8hpp" ]
+    [ "Video.hpp", "d7/d4c/Video_8hpp.html", "d7/d4c/Video_8hpp" ]
 ];

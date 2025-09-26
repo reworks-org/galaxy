@@ -1,0 +1,7 @@
+<map id="galaxy::Texture::set_filter" name="galaxy::Texture::set_filter">
+<area shape="rect" id="Node000001" title="Sets filter when texture is (up/down)scaled in OpenGL." alt="" coords="5,27,155,67"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="203,5,391,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,35,189,30,189,35,155,40"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="206,55,387,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,54,192,59,192,64,155,60"/>
+</map>

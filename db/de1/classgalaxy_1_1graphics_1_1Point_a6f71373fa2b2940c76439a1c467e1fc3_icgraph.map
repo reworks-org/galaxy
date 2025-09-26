@@ -1,9 +1,7 @@
 <map id="galaxy::graphics::Point::create" name="galaxy::graphics::Point::create">
-<area shape="rect" id="Node000001" title="Initial point positon." alt="" coords="408,37,577,77"/>
+<area shape="rect" id="Node000001" title="Initial point positon." alt="" coords="408,5,577,45"/>
 <area shape="rect" id="Node000002" href="$d4/d0e/classgalaxy_1_1components_1_1Point.html#aa7ad0aadbdda4dcfb4daa962c6b42205" title="Deserializes from object." alt="" coords="207,5,360,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,45,360,40,361,34,395,40"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="215,69,352,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="395,75,353,81,352,76,394,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="395,28,360,28,360,23,395,23"/>
 <area shape="rect" id="Node000003" href="$d4/d0e/classgalaxy_1_1components_1_1Point.html#a7b579d9c4fcdc7b11839f7083836bec0" title="JSON constructor." alt="" coords="5,5,159,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

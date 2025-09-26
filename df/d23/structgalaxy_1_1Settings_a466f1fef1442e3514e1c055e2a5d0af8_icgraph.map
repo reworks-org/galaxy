@@ -1,0 +1,18 @@
+<map id="galaxy::Settings::mipmap" name="galaxy::Settings::mipmap">
+<area shape="rect" id="Node000001" title="Mipmapping." alt="" coords="1400,13,1588,38"/>
+<area shape="rect" id="Node000002" href="$df/db8/classgalaxy_1_1Texture.html#a3815f18a58b3a43d3bea069ea3afa862" title="Sets filter when texture is (up/down)scaled in OpenGL." alt="" coords="1203,5,1352,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1386,28,1352,28,1352,23,1386,23"/>
+<area shape="rect" id="Node000003" href="$df/db8/classgalaxy_1_1Texture.html#a2c7ced67bd68629c2a1f61df88e26798" title="Loads texture from memory." alt="" coords="956,13,1155,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1189,28,1155,28,1155,23,1189,23"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,5,703,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="942,28,703,28,703,23,942,23"/>
+<area shape="rect" id="Node000008" href="$df/db8/classgalaxy_1_1Texture.html#a2a4e5cb54a190f9f11326a65097ac71e" title="Load a texture from vfs." alt="" coords="751,38,908,63"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="942,41,909,45,908,39,942,35"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000007" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="737,41,703,37,703,32,737,36"/>
+</map>

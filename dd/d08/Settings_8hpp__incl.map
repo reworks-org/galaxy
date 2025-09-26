@@ -1,7 +1,9 @@
 <map id="galaxy/src/galaxy/core/Settings.hpp" name="galaxy/src/galaxy/core/Settings.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="29,5,198,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,261,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,96,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,47,71,84,67,81,96,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,48,82,88,79,84,144,43"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="121,93,231,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,44,160,81,156,84,126,47"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,46,179,79,173,79,173,46"/>
+<area shape="rect" id="Node000004" href="$dd/de2/Enums_8hpp.html" title=" " alt="" coords="255,93,457,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,43,318,85,316,90,218,48"/>
 </map>

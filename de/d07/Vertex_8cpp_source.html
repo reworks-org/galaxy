@@ -111,52 +111,55 @@ $(function(){initNavTree('de/d07/Vertex_8cpp_source.html','../../'); initResizab
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">namespace </span>graphics</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0">   14</a></span>        std::array&lt;Vertex, 4&gt; <a class="code hl_function" href="../../db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0">gen_quad_vertices</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> width, <span class="keyword">const</span> <span class="keywordtype">float</span> height)</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd">   14</a></span>        std::array&lt;Vertex, 4&gt; <a class="code hl_function" href="../../db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd">gen_quad_vertices</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> width, <span class="keyword">const</span> <span class="keywordtype">float</span> height) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <span class="comment">// clang-format off</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="keyword">const</span> std::array&lt;graphics::Vertex, 4&gt; <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a> = </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="keyword">const</span> std::array&lt;Vertex, 4&gt; <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a> = </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                <a class="code hl_struct" href="../../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html">graphics::Vertex</a> {.m_pos =    glm::vec2 {0.0f, 0.0f}, </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                                  .m_texels = glm::vec2 {0.0f, 0.0f}</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                },</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                <a class="code hl_struct" href="../../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html">graphics::Vertex</a> {.m_pos =    glm::vec2 {width, 0.0f},</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                                  .m_texels = glm::vec2 {1.0f, 0.0f}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                },</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                <a class="code hl_struct" href="../../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html">graphics::Vertex</a> {.m_pos =    glm::vec2 {width, height},</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                                  .m_texels = glm::vec2 {1.0f, 1.0f}</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                },</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                <a class="code hl_struct" href="../../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html">graphics::Vertex</a> {.m_pos =    glm::vec2 {0.0f, height},</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                                  .m_texels = glm::vec2 {0.0f, 1.0f}</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                }</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            };</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="comment">// clang-format on</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                <a class="code hl_struct" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                    .m_pos    = glm::vec2 {0.0f, 0.0f}, </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                    .m_texels = glm::vec2 {0.0f, 0.0f}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                },</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                <a class="code hl_struct" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                    .m_pos    = glm::vec2 {width, 0.0f},</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                    .m_texels = glm::vec2 {1.0f, 0.0f}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                },</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                <a class="code hl_struct" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                    .m_pos    = glm::vec2 {width, height},</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                    .m_texels = glm::vec2 {1.0f, 1.0f}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                },</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                <a class="code hl_struct" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                    .m_pos    = glm::vec2 {0.0f, height},</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                    .m_texels = glm::vec2 {0.0f, 1.0f}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            };</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="comment">// clang-format on</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867">   37</a></span>        std::array&lt;unsigned int, 6&gt; <a class="code hl_function" href="../../db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867">gen_default_indices</a>()</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordflow">return</span> {0u, 1u, 3u, 1u, 2u, 3u};</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564">   41</a></span>        std::array&lt;unsigned int, 6&gt; <a class="code hl_function" href="../../db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564">gen_default_indices</a>() noexcept</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">return</span> {0u, 1u, 3u, 1u, 2u, 3u};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    } <span class="comment">// namespace graphics</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    } <span class="comment">// namespace graphics</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aVertex_8hpp_html"><div class="ttname"><a href="../../d6/db0/Vertex_8hpp.html">Vertex.hpp</a></div></div>
 <div class="ttc" id="aVideo_8cpp_html_a4b117e202e3ac00ce888fa5b0fd1e9e9"><div class="ttname"><a href="../../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9">vertices</a></div><div class="ttdeci">thread_local const float vertices[]</div><div class="ttdoc">Video.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../df/da9/Video_8cpp_source.html#l00019">Video.cpp:19</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_a632f33975e026684bc36323bb87d74d0"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0">galaxy::graphics::gen_quad_vertices</a></div><div class="ttdeci">std::array&lt; Vertex, 4 &gt; gen_quad_vertices(const float width, const float height)</div><div class="ttdoc">Generate some default verticies.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Vertex.cpp:14</a></div></div>
-<div class="ttc" id="anamespacegalaxy_1_1graphics_html_ad0e8e66b043f4f31d9b1eb00f6296867"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867">galaxy::graphics::gen_default_indices</a></div><div class="ttdeci">std::array&lt; unsigned int, 6 &gt; gen_default_indices()</div><div class="ttdoc">Generate some default indicies.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">Vertex.cpp:37</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1graphics_html_acf88f797ab0f905ccd67154ea52321bd"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd">galaxy::graphics::gen_quad_vertices</a></div><div class="ttdeci">std::array&lt; Vertex, 4 &gt; gen_quad_vertices(const float width, const float height) noexcept</div><div class="ttdoc">Generate some default verticies.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Vertex.cpp:14</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1graphics_html_af6b5de44e7cb7c27917d9d871b4ca564"><div class="ttname"><a href="../../db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564">galaxy::graphics::gen_default_indices</a></div><div class="ttdeci">std::array&lt; unsigned int, 6 &gt; gen_default_indices() noexcept</div><div class="ttdoc">Generate some default indicies.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">Vertex.cpp:41</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
-<div class="ttc" id="astructgalaxy_1_1graphics_1_1Vertex_html"><div class="ttname"><a href="../../d7/ded/structgalaxy_1_1graphics_1_1Vertex.html">galaxy::graphics::Vertex</a></div><div class="ttdoc">Represents a single vertex point.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/Vertex_8hpp_source.html#l00024">Vertex.hpp:25</a></div></div>
+<div class="ttc" id="astructgalaxy_1_1Vertex_html"><div class="ttname"><a href="../../db/d8c/structgalaxy_1_1Vertex.html">galaxy::Vertex</a></div><div class="ttdoc">Represents a single vertex point.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/db0/Vertex_8hpp_source.html#l00022">Vertex.hpp:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../de/d07/Vertex_8cpp.html">Vertex.cpp</a></li>
-    <li class="footer">Generated on Mon Sep 22 2025 04:28:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Sep 26 2025 09:07:31 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

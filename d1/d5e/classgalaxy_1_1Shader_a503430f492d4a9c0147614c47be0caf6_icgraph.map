@@ -1,0 +1,11 @@
+<map id="galaxy::Shader::id" name="galaxy::Shader::id">
+<area shape="rect" id="Node000001" title="Get program id." alt="" coords="751,13,889,38"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,5,703,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="737,28,703,28,703,23,737,23"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+</map>

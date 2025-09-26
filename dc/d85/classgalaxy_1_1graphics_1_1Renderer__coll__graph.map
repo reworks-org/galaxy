@@ -1,14 +1,14 @@
 <map id="galaxy::graphics::Renderer" name="galaxy::graphics::Renderer">
-<area shape="rect" id="Node000001" title="2D OpenGL renderer." alt="" coords="213,1757,404,2123"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="5,885,183,1270"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,1270,55,1367,55,1471,67,1577,78,1629,94,1679,114,1724,141,1767,171,1807,204,1843,200,1846,167,1810,137,1770,110,1727,89,1681,73,1630,62,1578,50,1471,50,1367,57,1270"/>
-<area shape="rect" id="Node000004" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="205,1367,412,1673"/>
-<area shape="poly" id="edge9_Node000004_Node000002" title=" " alt="" coords="185,1260,230,1351,225,1354,180,1262"/>
-<area shape="rect" id="Node000003" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html" title="Abstraction for OpenGL buffer objects." alt="" coords="437,1360,621,1680"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="447,1682,414,1744,409,1742,443,1679"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="311,1673,311,1741,306,1741,306,1673"/>
+<area shape="rect" id="Node000001" title="2D OpenGL renderer." alt="" coords="213,1783,404,2148"/>
+<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html" title="OpenGL Shader Program." alt="" coords="5,885,183,1270"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,1271,54,1372,53,1483,65,1596,77,1651,94,1704,114,1750,141,1792,171,1832,204,1868,200,1871,167,1835,137,1795,110,1752,89,1706,72,1653,60,1597,48,1483,48,1372,57,1270"/>
+<area shape="rect" id="Node000004" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html" title="Manages post processing effects to apply to combined scene." alt="" coords="205,1380,412,1685"/>
+<area shape="poly" id="edge9_Node000004_Node000002" title=" " alt="" coords="185,1265,232,1364,228,1366,180,1267"/>
+<area shape="rect" id="Node000003" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html" title="Modern SSBO abstraction." alt="" coords="436,1360,635,1705"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="447,1707,414,1770,409,1767,442,1705"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="311,1686,311,1766,306,1766,306,1686"/>
 <area shape="rect" id="Node000005" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="221,857,396,1297"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,1297,311,1350,306,1350,306,1297"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,1298,311,1363,306,1363,306,1298"/>
 <area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="187,389,431,795"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="311,795,311,841,306,841,306,795"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="233,261,384,327"/>

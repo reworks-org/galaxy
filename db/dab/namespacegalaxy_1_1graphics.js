@@ -4,7 +4,6 @@ var namespacegalaxy_1_1graphics =
     [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
     [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
     [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
-    [ "Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ],
     [ "Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse" ],
     [ "FilmicGrain", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html", "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain" ],
     [ "Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", "d1/d70/classgalaxy_1_1graphics_1_1Font" ],
@@ -13,7 +12,6 @@ var namespacegalaxy_1_1graphics =
     [ "Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer" ],
     [ "GammaCorrection", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection.html", "d3/dff/classgalaxy_1_1graphics_1_1GammaCorrection" ],
     [ "GaussianBlur", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html", "dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur" ],
-    [ "InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer" ],
     [ "Point", "db/de1/classgalaxy_1_1graphics_1_1Point.html", "db/de1/classgalaxy_1_1graphics_1_1Point" ],
     [ "Polygon", "d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html", "d6/d5e/classgalaxy_1_1graphics_1_1Polygon" ],
     [ "Polyline", "df/d27/classgalaxy_1_1graphics_1_1Polyline.html", "df/d27/classgalaxy_1_1graphics_1_1Polyline" ],
@@ -23,56 +21,15 @@ var namespacegalaxy_1_1graphics =
     [ "RenderData", "de/df1/structgalaxy_1_1graphics_1_1RenderData.html", "de/df1/structgalaxy_1_1graphics_1_1RenderData" ],
     [ "Renderer", "df/d20/classgalaxy_1_1graphics_1_1Renderer.html", "df/d20/classgalaxy_1_1graphics_1_1Renderer" ],
     [ "RenderTexture", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html", "d8/d85/classgalaxy_1_1graphics_1_1RenderTexture" ],
-    [ "Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", "d9/d1b/classgalaxy_1_1graphics_1_1Shader" ],
-    [ "ShaderStorageBuffer", "d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html", "d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer" ],
     [ "Shape", "d9/d29/classgalaxy_1_1graphics_1_1Shape.html", "d9/d29/classgalaxy_1_1graphics_1_1Shape" ],
     [ "Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen" ],
     [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
     [ "Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", "db/dcc/classgalaxy_1_1graphics_1_1Text" ],
-    [ "Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", "dc/d3f/classgalaxy_1_1graphics_1_1Texture" ],
-    [ "Texture2D", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D" ],
-    [ "TextureArray", "dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html", "dc/d9b/classgalaxy_1_1graphics_1_1TextureArray" ],
-    [ "TextureView", "d9/d28/classgalaxy_1_1graphics_1_1TextureView.html", "d9/d28/classgalaxy_1_1graphics_1_1TextureView" ],
     [ "Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", "da/d35/classgalaxy_1_1graphics_1_1Transform" ],
-    [ "Vertex", "d7/ded/structgalaxy_1_1graphics_1_1Vertex.html", "d7/ded/structgalaxy_1_1graphics_1_1Vertex" ],
-    [ "VertexArray", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray" ],
     [ "VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch" ],
-    [ "VertexBuffer", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer" ],
     [ "is_posteffect", "d7/de6/conceptgalaxy_1_1graphics_1_1is__posteffect.html", null ],
-    [ "DrawHint", "db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477c", [
-      [ "STATIC_DRAW", "db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477ca0c5234f5830e196c1079d1fdcf3f9aba", null ],
-      [ "DYNAMIC_DRAW", "db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477ca5ff708d7d781ea10e2ce8d6d3d4022eb", null ],
-      [ "STREAM_DRAW", "db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477ca4b631f47edaf0aaac92dfe66e19d65cf", null ]
-    ] ],
-    [ "AttributeBinding", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019", [
-      [ "POSITION_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019ad11221eaa67349727c817f4c124fc6b5", null ],
-      [ "TEXEL_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a5474c80b7e6dae9bba644a5d3ee7b88d", null ],
-      [ "OFFSET_POINT", "db/dab/namespacegalaxy_1_1graphics.html#a2d111055d5af497b9a30395038476019a3038efd7f692df8553c984f73a9f1939", null ]
-    ] ],
-    [ "BufferBinding", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45b", [
-      [ "VERTEX_BUFFER_POINT", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba9d8102760f7af3639a97cd88b43b56d4", null ],
-      [ "INSTANCE_BUFFER_POINT", "db/dab/namespacegalaxy_1_1graphics.html#af58396d22d2aa10e4a0de27c82f4e45ba2e37e7b71c4223dcf4ab61621653b3a8", null ]
-    ] ],
-    [ "TextureMode", "db/dab/namespacegalaxy_1_1graphics.html#a8852d92598cbb3cb53da8e2455d0ad4c", [
-      [ "REPEAT", "db/dab/namespacegalaxy_1_1graphics.html#a8852d92598cbb3cb53da8e2455d0ad4ca5be68175be14dfaa080165456c2e9555", null ],
-      [ "MIRRORED_REPEAT", "db/dab/namespacegalaxy_1_1graphics.html#a8852d92598cbb3cb53da8e2455d0ad4cacf6164235e7bfffb5c4c7c4b685f660a", null ],
-      [ "CLAMP_TO_EDGE", "db/dab/namespacegalaxy_1_1graphics.html#a8852d92598cbb3cb53da8e2455d0ad4caca305cdc5d749d643055111218063f26", null ],
-      [ "CLAMP_TO_BORDER", "db/dab/namespacegalaxy_1_1graphics.html#a8852d92598cbb3cb53da8e2455d0ad4cafcb162090f81b0a56721e5aa01b880c3", null ]
-    ] ],
-    [ "TextureFilter", "db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aa", [
-      [ "NEAREST", "db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaaad135772d7cf93dd0ccf9d2474b34e6a", null ],
-      [ "TRILINEAR", "db/dab/namespacegalaxy_1_1graphics.html#a69bd18023f591ef28d99e70ea78285aaa2ca5e5f343aeb8dea3bc466ba43ee783", null ]
-    ] ],
-    [ "Shader::set_uniform< std::uint64_t >", "db/dab/namespacegalaxy_1_1graphics.html#a0ca55519659bd7fb510efa0ec3167e17", null ],
-    [ "Shader::set_uniform< glm::mat3 >", "db/dab/namespacegalaxy_1_1graphics.html#ad8a63088a93168a7ea4e4ca2beac9b96", null ],
-    [ "Shader::set_uniform< glm::mat4 >", "db/dab/namespacegalaxy_1_1graphics.html#af93070a213485d139ed3f27c0d2f82c0", null ],
-    [ "Shader::set_uniform< glm::vec2 >", "db/dab/namespacegalaxy_1_1graphics.html#a347d8a5b45d7013ed1c153257377590e", null ],
-    [ "Shader::set_uniform< glm::vec3 >", "db/dab/namespacegalaxy_1_1graphics.html#a8ae0fdbe024863a36c98ffb38cc9a129", null ],
-    [ "Shader::set_uniform< glm::vec4 >", "db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f", null ],
-    [ "Shader::set_uniform< std::array< float, 4 > >", "db/dab/namespacegalaxy_1_1graphics.html#ad8dc63ad3d782133b49819b7ae551e7a", null ],
-    [ "Shader::set_uniform< graphics::Colour >", "db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736", null ],
-    [ "gen_quad_vertices", "db/dab/namespacegalaxy_1_1graphics.html#a632f33975e026684bc36323bb87d74d0", null ],
-    [ "gen_default_indices", "db/dab/namespacegalaxy_1_1graphics.html#ad0e8e66b043f4f31d9b1eb00f6296867", null ],
-    [ "map_x_texel", "db/dab/namespacegalaxy_1_1graphics.html#ab94ec0707e24f5ed559352b0dc616a8a", null ],
-    [ "map_y_texel", "db/dab/namespacegalaxy_1_1graphics.html#a880dc5df48a8150bee6f1571a582705e", null ]
+    [ "gen_quad_vertices", "db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd", null ],
+    [ "gen_default_indices", "db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564", null ],
+    [ "map_x_texel", "db/dab/namespacegalaxy_1_1graphics.html#aff5fdda389eb7519bb012f71b6700ba9", null ],
+    [ "map_y_texel", "db/dab/namespacegalaxy_1_1graphics.html#a907d9f88eab5b68df85d9f9c02ff4218", null ]
 ];

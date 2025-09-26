@@ -1,23 +1,5 @@
 var searchData=
 [
-  ['middle_0',['MIDDLE',['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806a43eedd8685eb86592022f8da962e3474',1,'galaxy']]],
-  ['mirrored_5frepeat_1',['MIRRORED_REPEAT',['../db/dab/namespacegalaxy_1_1graphics.html#a8852d92598cbb3cb53da8e2455d0ad4cacf6164235e7bfffb5c4c7c4b685f660a',1,'galaxy::graphics']]],
-  ['mod_5falt_2',['MOD_ALT',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a063bfc60e55add709b1cbb0e8afee009',1,'galaxy']]],
-  ['mod_5fcaps_3',['MOD_CAPS',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a0ce22c235167087197347f178401f208',1,'galaxy']]],
-  ['mod_5fctrl_4',['MOD_CTRL',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a3fae49f344dd2c9c242ddeaef42306be',1,'galaxy']]],
-  ['mod_5fgui_5',['MOD_GUI',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a0ee3ab0fbbdc5bd0e7d883a25b289766',1,'galaxy']]],
-  ['mod_5flalt_6',['MOD_LALT',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a9b541c06e1d48c9c9f30fc141006949f',1,'galaxy']]],
-  ['mod_5flctrl_7',['MOD_LCTRL',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a3cda042f95f361e1727a1db26c8afb0a',1,'galaxy']]],
-  ['mod_5flevel5_8',['MOD_LEVEL5',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a0cf400312605bad61fba3c9e52bd2671',1,'galaxy']]],
-  ['mod_5flgui_9',['MOD_LGUI',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351ac3e4c7615182c50ebc62019d3117c644',1,'galaxy']]],
-  ['mod_5flshift_10',['MOD_LSHIFT',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a80824ec23307165830349618db131586',1,'galaxy']]],
-  ['mod_5fmode_11',['MOD_MODE',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a5fc1285bb7926f122e8040452a2b5924',1,'galaxy']]],
-  ['mod_5fnone_12',['MOD_NONE',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351abeb357c991b7343c35348000fa703552',1,'galaxy']]],
-  ['mod_5fnum_13',['MOD_NUM',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a30e0dd1223996b865fdba2acce3668e6',1,'galaxy']]],
-  ['mod_5fralt_14',['MOD_RALT',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351aff6f3a7718318285bf225e5e746df72e',1,'galaxy']]],
-  ['mod_5frctrl_15',['MOD_RCTRL',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a24360d129f2d23189e64d87b6c677df6',1,'galaxy']]],
-  ['mod_5frgui_16',['MOD_RGUI',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351a66046c7a60defe01bf180cb7a39148e9',1,'galaxy']]],
-  ['mod_5frshift_17',['MOD_RSHIFT',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351afcb2e7cee4d3f1ca1da48fb89f821324',1,'galaxy']]],
-  ['mod_5fscroll_18',['MOD_SCROLL',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351ace9899e795e540d624f334053db9d425',1,'galaxy']]],
-  ['mod_5fshift_19',['MOD_SHIFT',['../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351adb94031d210e79276a7a1597c9e055bd',1,'galaxy']]]
+  ['left_0',['LEFT',['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a684d325a7303f52e64011467ff5c5758',1,'galaxy::graphics::Text::LEFT'],['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806a684d325a7303f52e64011467ff5c5758',1,'galaxy::LEFT']]],
+  ['low_1',['LOW',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda41bc94cbd8eebea13ce0491b2ac11b88',1,'galaxy::graphics::GaussianBlur']]]
 ];

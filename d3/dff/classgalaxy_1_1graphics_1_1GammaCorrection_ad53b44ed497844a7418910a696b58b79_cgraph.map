@@ -1,27 +1,25 @@
 <map id="galaxy::graphics::GammaCorrection::GammaCorrection" name="galaxy::graphics::GammaCorrection::GammaCorrection">
-<area shape="rect" id="Node000001" title="Argument constructor." alt="" coords="5,229,260,269"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a3b6e06ab3b51fed72ba9e33d81c4ffb4" title="Compiles shader into GPU mem." alt="" coords="309,133,490,173"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,227,307,183,328,175,330,180,309,188,189,232"/>
-<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="308,197,491,237"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,231,294,227,295,233,261,237"/>
-<area shape="rect" id="Node000011" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="309,261,490,301"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="261,262,295,266,295,272,260,267"/>
-<area shape="rect" id="Node000013" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a1c0c6141455136d1accf89c92dca2949" title="Specialized variadic template for setting shader uniforms." alt="" coords="309,325,490,365"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="189,267,309,311,330,318,328,323,307,316,187,272"/>
+<area shape="rect" id="Node000001" title="Argument constructor." alt="" coords="5,195,260,235"/>
+<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html#a674407f8315748f65b0929dd4611059b" title="Compiles shader into GPU mem." alt="" coords="310,115,489,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,192,307,151,337,142,339,147,309,156,189,197"/>
+<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="308,165,491,205"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,198,294,194,295,200,260,203"/>
+<area shape="rect" id="Node000011" href="$d1/d5e/classgalaxy_1_1Shader.html#ac4978ffe2cb9a39387e6bb23598db35d" title="Loads a combined raw shader." alt="" coords="318,230,481,255"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="260,225,305,230,304,235,260,231"/>
+<area shape="rect" id="Node000012" href="$d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="326,280,473,320"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="197,232,324,273,322,278,195,237"/>
 <area shape="rect" id="Node000004" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="549,37,763,77"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="472,195,489,183,506,160,512,136,518,111,537,87,543,82,547,87,541,91,523,114,517,138,510,162,493,187,475,200"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="469,163,489,151,504,136,512,120,521,103,537,87,547,81,550,86,540,91,525,106,517,122,508,139,492,155,472,167"/>
 <area shape="rect" id="Node000007" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070" title="Adds a depth and stencil supported renderbuffer to the framebuffer." alt="" coords="539,101,773,141"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="462,195,489,183,513,167,537,151,556,143,558,148,540,156,516,171,492,188,465,200"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="480,163,562,142,563,147,481,168"/>
 <area shape="rect" id="Node000008" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a8d2406e453feec23d1116094e7eaffb5" title="Construct framebuffer from attachments and renderbuffers." alt="" coords="549,165,763,205"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="491,203,535,198,535,203,491,209"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="491,183,535,183,535,188,491,188"/>
 <area shape="rect" id="Node000009" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85" title="Get texture height." alt="" coords="565,229,747,269"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="491,226,551,234,550,239,491,231"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="481,203,563,223,562,229,480,208"/>
 <area shape="rect" id="Node000010" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af8bfee0fd6ab8d7a57d8c42432ad88a8" title="Get texture width." alt="" coords="565,293,747,333"/>
-<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="465,235,492,247,516,263,540,279,558,286,556,291,537,284,513,268,489,252,462,240"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="470,203,492,217,508,233,517,249,525,265,540,279,554,287,551,292,537,283,521,268,512,252,504,236,489,221,467,208"/>
 <area shape="rect" id="Node000005" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b" title="Get height." alt="" coords="821,5,1036,45"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="763,42,807,37,808,42,764,47"/>
 <area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a647cacaab41ae53758fa86fcc161cf33" title="Get width." alt="" coords="821,69,1036,109"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="764,67,808,73,807,78,763,73"/>
-<area shape="rect" id="Node000012" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="565,357,747,397"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="465,299,492,311,516,327,540,343,558,350,556,355,537,348,513,332,489,316,462,304"/>
 </map>

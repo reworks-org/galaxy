@@ -1,4 +1,4 @@
 var Colour_8hpp =
 [
-    [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", "d2/dae/classgalaxy_1_1graphics_1_1Colour" ]
+    [ "galaxy::Colour", "d8/d74/classgalaxy_1_1Colour.html", "d8/d74/classgalaxy_1_1Colour" ]
 ];

@@ -1,0 +1,5 @@
+<map id="galaxy::Colour::normalize" name="galaxy::Colour::normalize">
+<area shape="rect" id="Node000001" title="Get normalized rgba vec4." alt="" coords="5,5,193,31"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48" title="Calc normalized value from range." alt="" coords="241,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,15,228,15,228,21,194,21"/>
+</map>

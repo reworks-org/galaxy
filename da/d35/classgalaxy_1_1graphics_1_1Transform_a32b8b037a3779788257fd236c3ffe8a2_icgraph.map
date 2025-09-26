@@ -1,15 +1,13 @@
 <map id="galaxy::graphics::Transform::set_pos" name="galaxy::graphics::Transform::set_pos">
-<area shape="rect" id="Node000001" title="Sets position without moving the entity." alt="" coords="680,69,881,109"/>
+<area shape="rect" id="Node000001" title="Sets position without moving the entity." alt="" coords="680,37,881,77"/>
 <area shape="rect" id="Node000002" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#ab9426a945704a964c0391beb41191da4" title="Deserializes from object." alt="" coords="453,5,628,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="691,68,615,48,617,43,692,63"/>
-<area shape="rect" id="Node000004" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="472,69,609,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="666,92,609,92,609,87,666,87"/>
-<area shape="rect" id="Node000005" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960" title="Parse LDTK tile layer / auto layer." alt="" coords="449,133,632,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="692,116,617,136,615,131,691,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="666,45,628,40,629,34,667,39"/>
+<area shape="rect" id="Node000004" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#a14f0dc0f02fce1a855503ea04e6da960" title="Parse LDTK tile layer / auto layer." alt="" coords="449,69,632,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="667,75,633,80,632,75,666,70"/>
 <area shape="rect" id="Node000003" href="$d8/d8a/classgalaxy_1_1components_1_1Transform.html#a039c13c5a729bd446458118d5c041192" title="JSON constructor." alt="" coords="230,5,398,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,28,398,28,398,23,439,23"/>
-<area shape="rect" id="Node000006" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="227,141,401,166"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="435,156,401,156,401,151,435,151"/>
-<area shape="rect" id="Node000007" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="5,141,179,166"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="213,156,179,156,179,151,213,151"/>
+<area shape="rect" id="Node000005" href="$df/d2b/classgalaxy_1_1map_1_1Map.html#aad980f50a8bcb5b486d79695792146b7" title="Load a map from an ldtk level." alt="" coords="227,77,401,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="435,92,401,92,401,87,435,87"/>
+<area shape="rect" id="Node000006" href="$de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc" title=" " alt="" coords="5,77,179,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="213,92,179,92,179,87,213,87"/>
 </map>

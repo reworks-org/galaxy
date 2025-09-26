@@ -5,6 +5,5 @@ var searchData=
   ['vao_5fvert_2',['vao_vert',['../d8/d9f/PostProcess_8cpp.html#a06608241f1a03db3a40a0cb2228353f5',1,'PostProcess.cpp']]],
   ['vertices_3',['vertices',['../df/da9/Video_8cpp.html#a4b117e202e3ac00ce888fa5b0fd1e9e9',1,'Video.cpp']]],
   ['video_5ffrag_5fshader_4',['video_frag_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6',1,'galaxy::resource']]],
-  ['video_5fvert_5fshader_5',['video_vert_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d',1,'galaxy::resource']]],
-  ['vsync_6',['vsync',['../d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html#ab703099d7b193f489987e8b4d249604b',1,'galaxy::core::WindowSettings']]]
+  ['video_5fvert_5fshader_5',['video_vert_shader',['../d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d',1,'galaxy::resource']]]
 ];

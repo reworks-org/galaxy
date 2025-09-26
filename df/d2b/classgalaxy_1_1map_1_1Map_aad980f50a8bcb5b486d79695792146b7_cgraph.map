@@ -10,10 +10,10 @@
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="410,139,456,132,457,138,411,144"/>
 <area shape="rect" id="Node000009" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a32b8b037a3779788257fd236c3ffe8a2" title="Sets position without moving the entity." alt="" coords="459,165,660,205"/>
 <area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="411,163,445,167,445,173,410,168"/>
-<area shape="rect" id="Node000006" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="708,101,887,141"/>
+<area shape="rect" id="Node000006" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="708,101,859,141"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="649,119,694,119,694,124,649,124"/>
-<area shape="rect" id="Node000007" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="935,69,1113,109"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="887,106,921,101,922,106,888,111"/>
-<area shape="rect" id="Node000008" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="935,133,1113,173"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="888,131,922,136,921,141,887,137"/>
+<area shape="rect" id="Node000007" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="917,72,1071,112"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="859,108,903,102,904,107,860,113"/>
+<area shape="rect" id="Node000008" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="907,137,1081,162"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="860,129,894,133,893,139,859,134"/>
 </map>

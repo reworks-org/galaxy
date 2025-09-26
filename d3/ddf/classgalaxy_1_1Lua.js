@@ -8,6 +8,7 @@ var classgalaxy_1_1Lua =
     [ "inject_events", "d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0", null ],
     [ "inject_fs", "d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab", null ],
     [ "inject_glm", "d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e", null ],
+    [ "inject_graphics", "d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1", null ],
     [ "inject_input", "d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa", null ],
     [ "inject_logging", "d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8", null ],
     [ "inject_math", "d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570", null ],

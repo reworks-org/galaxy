@@ -1,0 +1,13 @@
+<map id="galaxy::Texture::bind" name="galaxy::Texture::bind">
+<area shape="rect" id="Node000001" title="Bind to sampler." alt="" coords="805,45,963,70"/>
+<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="563,5,757,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="792,47,757,42,758,37,792,42"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="590,69,730,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="792,73,731,82,730,77,792,68"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,77,515,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="576,92,515,92,515,87,576,87"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,69,327,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,92,327,92,327,87,361,87"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,77,136,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,92,136,92,136,87,170,87"/>
+</map>

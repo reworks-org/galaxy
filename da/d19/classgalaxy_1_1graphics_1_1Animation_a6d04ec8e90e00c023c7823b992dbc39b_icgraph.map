@@ -1,7 +1,5 @@
 <map id="galaxy::graphics::Animation::frames" name="galaxy::graphics::Animation::frames">
-<area shape="rect" id="Node000001" title="Get the frames." alt="" coords="256,37,459,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="38,5,175,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,45,175,37,176,31,243,40"/>
-<area shape="rect" id="Node000003" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#aae4dbe065775b2828ed0f978f4b31dcb" title="Set from an existing vector of frames." alt="" coords="5,69,208,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,75,208,79,208,74,242,69"/>
+<area shape="rect" id="Node000001" title="Get the frames." alt="" coords="256,5,459,45"/>
+<area shape="rect" id="Node000002" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#aae4dbe065775b2828ed0f978f4b31dcb" title="Set from an existing vector of frames." alt="" coords="5,5,208,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,28,208,28,208,23,242,23"/>
 </map>

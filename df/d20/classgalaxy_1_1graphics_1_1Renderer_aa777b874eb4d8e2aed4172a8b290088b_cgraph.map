@@ -1,9 +1,9 @@
 <map id="galaxy::graphics::Renderer::draw" name="galaxy::graphics::Renderer::draw">
-<area shape="rect" id="Node000001" title="Draw all submitted render commands to screen." alt="" coords="5,69,200,109"/>
-<area shape="rect" id="Node000002" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a7fc3df21632cecf45ecba9035b77185b" title="Make active shader." alt="" coords="251,5,432,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,67,252,46,254,51,179,72"/>
-<area shape="rect" id="Node000003" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a905753e6522506320337c0064eb70f34" title="Bind buffer." alt="" coords="251,69,432,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,87,237,87,237,92,200,92"/>
-<area shape="rect" id="Node000004" href="$d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html#a9cac5e7dfec35777fd033814b05ed423" title="Sub buffer data." alt="" coords="248,133,435,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,107,254,127,252,132,177,112"/>
+<area shape="rect" id="Node000001" title="Draw all submitted render commands to screen." alt="" coords="5,55,200,95"/>
+<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html#ae64788a349cad8380e2f29f63f3bdb70" title="Make active shader." alt="" coords="274,5,429,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,53,282,31,283,36,191,58"/>
+<area shape="rect" id="Node000003" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#a013c7ba4a2f5f9a420ec413c45c57361" title="Bind buffer." alt="" coords="248,55,455,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,73,234,73,234,78,200,78"/>
+<area shape="rect" id="Node000004" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#af38d7f64cda32651a56bd976c52c534d" title="Sub buffer data." alt="" coords="248,119,455,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,93,261,113,260,119,180,98"/>
 </map>

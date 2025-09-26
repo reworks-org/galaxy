@@ -1,0 +1,26 @@
+<map id="galaxy::VertexBuffer::count" name="galaxy::VertexBuffer::count">
+<area shape="rect" id="Node000001" title="Get the index count." alt="" coords="1132,191,1287,231"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#a87e6cfbd5eb2ed0a5713055f06372fbd" title="Get the index count." alt="" coords="933,159,1084,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1118,199,1084,193,1085,188,1119,194"/>
+<area shape="rect" id="Node000007" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="718,255,858,295"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="1118,227,859,267,858,262,1118,222"/>
+<area shape="rect" id="Node000003" href="$d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71" title=" " alt="" coords="691,13,885,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="984,149,941,99,914,74,884,53,856,40,858,36,887,48,917,70,945,96,988,146"/>
+<area shape="rect" id="Node000006" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="691,63,885,103"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="960,154,884,117,853,105,855,100,886,112,962,150"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="962,208,886,245,855,257,853,252,884,240,960,203"/>
+<area shape="rect" id="Node000011" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="691,127,885,167"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="919,168,885,163,886,158,920,163"/>
+<area shape="rect" id="Node000012" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="691,191,885,231"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="920,194,886,199,885,194,919,189"/>
+<area shape="rect" id="Node000004" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="463,5,643,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="677,28,643,28,643,23,677,23"/>
+<area shape="rect" id="Node000005" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="184,5,415,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="449,28,415,28,415,23,449,23"/>
+<area shape="rect" id="Node000008" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="483,262,623,287"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="704,277,623,277,623,272,704,272"/>
+<area shape="rect" id="Node000009" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="228,255,371,295"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="468,277,371,277,371,272,468,272"/>
+<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,262,136,287"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="214,277,136,277,136,272,214,272"/>
+</map>

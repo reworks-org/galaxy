@@ -3,7 +3,7 @@ var hierarchy =
     [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
     [ "galaxy::App", "dd/d33/classgalaxy_1_1App.html", null ],
     [ "galaxy::Cache< Resource, SpecLoader >", "d1/d4d/classgalaxy_1_1Cache.html", null ],
-    [ "galaxy::graphics::Colour", "d2/dae/classgalaxy_1_1graphics_1_1Colour.html", null ],
+    [ "galaxy::Colour", "d8/d74/classgalaxy_1_1Colour.html", null ],
     [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
     [ "galaxy::ContentScale", "dd/d27/structgalaxy_1_1ContentScale.html", null ],
     [ "galaxy::graphics::Camera::Data", "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html", null ],
@@ -35,7 +35,6 @@ var hierarchy =
     ] ],
     [ "std::hash< galaxy::UUID >", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html", null ],
     [ "galaxy::resource::TextureAtlas::Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", null ],
-    [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
     [ "galaxy::core::Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", null ],
     [ "galaxy::Loader< Resource >", "db/dbf/structgalaxy_1_1Loader.html", null ],
     [ "galaxy::Loader< media::Sound >", "db/dbf/structgalaxy_1_1Loader.html", [
@@ -89,8 +88,8 @@ var hierarchy =
     ] ],
     [ "galaxy::meta::EntityFactory::SerializationData", "d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html", null ],
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
-    [ "galaxy::graphics::Shader", "d9/d1b/classgalaxy_1_1graphics_1_1Shader.html", null ],
-    [ "galaxy::graphics::ShaderStorageBuffer", "d0/ded/classgalaxy_1_1graphics_1_1ShaderStorageBuffer.html", null ],
+    [ "galaxy::Shader", "d1/d5e/classgalaxy_1_1Shader.html", null ],
+    [ "galaxy::ShaderStorageBuffer", "d0/d35/classgalaxy_1_1ShaderStorageBuffer.html", null ],
     [ "galaxy::graphics::Shape", "d9/d29/classgalaxy_1_1graphics_1_1Shape.html", [
       [ "galaxy::graphics::Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", null ],
       [ "galaxy::graphics::Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", null ],
@@ -121,11 +120,7 @@ var hierarchy =
     ] ],
     [ "galaxy::SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", null ],
     [ "galaxy::graphics::Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", null ],
-    [ "galaxy::graphics::Texture", "dc/d3f/classgalaxy_1_1graphics_1_1Texture.html", [
-      [ "galaxy::graphics::Texture2D", "d4/d85/classgalaxy_1_1graphics_1_1Texture2D.html", null ],
-      [ "galaxy::graphics::TextureArray", "dc/d9b/classgalaxy_1_1graphics_1_1TextureArray.html", null ],
-      [ "galaxy::graphics::TextureView", "d9/d28/classgalaxy_1_1graphics_1_1TextureView.html", null ]
-    ] ],
+    [ "galaxy::Texture", "df/db8/classgalaxy_1_1Texture.html", null ],
     [ "galaxy::resource::TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", null ],
     [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],
     [ "galaxy::Timer", "d0/d7b/classgalaxy_1_1Timer.html", null ],
@@ -133,13 +128,12 @@ var hierarchy =
       [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ]
     ] ],
     [ "galaxy::UUID", "dd/da7/classgalaxy_1_1UUID.html", null ],
-    [ "galaxy::graphics::Vertex", "d7/ded/structgalaxy_1_1graphics_1_1Vertex.html", null ],
-    [ "galaxy::graphics::VertexArray", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html", null ],
+    [ "galaxy::Vertex", "db/d8c/structgalaxy_1_1Vertex.html", null ],
+    [ "galaxy::VertexArray", "db/d02/classgalaxy_1_1VertexArray.html", null ],
     [ "galaxy::graphics::VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", null ],
-    [ "galaxy::graphics::VertexBuffer", "d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html", null ],
+    [ "galaxy::VertexBuffer", "da/d97/classgalaxy_1_1VertexBuffer.html", null ],
     [ "galaxy::media::Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", null ],
     [ "galaxy::VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", null ],
-    [ "galaxy::core::Window", "d5/d25/classgalaxy_1_1core_1_1Window.html", null ],
     [ "galaxy::Window", "d0/d84/classgalaxy_1_1Window.html", null ],
     [ "galaxy::WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", [
       [ "galaxy::Keyboard", "d8/db2/classgalaxy_1_1Keyboard.html", null ],
@@ -147,7 +141,6 @@ var hierarchy =
     ] ],
     [ "galaxy::WindowClosed", "d9/ddc/structgalaxy_1_1WindowClosed.html", null ],
     [ "galaxy::WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", null ],
-    [ "galaxy::core::WindowSettings", "d1/dfa/structgalaxy_1_1core_1_1WindowSettings.html", null ],
     [ "galaxy::map::World", "d9/d75/classgalaxy_1_1map_1_1World.html", null ],
     [ "galaxy::ZLib", "df/d85/classgalaxy_1_1ZLib.html", null ]
 ];

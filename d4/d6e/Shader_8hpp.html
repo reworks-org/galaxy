@@ -110,8 +110,9 @@ $(function(){initNavTree('d4/d6e/Shader_8hpp.html','../../'); initResizable(true
 <code>#include &lt;entt/core/compressed_pair.hpp&gt;</code><br />
 <code>#include &lt;glad/glad.h&gt;</code><br />
 <code>#include &lt;glm/gtc/type_ptr.hpp&gt;</code><br />
-<code>#include &lt;nlohmann/json_fwd.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../db/dd2/Colour_8hpp_source.html">galaxy/graphics/Colour.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d82/Log_8hpp_source.html">galaxy/logging/Log.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/df1/Math_8hpp_source.html">galaxy/math/Math.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Shader.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -119,25 +120,61 @@ $(function(){initNavTree('d4/d6e/Shader_8hpp.html','../../'); initResizable(true
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d3/d75/Shader_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2graphics_2gl_2Shader_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2graphics_2gl_2Shader_8hpp" id="agalaxy_2src_2galaxy_2graphics_2gl_2Shader_8hpp">
-<area shape="rect" title=" " alt="" coords="432,5,628,45"/>
+<area shape="rect" title=" " alt="" coords="507,5,703,45"/>
 <area shape="rect" title=" " alt="" coords="5,101,196,126"/>
-<area shape="poly" title=" " alt="" coords="436,48,172,101,171,95,435,43"/>
+<area shape="poly" title=" " alt="" coords="507,46,209,96,180,101,179,96,208,91,506,40"/>
 <area shape="rect" title=" " alt="" coords="221,93,383,133"/>
-<area shape="poly" title=" " alt="" coords="481,48,366,91,364,86,479,43"/>
+<area shape="poly" title=" " alt="" coords="539,48,382,92,381,87,538,43"/>
 <area shape="rect" title=" " alt="" coords="408,101,503,126"/>
-<area shape="poly" title=" " alt="" coords="515,47,476,92,472,88,511,44"/>
+<area shape="poly" title=" " alt="" coords="573,48,488,96,486,92,571,43"/>
 <area shape="rect" title=" " alt="" coords="527,101,683,126"/>
-<area shape="poly" title=" " alt="" coords="549,44,588,88,584,92,545,47"/>
-<area shape="rect" title=" " alt="" coords="707,101,883,126"/>
-<area shape="poly" title=" " alt="" coords="589,43,748,94,746,99,587,48"/>
-<area shape="rect" href="../../db/dd2/Colour_8hpp.html" title=" " alt="" coords="908,101,1107,126"/>
-<area shape="poly" title=" " alt="" coords="629,42,931,96,930,101,628,47"/>
-<area shape="rect" title=" " alt="" coords="887,181,943,207"/>
-<area shape="poly" title=" " alt="" coords="995,128,941,174,938,170,992,124"/>
-<area shape="rect" title=" " alt="" coords="968,181,1047,207"/>
-<area shape="poly" title=" " alt="" coords="1010,126,1010,167,1005,167,1005,126"/>
-<area shape="rect" title=" " alt="" coords="1071,181,1181,207"/>
-<area shape="poly" title=" " alt="" coords="1026,124,1098,171,1095,176,1023,128"/>
+<area shape="poly" title=" " alt="" coords="607,46,607,87,602,87,602,46"/>
+<area shape="rect" href="../../db/dd2/Colour_8hpp.html" title=" " alt="" coords="707,101,905,126"/>
+<area shape="poly" title=" " alt="" coords="650,43,768,93,766,98,648,48"/>
+<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="1098,101,1271,126"/>
+<area shape="poly" title=" " alt="" coords="703,39,1095,96,1094,101,703,44"/>
+<area shape="rect" href="../../d8/df1/Math_8hpp.html" title=" " alt="" coords="1607,101,1776,126"/>
+<area shape="poly" title=" " alt="" coords="703,32,1593,102,1592,107,703,37"/>
+<area shape="rect" title=" " alt="" coords="503,181,559,207"/>
+<area shape="poly" title=" " alt="" coords="767,129,573,183,572,178,765,123"/>
+<area shape="rect" title=" " alt="" coords="584,181,695,207"/>
+<area shape="poly" title=" " alt="" coords="783,128,677,178,675,173,781,124"/>
+<area shape="rect" title=" " alt="" coords="719,181,810,207"/>
+<area shape="poly" title=" " alt="" coords="1122,129,824,184,823,178,1121,123"/>
+<area shape="rect" title=" " alt="" coords="835,181,959,207"/>
+<area shape="poly" title=" " alt="" coords="1143,129,952,180,951,175,1142,123"/>
+<area shape="rect" title=" " alt="" coords="983,181,1074,207"/>
+<area shape="poly" title=" " alt="" coords="1163,128,1065,178,1062,173,1161,124"/>
+<area shape="rect" title=" " alt="" coords="1098,181,1271,207"/>
+<area shape="poly" title=" " alt="" coords="1187,126,1187,167,1182,167,1182,126"/>
+<area shape="rect" title=" " alt="" coords="1207,401,1429,427"/>
+<area shape="poly" title=" " alt="" coords="1214,124,1252,146,1270,161,1286,180,1299,206,1309,234,1321,291,1324,345,1323,387,1318,387,1319,345,1316,292,1304,235,1294,208,1281,183,1267,165,1249,150,1212,128"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="1391,328,1599,353"/>
+<area shape="poly" title=" " alt="" coords="1226,124,1278,145,1305,161,1329,179,1349,205,1359,229,1368,253,1387,278,1418,302,1453,320,1450,325,1416,307,1383,282,1363,256,1354,231,1345,208,1325,183,1302,165,1275,150,1224,129"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="1410,181,1589,207"/>
+<area shape="poly" title=" " alt="" coords="1231,123,1441,175,1440,181,1230,129"/>
+<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="1633,181,1832,207"/>
+<area shape="poly" title=" " alt="" coords="1265,123,1639,177,1639,182,1264,129"/>
+<area shape="poly" title=" " alt="" coords="1468,356,1360,399,1358,394,1466,351"/>
+<area shape="rect" title=" " alt="" coords="1462,401,1529,427"/>
+<area shape="poly" title=" " alt="" coords="1498,354,1498,388,1493,388,1493,354"/>
+<area shape="rect" title=" " alt="" coords="1637,401,1695,427"/>
+<area shape="poly" title=" " alt="" coords="1524,351,1627,394,1625,398,1522,356"/>
+<area shape="rect" href="../../d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="1397,255,1628,280"/>
+<area shape="poly" title=" " alt="" coords="1504,207,1511,241,1505,242,1499,207"/>
+<area shape="poly" title=" " alt="" coords="1512,281,1504,316,1499,314,1507,280"/>
+<area shape="poly" title=" " alt="" coords="1725,208,1709,230,1695,256,1684,290,1676,326,1670,388,1664,387,1671,325,1679,289,1690,254,1705,227,1721,205"/>
+<area shape="rect" title=" " alt="" coords="1704,255,1801,280"/>
+<area shape="poly" title=" " alt="" coords="1739,206,1748,241,1743,242,1733,208"/>
+<area shape="rect" title=" " alt="" coords="1825,255,1888,280"/>
+<area shape="poly" title=" " alt="" coords="1754,204,1826,245,1823,250,1751,209"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="1881,181,2077,207"/>
+<area shape="poly" title=" " alt="" coords="1734,123,1925,175,1924,180,1733,129"/>
+<area shape="poly" title=" " alt="" coords="1973,209,1943,243,1902,282,1852,318,1798,350,1706,398,1703,393,1796,346,1849,314,1899,278,1939,240,1969,205"/>
+<area shape="rect" title=" " alt="" coords="1963,255,2043,280"/>
+<area shape="poly" title=" " alt="" coords="1986,206,1998,241,1993,242,1981,208"/>
+<area shape="rect" title=" " alt="" coords="2068,255,2160,280"/>
+<area shape="poly" title=" " alt="" coords="2002,204,2081,246,2079,250,2000,209"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -147,37 +184,37 @@ $(function(){initNavTree('d4/d6e/Shader_8hpp.html','../../'); initResizable(true
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/df0/Shader_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2graphics_2gl_2Shader_8hppdep" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2graphics_2gl_2Shader_8hppdep" id="agalaxy_2src_2galaxy_2graphics_2gl_2Shader_8hppdep">
-<area shape="rect" title=" " alt="" coords="1048,5,1244,45"/>
+<area shape="rect" title=" " alt="" coords="1158,5,1354,45"/>
 <area shape="rect" href="../../dd/db8/Renderer_8hpp.html" title=" " alt="" coords="608,269,804,309"/>
-<area shape="poly" title=" " alt="" coords="1034,33,610,54,389,72,299,84,230,96,162,108,106,117,82,124,59,137,37,156,16,183,8,202,10,211,15,219,44,234,98,246,257,265,444,277,607,283,607,288,443,282,257,270,97,251,42,239,12,223,5,213,3,202,11,180,33,152,56,132,80,119,105,111,161,102,229,91,298,78,389,67,609,49,1034,28"/>
+<area shape="poly" title=" " alt="" coords="1145,32,929,39,666,52,413,70,309,82,230,96,162,107,106,116,82,124,59,137,37,156,16,183,8,202,10,211,15,219,44,234,98,246,257,265,444,277,607,283,607,288,443,282,257,270,97,251,42,239,12,223,5,213,3,202,11,180,33,152,56,132,80,119,105,111,161,102,229,91,308,77,412,65,665,46,929,34,1145,27"/>
 <area shape="rect" href="../../d7/d4c/Video_8hpp.html" title=" " alt="" coords="1650,93,1846,133"/>
-<area shape="poly" title=" " alt="" coords="1258,39,1631,91,1650,94,1649,99,1631,96,1257,44"/>
+<area shape="poly" title=" " alt="" coords="1369,43,1651,92,1650,98,1368,49"/>
 <area shape="rect" href="../../dd/d84/Shader_8cpp.html" title=" " alt="" coords="1870,93,2066,133"/>
-<area shape="poly" title=" " alt="" coords="1258,32,1532,55,1859,91,1870,92,1870,97,1859,96,1531,60,1257,37"/>
+<area shape="poly" title=" " alt="" coords="1368,34,1595,58,1859,91,1870,92,1870,98,1859,96,1595,63,1368,40"/>
 <area shape="rect" href="../../d5/d73/ChromaticAberration_8hpp.html" title=" " alt="" coords="242,93,463,133"/>
-<area shape="poly" title=" " alt="" coords="1034,39,778,62,475,96,464,97,463,92,475,91,778,57,1034,33"/>
+<area shape="poly" title=" " alt="" coords="1145,37,842,60,475,96,464,97,463,92,475,91,842,54,1144,31"/>
 <area shape="rect" href="../../da/da6/FilmicGrain_8hpp.html" title=" " alt="" coords="488,93,684,133"/>
-<area shape="poly" title=" " alt="" coords="1034,45,697,96,684,98,684,93,696,91,1033,40"/>
+<area shape="poly" title=" " alt="" coords="1145,41,936,65,697,96,684,98,684,93,696,91,936,59,1144,36"/>
 <area shape="rect" href="../../d2/dd2/GammaCorrection_8hpp.html" title=" " alt="" coords="708,93,914,133"/>
-<area shape="poly" title=" " alt="" coords="1060,51,885,96,884,91,1058,46"/>
+<area shape="poly" title=" " alt="" coords="1146,51,909,96,908,91,1145,45"/>
 <area shape="rect" href="../../dd/d8d/GaussianBlur_8hpp.html" title=" " alt="" coords="938,93,1134,133"/>
-<area shape="poly" title=" " alt="" coords="1112,56,1062,95,1059,91,1109,52"/>
+<area shape="poly" title=" " alt="" coords="1197,53,1085,96,1084,91,1195,48"/>
 <area shape="rect" href="../../d3/d37/SMAA_8hpp.html" title=" " alt="" coords="1158,93,1354,133"/>
-<area shape="poly" title=" " alt="" coords="1183,52,1233,91,1230,95,1180,56"/>
+<area shape="poly" title=" " alt="" coords="1259,59,1259,93,1254,93,1254,59"/>
 <area shape="rect" href="../../d5/d2a/Sharpen_8hpp.html" title=" " alt="" coords="1378,93,1574,133"/>
-<area shape="poly" title=" " alt="" coords="1232,46,1405,91,1403,96,1230,51"/>
-<area shape="rect" href="../../d6/df6/Shaders_8hpp.html" title=" " alt="" coords="1335,269,1532,309"/>
-<area shape="poly" title=" " alt="" coords="1258,25,1353,30,1451,41,1535,61,1567,74,1589,92,1610,124,1615,156,1608,188,1589,223,1576,239,1560,252,1523,272,1521,267,1557,248,1572,235,1585,220,1603,186,1610,156,1605,126,1585,95,1564,79,1533,66,1450,46,1352,35,1257,30"/>
-<area shape="rect" href="../../d2/dd0/fs_2Loader_8cpp.html" title=" " alt="" coords="1157,357,1310,397"/>
-<area shape="poly" title=" " alt="" coords="818,307,983,330,1145,355,1157,357,1156,362,1144,360,982,335,817,312"/>
-<area shape="rect" href="../../d3/d28/Renderer_8cpp.html" title=" " alt="" coords="937,357,1133,397"/>
-<area shape="poly" title=" " alt="" coords="792,310,964,355,962,360,790,315"/>
-<area shape="rect" href="../../d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="497,357,693,397"/>
-<area shape="poly" title=" " alt="" coords="672,320,621,359,618,355,669,316"/>
-<area shape="rect" href="../../d5/d5e/graphics_2Window_8cpp.html" title=" " alt="" coords="717,357,913,397"/>
-<area shape="poly" title=" " alt="" coords="742,316,792,355,789,359,739,320"/>
-<area shape="rect" href="../../db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="277,357,473,397"/>
-<area shape="poly" title=" " alt="" coords="621,315,448,360,447,355,619,310"/>
+<area shape="poly" title=" " alt="" coords="1318,48,1429,91,1427,96,1316,53"/>
+<area shape="rect" href="../../dd/d97/LuaGraphics_8cpp.html" title=" " alt="" coords="2090,93,2270,133"/>
+<area shape="poly" title=" " alt="" coords="1368,29,1689,51,1884,68,2079,91,2090,92,2089,97,2079,96,1883,74,1688,56,1368,35"/>
+<area shape="rect" href="../../d6/df6/Shaders_8hpp.html" title=" " alt="" coords="1218,269,1415,309"/>
+<area shape="poly" title=" " alt="" coords="1368,32,1435,40,1500,52,1554,69,1575,79,1589,92,1610,125,1616,157,1609,190,1589,223,1562,242,1519,258,1416,279,1415,274,1518,253,1559,238,1585,220,1604,188,1611,157,1605,127,1585,95,1572,84,1552,74,1498,57,1434,45,1368,37"/>
+<area shape="rect" href="../../d2/dd0/fs_2Loader_8cpp.html" title=" " alt="" coords="828,357,981,397"/>
+<area shape="poly" title=" " alt="" coords="763,312,862,355,860,360,761,317"/>
+<area shape="rect" href="../../d3/d28/Renderer_8cpp.html" title=" " alt="" coords="1005,357,1201,397"/>
+<area shape="poly" title=" " alt="" coords="807,310,1017,355,1015,360,805,315"/>
+<area shape="rect" href="../../d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="388,357,584,397"/>
+<area shape="poly" title=" " alt="" coords="646,317,535,360,533,355,644,312"/>
+<area shape="rect" href="../../db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="608,357,804,397"/>
+<area shape="poly" title=" " alt="" coords="708,323,708,357,703,357,703,323"/>
 <area shape="rect" href="../../df/da9/Video_8cpp.html" title=" " alt="" coords="1650,181,1846,221"/>
 <area shape="poly" title=" " alt="" coords="1751,147,1751,181,1746,181,1746,147"/>
 <area shape="rect" href="../../d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="718,181,914,221"/>
@@ -202,12 +239,12 @@ $(function(){initNavTree('d4/d6e/Shader_8hpp.html','../../'); initResizable(true
 <area shape="poly" title=" " alt="" coords="1365,136,1240,151,1143,160,1047,169,926,184,915,186,914,180,925,179,1047,164,1143,155,1240,146,1364,131"/>
 <area shape="rect" href="../../d2/d44/Sharpen_8cpp.html" title=" " alt="" coords="1378,181,1574,221"/>
 <area shape="poly" title=" " alt="" coords="1479,147,1479,181,1474,181,1474,147"/>
-<area shape="poly" title=" " alt="" coords="1378,317,1278,360,1276,355,1376,312"/>
-<area shape="poly" title=" " alt="" coords="1334,315,1123,360,1122,355,1332,310"/>
-<area shape="rect" href="../../d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="1557,357,1740,397"/>
-<area shape="poly" title=" " alt="" coords="1494,312,1602,355,1600,360,1492,317"/>
-<area shape="rect" href="../../d4/d01/Shaders_8cpp.html" title=" " alt="" coords="1335,357,1532,397"/>
-<area shape="poly" title=" " alt="" coords="1436,323,1436,357,1431,357,1431,323"/>
+<area shape="poly" title=" " alt="" coords="1212,315,993,360,982,362,981,357,992,355,1211,309"/>
+<area shape="poly" title=" " alt="" coords="1258,317,1151,360,1149,355,1256,312"/>
+<area shape="rect" href="../../d6/de5/LuaResource_8cpp.html" title=" " alt="" coords="1225,357,1408,397"/>
+<area shape="poly" title=" " alt="" coords="1319,323,1319,357,1314,357,1314,323"/>
+<area shape="rect" href="../../d4/d01/Shaders_8cpp.html" title=" " alt="" coords="1432,357,1630,397"/>
+<area shape="poly" title=" " alt="" coords="1377,312,1485,355,1483,360,1375,317"/>
 </map>
 </div>
 </div>
@@ -215,8 +252,8 @@ $(function(){initNavTree('d4/d6e/Shader_8hpp.html','../../'); initResizable(true
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html">galaxy::graphics::Shader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL <a class="el" href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> Program.  <a href="../../d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html">galaxy::Shader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> Program.  <a href="../../d1/d5e/classgalaxy_1_1Shader.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -224,35 +261,30 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
 <tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">galaxy::graphics</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0ca55519659bd7fb510efa0ec3167e17" id="r_a0ca55519659bd7fb510efa0ec3167e17"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a0ca55519659bd7fb510efa0ec3167e17"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a0ca55519659bd7fb510efa0ec3167e17">galaxy::graphics::Shader::set_uniform&lt; std::uint64_t &gt;</a> (const std::string &amp;name, const std::uint64_t &amp;a)</td></tr>
-<tr class="separator:a0ca55519659bd7fb510efa0ec3167e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a63088a93168a7ea4e4ca2beac9b96" id="r_ad8a63088a93168a7ea4e4ca2beac9b96"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:ad8a63088a93168a7ea4e4ca2beac9b96"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#ad8a63088a93168a7ea4e4ca2beac9b96">galaxy::graphics::Shader::set_uniform&lt; glm::mat3 &gt;</a> (const std::string &amp;name, const glm::mat3 &amp;a)</td></tr>
-<tr class="separator:ad8a63088a93168a7ea4e4ca2beac9b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93070a213485d139ed3f27c0d2f82c0" id="r_af93070a213485d139ed3f27c0d2f82c0"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:af93070a213485d139ed3f27c0d2f82c0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#af93070a213485d139ed3f27c0d2f82c0">galaxy::graphics::Shader::set_uniform&lt; glm::mat4 &gt;</a> (const std::string &amp;name, const glm::mat4 &amp;a)</td></tr>
-<tr class="separator:af93070a213485d139ed3f27c0d2f82c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347d8a5b45d7013ed1c153257377590e" id="r_a347d8a5b45d7013ed1c153257377590e"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a347d8a5b45d7013ed1c153257377590e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a347d8a5b45d7013ed1c153257377590e">galaxy::graphics::Shader::set_uniform&lt; glm::vec2 &gt;</a> (const std::string &amp;name, const glm::vec2 &amp;a)</td></tr>
-<tr class="separator:a347d8a5b45d7013ed1c153257377590e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae0fdbe024863a36c98ffb38cc9a129" id="r_a8ae0fdbe024863a36c98ffb38cc9a129"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a8ae0fdbe024863a36c98ffb38cc9a129"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a8ae0fdbe024863a36c98ffb38cc9a129">galaxy::graphics::Shader::set_uniform&lt; glm::vec3 &gt;</a> (const std::string &amp;name, const glm::vec3 &amp;a)</td></tr>
-<tr class="separator:a8ae0fdbe024863a36c98ffb38cc9a129"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8524ad77ff45b4faa8988408d9b7663f" id="r_a8524ad77ff45b4faa8988408d9b7663f"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a8524ad77ff45b4faa8988408d9b7663f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a8524ad77ff45b4faa8988408d9b7663f">galaxy::graphics::Shader::set_uniform&lt; glm::vec4 &gt;</a> (const std::string &amp;name, const glm::vec4 &amp;a)</td></tr>
-<tr class="separator:a8524ad77ff45b4faa8988408d9b7663f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8dc63ad3d782133b49819b7ae551e7a" id="r_ad8dc63ad3d782133b49819b7ae551e7a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:ad8dc63ad3d782133b49819b7ae551e7a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#ad8dc63ad3d782133b49819b7ae551e7a">galaxy::graphics::Shader::set_uniform&lt; std::array&lt; float, 4 &gt; &gt;</a> (const std::string &amp;name, const std::array&lt; float, 4 &gt; &amp;a)</td></tr>
-<tr class="separator:ad8dc63ad3d782133b49819b7ae551e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e0f3e0a895d94ff9c24a99d6b675736" id="r_a4e0f3e0a895d94ff9c24a99d6b675736"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a4e0f3e0a895d94ff9c24a99d6b675736"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a4e0f3e0a895d94ff9c24a99d6b675736">galaxy::graphics::Shader::set_uniform&lt; graphics::Colour &gt;</a> (const std::string &amp;name, const <a class="el" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">graphics::Colour</a> &amp;a)</td></tr>
-<tr class="separator:a4e0f3e0a895d94ff9c24a99d6b675736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd6756495b4978d163572e06c6202d19" id="r_acd6756495b4978d163572e06c6202d19"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:acd6756495b4978d163572e06c6202d19"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#acd6756495b4978d163572e06c6202d19">galaxy::Shader::set_uniform&lt; std::uint64_t &gt;</a> (const std::string &amp;name, const std::uint64_t &amp;a)</td></tr>
+<tr class="separator:acd6756495b4978d163572e06c6202d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13245e2a7b2304ee40e412d044af5772" id="r_a13245e2a7b2304ee40e412d044af5772"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a13245e2a7b2304ee40e412d044af5772"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#a13245e2a7b2304ee40e412d044af5772">galaxy::Shader::set_uniform&lt; glm::mat3 &gt;</a> (const std::string &amp;name, const glm::mat3 &amp;a)</td></tr>
+<tr class="separator:a13245e2a7b2304ee40e412d044af5772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7edfdffefd02aefffb411ea6517a450d" id="r_a7edfdffefd02aefffb411ea6517a450d"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a7edfdffefd02aefffb411ea6517a450d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#a7edfdffefd02aefffb411ea6517a450d">galaxy::Shader::set_uniform&lt; glm::mat4 &gt;</a> (const std::string &amp;name, const glm::mat4 &amp;a)</td></tr>
+<tr class="separator:a7edfdffefd02aefffb411ea6517a450d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad775f7800b89ef41bbacafb6d29082c7" id="r_ad775f7800b89ef41bbacafb6d29082c7"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ad775f7800b89ef41bbacafb6d29082c7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#ad775f7800b89ef41bbacafb6d29082c7">galaxy::Shader::set_uniform&lt; glm::vec2 &gt;</a> (const std::string &amp;name, const glm::vec2 &amp;a)</td></tr>
+<tr class="separator:ad775f7800b89ef41bbacafb6d29082c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0db516d8ad65a3f0c4ba234303afca" id="r_aea0db516d8ad65a3f0c4ba234303afca"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aea0db516d8ad65a3f0c4ba234303afca"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#aea0db516d8ad65a3f0c4ba234303afca">galaxy::Shader::set_uniform&lt; glm::vec3 &gt;</a> (const std::string &amp;name, const glm::vec3 &amp;a)</td></tr>
+<tr class="separator:aea0db516d8ad65a3f0c4ba234303afca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0377dd04afbb15477df8d69575b38fb" id="r_af0377dd04afbb15477df8d69575b38fb"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:af0377dd04afbb15477df8d69575b38fb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#af0377dd04afbb15477df8d69575b38fb">galaxy::Shader::set_uniform&lt; glm::vec4 &gt;</a> (const std::string &amp;name, const glm::vec4 &amp;a)</td></tr>
+<tr class="separator:af0377dd04afbb15477df8d69575b38fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8635a2655e76f75a1359a7114c917aac" id="r_a8635a2655e76f75a1359a7114c917aac"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a8635a2655e76f75a1359a7114c917aac"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html#a8635a2655e76f75a1359a7114c917aac">galaxy::Shader::set_uniform&lt; std::array&lt; float, 4 &gt; &gt;</a> (const std::string &amp;name, const std::array&lt; float, 4 &gt; &amp;a)</td></tr>
+<tr class="separator:a8635a2655e76f75a1359a7114c917aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -260,7 +292,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../d4/d6e/Shader_8hpp.html">Shader.hpp</a></li>
-    <li class="footer">Generated on Mon Sep 22 2025 04:28:37 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Sep 26 2025 09:07:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

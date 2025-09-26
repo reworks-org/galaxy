@@ -1,0 +1,21 @@
+<map id="galaxy::graphics::gen_default_indices" name="galaxy::graphics::gen_default_indices">
+<area shape="rect" id="Node000001" title="Generate some default indicies." alt="" coords="797,101,957,141"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="598,5,738,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="825,97,748,60,720,48,722,43,750,55,827,92"/>
+<area shape="rect" id="Node000006" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="591,69,745,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="783,110,744,104,745,98,784,104"/>
+<area shape="rect" id="Node000009" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a28764f95f6198b764692275f0d08886b" title="Sets the texture and vertex data." alt="" coords="591,133,745,173"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="784,138,745,144,744,139,783,133"/>
+<area shape="rect" id="Node000010" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#ad444c36410fdee1f8e38d747e480aedc" title="Constructor." alt="" coords="587,197,749,237"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="827,150,750,188,722,200,720,195,748,183,825,146"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="392,13,532,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="584,28,532,28,532,23,584,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="189,5,332,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="378,28,332,28,332,23,378,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="176,28,137,28,137,23,176,23"/>
+<area shape="rect" id="Node000007" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a2b66c156b36a28ab73fad4a505da2c69" title="Deserializes from object." alt="" coords="385,69,539,109"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="578,92,539,92,539,87,578,87"/>
+<area shape="rect" id="Node000008" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a7dcb4eab0d5e04257fb79f1175d403d7" title="JSON constructor." alt="" coords="184,69,337,109"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="371,92,337,92,337,87,371,87"/>
+</map>

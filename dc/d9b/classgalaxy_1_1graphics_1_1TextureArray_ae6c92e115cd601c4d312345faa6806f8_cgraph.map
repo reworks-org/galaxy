@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::TextureArray::build_from_tileset" name="galaxy::graphics::TextureArray::build_from_tileset">
-<area shape="rect" id="Node000001" title="Creates an array texture from a tileset." alt="" coords="5,69,189,109"/>
-<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a3aa4307076d4929453eb8ca27f260ee2" title="Get current anisotropy level." alt="" coords="237,5,421,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,67,243,46,244,52,171,72"/>
-<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aeb2485daf7ad649d9180d102ce5c6e92" title="Get texture filter." alt="" coords="237,69,421,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,87,223,87,223,92,190,92"/>
-<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc" title="Get texture mode." alt="" coords="237,133,421,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="171,107,244,127,243,132,170,112"/>
-</map>

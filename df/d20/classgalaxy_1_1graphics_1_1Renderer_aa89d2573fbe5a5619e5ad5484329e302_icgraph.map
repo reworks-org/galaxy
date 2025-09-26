@@ -1,11 +1,9 @@
 <map id="galaxy::graphics::Renderer::ref" name="galaxy::graphics::Renderer::ref">
-<area shape="rect" id="Node000001" title="Get reference to renderer singleton." alt="" coords="755,70,976,95"/>
+<area shape="rect" id="Node000001" title="Get reference to renderer singleton." alt="" coords="755,42,976,67"/>
 <area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71" title=" " alt="" coords="512,13,707,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="794,70,666,41,667,35,795,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="741,43,707,39,707,34,741,38"/>
 <area shape="rect" id="Node000005" href="$dd/ddf/classgalaxy_1_1core_1_1Loader.html#a99516bb26a61c7f4a072383b7e550e09" title="Loads resources, user config and window settings." alt="" coords="533,63,686,103"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="741,85,686,85,686,80,741,80"/>
-<area shape="rect" id="Node000006" href="$d5/d25/classgalaxy_1_1core_1_1Window.html#aa0955e4daa23016975d1924020b39b2f" title="Window creation constructor." alt="" coords="529,127,690,167"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="801,101,691,129,690,124,799,96"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="741,71,686,77,686,72,741,66"/>
 <area shape="rect" id="Node000003" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="284,5,464,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="498,28,464,28,464,23,498,23"/>
 <area shape="rect" id="Node000004" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>

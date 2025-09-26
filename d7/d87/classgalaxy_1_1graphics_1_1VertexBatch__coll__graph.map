@@ -1,7 +1,7 @@
 <map id="galaxy::graphics::VertexBatch" name="galaxy::graphics::VertexBatch">
-<area shape="rect" id="Node000001" title="Batches together vertex data to reduce draw calls." alt="" coords="5,911,176,1211"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="5,428,176,848"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,848,93,894,88,894,88,848"/>
-<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="5,5,176,365"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,366,93,412,88,412,88,366"/>
+<area shape="rect" id="Node000001" title="Batches together vertex data to reduce draw calls." alt="" coords="5,821,176,1121"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="19,413,162,759"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,759,93,805,88,805,88,759"/>
+<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="17,5,164,351"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,351,93,397,88,397,88,351"/>
 </map>

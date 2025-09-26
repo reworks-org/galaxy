@@ -1,11 +1,7 @@
 <map id="galaxy/src/galaxy/graphics/gl/Texture.hpp" name="galaxy/src/galaxy/graphics/gl/Texture.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,230,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,59,126"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,48,58,93,54,89,108,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="83,101,181,126"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,46,135,87,129,87,129,46"/>
-<area shape="rect" id="Node000004" href="$dd/de2/Enums_8hpp.html" title=" " alt="" coords="205,93,347,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,43,234,84,231,89,162,48"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="229,181,323,207"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="279,134,279,167,273,167,273,134"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,201,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="34,93,93,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,47,78,82,73,80,91,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="117,93,170,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,44,134,80,129,82,111,47"/>
 </map>

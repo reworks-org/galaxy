@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handle_0',['handle',['../d0/d84/classgalaxy_1_1Window.html#a29c1789f9bf03b1d269c3c6defaf7da3',1,'galaxy::Window::handle()'],['../d1/d70/classgalaxy_1_1graphics_1_1Font.html#a89bc4a38700bc485d3b01d639bb42648',1,'galaxy::graphics::Font::handle()'],['../d5/d25/classgalaxy_1_1core_1_1Window.html#ad37f2fa07bf5cbb2290d66b4329df371',1,'galaxy::core::Window::handle()']]],
+  ['handle_0',['handle',['../d0/d84/classgalaxy_1_1Window.html#a29c1789f9bf03b1d269c3c6defaf7da3',1,'galaxy::Window::handle()'],['../df/db8/classgalaxy_1_1Texture.html#ae982b2edf101d3a2cb06976e8399349e',1,'galaxy::Texture::handle()'],['../d1/d70/classgalaxy_1_1graphics_1_1Font.html#a89bc4a38700bc485d3b01d639bb42648',1,'galaxy::graphics::Font::handle()']]],
   ['handle_5frenderables_1',['handle_renderables',['../d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283',1,'galaxy::systems']]],
   ['handleableevent_2',['HandleableEvent',['../d6/d1e/structgalaxy_1_1HandleableEvent.html',1,'galaxy']]],
   ['handleableevent_2ecpp_3',['HandleableEvent.cpp',['../da/d09/HandleableEvent_8cpp.html',1,'']]],
@@ -11,7 +11,7 @@ var searchData=
   ['has_5fonscreen_5fkeyboard_8',['has_onscreen_keyboard',['../d8/db2/classgalaxy_1_1Keyboard.html#afe35fdf7b24c9be0ec56b44365ad78b7',1,'galaxy::Keyboard']]],
   ['hash_9',['hash',['../dd/da7/classgalaxy_1_1UUID.html#abd4a87cceb1e700365b4b4ae42282241',1,'galaxy::UUID']]],
   ['hash_3c_20galaxy_3a_3auuid_20_3e_10',['hash&lt; galaxy::UUID &gt;',['../d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html',1,'std']]],
-  ['height_11',['height',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b',1,'galaxy::graphics::Framebuffer::height()'],['../dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a8223f419eb7a8cd8f1be25592544d954',1,'galaxy::graphics::Texture::height()'],['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85',1,'galaxy::graphics::RenderTexture::height()'],['../d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a6f2035419642ba98d1560a17b7a37902',1,'galaxy::graphics::Shape::height()'],['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a7709eb53870e034eb192b0472f5f9881',1,'galaxy::graphics::Text::height()']]],
+  ['height_11',['height',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a6611c2902c59dd4fe1d51c45e523476b',1,'galaxy::graphics::Framebuffer::height()'],['../df/db8/classgalaxy_1_1Texture.html#aceae215e830b651d1ebdb1ac185b4033',1,'galaxy::Texture::height()'],['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a01f00391982f6990bd5cfc226c556b85',1,'galaxy::graphics::RenderTexture::height()'],['../d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a6f2035419642ba98d1560a17b7a37902',1,'galaxy::graphics::Shape::height()'],['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a7709eb53870e034eb192b0472f5f9881',1,'galaxy::graphics::Text::height()']]],
   ['hide_12',['hide',['../d0/d84/classgalaxy_1_1Window.html#aaf83759e1b9e4aeadce37a7374d730e2',1,'galaxy::Window']]],
   ['hide_5fcursor_13',['hide_cursor',['../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266',1,'galaxy::Mouse']]]
 ];

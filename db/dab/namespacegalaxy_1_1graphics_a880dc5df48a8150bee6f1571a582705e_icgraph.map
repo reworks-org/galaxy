@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::map_y_texel" name="galaxy::graphics::map_y_texel">
-<area shape="rect" id="Node000001" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="207,37,372,77"/>
-<area shape="rect" id="Node000002" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a3f6f7afd6d2f8579c79adb9113bfcaa6" title="Set texture clip." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,45,159,40,160,35,194,40"/>
-<area shape="rect" id="Node000003" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#a28764f95f6198b764692275f0d08886b" title="Sets the texture and vertex data." alt="" coords="5,69,159,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,75,160,80,159,75,193,70"/>
-</map>

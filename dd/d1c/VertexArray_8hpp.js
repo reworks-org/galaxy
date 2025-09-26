@@ -1,4 +1,4 @@
 var VertexArray_8hpp =
 [
-    [ "galaxy::graphics::VertexArray", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html", "df/dc0/classgalaxy_1_1graphics_1_1VertexArray" ]
+    [ "galaxy::VertexArray", "db/d02/classgalaxy_1_1VertexArray.html", "db/d02/classgalaxy_1_1VertexArray" ]
 ];

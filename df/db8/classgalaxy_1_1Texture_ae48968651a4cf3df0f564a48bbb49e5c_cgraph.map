@@ -1,0 +1,5 @@
+<map id="galaxy::Texture::recreate" name="galaxy::Texture::recreate">
+<area shape="rect" id="Node000001" title="Deletes texture data and configuration in OpenGL." alt="" coords="5,5,188,31"/>
+<area shape="rect" id="Node000002" href="$df/db8/classgalaxy_1_1Texture.html#abf69171f3d9a3c9faf4c42124c13f672" title="Destroy texture." alt="" coords="236,5,415,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,15,222,15,222,21,189,21"/>
+</map>

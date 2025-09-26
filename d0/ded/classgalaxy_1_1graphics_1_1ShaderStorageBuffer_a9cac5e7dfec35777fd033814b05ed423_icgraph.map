@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::ShaderStorageBuffer::sub_buffer" name="galaxy::graphics::ShaderStorageBuffer::sub_buffer">
-<area shape="rect" id="Node000001" title="Sub buffer data." alt="" coords="248,37,435,77"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#aa777b874eb4d8e2aed4172a8b290088b" title="Draw all submitted render commands to screen." alt="" coords="5,5,200,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,46,200,41,200,36,235,40"/>
-<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="5,69,200,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,74,200,79,200,74,234,69"/>
-</map>

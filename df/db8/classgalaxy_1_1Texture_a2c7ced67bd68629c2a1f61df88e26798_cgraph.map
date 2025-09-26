@@ -1,0 +1,15 @@
+<map id="galaxy::Texture::load_mem" name="galaxy::Texture::load_mem">
+<area shape="rect" id="Node000001" title="Loads texture from memory." alt="" coords="5,77,204,102"/>
+<area shape="rect" id="Node000002" href="$df/db8/classgalaxy_1_1Texture.html#a04d5c054f6cf6db2a84bf18d658a206a" title="Set ansiotropic filtering level." alt="" coords="274,5,423,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,74,260,46,262,51,155,79"/>
+<area shape="rect" id="Node000004" href="$df/db8/classgalaxy_1_1Texture.html#a3815f18a58b3a43d3bea069ea3afa862" title="Sets filter when texture is (up/down)scaled in OpenGL." alt="" coords="274,69,423,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="204,87,260,87,260,92,204,92"/>
+<area shape="rect" id="Node000007" href="$df/db8/classgalaxy_1_1Texture.html#a8161177d4173b526c58479889743ad3c" title="Set texture mode." alt="" coords="252,134,445,159"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="160,99,281,128,280,133,159,105"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f" title="Ansiotropic filtering level." alt="" coords="493,13,704,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,23,479,23,479,28,424,28"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="505,69,693,94"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="423,84,490,82,490,87,424,90"/>
+<area shape="rect" id="Node000006" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="508,119,689,159"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="424,101,495,116,494,121,423,107"/>
+</map>

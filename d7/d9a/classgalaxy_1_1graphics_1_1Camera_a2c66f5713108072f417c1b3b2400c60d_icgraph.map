@@ -1,7 +1,5 @@
 <map id="galaxy::graphics::Camera::set_projection" name="galaxy::graphics::Camera::set_projection">
-<area shape="rect" id="Node000001" title="Set camera projection." alt="" coords="425,5,612,45"/>
-<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="191,5,377,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="412,28,378,28,378,23,412,23"/>
-<area shape="rect" id="Node000003" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="5,5,143,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,28,143,28,143,23,177,23"/>
+<area shape="rect" id="Node000001" title="Set camera projection." alt="" coords="240,5,427,45"/>
+<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0f9fc7c3039ceaf30138add7b242b570" title="Set Viewport." alt="" coords="5,5,192,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,28,192,28,192,23,227,23"/>
 </map>

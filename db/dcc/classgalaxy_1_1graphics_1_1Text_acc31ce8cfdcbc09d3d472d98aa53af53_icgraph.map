@@ -1,7 +1,5 @@
 <map id="galaxy::graphics::Text::get_size" name="galaxy::graphics::Text::get_size">
-<area shape="rect" id="Node000001" title="Get text em size." alt="" coords="207,37,369,77"/>
-<area shape="rect" id="Node000002" href="$de/d12/namespacegalaxy_1_1lua.html#a521d74470cd4da3ebf4e4c482a35da64" title=" " alt="" coords="13,5,151,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,45,151,39,152,33,193,40"/>
-<area shape="rect" id="Node000003" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872" title="Serializes object." alt="" coords="5,69,159,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,75,160,80,159,75,193,69"/>
+<area shape="rect" id="Node000001" title="Get text em size." alt="" coords="207,5,369,45"/>
+<area shape="rect" id="Node000002" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#ab53b32414623d6ae035afb76954cf872" title="Serializes object." alt="" coords="5,5,159,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
 </map>

@@ -104,231 +104,196 @@ $(function(){initNavTree('dd/db2/Colour_8cpp_source.html','../../'); initResizab
 <div class="contents">
 <a href="../../dd/db2/Colour_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/ddd/Pragma_8hpp.html">galaxy/platform/Pragma.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dd2/Colour_8hpp.html">Colour.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/df1/Math_8hpp.html">galaxy/math/Math.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">   12</a></span><span class="keyword">const</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(0xFF);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dd2/Colour_8hpp.html">Colour.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><a class="code hl_define" href="../../d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b">GALAXY_DISABLE_WARNING_PUSH</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><a class="code hl_define" href="../../d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1">GALAXY_DISABLE_WARNING</a>(26467)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><a class="code hl_define" href="../../d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1">GALAXY_DISABLE_WARNING</a>(4244)</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">namespace </span>graphics</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#ac5a1ffe8947573d7ceb1b537ea2a7942">   16</a></span>    <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ac5a1ffe8947573d7ceb1b537ea2a7942">Colour::Colour</a>() noexcept</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        : m_red {0}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        , m_green {0}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        , m_blue {0}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        , m_alpha {OPAQUE}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a688318e06485cf10031ea500dc727569">   24</a></span>        <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a688318e06485cf10031ea500dc727569">Colour::Colour</a>()</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            : m_array {255, 255, 255, 255}</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            , m_vec4 {1.0f, 1.0f, 1.0f, 1.0f}</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a05cff0fa98a717c50fa2bea3ebc980e4">   24</a></span>    <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ac5a1ffe8947573d7ceb1b537ea2a7942">Colour::Colour</a>(<span class="keyword">const</span> std::uint8_t r, <span class="keyword">const</span> std::uint8_t g, <span class="keyword">const</span> std::uint8_t b, <span class="keyword">const</span> std::uint8_t a) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        this-&gt;r(r);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        this-&gt;g(g);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        this-&gt;b(b);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        this-&gt;a(a);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a09a54d5f286ee93716b6fb8f1cb72954">   30</a></span>        <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a688318e06485cf10031ea500dc727569">Colour::Colour</a>(<a class="code hl_class" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a>&amp;&amp; c)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a> = std::move(c.m_array);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>  = std::move(c.m_vec4);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a82de708b67cd014852ec82abf23b60f8">   32</a></span>    <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ac5a1ffe8947573d7ceb1b537ea2a7942">Colour::Colour</a>(<a class="code hl_class" href="../../d8/d74/classgalaxy_1_1Colour.html">Colour</a>&amp;&amp; c) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        this-&gt;m_red   = c.m_red;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        this-&gt;m_green = c.m_green;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        this-&gt;m_blue  = c.m_blue;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        this-&gt;m_alpha = c.m_alpha;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a414b35982e51c87d1eb050ec7ec5acf9">   36</a></span>        <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a688318e06485cf10031ea500dc727569">Colour::Colour</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a>&amp; c)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a> = c.<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>  = c.<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a19e09d20dfc206de46cd767956060766">   40</a></span>    <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ac5a1ffe8947573d7ceb1b537ea2a7942">Colour::Colour</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d74/classgalaxy_1_1Colour.html">Colour</a>&amp; c) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        this-&gt;m_red   = c.m_red;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        this-&gt;m_green = c.m_green;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        this-&gt;m_blue  = c.m_blue;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        this-&gt;m_alpha = c.m_alpha;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff">   42</a></span>        <a class="code hl_class" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a>&amp; <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff">Colour::operator=</a>(<a class="code hl_class" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a>&amp;&amp; c)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;c)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a> = std::move(c.m_array);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>  = std::move(c.m_vec4);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a01703a856a56d855ed39b2c810a4947f">   48</a></span>    <a class="code hl_class" href="../../d8/d74/classgalaxy_1_1Colour.html">Colour</a>&amp; <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#a01703a856a56d855ed39b2c810a4947f">Colour::operator=</a>(<a class="code hl_class" href="../../d8/d74/classgalaxy_1_1Colour.html">Colour</a>&amp;&amp; c) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;c)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            this-&gt;m_red   = c.m_red;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            this-&gt;m_green = c.m_green;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            this-&gt;m_blue  = c.m_blue;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            this-&gt;m_alpha = c.m_alpha;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a6a6ecc0def703f7447c6fceca355e4d2">   53</a></span>        <a class="code hl_class" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a>&amp; <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff">Colour::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">Colour</a>&amp; c)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;c)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a> = c.<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                this-&gt;<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>  = c.<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            }</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a4f53e86c92bcf4ca4c76f700eb8ae378">   61</a></span>    <a class="code hl_class" href="../../d8/d74/classgalaxy_1_1Colour.html">Colour</a>&amp; <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#a01703a856a56d855ed39b2c810a4947f">Colour::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d74/classgalaxy_1_1Colour.html">Colour</a>&amp; c) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;c)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            this-&gt;m_red   = c.m_red;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            this-&gt;m_green = c.m_green;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            this-&gt;m_blue  = c.m_blue;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            this-&gt;m_alpha = c.m_alpha;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a34cd522c717ec8b795fb8df4858774b2">   64</a></span>        <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a34cd522c717ec8b795fb8df4858774b2">Colour::~Colour</a>()</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#af845a9789577aa66524e91ad0f678bc2">   74</a></span>    <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#af845a9789577aa66524e91ad0f678bc2">Colour::~Colour</a>() noexcept</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e9f7104e1bff2c2fd29e9cf659e7035">   68</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e9f7104e1bff2c2fd29e9cf659e7035">Colour::set_r</a>(<span class="keyword">const</span> std::uint8_t r)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[0] = <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c">r</a>;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c">r</a> == 255)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.x = 1.0f;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c">r</a> == 0)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.x = 0.0f;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.x = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c">r</a>) / <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a960f18a8c948762c02b82e85cad9bb47">   78</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ae6c42428917fabc74f42299f62c4b796">Colour::r</a>(<span class="keyword">const</span> std::uint8_t r) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        m_red = std::clamp(r, LOWER, UPPER);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0db9c22461a60650eebe6d97442b8297">   86</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0db9c22461a60650eebe6d97442b8297">Colour::set_g</a>(<span class="keyword">const</span> std::uint8_t g)</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[1] = <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a">g</a>;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a">g</a> == 255)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.y = 1.0f;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a">g</a> == 0)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.y = 0.0f;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a">g</a>) / <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a854bf5448a12659e245622ca546adf26">   83</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#aeeb83413e713a27f51ea4bc573d8df3c">Colour::g</a>(<span class="keyword">const</span> std::uint8_t g) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        m_green = std::clamp(g, LOWER, UPPER);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
 </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ab417167636cc93ce7ae0569bf665e2ee">  104</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ab417167636cc93ce7ae0569bf665e2ee">Colour::set_b</a>(<span class="keyword">const</span> std::uint8_t b)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[2] = <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37">b</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#aedf7aa0bad0a42d2f7bf14f9ab63b119">   88</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5">Colour::b</a>(<span class="keyword">const</span> std::uint8_t b) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        m_blue = std::clamp(b, LOWER, UPPER);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a8761e7f9585697d9412b7059217f95f3">   93</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829">Colour::a</a>(<span class="keyword">const</span> std::uint8_t a) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        m_alpha = std::clamp(a, LOWER, UPPER);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#ae6c42428917fabc74f42299f62c4b796">   98</a></span>    std::uint8_t <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ae6c42428917fabc74f42299f62c4b796">Colour::r</a>() const noexcept</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a75b3ba7e793fdb664ca33b2da8baf136">m_red</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#aeeb83413e713a27f51ea4bc573d8df3c">  103</a></span>    std::uint8_t <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#aeeb83413e713a27f51ea4bc573d8df3c">Colour::g</a>() const noexcept</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb291c2ec8970e98f6f87116e44952ce">m_green</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37">b</a> == 255)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.z = 1.0f;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            }</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37">b</a> == 0)</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.z = 0.0f;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            }</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.z = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37">b</a>) / <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            }</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5">  108</a></span>    std::uint8_t <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5">Colour::b</a>() const noexcept</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a57b1911219c8946eca39808928cba6ee">m_blue</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
 </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ad3ffb31eb7b707f437b6b0ace6d8277f">  122</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ad3ffb31eb7b707f437b6b0ace6d8277f">Colour::set_a</a>(<span class="keyword">const</span> std::uint8_t a)</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        {</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[3] = <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c">a</a>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829">  113</a></span>    std::uint8_t <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829">Colour::a</a>() const noexcept</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a5b596da61423366d796008f7eb475d9a">m_alpha</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#ab7f684e22aa322d9a419f1e6c6fcdf84">  118</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#ab7f684e22aa322d9a419f1e6c6fcdf84">Colour::set_from_norm</a>(<span class="keyword">const</span> glm::vec4&amp; rgba) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        m_red   = std::clamp(<span class="keyword">static_cast&lt;</span>std::uint8_t<span class="keyword">&gt;</span>(rgba.x * OFFSET), LOWER, UPPER);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        m_green = std::clamp(<span class="keyword">static_cast&lt;</span>std::uint8_t<span class="keyword">&gt;</span>(rgba.y * OFFSET), LOWER, UPPER);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        m_blue  = std::clamp(<span class="keyword">static_cast&lt;</span>std::uint8_t<span class="keyword">&gt;</span>(rgba.z * OFFSET), LOWER, UPPER);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        m_alpha = std::clamp(<span class="keyword">static_cast&lt;</span>std::uint8_t<span class="keyword">&gt;</span>(rgba.w * OFFSET), LOWER, UPPER);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c">a</a> == 255)</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.w = 1.0f;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c">a</a> == 0)</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.w = 0.0f;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            }</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.w = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c">a</a>) / <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            }</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        }</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a7f76a935dd2207f451c578374d3be0b1">  126</a></span>    glm::vec4 <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#a7f76a935dd2207f451c578374d3be0b1">Colour::normalize</a>() noexcept</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keyword">auto</span> vec4 = glm::vec4();</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        vec4.x = std::clamp(<a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48">math::normalize</a>(<a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a75b3ba7e793fdb664ca33b2da8baf136">m_red</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb7dfc8eedb5b89aaddd5ae6e77d52ea">OFFSET</a>), 0.0f, 1.0f);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        vec4.y = std::clamp(<a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48">math::normalize</a>(<a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb291c2ec8970e98f6f87116e44952ce">m_green</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb7dfc8eedb5b89aaddd5ae6e77d52ea">OFFSET</a>), 0.0f, 1.0f);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        vec4.z = std::clamp(<a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48">math::normalize</a>(<a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a57b1911219c8946eca39808928cba6ee">m_blue</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb7dfc8eedb5b89aaddd5ae6e77d52ea">OFFSET</a>), 0.0f, 1.0f);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        vec4.w = std::clamp(<a class="code hl_function" href="../../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48">math::normalize</a>(<a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a5b596da61423366d796008f7eb475d9a">m_alpha</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb7dfc8eedb5b89aaddd5ae6e77d52ea">OFFSET</a>), 0.0f, 1.0f);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">return</span> vec4;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
 </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a71dd83a6caf2b29c662d0a4dad172b49">  140</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a71dd83a6caf2b29c662d0a4dad172b49">Colour::set_rgba</a>(<span class="keyword">const</span> glm::vec4&amp; rgba)</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        {</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a> = rgba;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.x = std::clamp(<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.x, 0.0f, 1.0f);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.y = std::clamp(<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.y, 0.0f, 1.0f);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.z = std::clamp(<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.z, 0.0f, 1.0f);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.w = std::clamp(<a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.w, 0.0f, 1.0f);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[0] = <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.x * <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[1] = <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.y * <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[2] = <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.z * <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>[3] = <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>.w * <a class="code hl_variable" href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a>;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d8/d74/classgalaxy_1_1Colour.html#a24ae47ec76a70b45d45b36b11ebadb8c">  138</a></span>    std::array&lt;std::uint8_t, 4&gt; <a class="code hl_function" href="../../d8/d74/classgalaxy_1_1Colour.html#a24ae47ec76a70b45d45b36b11ebadb8c">Colour::array</a>() noexcept</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> {<a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a75b3ba7e793fdb664ca33b2da8baf136">m_red</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#afb291c2ec8970e98f6f87116e44952ce">m_green</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a57b1911219c8946eca39808928cba6ee">m_blue</a>, <a class="code hl_variable" href="../../d8/d74/classgalaxy_1_1Colour.html#a5b596da61423366d796008f7eb475d9a">m_alpha</a>};</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
 </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3f00c22989d3b80b4d4186ba4e0ad531">  155</a></span>        std::array&lt;std::uint8_t, 4&gt;&amp; <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3f00c22989d3b80b4d4186ba4e0ad531">Colour::array</a>()</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
-</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560">  160</a></span>        glm::vec4&amp; <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560">Colour::vec4</a>()</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>;</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
-</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a66f9902e018b50afebf2f73601261a27">  165</a></span>        <span class="keyword">const</span> std::array&lt;std::uint8_t, 4&gt;&amp; <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3f00c22989d3b80b4d4186ba4e0ad531">Colour::array</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">m_array</a>;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        }</div>
-</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a8c1c222c29625dc930db285f451e089a">  170</a></span>        <span class="keyword">const</span> glm::vec4&amp; <a class="code hl_function" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560">Colour::vec4</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">m_vec4</a>;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
-</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    } <span class="comment">// namespace graphics</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><a class="code hl_define" href="../../d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041">GALAXY_DISABLE_WARNING_POP</a></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aColour_8cpp_html_a9713c23cf67f95beba8386c526c253b7"><div class="ttname"><a href="../../dd/db2/Colour_8cpp.html#a9713c23cf67f95beba8386c526c253b7">COLOUR_OFFSET</a></div><div class="ttdeci">const constexpr auto COLOUR_OFFSET</div><div class="ttdoc">Colour.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="#l00012">Colour.cpp:12</a></div></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aColour_8hpp_html"><div class="ttname"><a href="../../db/dd2/Colour_8hpp.html">Colour.hpp</a></div></div>
-<div class="ttc" id="aPragma_8hpp_html"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html">Pragma.hpp</a></div></div>
-<div class="ttc" id="aPragma_8hpp_html_a3514101475ec72e36c0a92d2a955c041"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041">GALAXY_DISABLE_WARNING_POP</a></div><div class="ttdeci">#define GALAXY_DISABLE_WARNING_POP</div><div class="ttdef"><b>Definition</b> <a href="../../d5/ddd/Pragma_8hpp_source.html#l00057">Pragma.hpp:57</a></div></div>
-<div class="ttc" id="aPragma_8hpp_html_ad30c844175cedd5057b721af549804e1"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1">GALAXY_DISABLE_WARNING</a></div><div class="ttdeci">#define GALAXY_DISABLE_WARNING(x)</div><div class="ttdef"><b>Definition</b> <a href="../../d5/ddd/Pragma_8hpp_source.html#l00058">Pragma.hpp:58</a></div></div>
-<div class="ttc" id="aPragma_8hpp_html_aefee1add5f6cd2daaa34807a79a79d4b"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b">GALAXY_DISABLE_WARNING_PUSH</a></div><div class="ttdeci">#define GALAXY_DISABLE_WARNING_PUSH</div><div class="ttdoc">Macro for windows platform detection.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/ddd/Pragma_8hpp_source.html#l00056">Pragma.hpp:56</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html">galaxy::graphics::Colour</a></div><div class="ttdoc">Represents an RGBA colour.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00026">Colour.hpp:27</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a0db9c22461a60650eebe6d97442b8297"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a0db9c22461a60650eebe6d97442b8297">galaxy::graphics::Colour::set_g</a></div><div class="ttdeci">void set_g(const std::uint8_t g)</div><div class="ttdoc">Green.</div><div class="ttdef"><b>Definition</b> <a href="#l00086">Colour.cpp:86</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a26a3076e7db0fd4fb712accd41f25d99"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a26a3076e7db0fd4fb712accd41f25d99">galaxy::graphics::Colour::m_vec4</a></div><div class="ttdeci">glm::vec4 m_vec4</div><div class="ttdoc">r,g,b,a = x,y,z,w.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00196">Colour.hpp:196</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a34cd522c717ec8b795fb8df4858774b2"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a34cd522c717ec8b795fb8df4858774b2">galaxy::graphics::Colour::~Colour</a></div><div class="ttdeci">~Colour()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00064">Colour.cpp:64</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a3f00c22989d3b80b4d4186ba4e0ad531"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3f00c22989d3b80b4d4186ba4e0ad531">galaxy::graphics::Colour::array</a></div><div class="ttdeci">std::array&lt; std::uint8_t, 4 &gt; &amp; array()</div><div class="ttdoc">Get integer array.</div><div class="ttdef"><b>Definition</b> <a href="#l00155">Colour.cpp:155</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a3fb4f9d2bdef7c49fa3206e22dcc055c"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a3fb4f9d2bdef7c49fa3206e22dcc055c">galaxy::graphics::Colour::r</a></div><div class="ttdeci">R r() const</div><div class="ttdoc">Get red.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a434dfb1a015396c47b37d0a59da39b37"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a434dfb1a015396c47b37d0a59da39b37">galaxy::graphics::Colour::b</a></div><div class="ttdeci">B b() const</div><div class="ttdoc">Get blue.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a4cf7f007687a02471514fdd4b880f5ff"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4cf7f007687a02471514fdd4b880f5ff">galaxy::graphics::Colour::operator=</a></div><div class="ttdeci">Colour &amp; operator=(Colour &amp;&amp;)</div><div class="ttdoc">Move assignment operator.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">Colour.cpp:42</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a4fadfcdd684d5dc4128674fa6d003560"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a4fadfcdd684d5dc4128674fa6d003560">galaxy::graphics::Colour::vec4</a></div><div class="ttdeci">glm::vec4 &amp; vec4()</div><div class="ttdoc">Get vec4.</div><div class="ttdef"><b>Definition</b> <a href="#l00160">Colour.cpp:160</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a5e1af8ab8c42878e906be1bd9af520c7"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e1af8ab8c42878e906be1bd9af520c7">galaxy::graphics::Colour::m_array</a></div><div class="ttdeci">std::array&lt; std::uint8_t, 4 &gt; m_array</div><div class="ttdoc">r,g,b,a = 0,1,2,3.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00191">Colour.hpp:191</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a5e9f7104e1bff2c2fd29e9cf659e7035"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a5e9f7104e1bff2c2fd29e9cf659e7035">galaxy::graphics::Colour::set_r</a></div><div class="ttdeci">void set_r(const std::uint8_t r)</div><div class="ttdoc">Red.</div><div class="ttdef"><b>Definition</b> <a href="#l00068">Colour.cpp:68</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a688318e06485cf10031ea500dc727569"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a688318e06485cf10031ea500dc727569">galaxy::graphics::Colour::Colour</a></div><div class="ttdeci">Colour()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Colour.cpp:24</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_a71dd83a6caf2b29c662d0a4dad172b49"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#a71dd83a6caf2b29c662d0a4dad172b49">galaxy::graphics::Colour::set_rgba</a></div><div class="ttdeci">void set_rgba(const glm::vec4 &amp;rgba)</div><div class="ttdoc">Set RGBA.</div><div class="ttdef"><b>Definition</b> <a href="#l00140">Colour.cpp:140</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_aa6e3d8e52dc9f22860acc4f13395585a"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#aa6e3d8e52dc9f22860acc4f13395585a">galaxy::graphics::Colour::g</a></div><div class="ttdeci">G g() const</div><div class="ttdoc">Get green.</div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_ab417167636cc93ce7ae0569bf665e2ee"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ab417167636cc93ce7ae0569bf665e2ee">galaxy::graphics::Colour::set_b</a></div><div class="ttdeci">void set_b(const std::uint8_t b)</div><div class="ttdoc">Blue.</div><div class="ttdef"><b>Definition</b> <a href="#l00104">Colour.cpp:104</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_ad3ffb31eb7b707f437b6b0ace6d8277f"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ad3ffb31eb7b707f437b6b0ace6d8277f">galaxy::graphics::Colour::set_a</a></div><div class="ttdeci">void set_a(const std::uint8_t a)</div><div class="ttdoc">Alpha.</div><div class="ttdef"><b>Definition</b> <a href="#l00122">Colour.cpp:122</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1graphics_1_1Colour_html_ae02b6f2756e6110c98ab53ff9fa2365c"><div class="ttname"><a href="../../d2/dae/classgalaxy_1_1graphics_1_1Colour.html#ae02b6f2756e6110c98ab53ff9fa2365c">galaxy::graphics::Colour::a</a></div><div class="ttdeci">A a() const</div><div class="ttdoc">Get alpha.</div></div>
+<div class="ttc" id="aMath_8hpp_html"><div class="ttname"><a href="../../d8/df1/Math_8hpp.html">Math.hpp</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html">galaxy::Colour</a></div><div class="ttdoc">Represents an RGBA colour.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00023">Colour.hpp:24</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a01703a856a56d855ed39b2c810a4947f"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a01703a856a56d855ed39b2c810a4947f">galaxy::Colour::operator=</a></div><div class="ttdeci">Colour &amp; operator=(Colour &amp;&amp;) noexcept</div><div class="ttdoc">Move assignment operator.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">Colour.cpp:48</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a24ae47ec76a70b45d45b36b11ebadb8c"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a24ae47ec76a70b45d45b36b11ebadb8c">galaxy::Colour::array</a></div><div class="ttdeci">std::array&lt; std::uint8_t, 4 &gt; array() noexcept</div><div class="ttdoc">Get as array.</div><div class="ttdef"><b>Definition</b> <a href="#l00138">Colour.cpp:138</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a57b1911219c8946eca39808928cba6ee"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a57b1911219c8946eca39808928cba6ee">galaxy::Colour::m_blue</a></div><div class="ttdeci">std::uint8_t m_blue</div><div class="ttdoc">Blue channel.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00220">Colour.hpp:220</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a5b596da61423366d796008f7eb475d9a"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a5b596da61423366d796008f7eb475d9a">galaxy::Colour::m_alpha</a></div><div class="ttdeci">std::uint8_t m_alpha</div><div class="ttdoc">Alpha channel.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00225">Colour.hpp:225</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a66fb5b27d51fb11fe39b6c7a18fb3829"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829">galaxy::Colour::a</a></div><div class="ttdeci">std::uint8_t a() const noexcept</div><div class="ttdoc">Get alpha.</div><div class="ttdef"><b>Definition</b> <a href="#l00113">Colour.cpp:113</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a75b3ba7e793fdb664ca33b2da8baf136"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a75b3ba7e793fdb664ca33b2da8baf136">galaxy::Colour::m_red</a></div><div class="ttdeci">std::uint8_t m_red</div><div class="ttdoc">Red channel.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00210">Colour.hpp:210</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_a7f76a935dd2207f451c578374d3be0b1"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#a7f76a935dd2207f451c578374d3be0b1">galaxy::Colour::normalize</a></div><div class="ttdeci">glm::vec4 normalize() noexcept</div><div class="ttdoc">Get normalized rgba vec4.</div><div class="ttdef"><b>Definition</b> <a href="#l00126">Colour.cpp:126</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_ab7f684e22aa322d9a419f1e6c6fcdf84"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#ab7f684e22aa322d9a419f1e6c6fcdf84">galaxy::Colour::set_from_norm</a></div><div class="ttdeci">void set_from_norm(const glm::vec4 &amp;rgba) noexcept</div><div class="ttdoc">Set RGBA from normalizaed values.</div><div class="ttdef"><b>Definition</b> <a href="#l00118">Colour.cpp:118</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_ac5a1ffe8947573d7ceb1b537ea2a7942"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#ac5a1ffe8947573d7ceb1b537ea2a7942">galaxy::Colour::Colour</a></div><div class="ttdeci">Colour() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">Colour.cpp:16</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_ac91e36db60470f6838e32d469d5aead5"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5">galaxy::Colour::b</a></div><div class="ttdeci">std::uint8_t b() const noexcept</div><div class="ttdoc">Get blue.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">Colour.cpp:108</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_ae6c42428917fabc74f42299f62c4b796"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#ae6c42428917fabc74f42299f62c4b796">galaxy::Colour::r</a></div><div class="ttdeci">std::uint8_t r() const noexcept</div><div class="ttdoc">Get red.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">Colour.cpp:98</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_aeeb83413e713a27f51ea4bc573d8df3c"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#aeeb83413e713a27f51ea4bc573d8df3c">galaxy::Colour::g</a></div><div class="ttdeci">std::uint8_t g() const noexcept</div><div class="ttdoc">Get green.</div><div class="ttdef"><b>Definition</b> <a href="#l00103">Colour.cpp:103</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_af845a9789577aa66524e91ad0f678bc2"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#af845a9789577aa66524e91ad0f678bc2">galaxy::Colour::~Colour</a></div><div class="ttdeci">~Colour() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00074">Colour.cpp:74</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_afb291c2ec8970e98f6f87116e44952ce"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#afb291c2ec8970e98f6f87116e44952ce">galaxy::Colour::m_green</a></div><div class="ttdeci">std::uint8_t m_green</div><div class="ttdoc">Green channel.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00215">Colour.hpp:215</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Colour_html_afb7dfc8eedb5b89aaddd5ae6e77d52ea"><div class="ttname"><a href="../../d8/d74/classgalaxy_1_1Colour.html#afb7dfc8eedb5b89aaddd5ae6e77d52ea">galaxy::Colour::OFFSET</a></div><div class="ttdeci">static const constexpr std::uint8_t OFFSET</div><div class="ttdoc">Colour offsets for normalization.</div><div class="ttdef"><b>Definition</b> <a href="../../db/dd2/Colour_8hpp_source.html#l00039">Colour.hpp:39</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1math_html_a59b8e6974f10b241ee83381ce3e5df48"><div class="ttname"><a href="../../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48">galaxy::math::normalize</a></div><div class="ttdeci">float constexpr normalize(const Arithmetic val, const Arithmetic max) noexcept</div><div class="ttdoc">Calc normalized value from range.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/df1/Math_8hpp_source.html#l00029">Math.hpp:29</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -336,7 +301,7 @@ $(function(){initNavTree('dd/db2/Colour_8cpp_source.html','../../'); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dd/db2/Colour_8cpp.html">Colour.cpp</a></li>
-    <li class="footer">Generated on Mon Sep 22 2025 04:28:36 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Sep 26 2025 09:07:31 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

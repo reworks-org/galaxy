@@ -69,6 +69,7 @@ var namespacegalaxy =
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", "d3/dd9/namespacegalaxy_1_1ui" ],
     [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
+    [ "Colour", "d8/d74/classgalaxy_1_1Colour.html", "d8/d74/classgalaxy_1_1Colour" ],
     [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
     [ "ContentScale", "dd/d27/structgalaxy_1_1ContentScale.html", "dd/d27/structgalaxy_1_1ContentScale" ],
@@ -95,6 +96,8 @@ var namespacegalaxy =
     [ "Registry", "df/dbe/classgalaxy_1_1Registry.html", "df/dbe/classgalaxy_1_1Registry" ],
     [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
     [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
+    [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html", "d1/d5e/classgalaxy_1_1Shader" ],
+    [ "ShaderStorageBuffer", "d0/d35/classgalaxy_1_1ShaderStorageBuffer.html", "d0/d35/classgalaxy_1_1ShaderStorageBuffer" ],
     [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
     [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],
     [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ],
@@ -102,8 +105,12 @@ var namespacegalaxy =
     [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
     [ "System", "dc/dd4/classgalaxy_1_1System.html", "dc/dd4/classgalaxy_1_1System" ],
     [ "SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", "d3/dac/classgalaxy_1_1SystemFactory" ],
+    [ "Texture", "df/db8/classgalaxy_1_1Texture.html", "df/db8/classgalaxy_1_1Texture" ],
     [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
     [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
+    [ "Vertex", "db/d8c/structgalaxy_1_1Vertex.html", "db/d8c/structgalaxy_1_1Vertex" ],
+    [ "VertexArray", "db/d02/classgalaxy_1_1VertexArray.html", "db/d02/classgalaxy_1_1VertexArray" ],
+    [ "VertexBuffer", "da/d97/classgalaxy_1_1VertexBuffer.html", "da/d97/classgalaxy_1_1VertexBuffer" ],
     [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
     [ "Window", "d0/d84/classgalaxy_1_1Window.html", "d0/d84/classgalaxy_1_1Window" ],
     [ "WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", "d3/d81/classgalaxy_1_1WindowBindable" ],
@@ -130,6 +137,31 @@ var namespacegalaxy =
       [ "okcancel", "d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da5e8e0e395dfe620cc4df524eb4294d1b", null ],
       [ "yesno", "d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9dacc74e9b9aaac7367488cc146dfb078db", null ],
       [ "yesnocancel", "d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da30cea79617be1bdc188511fdf0d582bd", null ]
+    ] ],
+    [ "GLAttributeBinding", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3ba", [
+      [ "POSITION_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baad11221eaa67349727c817f4c124fc6b5", null ],
+      [ "TEXEL_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d", null ],
+      [ "OFFSET_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baa3038efd7f692df8553c984f73a9f1939", null ]
+    ] ],
+    [ "GLBufferBinding", "d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9c", [
+      [ "VERTEX_BUFFER_POINT", "d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9ca9d8102760f7af3639a97cd88b43b56d4", null ],
+      [ "INSTANCE_BUFFER_POINT", "d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9ca2e37e7b71c4223dcf4ab61621653b3a8", null ]
+    ] ],
+    [ "GLTextureFilter", "d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0", [
+      [ "NEAREST", "d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a", null ],
+      [ "BILINEAR", "d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65", null ],
+      [ "TRILINEAR", "d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783", null ]
+    ] ],
+    [ "GLDrawHint", "d0/d46/namespacegalaxy.html#a7b585146f3d9615eb219d3f838383e26", [
+      [ "STATIC_DRAW", "d0/d46/namespacegalaxy.html#a7b585146f3d9615eb219d3f838383e26a0c5234f5830e196c1079d1fdcf3f9aba", null ],
+      [ "DYNAMIC_DRAW", "d0/d46/namespacegalaxy.html#a7b585146f3d9615eb219d3f838383e26a5ff708d7d781ea10e2ce8d6d3d4022eb", null ],
+      [ "STREAM_DRAW", "d0/d46/namespacegalaxy.html#a7b585146f3d9615eb219d3f838383e26a4b631f47edaf0aaac92dfe66e19d65cf", null ]
+    ] ],
+    [ "GLTextureMode", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7", [
+      [ "REPEAT", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7a5be68175be14dfaa080165456c2e9555", null ],
+      [ "MIRRORED_REPEAT", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7acf6164235e7bfffb5c4c7c4b685f660a", null ],
+      [ "CLAMP_TO_EDGE", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7aca305cdc5d749d643055111218063f26", null ],
+      [ "CLAMP_TO_BORDER", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7afcb162090f81b0a56721e5aa01b880c3", null ]
     ] ],
     [ "Keys", "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83", [
       [ "KEY_UNKNOWN", "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ac65562a4ae65d30cddd4dbd6a196d3ae", null ],
@@ -423,6 +455,13 @@ var namespacegalaxy =
       [ "ERROR", "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395abb1ca97ec761fc37101737ba0aa2e7c5", null ],
       [ "FATAL", "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc", null ]
     ] ],
+    [ "Shader::set_uniform< std::uint64_t >", "d0/d46/namespacegalaxy.html#acd6756495b4978d163572e06c6202d19", null ],
+    [ "Shader::set_uniform< glm::mat3 >", "d0/d46/namespacegalaxy.html#a13245e2a7b2304ee40e412d044af5772", null ],
+    [ "Shader::set_uniform< glm::mat4 >", "d0/d46/namespacegalaxy.html#a7edfdffefd02aefffb411ea6517a450d", null ],
+    [ "Shader::set_uniform< glm::vec2 >", "d0/d46/namespacegalaxy.html#ad775f7800b89ef41bbacafb6d29082c7", null ],
+    [ "Shader::set_uniform< glm::vec3 >", "d0/d46/namespacegalaxy.html#aea0db516d8ad65a3f0c4ba234303afca", null ],
+    [ "Shader::set_uniform< glm::vec4 >", "d0/d46/namespacegalaxy.html#af0377dd04afbb15477df8d69575b38fb", null ],
+    [ "Shader::set_uniform< std::array< float, 4 > >", "d0/d46/namespacegalaxy.html#a8635a2655e76f75a1359a7114c917aac", null ],
     [ "sdl_log_callback", "d0/d46/namespacegalaxy.html#a6ab4be042a306ac849b975c9e7045f3f", null ],
     [ "get_loglevel_colour", "d0/d46/namespacegalaxy.html#a6319b32641882789298150a015a96f74", null ],
     [ "root_path_wrapper", "d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21", null ],

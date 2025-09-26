@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::Texture2D::load_mem" name="galaxy::graphics::Texture2D::load_mem">
-<area shape="rect" id="Node000001" title="Loads texture from memory." alt="" coords="5,69,197,109"/>
-<area shape="rect" id="Node000002" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#a3aa4307076d4929453eb8ca27f260ee2" title="Get current anisotropy level." alt="" coords="245,5,429,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,67,249,46,251,51,177,72"/>
-<area shape="rect" id="Node000003" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#aeb2485daf7ad649d9180d102ce5c6e92" title="Get texture filter." alt="" coords="245,69,429,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,87,232,87,232,92,198,92"/>
-<area shape="rect" id="Node000004" href="$dc/d3f/classgalaxy_1_1graphics_1_1Texture.html#ad3d9db8111fa970b31800105678cbadc" title="Get texture mode." alt="" coords="245,133,429,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,107,251,127,249,132,175,112"/>
-</map>

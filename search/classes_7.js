@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['info_0',['Info',['../d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html',1,'galaxy::resource::TextureAtlas']]],
-  ['instancebuffer_1',['InstanceBuffer',['../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html',1,'galaxy::graphics']]]
+  ['info_0',['Info',['../d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html',1,'galaxy::resource::TextureAtlas']]]
 ];

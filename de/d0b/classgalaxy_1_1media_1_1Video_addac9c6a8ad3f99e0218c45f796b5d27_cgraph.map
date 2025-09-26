@@ -1,11 +1,7 @@
 <map id="galaxy::media::Video::load" name="galaxy::media::Video::load">
-<area shape="rect" id="Node000001" title="Load a MPEG&#45;1 from video file." alt="" coords="5,69,164,109"/>
-<area shape="rect" id="Node000002" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="227,5,378,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,67,220,47,222,52,154,72"/>
-<area shape="rect" id="Node000003" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a120ac8dcadc978b42d43ef946b0ce372" title="Loads a combined raw shader." alt="" coords="212,69,393,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,87,198,87,198,92,164,92"/>
-<area shape="rect" id="Node000005" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="223,133,382,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="154,107,222,127,220,132,153,112"/>
-<area shape="rect" id="Node000004" href="$d9/d1b/classgalaxy_1_1graphics_1_1Shader.html#a9fee259860dc26e8379d136086d61d4d" title="Extract source code from a combined shader." alt="" coords="441,69,623,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="394,87,427,87,427,92,394,92"/>
+<area shape="rect" id="Node000001" title="Load a MPEG&#45;1 from video file." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000002" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="216,5,367,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,42,202,36,203,42,165,48"/>
+<area shape="rect" id="Node000003" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#af01a99098872e407f5e138dec9500912" title="Internal function to update video frame data." alt="" coords="212,69,371,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,67,199,72,198,78,164,72"/>
 </map>

@@ -1,11 +1,11 @@
 <map id="galaxy::graphics::Point::create" name="galaxy::graphics::Point::create">
-<area shape="rect" id="Node000001" title="Initial point positon." alt="" coords="5,67,175,107"/>
-<area shape="rect" id="Node000002" href="$df/dc0/classgalaxy_1_1graphics_1_1VertexArray.html#a683d02c890bf2b00c25e0fbb03fb987d" title="Create vertex array object." alt="" coords="233,37,412,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,73,219,68,220,73,175,79"/>
-<area shape="rect" id="Node000005" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="223,102,423,127"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="175,94,209,98,209,104,175,100"/>
-<area shape="rect" id="Node000003" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#a77263b8118b72e4f9539be3d5a8fe31a" title="Create vertex buffer object." alt="" coords="471,5,649,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,43,457,37,457,42,412,48"/>
-<area shape="rect" id="Node000004" href="$d3/d4b/classgalaxy_1_1graphics_1_1VertexBuffer.html#aa922fec6e95116af72cde0da1c39bb98" title="Get OpenGL handle." alt="" coords="471,69,649,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="412,67,457,73,457,78,412,72"/>
+<area shape="rect" id="Node000001" title="Initial point positon." alt="" coords="5,64,175,104"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="247,35,398,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,71,233,63,234,69,175,76"/>
+<area shape="rect" id="Node000005" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="223,99,423,125"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="175,92,209,96,209,101,175,97"/>
+<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="481,5,635,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,43,466,34,467,39,399,48"/>
+<area shape="rect" id="Node000004" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="471,70,645,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="399,61,457,68,457,73,398,66"/>
 </map>

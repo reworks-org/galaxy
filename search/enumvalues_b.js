@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['question_0',['question',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803a5494af1f14a8c19939968c3e9e2d4f79',1,'galaxy']]]
+  ['position_5fpoint_0',['POSITION_POINT',['../d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baad11221eaa67349727c817f4c124fc6b5',1,'galaxy']]]
 ];

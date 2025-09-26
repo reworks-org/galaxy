@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['dialogbutton_0',['DialogButton',['../d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010',1,'galaxy']]],
-  ['dialogicon_1',['DialogIcon',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803',1,'galaxy']]],
-  ['dialogtype_2',['DialogType',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9d',1,'galaxy']]],
-  ['drawhint_3',['DrawHint',['../db/dab/namespacegalaxy_1_1graphics.html#a0b76f62c59454a427d2957387ed9477c',1,'galaxy::graphics']]]
+  ['glattributebinding_0',['GLAttributeBinding',['../d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3ba',1,'galaxy']]],
+  ['glbufferbinding_1',['GLBufferBinding',['../d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9c',1,'galaxy']]],
+  ['gldrawhint_2',['GLDrawHint',['../d0/d46/namespacegalaxy.html#a7b585146f3d9615eb219d3f838383e26',1,'galaxy']]],
+  ['gltexturefilter_3',['GLTextureFilter',['../d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0',1,'galaxy']]],
+  ['gltexturemode_4',['GLTextureMode',['../d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7',1,'galaxy']]]
 ];

@@ -1,0 +1,5 @@
+<map id="galaxy::Texture::save" name="galaxy::Texture::save">
+<area shape="rect" id="Node000001" title="Saves texture to file on disk." alt="" coords="5,5,165,31"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="213,5,397,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,15,200,15,200,21,166,21"/>
+</map>
