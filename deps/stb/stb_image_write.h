@@ -173,11 +173,12 @@ STBIWDEF int stbi_write_force_png_filter;
 #endif
 
 #ifndef STBI_WRITE_NO_STDIO
-STBIWDEF int stbi_write_png(char const *filename, int w, int h, int comp, const void  *data, int stride_in_bytes);
-STBIWDEF int stbi_write_bmp(char const *filename, int w, int h, int comp, const void  *data);
-STBIWDEF int stbi_write_tga(char const *filename, int w, int h, int comp, const void  *data);
-STBIWDEF int stbi_write_hdr(char const *filename, int w, int h, int comp, const float *data);
-STBIWDEF int stbi_write_jpg(char const *filename, int x, int y, int comp, const void  *data, int quality);
+STBIWDEF int            stbi_write_png(char const* filename, int w, int h, int comp, const void* data, int stride_in_bytes);
+STBIWDEF int            stbi_write_bmp(const char* filename, int w, int h, int comp, const void* data);
+STBIWDEF int            stbi_write_tga(const char* filename, int w, int h, int comp, const void* data);
+STBIWDEF int            stbi_write_hdr(const char* filename, int w, int h, int comp, const float* data);
+STBIWDEF int            stbi_write_jpg(const char* filename, int x, int y, int comp, const void* data, int quality);
+STBIWDEF unsigned char* stbi_write_png_to_mem(const unsigned char* pixels, int stride_bytes, int x, int y, int n, int* out_len);
 
 #ifdef STBIW_WINDOWS_UTF8
 STBIWDEF int stbiw_convert_wchar_to_utf8(char *buffer, size_t bufferlen, const wchar_t* input);

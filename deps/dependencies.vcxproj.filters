@@ -453,7 +453,6 @@
     <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="tinyfd\tinyfiledialogs.c" />
-    <ClCompile Include="stb\SDL_stbimage.c" />
     <ClCompile Include="imgui\imgui\misc\cpp\imgui_stdlib.cpp" />
     <ClCompile Include="imgui\imgui\misc\freetype\imgui_freetype.cpp" />
     <ClCompile Include="imgui\imgui\imgui.cpp" />
@@ -461,6 +460,7 @@
     <ClCompile Include="imgui\imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="stb\SDL_stbimage.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entt_sol\entt_sol\dispatcher.hpp" />
