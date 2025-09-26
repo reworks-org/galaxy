@@ -28,7 +28,18 @@ namespace galaxy
 		[[nodiscard]]
 		inline float constexpr normalize(const Arithmetic val, const Arithmetic max) noexcept
 		{
-			return static_cast<float>(val) / static_cast<float>(max);
+			if (val != 0 && val != max)
+			{
+				return static_cast<float>(val) / static_cast<float>(max);
+			}
+			else if (val == max)
+			{
+				return 1.0f;
+			}
+			else
+			{
+				return 0.0f;
+			}
 		}
 	} // namespace math
 } // namespace galaxy
