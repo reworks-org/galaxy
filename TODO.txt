@@ -12,3 +12,17 @@ https://wiki.libsdl.org/SDL3/CategoryJoystick
 TODO:
 - Scale mouse cursor to display size i.e. 50%, 200%, etc.
     - https://wiki.libsdl.org/SDL3/SDL_CreateColorCursor#remarks
+
+
+    https://github.com/reworks-org/galaxy/commit/07cacb68c4309594d81e0d64cb6dfd9de861ed5b
+    https://github.com/meemknight/gl2d/tree/master
+    https://github.com/Wassimulator/SimplyRend
+    https://github.com/ivan-resetnikov/demo-2D-PBR-renderer-opengl
+
+
+Renderer:
+- static pass (uploaded once, rendered per frame)
+- dynamic pass (uploaded per frame, rendered per frame)
+- SpriteBatch Pass? -> Static?
+- lighting pass?
+https://ktstephano.github.io/rendering/opengl/prog_vtx_pulling

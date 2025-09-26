@@ -5,175 +5,138 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/platform/Pragma.hpp"
+#include <algorithm>
+
+#include "galaxy/math/Math.hpp"
 
 #include "Colour.hpp"
 
-const constexpr auto COLOUR_OFFSET = static_cast<float>(0xFF);
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(26467)
-GALAXY_DISABLE_WARNING(4244)
-#endif
-
 namespace galaxy
 {
-	namespace graphics
+	Colour::Colour() noexcept
+		: m_red {0}
+		, m_green {0}
+		, m_blue {0}
+		, m_alpha {OPAQUE}
 	{
-		Colour::Colour()
-			: m_array {255, 255, 255, 255}
-			, m_vec4 {1.0f, 1.0f, 1.0f, 1.0f}
+	}
+
+	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept
+	{
+		this->r(r);
+		this->g(g);
+		this->b(b);
+		this->a(a);
+	}
+
+	Colour::Colour(Colour&& c) noexcept
+	{
+		this->m_red   = c.m_red;
+		this->m_green = c.m_green;
+		this->m_blue  = c.m_blue;
+		this->m_alpha = c.m_alpha;
+	}
+
+	Colour::Colour(const Colour& c) noexcept
+	{
+		this->m_red   = c.m_red;
+		this->m_green = c.m_green;
+		this->m_blue  = c.m_blue;
+		this->m_alpha = c.m_alpha;
+	}
+
+	Colour& Colour::operator=(Colour&& c) noexcept
+	{
+		if (this != &c)
 		{
+			this->m_red   = c.m_red;
+			this->m_green = c.m_green;
+			this->m_blue  = c.m_blue;
+			this->m_alpha = c.m_alpha;
 		}
 
-		Colour::Colour(Colour&& c)
+		return *this;
+	}
+
+	Colour& Colour::operator=(const Colour& c) noexcept
+	{
+		if (this != &c)
 		{
-			this->m_array = std::move(c.m_array);
-			this->m_vec4  = std::move(c.m_vec4);
+			this->m_red   = c.m_red;
+			this->m_green = c.m_green;
+			this->m_blue  = c.m_blue;
+			this->m_alpha = c.m_alpha;
 		}
 
-		Colour::Colour(const Colour& c)
-		{
-			this->m_array = c.m_array;
-			this->m_vec4  = c.m_vec4;
-		}
+		return *this;
+	}
 
-		Colour& Colour::operator=(Colour&& c)
-		{
-			if (this != &c)
-			{
-				this->m_array = std::move(c.m_array);
-				this->m_vec4  = std::move(c.m_vec4);
-			}
+	Colour::~Colour() noexcept
+	{
+	}
 
-			return *this;
-		}
+	void Colour::r(const std::uint8_t r) noexcept
+	{
+		m_red = std::clamp(r, LOWER, UPPER);
+	}
 
-		Colour& Colour::operator=(const Colour& c)
-		{
-			if (this != &c)
-			{
-				this->m_array = c.m_array;
-				this->m_vec4  = c.m_vec4;
-			}
+	void Colour::g(const std::uint8_t g) noexcept
+	{
+		m_green = std::clamp(g, LOWER, UPPER);
+	}
 
-			return *this;
-		}
+	void Colour::b(const std::uint8_t b) noexcept
+	{
+		m_blue = std::clamp(b, LOWER, UPPER);
+	}
 
-		Colour::~Colour()
-		{
-		}
+	void Colour::a(const std::uint8_t a) noexcept
+	{
+		m_alpha = std::clamp(a, LOWER, UPPER);
+	}
 
-		void Colour::set_r(const std::uint8_t r)
-		{
-			m_array[0] = r;
+	std::uint8_t Colour::r() const noexcept
+	{
+		return m_red;
+	}
 
-			if (r == 255)
-			{
-				m_vec4.x = 1.0f;
-			}
-			else if (r == 0)
-			{
-				m_vec4.x = 0.0f;
-			}
-			else
-			{
-				m_vec4.x = static_cast<float>(r) / COLOUR_OFFSET;
-			}
-		}
+	std::uint8_t Colour::g() const noexcept
+	{
+		return m_green;
+	}
 
-		void Colour::set_g(const std::uint8_t g)
-		{
-			m_array[1] = g;
+	std::uint8_t Colour::b() const noexcept
+	{
+		return m_blue;
+	}
 
-			if (g == 255)
-			{
-				m_vec4.y = 1.0f;
-			}
-			else if (g == 0)
-			{
-				m_vec4.y = 0.0f;
-			}
-			else
-			{
-				m_vec4.y = static_cast<float>(g) / COLOUR_OFFSET;
-			}
-		}
+	std::uint8_t Colour::a() const noexcept
+	{
+		return m_alpha;
+	}
 
-		void Colour::set_b(const std::uint8_t b)
-		{
-			m_array[2] = b;
+	void Colour::set_from_norm(const glm::vec4& rgba) noexcept
+	{
+		m_red   = std::clamp(static_cast<std::uint8_t>(rgba.x * OFFSET), LOWER, UPPER);
+		m_green = std::clamp(static_cast<std::uint8_t>(rgba.y * OFFSET), LOWER, UPPER);
+		m_blue  = std::clamp(static_cast<std::uint8_t>(rgba.z * OFFSET), LOWER, UPPER);
+		m_alpha = std::clamp(static_cast<std::uint8_t>(rgba.w * OFFSET), LOWER, UPPER);
+	}
 
-			if (b == 255)
-			{
-				m_vec4.z = 1.0f;
-			}
-			else if (b == 0)
-			{
-				m_vec4.z = 0.0f;
-			}
-			else
-			{
-				m_vec4.z = static_cast<float>(b) / COLOUR_OFFSET;
-			}
-		}
+	glm::vec4 Colour::normalize() noexcept
+	{
+		auto vec4 = glm::vec4();
 
-		void Colour::set_a(const std::uint8_t a)
-		{
-			m_array[3] = a;
+		vec4.x = std::clamp(math::normalize(m_red, OFFSET), 0.0f, 1.0f);
+		vec4.y = std::clamp(math::normalize(m_green, OFFSET), 0.0f, 1.0f);
+		vec4.z = std::clamp(math::normalize(m_blue, OFFSET), 0.0f, 1.0f);
+		vec4.w = std::clamp(math::normalize(m_alpha, OFFSET), 0.0f, 1.0f);
 
-			if (a == 255)
-			{
-				m_vec4.w = 1.0f;
-			}
-			else if (a == 0)
-			{
-				m_vec4.w = 0.0f;
-			}
-			else
-			{
-				m_vec4.w = static_cast<float>(a) / COLOUR_OFFSET;
-			}
-		}
+		return vec4;
+	}
 
-		void Colour::set_rgba(const glm::vec4& rgba)
-		{
-			m_vec4 = rgba;
-
-			m_vec4.x = std::clamp(m_vec4.x, 0.0f, 1.0f);
-			m_vec4.y = std::clamp(m_vec4.y, 0.0f, 1.0f);
-			m_vec4.z = std::clamp(m_vec4.z, 0.0f, 1.0f);
-			m_vec4.w = std::clamp(m_vec4.w, 0.0f, 1.0f);
-
-			m_array[0] = m_vec4.x * COLOUR_OFFSET;
-			m_array[1] = m_vec4.y * COLOUR_OFFSET;
-			m_array[2] = m_vec4.z * COLOUR_OFFSET;
-			m_array[3] = m_vec4.w * COLOUR_OFFSET;
-		}
-
-		std::array<std::uint8_t, 4>& Colour::array()
-		{
-			return m_array;
-		}
-
-		glm::vec4& Colour::vec4()
-		{
-			return m_vec4;
-		}
-
-		const std::array<std::uint8_t, 4>& Colour::array() const
-		{
-			return m_array;
-		}
-
-		const glm::vec4& Colour::vec4() const
-		{
-			return m_vec4;
-		}
-	} // namespace graphics
+	std::array<std::uint8_t, 4> Colour::array() noexcept
+	{
+		return {m_red, m_green, m_blue, m_alpha};
+	}
 } // namespace galaxy
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_POP
-#endif

@@ -8,184 +8,179 @@
 #ifndef GALAXY_GRAPHICS_GL_TEXTURE_HPP_
 #define GALAXY_GRAPHICS_GL_TEXTURE_HPP_
 
+#include <string>
 #include <span>
-#include <string_view>
-
-#include "galaxy/graphics/gl/Enums.hpp"
 
 namespace galaxy
 {
-	namespace graphics
+	///
+	/// \brief Bindless OpenGL 2D Texture.
+	///
+	/// https://ktstephano.github.io/rendering/opengl/bindless
+	///
+	class Texture final
 	{
-		class TextureView;
+	public:
+		///
+		/// Constructor.
+		///
+		Texture();
 
 		///
-		/// OpenGL 2D Texture.
+		/// Move constructor.
 		///
-		class Texture
-		{
-		public:
-			///
-			/// Move constructor.
-			///
-			Texture(Texture&&);
+		Texture(Texture&&) noexcept;
 
-			///
-			/// Move assignment operator.
-			///
-			Texture& operator=(Texture&&);
+		///
+		/// Move assignment operator.
+		///
+		Texture& operator=(Texture&&) noexcept;
 
-			///
-			/// Destructor.
-			///
-			virtual ~Texture();
+		///
+		/// Destructor.
+		///
+		~Texture();
 
-			///
-			/// Create a texture view.
-			///
-			/// \param parent Texture id of which to create a view from.
-			/// \param minlevel Mipmap level.
-			/// \param numlevels Number of mipmaps to include.
-			/// \param minlayer Specifies the index of the first layer to include in the view.
-			/// \param numlayers Specifies the number of layers to include in the view.
-			///
-			/// \return OpenGL texture view of this texture.
-			///
-			[[nodiscard]]
-			TextureView make_view(const unsigned int minlevel = 0, const unsigned int numlevels = 1, const unsigned int minlayer = 0, const unsigned int numlayers = 1);
+		///
+		/// Load a texture from vfs.
+		///
+		/// \param file Texture in VFS to load.
+		///
+		/// \return True if texture loaded successfully.
+		///
+		[[nodiscard]]
+		bool load(const std::string& file);
 
-			///
-			/// Activate context.
-			///
-			virtual void bind() = 0;
+		///
+		/// \brief Loads texture from memory.
+		///
+		/// Loads from standard 256byte array.
+		///
+		/// \param buffer Memory buffer to load from.
+		///
+		/// \return True if texture loaded successfully.
+		///
+		[[nodiscard]]
+		bool load_mem(std::span<std::uint8_t> buffer);
 
-			///
-			/// Deactivate context.
-			///
-			virtual void unbind() = 0;
+		///
+		/// Saves texture to file on disk.
+		///
+		/// \param file Path and filename to save texture to. Does not need extension (it will be ignored).
+		///
+		void save(std::string_view file);
 
-			///
-			/// Set texture mode.
-			///
-			/// \param mode I.e. GL_REPEAT, GL_CLAMP_TO_EDGE, etc.
-			///
-			void mode(const TextureMode mode);
+		///
+		/// \brief Bind to sampler.
+		///
+		/// Not required because this supports bindless textures.
+		///
+		void bind() const noexcept;
 
-			///
-			/// Get texture mode.
-			///
-			/// \return Enum.
-			///
-			[[nodiscard]]
-			TextureMode mode() const;
+		///
+		/// Deactivate sampler.
+		///
+		void unbind() const noexcept;
 
-			///
-			/// Set filter when texture is (up/down)scaled in OpenGL.
-			///
-			/// \param filter Filtering to use for min/mag.
-			///
-			void filter(const TextureFilter filter);
+		///
+		/// Destroy texture.
+		///
+		void destroy();
 
-			///
-			/// Get texture filter.
-			///
-			/// \return Enum.
-			///
-			[[nodiscard]]
-			TextureFilter filter() const;
+		///
+		/// \brief Deletes texture data and configuration in OpenGL.
+		///
+		/// You need to call load again!
+		///
+		void recreate();
 
-			///
-			/// Set ansiotropic filtering level.
-			///
-			/// \param level 0 to 16. Must be 0/2/4/8/16.
-			///
-			void anisotropy(const int level);
+		///
+		/// \brief Get texture width.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Width as float.
+		///
+		[[nodiscard]]
+		float width() const noexcept;
 
-			///
-			/// Get current anisotropy level.
-			///
-			/// \return Integer.
-			///
-			[[nodiscard]]
-			int anisotropy() const;
+		///
+		/// \brief Get texture height.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Height as float.
+		///
+		[[nodiscard]]
+		float height() const noexcept;
 
-			///
-			/// \brief Get texture width.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Width as float.
-			///
-			[[nodiscard]]
-			float width() const;
+		///
+		/// Get OpenGL texture id.
+		///
+		/// \return Unsigned int.
+		///
+		[[nodiscard]]
+		unsigned int id() const noexcept;
 
-			///
-			/// \brief Get texture height.
-			///
-			/// Is cached for performance.
-			///
-			/// \return Height as float.
-			///
-			[[nodiscard]]
-			float height() const;
+		///
+		/// Get OpenGL bindless handle.
+		///
+		/// \return Unsigned long long.
+		///
+		[[nodiscard]]
+		std::uint64_t handle() const noexcept;
 
-			///
-			/// Gets opengl handle.
-			///
-			/// \return Unsigned int.
-			///
-			[[nodiscard]]
-			unsigned int id() const;
+	private:
+		///
+		/// Copy constructor.
+		///
+		Texture(const Texture&) = delete;
 
-		protected:
-			///
-			/// Constructor.
-			///
-			Texture();
+		///
+		/// Copy assignment operator.
+		///
+		Texture& operator=(const Texture&) = delete;
 
-		private:
-			///
-			/// Copy constructor.
-			///
-			Texture(const Texture&) = delete;
+		///
+		/// \brief Sets filter when texture is (up/down)scaled in OpenGL.
+		///
+		/// Includes mipmapping.
+		///
+		void set_filter() const noexcept;
 
-			///
-			/// Copy assignment operator.
-			///
-			Texture& operator=(const Texture&) = delete;
+		///
+		/// \brief Set texture mode.
+		///
+		/// I.e. REPEAT, CLAMP_TO_EDGE, etc.
+		///
+		void set_mode() const noexcept;
 
-		protected:
-			///
-			/// OpenGL id.
-			///
-			unsigned int m_id;
+		///
+		/// Set ansiotropic filtering level.
+		///
+		void set_anisotropy() const noexcept;
 
-			///
-			/// Cached width.
-			///
-			int m_width;
+	private:
+		///
+		/// OpenGL id.
+		///
+		unsigned int m_id;
 
-			///
-			/// Cached height.
-			///
-			int m_height;
+		///
+		/// Bindless handle.
+		///
+		std::uint64_t m_handle;
 
-			///
-			/// Mode.
-			///
-			TextureMode m_mode;
+		///
+		/// Texture width.
+		///
+		int m_width;
 
-			///
-			/// Filter.
-			///
-			TextureFilter m_filter;
-
-			///
-			/// Ansiotrophy level.
-			///
-			int m_anisotropy;
-		};
-	} // namespace graphics
+		///
+		/// Texture height.
+		///
+		int m_height;
+	};
 } // namespace galaxy
 
 #endif

@@ -60,6 +60,11 @@ namespace galaxy
 		static void inject_glm() noexcept;
 
 		///
+		/// Injects graphics module into Lua.
+		///
+		static void inject_graphics() noexcept;
+
+		///
 		/// Injects input handling into Lua.
 		///
 		static void inject_input() noexcept;

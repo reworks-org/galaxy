@@ -15,6 +15,7 @@
 #ifdef GALAXY_WIN_PLATFORM
 GALAXY_DISABLE_WARNING_PUSH
 GALAXY_DISABLE_WARNING(26860)
+GALAXY_DISABLE_WARNING(26830)
 #endif
 
 namespace galaxy
@@ -39,6 +40,10 @@ namespace galaxy
 		config.restore<int>("y", 0, "mouse.cursor_hotspot");
 
 		config.restore<int>("audio_freq", 44100, "audio");
+
+		config.restore<int>("ansiotrophy", 0, "graphics");
+		config.restore<bool>("mipmap", true, "graphics");
+		config.restore<std::string>("texture_filter", "NEAREST", "graphics");
 
 		config.restore<std::string>("title", "galaxy app", "meta");
 		config.restore<std::string>("version", "1.0", "meta");
@@ -71,46 +76,52 @@ namespace galaxy
 	{
 		auto& config = entt::locator<Config>::value();
 
-		s_window_width  = config.get<int>("width", "window").value();
-		s_window_height = config.get<int>("height", "window").value();
-		s_window_icon   = config.get<std::string>("icon", "window").value();
-		s_fullscreen    = config.get<bool>("fullscreen", "window").value();
-		s_maximized     = config.get<bool>("maximized", "window").value();
-		s_vsync         = config.get<bool>("vsync", "window").value();
-		s_resizable     = config.get<bool>("resizable", "window").value();
-		s_border        = config.get<bool>("border", "window").value();
+		s_window_width  = *config.get<int>("width", "window");
+		s_window_height = *config.get<int>("height", "window");
+		s_window_icon   = *config.get<std::string>("icon", "window");
+		s_fullscreen    = *config.get<bool>("fullscreen", "window");
+		s_maximized     = *config.get<bool>("maximized", "window");
+		s_vsync         = *config.get<bool>("vsync", "window");
+		s_resizable     = *config.get<bool>("resizable", "window");
+		s_border        = *config.get<bool>("border", "window");
 
-		s_mouse_grabbed    = config.get<bool>("mouse_grabbed", "mouse").value();
-		s_cursor_show      = config.get<bool>("cursor_show", "mouse").value();
-		s_cursor_icon      = config.get<std::string>("cursor_icon", "mouse").value();
-		s_cursor_hotspot.x = config.get<int>("x", "mouse.cursor_hotspot").value();
-		s_cursor_hotspot.y = config.get<int>("y", "mouse.cursor_hotspot").value();
+		s_mouse_grabbed    = *config.get<bool>("mouse_grabbed", "mouse");
+		s_cursor_show      = *config.get<bool>("cursor_show", "mouse");
+		s_cursor_icon      = *config.get<std::string>("cursor_icon", "mouse");
+		s_cursor_hotspot.x = *config.get<int>("x", "mouse.cursor_hotspot");
+		s_cursor_hotspot.y = *config.get<int>("y", "mouse.cursor_hotspot");
 
-		s_audio_freq = config.get<int>("audio_freq", "audio").value();
+		s_audio_freq = *config.get<int>("audio_freq", "audio");
 
-		s_title      = config.get<std::string>("title", "meta").value();
-		s_version    = config.get<std::string>("version", "meta").value();
-		s_identifier = config.get<std::string>("identifier", "meta").value();
-		s_creator    = config.get<std::string>("creator", "meta").value();
-		s_copyright  = config.get<std::string>("copyright", "meta").value();
-		s_website    = config.get<std::string>("website", "meta").value();
+		s_ansio     = *config.get<int>("ansiotrophy", "graphics");
+		s_mipmap    = *config.get<bool>("mipmap", "graphics");
+		s_filtering = *config.get<std::string>("texture_filter", "graphics").and_then([](std::string_view filter) {
+			return magic_enum::enum_cast<GLTextureFilter>(filter);
+		});
 
-		s_assets_dir       = config.get<std::string>("assets_dir", "fs").value();
-		s_editor_dir       = config.get<std::string>("editor_dir", "fs").value();
-		s_asset_pack       = config.get<std::string>("asset_pack", "fs").value();
-		s_use_loose_assets = config.get<bool>("use_loose_assets", "fs").value();
-		s_assets_music     = config.get<std::string>("assets_music", "fs").value();
-		s_assets_sfx       = config.get<std::string>("assets_sfx", "fs").value();
-		s_assets_voice     = config.get<std::string>("assets_voice", "fs").value();
-		s_assets_font      = config.get<std::string>("assets_font", "fs").value();
-		s_assets_script    = config.get<std::string>("assets_script", "fs").value();
-		s_assets_shaders   = config.get<std::string>("assets_shaders", "fs").value();
-		s_assets_animation = config.get<std::string>("assets_animation", "fs").value();
-		s_assets_texture   = config.get<std::string>("assets_texture", "fs").value();
-		s_assets_prefabs   = config.get<std::string>("assets_prefabs", "fs").value();
-		s_assets_maps      = config.get<std::string>("assets_maps", "fs").value();
-		s_assets_video     = config.get<std::string>("assets_video", "fs").value();
-		s_assets_ui        = config.get<std::string>("assets_ui", "fs").value();
+		s_title      = *config.get<std::string>("title", "meta");
+		s_version    = *config.get<std::string>("version", "meta");
+		s_identifier = *config.get<std::string>("identifier", "meta");
+		s_creator    = *config.get<std::string>("creator", "meta");
+		s_copyright  = *config.get<std::string>("copyright", "meta");
+		s_website    = *config.get<std::string>("website", "meta");
+
+		s_assets_dir       = *config.get<std::string>("assets_dir", "fs");
+		s_editor_dir       = *config.get<std::string>("editor_dir", "fs");
+		s_asset_pack       = *config.get<std::string>("asset_pack", "fs");
+		s_use_loose_assets = *config.get<bool>("use_loose_assets", "fs");
+		s_assets_music     = *config.get<std::string>("assets_music", "fs");
+		s_assets_sfx       = *config.get<std::string>("assets_sfx", "fs");
+		s_assets_voice     = *config.get<std::string>("assets_voice", "fs");
+		s_assets_font      = *config.get<std::string>("assets_font", "fs");
+		s_assets_script    = *config.get<std::string>("assets_script", "fs");
+		s_assets_shaders   = *config.get<std::string>("assets_shaders", "fs");
+		s_assets_animation = *config.get<std::string>("assets_animation", "fs");
+		s_assets_texture   = *config.get<std::string>("assets_texture", "fs");
+		s_assets_prefabs   = *config.get<std::string>("assets_prefabs", "fs");
+		s_assets_maps      = *config.get<std::string>("assets_maps", "fs");
+		s_assets_video     = *config.get<std::string>("assets_video", "fs");
+		s_assets_ui        = *config.get<std::string>("assets_ui", "fs");
 	}
 
 	auto Settings::window_width() noexcept -> int
@@ -176,6 +187,21 @@ namespace galaxy
 	auto Settings::audio_freq() noexcept -> int
 	{
 		return s_audio_freq;
+	}
+
+	auto Settings::ansiotrophy() noexcept -> int
+	{
+		return s_ansio;
+	}
+
+	auto Settings::mipmap() noexcept -> bool
+	{
+		return s_mipmap;
+	}
+
+	auto Settings::texture_filter() noexcept -> GLTextureFilter
+	{
+		return s_filtering;
 	}
 
 	auto Settings::title() noexcept -> const std::string&

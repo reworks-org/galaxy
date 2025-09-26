@@ -12,6 +12,8 @@
 
 #include <glm/vec2.hpp>
 
+#include "galaxy/graphics/Enums.hpp"
+
 namespace galaxy
 {
 	///
@@ -135,6 +137,30 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		static auto audio_freq() noexcept -> int;
+
+		///
+		/// Ansiotropic filtering level.
+		///
+		/// \return Int.
+		///
+		[[nodiscard]]
+		static auto ansiotrophy() noexcept -> int;
+
+		///
+		/// Mipmapping.
+		///
+		/// \return Bool.
+		///
+		[[nodiscard]]
+		static auto mipmap() noexcept -> bool;
+
+		///
+		/// Texture filtering type.
+		///
+		/// \return Enum.
+		///
+		[[nodiscard]]
+		static auto texture_filter() noexcept -> GLTextureFilter;
 
 		///
 		/// Game title.
@@ -345,6 +371,10 @@ namespace galaxy
 
 		inline static int s_audio_freq;
 
+		inline static int             s_ansio;
+		inline static bool            s_mipmap;
+		inline static GLTextureFilter s_filtering;
+
 		inline static std::string s_title;
 		inline static std::string s_version;
 		inline static std::string s_identifier;
@@ -407,11 +437,7 @@ namespace galaxy
 //[[nodiscard]]
 // static auto box2d_to_world() noexcept -> float;
 
-///
-/// Ansiotropic filtering level.
-///
-//[[nodiscard]]
-// static auto ansio_level() noexcept -> int;
+
 
 ///
 /// Enable High DPI support.
@@ -423,7 +449,7 @@ namespace galaxy
 
 // inline static float  s_world_to_box2d;
 // inline static float  s_box2d_to_world;
-// inline static int         s_ansio_filtering;
+
 // inline static bool        s_highdpi;
 
 config.restore<float>("ui_font_size", 14.0f);
@@ -434,8 +460,7 @@ config.restore<float>("music_volume", 1.0f, "audio");
 config.restore<float>("dialogue_volume", 1.0f, "audio");
 config.restore<int>("listener_count", 1, "audio");
 
-config.restore<bool>("trilinear_filtering", false, "graphics");
-config.restore<int>("ansiotrophic_filtering", 2, "graphics");
+
 config.restore<bool>("smaa", false, "graphics.effects");
 config.restore<bool>("sharpen", false, "graphics.effects");
 config.restore<bool>("gamma_correction", false, "graphics.effects");

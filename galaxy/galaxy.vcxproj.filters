@@ -83,6 +83,16 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaGLM.cpp" />
     <ClCompile Include="src\galaxy\resource\Loader.cpp" />
     <ClCompile Include="src\galaxy\resource\Cache.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Enums.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\Shader.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\Vertex.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\VertexArray.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\VertexBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Colour.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaGraphics.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\Texture.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\GLEnums.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\ShaderStorageBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -153,5 +163,14 @@
     <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
     <ClInclude Include="src\galaxy\resource\Loader.hpp" />
     <ClInclude Include="src\galaxy\resource\Cache.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Enums.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\Shader.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\Vertex.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\VertexArray.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\VertexBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\Texture.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\GLEnums.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\ShaderStorageBuffer.hpp" />
   </ItemGroup>
 </Project>

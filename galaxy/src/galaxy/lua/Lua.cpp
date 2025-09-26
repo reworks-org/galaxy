@@ -16,6 +16,7 @@ namespace galaxy
 		Lua::inject_events();
 		Lua::inject_fs();
 		Lua::inject_glm();
+		Lua::inject_graphics();
 		Lua::inject_input();
 		Lua::inject_logging();
 		Lua::inject_math();

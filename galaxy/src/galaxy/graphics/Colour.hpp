@@ -9,7 +9,6 @@
 #define GALAXY_GRAPHICS_COLOUR_HPP_
 
 #include <array>
-#include <compare>
 
 #include <glm/vec4.hpp>
 
@@ -18,232 +17,213 @@
 
 namespace galaxy
 {
-	namespace graphics
+	///
+	/// Represents an RGBA colour.
+	///
+	class Colour final
 	{
+	public:
 		///
-		/// Represents an RGBA colour.
+		/// Opaque colour.
 		///
-		class Colour final
-		{
-		public:
-			///
-			/// Opaque colour.
-			///
-			inline static const constexpr std::uint8_t OPAQUE = 255;
+		inline static const constexpr std::uint8_t OPAQUE = 255;
 
-			///
-			/// Transparent colour.
-			///
-			inline static const constexpr std::uint8_t TRANSPARENT = 0;
+		///
+		/// Transparent colour.
+		///
+		inline static const constexpr std::uint8_t TRANSPARENT = 0;
 
-		public:
-			///
-			/// Constructor.
-			///
-			Colour();
+		///
+		/// Colour offsets for normalization.
+		///
+		inline static const constexpr std::uint8_t OFFSET = 0xFF;
 
-			///
-			/// Move constructor.
-			///
-			Colour(Colour&&);
+		///
+		/// Colour lower bounds.
+		///
+		inline static const constexpr std::uint8_t LOWER = 0;
 
-			///
-			/// Copy constructor.
-			///
-			Colour(const Colour&);
+		///
+		/// Colour upper bounds.
+		///
+		inline static const constexpr std::uint8_t UPPER = 255;
 
-			///
-			/// Move assignment operator.
-			///
-			Colour& operator=(Colour&&);
+	public:
+		///
+		/// Constructor.
+		///
+		Colour() noexcept;
 
-			///
-			/// Copy assignment operator.
-			///
-			Colour& operator=(const Colour&);
+		///
+		/// Colour constructor.
+		///
+		/// \param r Red. 0 - 255.
+		/// \param g Green. 0 - 255.
+		/// \param b Blue. 0 - 255.
+		/// \param a Alpha. 0 - 255.
+		///
+		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a = OPAQUE) noexcept;
 
-			///
-			/// Destructor.
-			///
-			~Colour();
+		///
+		/// Move constructor.
+		///
+		Colour(Colour&&) noexcept;
 
-			///
-			/// Red.
-			///
-			/// \param r 0 - 255.
-			///
-			void set_r(const std::uint8_t r);
+		///
+		/// Copy constructor.
+		///
+		Colour(const Colour&) noexcept;
 
-			///
-			/// Green.
-			///
-			/// \param g 0 - 255.
-			///
-			void set_g(const std::uint8_t g);
+		///
+		/// Move assignment operator.
+		///
+		Colour& operator=(Colour&&) noexcept;
 
-			///
-			/// Blue.
-			///
-			/// \param b 0 - 255.
-			///
-			void set_b(const std::uint8_t b);
+		///
+		/// Copy assignment operator.
+		///
+		Colour& operator=(const Colour& w) noexcept;
 
-			///
-			/// Alpha.
-			///
-			/// \param a 0 - 255.
-			///
-			void set_a(const std::uint8_t a);
+		///
+		/// Destructor.
+		///
+		~Colour() noexcept;
 
-			///
-			/// Get red.
-			///
-			/// \tparam R Determines return value.
-			///
-			/// \return Int for 0 - 255, Float for 0 - 1.
-			///
-			template<typename R>
-			requires std::is_same_v<std::uint8_t, R> || std::is_same_v<float, R>
-			R r() const;
+		///
+		/// Red.
+		///
+		/// \param r 0 - 255.
+		///
+		void r(const std::uint8_t r) noexcept;
 
-			///
-			/// Get green.
-			///
-			/// \tparam G Determines return value.
-			///
-			/// \return Int for 0 - 255, Float for 0 - 1.
-			///
-			template<typename G>
-			requires std::is_same_v<std::uint8_t, G> || std::is_same_v<float, G>
-			G g() const;
+		///
+		/// Green.
+		///
+		/// \param g 0 - 255.
+		///
+		void g(const std::uint8_t g) noexcept;
 
-			///
-			/// Get blue.
-			///
-			/// \tparam B Determines return value.
-			///
-			/// \return Int for 0 - 255, Float for 0 - 1.
-			///
-			template<typename B>
-			requires std::is_same_v<std::uint8_t, B> || std::is_same_v<float, B>
-			B b() const;
+		///
+		/// Blue.
+		///
+		/// \param b 0 - 255.
+		///
+		void b(const std::uint8_t b) noexcept;
 
-			///
-			/// Get alpha.
-			///
-			/// \tparam A Determines return value.
-			///
-			/// \return Int for 0 - 255, Float for 0 - 1.
-			///
-			template<typename A>
-			requires std::is_same_v<std::uint8_t, A> || std::is_same_v<float, A>
-			A a() const;
+		///
+		/// Alpha.
+		///
+		/// \param a 0 - 255.
+		///
+		void a(const std::uint8_t a) noexcept;
 
-			///
-			/// Set RGBA.
-			///
-			/// \param rgba Clamps from 0 to 1.
-			///
-			void set_rgba(const glm::vec4& rgba);
+		///
+		/// Get red.
+		///
+		/// \return Int in 0 - 255 range.
+		///
+		std::uint8_t r() const noexcept;
 
-			///
-			/// Get integer array.
-			///
-			/// \return Integers 0 - 255.
-			///
-			[[nodiscard]]
-			std::array<std::uint8_t, 4>& array();
+		///
+		/// Get green.
+		///
+		/// \return Int in 0 - 255 range.
+		///
+		std::uint8_t g() const noexcept;
 
-			///
-			/// Get vec4.
-			///
-			/// \return Floats 0 - 1.
-			///
-			[[nodiscard]]
-			glm::vec4& vec4();
+		///
+		/// Get blue.
+		///
+		/// \return Int in 0 - 255 range.
+		///
+		std::uint8_t b() const noexcept;
 
-			///
-			/// Get const integer array.
-			///
-			/// \return Integers 0 - 255.
-			///
-			[[nodiscard]]
-			const std::array<std::uint8_t, 4>& array() const;
+		///
+		/// Get alpha.
+		///
+		/// \return Int in 0 - 255 range.
+		///
+		std::uint8_t a() const noexcept;
 
-			///
-			/// Get const vec4.
-			///
-			/// \return Floats 0 - 1.
-			///
-			[[nodiscard]]
-			const glm::vec4& vec4() const;
+		///
+		/// Set RGBA from normalizaed values.
+		///
+		/// \param rgba Clamps from 0.0f to 1.0f.
+		///
+		void set_from_norm(const glm::vec4& rgba) noexcept;
 
-			///
-			/// Comparison operator.
-			///
-			[[nodiscard]]
-			auto operator<=>(const Colour&) const = default;
+		///
+		/// Get normalized rgba vec4.
+		///
+		/// \return Vec4 normalized to 0.0f - 1.0f.
+		///
+		[[nodiscard]]
+		glm::vec4 normalize() noexcept;
 
-		private:
-			///
-			/// r,g,b,a = 0,1,2,3.
-			///
-			std::array<std::uint8_t, 4> m_array;
+		///
+		/// Get as array.
+		///
+		/// \return 0=red, 1=green, 2=blue, 3=alpha
+		///
+		[[nodiscard]]
+		std::array<std::uint8_t, 4> array() noexcept;
 
-			///
-			/// r,g,b,a = x,y,z,w.
-			///
-			glm::vec4 m_vec4;
-		};
+		///
+		/// Three-way comparison.
+		///
+		auto operator<=>(const Colour&) const = default;
 
-		template<>
-		inline float Colour::r() const
-		{
-			return m_vec4.x;
-		}
+		///
+		/// Equality comparison.
+		///
+		bool operator==(const Colour&) const = default;
 
-		template<>
-		inline std::uint8_t Colour::r() const
-		{
-			return m_array[0];
-		}
+		///
+		/// Inequality comparison.
+		///
+		bool operator!=(const Colour&) const = default;
 
-		template<>
-		inline float Colour::g() const
-		{
-			return m_vec4.y;
-		}
+		///
+		/// Less than comparison.
+		///
+		bool operator<(const Colour&) const = default;
 
-		template<>
-		inline std::uint8_t Colour::g() const
-		{
-			return m_array[1];
-		}
+		///
+		/// Greater than comparison.
+		///
+		bool operator>(const Colour&) const = default;
 
-		template<>
-		inline float Colour::b() const
-		{
-			return m_vec4.z;
-		}
+		///
+		/// Less than or equal comparison
+		///
+		bool operator<=(const Colour&) const = default;
 
-		template<>
-		inline std::uint8_t Colour::b() const
-		{
-			return m_array[2];
-		}
+		///
+		/// Greater than or equal comparison.
+		///
+		bool operator>=(const Colour&) const = default;
 
-		template<>
-		inline float Colour::a() const
-		{
-			return m_vec4.w;
-		}
+	private:
+		///
+		/// Red channel.
+		///
+		std::uint8_t m_red;
 
-		template<>
-		inline std::uint8_t Colour::a() const
-		{
-			return m_array[3];
-		}
-	} // namespace graphics
+		///
+		/// Green channel.
+		///
+		std::uint8_t m_green;
+
+		///
+		/// Blue channel.
+		///
+		std::uint8_t m_blue;
+
+		///
+		/// Alpha channel.
+		///
+		std::uint8_t m_alpha;
+	};
 } // namespace galaxy
 
 #endif

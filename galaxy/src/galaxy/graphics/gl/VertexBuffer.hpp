@@ -14,114 +14,111 @@
 
 namespace galaxy
 {
-	namespace graphics
+	///
+	/// Abstraction for OpenGL vertex buffer objects.
+	///
+	class VertexBuffer final
 	{
+	public:
 		///
-		/// Abstraction for OpenGL vertex buffer objects.
+		/// Constructor.
 		///
-		class VertexBuffer final
-		{
-		public:
-			///
-			/// Constructor.
-			///
-			VertexBuffer();
+		VertexBuffer();
 
-			///
-			/// Move constructor.
-			///
-			VertexBuffer(VertexBuffer&&);
+		///
+		/// Move constructor.
+		///
+		VertexBuffer(VertexBuffer&&) noexcept;
 
-			///
-			/// Move assignment operator.
-			///
-			VertexBuffer& operator=(VertexBuffer&&);
+		///
+		/// Move assignment operator.
+		///
+		VertexBuffer& operator=(VertexBuffer&&) noexcept;
 
-			///
-			/// Destructor.
-			///
-			~VertexBuffer();
+		///
+		/// Destructor.
+		///
+		~VertexBuffer();
 
-			///
-			/// Create vertex buffer object.
-			///
-			/// \param vertices Vertices to assign.
-			/// \param indicies Indices for vertex buffer.
-			///
-			void buffer(std::span<Vertex> vertices, std::span<unsigned int> indicies);
+		///
+		/// Create vertex buffer object.
+		///
+		/// \param vertices Vertices to assign.
+		/// \param indicies Indices for vertex buffer.
+		///
+		void buffer(std::span<Vertex> vertices, std::span<unsigned int> indicies);
 
-			///
-			/// Create vertex data without uploading.
-			///
-			/// \param vertex_count Size of vertices.
-			/// \param indicies Indices for vertex buffer.
-			///
-			void buffer(const int vertex_count, std::span<unsigned int> indicies);
+		///
+		/// Create vertex data without uploading.
+		///
+		/// \param vertex_count Size of vertices.
+		/// \param indicies Indices for vertex buffer.
+		///
+		void buffer(const int vertex_count, std::span<unsigned int> indicies);
 
-			///
-			/// Sub-buffer vertex object.
-			///
-			/// \param index Offset to start at from initial vertices. 0 = first element.
-			/// \param vertices Vertices to assign.
-			///
-			void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
+		///
+		/// Sub-buffer vertex object.
+		///
+		/// \param index Offset to start at from initial vertices. 0 = first element.
+		/// \param vertices Vertices to assign.
+		///
+		void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
 
-			///
-			/// Clear buffer data.
-			///
-			void clear();
+		///
+		/// Clear buffer data.
+		///
+		void clear();
 
-			///
-			/// Get the index count.
-			///
-			/// \return Integer.
-			///
-			[[nodiscard]]
-			int count() const;
+		///
+		/// Get the index count.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int count() const noexcept;
 
-			///
-			/// Gets index offset.
-			///
-			/// \return Integer as void pointer for opengl shenanigans.
-			///
-			[[nodiscard]]
-			void* offset();
+		///
+		/// Gets index offset.
+		///
+		/// \return Integer as void pointer for opengl shenanigans.
+		///
+		[[nodiscard]]
+		void* offset() noexcept;
 
-			///
-			/// Get OpenGL handle.
-			///
-			/// \return Unsigned integer.
-			///
-			[[nodiscard]]
-			unsigned int id() const;
+		///
+		/// Get OpenGL handle.
+		///
+		/// \return Unsigned integer.
+		///
+		[[nodiscard]]
+		unsigned int id() const noexcept;
 
-		private:
-			///
-			/// Copy constructor.
-			///
-			VertexBuffer(const VertexBuffer&) = delete;
-			///
-			/// Copy assignment operator.
-			///
-			VertexBuffer& operator=(const VertexBuffer&) = delete;
+	private:
+		///
+		/// Copy constructor.
+		///
+		VertexBuffer(const VertexBuffer&) = delete;
+		///
+		/// Copy assignment operator.
+		///
+		VertexBuffer& operator=(const VertexBuffer&) = delete;
 
-		private:
-			///
-			/// ID returned by OpenGL when generating buffer.
-			///
-			unsigned int m_id;
+	private:
+		///
+		/// ID returned by OpenGL when generating buffer.
+		///
+		unsigned int m_id;
 
-			///
-			/// Index buffer offset.
-			///
-			std::size_t m_offset;
+		///
+		/// Index buffer offset.
+		///
+		std::size_t m_offset;
 
-			///
-			/// Index buffer count.
-			///
-			int m_count;
-		};
-	} // namespace graphics
+		///
+		/// Index buffer count.
+		///
+		int m_count;
+	};
 } // namespace galaxy
 
 #endif
