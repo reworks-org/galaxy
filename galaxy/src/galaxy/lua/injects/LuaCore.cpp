@@ -81,6 +81,9 @@ namespace galaxy
 		lua.set_function("settings_cursor_icon", &Settings::cursor_icon);
 		lua.set_function("settings_cursor_hotspot", &Settings::cursor_hotspot);
 		lua.set_function("settings_audio_freq", &Settings::audio_freq);
+		lua.set_function("settings_ansiotrophy", &Settings::ansiotrophy);
+		lua.set_function("settings_mipmap", &Settings::mipmap);
+		lua.set_function("settings_texture_filter", &Settings::texture_filter);
 		lua.set_function("settings_title", &Settings::title);
 		lua.set_function("settings_version", &Settings::version);
 		lua.set_function("settings_identifier", &Settings::identifier);

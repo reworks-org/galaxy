@@ -414,6 +414,10 @@ namespace galaxy
 // config.restore<int>("ansiotrophic_filtering", 16, "window");
 // config.restore<bool>("highdpi", false, "window");
 // s_flag_bitset_count = config.get<int>("flag_bitset_count", "misc");
+config.restore<int>("window_width", 1920, "window");
+config.restore<int>("window_height", 1080, "window");
+config.restore<int>("frame_width", 640, "window");
+config.restore<int>("frame_height", 360, "window");
 
 // s_world_to_box2d = config.get<float>("world_to_box2d", "physics");
 // s_box2d_to_world = config.get<float>("box2d_to_world", "physics");

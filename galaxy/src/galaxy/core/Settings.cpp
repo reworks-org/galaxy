@@ -41,7 +41,7 @@ namespace galaxy
 
 		config.restore<int>("audio_freq", 44100, "audio");
 
-		config.restore<int>("ansiotrophy", 0, "graphics");
+		config.restore<int>("ansiotrophy", 16, "graphics");
 		config.restore<bool>("mipmap", true, "graphics");
 		config.restore<std::string>("texture_filter", "NEAREST", "graphics");
 
