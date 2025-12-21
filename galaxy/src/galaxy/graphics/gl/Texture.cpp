@@ -250,20 +250,13 @@ namespace galaxy
 
 	void Texture::set_anisotropy() const noexcept
 	{
-		auto ansio = std::clamp(Settings::ansiotrophy(), 0, 16);
-		if (ansio <= 0)
-		{
-			ansio = 0;
-		}
-		else if (ansio <= 2)
-		{
-			ansio = 2;
-		}
-		else if (ansio <= 4)
+		auto ansio = std::clamp(Settings::ansiotrophy(), 1, 16);
+
+		if (ansio == 3)
 		{
 			ansio = 4;
 		}
-		else if (ansio <= 8)
+		else if (ansio > 4 && ansio < 8)
 		{
 			ansio = 8;
 		}
