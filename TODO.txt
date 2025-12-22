@@ -7,7 +7,9 @@ https://wiki.libsdl.org/SDL3/CategoryPen
 https://wiki.libsdl.org/SDL3/CategoryTouch
 https://wiki.libsdl.org/SDL3/CategoryGamepad
 https://wiki.libsdl.org/SDL3/CategoryJoystick
-
+https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressState
+https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressValue
+https://wiki.libsdl.org/SDL3/SDL_CreateAnimatedCursor
 
 TODO:
 - Scale mouse cursor to display size i.e. 50%, 200%, etc.

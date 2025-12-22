@@ -40,7 +40,7 @@
 /* #undef HAVE_GCC_ATOMICS */
 /* #undef HAVE_GCC_SYNC_LOCK_TEST_AND_SET */
 
-#define SDL_DISABLE_ALLOCA 1
+/* #undef SDL_DISABLE_ALLOCA */
 
 /* Useful headers */
 #define HAVE_FLOAT_H 1
@@ -180,6 +180,7 @@
 /* #undef HAVE_MEMFD_CREATE */
 /* #undef HAVE_POSIX_FALLOCATE */
 /* #undef HAVE_SIGACTION */
+/* #undef HAVE_SIGTIMEDWAIT */
 /* #undef HAVE_SA_SIGACTION */
 /* #undef HAVE_ST_MTIM */
 /* #undef HAVE_SETJMP */
@@ -198,7 +199,7 @@
 /* #undef HAVE_SEM_TIMEDWAIT */
 /* #undef HAVE_GETAUXVAL */
 /* #undef HAVE_ELF_AUX_INFO */
-/* #undef HAVE_POLL */
+/* #undef HAVE_PPOLL */
 #define HAVE__EXIT 1
 
 #endif /* HAVE_LIBC */
@@ -215,6 +216,10 @@
 /* #undef HAVE_LIBUDEV_H */
 /* #undef HAVE_LIBDECOR_H */
 /* #undef HAVE_LIBURING_H */
+/* #undef HAVE_FRIBIDI_H */
+/* #undef SDL_FRIBIDI_DYNAMIC */
+/* #undef HAVE_LIBTHAI_H */
+/* #undef SDL_LIBTHAI_DYNAMIC */
 
 #define HAVE_DDRAW_H 1
 #define HAVE_DSOUND_H 1
@@ -223,6 +228,7 @@
 #define HAVE_WINDOWS_GAMING_INPUT_H 1
 /* #undef HAVE_GAMEINPUT_H */
 #define HAVE_DXGI_H 1
+#define HAVE_DXGI1_5_H 1
 #define HAVE_DXGI1_6_H 1
 
 #define HAVE_MMDEVICEAPI_H 1
@@ -234,6 +240,8 @@
 /* #undef HAVE_POSIX_SPAWN_FILE_ACTIONS_ADDCHDIR */
 /* #undef HAVE_POSIX_SPAWN_FILE_ACTIONS_ADDCHDIR_NP */
 
+/* #undef SDL_DISABLE_DLOPEN_NOTES */
+
 /* SDL internal assertion support */
 /* #undef SDL_DEFAULT_ASSERT_LEVEL_CONFIGURED */
 #ifdef SDL_DEFAULT_ASSERT_LEVEL_CONFIGURED
@@ -243,8 +251,8 @@
 /* Allow disabling of major subsystems */
 /* #undef SDL_AUDIO_DISABLED */
 /* #undef SDL_VIDEO_DISABLED */
-#define SDL_GPU_DISABLED 1
-#define SDL_RENDER_DISABLED 1
+/* #undef SDL_GPU_DISABLED */
+/* #undef SDL_RENDER_DISABLED */
 /* #undef SDL_CAMERA_DISABLED */
 /* #undef SDL_JOYSTICK_DISABLED */
 /* #undef SDL_HAPTIC_DISABLED */
@@ -338,6 +346,7 @@
 /* #undef SDL_SENSOR_DUMMY */
 /* #undef SDL_SENSOR_VITA */
 /* #undef SDL_SENSOR_N3DS */
+/* #undef SDL_SENSOR_EMSCRIPTEN */
 
 /* #undef SDL_SENSOR_PRIVATE */
 
@@ -430,6 +439,7 @@
 /* #undef SDL_VIDEO_DRIVER_X11_XINPUT2 */
 /* #undef SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_MULTITOUCH */
 /* #undef SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_SCROLLINFO */
+/* #undef SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_GESTURE */
 /* #undef SDL_VIDEO_DRIVER_X11_XRANDR */
 /* #undef SDL_VIDEO_DRIVER_X11_XSCRNSAVER */
 /* #undef SDL_VIDEO_DRIVER_X11_XSHAPE */
@@ -439,14 +449,14 @@
 
 /* #undef SDL_VIDEO_DRIVER_PRIVATE */
 
-/* #undef SDL_VIDEO_RENDER_D3D */
-/* #undef SDL_VIDEO_RENDER_D3D11 */
-/* #undef SDL_VIDEO_RENDER_D3D12 */
-/* #undef SDL_VIDEO_RENDER_GPU */
+#define SDL_VIDEO_RENDER_D3D 1
+#define SDL_VIDEO_RENDER_D3D11 1
+#define SDL_VIDEO_RENDER_D3D12 1
+#define SDL_VIDEO_RENDER_GPU 1
 /* #undef SDL_VIDEO_RENDER_METAL */
-/* #undef SDL_VIDEO_RENDER_VULKAN */
+#define SDL_VIDEO_RENDER_VULKAN 1
 #define SDL_VIDEO_RENDER_OGL 1
-/* #undef SDL_VIDEO_RENDER_OGL_ES2 */
+#define SDL_VIDEO_RENDER_OGL_ES2 1
 /* #undef SDL_VIDEO_RENDER_NGAGE */
 /* #undef SDL_VIDEO_RENDER_PS2 */
 /* #undef SDL_VIDEO_RENDER_PSP */
@@ -457,24 +467,24 @@
 /* Enable OpenGL support */
 #define SDL_VIDEO_OPENGL 1
 /* #undef SDL_VIDEO_OPENGL_ES */
-/* #undef SDL_VIDEO_OPENGL_ES2 */
+#define SDL_VIDEO_OPENGL_ES2 1
 /* #undef SDL_VIDEO_OPENGL_CGL */
 /* #undef SDL_VIDEO_OPENGL_GLX */
 #define SDL_VIDEO_OPENGL_WGL 1
-/* #undef SDL_VIDEO_OPENGL_EGL */
+#define SDL_VIDEO_OPENGL_EGL 1
 
 /* #undef SDL_VIDEO_STATIC_ANGLE */
 
 /* Enable Vulkan support */
-/* #undef SDL_VIDEO_VULKAN */
+#define SDL_VIDEO_VULKAN 1
 
 /* Enable Metal support */
 /* #undef SDL_VIDEO_METAL */
 
 /* Enable GPU support */
 /* #undef SDL_GPU_D3D11 */
-/* #undef SDL_GPU_D3D12 */
-/* #undef SDL_GPU_VULKAN */
+#define SDL_GPU_D3D12 1
+#define SDL_GPU_VULKAN 1
 /* #undef SDL_GPU_METAL */
 
 /* #undef SDL_GPU_PRIVATE */
@@ -538,6 +548,9 @@
 
 /* Enable dialog subsystem */
 /* #undef SDL_DIALOG_DUMMY */
+
+/* Enable tray subsystem */
+/* #undef SDL_TRAY_DUMMY */
 
 /* Enable assembly routines */
 /* #undef SDL_ALTIVEC_BLITTERS */
