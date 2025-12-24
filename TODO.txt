@@ -22,8 +22,19 @@ TODO:
 
 
 Renderer:
-- static pass (uploaded once, rendered per frame)
-- dynamic pass (uploaded per frame, rendered per frame)
-- SpriteBatch Pass? -> Static?
-- lighting pass?
-https://juandiegomontoya.github.io/modern_opengl.html#global%20state
+https://juandiegomontoya.github.io/modern_opengl.html#future
+https://github.com/JuanDiegoMontoya/Fwog
+insertion-sort
+https://old.reddit.com/r/opengl/comments/6ctlrj/how_to_get_2d_z_ordering_working/
+https://old.reddit.com/r/opengl/comments/4z28md/best_way_to_sort_2d/
+
+https://litasa.github.io/blog/2017/09/04/OpenGL-MultiDrawIndirect-with-Individual-Textures
+https://old.reddit.com/r/opengl/comments/19bgtcb/is_the_effort_of_glmultidrawelements_worth_it/
+https://github.com/fendevel/Guide-to-Modern-OpenGL-Functions?tab=readme-ov-file#faster-reads-and-writes-with-persistent-mapping
+https://ktstephano.github.io/rendering/opengl/mdi
+- instancing? if required?
+
+- future renddering improvement:
+- copy vertex to batch on creation, and remove after its destroyed, rather than per frame.
+    - optimize batch rendeirng avoid pushing each frame
+- batch shapes, at the moment only quads are batched.
