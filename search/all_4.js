@@ -20,8 +20,9 @@ var searchData=
   ['entityfactory_2ehpp_17',['EntityFactory.hpp',['../db/deb/EntityFactory_8hpp.html',1,'']]],
   ['enums_2ecpp_18',['Enums.cpp',['../d5/d75/Enums_8cpp.html',1,'']]],
   ['enums_2ehpp_19',['Enums.hpp',['../dd/de2/Enums_8hpp.html',1,'']]],
-  ['error_20',['ERROR',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395abb1ca97ec761fc37101737ba0aa2e7c5',1,'galaxy']]],
-  ['error_21',['error',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy']]],
-  ['exists_22',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
-  ['extension_23',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
+  ['erase_20',['erase',['../db/d02/classgalaxy_1_1VertexArray.html#ab03e191df149ec4f92fb7847daf24eb3',1,'galaxy::VertexArray::erase()'],['../da/d97/classgalaxy_1_1VertexBuffer.html#aa7e63ac2ac352013f306b3d1914fbfab',1,'galaxy::VertexBuffer::erase()']]],
+  ['error_21',['ERROR',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395abb1ca97ec761fc37101737ba0aa2e7c5',1,'galaxy']]],
+  ['error_22',['error',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803acb5e100e5a9a3e7f6d1fd97512215282',1,'galaxy']]],
+  ['exists_23',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
+  ['extension_24',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
 ];

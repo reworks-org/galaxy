@@ -105,7 +105,8 @@ $(function(){initNavTree('de/d07/Vertex_8cpp.html','../../'); initResizable(true
   <div class="headertitle"><div class="title">Vertex.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/db0/Vertex_8hpp_source.html">Vertex.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/db0/Vertex_8hpp_source.html">Vertex.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Vertex.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -113,21 +114,25 @@ $(function(){initNavTree('de/d07/Vertex_8cpp.html','../../'); initResizable(true
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/dcf/Vertex_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2graphics_2gl_2Vertex_8cpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2graphics_2gl_2Vertex_8cpp" id="agalaxy_2src_2galaxy_2graphics_2gl_2Vertex_8cpp">
-<area shape="rect" title=" " alt="" coords="43,5,239,45"/>
-<area shape="rect" href="../../d6/db0/Vertex_8hpp.html" title=" " alt="" coords="95,93,187,119"/>
-<area shape="poly" title=" " alt="" coords="144,46,144,79,139,79,139,46"/>
+<area shape="rect" title=" " alt="" coords="53,5,249,45"/>
+<area shape="rect" title=" " alt="" coords="52,93,137,119"/>
+<area shape="poly" title=" " alt="" coords="139,47,113,84,109,80,135,44"/>
+<area shape="rect" href="../../d6/db0/Vertex_8hpp.html" title=" " alt="" coords="162,93,254,119"/>
+<area shape="poly" title=" " alt="" coords="167,44,193,80,189,84,162,47"/>
 <area shape="rect" title=" " alt="" coords="5,167,61,192"/>
-<area shape="poly" title=" " alt="" coords="125,121,64,161,61,157,123,116"/>
+<area shape="poly" title=" " alt="" coords="181,121,76,164,74,159,179,116"/>
 <area shape="rect" title=" " alt="" coords="86,167,197,192"/>
-<area shape="poly" title=" " alt="" coords="144,119,144,153,139,153,139,119"/>
-<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="221,167,417,192"/>
-<area shape="poly" title=" " alt="" coords="171,116,278,159,276,164,169,121"/>
-<area shape="rect" title=" " alt="" coords="185,240,265,265"/>
-<area shape="poly" title=" " alt="" coords="305,194,253,234,250,229,302,190"/>
-<area shape="rect" title=" " alt="" coords="289,240,348,265"/>
-<area shape="poly" title=" " alt="" coords="321,192,321,226,316,226,316,192"/>
-<area shape="rect" title=" " alt="" coords="373,240,465,265"/>
-<area shape="poly" title=" " alt="" coords="336,190,393,230,390,234,333,194"/>
+<area shape="poly" title=" " alt="" coords="199,121,163,158,160,155,195,117"/>
+<area shape="rect" title=" " alt="" coords="221,167,331,192"/>
+<area shape="poly" title=" " alt="" coords="221,117,257,155,253,158,217,121"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="355,167,551,192"/>
+<area shape="poly" title=" " alt="" coords="248,116,401,160,400,165,247,121"/>
+<area shape="rect" title=" " alt="" coords="320,240,400,265"/>
+<area shape="poly" title=" " alt="" coords="440,194,388,234,384,229,437,190"/>
+<area shape="rect" title=" " alt="" coords="424,240,483,265"/>
+<area shape="poly" title=" " alt="" coords="456,192,456,226,451,226,451,192"/>
+<area shape="rect" title=" " alt="" coords="507,240,599,265"/>
+<area shape="poly" title=" " alt="" coords="471,190,527,230,524,234,468,194"/>
 </map>
 </div>
 </div>
@@ -143,12 +148,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acf88f797ab0f905ccd67154ea52321bd" id="r_acf88f797ab0f905ccd67154ea52321bd"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a>, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd">galaxy::graphics::gen_quad_vertices</a> (const float width, const float height) noexcept</td></tr>
-<tr class="memdesc:acf88f797ab0f905ccd67154ea52321bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default verticies.  <br /></td></tr>
-<tr class="separator:acf88f797ab0f905ccd67154ea52321bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6b5de44e7cb7c27917d9d871b4ca564" id="r_af6b5de44e7cb7c27917d9d871b4ca564"><td class="memItemLeft" align="right" valign="top">std::array&lt; unsigned int, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564">galaxy::graphics::gen_default_indices</a> () noexcept</td></tr>
-<tr class="memdesc:af6b5de44e7cb7c27917d9d871b4ca564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default indicies.  <br /></td></tr>
-<tr class="separator:af6b5de44e7cb7c27917d9d871b4ca564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03733fc9fbf816274ffd9b6da7db3aa2" id="r_a03733fc9fbf816274ffd9b6da7db3aa2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2">galaxy::graphics::gen_quad_vertices</a> (const float width, const float height, float depth, const std::uint64_t handle) noexcept</td></tr>
+<tr class="memdesc:a03733fc9fbf816274ffd9b6da7db3aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default verticies.  <br /></td></tr>
+<tr class="separator:a03733fc9fbf816274ffd9b6da7db3aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4694c0aea940ac82bb3331c1490bb0ee" id="r_a4694c0aea940ac82bb3331c1490bb0ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee">galaxy::graphics::gen_default_indices</a> () noexcept</td></tr>
+<tr class="memdesc:a4694c0aea940ac82bb3331c1490bb0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default indices.  <br /></td></tr>
+<tr class="separator:a4694c0aea940ac82bb3331c1490bb0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -156,7 +161,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../de/d07/Vertex_8cpp.html">Vertex.cpp</a></li>
-    <li class="footer">Generated on Fri Sep 26 2025 09:07:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Dec 24 2025 05:01:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

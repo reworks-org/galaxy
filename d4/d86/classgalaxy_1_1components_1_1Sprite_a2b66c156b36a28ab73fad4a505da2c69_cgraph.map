@@ -2,8 +2,8 @@
 <area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,37,159,77"/>
 <area shape="rect" id="Node000002" href="$d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="207,37,360,77"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,55,193,55,193,60,159,60"/>
-<area shape="rect" id="Node000003" href="$db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564" title="Generate some default indicies." alt="" coords="408,5,568,45"/>
+<area shape="rect" id="Node000003" href="$db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee" title="Generate some default indices." alt="" coords="408,5,568,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,43,394,37,395,43,361,48"/>
-<area shape="rect" id="Node000004" href="$db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd" title="Generate some default verticies." alt="" coords="408,69,568,109"/>
+<area shape="rect" id="Node000004" href="$db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2" title="Generate some default verticies." alt="" coords="408,69,568,109"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="361,67,395,72,394,77,360,72"/>
 </map>

@@ -384,36 +384,29 @@ $(function(){initNavTree('d5/d87/Texture_8cpp_source.html','../../'); initResiza
 <div class="foldopen" id="foldopen00251" data-start="{" data-end="}">
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="../../df/db8/classgalaxy_1_1Texture.html#a04d5c054f6cf6db2a84bf18d658a206a">  251</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/db8/classgalaxy_1_1Texture.html#a04d5c054f6cf6db2a84bf18d658a206a">Texture::set_anisotropy</a>() const noexcept</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keyword">auto</span> ansio = std::clamp(<a class="code hl_function" href="../../df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f">Settings::ansiotrophy</a>(), 0, 16);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keywordflow">if</span> (ansio &lt;= 0)</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        {</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            ansio = 0;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ansio &lt;= 2)</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            ansio = 2;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        }</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ansio &lt;= 4)</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        {</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            ansio = 4;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        }</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ansio &lt;= 8)</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        {</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            ansio = 8;</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        }</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            ansio = 16;</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        glTextureParameterf(<a class="code hl_variable" href="../../df/db8/classgalaxy_1_1Texture.html#a7020d772de1e5733680249f017c78f6e">m_id</a>, GL_TEXTURE_MAX_ANISOTROPY, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(ansio));</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keyword">auto</span> ansio = std::clamp(<a class="code hl_function" href="../../df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f">Settings::ansiotrophy</a>(), 1, 16);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">if</span> (ansio == 3)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        {</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            ansio = 4;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ansio &gt; 4 &amp;&amp; ansio &lt; 8)</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            ansio = 8;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        }</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            ansio = 16;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        glTextureParameterf(<a class="code hl_variable" href="../../df/db8/classgalaxy_1_1Texture.html#a7020d772de1e5733680249f017c78f6e">m_id</a>, GL_TEXTURE_MAX_ANISOTROPY, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(ansio));</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    }</div>
 </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">#pragma warning(pop)</span></div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">#ifdef GALAXY_WIN_PLATFORM</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aGLEnums_8hpp_html"><div class="ttname"><a href="../../d4/d4f/GLEnums_8hpp.html">GLEnums.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
@@ -459,7 +452,7 @@ $(function(){initNavTree('d5/d87/Texture_8cpp_source.html','../../'); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../d5/d87/Texture_8cpp.html">Texture.cpp</a></li>
-    <li class="footer">Generated on Fri Sep 26 2025 09:07:31 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Dec 24 2025 05:01:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

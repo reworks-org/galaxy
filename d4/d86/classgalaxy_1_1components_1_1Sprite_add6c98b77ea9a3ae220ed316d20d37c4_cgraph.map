@@ -1,7 +1,7 @@
 <map id="galaxy::components::Sprite::set_texture" name="galaxy::components::Sprite::set_texture">
 <area shape="rect" id="Node000001" title="Sets the texture and vertex data." alt="" coords="5,37,159,77"/>
-<area shape="rect" id="Node000002" href="$db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564" title="Generate some default indicies." alt="" coords="207,5,367,45"/>
+<area shape="rect" id="Node000002" href="$db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee" title="Generate some default indices." alt="" coords="207,5,367,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,43,193,37,194,43,160,48"/>
-<area shape="rect" id="Node000003" href="$db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd" title="Generate some default verticies." alt="" coords="207,69,367,109"/>
+<area shape="rect" id="Node000003" href="$db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2" title="Generate some default verticies." alt="" coords="207,69,367,109"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,67,194,72,193,77,159,72"/>
 </map>

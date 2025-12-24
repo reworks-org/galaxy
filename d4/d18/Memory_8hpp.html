@@ -106,6 +106,7 @@ $(function(){initNavTree('d4/d18/Memory_8hpp.html','../../'); initResizable(true
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d84/Concepts_8hpp_source.html">galaxy/meta/Concepts.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Memory.hpp:</div>
@@ -114,17 +115,19 @@ $(function(){initNavTree('d4/d18/Memory_8hpp.html','../../'); initResizable(true
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dd/d74/Memory_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2utils_2Memory_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2utils_2Memory_8hpp" id="agalaxy_2src_2galaxy_2utils_2Memory_8hpp">
-<area shape="rect" title=" " alt="" coords="38,5,207,45"/>
+<area shape="rect" title=" " alt="" coords="51,5,221,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,80,119"/>
-<area shape="poly" title=" " alt="" coords="105,47,66,85,63,82,101,44"/>
-<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="105,93,301,119"/>
-<area shape="poly" title=" " alt="" coords="144,44,183,82,179,85,140,47"/>
-<area shape="rect" title=" " alt="" coords="69,167,149,192"/>
-<area shape="poly" title=" " alt="" coords="189,121,137,160,134,156,186,117"/>
-<area shape="rect" title=" " alt="" coords="173,167,232,192"/>
-<area shape="poly" title=" " alt="" coords="205,119,205,153,200,153,200,119"/>
-<area shape="rect" title=" " alt="" coords="257,167,349,192"/>
-<area shape="poly" title=" " alt="" coords="220,117,277,156,274,161,217,121"/>
+<area shape="poly" title=" " alt="" coords="115,48,69,86,66,82,112,44"/>
+<area shape="rect" title=" " alt="" coords="105,93,167,119"/>
+<area shape="poly" title=" " alt="" coords="139,46,139,79,133,79,133,46"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="191,93,387,119"/>
+<area shape="poly" title=" " alt="" coords="174,43,256,85,254,89,172,48"/>
+<area shape="rect" title=" " alt="" coords="156,167,236,192"/>
+<area shape="poly" title=" " alt="" coords="276,121,224,160,220,156,273,117"/>
+<area shape="rect" title=" " alt="" coords="260,167,319,192"/>
+<area shape="poly" title=" " alt="" coords="292,119,292,153,287,153,287,119"/>
+<area shape="rect" title=" " alt="" coords="343,167,435,192"/>
+<area shape="poly" title=" " alt="" coords="307,117,363,156,360,161,304,121"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -160,6 +163,10 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a88726f6aa5b0886038d8174591afedb9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a88726f6aa5b0886038d8174591afedb9">galaxy::mem::opt_ref</a> = std::optional&lt;std::reference_wrapper&lt;Object&gt;&gt;</td></tr>
 <tr class="memdesc:a88726f6aa5b0886038d8174591afedb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional reference.  <br /></td></tr>
 <tr class="separator:a88726f6aa5b0886038d8174591afedb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a506acf42277ffed35c36a51a3d7defe4" id="r_a506acf42277ffed35c36a51a3d7defe4"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a506acf42277ffed35c36a51a3d7defe4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d0d/namespacegalaxy_1_1mem.html#a506acf42277ffed35c36a51a3d7defe4">galaxy::mem::vec_ref</a> = std::reference_wrapper&lt;std::vector&lt;Type&gt;&gt;</td></tr>
+<tr class="memdesc:a506acf42277ffed35c36a51a3d7defe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector reference.  <br /></td></tr>
+<tr class="separator:a506acf42277ffed35c36a51a3d7defe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -167,7 +174,7 @@ Typedefs</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_a1194cae147883a6cbcc1cdd989eaf5f.html">utils</a></li><li class="navelem"><a class="el" href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a></li>
-    <li class="footer">Generated on Fri Sep 26 2025 09:07:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Dec 24 2025 05:01:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

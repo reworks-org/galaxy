@@ -11,6 +11,7 @@ var searchData=
   ['end_5finput_8',['end_input',['../d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html#a3c4d2225b090d54cbda4a645d0f1b908',1,'galaxy::ui::NuklearUI']]],
   ['end_5fpost_9',['end_post',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd',1,'galaxy::graphics::Renderer']]],
   ['end_5ftext_5finput_10',['end_text_input',['../d8/db2/classgalaxy_1_1Keyboard.html#a2336aeb1e295b1a64053b1f69ee641e5',1,'galaxy::Keyboard']]],
-  ['exists_11',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
-  ['extension_12',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
+  ['erase_11',['erase',['../db/d02/classgalaxy_1_1VertexArray.html#ab03e191df149ec4f92fb7847daf24eb3',1,'galaxy::VertexArray::erase()'],['../da/d97/classgalaxy_1_1VertexBuffer.html#aa7e63ac2ac352013f306b3d1914fbfab',1,'galaxy::VertexBuffer::erase()']]],
+  ['exists_12',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
+  ['extension_13',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
 ];

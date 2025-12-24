@@ -1,122 +1,111 @@
 <map id="galaxy::Lua::inject_graphics" name="galaxy::Lua::inject_graphics">
-<area shape="rect" id="Node000001" title="Injects graphics module into Lua." alt="" coords="5,1302,145,1342"/>
-<area shape="rect" id="Node000002" href="$d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829" title="Get alpha." alt="" coords="241,5,372,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,1302,82,1053,101,650,116,442,136,258,161,117,175,70,191,40,208,27,227,19,229,24,210,32,195,44,180,72,166,119,141,259,122,443,106,650,87,1053,80,1302"/>
-<area shape="rect" id="Node000003" href="$d8/d74/classgalaxy_1_1Colour.html#a24ae47ec76a70b45d45b36b11ebadb8c" title="Get as array." alt="" coords="228,55,385,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="74,1302,82,1062,103,675,118,476,138,299,162,164,176,118,191,90,214,73,217,78,195,93,181,120,167,165,143,299,123,476,108,675,88,1062,80,1302"/>
-<area shape="rect" id="Node000004" href="$d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5" title="Get blue." alt="" coords="241,104,372,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="75,1302,83,1070,104,699,120,508,139,339,163,210,176,166,191,139,208,126,227,118,229,123,210,130,195,142,181,168,168,211,144,340,125,509,109,699,89,1070,80,1302"/>
-<area shape="rect" id="Node000005" href="$d1/d5e/classgalaxy_1_1Shader.html#ae64788a349cad8380e2f29f63f3bdb70" title="Make active shader." alt="" coords="229,153,384,179"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="75,1302,84,1079,106,724,122,542,141,381,164,257,177,215,191,190,215,173,218,177,195,193,182,218,169,259,146,381,127,543,111,725,89,1079,80,1302"/>
-<area shape="rect" id="Node000006" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#a013c7ba4a2f5f9a420ec413c45c57361" title="Bind buffer." alt="" coords="203,203,410,243"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="75,1301,86,1090,109,757,125,586,144,434,166,318,178,278,191,254,194,251,198,254,196,257,183,280,171,319,149,435,130,586,114,757,91,1091,80,1302"/>
-<area shape="rect" id="Node000007" href="$df/db8/classgalaxy_1_1Texture.html#ab2cfa7153a6fdd1a60662fb8399cd6d5" title="Bind to sampler." alt="" coords="228,268,385,293"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="75,1301,86,1099,109,781,125,619,144,474,166,365,178,327,191,304,214,288,217,292,195,308,183,329,171,366,150,475,131,619,115,782,91,1099,80,1302"/>
-<area shape="rect" id="Node000008" href="$db/d02/classgalaxy_1_1VertexArray.html#a3f4c42a4c5bbbea427b9d4dfb28bd588" title="Bind this vertex array." alt="" coords="231,318,382,358"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="74,1302,74,1126,78,994,86,848,100,702,121,566,135,506,151,453,170,409,191,375,217,354,220,359,195,378,175,411,156,455,140,507,127,567,106,702,92,849,84,994,80,1126,79,1302"/>
-<area shape="rect" id="Node000009" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="231,433,382,473"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="74,1302,78,1145,93,902,107,774,128,656,155,558,172,519,191,490,217,469,220,473,195,493,177,522,160,559,133,657,113,775,98,902,83,1145,79,1302"/>
-<area shape="rect" id="Node000010" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="490,390,645,430"/>
-<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="75,1302,87,1119,110,836,126,692,145,566,167,470,179,438,191,419,212,407,240,398,313,391,397,392,477,397,476,402,397,397,314,396,241,403,214,411,195,423,183,440,172,472,150,567,131,693,115,837,92,1119,80,1302"/>
-<area shape="rect" id="Node000011" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="480,483,655,508"/>
-<area shape="poly" id="edge30_Node000001_Node000011" title=" " alt="" coords="74,1302,76,1150,80,1039,89,918,103,796,124,685,138,636,153,594,171,559,192,533,211,521,238,511,307,498,388,492,466,490,467,495,388,497,308,503,239,516,213,525,195,537,175,562,158,596,143,638,129,686,109,797,95,918,86,1039,81,1151,79,1302"/>
-<area shape="rect" id="Node000012" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#a88c219d1286fd5410ba9dd6b84b926ff" title="Clears data from buffer." alt="" coords="203,547,410,587"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="74,1302,80,1163,97,951,112,841,132,739,158,655,174,623,191,598,195,594,198,598,195,601,179,625,163,657,138,741,118,842,103,952,86,1163,80,1302"/>
-<area shape="rect" id="Node000013" href="$da/d97/classgalaxy_1_1VertexBuffer.html#acae411a9e1e92a7bb145fcd16c624d28" title="Clear buffer data." alt="" coords="229,611,384,651"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="75,1302,82,1173,101,981,116,881,136,789,161,714,175,684,191,661,215,644,218,648,195,665,180,687,166,716,141,791,122,882,107,982,88,1174,80,1302"/>
-<area shape="rect" id="Node000014" href="$d1/d5e/classgalaxy_1_1Shader.html#a674407f8315748f65b0929dd4611059b" title="Compiles shader into GPU mem." alt="" coords="217,676,396,701"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="75,1302,83,1182,103,1004,118,913,138,828,162,759,176,732,191,712,203,702,207,706,195,716,180,735,167,761,143,830,124,914,108,1005,89,1182,80,1302"/>
-<area shape="rect" id="Node000015" href="$db/d02/classgalaxy_1_1VertexArray.html#a87e6cfbd5eb2ed0a5713055f06372fbd" title="Get the index count." alt="" coords="231,726,382,766"/>
-<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="76,1301,87,1194,110,1039,125,959,144,886,166,825,191,783,217,763,220,767,195,786,171,827,149,887,131,960,115,1040,93,1195,81,1302"/>
-<area shape="rect" id="Node000016" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a39954c9de94320aebea40e34396d56ae" title="Get the index count." alt="" coords="490,755,645,795"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="76,1301,87,1201,109,1058,125,984,144,918,166,863,191,827,212,814,240,803,313,788,396,779,476,774,476,780,397,784,314,793,242,808,214,818,195,831,170,866,149,919,130,986,114,1059,92,1202,81,1302"/>
-<area shape="rect" id="Node000017" href="$d1/d5e/classgalaxy_1_1Shader.html#aeda3b4618b90ecf9a2cbd38041adb499" title="Destroys shader program." alt="" coords="219,841,394,867"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="77,1301,90,1211,114,1083,130,1018,148,959,168,910,191,877,205,867,209,871,195,881,173,913,153,961,135,1020,119,1084,95,1212,82,1302"/>
-<area shape="rect" id="Node000018" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#a7d7ab7807972636a51be9199e5db67a9" title="Destroy shader." alt="" coords="203,891,410,931"/>
-<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="74,1302,79,1235,96,1141,111,1090,131,1039,157,991,191,948,206,936,209,940,195,952,162,994,136,1041,116,1091,101,1142,85,1236,80,1302"/>
-<area shape="rect" id="Node000019" href="$df/db8/classgalaxy_1_1Texture.html#abf69171f3d9a3c9faf4c42124c13f672" title="Destroy texture." alt="" coords="478,1244,657,1269"/>
-<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="74,1302,78,1239,94,1153,108,1107,129,1063,156,1024,192,992,222,973,250,960,278,952,305,950,332,954,360,962,421,992,453,1015,480,1043,502,1076,521,1110,548,1176,563,1230,558,1231,543,1178,516,1112,498,1079,476,1047,449,1019,419,996,359,967,331,959,305,956,279,958,252,965,224,978,195,996,160,1028,134,1066,113,1109,99,1154,83,1239,79,1302"/>
-<area shape="rect" id="Node000020" href="$d8/d74/classgalaxy_1_1Colour.html#aeeb83413e713a27f51ea4bc573d8df3c" title="Get green." alt="" coords="241,1007,372,1032"/>
-<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="76,1301,85,1249,105,1179,120,1142,139,1105,163,1072,192,1043,209,1032,227,1024,229,1029,211,1036,195,1047,167,1075,144,1108,125,1144,110,1181,91,1250,82,1302"/>
-<area shape="rect" id="Node000021" href="$db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564" title="Generate some default indicies." alt="" coords="227,1057,387,1097"/>
-<area shape="poly" id="edge22_Node000001_Node000021" title=" " alt="" coords="80,1301,93,1260,116,1207,148,1153,168,1128,192,1107,212,1094,215,1098,195,1111,172,1132,152,1156,120,1210,98,1262,85,1302"/>
-<area shape="rect" id="Node000022" href="$db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd" title="Generate some default verticies." alt="" coords="227,1121,387,1161"/>
-<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="85,1300,126,1236,156,1201,192,1170,213,1159,215,1164,195,1175,160,1205,130,1239,89,1303"/>
-<area shape="rect" id="Node000023" href="$df/db8/classgalaxy_1_1Texture.html#ae982b2edf101d3a2cb06976e8399349e" title="Get OpenGL bindless handle." alt="" coords="220,1185,393,1211"/>
-<area shape="poly" id="edge24_Node000001_Node000023" title=" " alt="" coords="92,1300,135,1259,162,1237,192,1220,209,1212,211,1217,195,1224,165,1242,138,1263,96,1304"/>
-<area shape="rect" id="Node000024" href="$df/db8/classgalaxy_1_1Texture.html#aceae215e830b651d1ebdb1ac185b4033" title="Get texture height." alt="" coords="221,1235,392,1260"/>
-<area shape="poly" id="edge25_Node000001_Node000024" title=" " alt="" coords="116,1299,192,1269,221,1261,223,1266,194,1274,118,1304"/>
-<area shape="rect" id="Node000025" href="$d1/d5e/classgalaxy_1_1Shader.html#a503430f492d4a9c0147614c47be0caf6" title="Get program id." alt="" coords="237,1284,376,1309"/>
-<area shape="poly" id="edge26_Node000001_Node000025" title=" " alt="" coords="146,1312,223,1303,224,1308,146,1317"/>
-<area shape="rect" id="Node000026" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#aeceab25d933582af1e5595911a066b5f" title="Get OpenGL handle." alt="" coords="193,1333,420,1359"/>
-<area shape="poly" id="edge27_Node000001_Node000026" title=" " alt="" coords="146,1327,180,1330,179,1335,146,1332"/>
-<area shape="rect" id="Node000027" href="$df/db8/classgalaxy_1_1Texture.html#ae30a6dfeb45962c653ba4be4164b4ae9" title="Get OpenGL texture id." alt="" coords="236,1383,377,1408"/>
-<area shape="poly" id="edge28_Node000001_Node000027" title=" " alt="" coords="121,1340,194,1367,228,1377,226,1382,192,1373,119,1345"/>
-<area shape="rect" id="Node000028" href="$db/d02/classgalaxy_1_1VertexArray.html#acddeda1d5d9bf580cb18dc8fbd3b8dbf" title="Get vertex array handle." alt="" coords="222,1432,391,1457"/>
-<area shape="poly" id="edge29_Node000001_Node000028" title=" " alt="" coords="97,1340,139,1380,166,1400,195,1417,215,1425,213,1430,192,1422,163,1404,136,1384,93,1344"/>
-<area shape="rect" id="Node000029" href="$d1/d5e/classgalaxy_1_1Shader.html#ae5ea0e3dfd53c83ac96a5d8be4c57ab3" title="Loads a combined shader." alt="" coords="229,1481,384,1507"/>
-<area shape="poly" id="edge31_Node000001_Node000029" title=" " alt="" coords="89,1341,130,1404,159,1438,195,1466,217,1477,215,1482,192,1471,156,1442,125,1407,85,1344"/>
-<area shape="rect" id="Node000030" href="$df/db8/classgalaxy_1_1Texture.html#a2a4e5cb54a190f9f11326a65097ac71e" title="Load a texture from vfs." alt="" coords="228,1760,385,1785"/>
-<area shape="poly" id="edge32_Node000001_Node000030" title=" " alt="" coords="82,1342,96,1430,120,1551,136,1613,154,1670,174,1715,195,1745,216,1759,213,1764,191,1749,169,1718,149,1671,131,1615,115,1553,91,1430,77,1343"/>
-<area shape="rect" id="Node000031" href="$df/db8/classgalaxy_1_1Texture.html#a2c7ced67bd68629c2a1f61df88e26798" title="Loads texture from memory." alt="" coords="468,1671,667,1696"/>
-<area shape="poly" id="edge40_Node000001_Node000031" title=" " alt="" coords="83,1342,94,1388,115,1449,148,1512,170,1541,195,1565,223,1584,250,1596,275,1601,300,1603,355,1604,386,1608,421,1617,479,1639,530,1662,528,1667,477,1644,419,1622,385,1613,354,1609,300,1608,274,1606,248,1601,221,1589,192,1569,166,1544,143,1515,110,1451,89,1390,78,1343"/>
-<area shape="rect" id="Node000038" href="$db/dab/namespacegalaxy_1_1graphics.html#aff5fdda389eb7519bb012f71b6700ba9" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="224,1631,389,1671"/>
-<area shape="poly" id="edge41_Node000001_Node000038" title=" " alt="" coords="82,1342,91,1395,111,1467,126,1506,145,1544,168,1579,195,1611,213,1624,210,1628,192,1615,163,1583,140,1546,121,1508,106,1469,86,1396,76,1343"/>
-<area shape="rect" id="Node000039" href="$db/dab/namespacegalaxy_1_1graphics.html#a907d9f88eab5b68df85d9f9c02ff4218" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="224,1695,389,1735"/>
-<area shape="poly" id="edge42_Node000001_Node000039" title=" " alt="" coords="80,1342,84,1407,101,1499,115,1548,136,1597,162,1642,195,1681,213,1694,210,1699,192,1685,157,1645,131,1599,110,1550,96,1500,79,1408,74,1342"/>
-<area shape="rect" id="Node000040" href="$d8/d74/classgalaxy_1_1Colour.html#a7f76a935dd2207f451c578374d3be0b1" title="Get normalized rgba vec4." alt="" coords="213,1809,401,1835"/>
-<area shape="poly" id="edge43_Node000001_Node000040" title=" " alt="" coords="82,1342,94,1439,117,1575,133,1645,151,1709,172,1760,195,1795,202,1801,199,1805,191,1798,167,1763,146,1710,128,1647,112,1576,89,1439,76,1343"/>
-<area shape="rect" id="Node000042" href="$db/d02/classgalaxy_1_1VertexArray.html#adb96644f9b5b6465a0f279f34007458b" title="Gets index offset." alt="" coords="231,2010,382,2050"/>
-<area shape="poly" id="edge45_Node000001_Node000042" title=" " alt="" coords="80,1342,87,1473,106,1669,121,1771,141,1865,165,1943,180,1972,195,1995,220,2013,217,2017,191,1999,175,1975,160,1945,135,1867,116,1772,101,1670,82,1473,75,1342"/>
-<area shape="rect" id="Node000043" href="$da/d97/classgalaxy_1_1VertexBuffer.html#aaca560656cc0389c9b9c300b3898b7fa" title="Gets index offset." alt="" coords="490,1934,645,1974"/>
-<area shape="poly" id="edge47_Node000001_Node000043" title=" " alt="" coords="81,1342,92,1447,114,1599,129,1677,148,1748,170,1806,195,1844,221,1866,246,1878,271,1884,297,1886,353,1885,385,1887,421,1895,507,1926,505,1931,419,1901,384,1893,353,1890,297,1891,271,1889,245,1883,218,1870,191,1848,165,1808,143,1749,124,1678,109,1600,87,1448,76,1342"/>
-<area shape="rect" id="Node000044" href="$d1/d5e/classgalaxy_1_1Shader.html#ac4978ffe2cb9a39387e6bb23598db35d" title="Loads a combined raw shader." alt="" coords="225,1911,388,1936"/>
-<area shape="poly" id="edge48_Node000001_Node000044" title=" " alt="" coords="81,1342,91,1455,112,1620,127,1705,146,1783,169,1847,182,1871,195,1889,214,1904,211,1908,191,1893,177,1874,164,1849,141,1784,122,1706,107,1621,85,1456,75,1343"/>
-<area shape="rect" id="Node000045" href="$d8/d74/classgalaxy_1_1Colour.html#ae6c42428917fabc74f42299f62c4b796" title="Get red." alt="" coords="243,1960,371,1985"/>
-<area shape="poly" id="edge49_Node000001_Node000045" title=" " alt="" coords="80,1342,88,1465,107,1647,122,1741,142,1828,166,1898,180,1925,195,1945,211,1958,230,1966,228,1970,209,1962,191,1949,176,1928,161,1901,137,1829,117,1742,102,1648,83,1465,75,1342"/>
-<area shape="rect" id="Node000046" href="$df/db8/classgalaxy_1_1Texture.html#ae48968651a4cf3df0f564a48bbb49e5c" title="Deletes texture data and configuration in OpenGL." alt="" coords="215,1531,398,1556"/>
-<area shape="poly" id="edge50_Node000001_Node000046" title=" " alt="" coords="85,1341,99,1379,122,1427,154,1475,173,1497,195,1516,206,1523,203,1527,192,1520,169,1501,149,1479,117,1430,94,1381,80,1343"/>
-<area shape="rect" id="Node000047" href="$df/db8/classgalaxy_1_1Texture.html#a7e57ea5f65159cae08b00ee3dd19b43c" title="Saves texture to file on disk." alt="" coords="227,2075,387,2100"/>
-<area shape="poly" id="edge52_Node000001_Node000047" title=" " alt="" coords="80,1342,84,1484,100,1701,115,1814,135,1918,162,2003,178,2036,195,2060,215,2075,212,2079,191,2064,173,2039,157,2005,130,1919,110,1815,95,1702,79,1485,74,1342"/>
-<area shape="rect" id="Node000049" href="$d8/d74/classgalaxy_1_1Colour.html#ab7f684e22aa322d9a419f1e6c6fcdf84" title="Set RGBA from normalizaed values." alt="" coords="235,2125,378,2165"/>
-<area shape="poly" id="edge54_Node000001_Node000049" title=" " alt="" coords="79,1342,84,1492,99,1723,114,1844,134,1956,161,2047,177,2083,195,2110,208,2121,224,2130,221,2134,205,2125,191,2113,173,2085,156,2049,129,1957,108,1845,94,1724,78,1492,74,1342"/>
-<area shape="rect" id="Node000050" href="$db/d02/classgalaxy_1_1VertexArray.html#a3512659f350e9154ff84fc928f4cf4ba" title="Sub&#45;buffer vertex array." alt="" coords="231,2189,382,2229"/>
-<area shape="poly" id="edge55_Node000001_Node000050" title=" " alt="" coords="79,1342,81,1504,86,1623,95,1754,109,1886,130,2007,158,2107,176,2146,195,2175,220,2193,217,2197,191,2179,171,2148,153,2109,125,2008,104,1887,90,1755,81,1623,76,1504,74,1342"/>
-<area shape="rect" id="Node000051" href="$da/d97/classgalaxy_1_1VertexBuffer.html#ad95fa78dea07afc3972818718900f384" title="Sub&#45;buffer vertex object." alt="" coords="490,2217,645,2257"/>
-<area shape="poly" id="edge57_Node000001_Node000051" title=" " alt="" coords="80,1342,91,1528,114,1817,130,1963,149,2092,171,2189,183,2221,195,2239,229,2262,266,2276,306,2284,348,2286,429,2276,500,2258,501,2263,430,2282,348,2291,306,2289,265,2281,226,2266,191,2243,178,2223,166,2190,144,2093,125,1964,109,1817,86,1529,75,1342"/>
-<area shape="rect" id="Node000052" href="$d1/d5e/classgalaxy_1_1Shader.html#a7246b7f04fddc459094c5b82db839eb0" title="Unbind." alt="" coords="221,2304,392,2329"/>
-<area shape="poly" id="edge58_Node000001_Node000052" title=" " alt="" coords="80,1342,93,1534,117,1835,133,1988,152,2124,173,2227,184,2262,195,2283,211,2296,207,2300,191,2286,179,2264,168,2229,147,2125,128,1989,112,1835,87,1535,75,1342"/>
-<area shape="rect" id="Node000053" href="$d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#ab8aa46b2ec53673dde2157d197e726be" title="Unbind buffer." alt="" coords="203,2354,410,2394"/>
-<area shape="poly" id="edge59_Node000001_Node000053" title=" " alt="" coords="80,1342,92,1545,115,1864,132,2027,150,2171,172,2281,183,2318,196,2340,198,2343,194,2347,191,2344,179,2320,167,2283,145,2172,126,2027,110,1864,86,1545,75,1343"/>
-<area shape="rect" id="Node000054" href="$df/db8/classgalaxy_1_1Texture.html#a03f576eddcd501a89d872e630c0e2729" title="Deactivate sampler." alt="" coords="220,2419,393,2444"/>
-<area shape="poly" id="edge60_Node000001_Node000054" title=" " alt="" coords="80,1342,90,1557,113,1896,128,2070,148,2224,170,2342,182,2381,195,2404,209,2416,206,2420,191,2408,177,2383,165,2343,142,2225,123,2071,107,1897,85,1557,75,1342"/>
-<area shape="rect" id="Node000055" href="$db/d02/classgalaxy_1_1VertexArray.html#ab2519e9c8bf8ddf2b0f012cf5d6bd710" title="Unbind this vertex array." alt="" coords="231,2469,382,2509"/>
-<area shape="poly" id="edge61_Node000001_Node000055" title=" " alt="" coords="80,1342,90,1565,112,1920,128,2103,147,2265,170,2389,182,2430,195,2455,220,2474,217,2478,191,2458,177,2432,165,2390,142,2266,123,2104,107,1921,85,1565,75,1342"/>
-<area shape="rect" id="Node000056" href="$db/d02/classgalaxy_1_1VertexArray.html#a671c4c92e4ec7a2c7494cb56fbae985f" title="Get vertex buffer." alt="" coords="216,2533,397,2559"/>
-<area shape="poly" id="edge62_Node000001_Node000056" title=" " alt="" coords="80,1342,88,1576,109,1953,125,2146,144,2318,168,2449,181,2493,195,2519,206,2528,202,2532,191,2522,176,2495,163,2450,139,2319,119,2147,104,1953,83,1576,75,1342"/>
-<area shape="rect" id="Node000057" href="$df/db8/classgalaxy_1_1Texture.html#af00e79054314d8c920b0f6459c49b2da" title="Get texture width." alt="" coords="224,2583,389,2608"/>
-<area shape="poly" id="edge63_Node000001_Node000057" title=" " alt="" coords="80,1342,88,1586,107,1979,123,2181,142,2360,167,2497,180,2542,195,2570,213,2583,210,2587,191,2573,176,2544,161,2498,137,2361,117,2181,102,1979,82,1586,74,1342"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="382,438,476,422,477,427,383,443"/>
-<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="383,462,476,478,475,483,382,468"/>
-<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="383,752,476,762,476,768,382,757"/>
-<area shape="poly" id="edge33_Node000030_Node000031" title=" " alt="" coords="374,1757,419,1745,477,1723,528,1700,530,1704,479,1728,421,1750,375,1762"/>
-<area shape="rect" id="Node000032" href="$df/db8/classgalaxy_1_1Texture.html#a04d5c054f6cf6db2a84bf18d658a206a" title="Set ansiotropic filtering level." alt="" coords="737,1599,886,1639"/>
-<area shape="poly" id="edge34_Node000031_Node000032" title=" " alt="" coords="616,1668,723,1640,724,1645,618,1673"/>
-<area shape="rect" id="Node000034" href="$df/db8/classgalaxy_1_1Texture.html#a3815f18a58b3a43d3bea069ea3afa862" title="Sets filter when texture is (up/down)scaled in OpenGL." alt="" coords="737,1663,886,1703"/>
-<area shape="poly" id="edge36_Node000031_Node000034" title=" " alt="" coords="667,1681,723,1681,723,1686,667,1686"/>
-<area shape="rect" id="Node000037" href="$df/db8/classgalaxy_1_1Texture.html#a8161177d4173b526c58479889743ad3c" title="Set texture mode." alt="" coords="715,1728,908,1753"/>
-<area shape="poly" id="edge39_Node000031_Node000037" title=" " alt="" coords="623,1693,744,1722,743,1727,622,1699"/>
-<area shape="rect" id="Node000033" href="$df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f" title="Ansiotropic filtering level." alt="" coords="956,1607,1167,1632"/>
-<area shape="poly" id="edge35_Node000032_Node000033" title=" " alt="" coords="886,1617,942,1617,942,1622,886,1622"/>
-<area shape="rect" id="Node000035" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="967,1724,1155,1749"/>
-<area shape="poly" id="edge37_Node000034_Node000035" title=" " alt="" coords="887,1697,988,1719,987,1724,886,1702"/>
-<area shape="rect" id="Node000036" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="971,1659,1152,1699"/>
-<area shape="poly" id="edge38_Node000034_Node000036" title=" " alt="" coords="886,1679,957,1678,957,1684,886,1685"/>
-<area shape="rect" id="Node000041" href="$d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48" title="Calc normalized value from range." alt="" coords="477,1809,657,1835"/>
-<area shape="poly" id="edge44_Node000040_Node000041" title=" " alt="" coords="401,1819,464,1819,464,1825,401,1825"/>
-<area shape="poly" id="edge46_Node000042_Node000043" title=" " alt="" coords="375,2007,484,1975,486,1980,377,2012"/>
-<area shape="poly" id="edge51_Node000046_Node000019" title=" " alt="" coords="396,1528,418,1516,447,1491,472,1461,512,1396,540,1332,557,1282,562,1283,545,1334,517,1398,476,1464,451,1494,422,1520,399,1533"/>
-<area shape="rect" id="Node000048" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="475,2075,659,2100"/>
-<area shape="poly" id="edge53_Node000047_Node000048" title=" " alt="" coords="387,2085,461,2085,461,2090,387,2090"/>
-<area shape="poly" id="edge56_Node000050_Node000051" title=" " alt="" coords="383,2214,476,2224,476,2230,382,2219"/>
+<area shape="rect" id="Node000001" title="Injects graphics module into Lua." alt="" coords="5,1129,145,1169"/>
+<area shape="rect" id="Node000002" href="$d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829" title="Get alpha." alt="" coords="222,5,353,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,1128,85,910,107,563,123,385,142,227,165,107,177,66,191,40,208,27,211,31,195,44,182,68,170,108,147,228,128,386,112,564,90,910,80,1128"/>
+<area shape="rect" id="Node000003" href="$d8/d74/classgalaxy_1_1Colour.html#a24ae47ec76a70b45d45b36b11ebadb8c" title="Get as array." alt="" coords="209,55,366,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="75,1128,86,919,109,588,125,418,144,268,166,153,178,114,191,90,195,86,199,89,195,93,183,116,171,154,149,269,130,419,114,588,91,919,80,1129"/>
+<area shape="rect" id="Node000004" href="$d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5" title="Get blue." alt="" coords="222,104,353,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="75,1128,86,928,110,613,126,451,145,308,167,199,179,162,191,139,208,126,211,130,195,142,183,164,172,200,150,309,131,452,115,613,92,928,80,1129"/>
+<area shape="rect" id="Node000005" href="$d1/d5e/classgalaxy_1_1Shader.html#ae64788a349cad8380e2f29f63f3bdb70" title="Make active shader." alt="" coords="210,153,365,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="75,1128,87,937,112,637,128,484,147,349,168,245,179,210,191,188,197,183,200,187,195,192,184,212,173,247,152,350,133,485,117,638,93,937,80,1129"/>
+<area shape="rect" id="Node000006" href="$df/db8/classgalaxy_1_1Texture.html#ab2cfa7153a6fdd1a60662fb8399cd6d5" title="Bind to sampler." alt="" coords="209,203,366,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="74,1128,74,958,78,831,86,691,100,550,121,420,135,363,151,313,170,271,191,239,196,234,200,238,195,242,174,273,156,315,140,364,127,421,106,551,92,691,84,831,80,958,79,1128"/>
+<area shape="rect" id="Node000007" href="$db/d02/classgalaxy_1_1VertexArray.html#a3f4c42a4c5bbbea427b9d4dfb28bd588" title="Bind this vertex array." alt="" coords="212,253,363,293"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="74,1129,78,971,94,727,109,598,129,479,156,379,173,340,191,310,202,299,206,302,195,313,177,342,161,381,134,480,114,599,100,727,84,972,80,1129"/>
+<area shape="rect" id="Node000008" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="212,367,363,407"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="75,1128,81,988,98,776,113,664,133,562,159,477,174,443,191,418,199,410,203,414,195,421,179,446,164,479,139,563,119,665,104,776,86,989,80,1129"/>
+<area shape="rect" id="Node000009" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="451,339,606,379"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="74,1129,74,975,78,862,86,739,100,616,121,504,135,455,151,413,170,378,192,353,222,333,255,320,290,313,327,311,398,317,461,333,460,338,397,323,327,316,291,318,256,325,224,338,195,357,174,382,156,415,140,457,126,505,105,617,91,739,83,862,79,975,79,1129"/>
+<area shape="rect" id="Node000010" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a924a358bccc5dffb232d3fb2b1b55a39" title="Clear buffer data." alt="" coords="210,431,365,471"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="75,1128,83,999,102,806,117,705,137,612,161,535,176,505,191,482,197,476,201,479,195,485,180,507,166,537,142,613,123,706,107,806,88,999,80,1128"/>
+<area shape="rect" id="Node000011" href="$d1/d5e/classgalaxy_1_1Shader.html#a674407f8315748f65b0929dd4611059b" title="Compiles shader into GPU mem." alt="" coords="198,496,377,521"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="75,1128,85,1009,106,832,121,741,140,657,163,587,177,560,191,539,207,526,210,530,195,542,181,563,168,589,145,658,126,742,111,833,90,1009,81,1128"/>
+<area shape="rect" id="Node000012" href="$db/d02/classgalaxy_1_1VertexArray.html#a87e6cfbd5eb2ed0a5713055f06372fbd" title="Get the index count." alt="" coords="212,597,363,637"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="76,1128,89,1028,112,884,128,810,146,742,167,686,191,647,198,640,202,644,195,650,172,688,151,744,133,811,117,885,94,1029,81,1129"/>
+<area shape="rect" id="Node000013" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a39954c9de94320aebea40e34396d56ae" title="Get the index count." alt="" coords="451,569,606,609"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="75,1128,83,1014,102,848,117,763,137,686,161,623,176,600,192,583,222,563,255,550,290,543,327,541,398,548,460,562,459,567,397,553,327,547,291,549,257,556,224,568,195,587,180,603,166,626,142,687,122,764,107,849,88,1015,80,1129"/>
+<area shape="rect" id="Node000014" href="$d1/d5e/classgalaxy_1_1Shader.html#aeda3b4618b90ecf9a2cbd38041adb499" title="Destroys shader program." alt="" coords="200,661,375,687"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="77,1128,90,1036,114,906,130,840,148,780,168,730,191,696,195,692,199,696,195,700,173,733,153,781,135,841,119,907,95,1037,82,1129"/>
+<area shape="rect" id="Node000015" href="$df/db8/classgalaxy_1_1Texture.html#abf69171f3d9a3c9faf4c42124c13f672" title="Destroy texture." alt="" coords="439,999,618,1024"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="90,1167,131,1221,160,1248,195,1269,246,1289,289,1297,332,1291,380,1269,410,1247,437,1219,459,1188,477,1154,504,1089,519,1037,524,1038,509,1091,482,1157,463,1191,441,1222,414,1251,383,1274,333,1296,289,1302,244,1294,192,1274,157,1253,127,1225,86,1170"/>
+<area shape="rect" id="Node000016" href="$d8/d74/classgalaxy_1_1Colour.html#aeeb83413e713a27f51ea4bc573d8df3c" title="Get green." alt="" coords="222,760,353,785"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="74,1128,80,1065,97,975,111,927,132,879,158,835,192,796,208,785,211,789,195,800,162,838,136,882,117,929,102,976,85,1065,80,1129"/>
+<area shape="rect" id="Node000017" href="$db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee" title="Generate some default indices." alt="" coords="207,810,367,850"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="77,1128,86,1075,106,1003,121,965,140,927,164,892,191,860,196,856,200,860,195,864,168,895,145,930,126,967,111,1005,91,1076,82,1129"/>
+<area shape="rect" id="Node000018" href="$db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2" title="Generate some default verticies." alt="" coords="207,874,367,914"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="79,1127,93,1085,115,1031,148,974,168,947,192,924,197,919,201,924,195,928,172,951,152,977,120,1033,98,1087,84,1129"/>
+<area shape="rect" id="Node000019" href="$df/db8/classgalaxy_1_1Texture.html#ae982b2edf101d3a2cb06976e8399349e" title="Get OpenGL bindless handle." alt="" coords="201,939,374,964"/>
+<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="82,1127,98,1094,121,1052,153,1009,192,973,201,968,204,972,195,977,157,1013,126,1055,102,1096,87,1130"/>
+<area shape="rect" id="Node000020" href="$df/db8/classgalaxy_1_1Texture.html#aceae215e830b651d1ebdb1ac185b4033" title="Get texture height." alt="" coords="202,988,373,1013"/>
+<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="88,1127,130,1075,159,1046,192,1022,205,1016,207,1021,195,1027,163,1050,134,1078,92,1130"/>
+<area shape="rect" id="Node000021" href="$d1/d5e/classgalaxy_1_1Shader.html#a503430f492d4a9c0147614c47be0caf6" title="Get program id." alt="" coords="218,1037,357,1063"/>
+<area shape="poly" id="edge22_Node000001_Node000021" title=" " alt="" coords="101,1126,143,1098,192,1072,211,1064,213,1069,194,1076,145,1103,104,1131"/>
+<area shape="rect" id="Node000022" href="$df/db8/classgalaxy_1_1Texture.html#ae30a6dfeb45962c653ba4be4164b4ae9" title="Get OpenGL texture id." alt="" coords="217,1087,358,1112"/>
+<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="145,1130,218,1113,219,1118,146,1135"/>
+<area shape="rect" id="Node000023" href="$db/d02/classgalaxy_1_1VertexArray.html#acddeda1d5d9bf580cb18dc8fbd3b8dbf" title="Get vertex array handle." alt="" coords="203,1136,372,1161"/>
+<area shape="poly" id="edge24_Node000001_Node000023" title=" " alt="" coords="146,1146,189,1146,189,1151,146,1151"/>
+<area shape="rect" id="Node000024" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="200,1185,375,1211"/>
+<area shape="poly" id="edge25_Node000001_Node000024" title=" " alt="" coords="146,1162,219,1180,218,1185,145,1168"/>
+<area shape="rect" id="Node000025" href="$d1/d5e/classgalaxy_1_1Shader.html#ae5ea0e3dfd53c83ac96a5d8be4c57ab3" title="Loads a combined shader." alt="" coords="210,1235,365,1260"/>
+<area shape="poly" id="edge26_Node000001_Node000025" title=" " alt="" coords="105,1167,146,1194,194,1220,217,1228,215,1233,192,1224,143,1198,102,1171"/>
+<area shape="rect" id="Node000026" href="$df/db8/classgalaxy_1_1Texture.html#a2a4e5cb54a190f9f11326a65097ac71e" title="Load a texture from vfs." alt="" coords="209,1336,366,1361"/>
+<area shape="poly" id="edge27_Node000001_Node000026" title=" " alt="" coords="88,1168,128,1239,158,1280,195,1315,219,1328,217,1333,192,1319,154,1283,123,1242,83,1170"/>
+<area shape="rect" id="Node000027" href="$df/db8/classgalaxy_1_1Texture.html#a2c7ced67bd68629c2a1f61df88e26798" title="Loads texture from memory." alt="" coords="429,1425,628,1451"/>
+<area shape="poly" id="edge35_Node000001_Node000027" title=" " alt="" coords="79,1169,81,1236,86,1280,95,1328,110,1377,130,1423,158,1465,195,1500,232,1519,272,1526,314,1525,356,1517,397,1504,435,1488,495,1455,498,1460,437,1493,399,1509,357,1522,314,1531,271,1532,230,1524,192,1504,154,1469,126,1426,105,1379,90,1329,81,1281,76,1236,73,1169"/>
+<area shape="rect" id="Node000034" href="$db/dab/namespacegalaxy_1_1graphics.html#aff5fdda389eb7519bb012f71b6700ba9" title="Takes in a x positon texture coord and maps it to a texel." alt="" coords="205,1386,370,1426"/>
+<area shape="poly" id="edge36_Node000001_Node000034" title=" " alt="" coords="84,1168,98,1210,120,1265,152,1321,172,1348,195,1371,203,1377,200,1381,192,1375,168,1351,148,1324,115,1267,93,1212,79,1170"/>
+<area shape="rect" id="Node000035" href="$db/dab/namespacegalaxy_1_1graphics.html#a907d9f88eab5b68df85d9f9c02ff4218" title="Takes in a y positon texture coord and maps it to a texel." alt="" coords="205,1450,370,1490"/>
+<area shape="poly" id="edge37_Node000001_Node000035" title=" " alt="" coords="82,1168,91,1221,111,1293,126,1332,145,1369,168,1405,195,1436,200,1440,196,1444,191,1440,163,1408,140,1372,121,1334,106,1295,86,1222,76,1169"/>
+<area shape="rect" id="Node000036" href="$d8/d74/classgalaxy_1_1Colour.html#a7f76a935dd2207f451c578374d3be0b1" title="Get normalized rgba vec4." alt="" coords="193,1565,381,1591"/>
+<area shape="poly" id="edge38_Node000001_Node000036" title=" " alt="" coords="79,1169,83,1239,98,1339,112,1394,133,1448,160,1499,195,1544,212,1557,209,1562,191,1548,156,1502,128,1450,107,1396,93,1340,77,1239,74,1169"/>
+<area shape="rect" id="Node000038" href="$db/d02/classgalaxy_1_1VertexArray.html#adb96644f9b5b6465a0f279f34007458b" title="Gets index offset." alt="" coords="212,1615,363,1655"/>
+<area shape="poly" id="edge40_Node000001_Node000038" title=" " alt="" coords="82,1169,96,1261,120,1390,154,1517,174,1566,195,1600,203,1607,199,1611,191,1604,169,1569,149,1518,115,1391,91,1261,77,1170"/>
+<area shape="rect" id="Node000039" href="$da/d97/classgalaxy_1_1VertexBuffer.html#aaca560656cc0389c9b9c300b3898b7fa" title="Gets index offset." alt="" coords="451,1690,606,1730"/>
+<area shape="poly" id="edge42_Node000001_Node000039" title=" " alt="" coords="80,1169,86,1292,103,1474,118,1568,138,1652,164,1721,179,1746,195,1764,228,1784,264,1793,303,1795,343,1789,382,1779,419,1765,482,1735,484,1739,421,1770,384,1784,344,1795,303,1800,264,1799,226,1789,192,1768,174,1749,159,1723,133,1654,113,1569,98,1475,81,1292,75,1169"/>
+<area shape="rect" id="Node000040" href="$d1/d5e/classgalaxy_1_1Shader.html#ac4978ffe2cb9a39387e6bb23598db35d" title="Loads a combined raw shader." alt="" coords="206,1680,369,1705"/>
+<area shape="poly" id="edge43_Node000001_Node000040" title=" " alt="" coords="81,1169,93,1273,115,1423,131,1499,149,1570,171,1627,195,1666,200,1670,197,1674,191,1669,166,1629,144,1571,125,1501,110,1423,87,1274,76,1169"/>
+<area shape="rect" id="Node000041" href="$d8/d74/classgalaxy_1_1Colour.html#ae6c42428917fabc74f42299f62c4b796" title="Get red." alt="" coords="223,1729,351,1755"/>
+<area shape="poly" id="edge44_Node000001_Node000041" title=" " alt="" coords="81,1169,91,1282,112,1446,127,1531,146,1609,169,1672,182,1697,195,1715,212,1727,209,1731,191,1719,177,1699,164,1674,141,1610,122,1532,107,1447,85,1282,75,1169"/>
+<area shape="rect" id="Node000042" href="$df/db8/classgalaxy_1_1Texture.html#ae48968651a4cf3df0f564a48bbb49e5c" title="Deletes texture data and configuration in OpenGL." alt="" coords="196,711,379,736"/>
+<area shape="poly" id="edge45_Node000001_Node000042" title=" " alt="" coords="73,1128,76,1056,90,954,105,897,125,842,154,791,191,745,196,741,200,745,195,749,158,794,130,844,110,899,95,955,81,1057,79,1129"/>
+<area shape="rect" id="Node000043" href="$df/db8/classgalaxy_1_1Texture.html#a7e57ea5f65159cae08b00ee3dd19b43c" title="Saves texture to file on disk." alt="" coords="207,1831,367,1856"/>
+<area shape="poly" id="edge47_Node000001_Node000043" title=" " alt="" coords="80,1169,88,1297,108,1490,123,1590,142,1682,166,1758,180,1787,195,1810,210,1822,207,1826,191,1813,176,1790,161,1760,137,1683,118,1591,102,1490,83,1298,75,1169"/>
+<area shape="rect" id="Node000045" href="$d8/d74/classgalaxy_1_1Colour.html#ab7f684e22aa322d9a419f1e6c6fcdf84" title="Set RGBA from normalizaed values." alt="" coords="216,1881,359,1921"/>
+<area shape="poly" id="edge49_Node000001_Node000045" title=" " alt="" coords="80,1169,87,1307,105,1516,120,1625,139,1726,165,1809,179,1841,195,1866,206,1876,203,1880,191,1869,175,1844,160,1811,134,1727,114,1626,99,1516,81,1307,75,1169"/>
+<area shape="rect" id="Node000046" href="$db/d02/classgalaxy_1_1VertexArray.html#a7d486c252d9ac31792bedbd73ce2866f" title="Sub&#45;buffer vertex buffer." alt="" coords="212,1995,363,2035"/>
+<area shape="poly" id="edge50_Node000001_Node000046" title=" " alt="" coords="80,1169,84,1324,100,1566,115,1693,135,1810,162,1908,178,1946,195,1975,206,1986,202,1989,191,1978,173,1948,157,1910,130,1811,109,1693,95,1566,79,1325,74,1169"/>
+<area shape="rect" id="Node000047" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a3b7b6ceda9f47c0043c58eaf0163a5ef" title="Sub&#45;buffer vertex buffer." alt="" coords="451,1966,606,2006"/>
+<area shape="poly" id="edge52_Node000001_Node000047" title=" " alt="" coords="79,1169,82,1319,87,1430,96,1550,110,1671,131,1781,159,1871,176,1905,195,1931,211,1942,234,1952,296,1966,367,1976,438,1981,437,1986,367,1981,295,1972,232,1957,209,1947,191,1935,171,1908,154,1873,126,1782,105,1672,91,1551,82,1430,77,1320,74,1169"/>
+<area shape="rect" id="Node000048" href="$d1/d5e/classgalaxy_1_1Shader.html#a7246b7f04fddc459094c5b82db839eb0" title="Unbind." alt="" coords="202,2060,373,2085"/>
+<area shape="poly" id="edge53_Node000001_Node000048" title=" " alt="" coords="79,1169,80,1337,84,1463,92,1601,106,1740,127,1869,141,1925,156,1974,175,2015,195,2046,200,2050,196,2054,191,2049,170,2017,151,1976,136,1926,122,1870,101,1741,87,1602,79,1464,75,1337,74,1169"/>
+<area shape="rect" id="Node000049" href="$df/db8/classgalaxy_1_1Texture.html#a03f576eddcd501a89d872e630c0e2729" title="Deactivate sampler." alt="" coords="201,2109,374,2135"/>
+<area shape="poly" id="edge54_Node000001_Node000049" title=" " alt="" coords="80,1169,93,1359,117,1655,133,1806,152,1940,173,2042,184,2076,195,2096,198,2099,194,2103,191,2100,179,2078,168,2043,147,1941,128,1807,112,1656,87,1359,75,1169"/>
+<area shape="rect" id="Node000050" href="$db/d02/classgalaxy_1_1VertexArray.html#ab2519e9c8bf8ddf2b0f012cf5d6bd710" title="Unbind this vertex array." alt="" coords="212,2159,363,2199"/>
+<area shape="poly" id="edge55_Node000001_Node000050" title=" " alt="" coords="80,1169,93,1368,117,1679,133,1838,152,1980,173,2087,184,2124,195,2146,203,2153,199,2157,191,2149,179,2126,168,2089,147,1980,128,1839,112,1679,87,1368,75,1169"/>
+<area shape="rect" id="Node000051" href="$db/d02/classgalaxy_1_1VertexArray.html#a671c4c92e4ec7a2c7494cb56fbae985f" title="Get vertex buffer." alt="" coords="197,2224,378,2249"/>
+<area shape="poly" id="edge56_Node000001_Node000051" title=" " alt="" coords="80,1169,91,1379,114,1712,130,1882,149,2033,171,2148,183,2187,195,2210,200,2214,196,2218,191,2213,178,2189,166,2149,144,2034,125,1883,109,1712,86,1380,75,1169"/>
+<area shape="rect" id="Node000052" href="$df/db8/classgalaxy_1_1Texture.html#af00e79054314d8c920b0f6459c49b2da" title="Get texture width." alt="" coords="205,2273,370,2299"/>
+<area shape="poly" id="edge57_Node000001_Node000052" title=" " alt="" coords="80,1169,90,1388,112,1737,128,1916,147,2075,170,2196,182,2236,195,2260,198,2263,194,2267,191,2264,177,2238,165,2197,142,2075,123,1917,107,1737,85,1389,75,1169"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="363,376,437,367,438,373,363,381"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="363,605,437,597,438,602,363,611"/>
+<area shape="poly" id="edge28_Node000026_Node000027" title=" " alt="" coords="341,1359,382,1371,490,1417,488,1422,380,1377,340,1364"/>
+<area shape="rect" id="Node000028" href="$df/db8/classgalaxy_1_1Texture.html#a04d5c054f6cf6db2a84bf18d658a206a" title="Set ansiotropic filtering level." alt="" coords="698,1354,847,1394"/>
+<area shape="poly" id="edge29_Node000027_Node000028" title=" " alt="" coords="578,1423,684,1394,686,1399,579,1428"/>
+<area shape="rect" id="Node000030" href="$df/db8/classgalaxy_1_1Texture.html#a3815f18a58b3a43d3bea069ea3afa862" title="Sets filter when texture is (up/down)scaled in OpenGL." alt="" coords="698,1418,847,1458"/>
+<area shape="poly" id="edge31_Node000027_Node000030" title=" " alt="" coords="628,1435,684,1435,684,1441,628,1441"/>
+<area shape="rect" id="Node000033" href="$df/db8/classgalaxy_1_1Texture.html#a8161177d4173b526c58479889743ad3c" title="Set texture mode." alt="" coords="676,1483,869,1508"/>
+<area shape="poly" id="edge34_Node000027_Node000033" title=" " alt="" coords="584,1448,705,1477,704,1482,583,1453"/>
+<area shape="rect" id="Node000029" href="$df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f" title="Ansiotropic filtering level." alt="" coords="917,1361,1128,1387"/>
+<area shape="poly" id="edge30_Node000028_Node000029" title=" " alt="" coords="848,1371,903,1371,903,1377,848,1377"/>
+<area shape="rect" id="Node000031" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="929,1479,1117,1504"/>
+<area shape="poly" id="edge32_Node000030_Node000031" title=" " alt="" coords="848,1451,950,1473,949,1478,847,1456"/>
+<area shape="rect" id="Node000032" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="932,1414,1113,1454"/>
+<area shape="poly" id="edge33_Node000030_Node000032" title=" " alt="" coords="847,1434,918,1433,918,1438,848,1439"/>
+<area shape="rect" id="Node000037" href="$d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48" title="Calc normalized value from range." alt="" coords="439,1565,619,1591"/>
+<area shape="poly" id="edge39_Node000036_Node000037" title=" " alt="" coords="382,1575,425,1575,425,1581,382,1581"/>
+<area shape="poly" id="edge41_Node000038_Node000039" title=" " alt="" coords="353,1653,451,1683,450,1688,352,1658"/>
+<area shape="poly" id="edge46_Node000042_Node000015" title=" " alt="" coords="363,734,383,745,412,772,437,802,478,869,506,934,523,985,518,986,501,936,473,871,433,805,408,775,380,749,360,738"/>
+<area shape="rect" id="Node000044" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="437,1831,621,1856"/>
+<area shape="poly" id="edge48_Node000043_Node000044" title=" " alt="" coords="367,1841,423,1841,423,1846,367,1846"/>
+<area shape="poly" id="edge51_Node000046_Node000047" title=" " alt="" coords="363,2004,437,1994,438,2000,363,2009"/>
 </map>

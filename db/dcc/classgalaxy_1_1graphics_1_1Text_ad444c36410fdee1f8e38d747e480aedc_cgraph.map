@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,197,168,237"/>
 <area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="216,165,399,205"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,203,202,198,203,203,169,208"/>
-<area shape="rect" id="Node000010" href="$db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564" title="Generate some default indicies." alt="" coords="227,229,387,269"/>
+<area shape="rect" id="Node000010" href="$db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee" title="Generate some default indices." alt="" coords="227,229,387,269"/>
 <area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="169,227,214,233,213,238,168,232"/>
 <area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf" title="Add a colour attachment to the framebuffer." alt="" coords="457,37,671,77"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="330,163,381,125,445,87,463,80,465,85,448,92,384,129,334,167"/>

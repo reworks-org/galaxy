@@ -40,7 +40,8 @@ var namespacegalaxy =
     [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
     [ "mem", "dd/d0d/namespacegalaxy_1_1mem.html", [
       [ "ref", "dd/d0d/namespacegalaxy_1_1mem.html#a7b83473b28650a3105cc20e9366c2f75", null ],
-      [ "opt_ref", "dd/d0d/namespacegalaxy_1_1mem.html#a88726f6aa5b0886038d8174591afedb9", null ]
+      [ "opt_ref", "dd/d0d/namespacegalaxy_1_1mem.html#a88726f6aa5b0886038d8174591afedb9", null ],
+      [ "vec_ref", "dd/d0d/namespacegalaxy_1_1mem.html#a506acf42277ffed35c36a51a3d7defe4", null ]
     ] ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
@@ -76,6 +77,7 @@ var namespacegalaxy =
     [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
     [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
     [ "GainedFocus", "d4/db4/structgalaxy_1_1GainedFocus.html", null ],
+    [ "GPUBuffer", "d0/dda/classgalaxy_1_1GPUBuffer.html", "d0/dda/classgalaxy_1_1GPUBuffer" ],
     [ "HandleableEvent", "d6/d1e/structgalaxy_1_1HandleableEvent.html", "d6/d1e/structgalaxy_1_1HandleableEvent" ],
     [ "Keyboard", "d8/db2/classgalaxy_1_1Keyboard.html", "d8/db2/classgalaxy_1_1Keyboard" ],
     [ "KeyInput", "d6/d71/structgalaxy_1_1KeyInput.html", "d6/d71/structgalaxy_1_1KeyInput" ],
@@ -97,7 +99,6 @@ var namespacegalaxy =
     [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
     [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
     [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html", "d1/d5e/classgalaxy_1_1Shader" ],
-    [ "ShaderStorageBuffer", "d0/d35/classgalaxy_1_1ShaderStorageBuffer.html", "d0/d35/classgalaxy_1_1ShaderStorageBuffer" ],
     [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
     [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],
     [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ],
@@ -141,11 +142,15 @@ var namespacegalaxy =
     [ "GLAttributeBinding", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3ba", [
       [ "POSITION_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baad11221eaa67349727c817f4c124fc6b5", null ],
       [ "TEXEL_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d", null ],
-      [ "OFFSET_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baa3038efd7f692df8553c984f73a9f1939", null ]
+      [ "HANDLE_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baaa32ec40b53389ad878c04e5ea34dcb6e", null ]
     ] ],
-    [ "GLBufferBinding", "d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9c", [
-      [ "VERTEX_BUFFER_POINT", "d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9ca9d8102760f7af3639a97cd88b43b56d4", null ],
-      [ "INSTANCE_BUFFER_POINT", "d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9ca2e37e7b71c4223dcf4ab61621653b3a8", null ]
+    [ "GLBufferLocation", "d0/d46/namespacegalaxy.html#afc3a8823bc287e3b5b6bd2293142bb39", [
+      [ "VERTEX_BUFFER_POINT", "d0/d46/namespacegalaxy.html#afc3a8823bc287e3b5b6bd2293142bb39a9d8102760f7af3639a97cd88b43b56d4", null ]
+    ] ],
+    [ "GLBufferBinding", "d0/d46/namespacegalaxy.html#ac5935f4ec29b79966b8caec5e663f1be", [
+      [ "TEXTURE_HANDLES", "d0/d46/namespacegalaxy.html#ac5935f4ec29b79966b8caec5e663f1beadc87671d273e529efff385ddcc6ec4be", null ],
+      [ "CAMERA", "d0/d46/namespacegalaxy.html#ac5935f4ec29b79966b8caec5e663f1beaddf0d6b21537d984fea6544f58101fa8", null ],
+      [ "UNIFORMS", "d0/d46/namespacegalaxy.html#ac5935f4ec29b79966b8caec5e663f1beab076bd0ed1a7920ca56dd6c98609bdbc", null ]
     ] ],
     [ "GLTextureFilter", "d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0", [
       [ "NEAREST", "d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a", null ],
@@ -162,6 +167,13 @@ var namespacegalaxy =
       [ "MIRRORED_REPEAT", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7acf6164235e7bfffb5c4c7c4b685f660a", null ],
       [ "CLAMP_TO_EDGE", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7aca305cdc5d749d643055111218063f26", null ],
       [ "CLAMP_TO_BORDER", "d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7afcb162090f81b0a56721e5aa01b880c3", null ]
+    ] ],
+    [ "GLRenderMode", "d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3a", [
+      [ "QUADS", "d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aa23d5348dd7bef544d6341bec3480287f", null ],
+      [ "TRIANGLES", "d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aadd3bfee8042d1b85c224f08b42a3fc2e", null ],
+      [ "LINES", "d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aae585142391f356c60bcfe68279ec2727", null ],
+      [ "LINE_LOOP", "d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aa8e0df0247f66bd2cac06f16abb562134", null ],
+      [ "POINTS", "d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aa70b71cabeeaf8c2bf473c896d5442ddb", null ]
     ] ],
     [ "Keys", "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83", [
       [ "KEY_UNKNOWN", "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ac65562a4ae65d30cddd4dbd6a196d3ae", null ],

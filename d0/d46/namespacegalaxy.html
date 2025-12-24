@@ -185,6 +185,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db4/structgalaxy_1_1GainedFocus.html">GainedFocus</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">POD tag to allow a function to accept a dispatched focus gained event.  <a href="../../d4/db4/structgalaxy_1_1GainedFocus.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dda/classgalaxy_1_1GPUBuffer.html">GPUBuffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL GPU-Side buffer, such as MDI, SSBO, UBO, EBO, etc.  <a href="../../d0/dda/classgalaxy_1_1GPUBuffer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d1e/structgalaxy_1_1HandleableEvent.html">HandleableEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This allows an event to be marked as being "handled" so events lower in the stack can no longer consume the event.  <a href="../../d6/d1e/structgalaxy_1_1HandleableEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -247,9 +250,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html">Shader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> Program.  <a href="../../d1/d5e/classgalaxy_1_1Shader.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d35/classgalaxy_1_1ShaderStorageBuffer.html">ShaderStorageBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modern SSBO abstraction.  <a href="../../d0/d35/classgalaxy_1_1ShaderStorageBuffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d42/classgalaxy_1_1Sink.html">Sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A source for log messages to be recorded to.  <a href="../../d2/d42/classgalaxy_1_1Sink.html#details">More...</a><br /></td></tr>
@@ -348,18 +348,23 @@ Enumerations</h2></td></tr>
 <tr class="separator:a2930f35993edbdaf0308cd65346a4a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c865427206a1ad8ea8e77c1f681b3ba" id="r_a3c865427206a1ad8ea8e77c1f681b3ba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c865427206a1ad8ea8e77c1f681b3ba">GLAttributeBinding</a> : unsigned int { <a class="el" href="#a3c865427206a1ad8ea8e77c1f681b3baad11221eaa67349727c817f4c124fc6b5">POSITION_POINT</a> = 0u
 , <a class="el" href="#a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d">TEXEL_POINT</a> = 1u
-, <a class="el" href="#a3c865427206a1ad8ea8e77c1f681b3baa3038efd7f692df8553c984f73a9f1939">OFFSET_POINT</a> = 2u
+, <a class="el" href="#a3c865427206a1ad8ea8e77c1f681b3baaa32ec40b53389ad878c04e5ea34dcb6e">HANDLE_POINT</a> = 2u
  }</td></tr>
 <tr class="memdesc:a3c865427206a1ad8ea8e77c1f681b3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the location of shader attribute binding point for the VAO.  <a href="#a3c865427206a1ad8ea8e77c1f681b3ba">More...</a><br /></td></tr>
 <tr class="separator:a3c865427206a1ad8ea8e77c1f681b3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e636fa01e88d6f8caa57c79f29d6f9c" id="r_a8e636fa01e88d6f8caa57c79f29d6f9c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e636fa01e88d6f8caa57c79f29d6f9c">GLBufferBinding</a> : unsigned int { <a class="el" href="#a8e636fa01e88d6f8caa57c79f29d6f9ca9d8102760f7af3639a97cd88b43b56d4">VERTEX_BUFFER_POINT</a> = 0
-, <a class="el" href="#a8e636fa01e88d6f8caa57c79f29d6f9ca2e37e7b71c4223dcf4ab61621653b3a8">INSTANCE_BUFFER_POINT</a> = 1
+<tr class="memitem:afc3a8823bc287e3b5b6bd2293142bb39" id="r_afc3a8823bc287e3b5b6bd2293142bb39"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc3a8823bc287e3b5b6bd2293142bb39">GLBufferLocation</a> : unsigned int { <a class="el" href="#afc3a8823bc287e3b5b6bd2293142bb39a9d8102760f7af3639a97cd88b43b56d4">VERTEX_BUFFER_POINT</a> = 0
  }</td></tr>
-<tr class="memdesc:a8e636fa01e88d6f8caa57c79f29d6f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the location of a buffer's binding point for the VAO.  <a href="#a8e636fa01e88d6f8caa57c79f29d6f9c">More...</a><br /></td></tr>
-<tr class="separator:a8e636fa01e88d6f8caa57c79f29d6f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5410d082df2a9bbbea865082cd9b91c0" id="r_a5410d082df2a9bbbea865082cd9b91c0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0">GLTextureFilter</a> : short { <a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a">NEAREST</a>
-, <a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65">BILINEAR</a>
-, <a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783">TRILINEAR</a>
+<tr class="memdesc:afc3a8823bc287e3b5b6bd2293142bb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the location of a buffer's location point for the VAO.  <a href="#afc3a8823bc287e3b5b6bd2293142bb39">More...</a><br /></td></tr>
+<tr class="separator:afc3a8823bc287e3b5b6bd2293142bb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5935f4ec29b79966b8caec5e663f1be" id="r_ac5935f4ec29b79966b8caec5e663f1be"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5935f4ec29b79966b8caec5e663f1be">GLBufferBinding</a> : int { <a class="el" href="#ac5935f4ec29b79966b8caec5e663f1beadc87671d273e529efff385ddcc6ec4be">TEXTURE_HANDLES</a> = 0
+, <a class="el" href="#ac5935f4ec29b79966b8caec5e663f1beaddf0d6b21537d984fea6544f58101fa8">CAMERA</a> = 1
+, <a class="el" href="#ac5935f4ec29b79966b8caec5e663f1beab076bd0ed1a7920ca56dd6c98609bdbc">UNIFORMS</a> = 2
+ }</td></tr>
+<tr class="memdesc:ac5935f4ec29b79966b8caec5e663f1be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binding point for GPU buffers.  <a href="#ac5935f4ec29b79966b8caec5e663f1be">More...</a><br /></td></tr>
+<tr class="separator:ac5935f4ec29b79966b8caec5e663f1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5410d082df2a9bbbea865082cd9b91c0" id="r_a5410d082df2a9bbbea865082cd9b91c0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0">GLTextureFilter</a> : short { <a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a">NEAREST</a> = 0
+, <a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65">BILINEAR</a> = 1
+, <a class="el" href="#a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783">TRILINEAR</a> = 2
  }</td></tr>
 <tr class="memdesc:a5410d082df2a9bbbea865082cd9b91c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mipmap filtering.  <a href="#a5410d082df2a9bbbea865082cd9b91c0">More...</a><br /></td></tr>
 <tr class="separator:a5410d082df2a9bbbea865082cd9b91c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -376,6 +381,17 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ab6695f13c0a6b3334f6f6012b05167a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture wrapping modes.  <a href="#ab6695f13c0a6b3334f6f6012b05167a7">More...</a><br /></td></tr>
 <tr class="separator:ab6695f13c0a6b3334f6f6012b05167a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560252f0bdd1ddfe4182e04b997e6e3a" id="r_a560252f0bdd1ddfe4182e04b997e6e3a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3a">GLRenderMode</a> : unsigned int { <br />
+&#160;&#160;<a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3aa23d5348dd7bef544d6341bec3480287f">QUADS</a> = GL_QUADS
+, <a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3aadd3bfee8042d1b85c224f08b42a3fc2e">TRIANGLES</a> = GL_TRIANGLES
+, <a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3aae585142391f356c60bcfe68279ec2727">LINES</a> = GL_LINES
+, <a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3aa8e0df0247f66bd2cac06f16abb562134">LINE_LOOP</a> = GL_LINE_LOOP
+, <br />
+&#160;&#160;<a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3aa70b71cabeeaf8c2bf473c896d5442ddb">POINTS</a> = GL_POINTS
+<br />
+ }</td></tr>
+<tr class="memdesc:a560252f0bdd1ddfe4182e04b997e6e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering modes.  <a href="#a560252f0bdd1ddfe4182e04b997e6e3a">More...</a><br /></td></tr>
+<tr class="separator:a560252f0bdd1ddfe4182e04b997e6e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a649e37db9438582b9449f8b91738dd83" id="r_a649e37db9438582b9449f8b91738dd83"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a649e37db9438582b9449f8b91738dd83">Keys</a> : SDL_Keycode { <br />
 &#160;&#160;<a class="el" href="#a649e37db9438582b9449f8b91738dd83ac65562a4ae65d30cddd4dbd6a196d3ae">KEY_UNKNOWN</a> = SDLK_UNKNOWN
 , <a class="el" href="#a649e37db9438582b9449f8b91738dd83a7137cfb139c48876fdee5cd87d3f8dee">KEY_RETURN</a> = SDLK_RETURN
@@ -935,10 +951,10 @@ Functions</h2></td></tr>
 <p><a class="el" href="../../de/d07/Vertex_8cpp.html">Vertex.cpp</a> galaxy.</p>
 <p><a class="el" href="../../d0/ddc/Texture_8hpp.html">Texture.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d5/d87/Texture_8cpp.html">Texture.cpp</a> galaxy.</p>
-<p><a class="el" href="../../d0/d20/ShaderStorageBuffer_8hpp.html">ShaderStorageBuffer.hpp</a> galaxy.</p>
-<p><a class="el" href="../../df/df6/ShaderStorageBuffer_8cpp.html">ShaderStorageBuffer.cpp</a> galaxy.</p>
 <p><a class="el" href="../../d4/d6e/Shader_8hpp.html">Shader.hpp</a> galaxy.</p>
 <p><a class="el" href="../../dd/d84/Shader_8cpp.html">Shader.cpp</a> galaxy.</p>
+<p><a class="el" href="../../d3/d21/GPUBuffer_8hpp.html">GPUBuffer.hpp</a> galaxy.</p>
+<p><a class="el" href="../../de/db7/GPUBuffer_8cpp.html">GPUBuffer.cpp</a> galaxy.</p>
 <p><a class="el" href="../../d4/d4f/GLEnums_8hpp.html">GLEnums.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d9/d2c/Framebuffer_8hpp.html">Framebuffer.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d2/dad/Framebuffer_8cpp.html">Framebuffer.cpp</a> galaxy.</p>
@@ -1191,7 +1207,7 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d" name="a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d"></a>TEXEL_POINT&#160;</td><td class="fieldinit">1u&#160;</td><td class="fielddoc"><p>Texel data. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a3c865427206a1ad8ea8e77c1f681b3baa3038efd7f692df8553c984f73a9f1939" name="a3c865427206a1ad8ea8e77c1f681b3baa3038efd7f692df8553c984f73a9f1939"></a>OFFSET_POINT&#160;</td><td class="fieldinit">2u&#160;</td><td class="fielddoc"><p>Instance offset data. </p>
+<tr><td class="fieldname"><a id="a3c865427206a1ad8ea8e77c1f681b3baaa32ec40b53389ad878c04e5ea34dcb6e" name="a3c865427206a1ad8ea8e77c1f681b3baaa32ec40b53389ad878c04e5ea34dcb6e"></a>HANDLE_POINT&#160;</td><td class="fieldinit">2u&#160;</td><td class="fielddoc"><p><a class="el" href="../../df/db8/classgalaxy_1_1Texture.html" title="Bindless OpenGL 2D Texture.">Texture</a> handle. </p>
 </td></tr>
 </table>
 
@@ -1199,8 +1215,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8e636fa01e88d6f8caa57c79f29d6f9c" name="a8e636fa01e88d6f8caa57c79f29d6f9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e636fa01e88d6f8caa57c79f29d6f9c">&#9670;&#160;</a></span>GLBufferBinding</h2>
+<a id="afc3a8823bc287e3b5b6bd2293142bb39" name="afc3a8823bc287e3b5b6bd2293142bb39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3a8823bc287e3b5b6bd2293142bb39">&#9670;&#160;</a></span>GLBufferLocation</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1209,7 +1225,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a8e636fa01e88d6f8caa57c79f29d6f9c">galaxy::GLBufferBinding</a> : unsigned int</td>
+          <td class="memname">enum class <a class="el" href="#afc3a8823bc287e3b5b6bd2293142bb39">galaxy::GLBufferLocation</a> : unsigned int</td>
         </tr>
       </table>
   </td>
@@ -1219,15 +1235,47 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stores the location of a buffer's binding point for the VAO. </p>
+<p>Stores the location of a buffer's location point for the VAO. </p>
 <table class="fieldtable">
-<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a8e636fa01e88d6f8caa57c79f29d6f9ca9d8102760f7af3639a97cd88b43b56d4" name="a8e636fa01e88d6f8caa57c79f29d6f9ca9d8102760f7af3639a97cd88b43b56d4"></a>VERTEX_BUFFER_POINT&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Normal VBO. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a8e636fa01e88d6f8caa57c79f29d6f9ca2e37e7b71c4223dcf4ab61621653b3a8" name="a8e636fa01e88d6f8caa57c79f29d6f9ca2e37e7b71c4223dcf4ab61621653b3a8"></a>INSTANCE_BUFFER_POINT&#160;</td><td class="fieldinit">1&#160;</td><td class="fielddoc"><p>Instance offsets. </p>
+<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="afc3a8823bc287e3b5b6bd2293142bb39a9d8102760f7af3639a97cd88b43b56d4" name="afc3a8823bc287e3b5b6bd2293142bb39a9d8102760f7af3639a97cd88b43b56d4"></a>VERTEX_BUFFER_POINT&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Normal VBO. </p>
 </td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="../../dd/de2/Enums_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../dd/de2/Enums_8hpp_source.html">Enums.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac5935f4ec29b79966b8caec5e663f1be" name="ac5935f4ec29b79966b8caec5e663f1be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5935f4ec29b79966b8caec5e663f1be">&#9670;&#160;</a></span>GLBufferBinding</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ac5935f4ec29b79966b8caec5e663f1be">galaxy::GLBufferBinding</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binding point for GPU buffers. </p>
+<table class="fieldtable">
+<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="ac5935f4ec29b79966b8caec5e663f1beadc87671d273e529efff385ddcc6ec4be" name="ac5935f4ec29b79966b8caec5e663f1beadc87671d273e529efff385ddcc6ec4be"></a>TEXTURE_HANDLES&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Bindless texture handle array. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac5935f4ec29b79966b8caec5e663f1beaddf0d6b21537d984fea6544f58101fa8" name="ac5935f4ec29b79966b8caec5e663f1beaddf0d6b21537d984fea6544f58101fa8"></a>CAMERA&#160;</td><td class="fieldinit">1&#160;</td><td class="fielddoc"><p>Camera transform data. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac5935f4ec29b79966b8caec5e663f1beab076bd0ed1a7920ca56dd6c98609bdbc" name="ac5935f4ec29b79966b8caec5e663f1beab076bd0ed1a7920ca56dd6c98609bdbc"></a>UNIFORMS&#160;</td><td class="fieldinit">2&#160;</td><td class="fielddoc"><p><a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> uniforms. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/de2/Enums_8hpp_source.html#l00048">48</a> of file <a class="el" href="../../dd/de2/Enums_8hpp_source.html">Enums.hpp</a>.</p>
 
 </div>
 </div>
@@ -1253,15 +1301,15 @@ Functions</h2></td></tr>
 
 <p>Mipmap filtering. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a" name="a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a"></a>NEAREST&#160;</td><td class="fielddoc"><p>Nearest-neighbour. </p>
+<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a" name="a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a"></a>NEAREST&#160;</td><td class="fieldinit">0&#160;</td><td class="fielddoc"><p>Nearest-neighbour. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65" name="a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65"></a>BILINEAR&#160;</td><td class="fielddoc"><p>Bilinear. </p>
+<tr><td class="fieldname"><a id="a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65" name="a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65"></a>BILINEAR&#160;</td><td class="fieldinit">1&#160;</td><td class="fielddoc"><p>Bilinear. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783" name="a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783"></a>TRILINEAR&#160;</td><td class="fielddoc"><p>Trilinear. </p>
+<tr><td class="fieldname"><a id="a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783" name="a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783"></a>TRILINEAR&#160;</td><td class="fieldinit">2&#160;</td><td class="fielddoc"><p>Trilinear. </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/de2/Enums_8hpp_source.html#l00053">53</a> of file <a class="el" href="../../dd/de2/Enums_8hpp_source.html">Enums.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/de2/Enums_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../dd/de2/Enums_8hpp_source.html">Enums.hpp</a>.</p>
 
 </div>
 </div>
@@ -1329,6 +1377,39 @@ Functions</h2></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d4f/GLEnums_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d4/d4f/GLEnums_8hpp_source.html">GLEnums.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a560252f0bdd1ddfe4182e04b997e6e3a" name="a560252f0bdd1ddfe4182e04b997e6e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a560252f0bdd1ddfe4182e04b997e6e3a">&#9670;&#160;</a></span>GLRenderMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a560252f0bdd1ddfe4182e04b997e6e3a">galaxy::GLRenderMode</a> : unsigned int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rendering modes. </p>
+<table class="fieldtable">
+<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a560252f0bdd1ddfe4182e04b997e6e3aa23d5348dd7bef544d6341bec3480287f" name="a560252f0bdd1ddfe4182e04b997e6e3aa23d5348dd7bef544d6341bec3480287f"></a>QUADS&#160;</td><td class="fieldinit">GL_QUADS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a560252f0bdd1ddfe4182e04b997e6e3aadd3bfee8042d1b85c224f08b42a3fc2e" name="a560252f0bdd1ddfe4182e04b997e6e3aadd3bfee8042d1b85c224f08b42a3fc2e"></a>TRIANGLES&#160;</td><td class="fieldinit">GL_TRIANGLES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a560252f0bdd1ddfe4182e04b997e6e3aae585142391f356c60bcfe68279ec2727" name="a560252f0bdd1ddfe4182e04b997e6e3aae585142391f356c60bcfe68279ec2727"></a>LINES&#160;</td><td class="fieldinit">GL_LINES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a560252f0bdd1ddfe4182e04b997e6e3aa8e0df0247f66bd2cac06f16abb562134" name="a560252f0bdd1ddfe4182e04b997e6e3aa8e0df0247f66bd2cac06f16abb562134"></a>LINE_LOOP&#160;</td><td class="fieldinit">GL_LINE_LOOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a560252f0bdd1ddfe4182e04b997e6e3aa70b71cabeeaf8c2bf473c896d5442ddb" name="a560252f0bdd1ddfe4182e04b997e6e3aa70b71cabeeaf8c2bf473c896d5442ddb"></a>POINTS&#160;</td><td class="fieldinit">GL_POINTS&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d4f/GLEnums_8hpp_source.html#l00054">54</a> of file <a class="el" href="../../d4/d4f/GLEnums_8hpp_source.html">GLEnums.hpp</a>.</p>
 
 </div>
 </div>
@@ -2760,7 +2841,7 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li>
-    <li class="footer">Generated on Fri Sep 26 2025 09:07:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Dec 24 2025 05:01:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

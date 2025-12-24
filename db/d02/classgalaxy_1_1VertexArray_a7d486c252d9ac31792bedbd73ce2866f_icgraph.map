@@ -1,0 +1,15 @@
+<map id="galaxy::VertexArray::sub_buffer" name="galaxy::VertexArray::sub_buffer">
+<area shape="rect" id="Node000001" title="Sub&#45;buffer vertex buffer." alt="" coords="789,69,940,109"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="582,5,722,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="784,68,718,48,720,43,785,63"/>
+<area shape="rect" id="Node000006" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#a7686ca85841b9ab9e5a3c3dc42296255" title="Buffer some vertices into the spritebatch." alt="" coords="563,69,741,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="776,92,741,92,741,87,776,87"/>
+<area shape="rect" id="Node000007" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#abb1cd3351fcca4eba0fba79ffa660251" title="Sub&#45;buffer vertex object." alt="" coords="563,133,741,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="785,116,720,136,718,131,784,111"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="569,28,515,28,515,23,569,23"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,28,136,28,136,23,170,23"/>
+</map>

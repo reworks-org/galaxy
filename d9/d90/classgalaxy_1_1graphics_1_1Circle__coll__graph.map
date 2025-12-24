@@ -1,11 +1,11 @@
 <map id="galaxy::graphics::Circle" name="galaxy::graphics::Circle">
-<area shape="rect" id="Node000001" title="A circle." alt="" coords="50,1196,215,1401"/>
-<area shape="rect" id="Node000002" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html" title="A generic 2D shape." alt="" coords="49,901,217,1147"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,1160,135,1196,130,1196,130,1160"/>
-<area shape="rect" id="Node000003" href="$d8/d74/classgalaxy_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="5,413,129,839"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,838,97,877,98,885,93,886,91,878,85,839"/>
-<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="153,453,296,799"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="191,800,173,878,171,886,165,885,167,877,185,798"/>
-<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="151,5,298,351"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="227,351,227,437,222,437,222,351"/>
+<area shape="rect" id="Node000001" title="A circle." alt="" coords="50,1216,215,1421"/>
+<area shape="rect" id="Node000002" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html" title="A generic 2D shape." alt="" coords="49,921,217,1167"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,1180,135,1216,130,1216,130,1180"/>
+<area shape="rect" id="Node000003" href="$d8/d74/classgalaxy_1_1Colour.html" title="Represents an RGBA colour." alt="" coords="5,433,129,859"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,858,97,897,98,905,93,906,91,898,85,859"/>
+<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="153,453,296,839"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="186,840,173,898,171,906,165,905,167,897,181,838"/>
+<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="151,5,298,371"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="227,371,227,436,222,436,222,371"/>
 </map>

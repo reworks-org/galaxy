@@ -1,15 +1,13 @@
 <map id="galaxy::components::Polyline::Polyline" name="galaxy::components::Polyline::Polyline">
-<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,65,159,105"/>
-<area shape="rect" id="Node000002" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a90cd4c96eb57e37637939b471c95bfc1" title="Deserializes from object." alt="" coords="207,65,368,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,83,193,83,193,88,159,88"/>
-<area shape="rect" id="Node000003" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#a0b809635978824681737fa90992d2d55" title="List of points to create a line from." alt="" coords="416,65,604,105"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="368,83,402,83,402,88,368,88"/>
-<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="671,33,821,73"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="604,70,656,63,657,68,605,75"/>
-<area shape="rect" id="Node000007" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#aa334c55c81e523c83a19a1993f8b6b65" title="Get list of points." alt="" coords="652,97,840,137"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="605,95,639,100,638,105,604,101"/>
-<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="898,5,1053,45"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="821,42,884,34,885,39,822,47"/>
-<area shape="rect" id="Node000006" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="888,70,1063,95"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="822,60,875,67,874,72,821,66"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,37,159,77"/>
+<area shape="rect" id="Node000002" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a90cd4c96eb57e37637939b471c95bfc1" title="Deserializes from object." alt="" coords="207,37,368,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,55,193,55,193,60,159,60"/>
+<area shape="rect" id="Node000003" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#a0b809635978824681737fa90992d2d55" title="List of points to create a line from." alt="" coords="416,37,604,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="368,55,402,55,402,60,368,60"/>
+<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="671,5,821,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="604,42,656,35,657,40,605,47"/>
+<area shape="rect" id="Node000006" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#aa334c55c81e523c83a19a1993f8b6b65" title="Get list of points." alt="" coords="652,69,840,109"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="605,67,639,72,638,77,604,73"/>
+<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="888,5,1043,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="822,23,874,23,874,28,822,28"/>
 </map>

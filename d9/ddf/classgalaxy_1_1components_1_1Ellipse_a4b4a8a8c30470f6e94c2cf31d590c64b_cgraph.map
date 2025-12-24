@@ -1,17 +1,15 @@
 <map id="galaxy::components::Ellipse::Ellipse" name="galaxy::components::Ellipse::Ellipse">
-<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,97,159,137"/>
-<area shape="rect" id="Node000002" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630" title="Deserializes from object." alt="" coords="207,97,360,137"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,115,193,115,193,120,159,120"/>
-<area shape="rect" id="Node000003" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#affbe40f01436e926593ab53ae9176a58" title="Create the ellipse." alt="" coords="408,97,587,137"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,115,394,115,394,120,360,120"/>
-<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="649,33,799,73"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="568,95,639,75,640,80,570,100"/>
-<area shape="rect" id="Node000007" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#a42ac59c5521ce3a1d74b64b4b5af487a" title="Get fragments." alt="" coords="635,97,813,137"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="587,115,621,115,621,120,587,120"/>
-<area shape="rect" id="Node000008" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#aa7aac573a3193c3c0a0e6761896a4f64" title="Get radii." alt="" coords="635,161,813,201"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="570,135,640,155,639,160,568,140"/>
-<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="871,5,1026,45"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="800,41,857,34,858,39,800,47"/>
-<area shape="rect" id="Node000006" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="861,70,1036,95"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="800,61,848,67,847,72,800,66"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,69,159,109"/>
+<area shape="rect" id="Node000002" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630" title="Deserializes from object." alt="" coords="207,69,360,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,87,193,87,193,92,159,92"/>
+<area shape="rect" id="Node000003" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#affbe40f01436e926593ab53ae9176a58" title="Create the ellipse." alt="" coords="408,69,587,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,87,394,87,394,92,360,92"/>
+<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="649,5,799,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="568,67,639,47,640,52,570,72"/>
+<area shape="rect" id="Node000006" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#a42ac59c5521ce3a1d74b64b4b5af487a" title="Get fragments." alt="" coords="635,69,813,109"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="587,87,621,87,621,92,587,92"/>
+<area shape="rect" id="Node000007" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#aa7aac573a3193c3c0a0e6761896a4f64" title="Get radii." alt="" coords="635,133,813,173"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="570,107,640,127,639,132,568,112"/>
+<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="861,5,1016,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="799,23,848,23,848,28,799,28"/>
 </map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vertex_5fbuffer_5fpoint_0',['VERTEX_BUFFER_POINT',['../d0/d46/namespacegalaxy.html#a8e636fa01e88d6f8caa57c79f29d6f9ca9d8102760f7af3639a97cd88b43b56d4',1,'galaxy']]]
+  ['uniforms_0',['UNIFORMS',['../d0/d46/namespacegalaxy.html#ac5935f4ec29b79966b8caec5e663f1beab076bd0ed1a7920ca56dd6c98609bdbc',1,'galaxy']]],
+  ['unknown_1',['UNKNOWN',['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806a696b031073e74bf2cb98e5ef201d4aa3',1,'galaxy']]]
 ];

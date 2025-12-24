@@ -24,6 +24,7 @@ var hierarchy =
     [ "galaxy::graphics::Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", null ],
     [ "galaxy::graphics::Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", null ],
     [ "galaxy::GainedFocus", "d4/db4/structgalaxy_1_1GainedFocus.html", null ],
+    [ "galaxy::GPUBuffer", "d0/dda/classgalaxy_1_1GPUBuffer.html", null ],
     [ "galaxy::HandleableEvent", "d6/d1e/structgalaxy_1_1HandleableEvent.html", [
       [ "galaxy::KeyInput", "d6/d71/structgalaxy_1_1KeyInput.html", null ],
       [ "galaxy::KeyPressed", "d0/d11/structgalaxy_1_1KeyPressed.html", null ],
@@ -89,7 +90,6 @@ var hierarchy =
     [ "galaxy::meta::EntityFactory::SerializationData", "d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html", null ],
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
     [ "galaxy::Shader", "d1/d5e/classgalaxy_1_1Shader.html", null ],
-    [ "galaxy::ShaderStorageBuffer", "d0/d35/classgalaxy_1_1ShaderStorageBuffer.html", null ],
     [ "galaxy::graphics::Shape", "d9/d29/classgalaxy_1_1graphics_1_1Shape.html", [
       [ "galaxy::graphics::Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", null ],
       [ "galaxy::graphics::Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", null ],

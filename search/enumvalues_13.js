@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['yes_5fno_5fcancel_0',['yes_no_cancel',['../d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010a5c5cb337bb234e240912dc139048038c',1,'galaxy']]],
-  ['yesno_1',['yesno',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9dacc74e9b9aaac7367488cc146dfb078db',1,'galaxy']]],
-  ['yesnocancel_2',['yesnocancel',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da30cea79617be1bdc188511fdf0d582bd',1,'galaxy']]]
+  ['warning_0',['WARNING',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a059e9861e0400dfbe05c98a841f3f96b',1,'galaxy']]],
+  ['warning_1',['warning',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803a7b83d3f08fa392b79e3f553b585971cd',1,'galaxy']]]
 ];

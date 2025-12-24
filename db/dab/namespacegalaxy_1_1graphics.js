@@ -28,8 +28,8 @@ var namespacegalaxy_1_1graphics =
     [ "Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", "da/d35/classgalaxy_1_1graphics_1_1Transform" ],
     [ "VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch" ],
     [ "is_posteffect", "d7/de6/conceptgalaxy_1_1graphics_1_1is__posteffect.html", null ],
-    [ "gen_quad_vertices", "db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd", null ],
-    [ "gen_default_indices", "db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564", null ],
+    [ "gen_quad_vertices", "db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2", null ],
+    [ "gen_default_indices", "db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee", null ],
     [ "map_x_texel", "db/dab/namespacegalaxy_1_1graphics.html#aff5fdda389eb7519bb012f71b6700ba9", null ],
     [ "map_y_texel", "db/dab/namespacegalaxy_1_1graphics.html#a907d9f88eab5b68df85d9f9c02ff4218", null ]
 ];

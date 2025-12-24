@@ -1,13 +1,11 @@
 <map id="galaxy::components::Point::deserialize" name="galaxy::components::Point::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,64,159,104"/>
-<area shape="rect" id="Node000002" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#a6f71373fa2b2940c76439a1c467e1fc3" title="Initial point positon." alt="" coords="207,64,376,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,81,193,81,193,87,159,87"/>
-<area shape="rect" id="Node000003" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="449,35,599,75"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,71,434,63,435,69,377,76"/>
-<area shape="rect" id="Node000006" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="424,99,624,125"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="377,92,411,96,410,101,376,97"/>
-<area shape="rect" id="Node000004" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="682,5,837,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="599,43,667,34,668,39,600,48"/>
-<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="672,70,847,95"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="600,61,659,68,658,73,599,66"/>
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,35,159,75"/>
+<area shape="rect" id="Node000002" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#a6f71373fa2b2940c76439a1c467e1fc3" title="Initial point positon." alt="" coords="207,35,376,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,52,193,52,193,57,159,57"/>
+<area shape="rect" id="Node000003" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="449,5,599,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,41,434,34,435,39,377,47"/>
+<area shape="rect" id="Node000005" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="424,70,624,95"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="377,62,411,66,410,72,376,68"/>
+<area shape="rect" id="Node000004" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="672,5,827,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="599,23,659,23,659,28,599,28"/>
 </map>

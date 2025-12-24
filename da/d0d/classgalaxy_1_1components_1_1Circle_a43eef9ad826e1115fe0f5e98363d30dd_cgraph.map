@@ -1,17 +1,15 @@
 <map id="galaxy::components::Circle::Circle" name="galaxy::components::Circle::Circle">
-<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,97,159,137"/>
-<area shape="rect" id="Node000002" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#ad7a846e059343348188a69307f1dd050" title="Deserializes from object." alt="" coords="207,97,360,137"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,115,193,115,193,120,159,120"/>
-<area shape="rect" id="Node000003" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af386ffd1c0962008cd7b7cd2b28f58fc" title="Create the circle." alt="" coords="408,97,581,137"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,115,394,115,394,120,360,120"/>
-<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a9f6e852762c63bd75c9ae33e305e50f6" title="Create vertex array object." alt="" coords="641,33,791,73"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="564,95,633,75,634,80,565,100"/>
-<area shape="rect" id="Node000007" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af07fa11cdc3787dd35b671bcb80aede8" title="Get fragments." alt="" coords="629,97,803,137"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="582,115,615,115,615,120,582,120"/>
-<area shape="rect" id="Node000008" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#ac62012a2315c7df688bb11f61abf9b3b" title="Get radius." alt="" coords="629,161,803,201"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="565,135,634,155,633,160,564,140"/>
-<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a272a4cb5d83c06d368fa937fb7eae884" title="Create vertex buffer object." alt="" coords="861,5,1015,45"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="791,41,847,34,848,39,792,46"/>
-<area shape="rect" id="Node000006" href="$da/d97/classgalaxy_1_1VertexBuffer.html#adb561fbfd0bb1f6c59c42095111beab0" title="Get OpenGL handle." alt="" coords="851,70,1025,95"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="792,61,837,67,837,72,791,66"/>
+<area shape="rect" id="Node000001" title="JSON constructor." alt="" coords="5,69,159,109"/>
+<area shape="rect" id="Node000002" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#ad7a846e059343348188a69307f1dd050" title="Deserializes from object." alt="" coords="207,69,360,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,87,193,87,193,92,159,92"/>
+<area shape="rect" id="Node000003" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af386ffd1c0962008cd7b7cd2b28f58fc" title="Create the circle." alt="" coords="408,69,581,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,87,394,87,394,92,360,92"/>
+<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="641,5,791,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="564,67,633,47,634,52,565,72"/>
+<area shape="rect" id="Node000006" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af07fa11cdc3787dd35b671bcb80aede8" title="Get fragments." alt="" coords="629,69,803,109"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="582,87,615,87,615,92,582,92"/>
+<area shape="rect" id="Node000007" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#ac62012a2315c7df688bb11f61abf9b3b" title="Get radius." alt="" coords="629,133,803,173"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="565,107,634,127,633,132,564,112"/>
+<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="851,5,1005,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="792,23,837,23,837,28,792,28"/>
 </map>

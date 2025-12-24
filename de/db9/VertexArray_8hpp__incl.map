@@ -1,21 +1,23 @@
 <map id="galaxy/src/galaxy/graphics/gl/VertexArray.hpp" name="galaxy/src/galaxy/graphics/gl/VertexArray.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,201,45"/>
-<area shape="rect" id="Node000002" href="$d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="33,93,174,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,46,106,79,101,79,101,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="17,189,70,214"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,135,62,178,57,175,88,132"/>
-<area shape="rect" id="Node000004" href="$d6/db0/Vertex_8hpp.html" title=" " alt="" coords="94,181,235,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="119,132,145,169,141,172,115,135"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="29,269,85,295"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="140,224,86,263,83,259,137,219"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="109,269,220,295"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="167,222,167,255,162,255,162,222"/>
-<area shape="rect" id="Node000007" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="244,269,440,295"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="208,219,305,261,302,266,206,224"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="209,343,289,368"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="329,297,276,336,273,332,325,293"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="313,343,371,368"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="345,295,345,329,339,329,339,295"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="396,343,488,368"/>
-<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="360,293,416,332,413,337,357,297"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,245,45"/>
+<area shape="rect" id="Node000002" href="$d0/da5/VertexBuffer_8hpp.html" title=" " alt="" coords="76,93,217,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,46,149,79,144,79,144,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="60,189,113,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,135,105,178,101,175,131,132"/>
+<area shape="rect" id="Node000004" href="$d6/db0/Vertex_8hpp.html" title=" " alt="" coords="137,181,279,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="162,132,189,169,184,172,158,135"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,269,61,295"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="167,224,73,266,70,261,165,219"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="86,269,197,295"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="194,223,162,260,158,257,190,220"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="221,269,331,295"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="226,220,259,257,255,260,222,223"/>
+<area shape="rect" id="Node000008" href="$d3/d84/Concepts_8hpp.html" title=" " alt="" coords="355,269,551,295"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="268,219,406,263,404,268,266,224"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="320,343,400,368"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="440,297,388,336,384,332,437,293"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="424,343,483,368"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="456,295,456,329,451,329,451,295"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="507,343,599,368"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="471,293,527,332,524,337,468,297"/>
 </map>

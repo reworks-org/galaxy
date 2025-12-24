@@ -108,6 +108,7 @@ $(function(){initNavTree('d6/db0/Vertex_8hpp.html','../../'); initResizable(true
 <div class="contents">
 <div class="textblock"><code>#include &lt;array&gt;</code><br />
 <code>#include &lt;glm/vec2.hpp&gt;</code><br />
+<code>#include &lt;glm/vec3.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d84/Concepts_8hpp_source.html">galaxy/meta/Concepts.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Vertex.hpp:</div>
@@ -116,19 +117,21 @@ $(function(){initNavTree('d6/db0/Vertex_8hpp.html','../../'); initResizable(true
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dd/d15/Vertex_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2graphics_2gl_2Vertex_8hpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2graphics_2gl_2Vertex_8hpp" id="agalaxy_2src_2galaxy_2graphics_2gl_2Vertex_8hpp">
-<area shape="rect" title=" " alt="" coords="43,5,239,45"/>
+<area shape="rect" title=" " alt="" coords="110,5,306,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,61,119"/>
-<area shape="poly" title=" " alt="" coords="117,48,62,87,59,83,114,43"/>
+<area shape="poly" title=" " alt="" coords="167,48,73,90,70,85,165,43"/>
 <area shape="rect" title=" " alt="" coords="86,93,197,119"/>
-<area shape="poly" title=" " alt="" coords="144,46,144,79,139,79,139,46"/>
-<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="221,93,417,119"/>
-<area shape="poly" title=" " alt="" coords="185,43,281,85,279,90,183,48"/>
-<area shape="rect" title=" " alt="" coords="185,167,265,192"/>
-<area shape="poly" title=" " alt="" coords="305,121,253,160,250,156,302,117"/>
-<area shape="rect" title=" " alt="" coords="289,167,348,192"/>
-<area shape="poly" title=" " alt="" coords="321,119,321,153,316,153,316,119"/>
-<area shape="rect" title=" " alt="" coords="373,167,465,192"/>
-<area shape="poly" title=" " alt="" coords="336,117,393,156,390,161,333,121"/>
+<area shape="poly" title=" " alt="" coords="194,47,162,84,158,81,190,44"/>
+<area shape="rect" title=" " alt="" coords="221,93,331,119"/>
+<area shape="poly" title=" " alt="" coords="226,44,259,81,255,84,222,47"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="355,93,551,119"/>
+<area shape="poly" title=" " alt="" coords="268,43,406,87,404,92,266,48"/>
+<area shape="rect" title=" " alt="" coords="320,167,400,192"/>
+<area shape="poly" title=" " alt="" coords="440,121,388,160,384,156,437,117"/>
+<area shape="rect" title=" " alt="" coords="424,167,483,192"/>
+<area shape="poly" title=" " alt="" coords="456,119,456,153,451,153,451,119"/>
+<area shape="rect" title=" " alt="" coords="507,167,599,192"/>
+<area shape="poly" title=" " alt="" coords="471,117,527,156,524,161,468,121"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -255,12 +258,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acf88f797ab0f905ccd67154ea52321bd" id="r_acf88f797ab0f905ccd67154ea52321bd"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a>, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#acf88f797ab0f905ccd67154ea52321bd">galaxy::graphics::gen_quad_vertices</a> (const float width, const float height) noexcept</td></tr>
-<tr class="memdesc:acf88f797ab0f905ccd67154ea52321bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default verticies.  <br /></td></tr>
-<tr class="separator:acf88f797ab0f905ccd67154ea52321bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6b5de44e7cb7c27917d9d871b4ca564" id="r_af6b5de44e7cb7c27917d9d871b4ca564"><td class="memItemLeft" align="right" valign="top">std::array&lt; unsigned int, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#af6b5de44e7cb7c27917d9d871b4ca564">galaxy::graphics::gen_default_indices</a> () noexcept</td></tr>
-<tr class="memdesc:af6b5de44e7cb7c27917d9d871b4ca564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default indicies.  <br /></td></tr>
-<tr class="separator:af6b5de44e7cb7c27917d9d871b4ca564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03733fc9fbf816274ffd9b6da7db3aa2" id="r_a03733fc9fbf816274ffd9b6da7db3aa2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2">galaxy::graphics::gen_quad_vertices</a> (const float width, const float height, float depth, const std::uint64_t handle) noexcept</td></tr>
+<tr class="memdesc:a03733fc9fbf816274ffd9b6da7db3aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default verticies.  <br /></td></tr>
+<tr class="separator:a03733fc9fbf816274ffd9b6da7db3aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4694c0aea940ac82bb3331c1490bb0ee" id="r_a4694c0aea940ac82bb3331c1490bb0ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee">galaxy::graphics::gen_default_indices</a> () noexcept</td></tr>
+<tr class="memdesc:a4694c0aea940ac82bb3331c1490bb0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default indices.  <br /></td></tr>
+<tr class="separator:a4694c0aea940ac82bb3331c1490bb0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5fdda389eb7519bb012f71b6700ba9" id="r_aff5fdda389eb7519bb012f71b6700ba9"><td class="memTemplParams" colspan="2">template&lt;meta::is_arithmetic Type&gt; </td></tr>
 <tr class="memitem:aff5fdda389eb7519bb012f71b6700ba9"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html#aff5fdda389eb7519bb012f71b6700ba9">galaxy::graphics::map_x_texel</a> (const Type x, const float width) noexcept</td></tr>
 <tr class="memdesc:aff5fdda389eb7519bb012f71b6700ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes in a x positon texture coord and maps it to a texel.  <br /></td></tr>
@@ -276,7 +279,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_99aa8610175742e789e9b97044e8bb7a.html">graphics</a></li><li class="navelem"><a class="el" href="../../dir_845daf6a17c1c0647d0fb325ee6dcb73.html">gl</a></li><li class="navelem"><a class="el" href="../../d6/db0/Vertex_8hpp.html">Vertex.hpp</a></li>
-    <li class="footer">Generated on Fri Sep 26 2025 09:07:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Dec 24 2025 05:01:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

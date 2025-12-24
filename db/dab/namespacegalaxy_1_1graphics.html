@@ -199,12 +199,12 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acf88f797ab0f905ccd67154ea52321bd" id="r_acf88f797ab0f905ccd67154ea52321bd"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a>, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf88f797ab0f905ccd67154ea52321bd">gen_quad_vertices</a> (const float width, const float height) noexcept</td></tr>
-<tr class="memdesc:acf88f797ab0f905ccd67154ea52321bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default verticies.  <br /></td></tr>
-<tr class="separator:acf88f797ab0f905ccd67154ea52321bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6b5de44e7cb7c27917d9d871b4ca564" id="r_af6b5de44e7cb7c27917d9d871b4ca564"><td class="memItemLeft" align="right" valign="top">std::array&lt; unsigned int, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6b5de44e7cb7c27917d9d871b4ca564">gen_default_indices</a> () noexcept</td></tr>
-<tr class="memdesc:af6b5de44e7cb7c27917d9d871b4ca564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default indicies.  <br /></td></tr>
-<tr class="separator:af6b5de44e7cb7c27917d9d871b4ca564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03733fc9fbf816274ffd9b6da7db3aa2" id="r_a03733fc9fbf816274ffd9b6da7db3aa2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03733fc9fbf816274ffd9b6da7db3aa2">gen_quad_vertices</a> (const float width, const float height, float depth, const std::uint64_t handle) noexcept</td></tr>
+<tr class="memdesc:a03733fc9fbf816274ffd9b6da7db3aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default verticies.  <br /></td></tr>
+<tr class="separator:a03733fc9fbf816274ffd9b6da7db3aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4694c0aea940ac82bb3331c1490bb0ee" id="r_a4694c0aea940ac82bb3331c1490bb0ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4694c0aea940ac82bb3331c1490bb0ee">gen_default_indices</a> () noexcept</td></tr>
+<tr class="memdesc:a4694c0aea940ac82bb3331c1490bb0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some default indices.  <br /></td></tr>
+<tr class="separator:a4694c0aea940ac82bb3331c1490bb0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5fdda389eb7519bb012f71b6700ba9" id="r_aff5fdda389eb7519bb012f71b6700ba9"><td class="memTemplParams" colspan="2">template&lt;meta::is_arithmetic Type&gt; </td></tr>
 <tr class="memitem:aff5fdda389eb7519bb012f71b6700ba9"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aff5fdda389eb7519bb012f71b6700ba9">map_x_texel</a> (const Type x, const float width) noexcept</td></tr>
 <tr class="memdesc:aff5fdda389eb7519bb012f71b6700ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes in a x positon texture coord and maps it to a texel.  <br /></td></tr>
@@ -215,8 +215,8 @@ Functions</h2></td></tr>
 <tr class="separator:a907d9f88eab5b68df85d9f9c02ff4218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="acf88f797ab0f905ccd67154ea52321bd" name="acf88f797ab0f905ccd67154ea52321bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf88f797ab0f905ccd67154ea52321bd">&#9670;&#160;</a></span>gen_quad_vertices()</h2>
+<a id="a03733fc9fbf816274ffd9b6da7db3aa2" name="a03733fc9fbf816274ffd9b6da7db3aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03733fc9fbf816274ffd9b6da7db3aa2">&#9670;&#160;</a></span>gen_quad_vertices()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,14 +225,24 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a>, 4 &gt; galaxy::graphics::gen_quad_vertices </td>
+          <td class="memname">std::vector&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> &gt; galaxy::graphics::gen_quad_vertices </td>
           <td>(</td>
           <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>depth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::uint64_t</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -246,20 +256,22 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">width</td><td>Width of quad. </td></tr>
-    <tr><td class="paramname">height</td><td>Height of quad.</td></tr>
+    <tr><td class="paramname">height</td><td>Height of quad. </td></tr>
+    <tr><td class="paramname">depth</td><td>Rendering layer. Clamped from -1.0 to 1.0. </td></tr>
+    <tr><td class="paramname">handle</td><td><a class="el" href="../../df/db8/classgalaxy_1_1Texture.html" title="Bindless OpenGL 2D Texture.">Texture</a> handle.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vertices mapped from TOP LEFT to BOTTOM LEFT CLOCKWISE. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d07/Vertex_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../de/d07/Vertex_8cpp_source.html">Vertex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d07/Vertex_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../de/d07/Vertex_8cpp_source.html">Vertex.cpp</a>.</p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/dab/namespacegalaxy_1_1graphics_acf88f797ab0f905ccd67154ea52321bd_icgraph.png" border="0" usemap="#adb/dab/namespacegalaxy_1_1graphics_acf88f797ab0f905ccd67154ea52321bd_icgraph" alt=""/></div>
-<map name="adb/dab/namespacegalaxy_1_1graphics_acf88f797ab0f905ccd67154ea52321bd_icgraph" id="adb/dab/namespacegalaxy_1_1graphics_acf88f797ab0f905ccd67154ea52321bd_icgraph">
+<div class="center"><img src="../../db/dab/namespacegalaxy_1_1graphics_a03733fc9fbf816274ffd9b6da7db3aa2_icgraph.png" border="0" usemap="#adb/dab/namespacegalaxy_1_1graphics_a03733fc9fbf816274ffd9b6da7db3aa2_icgraph" alt=""/></div>
+<map name="adb/dab/namespacegalaxy_1_1graphics_a03733fc9fbf816274ffd9b6da7db3aa2_icgraph" id="adb/dab/namespacegalaxy_1_1graphics_a03733fc9fbf816274ffd9b6da7db3aa2_icgraph">
 <area shape="rect" title="Generate some default verticies." alt="" coords="829,69,989,109"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="630,5,770,45"/>
 <area shape="poly" title=" " alt="" coords="829,68,765,48,767,43,831,63"/>
@@ -294,8 +306,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af6b5de44e7cb7c27917d9d871b4ca564" name="af6b5de44e7cb7c27917d9d871b4ca564"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6b5de44e7cb7c27917d9d871b4ca564">&#9670;&#160;</a></span>gen_default_indices()</h2>
+<a id="a4694c0aea940ac82bb3331c1490bb0ee" name="a4694c0aea940ac82bb3331c1490bb0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4694c0aea940ac82bb3331c1490bb0ee">&#9670;&#160;</a></span>gen_default_indices()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,7 +316,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; unsigned int, 6 &gt; galaxy::graphics::gen_default_indices </td>
+          <td class="memname">std::vector&lt; unsigned int &gt; galaxy::graphics::gen_default_indices </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -317,18 +329,18 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generate some default indicies. </p>
+<p>Generate some default indices. </p>
 <dl class="section return"><dt>Returns</dt><dd>Indices mapping vertices from TOP LEFT to BOTTOM LEFT CLOCKWISE. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d07/Vertex_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../de/d07/Vertex_8cpp_source.html">Vertex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d07/Vertex_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../de/d07/Vertex_8cpp_source.html">Vertex.cpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../db/dab/namespacegalaxy_1_1graphics_af6b5de44e7cb7c27917d9d871b4ca564_icgraph.png" border="0" usemap="#adb/dab/namespacegalaxy_1_1graphics_af6b5de44e7cb7c27917d9d871b4ca564_icgraph" alt=""/></div>
-<map name="adb/dab/namespacegalaxy_1_1graphics_af6b5de44e7cb7c27917d9d871b4ca564_icgraph" id="adb/dab/namespacegalaxy_1_1graphics_af6b5de44e7cb7c27917d9d871b4ca564_icgraph">
-<area shape="rect" title="Generate some default indicies." alt="" coords="797,101,957,141"/>
+<div class="center"><img src="../../db/dab/namespacegalaxy_1_1graphics_a4694c0aea940ac82bb3331c1490bb0ee_icgraph.png" border="0" usemap="#adb/dab/namespacegalaxy_1_1graphics_a4694c0aea940ac82bb3331c1490bb0ee_icgraph" alt=""/></div>
+<map name="adb/dab/namespacegalaxy_1_1graphics_a4694c0aea940ac82bb3331c1490bb0ee_icgraph" id="adb/dab/namespacegalaxy_1_1graphics_a4694c0aea940ac82bb3331c1490bb0ee_icgraph">
+<area shape="rect" title="Generate some default indices." alt="" coords="797,101,957,141"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="598,5,738,45"/>
 <area shape="poly" title=" " alt="" coords="825,97,748,60,720,48,722,43,750,55,827,92"/>
 <area shape="rect" href="../../d4/d86/classgalaxy_1_1components_1_1Sprite.html#add6c98b77ea9a3ae220ed316d20d37c4" title="Sets the texture and vertex data." alt="" coords="591,69,745,109"/>
@@ -397,7 +409,7 @@ template&lt;meta::is_arithmetic Type&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>OpenGL shader compatible texel. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/db0/Vertex_8hpp_source.html#l00066">66</a> of file <a class="el" href="../../d6/db0/Vertex_8hpp_source.html">Vertex.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/Vertex_8hpp_source.html#l00074">74</a> of file <a class="el" href="../../d6/db0/Vertex_8hpp_source.html">Vertex.hpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -468,7 +480,7 @@ template&lt;meta::is_arithmetic Type&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>OpenGL shader compatible texel. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/db0/Vertex_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../d6/db0/Vertex_8hpp_source.html">Vertex.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/db0/Vertex_8hpp_source.html#l00091">91</a> of file <a class="el" href="../../d6/db0/Vertex_8hpp_source.html">Vertex.hpp</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -500,7 +512,7 @@ template&lt;meta::is_arithmetic Type&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../db/dab/namespacegalaxy_1_1graphics.html">graphics</a></li>
-    <li class="footer">Generated on Fri Sep 26 2025 09:07:32 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Dec 24 2025 05:01:00 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
