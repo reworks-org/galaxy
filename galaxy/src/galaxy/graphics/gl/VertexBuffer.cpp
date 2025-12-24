@@ -7,6 +7,8 @@
 
 #include <glad/glad.h>
 
+#include "galaxy/logging/Log.hpp"
+
 #include "VertexBuffer.hpp"
 
 namespace galaxy
@@ -21,6 +23,11 @@ namespace galaxy
 
 	VertexBuffer::VertexBuffer(VertexBuffer&& v) noexcept
 	{
+		if (this->m_id != 0)
+		{
+			glDeleteBuffers(1, &this->m_id);
+		}
+
 		this->m_id     = v.m_id;
 		this->m_offset = v.m_offset;
 		this->m_count  = v.m_count;
@@ -32,6 +39,11 @@ namespace galaxy
 	{
 		if (this != &v)
 		{
+			if (this->m_id != 0)
+			{
+				glDeleteBuffers(1, &this->m_id);
+			}
+
 			this->m_id     = v.m_id;
 			this->m_offset = v.m_offset;
 			this->m_count  = v.m_count;
@@ -47,38 +59,45 @@ namespace galaxy
 		if (m_id != 0)
 		{
 			glDeleteBuffers(1, &m_id);
-			m_id = 0;
 		}
 	}
 
-	void VertexBuffer::buffer(std::span<Vertex> vertices, std::span<unsigned int> indicies)
+	void VertexBuffer::buffer(std::span<Vertex> vertices, std::span<unsigned int> indices)
 	{
-		const auto ind_len = indicies.size_bytes();
-		m_offset           = vertices.size_bytes();
-		m_count            = static_cast<int>(indicies.size());
+		const auto ind_offset = indices.size_bytes();
+		m_offset              = vertices.size_bytes();
+		m_count               = static_cast<int>(indices.size());
 
-		glNamedBufferData(m_id, ind_len + m_offset, nullptr, GL_DYNAMIC_DRAW);
-		glNamedBufferSubData(m_id, m_offset, ind_len, indicies.data());
+		glNamedBufferData(m_id, ind_offset + m_offset, nullptr, GL_DYNAMIC_DRAW);
 		glNamedBufferSubData(m_id, 0, m_offset, vertices.data());
+		glNamedBufferSubData(m_id, m_offset, ind_offset, indices.data());
 	}
 
-	void VertexBuffer::buffer(const int vertex_count, std::span<unsigned int> indicies)
+	void VertexBuffer::reserve(const int vertex_count, const int index_count)
 	{
-		const auto ind_len = indicies.size_bytes();
-		m_offset           = vertex_count * sizeof(Vertex);
-		m_count            = static_cast<int>(indicies.size());
+		const auto vertex_length = vertex_count * sizeof(Vertex);
+		const auto index_length  = index_count * sizeof(unsigned int);
 
-		glNamedBufferData(m_id, ind_len + m_offset, nullptr, GL_DYNAMIC_DRAW);
-		glNamedBufferSubData(m_id, m_offset, ind_len, indicies.data());
-		glNamedBufferSubData(m_id, 0, m_offset, nullptr);
+		m_offset = vertex_length;
+		m_count  = index_count;
+
+		glNamedBufferData(m_id, vertex_length + index_length, nullptr, GL_DYNAMIC_DRAW);
 	}
 
-	void VertexBuffer::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
+	void
+	VertexBuffer::sub_buffer(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices, unsigned int ei, const int index_size, std::span<unsigned int> indices) const
 	{
-		glNamedBufferSubData(m_id, index * sizeof(Vertex), vertices.size_bytes(), vertices.data());
+		glNamedBufferSubData(m_id, vi * sizeof(Vertex), vertex_size * sizeof(Vertex), vertices.data());
+		glNamedBufferSubData(m_id, m_offset + (ei * sizeof(unsigned int)), index_size * sizeof(unsigned int), indices.data());
 	}
 
-	void VertexBuffer::clear()
+	void VertexBuffer::erase(const unsigned int vi, const int vertex_count, const unsigned int ei, const int index_count) const
+	{
+		glNamedBufferSubData(m_id, vi * sizeof(Vertex), vertex_count * sizeof(Vertex), nullptr);
+		glNamedBufferSubData(m_id, m_offset + (ei * sizeof(unsigned int)), index_count * sizeof(unsigned int), nullptr);
+	}
+
+	void VertexBuffer::clear() const
 	{
 		auto size = 0;
 

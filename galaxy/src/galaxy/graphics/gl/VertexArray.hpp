@@ -39,28 +39,47 @@ namespace galaxy
 		~VertexArray();
 
 		///
-		/// Create vertex array object.
+		/// Create vertex buffer.
 		///
 		/// \param vertices Vertices to assign.
-		/// \param indicies Indices for vertex buffer.
+		/// \param indices Indices for vertex buffer.
 		///
-		void buffer(std::span<Vertex> vertices, std::span<unsigned int> indicies);
+		void buffer(std::span<Vertex> vertices, std::span<unsigned int> indices);
 
 		///
-		/// Create vertex array without uploading data.
+		/// Create vertex buffer without uploading.
 		///
-		/// \param vertex_count Size of vertices.
-		/// \param indicies Indices for vertex buffer.
+		/// \param vertex_count Number of vertices.
+		/// \param index_count Number of indices.
 		///
-		void buffer(const int vertex_count, std::span<unsigned int> indicies);
+		void reserve(const int vertex_count, const int index_count);
 
 		///
-		/// Sub-buffer vertex array.
+		/// Sub-buffer vertex buffer.
 		///
-		/// \param index Offset to start at from initial vertices. 0 = first element.
+		/// \param vi Offset to start at from initial vertices. 0 = first.
+		/// \param vertex_size Amount of vertex data to sub buffer.
 		/// \param vertices Vertices to assign.
+		/// \param ei Offset to start at from initial indices. 0 = first.
+		/// \param index_size Amount of index data to sub buffer.
+		/// \param indices Indices to assign.
 		///
-		void sub_buffer(const unsigned int index, std::span<Vertex> vertices);
+		void sub_buffer(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices, unsigned int ei, const int index_size, std::span<unsigned int> indices);
+
+		///
+		/// Erase a specfic segment of data.
+		///
+		/// \param vi Offset to start at from initial vertices. 0 = first.
+		/// \param vertex_count Number of vertices.
+		/// \param ei Offset to start at from initial indices. 0 = first.
+		/// \param index_count Number of indices.
+		///
+		void erase(const unsigned int vi, const int vertex_count, const unsigned int ei, const int index_count);
+
+		///
+		/// Clear buffer data.
+		///
+		void clear();
 
 		///
 		/// Bind this vertex array.

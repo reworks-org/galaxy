@@ -11,6 +11,7 @@
 #include <array>
 
 #include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -24,12 +25,17 @@ namespace galaxy
 		///
 		/// Position.
 		///
-		glm::vec2 m_pos;
+		glm::vec3 m_pos;
 
 		///
 		/// Texture coords (uv).
 		///
 		glm::vec2 m_texels;
+
+		///
+		/// Texture handle.
+		///
+		std::uint64_t m_handle;
 	};
 
 	namespace graphics
@@ -39,17 +45,19 @@ namespace galaxy
 		///
 		/// \param width Width of quad.
 		/// \param height Height of quad.
+		/// \param depth Rendering layer. Clamped from -1.0 to 1.0.
+		/// \param handle Texture handle.
 		///
 		/// \return Vertices mapped from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 		///
-		std::array<Vertex, 4> gen_quad_vertices(const float width, const float height) noexcept;
+		std::vector<Vertex> gen_quad_vertices(const float width, const float height, float depth, const std::uint64_t handle) noexcept;
 
 		///
-		/// Generate some default indicies.
+		/// Generate some default indices.
 		///
 		/// \return Indices mapping vertices from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 		///
-		std::array<unsigned int, 6> gen_default_indices() noexcept;
+		std::vector<unsigned int> gen_default_indices() noexcept;
 
 		///
 		/// Takes in a x positon texture coord and maps it to a texel.
