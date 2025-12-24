@@ -1,46 +1,47 @@
 ///
-/// ShaderStorageBuffer.hpp
+/// GPUBuffer.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_GL_SHADERSTORAGEBUFFER_HPP_
-#define GALAXY_GRAPHICS_GL_SHADERSTORAGEBUFFER_HPP_
+#ifndef GALAXY_GRAPHICS_GL_GPUBUFFER_HPP_
+#define GALAXY_GRAPHICS_GL_GPUBUFFER_HPP_
 
 #include <glad/glad.h>
+
+#include "galaxy/graphics/Enums.hpp"
 
 namespace galaxy
 {
 	///
-	/// \brief Modern SSBO abstraction.
+	/// OpenGL GPU-Side buffer, such as MDI, SSBO, UBO, EBO, etc.
 	///
-	/// https://ktstephano.github.io/rendering/opengl/ssbos
-	///
-	class ShaderStorageBuffer final
+	class GPUBuffer final
 	{
 	public:
 		///
 		/// Constructor.
 		///
 		/// \param index Index binding that needs to match in vertex shader.
+		/// \param type Buffer type, such as GL_SHADER_STORAGE_BUFFER.
 		///
-		ShaderStorageBuffer(const int index);
+		GPUBuffer(const GLBufferBinding index, const int type);
 
 		///
 		/// Move constructor.
 		///
-		ShaderStorageBuffer(ShaderStorageBuffer&&) noexcept;
+		GPUBuffer(GPUBuffer&&) noexcept;
 
 		///
 		/// Move assignment operator.
 		///
-		ShaderStorageBuffer& operator=(ShaderStorageBuffer&&) noexcept;
+		GPUBuffer& operator=(GPUBuffer&&) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~ShaderStorageBuffer();
+		~GPUBuffer();
 
 		///
 		/// Buffer data.
@@ -97,17 +98,17 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		ShaderStorageBuffer() = delete;
+		GPUBuffer() = delete;
 
 		///
 		/// Copy constructor.
 		///
-		ShaderStorageBuffer(const ShaderStorageBuffer&) = delete;
+		GPUBuffer(const GPUBuffer&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		ShaderStorageBuffer& operator=(const ShaderStorageBuffer&) = delete;
+		GPUBuffer& operator=(const GPUBuffer&) = delete;
 
 	private:
 		///
@@ -119,10 +120,15 @@ namespace galaxy
 		/// Index binding of SSBO in vertex shader.
 		///
 		int m_index;
+
+		///
+		/// Buffer type.
+		///
+		int m_type;
 	};
 
 	template<typename Object>
-	inline void ShaderStorageBuffer::buffer(const unsigned int count, Object* data)
+	inline void GPUBuffer::buffer(const unsigned int count, Object* data)
 	{
 		clear();
 
@@ -131,7 +137,7 @@ namespace galaxy
 	}
 
 	template<typename Object>
-	inline void ShaderStorageBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Object* data)
+	inline void GPUBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Object* data)
 	{
 		constexpr auto size = sizeof(Object);
 		glNamedBufferSubData(m_id, offset, count * size, (void*)data);
