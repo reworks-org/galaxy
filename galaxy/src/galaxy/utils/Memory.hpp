@@ -9,6 +9,7 @@
 #define GALAXY_MEM_MEMORY_HPP_
 
 #include <optional>
+#include <vector>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -33,6 +34,16 @@ namespace galaxy
 		///
 		template<meta::is_object Object>
 		using opt_ref = std::optional<std::reference_wrapper<Object>>;
+
+		///
+		/// \brief Vector reference.
+		///
+		/// \tparam Type Vector type.
+		///
+		/// Reference wrapped std::vector.
+		///
+		template<typename Type>
+		using vec_ref = std::reference_wrapper<std::vector<Type>>;
 	} // namespace mem
 } // namespace galaxy
 
