@@ -48,6 +48,17 @@ namespace galaxy
 		CLAMP_TO_BORDER = GL_CLAMP_TO_BORDER
 	};
 
+	///
+	/// Rendering modes.
+	///
+	enum class GLRenderMode : unsigned int
+	{
+		QUADS     = GL_QUADS,
+		TRIANGLES = GL_TRIANGLES,
+		LINES     = GL_LINES,
+		LINE_LOOP = GL_LINE_LOOP,
+		POINTS    = GL_POINTS
+	};
 } // namespace galaxy
 
 #endif
