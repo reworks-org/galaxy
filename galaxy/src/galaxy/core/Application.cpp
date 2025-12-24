@@ -51,6 +51,19 @@ namespace galaxy
 
 		// Load game assets.
 		// core::entt::locator<core::Loader>::ref().load_all();
+
+		m_update = [&](entt::dispatcher& dispatcher, Window& window, World& world) {
+			// nui.begin_input();
+			window.process_events(dispatcher);
+			// nui.end_input();
+			world.update();
+		};
+
+		m_render = [&](entt::dispatcher& dispatcher, Window& window, World& world) {
+			// graphics::renderer::begin();
+			world.render();
+			// graphics::renderer::end();
+		};
 	}
 
 	App::~App()
@@ -78,8 +91,8 @@ namespace galaxy
 		// https://stackoverflow.com/a/59446610
 		// We dont need 't' or 'alpha/render' sections.
 
-		auto& window     = entt::locator<Window>::value();
 		auto& dispatcher = entt::locator<entt::dispatcher>::value();
+		auto& window     = entt::locator<Window>::value();
 		auto& world      = entt::locator<World>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
@@ -119,18 +132,11 @@ namespace galaxy
 				perf  += dt;
 				accum -= dt;
 
-				// nui.begin_input();
-				window.process_events(dispatcher);
-				// nui.end_input();
-				world.update();
-
+				m_update(dispatcher, window, world);
 				updates++;
 			}
 
-			// graphics::renderer::begin();
-			world.render();
-			// graphics::renderer::end();
-
+			m_render(dispatcher, window, world);
 			frames++;
 
 			if (perf >= 1s)
@@ -142,6 +148,16 @@ namespace galaxy
 				perf    = 0s;
 			}
 		}
+	}
+
+	void App::set_update_func(LoopFunc&& update)
+	{
+		m_update = std::move(update);
+	}
+
+	void App::set_render_func(LoopFunc&& render)
+	{
+		m_render = std::move(render);
 	}
 
 	void App::setup_logging()
@@ -200,7 +216,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_AUDIO_INCLUDE_MONITORS, "0");
 		platform::set_hint(SDL_HINT_AUTO_UPDATE_JOYSTICKS, "1");
 		platform::set_hint(SDL_HINT_AUTO_UPDATE_SENSORS, "1");
-		platform::set_hint(SDL_HINT_DEBUG_LOGGING, "1");
+		// platform::set_hint(SDL_HINT_DEBUG_LOGGING, "1");
 		platform::set_hint(SDL_HINT_ENABLE_SCREEN_KEYBOARD, "0");
 		platform::set_hint(SDL_HINT_EVENT_LOGGING, "0");
 		platform::set_hint(SDL_HINT_FRAMEBUFFER_ACCELERATION, "opengl");
@@ -270,6 +286,7 @@ namespace galaxy
 
 	// void App::setup_nuklear()
 	//{
+	// auto& nui = ServiceLocator<ui::NuklearUI>::make();
 	// }
 
 	// void App::setup_loader()

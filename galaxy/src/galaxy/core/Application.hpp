@@ -9,14 +9,25 @@
 #define GALAXY_CORE_APPLICATION_HPP_
 
 #include <string>
+#include <functional>
+
+#include <entt/signal/fwd.hpp>
 
 namespace galaxy
 {
+	class Window;
+	class World;
+
 	///
 	/// Base level class for any galaxy app.
 	///
 	class App final
 	{
+		///
+		/// Defines a callback for update() or render() loops in app.run().
+		///
+		using LoopFunc = std::move_only_function<void(entt::dispatcher&, Window&, World&)>;
+
 	public:
 		///
 		/// \brief Default constructor.
@@ -42,6 +53,20 @@ namespace galaxy
 		/// Main game loop.
 		///
 		void run();
+
+		///
+		/// Use a custom update step in game loop.
+		///
+		/// \param update Callback.
+		///
+		void set_update_func(LoopFunc&& update);
+
+		///
+		/// Use a custom rendering step in game loop.
+		///
+		/// \param render Callback.
+		///
+		void set_render_func(LoopFunc&& render);
 
 	private:
 		///
@@ -76,6 +101,17 @@ namespace galaxy
 		void setup_meta();
 		void setup_services();
 		void setup_scripting();
+
+	private:
+		///
+		/// Update step in gameloop.
+		///
+		LoopFunc m_update;
+
+		///
+		/// Render step in gameloop.
+		///
+		LoopFunc m_render;
 	};
 } // namespace galaxy
 
