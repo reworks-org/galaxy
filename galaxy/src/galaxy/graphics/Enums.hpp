@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_GL_ENUMS_HPP_
-#define GALAXY_GRAPHICS_GL_ENUMS_HPP_
+#ifndef GALAXY_GRAPHICS_ENUMS_HPP_
+#define GALAXY_GRAPHICS_ENUMS_HPP_
 
 namespace galaxy
 {
@@ -26,25 +26,41 @@ namespace galaxy
 		TEXEL_POINT = 1u,
 
 		///
-		/// Instance offset data.
+		/// Texture handle.
 		///
-		OFFSET_POINT = 2u
+		HANDLE_POINT = 2u
 	};
 
 	///
-	/// Stores the location of a buffer's binding point for the VAO.
+	/// Stores the location of a buffer's location point for the VAO.
 	///
-	enum class GLBufferBinding : unsigned int
+	enum class GLBufferLocation : unsigned int
 	{
 		///
 		/// Normal VBO.
 		///
-		VERTEX_BUFFER_POINT = 0,
+		VERTEX_BUFFER_POINT = 0
+	};
+
+	///
+	/// Binding point for GPU buffers.
+	///
+	enum class GLBufferBinding : int
+	{
+		///
+		/// Bindless texture handle array.
+		///
+		TEXTURE_HANDLES = 0,
 
 		///
-		/// Instance offsets.
+		/// Camera transform data.
 		///
-		INSTANCE_BUFFER_POINT = 1
+		CAMERA = 1,
+
+		///
+		/// Shader uniforms.
+		///
+		UNIFORMS = 2
 	};
 
 	///
@@ -55,17 +71,17 @@ namespace galaxy
 		///
 		/// Nearest-neighbour.
 		///
-		NEAREST,
+		NEAREST = 0,
 
 		///
 		/// Bilinear.
 		///
-		BILINEAR,
+		BILINEAR = 1,
 
 		///
 		/// Trilinear.
 		///
-		TRILINEAR
+		TRILINEAR = 2
 	};
 } // namespace galaxy
 
