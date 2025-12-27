@@ -35,7 +35,7 @@ namespace galaxy
 		///
 		/// Texture handle.
 		///
-		std::uint64_t m_handle;
+		std::uint64_t m_handle = 0;
 	};
 
 	namespace graphics

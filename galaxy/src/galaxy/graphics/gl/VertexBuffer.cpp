@@ -7,8 +7,6 @@
 
 #include <glad/glad.h>
 
-#include "galaxy/logging/Log.hpp"
-
 #include "VertexBuffer.hpp"
 
 namespace galaxy
@@ -84,8 +82,14 @@ namespace galaxy
 		glNamedBufferData(m_id, vertex_length + index_length, nullptr, GL_DYNAMIC_DRAW);
 	}
 
-	void
-	VertexBuffer::sub_buffer(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices, unsigned int ei, const int index_size, std::span<unsigned int> indices) const
+	void VertexBuffer::sub_buffer(
+		const unsigned int      vi,
+		const int               vertex_size,
+		const std::span<Vertex> vertices,
+		unsigned int            ei,
+		const int               index_size,
+		std::span<unsigned int> indices
+	) const
 	{
 		glNamedBufferSubData(m_id, vi * sizeof(Vertex), vertex_size * sizeof(Vertex), vertices.data());
 		glNamedBufferSubData(m_id, m_offset + (ei * sizeof(unsigned int)), index_size * sizeof(unsigned int), indices.data());
