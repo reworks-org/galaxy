@@ -44,6 +44,7 @@ namespace galaxy
 		config.restore<int>("ansiotrophy", 16, "graphics");
 		config.restore<bool>("mipmap", true, "graphics");
 		config.restore<std::string>("texture_filter", "NEAREST", "graphics");
+		config.restore<int>("max_quads", 250, "graphics");
 
 		config.restore<std::string>("title", "galaxy app", "meta");
 		config.restore<std::string>("version", "1.0", "meta");
@@ -98,6 +99,7 @@ namespace galaxy
 		s_filtering = *config.get<std::string>("texture_filter", "graphics").and_then([](std::string_view filter) {
 			return magic_enum::enum_cast<GLTextureFilter>(filter);
 		});
+		s_max_quads = *config.get<int>("max_quads", "graphics");
 
 		s_title      = *config.get<std::string>("title", "meta");
 		s_version    = *config.get<std::string>("version", "meta");
@@ -202,6 +204,11 @@ namespace galaxy
 	auto Settings::texture_filter() noexcept -> GLTextureFilter
 	{
 		return s_filtering;
+	}
+
+	auto Settings::max_quads() noexcept -> int
+	{
+		return s_max_quads;
 	}
 
 	auto Settings::title() noexcept -> const std::string&

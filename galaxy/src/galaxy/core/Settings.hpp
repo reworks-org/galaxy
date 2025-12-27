@@ -163,6 +163,14 @@ namespace galaxy
 		static auto texture_filter() noexcept -> GLTextureFilter;
 
 		///
+		/// Max quads to render at once.
+		///
+		/// \return Int.
+		///
+		[[nodiscard]]
+		static auto max_quads() noexcept -> int;
+
+		///
 		/// Game title.
 		///
 		/// \return Const string.
@@ -374,6 +382,7 @@ namespace galaxy
 		inline static int             s_ansio;
 		inline static bool            s_mipmap;
 		inline static GLTextureFilter s_filtering;
+		inline static int             s_max_quads;
 
 		inline static std::string s_title;
 		inline static std::string s_version;

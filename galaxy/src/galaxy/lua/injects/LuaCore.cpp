@@ -84,6 +84,7 @@ namespace galaxy
 		lua.set_function("settings_ansiotrophy", &Settings::ansiotrophy);
 		lua.set_function("settings_mipmap", &Settings::mipmap);
 		lua.set_function("settings_texture_filter", &Settings::texture_filter);
+		lua.set_function("settings_max_quads", &Settings::max_quads);
 		lua.set_function("settings_title", &Settings::title);
 		lua.set_function("settings_version", &Settings::version);
 		lua.set_function("settings_identifier", &Settings::identifier);
