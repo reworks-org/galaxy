@@ -1,12 +1,12 @@
 ///
-/// GPUBuffer.hpp
+/// ShaderBuffer.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_GL_GPUBUFFER_HPP_
-#define GALAXY_GRAPHICS_GL_GPUBUFFER_HPP_
+#ifndef GALAXY_GRAPHICS_GL_SHADERBUFFER_HPP_
+#define GALAXY_GRAPHICS_GL_SHADERBUFFER_HPP_
 
 #include <glad/glad.h>
 
@@ -15,33 +15,46 @@
 namespace galaxy
 {
 	///
-	/// OpenGL GPU-Side buffer, such as MDI, SSBO, UBO, EBO, etc.
+	/// OpenGL Shader storage buffer.
 	///
-	class GPUBuffer final
+	class ShaderBuffer final
 	{
 	public:
+		///
+		/// \brief Constructor.
+		///
+		/// You must call set_index() if you use default constructor.
+		///
+		ShaderBuffer();
+
 		///
 		/// Constructor.
 		///
 		/// \param index Index binding that needs to match in vertex shader.
-		/// \param type Buffer type, such as GL_SHADER_STORAGE_BUFFER.
 		///
-		GPUBuffer(const GLBufferBinding index, const int type);
+		ShaderBuffer(const GLBufferBinding index);
 
 		///
 		/// Move constructor.
 		///
-		GPUBuffer(GPUBuffer&&) noexcept;
+		ShaderBuffer(ShaderBuffer&&) noexcept;
 
 		///
 		/// Move assignment operator.
 		///
-		GPUBuffer& operator=(GPUBuffer&&) noexcept;
+		ShaderBuffer& operator=(ShaderBuffer&&) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~GPUBuffer();
+		~ShaderBuffer();
+
+		///
+		/// Set vertex shader binding point.
+		///
+		/// \param index Index binding that needs to match in vertex shader.
+		///
+		void set_index(const GLBufferBinding index);
 
 		///
 		/// Buffer data.
@@ -96,19 +109,14 @@ namespace galaxy
 
 	private:
 		///
-		/// Default constructor.
-		///
-		GPUBuffer() = delete;
-
-		///
 		/// Copy constructor.
 		///
-		GPUBuffer(const GPUBuffer&) = delete;
+		ShaderBuffer(const ShaderBuffer&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		GPUBuffer& operator=(const GPUBuffer&) = delete;
+		ShaderBuffer& operator=(const ShaderBuffer&) = delete;
 
 	private:
 		///
@@ -120,27 +128,22 @@ namespace galaxy
 		/// Index binding of SSBO in vertex shader.
 		///
 		int m_index;
-
-		///
-		/// Buffer type.
-		///
-		int m_type;
 	};
 
 	template<typename Object>
-	inline void GPUBuffer::buffer(const unsigned int count, Object* data)
+	inline void ShaderBuffer::buffer(const unsigned int count, Object* data)
 	{
 		clear();
 
-		constexpr auto size = sizeof(Object);
-		glNamedBufferData(m_id, count * size, (void*)data, GL_DYNAMIC_DRAW);
+		constexpr const auto size = sizeof(Object);
+		glNamedBufferData(m_id, count * size, static_cast<void*>(data), GL_DYNAMIC_DRAW);
 	}
 
 	template<typename Object>
-	inline void GPUBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Object* data)
+	inline void ShaderBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Object* data)
 	{
-		constexpr auto size = sizeof(Object);
-		glNamedBufferSubData(m_id, offset, count * size, (void*)data);
+		constexpr const auto size = sizeof(Object);
+		glNamedBufferSubData(m_id, offset, count * size, static_cast<void*>(data));
 	}
 } // namespace galaxy
 
