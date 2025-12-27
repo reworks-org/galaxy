@@ -159,24 +159,6 @@ namespace galaxy
 						);
 
 						glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
-
-						// Configure global GL state.
-						glDisable(GL_FRAMEBUFFER_SRGB);
-						glDisable(GL_CULL_FACE);
-						glDisable(GL_SCISSOR_TEST);
-						glDisable(GL_MULTISAMPLE); // Use provided SMAA.
-
-						glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
-						glEnable(GL_PROGRAM_POINT_SIZE);
-						glEnable(GL_DEPTH_TEST);
-						glEnable(GL_STENCIL_TEST);
-						glEnable(GL_BLEND);
-
-						// GL state function configuration.
-						glCullFace(GL_BACK);
-						glDepthFunc(GL_LEQUAL);
-						glBlendEquation(GL_FUNC_ADD);
-						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 					}
 					else
 					{
