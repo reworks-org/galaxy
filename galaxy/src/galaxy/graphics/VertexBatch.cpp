@@ -5,102 +5,103 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/error/Log.hpp"
-
 #include "VertexBatch.hpp"
 
 namespace galaxy
 {
-	namespace graphics
+	VertexBatch::VertexBatch(const int max, const int vertex_count, const int index_count) noexcept
+		: m_vertex_count {0}
+		, m_index_count {0}
+		, m_count {0}
 	{
-		VertexBatch::VertexBatch()
-			: m_max_quads {0}
-			, m_index {0}
+		m_vertex_length = max * vertex_count;
+		m_index_length  = max * index_count;
+
+		m_vertices.resize(m_vertex_length, {});
+		m_indices.resize(m_index_length, 0);
+
+		m_vao.reserve(m_vertex_length, m_index_length);
+	}
+
+	VertexBatch::VertexBatch(VertexBatch&& vb) noexcept
+	{
+		this->m_vertex_count  = vb.m_vertex_count;
+		this->m_index_count   = vb.m_index_count;
+		this->m_count         = vb.m_count;
+		this->m_vertex_length = vb.m_vertex_length;
+		this->m_index_length  = vb.m_index_length;
+		this->m_indices       = std::move(vb.m_indices);
+		this->m_vertices      = std::move(vb.m_vertices);
+		this->m_vao           = std::move(vb.m_vao);
+	}
+
+	VertexBatch& VertexBatch::operator=(VertexBatch&& vb) noexcept
+	{
+		if (this != &vb)
 		{
+			this->m_vertex_count  = vb.m_vertex_count;
+			this->m_index_count   = vb.m_index_count;
+			this->m_count         = vb.m_count;
+			this->m_vertex_length = vb.m_vertex_length;
+			this->m_index_length  = vb.m_index_length;
+			this->m_indices       = std::move(vb.m_indices);
+			this->m_vertices      = std::move(vb.m_vertices);
+			this->m_vao           = std::move(vb.m_vao);
 		}
 
-		VertexBatch::VertexBatch(VertexBatch&& s)
+		return *this;
+	}
+
+	VertexBatch::~VertexBatch() noexcept
+	{
+	}
+
+	void VertexBatch::push(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices) noexcept
+	{
+		for (auto i = 0; i < vertices.size(); ++i)
 		{
-			this->m_vao       = std::move(s.m_vao);
-			this->m_max_quads = s.m_max_quads;
-			this->m_index     = s.m_index;
+			m_vertices[m_vertex_count + i].m_pos    = vertices[i].m_pos;
+			m_vertices[m_vertex_count + i].m_texels = vertices[i].m_texels;
+			m_vertices[m_vertex_count + i].m_handle = vertices[i].m_handle;
 		}
 
-		VertexBatch& VertexBatch::operator=(VertexBatch&& s)
+		for (auto i = 0; i < indices.size(); ++i)
 		{
-			if (this != &s)
-			{
-				this->m_vao       = std::move(s.m_vao);
-				this->m_max_quads = s.m_max_quads;
-				this->m_index     = s.m_index;
-			}
-
-			return *this;
+			m_indices[m_index_count + i] = indices[i] + m_vertex_count;
 		}
 
-		VertexBatch::~VertexBatch()
-		{
-		}
+		m_vertex_count += static_cast<int>(vertices.size());
+		m_index_count  += static_cast<int>(indices.size());
+	}
 
-		void VertexBatch::init(const int max_quads)
-		{
-			m_max_quads = max_quads;
+	void VertexBatch::flush() noexcept
+	{
+		m_vao.sub_buffer(0, m_vertex_count, m_vertices, 0, m_index_count, m_indices);
+		m_vao.erase(m_vertex_count, m_vertex_length - m_vertex_count, m_index_count, m_index_length - m_index_count);
 
-			if (m_max_quads > 0)
-			{
-				meta::vector<unsigned int> indices;
-				indices.reserve(m_max_quads * 6);
+		m_count = m_index_count;
 
-				auto increment = 0;
-				for (auto counter = 0; counter < m_max_quads; counter++)
-				{
-					indices.push_back(0 + increment);
-					indices.push_back(1 + increment);
-					indices.push_back(3 + increment);
-					indices.push_back(1 + increment);
-					indices.push_back(2 + increment);
-					indices.push_back(3 + increment);
+		m_vertex_count = 0;
+		m_index_count  = 0;
+	}
 
-					increment += 4;
-				}
+	void VertexBatch::bind() const noexcept
+	{
+		m_vao.bind();
+	}
 
-				m_vao.buffer(m_max_quads * 4, indices);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Attempted to create vertexbatch with 0 quads.");
-			}
-		}
+	int VertexBatch::count() const noexcept
+	{
+		return m_count;
+	}
 
-		int VertexBatch::push(std::span<Vertex> vertices)
-		{
-			if (!(((m_index + vertices.size()) / 4) > m_max_quads))
-			{
-				m_vao.sub_buffer(m_index, vertices);
-				m_index += 4;
+	void* VertexBatch::offset() noexcept
+	{
+		return m_vao.offset();
+	}
 
-				return m_index - 4;
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Attempted to upload too many quads to a vertexbatch.");
-				return -1;
-			}
-		}
-
-		void VertexBatch::sub_buffer(const unsigned int index, std::span<Vertex> vertices)
-		{
-			m_vao.sub_buffer(m_index, vertices);
-		}
-
-		void VertexBatch::clear()
-		{
-			m_vao.vbo().clear();
-		}
-
-		VertexArray& VertexBatch::vao()
-		{
-			return m_vao;
-		}
-	} // namespace graphics
+	VertexArray& VertexBatch::vao() noexcept
+	{
+		return m_vao;
+	}
 } // namespace galaxy
