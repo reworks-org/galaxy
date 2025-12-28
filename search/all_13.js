@@ -40,7 +40,7 @@ var searchData=
   ['transform_37',['transform',['../de/df1/structgalaxy_1_1graphics_1_1RenderData.html#a46e9c129ce840dab7afe3170254c0067',1,'galaxy::graphics::RenderData']]],
   ['transform_2ecpp_38',['Transform.cpp',['../d8/dea/components_2Transform_8cpp.html',1,'(Global Namespace)'],['../dd/d1d/graphics_2Transform_8cpp.html',1,'(Global Namespace)']]],
   ['transform_2ehpp_39',['Transform.hpp',['../de/dbb/components_2Transform_8hpp.html',1,'(Global Namespace)'],['../da/da6/graphics_2Transform_8hpp.html',1,'(Global Namespace)']]],
-  ['translate_40',['translate',['../d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a65c308c16d2408b3741b1df0c6ea269d',1,'galaxy::graphics::Camera::translate()'],['../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a6a96210f67d7a989920410729ec784fd',1,'galaxy::graphics::Transform::translate()']]],
+  ['translate_40',['translate',['../da/d35/classgalaxy_1_1graphics_1_1Transform.html#a6a96210f67d7a989920410729ec784fd',1,'galaxy::graphics::Transform']]],
   ['transparent_41',['TRANSPARENT',['../d8/d74/classgalaxy_1_1Colour.html#a6fd91b185607fc21bb44ca8a944c2d1a',1,'galaxy::Colour']]],
   ['triangles_42',['TRIANGLES',['../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aadd3bfee8042d1b85c224f08b42a3fc2e',1,'galaxy']]],
   ['trilinear_43',['TRILINEAR',['../d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0a2ca5e5f343aeb8dea3bc466ba43ee783',1,'galaxy']]],

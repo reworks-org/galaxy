@@ -1,0 +1,5 @@
+<map id="galaxy::VertexArray::erase" name="galaxy::VertexArray::erase">
+<area shape="rect" id="Node000001" title="Erase a specfic segment of data." alt="" coords="205,5,356,45"/>
+<area shape="rect" id="Node000002" href="$d5/dd2/classgalaxy_1_1VertexBatch.html#a61744e890d397fe9bdc40b3a59a94ee9" title="Copy all data to GPU." alt="" coords="5,5,157,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,28,158,28,158,23,191,23"/>
+</map>

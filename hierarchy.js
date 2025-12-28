@@ -3,10 +3,11 @@ var hierarchy =
     [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
     [ "galaxy::App", "dd/d33/classgalaxy_1_1App.html", null ],
     [ "galaxy::Cache< Resource, SpecLoader >", "d1/d4d/classgalaxy_1_1Cache.html", null ],
+    [ "galaxy::Camera", "da/d44/classgalaxy_1_1Camera.html", null ],
     [ "galaxy::Colour", "d8/d74/classgalaxy_1_1Colour.html", null ],
     [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
     [ "galaxy::ContentScale", "dd/d27/structgalaxy_1_1ContentScale.html", null ],
-    [ "galaxy::graphics::Camera::Data", "de/d59/structgalaxy_1_1graphics_1_1Camera_1_1Data.html", null ],
+    [ "galaxy::Camera::Data", "dc/d69/structgalaxy_1_1Camera_1_1Data.html", null ],
     [ "galaxy::meta::EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", null ],
     [ "galaxy::FileError", "d5/d13/classgalaxy_1_1FileError.html", null ],
     [ "galaxy::math::fnv_1a_params< bits >", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
@@ -24,7 +25,6 @@ var hierarchy =
     [ "galaxy::graphics::Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", null ],
     [ "galaxy::graphics::Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", null ],
     [ "galaxy::GainedFocus", "d4/db4/structgalaxy_1_1GainedFocus.html", null ],
-    [ "galaxy::GPUBuffer", "d0/dda/classgalaxy_1_1GPUBuffer.html", null ],
     [ "galaxy::HandleableEvent", "d6/d1e/structgalaxy_1_1HandleableEvent.html", [
       [ "galaxy::KeyInput", "d6/d71/structgalaxy_1_1KeyInput.html", null ],
       [ "galaxy::KeyPressed", "d0/d11/structgalaxy_1_1KeyPressed.html", null ],
@@ -84,12 +84,12 @@ var hierarchy =
       [ "galaxy::components::Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", null ],
       [ "galaxy::components::Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", null ],
       [ "galaxy::components::Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", null ],
-      [ "galaxy::flags::Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", null ],
-      [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ]
+      [ "galaxy::flags::Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", null ]
     ] ],
     [ "galaxy::meta::EntityFactory::SerializationData", "d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html", null ],
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
     [ "galaxy::Shader", "d1/d5e/classgalaxy_1_1Shader.html", null ],
+    [ "galaxy::ShaderBuffer", "dd/d83/classgalaxy_1_1ShaderBuffer.html", null ],
     [ "galaxy::graphics::Shape", "d9/d29/classgalaxy_1_1graphics_1_1Shape.html", [
       [ "galaxy::graphics::Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", null ],
       [ "galaxy::graphics::Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", null ],
@@ -124,13 +124,11 @@ var hierarchy =
     [ "galaxy::resource::TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html", null ],
     [ "galaxy::components::TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", null ],
     [ "galaxy::Timer", "d0/d7b/classgalaxy_1_1Timer.html", null ],
-    [ "galaxy::graphics::Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", [
-      [ "galaxy::graphics::Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", null ]
-    ] ],
+    [ "galaxy::graphics::Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", null ],
     [ "galaxy::UUID", "dd/da7/classgalaxy_1_1UUID.html", null ],
     [ "galaxy::Vertex", "db/d8c/structgalaxy_1_1Vertex.html", null ],
     [ "galaxy::VertexArray", "db/d02/classgalaxy_1_1VertexArray.html", null ],
-    [ "galaxy::graphics::VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", null ],
+    [ "galaxy::VertexBatch", "d5/dd2/classgalaxy_1_1VertexBatch.html", null ],
     [ "galaxy::VertexBuffer", "da/d97/classgalaxy_1_1VertexBuffer.html", null ],
     [ "galaxy::media::Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", null ],
     [ "galaxy::VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", null ],

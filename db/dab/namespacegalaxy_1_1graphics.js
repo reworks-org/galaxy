@@ -1,7 +1,6 @@
 var namespacegalaxy_1_1graphics =
 [
     [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
-    [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
     [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
     [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
     [ "Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse" ],
@@ -26,7 +25,6 @@ var namespacegalaxy_1_1graphics =
     [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
     [ "Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", "db/dcc/classgalaxy_1_1graphics_1_1Text" ],
     [ "Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", "da/d35/classgalaxy_1_1graphics_1_1Transform" ],
-    [ "VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch" ],
     [ "is_posteffect", "d7/de6/conceptgalaxy_1_1graphics_1_1is__posteffect.html", null ],
     [ "gen_quad_vertices", "db/dab/namespacegalaxy_1_1graphics.html#a03733fc9fbf816274ffd9b6da7db3aa2", null ],
     [ "gen_default_indices", "db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee", null ],

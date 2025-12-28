@@ -1,11 +1,5 @@
 <map id="galaxy::map::Map::parse_tile_layer" name="galaxy::map::Map::parse_tile_layer">
-<area shape="rect" id="Node000001" title="Parse LDTK tile layer / auto layer." alt="" coords="5,37,188,77"/>
-<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html#ac3e941642e66be6c5e82691a6a2bf43a" title="Initialize vertex batch data." alt="" coords="247,5,426,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,43,234,36,234,42,188,48"/>
-<area shape="rect" id="Node000005" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a32b8b037a3779788257fd236c3ffe8a2" title="Sets position without moving the entity." alt="" coords="236,69,437,109"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="188,67,223,71,222,77,188,72"/>
-<area shape="rect" id="Node000003" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="485,5,636,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="426,23,472,23,472,28,426,28"/>
-<area shape="rect" id="Node000004" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="684,5,839,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="636,23,671,23,671,28,636,28"/>
+<area shape="rect" id="Node000001" title="Parse LDTK tile layer / auto layer." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a32b8b037a3779788257fd236c3ffe8a2" title="Sets position without moving the entity." alt="" coords="236,5,437,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
 </map>

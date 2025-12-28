@@ -27,7 +27,6 @@ var annotated_dup =
       ] ],
       [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
         [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
-        [ "Camera", "d7/d9a/classgalaxy_1_1graphics_1_1Camera.html", "d7/d9a/classgalaxy_1_1graphics_1_1Camera" ],
         [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
         [ "Circle", "d8/d6f/classgalaxy_1_1graphics_1_1Circle.html", "d8/d6f/classgalaxy_1_1graphics_1_1Circle" ],
         [ "Ellipse", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html", "d4/d6a/classgalaxy_1_1graphics_1_1Ellipse" ],
@@ -51,8 +50,7 @@ var annotated_dup =
         [ "Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen" ],
         [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
         [ "Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", "db/dcc/classgalaxy_1_1graphics_1_1Text" ],
-        [ "Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", "da/d35/classgalaxy_1_1graphics_1_1Transform" ],
-        [ "VertexBatch", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch.html", "d0/d84/classgalaxy_1_1graphics_1_1VertexBatch" ]
+        [ "Transform", "da/d35/classgalaxy_1_1graphics_1_1Transform.html", "da/d35/classgalaxy_1_1graphics_1_1Transform" ]
       ] ],
       [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
         [ "Script", "d5/d4a/classgalaxy_1_1lua_1_1Script.html", "d5/d4a/classgalaxy_1_1lua_1_1Script" ]
@@ -89,6 +87,7 @@ var annotated_dup =
       ] ],
       [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
       [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
+      [ "Camera", "da/d44/classgalaxy_1_1Camera.html", "da/d44/classgalaxy_1_1Camera" ],
       [ "Colour", "d8/d74/classgalaxy_1_1Colour.html", "d8/d74/classgalaxy_1_1Colour" ],
       [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
       [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
@@ -96,7 +95,6 @@ var annotated_dup =
       [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
       [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
       [ "GainedFocus", "d4/db4/structgalaxy_1_1GainedFocus.html", null ],
-      [ "GPUBuffer", "d0/dda/classgalaxy_1_1GPUBuffer.html", "d0/dda/classgalaxy_1_1GPUBuffer" ],
       [ "HandleableEvent", "d6/d1e/structgalaxy_1_1HandleableEvent.html", "d6/d1e/structgalaxy_1_1HandleableEvent" ],
       [ "Keyboard", "d8/db2/classgalaxy_1_1Keyboard.html", "d8/db2/classgalaxy_1_1Keyboard" ],
       [ "KeyInput", "d6/d71/structgalaxy_1_1KeyInput.html", "d6/d71/structgalaxy_1_1KeyInput" ],
@@ -118,6 +116,7 @@ var annotated_dup =
       [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
       [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
       [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html", "d1/d5e/classgalaxy_1_1Shader" ],
+      [ "ShaderBuffer", "dd/d83/classgalaxy_1_1ShaderBuffer.html", "dd/d83/classgalaxy_1_1ShaderBuffer" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
       [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],
       [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ],
@@ -130,6 +129,7 @@ var annotated_dup =
       [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
       [ "Vertex", "db/d8c/structgalaxy_1_1Vertex.html", "db/d8c/structgalaxy_1_1Vertex" ],
       [ "VertexArray", "db/d02/classgalaxy_1_1VertexArray.html", "db/d02/classgalaxy_1_1VertexArray" ],
+      [ "VertexBatch", "d5/dd2/classgalaxy_1_1VertexBatch.html", "d5/dd2/classgalaxy_1_1VertexBatch" ],
       [ "VertexBuffer", "da/d97/classgalaxy_1_1VertexBuffer.html", "da/d97/classgalaxy_1_1VertexBuffer" ],
       [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
       [ "Window", "d0/d84/classgalaxy_1_1Window.html", "d0/d84/classgalaxy_1_1Window" ],

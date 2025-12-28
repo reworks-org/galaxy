@@ -1,6 +1,0 @@
-<map id="galaxy::graphics::Camera::deserialize" name="galaxy::graphics::Camera::deserialize">
-<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,29,192,69"/>
-<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#aca846c9c51f638a7c2ead9de20d9695c" title="Set entity scale." alt="" coords="240,29,441,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,47,226,47,226,52,192,52"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="296,30,293,20,300,10,316,5,341,3,369,6,384,13,382,18,367,11,341,8,317,10,304,15,298,21,301,28"/>
-</map>

@@ -1,28 +1,14 @@
 <map id="galaxy::graphics::Transform::scale" name="galaxy::graphics::Transform::scale">
-<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="975,133,1176,173"/>
-<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="1118,122,1103,115,1075,112,1051,114,1037,119,1032,125,1034,132,1029,134,1026,124,1034,114,1050,109,1075,107,1104,110,1120,117"/>
-<area shape="rect" id="Node000002" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a973ae954713f477357ebf39260ca1d6f" title="Deserializes from object." alt="" coords="733,53,919,93"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="998,131,888,96,890,91,999,126"/>
-<area shape="rect" id="Node000004" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="725,165,927,205"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="961,171,927,175,927,170,961,165"/>
-<area shape="rect" id="Node000003" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a9aaea1dbd55a7f3105756f45b4492d73" title="JSON constructor." alt="" coords="487,5,673,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="719,55,673,46,674,41,720,50"/>
-<area shape="rect" id="Node000005" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="483,69,677,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="768,162,676,124,643,112,645,107,678,119,770,157"/>
-<area shape="rect" id="Node000006" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ad5923c54caf7251aaddeac936e4baa34" title="Recalculates the model view matrix." alt="" coords="487,133,673,173"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="711,173,673,168,674,163,712,168"/>
-<area shape="rect" id="Node000011" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="483,197,677,237"/>
-<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="712,203,678,207,677,202,711,198"/>
-<area shape="rect" id="Node000012" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="483,261,677,301"/>
-<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="770,213,678,252,645,264,643,259,676,247,768,209"/>
-<area shape="rect" id="Node000013" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="483,325,677,365"/>
-<area shape="poly" id="edge12_Node000004_Node000013" title=" " alt="" coords="799,217,746,267,713,293,679,316,654,328,651,323,676,311,710,289,743,263,795,213"/>
-<area shape="rect" id="Node000007" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#ae9a352c67aa35edc853c3370143924aa" title="Get camera view and proj." alt="" coords="248,69,435,109"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="491,132,416,112,417,107,492,127"/>
-<area shape="rect" id="Node000009" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#afa551efad877408657389867dcf04fca" title="Retrieve internal transformation matrix." alt="" coords="248,133,435,173"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="473,156,435,156,435,151,473,151"/>
-<area shape="rect" id="Node000010" href="$d7/d9a/classgalaxy_1_1graphics_1_1Camera.html#a0b3438f8c6ad0b964498f5558fc95299" title="Get the Camera projection." alt="" coords="248,197,435,237"/>
-<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="492,180,417,200,416,195,491,174"/>
-<area shape="rect" id="Node000008" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="5,69,200,109"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="234,92,200,92,200,87,234,87"/>
+<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="497,101,699,141"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="640,90,625,83,598,80,574,82,560,87,554,93,557,100,552,102,549,92,557,82,573,77,598,75,627,78,643,85"/>
+<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#adb550d33496e97f3c63299438084527f" title="Retrieve internal transformation matrix." alt="" coords="248,101,449,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="483,124,450,124,450,119,483,119"/>
+<area shape="rect" id="Node000003" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#ae87ec0ca41d29f00d5dd2393f42a0e82" title="Draw a texture to a render texture." alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,98,199,60,166,48,168,43,201,55,292,93"/>
+<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#adc59bbdee6c5600399bff90c5d12e809" title="Submit a standalone shape to be rendered." alt="" coords="5,69,200,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="234,109,200,105,201,99,235,104"/>
+<area shape="rect" id="Node000005" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a045fefcb4cfbb71669dcd99615a3ceed" title="Submit standalone text to be rendered." alt="" coords="5,133,200,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="235,139,201,143,200,138,234,134"/>
+<area shape="rect" id="Node000006" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a422279b7b63c9e048648a231f9a358c0" title="Submit a standalone texture to be rendered." alt="" coords="5,197,200,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="292,149,201,188,168,200,166,195,199,183,290,145"/>
 </map>
