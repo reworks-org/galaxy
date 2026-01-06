@@ -75,14 +75,10 @@ namespace galaxy
 		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
 		SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 		SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
-		// SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, );      /**< the minimum number of bits for frame buffer size; defaults to 0. */
+		SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-		// SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, );   /**< the minimum number of bits for the red channel of the accumulation buffer; defaults to 0. */
-		// SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, ); /**< the minimum number of bits for the green channel of the accumulation buffer; defaults to 0. */
-		// SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, );  /**< the minimum number of bits for the blue channel of the accumulation buffer; defaults to 0. */
-		// SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, ); /**< the minimum number of bits for the alpha channel of the accumulation buffer; defaults to 0. */
 		SDL_GL_SetAttribute(SDL_GL_STEREO, 0);
 		SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0);
 		SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0);
@@ -93,8 +89,8 @@ namespace galaxy
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 		SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 0);
 		SDL_GL_SetAttribute(SDL_GL_FRAMEBUFFER_SRGB_CAPABLE, 1);
-		// SDL_GL_SetAttribute(SDL_GL_CONTEXT_RELEASE_BEHAVIOR, );   /**< sets context the release behavior. See SDL_GLContextReleaseFlag; defaults to FLUSH. */
-		// SDL_GL_SetAttribute(SDL_GL_CONTEXT_RESET_NOTIFICATION, ); /**< set context reset notification. See SDL_GLContextResetNotification; defaults to NO_NOTIFICATION. */
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_RELEASE_BEHAVIOR, SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_RESET_NOTIFICATION, SDL_GL_CONTEXT_RESET_NO_NOTIFICATION);
 
 		m_window = SDL_CreateWindow(Settings::title().c_str(), Settings::window_width(), Settings::window_height(), flags);
 		if (m_window)

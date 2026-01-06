@@ -216,7 +216,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_AUDIO_INCLUDE_MONITORS, "0");
 		platform::set_hint(SDL_HINT_AUTO_UPDATE_JOYSTICKS, "1");
 		platform::set_hint(SDL_HINT_AUTO_UPDATE_SENSORS, "1");
-		// platform::set_hint(SDL_HINT_DEBUG_LOGGING, "1");
+		platform::set_hint(SDL_HINT_LOGGING, "warn");
 		platform::set_hint(SDL_HINT_ENABLE_SCREEN_KEYBOARD, "0");
 		platform::set_hint(SDL_HINT_EVENT_LOGGING, "0");
 		platform::set_hint(SDL_HINT_FRAMEBUFFER_ACCELERATION, "opengl");
@@ -226,7 +226,6 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "0");
 		platform::set_hint(SDL_HINT_JOYSTICK_DIRECTINPUT, "1");
 		platform::set_hint(SDL_HINT_TV_REMOTE_AS_JOYSTICK, "1");
-		// platform::set_hint(SDL_HINT_LOG_BACKENDS, "1");
 		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "0");
 		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
 		platform::set_hint(SDL_HINT_MOUSE_RELATIVE_MODE_CENTER, "0");
