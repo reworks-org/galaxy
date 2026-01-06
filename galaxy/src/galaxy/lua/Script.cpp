@@ -5,76 +5,58 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
+#include <entt/locator/locator.hpp>
+
+#include "galaxy/logging/Log.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/utils/Globals.hpp"
+#include "galaxy/platform/Pragma.hpp"
 
 #include "Script.hpp"
 
 namespace galaxy
 {
-	namespace lua
+	Script::Script() noexcept
 	{
-		Script::Script()
-			: m_loaded {false}
-		{
-		}
+	}
 
-		Script::Script(const std::string& file)
-			: m_loaded {false}
-		{
-			GALAXY_UNUSED(load(file));
-		}
+	Script::Script(const std::string& file)
+	{
+		GALAXY_UNUSED(load(file));
+	}
 
-		Script::~Script()
-		{
-		}
+	Script::~Script() noexcept
+	{
+	}
 
-		bool Script::load(const std::string& file)
-		{
-			auto& fs = core::ServiceLocator<fs::VirtualFileSystem>::ref();
+	bool Script::load(const std::string& file)
+	{
+		auto& fs = entt::locator<VirtualFileSystem>::value();
 
-			const auto script = fs.read(file);
-			if (!script.empty())
+		const auto script = fs.read(file);
+		if (!script.empty())
+		{
+			m_script = entt::locator<sol::state>::value().load(script);
+
+			if (!m_script.valid())
 			{
-				m_script = core::ServiceLocator<sol::state>::ref().load(script);
-
-				if (m_script.status() != sol::load_status::ok)
-				{
-					GALAXY_LOG(GALAXY_ERROR, "Failed to load script '{0}' because '{1}'.", file, magic_enum::enum_name(m_script.status()));
-				}
-				else
-				{
-					m_loaded = true;
-				}
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load script '{0}' because '{1}'.", file, magic_enum::enum_name(m_script.status()));
 			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to read script '{0}'.", file);
-			}
-
-			return m_loaded;
 		}
-
-		bool Script::run()
+		else
 		{
-			if (m_loaded)
-			{
-				const auto result = m_script();
-				return result.valid();
-			}
-
-			return false;
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read script '{0}'.", file);
 		}
 
-		sol::protected_function_result Script::run_and_return()
+		return m_script.valid();
+	}
+
+	sol::protected_function_result Script::run()
+	{
+		if (m_script.valid())
 		{
-			if (m_loaded)
-			{
-				return m_script();
-			}
-
-			return {};
+			return m_script();
 		}
-	} // namespace lua
+
+		return {};
+	}
 } // namespace galaxy
