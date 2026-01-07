@@ -11,6 +11,8 @@
 #include <string>
 #include <span>
 
+#include "galaxy/graphics/gl/TextureView.hpp"
+
 namespace galaxy
 {
 	///
@@ -71,6 +73,19 @@ namespace galaxy
 		void save(std::string_view file);
 
 		///
+		/// Generate a texture view handle.
+		///
+		/// \param minlevel Mipmap level.
+		/// \param numlevels Number of mipmaps to include.
+		/// \param minlayer Specifies the index of the first layer to include in the view.
+		/// \param numlayers Specifies the number of layers to include in the view.
+		///
+		/// \return TextureView object.
+		///
+		[[nodiscard]]
+		TextureView get_view(const unsigned int minlevel, const unsigned int numlevels, const unsigned int minlayer, const unsigned int numlayers) const noexcept;
+
+		///
 		/// \brief Bind to sampler.
 		///
 		/// Not required because this supports bindless textures.
@@ -78,7 +93,7 @@ namespace galaxy
 		void bind() const noexcept;
 
 		///
-		/// Deactivate sampler.
+		/// Unbind sampler.
 		///
 		void unbind() const noexcept;
 
@@ -86,13 +101,6 @@ namespace galaxy
 		/// Destroy texture.
 		///
 		void destroy();
-
-		///
-		/// \brief Deletes texture data and configuration in OpenGL.
-		///
-		/// You need to call load again!
-		///
-		void recreate();
 
 		///
 		/// \brief Get texture width.
@@ -140,25 +148,6 @@ namespace galaxy
 		/// Copy assignment operator.
 		///
 		Texture& operator=(const Texture&) = delete;
-
-		///
-		/// \brief Sets filter when texture is (up/down)scaled in OpenGL.
-		///
-		/// Includes mipmapping.
-		///
-		void set_filter() const noexcept;
-
-		///
-		/// \brief Set texture mode.
-		///
-		/// I.e. REPEAT, CLAMP_TO_EDGE, etc.
-		///
-		void set_mode() const noexcept;
-
-		///
-		/// Set ansiotropic filtering level.
-		///
-		void set_anisotropy() const noexcept;
 
 	private:
 		///

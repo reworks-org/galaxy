@@ -9,18 +9,35 @@
 
 namespace galaxy
 {
-	VertexBatch::VertexBatch(const int max, const int vertex_count, const int index_count) noexcept
+	VertexBatch::VertexBatch(const int max, const int vertex_count, const std::vector<unsigned int>& indices) noexcept
 		: m_vertex_count {0}
 		, m_index_count {0}
 		, m_count {0}
 	{
+		m_index_count   = static_cast<int>(indices.size());
 		m_vertex_length = max * vertex_count;
-		m_index_length  = max * index_count;
+		m_index_length  = max * m_index_count;
 
 		m_vertices.resize(m_vertex_length, {});
-		m_indices.resize(m_index_length, 0);
-
 		m_vao.reserve(m_vertex_length, m_index_length);
+
+		// Calculate fixed indices and push once.
+		std::vector<unsigned int> index_data;
+		index_data.reserve(m_index_length);
+
+		auto offset = 0;
+		for (auto i = 0; i < max; ++i)
+		{
+			for (auto j = 0; j < m_index_count; ++j)
+			{
+				index_data.emplace_back(indices[j] + offset);
+			}
+
+			// Each set of 6 indices needs to be offset by vertex_count per renderable (max in this case).
+			offset += vertex_count;
+		}
+
+		m_vao.sub_buffer_indices(0, m_index_length, index_data);
 	}
 
 	VertexBatch::VertexBatch(VertexBatch&& vb) noexcept
@@ -30,7 +47,6 @@ namespace galaxy
 		this->m_count         = vb.m_count;
 		this->m_vertex_length = vb.m_vertex_length;
 		this->m_index_length  = vb.m_index_length;
-		this->m_indices       = std::move(vb.m_indices);
 		this->m_vertices      = std::move(vb.m_vertices);
 		this->m_vao           = std::move(vb.m_vao);
 	}
@@ -44,7 +60,6 @@ namespace galaxy
 			this->m_count         = vb.m_count;
 			this->m_vertex_length = vb.m_vertex_length;
 			this->m_index_length  = vb.m_index_length;
-			this->m_indices       = std::move(vb.m_indices);
 			this->m_vertices      = std::move(vb.m_vertices);
 			this->m_vao           = std::move(vb.m_vao);
 		}
@@ -56,33 +71,28 @@ namespace galaxy
 	{
 	}
 
-	void VertexBatch::push(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices) noexcept
+	void VertexBatch::prepare() noexcept
+	{
+		m_count        = 0;
+		m_vertex_count = 0;
+	}
+
+	void VertexBatch::push(const std::vector<Vertex>& vertices) noexcept
 	{
 		for (auto i = 0; i < vertices.size(); ++i)
 		{
 			m_vertices[m_vertex_count + i].m_pos    = vertices[i].m_pos;
 			m_vertices[m_vertex_count + i].m_texels = vertices[i].m_texels;
-			m_vertices[m_vertex_count + i].m_handle = vertices[i].m_handle;
-		}
-
-		for (auto i = 0; i < indices.size(); ++i)
-		{
-			m_indices[m_index_count + i] = indices[i] + m_vertex_count;
+			m_vertices[m_vertex_count + i].m_index  = vertices[i].m_index;
 		}
 
 		m_vertex_count += static_cast<int>(vertices.size());
-		m_index_count  += static_cast<int>(indices.size());
+		m_count        += m_index_count; // each set of 6 indices is 1 renderable to draw.
 	}
 
 	void VertexBatch::flush() noexcept
 	{
-		m_vao.sub_buffer(0, m_vertex_count, m_vertices, 0, m_index_count, m_indices);
-		m_vao.erase(m_vertex_count, m_vertex_length - m_vertex_count, m_index_count, m_index_length - m_index_count);
-
-		m_count = m_index_count;
-
-		m_vertex_count = 0;
-		m_index_count  = 0;
+		m_vao.sub_buffer_vertices(0, m_vertex_count, m_vertices);
 	}
 
 	void VertexBatch::bind() const noexcept

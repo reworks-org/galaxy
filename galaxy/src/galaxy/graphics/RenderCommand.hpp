@@ -8,58 +8,41 @@
 #ifndef GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 #define GALAXY_GRAPHICS_RENDERCOMMAND_HPP_
 
+#include "galaxy/graphics/gl/GLEnums.hpp"
+#include "galaxy/graphics/gl/ShaderBuffer.hpp"
+#include "galaxy/graphics/gl/VertexArray.hpp"
 #include "galaxy/graphics/RenderData.hpp"
+#include "galaxy/utils/Memory.hpp"
 
 namespace galaxy
 {
-	namespace graphics
+	///
+	/// Data required to draw an object.
+	///
+	struct RenderCmd final
 	{
 		///
-		/// Data to be passed to the renderer.
+		/// OpenGL rendering mode/type.
+		/// Required.
 		///
-		struct RenderCommand final
-		{
-			///
-			/// Layer to render on.
-			///
-			int layer = 0;
+		GLRenderMode type;
 
-			///
-			/// Shader uniform data.
-			///
-			RenderData uniforms;
+		///
+		/// Vertices if type is quad for batch rendering.
+		///
+		std::vector<Vertex> vertices;
 
-			///
-			/// OpenGL vertex array object.
-			///
-			unsigned int vao = 0;
+		///
+		/// Vertex array object if type is not quad.
+		/// Not used by batch renderer.
+		///
+		VertexArray* vao;
 
-			///
-			/// Type to render i.e. GL_LINES, GL_TRIANGLES, etc.
-			///
-			unsigned int mode = 0;
-
-			///
-			/// OpenGL index (element) buffer count.
-			///
-			unsigned int count = 0;
-
-			///
-			/// Offset in vertex buffer marking beginning of element data.
-			///
-			void* offset = nullptr;
-
-			///
-			/// Number of instances to render.
-			///
-			int instances = 1;
-
-			///
-			/// Texture.
-			///
-			unsigned int texture = 0;
-		};
-	} // namespace graphics
+		///
+		/// Uniform data for this command.
+		///
+		RenderData data;
+	};
 } // namespace galaxy
 
 #endif

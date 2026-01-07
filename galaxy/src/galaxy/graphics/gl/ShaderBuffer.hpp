@@ -136,14 +136,14 @@ namespace galaxy
 		clear();
 
 		constexpr const auto size = sizeof(Object);
-		glNamedBufferData(m_id, count * size, static_cast<void*>(data), GL_DYNAMIC_DRAW);
+		glNamedBufferData(m_id, count * size, data, GL_DYNAMIC_DRAW);
 	}
 
 	template<typename Object>
 	inline void ShaderBuffer::sub_buffer(const unsigned int offset, const unsigned int count, Object* data)
 	{
 		constexpr const auto size = sizeof(Object);
-		glNamedBufferSubData(m_id, offset, count * size, static_cast<void*>(data));
+		glNamedBufferSubData(m_id, offset, count * size, data);
 	}
 } // namespace galaxy
 

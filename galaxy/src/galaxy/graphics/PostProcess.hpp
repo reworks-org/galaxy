@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		class PostProcess final
 		{
-		public:
+		  public:
 			///
 			/// Constructor.
 			///
@@ -63,8 +63,7 @@ namespace galaxy
 			/// \return Weak pointer to newly created effect.
 			///
 			template<is_posteffect Effect, typename... Args>
-			[[maybe_unused]]
-			Effect* add(Args&&... args);
+			[[maybe_unused]] Effect* add(Args&&... args);
 
 			///
 			/// Bind to draw to post processor framebuffer.
@@ -94,7 +93,7 @@ namespace galaxy
 			///
 			void resize(const int width, const int height);
 
-		private:
+		  private:
 			///
 			/// For geometry and lighting.
 			///

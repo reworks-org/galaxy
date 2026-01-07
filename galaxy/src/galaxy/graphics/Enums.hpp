@@ -26,9 +26,9 @@ namespace galaxy
 		TEXEL_POINT = 1u,
 
 		///
-		/// Texture handle.
+		/// Renderable uniform data index.
 		///
-		HANDLE_POINT = 2u
+		INDEX_POINT = 2u
 	};
 
 	///

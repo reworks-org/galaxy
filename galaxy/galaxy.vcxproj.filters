@@ -92,7 +92,17 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaGraphics.cpp" />
     <ClCompile Include="src\galaxy\graphics\gl\Texture.cpp" />
     <ClCompile Include="src\galaxy\graphics\gl\GLEnums.cpp" />
-    <ClCompile Include="src\galaxy\graphics\gl\ShaderStorageBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\ShaderBuffer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Renderer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderPipeline.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderPass.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderCommand.cpp" />
+    <ClCompile Include="src\galaxy\graphics\VertexBatch.cpp" />
+    <ClCompile Include="src\galaxy\graphics\Camera.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\Sampler.cpp" />
+    <ClCompile Include="src\galaxy\graphics\gl\TextureView.cpp" />
+    <ClCompile Include="src\galaxy\graphics\RenderData.cpp" />
+    <ClCompile Include="src\galaxy\lua\Script.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
@@ -171,6 +181,16 @@
     <ClInclude Include="src\galaxy\graphics\Colour.hpp" />
     <ClInclude Include="src\galaxy\graphics\gl\Texture.hpp" />
     <ClInclude Include="src\galaxy\graphics\gl\GLEnums.hpp" />
-    <ClInclude Include="src\galaxy\graphics\gl\ShaderStorageBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\ShaderBuffer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Renderer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderPipeline.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderPass.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderCommand.hpp" />
+    <ClInclude Include="src\galaxy\graphics\VertexBatch.hpp" />
+    <ClInclude Include="src\galaxy\graphics\Camera.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\Sampler.hpp" />
+    <ClInclude Include="src\galaxy\graphics\gl\TextureView.hpp" />
+    <ClInclude Include="src\galaxy\graphics\RenderData.hpp" />
+    <ClInclude Include="src\galaxy\lua\Script.hpp" />
   </ItemGroup>
 </Project>

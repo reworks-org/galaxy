@@ -38,3 +38,13 @@ https://ktstephano.github.io/rendering/opengl/mdi
 - copy vertex to batch on creation, and remove after its destroyed, rather than per frame.
     - optimize batch rendeirng avoid pushing each frame
 - batch shapes, at the moment only quads are batched.
+- move camera out of pipeline and add generic projection support to pass?
+- object pooling
+- vao caching
+- vertex and index caching (i.e. define a has and reuse existing if it already exists).
+
+https://github.com/JuanDiegoMontoya/Fwog/blob/main/src/Context.cpp
+https://juandiegomontoya.github.io/modern_opengl.html
+https://github.com/Voltra-Labs/Voltra-Engine
+
+- look into using std::ranges properly... (i.e. replacing some for loops).

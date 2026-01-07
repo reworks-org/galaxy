@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		std::vector<Vertex> gen_quad_vertices(const float width, const float height, float depth, const std::uint64_t handle) noexcept
+		std::vector<Vertex> gen_quad_vertices(const float width, const float height, float depth) noexcept
 		{
 			depth = std::clamp(depth, -1.0f, 1.0f);
 
@@ -23,22 +23,22 @@ namespace galaxy
 				Vertex {
 					.m_pos    = glm::vec3 {0.0f, 0.0f, depth}, 
 					.m_texels = glm::vec2 {0.0f, 0.0f},
-					.m_handle = handle
+					.m_index = 0
 				},
 				Vertex {
 					.m_pos    = glm::vec3 {width, 0.0f, depth},
 				    .m_texels = glm::vec2 {1.0f, 0.0f},
-					.m_handle = handle
+					.m_index = 0
 				},
 				Vertex {
 					.m_pos    = glm::vec3 {width, height, depth},
 				    .m_texels = glm::vec2 {1.0f, 1.0f},
-					.m_handle = handle
+					.m_index = 0
 				},
 				Vertex {
 					.m_pos    = glm::vec3 {0.0f, height, depth},
 				    .m_texels = glm::vec2 {0.0f, 1.0f},
-					.m_handle = handle
+					.m_index = 0
 				}
 			};
 			// clang-format on

@@ -94,7 +94,7 @@ namespace galaxy
 		void setup_config(std::string_view config_file);
 		void setup_platform();
 		void setup_fs();
-		void setup_window();
+		void setup_rendering();
 		void setup_events();
 		// void setup_nuklear();
 		// void setup_loader();

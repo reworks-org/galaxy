@@ -11,52 +11,38 @@
 #include <glm/mat4x4.hpp>
 #include <glm/vec4.hpp>
 
-#include "galaxy/platform/Pragma.hpp"
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_PUSH
-GALAXY_DISABLE_WARNING(26495)
-#endif
-
 namespace galaxy
 {
-	namespace graphics
+	///
+	/// Uniform data passed to shader about an entity.
+	///
+	struct alignas(16) RenderData final
 	{
 		///
-		/// Uniform data passed to shader from entity.
+		/// Orthographic transform.
 		///
-		struct alignas(16) RenderData final
-		{
-			///
-			/// Orthographic transform.
-			///
-			glm::mat4 transform;
+		glm::mat4 transform;
 
-			///
-			/// Colour / tint.
-			///
-			glm::vec4 colour;
+		///
+		/// Colour / tint.
+		///
+		glm::vec4 colour;
 
-			///
-			/// Entity ID.
-			///
-			int entity;
+		///
+		/// Entity ID.
+		///
+		int entity;
 
-			///
-			/// Is this being rendered with GL_POINTS.
-			///
-			bool point;
+		///
+		/// Is this being rendered with GL_POINTS.
+		///
+		bool point;
 
-			///
-			/// Are we rendering as a texture.
-			///
-			bool textured;
-		};
-	} // namespace graphics
+		///
+		/// Texture handle.
+		///
+		std::uint64_t handle;
+	};
 } // namespace galaxy
-
-#ifdef GALAXY_WIN_PLATFORM
-GALAXY_DISABLE_WARNING_POP
-#endif
 
 #endif

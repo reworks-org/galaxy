@@ -13,6 +13,7 @@
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/gl/GLEnums.hpp"
+#include "galaxy/graphics/gl/Sampler.hpp"
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/platform/Pragma.hpp"
 
@@ -92,11 +93,12 @@ namespace galaxy
 				glTextureStorage2D(m_id, 1, GL_RGBA8, m_width, m_height);
 				glTextureSubImage2D(m_id, 0, 0, 0, m_width, m_height, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
-				set_filter();
-				set_mode();
-				set_anisotropy();
+				if (Settings::mipmap())
+				{
+					glGenerateTextureMipmap(m_id);
+				}
 
-				m_handle = glGetTextureHandleARB(m_id);
+				m_handle = glGetTextureSamplerHandleARB(m_id, entt::locator<Sampler>::value().id());
 				glMakeTextureHandleResidentARB(m_handle);
 			}
 			else
@@ -154,6 +156,11 @@ namespace galaxy
 		std::free(png);
 	}
 
+	TextureView Texture::get_view(const unsigned int minlevel, const unsigned int numlevels, const unsigned int minlayer, const unsigned int numlayers) const noexcept
+	{
+		return {m_id, minlevel, numlevels, minlayer, numlayers};
+	}
+
 	void Texture::bind() const noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_id);
@@ -179,12 +186,6 @@ namespace galaxy
 		}
 	}
 
-	void Texture::recreate()
-	{
-		destroy();
-		glCreateTextures(GL_TEXTURE_2D, 1, &m_id);
-	}
-
 	float Texture::width() const noexcept
 	{
 		return static_cast<float>(m_width);
@@ -203,69 +204,6 @@ namespace galaxy
 	std::uint64_t Texture::handle() const noexcept
 	{
 		return m_handle;
-	}
-
-	void Texture::set_filter() const noexcept
-	{
-		if (Settings::mipmap())
-		{
-			glGenerateTextureMipmap(m_id);
-
-			switch (Settings::texture_filter())
-			{
-				case GLTextureFilter::NEAREST:
-					glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-					glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-					break;
-				case GLTextureFilter::BILINEAR:
-					glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-					glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					break;
-				case GLTextureFilter::TRILINEAR:
-					glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-					glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					break;
-			}
-		}
-		else
-		{
-			if (Settings::texture_filter() == GLTextureFilter::NEAREST)
-			{
-				glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-				glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			}
-			else
-			{
-				glTextureParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-				glTextureParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			}
-		}
-	}
-
-	void Texture::set_mode() const noexcept
-	{
-		glTextureParameteri(m_id, GL_TEXTURE_WRAP_S, static_cast<GLint>(GLTextureMode::CLAMP_TO_EDGE));
-		glTextureParameteri(m_id, GL_TEXTURE_WRAP_T, static_cast<GLint>(GLTextureMode::CLAMP_TO_EDGE));
-	}
-
-	void Texture::set_anisotropy() const noexcept
-	{
-		auto ansio = std::clamp(Settings::ansiotrophy(), 1, 16);
-
-		if (ansio == 3)
-		{
-			ansio = 4;
-		}
-		else if (ansio > 4 && ansio < 8)
-		{
-			ansio = 8;
-		}
-		else
-		{
-			ansio = 16;
-		}
-
-		glTextureParameterf(m_id, GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(ansio));
 	}
 } // namespace galaxy
 

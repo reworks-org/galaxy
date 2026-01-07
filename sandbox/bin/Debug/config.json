@@ -20,6 +20,12 @@
         "editor_dir": "editor/",
         "use_loose_assets": true
     },
+    "graphics": {
+        "ansiotrophy": 16,
+        "max_quads": 250,
+        "mipmap": true,
+        "texture_filter": "NEAREST"
+    },
     "meta": {
         "copyright": "2025+ reworks",
         "creator": "reworks",

@@ -64,7 +64,26 @@ namespace galaxy
 		/// \param index_size Amount of index data to sub buffer.
 		/// \param indices Indices to assign.
 		///
-		void sub_buffer(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices, unsigned int ei, const int index_size, std::span<unsigned int> indices);
+		void
+		sub_buffer(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices, const unsigned int ei, const int index_size, std::span<unsigned int> indices);
+
+		///
+		/// Sub-buffer vertex buffer.
+		///
+		/// \param vi Offset to start at from initial vertices. 0 = first.
+		/// \param vertex_size Amount of vertex data to sub buffer.
+		/// \param vertices Vertices to assign.
+		///
+		void sub_buffer_vertices(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices) const;
+
+		///
+		/// Sub-buffer element/index buffer.
+		///
+		/// \param ei Offset to start at from initial indices. 0 = first.
+		/// \param index_size Amount of index data to sub buffer.
+		/// \param indices Indices to assign.
+		///
+		void sub_buffer_indices(const unsigned int ei, const int index_size, std::span<unsigned int> indices) const;
 
 		///
 		/// Erase a specfic segment of data.

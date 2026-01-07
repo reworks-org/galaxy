@@ -13,7 +13,9 @@
 namespace galaxy
 {
 	///
-	/// A group of vertices for multiple renderables batched together.
+	/// \brief A group of vertices for multiple renderables batched together.
+	///
+	/// Call: prepare() -> push() -> flush() -> bind(), and repeat.
 	///
 	class VertexBatch
 	{
@@ -21,11 +23,11 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		/// \tparam max Max renderable objects.
-		/// \tparam vertex_count Number of vertices in a single object.
-		/// \tparam index_count Number of indices in a single object.
+		/// \param max Max renderable objects.
+		/// \param vertex_count Number of vertices in a single object.
+		/// \param indices Default indices to use for each renderable.
 		///
-		VertexBatch(const int max, const int vertex_count, const int index_count) noexcept;
+		VertexBatch(const int max, const int vertex_count, const std::vector<unsigned int>& indices) noexcept;
 
 		///
 		/// Move constructor.
@@ -43,12 +45,16 @@ namespace galaxy
 		~VertexBatch() noexcept;
 
 		///
+		/// Sets up counters to begin pushing vertices.
+		///
+		void prepare() noexcept;
+
+		///
 		/// Add vertex and index data to batch.
 		///
 		/// \param vertices List of vertices.
-		/// \param indices List of indices.
 		///
-		void push(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices) noexcept;
+		void push(const std::vector<Vertex>& vertices) noexcept;
 
 		///
 		/// Copy all data to GPU.
@@ -111,12 +117,12 @@ namespace galaxy
 		int m_vertex_count;
 
 		///
-		/// Amount of indices to flush.
+		/// Amount of indices per renderable.
 		///
 		int m_index_count;
 
 		///
-		/// Index count after flushing.
+		/// Amount of renderables to draw.
 		///
 		int m_count;
 
@@ -134,11 +140,6 @@ namespace galaxy
 		/// CPU side reserved vertices.
 		///
 		std::vector<Vertex> m_vertices;
-
-		///
-		/// CPU side reserved indices.
-		///
-		std::vector<unsigned int> m_indices;
 
 		///
 		/// VAO object for GPU data.

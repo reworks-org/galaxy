@@ -33,9 +33,9 @@ namespace galaxy
 		glm::vec2 m_texels;
 
 		///
-		/// Texture handle.
+		/// Uniform data index.
 		///
-		std::uint64_t m_handle = 0;
+		unsigned int m_index;
 	};
 
 	namespace graphics
@@ -46,11 +46,10 @@ namespace galaxy
 		/// \param width Width of quad.
 		/// \param height Height of quad.
 		/// \param depth Rendering layer. Clamped from -1.0 to 1.0.
-		/// \param handle Texture handle.
 		///
 		/// \return Vertices mapped from TOP LEFT to BOTTOM LEFT CLOCKWISE.
 		///
-		std::vector<Vertex> gen_quad_vertices(const float width, const float height, float depth, const std::uint64_t handle) noexcept;
+		std::vector<Vertex> gen_quad_vertices(const float width, const float height, float depth) noexcept;
 
 		///
 		/// Generate some default indices.

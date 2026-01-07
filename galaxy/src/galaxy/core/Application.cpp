@@ -9,6 +9,7 @@
 
 #include <BS_thread_pool.hpp>
 #include <entt/signal/dispatcher.hpp>
+#include <glad/glad.h>
 #include <mimalloc.h>
 #include <SDL3/SDL.h>
 #include <sol/sol.hpp>
@@ -17,6 +18,7 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
+#include "galaxy/graphics/gl/Sampler.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/Log.hpp"
@@ -41,7 +43,7 @@ namespace galaxy
 		setup_config(config_file);
 		setup_platform();
 		setup_fs();
-		setup_window();
+		setup_rendering();
 		setup_events();
 		// setup_nuklear();
 		// setup_loader();
@@ -270,12 +272,67 @@ namespace galaxy
 		entt::locator<VirtualFileSystem>::emplace();
 	}
 
-	void App::setup_window()
+	void App::setup_rendering()
 	{
 		auto& window = entt::locator<Window>::emplace();
 
 		window.set_icon(Settings::window_icon());
 		window.show();
+
+		auto& sampler = entt::locator<Sampler>::emplace();
+
+		// Need to create our default texture sampler object.
+		if (Settings::mipmap())
+		{
+			switch (Settings::texture_filter())
+			{
+				case GLTextureFilter::NEAREST:
+					sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+					sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+					break;
+				case GLTextureFilter::BILINEAR:
+					sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+					sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+					break;
+				case GLTextureFilter::TRILINEAR:
+					sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+					sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+					break;
+			}
+		}
+		else
+		{
+			if (Settings::texture_filter() == GLTextureFilter::NEAREST)
+			{
+				sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+				sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			}
+			else
+			{
+				sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+				sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			}
+		}
+
+		auto ansio = std::clamp(Settings::ansiotrophy(), 1, 16);
+		if (ansio == 3)
+		{
+			ansio = 4;
+		}
+		else if (ansio > 4 && ansio < 8)
+		{
+			ansio = 8;
+		}
+		else
+		{
+			ansio = 16;
+		}
+		sampler.setf(GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(ansio));
+
+		sampler.set(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		sampler.set(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		sampler.set(GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+		sampler.set(GL_TEXTURE_LOD_BIAS, GL_NONE);
 	}
 
 	void App::setup_events()

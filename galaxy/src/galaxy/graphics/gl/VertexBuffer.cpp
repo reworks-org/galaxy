@@ -86,12 +86,22 @@ namespace galaxy
 		const unsigned int      vi,
 		const int               vertex_size,
 		const std::span<Vertex> vertices,
-		unsigned int            ei,
+		const unsigned int      ei,
 		const int               index_size,
 		std::span<unsigned int> indices
 	) const
 	{
 		glNamedBufferSubData(m_id, vi * sizeof(Vertex), vertex_size * sizeof(Vertex), vertices.data());
+		glNamedBufferSubData(m_id, m_offset + (ei * sizeof(unsigned int)), index_size * sizeof(unsigned int), indices.data());
+	}
+
+	void VertexBuffer::sub_buffer_vertices(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices) const
+	{
+		glNamedBufferSubData(m_id, vi * sizeof(Vertex), vertex_size * sizeof(Vertex), vertices.data());
+	}
+
+	void VertexBuffer::sub_buffer_indices(const unsigned int ei, const int index_size, std::span<unsigned int> indices) const
+	{
 		glNamedBufferSubData(m_id, m_offset + (ei * sizeof(unsigned int)), index_size * sizeof(unsigned int), indices.data());
 	}
 

@@ -27,18 +27,18 @@ namespace galaxy
 		// Enable each binding point for the vertex attributes.
 		glEnableVertexArrayAttrib(m_id, static_cast<unsigned int>(GLAttributeBinding::POSITION_POINT));
 		glEnableVertexArrayAttrib(m_id, static_cast<unsigned int>(GLAttributeBinding::TEXEL_POINT));
-		glEnableVertexArrayAttrib(m_id, static_cast<unsigned int>(GLAttributeBinding::HANDLE_POINT));
+		glEnableVertexArrayAttrib(m_id, static_cast<unsigned int>(GLAttributeBinding::INDEX_POINT));
 
 		// Specify each binding point for the vertex attributes.
 		// size (i.e. vec2, vec3, etc) floats not unsigned ints, not normalized, offset in data structure.
 		glVertexArrayAttribFormat(m_id, static_cast<unsigned int>(GLAttributeBinding::POSITION_POINT), 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_pos));
 		glVertexArrayAttribFormat(m_id, static_cast<unsigned int>(GLAttributeBinding::TEXEL_POINT), 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, m_texels));
-		glVertexArrayAttribLFormat(m_id, static_cast<unsigned int>(GLAttributeBinding::HANDLE_POINT), 1, GL_UNSIGNED_INT64_ARB, offsetof(Vertex, m_handle));
+		glVertexArrayAttribIFormat(m_id, static_cast<unsigned int>(GLAttributeBinding::INDEX_POINT), 1, GL_UNSIGNED_INT, offsetof(Vertex, m_index));
 
 		// VAO, attribute bind point, vertex buffer bind point.
 		glVertexArrayAttribBinding(m_id, static_cast<unsigned int>(GLAttributeBinding::POSITION_POINT), static_cast<unsigned int>(GLBufferLocation::VERTEX_BUFFER_POINT));
 		glVertexArrayAttribBinding(m_id, static_cast<unsigned int>(GLAttributeBinding::TEXEL_POINT), static_cast<unsigned int>(GLBufferLocation::VERTEX_BUFFER_POINT));
-		glVertexArrayAttribBinding(m_id, static_cast<unsigned int>(GLAttributeBinding::HANDLE_POINT), static_cast<unsigned int>(GLBufferLocation::VERTEX_BUFFER_POINT));
+		glVertexArrayAttribBinding(m_id, static_cast<unsigned int>(GLAttributeBinding::INDEX_POINT), static_cast<unsigned int>(GLBufferLocation::VERTEX_BUFFER_POINT));
 	}
 
 	VertexArray::VertexArray(VertexArray&& v) noexcept
@@ -90,10 +90,26 @@ namespace galaxy
 		m_vbo.reserve(vertex_count, index_count);
 	}
 
-	void
-	VertexArray::sub_buffer(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices, unsigned int ei, const int index_size, std::span<unsigned int> indices)
+	void VertexArray::sub_buffer(
+		const unsigned int      vi,
+		const int               vertex_size,
+		const std::span<Vertex> vertices,
+		const unsigned int      ei,
+		const int               index_size,
+		std::span<unsigned int> indices
+	)
 	{
 		m_vbo.sub_buffer(vi, vertex_size, vertices, ei, index_size, indices);
+	}
+
+	void VertexArray::sub_buffer_vertices(const unsigned int vi, const int vertex_size, const std::span<Vertex> vertices) const
+	{
+		m_vbo.sub_buffer_vertices(vi, vertex_size, vertices);
+	}
+
+	void VertexArray::sub_buffer_indices(const unsigned int ei, const int index_size, std::span<unsigned int> indices) const
+	{
+		m_vbo.sub_buffer_indices(ei, index_size, indices);
 	}
 
 	void VertexArray::erase(const unsigned int vi, const int vertex_count, const unsigned int ei, const int index_count)
