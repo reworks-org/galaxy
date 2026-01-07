@@ -34,7 +34,14 @@ var namespacegalaxy =
       [ "physfs_check", "d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4", null ],
       [ "physfs_check", "d2/dc7/namespacegalaxy_1_1log.html#ab455f2b719a52a1539cc2e7dcb732942", null ]
     ] ],
-    [ "lua", "de/d12/namespacegalaxy_1_1lua.html", "de/d12/namespacegalaxy_1_1lua" ],
+    [ "lua", "de/d12/namespacegalaxy_1_1lua.html", [
+      [ "inject_box2d", "de/d12/namespacegalaxy_1_1lua.html#a8e443835399c95d998dd8f4c6b0ca4f6", null ],
+      [ "inject_components", "de/d12/namespacegalaxy_1_1lua.html#ad6d6e4e57beaeb92225f41e0526f60cb", null ],
+      [ "inject_flags", "de/d12/namespacegalaxy_1_1lua.html#a85ff14314c4b58d8fe5dd8071c48e690", null ],
+      [ "inject_map", "de/d12/namespacegalaxy_1_1lua.html#afcc409138491358807acff37960143bc", null ],
+      [ "inject_nuklear", "de/d12/namespacegalaxy_1_1lua.html#aafb6e0ee7d30ae18aca6a47a78755554", null ],
+      [ "inject_resources", "de/d12/namespacegalaxy_1_1lua.html#a6fe84993c5ef6fdb14659b5898c487d5", null ]
+    ] ],
     [ "map", "d6/d4d/namespacegalaxy_1_1map.html", "d6/d4d/namespacegalaxy_1_1map" ],
     [ "math", "d1/d92/namespacegalaxy_1_1math.html", "d1/d92/namespacegalaxy_1_1math" ],
     [ "media", "dc/d80/namespacegalaxy_1_1media.html", "dc/d80/namespacegalaxy_1_1media" ],
@@ -96,7 +103,14 @@ var namespacegalaxy =
     [ "Rect", "d5/d58/classgalaxy_1_1Rect.html", "d5/d58/classgalaxy_1_1Rect" ],
     [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
     [ "Registry", "df/dbe/classgalaxy_1_1Registry.html", "df/dbe/classgalaxy_1_1Registry" ],
+    [ "RenderCmd", "de/dc0/structgalaxy_1_1RenderCmd.html", "de/dc0/structgalaxy_1_1RenderCmd" ],
+    [ "RenderData", "dc/d03/structgalaxy_1_1RenderData.html", "dc/d03/structgalaxy_1_1RenderData" ],
+    [ "Renderer", "d5/dab/classgalaxy_1_1Renderer.html", "d5/dab/classgalaxy_1_1Renderer" ],
+    [ "RenderPass", "da/dcd/structgalaxy_1_1RenderPass.html", "da/dcd/structgalaxy_1_1RenderPass" ],
+    [ "RenderPipeline", "d1/dd6/structgalaxy_1_1RenderPipeline.html", "d1/dd6/structgalaxy_1_1RenderPipeline" ],
+    [ "Sampler", "d6/df6/classgalaxy_1_1Sampler.html", "d6/df6/classgalaxy_1_1Sampler" ],
     [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
+    [ "Script", "db/da2/classgalaxy_1_1Script.html", "db/da2/classgalaxy_1_1Script" ],
     [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
     [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html", "d1/d5e/classgalaxy_1_1Shader" ],
     [ "ShaderBuffer", "dd/d83/classgalaxy_1_1ShaderBuffer.html", "dd/d83/classgalaxy_1_1ShaderBuffer" ],
@@ -108,6 +122,7 @@ var namespacegalaxy =
     [ "System", "dc/dd4/classgalaxy_1_1System.html", "dc/dd4/classgalaxy_1_1System" ],
     [ "SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", "d3/dac/classgalaxy_1_1SystemFactory" ],
     [ "Texture", "df/db8/classgalaxy_1_1Texture.html", "df/db8/classgalaxy_1_1Texture" ],
+    [ "TextureView", "da/d46/classgalaxy_1_1TextureView.html", "da/d46/classgalaxy_1_1TextureView" ],
     [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
     [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
     [ "Vertex", "db/d8c/structgalaxy_1_1Vertex.html", "db/d8c/structgalaxy_1_1Vertex" ],
@@ -144,7 +159,7 @@ var namespacegalaxy =
     [ "GLAttributeBinding", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3ba", [
       [ "POSITION_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baad11221eaa67349727c817f4c124fc6b5", null ],
       [ "TEXEL_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d", null ],
-      [ "HANDLE_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baaa32ec40b53389ad878c04e5ea34dcb6e", null ]
+      [ "INDEX_POINT", "d0/d46/namespacegalaxy.html#a3c865427206a1ad8ea8e77c1f681b3baa6fac57f7038fbdeabb601d60ba037310", null ]
     ] ],
     [ "GLBufferLocation", "d0/d46/namespacegalaxy.html#afc3a8823bc287e3b5b6bd2293142bb39", [
       [ "VERTEX_BUFFER_POINT", "d0/d46/namespacegalaxy.html#afc3a8823bc287e3b5b6bd2293142bb39a9d8102760f7af3639a97cd88b43b56d4", null ]

@@ -1,11 +1,7 @@
 <map id="galaxy::VertexBatch::flush" name="galaxy::VertexBatch::flush">
-<area shape="rect" id="Node000001" title="Copy all data to GPU." alt="" coords="5,37,157,77"/>
-<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#ab03e191df149ec4f92fb7847daf24eb3" title="Erase a specfic segment of data." alt="" coords="205,5,356,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,43,192,37,192,42,158,48"/>
-<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a7d486c252d9ac31792bedbd73ce2866f" title="Sub&#45;buffer vertex buffer." alt="" coords="205,69,356,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,67,192,72,192,78,157,72"/>
-<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html#aa7e63ac2ac352013f306b3d1914fbfab" title="Erase a specfic segment of data." alt="" coords="404,5,559,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="356,23,391,23,391,28,356,28"/>
-<area shape="rect" id="Node000005" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a3b7b6ceda9f47c0043c58eaf0163a5ef" title="Sub&#45;buffer vertex buffer." alt="" coords="404,69,559,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="356,87,391,87,391,92,356,92"/>
+<area shape="rect" id="Node000001" title="Copy all data to GPU." alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#afc3933bbe141eb3a2d5a738609b7780a" title="Sub&#45;buffer vertex buffer." alt="" coords="205,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,23,192,23,192,28,158,28"/>
+<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a61c3721b19bb2270f0d39ec5823875ed" title="Sub&#45;buffer vertex buffer." alt="" coords="411,5,568,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,23,397,23,397,28,363,28"/>
 </map>

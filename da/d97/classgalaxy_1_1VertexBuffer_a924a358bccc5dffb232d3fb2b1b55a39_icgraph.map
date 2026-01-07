@@ -1,13 +1,14 @@
 <map id="galaxy::VertexBuffer::clear" name="galaxy::VertexBuffer::clear">
-<area shape="rect" id="Node000001" title="Clear buffer data." alt="" coords="761,37,916,77"/>
-<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#addb3cd12853cdf33f30143ce92dda680" title="Clear buffer data." alt="" coords="563,5,713,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="747,45,713,40,714,35,748,40"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="568,69,708,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="748,75,709,81,708,76,747,69"/>
-<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,77,515,102"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="554,92,515,92,515,87,554,87"/>
-<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,69,327,109"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,92,327,92,327,87,361,87"/>
-<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,77,136,102"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,92,136,92,136,87,170,87"/>
+<area shape="rect" id="Node000001" title="Clear buffer data." alt="" coords="949,35,1104,75"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#addb3cd12853cdf33f30143ce92dda680" title="Clear buffer data." alt="" coords="751,5,901,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="935,44,901,39,902,34,936,39"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,35,703,75"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="936,59,901,60,751,60,703,59,703,54,751,55,901,55,936,54"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="737,41,703,47,702,41,737,36"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,42,515,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="549,57,515,57,515,52,549,52"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,35,327,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,57,327,57,327,52,361,52"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,42,136,67"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,57,136,57,136,52,170,52"/>
 </map>

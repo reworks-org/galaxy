@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['layer_0',['layer',['../d6/dfe/structgalaxy_1_1graphics_1_1RenderCommand.html#aab5e5f3f3bcf7a7fc78daf34172a902d',1,'galaxy::graphics::RenderCommand']]],
-  ['level_1',['level',['../d6/d64/structgalaxy_1_1LogMessage.html#a33ea3e7ff2dcc7c0bb117dfe0d500723',1,'galaxy::LogMessage']]],
-  ['line_2',['line',['../d6/d64/structgalaxy_1_1LogMessage.html#ac62f93f1293a1bf9737595cd7bdd32dd',1,'galaxy::LogMessage']]],
-  ['lower_3',['LOWER',['../d8/d74/classgalaxy_1_1Colour.html#ac46bc76ead9d3168e5e786bb0c146834',1,'galaxy::Colour']]]
+  ['identity_5fmatrix_0',['identity_matrix',['../da/d8c/Camera_8cpp.html#a549b1f59d1391b88a578ae45a8e91395',1,'Camera.cpp']]],
+  ['indices_1',['indices',['../df/da9/Video_8cpp.html#a59e7a338750b32d1bf967eea0cdd293b',1,'Video.cpp']]],
+  ['is_5finstance_5fof_5fv_2',['is_instance_of_v',['../d3/d12/namespacegalaxy_1_1meta.html#a7b05438835481541bd19f7029bb89954',1,'galaxy::meta']]],
+  ['is_5finstance_5fof_5fv_3c_20u_3c_20vs_2e_2e_2e_20_3e_2c_20u_20_3e_3',['is_instance_of_v&lt; U&lt; Vs... &gt;, U &gt;',['../d3/d12/namespacegalaxy_1_1meta.html#aeb9ae13e04349db97ffe1d630bc33306',1,'galaxy::meta']]]
 ];

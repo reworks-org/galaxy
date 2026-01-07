@@ -1,13 +1,25 @@
 <map id="galaxy::Camera::scale" name="galaxy::Camera::scale">
-<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="737,70,904,95"/>
-<area shape="rect" id="Node000002" href="$da/d44/classgalaxy_1_1Camera.html#a8720adef71c84c247dc316c936e39d2b" title="Recalculates the model view matrix." alt="" coords="485,70,689,95"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="723,85,690,85,690,80,723,80"/>
-<area shape="rect" id="Node000003" href="$da/d44/classgalaxy_1_1Camera.html#ade7156a330ab33ee907c1a17c6c124d3" title="Get camera view and proj." alt="" coords="248,13,437,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="519,69,397,41,398,35,520,64"/>
-<area shape="rect" id="Node000005" href="$da/d44/classgalaxy_1_1Camera.html#a5a312161072afec12dc3c9951d5f3898" title="Retrieve internal transformation matrix." alt="" coords="266,63,419,103"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="472,85,420,85,420,80,472,80"/>
-<area shape="rect" id="Node000006" href="$da/d44/classgalaxy_1_1Camera.html#a7924817857b19a30b3b578d4ca6b3611" title="Retrieve internal transformation matrix." alt="" coords="266,127,419,167"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="525,102,420,129,419,124,524,96"/>
-<area shape="rect" id="Node000004" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a93c2d9e2f8097c04c5ccd05f2f962a93" title="Set the camera to use when calling draw()." alt="" coords="5,5,200,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
+<area shape="rect" id="Node000001" title="Set entity scale." alt="" coords="1489,40,1656,65"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,58,703,98"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1482,41,1341,23,1158,10,1057,8,954,11,851,19,751,34,711,45,674,60,672,55,709,40,750,29,851,14,954,5,1057,3,1158,5,1341,18,1483,35"/>
+<area shape="rect" id="Node000006" href="$da/d44/classgalaxy_1_1Camera.html#a8720adef71c84c247dc316c936e39d2b" title="Recalculates the model view matrix." alt="" coords="1237,91,1441,116"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1501,71,1399,93,1398,88,1499,66"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,65,515,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="549,81,515,81,515,75,549,75"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,58,327,98"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,81,327,81,327,75,361,75"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,65,136,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="170,81,136,81,136,75,170,75"/>
+<area shape="rect" id="Node000007" href="$da/d44/classgalaxy_1_1Camera.html#ade7156a330ab33ee907c1a17c6c124d3" title="Get camera view and proj." alt="" coords="1000,65,1189,91"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1223,94,1189,90,1190,85,1224,89"/>
+<area shape="rect" id="Node000009" href="$da/d44/classgalaxy_1_1Camera.html#a5a312161072afec12dc3c9951d5f3898" title="Retrieve internal transformation matrix." alt="" coords="775,115,928,155"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="1223,114,928,133,928,128,1223,108"/>
+<area shape="rect" id="Node000010" href="$da/d44/classgalaxy_1_1Camera.html#a7924817857b19a30b3b578d4ca6b3611" title="Retrieve internal transformation matrix." alt="" coords="1018,170,1171,210"/>
+<area shape="poly" id="edge12_Node000006_Node000010" title=" " alt="" coords="1290,123,1153,172,1151,167,1289,118"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="1022,65,952,55,851,49,751,55,703,63,702,58,750,50,851,43,952,50,1023,60"/>
+<area shape="rect" id="Node000008" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title=" " alt="" coords="751,65,952,91"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="986,81,952,81,952,75,986,75"/>
+<area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="737,81,703,81,703,75,737,75"/>
+<area shape="poly" id="edge11_Node000009_Node000002" title=" " alt="" coords="760,114,702,99,704,94,762,109"/>
+<area shape="poly" id="edge13_Node000010_Node000002" title=" " alt="" coords="1005,201,946,201,881,198,814,188,750,170,720,156,693,137,651,100,655,96,697,133,723,151,752,165,816,183,882,193,946,196,1004,195"/>
 </map>

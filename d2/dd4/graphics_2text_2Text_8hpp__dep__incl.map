@@ -1,19 +1,9 @@
 <map id="galaxy/src/galaxy/graphics/text/Text.hpp" name="galaxy/src/galaxy/graphics/text/Text.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="429,5,625,45"/>
-<area shape="rect" id="Node000002" href="$d9/db6/components_2Text_8hpp.html" title=" " alt="" coords="95,93,316,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="444,51,276,96,275,91,443,46"/>
-<area shape="rect" id="Node000004" href="$dd/db8/Renderer_8hpp.html" title=" " alt="" coords="429,93,625,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="529,59,529,93,524,93,524,59"/>
-<area shape="rect" id="Node000009" href="$d2/d0b/graphics_2text_2Text_8cpp.html" title=" " alt="" coords="649,93,845,133"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="588,48,699,91,698,96,586,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="134,5,330,45"/>
+<area shape="rect" id="Node000002" href="$d9/db6/components_2Text_8hpp.html" title=" " alt="" coords="5,93,227,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,56,143,95,140,91,194,52"/>
+<area shape="rect" id="Node000004" href="$d2/d0b/graphics_2text_2Text_8cpp.html" title=" " alt="" coords="251,93,447,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,52,325,91,322,95,268,56"/>
 <area shape="rect" id="Node000003" href="$d0/dad/components_2Text_8cpp.html" title=" " alt="" coords="5,181,227,221"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,145,138,183,134,179,174,141"/>
-<area shape="rect" id="Node000005" href="$d2/dd0/fs_2Loader_8cpp.html" title=" " alt="" coords="251,181,405,221"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="472,141,373,184,370,179,469,136"/>
-<area shape="rect" id="Node000006" href="$d3/d28/Renderer_8cpp.html" title=" " alt="" coords="429,181,625,221"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="529,147,529,181,524,181,524,147"/>
-<area shape="rect" id="Node000007" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="649,181,845,221"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="588,136,699,179,698,184,586,141"/>
-<area shape="rect" id="Node000008" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="869,181,1065,221"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="637,133,871,179,870,184,636,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,147,119,181,113,181,113,147"/>
 </map>

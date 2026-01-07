@@ -1,0 +1,17 @@
+<map id="galaxy::RenderCmd" name="galaxy::RenderCmd">
+<area shape="rect" id="Node000001" title="Data required to draw an object." alt="" coords="300,969,441,1035"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="121,714,263,794"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,793,246,866,271,906,299,944,312,957,308,960,295,947,267,909,242,869,205,796"/>
+<area shape="rect" id="Node000003" href="$db/d8c/structgalaxy_1_1Vertex.html" title="Represents a single vertex point." alt="" coords="5,283,112,389"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,388,87,477,115,576,140,640,167,698,162,701,135,643,109,578,82,478,64,389"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="137,303,258,369"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,383,195,713,190,713,194,383"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="186,5,209,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="200,71,200,287,195,287,195,71"/>
+<area shape="rect" id="Node000006" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="288,601,453,907"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="373,907,373,953,368,953,368,907"/>
+<area shape="rect" id="Node000007" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="288,133,453,539"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="373,539,373,585,368,585,368,539"/>
+<area shape="rect" id="Node000008" href="$dc/d03/structgalaxy_1_1RenderData.html" title="Uniform data passed to shader about an entity." alt="" coords="478,681,621,827"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="517,828,494,869,467,908,421,960,417,956,463,905,490,866,513,826"/>
+</map>

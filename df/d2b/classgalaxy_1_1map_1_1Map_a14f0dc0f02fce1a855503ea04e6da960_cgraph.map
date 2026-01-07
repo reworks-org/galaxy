@@ -1,5 +1,0 @@
-<map id="galaxy::map::Map::parse_tile_layer" name="galaxy::map::Map::parse_tile_layer">
-<area shape="rect" id="Node000001" title="Parse LDTK tile layer / auto layer." alt="" coords="5,5,188,45"/>
-<area shape="rect" id="Node000002" href="$da/d35/classgalaxy_1_1graphics_1_1Transform.html#a32b8b037a3779788257fd236c3ffe8a2" title="Sets position without moving the entity." alt="" coords="236,5,437,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
-</map>

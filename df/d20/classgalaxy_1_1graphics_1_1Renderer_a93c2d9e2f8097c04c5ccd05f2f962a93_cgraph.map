@@ -1,9 +1,0 @@
-<map id="galaxy::graphics::Renderer::submit_camera" name="galaxy::graphics::Renderer::submit_camera">
-<area shape="rect" id="Node000001" title="Set the camera to use when calling draw()." alt="" coords="5,5,200,45"/>
-<area shape="rect" id="Node000002" href="$da/d44/classgalaxy_1_1Camera.html#ade7156a330ab33ee907c1a17c6c124d3" title="Get camera view and proj." alt="" coords="248,13,437,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
-<area shape="rect" id="Node000003" href="$da/d44/classgalaxy_1_1Camera.html#a8720adef71c84c247dc316c936e39d2b" title="Recalculates the model view matrix." alt="" coords="485,13,689,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,23,472,23,472,28,438,28"/>
-<area shape="rect" id="Node000004" href="$da/d44/classgalaxy_1_1Camera.html#a3cbb2efe4e352edc304807d8c66d5ab0" title="Set entity scale." alt="" coords="737,13,904,38"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="690,23,723,23,723,28,690,28"/>
-</map>

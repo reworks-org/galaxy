@@ -1,18 +1,15 @@
 <map id="galaxy::VertexBatch" name="galaxy::VertexBatch">
-<area shape="rect" id="Node000001" title="A group of vertices for multiple renderables batched together." alt="" coords="253,1009,397,1395"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="79,714,222,794"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,793,241,984,250,1006,245,1008,236,986,163,795"/>
-<area shape="rect" id="Node000003" href="$db/d8c/structgalaxy_1_1Vertex.html" title="Represents a single vertex point." alt="" coords="5,263,112,369"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="56,369,54,449,56,493,63,537,74,580,89,623,123,698,119,700,84,625,69,582,57,538,51,494,48,449,51,369"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="201,283,322,349"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="237,362,198,436,179,479,165,523,156,574,151,626,151,714,145,714,146,625,150,573,160,522,174,477,193,433,232,359"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="247,714,404,794"/>
-<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="272,362,299,522,324,714,318,714,293,523,267,363"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="250,5,273,71"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="264,71,264,267,259,267,259,71"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="328,794,328,993,323,993,323,794"/>
-<area shape="rect" id="Node000007" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="429,561,571,947"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="431,939,406,1003,401,1001,426,937"/>
-<area shape="rect" id="Node000008" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="427,133,573,499"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="503,499,503,545,497,545,497,499"/>
+<area shape="rect" id="Node000001" title="A group of vertices for multiple renderables batched together." alt="" coords="209,969,353,1375"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="121,714,263,794"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,793,237,952,232,953,198,795"/>
+<area shape="rect" id="Node000003" href="$db/d8c/structgalaxy_1_1Vertex.html" title="Represents a single vertex point." alt="" coords="5,283,112,389"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,388,87,477,115,576,140,640,167,698,162,701,135,643,109,578,82,478,64,389"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="137,303,258,369"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,383,195,713,190,713,194,383"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="186,5,209,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="200,71,200,287,195,287,195,71"/>
+<area shape="rect" id="Node000006" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="288,601,453,907"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="341,908,331,954,325,953,335,906"/>
+<area shape="rect" id="Node000007" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="288,133,453,539"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="373,539,373,585,368,585,368,539"/>
 </map>

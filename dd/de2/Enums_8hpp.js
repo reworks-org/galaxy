@@ -3,7 +3,7 @@ var Enums_8hpp =
     [ "GLAttributeBinding", "dd/de2/Enums_8hpp.html#a3c865427206a1ad8ea8e77c1f681b3ba", [
       [ "POSITION_POINT", "dd/de2/Enums_8hpp.html#a3c865427206a1ad8ea8e77c1f681b3baad11221eaa67349727c817f4c124fc6b5", null ],
       [ "TEXEL_POINT", "dd/de2/Enums_8hpp.html#a3c865427206a1ad8ea8e77c1f681b3baa5474c80b7e6dae9bba644a5d3ee7b88d", null ],
-      [ "HANDLE_POINT", "dd/de2/Enums_8hpp.html#a3c865427206a1ad8ea8e77c1f681b3baaa32ec40b53389ad878c04e5ea34dcb6e", null ]
+      [ "INDEX_POINT", "dd/de2/Enums_8hpp.html#a3c865427206a1ad8ea8e77c1f681b3baa6fac57f7038fbdeabb601d60ba037310", null ]
     ] ],
     [ "GLBufferLocation", "dd/de2/Enums_8hpp.html#afc3a8823bc287e3b5b6bd2293142bb39", [
       [ "VERTEX_BUFFER_POINT", "dd/de2/Enums_8hpp.html#afc3a8823bc287e3b5b6bd2293142bb39a9d8102760f7af3639a97cd88b43b56d4", null ]

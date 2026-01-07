@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::PostProcess::render_effects" name="galaxy::graphics::PostProcess::render_effects">
-<area shape="rect" id="Node000001" title="Draw post effects to stored framebuffer." alt="" coords="248,5,463,45"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a71292286127682142aa01090036e8dcd" title="Renders effects to post processing framebuffer and rebinds to default framebuffer." alt="" coords="5,5,200,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
-</map>

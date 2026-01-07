@@ -16,7 +16,7 @@ var searchData=
   ['platform_2ecpp_13',['Platform.cpp',['../d5/d0a/Platform_8cpp.html',1,'']]],
   ['platform_2ehpp_14',['Platform.hpp',['../d5/d40/Platform_8hpp.html',1,'']]],
   ['point_15',['Point',['../d4/d0e/classgalaxy_1_1components_1_1Point.html',1,'galaxy::components::Point'],['../db/de1/classgalaxy_1_1graphics_1_1Point.html',1,'galaxy::graphics::Point'],['../d4/d0e/classgalaxy_1_1components_1_1Point.html#ae10a23120fa44bf164b24325107eb98d',1,'galaxy::components::Point::Point()'],['../d4/d0e/classgalaxy_1_1components_1_1Point.html#a7b579d9c4fcdc7b11839f7083836bec0',1,'galaxy::components::Point::Point(const nlohmann::json &amp;json)'],['../d4/d0e/classgalaxy_1_1components_1_1Point.html#a0c9fd5462dc45cb55d6f3b65db72702b',1,'galaxy::components::Point::Point(Point &amp;&amp;)'],['../d4/d0e/classgalaxy_1_1components_1_1Point.html#a4eb34039610929e09c2e813ebdcfc179',1,'galaxy::components::Point::Point(const Point &amp;)=delete'],['../db/de1/classgalaxy_1_1graphics_1_1Point.html#af9138282e07213f16ed54d38df806f91',1,'galaxy::graphics::Point::Point()'],['../db/de1/classgalaxy_1_1graphics_1_1Point.html#ad7492dd723e765f37026f8d86049162f',1,'galaxy::graphics::Point::Point(Point &amp;&amp;)=default']]],
-  ['point_16',['point',['../de/df1/structgalaxy_1_1graphics_1_1RenderData.html#a87c34c27c5bcf096afb9ac4e97e8c7c8',1,'galaxy::graphics::RenderData']]],
+  ['point_16',['point',['../dc/d03/structgalaxy_1_1RenderData.html#a9a5cf670b4fd583fa950e506ad54f566',1,'galaxy::RenderData']]],
   ['point_2ecpp_17',['Point.cpp',['../de/d7b/components_2Point_8cpp.html',1,'(Global Namespace)'],['../d1/d38/graphics_2shapes_2Point_8cpp.html',1,'(Global Namespace)']]],
   ['point_2ehpp_18',['Point.hpp',['../d0/df4/components_2Point_8hpp.html',1,'(Global Namespace)'],['../d9/d8d/graphics_2shapes_2Point_8hpp.html',1,'(Global Namespace)']]],
   ['points_19',['POINTS',['../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aa70b71cabeeaf8c2bf473c896d5442ddb',1,'galaxy']]],
@@ -46,9 +46,11 @@ var searchData=
   ['prefabs_43',['Prefabs',['../d4/d1b/namespacegalaxy_1_1resource.html#a3dc6697074b2967cf24f22d66ceb7cfb',1,'galaxy::resource']]],
   ['prefabs_2ecpp_44',['Prefabs.cpp',['../dc/d7a/Prefabs_8cpp.html',1,'']]],
   ['prefabs_2ehpp_45',['Prefabs.hpp',['../d3/d96/Prefabs_8hpp.html',1,'']]],
-  ['preprocess_46',['preprocess',['../d1/d5e/classgalaxy_1_1Shader.html#abc2983ef065562f218f336ee55358285',1,'galaxy::Shader']]],
-  ['prev_47',['prev',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a10fd8eaed95108746ddf4600772988ea',1,'galaxy::graphics::Animation']]],
-  ['prime_48',['prime',['../da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html#a9306cf025fd33dd9c3f4de5c24a808ab',1,'galaxy::math::fnv_1a_params&lt; std::uint32_t &gt;::prime'],['../d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html#aab8801d3a6de0d15885ad2bcf755fa8d',1,'galaxy::math::fnv_1a_params&lt; std::uint64_t &gt;::prime']]],
-  ['process_5fevents_49',['process_events',['../d0/d84/classgalaxy_1_1Window.html#ab1244dbbe13981ba7b96ceaf19d1ce03',1,'galaxy::Window']]],
-  ['push_50',['push',['../d5/dd2/classgalaxy_1_1VertexBatch.html#aac769e38537a1650a85645c2b9e98d5c',1,'galaxy::VertexBatch::push()'],['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine::push()']]]
+  ['prepare_46',['prepare',['../d5/dab/classgalaxy_1_1Renderer.html#ae03030c542118fd8a098d7a787782099',1,'galaxy::Renderer::prepare()'],['../d5/dd2/classgalaxy_1_1VertexBatch.html#a8a6c7ae22a159885f7d3ed854fd9182c',1,'galaxy::VertexBatch::prepare()']]],
+  ['preprocess_47',['preprocess',['../d1/d5e/classgalaxy_1_1Shader.html#abc2983ef065562f218f336ee55358285',1,'galaxy::Shader']]],
+  ['prev_48',['prev',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a10fd8eaed95108746ddf4600772988ea',1,'galaxy::graphics::Animation']]],
+  ['prime_49',['prime',['../da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html#a9306cf025fd33dd9c3f4de5c24a808ab',1,'galaxy::math::fnv_1a_params&lt; std::uint32_t &gt;::prime'],['../d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html#aab8801d3a6de0d15885ad2bcf755fa8d',1,'galaxy::math::fnv_1a_params&lt; std::uint64_t &gt;::prime']]],
+  ['process_5fevents_50',['process_events',['../d0/d84/classgalaxy_1_1Window.html#ab1244dbbe13981ba7b96ceaf19d1ce03',1,'galaxy::Window']]],
+  ['push_51',['push',['../d5/dd2/classgalaxy_1_1VertexBatch.html#a56beecaac9f4d7358ec3a0d4db216074',1,'galaxy::VertexBatch::push()'],['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine::push()']]],
+  ['push_5fcmd_52',['push_cmd',['../d5/dab/classgalaxy_1_1Renderer.html#ac07145f04cb9cd6efaf466308e633fbe',1,'galaxy::Renderer']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['fileutils_5fread_5fwrapper_4',['fileutils_read_wrapper',['../d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f',1,'galaxy']]],
   ['filmicgrain_5',['FilmicGrain',['../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#a9a8d5a08981dbcabbc6a741f9a6daa4c',1,'galaxy::graphics::FilmicGrain::FilmicGrain(const int width, const int height)'],['../d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#af014f0f524706e0d56687fa103c0a8d3',1,'galaxy::graphics::FilmicGrain::FilmicGrain()=delete']]],
   ['finish_6',['finish',['../df/d85/classgalaxy_1_1ZLib.html#a327ef010e2590eabde7829010c25e8b0',1,'galaxy::ZLib']]],
-  ['flush_7',['flush',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8',1,'galaxy::graphics::Renderer::flush()'],['../d5/dd2/classgalaxy_1_1VertexBatch.html#a61744e890d397fe9bdc40b3a59a94ee9',1,'galaxy::VertexBatch::flush()']]],
+  ['flush_7',['flush',['../d5/dd2/classgalaxy_1_1VertexBatch.html#a61744e890d397fe9bdc40b3a59a94ee9',1,'galaxy::VertexBatch']]],
   ['fnv1a_8',['fnv1a',['../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9',1,'galaxy::math']]],
   ['fnv1a_5f32_9',['fnv1a_32',['../d1/d92/namespacegalaxy_1_1math.html#ad5d656c78b2808c52fd7ed8c456956b7',1,'galaxy::math']]],
   ['fnv1a_5f64_10',['fnv1a_64',['../d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814',1,'galaxy::math']]],

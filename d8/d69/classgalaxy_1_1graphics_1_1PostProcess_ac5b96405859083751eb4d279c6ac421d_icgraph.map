@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::PostProcess::render_output" name="galaxy::graphics::PostProcess::render_output">
-<area shape="rect" id="Node000001" title="Draw finished post effects to default framebuffer (screen)." alt="" coords="248,5,463,45"/>
-<area shape="rect" id="Node000002" href="$df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a5d0f05a605da1096862562293b44081d" title="Renders final post processing output to active framebuffer." alt="" coords="5,5,200,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,28,200,28,200,23,235,23"/>
-</map>

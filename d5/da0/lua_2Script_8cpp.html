@@ -104,9 +104,10 @@ $(function(){initNavTree('d5/da0/lua_2Script_8cpp.html','../../'); initResizable
   <div class="headertitle"><div class="title">Script.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;galaxy/core/ServiceLocator.hpp&quot;</code><br />
+<div class="textblock"><code>#include &lt;entt/locator/locator.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d82/Log_8hpp_source.html">galaxy/logging/Log.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/dc7/VirtualFileSystem_8hpp_source.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</code><br />
-<code>#include &quot;galaxy/utils/Globals.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/ddd/Pragma_8hpp_source.html">galaxy/platform/Pragma.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d9/d3c/lua_2Script_8hpp_source.html">Script.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Script.cpp:</div>
@@ -115,29 +116,59 @@ $(function(){initNavTree('d5/da0/lua_2Script_8cpp.html','../../'); initResizable
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d3f/lua_2Script_8cpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2lua_2Script_8cpp" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2lua_2Script_8cpp" id="agalaxy_2src_2galaxy_2lua_2Script_8cpp">
-<area shape="rect" title=" " alt="" coords="403,5,564,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,231,119"/>
-<area shape="poly" title=" " alt="" coords="403,47,185,93,184,88,402,41"/>
-<area shape="rect" href="../../de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="255,93,485,119"/>
-<area shape="poly" title=" " alt="" coords="457,48,400,87,397,83,454,43"/>
-<area shape="rect" title=" " alt="" coords="509,93,687,119"/>
-<area shape="poly" title=" " alt="" coords="513,43,571,83,568,88,510,48"/>
-<area shape="rect" href="../../d9/d3c/lua_2Script_8hpp.html" title=" " alt="" coords="817,93,904,119"/>
-<area shape="poly" title=" " alt="" coords="565,41,804,90,803,95,564,46"/>
-<area shape="rect" title=" " alt="" coords="23,167,77,192"/>
-<area shape="poly" title=" " alt="" coords="310,121,91,169,90,164,309,116"/>
-<area shape="rect" title=" " alt="" coords="101,167,159,192"/>
-<area shape="poly" title=" " alt="" coords="332,121,173,168,172,163,331,116"/>
-<area shape="rect" title=" " alt="" coords="184,167,247,192"/>
-<area shape="poly" title=" " alt="" coords="346,121,254,163,252,158,344,116"/>
-<area shape="rect" href="../../d5/d02/DialogButton_8hpp.html" title=" " alt="" coords="271,167,469,192"/>
-<area shape="poly" title=" " alt="" coords="373,119,373,153,367,153,367,119"/>
-<area shape="rect" href="../../d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="493,167,684,192"/>
-<area shape="poly" title=" " alt="" coords="406,116,541,160,539,165,404,121"/>
-<area shape="rect" href="../../df/da3/DialogType_8hpp.html" title=" " alt="" coords="709,167,895,192"/>
-<area shape="poly" title=" " alt="" coords="440,116,720,162,719,167,439,121"/>
-<area shape="rect" title=" " alt="" coords="920,167,1012,192"/>
-<area shape="poly" title=" " alt="" coords="879,116,939,157,936,161,876,121"/>
+<area shape="rect" title=" " alt="" coords="1185,5,1346,45"/>
+<area shape="rect" title=" " alt="" coords="5,167,179,192"/>
+<area shape="poly" title=" " alt="" coords="1185,33,881,53,689,72,496,96,307,131,152,166,151,161,306,125,496,91,689,66,881,48,1184,28"/>
+<area shape="rect" href="../../d0/d82/Log_8hpp.html" title=" " alt="" coords="508,93,681,119"/>
+<area shape="poly" title=" " alt="" coords="1185,39,695,96,695,90,1184,33"/>
+<area shape="rect" href="../../de/dc7/VirtualFileSystem_8hpp.html" title=" " alt="" coords="1151,167,1380,192"/>
+<area shape="poly" title=" " alt="" coords="1268,46,1268,153,1263,153,1263,46"/>
+<area shape="rect" href="../../d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="1329,93,1537,119"/>
+<area shape="poly" title=" " alt="" coords="1307,43,1397,85,1395,90,1304,48"/>
+<area shape="rect" href="../../d9/d3c/lua_2Script_8hpp.html" title=" " alt="" coords="1575,93,1662,119"/>
+<area shape="poly" title=" " alt="" coords="1347,42,1562,89,1561,95,1346,47"/>
+<area shape="poly" title=" " alt="" coords="514,121,187,167,186,162,514,116"/>
+<area shape="rect" title=" " alt="" coords="203,167,293,192"/>
+<area shape="poly" title=" " alt="" coords="540,121,307,169,306,163,538,116"/>
+<area shape="rect" title=" " alt="" coords="318,167,442,192"/>
+<area shape="poly" title=" " alt="" coords="561,121,429,165,427,160,559,116"/>
+<area shape="rect" title=" " alt="" coords="467,167,557,192"/>
+<area shape="poly" title=" " alt="" coords="583,121,538,160,534,155,580,117"/>
+<area shape="rect" title=" " alt="" coords="493,387,715,412"/>
+<area shape="poly" title=" " alt="" coords="598,119,606,373,601,373,592,119"/>
+<area shape="rect" href="../../d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="677,313,885,339"/>
+<area shape="poly" title=" " alt="" coords="602,118,634,195,654,236,673,264,703,288,737,306,734,310,700,292,669,267,650,239,629,197,597,120"/>
+<area shape="rect" href="../../d8/d5e/Sink_8hpp.html" title=" " alt="" coords="696,167,875,192"/>
+<area shape="poly" title=" " alt="" coords="626,116,742,159,740,164,624,121"/>
+<area shape="rect" href="../../d1/d44/StringUtils_8hpp.html" title=" " alt="" coords="918,167,1117,192"/>
+<area shape="poly" title=" " alt="" coords="663,116,936,162,935,167,662,121"/>
+<area shape="poly" title=" " alt="" coords="754,341,646,384,644,379,752,336"/>
+<area shape="rect" title=" " alt="" coords="748,387,815,412"/>
+<area shape="poly" title=" " alt="" coords="784,339,784,373,779,373,779,339"/>
+<area shape="rect" title=" " alt="" coords="923,387,981,412"/>
+<area shape="poly" title=" " alt="" coords="810,336,913,379,911,384,808,341"/>
+<area shape="rect" href="../../d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="683,240,914,265"/>
+<area shape="poly" title=" " alt="" coords="790,192,797,226,791,227,785,193"/>
+<area shape="poly" title=" " alt="" coords="798,266,790,301,785,300,793,265"/>
+<area shape="poly" title=" " alt="" coords="1010,194,994,215,980,241,969,276,962,312,955,373,950,373,956,311,964,274,975,239,989,212,1005,190"/>
+<area shape="rect" title=" " alt="" coords="990,240,1087,265"/>
+<area shape="poly" title=" " alt="" coords="1023,192,1034,226,1029,228,1018,193"/>
+<area shape="rect" title=" " alt="" coords="1111,240,1174,265"/>
+<area shape="poly" title=" " alt="" coords="1039,190,1112,231,1109,235,1036,194"/>
+<area shape="poly" title=" " alt="" coords="1258,194,1228,229,1187,267,1136,303,1083,335,991,383,989,378,1081,331,1134,299,1184,263,1225,225,1254,190"/>
+<area shape="poly" title=" " alt="" coords="1247,194,1176,235,1173,231,1244,190"/>
+<area shape="rect" title=" " alt="" coords="1249,240,1303,265"/>
+<area shape="poly" title=" " alt="" coords="1270,192,1275,226,1270,227,1264,193"/>
+<area shape="rect" href="../../d5/d02/DialogButton_8hpp.html" title=" " alt="" coords="1326,240,1525,265"/>
+<area shape="poly" title=" " alt="" coords="1292,190,1388,232,1386,237,1290,194"/>
+<area shape="rect" href="../../d3/d21/DialogIcons_8hpp.html" title=" " alt="" coords="1549,240,1739,265"/>
+<area shape="poly" title=" " alt="" coords="1327,189,1570,235,1569,240,1326,195"/>
+<area shape="rect" href="../../df/da3/DialogType_8hpp.html" title=" " alt="" coords="1764,240,1951,265"/>
+<area shape="poly" title=" " alt="" coords="1361,189,1751,236,1750,241,1360,195"/>
+<area shape="rect" title=" " alt="" coords="1405,167,1563,192"/>
+<area shape="poly" title=" " alt="" coords="1444,117,1470,154,1466,157,1440,121"/>
+<area shape="rect" title=" " alt="" coords="1587,167,1679,192"/>
+<area shape="poly" title=" " alt="" coords="1624,118,1631,153,1626,154,1618,120"/>
 </map>
 </div>
 </div>
@@ -148,8 +179,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
 <tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0a/Animated_8cpp.html">Animated.cpp</a> galaxy. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d12/namespacegalaxy_1_1lua.html">galaxy::lua</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -157,7 +186,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_79b316363302e8390d0b35e3c4a83cfb.html">lua</a></li><li class="navelem"><a class="el" href="../../d5/da0/lua_2Script_8cpp.html">Script.cpp</a></li>
-    <li class="footer">Generated on Sun Dec 28 2025 14:14:29 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Jan 7 2026 11:41:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

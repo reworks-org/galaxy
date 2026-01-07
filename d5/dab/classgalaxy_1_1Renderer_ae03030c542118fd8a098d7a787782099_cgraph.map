@@ -1,0 +1,5 @@
+<map id="galaxy::Renderer::prepare" name="galaxy::Renderer::prepare">
+<area shape="rect" id="Node000001" title="Called only in the update loop when we need to refresh data to render." alt="" coords="5,13,196,38"/>
+<area shape="rect" id="Node000002" href="$d5/dd2/classgalaxy_1_1VertexBatch.html#a8a6c7ae22a159885f7d3ed854fd9182c" title="Sets up counters to begin pushing vertices." alt="" coords="244,5,396,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,23,230,23,230,28,196,28"/>
+</map>

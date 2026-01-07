@@ -18,7 +18,7 @@ var searchData=
   ['filmicgrain_5ffrag_15',['filmicgrain_frag',['../d3/dd7/FilmicGrain_8cpp.html#ae61e95b6fdd0c123b36b5ccda96b0d94',1,'FilmicGrain.cpp']]],
   ['filmicgrain_5fvert_16',['filmicgrain_vert',['../d3/dd7/FilmicGrain_8cpp.html#a2451141456d364ea5c221cc5b893c59c',1,'FilmicGrain.cpp']]],
   ['finish_17',['finish',['../df/d85/classgalaxy_1_1ZLib.html#a327ef010e2590eabde7829010c25e8b0',1,'galaxy::ZLib']]],
-  ['flush_18',['flush',['../df/d20/classgalaxy_1_1graphics_1_1Renderer.html#a9074bca0e4d6d0a377a34e89573393e8',1,'galaxy::graphics::Renderer::flush()'],['../d5/dd2/classgalaxy_1_1VertexBatch.html#a61744e890d397fe9bdc40b3a59a94ee9',1,'galaxy::VertexBatch::flush()']]],
+  ['flush_18',['flush',['../d5/dd2/classgalaxy_1_1VertexBatch.html#a61744e890d397fe9bdc40b3a59a94ee9',1,'galaxy::VertexBatch']]],
   ['fnv1a_19',['fnv1a',['../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9',1,'galaxy::math']]],
   ['fnv1a_2ecpp_20',['FNV1a.cpp',['../d6/db1/FNV1a_8cpp.html',1,'']]],
   ['fnv1a_2ehpp_21',['FNV1a.hpp',['../d9/d43/FNV1a_8hpp.html',1,'']]],

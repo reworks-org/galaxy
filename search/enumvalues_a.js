@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['nearest_0',['NEAREST',['../d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0aad135772d7cf93dd0ccf9d2474b34e6a',1,'galaxy']]],
-  ['normal_1',['NORMAL',['../dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a963f32007d7c35be1fb68683ec5c3feda1e23852820b9154316c7c06e2b7ba051',1,'galaxy::graphics::GaussianBlur']]]
+  ['ok_0',['ok',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da444bcb3a3fcf8389296c49467f27e1d6',1,'galaxy']]],
+  ['ok_5fyes_1',['ok_yes',['../d0/d46/namespacegalaxy.html#a14f834b356cc43d82ba89ad122931010aa9f72a0065aa944d677a1018eb40c452',1,'galaxy']]],
+  ['okcancel_2',['okcancel',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9da5e8e0e395dfe620cc4df524eb4294d1b',1,'galaxy']]]
 ];

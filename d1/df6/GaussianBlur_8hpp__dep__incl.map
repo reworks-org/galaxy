@@ -1,19 +1,9 @@
 <map id="galaxy/src/galaxy/graphics/post/GaussianBlur.hpp" name="galaxy/src/galaxy/graphics/post/GaussianBlur.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="291,5,487,45"/>
-<area shape="rect" id="Node000002" href="$d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="181,93,377,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="355,56,305,95,302,91,352,52"/>
-<area shape="rect" id="Node000009" href="$d8/d53/GaussianBlur_8cpp.html" title=" " alt="" coords="401,93,597,133"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="426,52,476,91,473,95,423,56"/>
-<area shape="rect" id="Node000003" href="$d8/d9f/PostProcess_8cpp.html" title=" " alt="" coords="72,181,268,221"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="246,144,196,183,193,179,243,140"/>
-<area shape="rect" id="Node000004" href="$dd/db8/Renderer_8hpp.html" title=" " alt="" coords="292,181,488,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="316,140,367,179,364,183,313,144"/>
-<area shape="rect" id="Node000005" href="$d2/dd0/fs_2Loader_8cpp.html" title=" " alt="" coords="5,269,159,309"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="310,228,150,272,149,267,309,222"/>
-<area shape="rect" id="Node000006" href="$d3/d28/Renderer_8cpp.html" title=" " alt="" coords="183,269,379,309"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="357,232,307,271,303,267,353,228"/>
-<area shape="rect" id="Node000007" href="$d4/ddf/TextureAtlas_8cpp.html" title=" " alt="" coords="403,269,599,309"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="427,228,478,267,475,271,424,232"/>
-<area shape="rect" id="Node000008" href="$db/daa/RenderSystem_8cpp.html" title=" " alt="" coords="623,269,819,309"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="476,222,649,267,648,272,475,227"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="115,5,311,45"/>
+<area shape="rect" id="Node000002" href="$d6/d3a/PostProcess_8hpp.html" title=" " alt="" coords="5,93,201,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,56,129,95,126,91,176,52"/>
+<area shape="rect" id="Node000004" href="$d8/d53/GaussianBlur_8cpp.html" title=" " alt="" coords="225,93,421,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,52,300,91,297,95,247,56"/>
+<area shape="rect" id="Node000003" href="$d8/d9f/PostProcess_8cpp.html" title=" " alt="" coords="5,181,201,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,147,106,181,101,181,101,147"/>
 </map>

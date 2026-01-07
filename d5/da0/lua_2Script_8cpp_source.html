@@ -104,102 +104,82 @@ $(function(){initNavTree('d5/da0/lua_2Script_8cpp_source.html','../../'); initRe
 <div class="contents">
 <a href="../../d5/da0/lua_2Script_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;galaxy/core/ServiceLocator.hpp&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;galaxy/utils/Globals.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d3c/lua_2Script_8hpp.html">Script.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;entt/locator/locator.hpp&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/logging/Log.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/ddd/Pragma_8hpp.html">galaxy/platform/Pragma.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">namespace </span>lua</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d3c/lua_2Script_8hpp.html">Script.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a3bff00c4a5027cc5f1abb27d3bb1e3db">   18</a></span>        <a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a3bff00c4a5027cc5f1abb27d3bb1e3db">Script::Script</a>()</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            : m_loaded {false}</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../db/da2/classgalaxy_1_1Script.html#a3a10795c2e46fdcaefaf71126ac7d9cd">   18</a></span>    <a class="code hl_function" href="../../db/da2/classgalaxy_1_1Script.html#a3a10795c2e46fdcaefaf71126ac7d9cd">Script::Script</a>() noexcept</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9904b9da772fed265b6afe6f2851e6e7">   23</a></span>        <a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a3bff00c4a5027cc5f1abb27d3bb1e3db">Script::Script</a>(<span class="keyword">const</span> std::string&amp; file)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            : m_loaded {false}</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <a class="code hl_define" href="../../d5/ddd/Pragma_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a>(<a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a0edfe5c609d7b4fe0e80c937400a5159">load</a>(file));</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../db/da2/classgalaxy_1_1Script.html#af5dc366b7234e8a1385b13ccfdc4bdc7">   22</a></span>    <a class="code hl_function" href="../../db/da2/classgalaxy_1_1Script.html#a3a10795c2e46fdcaefaf71126ac7d9cd">Script::Script</a>(<span class="keyword">const</span> std::string&amp; file)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_define" href="../../d5/ddd/Pragma_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a>(<a class="code hl_function" href="../../db/da2/classgalaxy_1_1Script.html#a9d8623aed965309d0779090eacfe32ac">load</a>(file));</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#adbef11cb879809c72c44cfdc06bbef04">   29</a></span>        <a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#adbef11cb879809c72c44cfdc06bbef04">Script::~Script</a>()</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../db/da2/classgalaxy_1_1Script.html#a019d6dc225755eac4c275b3d2d650f6e">   27</a></span>    <a class="code hl_function" href="../../db/da2/classgalaxy_1_1Script.html#a019d6dc225755eac4c275b3d2d650f6e">Script::~Script</a>() noexcept</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
 </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a0edfe5c609d7b4fe0e80c937400a5159">   33</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a0edfe5c609d7b4fe0e80c937400a5159">Script::load</a>(<span class="keyword">const</span> std::string&amp; file)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keyword">auto</span>&amp; fs = core::ServiceLocator&lt;fs::VirtualFileSystem&gt;::ref();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keyword">const</span> <span class="keyword">auto</span> script = fs.read(file);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">if</span> (!script.empty())</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                <a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a7e78dfb658faf60d5197ddfa0de9942a">m_script</a> = core::ServiceLocator&lt;sol::state&gt;::ref().load(script);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a7e78dfb658faf60d5197ddfa0de9942a">m_script</a>.status() != sol::load_status::ok)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to load script &#39;{0}&#39; because &#39;{1}&#39;.&quot;</span>, file, magic_enum::enum_name(<a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a7e78dfb658faf60d5197ddfa0de9942a">m_script</a>.status()));</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                    <a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9a80ce09cac97751bf2b20a08dec7ede">m_loaded</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to read script &#39;{0}&#39;.&quot;</span>, file);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9a80ce09cac97751bf2b20a08dec7ede">m_loaded</a>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../db/da2/classgalaxy_1_1Script.html#a9d8623aed965309d0779090eacfe32ac">   31</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/da2/classgalaxy_1_1Script.html#a9d8623aed965309d0779090eacfe32ac">Script::load</a>(<span class="keyword">const</span> std::string&amp; file)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">auto</span>&amp; fs = entt::locator&lt;VirtualFileSystem&gt;::value();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">const</span> <span class="keyword">auto</span> script = fs.read(file);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> (!script.empty())</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_variable" href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">m_script</a> = entt::locator&lt;sol::state&gt;::value().load(script);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">m_script</a>.valid())</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to load script &#39;{0}&#39; because &#39;{1}&#39;.&quot;</span>, file, magic_enum::enum_name(<a class="code hl_variable" href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">m_script</a>.status()));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to read script &#39;{0}&#39;.&quot;</span>, file);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">m_script</a>.valid();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
 </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3">   59</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3">Script::run</a>()</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9a80ce09cac97751bf2b20a08dec7ede">m_loaded</a>)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                <span class="keyword">const</span> <span class="keyword">auto</span> result = <a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a7e78dfb658faf60d5197ddfa0de9942a">m_script</a>();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <span class="keywordflow">return</span> result.valid();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../db/da2/classgalaxy_1_1Script.html#a985770c037690a1351f969e6e90a31b7">   53</a></span>    sol::protected_function_result <a class="code hl_function" href="../../db/da2/classgalaxy_1_1Script.html#a985770c037690a1351f969e6e90a31b7">Script::run</a>()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">m_script</a>.valid())</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">m_script</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a31ef0f29c7ffff47290b9a16f5a4b1b5">   70</a></span>        sol::protected_function_result <a class="code hl_function" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a31ef0f29c7ffff47290b9a16f5a4b1b5">Script::run_and_return</a>()</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9a80ce09cac97751bf2b20a08dec7ede">m_loaded</a>)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a7e78dfb658faf60d5197ddfa0de9942a">m_script</a>();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
-</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    } <span class="comment">// namespace lua</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00028">Log.hpp:28</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00024">Log.hpp:24</a></div></div>
+<div class="ttc" id="aPragma_8hpp_html"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html">Pragma.hpp</a></div></div>
 <div class="ttc" id="aPragma_8hpp_html_aeea47fcf9ec981a261237221194b033f"><div class="ttname"><a href="../../d5/ddd/Pragma_8hpp.html#aeea47fcf9ec981a261237221194b033f">GALAXY_UNUSED</a></div><div class="ttdeci">#define GALAXY_UNUSED(var)</div><div class="ttdoc">Pragma.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/ddd/Pragma_8hpp_source.html#l00016">Pragma.hpp:16</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_a0edfe5c609d7b4fe0e80c937400a5159"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a0edfe5c609d7b4fe0e80c937400a5159">galaxy::lua::Script::load</a></div><div class="ttdeci">bool load(const std::string &amp;file)</div><div class="ttdoc">Load a script.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">Script.cpp:33</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_a31ef0f29c7ffff47290b9a16f5a4b1b5"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a31ef0f29c7ffff47290b9a16f5a4b1b5">galaxy::lua::Script::run_and_return</a></div><div class="ttdeci">sol::protected_function_result run_and_return()</div><div class="ttdoc">Run a lua script and get a return value.</div><div class="ttdef"><b>Definition</b> <a href="#l00070">Script.cpp:70</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_a3bff00c4a5027cc5f1abb27d3bb1e3db"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a3bff00c4a5027cc5f1abb27d3bb1e3db">galaxy::lua::Script::Script</a></div><div class="ttdeci">Script()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">Script.cpp:18</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_a7e78dfb658faf60d5197ddfa0de9942a"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a7e78dfb658faf60d5197ddfa0de9942a">galaxy::lua::Script::m_script</a></div><div class="ttdeci">sol::load_result m_script</div><div class="ttdoc">Script loaded into sol3 memory.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d3c/lua_2Script_8hpp_source.html#l00068">Script.hpp:68</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_a9a80ce09cac97751bf2b20a08dec7ede"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#a9a80ce09cac97751bf2b20a08dec7ede">galaxy::lua::Script::m_loaded</a></div><div class="ttdeci">bool m_loaded</div><div class="ttdoc">Flag to make sure script is loaded.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d3c/lua_2Script_8hpp_source.html#l00073">Script.hpp:73</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_aaeba3e86ac773b183280b2e5a03440d3"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#aaeba3e86ac773b183280b2e5a03440d3">galaxy::lua::Script::run</a></div><div class="ttdeci">bool run()</div><div class="ttdoc">Run a lua script.</div><div class="ttdef"><b>Definition</b> <a href="#l00059">Script.cpp:59</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1lua_1_1Script_html_adbef11cb879809c72c44cfdc06bbef04"><div class="ttname"><a href="../../d5/d4a/classgalaxy_1_1lua_1_1Script.html#adbef11cb879809c72c44cfdc06bbef04">galaxy::lua::Script::~Script</a></div><div class="ttdeci">~Script()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">Script.cpp:29</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Script_html_a019d6dc225755eac4c275b3d2d650f6e"><div class="ttname"><a href="../../db/da2/classgalaxy_1_1Script.html#a019d6dc225755eac4c275b3d2d650f6e">galaxy::Script::~Script</a></div><div class="ttdeci">~Script() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">Script.cpp:27</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Script_html_a3a10795c2e46fdcaefaf71126ac7d9cd"><div class="ttname"><a href="../../db/da2/classgalaxy_1_1Script.html#a3a10795c2e46fdcaefaf71126ac7d9cd">galaxy::Script::Script</a></div><div class="ttdeci">Script() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">Script.cpp:18</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Script_html_a985770c037690a1351f969e6e90a31b7"><div class="ttname"><a href="../../db/da2/classgalaxy_1_1Script.html#a985770c037690a1351f969e6e90a31b7">galaxy::Script::run</a></div><div class="ttdeci">sol::protected_function_result run()</div><div class="ttdoc">Run a lua script and get a return value.</div><div class="ttdef"><b>Definition</b> <a href="#l00053">Script.cpp:53</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Script_html_a9d8623aed965309d0779090eacfe32ac"><div class="ttname"><a href="../../db/da2/classgalaxy_1_1Script.html#a9d8623aed965309d0779090eacfe32ac">galaxy::Script::load</a></div><div class="ttdeci">bool load(const std::string &amp;file)</div><div class="ttdoc">Load a script.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">Script.cpp:31</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Script_html_affc6b58e5778602a0091bd7e196339fd"><div class="ttname"><a href="../../db/da2/classgalaxy_1_1Script.html#affc6b58e5778602a0091bd7e196339fd">galaxy::Script::m_script</a></div><div class="ttdeci">sol::load_result m_script</div><div class="ttdoc">Script loaded into sol3 memory.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d3c/lua_2Script_8hpp_source.html#l00058">Script.hpp:58</a></div></div>
 <div class="ttc" id="alua_2Script_8hpp_html"><div class="ttname"><a href="../../d9/d3c/lua_2Script_8hpp.html">Script.hpp</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -208,7 +188,7 @@ $(function(){initNavTree('d5/da0/lua_2Script_8cpp_source.html','../../'); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_79b316363302e8390d0b35e3c4a83cfb.html">lua</a></li><li class="navelem"><a class="el" href="../../d5/da0/lua_2Script_8cpp.html">Script.cpp</a></li>
-    <li class="footer">Generated on Sun Dec 28 2025 14:14:28 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Jan 7 2026 11:41:10 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

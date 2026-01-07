@@ -1,0 +1,39 @@
+<map id="galaxy::Renderer" name="galaxy::Renderer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="674,2025,800,2211"/>
+<area shape="rect" id="Node000002" href="$d5/dd2/classgalaxy_1_1VertexBatch.html" title="A group of vertices for multiple renderables batched together." alt="" coords="788,984,932,1389"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="840,1390,776,1948,764,2010,759,2009,770,1948,834,1389"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="683,714,826,794"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="778,793,807,856,833,930,842,967,836,968,828,931,802,858,773,795"/>
+<area shape="rect" id="Node000010" href="$de/dc0/structgalaxy_1_1RenderCmd.html" title="Data required to draw an object." alt="" coords="480,1154,621,1219"/>
+<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="745,795,717,854,697,883,672,909,650,919,629,920,610,921,592,933,576,955,564,980,549,1035,545,1090,547,1138,541,1138,539,1090,544,1034,559,978,571,952,588,929,608,916,629,914,648,914,669,904,693,880,713,851,740,793"/>
+<area shape="rect" id="Node000004" href="$db/d8c/structgalaxy_1_1Vertex.html" title="Represents a single vertex point." alt="" coords="701,283,808,389"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="757,389,757,698,752,698,752,389"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="183,303,304,369"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="302,374,446,469,622,575,648,585,659,590,672,599,695,626,715,655,743,712,738,715,710,658,691,629,669,603,657,594,646,590,620,580,443,473,299,379"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="451,1725,594,1805"/>
+<area shape="poly" id="edge13_Node000009_Node000005" title=" " alt="" coords="241,383,228,509,213,676,205,840,206,908,212,959,226,1009,256,1092,343,1316,509,1724,504,1726,338,1318,251,1094,221,1011,206,961,201,909,200,840,208,676,222,509,236,382"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="501,714,658,794"/>
+<area shape="poly" id="edge17_Node000014_Node000005" title=" " alt="" coords="268,380,295,425,330,477,374,530,424,575,440,584,456,586,472,589,489,599,515,625,536,654,567,712,562,715,532,657,511,628,486,603,470,594,455,592,439,589,421,580,370,533,326,481,290,428,263,382"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="32,1147,175,1227"/>
+<area shape="poly" id="edge21_Node000016_Node000005" title=" " alt="" coords="198,380,155,422,109,474,66,535,34,602,15,678,9,756,11,835,22,911,37,983,55,1048,90,1146,85,1147,50,1049,32,984,17,912,6,835,3,756,10,677,29,600,61,533,104,471,151,418,194,376"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="232,5,255,71"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="246,71,246,287,241,287,241,71"/>
+<area shape="rect" id="Node000007" href="$db/d02/classgalaxy_1_1VertexArray.html" title="Abstraction for OpenGL vertex array objects." alt="" coords="869,601,1034,907"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="953,907,945,960,939,988,933,987,940,960,947,906"/>
+<area shape="poly" id="edge11_Node000010_Node000007" title=" " alt="" coords="871,878,839,909,824,917,812,921,800,925,787,933,774,946,762,962,593,1144,590,1140,758,958,769,943,783,929,798,920,810,916,822,913,835,905,867,875"/>
+<area shape="rect" id="Node000008" href="$da/d97/classgalaxy_1_1VertexBuffer.html" title="Abstraction for OpenGL vertex buffer objects." alt="" coords="869,133,1034,539"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="954,539,954,585,949,585,949,539"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="521,1805,519,1848,522,1899,533,1952,555,2000,577,2027,603,2049,661,2085,658,2089,600,2054,573,2030,551,2003,528,1953,517,1900,514,1848,515,1805"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="547,1220,532,1307,520,1414,518,1486,520,1559,523,1709,518,1709,514,1559,512,1486,514,1413,527,1306,542,1219"/>
+<area shape="rect" id="Node000011" href="$dc/d03/structgalaxy_1_1RenderData.html" title="Uniform data passed to shader about an entity." alt="" coords="334,681,476,827"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="443,826,486,930,520,1041,543,1137,538,1139,515,1042,481,932,438,828"/>
+<area shape="poly" id="edge20_Node000016_Node000011" title=" " alt="" coords="410,827,402,894,392,929,378,961,339,1017,292,1065,240,1107,191,1140,188,1136,237,1102,288,1061,335,1013,373,959,387,927,397,893,405,827"/>
+<area shape="rect" id="Node000012" href="$da/dcd/structgalaxy_1_1RenderPass.html" title="The configuration for drawing something." alt="" coords="896,1693,1036,1838"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="938,1839,911,1894,879,1949,813,2038,808,2034,875,1947,907,1892,933,1837"/>
+<area shape="rect" id="Node000013" href="$d1/dd6/structgalaxy_1_1RenderPipeline.html" title="GPU configuration." alt="" coords="606,1413,769,1559"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="685,1559,681,1736,684,1842,694,1948,706,2009,701,2010,689,1948,679,1842,676,1736,680,1559"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="605,793,635,856,661,930,683,1056,694,1183,697,1300,696,1397,690,1397,692,1300,689,1183,678,1056,656,931,630,858,600,795"/>
+<area shape="rect" id="Node000015" href="$dd/d83/classgalaxy_1_1ShaderBuffer.html" title="OpenGL Shader storage buffer." alt="" coords="1061,1583,1210,1948"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="1063,1936,1051,1950,996,1998,935,2037,873,2069,816,2093,814,2088,871,2064,932,2033,993,1993,1047,1946,1059,1933"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="106,1227,112,1361,122,1452,140,1553,167,1658,205,1761,229,1811,257,1859,288,1904,323,1946,359,1980,400,2009,444,2033,489,2054,579,2084,659,2103,657,2108,578,2089,487,2059,441,2038,397,2013,356,1984,319,1950,284,1908,252,1862,225,1814,201,1763,162,1659,135,1554,117,1453,107,1362,100,1227"/>
+</map>
