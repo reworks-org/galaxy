@@ -25,7 +25,7 @@ namespace galaxy
 		/// OpenGL rendering mode/type.
 		/// Required.
 		///
-		GLRenderMode type;
+		GLRenderMode type = GLRenderMode::UNKNOWN;
 
 		///
 		/// Vertices if type is quad for batch rendering.
@@ -36,7 +36,7 @@ namespace galaxy
 		/// Vertex array object if type is not quad.
 		/// Not used by batch renderer.
 		///
-		VertexArray* vao;
+		VertexArray* vao = nullptr;
 
 		///
 		/// Uniform data for this command.

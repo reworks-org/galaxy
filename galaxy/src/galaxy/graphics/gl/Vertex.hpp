@@ -35,7 +35,7 @@ namespace galaxy
 		///
 		/// Uniform data index.
 		///
-		unsigned int m_index;
+		unsigned int m_index = 0;
 	};
 
 	namespace graphics

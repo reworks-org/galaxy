@@ -32,27 +32,27 @@ namespace galaxy
 		///
 		/// glCullFace.
 		///
-		unsigned int cull_face;
+		unsigned int cull_face = 0;
 
 		///
 		/// glDepthFunc.
 		///
-		unsigned int depth_func;
+		unsigned int depth_func = 0;
 
 		///
 		/// glBlendEquation.
 		///
-		unsigned int blend_equation;
+		unsigned int blend_equation = 0;
 
 		///
 		/// glBlendFunc for GL_SRC_ALPHA.
 		///
-		unsigned int blend_function;
+		unsigned int blend_function = 0;
 
 		///
 		/// Pipeline Ubershader.
 		///
-		unsigned int shader;
+		unsigned int shader = 0;
 	};
 
 } // namespace galaxy

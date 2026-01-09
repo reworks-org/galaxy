@@ -87,7 +87,7 @@ namespace galaxy
 		m_uniform_data.emplace_back(std::move(cmd.data));
 
 		// Our index will always be the last inserted element at the time.
-		const auto index = m_uniform_data.size() - 1;
+		const auto index = static_cast<unsigned int>(m_uniform_data.size()) - 1u;
 
 		// update uniform data location.
 		for (auto& vert : cmd.vertices)
@@ -112,7 +112,7 @@ namespace galaxy
 		m_camera_storage.buffer(1, &camera.get_data());
 
 		m_uniform_storage.bind();
-		m_uniform_storage.buffer(m_uniform_data.size(), m_uniform_data.data());
+		m_uniform_storage.buffer(static_cast<unsigned int>(m_uniform_data.size()), m_uniform_data.data());
 
 		m_quads.flush();
 		m_quads.bind();

@@ -18,16 +18,19 @@
 
 namespace galaxy
 {
+	///
+	/// OpenGL 4.6 Renderer that tries to mimic vulkan pipeline.
+	///
 	class Renderer final
 	{
 	public:
 		///
-		///
+		/// Constructor.
 		///
 		Renderer();
 
 		///
-		///
+		/// Destructor.
 		///
 		~Renderer();
 
@@ -37,55 +40,73 @@ namespace galaxy
 		void prepare();
 
 		///
+		/// \brief Binds framebuffer, viewport, sissor region and clears buffers.
 		///
+		/// Call this first.
+		///
+		/// \param pass RenderPass to bind.
 		///
 		void begin_pass(RenderPass& pass);
 
 		///
+		/// \brief Binds the GPU state specified in pipeline.
 		///
+		/// Call this second.
+		///
+		/// \param pipeline RenderPipeline to bind.
 		///
 		void bind_pipeline(RenderPipeline& pipeline);
 
 		///
-		/// \brief
+		/// \brief Push a renderable object.
 		///
 		/// Try not to push too many non-quads, only quads are batched.
+		///
+		/// \param cmd RenderCmd to draw. Moves, not copies.
 		///
 		void push_cmd(RenderCmd&& cmd);
 
 		///
+		/// Renders everything configured in this pass.
 		///
+		/// \param camera Projection and view matrix to render this pass with.
 		///
 		void end_pass(Camera& camera);
 
 	private:
 		///
-		/// All quads get batched.
+		/// Quad vertex batch.
 		///
 		VertexBatch m_quads;
 
 		///
-		/// RenderCommands.
+		/// RenderCmd storage.
 		///
 		std::vector<RenderCmd> m_commands;
 
 		///
-		///
+		/// Currently active pass.
 		///
 		RenderPass* m_pass;
 
 		///
-		///
+		/// Currently active pipeline.
 		///
 		RenderPipeline* m_pipeline;
 
 		///
-		/// Shader uniform data.
+		/// Renderable uniforms buffer.
 		///
 		ShaderBuffer m_uniform_storage;
 
+		///
+		/// Camera buffer.
+		///
 		ShaderBuffer m_camera_storage;
 
+		///
+		/// Renderable uniform data storage.
+		///
 		std::vector<RenderData> m_uniform_data;
 	};
 } // namespace galaxy

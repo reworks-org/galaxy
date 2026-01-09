@@ -31,17 +31,17 @@ namespace galaxy
 		///
 		/// Entity ID.
 		///
-		int entity;
+		int entity = -1;
 
 		///
 		/// Is this being rendered with GL_POINTS.
 		///
-		bool point;
+		bool point = false;
 
 		///
 		/// Texture handle.
 		///
-		std::uint64_t handle;
+		std::uint64_t handle = 0;
 	};
 } // namespace galaxy
 

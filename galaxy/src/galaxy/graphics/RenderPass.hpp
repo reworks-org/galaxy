@@ -20,18 +20,18 @@ namespace galaxy
 		///
 		/// This is the framebuffer to draw to.
 		///
-		unsigned int target;
+		unsigned int target = 0;
 
 		///
 		/// This is the glViewport. z,w is width/height.
 		///
-		glm::vec4 viewport;
+		glm::ivec4 viewport;
 
 		///
 		/// OpenGL scissor region.
 		/// https://gamedev.stackexchange.com/a/40713
 		///
-		glm::vec4 scissor;
+		glm::ivec4 scissor;
 
 		///
 		/// Colour buffer clear colour.
@@ -41,7 +41,7 @@ namespace galaxy
 		///
 		/// Depth buffer clear depth.
 		///
-		float clear_depth;
+		float clear_depth = 1.0f;
 	};
 } // namespace galaxy
 

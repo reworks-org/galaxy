@@ -53,6 +53,7 @@ namespace galaxy
 	///
 	enum class GLRenderMode : unsigned int
 	{
+		UNKNOWN   = 0x0009,
 		QUADS     = GL_QUADS,
 		TRIANGLES = GL_TRIANGLES,
 		LINES     = GL_LINES,
