@@ -97,21 +97,21 @@ int main(int argc, char* argv[])
 	GALAXY_UNUSED(argc);
 	GALAXY_UNUSED(argv);
 
-	if (ENABLE_PLATFORM_TESTS)
-	{
-		platform_tests();
-	}
-
-	if (ENABLE_LOGGING_TESTS)
-	{
-		logging_tests();
-	}
-
 	try
 	{
-		auto  app = galaxy::App();
-		auto& w   = entt::locator<galaxy::Window>::value();
+		auto app = galaxy::App();
 
+		if (ENABLE_PLATFORM_TESTS)
+		{
+			platform_tests();
+		}
+
+		if (ENABLE_LOGGING_TESTS)
+		{
+			logging_tests();
+		}
+
+		auto&           w = entt::locator<galaxy::Window>::value();
 		galaxy::Texture tex;
 		tex.load("textures/test.png");
 

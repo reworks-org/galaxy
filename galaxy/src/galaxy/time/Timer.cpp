@@ -45,7 +45,7 @@ namespace galaxy
 			m_started = true;
 			m_paused  = false;
 
-			auto& tp = entt::locator<BS::light_thread_pool>::value();
+			auto& tp = entt::locator<BS::priority_thread_pool>::value();
 			m_handle = tp.submit_task([&]() {
 				do
 				{

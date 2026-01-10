@@ -12,6 +12,7 @@
 #include <source_location>
 #include <stacktrace>
 
+#include <BS_thread_pool.hpp>
 #include <entt/locator/locator.hpp>
 #include <magic_enum/magic_enum.hpp>
 
@@ -116,6 +117,11 @@ namespace galaxy
 		/// List of sinks.
 		///
 		std::vector<std::unique_ptr<Sink>> m_sinks;
+
+		///
+		/// Only do 1 set of sinks at a time.
+		///
+		std::mutex m_mutex;
 	};
 
 	template<std::derived_from<Sink> SinkTo, typename... Args>
@@ -135,35 +141,41 @@ namespace galaxy
 	template<LogLevel level, typename... MsgInputs>
 	inline void Log::log(const std::stacktrace& trace, const std::source_location& loc, std::string_view message, const MsgInputs&... args)
 	{
-		if (level >= m_min_level)
-		{
-			// First create message obj.
-
-			// clang-format off
-				LogMessage lm
+		auto& tp = entt::locator<BS::priority_thread_pool>::value();
+		tp.detach_task(
+			[this, trace = trace, loc = loc, message = message, ... args = args]() {
+				if (level >= m_min_level)
 				{
-					.colour = galaxy::get_loglevel_colour<level>(),
-					.level = level,
-					.time    = std::format("{0:%r}", std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time()),
-					.file     = std::filesystem::path(loc.file_name()).filename().string(),
-					.line    = loc.line(),
-					.message = std::vformat(message, std::make_format_args(args...)),
-					.trace = std::to_string(trace)
-				};
-			// clang-format on
+					// clang-format off
+					LogMessage lm
+					{
+						.colour = galaxy::get_loglevel_colour<level>(),
+						.level = level,
+						.time    = std::format("{0:%r}", std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time()),
+						.file     = std::filesystem::path(loc.file_name()).filename().string(),
+						.line    = loc.line(),
+						.message = std::vformat(message, std::make_format_args(args...)),
+						.trace = std::to_string(trace)
+					};
+					// clang-format on
 
-			// Send message to all sinks.
-			for (const auto& sink : m_sinks)
-			{
-				sink->sink(lm);
-			}
+					// Send message to all sinks.
+					const std::lock_guard<std::mutex> lock(m_mutex);
 
-			// Then throw error if its FATAL.
-			if constexpr (level == LogLevel::FATAL)
-			{
-				throw std::runtime_error(lm.trace);
-			}
-		}
+					for (const auto& sink : m_sinks)
+					{
+						sink->sink(lm);
+					}
+
+					// Then throw error if its FATAL.
+					if constexpr (level == LogLevel::FATAL)
+					{
+						throw std::runtime_error(lm.trace);
+					}
+				}
+			},
+			BS::pr::lowest
+		);
 	}
 } // namespace galaxy
 

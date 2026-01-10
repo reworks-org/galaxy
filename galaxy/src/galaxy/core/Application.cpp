@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#define BS_THREAD_POOL_NATIVE_EXTENSIONS
+
 #include <format>
 
 #include <BS_thread_pool.hpp>
@@ -38,8 +40,8 @@ namespace galaxy
 	{
 		SDL_SetMemoryFunctions(&mi_malloc, &mi_calloc, &mi_realloc, &mi_free);
 
-		setup_logging();
 		setup_async();
+		setup_logging();
 		setup_config(config_file);
 		setup_platform();
 		setup_fs();
@@ -72,10 +74,12 @@ namespace galaxy
 	{
 		entt::locator<VirtualFileSystem>::reset();
 		entt::locator<Config>::reset();
-		entt::locator<BS::light_thread_pool>::reset();
 
 		GALAXY_LOG(GALAXY_INFO, "Application closed.");
+		entt::locator<BS::priority_thread_pool>::value().wait();
+
 		entt::locator<Log>::reset();
+		entt::locator<BS::priority_thread_pool>::reset();
 
 		SDL_Quit();
 	}
@@ -162,6 +166,25 @@ namespace galaxy
 		m_render = std::move(render);
 	}
 
+	void App::setup_async()
+	{
+		// Configure threadpool.
+
+		// Calc threads.
+		// We optimize for 6: 1 for audio, 1 for main, 4 for tasks.
+		auto system_cores = std::thread::hardware_concurrency();
+		if (system_cores < 6)
+		{
+			system_cores = std::thread::hardware_concurrency();
+		}
+
+		// Check for highest available priority.
+		BS::set_os_process_priority(BS::os_process_priority::high);
+		entt::locator<BS::priority_thread_pool>::emplace(system_cores, [](const std::size_t idx) {
+			BS::this_thread::set_os_thread_priority(BS::os_thread_priority::highest);
+		});
+	}
+
 	void App::setup_logging()
 	{
 		platform::configure_terminal();
@@ -176,20 +199,6 @@ namespace galaxy
 
 		GALAXY_ADD_SINK(ConsoleSink);
 		GALAXY_LOG(GALAXY_INFO, "App started.");
-	}
-
-	void App::setup_async()
-	{
-		// Configure threadpool.
-		// Use half of available cores minus 2 for audio and main thread.
-		const auto system_cores = std::thread::hardware_concurrency();
-		if (system_cores < 4)
-		{
-			GALAXY_LOG(GALAXY_WARN, "Total cores are less than 4, this is not optimal.");
-		}
-
-		const auto cores = static_cast<int>(std::floor(system_cores / 2.0) - 2);
-		entt::locator<BS::light_thread_pool>::emplace(cores);
 	}
 
 	void App::setup_config(std::string_view config_file)

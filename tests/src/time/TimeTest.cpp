@@ -103,7 +103,7 @@ TEST(Stopwatch, Unpause)
 
 TEST(Timer, Run)
 {
-	entt::locator<BS::light_thread_pool>::emplace(2);
+	entt::locator<BS::priority_thread_pool>::emplace(2);
 
 	{
 		int a = 0;
@@ -122,12 +122,12 @@ TEST(Timer, Run)
 		ASSERT_EQ(a, 1);
 	}
 
-	entt::locator<BS::light_thread_pool>::reset();
+	entt::locator<BS::priority_thread_pool>::reset();
 }
 
 TEST(Timer, Stop)
 {
-	entt::locator<BS::light_thread_pool>::emplace(2);
+	entt::locator<BS::priority_thread_pool>::emplace(2);
 
 	{
 		int a = 0;
@@ -148,12 +148,12 @@ TEST(Timer, Stop)
 		ASSERT_TRUE(a >= 4);
 	}
 
-	entt::locator<BS::light_thread_pool>::reset();
+	entt::locator<BS::priority_thread_pool>::reset();
 }
 
 TEST(Timer, Pause)
 {
-	entt::locator<BS::light_thread_pool>::emplace(2);
+	entt::locator<BS::priority_thread_pool>::emplace(2);
 
 	{
 		int a = 0;
@@ -172,12 +172,12 @@ TEST(Timer, Pause)
 		ASSERT_TRUE(a <= 2);
 	}
 
-	entt::locator<BS::light_thread_pool>::reset();
+	entt::locator<BS::priority_thread_pool>::reset();
 }
 
 TEST(Timer, Unpause)
 {
-	entt::locator<BS::light_thread_pool>::emplace(2);
+	entt::locator<BS::priority_thread_pool>::emplace(2);
 
 	{
 		int a = 0;
@@ -202,7 +202,7 @@ TEST(Timer, Unpause)
 		ASSERT_TRUE(a >= 4);
 	}
 
-	entt::locator<BS::light_thread_pool>::reset();
+	entt::locator<BS::priority_thread_pool>::reset();
 }
 
 TEST(Time, DeltaTime)
