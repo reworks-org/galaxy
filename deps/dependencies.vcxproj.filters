@@ -1446,6 +1446,7 @@
     <ClInclude Include="SDL3\include\SDL3\SDL_test_log.h" />
     <ClInclude Include="SDL3\include\SDL3\SDL_test_md5.h" />
     <ClInclude Include="SDL3\include\SDL3\SDL_test_memory.h" />
+    <ClInclude Include="httplib\httplib.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
