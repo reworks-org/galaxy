@@ -143,22 +143,6 @@ namespace galaxy
 		bool is_open() const noexcept;
 
 		///
-		/// Get mouse cursor.
-		///
-		/// \return Mouse ref.
-		///
-		[[nodiscard]]
-		Mouse& get_mouse() noexcept;
-
-		///
-		/// Get keyboard.
-		///
-		/// \return Keyboard ref.
-		///
-		[[nodiscard]]
-		Keyboard& get_keyboard() noexcept;
-
-		///
 		/// Get window size in pixels.
 		///
 		/// \return Integer vec2.
@@ -218,21 +202,6 @@ namespace galaxy
 		/// Window state flag.
 		///
 		bool m_open;
-
-		///
-		/// Core event data.
-		///
-		SDL_Event m_events;
-
-		///
-		/// Keyboard assigned to window.
-		///
-		Keyboard m_keyboard;
-
-		///
-		/// Mouse assigned to window.
-		///
-		Mouse m_mouse;
 	};
 } // namespace galaxy
 

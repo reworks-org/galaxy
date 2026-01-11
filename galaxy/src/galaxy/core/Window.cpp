@@ -111,18 +111,6 @@ namespace galaxy
 						SDL_SetWindowMinimumSize(m_window, 640, 360);
 						SDL_SetWindowPosition(m_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 
-						m_keyboard.bind_window(m_window);
-						m_mouse.bind_window(m_window);
-						m_mouse.set_cursor_custom(Settings::cursor_icon(), Settings::cursor_hotspot());
-						if (Settings::cursor_show())
-						{
-							m_mouse.show_cursor();
-						}
-						else
-						{
-							m_mouse.hide_cursor();
-						}
-
 						// Debug configuration.
 						glEnable(GL_DEBUG_OUTPUT);
 						glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
@@ -531,16 +519,6 @@ namespace galaxy
 	bool Window::is_open() const noexcept
 	{
 		return m_open;
-	}
-
-	Mouse& Window::get_mouse() noexcept
-	{
-		return m_mouse;
-	}
-
-	Keyboard& Window::get_keyboard() noexcept
-	{
-		return m_keyboard;
 	}
 
 	glm::ivec2 Window::get_pixel_size() noexcept

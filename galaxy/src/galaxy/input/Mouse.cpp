@@ -17,7 +17,8 @@
 namespace galaxy
 {
 	Mouse::Mouse() noexcept
-		: m_cursor {nullptr}
+		: WindowBindable {}
+		, m_cursor {nullptr}
 	{
 	}
 

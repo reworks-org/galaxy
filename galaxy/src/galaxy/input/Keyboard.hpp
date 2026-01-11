@@ -21,9 +21,12 @@ namespace galaxy
 	///
 	class Keyboard final : public WindowBindable
 	{
-		friend class Window;
-
 	public:
+		///
+		/// Constructor.
+		///
+		Keyboard() noexcept;
+
 		///
 		/// Destructor.
 		///
@@ -76,11 +79,6 @@ namespace galaxy
 
 	private:
 		///
-		/// Constructor.
-		///
-		Keyboard() noexcept;
-
-		///
 		/// Move constructor.
 		///
 		Keyboard(Keyboard&&) = delete;
@@ -99,8 +97,6 @@ namespace galaxy
 		/// Copy assignment operator.
 		///
 		Keyboard& operator=(const Keyboard&) = delete;
-
-	private:
 	};
 } // namespace galaxy
 

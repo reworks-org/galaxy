@@ -21,6 +21,8 @@
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/gl/Sampler.hpp"
+#include "galaxy/input/Keyboard.hpp"
+#include "galaxy/input/Mouse.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/Log.hpp"
@@ -47,6 +49,7 @@ namespace galaxy
 		setup_fs();
 		setup_rendering();
 		setup_events();
+		setup_input();
 		// setup_nuklear();
 		// setup_loader();
 		setup_meta();
@@ -347,6 +350,22 @@ namespace galaxy
 	void App::setup_events()
 	{
 		entt::locator<entt::dispatcher>::emplace();
+	}
+
+	void App::setup_input()
+	{
+		auto& keyboard = entt::locator<Keyboard>::emplace();
+		auto& mouse    = entt::locator<Mouse>::emplace();
+
+		mouse.set_cursor_custom(Settings::cursor_icon(), Settings::cursor_hotspot());
+		if (Settings::cursor_show())
+		{
+			mouse.show_cursor();
+		}
+		else
+		{
+			mouse.hide_cursor();
+		}
 	}
 
 	// void App::setup_nuklear()

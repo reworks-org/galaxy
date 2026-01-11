@@ -10,6 +10,7 @@
 namespace galaxy
 {
 	Keyboard::Keyboard() noexcept
+		: WindowBindable {}
 	{
 	}
 

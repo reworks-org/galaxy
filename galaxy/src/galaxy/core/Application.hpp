@@ -96,6 +96,7 @@ namespace galaxy
 		void setup_fs();
 		void setup_rendering();
 		void setup_events();
+		void setup_input();
 		// void setup_nuklear();
 		// void setup_loader();
 		void setup_meta();

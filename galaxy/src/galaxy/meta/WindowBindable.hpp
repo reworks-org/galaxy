@@ -13,12 +13,10 @@ struct SDL_Window;
 namespace galaxy
 {
 	///
-	/// Binds the mouse to the window.
+	/// Allows you to bind a base class to the window.
 	///
 	class WindowBindable
 	{
-		friend class Window;
-
 	public:
 		///
 		/// Virtual destructor.
@@ -52,11 +50,11 @@ namespace galaxy
 		virtual WindowBindable& operator=(const WindowBindable&) noexcept;
 
 		///
-		/// Bind SDL3 window to this object.
+		/// \brief Bind SDL3 window to this object.
 		///
-		/// \param window Window pointer..
+		/// Note window must exist for this to work.
 		///
-		void bind_window(SDL_Window* window) noexcept;
+		void bind_window() noexcept;
 
 	protected:
 		///

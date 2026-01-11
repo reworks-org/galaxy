@@ -10,6 +10,10 @@
 
 #include <SDL3/SDL_keycode.h>
 
+#undef KEY_EXECUTE
+#undef MOD_SHIFT
+#undef MOD_ALT
+
 namespace galaxy
 {
 	///

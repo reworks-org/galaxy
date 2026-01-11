@@ -20,9 +20,12 @@ namespace galaxy
 	///
 	class Mouse final : public WindowBindable
 	{
-		friend class Window;
-
 	public:
+		///
+		/// Constructor.
+		///
+		Mouse() noexcept;
+
 		///
 		/// Destructor.
 		///
@@ -84,11 +87,6 @@ namespace galaxy
 		void restore_cursor() noexcept;
 
 	private:
-		///
-		/// Constructor.
-		///
-		Mouse() noexcept;
-
 		///
 		/// Move constructor.
 		///
