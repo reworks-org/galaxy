@@ -432,10 +432,6 @@
     <ClCompile Include="SDL3\src\main\generic\SDL_sysmain_callbacks.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="entt_sol\entt_sol\dispatcher.hpp" />
-    <ClInclude Include="entt_sol\entt_sol\meta_helper.hpp" />
-    <ClInclude Include="entt_sol\entt_sol\registry.hpp" />
-    <ClInclude Include="entt_sol\entt_sol\script_process.hpp" />
     <ClInclude Include="imgui\imgui\imstb_sprintf.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />
