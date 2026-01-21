@@ -1197,6 +1197,14 @@ float msdfgl_printf(float x,
 	else if (align == 2)
 		x -= (endX - startX);
 
+	 // Used for newline support
+    float y_init = y;
+    float x_init = x;
+    // unsigned int n_newlines = 0;
+    float leading = size * font->context->dpi[(flags & MSDFGL_VERTICAL) ? 0 : 1] / 72.0f;
+    const float line_spacing = 1.0f; // for now fix line spacing to 1.0
+    leading *= line_spacing;
+
 	buf_idx = 0;
 
 	for (size_t i = 0; buf_idx < bufsize; ++i)
@@ -1216,6 +1224,12 @@ float msdfgl_printf(float x,
 		glyphs[i].offset   = 0;
 		glyphs[i].skew     = 0;
 		glyphs[i].strength = 0.5;
+
+		 if (glyphs[i].key == '\n') {
+            x = flags & MSDFGL_VERTICAL ? x + leading : x_init;
+            y = flags & MSDFGL_VERTICAL ? y_init : y + leading;
+            continue;
+        }
 
 		msdfgl_map_item_t* e = msdfgl_map_get_or_add(font, glyphs[i].key);
 
