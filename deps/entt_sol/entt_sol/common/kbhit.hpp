@@ -1,5 +1,7 @@
 #pragma once
 
+namespace entt_sol
+{
 #if WIN32
 #include <conio.h>
 #elif __linux
@@ -9,21 +11,25 @@
 #include <sys/ioctl.h>
 #include <termios.h>
 
-int _kbhit() {
-  constexpr auto STDIN = 0;
-  if (static bool initialized{false}; !initialized) [[unlikely]] {
-    // Use termios to turn off line buffering
-    termios term;
-    tcgetattr(STDIN, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN, TCSANOW, &term);
-    setbuf(stdin, NULL);
+	int _kbhit()
+	{
+		constexpr auto STDIN = 0;
+		if (static bool initialized {false}; !initialized) [[unlikely]]
+		{
+			// Use termios to turn off line buffering
+			termios term;
+			tcgetattr(STDIN, &term);
+			term.c_lflag &= ~ICANON;
+			tcsetattr(STDIN, TCSANOW, &term);
+			setbuf(stdin, NULL);
 
-    initialized = true;
-  }
+			initialized = true;
+		}
 
-  int bytesWaiting;
-  ioctl(STDIN, FIONREAD, &bytesWaiting);
-  return bytesWaiting;
-}
+		int bytesWaiting;
+		ioctl(STDIN, FIONREAD, &bytesWaiting);
+		return bytesWaiting;
+	}
 #endif
+
+} // namespace entt_sol

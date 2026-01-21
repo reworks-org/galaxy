@@ -195,6 +195,11 @@
     <ClInclude Include="entt\src\entt\signal\emitter.hpp" />
     <ClInclude Include="entt\src\entt\signal\fwd.hpp" />
     <ClInclude Include="entt\src\entt\signal\sigh.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\common\kbhit.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\dispatcher\bond.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\registry\bond.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\scheduler\script_process.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\utility\meta_helper.hpp" />
     <ClInclude Include="glad\include\glad\glad.h" />
     <ClInclude Include="glad\include\KHR\khrplatform.h" />
     <ClInclude Include="glm\glm\common.hpp" />

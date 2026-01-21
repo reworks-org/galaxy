@@ -1443,6 +1443,11 @@
     <ClInclude Include="SDL3\include\SDL3\SDL_test_md5.h" />
     <ClInclude Include="SDL3\include\SDL3\SDL_test_memory.h" />
     <ClInclude Include="httplib\httplib.h" />
+    <ClInclude Include="entt_sol\entt_sol\common\kbhit.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\dispatcher\bond.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\registry\bond.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\scheduler\script_process.hpp" />
+    <ClInclude Include="entt_sol\entt_sol\utility\meta_helper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />

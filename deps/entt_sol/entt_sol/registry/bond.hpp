@@ -1,75 +1,90 @@
 #pragma once
 
-#include "meta_helper.hpp"
+#include "../utility/meta_helper.hpp"
 
 #include <entt/entity/registry.hpp>
 #include <entt/entity/runtime_view.hpp>
 
 #include <set>
 
-template <typename Component>
-auto is_valid(const entt::registry *registry, entt::entity entity) {
-  assert(registry);
-  return registry->valid(entity);
-}
-template <typename Component>
-auto emplace_component(entt::registry *registry, entt::entity entity,
-                       const sol::table &instance, sol::this_state s) {
-  assert(registry);
-  auto &comp = registry->emplace_or_replace<Component>(
-    entity,
-    instance.valid() ? std::move(instance.as<Component &&>()) : Component{});
+namespace entt_sol
+{
+	template<typename Component>
+	auto is_valid(const entt::registry* registry, entt::entity entity)
+	{
+		assert(registry);
+		return registry->valid(entity);
+	}
 
-  return sol::make_reference(s, std::ref(comp));
-}
-template <typename Component>
-auto get_component(entt::registry *registry, entt::entity entity,
-                   sol::this_state s) {
-  assert(registry);
-  auto &comp = registry->get_or_emplace<Component>(entity);
-  return sol::make_reference(s, std::ref(comp));
-}
-template <typename Component>
-bool has_component(entt::registry *registry, entt::entity entity) {
-  assert(registry);
-  return registry->any_of<Component>(entity);
-}
-template <typename Component>
-auto remove_component(entt::registry *registry, entt::entity entity) {
-  assert(registry);
-  return registry->remove<Component>(entity);
-}
-template <typename Component> void clear_component(entt::registry *registry) {
-  assert(registry);
-  registry->clear<Component>();
-}
+	template<typename Component>
+	auto emplace_component(entt::registry* registry, entt::entity entity, const sol::table& instance, sol::this_state s)
+	{
+		assert(registry);
+		auto& comp = registry->emplace_or_replace<Component>(entity, instance.valid() ? std::move(instance.as<Component&&>()) : Component {});
 
-template <typename Component> void register_meta_component() {
-  using namespace entt::literals;
+		return sol::make_reference(s, std::ref(comp));
+	}
 
-  entt::meta_factory<Component>()
-    .template func<&is_valid<Component>>("valid"_hs)
-    .template func<&emplace_component<Component>>("emplace"_hs)
-    .template func<&get_component<Component>>("get"_hs)
-    .template func<&has_component<Component>>("has"_hs)
-    .template func<&clear_component<Component>>("clear"_hs)
-    .template func<&remove_component<Component>>("remove"_hs);
-}
+	template<typename Component>
+	auto get_component(entt::registry* registry, entt::entity entity, sol::this_state s)
+	{
+		assert(registry);
+		auto& comp = registry->get_or_emplace<Component>(entity);
+		return sol::make_reference(s, std::ref(comp));
+	}
 
-auto collect_types(const sol::variadic_args &va) {
-  std::set<entt::id_type> types;
-  std::transform(va.cbegin(), va.cend(), std::inserter(types, types.begin()),
-                 [](const auto &obj) { return deduce_type(obj); });
-  return types;
-}
+	template<typename Component>
+	bool has_component(entt::registry* registry, entt::entity entity)
+	{
+		assert(registry);
+		return registry->any_of<Component>(entity);
+	}
 
-sol::table open_registry(sol::this_state s) {
-  // To create a registry inside a script: entt.registry.new()
+	template<typename Component>
+	auto remove_component(entt::registry* registry, entt::entity entity)
+	{
+		assert(registry);
+		return registry->remove<Component>(entity);
+	}
 
-  sol::state_view lua{s};
-  auto entt_module = lua["entt"].get_or_create<sol::table>();
+	template<typename Component>
+	void clear_component(entt::registry* registry)
+	{
+		assert(registry);
+		registry->clear<Component>();
+	}
 
-  // clang-format off
+	template<typename Component>
+	void register_meta_component()
+	{
+		using namespace entt::literals;
+
+		entt::meta_factory<Component>()
+			.template func<&is_valid<Component>>("valid"_hs)
+			.template func<&emplace_component<Component>>("emplace"_hs)
+			.template func<&get_component<Component>>("get"_hs)
+			.template func<&has_component<Component>>("has"_hs)
+			.template func<&clear_component<Component>>("clear"_hs)
+			.template func<&remove_component<Component>>("remove"_hs);
+	}
+
+	auto collect_types(const sol::variadic_args& va)
+	{
+		std::set<entt::id_type> types;
+		std::transform(va.cbegin(), va.cend(), std::inserter(types, types.begin()), [](const auto& obj) {
+			return deduce_type(obj);
+		});
+		return types;
+	}
+
+	sol::table open_registry(sol::this_state s)
+	{
+		// To create a registry inside a script: entt.registry.new()
+
+		sol::state_view lua {s};
+		auto            entt_module = lua["entt"].get_or_create<sol::table>();
+
+		// clang-format off
   entt_module.new_usertype<entt::runtime_view>("runtime_view",
     sol::no_constructor,
 
@@ -164,7 +179,8 @@ sol::table open_registry(sol::this_state s) {
         return view;
       }
   );
-  // clang-format on
+		// clang-format on
 
-  return entt_module;
-}
+		return entt_module;
+	}
+} // namespace entt_sol
