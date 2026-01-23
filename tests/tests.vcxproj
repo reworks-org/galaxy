@@ -25,6 +25,7 @@
     <ClCompile Include="src\meta\MetaTest.cpp" />
     <ClCompile Include="src\platform\PlatformTests.cpp" />
     <ClCompile Include="src\scene\SceneTest.cpp" />
+    <ClCompile Include="src\system\SystemTest.cpp" />
     <ClCompile Include="src\time\TimeTest.cpp" />
     <ClCompile Include="src\utils\AsyncTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />

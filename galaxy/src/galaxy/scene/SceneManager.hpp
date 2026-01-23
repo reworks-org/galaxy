@@ -1,48 +1,59 @@
 ///
-/// World.hpp
+/// SceneManager.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SCENE_WORLD_HPP_
-#define GALAXY_SCENE_WORLD_HPP_
+#ifndef GALAXY_SCENE_SCENEMANAGER_HPP_
+#define GALAXY_SCENE_SCENEMANAGER_HPP_
 
+#include "galaxy/entity/EntityManager.hpp"
+#include "galaxy/events/Event.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/state/StateMachine.hpp"
 
 namespace galaxy
 {
 	///
-	/// Scene, Entity and global game management.
+	/// State machine for managing scenes.
 	///
-	class World final : public StateMachine<Scene>
+	class SceneManager final : public StateMachine<Scene>
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		World() noexcept;
+		SceneManager() noexcept;
 
 		///
 		/// Move constructor.
 		///
-		World(World&&);
+		SceneManager(SceneManager&&);
 
 		///
 		/// Move assignment operator.
 		///
-		World& operator=(World&&);
+		SceneManager& operator=(SceneManager&&);
 
 		///
 		/// Destructor.
 		///
-		virtual ~World();
+		virtual ~SceneManager();
+
+		///
+		/// Handle an event for a scene.
+		///
+		/// \param e Event that was triggered.
+		///
+		void on_event(SDL_Event& event);
 
 		///
 		/// Process events and updates.
 		///
-		void update() override;
+		/// \param em Entities to operate on.
+		///
+		void update(EntityManager& em);
 
 		///
 		/// Render scenes.
@@ -58,18 +69,12 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		World(const World&) = delete;
+		SceneManager(const SceneManager&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		World& operator=(const World&) = delete;
-
-	private:
-		///
-		/// Entity data.
-		///
-		Registry m_registry;
+		SceneManager& operator=(const SceneManager&) = delete;
 	};
 } // namespace galaxy
 

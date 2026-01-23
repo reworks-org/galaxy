@@ -14,6 +14,7 @@ namespace galaxy
 		Lua::inject_core();
 		Lua::inject_entt();
 		Lua::inject_events();
+		Lua::inject_entity();
 		Lua::inject_fs();
 		Lua::inject_glm();
 		Lua::inject_graphics();
@@ -23,6 +24,7 @@ namespace galaxy
 		Lua::inject_platform();
 		Lua::inject_scene();
 		Lua::inject_state();
+		Lua::inject_systems();
 		Lua::inject_time();
 		Lua::inject_utils();
 

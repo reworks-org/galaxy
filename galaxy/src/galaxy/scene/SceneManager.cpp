@@ -1,25 +1,25 @@
 ///
-/// World.cpp
+/// SceneManager.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "World.hpp"
+#include "SceneManager.hpp"
 
 namespace galaxy
 {
-	World::World() noexcept
+	SceneManager::SceneManager() noexcept
 		: StateMachine {}
 	{
 	}
 
-	World::World(World&& w)
+	SceneManager::SceneManager(SceneManager&& w)
 		: StateMachine {std::move(w)}
 	{
 	}
 
-	World& World::operator=(World&& w)
+	SceneManager& SceneManager::operator=(SceneManager&& w)
 	{
 		if (this != &w)
 		{
@@ -29,28 +29,36 @@ namespace galaxy
 		return *this;
 	}
 
-	World::~World()
+	SceneManager::~SceneManager()
 	{
 		clear();
 	}
 
-	void World::update()
+	void SceneManager::on_event(SDL_Event& event)
 	{
-		if (auto state = top())
+		if (auto scene = top())
 		{
-			state->update(m_registry);
+			scene->on_event(event);
 		}
 	}
 
-	void World::render()
+	void SceneManager::update(EntityManager& em)
 	{
-		if (auto state = top())
+		if (auto scene = top())
 		{
-			state->render();
+			scene->update(em);
 		}
 	}
 
-	void World::clear()
+	void SceneManager::render()
+	{
+		if (auto scene = top())
+		{
+			scene->render();
+		}
+	}
+
+	void SceneManager::clear()
 	{
 		pop_all();
 

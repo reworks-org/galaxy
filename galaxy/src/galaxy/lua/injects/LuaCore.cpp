@@ -113,8 +113,6 @@ namespace galaxy
 		auto window_type                    = lua.new_usertype<Window>("Window", sol::no_constructor);
 		window_type["append_title"]         = &Window::append_title;
 		window_type["close"]                = &Window::close;
-		window_type["get_keyboard"]         = &Window::get_keyboard;
-		window_type["get_mouse"]            = &Window::get_mouse;
 		window_type["get_pixel_size"]       = &Window::get_pixel_size;
 		window_type["hide"]                 = &Window::hide;
 		window_type["is_open"]              = &Window::is_open;
@@ -128,21 +126,5 @@ namespace galaxy
 		window_type["set_icon"]             = &Window::set_icon;
 		window_type["set_taskbar_progress"] = &Window::set_taskbar_progress;
 		window_type["show"]                 = &Window::show;
-
-		/*auto registry_type                  = lua.new_usertype<Registry>("Registry", sol::constructors<Registry()>());
-		registry_type["clear"]              = &Registry::clear;
-		registry_type["create"]             = &Registry::create;
-		registry_type["create_from_prefab"] = &Registry::create_from_prefab;
-		registry_type["is_valid"]           = &Registry::is_valid;
-		registry_type["entt"]               = &Registry::m_entt;
-
-		auto prefab_type = lua.new_usertype<Prefab>("Prefab", sol::constructors<Prefab(entt::entity, entt::registry&), Prefab(const nlohmann::json&)>());
-		prefab_type["from_entity"] = &Prefab::from_entity;
-		prefab_type["from_json"]   = &Prefab::from_json;
-		prefab_type["to_entity"]   = &Prefab::to_entity;
-		prefab_type["to_json"]     = &Prefab::to_json;
-		prefab_type["load"]        = &Prefab::load;
-		lua.set_function("galaxy_load_user_config", &load_config_wrapper);
-		lua.set_function("galaxy_load_window_config", &load_window_wrapper);*/
 	}
 } // namespace galaxy

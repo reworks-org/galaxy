@@ -50,6 +50,11 @@ namespace galaxy
 		static void inject_events() noexcept;
 
 		///
+		/// Inject galaxy entity management into Lua.
+		///
+		static void inject_entity() noexcept;
+
+		///
 		/// Injects VFS support into Lua.
 		///
 		static void inject_fs() noexcept;
@@ -98,6 +103,11 @@ namespace galaxy
 		/// Injects galaxy state machine requirements into lua.
 		///
 		static void inject_state() noexcept;
+
+		///
+		/// Injects galaxy system management into Lua.
+		///
+		static void inject_systems() noexcept;
 
 		///
 		/// Register galaxy time support functions into Lua.

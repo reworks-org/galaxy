@@ -11,10 +11,12 @@
 #include <concepts>
 #include <string>
 
-#include "galaxy/entity/Registry.hpp"
+#include "galaxy/entity/EntityManager.hpp"
 
 namespace galaxy
 {
+	class Scene;
+
 	///
 	/// Represents a system that operates on sets of components.
 	///
@@ -39,9 +41,10 @@ namespace galaxy
 		///
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
-		/// \param registry Entity registry to process.
+		/// \param em Entitys to process.
+		/// \param scene Scene this system belongs to.
 		///
-		virtual void update(Registry& registry) = 0;
+		virtual void update(EntityManager& em, Scene* scene) = 0;
 
 		///
 		/// Get identifier.

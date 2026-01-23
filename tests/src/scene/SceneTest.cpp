@@ -7,92 +7,92 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/scene/World.hpp>
+#include <galaxy/scene/SceneManager.hpp>
 
-TEST(World, SceneAdd)
+TEST(SceneManager, SceneAdd)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	auto added = world.add("test");
+	auto added = sm.add("test");
 	ASSERT_TRUE(added);
 	ASSERT_TRUE(added->name() == "test");
 }
 
-TEST(World, SceneGet)
+TEST(SceneManager, SceneGet)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	auto get = world.get("test");
+	sm.add("test");
+	auto get = sm.get("test");
 	ASSERT_TRUE(get->name() == "test");
 }
 
-TEST(World, SceneHas)
+TEST(SceneManager, SceneHas)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	ASSERT_TRUE(world.has("test"));
+	sm.add("test");
+	ASSERT_TRUE(sm.has("test"));
 }
 
-TEST(World, SceneRemove)
+TEST(SceneManager, SceneRemove)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	world.remove("test");
+	sm.add("test");
+	sm.remove("test");
 
-	ASSERT_FALSE(world.has("test"));
+	ASSERT_FALSE(sm.has("test"));
 }
 
-TEST(World, Push)
+TEST(SceneManager, Push)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	world.push("test");
+	sm.add("test");
+	sm.push("test");
 
-	ASSERT_TRUE(world.top()->name() == "test");
+	ASSERT_TRUE(sm.top()->name() == "test");
 }
 
-TEST(World, Pop)
+TEST(SceneManager, Pop)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	world.push("test");
+	sm.add("test");
+	sm.push("test");
 
-	world.pop();
-	ASSERT_EQ(world.stack().size(), 0);
-	ASSERT_TRUE(world.top() == nullptr);
+	sm.pop();
+	ASSERT_EQ(sm.stack().size(), 0);
+	ASSERT_TRUE(sm.top() == nullptr);
 }
 
-TEST(World, PopAll)
+TEST(SceneManager, PopAll)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	world.add("test2");
+	sm.add("test");
+	sm.add("test2");
 
-	world.push("test");
-	world.push("test2");
+	sm.push("test");
+	sm.push("test2");
 
-	world.pop_all();
-	ASSERT_EQ(world.stack().size(), 0);
-	ASSERT_TRUE(world.top() == nullptr);
+	sm.pop_all();
+	ASSERT_EQ(sm.stack().size(), 0);
+	ASSERT_TRUE(sm.top() == nullptr);
 }
 
-TEST(World, Clear)
+TEST(SceneManager, Clear)
 {
-	galaxy::World world;
+	galaxy::SceneManager sm;
 
-	world.add("test");
-	world.add("test2");
+	sm.add("test");
+	sm.add("test2");
 
-	world.push("test");
-	world.push("test2");
+	sm.push("test");
+	sm.push("test2");
 
-	world.clear();
-	ASSERT_EQ(world.storage().size(), 0);
-	ASSERT_EQ(world.stack().size(), 0);
+	sm.clear();
+	ASSERT_EQ(sm.storage().size(), 0);
+	ASSERT_EQ(sm.stack().size(), 0);
 }

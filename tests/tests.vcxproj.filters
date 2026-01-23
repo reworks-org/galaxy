@@ -19,5 +19,6 @@
     <ClCompile Include="src\meta\MetaTest.cpp" />
     <ClCompile Include="src\scene\SceneTest.cpp" />
     <ClCompile Include="src\resource\CacheTest.cpp" />
+    <ClCompile Include="src\system\SystemTest.cpp" />
   </ItemGroup>
 </Project>

@@ -9,16 +9,16 @@
 
 namespace galaxy
 {
-	Registry::Registry()
+	Registry::Registry() noexcept
 	{
 	}
 
-	Registry::Registry(Registry&& r)
+	Registry::Registry(Registry&& r) noexcept
 	{
 		this->m_entt = std::move(r.m_entt);
 	}
 
-	Registry& Registry::operator=(Registry&& r)
+	Registry& Registry::operator=(Registry&& r) noexcept
 	{
 		if (this != &r)
 		{
@@ -28,7 +28,7 @@ namespace galaxy
 		return *this;
 	}
 
-	Registry::~Registry()
+	Registry::~Registry() noexcept
 	{
 	}
 } // namespace galaxy

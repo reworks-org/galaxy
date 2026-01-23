@@ -126,11 +126,6 @@ namespace galaxy
 		std::shared_ptr<Stored> top() const noexcept;
 
 		///
-		/// Process events and updates.
-		///
-		virtual void update() = 0;
-
-		///
 		/// Get stack.
 		///
 		/// \return Reference.

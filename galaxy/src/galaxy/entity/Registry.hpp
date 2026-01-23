@@ -26,22 +26,22 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		Registry();
+		Registry() noexcept;
 
 		///
 		/// Move constructor.
 		///
-		Registry(Registry&&);
+		Registry(Registry&&) noexcept;
 
 		///
 		/// Move assignment operator.
 		///
-		Registry& operator=(Registry&&);
+		Registry& operator=(Registry&&) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Registry();
+		~Registry() noexcept;
 
 		///
 		/// \brief Create an entity with some default components.

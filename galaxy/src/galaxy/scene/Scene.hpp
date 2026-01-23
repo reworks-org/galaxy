@@ -8,8 +8,12 @@
 #ifndef GALAXY_SCENE_SCENE_HPP_
 #define GALAXY_SCENE_SCENE_HPP_
 
+#include <entt/signal/dispatcher.hpp>
+
+#include <SDL3/SDL_events.h>
+
 #include "galaxy/state/State.hpp"
-#include "galaxy/meta/SystemFactory.hpp"
+#include "galaxy/systems/SystemManager.hpp"
 
 namespace galaxy
 {
@@ -32,7 +36,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		virtual ~Scene();
+		virtual ~Scene() noexcept;
 
 		///
 		/// When scene is pushed to the stack.
@@ -45,11 +49,18 @@ namespace galaxy
 		void on_pop() override;
 
 		///
+		/// Handle an event for a scene.
+		///
+		/// \param e Event that was triggered.
+		///
+		void on_event(SDL_Event& event);
+
+		///
 		/// Process events and updates.
 		///
-		/// \param registry Entities to process.
+		/// \param em Entities to process.
 		///
-		void update(Registry& registry);
+		void update(EntityManager& em);
 
 		///
 		/// Render scene.
@@ -57,18 +68,12 @@ namespace galaxy
 		void render();
 
 		///
-		/// Remove all scene data.
+		/// Get system manager.
 		///
-		void clear();
-
+		/// \return Reference to systems for this specfic scene.
 		///
-		/// \brief Add a system to operate on entities in this scene.
-		///
-		/// Scene is called in order of adding. So i.e. if you add anim then render, systems are called in that order.
-		///
-		/// \param system Name of system to add to this scene.
-		///
-		void add_system(const std::string& system);
+		[[nodiscard]]
+		SystemManager& sys_man() noexcept;
 
 	private:
 		///
@@ -88,9 +93,14 @@ namespace galaxy
 
 	private:
 		///
-		/// List of systems to process.
+		/// Systems only used by this scene.
 		///
-		SystemStack m_systems;
+		SystemManager m_sysman;
+
+		///
+		/// Scene event handler.
+		///
+		entt::dispatcher m_dispatcher;
 	};
 } // namespace galaxy
 
@@ -133,10 +143,6 @@ void deserialize(const nlohmann::json& json) override;
 ///
 graphics::Camera m_camera;
 
-///
-/// Scene event handler.
-///
-entt::dispatcher m_dispatcher;
 
 ///
 /// Box2D physics world.

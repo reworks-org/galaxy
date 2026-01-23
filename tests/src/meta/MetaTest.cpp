@@ -11,14 +11,19 @@
 
 struct abc : galaxy::System
 {
-	abc(const std::string& name)
-		: System(name)
+	abc()                      = delete;
+	abc& operator=(const abc&) = delete;
+	abc(const abc&)            = delete;
+	abc(abc&&)                 = default;
+	abc& operator=(abc&&)      = default;
+	virtual ~abc()             = default;
+
+	virtual void update(galaxy::EntityManager& em, galaxy::Scene* scene) override
 	{
 	}
 
-	abc() = delete;
-
-	void update(galaxy::Registry& registry)
+	abc(const std::string& name)
+		: System(name)
 	{
 	}
 };

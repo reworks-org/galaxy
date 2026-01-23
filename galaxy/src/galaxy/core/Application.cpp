@@ -19,6 +19,7 @@
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
+#include "galaxy/entity/EntityManager.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/gl/Sampler.hpp"
 #include "galaxy/input/Keyboard.hpp"
@@ -29,7 +30,7 @@
 #include "galaxy/lua/Lua.hpp"
 #include "galaxy/meta/SystemFactory.hpp"
 #include "galaxy/platform/Platform.hpp"
-#include "galaxy/scene/World.hpp"
+#include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/time/Time.hpp"
 
 #include "Application.hpp"
@@ -87,9 +88,9 @@ namespace galaxy
 		// https://stackoverflow.com/a/59446610
 		// We dont need 't' or 'alpha/render' sections.
 
-		auto& dispatcher = entt::locator<entt::dispatcher>::value();
-		auto& window     = entt::locator<Window>::value();
-		auto& world      = entt::locator<World>::value();
+		auto& window = entt::locator<Window>::value();
+		auto& scenes = entt::locator<SceneManager>::value();
+		auto& em     = entt::locator<EntityManager>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
 		// into a double so it can participate in the physics computation.
@@ -107,6 +108,38 @@ namespace galaxy
 		auto     updates = 0u;
 		auto     frames  = 0u;
 		duration perf    = 0s;
+
+		// Dont load update func if a custom one has been supplied.
+		if (!m_update)
+		{
+			m_update = [&]() {
+				while (SDL_PollEvent(&m_events))
+				{
+					switch (m_events.type)
+					{
+						case SDL_EVENT_QUIT:
+						case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+						case SDL_EVENT_WINDOW_DESTROYED:
+							// TODO: dispatcher.enqueue<WindowClosed>();
+							window.close();
+							break;
+
+						default:
+							scenes.on_event(m_events);
+							break;
+					}
+				}
+
+				scenes.update(em);
+			};
+		}
+
+		// Dont load update func if a custom one has been supplied.
+		if (!m_render)
+		{
+			m_render = [&]() {
+			};
+		}
 
 		while (window.is_open())
 		{
@@ -128,11 +161,16 @@ namespace galaxy
 				perf  += dt;
 				accum -= dt;
 
-				m_update(dispatcher, window, world);
+				m_update();
+
+				// nui.begin_input();
+				// nui.end_input();
+				// world.update();
+
 				updates++;
 			}
 
-			m_render(dispatcher, window, world);
+			m_render();
 			frames++;
 
 			if (perf >= 1s)
@@ -231,6 +269,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
 		platform::set_hint(SDL_HINT_MOUSE_RELATIVE_MODE_CENTER, "0");
 		platform::set_hint(SDL_HINT_MOUSE_TOUCH_EVENTS, "1");
+		platform::set_hint(SDL_HINT_MOUSE_DPI_SCALE_CURSORS, "1");
 		platform::set_hint(SDL_HINT_PEN_MOUSE_EVENTS, "1");
 		platform::set_hint(SDL_HINT_PEN_TOUCH_EVENTS, "1");
 		platform::set_hint(SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE, "1");
@@ -252,7 +291,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS, "0");
 		platform::set_hint(SDL_HINT_WINDOWS_GAMEINPUT, "1");
 		platform::set_hint(SDL_HINT_WINDOWS_RAW_KEYBOARD, "0");
-		// platform::set_hint(SDL_HINT_IME_IMPLEMENTED_UI, "0");
+		// TODO: platform::set_hint(SDL_HINT_IME_IMPLEMENTED_UI, "0");
 
 		const auto vsync = Settings::vsync() ? "1" : "0";
 		platform::set_hint(SDL_HINT_RENDER_VSYNC, vsync);
@@ -414,7 +453,8 @@ namespace galaxy
 		// entt::locator<resource::Textures>::make();
 		// entt::locator<resource::Prefabs>::make();
 		//	  entt::locator<resource::Scripts>::make();
-		entt::locator<World>::emplace();
+		entt::locator<EntityManager>::emplace();
+		entt::locator<SceneManager>::emplace();
 	}
 
 	void App::setup_scripting()

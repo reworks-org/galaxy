@@ -22,7 +22,6 @@
 #include <galaxy/graphics/gl/Shader.hpp>
 #include <galaxy/graphics/gl/Texture.hpp>
 #include <galaxy/graphics/Enums.hpp>
-#include <galaxy/scene/World.hpp>
 
 #include "tests/LoggingTests.hpp"
 #include "tests/PlatformTests.hpp"
@@ -134,10 +133,6 @@ int main(int argc, char* argv[])
 		galaxy::Renderer       renderer;
 		galaxy::Camera         camera;
 
-		app.set_update_func([&](entt::dispatcher& dispatcher, galaxy::Window& window, galaxy::World& world) {
-			window.process_events(dispatcher);
-		});
-
 		pass.target      = 0;
 		pass.viewport    = glm::vec4(0, 0, w.get_pixel_size().x, w.get_pixel_size().y);
 		pass.clear_col   = {0, 0, 0, 0};
@@ -164,7 +159,7 @@ int main(int argc, char* argv[])
 
 		camera.set_projection(0.0f, static_cast<float>(w.get_pixel_size().x), static_cast<float>(w.get_pixel_size().y), 0.0f);
 
-		app.set_render_func([&](entt::dispatcher& dispatcher, galaxy::Window& window, galaxy::World& world) {
+		app.set_render_func([&]() {
 			renderer.prepare();
 			renderer.begin_pass(pass);
 
@@ -189,7 +184,7 @@ int main(int argc, char* argv[])
 			renderer.push_cmd(std::move(cmd3));
 
 			renderer.end_pass(camera);
-			window.swap();
+			w.swap();
 		});
 
 		app.run();
