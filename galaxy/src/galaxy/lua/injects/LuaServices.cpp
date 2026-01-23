@@ -25,8 +25,7 @@ namespace galaxy
 		lua["galaxy_config"] = std::ref(entt::locator<Config>::value());
 		lua["galaxy_fs"]     = std::ref(entt::locator<VirtualFileSystem>::value());
 		lua["galaxy_window"] = std::ref(entt::locator<Window>::value());
-		// lua["galaxy_dispatcher"] = std::ref(entt::locator<entt::dispatcher>::value()); // TODO FIX
-		//  lua state -> not needed.
+		// lua state -> not needed.
 
 		/*
 		lua["galaxy_nui"]         = std::ref(entt::locator<ui::NuklearUI>::value());

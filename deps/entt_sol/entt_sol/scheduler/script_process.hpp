@@ -1,6 +1,8 @@
 #pragma once
+#include <thread>
 
 #include <entt/process/process.hpp>
+#include <entt/process/scheduler.hpp>
 #include <sol/sol.hpp>
 
 #include <chrono>
@@ -10,7 +12,6 @@ using fsec = std::chrono::duration<float>;
 
 namespace entt_sol
 {
-
 	class script_process : public entt::basic_process<fsec>
 	{
 	public:
@@ -96,4 +97,48 @@ namespace entt_sol
 		fsec m_time {0};
 	};
 
+	using scheduler = entt::basic_scheduler<fsec>;
+
+	[[nodiscard]]
+	inline sol::table open_scheduler(sol::this_state s)
+	{
+		// To create a scheduler inside a script: entt.scheduler.new()
+
+		sol::state_view lua {s};
+		auto            entt_module = lua["entt"].get_or_create<sol::table>();
+
+		entt_module.new_usertype<scheduler>(
+			"scheduler",
+			sol::meta_function::construct,
+			sol::factories([] {
+				return scheduler {};
+			}),
+			"size",
+			&scheduler::size,
+			"empty",
+			&scheduler::empty,
+			"clear",
+			&scheduler::clear,
+			"attach",
+			[](scheduler& self, const sol::table& process, const sol::variadic_args& va) {
+				// TODO: validate process before attach?
+				auto* last = &self.template attach<script_process>(process);
+				for (sol::table child_process : va)
+				{
+					last = &last->template then<script_process>(std::move(child_process));
+				}
+			},
+			"update",
+			sol::resolve<void(fsec, void*)>(&scheduler::update),
+			"abort",
+			sol::overload(
+				[](scheduler& self) {
+					self.abort();
+				},
+				sol::resolve<void(bool)>(&scheduler::abort)
+			)
+		);
+
+		return entt_module;
+	}
 } // namespace entt_sol

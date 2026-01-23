@@ -21,19 +21,17 @@ namespace galaxy
 		///
 		~Lua() = default;
 
-	private:
-		///
-		/// Not supposed to be created.
-		///
-		Lua() = delete;
-
-	public:
 		///
 		/// Inject everything into Lua.
 		///
 		static void inject() noexcept;
 
 	private:
+		///
+		/// Not supposed to be created.
+		///
+		Lua() = delete;
+
 		///
 		/// Inject galaxy core services into Lua.
 		///

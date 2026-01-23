@@ -36,3 +36,7 @@ https://github.com/ivan-resetnikov/demo-2D-PBR-renderer-opengl
 httplib:
 - add async support by pushing requests to threadpool
 - bind to lua
+
+lua:
+- more aggressive collect_garbage();
+- use of step_gc

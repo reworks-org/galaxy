@@ -5,9 +5,8 @@
 
 namespace entt_sol
 {
-
 	template<typename Event>
-	auto connect_listener(entt::dispatcher* dispatcher, const sol::function& f)
+	inline auto connect_listener(entt::dispatcher* dispatcher, const sol::function& f)
 	{
 		assert(dispatcher && f.valid());
 
@@ -47,35 +46,35 @@ namespace entt_sol
 	}
 
 	template<typename Event>
-	void trigger_event(entt::dispatcher* dispatcher, const sol::table& evt)
+	inline void trigger_event(entt::dispatcher* dispatcher, const sol::table& evt)
 	{
 		assert(dispatcher && evt.valid());
 		dispatcher->trigger(evt.as<Event>());
 	}
 
 	template<typename Event>
-	void enqueue_event(entt::dispatcher* dispatcher, const sol::table& evt)
+	inline void enqueue_event(entt::dispatcher* dispatcher, const sol::table& evt)
 	{
 		assert(dispatcher && evt.valid());
 		dispatcher->enqueue(evt.as<Event>());
 	}
 
 	template<typename Event>
-	void clear_event(entt::dispatcher* dispatcher)
+	inline void clear_event(entt::dispatcher* dispatcher)
 	{
 		assert(dispatcher);
 		dispatcher->clear<Event>();
 	}
 
 	template<typename Event>
-	void update_event(entt::dispatcher* dispatcher)
+	inline void update_event(entt::dispatcher* dispatcher)
 	{
 		assert(dispatcher);
 		dispatcher->update<Event>();
 	}
 
 	template<typename Event>
-	void register_meta_event()
+	inline void register_meta_event()
 	{
 		using namespace entt::literals;
 
@@ -88,7 +87,7 @@ namespace entt_sol
 	}
 
 	[[nodiscard]]
-	sol::table open_dispatcher(sol::this_state s)
+	inline sol::table open_dispatcher(sol::this_state s)
 	{
 		// To create a dispatcher in a script: entt.dispatcher.new()
 
@@ -100,11 +99,9 @@ namespace entt_sol
 			sol::table self;
 		};
 
-		// clang-format off
-  lua.new_usertype<base_script_event>("BaseScriptEvent",
-    "type_id", [] { return entt::type_hash<base_script_event>::value(); }
-  );
-		// clang-format on
+		lua.new_usertype<base_script_event>("BaseScriptEvent", "type_id", [] {
+			return entt::type_hash<base_script_event>::value();
+		});
 
 		struct scripted_event_listener
 		{
@@ -145,66 +142,74 @@ namespace entt_sol
 
 		using namespace entt::literals;
 
-		// clang-format off
-  entt_module.new_usertype<entt::dispatcher>("dispatcher",
-    sol::meta_function::construct,
-    sol::factories([] { return entt::dispatcher{}; }),
+		entt_module.new_usertype<entt::dispatcher>(
+			"dispatcher",
+			sol::meta_function::construct,
+			sol::factories([] {
+				return entt::dispatcher {};
+			}),
 
-    "trigger",
-      [](entt::dispatcher &self, const sol::table &evt) {
-        if (const auto event_id = get_type_id(evt);
-            event_id == entt::type_hash<base_script_event>::value()) {
-          self.trigger(base_script_event{evt});
-        } else {
-          invoke_meta_func(event_id, "trigger_event"_hs, &self, evt);
-        }
-      },
-    "enqueue",
-      [](entt::dispatcher &self, const sol::table &evt) {
-        if (const auto event_id = get_type_id(evt);
-            event_id == entt::type_hash<base_script_event>::value()) {
-          self.enqueue(base_script_event{evt});
-        } else {
-          invoke_meta_func(event_id, "enqueue_event"_hs, &self, evt);
-        }
-      },
-    "clear",
-      sol::overload(
-        [](entt::dispatcher &self) { self.clear(); },
-        [](entt::dispatcher &self, const sol::object &type_or_id) {
-          invoke_meta_func(
-            deduce_type(type_or_id), "clear_event"_hs, &self);
-        }
-      ),
-    "update",
-      sol::overload(
-        [](entt::dispatcher &self) { self.update(); },
-        [](entt::dispatcher &self, const sol::object &type_or_id) {
-          invoke_meta_func(
-            deduce_type(type_or_id), "update_event"_hs, &self);
-        }
-      ),
-    "connect",
-      [](entt::dispatcher &self, const sol::object &type_or_id,
-         const sol::function &listener, sol::this_state s) {
-        if (!listener.valid()) {
-          // TODO: warning message
-          return entt::meta_any{};
-        }
-        if (const auto event_id = deduce_type(type_or_id);
-            event_id == entt::type_hash<base_script_event>::value()) {
-          return entt::meta_any{std::make_unique<scripted_event_listener>(
-            self, type_or_id, listener)};
-        } else {
-          return invoke_meta_func(event_id, "connect_listener"_hs, &self,
-                                  listener);
-        }
-      },
-    "disconnect", [](sol::table connection) {
-      connection.as<entt::meta_any>().reset();
-    }
-  );
-		// clang-format on
+			"trigger",
+			[](entt::dispatcher& self, const sol::table& evt) {
+				if (const auto event_id = get_type_id(evt); event_id == entt::type_hash<base_script_event>::value())
+				{
+					self.trigger(base_script_event {evt});
+				}
+				else
+				{
+					invoke_meta_func(event_id, "trigger_event"_hs, &self, evt);
+				}
+			},
+			"enqueue",
+			[](entt::dispatcher& self, const sol::table& evt) {
+				if (const auto event_id = get_type_id(evt); event_id == entt::type_hash<base_script_event>::value())
+				{
+					self.enqueue(base_script_event {evt});
+				}
+				else
+				{
+					invoke_meta_func(event_id, "enqueue_event"_hs, &self, evt);
+				}
+			},
+			"clear",
+			sol::overload(
+				[](entt::dispatcher& self) {
+					self.clear();
+				},
+				[](entt::dispatcher& self, const sol::object& type_or_id) {
+					invoke_meta_func(deduce_type(type_or_id), "clear_event"_hs, &self);
+				}
+			),
+			"update",
+			sol::overload(
+				[](entt::dispatcher& self) {
+					self.update();
+				},
+				[](entt::dispatcher& self, const sol::object& type_or_id) {
+					invoke_meta_func(deduce_type(type_or_id), "update_event"_hs, &self);
+				}
+			),
+			"connect",
+			[](entt::dispatcher& self, const sol::object& type_or_id, const sol::function& listener, sol::this_state s) {
+				if (!listener.valid())
+				{
+					// TODO: warning message
+					return entt::meta_any {};
+				}
+				if (const auto event_id = deduce_type(type_or_id); event_id == entt::type_hash<base_script_event>::value())
+				{
+					return entt::meta_any {std::make_unique<scripted_event_listener>(self, type_or_id, listener)};
+				}
+				else
+				{
+					return invoke_meta_func(event_id, "connect_listener"_hs, &self, listener);
+				}
+			},
+			"disconnect",
+			[](sol::table connection) {
+				connection.as<entt::meta_any>().reset();
+			}
+		);
 
 		return entt_module;
 	}

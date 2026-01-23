@@ -15,6 +15,11 @@
 ///
 #define GALAXY_UNUSED(var) ((void)(var))
 
+///
+/// Convenient decltype macro.
+///
+#define GALAXY_AUTOARG(x) decltype(x), x
+
 #if defined(_DEBUG) || defined(DEBUG)
 ///
 /// Define a constexpr compatible debug macro.
