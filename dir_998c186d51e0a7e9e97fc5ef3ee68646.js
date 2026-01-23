@@ -9,5 +9,7 @@ var dir_998c186d51e0a7e9e97fc5ef3ee68646 =
     [ "ScriptSystem.cpp", "dd/d64/ScriptSystem_8cpp.html", null ],
     [ "ScriptSystem.hpp", "d7/d16/ScriptSystem_8hpp.html", "d7/d16/ScriptSystem_8hpp" ],
     [ "System.cpp", "d3/d7c/System_8cpp.html", null ],
-    [ "System.hpp", "d4/d25/System_8hpp.html", "d4/d25/System_8hpp" ]
+    [ "System.hpp", "d4/d25/System_8hpp.html", "d4/d25/System_8hpp" ],
+    [ "SystemManager.cpp", "d9/d47/SystemManager_8cpp.html", null ],
+    [ "SystemManager.hpp", "d7/d72/SystemManager_8hpp.html", "d7/d72/SystemManager_8hpp" ]
 ];

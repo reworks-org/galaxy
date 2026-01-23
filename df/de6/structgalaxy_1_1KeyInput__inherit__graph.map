@@ -1,5 +1,5 @@
 <map id="galaxy::KeyInput" name="galaxy::KeyInput">
-<area shape="rect" id="Node000001" title="Unicode text data from a textinput event." alt="" coords="32,119,155,184"/>
-<area shape="rect" id="Node000002" href="$d6/d1e/structgalaxy_1_1HandleableEvent.html" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="5,5,181,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,84,96,119,91,119,91,84"/>
+<area shape="rect" id="Node000001" title="Unicode text data from a textinput event." alt="" coords="5,259,128,324"/>
+<area shape="rect" id="Node000002" href="$df/d64/classgalaxy_1_1Event.html" title="Base type of all events." alt="" coords="14,5,119,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,224,69,259,64,259,64,224"/>
 </map>

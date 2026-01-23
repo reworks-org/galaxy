@@ -1,9 +1,7 @@
 <map id="galaxy::math::decode_base64" name="galaxy::math::decode_base64">
-<area shape="rect" id="Node000001" title="Decompresses string into Base64." alt="" coords="792,35,955,75"/>
+<area shape="rect" id="Node000001" title="Decompresses string into Base64." alt="" coords="792,5,955,45"/>
 <area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="563,13,744,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="778,45,744,40,745,35,779,39"/>
-<area shape="rect" id="Node000006" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a75e4e0886de1ee998f584fe4340ae354" title="Loads from a json file on disk." alt="" coords="578,63,729,103"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="778,69,729,76,729,70,778,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="778,28,744,28,744,23,778,23"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
 <area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>

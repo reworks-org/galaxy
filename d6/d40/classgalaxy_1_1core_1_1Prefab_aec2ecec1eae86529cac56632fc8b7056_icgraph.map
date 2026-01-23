@@ -1,5 +1,0 @@
-<map id="galaxy::core::Prefab::from_entity" name="galaxy::core::Prefab::from_entity">
-<area shape="rect" id="Node000001" title="Creates the prefab from an entity." alt="" coords="204,5,355,45"/>
-<area shape="rect" id="Node000002" href="$d6/d40/classgalaxy_1_1core_1_1Prefab.html#a0a575c3e30653ae4e11a994a965852af" title="Entity constructor." alt="" coords="5,5,156,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,28,156,28,156,23,191,23"/>
-</map>

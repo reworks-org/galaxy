@@ -1,5 +1,6 @@
 var structgalaxy_1_1KeyReleased =
 [
+    [ "KeyReleased", "d5/d60/structgalaxy_1_1KeyReleased.html#a94ff1cb318cc0b630138c4a20bf94ec0", null ],
     [ "m_scancode", "d5/d60/structgalaxy_1_1KeyReleased.html#a50da4d7e717637736059733809040578", null ],
     [ "m_key", "d5/d60/structgalaxy_1_1KeyReleased.html#ac0594be827387aa2c21563c6d2bc1050", null ],
     [ "m_mod", "d5/d60/structgalaxy_1_1KeyReleased.html#ae46c72228f3ae1264861a138d023a388", null ],

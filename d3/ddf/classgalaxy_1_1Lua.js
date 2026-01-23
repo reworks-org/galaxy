@@ -6,6 +6,7 @@ var classgalaxy_1_1Lua =
     [ "inject_core", "d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01", null ],
     [ "inject_entt", "d3/ddf/classgalaxy_1_1Lua.html#a8b2f90e0343d46ebeecbdfc1ec4976c0", null ],
     [ "inject_events", "d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0", null ],
+    [ "inject_entity", "d3/ddf/classgalaxy_1_1Lua.html#a0943b94035c1d33f5a1842d5057043b2", null ],
     [ "inject_fs", "d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab", null ],
     [ "inject_glm", "d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e", null ],
     [ "inject_graphics", "d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1", null ],
@@ -16,6 +17,7 @@ var classgalaxy_1_1Lua =
     [ "inject_scene", "d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc", null ],
     [ "inject_services", "d3/ddf/classgalaxy_1_1Lua.html#a64011dd468d6b31d16aaa74a9d95cd5b", null ],
     [ "inject_state", "d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78", null ],
+    [ "inject_systems", "d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997", null ],
     [ "inject_time", "d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32", null ],
     [ "inject_utils", "d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609", null ]
 ];

@@ -119,9 +119,9 @@ $(function(){initNavTree('dd/dd3/classgalaxy_1_1Log.html','../../'); initResizab
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../de/d19/classgalaxy_1_1Log__coll__graph.png" border="0" usemap="#agalaxy_1_1Log_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1Log_coll__map" id="agalaxy_1_1Log_coll__map">
-<area shape="rect" title="Sink based logging system." alt="" coords="153,717,283,943"/>
+<area shape="rect" title="Sink based logging system." alt="" coords="229,717,359,943"/>
 <area shape="rect" title=" " alt="" coords="133,575,303,655"/>
-<area shape="poly" title=" " alt="" coords="221,655,221,701,215,701,215,655"/>
+<area shape="poly" title=" " alt="" coords="234,654,251,701,246,703,229,656"/>
 <area shape="rect" title=" " alt="" coords="54,432,225,512"/>
 <area shape="poly" title=" " alt="" coords="164,511,191,559,186,562,159,514"/>
 <area shape="rect" href="../../d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,133,111,319"/>
@@ -133,6 +133,8 @@ $(function(){initNavTree('dd/dd3/classgalaxy_1_1Log.html','../../'); initResizab
 <area shape="rect" title=" " alt="" coords="260,343,381,408"/>
 <area shape="poly" title=" " alt="" coords="279,66,289,94,304,156,314,219,323,326,317,327,309,219,299,157,283,95,274,68"/>
 <area shape="poly" title=" " alt="" coords="313,422,295,485,267,552,252,576,248,573,262,549,290,483,308,420"/>
+<area shape="rect" title=" " alt="" coords="328,582,412,647"/>
+<area shape="poly" title=" " alt="" coords="361,648,342,702,337,701,356,646"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -180,12 +182,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a4e839c49a101c2a78817342b1b3878fe" id="r_a4e839c49a101c2a78817342b1b3878fe"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="../../d2/d42/classgalaxy_1_1Sink.html">Sink</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e839c49a101c2a78817342b1b3878fe">m_sinks</a></td></tr>
 <tr class="memdesc:a4e839c49a101c2a78817342b1b3878fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of sinks.  <br /></td></tr>
 <tr class="separator:a4e839c49a101c2a78817342b1b3878fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26791507bfba919a360738752d4751f9" id="r_a26791507bfba919a360738752d4751f9"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26791507bfba919a360738752d4751f9">m_mutex</a></td></tr>
+<tr class="memdesc:a26791507bfba919a360738752d4751f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only do 1 set of sinks at a time.  <br /></td></tr>
+<tr class="separator:a26791507bfba919a360738752d4751f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to.">Sink</a> based logging system. </p>
 <p>Use macros to access. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00037">37</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00038">38</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2db84489382bb7f04702446893f2c7f5" name="a2db84489382bb7f04702446893f2c7f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2db84489382bb7f04702446893f2c7f5">&#9670;&#160;</a></span>Log() <span class="overload">[1/3]</span></h2>
@@ -341,7 +346,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d2/d42/classgalaxy_1
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created sink. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00122">122</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00128">128</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +384,7 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00130">130</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -440,7 +445,7 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00142">142</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -533,7 +538,7 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
 
 <p>Minimum level for a message to be logged. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -559,7 +564,33 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
 
 <p>List of sinks. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a26791507bfba919a360738752d4751f9" name="a26791507bfba919a360738752d4751f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26791507bfba919a360738752d4751f9">&#9670;&#160;</a></span>m_mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex galaxy::Log::m_mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Only do 1 set of sinks at a time. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d82/Log_8hpp_source.html#l00124">124</a> of file <a class="el" href="../../d0/d82/Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -573,7 +604,7 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dd/dd3/classgalaxy_1_1Log.html">Log</a></li>
-    <li class="footer">Generated on Wed Jan 7 2026 11:41:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Jan 23 2026 10:04:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

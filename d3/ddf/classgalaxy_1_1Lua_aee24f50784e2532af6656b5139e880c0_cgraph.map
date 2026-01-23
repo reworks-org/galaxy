@@ -1,0 +1,7 @@
+<map id="galaxy::Lua::inject_events" name="galaxy::Lua::inject_events">
+<area shape="rect" id="Node000001" title="Inject galaxy event data objects into Lua." alt="" coords="5,23,145,63"/>
+<area shape="rect" id="Node000002" href="$df/d64/classgalaxy_1_1Event.html#a9c2e34c8012fd9fd73a254255a81979f" title="Mark this event as consumed." alt="" coords="197,5,375,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,32,183,28,184,33,146,38"/>
+<area shape="rect" id="Node000003" href="$df/d64/classgalaxy_1_1Event.html#a835517ff3cfc14951b4fdd4ea8aadaf0" title="Is this event already consumed?" alt="" coords="193,55,379,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,49,180,53,179,58,145,54"/>
+</map>

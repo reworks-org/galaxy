@@ -1,9 +1,11 @@
 <map id="galaxy::Settings::max_quads" name="galaxy::Settings::max_quads">
-<area shape="rect" id="Node000001" title="Max quads to render at once." alt="" coords="785,5,948,45"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="563,13,737,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="771,28,737,28,737,23,771,23"/>
+<area shape="rect" id="Node000001" title="Max quads to render at once." alt="" coords="809,31,972,71"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="575,13,749,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="795,43,749,38,750,32,796,38"/>
+<area shape="rect" id="Node000006" href="$d5/dab/classgalaxy_1_1Renderer.html#ab223cf01bd4d19212913194cc7f56f95" title="Constructor." alt="" coords="563,62,761,87"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="796,63,762,67,761,62,795,58"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="549,28,515,28,515,23,549,23"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="561,28,515,28,515,23,561,23"/>
 <area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,5,327,45"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,28,327,28,327,23,361,23"/>
 <area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,13,136,38"/>

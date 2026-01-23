@@ -1,44 +1,24 @@
 <map id="galaxy::VertexBuffer::buffer" name="galaxy::VertexBuffer::buffer">
-<area shape="rect" id="Node000001" title="Create vertex buffer." alt="" coords="1029,261,1184,301"/>
-<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="831,197,981,237"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1029,260,968,240,970,235,1031,255"/>
-<area shape="rect" id="Node000018" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="619,325,759,365"/>
-<area shape="poly" id="edge21_Node000001_Node000018" title=" " alt="" coords="1016,298,759,337,758,332,1015,293"/>
-<area shape="rect" id="Node000003" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af386ffd1c0962008cd7b7cd2b28f58fc" title="Create the circle." alt="" coords="602,5,775,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="886,187,843,122,814,89,781,60,761,48,763,43,784,55,818,85,848,119,890,184"/>
-<area shape="rect" id="Node000006" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#affbe40f01436e926593ab53ae9176a58" title="Create the ellipse." alt="" coords="599,69,778,109"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="872,190,830,156,781,124,756,112,758,107,784,119,834,152,875,186"/>
-<area shape="rect" id="Node000009" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#a6f71373fa2b2940c76439a1c467e1fc3" title="Initial point positon." alt="" coords="604,133,773,173"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="824,196,756,176,758,171,825,191"/>
-<area shape="rect" id="Node000012" href="$d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html#a82adbbe3e26417ede6940c39d21d3192" title="Create shape." alt="" coords="595,197,783,237"/>
-<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="817,220,783,220,783,215,817,215"/>
-<area shape="rect" id="Node000015" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#a0b809635978824681737fa90992d2d55" title="List of points to create a line from." alt="" coords="595,261,783,301"/>
-<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="825,244,758,264,756,259,824,239"/>
-<area shape="poly" id="edge17_Node000002_Node000018" title=" " alt="" coords="875,249,834,283,784,316,758,328,756,323,781,311,830,279,872,244"/>
-<area shape="rect" id="Node000004" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#ad7a846e059343348188a69307f1dd050" title="Deserializes from object." alt="" coords="389,5,543,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="588,28,543,28,543,23,588,23"/>
-<area shape="rect" id="Node000005" href="$da/d0d/classgalaxy_1_1components_1_1Circle.html#a43eef9ad826e1115fe0f5e98363d30dd" title="JSON constructor." alt="" coords="184,5,337,45"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="376,28,338,28,338,23,376,23"/>
-<area shape="rect" id="Node000007" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#aa7b82e0a763a748b29c75eb3c1d05630" title="Deserializes from object." alt="" coords="389,69,543,109"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="585,92,543,92,543,87,585,87"/>
-<area shape="rect" id="Node000008" href="$d9/ddf/classgalaxy_1_1components_1_1Ellipse.html#a4b4a8a8c30470f6e94c2cf31d590c64b" title="JSON constructor." alt="" coords="184,69,337,109"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="376,92,338,92,338,87,376,87"/>
-<area shape="rect" id="Node000010" href="$d4/d0e/classgalaxy_1_1components_1_1Point.html#aa7ad0aadbdda4dcfb4daa962c6b42205" title="Deserializes from object." alt="" coords="389,133,543,173"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="590,156,543,156,543,151,590,151"/>
-<area shape="rect" id="Node000011" href="$d4/d0e/classgalaxy_1_1components_1_1Point.html#a7b579d9c4fcdc7b11839f7083836bec0" title="JSON constructor." alt="" coords="184,133,337,173"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="376,156,338,156,338,151,376,151"/>
-<area shape="rect" id="Node000013" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#ae7967aad72b2c215788e8e2b85589f8f" title="Deserializes from object." alt="" coords="385,197,547,237"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="580,220,547,220,547,215,580,215"/>
-<area shape="rect" id="Node000014" href="$d0/dbe/classgalaxy_1_1components_1_1Polygon.html#a8eec702b97507870c99e33b90e4bc16d" title="JSON constructor." alt="" coords="184,197,337,237"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="372,220,338,220,338,215,372,215"/>
-<area shape="rect" id="Node000016" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a90cd4c96eb57e37637939b471c95bfc1" title="Deserializes from object." alt="" coords="385,261,547,301"/>
-<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="580,284,547,284,547,279,580,279"/>
-<area shape="rect" id="Node000017" href="$dd/d2d/classgalaxy_1_1components_1_1Polyline.html#a4277a1142e80708cdb92b9b9466998a8" title="JSON constructor." alt="" coords="184,261,337,301"/>
-<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="372,284,338,284,338,279,372,279"/>
-<area shape="rect" id="Node000019" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="396,333,536,358"/>
-<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="605,348,536,348,536,343,605,343"/>
-<area shape="rect" id="Node000020" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="189,325,332,365"/>
-<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="382,348,332,348,332,343,382,343"/>
-<area shape="rect" id="Node000021" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,333,136,358"/>
-<area shape="poly" id="edge20_Node000020_Node000021" title=" " alt="" coords="176,348,137,348,137,343,176,343"/>
+<area shape="rect" id="Node000001" title="Create vertex buffer." alt="" coords="997,261,1152,301"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="799,197,949,237"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="997,260,936,240,938,235,999,255"/>
+<area shape="rect" id="Node000008" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="587,325,727,365"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="984,298,727,337,726,332,983,293"/>
+<area shape="rect" id="Node000003" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af386ffd1c0962008cd7b7cd2b28f58fc" title="Create the circle." alt="" coords="570,5,743,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="854,187,811,122,782,89,749,60,729,48,731,43,752,55,786,85,816,119,858,184"/>
+<area shape="rect" id="Node000004" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#affbe40f01436e926593ab53ae9176a58" title="Create the ellipse." alt="" coords="567,69,746,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="840,190,798,156,749,124,724,112,726,107,752,119,802,152,843,186"/>
+<area shape="rect" id="Node000005" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#a6f71373fa2b2940c76439a1c467e1fc3" title="Initial point positon." alt="" coords="572,133,741,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="792,196,724,176,726,171,793,191"/>
+<area shape="rect" id="Node000006" href="$d6/d5e/classgalaxy_1_1graphics_1_1Polygon.html#a82adbbe3e26417ede6940c39d21d3192" title="Create shape." alt="" coords="563,197,751,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="785,220,751,220,751,215,785,215"/>
+<area shape="rect" id="Node000007" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#a0b809635978824681737fa90992d2d55" title="List of points to create a line from." alt="" coords="563,261,751,301"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="793,244,726,264,724,259,792,239"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="843,249,802,283,752,316,726,328,724,323,749,311,798,279,840,244"/>
+<area shape="rect" id="Node000009" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,333,515,358"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="572,348,515,348,515,343,572,343"/>
+<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="184,325,327,365"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="361,348,327,348,327,343,361,343"/>
+<area shape="rect" id="Node000011" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="5,333,136,358"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="170,348,136,348,136,343,170,343"/>
 </map>

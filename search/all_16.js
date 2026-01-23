@@ -20,16 +20,13 @@ var searchData=
   ['windowclosed_17',['WindowClosed',['../d9/ddc/structgalaxy_1_1WindowClosed.html',1,'galaxy']]],
   ['windowclosed_2ecpp_18',['WindowClosed.cpp',['../d5/d84/WindowClosed_8cpp.html',1,'']]],
   ['windowclosed_2ehpp_19',['WindowClosed.hpp',['../d2/ddb/WindowClosed_8hpp.html',1,'']]],
-  ['windowresized_20',['WindowResized',['../d9/d35/structgalaxy_1_1WindowResized.html',1,'galaxy']]],
+  ['windowresized_20',['WindowResized',['../d9/d35/structgalaxy_1_1WindowResized.html',1,'galaxy::WindowResized'],['../d9/d35/structgalaxy_1_1WindowResized.html#ad0152069b6c659d88ee74b703371a5ef',1,'galaxy::WindowResized::WindowResized()']]],
   ['windowresized_2ecpp_21',['WindowResized.cpp',['../dc/d23/WindowResized_8cpp.html',1,'']]],
   ['windowresized_2ehpp_22',['WindowResized.hpp',['../d9/d3b/WindowResized_8hpp.html',1,'']]],
   ['windows_2ecpp_23',['Windows.cpp',['../dd/da6/Windows_8cpp.html',1,'']]],
   ['windows_2ehpp_24',['Windows.hpp',['../de/d0e/Windows_8hpp.html',1,'']]],
-  ['world_25',['World',['../d9/d75/classgalaxy_1_1map_1_1World.html',1,'galaxy::map::World'],['../d3/d38/classgalaxy_1_1World.html',1,'galaxy::World'],['../d9/d75/classgalaxy_1_1map_1_1World.html#a37a350b5e921a8c156eae3381431258a',1,'galaxy::map::World::World()'],['../d9/d75/classgalaxy_1_1map_1_1World.html#ab698df4d3ba5206247a141566e5a25e9',1,'galaxy::map::World::World(const std::string &amp;file)'],['../d3/d38/classgalaxy_1_1World.html#a701b5f0dea0ac96ac015d13e5154a424',1,'galaxy::World::World() noexcept'],['../d3/d38/classgalaxy_1_1World.html#a684a56395954f9ec596a7b2836842547',1,'galaxy::World::World(World &amp;&amp;)'],['../d3/d38/classgalaxy_1_1World.html#ae6a1b3d49ea94da595e28baf39b91c38',1,'galaxy::World::World(const World &amp;)=delete']]],
-  ['world_2ecpp_26',['World.cpp',['../de/de8/map_2World_8cpp.html',1,'(Global Namespace)'],['../df/d54/scene_2World_8cpp.html',1,'(Global Namespace)']]],
-  ['world_2ehpp_27',['World.hpp',['../de/d66/map_2World_8hpp.html',1,'(Global Namespace)'],['../d1/d68/scene_2World_8hpp.html',1,'(Global Namespace)']]],
-  ['write_28',['write',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a6cbcf8ba11e8e51be045c168e802a90f',1,'galaxy::VirtualFileSystem::write()'],['../d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e',1,'galaxy::fileutils::write()']]],
-  ['write_5fbinary_29',['write_binary',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a47bcceba1a6260628db6e3821caec273',1,'galaxy::VirtualFileSystem']]],
-  ['write_5fjson_30',['write_json',['../d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78',1,'galaxy::fileutils']]],
-  ['write_5fraw_31',['write_raw',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1',1,'galaxy::VirtualFileSystem']]]
+  ['write_25',['write',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a6cbcf8ba11e8e51be045c168e802a90f',1,'galaxy::VirtualFileSystem::write()'],['../d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e',1,'galaxy::fileutils::write()']]],
+  ['write_5fbinary_26',['write_binary',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a47bcceba1a6260628db6e3821caec273',1,'galaxy::VirtualFileSystem']]],
+  ['write_5fjson_27',['write_json',['../d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78',1,'galaxy::fileutils']]],
+  ['write_5fraw_28',['write_raw',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1',1,'galaxy::VirtualFileSystem']]]
 ];

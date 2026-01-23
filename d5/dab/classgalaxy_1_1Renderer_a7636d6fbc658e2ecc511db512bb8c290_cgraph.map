@@ -1,5 +1,5 @@
 <map id="galaxy::Renderer::end_pass" name="galaxy::Renderer::end_pass">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,205,207,230"/>
+<area shape="rect" id="Node000001" title="Renders everything configured in this pass." alt="" coords="5,205,207,230"/>
 <area shape="rect" id="Node000002" href="$dd/d83/classgalaxy_1_1ShaderBuffer.html#a36188203e96a164def03aae643d96add" title="Bind buffer." alt="" coords="271,5,428,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,203,167,134,207,92,253,55,263,49,266,54,256,60,211,96,171,137,118,206"/>
 <area shape="rect" id="Node000003" href="$d5/dd2/classgalaxy_1_1VertexBatch.html#a235694ff23a07ce410186a938d541991" title="Bind this batchs vertex array object." alt="" coords="273,69,425,109"/>

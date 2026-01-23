@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nk_5fglfw_5fgl4_5fimplementation_0',['NK_GLFW_GL4_IMPLEMENTATION',['../d8/d99/NuklearUI_8cpp.html#a5d25e9845b21d43de3fe644c6b25913b',1,'NuklearUI.cpp']]]
+  ['miniz_5fheader_5ffile_5fonly_0',['MINIZ_HEADER_FILE_ONLY',['../db/dba/ZLib_8hpp.html#aa0b5c57a0e5841814131917c6093f0e6',1,'ZLib.hpp']]]
 ];

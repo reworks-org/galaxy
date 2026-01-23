@@ -1,5 +1,7 @@
 <map id="galaxy::Renderer::Renderer" name="galaxy::Renderer::Renderer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,204,38"/>
-<area shape="rect" id="Node000002" href="$dd/d83/classgalaxy_1_1ShaderBuffer.html#abf53615b0ba8e7060586937400b9a97b" title="Set vertex shader binding point." alt="" coords="252,5,409,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,23,238,23,238,28,205,28"/>
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,45,204,70"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a6d790863e0c697622f98c201ec58e4b6" title="Max quads to render at once." alt="" coords="252,5,415,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,42,238,36,239,41,196,47"/>
+<area shape="rect" id="Node000003" href="$dd/d83/classgalaxy_1_1ShaderBuffer.html#abf53615b0ba8e7060586937400b9a97b" title="Set vertex shader binding point." alt="" coords="255,69,412,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,67,241,74,241,79,196,73"/>
 </map>

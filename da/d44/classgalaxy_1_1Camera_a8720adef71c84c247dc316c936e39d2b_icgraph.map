@@ -6,7 +6,7 @@
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="1223,129,928,129,928,123,1223,123"/>
 <area shape="rect" id="Node000009" href="$da/d44/classgalaxy_1_1Camera.html#a7924817857b19a30b3b578d4ca6b3611" title="Retrieve internal transformation matrix." alt="" coords="1018,163,1171,203"/>
 <area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="1272,144,1172,168,1171,163,1270,139"/>
-<area shape="rect" id="Node000003" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title=" " alt="" coords="751,5,952,31"/>
+<area shape="rect" id="Node000003" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title="Renders everything configured in this pass." alt="" coords="751,5,952,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1019,56,912,33,914,28,1020,50"/>
 <area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,78,703,118"/>
 <area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="986,78,703,96,703,91,986,73"/>

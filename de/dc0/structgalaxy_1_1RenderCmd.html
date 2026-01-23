@@ -137,13 +137,13 @@ $(function(){initNavTree('de/dc0/structgalaxy_1_1RenderCmd.html','../../'); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9d219758fbc69fc002411b991a154406" id="r_a9d219758fbc69fc002411b991a154406"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3a">GLRenderMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d219758fbc69fc002411b991a154406">type</a></td></tr>
+<tr class="memitem:a9d219758fbc69fc002411b991a154406" id="r_a9d219758fbc69fc002411b991a154406"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3a">GLRenderMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d219758fbc69fc002411b991a154406">type</a> = <a class="el" href="../../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aa696b031073e74bf2cb98e5ef201d4aa3">GLRenderMode::UNKNOWN</a></td></tr>
 <tr class="memdesc:a9d219758fbc69fc002411b991a154406"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL rendering mode/type. Required.  <br /></td></tr>
 <tr class="separator:a9d219758fbc69fc002411b991a154406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2095b6795e16ed93e3e03f54dedaff60" id="r_a2095b6795e16ed93e3e03f54dedaff60"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2095b6795e16ed93e3e03f54dedaff60">vertices</a></td></tr>
 <tr class="memdesc:a2095b6795e16ed93e3e03f54dedaff60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertices if type is quad for batch rendering.  <br /></td></tr>
 <tr class="separator:a2095b6795e16ed93e3e03f54dedaff60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a412c9534c99df485add27ea4d53b3c09" id="r_a412c9534c99df485add27ea4d53b3c09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d02/classgalaxy_1_1VertexArray.html">VertexArray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a412c9534c99df485add27ea4d53b3c09">vao</a></td></tr>
+<tr class="memitem:a412c9534c99df485add27ea4d53b3c09" id="r_a412c9534c99df485add27ea4d53b3c09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d02/classgalaxy_1_1VertexArray.html">VertexArray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a412c9534c99df485add27ea4d53b3c09">vao</a> = nullptr</td></tr>
 <tr class="memdesc:a412c9534c99df485add27ea4d53b3c09"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../db/d8c/structgalaxy_1_1Vertex.html" title="Represents a single vertex point.">Vertex</a> array object if type is not quad. Not used by batch renderer.  <br /></td></tr>
 <tr class="separator:a412c9534c99df485add27ea4d53b3c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e897aac307455a4391bd35c3b053e55" id="r_a3e897aac307455a4391bd35c3b053e55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d03/structgalaxy_1_1RenderData.html">RenderData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e897aac307455a4391bd35c3b053e55">data</a></td></tr>
@@ -162,7 +162,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3a">GLRenderMode</a> galaxy::RenderCmd::type</td>
+          <td class="memname"><a class="el" href="../../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3a">GLRenderMode</a> galaxy::RenderCmd::type = <a class="el" href="../../d0/d46/namespacegalaxy.html#a560252f0bdd1ddfe4182e04b997e6e3aa696b031073e74bf2cb98e5ef201d4aa3">GLRenderMode::UNKNOWN</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,7 +198,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d02/classgalaxy_1_1VertexArray.html">VertexArray</a>* galaxy::RenderCmd::vao</td>
+          <td class="memname"><a class="el" href="../../db/d02/classgalaxy_1_1VertexArray.html">VertexArray</a>* galaxy::RenderCmd::vao = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -236,7 +236,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html">RenderCmd</a></li>
-    <li class="footer">Generated on Wed Jan 7 2026 11:41:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Jan 23 2026 10:04:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

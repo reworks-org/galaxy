@@ -1,7 +1,7 @@
 <map id="galaxy::StateMachine&lt; Stored &gt;" name="galaxy::StateMachine&lt; Stored &gt;">
-<area shape="rect" id="Node000001" title="A finite state machine." alt="" coords="5,5,160,425"/>
-<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="5,488,160,908"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,439,85,488,80,488,80,439"/>
-<area shape="rect" id="Node000003" href="$d3/d38/classgalaxy_1_1World.html" title="Scene, Entity and global game management." alt="" coords="30,957,135,1183"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,922,85,957,80,957,80,922"/>
+<area shape="rect" id="Node000001" title="A finite state machine." alt="" coords="9,5,163,405"/>
+<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="9,468,163,868"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,419,89,468,83,468,83,419"/>
+<area shape="rect" id="Node000003" href="$d1/dbc/classgalaxy_1_1SceneManager.html" title="State machine for managing scenes." alt="" coords="5,917,167,1163"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,882,89,917,83,917,83,882"/>
 </map>

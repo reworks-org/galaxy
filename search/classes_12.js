@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['window_0',['Window',['../d0/d84/classgalaxy_1_1Window.html',1,'galaxy']]],
-  ['windowbindable_1',['WindowBindable',['../d3/d81/classgalaxy_1_1WindowBindable.html',1,'galaxy']]],
-  ['windowclosed_2',['WindowClosed',['../d9/ddc/structgalaxy_1_1WindowClosed.html',1,'galaxy']]],
-  ['windowresized_3',['WindowResized',['../d9/d35/structgalaxy_1_1WindowResized.html',1,'galaxy']]],
-  ['world_4',['World',['../d9/d75/classgalaxy_1_1map_1_1World.html',1,'galaxy::map::World'],['../d3/d38/classgalaxy_1_1World.html',1,'galaxy::World']]]
+  ['zlib_0',['ZLib',['../df/d85/classgalaxy_1_1ZLib.html',1,'galaxy']]]
 ];

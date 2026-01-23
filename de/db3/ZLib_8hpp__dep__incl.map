@@ -1,9 +1,7 @@
 <map id="galaxy/src/galaxy/math/ZLib.hpp" name="galaxy/src/galaxy/math/ZLib.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="202,5,377,45"/>
-<area shape="rect" id="Node000002" href="$d7/de1/Prefab_8cpp.html" title=" " alt="" coords="5,93,184,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,53,138,96,136,91,233,48"/>
-<area shape="rect" id="Node000003" href="$df/d48/LuaMath_8cpp.html" title=" " alt="" coords="209,93,370,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="292,59,292,93,287,93,287,59"/>
-<area shape="rect" id="Node000004" href="$d1/d16/ZLib_8cpp.html" title=" " alt="" coords="394,93,569,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="345,49,440,91,438,96,343,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="95,5,269,45"/>
+<area shape="rect" id="Node000002" href="$df/d48/LuaMath_8cpp.html" title=" " alt="" coords="5,93,167,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,57,109,95,105,91,149,53"/>
+<area shape="rect" id="Node000003" href="$d1/d16/ZLib_8cpp.html" title=" " alt="" coords="191,93,365,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,53,259,91,255,95,212,57"/>
 </map>

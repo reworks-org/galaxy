@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1191,44,1157,39,1158,34,1192,39"/>
 <area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,37,703,77"/>
 <area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="1192,59,1157,60,703,60,703,55,1157,55,1192,54"/>
-<area shape="rect" id="Node000003" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title=" " alt="" coords="751,17,952,42"/>
+<area shape="rect" id="Node000003" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title="Renders everything configured in this pass." alt="" coords="751,17,952,42"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="986,30,952,30,952,25,986,24"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="739,46,704,51,703,46,738,41"/>
 <area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,45,515,70"/>

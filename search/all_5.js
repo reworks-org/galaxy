@@ -2,7 +2,7 @@ var searchData=
 [
   ['fatal_0',['FATAL',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc',1,'galaxy']]],
   ['fbo_1',['fbo',['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#aec48065727a4305b9dd2358f6cc4863a',1,'galaxy::graphics::RenderTexture']]],
-  ['file_2',['file',['../d6/d64/structgalaxy_1_1LogMessage.html#a74340e05696b636596606a61bbba397b',1,'galaxy::LogMessage::file'],['../d3/df0/classgalaxy_1_1components_1_1GUI.html#a2b758d3afc26f45d89871a1380c71641',1,'galaxy::components::GUI::file()'],['../db/d40/classgalaxy_1_1components_1_1Script.html#a5f4f51c047acd27e944530f2e579834b',1,'galaxy::components::Script::file()'],['../d9/d75/classgalaxy_1_1map_1_1World.html#adefa0544d6e022540e07f41525470ec1',1,'galaxy::map::World::file()']]],
+  ['file_2',['file',['../d6/d64/structgalaxy_1_1LogMessage.html#a74340e05696b636596606a61bbba397b',1,'galaxy::LogMessage']]],
   ['fileerror_3',['FileError',['../d5/d13/classgalaxy_1_1FileError.html',1,'galaxy::FileError'],['../d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3',1,'galaxy::FileError::FileError() noexcept'],['../d5/d13/classgalaxy_1_1FileError.html#a62fccb23c9ea4d2005bd04493b7a548e',1,'galaxy::FileError::FileError(const std::string &amp;mode, const std::string &amp;reason, const std::filesystem::path &amp;path) noexcept']]],
   ['fileerror_2ecpp_4',['FileError.cpp',['../d0/d29/FileError_8cpp.html',1,'']]],
   ['fileerror_2ehpp_5',['FileError.hpp',['../d8/db6/FileError_8hpp.html',1,'']]],
@@ -51,8 +51,6 @@ var searchData=
   ['framebuffer_2ehpp_48',['Framebuffer.hpp',['../d9/d2c/Framebuffer_8hpp.html',1,'']]],
   ['frames_49',['frames',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a6d04ec8e90e00c023c7823b992dbc39b',1,'galaxy::graphics::Animation']]],
   ['frect_50',['fRect',['../d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730',1,'galaxy']]],
-  ['from_5fentity_51',['from_entity',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aec2ecec1eae86529cac56632fc8b7056',1,'galaxy::core::Prefab']]],
-  ['from_5fjson_52',['from_json',['../d6/d40/classgalaxy_1_1core_1_1Prefab.html#aa2c2fd598aff19fa9b6a9ee965869d66',1,'galaxy::core::Prefab']]],
-  ['fullscreen_53',['fullscreen',['../df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261',1,'galaxy::Settings']]],
-  ['function_54',['Function',['../d4/d22/classgalaxy_1_1Stopwatch.html#acc875745b0bceebce4b83a2852c8c3e1',1,'galaxy::Stopwatch::Function'],['../d0/d7b/classgalaxy_1_1Timer.html#a9587914fe465b60fc5b54666b8a4951a',1,'galaxy::Timer::Function']]]
+  ['fullscreen_51',['fullscreen',['../df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261',1,'galaxy::Settings']]],
+  ['function_52',['Function',['../d4/d22/classgalaxy_1_1Stopwatch.html#acc875745b0bceebce4b83a2852c8c3e1',1,'galaxy::Stopwatch::Function'],['../d0/d7b/classgalaxy_1_1Timer.html#a9587914fe465b60fc5b54666b8a4951a',1,'galaxy::Timer::Function']]]
 ];

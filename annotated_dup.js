@@ -1,30 +1,6 @@
 var annotated_dup =
 [
     [ "galaxy", "d0/d46/namespacegalaxy.html", [
-      [ "components", "d3/db5/namespacegalaxy_1_1components.html", [
-        [ "Animated", "da/d18/classgalaxy_1_1components_1_1Animated.html", "da/d18/classgalaxy_1_1components_1_1Animated" ],
-        [ "Circle", "da/d0d/classgalaxy_1_1components_1_1Circle.html", "da/d0d/classgalaxy_1_1components_1_1Circle" ],
-        [ "Ellipse", "d9/ddf/classgalaxy_1_1components_1_1Ellipse.html", "d9/ddf/classgalaxy_1_1components_1_1Ellipse" ],
-        [ "GUI", "d3/df0/classgalaxy_1_1components_1_1GUI.html", "d3/df0/classgalaxy_1_1components_1_1GUI" ],
-        [ "Point", "d4/d0e/classgalaxy_1_1components_1_1Point.html", "d4/d0e/classgalaxy_1_1components_1_1Point" ],
-        [ "Polygon", "d0/dbe/classgalaxy_1_1components_1_1Polygon.html", "d0/dbe/classgalaxy_1_1components_1_1Polygon" ],
-        [ "Polyline", "dd/d2d/classgalaxy_1_1components_1_1Polyline.html", "dd/d2d/classgalaxy_1_1components_1_1Polyline" ],
-        [ "RigidBody", "df/dfe/classgalaxy_1_1components_1_1RigidBody.html", "df/dfe/classgalaxy_1_1components_1_1RigidBody" ],
-        [ "Script", "db/d40/classgalaxy_1_1components_1_1Script.html", "db/d40/classgalaxy_1_1components_1_1Script" ],
-        [ "Sprite", "d4/d86/classgalaxy_1_1components_1_1Sprite.html", "d4/d86/classgalaxy_1_1components_1_1Sprite" ],
-        [ "Tag", "d8/d96/classgalaxy_1_1components_1_1Tag.html", "d8/d96/classgalaxy_1_1components_1_1Tag" ],
-        [ "Text", "d2/d81/classgalaxy_1_1components_1_1Text.html", "d2/d81/classgalaxy_1_1components_1_1Text" ],
-        [ "TileMap", "d2/db4/classgalaxy_1_1components_1_1TileMap.html", "d2/db4/classgalaxy_1_1components_1_1TileMap" ],
-        [ "Transform", "d8/d8a/classgalaxy_1_1components_1_1Transform.html", "d8/d8a/classgalaxy_1_1components_1_1Transform" ]
-      ] ],
-      [ "core", "d1/dcb/namespacegalaxy_1_1core.html", [
-        [ "Loader", "dd/ddf/classgalaxy_1_1core_1_1Loader.html", "dd/ddf/classgalaxy_1_1core_1_1Loader" ],
-        [ "Prefab", "d6/d40/classgalaxy_1_1core_1_1Prefab.html", "d6/d40/classgalaxy_1_1core_1_1Prefab" ]
-      ] ],
-      [ "flags", "df/d31/namespacegalaxy_1_1flags.html", [
-        [ "Disabled", "d3/d72/classgalaxy_1_1flags_1_1Disabled.html", "d3/d72/classgalaxy_1_1flags_1_1Disabled" ],
-        [ "NotSerializable", "d8/dc1/classgalaxy_1_1flags_1_1NotSerializable.html", "d8/dc1/classgalaxy_1_1flags_1_1NotSerializable" ]
-      ] ],
       [ "graphics", "db/dab/namespacegalaxy_1_1graphics.html", [
         [ "Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", "da/d19/classgalaxy_1_1graphics_1_1Animation" ],
         [ "ChromaticAberration", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration.html", "dd/d08/classgalaxy_1_1graphics_1_1ChromaticAberration" ],
@@ -49,10 +25,6 @@ var annotated_dup =
         [ "SMAA", "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html", "d7/d53/classgalaxy_1_1graphics_1_1SMAA" ],
         [ "Text", "db/dcc/classgalaxy_1_1graphics_1_1Text.html", "db/dcc/classgalaxy_1_1graphics_1_1Text" ]
       ] ],
-      [ "map", "d6/d4d/namespacegalaxy_1_1map.html", [
-        [ "Map", "df/d2b/classgalaxy_1_1map_1_1Map.html", "df/d2b/classgalaxy_1_1map_1_1Map" ],
-        [ "World", "d9/d75/classgalaxy_1_1map_1_1World.html", "d9/d75/classgalaxy_1_1map_1_1World" ]
-      ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "fnv_1a_params", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
         [ "fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
@@ -76,20 +48,17 @@ var annotated_dup =
         [ "RenderSystem", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html", "d9/d0d/classgalaxy_1_1systems_1_1RenderSystem" ],
         [ "ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem" ]
       ] ],
-      [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", [
-        [ "NuklearUI", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI.html", "d4/d4f/classgalaxy_1_1ui_1_1NuklearUI" ]
-      ] ],
       [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
       [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
       [ "Camera", "da/d44/classgalaxy_1_1Camera.html", "da/d44/classgalaxy_1_1Camera" ],
       [ "Colour", "d8/d74/classgalaxy_1_1Colour.html", "d8/d74/classgalaxy_1_1Colour" ],
       [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
       [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
-      [ "ContentScale", "dd/d27/structgalaxy_1_1ContentScale.html", "dd/d27/structgalaxy_1_1ContentScale" ],
+      [ "EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", "d9/d4c/classgalaxy_1_1EntityManager" ],
+      [ "Event", "df/d64/classgalaxy_1_1Event.html", "df/d64/classgalaxy_1_1Event" ],
       [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
       [ "FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", "d7/d7d/classgalaxy_1_1FileSink" ],
       [ "GainedFocus", "d4/db4/structgalaxy_1_1GainedFocus.html", null ],
-      [ "HandleableEvent", "d6/d1e/structgalaxy_1_1HandleableEvent.html", "d6/d1e/structgalaxy_1_1HandleableEvent" ],
       [ "Keyboard", "d8/db2/classgalaxy_1_1Keyboard.html", "d8/db2/classgalaxy_1_1Keyboard" ],
       [ "KeyInput", "d6/d71/structgalaxy_1_1KeyInput.html", "d6/d71/structgalaxy_1_1KeyInput" ],
       [ "KeyPressed", "d0/d11/structgalaxy_1_1KeyPressed.html", "d0/d11/structgalaxy_1_1KeyPressed" ],
@@ -114,6 +83,7 @@ var annotated_dup =
       [ "RenderPipeline", "d1/dd6/structgalaxy_1_1RenderPipeline.html", "d1/dd6/structgalaxy_1_1RenderPipeline" ],
       [ "Sampler", "d6/df6/classgalaxy_1_1Sampler.html", "d6/df6/classgalaxy_1_1Sampler" ],
       [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
+      [ "SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", "d1/dbc/classgalaxy_1_1SceneManager" ],
       [ "Script", "db/da2/classgalaxy_1_1Script.html", "db/da2/classgalaxy_1_1Script" ],
       [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
       [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html", "d1/d5e/classgalaxy_1_1Shader" ],
@@ -125,6 +95,7 @@ var annotated_dup =
       [ "Subprocess", "db/d1d/classgalaxy_1_1Subprocess.html", "db/d1d/classgalaxy_1_1Subprocess" ],
       [ "System", "dc/dd4/classgalaxy_1_1System.html", "dc/dd4/classgalaxy_1_1System" ],
       [ "SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", "d3/dac/classgalaxy_1_1SystemFactory" ],
+      [ "SystemManager", "d5/d09/classgalaxy_1_1SystemManager.html", "d5/d09/classgalaxy_1_1SystemManager" ],
       [ "Texture", "df/db8/classgalaxy_1_1Texture.html", "df/db8/classgalaxy_1_1Texture" ],
       [ "TextureView", "da/d46/classgalaxy_1_1TextureView.html", "da/d46/classgalaxy_1_1TextureView" ],
       [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
@@ -138,7 +109,6 @@ var annotated_dup =
       [ "WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", "d3/d81/classgalaxy_1_1WindowBindable" ],
       [ "WindowClosed", "d9/ddc/structgalaxy_1_1WindowClosed.html", null ],
       [ "WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", "d9/d35/structgalaxy_1_1WindowResized" ],
-      [ "World", "d3/d38/classgalaxy_1_1World.html", "d3/d38/classgalaxy_1_1World" ],
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [

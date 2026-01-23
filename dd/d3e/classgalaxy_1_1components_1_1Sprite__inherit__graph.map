@@ -1,5 +1,0 @@
-<map id="galaxy::components::Sprite" name="galaxy::components::Sprite">
-<area shape="rect" id="Node000001" title="A sprite is a texture with vertex data." alt="" coords="5,119,163,579"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="29,5,139,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,84,87,118,81,118,81,84"/>
-</map>

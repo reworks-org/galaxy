@@ -139,9 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af0ca10126718f592dc977387cee13ace" id="r_af0ca10126718f592dc977387cee13ace"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0ca10126718f592dc977387cee13ace">~System</a> () noexcept</td></tr>
 <tr class="memdesc:af0ca10126718f592dc977387cee13ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:af0ca10126718f592dc977387cee13ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab196d7d2b2c2d134013068522a743499" id="r_ab196d7d2b2c2d134013068522a743499"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab196d7d2b2c2d134013068522a743499">update</a> (<a class="el" href="../../df/dbe/classgalaxy_1_1Registry.html">Registry</a> &amp;registry)=0</td></tr>
-<tr class="memdesc:ab196d7d2b2c2d134013068522a743499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract implementation for updating the system. Use the manager to retreive your components.  <br /></td></tr>
-<tr class="separator:ab196d7d2b2c2d134013068522a743499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef9165cf3e8d4daa54d0496f81ed2caf" id="r_aef9165cf3e8d4daa54d0496f81ed2caf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef9165cf3e8d4daa54d0496f81ed2caf">update</a> (<a class="el" href="../../d9/d4c/classgalaxy_1_1EntityManager.html">EntityManager</a> &amp;em, <a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> *scene)=0</td></tr>
+<tr class="memdesc:aef9165cf3e8d4daa54d0496f81ed2caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract implementation for updating the system. Use the manager to retreive your components.  <br /></td></tr>
+<tr class="separator:aef9165cf3e8d4daa54d0496f81ed2caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700a5ba829f56f56be77657b74897c64" id="r_a700a5ba829f56f56be77657b74897c64"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a700a5ba829f56f56be77657b74897c64">id</a> () const noexcept</td></tr>
 <tr class="memdesc:a700a5ba829f56f56be77657b74897c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get identifier.  <br /></td></tr>
 <tr class="separator:a700a5ba829f56f56be77657b74897c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,7 +173,7 @@ Private Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a system that operates on sets of components. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d25/System_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d25/System_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2fbff62853b0abfb3c1fe5d7b95b58f4" name="a2fbff62853b0abfb3c1fe5d7b95b58f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fbff62853b0abfb3c1fe5d7b95b58f4">&#9670;&#160;</a></span>System() <span class="overload">[1/4]</span></h2>
@@ -352,8 +352,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab196d7d2b2c2d134013068522a743499" name="ab196d7d2b2c2d134013068522a743499"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab196d7d2b2c2d134013068522a743499">&#9670;&#160;</a></span>update()</h2>
+<a id="aef9165cf3e8d4daa54d0496f81ed2caf" name="aef9165cf3e8d4daa54d0496f81ed2caf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9165cf3e8d4daa54d0496f81ed2caf">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,8 +364,12 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void galaxy::System::update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/dbe/classgalaxy_1_1Registry.html">Registry</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>registry</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d9/d4c/classgalaxy_1_1EntityManager.html">EntityManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>em</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html">Scene</a> *</td>          <td class="paramname"><span class="paramname"><em>scene</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -378,7 +382,8 @@ Private Member Functions</h2></td></tr>
 <p>Abstract implementation for updating the system. Use the manager to retreive your components. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">registry</td><td>Entity registry to process. </td></tr>
+    <tr><td class="paramname">em</td><td>Entitys to process. </td></tr>
+    <tr><td class="paramname">scene</td><td><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> this system belongs to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -465,7 +470,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Debug id. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d25/System_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d25/System_8hpp_source.html#l00084">84</a> of file <a class="el" href="../../d4/d25/System_8hpp_source.html">System.hpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +484,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dc/dd4/classgalaxy_1_1System.html">System</a></li>
-    <li class="footer">Generated on Wed Jan 7 2026 11:41:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Jan 23 2026 10:04:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

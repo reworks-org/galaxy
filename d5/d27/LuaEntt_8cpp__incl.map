@@ -1,13 +1,15 @@
 <map id="galaxy/src/galaxy/lua/injects/LuaEntt.cpp" name="galaxy/src/galaxy/lua/injects/LuaEntt.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="401,5,562,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,179,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,45,163,93,161,88,400,40"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="203,93,357,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="434,48,323,91,321,86,432,43"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="382,93,581,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="484,46,484,79,479,79,479,46"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="605,93,779,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="533,43,649,86,647,91,531,48"/>
-<area shape="rect" id="Node000006" href="$de/d92/Lua_8hpp.html" title=" " alt="" coords="803,93,888,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="563,41,790,90,789,95,562,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="385,5,546,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,152,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="385,47,166,95,165,90,384,42"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="176,101,368,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="424,48,311,98,309,93,422,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="392,93,539,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="468,46,468,79,463,79,463,46"/>
+<area shape="rect" id="Node000005" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="563,101,771,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="511,43,628,93,626,98,508,48"/>
+<area shape="rect" id="Node000007" href="$de/d92/Lua_8hpp.html" title=" " alt="" coords="795,101,880,126"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="547,38,659,61,783,91,794,94,792,99,782,96,658,66,546,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="587,181,746,207"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="669,126,669,167,664,167,664,126"/>
 </map>

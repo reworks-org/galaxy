@@ -15,7 +15,6 @@ var classgalaxy_1_1StateMachine =
     [ "pop", "da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443", null ],
     [ "pop_all", "da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616", null ],
     [ "top", "da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f", null ],
-    [ "update", "da/d52/classgalaxy_1_1StateMachine.html#a393024d5668e907bc95e6a942bb65919", null ],
     [ "stack", "da/d52/classgalaxy_1_1StateMachine.html#afacc93b18c0f29fef01a0d538d82e8a9", null ],
     [ "storage", "da/d52/classgalaxy_1_1StateMachine.html#a0fa4267551f156f32e5f84a7ca946222", null ],
     [ "operator=", "da/d52/classgalaxy_1_1StateMachine.html#ae61cd15f871879ee34e9e990035da5ae", null ],

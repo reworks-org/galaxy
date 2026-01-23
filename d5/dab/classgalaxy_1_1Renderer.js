@@ -13,5 +13,6 @@ var classgalaxy_1_1Renderer =
     [ "m_pipeline", "d5/dab/classgalaxy_1_1Renderer.html#ae85ca8548a17e858ad359dd78a798a54", null ],
     [ "m_uniform_storage", "d5/dab/classgalaxy_1_1Renderer.html#a7d746fc4d02f930baade5c9beca1dd52", null ],
     [ "m_camera_storage", "d5/dab/classgalaxy_1_1Renderer.html#a0a6bb29f093996cd95bd9ea9ed36e9d3", null ],
-    [ "m_uniform_data", "d5/dab/classgalaxy_1_1Renderer.html#a4551d0bc5acd1f41fd0be71e43b46737", null ]
+    [ "m_uniform_data", "d5/dab/classgalaxy_1_1Renderer.html#a4551d0bc5acd1f41fd0be71e43b46737", null ],
+    [ "m_uniform_data_index", "d5/dab/classgalaxy_1_1Renderer.html#a0bf4039a61c570d25e24de67662f20e0", null ]
 ];

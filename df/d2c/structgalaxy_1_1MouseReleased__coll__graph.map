@@ -1,5 +1,5 @@
 <map id="galaxy::MouseReleased" name="galaxy::MouseReleased">
-<area shape="rect" id="Node000001" title="Contains data relating to a mouse released event." alt="" coords="9,119,177,244"/>
-<area shape="rect" id="Node000002" href="$d6/d1e/structgalaxy_1_1HandleableEvent.html" title="This allows an event to be marked as being &quot;handled&quot; so events lower in the stack can no longer consu..." alt="" coords="5,5,181,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,85,96,119,91,119,91,85"/>
+<area shape="rect" id="Node000001" title="Contains data relating to a mouse released event." alt="" coords="5,259,173,384"/>
+<area shape="rect" id="Node000002" href="$df/d64/classgalaxy_1_1Event.html" title="Base type of all events." alt="" coords="37,5,142,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,225,92,258,87,258,87,225"/>
 </map>

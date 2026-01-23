@@ -1,5 +1,5 @@
 <map id="galaxy::Renderer::push_cmd" name="galaxy::Renderer::push_cmd">
-<area shape="rect" id="Node000001" title="Try not to push too many non&#45;quads, only quads are batched." alt="" coords="751,13,957,38"/>
+<area shape="rect" id="Node000001" title="Push a renderable object." alt="" coords="751,13,957,38"/>
 <area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,5,703,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="737,28,703,28,703,23,737,23"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>

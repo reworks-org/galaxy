@@ -1,5 +1,6 @@
 var structgalaxy_1_1MouseWheel =
 [
+    [ "MouseWheel", "da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d", null ],
     [ "m_amount_x", "da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67", null ],
     [ "m_amount_y", "da/d9e/structgalaxy_1_1MouseWheel.html#a15455392efcbd713db28e46efa951b18", null ],
     [ "m_direction", "da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5", null ],

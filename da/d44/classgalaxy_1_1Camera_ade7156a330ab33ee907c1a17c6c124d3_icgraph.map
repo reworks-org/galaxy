@@ -1,6 +1,6 @@
 <map id="galaxy::Camera::get_data" name="galaxy::Camera::get_data">
 <area shape="rect" id="Node000001" title="Get camera view and proj." alt="" coords="1000,31,1189,56"/>
-<area shape="rect" id="Node000002" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title=" " alt="" coords="751,5,952,31"/>
+<area shape="rect" id="Node000002" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title="Renders everything configured in this pass." alt="" coords="751,5,952,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="986,35,952,31,953,26,987,29"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,23,703,63"/>
 <area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="986,46,703,46,703,41,986,41"/>

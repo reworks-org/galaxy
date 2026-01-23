@@ -10,5 +10,6 @@ var classgalaxy_1_1Log =
     [ "operator=", "dd/dd3/classgalaxy_1_1Log.html#a3aac9009a598bc0775cebf3bfdc0e7f7", null ],
     [ "operator=", "dd/dd3/classgalaxy_1_1Log.html#a29c0aff67aac82d1e5609fbf0d2934cc", null ],
     [ "m_min_level", "dd/dd3/classgalaxy_1_1Log.html#a5bff49425d37440ad23185ef9726b1cf", null ],
-    [ "m_sinks", "dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe", null ]
+    [ "m_sinks", "dd/dd3/classgalaxy_1_1Log.html#a4e839c49a101c2a78817342b1b3878fe", null ],
+    [ "m_mutex", "dd/dd3/classgalaxy_1_1Log.html#a26791507bfba919a360738752d4751f9", null ]
 ];

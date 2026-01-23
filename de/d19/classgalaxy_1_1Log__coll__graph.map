@@ -1,7 +1,7 @@
 <map id="galaxy::Log" name="galaxy::Log">
-<area shape="rect" id="Node000001" title="Sink based logging system." alt="" coords="153,717,283,943"/>
+<area shape="rect" id="Node000001" title="Sink based logging system." alt="" coords="229,717,359,943"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="133,575,303,655"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,655,221,701,215,701,215,655"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,654,251,701,246,703,229,656"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="54,432,225,512"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,511,191,559,186,562,159,514"/>
 <area shape="rect" id="Node000004" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,133,111,319"/>
@@ -13,4 +13,6 @@
 <area shape="rect" id="Node000007" title=" " alt="" coords="260,343,381,408"/>
 <area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="279,66,289,94,304,156,314,219,323,326,317,327,309,219,299,157,283,95,274,68"/>
 <area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="313,422,295,485,267,552,252,576,248,573,262,549,290,483,308,420"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="328,582,412,647"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="361,648,342,702,337,701,356,646"/>
 </map>

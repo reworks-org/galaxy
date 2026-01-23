@@ -1,9 +1,7 @@
 <map id="galaxy/src/galaxy/input/Input.hpp" name="galaxy/src/galaxy/input/Input.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="183,5,357,45"/>
-<area shape="rect" id="Node000002" href="$d2/dd0/fs_2Loader_8cpp.html" title=" " alt="" coords="5,93,159,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,53,124,96,122,91,215,49"/>
-<area shape="rect" id="Node000003" href="$df/de8/Input_8cpp.html" title=" " alt="" coords="183,93,357,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,59,273,93,267,93,267,59"/>
-<area shape="rect" id="Node000004" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="381,93,543,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="326,49,421,91,419,96,324,53"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,276,45"/>
+<area shape="rect" id="Node000002" href="$df/de8/Input_8cpp.html" title=" " alt="" coords="5,93,180,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,57,116,95,112,91,155,53"/>
+<area shape="rect" id="Node000003" href="$d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="204,93,365,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,53,265,91,262,95,219,57"/>
 </map>

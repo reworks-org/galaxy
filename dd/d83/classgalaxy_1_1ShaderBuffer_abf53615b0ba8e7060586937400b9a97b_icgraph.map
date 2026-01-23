@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Set vertex shader binding point." alt="" coords="809,35,967,75"/>
 <area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="592,5,732,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="795,45,732,37,732,32,796,40"/>
-<area shape="rect" id="Node000006" href="$d5/dab/classgalaxy_1_1Renderer.html#ab223cf01bd4d19212913194cc7f56f95" title=" " alt="" coords="563,70,761,95"/>
+<area shape="rect" id="Node000006" href="$d5/dab/classgalaxy_1_1Renderer.html#ab223cf01bd4d19212913194cc7f56f95" title="Constructor." alt="" coords="563,70,761,95"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="796,69,762,73,761,68,795,63"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="375,13,515,38"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="578,28,515,28,515,23,578,23"/>

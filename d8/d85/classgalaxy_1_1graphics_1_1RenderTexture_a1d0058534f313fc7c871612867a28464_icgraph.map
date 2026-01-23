@@ -1,19 +1,15 @@
 <map id="galaxy::graphics::RenderTexture::unbind" name="galaxy::graphics::RenderTexture::unbind">
-<area shape="rect" id="Node000001" title="Deactivate context." alt="" coords="881,69,1064,109"/>
-<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="619,37,833,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="867,78,833,74,834,69,868,73"/>
-<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#abbed32e3993a13131ccbe7d723eb6663" title="Update the rendered text." alt="" coords="645,101,807,141"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="868,106,808,113,807,108,867,100"/>
-<area shape="rect" id="Node000004" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="408,5,571,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="635,99,617,92,593,76,569,60,544,48,546,43,572,55,596,71,620,87,637,94"/>
-<area shape="rect" id="Node000007" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a00381c6b6ffc6b51bfbeee6812e39a96" title="Update the rendered text." alt="" coords="408,69,571,109"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="630,111,571,103,571,98,631,106"/>
-<area shape="rect" id="Node000008" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a19a56d5c9e71f7180fcc92206b4cc5da" title="Update the rendered text." alt="" coords="408,133,571,173"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="631,137,571,145,571,140,630,132"/>
-<area shape="rect" id="Node000009" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="408,197,571,237"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="665,149,572,188,542,200,540,195,570,183,663,144"/>
-<area shape="rect" id="Node000005" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#aff96042453b6a02ca721504d524f49ed" title="Deserializes from object." alt="" coords="207,5,360,45"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="394,28,360,28,360,23,394,23"/>
-<area shape="rect" id="Node000006" href="$d2/d81/classgalaxy_1_1components_1_1Text.html#a720eeb90a1b4a635c24d84b7fde80976" title="JSON constructor." alt="" coords="5,5,159,45"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="193,28,159,28,159,23,193,23"/>
+<area shape="rect" id="Node000001" title="Deactivate context." alt="" coords="479,69,661,109"/>
+<area shape="rect" id="Node000002" href="$d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#af201b3dcb03a68ddd634283fe6747edc" title="Unbind to draw to post processor framebuffer." alt="" coords="216,37,431,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="465,78,431,74,431,69,465,73"/>
+<area shape="rect" id="Node000003" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#abbed32e3993a13131ccbe7d723eb6663" title="Update the rendered text." alt="" coords="242,101,405,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="465,106,405,113,404,108,464,100"/>
+<area shape="rect" id="Node000004" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a32502c6569e21f63ce5dab3c2008eec1" title="Creates the rendered text." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="232,99,215,92,190,76,167,60,141,48,144,43,169,55,193,71,217,87,234,94"/>
+<area shape="rect" id="Node000005" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a00381c6b6ffc6b51bfbeee6812e39a96" title="Update the rendered text." alt="" coords="5,69,168,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="228,111,168,103,169,98,228,106"/>
+<area shape="rect" id="Node000006" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#a19a56d5c9e71f7180fcc92206b4cc5da" title="Update the rendered text." alt="" coords="5,133,168,173"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="228,137,169,145,168,140,228,132"/>
+<area shape="rect" id="Node000007" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#aef981b9a25c57fab99486a4ddb2e1f20" title="Update the rendered text." alt="" coords="5,197,168,237"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="263,149,169,188,139,200,137,195,167,183,261,144"/>
 </map>

@@ -40,7 +40,7 @@ var searchData=
   ['s_5fwindow_5fheight_37',['s_window_height',['../df/d23/structgalaxy_1_1Settings.html#a45b7dd5e87bb825664693186df740766',1,'galaxy::Settings']]],
   ['s_5fwindow_5ficon_38',['s_window_icon',['../df/d23/structgalaxy_1_1Settings.html#af1e4c96f5f481560663eccd6212c81b6',1,'galaxy::Settings']]],
   ['s_5fwindow_5fwidth_39',['s_window_width',['../df/d23/structgalaxy_1_1Settings.html#a6d360b7a6e70179ab8982b8ed832945c',1,'galaxy::Settings']]],
-  ['scissor_40',['scissor',['../da/dcd/structgalaxy_1_1RenderPass.html#a0f3f6aaef9e1560668b2d80794b4be67',1,'galaxy::RenderPass']]],
+  ['scissor_40',['scissor',['../da/dcd/structgalaxy_1_1RenderPass.html#aeab0a795cd309243d59e77119942e33d',1,'galaxy::RenderPass']]],
   ['shader_41',['shader',['../d1/dd6/structgalaxy_1_1RenderPipeline.html#ad0ffcea1df75ce2094d6a5ed6404284c',1,'galaxy::RenderPipeline']]],
   ['sharpen_5ffrag_42',['sharpen_frag',['../d2/d44/Sharpen_8cpp.html#a51a8562e7b1ca4ee31eb33bbda648074',1,'Sharpen.cpp']]],
   ['sharpen_5fvert_43',['sharpen_vert',['../d2/d44/Sharpen_8cpp.html#aa4c1b78d973941eab9aca355e8430419',1,'Sharpen.cpp']]],

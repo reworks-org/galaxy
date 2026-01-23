@@ -104,21 +104,19 @@ $(function(){initNavTree('da/dba/WindowBindable_8cpp_source.html','../../'); ini
 <div class="contents">
 <a href="../../da/dba/WindowBindable_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d16/WindowBindable_8hpp.html">WindowBindable.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;entt/locator/locator.hpp&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1">   12</a></span>    <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1">WindowBindable::~WindowBindable</a>() noexcept</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
-</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">   17</a></span>    <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">WindowBindable::WindowBindable</a>() noexcept</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        : m_window {<span class="keyword">nullptr</span>}</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/de3/Window_8hpp.html">galaxy/core/Window.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d16/WindowBindable_8hpp.html">WindowBindable.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">   16</a></span>    <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">WindowBindable::WindowBindable</a>() noexcept</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        : m_window {<span class="keyword">nullptr</span>}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        bind_window();</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
 </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
@@ -163,27 +161,36 @@ $(function(){initNavTree('da/dba/WindowBindable_8cpp_source.html','../../'); ini
 </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#afdbe2148f970481454a863feb8c5530f">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#afdbe2148f970481454a863feb8c5530f">WindowBindable::bind_window</a>(SDL_Window* window) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1">   54</a></span>    <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1">WindowBindable::~WindowBindable</a>() noexcept</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        m_window = window;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
 </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a181df3a8bdb2ea55503edbe129b42533">   59</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a181df3a8bdb2ea55503edbe129b42533">WindowBindable::bind_window</a>() noexcept</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">auto</span>&amp; window = entt::locator&lt;Window&gt;::value();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>     = window.handle();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aWindowBindable_8hpp_html"><div class="ttname"><a href="../../d6/d16/WindowBindable_8hpp.html">WindowBindable.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html">galaxy::WindowBindable</a></div><div class="ttdoc">Binds the mouse to the window.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d16/WindowBindable_8hpp_source.html#l00018">WindowBindable.hpp:19</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a6427593a425c67c511f43e470a93ad74"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">galaxy::WindowBindable::WindowBindable</a></div><div class="ttdeci">WindowBindable() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">WindowBindable.cpp:17</a></div></div>
+<div class="ttc" id="aWindow_8hpp_html"><div class="ttname"><a href="../../d0/de3/Window_8hpp.html">Window.hpp</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html">galaxy::WindowBindable</a></div><div class="ttdoc">Allows you to bind a base class to the window.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d16/WindowBindable_8hpp_source.html#l00018">WindowBindable.hpp:19</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a181df3a8bdb2ea55503edbe129b42533"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a181df3a8bdb2ea55503edbe129b42533">galaxy::WindowBindable::bind_window</a></div><div class="ttdeci">void bind_window() noexcept</div><div class="ttdoc">Bind SDL3 window to this object.</div><div class="ttdef"><b>Definition</b> <a href="#l00059">WindowBindable.cpp:59</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a6427593a425c67c511f43e470a93ad74"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">galaxy::WindowBindable::WindowBindable</a></div><div class="ttdeci">WindowBindable() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">WindowBindable.cpp:16</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a71207409e6e5e2162b800a11e608e77f"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a71207409e6e5e2162b800a11e608e77f">galaxy::WindowBindable::operator=</a></div><div class="ttdeci">virtual WindowBindable &amp; operator=(WindowBindable &amp;&amp;) noexcept</div><div class="ttdoc">Move assignment operator.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">WindowBindable.cpp:28</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a8e90c04db8f87cb8477bc60dced936c1"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1">galaxy::WindowBindable::~WindowBindable</a></div><div class="ttdeci">virtual ~WindowBindable() noexcept</div><div class="ttdoc">Virtual destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00012">WindowBindable.cpp:12</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_ab8d052ecb9b1f59aaf4a01d301eed668"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">galaxy::WindowBindable::m_window</a></div><div class="ttdeci">SDL_Window * m_window</div><div class="ttdoc">Pointer to SDL_Window handle.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d16/WindowBindable_8hpp_source.html#l00065">WindowBindable.hpp:65</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_afdbe2148f970481454a863feb8c5530f"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#afdbe2148f970481454a863feb8c5530f">galaxy::WindowBindable::bind_window</a></div><div class="ttdeci">void bind_window(SDL_Window *window) noexcept</div><div class="ttdoc">Bind SDL3 window to this object.</div><div class="ttdef"><b>Definition</b> <a href="#l00054">WindowBindable.cpp:54</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Animated.cpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0a/Animated_8cpp_source.html#l00015">Animated.cpp:16</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a8e90c04db8f87cb8477bc60dced936c1"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a8e90c04db8f87cb8477bc60dced936c1">galaxy::WindowBindable::~WindowBindable</a></div><div class="ttdeci">virtual ~WindowBindable() noexcept</div><div class="ttdoc">Virtual destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00054">WindowBindable.cpp:54</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_ab8d052ecb9b1f59aaf4a01d301eed668"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">galaxy::WindowBindable::m_window</a></div><div class="ttdeci">SDL_Window * m_window</div><div class="ttdoc">Pointer to SDL_Window handle.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d16/WindowBindable_8hpp_source.html#l00063">WindowBindable.hpp:63</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db6/Application_8cpp_source.html#l00040">Application.cpp:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_60db4da4e6f1f6662322ef474b5019af.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_caa41ed0a60054fdd7b2b558dac6ab70.html">src</a></li><li class="navelem"><a class="el" href="../../dir_719a66e699117833dd2aa990b86b1834.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dir_7f735fbad00ad2f3f96d935c571f321a.html">meta</a></li><li class="navelem"><a class="el" href="../../da/dba/WindowBindable_8cpp.html">WindowBindable.cpp</a></li>
-    <li class="footer">Generated on Wed Jan 7 2026 11:41:11 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Fri Jan 23 2026 10:04:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

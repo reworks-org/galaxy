@@ -17,7 +17,7 @@
 <area shape="rect" id="Node000010" href="$da/d44/classgalaxy_1_1Camera.html#a7924817857b19a30b3b578d4ca6b3611" title="Retrieve internal transformation matrix." alt="" coords="1018,170,1171,210"/>
 <area shape="poly" id="edge12_Node000006_Node000010" title=" " alt="" coords="1290,123,1153,172,1151,167,1289,118"/>
 <area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="1022,65,952,55,851,49,751,55,703,63,702,58,750,50,851,43,952,50,1023,60"/>
-<area shape="rect" id="Node000008" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title=" " alt="" coords="751,65,952,91"/>
+<area shape="rect" id="Node000008" href="$d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290" title="Renders everything configured in this pass." alt="" coords="751,65,952,91"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="986,81,952,81,952,75,986,75"/>
 <area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="737,81,703,81,703,75,737,75"/>
 <area shape="poly" id="edge11_Node000009_Node000002" title=" " alt="" coords="760,114,702,99,704,94,762,109"/>

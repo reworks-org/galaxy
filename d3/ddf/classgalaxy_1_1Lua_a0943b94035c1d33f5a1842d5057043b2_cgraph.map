@@ -1,0 +1,5 @@
+<map id="galaxy::Lua::inject_entity" name="galaxy::Lua::inject_entity">
+<area shape="rect" id="Node000001" title="Inject galaxy entity management into Lua." alt="" coords="5,5,145,45"/>
+<area shape="rect" id="Node000002" href="$d9/d4c/classgalaxy_1_1EntityManager.html#abf4b9553fb55616ec3e3c900afd5c570" title="Get entity registry." alt="" coords="193,5,361,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,23,180,23,180,28,146,28"/>
+</map>
