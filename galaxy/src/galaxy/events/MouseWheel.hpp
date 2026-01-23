@@ -8,7 +8,7 @@
 #ifndef GALAXY_EVENTS_MOUSEWHEEL_HPP_
 #define GALAXY_EVENTS_MOUSEWHEEL_HPP_
 
-#include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/events/Event.hpp"
 #include "galaxy/input/MouseButton.hpp"
 
 namespace galaxy
@@ -16,8 +16,21 @@ namespace galaxy
 	///
 	/// Contains mouse wheel movement data.
 	///
-	struct MouseWheel final : public HandleableEvent
+	struct MouseWheel final : public Event
 	{
+		///
+		/// Constructor.
+		///
+		/// \param ax The amount scrolled horizontally, positive to the right and negative to the left.
+		/// \param ay The amount scrolled vertically, positive away from the user and negative toward the user.
+		/// \param dir Mousewheel direction.
+		/// \param mx X coordinate, relative to window.
+		/// \param my Y coordinate, relative to window.
+		/// \param tx The amount scrolled horizontally, accumulated to whole scroll "ticks".
+		/// \param ty The amount scrolled vertically, accumulated to whole scroll "ticks".
+		///
+		MouseWheel(const float ax, const float ay, const SDL_MouseWheelDirection dir, const float mx, const float my, const int tx, const int ty) noexcept;
+
 		///
 		/// The amount scrolled horizontally, positive to the right and negative to the left.
 		///

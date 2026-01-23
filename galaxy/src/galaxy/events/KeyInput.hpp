@@ -10,15 +10,22 @@
 
 #include <string>
 
-#include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/events/Event.hpp"
 
 namespace galaxy
 {
 	///
 	/// Unicode text data from a textinput event.
 	///
-	struct KeyInput final : public HandleableEvent
+	struct KeyInput final : public Event
 	{
+		///
+		/// Constructor.
+		///
+		/// \param text Input text.
+		///
+		KeyInput(std::string&& text) noexcept;
+
 		///
 		/// Text.
 		///

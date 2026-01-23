@@ -15,9 +15,6 @@
 #include <SDL3/SDL_events.h>
 #include <SDL3/SDL_video.h>
 
-#include "galaxy/input/Keyboard.hpp"
-#include "galaxy/input/Mouse.hpp"
-
 ///
 /// Forward declaration.
 ///
@@ -41,13 +38,6 @@ namespace galaxy
 		/// Destructor.
 		///
 		~Window();
-
-		///
-		/// Handles all events for the window in this frame and sends to the dispatcher.
-		///
-		/// \param dispatcher Dispatcher to send event triggers to.
-		///
-		void process_events(entt::dispatcher& dispatcher);
 
 		///
 		/// \brief Close window.

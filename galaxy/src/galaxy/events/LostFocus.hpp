@@ -8,6 +8,8 @@
 #ifndef GALAXY_EVENTS_LOSTFOCUS_HPP_
 #define GALAXY_EVENTS_LOSTFOCUS_HPP_
 
+#include "galaxy/events/Event.hpp"
+
 namespace galaxy
 {
 	///
@@ -15,7 +17,7 @@ namespace galaxy
 	///
 	/// Does not have an "handled" member, since all listeners are expected to handle this.
 	///
-	struct LostFocus final
+	struct LostFocus final : public Event
 	{
 	};
 } // namespace galaxy

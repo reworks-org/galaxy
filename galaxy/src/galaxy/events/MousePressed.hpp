@@ -8,7 +8,7 @@
 #ifndef GALAXY_EVENTS_MOUSEPRESSED_HPP_
 #define GALAXY_EVENTS_MOUSEPRESSED_HPP_
 
-#include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/events/Event.hpp"
 #include "galaxy/input/MouseButton.hpp"
 
 namespace galaxy
@@ -16,8 +16,18 @@ namespace galaxy
 	///
 	/// Contains data relating to a mouse pressed event.
 	///
-	struct MousePressed final : public HandleableEvent
+	struct MousePressed final : public Event
 	{
+		///
+		/// Constructor.
+		///
+		/// \param xpos X coordinate, relative to window.
+		/// \param ypos Y coordinate, relative to window.
+		/// \param clicks 1 for single-click, 2 for double-click, etc.
+		/// \param button The mouse button index.
+		///
+		MousePressed(const float xpos, const float ypos, const int clicks, const MouseButton button) noexcept;
+
 		///
 		/// X coordinate, relative to window.
 		///

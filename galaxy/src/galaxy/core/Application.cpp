@@ -58,19 +58,6 @@ namespace galaxy
 
 		// Load game assets.
 		// core::entt::locator<core::Loader>::ref().load_all();
-
-		m_update = [&](entt::dispatcher& dispatcher, Window& window, World& world) {
-			// nui.begin_input();
-			window.process_events(dispatcher);
-			// nui.end_input();
-			world.update();
-		};
-
-		m_render = [&](entt::dispatcher& dispatcher, Window& window, World& world) {
-			// graphics::renderer::begin();
-			world.render();
-			// graphics::renderer::end();
-		};
 	}
 
 	App::~App()
@@ -349,7 +336,7 @@ namespace galaxy
 
 	void App::setup_events()
 	{
-		entt::locator<entt::dispatcher>::emplace();
+		SDL_zero(m_events);
 	}
 
 	void App::setup_input()

@@ -8,12 +8,14 @@
 #ifndef GALAXY_EVENTS_GAINEDFOCUS_HPP_
 #define GALAXY_EVENTS_GAINEDFOCUS_HPP_
 
+#include "galaxy/events/Event.hpp"
+
 namespace galaxy
 {
 	///
 	/// POD tag to allow a function to accept a dispatched focus gained event.
 	///
-	struct GainedFocus final
+	struct GainedFocus final : public Event
 	{
 	};
 } // namespace galaxy

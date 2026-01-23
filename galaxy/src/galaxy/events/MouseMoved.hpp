@@ -8,15 +8,25 @@
 #ifndef GALAXY_EVENTS_MOUSEMOVED_HPP_
 #define GALAXY_EVENTS_MOUSEMOVED_HPP_
 
-#include "galaxy/events/HandleableEvent.hpp"
+#include "galaxy/events/Event.hpp"
 
 namespace galaxy
 {
 	///
 	/// Contains data relating to a mouse moved event.
 	///
-	struct MouseMoved final : public HandleableEvent
+	struct MouseMoved final : public Event
 	{
+		///
+		/// Constructor.
+		///
+		/// \param xpos X coordinate, relative to window.
+		/// \param ypos Y coordinate, relative to window.
+		/// \param xrel The relative motion in the X direction.
+		/// \param yrel The relative motion in the Y direction.
+		///
+		MouseMoved(const float xpos, const float ypos, const float xrel, const float yrel) noexcept;
+
 		///
 		/// X coordinate, relative to window.
 		///

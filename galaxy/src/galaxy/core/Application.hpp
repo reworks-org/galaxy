@@ -11,12 +11,11 @@
 #include <string>
 #include <functional>
 
-#include <entt/signal/fwd.hpp>
+#include <SDL3/SDL_events.h>
 
 namespace galaxy
 {
 	class Window;
-	class World;
 
 	///
 	/// Base level class for any galaxy app.
@@ -26,7 +25,7 @@ namespace galaxy
 		///
 		/// Defines a callback for update() or render() loops in app.run().
 		///
-		using LoopFunc = std::move_only_function<void(entt::dispatcher&, Window&, World&)>;
+		using LoopFunc = std::move_only_function<void(void)>;
 
 	public:
 		///
@@ -113,6 +112,11 @@ namespace galaxy
 		/// Render step in gameloop.
 		///
 		LoopFunc m_render;
+
+		///
+		/// Core event data.
+		///
+		SDL_Event m_events;
 	};
 } // namespace galaxy
 

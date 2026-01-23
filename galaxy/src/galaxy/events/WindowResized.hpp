@@ -8,13 +8,23 @@
 #ifndef GALAXY_EVENTS_WINDOWRESIZED_HPP_
 #define GALAXY_EVENTS_WINDOWRESIZED_HPP_
 
+#include "galaxy/events/Event.hpp"
+
 namespace galaxy
 {
 	///
 	/// New width and height of window being resized.
 	///
-	struct WindowResized final
+	struct WindowResized final : public Event
 	{
+		///
+		/// Constructor.
+		///
+		/// \param width New width of window.
+		/// \param height New height of window.
+		///
+		WindowResized(const int width, const int height) noexcept;
+
 		///
 		/// New width of window.
 		///
