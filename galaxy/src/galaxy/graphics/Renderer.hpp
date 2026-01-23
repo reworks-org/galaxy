@@ -108,6 +108,11 @@ namespace galaxy
 		/// Renderable uniform data storage.
 		///
 		std::vector<RenderData> m_uniform_data;
+
+		///
+		/// Uniform data current max index.
+		///
+		unsigned int m_uniform_data_index;
 	};
 } // namespace galaxy
 

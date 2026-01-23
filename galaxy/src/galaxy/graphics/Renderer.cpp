@@ -21,9 +21,16 @@ namespace galaxy
 		: m_quads {Settings::max_quads(), 4, galaxy::graphics::gen_default_indices()}
 		, m_pass {nullptr}
 		, m_pipeline {nullptr}
+		, m_uniform_data_index {0u}
 	{
 		m_camera_storage.set_index(GLBufferBinding::CAMERA);
 		m_uniform_storage.set_index(GLBufferBinding::UNIFORMS);
+
+		// Optimization here would be to object pool this.
+		m_commands.reserve(Settings::max_quads() / 4);
+
+		// Convert to object pool.
+		m_uniform_data.resize(Settings::max_quads());
 	}
 
 	Renderer::~Renderer()
@@ -37,7 +44,7 @@ namespace galaxy
 		m_quads.prepare();
 
 		m_commands.clear();
-		m_uniform_data.clear();
+		m_uniform_data_index = 0;
 
 		m_pass     = nullptr;
 		m_pipeline = nullptr;
@@ -84,16 +91,16 @@ namespace galaxy
 	void Renderer::push_cmd(RenderCmd&& cmd)
 	{
 		// Add uniform data first.
-		m_uniform_data.emplace_back(std::move(cmd.data));
-
-		// Our index will always be the last inserted element at the time.
-		const auto index = static_cast<unsigned int>(m_uniform_data.size()) - 1u;
+		m_uniform_data[m_uniform_data_index] = std::move(cmd.data);
 
 		// update uniform data location.
 		for (auto& vert : cmd.vertices)
 		{
-			vert.m_index = index;
+			vert.m_index = m_uniform_data_index;
 		}
+
+		// Then increment for next call.
+		m_uniform_data_index++;
 
 		// We want to batch quads and just draw the rest regularly.
 		if (cmd.type == GLRenderMode::QUADS)
