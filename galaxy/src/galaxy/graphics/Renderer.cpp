@@ -88,10 +88,10 @@ namespace galaxy
 		m_pipeline = &pipeline;
 	}
 
-	void Renderer::push_cmd(RenderCmd&& cmd)
+	void Renderer::push_cmd(RenderCmd& cmd) noexcept
 	{
 		// Add uniform data first.
-		m_uniform_data[m_uniform_data_index] = std::move(cmd.data);
+		m_uniform_data[m_uniform_data_index] = cmd.data;
 
 		// update uniform data location.
 		for (auto& vert : cmd.vertices)

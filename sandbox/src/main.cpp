@@ -159,29 +159,28 @@ int main(int argc, char* argv[])
 
 		camera.set_projection(0.0f, static_cast<float>(w.get_pixel_size().x), static_cast<float>(w.get_pixel_size().y), 0.0f);
 
+		auto cmd1           = galaxy::RenderCmd {.type = galaxy::GLRenderMode::QUADS, .vertices = verts};
+		cmd1.data.entity    = 0;
+		cmd1.data.transform = glm::mat4 {1.0f};
+		cmd1.data.handle    = tex.handle();
+		auto cmd2           = galaxy::RenderCmd {.type = galaxy::GLRenderMode::QUADS, .vertices = verts2};
+		cmd2.data.entity    = 1;
+		cmd2.data.transform = glm::mat4 {1.0f};
+		cmd2.data.handle    = tex2.handle();
+		auto cmd3           = galaxy::RenderCmd {.type = galaxy::GLRenderMode::QUADS, .vertices = verts3};
+		cmd3.data.entity    = 2;
+		cmd3.data.transform = glm::mat4 {1.0f};
+		cmd3.data.handle    = tex3.handle();
+
 		app.set_render_func([&]() {
 			renderer.prepare();
 			renderer.begin_pass(pass);
 
 			renderer.bind_pipeline(pipeline);
 
-			auto cmd1           = galaxy::RenderCmd {.type = galaxy::GLRenderMode::QUADS, .vertices = verts};
-			cmd1.data.entity    = 0;
-			cmd1.data.transform = glm::mat4 {1.0f};
-			cmd1.data.handle    = tex.handle();
-			renderer.push_cmd(std::move(cmd1));
-
-			auto cmd2           = galaxy::RenderCmd {.type = galaxy::GLRenderMode::QUADS, .vertices = verts2};
-			cmd2.data.entity    = 1;
-			cmd2.data.transform = glm::mat4 {1.0f};
-			cmd2.data.handle    = tex2.handle();
-			renderer.push_cmd(std::move(cmd2));
-
-			auto cmd3           = galaxy::RenderCmd {.type = galaxy::GLRenderMode::QUADS, .vertices = verts3};
-			cmd3.data.entity    = 2;
-			cmd3.data.transform = glm::mat4 {1.0f};
-			cmd3.data.handle    = tex3.handle();
-			renderer.push_cmd(std::move(cmd3));
+			renderer.push_cmd(cmd1);
+			renderer.push_cmd(cmd2);
+			renderer.push_cmd(cmd3);
 
 			renderer.end_pass(camera);
 			w.swap();

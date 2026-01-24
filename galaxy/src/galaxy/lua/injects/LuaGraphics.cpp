@@ -260,9 +260,7 @@ namespace galaxy
 		renderer_type["bind_pipeline"] = &Renderer::bind_pipeline;
 		renderer_type["end_pass"]      = &Renderer::end_pass;
 		renderer_type["prepare"]       = &Renderer::prepare;
-		renderer_type["push_cmd"]      = [](Renderer& renderer, RenderCmd& cmd) {
-            renderer.push_cmd(std::move(cmd));
-		};
+		renderer_type["push_cmd"]      = &Renderer::push_cmd;
 
 		auto renderpipe_type              = lua.new_usertype<RenderPipeline>("RenderPipeline", sol::constructors<RenderPipeline()>());
 		renderpipe_type["enabled"]        = &RenderPipeline::enabled;

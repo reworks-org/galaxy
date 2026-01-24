@@ -62,9 +62,9 @@ namespace galaxy
 		///
 		/// Try not to push too many non-quads, only quads are batched.
 		///
-		/// \param cmd RenderCmd to draw. Moves, not copies.
+		/// \param cmd RenderCmd to draw.
 		///
-		void push_cmd(RenderCmd&& cmd);
+		void push_cmd(RenderCmd& cmd) noexcept;
 
 		///
 		/// Renders everything configured in this pass.
