@@ -17,7 +17,6 @@
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowClosed.hpp"
 #include "galaxy/events/WindowResized.hpp"
 
 #include "Scene.hpp"

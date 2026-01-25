@@ -118,10 +118,14 @@ namespace galaxy
 					switch (m_events.type)
 					{
 						case SDL_EVENT_QUIT:
-						case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
-						case SDL_EVENT_WINDOW_DESTROYED:
-							// TODO: dispatcher.enqueue<WindowClosed>();
 							window.close();
+							break;
+
+						case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+							if (m_events.window.windowID == SDL_GetWindowID(window.handle()))
+							{
+								window.close();
+							}
 							break;
 
 						default:

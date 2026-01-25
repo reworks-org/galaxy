@@ -26,7 +26,6 @@
     <ClCompile Include="src\galaxy\events\MousePressed.cpp" />
     <ClCompile Include="src\galaxy\events\MouseReleased.cpp" />
     <ClCompile Include="src\galaxy\events\MouseWheel.cpp" />
-    <ClCompile Include="src\galaxy\events\WindowClosed.cpp" />
     <ClCompile Include="src\galaxy\events\WindowResized.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
@@ -134,7 +133,6 @@
     <ClInclude Include="src\galaxy\events\MousePressed.hpp" />
     <ClInclude Include="src\galaxy\events\MouseReleased.hpp" />
     <ClInclude Include="src\galaxy\events\MouseWheel.hpp" />
-    <ClInclude Include="src\galaxy\events\WindowClosed.hpp" />
     <ClInclude Include="src\galaxy\events\WindowResized.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />

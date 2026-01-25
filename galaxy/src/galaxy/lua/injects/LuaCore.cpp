@@ -126,5 +126,6 @@ namespace galaxy
 		window_type["set_icon"]             = &Window::set_icon;
 		window_type["set_taskbar_progress"] = &Window::set_taskbar_progress;
 		window_type["show"]                 = &Window::show;
+		window_type["get_display_scale"]    = &Window::get_display_scale;
 	}
 } // namespace galaxy

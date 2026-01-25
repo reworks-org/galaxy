@@ -141,6 +141,14 @@ namespace galaxy
 		glm::ivec2 get_pixel_size() noexcept;
 
 		///
+		/// Get display content scale.
+		///
+		/// \return Main display scale.
+		///
+		[[nodiscard]]
+		float get_display_scale() const noexcept;
+
+		///
 		/// Get SDL window pointer.
 		///
 		/// \return Raw sdl window pointer.

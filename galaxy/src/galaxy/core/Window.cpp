@@ -275,6 +275,11 @@ namespace galaxy
 		return vec2;
 	}
 
+	float Window::get_display_scale() const noexcept
+	{
+		return SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
+	}
+
 	SDL_Window* Window::handle() const noexcept
 	{
 		return m_window;
