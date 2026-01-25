@@ -17,7 +17,6 @@
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowClosed.hpp"
 #include "galaxy/events/WindowResized.hpp"
 
 #include "../Lua.hpp"
@@ -102,11 +101,6 @@ namespace galaxy
 		mw_type["consume"]  = &MouseWheel::consume;
 		mw_type["consumed"] = &MouseWheel::consumed;
 
-		auto wc_type        = lua.new_usertype<WindowClosed>("WindowClosed", sol::constructors<WindowClosed()>());
-		wc_type["type_id"]  = &entt::type_hash<WindowClosed>::value;
-		wc_type["consume"]  = &GainedFocus::consume;
-		wc_type["consumed"] = &GainedFocus::consumed;
-
 		auto wr_type        = lua.new_usertype<WindowResized>("WindowResized", sol::constructors<WindowResized(const int, const int)>());
 		wr_type["type_id"]  = &entt::type_hash<WindowResized>::value;
 		wr_type["height"]   = &WindowResized::m_height;
@@ -122,7 +116,6 @@ namespace galaxy
 		entt_sol::register_meta_event<MousePressed>();
 		entt_sol::register_meta_event<MouseReleased>();
 		entt_sol::register_meta_event<MouseWheel>();
-		entt_sol::register_meta_event<WindowClosed>();
 		entt_sol::register_meta_event<WindowResized>();
 	}
 } // namespace galaxy

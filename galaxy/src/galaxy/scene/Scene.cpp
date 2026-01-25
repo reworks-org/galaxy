@@ -89,6 +89,7 @@ namespace galaxy
 				// SDL_GetDisplayContentScale
 				// SDL_GetWindowDisplayScale
 				// https://wiki.libsdl.org/SDL3/README-highdpi
+					float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
 				break;
 
 			case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
