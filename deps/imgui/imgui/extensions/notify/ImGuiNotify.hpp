@@ -29,19 +29,21 @@
  * CONFIGURATION SECTION Start
  */
 
-#define NOTIFY_MAX_MSG_LENGTH				4096     // Max message content length
-#define NOTIFY_PADDING_X					20.f          // Bottom-left X padding
-#define NOTIFY_PADDING_Y					20.f          // Bottom-left Y padding
-#define NOTIFY_PADDING_MESSAGE_Y			10.f  // Padding Y between each message
-#define NOTIFY_FADE_IN_OUT_TIME				150    // Fade in and out duration
-#define NOTIFY_DEFAULT_DISMISS				3000    // Auto dismiss after X ms (default, applied only of no data provided in constructors)
-#define NOTIFY_OPACITY						0.8f            // 0-1 Toast opacity
-#define NOTIFY_USE_SEPARATOR 				false     // If true, a separator will be rendered between the title and the content
-#define NOTIFY_USE_DISMISS_BUTTON			true // If true, a dismiss button will be rendered in the top right corner of the toast
-#define NOTIFY_RENDER_LIMIT					5          // Max number of toasts rendered at the same time. Set to 0 for unlimited
+#define NOTIFY_MAX_MSG_LENGTH				4096		// Max message content length
+#define NOTIFY_PADDING_X					20.f		// Bottom-left X padding
+#define NOTIFY_PADDING_Y					20.f		// Bottom-left Y padding
+#define NOTIFY_PADDING_MESSAGE_Y			10.f		// Padding Y between each message
+#define NOTIFY_FADE_IN_OUT_TIME				150			// Fade in and out duration
+#define NOTIFY_DEFAULT_DISMISS				3000		// Auto dismiss after X ms (default, applied only of no data provided in constructors)
+#define NOTIFY_OPACITY						0.8f		// 0-1 Toast opacity
+#define NOTIFY_USE_SEPARATOR 				false 		// If true, a separator will be rendered between the title and the content
+#define NOTIFY_USE_DISMISS_BUTTON			true		// If true, a dismiss button will be rendered in the top right corner of the toast
+#define NOTIFY_RENDER_LIMIT					5			// Max number of toasts rendered at the same time. Set to 0 for unlimited
 
 // Warning: Requires ImGui docking with multi-viewport enabled
-#define NOTIFY_RENDER_OUTSIDE_MAIN_WINDOW	true // If true, the notifications will be rendered in the corner of the monitor, otherwise in the corner of the main window
+#ifndef NOTIFY_RENDER_OUTSIDE_MAIN_WINDOW
+#define NOTIFY_RENDER_OUTSIDE_MAIN_WINDOW	true		// If true, the notifications will be rendered in the corner of the monitor, otherwise in the corner of the main window
+#endif
 
 /**
  * CONFIGURATION SECTION End

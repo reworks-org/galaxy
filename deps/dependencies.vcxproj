@@ -25,6 +25,8 @@
     <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
+    <ClCompile Include="imgui\imgui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="imgui\imgui\backends\imgui_impl_sdl3.cpp" />
     <ClCompile Include="imgui\imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui\imgui_draw.cpp" />
@@ -530,6 +532,12 @@
     <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-type-util.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="httplib\httplib.h" />
+    <ClInclude Include="imgui\imgui\backends\imgui_impl_opengl3.h" />
+    <ClInclude Include="imgui\imgui\backends\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="imgui\imgui\backends\imgui_impl_sdl3.h" />
+    <ClInclude Include="imgui\imgui\extensions\notify\ImGuiNotify.hpp" />
+    <ClInclude Include="imgui\imgui\extensions\notify\material_design_icons.h" />
+    <ClInclude Include="imgui\imgui\extensions\notify\material_design_icons_ttf.h" />
     <ClInclude Include="imgui\imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui\imgui.h" />
     <ClInclude Include="imgui\imgui\imgui_internal.h" />
