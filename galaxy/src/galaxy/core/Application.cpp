@@ -109,10 +109,26 @@ namespace galaxy
 		auto     frames  = 0u;
 		duration perf    = 0s;
 
-		// Dont load update func if a custom one has been supplied.
-		if (!m_update)
+		while (window.is_open())
 		{
-			m_update = [&]() {
+			now          = clock::now();
+			auto elapsed = now - prev;
+
+			// 250ms is the limit put in place on the frame time to cope with the spiral of death.
+			// It doesn't have to be 250ms exactly but it should be sufficiently high enough to deal with spikes in load.
+			if (elapsed > 250ms)
+			{
+				elapsed = 250ms;
+			}
+
+			prev   = now;
+			accum += elapsed;
+
+			while (accum >= dt)
+			{
+				perf  += dt;
+				accum -= dt;
+
 				while (SDL_PollEvent(&m_events))
 				{
 					switch (m_events.type)
@@ -134,38 +150,7 @@ namespace galaxy
 					}
 				}
 
-				scenes.update(em);
-			};
-		}
-
-		// Dont load update func if a custom one has been supplied.
-		if (!m_render)
-		{
-			m_render = [&]() {
-			};
-		}
-
-		while (window.is_open())
-		{
-			now          = clock::now();
-			auto elapsed = now - prev;
-
-			// 250ms is the limit put in place on the frame time to cope with the spiral of death.
-			// It doesn't have to be 250ms exactly but it should be sufficiently high enough to deal with spikes in load.
-			if (elapsed > 250ms)
-			{
-				elapsed = 250ms;
-			}
-
-			prev   = now;
-			accum += elapsed;
-
-			while (accum >= dt)
-			{
-				perf  += dt;
-				accum -= dt;
-
-				m_update();
+				scenes.update();
 
 				// nui.begin_input();
 				// nui.end_input();
@@ -174,7 +159,9 @@ namespace galaxy
 				updates++;
 			}
 
-			m_render();
+			scenes.render();
+			window.swap();
+
 			frames++;
 
 			if (perf >= 1s)
@@ -188,14 +175,10 @@ namespace galaxy
 		}
 	}
 
-	void App::set_update_func(LoopFunc&& update)
+	void App::set_icon(const std::string& icon)
 	{
-		m_update = std::move(update);
-	}
-
-	void App::set_render_func(LoopFunc&& render)
-	{
-		m_render = std::move(render);
+		auto& window = entt::locator<Window>::value();
+		window.set_icon("icon");
 	}
 
 	void App::setup_async()

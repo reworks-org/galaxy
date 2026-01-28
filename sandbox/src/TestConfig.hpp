@@ -10,5 +10,6 @@
 
 #define ENABLE_LOGGING_TESTS true
 #define ENABLE_PLATFORM_TESTS true
+#define ENABLE_SANDBOX true
 
 #endif

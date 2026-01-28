@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Sandbox.cpp" />
     <ClCompile Include="src\tests\LoggingTests.hpp" />
     <ClCompile Include="src\tests\PlatformTests.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Sandbox.hpp" />
     <ClInclude Include="src\TestConfig.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -4,8 +4,10 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tests\LoggingTests.hpp" />
     <ClCompile Include="src\tests\PlatformTests.hpp" />
+    <ClCompile Include="src\Sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\TestConfig.hpp" />
+    <ClInclude Include="src\Sandbox.hpp" />
   </ItemGroup>
 </Project>

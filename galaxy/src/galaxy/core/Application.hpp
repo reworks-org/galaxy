@@ -15,18 +15,11 @@
 
 namespace galaxy
 {
-	class Window;
-
 	///
 	/// Base level class for any galaxy app.
 	///
 	class App final
 	{
-		///
-		/// Defines a callback for update() or render() loops in app.run().
-		///
-		using LoopFunc = std::move_only_function<void(void)>;
-
 	public:
 		///
 		/// \brief Default constructor.
@@ -54,18 +47,9 @@ namespace galaxy
 		void run();
 
 		///
-		/// Use a custom update step in game loop.
 		///
-		/// \param update Callback.
 		///
-		void set_update_func(LoopFunc&& update);
-
-		///
-		/// Use a custom rendering step in game loop.
-		///
-		/// \param render Callback.
-		///
-		void set_render_func(LoopFunc&& render);
+		void set_icon(const std::string& icon);
 
 	private:
 		///
@@ -103,16 +87,6 @@ namespace galaxy
 		void setup_scripting();
 
 	private:
-		///
-		/// Update step in gameloop.
-		///
-		LoopFunc m_update;
-
-		///
-		/// Render step in gameloop.
-		///
-		LoopFunc m_render;
-
 		///
 		/// Core event data.
 		///
