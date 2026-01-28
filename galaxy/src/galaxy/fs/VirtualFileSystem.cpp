@@ -29,8 +29,10 @@ namespace galaxy
 	VirtualFileSystem::VirtualFileSystem() noexcept
 	{
 		// Create data directories.
-		std::filesystem::create_directories(Settings::root_dir() / Settings::assets_dir());
-		std::filesystem::create_directories(Settings::root_dir() / Settings::editor_dir());
+		if (!std::filesystem::exists(Settings::root_dir() / Settings::assets_dir()))
+		{
+			std::filesystem::create_directories(Settings::root_dir() / Settings::assets_dir());
+		}
 
 		// Set up allocators for physfs.
 		PHYSFS_Allocator a = {};
