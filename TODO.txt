@@ -3,7 +3,6 @@ TODO:
 - make sure all services are created in app, then destroyed in the correct order, and assigned in lua.
 - update imgui
 - https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sdl_opengl3/main.c
-- Lua ENTT
 - https://github.com/ocornut/imgui
 - https://github.com/mikke89/RmlUi
 
@@ -42,3 +41,9 @@ httplib:
 lua:
 - more aggressive collect_garbage();
 - use of step_gc
+
+save/load:
+- save only required, not entire project.
+- implement save-load (have concept thbat does this to check).
+- pass each object to a master function that expects those to have that function.
+- call that function to save/load
