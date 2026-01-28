@@ -60,6 +60,7 @@ namespace galaxy
 		///
 		/// Add a new state.
 		///
+		/// \tparam Child Child type of Stored, or just Stored.
 		/// \tparam Args Constructor arguments for state.
 		///
 		/// \param key Name to assign to this state.
@@ -67,7 +68,7 @@ namespace galaxy
 		///
 		/// \return Shared pointer to added scene.
 		///
-		template<typename... Args>
+		template<typename Child = Stored, typename... Args>
 		[[maybe_unused]]
 		std::shared_ptr<Stored> add(const std::string& key, Args&&... args);
 
@@ -198,14 +199,14 @@ namespace galaxy
 	}
 
 	template<std::derived_from<State> Stored>
-	template<typename... Args>
+	template<typename Child, typename... Args>
 	inline std::shared_ptr<Stored> StateMachine<Stored>::add(const std::string& key, Args&&... args)
 	{
 		const auto hash = math::fnv1a(key.c_str());
 
 		if (!m_storage.contains(hash))
 		{
-			m_storage[hash] = std::make_shared<Stored>(key, std::forward<Args>(args)...);
+			m_storage[hash] = std::make_shared<Child>(key, std::forward<Args>(args)...);
 			return m_storage[hash];
 		}
 		else
