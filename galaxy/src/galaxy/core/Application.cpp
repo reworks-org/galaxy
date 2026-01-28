@@ -19,7 +19,6 @@
 #include "galaxy/core/Config.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
-#include "galaxy/entity/EntityManager.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/graphics/gl/Sampler.hpp"
 #include "galaxy/input/Keyboard.hpp"
@@ -90,7 +89,6 @@ namespace galaxy
 
 		auto& window = entt::locator<Window>::value();
 		auto& scenes = entt::locator<SceneManager>::value();
-		auto& em     = entt::locator<EntityManager>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
 		// into a double so it can participate in the physics computation.
@@ -440,7 +438,6 @@ namespace galaxy
 		// entt::locator<resource::Textures>::make();
 		// entt::locator<resource::Prefabs>::make();
 		//	  entt::locator<resource::Scripts>::make();
-		entt::locator<EntityManager>::emplace();
 		entt::locator<SceneManager>::emplace();
 	}
 

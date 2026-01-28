@@ -51,9 +51,7 @@ namespace galaxy
 		///
 		/// Process events and updates.
 		///
-		/// \param em Entities to operate on.
-		///
-		void update(EntityManager& em);
+		void update();
 
 		///
 		/// Render scenes.
@@ -75,6 +73,12 @@ namespace galaxy
 		/// Copy assignment operator.
 		///
 		SceneManager& operator=(const SceneManager&) = delete;
+
+	private:
+		///
+		/// Entities belonging to all scenes.
+		///
+		EntityManager m_entity_manager;
 	};
 } // namespace galaxy
 

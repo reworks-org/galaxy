@@ -42,11 +42,11 @@ namespace galaxy
 		}
 	}
 
-	void SceneManager::update(EntityManager& em)
+	void SceneManager::update()
 	{
 		if (auto scene = top())
 		{
-			scene->update(em);
+			scene->update(m_entity_manager);
 		}
 	}
 
