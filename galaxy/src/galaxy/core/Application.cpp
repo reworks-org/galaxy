@@ -150,10 +150,6 @@ namespace galaxy
 
 				scenes.update();
 
-				// nui.begin_input();
-				// nui.end_input();
-				// world.update();
-
 				updates++;
 			}
 
@@ -171,12 +167,6 @@ namespace galaxy
 				perf    = 0s;
 			}
 		}
-	}
-
-	void App::set_icon(const std::string& icon)
-	{
-		auto& window = entt::locator<Window>::value();
-		window.set_icon("icon");
 	}
 
 	void App::setup_async()

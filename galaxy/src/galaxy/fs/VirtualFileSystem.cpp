@@ -74,9 +74,6 @@ namespace galaxy
 			}
 
 			log::physfs_check(PHYSFS_mount(read_dir.string().c_str(), nullptr, true));
-
-			const auto merged = Settings::root_dir() / Settings::editor_dir();
-			log::physfs_check(PHYSFS_mount(merged.string().c_str(), nullptr, true));
 		}
 	}
 

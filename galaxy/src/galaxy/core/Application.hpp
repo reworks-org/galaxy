@@ -46,11 +46,6 @@ namespace galaxy
 		///
 		void run();
 
-		///
-		///
-		///
-		void set_icon(const std::string& icon);
-
 	private:
 		///
 		/// Copy constructor.

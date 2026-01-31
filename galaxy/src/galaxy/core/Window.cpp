@@ -255,10 +255,6 @@ namespace galaxy
 
 				SDL_DestroySurface(surface);
 			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to read '{0}' from the vfs.", icon);
-			}
 		}
 	}
 
