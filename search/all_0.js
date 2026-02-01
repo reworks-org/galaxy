@@ -1,7 +1,7 @@
 var searchData=
 [
   ['a_0',['a',['../d8/d74/classgalaxy_1_1Colour.html#a8761e7f9585697d9412b7059217f95f3',1,'galaxy::Colour::a(const std::uint8_t a) noexcept'],['../d8/d74/classgalaxy_1_1Colour.html#a66fb5b27d51fb11fe39b6c7a18fb3829',1,'galaxy::Colour::a() const noexcept']]],
-  ['add_1',['add',['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a867d768ed5c6e1ab96341bbe29058734',1,'galaxy::graphics::PostProcess::add()'],['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#abf3d2a3448d3840d92cfe7d3a04ff813',1,'galaxy::resource::TextureAtlas::add()'],['../da/d52/classgalaxy_1_1StateMachine.html#a0274886de7a56bca279738f16f43ed45',1,'galaxy::StateMachine::add()']]],
+  ['add_1',['add',['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a867d768ed5c6e1ab96341bbe29058734',1,'galaxy::graphics::PostProcess::add()'],['../d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#abf3d2a3448d3840d92cfe7d3a04ff813',1,'galaxy::resource::TextureAtlas::add()'],['../da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff',1,'galaxy::StateMachine::add()']]],
   ['add_5fcmd_2',['add_cmd',['../d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71',1,'galaxy::systems']]],
   ['add_5fcolour_5fattachment_3',['add_colour_attachment',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a1c207fbd443684a5547333ecc16665cf',1,'galaxy::graphics::Framebuffer']]],
   ['add_5fdepth_5fstencil_5frenderbuffer_4',['add_depth_stencil_renderbuffer',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a2c00c9785b6358d3ce96d64657921070',1,'galaxy::graphics::Framebuffer']]],

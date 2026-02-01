@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01":[0,0,0,34,3],
+"d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01":[2,0,0,25,3],
 "d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609":[0,0,0,34,19],
 "d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609":[2,0,0,25,19],
 "d3/ddf/classgalaxy_1_1Lua.html#a8b2f90e0343d46ebeecbdfc1ec4976c0":[0,0,0,34,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "d4/dad/SMAA_8cpp.html#a1f97b157586d4a6cb9efc9b2cd5d0e75":[3,0,0,0,0,4,2,10,15],
 "d4/dad/SMAA_8cpp.html#a2ae3f6d8ca15fbe3f4716acd8dacff4a":[3,0,0,0,0,4,2,10,21],
 "d4/dad/SMAA_8cpp.html#a37aea9ebe8357fb2fea2963d7ad90c40":[3,0,0,0,0,4,2,10,10],
-"d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae":[3,0,0,0,0,4,2,10,8],
-"d4/dad/SMAA_8cpp.html#a6e5f3da2c1acfcdacadf532bed434810":[3,0,0,0,0,4,2,10,4],
-"d4/dad/SMAA_8cpp.html#a7cd5be2c62f59c51c82349133774b267":[3,0,0,0,0,4,2,10,2]
+"d4/dad/SMAA_8cpp.html#a5c1b7dafbb4fc319239bdaf8114b53ae":[3,0,0,0,0,4,2,10,8]
 };

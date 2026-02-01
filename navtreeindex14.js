@@ -1,17 +1,5 @@
 var NAVTREEINDEX14 =
 {
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a84aac3cf29740fbf526d299916e44d12":[0,0,0,54,8],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a84aac3cf29740fbf526d299916e44d12":[2,0,0,45,8],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a8c8a196b31902996587ae67d1fbd11a5":[0,0,0,54,3],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a8c8a196b31902996587ae67d1fbd11a5":[2,0,0,45,3],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a8f8923f907e0f74331f7aadf6c3c28d6":[0,0,0,54,13],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a8f8923f907e0f74331f7aadf6c3c28d6":[2,0,0,45,13],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#aa04d0c035348233c3cf348e2f0068f14":[0,0,0,54,5],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#aa04d0c035348233c3cf348e2f0068f14":[2,0,0,45,5],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#aa32aadfb7eab94f4635b8669a1be5177":[0,0,0,54,1],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#aa32aadfb7eab94f4635b8669a1be5177":[2,0,0,45,1],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#aa6597feb073309c6799004ac81e40332":[0,0,0,54,7],
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#aa6597feb073309c6799004ac81e40332":[2,0,0,45,7],
 "dd/d83/classgalaxy_1_1ShaderBuffer.html#ab54af082b86e1baa6945a0fae2806599":[0,0,0,54,16],
 "dd/d83/classgalaxy_1_1ShaderBuffer.html#ab54af082b86e1baa6945a0fae2806599":[2,0,0,45,16],
 "dd/d83/classgalaxy_1_1ShaderBuffer.html#abf53615b0ba8e7060586937400b9a97b":[0,0,0,54,6],
@@ -249,5 +237,17 @@ var NAVTREEINDEX14 =
 "de/dc7/VirtualFileSystem_8hpp_source.html":[3,0,0,0,0,3,11],
 "de/df1/Subprocess_8cpp.html":[3,0,0,0,0,10,7],
 "de/df1/Subprocess_8cpp_source.html":[3,0,0,0,0,10,7],
-"de/df8/GLEnums_8cpp.html":[3,0,0,0,0,4,1,2]
+"de/df8/GLEnums_8cpp.html":[3,0,0,0,0,4,1,2],
+"de/df8/GLEnums_8cpp_source.html":[3,0,0,0,0,4,1,2],
+"df/d0a/Clipboard_8cpp.html":[3,0,0,0,0,5,0],
+"df/d0a/Clipboard_8cpp.html#a2fce3445e15cb1035e0ba4b4dad9b105":[3,0,0,0,0,5,0,0],
+"df/d0a/Clipboard_8cpp.html#ae2d79d9b95b9983f6513d0aeb3b38ada":[3,0,0,0,0,5,0,1],
+"df/d0a/Clipboard_8cpp_source.html":[3,0,0,0,0,5,0],
+"df/d23/structgalaxy_1_1Settings.html":[0,0,0,52],
+"df/d23/structgalaxy_1_1Settings.html":[2,0,0,43],
+"df/d23/structgalaxy_1_1Settings.html#a00f74115d22a2137d34a16aa1b697917":[0,0,0,52,48],
+"df/d23/structgalaxy_1_1Settings.html#a00f74115d22a2137d34a16aa1b697917":[2,0,0,43,48],
+"df/d23/structgalaxy_1_1Settings.html#a020971c71ca2e56a13872386f322ddfe":[0,0,0,52,59],
+"df/d23/structgalaxy_1_1Settings.html#a020971c71ca2e56a13872386f322ddfe":[2,0,0,43,59],
+"df/d23/structgalaxy_1_1Settings.html#a02bb15b379602197658b6c49374c52ac":[0,0,0,52,4]
 };

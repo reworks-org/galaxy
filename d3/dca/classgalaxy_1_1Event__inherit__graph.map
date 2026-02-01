@@ -1,25 +1,23 @@
 <map id="galaxy::Event" name="galaxy::Event">
-<area shape="rect" id="Node000001" title="Base type of all events." alt="" coords="841,5,947,211"/>
+<area shape="rect" id="Node000001" title="Base type of all events." alt="" coords="759,5,864,211"/>
 <area shape="rect" id="Node000002" href="$d4/db4/structgalaxy_1_1GainedFocus.html" title="POD tag to allow a function to accept a dispatched focus gained event." alt="" coords="5,319,153,384"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="828,113,699,120,618,129,529,143,437,162,344,187,253,220,167,261,131,288,103,320,99,317,128,285,165,256,251,215,343,182,436,156,529,137,617,124,698,115,827,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="745,115,630,126,482,150,401,169,321,193,242,224,167,261,132,288,104,320,100,317,128,285,165,256,240,219,319,188,400,164,481,145,629,120,745,110"/>
 <area shape="rect" id="Node000003" href="$d6/d71/structgalaxy_1_1KeyInput.html" title="Unicode text data from a textinput event." alt="" coords="178,319,301,384"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="828,116,722,127,590,152,519,171,447,195,379,225,314,261,283,289,259,320,255,317,279,285,311,256,376,220,446,190,517,166,588,147,722,122,827,110"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="745,119,655,134,543,161,484,179,425,202,368,229,314,261,284,289,260,320,256,317,280,285,311,257,365,224,423,197,482,174,541,156,653,129,744,114"/>
 <area shape="rect" id="Node000004" href="$d0/d11/structgalaxy_1_1KeyPressed.html" title="Contains data on key that was pressed." alt="" coords="325,279,465,424"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="829,125,753,144,663,172,569,211,523,235,480,261,455,280,452,276,476,256,520,230,566,206,662,167,752,139,827,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="746,132,686,154,618,183,547,219,480,261,456,281,453,277,476,257,544,214,615,178,684,149,744,127"/>
 <area shape="rect" id="Node000005" href="$d5/d60/structgalaxy_1_1KeyReleased.html" title="Contains data on key that was released." alt="" coords="490,279,639,424"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="831,145,744,196,653,261,631,280,627,276,650,257,741,192,828,141"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="750,168,653,261,634,280,630,276,649,257,747,164"/>
 <area shape="rect" id="Node000006" href="$dc/d92/structgalaxy_1_1LostFocus.html" title="POD tag to allow a function to accept a dispatched focus lost event." alt="" coords="664,319,793,384"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="836,199,752,320,748,317,831,196"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="775,224,742,319,737,318,770,223"/>
 <area shape="rect" id="Node000007" href="$d5/d1a/structgalaxy_1_1MouseMoved.html" title="Contains data relating to a mouse moved event." alt="" coords="818,289,970,414"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="897,224,897,289,891,289,891,224"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="853,223,875,288,870,289,848,225"/>
 <area shape="rect" id="Node000008" href="$de/d27/structgalaxy_1_1MousePressed.html" title="Contains data relating to a mouse pressed event." alt="" coords="995,289,1153,414"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="957,190,1030,287,1026,290,953,193"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="876,161,984,257,1015,287,1011,290,980,261,873,165"/>
 <area shape="rect" id="Node000009" href="$d1/d0d/structgalaxy_1_1MouseReleased.html" title="Contains data relating to a mouse released event." alt="" coords="1178,289,1346,414"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="960,137,1060,189,1115,221,1168,257,1204,287,1200,291,1164,261,1112,226,1058,193,958,142"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="878,126,1015,177,1093,214,1167,256,1206,286,1202,291,1165,261,1091,218,1013,182,876,131"/>
 <area shape="rect" id="Node000010" href="$da/d9e/structgalaxy_1_1MouseWheel.html" title="Contains mouse wheel movement data." alt="" coords="1370,259,1519,444"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="961,117,1044,135,1147,163,1256,203,1309,228,1359,256,1371,264,1368,269,1357,261,1307,233,1254,208,1145,168,1043,140,959,122"/>
-<area shape="rect" id="Node000011" href="$d9/ddc/structgalaxy_1_1WindowClosed.html" title="Blank &quot;Tag&quot; class/type to signal the window is being closed." alt="" coords="1544,319,1705,384"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="961,111,1074,123,1220,148,1300,167,1380,191,1458,220,1533,256,1571,285,1602,317,1598,320,1568,289,1530,261,1456,225,1378,196,1298,172,1219,153,1073,128,960,116"/>
-<area shape="rect" id="Node000012" href="$d9/d35/structgalaxy_1_1WindowResized.html" title="New width and height of window being resized." alt="" coords="1730,309,1898,394"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="960,106,1104,112,1196,120,1297,133,1404,151,1512,178,1618,212,1719,256,1753,279,1782,306,1778,310,1750,283,1717,261,1616,217,1511,183,1403,157,1297,138,1196,125,1104,117,960,111"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="879,113,977,128,1101,155,1167,173,1233,196,1298,224,1359,256,1371,264,1368,269,1357,261,1296,229,1231,201,1165,178,1099,160,976,133,878,119"/>
+<area shape="rect" id="Node000011" href="$d9/d35/structgalaxy_1_1WindowResized.html" title="New width and height of window being resized." alt="" coords="1543,309,1711,394"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="878,108,1005,118,1172,141,1263,160,1356,185,1446,217,1533,256,1566,279,1595,307,1592,311,1563,284,1530,261,1444,222,1354,190,1262,165,1171,147,1004,123,878,114"/>
 </map>

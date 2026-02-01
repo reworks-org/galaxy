@@ -19,5 +19,5 @@ var searchData=
   ['preprocess_16',['preprocess',['../d1/d5e/classgalaxy_1_1Shader.html#abc2983ef065562f218f336ee55358285',1,'galaxy::Shader']]],
   ['prev_17',['prev',['../da/d19/classgalaxy_1_1graphics_1_1Animation.html#a10fd8eaed95108746ddf4600772988ea',1,'galaxy::graphics::Animation']]],
   ['push_18',['push',['../d5/dd2/classgalaxy_1_1VertexBatch.html#a56beecaac9f4d7358ec3a0d4db216074',1,'galaxy::VertexBatch::push()'],['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine::push()']]],
-  ['push_5fcmd_19',['push_cmd',['../d5/dab/classgalaxy_1_1Renderer.html#ac07145f04cb9cd6efaf466308e633fbe',1,'galaxy::Renderer']]]
+  ['push_5fcmd_19',['push_cmd',['../d5/dab/classgalaxy_1_1Renderer.html#ab64d4fd6f06f11ad777921dfb199c2a8',1,'galaxy::Renderer']]]
 ];

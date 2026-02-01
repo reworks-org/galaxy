@@ -1,9 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443":[0,0,0,57,12],
-"da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443":[2,0,0,48,12],
-"da/d52/classgalaxy_1_1StateMachine.html#a1811a973f671c1dcfd1f5a5d4b9b2fac":[0,0,0,57,19],
-"da/d52/classgalaxy_1_1StateMachine.html#a1811a973f671c1dcfd1f5a5d4b9b2fac":[2,0,0,48,19],
 "da/d52/classgalaxy_1_1StateMachine.html#a376dda4cf58b26b89e49e15c216b45bd":[0,0,0,57,3],
 "da/d52/classgalaxy_1_1StateMachine.html#a376dda4cf58b26b89e49e15c216b45bd":[2,0,0,48,3],
 "da/d52/classgalaxy_1_1StateMachine.html#a3b458339fae2313edabd5b34f2f91a34":[0,0,0,57,10],
@@ -14,6 +10,8 @@ var NAVTREEINDEX10 =
 "da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616":[2,0,0,48,13],
 "da/d52/classgalaxy_1_1StateMachine.html#a7983ac8115546d061c7fee482a47e95d":[0,0,0,57,5],
 "da/d52/classgalaxy_1_1StateMachine.html#a7983ac8115546d061c7fee482a47e95d":[2,0,0,48,5],
+"da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff":[0,0,0,57,7],
+"da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff":[2,0,0,48,7],
 "da/d52/classgalaxy_1_1StateMachine.html#a809847e6a8b7c548ec23a01172e2e75d":[0,0,0,57,1],
 "da/d52/classgalaxy_1_1StateMachine.html#a809847e6a8b7c548ec23a01172e2e75d":[2,0,0,48,1],
 "da/d52/classgalaxy_1_1StateMachine.html#aa79bd08879ade02418a4cca85b479dd1":[0,0,0,57,9],
@@ -249,5 +247,7 @@ var NAVTREEINDEX10 =
 "db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945":[2,0,0,10,9],
 "db/d49/classgalaxy_1_1Config.html#a983023901515bdf9686b07c9853c056c":[0,0,0,19,15],
 "db/d49/classgalaxy_1_1Config.html#a983023901515bdf9686b07c9853c056c":[2,0,0,10,15],
-"db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b":[0,0,0,19,10]
+"db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b":[0,0,0,19,10],
+"db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b":[2,0,0,10,10],
+"db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7":[0,0,0,19,12]
 };

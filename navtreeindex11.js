@@ -1,7 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b":[2,0,0,10,10],
-"db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7":[0,0,0,19,12],
 "db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7":[2,0,0,10,12],
 "db/d49/classgalaxy_1_1Config.html#aabb4be74348fee1b3663ac1edade4dd9":[0,0,0,19,21],
 "db/d49/classgalaxy_1_1Config.html#aabb4be74348fee1b3663ac1edade4dd9":[2,0,0,10,21],
@@ -224,8 +222,8 @@ var NAVTREEINDEX11 =
 "dc/d1a/Animations_8hpp.html":[3,0,0,0,0,11,2],
 "dc/d1a/Animations_8hpp.html#ae79b1710eada0c9ea6e678fd613449cf":[3,0,0,0,0,11,2,0],
 "dc/d1a/Animations_8hpp_source.html":[3,0,0,0,0,11,2],
-"dc/d23/WindowResized_8cpp.html":[3,0,0,0,0,2,22],
-"dc/d23/WindowResized_8cpp_source.html":[3,0,0,0,0,2,22],
+"dc/d23/WindowResized_8cpp.html":[3,0,0,0,0,2,20],
+"dc/d23/WindowResized_8cpp_source.html":[3,0,0,0,0,2,20],
 "dc/d29/EntityManager_8cpp.html":[3,0,0,0,0,1,0],
 "dc/d29/EntityManager_8cpp_source.html":[3,0,0,0,0,1,0],
 "dc/d33/R2DShader_8cpp.html":[3,0,0,0,0,11,0,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX11 =
 "dc/d80/namespacegalaxy_1_1media.html":[0,0,0,7],
 "dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192":[0,0,0,7,1],
 "dc/d8a/KeyInput_8hpp.html":[3,0,0,0,0,2,5],
-"dc/d8a/KeyInput_8hpp_source.html":[3,0,0,0,0,2,5]
+"dc/d8a/KeyInput_8hpp_source.html":[3,0,0,0,0,2,5],
+"dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html":[0,0,0,13,3],
+"dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html":[2,0,0,5,3]
 };

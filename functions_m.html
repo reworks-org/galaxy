@@ -138,6 +138,7 @@ $(function(){initNavTree('functions_m.html',''); initResizable(true); });
 <li>m_edge_fbo&#160;:&#160;<a class="el" href="d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a37a79c0321a062ad63030bcc0040edfb">galaxy::graphics::SMAA</a></li>
 <li>m_edge_tex&#160;:&#160;<a class="el" href="d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#a3049e0e339419756cf37e3c501e8b3f4">galaxy::graphics::SMAA</a></li>
 <li>m_effects&#160;:&#160;<a class="el" href="d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a74754ddae92ba7b42f68cab1986792c5">galaxy::graphics::PostProcess</a></li>
+<li>m_entity_manager&#160;:&#160;<a class="el" href="d1/dbc/classgalaxy_1_1SceneManager.html#a80a986a388e80c65371206a6126b9371">galaxy::SceneManager</a></li>
 <li>m_entt&#160;:&#160;<a class="el" href="df/dbe/classgalaxy_1_1Registry.html#aab4e5a5e6cdda17ae78b9c51aeb25fdb">galaxy::Registry</a></li>
 <li>m_events&#160;:&#160;<a class="el" href="dd/d33/classgalaxy_1_1App.html#a5c92ab9457e27a6dd6feb7b26145c631">galaxy::App</a></li>
 <li>m_face&#160;:&#160;<a class="el" href="d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad7b0e972e4fbac7de7d352877fd33bcf">galaxy::graphics::Font</a></li>
@@ -208,7 +209,6 @@ $(function(){initNavTree('functions_m.html',''); initResizable(true); });
 <li>m_red&#160;:&#160;<a class="el" href="d8/d74/classgalaxy_1_1Colour.html#a75b3ba7e793fdb664ca33b2da8baf136">galaxy::Colour</a></li>
 <li>m_region&#160;:&#160;<a class="el" href="d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html#a57a4b04699c72d642863147eb1be3e77">galaxy::resource::TextureAtlas::Info</a></li>
 <li>m_registry&#160;:&#160;<a class="el" href="d9/d4c/classgalaxy_1_1EntityManager.html#a36b211a6d4c5ebad1416b803e0f9c065">galaxy::EntityManager</a></li>
-<li>m_render&#160;:&#160;<a class="el" href="dd/d33/classgalaxy_1_1App.html#ae3e5a25794bfa1b27a711ddafefda79e">galaxy::App</a></li>
 <li>m_render_texture&#160;:&#160;<a class="el" href="d8/d13/structgalaxy_1_1resource_1_1TextureAtlas_1_1Sheet.html#a150a711e392f08b092adfc95f28a50b1">galaxy::resource::TextureAtlas::Sheet</a></li>
 <li>m_renderbuffer&#160;:&#160;<a class="el" href="df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#a06d773e13c7f99237cdf5c6ac10edc5b">galaxy::graphics::Framebuffer</a></li>
 <li>m_repeat&#160;:&#160;<a class="el" href="d0/d11/structgalaxy_1_1KeyPressed.html#a03346102eda79d87219376612085e3d2">galaxy::KeyPressed</a>, <a class="el" href="d5/d60/structgalaxy_1_1KeyReleased.html#a13800d82e0cfe49f3b4dbcddfd8ec116">galaxy::KeyReleased</a>, <a class="el" href="d4/d22/classgalaxy_1_1Stopwatch.html#ade91d65efb372319d55f233c9672d736">galaxy::Stopwatch</a>, <a class="el" href="d0/d7b/classgalaxy_1_1Timer.html#a0375e2c611d7b309c11306b02089ef6d">galaxy::Timer</a></li>
@@ -258,7 +258,6 @@ $(function(){initNavTree('functions_m.html',''); initResizable(true); });
 <li>m_uniform_data&#160;:&#160;<a class="el" href="d5/dab/classgalaxy_1_1Renderer.html#a4551d0bc5acd1f41fd0be71e43b46737">galaxy::Renderer</a></li>
 <li>m_uniform_data_index&#160;:&#160;<a class="el" href="d5/dab/classgalaxy_1_1Renderer.html#a0bf4039a61c570d25e24de67662f20e0">galaxy::Renderer</a></li>
 <li>m_uniform_storage&#160;:&#160;<a class="el" href="d5/dab/classgalaxy_1_1Renderer.html#a7d746fc4d02f930baade5c9beca1dd52">galaxy::Renderer</a></li>
-<li>m_update&#160;:&#160;<a class="el" href="dd/d33/classgalaxy_1_1App.html#afe2aa04c43ea6b5c239f614bb82a98df">galaxy::App</a></li>
 <li>m_uuid&#160;:&#160;<a class="el" href="dd/da7/classgalaxy_1_1UUID.html#a1dc5c2a9b04b86c075d55b47ea4efdcb">galaxy::UUID</a></li>
 <li>m_validations&#160;:&#160;<a class="el" href="db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#afb92982834d86e99d905eefe6ba654d3">galaxy::meta::EntityFactory</a></li>
 <li>m_validations_to_run&#160;:&#160;<a class="el" href="db/db3/classgalaxy_1_1meta_1_1EntityFactory.html#a3316be83c6148fea0e1a89537d9747ee">galaxy::meta::EntityFactory</a></li>
@@ -302,7 +301,7 @@ $(function(){initNavTree('functions_m.html',''); initResizable(true); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 23 2026 10:04:13 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Feb 1 2026 05:57:15 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

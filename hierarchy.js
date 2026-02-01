@@ -19,7 +19,6 @@ var hierarchy =
       [ "galaxy::MousePressed", "de/d27/structgalaxy_1_1MousePressed.html", null ],
       [ "galaxy::MouseReleased", "d1/d0d/structgalaxy_1_1MouseReleased.html", null ],
       [ "galaxy::MouseWheel", "da/d9e/structgalaxy_1_1MouseWheel.html", null ],
-      [ "galaxy::WindowClosed", "d9/ddc/structgalaxy_1_1WindowClosed.html", null ],
       [ "galaxy::WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", null ]
     ] ],
     [ "galaxy::FileError", "d5/d13/classgalaxy_1_1FileError.html", null ],

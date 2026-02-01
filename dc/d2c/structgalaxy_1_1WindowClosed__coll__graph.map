@@ -1,5 +1,0 @@
-<map id="galaxy::WindowClosed" name="galaxy::WindowClosed">
-<area shape="rect" id="Node000001" title="Blank &quot;Tag&quot; class/type to signal the window is being closed." alt="" coords="5,259,167,324"/>
-<area shape="rect" id="Node000002" href="$df/d64/classgalaxy_1_1Event.html" title="Base type of all events." alt="" coords="33,5,139,211"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,224,89,259,83,259,83,224"/>
-</map>

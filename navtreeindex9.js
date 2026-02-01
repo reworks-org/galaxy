@@ -80,8 +80,6 @@ var NAVTREEINDEX9 =
 "d9/dab/KeyReleased_8hpp_source.html":[3,0,0,0,0,2,9],
 "d9/dd1/MouseReleased_8cpp.html":[3,0,0,0,0,2,16],
 "d9/dd1/MouseReleased_8cpp_source.html":[3,0,0,0,0,2,16],
-"d9/ddc/structgalaxy_1_1WindowClosed.html":[0,0,0,74],
-"d9/ddc/structgalaxy_1_1WindowClosed.html":[2,0,0,65],
 "d9/de7/Time_8hpp.html":[3,0,0,0,0,15,3],
 "d9/de7/Time_8hpp.html#a4773252d26c35ee971645b7b00c910ed":[3,0,0,0,0,15,3,2],
 "d9/de7/Time_8hpp.html#ab56d88ffe18246f10ff8c110d1c64a53":[3,0,0,0,0,15,3,1],
@@ -246,8 +244,10 @@ var NAVTREEINDEX9 =
 "da/d4c/RenderSystem_8hpp_source.html":[3,0,0,0,0,14,5],
 "da/d52/classgalaxy_1_1StateMachine.html":[0,0,0,57],
 "da/d52/classgalaxy_1_1StateMachine.html":[2,0,0,48],
-"da/d52/classgalaxy_1_1StateMachine.html#a0274886de7a56bca279738f16f43ed45":[0,0,0,57,7],
-"da/d52/classgalaxy_1_1StateMachine.html#a0274886de7a56bca279738f16f43ed45":[2,0,0,48,7],
 "da/d52/classgalaxy_1_1StateMachine.html#a0fa4267551f156f32e5f84a7ca946222":[0,0,0,57,16],
-"da/d52/classgalaxy_1_1StateMachine.html#a0fa4267551f156f32e5f84a7ca946222":[2,0,0,48,16]
+"da/d52/classgalaxy_1_1StateMachine.html#a0fa4267551f156f32e5f84a7ca946222":[2,0,0,48,16],
+"da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443":[0,0,0,57,12],
+"da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443":[2,0,0,48,12],
+"da/d52/classgalaxy_1_1StateMachine.html#a1811a973f671c1dcfd1f5a5d4b9b2fac":[0,0,0,57,19],
+"da/d52/classgalaxy_1_1StateMachine.html#a1811a973f671c1dcfd1f5a5d4b9b2fac":[2,0,0,48,19]
 };

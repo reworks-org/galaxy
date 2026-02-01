@@ -5,7 +5,7 @@ var classgalaxy_1_1Renderer =
     [ "prepare", "d5/dab/classgalaxy_1_1Renderer.html#ae03030c542118fd8a098d7a787782099", null ],
     [ "begin_pass", "d5/dab/classgalaxy_1_1Renderer.html#adf4e72cc65714e8d4251663916b2b6a4", null ],
     [ "bind_pipeline", "d5/dab/classgalaxy_1_1Renderer.html#ac2da47c7b62e7ef4e33d5859da053f3c", null ],
-    [ "push_cmd", "d5/dab/classgalaxy_1_1Renderer.html#ac07145f04cb9cd6efaf466308e633fbe", null ],
+    [ "push_cmd", "d5/dab/classgalaxy_1_1Renderer.html#ab64d4fd6f06f11ad777921dfb199c2a8", null ],
     [ "end_pass", "d5/dab/classgalaxy_1_1Renderer.html#a7636d6fbc658e2ecc511db512bb8c290", null ],
     [ "m_quads", "d5/dab/classgalaxy_1_1Renderer.html#ab426487add39b18c2d806aa9906121df", null ],
     [ "m_commands", "d5/dab/classgalaxy_1_1Renderer.html#a2ccfcffed6b5da88a5a72efa2a20c8ae", null ],

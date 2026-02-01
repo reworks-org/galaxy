@@ -7,7 +7,7 @@ var classgalaxy_1_1StateMachine =
     [ "~StateMachine", "da/d52/classgalaxy_1_1StateMachine.html#a3f957847b9bb7845890072209b05143e", null ],
     [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html#a7983ac8115546d061c7fee482a47e95d", null ],
     [ "operator=", "da/d52/classgalaxy_1_1StateMachine.html#ab9a2976ae3ca7532a7afc89f2eb1ac66", null ],
-    [ "add", "da/d52/classgalaxy_1_1StateMachine.html#a0274886de7a56bca279738f16f43ed45", null ],
+    [ "add", "da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff", null ],
     [ "get", "da/d52/classgalaxy_1_1StateMachine.html#ad4f4c0a625683eed4fb573f5927c8dcd", null ],
     [ "has", "da/d52/classgalaxy_1_1StateMachine.html#aa79bd08879ade02418a4cca85b479dd1", null ],
     [ "remove", "da/d52/classgalaxy_1_1StateMachine.html#a3b458339fae2313edabd5b34f2f91a34", null ],

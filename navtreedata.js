@@ -63,22 +63,22 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ab32dcb700690b2d9085d588337b7db6e",
-"d0/d97/Polygon_8cpp.html",
-"d1/d92/conceptgalaxy_1_1meta_1_1is__object.html",
-"d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609",
-"d4/dad/SMAA_8cpp.html#a7fad5dd0d7400c340b2aa0fba2a9e1a2",
+"d0/d84/classgalaxy_1_1Window.html#af95c4a43bf4726dd67b590da007be994",
+"d1/d91/PhysicsSystem_8hpp.html",
+"d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01",
+"d4/dad/SMAA_8cpp.html#a6e5f3da2c1acfcdacadf532bed434810",
 "d5/dd2/classgalaxy_1_1VertexBatch.html#a235694ff23a07ce410186a938d541991",
 "d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#af715f0052e0068028a7fbe0c3c02185f",
 "d8/d74/classgalaxy_1_1Colour.html#ac46bc76ead9d3168e5e786bb0c146834",
 "d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557",
-"da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443",
-"db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b",
-"dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html",
-"dd/d25/Keys_8hpp.html#a649e37db9438582b9449f8b91738dd83aabae2db56df48632bd1c32e49f77f7e1",
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#a84aac3cf29740fbf526d299916e44d12",
-"de/df8/GLEnums_8cpp_source.html",
-"df/d85/classgalaxy_1_1ZLib.html#ab58569fd82f11a3dd7db5dc9100ba5dc",
-"functions_func_m.html"
+"da/d52/classgalaxy_1_1StateMachine.html#a376dda4cf58b26b89e49e15c216b45bd",
+"db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7",
+"dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html#a35bc0cd4e114e2fba2ca36d31e52bfcf",
+"dd/d25/Keys_8hpp.html#a649e37db9438582b9449f8b91738dd83aadda4714081ae1b6cad1a33563cf18f2",
+"dd/d83/classgalaxy_1_1ShaderBuffer.html#ab54af082b86e1baa6945a0fae2806599",
+"df/d23/structgalaxy_1_1Settings.html#a02bb15b379602197658b6c49374c52ac",
+"df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572",
+"functions_func_~.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

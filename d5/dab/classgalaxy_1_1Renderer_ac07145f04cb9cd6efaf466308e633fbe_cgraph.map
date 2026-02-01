@@ -1,5 +1,0 @@
-<map id="galaxy::Renderer::push_cmd" name="galaxy::Renderer::push_cmd">
-<area shape="rect" id="Node000001" title="Push a renderable object." alt="" coords="5,13,212,38"/>
-<area shape="rect" id="Node000002" href="$d5/dd2/classgalaxy_1_1VertexBatch.html#a56beecaac9f4d7358ec3a0d4db216074" title="Add vertex and index data to batch." alt="" coords="260,5,412,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,23,246,23,246,28,212,28"/>
-</map>

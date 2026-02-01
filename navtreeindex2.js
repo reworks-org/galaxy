@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"d0/d84/classgalaxy_1_1Window.html#af95c4a43bf4726dd67b590da007be994":[0,0,0,72,10],
+"d0/d84/classgalaxy_1_1Window.html#af95c4a43bf4726dd67b590da007be994":[2,0,0,63,10],
 "d0/d97/Polygon_8cpp.html":[3,0,0,0,0,4,3,6],
 "d0/d97/Polygon_8cpp_source.html":[3,0,0,0,0,4,3,6],
 "d0/da0/State_8cpp.html":[3,0,0,0,0,13,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ae6fe3fd4c3b2aef1923585cc6e3b49af":[0,0,0,2,5,8],
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#ae6fe3fd4c3b2aef1923585cc6e3b49af":[2,0,0,0,5,8],
 "d1/d70/classgalaxy_1_1graphics_1_1Font.html#aee47cb35e1670ab369f00b09349302a6":[0,0,0,2,5,7],
-"d1/d70/classgalaxy_1_1graphics_1_1Font.html#aee47cb35e1670ab369f00b09349302a6":[2,0,0,0,5,7],
-"d1/d91/PhysicsSystem_8hpp.html":[3,0,0,0,0,14,3],
-"d1/d91/PhysicsSystem_8hpp_source.html":[3,0,0,0,0,14,3]
+"d1/d70/classgalaxy_1_1graphics_1_1Font.html#aee47cb35e1670ab369f00b09349302a6":[2,0,0,0,5,7]
 };

@@ -175,9 +175,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac2da47c7b62e7ef4e33d5859da053f3c" id="r_ac2da47c7b62e7ef4e33d5859da053f3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2da47c7b62e7ef4e33d5859da053f3c">bind_pipeline</a> (<a class="el" href="../../d1/dd6/structgalaxy_1_1RenderPipeline.html">RenderPipeline</a> &amp;pipeline)</td></tr>
 <tr class="memdesc:ac2da47c7b62e7ef4e33d5859da053f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the GPU state specified in pipeline.  <br /></td></tr>
 <tr class="separator:ac2da47c7b62e7ef4e33d5859da053f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac07145f04cb9cd6efaf466308e633fbe" id="r_ac07145f04cb9cd6efaf466308e633fbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac07145f04cb9cd6efaf466308e633fbe">push_cmd</a> (<a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html">RenderCmd</a> &amp;&amp;cmd)</td></tr>
-<tr class="memdesc:ac07145f04cb9cd6efaf466308e633fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a renderable object.  <br /></td></tr>
-<tr class="separator:ac07145f04cb9cd6efaf466308e633fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64d4fd6f06f11ad777921dfb199c2a8" id="r_ab64d4fd6f06f11ad777921dfb199c2a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab64d4fd6f06f11ad777921dfb199c2a8">push_cmd</a> (<a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html">RenderCmd</a> &amp;cmd) noexcept</td></tr>
+<tr class="memdesc:ab64d4fd6f06f11ad777921dfb199c2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a renderable object.  <br /></td></tr>
+<tr class="separator:ab64d4fd6f06f11ad777921dfb199c2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7636d6fbc658e2ecc511db512bb8c290" id="r_a7636d6fbc658e2ecc511db512bb8c290"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7636d6fbc658e2ecc511db512bb8c290">end_pass</a> (<a class="el" href="../../da/d44/classgalaxy_1_1Camera.html">Camera</a> &amp;camera)</td></tr>
 <tr class="memdesc:a7636d6fbc658e2ecc511db512bb8c290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders everything configured in this pass.  <br /></td></tr>
 <tr class="separator:a7636d6fbc658e2ecc511db512bb8c290"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -414,50 +414,46 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac07145f04cb9cd6efaf466308e633fbe" name="ac07145f04cb9cd6efaf466308e633fbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac07145f04cb9cd6efaf466308e633fbe">&#9670;&#160;</a></span>push_cmd()</h2>
+<a id="ab64d4fd6f06f11ad777921dfb199c2a8" name="ab64d4fd6f06f11ad777921dfb199c2a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab64d4fd6f06f11ad777921dfb199c2a8">&#9670;&#160;</a></span>push_cmd()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void galaxy::Renderer::push_cmd </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html">RenderCmd</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html">RenderCmd</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Push a renderable object. </p>
 <p>Try not to push too many non-quads, only quads are batched.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cmd</td><td><a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html" title="Data required to draw an object.">RenderCmd</a> to draw. Moves, not copies. </td></tr>
+    <tr><td class="paramname">cmd</td><td><a class="el" href="../../de/dc0/structgalaxy_1_1RenderCmd.html" title="Data required to draw an object.">RenderCmd</a> to draw. </td></tr>
   </table>
   </dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00091">91</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_cgraph.png" border="0" usemap="#ad5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_cgraph" alt=""/></div>
-<map name="ad5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_cgraph" id="ad5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_cgraph">
-<area shape="rect" title="Push a renderable object." alt="" coords="5,13,212,38"/>
-<area shape="rect" href="../../d5/dd2/classgalaxy_1_1VertexBatch.html#a56beecaac9f4d7358ec3a0d4db216074" title="Add vertex and index data to batch." alt="" coords="260,5,412,45"/>
-<area shape="poly" title=" " alt="" coords="212,23,246,23,246,28,212,28"/>
-</map>
-</div>
-<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_icgraph.png" border="0" usemap="#ad5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_icgraph" alt=""/></div>
-<map name="ad5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_icgraph" id="ad5/dab/classgalaxy_1_1Renderer_ac07145f04cb9cd6efaf466308e633fbe_icgraph">
+<div class="center"><img src="../../d5/dab/classgalaxy_1_1Renderer_ab64d4fd6f06f11ad777921dfb199c2a8_icgraph.png" border="0" usemap="#ad5/dab/classgalaxy_1_1Renderer_ab64d4fd6f06f11ad777921dfb199c2a8_icgraph" alt=""/></div>
+<map name="ad5/dab/classgalaxy_1_1Renderer_ab64d4fd6f06f11ad777921dfb199c2a8_icgraph" id="ad5/dab/classgalaxy_1_1Renderer_ab64d4fd6f06f11ad777921dfb199c2a8_icgraph">
 <area shape="rect" title="Push a renderable object." alt="" coords="751,13,957,38"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="563,5,703,45"/>
 <area shape="poly" title=" " alt="" coords="737,28,703,28,703,23,737,23"/>
@@ -496,11 +492,11 @@ Private Attributes</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d28/Renderer_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../d3/d28/Renderer_8cpp_source.html">Renderer.cpp</a>.</p>
-<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_cgraph.png" border="0" usemap="#ad5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_cgraph" alt=""/></div>
 <map name="ad5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_cgraph" id="ad5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_cgraph">
 <area shape="rect" title="Renders everything configured in this pass." alt="" coords="5,205,207,230"/>
@@ -536,11 +532,11 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="670,393,736,393,736,399,670,399"/>
 </map>
 </div>
-<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_icgraph.png" border="0" usemap="#ad5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_icgraph" alt=""/></div>
 <map name="ad5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_icgraph" id="ad5/dab/classgalaxy_1_1Renderer_a7636d6fbc658e2ecc511db512bb8c290_icgraph">
 <area shape="rect" title="Renders everything configured in this pass." alt="" coords="751,13,952,38"/>
@@ -776,7 +772,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../d5/dab/classgalaxy_1_1Renderer.html">Renderer</a></li>
-    <li class="footer">Generated on Fri Jan 23 2026 10:04:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Feb 1 2026 05:57:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

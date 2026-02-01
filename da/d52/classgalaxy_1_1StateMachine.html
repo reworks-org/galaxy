@@ -163,10 +163,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f957847b9bb7845890072209b05143e" id="r_a3f957847b9bb7845890072209b05143e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f957847b9bb7845890072209b05143e">~StateMachine</a> ()</td></tr>
 <tr class="memdesc:a3f957847b9bb7845890072209b05143e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a3f957847b9bb7845890072209b05143e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0274886de7a56bca279738f16f43ed45" id="r_a0274886de7a56bca279738f16f43ed45"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a0274886de7a56bca279738f16f43ed45"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; Stored &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0274886de7a56bca279738f16f43ed45">add</a> (const std::string &amp;key, Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a0274886de7a56bca279738f16f43ed45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new state.  <br /></td></tr>
-<tr class="separator:a0274886de7a56bca279738f16f43ed45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7edee7f4955f9e54e19d59acfb6ae6ff" id="r_a7edee7f4955f9e54e19d59acfb6ae6ff"><td class="memTemplParams" colspan="2">template&lt;typename Child  = Stored, typename... Args&gt; </td></tr>
+<tr class="memitem:a7edee7f4955f9e54e19d59acfb6ae6ff"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; Stored &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7edee7f4955f9e54e19d59acfb6ae6ff">add</a> (const std::string &amp;key, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a7edee7f4955f9e54e19d59acfb6ae6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new state.  <br /></td></tr>
+<tr class="separator:a7edee7f4955f9e54e19d59acfb6ae6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f4c0a625683eed4fb573f5927c8dcd" id="r_ad4f4c0a625683eed4fb573f5927c8dcd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Stored &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4f4c0a625683eed4fb573f5927c8dcd">get</a> (const std::string &amp;key) noexcept</td></tr>
 <tr class="memdesc:ad4f4c0a625683eed4fb573f5927c8dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a specific state.  <br /></td></tr>
 <tr class="separator:ad4f4c0a625683eed4fb573f5927c8dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -319,7 +319,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00168">168</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00169">169</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 
 </div>
 </div>
@@ -350,7 +350,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p>Move constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00173">173</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00174">174</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +381,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00193">193</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -458,7 +458,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p>Move assignment operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00180">180</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00181">181</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -474,15 +474,15 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 </div>
 </div>
-<a id="a0274886de7a56bca279738f16f43ed45" name="a0274886de7a56bca279738f16f43ed45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0274886de7a56bca279738f16f43ed45">&#9670;&#160;</a></span>add()</h2>
+<a id="a7edee7f4955f9e54e19d59acfb6ae6ff" name="a7edee7f4955f9e54e19d59acfb6ae6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7edee7f4955f9e54e19d59acfb6ae6ff">&#9670;&#160;</a></span>add()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1_1State.html">State</a> &gt; Stored&gt; </div>
 <div class="memtemplate">
-template&lt;typename... Args&gt; </div>
+template&lt;typename Child , typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -508,6 +508,7 @@ template&lt;typename... Args&gt; </div>
 <p>Add a new state. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
+    <tr><td class="paramname">Child</td><td>Child type of Stored, or just Stored. </td></tr>
     <tr><td class="paramname">Args</td><td>Constructor arguments for state.</td></tr>
   </table>
   </dd>
@@ -521,14 +522,14 @@ template&lt;typename... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to added scene. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00202">202</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00203">203</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_cgraph.png" border="0" usemap="#ada/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_cgraph" alt=""/></div>
-<map name="ada/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_cgraph" id="ada/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_cgraph">
+<div class="center"><img src="../../da/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_cgraph.png" border="0" usemap="#ada/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_cgraph" alt=""/></div>
+<map name="ada/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_cgraph" id="ada/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_cgraph">
 <area shape="rect" title="Add a new state." alt="" coords="5,29,200,55"/>
 <area shape="rect" href="../../d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="248,29,400,55"/>
 <area shape="poly" title=" " alt="" coords="201,39,234,39,234,45,201,45"/>
@@ -540,8 +541,8 @@ template&lt;typename... Args&gt; </div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../da/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_icgraph.png" border="0" usemap="#ada/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_icgraph" alt=""/></div>
-<map name="ada/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_icgraph" id="ada/d52/classgalaxy_1_1StateMachine_a0274886de7a56bca279738f16f43ed45_icgraph">
+<div class="center"><img src="../../da/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_icgraph.png" border="0" usemap="#ada/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_icgraph" alt=""/></div>
+<map name="ada/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_icgraph" id="ada/d52/classgalaxy_1_1StateMachine_a7edee7f4955f9e54e19d59acfb6ae6ff_icgraph">
 <area shape="rect" title="Add a new state." alt="" coords="751,13,945,38"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="563,5,703,45"/>
 <area shape="poly" title=" " alt="" coords="737,28,703,28,703,23,737,23"/>
@@ -590,7 +591,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to scene. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00219">219</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00220">220</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -653,7 +654,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if exists. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00235">235</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00236">236</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -704,7 +705,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00242">242</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00243">243</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -754,7 +755,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00258">258</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00259">259</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -800,7 +801,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p>Remove state on top of stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00272">272</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00273">273</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -857,7 +858,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p>Remove all states in stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00287">287</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00288">288</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -915,7 +916,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 <p>Get top state in stack. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to top state. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00296">296</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00297">297</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 <div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
@@ -963,7 +964,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 <p>Get stack. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00307">307</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00308">308</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 
 </div>
 </div>
@@ -995,7 +996,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 <p>Get storage. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00313">313</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00314">314</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1054,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine.">State</a> stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00148">148</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00149">149</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 
 </div>
 </div>
@@ -1081,7 +1082,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 
 <p><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine.">State</a> cache. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00153">153</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html#l00154">154</a> of file <a class="el" href="../../d6/dd7/StateMachine_8hpp_source.html">StateMachine.hpp</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1095,7 @@ template&lt;std::derived_from&lt; <a class="el" href="../../d4/d7c/classgalaxy_1
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../da/d52/classgalaxy_1_1StateMachine.html">StateMachine</a></li>
-    <li class="footer">Generated on Fri Jan 23 2026 10:04:12 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Sun Feb 1 2026 05:57:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

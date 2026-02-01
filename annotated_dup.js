@@ -107,7 +107,6 @@ var annotated_dup =
       [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
       [ "Window", "d0/d84/classgalaxy_1_1Window.html", "d0/d84/classgalaxy_1_1Window" ],
       [ "WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", "d3/d81/classgalaxy_1_1WindowBindable" ],
-      [ "WindowClosed", "d9/ddc/structgalaxy_1_1WindowClosed.html", null ],
       [ "WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", "d9/d35/structgalaxy_1_1WindowResized" ],
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]
     ] ],

@@ -1,7 +1,7 @@
 <map id="galaxy::math::fnv1a" name="galaxy::math::fnv1a">
 <area shape="rect" id="Node000001" title="Convert string to hash." alt="" coords="1035,317,1187,343"/>
 <area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="1150,308,1139,299,1111,296,1087,298,1074,303,1072,308,1079,316,1075,319,1067,309,1071,299,1086,293,1111,291,1141,294,1154,303"/>
-<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html#a0274886de7a56bca279738f16f43ed45" title="Add a new state." alt="" coords="792,5,987,31"/>
+<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff" title="Add a new state." alt="" coords="792,5,987,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1103,304,1092,250,1071,179,1055,143,1036,107,1013,74,985,45,965,33,968,28,988,41,1017,71,1041,104,1060,140,1076,178,1097,248,1108,303"/>
 <area shape="rect" id="Node000007" href="$d3/dac/classgalaxy_1_1SystemFactory.html#ad643efcf152edd5f920b5f680a342503" title="Create a system using the factory." alt="" coords="805,55,974,95"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1099,305,1085,263,1061,210,1028,156,1008,131,985,109,967,98,970,93,988,105,1012,128,1032,153,1066,207,1089,261,1105,303"/>

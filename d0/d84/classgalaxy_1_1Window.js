@@ -20,6 +20,7 @@ var classgalaxy_1_1Window =
     [ "set_icon", "d0/d84/classgalaxy_1_1Window.html#aed3b9111ee0b7573993c9be2eb76aca9", null ],
     [ "is_open", "d0/d84/classgalaxy_1_1Window.html#a5d700bc84cf9b0877891f56464d12e46", null ],
     [ "get_pixel_size", "d0/d84/classgalaxy_1_1Window.html#aada22a825f4b880f305d8d18f22cd9dc", null ],
+    [ "get_display_scale", "d0/d84/classgalaxy_1_1Window.html#ac97e9f46c7fc0449ca77ccbaab5b803d", null ],
     [ "handle", "d0/d84/classgalaxy_1_1Window.html#a29c1789f9bf03b1d269c3c6defaf7da3", null ],
     [ "context", "d0/d84/classgalaxy_1_1Window.html#a47a6b4e15871d67f037b2f440641bde1", null ],
     [ "operator=", "d0/d84/classgalaxy_1_1Window.html#ac2c6a5be5cfd438398b4fbd7d15cf0f6", null ],
