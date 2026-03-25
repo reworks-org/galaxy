@@ -62,6 +62,13 @@ var namespacegalaxy =
       [ "dt", "d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed", null ],
       [ "s_delta_time", "d2/d2f/namespacegalaxy_1_1time.html#aac7c9842cf05e61375649a239e5be089", null ]
     ] ],
+    [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", [
+      [ "imgui_init", "d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c", null ],
+      [ "imgui_new_frame", "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
+      [ "imgui_render", "d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65", null ],
+      [ "imgui_exit", "d3/dd9/namespacegalaxy_1_1ui.html#a75724fdf5b5623e0edfc966f9f439082", null ],
+      [ "imgui_rescale", "d3/dd9/namespacegalaxy_1_1ui.html#a1233ba5a60966c7376b599f28dfbc6d3", null ]
+    ] ],
     [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
     [ "Camera", "da/d44/classgalaxy_1_1Camera.html", "da/d44/classgalaxy_1_1Camera" ],
@@ -485,5 +492,10 @@ var namespacegalaxy =
     [ "assets_path_wrapper", "d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57", null ],
     [ "editor_path_wrapper", "d0/d46/namespacegalaxy.html#ae75c97fd983f82b9ac19a20d72886c49", null ],
     [ "fileutils_read_wrapper", "d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f", null ],
-    [ "log_wrapper", "d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92", null ]
+    [ "log_wrapper", "d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92", null ],
+    [ "mem_alloc", "d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3", null ],
+    [ "mem_free", "d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56", null ],
+    [ "load_backend", "d0/d46/namespacegalaxy.html#ab97b063d81a57ddd95b905f24abbf1d9", null ],
+    [ "load_theme", "d0/d46/namespacegalaxy.html#a62ee8445a67c4373fff6804dd79c9427", null ],
+    [ "load_font", "d0/d46/namespacegalaxy.html#a7025aca645c6019f23e76dc0556af757", null ]
 ];

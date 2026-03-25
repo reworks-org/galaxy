@@ -62,23 +62,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ab32dcb700690b2d9085d588337b7db6e",
-"d0/d84/classgalaxy_1_1Window.html#af95c4a43bf4726dd67b590da007be994",
-"d1/d91/PhysicsSystem_8hpp.html",
-"d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01",
-"d4/dad/SMAA_8cpp.html#a6e5f3da2c1acfcdacadf532bed434810",
-"d5/dd2/classgalaxy_1_1VertexBatch.html#a235694ff23a07ce410186a938d541991",
-"d7/d53/classgalaxy_1_1graphics_1_1SMAA.html#af715f0052e0068028a7fbe0c3c02185f",
-"d8/d74/classgalaxy_1_1Colour.html#ac46bc76ead9d3168e5e786bb0c146834",
-"d9/d3c/classgalaxy_1_1graphics_1_1FilmicGrain.html#ab3ac191ae80f465edbf894e0de6b2557",
-"da/d52/classgalaxy_1_1StateMachine.html#a376dda4cf58b26b89e49e15c216b45bd",
-"db/d49/classgalaxy_1_1Config.html#aa9fb252eb9fa8dfc333a7dbf1c879ca7",
-"dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html#a35bc0cd4e114e2fba2ca36d31e52bfcf",
-"dd/d25/Keys_8hpp.html#a649e37db9438582b9449f8b91738dd83aadda4714081ae1b6cad1a33563cf18f2",
-"dd/d83/classgalaxy_1_1ShaderBuffer.html#ab54af082b86e1baa6945a0fae2806599",
-"df/d23/structgalaxy_1_1Settings.html#a02bb15b379602197658b6c49374c52ac",
-"df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572",
-"functions_func_~.html"
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ab162437eed3ee815be26094e92f31630",
+"d0/d84/classgalaxy_1_1Window.html#ad4568c3a89072612c1a5a14167a1f961",
+"d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad81c9b0caa75f542361947fefb087e91",
+"d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32",
+"d4/d7c/classgalaxy_1_1State.html#afaa36f3fae8eefe6b95d01f1a941f25b",
+"d5/dab/classgalaxy_1_1Renderer.html#ae03030c542118fd8a098d7a787782099",
+"d7/d4c/Video_8hpp.html",
+"d8/d74/classgalaxy_1_1Colour.html#a4f53e86c92bcf4ca4c76f700eb8ae378",
+"d9/d29/classgalaxy_1_1graphics_1_1Shape.html#acca25ec2692d51bbc8c19255cf7265e1",
+"da/d44/classgalaxy_1_1Camera.html#af99f7f99362747abe26ab1d08d772dcf",
+"db/d49/classgalaxy_1_1Config.html",
+"dc/d11/ChromaticAberration_8cpp.html#aba75585dfd6796d99725a28be5e72fe7",
+"dd/d25/Keys_8hpp.html#a649e37db9438582b9449f8b91738dd83a8e15750766d34a6f971db343a64ae4d3",
+"dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html",
+"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a976eeb90eb91a96957997fec99d13699",
+"df/d64/classgalaxy_1_1Event.html#a835517ff3cfc14951b4fdd4ea8aadaf0",
+"dir_7db1507fc1775b8ca4bc86e9c6fd5e9d.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

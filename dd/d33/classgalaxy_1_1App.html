@@ -101,6 +101,7 @@ $(function(){initNavTree('dd/d33/classgalaxy_1_1App.html','../../'); initResizab
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d2/d2c/classgalaxy_1_1App-members.html">List of all members</a>  </div>
@@ -119,7 +120,7 @@ $(function(){initNavTree('dd/d33/classgalaxy_1_1App.html','../../'); initResizab
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d2/d91/classgalaxy_1_1App__coll__graph.png" border="0" usemap="#agalaxy_1_1App_coll__map" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1App_coll__map" id="agalaxy_1_1App_coll__map">
-<area shape="rect" title="Base level class for any galaxy app." alt="" coords="5,5,149,411"/>
+<area shape="rect" title="Base level class for any galaxy app." alt="" coords="5,5,151,511"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -134,6 +135,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a22bdca674d2f7081e1dc315626c3ed9c" id="r_a22bdca674d2f7081e1dc315626c3ed9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22bdca674d2f7081e1dc315626c3ed9c">run</a> ()</td></tr>
 <tr class="memdesc:a22bdca674d2f7081e1dc315626c3ed9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the default appdata file.  <br /></td></tr>
 <tr class="separator:a22bdca674d2f7081e1dc315626c3ed9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54715a2510cddc3a1c7b953c4c6580d" id="r_ac54715a2510cddc3a1c7b953c4c6580d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac54715a2510cddc3a1c7b953c4c6580d">set_update_func</a> (<a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> &amp;&amp;update)</td></tr>
+<tr class="memdesc:ac54715a2510cddc3a1c7b953c4c6580d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use a custom update step in game loop.  <br /></td></tr>
+<tr class="separator:ac54715a2510cddc3a1c7b953c4c6580d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a768f4823162d20125bfdccc519370552" id="r_a768f4823162d20125bfdccc519370552"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a768f4823162d20125bfdccc519370552">set_render_func</a> (<a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> &amp;&amp;render)</td></tr>
+<tr class="memdesc:a768f4823162d20125bfdccc519370552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use a custom rendering step in game loop.  <br /></td></tr>
+<tr class="separator:a768f4823162d20125bfdccc519370552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f7dc434b7fd086bfbbb758885cddf5" id="r_a24f7dc434b7fd086bfbbb758885cddf5"><td class="memItemLeft" align="right" valign="top">SDL_Event &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24f7dc434b7fd086bfbbb758885cddf5">events</a> () noexcept</td></tr>
+<tr class="memdesc:a24f7dc434b7fd086bfbbb758885cddf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get event data.  <br /></td></tr>
+<tr class="separator:a24f7dc434b7fd086bfbbb758885cddf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:aad5058f6f91ded2eb6b3961ddaddba17" id="r_aad5058f6f91ded2eb6b3961ddaddba17"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> = std::move_only_function&lt;void(<a class="el" href="../../dd/d33/classgalaxy_1_1App.html">App</a>* app)&gt;</td></tr>
+<tr class="memdesc:aad5058f6f91ded2eb6b3961ddaddba17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a callback for update() or render() loops in app.run().  <br /></td></tr>
+<tr class="separator:aad5058f6f91ded2eb6b3961ddaddba17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -177,12 +193,45 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a5c92ab9457e27a6dd6feb7b26145c631" id="r_a5c92ab9457e27a6dd6feb7b26145c631"><td class="memItemLeft" align="right" valign="top">SDL_Event&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c92ab9457e27a6dd6feb7b26145c631">m_events</a></td></tr>
 <tr class="memdesc:a5c92ab9457e27a6dd6feb7b26145c631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core event data.  <br /></td></tr>
 <tr class="separator:a5c92ab9457e27a6dd6feb7b26145c631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2aa04c43ea6b5c239f614bb82a98df" id="r_afe2aa04c43ea6b5c239f614bb82a98df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe2aa04c43ea6b5c239f614bb82a98df">m_update</a></td></tr>
+<tr class="memdesc:afe2aa04c43ea6b5c239f614bb82a98df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update step in gameloop.  <br /></td></tr>
+<tr class="separator:afe2aa04c43ea6b5c239f614bb82a98df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e5a25794bfa1b27a711ddafefda79e" id="r_ae3e5a25794bfa1b27a711ddafefda79e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3e5a25794bfa1b27a711ddafefda79e">m_render</a></td></tr>
+<tr class="memdesc:ae3e5a25794bfa1b27a711ddafefda79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render step in gameloop.  <br /></td></tr>
+<tr class="separator:ae3e5a25794bfa1b27a711ddafefda79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base level class for any galaxy app. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../df/d3c/Application_8hpp_source.html#l00021">21</a> of file <a class="el" href="../../df/d3c/Application_8hpp_source.html">Application.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aad5058f6f91ded2eb6b3961ddaddba17" name="aad5058f6f91ded2eb6b3961ddaddba17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad5058f6f91ded2eb6b3961ddaddba17">&#9670;&#160;</a></span>LoopFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">galaxy::App::LoopFunc</a> = std::move_only_function&lt;void(<a class="el" href="../../dd/d33/classgalaxy_1_1App.html">App</a>* app)&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Defines a callback for update() or render() loops in app.run(). </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d3c/Application_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../df/d3c/Application_8hpp_source.html">Application.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a28723cb033948f652d6d92e1c27b4150" name="a28723cb033948f652d6d92e1c27b4150"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28723cb033948f652d6d92e1c27b4150">&#9670;&#160;</a></span>App() <span class="overload">[1/3]</span></h2>
 
@@ -1108,6 +1157,90 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac54715a2510cddc3a1c7b953c4c6580d" name="ac54715a2510cddc3a1c7b953c4c6580d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54715a2510cddc3a1c7b953c4c6580d">&#9670;&#160;</a></span>set_update_func()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::App::set_update_func </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>update</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use a custom update step in game loop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">update</td><td>Callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00186">186</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a768f4823162d20125bfdccc519370552" name="a768f4823162d20125bfdccc519370552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a768f4823162d20125bfdccc519370552">&#9670;&#160;</a></span>set_render_func()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::App::set_render_func </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>render</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use a custom rendering step in game loop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">render</td><td>Callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00191">191</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a24f7dc434b7fd086bfbbb758885cddf5" name="a24f7dc434b7fd086bfbbb758885cddf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f7dc434b7fd086bfbbb758885cddf5">&#9670;&#160;</a></span>events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Event &amp; galaxy::App::events </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get event data. </p>
+<dl class="section return"><dt>Returns</dt><dd>SDL_Event data. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00196">196</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" name="a40d1ecf5c7bd715ef3f17e0c2ebb1f0b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -1185,7 +1318,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00172">172</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00201">201</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -1224,7 +1357,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00191">191</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -1278,7 +1411,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00207">207</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00236">236</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -1331,7 +1464,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00214">214</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00243">243</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -1402,7 +1535,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00283">283</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00312">312</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -1441,7 +1574,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00288">288</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00317">317</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -1498,7 +1631,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00351">351</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00380">380</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -1537,7 +1670,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00356">356</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00385">385</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary" style="display:block;">
@@ -1592,7 +1725,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00382">382</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00411">411</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary" style="display:block;">
@@ -1631,7 +1764,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00416">416</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00445">445</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary" style="display:block;">
@@ -1670,7 +1803,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00434">434</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db6/Application_8cpp_source.html#l00463">463</a> of file <a class="el" href="../../d2/db6/Application_8cpp_source.html">Application.cpp</a>.</p>
 <div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary" style="display:block;">
@@ -2444,7 +2577,59 @@ Private Attributes</h2></td></tr>
 
 <p>Core event data. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d3c/Application_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../df/d3c/Application_8hpp_source.html">Application.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d3c/Application_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../df/d3c/Application_8hpp_source.html">Application.hpp</a>.</p>
+
+</div>
+</div>
+<a id="afe2aa04c43ea6b5c239f614bb82a98df" name="afe2aa04c43ea6b5c239f614bb82a98df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe2aa04c43ea6b5c239f614bb82a98df">&#9670;&#160;</a></span>m_update</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> galaxy::App::m_update</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update step in gameloop. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d3c/Application_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../df/d3c/Application_8hpp_source.html">Application.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae3e5a25794bfa1b27a711ddafefda79e" name="ae3e5a25794bfa1b27a711ddafefda79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3e5a25794bfa1b27a711ddafefda79e">&#9670;&#160;</a></span>m_render</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aad5058f6f91ded2eb6b3961ddaddba17">LoopFunc</a> galaxy::App::m_render</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Render step in gameloop. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d3c/Application_8hpp_source.html#l00124">124</a> of file <a class="el" href="../../df/d3c/Application_8hpp_source.html">Application.hpp</a>.</p>
 
 </div>
 </div>
@@ -2458,7 +2643,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li><li class="navelem"><a class="el" href="../../dd/d33/classgalaxy_1_1App.html">App</a></li>
-    <li class="footer">Generated on Sun Feb 1 2026 05:57:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Mar 25 2026 02:45:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

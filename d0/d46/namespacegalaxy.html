@@ -144,6 +144,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d2f/namespacegalaxy_1_1time.html">time</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd9/namespacegalaxy_1_1ui.html">ui</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -820,6 +822,16 @@ Functions</h2></td></tr>
 <tr class="separator:a319291094a5f4b14dd9eaa07f698fc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cf60407a5ec21327f632d6c1f712f92" id="r_a2cf60407a5ec21327f632d6c1f712f92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cf60407a5ec21327f632d6c1f712f92">log_wrapper</a> (<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a> error_level, std::string_view message)</td></tr>
 <tr class="separator:a2cf60407a5ec21327f632d6c1f712f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79729a7cd11384b6477920808b1a4a3" id="r_ac79729a7cd11384b6477920808b1a4a3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac79729a7cd11384b6477920808b1a4a3">mem_alloc</a> (size_t sz, void *user_data)</td></tr>
+<tr class="separator:ac79729a7cd11384b6477920808b1a4a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b00e4db87ec3991645c71cec85da56" id="r_a88b00e4db87ec3991645c71cec85da56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88b00e4db87ec3991645c71cec85da56">mem_free</a> (void *ptr, void *user_data)</td></tr>
+<tr class="separator:a88b00e4db87ec3991645c71cec85da56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab97b063d81a57ddd95b905f24abbf1d9" id="r_ab97b063d81a57ddd95b905f24abbf1d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab97b063d81a57ddd95b905f24abbf1d9">load_backend</a> () noexcept</td></tr>
+<tr class="separator:ab97b063d81a57ddd95b905f24abbf1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ee8445a67c4373fff6804dd79c9427" id="r_a62ee8445a67c4373fff6804dd79c9427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62ee8445a67c4373fff6804dd79c9427">load_theme</a> () noexcept</td></tr>
+<tr class="separator:a62ee8445a67c4373fff6804dd79c9427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7025aca645c6019f23e76dc0556af757" id="r_a7025aca645c6019f23e76dc0556af757"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7025aca645c6019f23e76dc0556af757">load_font</a> () noexcept</td></tr>
+<tr class="separator:a7025aca645c6019f23e76dc0556af757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../df/d3c/Application_8hpp.html">Application.hpp</a> galaxy. </p>
@@ -828,6 +840,8 @@ Functions</h2></td></tr>
 <p><a class="el" href="../../d1/d44/StringUtils_8hpp.html">StringUtils.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d1/d44/StringUtils_8cpp.html">StringUtils.cpp</a> galaxy.</p>
 <p><a class="el" href="../../d4/d18/Memory_8hpp.html">Memory.hpp</a> galaxy.</p>
+<p><a class="el" href="../../d7/d23/ImGuiHelpers_8hpp.html">ImGuiHelpers.hpp</a> galaxy.</p>
+<p><a class="el" href="../../d5/df3/ImGuiHelpers_8cpp.html">ImGuiHelpers.cpp</a> galaxy.</p>
 <p><a class="el" href="../../d8/dbf/Timer_8hpp.html">Timer.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d9/de7/Time_8hpp.html">Time.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d7/dfd/Stopwatch_8hpp.html">Stopwatch.hpp</a> galaxy.</p>
@@ -2750,13 +2764,200 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 
 </div>
 </div>
+<a id="ac79729a7cd11384b6477920808b1a4a3" name="ac79729a7cd11384b6477920808b1a4a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79729a7cd11384b6477920808b1a4a3">&#9670;&#160;</a></span>mem_alloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * galaxy::mem_alloc </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>sz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>user_data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph" id="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph">
+<area shape="rect" title=" " alt="" coords="212,5,357,31"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
+<area shape="poly" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a88b00e4db87ec3991645c71cec85da56" name="a88b00e4db87ec3991645c71cec85da56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88b00e4db87ec3991645c71cec85da56">&#9670;&#160;</a></span>mem_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::mem_free </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>user_data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph" id="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph">
+<area shape="rect" title=" " alt="" coords="212,5,352,31"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
+<area shape="poly" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab97b063d81a57ddd95b905f24abbf1d9" name="ab97b063d81a57ddd95b905f24abbf1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab97b063d81a57ddd95b905f24abbf1d9">&#9670;&#160;</a></span>load_backend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::load_backend </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph" id="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph">
+<area shape="rect" title=" " alt="" coords="212,5,375,31"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
+<area shape="poly" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a62ee8445a67c4373fff6804dd79c9427" name="a62ee8445a67c4373fff6804dd79c9427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ee8445a67c4373fff6804dd79c9427">&#9670;&#160;</a></span>load_theme()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::load_theme </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph" id="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph">
+<area shape="rect" title=" " alt="" coords="212,5,363,31"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
+<area shape="poly" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7025aca645c6019f23e76dc0556af757" name="a7025aca645c6019f23e76dc0556af757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7025aca645c6019f23e76dc0556af757">&#9670;&#160;</a></span>load_font()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::load_font </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph" id="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph">
+<area shape="rect" title=" " alt="" coords="212,5,347,31"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
+<area shape="poly" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></li>
-    <li class="footer">Generated on Sun Feb 1 2026 05:57:14 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Mar 25 2026 02:45:16 for galaxy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

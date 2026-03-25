@@ -1,5 +1,5 @@
 <map id="galaxy::SceneManager" name="galaxy::SceneManager">
-<area shape="rect" id="Node000001" title="State machine for managing scenes." alt="" coords="5,917,167,1163"/>
+<area shape="rect" id="Node000001" title="State machine for managing scenes." alt="" coords="5,917,167,1203"/>
 <area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="9,468,163,868"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,882,89,917,83,917,83,882"/>
 <area shape="rect" id="Node000003" href="$da/d52/classgalaxy_1_1StateMachine.html" title="A finite state machine." alt="" coords="9,5,163,405"/>

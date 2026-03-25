@@ -15,5 +15,6 @@ var searchData=
   ['galaxy_3a_3aresource_12',['resource',['../d4/d1b/namespacegalaxy_1_1resource.html',1,'galaxy']]],
   ['galaxy_3a_3astr_13',['str',['../df/d98/namespacegalaxy_1_1str.html',1,'galaxy']]],
   ['galaxy_3a_3asystems_14',['systems',['../d2/d27/namespacegalaxy_1_1systems.html',1,'galaxy']]],
-  ['galaxy_3a_3atime_15',['time',['../d2/d2f/namespacegalaxy_1_1time.html',1,'galaxy']]]
+  ['galaxy_3a_3atime_15',['time',['../d2/d2f/namespacegalaxy_1_1time.html',1,'galaxy']]],
+  ['galaxy_3a_3aui_16',['ui',['../d3/dd9/namespacegalaxy_1_1ui.html',1,'galaxy']]]
 ];

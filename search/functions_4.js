@@ -12,6 +12,7 @@ var searchData=
   ['entitymanager_9',['EntityManager',['../d9/d4c/classgalaxy_1_1EntityManager.html#a7f1eaffdc7773af6f5222cd442e71f7d',1,'galaxy::EntityManager::EntityManager() noexcept'],['../d9/d4c/classgalaxy_1_1EntityManager.html#a60ec5093d12bb3a84544dd956739180a',1,'galaxy::EntityManager::EntityManager(EntityManager &amp;&amp;) noexcept'],['../d9/d4c/classgalaxy_1_1EntityManager.html#a9dde737cf45ccc5f176cf09fc8ace21d',1,'galaxy::EntityManager::EntityManager(const EntityManager &amp;)=delete']]],
   ['erase_10',['erase',['../db/d02/classgalaxy_1_1VertexArray.html#ab03e191df149ec4f92fb7847daf24eb3',1,'galaxy::VertexArray::erase()'],['../da/d97/classgalaxy_1_1VertexBuffer.html#aa7e63ac2ac352013f306b3d1914fbfab',1,'galaxy::VertexBuffer::erase()']]],
   ['event_11',['Event',['../df/d64/classgalaxy_1_1Event.html#a22a3067af283cf0828ab47a90bd6dbe5',1,'galaxy::Event::Event() noexcept'],['../df/d64/classgalaxy_1_1Event.html#a016843d9a9c125f370ceb63c082eeb36',1,'galaxy::Event::Event(Event &amp;&amp;) noexcept'],['../df/d64/classgalaxy_1_1Event.html#a5bfa64a796545baf36bec038d87f5301',1,'galaxy::Event::Event(const Event &amp;) noexcept']]],
-  ['exists_12',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
-  ['extension_13',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
+  ['events_12',['events',['../dd/d33/classgalaxy_1_1App.html#a24f7dc434b7fd086bfbbb758885cddf5',1,'galaxy::App']]],
+  ['exists_13',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
+  ['extension_14',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
 ];

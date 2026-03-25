@@ -28,6 +28,7 @@ var searchData=
   ['event_25',['Event',['../df/d64/classgalaxy_1_1Event.html',1,'galaxy::Event'],['../df/d64/classgalaxy_1_1Event.html#a22a3067af283cf0828ab47a90bd6dbe5',1,'galaxy::Event::Event() noexcept'],['../df/d64/classgalaxy_1_1Event.html#a016843d9a9c125f370ceb63c082eeb36',1,'galaxy::Event::Event(Event &amp;&amp;) noexcept'],['../df/d64/classgalaxy_1_1Event.html#a5bfa64a796545baf36bec038d87f5301',1,'galaxy::Event::Event(const Event &amp;) noexcept']]],
   ['event_2ecpp_26',['Event.cpp',['../d7/d9f/Event_8cpp.html',1,'']]],
   ['event_2ehpp_27',['Event.hpp',['../df/d7d/Event_8hpp.html',1,'']]],
-  ['exists_28',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
-  ['extension_29',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
+  ['events_28',['events',['../dd/d33/classgalaxy_1_1App.html#a24f7dc434b7fd086bfbbb758885cddf5',1,'galaxy::App']]],
+  ['exists_29',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
+  ['extension_30',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
 ];

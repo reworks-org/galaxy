@@ -1,0 +1,15 @@
+<map id="galaxy::ui::imgui_init" name="galaxy::ui::imgui_init">
+<area shape="rect" id="Node000001" title="Initialize ImGui context with galaxy." alt="" coords="5,129,164,155"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a1233ba5a60966c7376b599f28dfbc6d3" title="Bake a fixed style scale." alt="" coords="212,5,396,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,127,144,84,176,60,211,40,227,33,229,38,213,44,179,65,147,88,100,131"/>
+<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#ab97b063d81a57ddd95b905f24abbf1d9" title=" " alt="" coords="223,55,385,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,127,211,89,236,81,238,86,213,94,116,132"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#a7025aca645c6019f23e76dc0556af757" title=" " alt="" coords="237,104,371,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,130,222,123,223,129,165,136"/>
+<area shape="rect" id="Node000005" href="$d0/d46/namespacegalaxy.html#a62ee8445a67c4373fff6804dd79c9427" title=" " alt="" coords="229,153,379,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,148,215,154,215,159,164,153"/>
+<area shape="rect" id="Node000006" href="$d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="231,203,377,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="118,152,213,187,242,196,240,201,211,193,116,157"/>
+<area shape="rect" id="Node000007" href="$d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="234,252,374,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="101,153,148,194,179,217,213,237,232,245,230,250,211,242,176,222,145,198,97,157"/>
+</map>
