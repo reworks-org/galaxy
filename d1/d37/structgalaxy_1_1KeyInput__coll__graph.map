@@ -1,9 +1,9 @@
 <map id="galaxy::KeyInput" name="galaxy::KeyInput">
-<area shape="rect" id="Node000001" title="Unicode text data from a textinput event." alt="" coords="37,403,159,468"/>
+<area shape="rect" id="Node000001" title="Unicode text data from a textinput event." alt="" coords="37,411,159,476"/>
 <area shape="rect" id="Node000002" href="$df/d64/classgalaxy_1_1Event.html" title="Base type of all events." alt="" coords="5,135,111,340"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,353,94,402,89,403,79,354"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,353,94,410,89,411,78,355"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="135,205,213,270"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,271,119,388,114,386,159,269"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,271,118,396,113,394,160,270"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="109,5,239,85"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,99,177,204,171,204,171,99"/>
 </map>

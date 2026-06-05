@@ -1,7 +1,0 @@
-<map id="galaxy::VertexBatch::flush" name="galaxy::VertexBatch::flush">
-<area shape="rect" id="Node000001" title="Copy all data to GPU." alt="" coords="5,5,157,45"/>
-<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#afc3933bbe141eb3a2d5a738609b7780a" title="Sub&#45;buffer vertex buffer." alt="" coords="205,5,363,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,23,192,23,192,28,158,28"/>
-<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a61c3721b19bb2270f0d39ec5823875ed" title="Sub&#45;buffer vertex buffer." alt="" coords="411,5,568,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,23,397,23,397,28,363,28"/>
-</map>

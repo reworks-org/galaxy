@@ -1,0 +1,8 @@
+<map id="galaxy::SceneManager::SceneManager" name="galaxy::SceneManager::SceneManager">
+<area shape="rect" id="Node000001" title="Copy constructor." alt="" coords="5,29,175,69"/>
+<area shape="rect" id="Node000002" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a9db68cf40f7778b527cf438bcfdae2d1" title="Constructor." alt="" coords="223,29,392,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,47,209,47,209,52,175,52"/>
+<area shape="rect" id="Node000003" href="$da/d52/classgalaxy_1_1StateMachine.html#ad2dda84912bd37a5d3ee4bcfc3781875" title=" " alt="" coords="440,29,628,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,47,426,47,426,52,392,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="492,30,489,20,496,10,511,5,534,3,560,6,575,13,572,18,559,11,534,8,512,10,499,15,494,21,497,28"/>
+</map>

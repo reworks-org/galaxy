@@ -1,0 +1,11 @@
+<map id="galaxy::VertexArray::VertexArray" name="galaxy::VertexArray::VertexArray">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="204,101,355,141"/>
+<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#afe64374597d5484c4e9614f23a8fe623" title="Copy assignment operator." alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,97,155,60,129,48,131,43,157,55,231,93"/>
+<area shape="rect" id="Node000003" href="$db/d02/classgalaxy_1_1VertexArray.html#aa555b22d885c34922bb98cbeb5b448df" title="Move assignment operator." alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,110,156,104,157,99,191,104"/>
+<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a539f397c8caa4042fdbc82a439eedd10" title="Copy constructor." alt="" coords="5,133,156,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,138,157,144,156,139,190,133"/>
+<area shape="rect" id="Node000005" href="$db/d02/classgalaxy_1_1VertexArray.html#ae5d54ee077862817447a3b992e0d78fd" title="Move constructor." alt="" coords="5,197,156,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="231,150,157,188,131,200,129,195,155,183,228,145"/>
+</map>

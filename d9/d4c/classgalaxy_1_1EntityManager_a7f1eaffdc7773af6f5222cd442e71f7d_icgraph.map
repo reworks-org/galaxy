@@ -1,0 +1,11 @@
+<map id="galaxy::EntityManager::EntityManager" name="galaxy::EntityManager::EntityManager">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="221,101,389,141"/>
+<area shape="rect" id="Node000002" href="$d9/d4c/classgalaxy_1_1EntityManager.html#a9dde737cf45ccc5f176cf09fc8ace21d" title="Copy constructor." alt="" coords="5,5,173,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,97,172,60,144,48,146,43,174,55,254,93"/>
+<area shape="rect" id="Node000003" href="$d9/d4c/classgalaxy_1_1EntityManager.html#a60ec5093d12bb3a84544dd956739180a" title="Move constructor." alt="" coords="5,69,173,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,110,173,104,174,99,208,104"/>
+<area shape="rect" id="Node000004" href="$d9/d4c/classgalaxy_1_1EntityManager.html#a7ec1bf0b35664f1753d836fddd90007a" title="Copy assignment operator." alt="" coords="5,133,173,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,138,174,144,173,138,207,133"/>
+<area shape="rect" id="Node000005" href="$d9/d4c/classgalaxy_1_1EntityManager.html#a8e0b5b78a1ec9edd2d244727e7cc6570" title="Move assignment operator." alt="" coords="5,197,173,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="254,150,174,188,146,200,144,195,172,183,252,145"/>
+</map>

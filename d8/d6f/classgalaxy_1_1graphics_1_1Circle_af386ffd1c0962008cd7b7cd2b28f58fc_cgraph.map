@@ -1,11 +1,7 @@
 <map id="galaxy::graphics::Circle::create" name="galaxy::graphics::Circle::create">
-<area shape="rect" id="Node000001" title="Create the circle." alt="" coords="5,69,179,109"/>
-<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="238,5,389,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,67,230,47,231,52,163,72"/>
-<area shape="rect" id="Node000004" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af07fa11cdc3787dd35b671bcb80aede8" title="Get fragments." alt="" coords="227,69,400,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,87,213,87,213,92,179,92"/>
-<area shape="rect" id="Node000005" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#ac62012a2315c7df688bb11f61abf9b3b" title="Get radius." alt="" coords="227,133,400,173"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="163,107,231,127,230,132,161,112"/>
-<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="448,5,603,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,23,434,23,434,28,389,28"/>
+<area shape="rect" id="Node000001" title="Create the circle." alt="" coords="5,37,179,77"/>
+<area shape="rect" id="Node000002" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#af07fa11cdc3787dd35b671bcb80aede8" title="Get fragments." alt="" coords="227,5,400,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,42,213,37,214,42,180,47"/>
+<area shape="rect" id="Node000003" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#ac62012a2315c7df688bb11f61abf9b3b" title="Get radius." alt="" coords="227,69,400,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,67,214,72,213,78,179,73"/>
 </map>

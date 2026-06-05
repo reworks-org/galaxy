@@ -1,0 +1,7 @@
+<map id="galaxy::Keyboard::operator=" name="galaxy::Keyboard::operator=">
+<area shape="rect" id="Node000001" title="Move assignment operator." alt="" coords="5,13,213,38"/>
+<area shape="rect" id="Node000002" href="$d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1" title="Constructor." alt="" coords="261,13,464,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,23,248,23,248,28,213,28"/>
+<area shape="rect" id="Node000003" href="$d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74" title="Constructor." alt="" coords="512,5,695,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,23,498,23,498,28,464,28"/>
+</map>

@@ -1,5 +1,6 @@
 <map id="galaxy::Camera::recalculate" name="galaxy::Camera::recalculate">
-<area shape="rect" id="Node000001" title="Recalculates the model view matrix." alt="" coords="5,5,209,31"/>
-<area shape="rect" id="Node000002" href="$da/d44/classgalaxy_1_1Camera.html#a3cbb2efe4e352edc304807d8c66d5ab0" title="Set entity scale." alt="" coords="257,5,424,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,15,243,15,243,21,210,21"/>
+<area shape="rect" id="Node000001" title="Recalculates the model view matrix." alt="" coords="5,29,209,55"/>
+<area shape="rect" id="Node000002" href="$da/d44/classgalaxy_1_1Camera.html#a3cbb2efe4e352edc304807d8c66d5ab0" title="Set entity scale." alt="" coords="257,29,424,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,39,243,39,243,45,210,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="303,31,295,21,299,11,315,5,341,3,373,7,386,16,382,20,371,11,341,8,316,10,303,15,300,20,307,27"/>
 </map>

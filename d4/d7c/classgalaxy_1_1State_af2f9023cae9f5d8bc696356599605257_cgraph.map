@@ -1,0 +1,6 @@
+<map id="galaxy::State::operator=" name="galaxy::State::operator=">
+<area shape="rect" id="Node000001" title="Move assignment operator." alt="" coords="5,29,187,55"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html#af140f04013e7abfc38b56a1e1fc0694c" title="Move constructor." alt="" coords="235,29,384,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,39,221,39,221,45,187,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="274,31,267,21,271,11,285,5,309,3,339,6,351,15,348,20,337,11,309,8,287,10,275,15,272,20,279,28"/>
+</map>

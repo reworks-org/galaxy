@@ -1,9 +1,9 @@
 <map id="galaxy::RenderPipeline" name="galaxy::RenderPipeline">
-<area shape="rect" id="Node000001" title="GPU configuration." alt="" coords="5,419,168,564"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="8,261,165,341"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,341,89,402,84,402,84,341"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="26,133,147,199"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,212,89,261,84,261,84,212"/>
+<area shape="rect" id="Node000001" title="GPU configuration." alt="" coords="5,448,168,593"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,277,165,357"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,357,89,432,84,432,84,357"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="26,141,147,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,220,89,277,84,277,84,220"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="75,5,98,71"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="89,71,89,117,84,117,84,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="89,71,89,125,84,125,84,71"/>
 </map>

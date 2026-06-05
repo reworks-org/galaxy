@@ -30,11 +30,13 @@
 <area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="109,560,124,608,152,671,191,738,215,768,243,795,249,799,246,804,240,799,211,772,186,741,147,674,119,610,104,562"/>
 <area shape="rect" id="Node000016" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="251,873,439,913"/>
 <area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="106,560,118,619,143,699,161,742,184,785,211,824,243,859,249,863,245,867,240,863,207,828,179,788,156,745,138,701,113,620,101,561"/>
-<area shape="rect" id="Node000017" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="496,902,640,942"/>
-<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="103,561,108,633,116,681,127,734,145,788,169,839,202,885,243,923,271,938,302,949,334,956,367,958,432,954,491,943,492,948,433,959,367,963,333,961,300,954,269,943,240,927,198,888,165,842,140,790,122,735,110,682,103,634,98,561"/>
-<area shape="rect" id="Node000018" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="253,988,437,1013"/>
-<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="104,561,110,636,130,745,148,805,172,864,203,919,243,967,261,980,258,984,240,971,199,922,167,866,143,807,125,747,105,637,98,561"/>
-<area shape="rect" id="Node000019" href="$df/d23/structgalaxy_1_1Settings.html#a63077443966b4774610d887a7c21a943" title="Should asset data be read from pack or assets dir." alt="" coords="266,1038,423,1078"/>
-<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="103,561,106,645,113,703,124,768,141,836,166,904,200,967,243,1023,256,1033,252,1037,239,1027,195,970,161,906,136,838,118,770,107,704,101,645,98,561"/>
-<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="439,902,483,908,482,913,439,908"/>
+<area shape="rect" id="Node000018" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="518,930,662,970"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="104,561,109,632,117,680,129,732,147,786,171,837,203,884,243,923,272,941,304,954,338,963,373,969,441,971,504,965,505,970,442,976,372,974,337,969,302,959,270,946,240,927,199,887,166,840,142,788,124,734,112,681,104,633,98,561"/>
+<area shape="rect" id="Node000019" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="253,988,437,1013"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="104,561,110,636,130,745,148,805,172,864,203,919,243,967,261,980,258,984,240,971,199,922,167,866,143,807,125,747,105,637,98,561"/>
+<area shape="rect" id="Node000020" href="$df/d23/structgalaxy_1_1Settings.html#a63077443966b4774610d887a7c21a943" title="Should asset data be read from pack or assets dir." alt="" coords="266,1038,423,1078"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="103,561,106,645,112,704,123,769,140,838,165,905,199,968,243,1024,256,1034,252,1038,239,1028,195,971,160,907,135,839,118,771,107,705,101,646,98,561"/>
+<area shape="rect" id="Node000017" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e" title="Does the file exist in the vfs." alt="" coords="496,866,684,906"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="439,887,482,886,482,892,439,893"/>
+<area shape="poly" id="edge17_Node000016_Node000018" title=" " alt="" coords="431,910,505,928,504,933,430,915"/>
 </map>

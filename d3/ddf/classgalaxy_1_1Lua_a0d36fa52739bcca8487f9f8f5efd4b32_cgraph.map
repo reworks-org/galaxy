@@ -1,40 +1,42 @@
 <map id="galaxy::Lua::inject_time" name="galaxy::Lua::inject_time">
-<area shape="rect" id="Node000001" title="Register galaxy time support functions into Lua." alt="" coords="5,449,183,475"/>
-<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="254,5,378,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,449,99,380,118,274,135,214,159,155,189,98,229,48,247,34,250,39,233,52,194,101,163,157,140,216,123,275,104,381,98,450"/>
-<area shape="rect" id="Node000003" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e" title="Time passed in milliseconds." alt="" coords="479,291,628,331"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,449,97,383,103,335,114,283,131,229,155,177,187,130,229,92,273,68,314,62,356,71,403,92,430,109,454,130,494,180,523,232,543,277,538,279,519,235,489,183,450,134,426,113,400,96,354,76,314,67,275,73,232,96,191,134,160,180,136,231,119,284,108,336,102,383,98,449"/>
-<area shape="rect" id="Node000004" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="247,107,385,132"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="94,448,104,393,127,310,145,265,167,221,195,179,229,143,237,137,240,141,232,147,199,182,172,224,150,268,132,312,110,394,100,449"/>
-<area shape="rect" id="Node000005" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0a032b952afcb140cd332bc4ea57cbf0" title="Pause the Stopwatch." alt="" coords="241,157,391,197"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="96,448,110,403,137,338,176,269,201,236,229,207,235,202,238,206,232,211,205,239,180,271,142,341,115,405,101,450"/>
-<area shape="rect" id="Node000006" href="$d0/d7b/classgalaxy_1_1Timer.html#a50f0d64fd708111eb62d9b489da845d5" title="Pause the timer." alt="" coords="237,221,395,247"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="98,448,114,410,142,359,180,304,204,279,229,257,240,250,243,255,232,261,207,283,185,308,147,362,119,413,103,450"/>
-<area shape="rect" id="Node000007" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a81bcdc1a7aa0685dc7cc29829cdaf214" title="Is the Stopwatch paused?" alt="" coords="241,271,391,311"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="103,447,153,388,189,353,229,321,239,315,242,320,232,326,192,357,156,392,107,451"/>
-<area shape="rect" id="Node000008" href="$d0/d7b/classgalaxy_1_1Timer.html#a7e522ba4bf8f337309f6e1bc214e5633" title="Is the timer paused?" alt="" coords="233,336,399,361"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="110,447,162,410,230,372,250,363,252,368,232,376,164,415,113,451"/>
-<area shape="rect" id="Node000009" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a7e03d3166670edad50f5693c377a8da8" title="Make function repeat itself instead of running once." alt="" coords="241,410,391,450"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="182,447,227,440,228,445,183,452"/>
-<area shape="rect" id="Node000010" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a210374bce91d24678f7a80a95d0d2532" title="Start Stopwatch." alt="" coords="241,474,391,514"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="183,472,228,479,227,484,182,477"/>
-<area shape="rect" id="Node000011" href="$d0/d7b/classgalaxy_1_1Timer.html#a5651cbe143bfe10f3060b2c08683a46e" title="Start timer." alt="" coords="241,539,391,564"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="120,472,171,497,232,524,256,532,254,537,230,528,169,502,118,477"/>
-<area shape="rect" id="Node000012" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0449a10e0a78d1413305b2ddc86bde9a" title="Stop Stopwatch." alt="" coords="465,625,642,651"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="103,474,119,509,146,556,184,603,206,622,232,638,264,651,298,660,368,666,435,661,492,651,493,656,435,666,368,671,297,665,262,656,229,643,203,627,180,606,141,559,114,511,98,476"/>
-<area shape="rect" id="Node000013" href="$d0/d7b/classgalaxy_1_1Timer.html#a02332d07fa9c6a5b4752b7c00a635b63" title="Stop timer." alt="" coords="243,883,389,908"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="98,475,103,543,122,649,138,708,162,766,193,820,233,868,239,874,236,878,229,872,188,824,157,768,133,710,116,650,98,544,93,475"/>
-<area shape="rect" id="Node000015" href="$d4/d22/classgalaxy_1_1Stopwatch.html#af13ca67e10c4cc05793186448e6ca952" title="Is the Stopwatch finished?" alt="" coords="241,703,391,743"/>
-<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="102,474,119,513,146,569,184,629,207,657,232,683,248,694,245,699,229,687,203,661,180,632,142,571,114,516,98,476"/>
-<area shape="rect" id="Node000016" href="$d0/d7b/classgalaxy_1_1Timer.html#abf8466c070a07ffba25abac3354fa944" title="Is the timer finished?" alt="" coords="231,768,401,793"/>
-<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="100,474,111,526,135,601,153,642,174,683,201,721,232,753,241,759,237,764,229,757,197,724,170,686,148,645,130,603,106,527,95,475"/>
-<area shape="rect" id="Node000017" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a14bf40363e1867dd4bb7ae406c8b3175" title="Resume the Stopwatch." alt="" coords="241,818,391,858"/>
-<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="99,474,109,533,131,620,149,669,171,717,199,762,233,803,239,808,235,812,229,807,195,766,166,719,144,671,126,622,104,534,94,475"/>
-<area shape="rect" id="Node000018" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="241,589,391,629"/>
-<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="110,473,161,520,195,548,232,573,246,581,244,585,229,578,192,552,157,524,106,477"/>
-<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="275,410,272,400,279,391,294,385,316,383,342,386,356,394,354,398,340,391,316,389,295,391,282,395,277,401,280,409"/>
-<area shape="rect" id="Node000014" href="$d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b" title="Check if an async thread has finished or not." alt="" coords="449,883,657,908"/>
-<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="390,893,436,893,436,898,390,898"/>
-<area shape="poly" id="edge19_Node000018_Node000003" title=" " alt="" coords="380,586,400,573,426,547,450,518,490,455,519,393,539,343,544,345,524,396,494,458,454,521,430,551,403,577,383,591"/>
-<area shape="poly" id="edge20_Node000018_Node000012" title=" " alt="" coords="391,615,451,623,450,628,391,621"/>
+<area shape="rect" id="Node000001" title="Register galaxy time support functions into Lua." alt="" coords="5,497,183,523"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53" title="Set galaxy delta time." alt="" coords="254,29,378,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,497,97,425,115,312,132,249,156,186,188,126,229,72,246,59,249,63,233,76,192,128,161,188,137,251,121,313,103,426,98,498"/>
+<area shape="rect" id="Node000003" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e" title="Time passed in milliseconds." alt="" coords="479,327,628,367"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="92,497,95,427,100,377,111,321,127,263,152,207,185,157,206,135,229,116,273,92,294,87,314,85,356,94,403,116,431,134,455,157,496,211,525,266,544,313,539,315,520,268,491,213,451,161,427,138,400,120,354,99,314,91,295,92,275,97,232,120,209,139,189,160,156,210,132,265,116,322,106,377,100,427,98,497"/>
+<area shape="rect" id="Node000004" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="247,131,385,156"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="94,497,102,438,124,349,142,300,165,252,193,206,229,167,236,161,240,165,232,171,198,210,169,254,147,302,129,351,108,439,99,498"/>
+<area shape="rect" id="Node000005" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0a032b952afcb140cd332bc4ea57cbf0" title="Pause the Stopwatch." alt="" coords="241,181,391,221"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="96,496,108,447,134,376,173,299,199,263,229,231,234,226,238,230,232,235,203,266,178,302,139,379,114,449,101,498"/>
+<area shape="rect" id="Node000006" href="$d0/d7b/classgalaxy_1_1Timer.html#a50f0d64fd708111eb62d9b489da845d5" title="Pause the timer." alt="" coords="237,269,395,295"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="98,496,114,458,142,407,180,352,204,327,229,305,240,298,243,303,232,309,207,331,185,356,147,410,119,461,103,498"/>
+<area shape="rect" id="Node000007" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a81bcdc1a7aa0685dc7cc29829cdaf214" title="Is the Stopwatch paused?" alt="" coords="241,319,391,359"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="103,495,153,436,189,401,229,369,239,363,242,368,232,374,192,405,156,440,107,499"/>
+<area shape="rect" id="Node000008" href="$d0/d7b/classgalaxy_1_1Timer.html#a7e522ba4bf8f337309f6e1bc214e5633" title="Is the timer paused?" alt="" coords="233,384,399,409"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="110,495,162,458,230,420,250,411,252,416,232,424,164,463,113,499"/>
+<area shape="rect" id="Node000009" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a7e03d3166670edad50f5693c377a8da8" title="Make function repeat itself instead of running once." alt="" coords="241,458,391,498"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="182,495,227,488,228,493,183,500"/>
+<area shape="rect" id="Node000010" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a210374bce91d24678f7a80a95d0d2532" title="Start Stopwatch." alt="" coords="241,522,391,562"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="183,520,228,527,227,532,182,525"/>
+<area shape="rect" id="Node000011" href="$d0/d7b/classgalaxy_1_1Timer.html#a5651cbe143bfe10f3060b2c08683a46e" title="Start timer." alt="" coords="241,587,391,612"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="120,520,171,545,232,572,256,580,254,585,230,576,169,550,118,525"/>
+<area shape="rect" id="Node000012" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0449a10e0a78d1413305b2ddc86bde9a" title="Stop Stopwatch." alt="" coords="465,673,642,699"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="103,522,119,557,146,604,184,651,206,670,232,686,264,699,298,708,368,714,435,709,492,699,493,704,435,714,368,719,297,713,262,704,229,691,203,675,180,654,141,607,114,559,98,524"/>
+<area shape="rect" id="Node000013" href="$d0/d7b/classgalaxy_1_1Timer.html#a02332d07fa9c6a5b4752b7c00a635b63" title="Stop timer." alt="" coords="243,931,389,956"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="98,523,103,591,122,697,138,756,162,814,193,868,233,916,239,922,236,926,229,920,188,872,157,816,133,758,116,698,98,592,93,523"/>
+<area shape="rect" id="Node000015" href="$d4/d22/classgalaxy_1_1Stopwatch.html#af13ca67e10c4cc05793186448e6ca952" title="Is the Stopwatch finished?" alt="" coords="241,751,391,791"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="102,522,119,561,146,617,184,677,207,705,232,731,248,742,245,747,229,735,203,709,180,680,142,619,114,564,98,524"/>
+<area shape="rect" id="Node000016" href="$d0/d7b/classgalaxy_1_1Timer.html#abf8466c070a07ffba25abac3354fa944" title="Is the timer finished?" alt="" coords="231,816,401,841"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="100,522,111,574,135,649,153,690,174,731,201,769,232,801,241,807,237,812,229,805,197,772,170,734,148,693,130,651,106,575,95,523"/>
+<area shape="rect" id="Node000017" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a14bf40363e1867dd4bb7ae406c8b3175" title="Resume the Stopwatch." alt="" coords="241,866,391,906"/>
+<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="99,522,109,581,131,668,149,717,171,765,199,810,233,851,239,856,235,860,229,855,195,814,166,767,144,719,126,670,104,582,94,523"/>
+<area shape="rect" id="Node000018" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="241,637,391,677"/>
+<area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="110,521,161,568,195,596,232,621,246,629,244,633,229,626,192,600,157,572,106,525"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="280,31,272,21,276,11,291,5,316,3,347,6,359,15,356,20,345,11,316,8,292,10,280,15,277,20,284,28"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="280,271,272,261,276,251,291,245,316,243,347,246,359,255,356,260,345,251,316,248,292,250,280,255,277,260,284,268"/>
+<area shape="poly" id="edge11_Node000009_Node000009" title=" " alt="" coords="275,458,272,448,279,439,294,433,316,431,342,434,356,442,354,446,340,439,316,437,295,439,282,443,277,449,280,457"/>
+<area shape="rect" id="Node000014" href="$d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b" title="Check if an async thread has finished or not." alt="" coords="449,931,657,956"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="390,941,436,941,436,946,390,946"/>
+<area shape="poly" id="edge21_Node000018_Node000003" title=" " alt="" coords="380,634,400,621,427,594,451,563,492,496,521,432,540,379,545,381,526,434,496,499,456,566,431,597,403,625,383,639"/>
+<area shape="poly" id="edge22_Node000018_Node000012" title=" " alt="" coords="391,663,451,671,450,676,391,669"/>
 </map>

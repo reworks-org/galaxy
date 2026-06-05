@@ -1,9 +1,13 @@
 <map id="galaxy::Lua::inject_state" name="galaxy::Lua::inject_state">
-<area shape="rect" id="Node000001" title="Injects galaxy state machine requirements into lua." alt="" coords="5,47,145,87"/>
-<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92" title="Get state name." alt="" coords="202,5,354,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,48,211,32,212,37,146,53"/>
-<area shape="rect" id="Node000003" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="197,55,359,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,65,183,65,183,70,145,70"/>
-<area shape="rect" id="Node000004" href="$d4/d7c/classgalaxy_1_1State.html#a57cfda12d640367d90ebab4feed2855e" title="Triggered when state is pushed onto the stack." alt="" coords="193,104,363,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,82,212,98,211,103,145,87"/>
+<area shape="rect" id="Node000001" title="Injects galaxy state machine requirements into lua." alt="" coords="5,49,145,89"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92" title="Get state name." alt="" coords="411,5,563,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,50,193,41,299,28,397,20,397,25,299,33,194,46,146,55"/>
+<area shape="rect" id="Node000003" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="197,56,359,81"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,66,183,66,183,71,145,71"/>
+<area shape="rect" id="Node000005" href="$d4/d7c/classgalaxy_1_1State.html#a57cfda12d640367d90ebab4feed2855e" title="Triggered when state is pushed onto the stack." alt="" coords="193,105,363,131"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="146,83,212,99,211,104,145,88"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="331,53,420,31,421,37,332,58"/>
+<area shape="rect" id="Node000004" href="$d4/d7c/classgalaxy_1_1State.html#af140f04013e7abfc38b56a1e1fc0694c" title="Move constructor." alt="" coords="412,79,561,104"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="360,75,399,79,398,84,359,80"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="453,80,445,70,449,60,463,54,487,52,516,56,527,65,524,69,514,61,487,57,465,59,453,64,450,70,457,77"/>
 </map>

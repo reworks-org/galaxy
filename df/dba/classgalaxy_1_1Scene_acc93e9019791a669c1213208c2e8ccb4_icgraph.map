@@ -1,0 +1,7 @@
+<map id="galaxy::Scene::Scene" name="galaxy::Scene::Scene">
+<area shape="rect" id="Node000001" title="Name constructor." alt="" coords="240,31,399,56"/>
+<area shape="rect" id="Node000002" href="$df/dba/classgalaxy_1_1Scene.html#a528f3b015d8cbb98a94eb387530856bd" title="Copy assignment operator." alt="" coords="5,5,192,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,35,192,31,192,26,227,30"/>
+<area shape="rect" id="Node000003" href="$df/dba/classgalaxy_1_1Scene.html#a17ded5a3430ca748c0d160ad1c7f76d5" title="Copy constructor." alt="" coords="19,55,178,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,56,179,61,178,56,226,51"/>
+</map>

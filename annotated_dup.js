@@ -27,8 +27,8 @@ var annotated_dup =
       ] ],
       [ "math", "d1/d92/namespacegalaxy_1_1math.html", [
         [ "fnv_1a_params", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
-        [ "fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
-        [ "fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ]
+        [ "fnv_1a_params&lt; std::uint32_t &gt;", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
+        [ "fnv_1a_params&lt; std::uint64_t &gt;", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ]
       ] ],
       [ "media", "dc/d80/namespacegalaxy_1_1media.html", [
         [ "Video", "de/d0b/classgalaxy_1_1media_1_1Video.html", "de/d0b/classgalaxy_1_1media_1_1Video" ]
@@ -111,11 +111,11 @@ var annotated_dup =
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]
     ] ],
     [ "std", "d8/dcc/namespacestd.html", [
-      [ "formatter< galaxy::FileError >", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4" ],
-      [ "formatter< galaxy::LogLevel >", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4" ],
-      [ "formatter< galaxy::LogMessage >", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4" ],
-      [ "formatter< galaxy::UUID >", "d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html", "d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4" ],
-      [ "formatter< std::filesystem::path >", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4" ],
-      [ "hash< galaxy::UUID >", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4" ]
+      [ "formatter&lt; galaxy::FileError &gt;", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4.html", "d3/d6b/structstd_1_1formatter_3_01galaxy_1_1FileError_01_4" ],
+      [ "formatter&lt; galaxy::LogLevel &gt;", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4.html", "d9/d62/structstd_1_1formatter_3_01galaxy_1_1LogLevel_01_4" ],
+      [ "formatter&lt; galaxy::LogMessage &gt;", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html", "dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4" ],
+      [ "formatter&lt; galaxy::UUID &gt;", "d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html", "d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4" ],
+      [ "formatter&lt; std::filesystem::path &gt;", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html", "d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4" ],
+      [ "hash&lt; galaxy::UUID &gt;", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4" ]
     ] ]
 ];

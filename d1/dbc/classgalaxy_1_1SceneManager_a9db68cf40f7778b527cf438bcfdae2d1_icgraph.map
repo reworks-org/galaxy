@@ -1,0 +1,11 @@
+<map id="galaxy::SceneManager::SceneManager" name="galaxy::SceneManager::SceneManager">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="223,101,392,141"/>
+<area shape="rect" id="Node000002" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a51b94fc25ddcdbdb71f423dc6ac120e1" title="Copy assignment operator." alt="" coords="5,5,175,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,97,174,60,145,48,147,43,176,55,256,93"/>
+<area shape="rect" id="Node000003" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a86834ee9a55caca282e2935e758c55ef" title="Move assignment operator." alt="" coords="5,69,175,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,110,174,104,175,99,209,104"/>
+<area shape="rect" id="Node000004" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a177d28ec41aaf3a614c449d3473782f3" title="Copy constructor." alt="" coords="5,133,175,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,138,175,144,174,138,209,133"/>
+<area shape="rect" id="Node000005" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a6c6f8b57a11283ee4b7c6c195289fb8e" title="Move constructor." alt="" coords="5,197,175,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="256,150,176,188,147,200,145,195,174,183,254,145"/>
+</map>

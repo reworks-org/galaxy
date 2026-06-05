@@ -1,0 +1,44 @@
+<map id="galaxy::VirtualFileSystem::operator=" name="galaxy::VirtualFileSystem::operator=">
+<area shape="rect" id="Node000001" title="Copy assignment operator." alt="" coords="5,521,193,561"/>
+<area shape="rect" id="Node000002" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="241,521,429,561"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,538,227,538,227,543,194,543"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a973d4cb94dea385fd095e99cb8d79c20" title="Name of packed assets file." alt="" coords="477,5,684,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="337,520,354,419,384,275,403,201,425,133,449,78,475,40,480,36,484,40,479,44,454,80,430,135,408,202,389,276,359,420,342,521"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a8e8e8205de8e6534d17d71b89c57bcc7" title="Main data directory." alt="" coords="481,55,681,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="334,520,338,441,345,386,356,325,374,262,399,200,432,141,475,91,483,85,486,89,479,95,437,144,404,202,379,264,362,326,350,387,343,441,339,521"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a688bb9fb459a4a5b10e547daea875832" title="Animation data location." alt="" coords="493,105,669,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="335,520,344,451,366,353,384,300,408,247,438,198,475,155,480,151,484,155,479,159,442,201,412,250,389,302,371,355,349,452,341,521"/>
+<area shape="rect" id="Node000006" href="$df/d23/structgalaxy_1_1Settings.html#ae396f4971f441080b9657dc7de6b0e4f" title="Font asset location." alt="" coords="493,169,669,209"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="337,520,349,461,374,380,392,337,415,294,443,254,476,219,481,214,485,218,479,223,447,257,420,297,397,339,379,382,354,462,342,521"/>
+<area shape="rect" id="Node000007" href="$df/d23/structgalaxy_1_1Settings.html#aa3fd50d09a7fbaa8d78b51e1eb0c409a" title="Maps asset location." alt="" coords="493,233,669,273"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="340,519,355,471,383,408,422,341,447,310,476,283,482,278,485,282,479,287,451,313,427,344,388,410,360,473,345,521"/>
+<area shape="rect" id="Node000008" href="$df/d23/structgalaxy_1_1Settings.html#a68ed0e57e329e116448d38092f999310" title="Music asset location." alt="" coords="493,297,669,337"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="344,519,363,482,392,436,430,388,476,347,485,341,487,345,479,351,434,392,397,439,368,485,348,522"/>
+<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a2352e26b2745352fd00a8b9a509c33bc" title="Prefab asset location." alt="" coords="493,361,669,401"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="352,519,404,465,438,436,476,410,489,404,491,408,479,415,442,440,407,469,356,522"/>
+<area shape="rect" id="Node000010" href="$df/d23/structgalaxy_1_1Settings.html#a68ea6105fe3d605a8fe0bd4ddb8e802c" title="Scripts asset location." alt="" coords="493,425,669,465"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="376,518,476,474,498,467,499,472,478,479,378,523"/>
+<area shape="rect" id="Node000011" href="$df/d23/structgalaxy_1_1Settings.html#aa38ca27ed949489f949b647d80f6ea84" title="SFX asset location." alt="" coords="493,489,669,529"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="429,526,479,519,479,525,430,531"/>
+<area shape="rect" id="Node000012" href="$df/d23/structgalaxy_1_1Settings.html#a502514ef6ee9552ee9ec7c01771ea3b5" title="Shaders asset location." alt="" coords="493,553,669,593"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="430,550,479,557,479,562,429,556"/>
+<area shape="rect" id="Node000013" href="$df/d23/structgalaxy_1_1Settings.html#a2794234a7da888721fb4f3d4f4090de1" title="Textures asset location." alt="" coords="493,617,669,657"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="378,558,478,602,499,610,498,615,476,607,376,563"/>
+<area shape="rect" id="Node000014" href="$df/d23/structgalaxy_1_1Settings.html#a591b1a40295208bdabb68802b0c70dd3" title="UI asset location." alt="" coords="493,681,669,721"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="356,559,407,612,442,641,479,666,491,673,489,678,476,671,438,646,404,616,352,563"/>
+<area shape="rect" id="Node000015" href="$df/d23/structgalaxy_1_1Settings.html#ac8246651c6c35d660db4da72c15cc487" title="Video asset location." alt="" coords="493,745,669,785"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="348,560,368,596,397,642,434,690,479,731,487,736,485,741,476,735,430,693,392,645,363,599,344,562"/>
+<area shape="rect" id="Node000016" href="$df/d23/structgalaxy_1_1Settings.html#a3447c1313b393c9cc00c3ddc438f2599" title="Voice asset location." alt="" coords="493,809,669,849"/>
+<area shape="poly" id="edge15_Node000002_Node000016" title=" " alt="" coords="345,560,360,608,388,671,427,738,451,768,479,795,485,799,482,804,476,799,447,772,422,741,383,674,355,610,340,562"/>
+<area shape="rect" id="Node000017" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="487,873,675,913"/>
+<area shape="poly" id="edge16_Node000002_Node000017" title=" " alt="" coords="342,560,354,619,379,699,397,742,420,785,447,824,479,859,485,863,481,867,476,863,443,828,415,788,392,745,374,701,349,620,337,561"/>
+<area shape="rect" id="Node000019" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="754,930,898,970"/>
+<area shape="poly" id="edge19_Node000002_Node000019" title=" " alt="" coords="340,561,345,632,353,680,365,732,383,786,407,837,439,884,479,923,508,941,540,954,574,963,609,969,677,971,740,965,741,970,678,976,608,974,573,969,538,959,506,946,476,927,435,887,402,840,378,788,360,734,348,681,340,633,334,561"/>
+<area shape="rect" id="Node000020" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="489,988,673,1013"/>
+<area shape="poly" id="edge20_Node000002_Node000020" title=" " alt="" coords="340,561,346,636,366,745,384,805,408,864,439,919,479,967,497,980,494,984,476,971,435,922,403,866,379,807,361,747,341,637,334,561"/>
+<area shape="rect" id="Node000021" href="$df/d23/structgalaxy_1_1Settings.html#a63077443966b4774610d887a7c21a943" title="Should asset data be read from pack or assets dir." alt="" coords="502,1038,659,1078"/>
+<area shape="poly" id="edge21_Node000002_Node000021" title=" " alt="" coords="339,561,342,645,348,704,359,769,376,838,401,905,435,968,479,1024,492,1034,488,1038,475,1028,431,971,396,907,371,839,354,771,343,705,337,646,334,561"/>
+<area shape="rect" id="Node000018" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e" title="Does the file exist in the vfs." alt="" coords="732,866,920,906"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="675,887,718,886,718,892,675,893"/>
+<area shape="poly" id="edge18_Node000017_Node000019" title=" " alt="" coords="667,910,741,928,740,933,666,915"/>
+</map>

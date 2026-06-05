@@ -1,0 +1,15 @@
+<map id="galaxy::SystemFactory::~SystemFactory" name="galaxy::SystemFactory::~SystemFactory">
+<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,93,175,133"/>
+<area shape="rect" id="Node000002" href="$d3/dac/classgalaxy_1_1SystemFactory.html#ad643efcf152edd5f920b5f680a342503" title="Create a system using the factory." alt="" coords="223,5,392,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,91,222,55,239,48,241,53,224,60,138,96"/>
+<area shape="rect" id="Node000004" href="$d3/dac/classgalaxy_1_1SystemFactory.html#aea249fdb03d0356140fe379b8417d732" title="Registers a system into the engine." alt="" coords="223,93,392,133"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="175,111,209,111,209,116,175,116"/>
+<area shape="rect" id="Node000005" href="$d3/dac/classgalaxy_1_1SystemFactory.html#ab2df796d16b06d31f7cde3e605feabca" title="Constructor." alt="" coords="440,123,609,163"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="161,131,223,143,328,149,426,147,426,152,327,154,222,148,160,136"/>
+<area shape="rect" id="Node000003" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="449,43,601,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="393,35,435,41,435,46,392,40"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="489,45,482,35,486,25,500,19,525,17,555,20,567,29,563,34,553,25,525,22,502,24,489,29,487,34,493,42"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="383,91,462,70,463,75,384,96"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="267,94,264,84,271,74,285,69,307,67,333,70,346,77,344,82,331,75,307,72,287,74,274,79,270,85,272,92"/>
+<area shape="poly" id="edge7_Node000004_Node000005" title=" " alt="" coords="393,122,427,127,426,132,392,127"/>
+</map>

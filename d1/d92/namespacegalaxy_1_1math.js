@@ -1,10 +1,10 @@
 var namespacegalaxy_1_1math =
 [
     [ "fnv_1a_params", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
-    [ "fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
-    [ "fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ],
+    [ "fnv_1a_params&lt; std::uint32_t &gt;", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
+    [ "fnv_1a_params&lt; std::uint64_t &gt;", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ],
     [ "valid_fnv_bits", "d8/de1/conceptgalaxy_1_1math_1_1valid__fnv__bits.html", null ],
-    [ "conditional_distribution", "d1/d92/namespacegalaxy_1_1math.html#a9118924b023ec1589ae238e571b12e6f", null ],
+    [ "conditional_distribution", "d1/d92/namespacegalaxy_1_1math.html#aaeb640a51f9024c55f181f6db1890dcb", null ],
     [ "encode_base64", "d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529", null ],
     [ "decode_base64", "d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d", null ],
     [ "fnv1a", "d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9", null ],

@@ -1,9 +1,5 @@
 <map id="galaxy::graphics::Point::create" name="galaxy::graphics::Point::create">
-<area shape="rect" id="Node000001" title="Initial point positon." alt="" coords="5,35,175,75"/>
-<area shape="rect" id="Node000002" href="$db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee" title="Create vertex buffer." alt="" coords="247,5,398,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,41,233,34,234,39,175,47"/>
-<area shape="rect" id="Node000004" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="223,70,423,95"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,62,209,66,209,72,175,68"/>
-<area shape="rect" id="Node000003" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0" title="Create vertex buffer." alt="" coords="471,5,625,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,23,457,23,457,28,398,28"/>
+<area shape="rect" id="Node000001" title="Initial point positon." alt="" coords="5,5,175,45"/>
+<area shape="rect" id="Node000002" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#addff88bb091d05fd517424cc926e4d08" title="Get pos." alt="" coords="223,13,423,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,23,209,23,209,28,175,28"/>
 </map>

@@ -1,0 +1,10 @@
+<map id="galaxy::Rect::Rect" name="galaxy::Rect::Rect">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="228,55,367,80"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="333,45,323,37,297,33,276,35,264,40,262,46,268,53,264,56,257,46,261,36,274,30,297,28,326,32,337,41"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#a79a80e66d69857b1e42f6d20fb8ca782" title="Does the rectangle contain another rectangle." alt="" coords="10,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,54,146,33,147,28,232,49"/>
+<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html#a0850694437a41e6220f0e5c48ead332b" title="Do two rectangles intersect." alt="" coords="5,55,180,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,70,180,70,180,65,214,65"/>
+<area shape="rect" id="Node000004" href="$d5/d58/classgalaxy_1_1Rect.html#a3c9861f8677060f4b6fba0cd20fe6595" title="Do the rectangles a and b overlap." alt="" coords="9,104,176,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="232,86,147,107,146,101,230,81"/>
+</map>

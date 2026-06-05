@@ -1,7 +1,8 @@
 <map id="galaxy::SceneManager::~SceneManager" name="galaxy::SceneManager::~SceneManager">
-<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,5,175,45"/>
-<area shape="rect" id="Node000002" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a2e72ab8baeccc61e805c0a9e6b6e8042" title="Removes all data." alt="" coords="223,5,392,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,23,209,23,209,28,175,28"/>
-<area shape="rect" id="Node000003" href="$da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616" title=" " alt="" coords="440,5,603,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,23,426,23,426,28,392,28"/>
+<area shape="rect" id="Node000001" title="Destructor." alt="" coords="5,29,175,69"/>
+<area shape="rect" id="Node000002" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a2e72ab8baeccc61e805c0a9e6b6e8042" title="Removes all data." alt="" coords="223,29,392,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,47,209,47,209,52,175,52"/>
+<area shape="rect" id="Node000003" href="$da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616" title=" " alt="" coords="440,29,603,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,47,426,47,426,52,392,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="481,30,479,20,485,10,500,5,521,3,546,6,560,13,557,18,545,11,521,8,501,10,489,15,484,21,486,28"/>
 </map>

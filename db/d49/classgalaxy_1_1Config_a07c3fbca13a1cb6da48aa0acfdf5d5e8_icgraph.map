@@ -1,0 +1,11 @@
+<map id="galaxy::Config::Config" name="galaxy::Config::Config">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="241,80,404,105"/>
+<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a22f2fb7ca7999bcc5c230c77fda41787" title="Move constructor." alt="" coords="18,5,181,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,77,192,45,154,33,155,28,194,39,281,72"/>
+<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#a6c28c31b357ffb03e18ba81157b20d1c" title="Copy constructor." alt="" coords="18,55,181,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,85,181,79,181,74,228,79"/>
+<area shape="rect" id="Node000004" href="$db/d49/classgalaxy_1_1Config.html#a6f3f2626c95bde8deb77d9bc723289cf" title="Move assignment operator." alt="" coords="5,104,193,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="228,106,194,109,193,104,227,100"/>
+<area shape="rect" id="Node000005" href="$db/d49/classgalaxy_1_1Config.html#af764a21579e18690157ae4c66416d630" title="Copy assignment operator." alt="" coords="5,153,193,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="278,113,194,143,151,156,150,151,193,138,276,108"/>
+</map>

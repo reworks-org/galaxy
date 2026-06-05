@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Ellipse::Ellipse" name="galaxy::graphics::Ellipse::Ellipse">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="232,37,411,77"/>
+<area shape="rect" id="Node000002" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#aa5e10c75eecb5272b85683f05977246e" title="Move constructor." alt="" coords="5,5,184,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,45,184,41,185,35,219,40"/>
+<area shape="rect" id="Node000003" href="$d4/d6a/classgalaxy_1_1graphics_1_1Ellipse.html#a384316e2bbffeca9345e9980567b4c67" title="Move assignment operator." alt="" coords="5,69,184,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,75,185,79,184,74,218,69"/>
+</map>

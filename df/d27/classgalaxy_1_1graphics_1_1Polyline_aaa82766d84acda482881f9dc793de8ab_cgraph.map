@@ -1,0 +1,7 @@
+<map id="galaxy::graphics::Polyline::Polyline" name="galaxy::graphics::Polyline::Polyline">
+<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="5,37,193,77"/>
+<area shape="rect" id="Node000002" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#ada3da65f71f5044f5a379171b5d4261b" title="Constructor." alt="" coords="241,5,429,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,42,227,37,228,43,194,47"/>
+<area shape="rect" id="Node000003" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#aafd88f3a5b2876a9843c18f0afe13f4b" title="Constructor." alt="" coords="247,69,423,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,67,234,73,233,78,193,73"/>
+</map>

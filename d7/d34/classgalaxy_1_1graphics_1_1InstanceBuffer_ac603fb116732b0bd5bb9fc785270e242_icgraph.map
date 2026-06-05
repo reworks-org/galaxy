@@ -1,0 +1,11 @@
+<map id="galaxy::graphics::InstanceBuffer::InstanceBuffer" name="galaxy::graphics::InstanceBuffer::InstanceBuffer">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="244,101,435,141"/>
+<area shape="rect" id="Node000002" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a9f68412590863e406193deffe8a9fa16" title="Copy constructor." alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,98,195,60,163,48,165,43,197,55,285,93"/>
+<area shape="rect" id="Node000003" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a55e7b4d65f903304e7f59fe24041e53b" title="Move constructor." alt="" coords="5,69,196,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,109,196,105,196,99,231,104"/>
+<area shape="rect" id="Node000004" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a55b5796dc0016f72ebd8bd533c612960" title="Copy assignment operator." alt="" coords="5,133,196,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,139,196,143,196,138,230,133"/>
+<area shape="rect" id="Node000005" href="$d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a6913754370f6416a391007b255d2f57d" title="Move assignment operator." alt="" coords="5,197,196,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="285,150,197,188,165,200,163,195,195,183,283,145"/>
+</map>

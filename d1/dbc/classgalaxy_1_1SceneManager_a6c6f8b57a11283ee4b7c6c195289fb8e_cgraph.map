@@ -1,0 +1,9 @@
+<map id="galaxy::SceneManager::SceneManager" name="galaxy::SceneManager::SceneManager">
+<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="5,35,175,75"/>
+<area shape="rect" id="Node000002" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a9db68cf40f7778b527cf438bcfdae2d1" title="Constructor." alt="" coords="223,5,392,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,41,209,36,210,41,175,46"/>
+<area shape="rect" id="Node000003" href="$da/d52/classgalaxy_1_1StateMachine.html#ad2dda84912bd37a5d3ee4bcfc3781875" title=" " alt="" coords="440,35,628,75"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="175,54,223,55,392,55,426,54,426,60,392,60,223,60,175,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,34,427,38,426,43,392,39"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="492,35,489,25,496,16,511,10,534,8,560,11,575,18,572,23,559,16,534,13,512,15,499,20,494,26,497,34"/>
+</map>

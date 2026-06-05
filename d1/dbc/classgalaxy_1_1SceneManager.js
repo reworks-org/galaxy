@@ -9,8 +9,6 @@ var classgalaxy_1_1SceneManager =
     [ "update", "d1/dbc/classgalaxy_1_1SceneManager.html#a17089421810615d345d5d7a3d97d2121", null ],
     [ "render", "d1/dbc/classgalaxy_1_1SceneManager.html#a95ee1d5d5faf9dc81f95a0dfaff97224", null ],
     [ "clear", "d1/dbc/classgalaxy_1_1SceneManager.html#a2e72ab8baeccc61e805c0a9e6b6e8042", null ],
-    [ "serialize", "d1/dbc/classgalaxy_1_1SceneManager.html#a47eded5c8c68a8e6d913bc09098512cb", null ],
-    [ "deserialize", "d1/dbc/classgalaxy_1_1SceneManager.html#a4f4724b38ef29e4a9dc01e19a19ccdb0", null ],
     [ "operator=", "d1/dbc/classgalaxy_1_1SceneManager.html#a51b94fc25ddcdbdb71f423dc6ac120e1", null ],
     [ "m_entity_manager", "d1/dbc/classgalaxy_1_1SceneManager.html#a80a986a388e80c65371206a6126b9371", null ]
 ];

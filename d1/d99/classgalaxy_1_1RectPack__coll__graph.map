@@ -1,13 +1,15 @@
 <map id="galaxy::RectPack" name="galaxy::RectPack">
-<area shape="rect" id="Node000001" title="Rectangle 2D bin packing class." alt="" coords="94,728,231,953"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="91,585,234,665"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,666,165,712,160,712,160,666"/>
-<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html" title="Represents a rectangle object." alt="" coords="5,177,160,523"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,522,126,560,131,570,126,572,122,562,109,524"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="61,5,105,71"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="85,71,85,161,80,161,80,71"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="185,317,306,383"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="243,397,229,475,218,520,204,562,192,587,187,584,199,560,213,518,224,474,238,396"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="234,5,257,71"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="248,71,248,301,243,301,243,71"/>
+<area shape="rect" id="Node000001" title="Rectangle 2D bin packing class." alt="" coords="91,1244,229,1469"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="89,1093,231,1173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,1174,163,1227,157,1227,157,1174"/>
+<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html" title=" " alt="" coords="12,617,153,1023"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,1022,118,1068,123,1078,118,1080,114,1070,99,1024"/>
+<area shape="rect" id="Node000004" href="$d5/d58/classgalaxy_1_1Rect.html" title="Represents a rectangle object." alt="" coords="5,201,160,547"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="85,560,85,617,80,617,80,560"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="61,5,105,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="85,71,85,185,80,185,80,71"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="178,787,299,853"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="239,867,227,962,216,1017,200,1070,188,1094,184,1092,195,1068,211,1015,222,961,234,866"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="227,341,250,407"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="241,407,241,771,236,771,236,407"/>
 </map>

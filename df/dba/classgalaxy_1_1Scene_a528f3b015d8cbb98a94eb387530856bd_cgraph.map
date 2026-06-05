@@ -1,0 +1,10 @@
+<map id="galaxy::Scene::operator=" name="galaxy::Scene::operator=">
+<area shape="rect" id="Node000001" title="Copy assignment operator." alt="" coords="5,43,192,68"/>
+<area shape="rect" id="Node000002" href="$df/dba/classgalaxy_1_1Scene.html#acc93e9019791a669c1213208c2e8ccb4" title="Name constructor." alt="" coords="240,43,399,68"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,53,226,53,226,58,192,58"/>
+<area shape="rect" id="Node000003" href="$d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92" title="Get state name." alt="" coords="447,5,599,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,40,439,31,440,36,390,45"/>
+<area shape="rect" id="Node000004" href="$d4/d7c/classgalaxy_1_1State.html#af140f04013e7abfc38b56a1e1fc0694c" title="Move constructor." alt="" coords="448,79,597,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="392,65,438,74,437,79,391,71"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="489,80,482,70,486,60,500,54,523,52,551,56,562,65,559,69,549,61,523,57,501,59,490,64,487,70,494,77"/>
+</map>

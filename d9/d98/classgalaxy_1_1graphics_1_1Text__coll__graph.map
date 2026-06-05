@@ -1,19 +1,19 @@
 <map id="galaxy::graphics::Text" name="galaxy::graphics::Text">
-<area shape="rect" id="Node000001" title="String of glyphs rendered with a font." alt="" coords="254,1375,409,1760"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="79,857,253,1297"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,1297,264,1358,259,1360,238,1298"/>
-<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="5,389,249,795"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,795,150,841,145,841,141,795"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="52,261,203,327"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,327,130,373,125,373,125,327"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="70,133,185,199"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="130,213,130,261,125,261,125,213"/>
+<area shape="rect" id="Node000001" title="String of glyphs rendered with a font." alt="" coords="254,1420,409,1805"/>
+<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html" title="Draw to an opengl texture instead of the screen." alt="" coords="79,889,253,1329"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,1329,266,1404,261,1405,236,1330"/>
+<area shape="rect" id="Node000003" href="$df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html" title="OpenGL framebuffer to render to." alt="" coords="5,413,249,819"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,818,150,873,145,873,141,819"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="52,277,203,343"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,343,130,397,125,397,125,343"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="70,141,185,207"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="130,221,130,277,125,277,125,221"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="116,5,139,71"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="130,71,130,117,125,117,125,71"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="292,1045,371,1110"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="334,1110,334,1358,329,1358,329,1110"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="274,552,405,632"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="341,645,335,1044,329,1044,336,645"/>
-<area shape="rect" id="Node000009" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html" title="A font is a MSDF atlas of glyphs." alt="" coords="395,945,551,1210"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="467,1211,456,1281,439,1351,418,1410,413,1408,434,1350,451,1280,461,1210"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="130,71,130,125,125,125,125,71"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="292,1077,371,1142"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="334,1142,334,1403,329,1403,329,1142"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="274,576,405,656"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="341,670,335,1076,329,1076,336,670"/>
+<area shape="rect" id="Node000009" href="$d1/d70/classgalaxy_1_1graphics_1_1Font.html" title="A font is a MSDF atlas of glyphs." alt="" coords="395,977,551,1242"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="470,1243,461,1320,443,1397,418,1463,413,1461,438,1395,455,1319,465,1242"/>
 </map>

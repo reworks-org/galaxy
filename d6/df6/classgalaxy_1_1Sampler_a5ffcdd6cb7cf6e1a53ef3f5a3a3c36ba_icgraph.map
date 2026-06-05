@@ -1,0 +1,11 @@
+<map id="galaxy::Sampler::Sampler" name="galaxy::Sampler::Sampler">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="255,80,444,105"/>
+<area shape="rect" id="Node000002" href="$d6/df6/classgalaxy_1_1Sampler.html#ad9ec50aabf14af640fdfcadc2b00f4ec" title="Copy assignment operator." alt="" coords="5,5,207,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,78,206,45,164,33,166,28,207,39,304,73"/>
+<area shape="rect" id="Node000003" href="$d6/df6/classgalaxy_1_1Sampler.html#a231ff528479002a8f60a2e8d9ed9587c" title="Move assignment operator." alt="" coords="5,55,207,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,84,207,80,207,75,242,79"/>
+<area shape="rect" id="Node000004" href="$d6/df6/classgalaxy_1_1Sampler.html#a41524f5220550f14a59ded460bd76a3e" title="Copy constructor." alt="" coords="11,104,201,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="241,106,201,110,200,105,241,101"/>
+<area shape="rect" id="Node000005" href="$d6/df6/classgalaxy_1_1Sampler.html#a08393c3399cfe66e0ac820896b3a9de6" title="Move constructor." alt="" coords="11,153,201,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="301,112,207,143,161,156,160,151,206,138,299,107"/>
+</map>

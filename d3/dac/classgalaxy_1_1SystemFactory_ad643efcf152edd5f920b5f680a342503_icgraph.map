@@ -1,0 +1,5 @@
+<map id="galaxy::SystemFactory::create_system" name="galaxy::SystemFactory::create_system">
+<area shape="rect" id="Node000001" title="Create a system using the factory." alt="" coords="223,5,392,45"/>
+<area shape="rect" id="Node000002" href="$d3/dac/classgalaxy_1_1SystemFactory.html#a73a0fd8fcf068cc6875ae2500087c211" title="Destructor." alt="" coords="5,5,175,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,28,175,28,175,23,209,23"/>
+</map>

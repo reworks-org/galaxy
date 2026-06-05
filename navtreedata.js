@@ -62,24 +62,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ab162437eed3ee815be26094e92f31630",
-"d0/d84/classgalaxy_1_1Window.html#ad4568c3a89072612c1a5a14167a1f961",
-"d1/d70/classgalaxy_1_1graphics_1_1Font.html#ad81c9b0caa75f542361947fefb087e91",
-"d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32",
-"d4/d7c/classgalaxy_1_1State.html#afaa36f3fae8eefe6b95d01f1a941f25b",
-"d5/dab/classgalaxy_1_1Renderer.html#ae03030c542118fd8a098d7a787782099",
-"d7/d4c/Video_8hpp.html",
-"d8/d74/classgalaxy_1_1Colour.html#a4f53e86c92bcf4ca4c76f700eb8ae378",
-"d9/d29/classgalaxy_1_1graphics_1_1Shape.html#acca25ec2692d51bbc8c19255cf7265e1",
-"da/d44/classgalaxy_1_1Camera.html#af99f7f99362747abe26ab1d08d772dcf",
-"db/d49/classgalaxy_1_1Config.html",
-"dc/d11/ChromaticAberration_8cpp.html#aba75585dfd6796d99725a28be5e72fe7",
-"dd/d25/Keys_8hpp.html#a649e37db9438582b9449f8b91738dd83a8e15750766d34a6f971db343a64ae4d3",
-"dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html",
-"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a976eeb90eb91a96957997fec99d13699",
-"df/d64/classgalaxy_1_1Event.html#a835517ff3cfc14951b4fdd4ea8aadaf0",
-"dir_7db1507fc1775b8ca4bc86e9c6fd5e9d.html"
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ab5926a5b1b103f3f0055a130fbe8f9dc",
+"d0/da0/State_8cpp_source.html",
+"d1/dbc/classgalaxy_1_1SceneManager.html#a51b94fc25ddcdbdb71f423dc6ac120e1",
+"d4/d01/Shaders_8cpp.html",
+"d5/d13/classgalaxy_1_1FileError.html#a62fccb23c9ea4d2005bd04493b7a548e",
+"d6/d64/structgalaxy_1_1LogMessage.html#a74340e05696b636596606a61bbba397b",
+"d8/d23/namespacegalaxy_1_1fileutils.html",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7",
+"da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html#a12d040bf154d0751127f6ca01d4c65c9",
+"db/d02/Settings_8hpp_source.html",
+"db/dcc/classgalaxy_1_1graphics_1_1Text.html#a7709eb53870e034eb192b0472f5f9881",
+"dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959",
+"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a92623562a6832349a0e63902b19bd78c",
+"df/d64/classgalaxy_1_1Event.html#a9c2e34c8012fd9fd73a254255a81979f",
+"files.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';

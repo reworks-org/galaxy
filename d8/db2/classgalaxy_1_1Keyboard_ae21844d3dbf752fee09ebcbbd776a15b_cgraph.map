@@ -1,0 +1,7 @@
+<map id="galaxy::Keyboard::Keyboard" name="galaxy::Keyboard::Keyboard">
+<area shape="rect" id="Node000001" title="Copy constructor." alt="" coords="5,13,208,38"/>
+<area shape="rect" id="Node000002" href="$d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1" title="Constructor." alt="" coords="256,13,459,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,23,242,23,242,28,208,28"/>
+<area shape="rect" id="Node000003" href="$d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74" title="Constructor." alt="" coords="507,5,689,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="459,23,493,23,493,28,459,28"/>
+</map>

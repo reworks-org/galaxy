@@ -2,7 +2,7 @@ var hierarchy =
 [
     [ "galaxy::graphics::Animation", "da/d19/classgalaxy_1_1graphics_1_1Animation.html", null ],
     [ "galaxy::App", "dd/d33/classgalaxy_1_1App.html", null ],
-    [ "galaxy::Cache< Resource, SpecLoader >", "d1/d4d/classgalaxy_1_1Cache.html", null ],
+    [ "galaxy::Cache&lt; Resource, SpecLoader &gt;", "d1/d4d/classgalaxy_1_1Cache.html", null ],
     [ "galaxy::Camera", "da/d44/classgalaxy_1_1Camera.html", null ],
     [ "galaxy::Colour", "d8/d74/classgalaxy_1_1Colour.html", null ],
     [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
@@ -22,9 +22,9 @@ var hierarchy =
       [ "galaxy::WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", null ]
     ] ],
     [ "galaxy::FileError", "d5/d13/classgalaxy_1_1FileError.html", null ],
-    [ "galaxy::math::fnv_1a_params< bits >", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
-    [ "galaxy::math::fnv_1a_params< std::uint32_t >", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", null ],
-    [ "galaxy::math::fnv_1a_params< std::uint64_t >", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", null ],
+    [ "galaxy::math::fnv_1a_params&lt; bits &gt;", "d3/da5/structgalaxy_1_1math_1_1fnv__1a__params.html", null ],
+    [ "galaxy::math::fnv_1a_params&lt; std::uint32_t &gt;", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", null ],
+    [ "galaxy::math::fnv_1a_params&lt; std::uint64_t &gt;", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", null ],
     [ "galaxy::graphics::Font", "d1/d70/classgalaxy_1_1graphics_1_1Font.html", null ],
     [ "galaxy::graphics::FontContext", "dd/d7d/classgalaxy_1_1graphics_1_1FontContext.html", null ],
     [ "std::formatter", null, [
@@ -36,11 +36,11 @@ var hierarchy =
     ] ],
     [ "galaxy::graphics::Frame", "d8/dad/structgalaxy_1_1graphics_1_1Frame.html", null ],
     [ "galaxy::graphics::Framebuffer", "df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html", null ],
-    [ "std::hash< galaxy::UUID >", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html", null ],
+    [ "std::hash&lt; galaxy::UUID &gt;", "d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html", null ],
     [ "galaxy::resource::TextureAtlas::Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", null ],
     [ "galaxy::graphics::InstanceBuffer", "d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html", null ],
-    [ "galaxy::Loader< Resource >", "db/dbf/structgalaxy_1_1Loader.html", null ],
-    [ "galaxy::Loader< media::Sound >", "db/dbf/structgalaxy_1_1Loader.html", [
+    [ "galaxy::Loader&lt; Resource &gt;", "db/dbf/structgalaxy_1_1Loader.html", null ],
+    [ "galaxy::Loader&lt; media::Sound &gt;", "db/dbf/structgalaxy_1_1Loader.html", [
       [ "galaxy::resource::MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", null ],
       [ "galaxy::resource::SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", null ],
       [ "galaxy::resource::VoiceLoader", "db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html", null ]
@@ -57,9 +57,7 @@ var hierarchy =
       [ "galaxy::graphics::Sharpen", "de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html", null ]
     ] ],
     [ "galaxy::graphics::PostProcess", "d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html", null ],
-    [ "galaxy::Rect< Type >", "d5/d58/classgalaxy_1_1Rect.html", null ],
-    [ "galaxy::Rect< float >", "d5/d58/classgalaxy_1_1Rect.html", null ],
-    [ "galaxy::Rect< int >", "d5/d58/classgalaxy_1_1Rect.html", null ],
+    [ "galaxy::Rect&lt; Type &gt;", "d5/d58/classgalaxy_1_1Rect.html", null ],
     [ "galaxy::RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", null ],
     [ "galaxy::Registry", "df/dbe/classgalaxy_1_1Registry.html", null ],
     [ "galaxy::RenderCmd", "de/dc0/structgalaxy_1_1RenderCmd.html", null ],
@@ -89,8 +87,8 @@ var hierarchy =
     [ "galaxy::State", "d4/d7c/classgalaxy_1_1State.html", [
       [ "galaxy::Scene", "df/dba/classgalaxy_1_1Scene.html", null ]
     ] ],
-    [ "galaxy::StateMachine< Stored >", "da/d52/classgalaxy_1_1StateMachine.html", null ],
-    [ "galaxy::StateMachine< Scene >", "da/d52/classgalaxy_1_1StateMachine.html", [
+    [ "galaxy::StateMachine&lt; Stored &gt;", "da/d52/classgalaxy_1_1StateMachine.html", null ],
+    [ "galaxy::StateMachine&lt; Scene &gt;", "da/d52/classgalaxy_1_1StateMachine.html", [
       [ "galaxy::SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", null ]
     ] ],
     [ "galaxy::Stopwatch", "d4/d22/classgalaxy_1_1Stopwatch.html", null ],

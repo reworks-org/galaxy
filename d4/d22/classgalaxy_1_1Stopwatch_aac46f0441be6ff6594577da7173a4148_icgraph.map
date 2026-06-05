@@ -1,0 +1,7 @@
+<map id="galaxy::Stopwatch::Stopwatch" name="galaxy::Stopwatch::Stopwatch">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="203,37,352,77"/>
+<area shape="rect" id="Node000002" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a550c7e47ea81126eff29c4049a33c868" title="Copy assignment operator." alt="" coords="5,5,155,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,46,155,40,155,35,190,40"/>
+<area shape="rect" id="Node000003" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a8f48cd7d4c3c72e2b9e2e2d94850ffcc" title="Copy constructor." alt="" coords="5,69,155,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,74,155,80,155,75,189,69"/>
+</map>

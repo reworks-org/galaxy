@@ -1,7 +1,7 @@
 <map id="galaxy::resource::VoiceLoader" name="galaxy::resource::VoiceLoader">
-<area shape="rect" id="Node000001" title="Loads resources for the voice cache." alt="" coords="5,263,213,328"/>
-<area shape="rect" id="Node000002" href="$db/dbf/structgalaxy_1_1Loader.html" title=" " alt="" coords="27,133,192,213"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,227,112,262,107,262,107,227"/>
+<area shape="rect" id="Node000001" title="Loads resources for the voice cache." alt="" coords="5,271,213,336"/>
+<area shape="rect" id="Node000002" href="$db/dbf/structgalaxy_1_1Loader.html" title=" " alt="" coords="27,141,192,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,235,112,270,107,270,107,235"/>
 <area shape="rect" id="Node000003" href="$db/dbf/structgalaxy_1_1Loader.html" title="Loads resources for a resource cache." alt="" coords="10,5,209,71"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,84,112,133,107,133,107,84"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,84,112,141,107,141,107,84"/>
 </map>

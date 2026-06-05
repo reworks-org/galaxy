@@ -1,0 +1,11 @@
+<map id="galaxy::Keyboard::Keyboard" name="galaxy::Keyboard::Keyboard">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="261,80,464,105"/>
+<area shape="rect" id="Node000002" href="$d8/db2/classgalaxy_1_1Keyboard.html#ae21844d3dbf752fee09ebcbbd776a15b" title="Copy constructor." alt="" coords="8,5,211,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="314,78,213,45,169,33,170,28,214,39,315,73"/>
+<area shape="rect" id="Node000003" href="$d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf" title="Move constructor." alt="" coords="8,55,211,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,84,211,80,211,75,248,79"/>
+<area shape="rect" id="Node000004" href="$d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41" title="Copy assignment operator." alt="" coords="5,104,213,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,106,214,109,213,104,248,101"/>
+<area shape="rect" id="Node000005" href="$d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa" title="Move assignment operator." alt="" coords="5,153,213,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="312,112,214,143,166,156,165,151,213,138,311,107"/>
+</map>

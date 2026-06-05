@@ -1,0 +1,31 @@
+<map id="galaxy::WindowBindable::WindowBindable" name="galaxy::WindowBindable::WindowBindable">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="512,334,695,374"/>
+<area shape="rect" id="Node000002" href="$d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1" title="Constructor." alt="" coords="261,104,464,129"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,326,375,131,379,128,574,322"/>
+<area shape="rect" id="Node000007" href="$d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a" title="Constructor." alt="" coords="279,252,446,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="550,330,463,293,421,280,423,275,465,287,553,325"/>
+<area shape="rect" id="Node000012" href="$d3/d81/classgalaxy_1_1WindowBindable.html#aaa63683a73ce7c42c437c7e79cf76d01" title="Copy assignment operator." alt="" coords="271,302,454,342"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="498,343,454,337,455,331,499,337"/>
+<area shape="rect" id="Node000013" href="$d3/d81/classgalaxy_1_1WindowBindable.html#a71207409e6e5e2162b800a11e608e77f" title="Move assignment operator." alt="" coords="271,366,454,406"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="499,371,455,377,454,371,498,365"/>
+<area shape="rect" id="Node000014" href="$d3/d81/classgalaxy_1_1WindowBindable.html#af7a40e7ea5ef7670d40a6fa2292b7d51" title="Copy constructor." alt="" coords="271,430,454,470"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="551,382,465,420,431,432,430,427,463,416,549,378"/>
+<area shape="rect" id="Node000015" href="$d3/d81/classgalaxy_1_1WindowBindable.html#a694e73bb2c336837b51c613fc3cdd2d4" title="Move constructor." alt="" coords="271,494,454,534"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="578,386,529,436,498,462,465,484,440,496,438,492,463,480,495,458,525,432,574,383"/>
+<area shape="rect" id="Node000003" href="$d8/db2/classgalaxy_1_1Keyboard.html#ae21844d3dbf752fee09ebcbbd776a15b" title="Copy constructor." alt="" coords="8,5,211,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="327,100,274,71,212,45,175,33,176,28,214,39,276,67,330,95"/>
+<area shape="rect" id="Node000004" href="$d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf" title="Move constructor." alt="" coords="8,55,211,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,104,175,83,176,77,284,99"/>
+<area shape="rect" id="Node000005" href="$d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41" title="Copy assignment operator." alt="" coords="5,104,213,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="248,119,214,119,214,114,248,114"/>
+<area shape="rect" id="Node000006" href="$d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa" title="Move assignment operator." alt="" coords="5,153,213,179"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="284,135,176,156,175,151,283,129"/>
+<area shape="rect" id="Node000008" href="$d4/d5d/classgalaxy_1_1Mouse.html#ad4eacffff9b65295b175d4bcb39d7245" title="Copy constructor." alt="" coords="26,203,193,228"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="283,252,175,231,176,225,284,247"/>
+<area shape="rect" id="Node000009" href="$d4/d5d/classgalaxy_1_1Mouse.html#a9a8f7cbe348473c23ca7c56b00f3e725" title="Move constructor." alt="" coords="26,252,193,277"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="266,267,193,267,193,262,266,262"/>
+<area shape="rect" id="Node000010" href="$d4/d5d/classgalaxy_1_1Mouse.html#a9904c52122db78077505aff13cda63ca" title="Copy assignment operator." alt="" coords="14,301,205,327"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="284,283,176,304,175,299,283,277"/>
+<area shape="rect" id="Node000011" href="$d4/d5d/classgalaxy_1_1Mouse.html#a819a36d1fb9f198019db8488bc10589f" title="Move assignment operator." alt="" coords="14,351,205,376"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="279,284,263,292,248,304,240,316,230,329,215,342,188,353,186,348,212,337,226,326,235,313,244,300,260,288,277,280"/>
+</map>

@@ -1,7 +1,7 @@
 var classgalaxy_1_1resource_1_1TextureAtlas =
 [
-    [ "Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info" ],
     [ "Sheet", "d8/d13/structgalaxy_1_1resource_1_1TextureAtlas_1_1Sheet.html", "d8/d13/structgalaxy_1_1resource_1_1TextureAtlas_1_1Sheet" ],
+    [ "Info", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html", "d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info" ],
     [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a7bcd9bda273da95eef225a8fdfd16848", null ],
     [ "~TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a008984a04fbb50b4052300d2d8f1853f", null ],
     [ "TextureAtlas", "d7/d9c/classgalaxy_1_1resource_1_1TextureAtlas.html#a3ff9f73ee1378dc5d38e7d675488facb", null ],

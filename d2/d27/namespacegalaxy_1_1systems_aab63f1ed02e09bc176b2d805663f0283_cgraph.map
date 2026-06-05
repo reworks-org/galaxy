@@ -4,16 +4,12 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,137,220,137,220,143,186,143"/>
 <area shape="rect" id="Node000003" href="$db/d02/classgalaxy_1_1VertexArray.html#a87e6cfbd5eb2ed0a5713055f06372fbd" title="Get the index count." alt="" coords="505,5,655,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,125,405,91,475,55,493,47,495,52,477,60,408,96,353,129"/>
-<area shape="rect" id="Node000005" href="$db/d02/classgalaxy_1_1VertexArray.html#acddeda1d5d9bf580cb18dc8fbd3b8dbf" title="Get vertex array handle." alt="" coords="495,70,665,95"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="386,125,510,96,511,101,387,130"/>
-<area shape="rect" id="Node000006" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a7de0c2ae3bfe82182e945bdc10e24f04" title="Get OpenGL rendering mode." alt="" coords="492,120,668,160"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="428,137,478,137,478,143,428,143"/>
-<area shape="rect" id="Node000007" href="$db/d02/classgalaxy_1_1VertexArray.html#adb96644f9b5b6465a0f279f34007458b" title="Gets index offset." alt="" coords="505,184,655,224"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="382,150,492,179,491,184,381,155"/>
-<area shape="rect" id="Node000009" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a75140eb8460d3dd95f59a613e2429fbf" title="Get vertex array object." alt="" coords="476,249,684,274"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="349,151,404,192,439,214,477,234,500,242,498,247,475,238,437,219,401,196,346,155"/>
-<area shape="rect" id="Node000004" href="$da/d97/classgalaxy_1_1VertexBuffer.html#a39954c9de94320aebea40e34396d56ae" title="Get the index count." alt="" coords="732,5,887,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="656,23,718,23,718,28,656,28"/>
-<area shape="rect" id="Node000008" href="$da/d97/classgalaxy_1_1VertexBuffer.html#aaca560656cc0389c9b9c300b3898b7fa" title="Gets index offset." alt="" coords="732,184,887,224"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="656,201,718,201,718,207,656,207"/>
+<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#acddeda1d5d9bf580cb18dc8fbd3b8dbf" title="Get vertex array handle." alt="" coords="495,70,665,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="386,125,510,96,511,101,387,130"/>
+<area shape="rect" id="Node000005" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a7de0c2ae3bfe82182e945bdc10e24f04" title="Get OpenGL rendering mode." alt="" coords="492,120,668,160"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="428,137,478,137,478,143,428,143"/>
+<area shape="rect" id="Node000006" href="$db/d02/classgalaxy_1_1VertexArray.html#adb96644f9b5b6465a0f279f34007458b" title="Gets index offset." alt="" coords="505,184,655,224"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="382,150,492,179,491,184,381,155"/>
+<area shape="rect" id="Node000007" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a75140eb8460d3dd95f59a613e2429fbf" title="Get vertex array object." alt="" coords="476,249,684,274"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="349,151,404,192,439,214,477,234,500,242,498,247,475,238,437,219,401,196,346,155"/>
 </map>

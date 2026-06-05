@@ -1,5 +1,9 @@
 <map id="galaxy::graphics::Polyline::operator=" name="galaxy::graphics::Polyline::operator=">
-<area shape="rect" id="Node000001" title="Move assignment operator." alt="" coords="5,5,193,45"/>
-<area shape="rect" id="Node000002" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a5fbe986f8c19c23243a12978fd9f9d86" title="Move assignment operator." alt="" coords="241,5,417,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,23,228,23,228,28,194,28"/>
+<area shape="rect" id="Node000001" title="Move assignment operator." alt="" coords="5,37,193,77"/>
+<area shape="rect" id="Node000002" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a5fbe986f8c19c23243a12978fd9f9d86" title="Move assignment operator." alt="" coords="247,5,423,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,42,233,36,234,42,194,47"/>
+<area shape="rect" id="Node000004" href="$df/d27/classgalaxy_1_1graphics_1_1Polyline.html#ada3da65f71f5044f5a379171b5d4261b" title="Constructor." alt="" coords="241,69,429,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="194,67,228,72,227,77,193,73"/>
+<area shape="rect" id="Node000003" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#aafd88f3a5b2876a9843c18f0afe13f4b" title="Constructor." alt="" coords="477,5,653,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,23,463,23,463,28,424,28"/>
 </map>

@@ -1,0 +1,11 @@
+<map id="galaxy::Sink::Sink" name="galaxy::Sink::Sink">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="228,80,365,105"/>
+<area shape="rect" id="Node000002" href="$d2/d42/classgalaxy_1_1Sink.html#af23d739613940bc1f51a62d422585d3b" title="Copy assignment operator." alt="" coords="5,5,180,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,77,179,45,144,33,145,28,181,39,258,72"/>
+<area shape="rect" id="Node000003" href="$d2/d42/classgalaxy_1_1Sink.html#a334bc85a5d46754bebce2869981447e0" title="Move assignment operator." alt="" coords="5,55,180,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,85,180,81,180,76,215,80"/>
+<area shape="rect" id="Node000004" href="$d2/d42/classgalaxy_1_1Sink.html#afe27f497c55db2c47eb63ea2930d9e40" title="Copy constructor." alt="" coords="24,104,161,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,105,162,111,161,106,214,100"/>
+<area shape="rect" id="Node000005" href="$d2/d42/classgalaxy_1_1Sink.html#a0ba8264230035316f8c916156625243c" title="Move constructor." alt="" coords="24,153,161,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="255,113,181,143,142,156,140,151,179,138,253,108"/>
+</map>

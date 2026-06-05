@@ -1,0 +1,15 @@
+<map id="galaxy::Colour::Colour" name="galaxy::Colour::Colour">
+<area shape="rect" id="Node000001" title="Colour constructor." alt="" coords="5,140,171,165"/>
+<area shape="rect" id="Node000002" href="$d8/d74/classgalaxy_1_1Colour.html#a8761e7f9585697d9412b7059217f95f3" title="Alpha." alt="" coords="219,29,349,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,138,154,102,217,64,231,57,233,62,220,68,156,107,107,142"/>
+<area shape="rect" id="Node000003" href="$d8/d74/classgalaxy_1_1Colour.html#aedf7aa0bad0a42d2f7bf14f9ab63b119" title="Blue." alt="" coords="219,103,349,128"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="155,137,204,128,205,133,156,143"/>
+<area shape="rect" id="Node000004" href="$d8/d74/classgalaxy_1_1Colour.html#a854bf5448a12659e245622ca546adf26" title="Green." alt="" coords="219,176,349,201"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="158,163,205,172,204,177,157,168"/>
+<area shape="rect" id="Node000005" href="$d8/d74/classgalaxy_1_1Colour.html#a960f18a8c948762c02b82e85cad9bb47" title="Red." alt="" coords="220,249,348,275"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="113,163,250,240,247,245,111,168"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="252,31,245,21,249,11,262,5,284,3,311,6,322,15,319,19,309,11,284,8,263,10,252,15,250,20,256,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="252,104,245,94,249,84,262,78,284,76,311,80,322,88,319,93,309,84,284,81,263,83,252,88,250,94,256,101"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="252,177,245,168,249,158,262,152,284,149,311,153,322,162,319,166,309,158,284,155,263,157,252,161,250,167,256,174"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="252,251,245,241,249,231,262,225,284,223,311,226,322,235,319,239,309,231,284,228,263,230,252,235,250,240,256,248"/>
+</map>

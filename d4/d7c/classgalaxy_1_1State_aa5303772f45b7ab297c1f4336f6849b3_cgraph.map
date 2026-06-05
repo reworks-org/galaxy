@@ -1,0 +1,8 @@
+<map id="galaxy::State::on_pop" name="galaxy::State::on_pop">
+<area shape="rect" id="Node000001" title="Triggered when state is popped off the stack." alt="" coords="5,43,168,68"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92" title="Get state name." alt="" coords="216,5,368,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,40,208,31,209,36,158,45"/>
+<area shape="rect" id="Node000003" href="$d4/d7c/classgalaxy_1_1State.html#af140f04013e7abfc38b56a1e1fc0694c" title="Move constructor." alt="" coords="217,79,367,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,65,206,74,205,79,159,71"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="258,80,251,70,255,60,269,54,292,52,321,56,332,65,329,69,318,61,292,57,270,59,259,64,256,70,262,77"/>
+</map>

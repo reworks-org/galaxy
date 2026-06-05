@@ -1,0 +1,7 @@
+<map id="galaxy::math::fnv_1a_params&lt; bits &gt;" name="galaxy::math::fnv_1a_params&lt; bits &gt;">
+<area shape="rect" id="Node000001" title="Base specialization for fnv1a params." alt="" coords="123,5,274,85"/>
+<area shape="rect" id="Node000002" href="$da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html" title="Fnv1a 32 bit specialization." alt="" coords="5,156,187,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,98,154,111,126,157,121,154,150,108,158,95"/>
+<area shape="rect" id="Node000003" href="$d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html" title="Fnv1a 64 bit specialization." alt="" coords="211,156,392,256"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="263,94,274,108,286,131,294,155,289,157,281,133,270,111,259,97"/>
+</map>

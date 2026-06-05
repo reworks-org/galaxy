@@ -1,5 +1,8 @@
 <map id="galaxy::Rect::overlaps" name="galaxy::Rect::overlaps">
-<area shape="rect" id="Node000001" title="Do the rectangles a and b overlap." alt="" coords="5,13,172,38"/>
-<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba" title="Private function to determine if value is in range. Inclusive. Credits: https://stackoverflow...." alt="" coords="220,5,367,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,23,206,23,206,28,172,28"/>
+<area shape="rect" id="Node000001" title="Do the rectangles a and b overlap." alt="" coords="5,59,172,84"/>
+<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#aede617e11acffab117f553eab2bc0ca7" title="Constructor." alt="" coords="224,29,363,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,57,210,51,210,57,173,62"/>
+<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba" title="Private function to determine if value is in range. Inclusive. Credits: https://stackoverflow...." alt="" coords="220,79,367,119"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="173,80,206,85,206,90,172,85"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="260,31,253,21,257,11,270,5,293,3,322,6,333,16,329,20,319,11,293,8,272,10,260,15,258,20,264,28"/>
 </map>

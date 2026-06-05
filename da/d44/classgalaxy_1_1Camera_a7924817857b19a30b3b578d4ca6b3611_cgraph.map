@@ -1,7 +1,8 @@
 <map id="galaxy::Camera::get_transform" name="galaxy::Camera::get_transform">
-<area shape="rect" id="Node000001" title="Retrieve internal transformation matrix." alt="" coords="5,5,159,45"/>
-<area shape="rect" id="Node000002" href="$da/d44/classgalaxy_1_1Camera.html#a8720adef71c84c247dc316c936e39d2b" title="Recalculates the model view matrix." alt="" coords="207,13,411,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
-<area shape="rect" id="Node000003" href="$da/d44/classgalaxy_1_1Camera.html#a3cbb2efe4e352edc304807d8c66d5ab0" title="Set entity scale." alt="" coords="459,13,625,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,23,445,23,445,28,411,28"/>
+<area shape="rect" id="Node000001" title="Retrieve internal transformation matrix." alt="" coords="5,22,159,62"/>
+<area shape="rect" id="Node000002" href="$da/d44/classgalaxy_1_1Camera.html#a8720adef71c84c247dc316c936e39d2b" title="Recalculates the model view matrix." alt="" coords="207,29,411,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,39,193,39,193,45,159,45"/>
+<area shape="rect" id="Node000003" href="$da/d44/classgalaxy_1_1Camera.html#a3cbb2efe4e352edc304807d8c66d5ab0" title="Set entity scale." alt="" coords="459,29,625,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,39,445,39,445,45,411,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="504,31,496,21,500,11,516,5,542,3,575,7,587,16,584,20,573,11,542,8,517,10,504,15,501,20,508,27"/>
 </map>

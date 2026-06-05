@@ -1,7 +1,10 @@
 <map id="galaxy::Rect::contains" name="galaxy::Rect::contains">
-<area shape="rect" id="Node000001" title="Does the rectangle contain another rectangle." alt="" coords="5,31,171,56"/>
+<area shape="rect" id="Node000001" title="Does the rectangle contain another rectangle." alt="" coords="5,55,171,80"/>
 <area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c" title="Get bottom left corner." alt="" coords="219,5,404,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,31,205,27,205,33,171,37"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,52,239,31,240,36,147,57"/>
 <area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63" title="Get top right corner." alt="" coords="227,55,395,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,50,214,54,213,60,171,55"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,65,214,65,214,70,171,70"/>
+<area shape="rect" id="Node000004" href="$d5/d58/classgalaxy_1_1Rect.html#aede617e11acffab117f553eab2bc0ca7" title="Constructor." alt="" coords="242,128,381,153"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="129,78,260,121,258,126,127,83"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="275,130,267,120,271,110,286,104,311,101,342,105,354,114,351,118,340,110,311,107,288,109,275,114,273,119,279,126"/>
 </map>

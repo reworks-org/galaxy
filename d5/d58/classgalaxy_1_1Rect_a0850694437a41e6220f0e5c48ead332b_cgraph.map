@@ -1,7 +1,10 @@
 <map id="galaxy::Rect::intersects" name="galaxy::Rect::intersects">
-<area shape="rect" id="Node000001" title="Do two rectangles intersect." alt="" coords="5,31,180,56"/>
+<area shape="rect" id="Node000001" title="Do two rectangles intersect." alt="" coords="5,55,180,80"/>
 <area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c" title="Get bottom left corner." alt="" coords="228,5,413,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,31,214,27,215,32,181,36"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,52,247,31,248,36,153,57"/>
 <area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63" title="Get top right corner." alt="" coords="237,55,405,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,50,223,54,223,60,180,55"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,65,223,65,223,70,180,70"/>
+<area shape="rect" id="Node000004" href="$d5/d58/classgalaxy_1_1Rect.html#aede617e11acffab117f553eab2bc0ca7" title="Constructor." alt="" coords="251,128,390,153"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="134,78,268,121,267,126,132,83"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="284,130,276,120,280,110,295,104,321,101,353,105,365,115,361,119,351,110,321,107,296,109,284,114,281,119,288,126"/>
 </map>

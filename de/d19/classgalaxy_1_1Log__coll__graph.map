@@ -1,18 +1,18 @@
 <map id="galaxy::Log" name="galaxy::Log">
-<area shape="rect" id="Node000001" title="Sink based logging system." alt="" coords="229,717,359,943"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="133,575,303,655"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,654,251,701,246,703,229,656"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="54,432,225,512"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,511,191,559,186,562,159,514"/>
-<area shape="rect" id="Node000004" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,133,111,319"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="68,319,77,363,92,407,98,417,93,420,88,409,72,365,63,320"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="134,193,283,259"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="175,271,153,305,137,343,131,389,134,432,129,432,125,388,131,342,148,303,170,269"/>
+<area shape="rect" id="Node000001" title="Sink based logging system." alt="" coords="227,741,356,967"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="130,591,301,671"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,670,250,725,245,727,226,672"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="50,440,221,520"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,519,189,575,184,577,154,521"/>
+<area shape="rect" id="Node000004" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,141,111,327"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="63,326,70,371,84,415,90,425,85,428,80,417,65,373,57,327"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="134,201,283,267"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="173,279,150,313,133,351,126,396,130,440,124,440,121,396,127,350,145,311,169,276"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="253,5,276,71"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="258,72,225,178,220,177,253,70"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="260,343,381,408"/>
-<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="279,66,289,94,304,156,314,219,323,326,317,327,309,219,299,157,283,95,274,68"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="313,422,295,485,267,552,252,576,248,573,262,549,290,483,308,420"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="328,582,412,647"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="361,648,342,702,337,701,356,646"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="258,72,225,187,220,185,253,70"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="260,351,381,416"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="278,58,294,94,308,158,317,223,323,334,318,334,312,224,303,159,289,95,274,60"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="315,430,298,497,270,568,254,592,249,589,265,565,293,495,310,429"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="325,598,409,663"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="359,664,338,727,333,725,354,663"/>
 </map>

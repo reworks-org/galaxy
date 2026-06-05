@@ -1,0 +1,9 @@
+<map id="galaxy::SystemFactory::SystemFactory" name="galaxy::SystemFactory::SystemFactory">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="440,59,609,99"/>
+<area shape="rect" id="Node000002" href="$d3/dac/classgalaxy_1_1SystemFactory.html#aea249fdb03d0356140fe379b8417d732" title="Registers a system into the engine." alt="" coords="223,29,392,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="426,68,392,63,392,58,427,63"/>
+<area shape="rect" id="Node000003" href="$d3/dac/classgalaxy_1_1SystemFactory.html#a73a0fd8fcf068cc6875ae2500087c211" title="Destructor." alt="" coords="5,59,175,99"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="426,84,392,84,223,84,175,83,175,78,223,79,392,79,426,78"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="344,18,331,11,307,8,287,10,274,15,270,21,272,28,267,30,264,20,271,10,285,5,307,3,333,6,346,13"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="209,65,175,70,174,65,209,60"/>
+</map>

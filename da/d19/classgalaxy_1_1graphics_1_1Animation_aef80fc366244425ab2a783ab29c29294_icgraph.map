@@ -1,0 +1,11 @@
+<map id="galaxy::graphics::Animation::Animation" name="galaxy::graphics::Animation::Animation">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="256,101,459,141"/>
+<area shape="rect" id="Node000002" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#a42f07e669d45c8975df1b5bb9786c1ea" title="Move constructor." alt="" coords="5,5,208,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,98,207,60,173,48,175,43,209,55,301,93"/>
+<area shape="rect" id="Node000003" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#a5728f05494c66d07cfb1adff8901fb65" title="Copy constructor." alt="" coords="5,69,208,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="242,109,208,105,208,100,243,104"/>
+<area shape="rect" id="Node000004" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#abe56aee7b0da5ea8059253a761ea56b8" title="Move assignment operator." alt="" coords="5,133,208,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="243,139,208,143,208,138,242,133"/>
+<area shape="rect" id="Node000005" href="$da/d19/classgalaxy_1_1graphics_1_1Animation.html#a4215f6b1af61ae5f7da6dae6c00a6ca7" title="Copy assignment operator." alt="" coords="5,197,208,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="301,150,209,188,175,200,173,195,207,183,299,145"/>
+</map>

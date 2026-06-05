@@ -1,0 +1,6 @@
+<map id="galaxy::VirtualFileSystem::open_file_dialog" name="galaxy::VirtualFileSystem::open_file_dialog">
+<area shape="rect" id="Node000001" title="Open a file dialog." alt="" coords="5,29,193,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="56,30,53,20,60,10,76,5,99,3,126,6,141,13,139,18,125,11,99,8,77,10,64,15,59,21,61,28"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="241,37,425,62"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="193,47,228,47,228,52,193,52"/>
+</map>

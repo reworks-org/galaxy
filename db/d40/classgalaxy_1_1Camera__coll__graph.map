@@ -1,5 +1,5 @@
 <map id="galaxy::Camera" name="galaxy::Camera">
-<area shape="rect" id="Node000001" title="Orthographic 2D camera." alt="" coords="5,153,171,599"/>
+<area shape="rect" id="Node000001" title="Orthographic 2D camera." alt="" coords="5,161,171,607"/>
 <area shape="rect" id="Node000002" href="$dc/d69/structgalaxy_1_1Camera_1_1Data.html" title="Camera data." alt="" coords="11,5,165,91"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,91,91,137,85,137,85,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,91,91,145,85,145,85,91"/>
 </map>

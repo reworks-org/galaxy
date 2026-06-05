@@ -1,9 +1,9 @@
 <map id="galaxy::meta::EntityFactory" name="galaxy::meta::EntityFactory">
-<area shape="rect" id="Node000001" title="Handles entity meta (de)serialization." alt="" coords="5,404,197,749"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="35,261,167,341"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,342,104,387,99,387,99,342"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="41,133,162,199"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,212,104,261,99,261,99,212"/>
+<area shape="rect" id="Node000001" title="Handles entity meta (de)serialization." alt="" coords="5,428,197,773"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,277,167,357"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,358,104,412,99,412,99,358"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="41,141,162,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,220,104,277,99,277,99,220"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="90,5,113,71"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="104,71,104,117,99,117,99,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="104,71,104,125,99,125,99,71"/>
 </map>

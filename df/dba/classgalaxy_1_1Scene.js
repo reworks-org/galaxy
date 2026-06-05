@@ -9,8 +9,6 @@ var classgalaxy_1_1Scene =
     [ "on_event", "df/dba/classgalaxy_1_1Scene.html#a899a3d8f3c7f61893c02f893ce2d9a07", null ],
     [ "update", "df/dba/classgalaxy_1_1Scene.html#a6994fa68aa02866f7d388c3e160219a9", null ],
     [ "render", "df/dba/classgalaxy_1_1Scene.html#ae8bb8df4c69f70acdddf72a7f32a7014", null ],
-    [ "serialize", "df/dba/classgalaxy_1_1Scene.html#ac34f0a97edfcb508e2c55737a995a3c3", null ],
-    [ "deserialize", "df/dba/classgalaxy_1_1Scene.html#a4d07995dd8196a243fe6d31a0595504a", null ],
     [ "sys_man", "df/dba/classgalaxy_1_1Scene.html#af43befa3dc6cbcbd6844e33b88c56843", null ],
     [ "operator=", "df/dba/classgalaxy_1_1Scene.html#a528f3b015d8cbb98a94eb387530856bd", null ],
     [ "m_sysman", "df/dba/classgalaxy_1_1Scene.html#abf5f451c722c32e3dbd12895ef0187f9", null ],
