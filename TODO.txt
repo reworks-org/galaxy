@@ -7,33 +7,6 @@ TODO:
 - https://github.com/mikke89/RmlUi
 
 
-SDL:
-https://wiki.libsdl.org/SDL3_mixer/FrontPage
-https://wiki.libsdl.org/SDL3/SDL_CreateColorCursor
-https://wiki.libsdl.org/SDL3/CategoryHaptic
-https://wiki.libsdl.org/SDL3/CategorySensor
-https://wiki.libsdl.org/SDL3/CategoryPen
-https://wiki.libsdl.org/SDL3/CategoryTouch
-https://wiki.libsdl.org/SDL3/CategoryGamepad
-https://wiki.libsdl.org/SDL3/CategoryJoystick
-https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressState
-https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressValue
-https://wiki.libsdl.org/SDL3/SDL_CreateAnimatedCursor
-
-
-Renderer:
-https://github.com/ivan-resetnikov/demo-2D-PBR-renderer-opengl
-- instancing? if required?
-- future renddering improvement:
-- copy vertex to batch on creation, and remove after its destroyed, rather than per frame.
-    - optimize batch rendeirng avoid pushing each frame
-- batch shapes, at the moment only quads are batched.
-- move camera out of pipeline and add generic projection support to pass?
-- object pooling
-- vao caching
-- vertex and index caching (i.e. define a has and reuse existing if it already exists).
-
-
 httplib:
 - add async support by pushing requests to threadpool
 - bind to lua

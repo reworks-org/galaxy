@@ -25,15 +25,6 @@
 [submodule "deps/physfs"]
 	path = deps/physfs
 	url = https://github.com/icculus/physfs.git
-[submodule "deps/glm"]
-	path = deps/glm
-	url = https://github.com/g-truc/glm.git
-[submodule "deps/SDL3"]
-	path = deps/SDL3
-	url = https://github.com/libsdl-org/SDL.git
-[submodule "deps/SDL3_mixer"]
-	path = deps/SDL3_mixer
-	url = https://github.com/libsdl-org/SDL_mixer.git
 [submodule "deps/googletest"]
 	path = deps/googletest
 	url = https://github.com/google/googletest.git

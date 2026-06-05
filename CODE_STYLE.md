@@ -1,4 +1,4 @@
-Use .clang-format!
+Use .clang-format and .clang-tidy!
 
 Class/Struct = CamelCase
 the rest = snake_case
