@@ -618,7 +618,7 @@ namespace ImGui
 					SetCursorPosX(GetCursorPosX() + (GetWindowSize().x - GetCursorPosX()) * scale);
 
 					// If the button is pressed, we want to remove the notification
-					if (Button(ICON_FA_XMARK))
+					if (Button(ICON_MDI_CLOSE))
 					{
 						RemoveNotification(i);
 					}

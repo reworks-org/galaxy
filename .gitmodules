@@ -31,3 +31,12 @@
 [submodule "deps/httplib"]
 	path = deps/httplib
 	url = https://github.com/yhirose/cpp-httplib.git
+[submodule "deps/ray/raymedia"]
+	path = deps/ray/raymedia
+	url = https://github.com/cloudofoz/raylib-media.git
+[submodule "deps/ray/r3d"]
+	path = deps/ray/r3d
+	url = https://github.com/Bigfoot71/r3d
+[submodule "deps/ray/raylib"]
+	path = deps/ray/raylib
+	url = https://github.com/raysan5/raylib.git

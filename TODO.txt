@@ -2,10 +2,8 @@ TODO:
 - look into using std::ranges properly... (i.e. replacing some for loops).
 - make sure all services are created in app, then destroyed in the correct order, and assigned in lua.
 - update imgui
-- https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sdl_opengl3/main.c
 - https://github.com/ocornut/imgui
-- https://github.com/mikke89/RmlUi
-
+- https://cppreference.com/cpp/23
 
 httplib:
 - add async support by pushing requests to threadpool
@@ -20,3 +18,13 @@ save/load:
 - implement save-load (have concept thbat does this to check).
 - pass each object to a master function that expects those to have that function.
 - call that function to save/load
+
+raylib extensions:
+
+https://github.com/raysan5/rfxgen
+https://github.com/raysan5/riconpacker
+https://github.com/victorfisac/rPBR
+https://github.com/BrettWilsonDev/raylib-namespace-wrapper
+https://github.com/orgs/raylib-extras/repositories?type=all
+https://github.com/RobLoach/awesome-raylib
+https://github.com/RobLoach
