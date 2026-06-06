@@ -11,3 +11,29 @@
 Real-Time C++23 Game/App Engine. Built on data-driven design principles and agile software engineering. 
 
 ![galaxy](logo.png?raw=true "galaxy")
+
+## Documentation
+See [online documentation](https://reworks-org.github.io/galaxy/).
+
+## Contributing / Feedback / Issues
+Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
+and pull requests for contributions. (Don't forget to add yourself to the credits section below.)
+
+
+## Credits
+* Uses SMAA. Copyright (C) 2011 by Jorge Jimenez, Jose I. Echevarria,  Belen Masia, Fernando Navarro and Diego Gutierrez.
+* [sercode.ttf](http://www.dafont.com/secret-code.font).
+	* Used in various icons and logos.
+* [galaxy image](https://www.nasa.gov/image-feature/goddard/2020/hubble-probes-colorful-galaxy).
+	* Image Credit: ESA/Hubble & NASA, A. Filippenko.
+	* See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
+	* Used for non-commerical purposes.
+* [Supercluster Icon and Logo](https://images.nasa.gov/details-PIA17241).
+    * Image Credit: NASA/JPL-Caltech/University of Wisconsin
+    * See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
+	* Used for non-commerical purposes.
+* Any "dependency" i.e. "software library" should/will usually have an associated LICENSE/COPYING/AUTHORS file included.
+* Resources used for testing:
+	* Various from [OpenGameArt](https://opengameart.org/).
+* https://github.com/ocornut/imgui/issues/707
+* https://materialdesignicons.com/
