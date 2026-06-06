@@ -40,3 +40,6 @@
 [submodule "deps/ray/raylib"]
 	path = deps/ray/raylib
 	url = https://github.com/raysan5/raylib.git
+[submodule "deps/mimalloc"]
+	path = deps/mimalloc
+	url = https://github.com/microsoft/mimalloc.git

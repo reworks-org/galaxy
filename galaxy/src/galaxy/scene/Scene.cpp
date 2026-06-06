@@ -6,6 +6,7 @@
 ///
 
 #include <entt/locator/locator.hpp>
+#include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/events/GainedFocus.hpp"
@@ -57,6 +58,9 @@ namespace galaxy
 
 	void Scene::on_event(SDL_Event& event)
 	{
+		// nui.begin_input();
+		// nui.end_input();
+
 		/*for (auto& layer : std::views::reverse(m_LayerStack))
 		{
 			layer->OnEvent(event);
@@ -254,6 +258,7 @@ namespace galaxy
 
 		// graphics::Renderer::ref().flush();
 		// m_registry.update(m_b2world);
+		// world.update();
 		// m_b2world.Step(GALAXY_DT, m_velocity_iterations, m_position_iterations);
 		m_sysman.update(em, this);
 	}
@@ -286,36 +291,11 @@ namespace galaxy
 			*/
 	}
 
-	SystemManager& Scene::sys_man() noexcept
-	{
-		return m_sysman;
-	}
-
-	/*void Scene::update_ui()
-		{
-			const auto view = m_registry.m_entt.view<components::GUI>(entt::exclude<flags::Disabled>);
-			for (auto&& [entity, gui] : view.each())
-			{
-				if (gui.m_update.valid())
-				{
-					gui.m_update(gui.m_self);
-				}
-			}
-		}
-		bool Scene::load_world(const std::string& file)
-		{
-			if (m_world.load(file))
-			{
-				m_world.parse();
-				return true;
-			}
-
-			return false;
-		}
-
 	nlohmann::json Scene::serialize()
 	{
-		json["camera"]  = m_camera.serialize();
+		nlohmann::json json = "{}"_json;
+
+		/*json["camera"]  = m_camera.serialize();
 		json["physics"] = nlohmann::json::object();
 		auto& physics   = json.at("physics");
 
@@ -330,7 +310,7 @@ namespace galaxy
 		json["name"]                     = m_name;
 		json["ldtk_world"]               = m_world.file();
 		json["current_map"]              = m_world.get_active() ? m_world.get_active()->name() : "";
-		nlohmann::json json              = "{}"_json;
+
 		json["camera"]                   = m_camera.serialize();
 		json["entities"]                 = nlohmann::json::array();
 
@@ -363,14 +343,14 @@ namespace galaxy
 		for (auto i = 0; i < m_systems.size(); i++)
 		{
 			json["systems"][std::to_string(i)] = m_systems[i]->id();
-		}
+		}*/
 
 		return json;
 	}
 
 	void Scene::deserialize(const nlohmann::json& json)
 	{
-		m_name = json.at("name");
+		/*m_name = json.at("name");
 
 		const auto& systems = json.at("systems");
 		m_systems.reserve(systems.size());
@@ -426,8 +406,37 @@ namespace galaxy
 		if (load_world(json.at("ldtk_world")))
 		{
 			m_world.set_active(json.at("current_map"));
-		}
+		}*/
 	}
+
+	SystemManager& Scene::sys_man() noexcept
+	{
+		return m_sysman;
+	}
+
+	/*void Scene::update_ui()
+		{
+			const auto view = m_registry.m_entt.view<components::GUI>(entt::exclude<flags::Disabled>);
+			for (auto&& [entity, gui] : view.each())
+			{
+				if (gui.m_update.valid())
+				{
+					gui.m_update(gui.m_self);
+				}
+			}
+		}
+		bool Scene::load_world(const std::string& file)
+		{
+			if (m_world.load(file))
+			{
+				m_world.parse();
+				return true;
+			}
+
+			return false;
+		}
+
+
 
 	*/
 } // namespace galaxy

@@ -5,145 +5,79 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+// #include <filesystem>
+
+// #include <entt/locator/locator.hpp>
 #include <mimalloc.h>
 #include <mimalloc-new-delete.h>
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+
+// #include <physfs.h>
+// #include <tinyfiledialogs.h>
 
 // #include <galaxy/core/Application.hpp>
-// #include <galaxy/core/Config.hpp>
-// #include <galaxy/core/ServiceLocator.hpp>
 // #include <galaxy/core/Window.hpp>
-// #include <galaxy/fs/VirtualFileSystem.hpp>
+// #include <galaxy/core/Settings.hpp>
+// #include <galaxy/logging/PhysFSError.hpp>
+// #include <galaxy/platform/Pragma.hpp>
+// #include <galaxy/scene/SceneManager.hpp>
 // #include <galaxy/ui/ImGuiHelpers.hpp>
-
+//
 // #include "Editor.hpp"
-
+//
 // using namespace galaxy;
+//
+// void create_projects()
+//{
+//	const auto merged = Settings::root_dir() / Settings::editor_dir();
+//	if (!std::filesystem::exists(merged))
+//	{
+//		std::filesystem::create_directories(merged);
+//	}
+//
+//	const auto projects = merged / "projects";
+//	if (!std::filesystem::exists(projects))
+//	{
+//		std::filesystem::create_directories(projects);
+//	}
+//
+//	log::physfs_check(PHYSFS_mount(merged.string().c_str(), "editor", true));
+// }
+//
+// void set_icon()
+//{
+//	auto& window = entt::locator<Window>::value();
+//	window.set_icon("editor/sc.png");
+// }
 
 int main(int argc, char* argv[])
 {
 	mi_version();
-	// 	GALAXY_UNUSED(argsc);
-	// 	GALAXY_UNUSED(argsv);
 
-	// 	try
-	// 	{
-	// 		core::App supercluster("logs/", "config.json");
+	// GALAXY_UNUSED(argc);
+	// GALAXY_UNUSED(argv);
 
-	// 		{
-	// 			auto data = core::ServiceLocator<fs::VirtualFileSystem>::ref().read_binary("sc.png");
+	// try
+	//{
+	//	auto app    = galaxy::App();
+	//	auto editor = sc::Editor();
 
-	// 			auto& window = core::ServiceLocator<core::Window>::ref();
-	// 			window.set_icon(data);
+	//	create_projects();
+	//	set_icon();
 
-	// 			if (!std::filesystem::exists(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR / "projects"))
-	// 			{
-	// 				std::filesystem::create_directory(GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR / "projects");
-	// 			}
+	//	app.set_update_func([&](App* app) {
+	//		editor.update(app->events());
+	//	});
 
-	// 			ui::imgui_init_context("layout.ini");
+	//	app.set_render_func([&](App* app) {
+	//		editor.render();
+	//	});
 
-	// 			auto& sm = core::ServiceLocator<scene::SceneManager>::ref();
-	// 			sm.add_custom<sc::Editor>("sc_editor");
-	// 			sm.set_scene("sc_editor");
-	// 		}
+	//	app.run();
+	//}
+	// catch (const std::exception& e)
+	//{
+	//	tinyfd_notifyPopup("Error", e.what(), "error");
+	//}
 
-	// 		supercluster.run();
-	// 		ui::imgui_destroy_context();
-	// 	}
-	// 	catch (const std::exception& e)
-	// 	{
-	// 		std::cout << "======================" << std::endl;
-	// 		std::cout << " UNHANDLED EXCEPTION: " << e.what() << std::endl;
-	// 		std::cout << "======================" << std::endl;
-	// 		std::cin.get();
-	// 	}
-
-	// 	return GALAXY_EXIT_SUCCESS;
 	return 0;
 }
-
-/*
-				draw_component<components::GUI>(selected, "GUI", [&](components::GUI* gui) {
-					if (ImGui::Button("Load"))
-					{
-						const auto path = core::ServiceLocator<fs::VirtualFileSystem>::ref().open_file_dialog({"*.lua"});
-						if (!path.empty())
-						{
-							auto str = "{\"file\":\"" + path + "\"}";
-							strutils::replace_all(str, "\\", "/");
-							selected.scene->m_registry.m_entt.emplace_or_replace<components::GUI>(selected.entity, nlohmann::json::parse(str));
-						}
-					}
-					ImGui::SameLine();
-					if (ImGui::Button("Reload"))
-					{
-						if (!gui->file().empty())
-						{
-							auto str = "{\"file\":\"" + gui->file() + "\"}";
-							strutils::replace_all(str, "\\", "/");
-							selected.scene->m_registry.m_entt.emplace_or_replace<components::GUI>(selected.entity, nlohmann::json::parse(str));
-						}
-					}
-					if (ImGui::CollapsingHeader("Data", ImGuiTreeNodeFlags_SpanAvailWidth))
-					{
-						if (gui->m_self.valid())
-						{
-							for (auto& [id, value] : gui->m_self)
-							{
-								const auto name = id.as<std::string>();
-								switch (value.get_type())
-								{
-									case sol::type::number:
-										{
-											auto num = value.as<double>();
-											if (ImGui::InputDouble(name.c_str(),
-													&num,
-													0.1,
-													1.0,
-													"%.1f",
-													ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank))
-											{
-												gui->m_self[name] = num;
-											}
-										}
-										break;
-									case sol::type::boolean:
-										{
-											auto var = value.as<bool>();
-											if (ImGui::Checkbox(name.c_str(), &var))
-											{
-												gui->m_self[name] = var;
-											}
-										}
-										break;
-									case sol::type::string:
-										{
-											auto str = value.as<std::string>();
-											if (ImGui::InputText(name.c_str(), &str, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll))
-											{
-												gui->m_self[name] = str;
-											}
-										}
-										break;
-									case sol::type::function:
-										ImGui::Text("Function: %s", name.c_str());
-										break;
-									case sol::type::userdata:
-									case sol::type::lightuserdata:
-										ImGui::Text("Userdata: %s", name.c_str());
-										break;
-									default:
-										{
-											const auto type = std::string {magic_enum::enum_name(value.get_type())};
-											ImGui::Text("%s: %s", type.c_str(), name.c_str());
-										}
-										break;
-								}
-							}
-						}
-					}
-				});
-
-*/

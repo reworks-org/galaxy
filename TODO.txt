@@ -32,6 +32,7 @@ https://github.com/RobLoach
 https://www.raylib.com/cheatsheet/cheatsheet.html
 https://www.raylib.com/examples.html
 https://github.com/raysan5/raylib
+https://github.com/raysan5/raylib/wiki/raylib-integration-with-other-libraries
 
 update:
 nuklear

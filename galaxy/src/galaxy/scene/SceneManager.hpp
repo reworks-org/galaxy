@@ -63,6 +63,21 @@ namespace galaxy
 		///
 		void clear();
 
+		///
+		/// Serializes object.
+		///
+		/// \return JSON object containing data to be serialized.
+		///
+		[[nodiscard]]
+		nlohmann::json serialize();
+
+		///
+		/// Deserializes from object.
+		///
+		/// \param json Json object to retrieve data from.
+		///
+		void deserialize(const nlohmann::json& json);
+
 	private:
 		///
 		/// Copy constructor.

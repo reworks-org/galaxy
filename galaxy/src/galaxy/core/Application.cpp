@@ -107,26 +107,9 @@ namespace galaxy
 		auto     frames  = 0u;
 		duration perf    = 0s;
 
-		while (window.is_open())
+		if (!m_update)
 		{
-			now          = clock::now();
-			auto elapsed = now - prev;
-
-			// 250ms is the limit put in place on the frame time to cope with the spiral of death.
-			// It doesn't have to be 250ms exactly but it should be sufficiently high enough to deal with spikes in load.
-			if (elapsed > 250ms)
-			{
-				elapsed = 250ms;
-			}
-
-			prev   = now;
-			accum += elapsed;
-
-			while (accum >= dt)
-			{
-				perf  += dt;
-				accum -= dt;
-
+			m_update = [&](App* app) {
 				while (SDL_PollEvent(&m_events))
 				{
 					switch (m_events.type)
@@ -149,12 +132,43 @@ namespace galaxy
 				}
 
 				scenes.update();
+			};
+		}
+
+		if (!m_render)
+		{
+			m_render = [&](App* app) {
+				scenes.render();
+				window.swap();
+			};
+		}
+
+		while (window.is_open())
+		{
+			now          = clock::now();
+			auto elapsed = now - prev;
+
+			// 250ms is the limit put in place on the frame time to cope with the spiral of death.
+			// It doesn't have to be 250ms exactly but it should be sufficiently high enough to deal with spikes in load.
+			if (elapsed > 250ms)
+			{
+				elapsed = 250ms;
+			}
+
+			prev   = now;
+			accum += elapsed;
+
+			while (accum >= dt)
+			{
+				perf  += dt;
+				accum -= dt;
+
+				m_update(this);
 
 				updates++;
 			}
 
-			scenes.render();
-			window.swap();
+			m_render(this);
 
 			frames++;
 
@@ -167,6 +181,21 @@ namespace galaxy
 				perf    = 0s;
 			}
 		}
+	}
+
+	void App::set_update_func(LoopFunc&& update)
+	{
+		m_update = std::move(update);
+	}
+
+	void App::set_render_func(LoopFunc&& render)
+	{
+		m_render = std::move(render);
+	}
+
+	SDL_Event& App::events() noexcept
+	{
+		return m_events;
 	}
 
 	void App::setup_async()

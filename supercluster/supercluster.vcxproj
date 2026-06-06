@@ -79,11 +79,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DECODER_OGGVORBIS_STB;USING_GENERATED_CONFIG_H;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=0;ENTT_DISABLE_ASSERT;MSDFGL_STATIC_DEFINE;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;_WINDOWS;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_43;EXTERNAL_CONFIG_FLAGS;SUPPORT_MODULE_RSHAPES;SUPPORT_MODULE_RTEXTURES;SUPPORT_MODULE_RTEXT;SUPPORT_MODULE_RMODELS;SUPPORT_MODULE_RAUDIO;SUPPORT_CAMERA_SYSTEM;SUPPORT_GESTURES_SYSTEM;SUPPORT_RPRAND_GENERATOR;SUPPORT_MOUSE_GESTURES;SUPPORT_SSH_KEYBOARD_RPI;SUPPORT_WINMM_HIGHRES_TIMER;SUPPORT_COMPRESSION_API;SUPPORT_AUTOMATION_EVENTS;SUPPORT_CUSTOM_FRAME_CONTROL;SUPPORT_CLIPBOARD_IMAGE;SUPPORT_FILEFORMAT_PNG;SUPPORT_IMAGE_EXPORT;SUPPORT_IMAGE_GENERATION;SUPPORT_FILEFORMAT_TTF;SUPPORT_FILEFORMAT_OBJ;SUPPORT_FILEFORMAT_MTL;SUPPORT_FILEFORMAT_GLTF;SUPPORT_MESH_GENERATION;SUPPORT_FILEFORMAT_OGG;RLGL_ENABLE_OPENGL_DEBUG_CONTEXT=0;RLGL_SHOW_GL_DETAILS_INFO=0;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp23</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/httplib;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3/src/video/khronos;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;$(SolutionDir)deps/SDL3_config/include-config-debug/build_config;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -93,7 +93,7 @@
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <StringPooling>true</StringPooling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -119,7 +119,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
       <LinkStatus>true</LinkStatus>
-      <AdditionalDependencies>$(SolutionDir)out\galaxy\$(Configuration)\galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)out\galaxy\$(Configuration)\galaxy.lib;$(SolutionDir)build\dependencies\$(Configuration)\mimalloc\src\static.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <LargeAddressAware>true</LargeAddressAware>
       <OptimizeReferences>true</OptimizeReferences>
@@ -140,18 +140,18 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>DECODER_OGGVORBIS_STB;USING_GENERATED_CONFIG_H;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=0;ENTT_DISABLE_ASSERT;MSDFGL_STATIC_DEFINE;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;FT2_BUILD_LIBRARY;UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;IMGUI_IMPL_OPENGL_LOADER_GLAD;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;UNICODE;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;_GLFW_WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;_WINDOWS;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_43;EXTERNAL_CONFIG_FLAGS;SUPPORT_MODULE_RSHAPES;SUPPORT_MODULE_RTEXTURES;SUPPORT_MODULE_RTEXT;SUPPORT_MODULE_RMODELS;SUPPORT_MODULE_RAUDIO;SUPPORT_CAMERA_SYSTEM;SUPPORT_GESTURES_SYSTEM;SUPPORT_RPRAND_GENERATOR;SUPPORT_MOUSE_GESTURES;SUPPORT_SSH_KEYBOARD_RPI;SUPPORT_WINMM_HIGHRES_TIMER;SUPPORT_COMPRESSION_API;SUPPORT_AUTOMATION_EVENTS;SUPPORT_CUSTOM_FRAME_CONTROL;SUPPORT_CLIPBOARD_IMAGE;SUPPORT_FILEFORMAT_PNG;SUPPORT_IMAGE_EXPORT;SUPPORT_IMAGE_GENERATION;SUPPORT_FILEFORMAT_TTF;SUPPORT_FILEFORMAT_OBJ;SUPPORT_FILEFORMAT_MTL;SUPPORT_FILEFORMAT_GLTF;SUPPORT_MESH_GENERATION;SUPPORT_FILEFORMAT_OGG;RLGL_ENABLE_OPENGL_DEBUG_CONTEXT=0;RLGL_SHOW_GL_DETAILS_INFO=0;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp23</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/httplib;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3/src/video/khronos;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;$(SolutionDir)deps/SDL3_config/include-config-release/build_config;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -174,13 +174,13 @@
       <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
       <LinkStatus>true</LinkStatus>
-      <AdditionalDependencies>$(SolutionDir)out\galaxy\$(Configuration)\galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)out\galaxy\$(Configuration)\galaxy.lib;$(SolutionDir)build\dependencies\$(Configuration)\mimalloc\src\static.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <LargeAddressAware>true</LargeAddressAware>
       <LinkErrorReporting>NoErrorReport</LinkErrorReporting>

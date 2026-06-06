@@ -9,7 +9,7 @@
 #define GALAXY_SCENE_SCENE_HPP_
 
 #include <entt/signal/dispatcher.hpp>
-
+#include <nlohmann/json_fwd.hpp>
 #include <SDL3/SDL_events.h>
 
 #include "galaxy/state/State.hpp"
@@ -23,7 +23,7 @@ namespace galaxy
 	/// Scenes should be logically grouped -> i.e. a map, player data + ui, battle, menu, etc.
 	/// Each scene is an independant collection of systems, but not entities.
 	///
-	class Scene final : public State
+	class Scene : public State
 	{
 	public:
 		///
@@ -53,19 +53,34 @@ namespace galaxy
 		///
 		/// \param e Event that was triggered.
 		///
-		void on_event(SDL_Event& event);
+		virtual void on_event(SDL_Event& event);
 
 		///
 		/// Process events and updates.
 		///
 		/// \param em Entities to process.
 		///
-		void update(EntityManager& em);
+		virtual void update(EntityManager& em);
 
 		///
 		/// Render scene.
 		///
-		void render();
+		virtual void render();
+
+		///
+		/// Serializes object.
+		///
+		/// \return JSON object containing data to be serialized.
+		///
+		[[nodiscard]]
+		nlohmann::json serialize();
+
+		///
+		/// Deserializes from object.
+		///
+		/// \param json Json object to retrieve data from.
+		///
+		void deserialize(const nlohmann::json& json);
 
 		///
 		/// Get system manager.

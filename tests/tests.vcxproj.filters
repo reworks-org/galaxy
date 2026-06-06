@@ -2,23 +2,5 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\utils\StringUtilsTest.cpp" />
-    <ClCompile Include="src\platform\PlatformTests.cpp" />
-    <ClCompile Include="src\utils\AsyncTest.cpp" />
-    <ClCompile Include="src\math\Base64Test.cpp" />
-    <ClCompile Include="src\math\FNV1aTest.cpp" />
-    <ClCompile Include="src\math\MathTest.cpp" />
-    <ClCompile Include="src\math\RandomTest.cpp" />
-    <ClCompile Include="src\math\ZLibTest.cpp" />
-    <ClCompile Include="src\math\RectTest.cpp" />
-    <ClCompile Include="src\math\RectPackTest.cpp" />
-    <ClCompile Include="src\core\ConfigTest.cpp" />
-    <ClCompile Include="src\utils\UUIDTest.cpp" />
-    <ClCompile Include="src\time\TimeTest.cpp" />
-    <ClCompile Include="src\input\ClipboardTest.cpp" />
-    <ClCompile Include="src\meta\MetaTest.cpp" />
-    <ClCompile Include="src\scene\SceneTest.cpp" />
-    <ClCompile Include="src\resource\CacheTest.cpp" />
-    <ClCompile Include="src\system\SystemTest.cpp" />
   </ItemGroup>
 </Project>

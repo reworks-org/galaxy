@@ -5,28 +5,259 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <fstream>
+// #include <fstream>
 
-#include <imgui/imgui_impl_glfw.h>
-#include <imgui/imnotify/ImGuiNotify.hpp>
+// #include <imgui/imnotify/ImGuiNotify.hpp>
+#include <imgui/backends/imgui_impl_sdl3.h>
 
-#include <galaxy/core/Config.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
+// #include <galaxy/core/Config.hpp>
+// #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
-#include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/graphics/Renderer.hpp>
-#include <galaxy/input/Input.hpp>
-#include <galaxy/math/Base64.hpp>
-#include <galaxy/math/ZLib.hpp>
-#include <galaxy/scripting/JSON.hpp>
+// #include <galaxy/fs/VirtualFileSystem.hpp>
+// #include <galaxy/graphics/Renderer.hpp>
+// #include <galaxy/input/Input.hpp>
+// #include <galaxy/math/Base64.hpp>
+// #include <galaxy/math/ZLib.hpp>
+// #include <galaxy/scripting/JSON.hpp>
 #include <galaxy/ui/ImGuiHelpers.hpp>
-#include <galaxy/ui/NuklearUI.hpp>
+// #include <galaxy/ui/NuklearUI.hpp>
 
 #include "Editor.hpp"
+#include <imgui/extensions/notify/ImGuiNotify.hpp>
+
+using namespace galaxy;
 
 namespace sc
 {
-	Editor::Editor(const std::string& name)
+	Editor::Editor()
+	{
+		ui::imgui_init("sclayout.ini");
+	}
+
+	Editor::~Editor()
+	{
+		ui::imgui_exit();
+	}
+
+	void Editor::update(SDL_Event& events)
+	{
+		auto& window = entt::locator<Window>::value();
+
+		// sc goes here.
+		// sc is a wrapper around the game engine, so we dont want it to be a scene in the scenemanager.
+		while (SDL_PollEvent(&events))
+		{
+			switch (events.type)
+			{
+				case SDL_EVENT_QUIT:
+					window.close();
+					break;
+
+				case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+					if (events.window.windowID == SDL_GetWindowID(window.handle()))
+					{
+						window.close();
+					}
+					break;
+
+				default:
+					// scenes.on_event(m_events);
+					ImGui_ImplSDL3_ProcessEvent(&events);
+					break;
+			}
+		}
+
+		// scenes.update();
+	}
+
+	void Editor::render()
+	{
+		auto& window = entt::locator<Window>::value();
+		auto& scenes = entt::locator<SceneManager>::value();
+
+		ui::imgui_new_frame();
+		draw_editor();
+
+		ui::imgui_render();
+
+		// scenes.render();
+		window.swap();
+	}
+
+	void Editor::draw_editor()
+	{
+		begin_dock();
+
+		// if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && m_viewport.m_editor_cam_enabled)
+		//{
+		//	m_use_hand_cursor = false;
+		//	ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
+		// }
+
+		// if (m_use_hand_cursor)
+		//{
+		//	ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+		// }
+
+		draw_menubar();
+		// short_cuts();
+
+		// ui::imgui_popup("New##MenuBarPopup", m_show_new, [&]() {
+		//	ui::imgui_confirm("Create a new project?\nUnsaved progress will be lost.", [&]() {
+		//		new_project();
+		//	});
+		// });
+
+		// ui::imgui_popup("Exit##MenuBarPopup", m_show_exit, [&]() {
+		//	ui::imgui_confirm("Are you sure you want to exit?\nUnsaved progress will be lost.", [&]() {
+		//		exit();
+		//	});
+		// });
+
+		// ui::imgui_popup("About##MenuBarPopup", m_show_about, [&]() {
+		//	ImGui::Text("Galaxy Engine - Supercluster Editor\nLicensed under Apache 2.0.");
+		//	ImGui::Spacing();
+		//	ImGui::Text("Controls:\n[PAUSE] - Exit Game Mode.\n[LEFT SHIFT] - Enable Docking.");
+		// });
+
+		// m_log_console.render();
+		// m_lua_console.render();
+		// m_code_editor.render();
+		// m_asset_panel.render(m_code_editor);
+		// m_scene_panel.render(m_project, m_tasks, m_selected);
+		// m_entity_panel.render(m_tasks, m_selected);
+		// m_viewport.render(m_state, m_editor_camera);
+		// m_settings_panel.render();
+
+		// render_exporter();
+		end_dock();
+	}
+
+	void Editor::begin_dock()
+	{
+		ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
+	}
+
+	void Editor::end_dock()
+	{
+		static auto show_demo_window = true;
+		if (show_demo_window)
+			ImGui::ShowDemoWindow(&show_demo_window);
+
+		// ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.f);
+		// ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.f);
+		// ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.10f, 0.10f, 0.10f, 1.00f));
+		// ImGui::RenderNotifications();
+		// ImGui::PopStyleVar(2);
+		// ImGui::PopStyleColor(1);
+	}
+
+	void Editor::draw_menubar()
+	{
+		if (ImGui::BeginMainMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				// m_show_new = ImGui::MenuItem("New", "Ctrl+N");
+
+				if (ImGui::MenuItem("Open", "Ctrl+O"))
+				{
+					// show_loadproject();
+				}
+
+				if (ImGui::MenuItem("Save", "Ctrl+S"))
+				{
+					// save_project();
+				}
+
+				if (ImGui::MenuItem("Save As", "Ctrl+Shift+S"))
+				{
+					// save_project(true);
+				}
+
+				if (ImGui::MenuItem("Export", "Ctrl+E"))
+				{
+					// export_project();
+				}
+
+				// m_show_exit = ImGui::MenuItem("Exit");
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Panels"))
+			{
+				if (ImGui::MenuItem("Toggle Scene Panel", "Ctrl+Alt+S"))
+				{
+					// m_scene_panel.m_show = !m_scene_panel.m_show;
+				}
+
+				if (ImGui::MenuItem("Toggle Entity Panel", "Ctrl+Alt+E"))
+				{
+					// m_entity_panel.m_show = !m_entity_panel.m_show;
+				}
+
+				if (ImGui::MenuItem("Toggle Viewport", "Ctrl+Alt+V"))
+				{
+					// m_viewport.m_show = !m_viewport.m_show;
+				}
+
+				if (ImGui::MenuItem("Toggle Asset Panel", "Ctrl+Alt+A"))
+				{
+					// m_asset_panel.m_show = !m_asset_panel.m_show;
+				}
+
+				if (ImGui::MenuItem("Toggle Logs", "Ctrl+Alt+L"))
+				{
+					// m_log_console.m_show = !m_log_console.m_show;
+				}
+
+				if (ImGui::MenuItem("Toggle Lua Terminal", "Ctrl+Alt+T"))
+				{
+					// m_lua_console.m_show = !m_lua_console.m_show;
+				}
+
+				if (ImGui::MenuItem("Toggle Code Editor", "Ctrl+Alt+C"))
+				{
+					// m_code_editor.m_show = !m_code_editor.m_show;
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Tools"))
+			{
+				// static auto s_basedir = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
+				// static auto s_ltdk    = s_basedir / "tools/ldtk/ldtk.exe";
+				// static auto s_bfxr    = s_basedir / "tools/bfxr/Bfxr.exe";
+
+				if (ImGui::MenuItem("LDTK"))
+				{
+					// m_ldtk.create(s_ltdk.string());
+				}
+
+				if (ImGui::MenuItem("BFXR"))
+				{
+					// m_bfxr.create(s_bfxr.string());
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::MenuItem("Settings"))
+			{
+				// m_settings_panel.m_show = !m_settings_panel.m_show;
+			}
+
+			// m_show_about = ImGui::MenuItem("About");
+
+			// draw_game_controls();
+
+			ImGui::EndMainMenuBar();
+		}
+	}
+
+	/*Editor::Editor(const std::string& name)
 		: Scene {name}
 		, m_state {EditorState::EDITOR}
 		, m_padding {4, 4}
@@ -42,7 +273,7 @@ namespace sc
 		// clang-format off
 		m_autosave.repeat(true);
 		m_autosave.set([&]() {
-            save_project(false);
+			save_project(false);
 		}, 300000);
 		// clang-format on
 
@@ -374,195 +605,6 @@ namespace sc
 		});
 	}
 
-	void Editor::draw_editor()
-	{
-		begin_dock();
-
-		if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && m_viewport.m_editor_cam_enabled)
-		{
-			m_use_hand_cursor = false;
-			ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
-		}
-
-		if (m_use_hand_cursor)
-		{
-			ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
-		}
-
-		draw_menubar();
-		short_cuts();
-
-		ui::imgui_popup("New##MenuBarPopup", m_show_new, [&]() {
-			ui::imgui_confirm("Create a new project?\nUnsaved progress will be lost.", [&]() {
-				new_project();
-			});
-		});
-
-		ui::imgui_popup("Exit##MenuBarPopup", m_show_exit, [&]() {
-			ui::imgui_confirm("Are you sure you want to exit?\nUnsaved progress will be lost.", [&]() {
-				exit();
-			});
-		});
-
-		ui::imgui_popup("About##MenuBarPopup", m_show_about, [&]() {
-			ImGui::Text("Galaxy Engine - Supercluster Editor\nLicensed under Apache 2.0.");
-			ImGui::Spacing();
-			ImGui::Text("Controls:\n[PAUSE] - Exit Game Mode.\n[LEFT SHIFT] - Enable Docking.");
-		});
-
-		m_log_console.render();
-		m_lua_console.render();
-		m_code_editor.render();
-		m_asset_panel.render(m_code_editor);
-		m_scene_panel.render(m_project, m_tasks, m_selected);
-		m_entity_panel.render(m_tasks, m_selected);
-		m_viewport.render(m_state, m_editor_camera);
-		m_settings_panel.render();
-
-		render_exporter();
-		end_dock();
-	}
-
-	void Editor::begin_dock()
-	{
-		ui::imgui_new_frame();
-
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0, 0});
-		ImGui::Begin(
-			"Main Viewport",
-			nullptr,
-			ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
-				ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoBackground
-		);
-		ImGui::PopStyleVar(3);
-
-		ImGui::DockSpace(ImGui::GetID("Main Viewport Dockspace"), {0, 0}, ImGuiDockNodeFlags_None | ImGuiDockNodeFlags_PassthruCentralNode);
-	}
-
-	void Editor::end_dock()
-	{
-		ImGui::End();
-
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.f);
-		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.10f, 0.10f, 0.10f, 1.00f));
-		ImGui::RenderNotifications();
-		ImGui::PopStyleVar(2);
-		ImGui::PopStyleColor(1);
-
-		ui::imgui_render();
-	}
-
-	void Editor::draw_menubar()
-	{
-		if (ImGui::BeginMenuBar())
-		{
-			if (ImGui::BeginMenu("File"))
-			{
-				m_show_new = ImGui::MenuItem("New", "Ctrl+N");
-
-				if (ImGui::MenuItem("Open", "Ctrl+O"))
-				{
-					show_loadproject();
-				}
-
-				if (ImGui::MenuItem("Save", "Ctrl+S"))
-				{
-					save_project();
-				}
-
-				if (ImGui::MenuItem("Save As", "Ctrl+Shift+S"))
-				{
-					save_project(true);
-				}
-
-				if (ImGui::MenuItem("Export", "Ctrl+E"))
-				{
-					export_project();
-				}
-
-				m_show_exit = ImGui::MenuItem("Exit");
-
-				ImGui::EndMenu();
-			}
-
-			if (ImGui::BeginMenu("Panels"))
-			{
-				if (ImGui::MenuItem("Toggle Scene Panel", "Ctrl+Alt+S"))
-				{
-					m_scene_panel.m_show = !m_scene_panel.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle Entity Panel", "Ctrl+Alt+E"))
-				{
-					m_entity_panel.m_show = !m_entity_panel.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle Viewport", "Ctrl+Alt+V"))
-				{
-					m_viewport.m_show = !m_viewport.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle Asset Panel", "Ctrl+Alt+A"))
-				{
-					m_asset_panel.m_show = !m_asset_panel.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle Logs", "Ctrl+Alt+L"))
-				{
-					m_log_console.m_show = !m_log_console.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle Lua Terminal", "Ctrl+Alt+T"))
-				{
-					m_lua_console.m_show = !m_lua_console.m_show;
-				}
-
-				if (ImGui::MenuItem("Toggle Code Editor", "Ctrl+Alt+C"))
-				{
-					m_code_editor.m_show = !m_code_editor.m_show;
-				}
-
-				ImGui::EndMenu();
-			}
-
-			if (ImGui::BeginMenu("Tools"))
-			{
-				static auto s_basedir = GALAXY_ROOT_DIR / GALAXY_EDITOR_DATA_DIR;
-				static auto s_ltdk    = s_basedir / "tools/ldtk/ldtk.exe";
-				static auto s_bfxr    = s_basedir / "tools/bfxr/Bfxr.exe";
-
-				if (ImGui::MenuItem("LDTK"))
-				{
-					m_ldtk.create(s_ltdk.string());
-				}
-
-				if (ImGui::MenuItem("BFXR"))
-				{
-					m_bfxr.create(s_bfxr.string());
-				}
-
-				ImGui::EndMenu();
-			}
-
-			if (ImGui::MenuItem("Settings"))
-			{
-				m_settings_panel.m_show = !m_settings_panel.m_show;
-			}
-
-			m_show_about = ImGui::MenuItem("About");
-
-			draw_game_controls();
-
-			const auto info = std::format("UPS: {0}, FPS: {1}", GALAXY_CUR_UPS, GALAXY_CUR_FPS);
-			ImGui::SetCursorPosX(ImGui::GetWindowWidth() - ImGui::CalcTextSize(info.c_str()).x - m_padding.x);
-			ImGui::TextUnformatted(info.c_str());
-			ImGui::EndMenuBar();
-		}
-	}
-
 	void Editor::draw_game_controls()
 	{
 		ImGui::SetCursorPosX(ImGui::GetWindowWidth() / 2);
@@ -783,5 +825,5 @@ namespace sc
 		core::ServiceLocator<ui::NuklearUI>::ref().toggle_input(false);
 		core::ServiceLocator<core::Window>::ref().set_dispatcher(nullptr);
 		ImGui::SetMouseCursor(ImGuiMouseCursor_Arrow);
-	}
+	}*/
 } // namespace sc

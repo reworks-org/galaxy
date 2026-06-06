@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "SceneManager.hpp"
 
 namespace galaxy
@@ -64,6 +66,71 @@ namespace galaxy
 
 		m_stack.clear();
 		m_storage.clear();
+	}
+
+	nlohmann::json SceneManager::serialize()
+	{
+		nlohmann::json json = "{\"scenes\":{}}"_json;
+
+		for (auto& [id, scene] : m_storage)
+		{
+			json["scenes"][scene->name()] = scene->serialize();
+		}
+
+		for (auto i = 0; i < m_stack.size(); i++)
+		{
+			json["stack"][std::to_string(i)] = m_stack[i]->name();
+		}
+
+		/*
+		auto& em         = entt::locator<meta::EntityFactory>::value();
+		json["entities"] = nlohmann::json::array();
+		for (const auto& [entity] : m_registry.m_entt.view<entt::entity>(entt::exclude<flags::NotSerializable>).each())
+		{
+			json["entities"].push_back(em.serialize_entity(entity, m_registry.m_entt));
+		}
+		*/
+
+		return json;
+	}
+
+	void SceneManager::deserialize(const nlohmann::json& json)
+	{
+		/*auto& em = entt::locator<meta::EntityFactory>::value();
+
+		pop_all();
+		clear();
+
+		const auto& scenes = json.at("scenes");
+		m_scenes.reserve(scenes.size());
+		for (const auto& [name, data] : scenes.items())
+		{
+			auto scene = create(name);
+			if (scene)
+			{
+				scene->deserialize(data);
+			}
+		}
+
+		const auto& stack = json.at("stack");
+		m_stack.reserve(stack.size());
+		for (const auto& [index, name] : stack.items())
+		{
+			const auto hash = math::fnv1a(name.get<std::string>().c_str());
+			m_stack.insert(m_stack.begin() + std::stoi(index), m_scenes[hash]);
+		}
+
+		const auto& entity_json = json.at("entities");
+		for (const auto& data : entity_json)
+		{
+			const auto entity = em.deserialize_entity(data, m_registry.m_entt);
+
+			if (!m_registry.m_entt.all_of<components::Tag>(entity))
+			{
+				auto& tag = m_registry.m_entt.emplace<components::Tag>(entity);
+				tag.m_tag = "Untagged";
+			}
+		}*/
 	}
 } // namespace galaxy
 
@@ -265,67 +332,5 @@ void SceneManager::load_app(const std::string& appdata_file)
 			}
 		}
 
-		nlohmann::json SceneManager::serialize()
-		{
-			auto& em = entt::locator<meta::EntityFactory>::value();
 
-			nlohmann::json json = "{\"scenes\":{}}"_json;
-
-			for (auto& [id, scene] : m_scenes)
-			{
-				json["scenes"][scene->name()] = scene->serialize();
-			}
-
-			for (auto i = 0; i < m_stack.size(); i++)
-			{
-				json["stack"][std::to_string(i)] = m_stack[i]->name();
-			}
-
-			json["entities"] = nlohmann::json::array();
-			for (const auto& [entity] : m_registry.m_entt.view<entt::entity>(entt::exclude<flags::NotSerializable>).each())
-			{
-				json["entities"].push_back(em.serialize_entity(entity, m_registry.m_entt));
-			}
-
-			return json;
-		}
-
-		void SceneManager::deserialize(const nlohmann::json& json)
-		{
-			auto& em = entt::locator<meta::EntityFactory>::value();
-
-			pop_all();
-			clear();
-
-			const auto& scenes = json.at("scenes");
-			m_scenes.reserve(scenes.size());
-			for (const auto& [name, data] : scenes.items())
-			{
-				auto scene = create(name);
-				if (scene)
-				{
-					scene->deserialize(data);
-				}
-			}
-
-			const auto& stack = json.at("stack");
-			m_stack.reserve(stack.size());
-			for (const auto& [index, name] : stack.items())
-			{
-				const auto hash = math::fnv1a(name.get<std::string>().c_str());
-				m_stack.insert(m_stack.begin() + std::stoi(index), m_scenes[hash]);
-			}
-
-			const auto& entity_json = json.at("entities");
-			for (const auto& data : entity_json)
-			{
-				const auto entity = em.deserialize_entity(data, m_registry.m_entt);
-
-				if (!m_registry.m_entt.all_of<components::Tag>(entity))
-				{
-					auto& tag = m_registry.m_entt.emplace<components::Tag>(entity);
-					tag.m_tag = "Untagged";
-				}
-			}
-		}
 */

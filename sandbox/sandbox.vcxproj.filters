@@ -2,12 +2,5 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\tests\LoggingTests.hpp" />
-    <ClCompile Include="src\tests\PlatformTests.hpp" />
-    <ClCompile Include="src\Sandbox.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\TestConfig.hpp" />
-    <ClInclude Include="src\Sandbox.hpp" />
   </ItemGroup>
 </Project>
