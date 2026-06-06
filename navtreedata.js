@@ -43,7 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
@@ -62,21 +62,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ab5926a5b1b103f3f0055a130fbe8f9dc",
-"d0/da0/State_8cpp_source.html",
-"d1/dbc/classgalaxy_1_1SceneManager.html#a51b94fc25ddcdbdb71f423dc6ac120e1",
-"d4/d01/Shaders_8cpp.html",
-"d5/d13/classgalaxy_1_1FileError.html#a62fccb23c9ea4d2005bd04493b7a548e",
-"d6/d64/structgalaxy_1_1LogMessage.html#a74340e05696b636596606a61bbba397b",
-"d8/d23/namespacegalaxy_1_1fileutils.html",
-"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7",
-"da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html#a12d040bf154d0751127f6ca01d4c65c9",
-"db/d02/Settings_8hpp_source.html",
-"db/dcc/classgalaxy_1_1graphics_1_1Text.html#a7709eb53870e034eb192b0472f5f9881",
-"dd/d6a/classgalaxy_1_1graphics_1_1GaussianBlur.html#a0f431f2a75c03a00cde76acbf338c959",
-"de/d9e/classgalaxy_1_1graphics_1_1Sharpen.html#a92623562a6832349a0e63902b19bd78c",
-"df/d64/classgalaxy_1_1Event.html#a9c2e34c8012fd9fd73a254255a81979f",
-"files.html"
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ace07ecb19807512eee6d74e4ffd37b28",
+"d1/d4d/classgalaxy_1_1Cache.html#a0504bc638d461fc0213900591bf715fd",
+"d4/d1b/namespacegalaxy_1_1resource.html#a6286366ad0ea9df0086a6bbca8632e07",
+"d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e",
+"db/d49/classgalaxy_1_1Config.html#a22f2fb7ca7999bcc5c230c77fda41787",
+"dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a70a0b34589e5fb89ac9f851c5793a819",
+"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0",
+"functions_z.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

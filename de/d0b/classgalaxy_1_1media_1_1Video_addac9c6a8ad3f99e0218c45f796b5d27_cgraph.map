@@ -1,7 +1,0 @@
-<map id="galaxy::media::Video::load" name="galaxy::media::Video::load">
-<area shape="rect" id="Node000001" title="Load a MPEG&#45;1 from video file." alt="" coords="5,37,164,77"/>
-<area shape="rect" id="Node000002" href="$dc/d80/namespacegalaxy_1_1media.html#aba037f6e68f9b871d7d0856bebe71192" title=" " alt="" coords="216,5,367,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,42,202,36,203,42,165,48"/>
-<area shape="rect" id="Node000003" href="$de/d0b/classgalaxy_1_1media_1_1Video.html#a397eaf4d72c34d34aec8bfe847cc1e99" title="Constructor." alt="" coords="212,69,371,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,67,199,72,198,78,164,72"/>
-</map>

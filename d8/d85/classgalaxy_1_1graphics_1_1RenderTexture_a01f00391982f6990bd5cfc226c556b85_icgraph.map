@@ -1,8 +1,0 @@
-<map id="galaxy::graphics::RenderTexture::height" name="galaxy::graphics::RenderTexture::height">
-<area shape="rect" id="Node000001" title="Get texture height." alt="" coords="467,35,649,75"/>
-<area shape="rect" id="Node000002" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a430bdcb36b0d3b4a6e03a382e600bc36" title="Create framebuffer and texture." alt="" coords="236,5,419,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="453,44,419,40,419,34,454,39"/>
-<area shape="rect" id="Node000003" href="$d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#a872e8e988a91951b2e9fae69bb69086a" title="Destroy and re&#45;create framebuffer." alt="" coords="5,35,188,75"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="453,60,419,60,236,60,188,59,188,54,236,55,419,55,453,54"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,41,189,46,188,40,222,36"/>
-</map>

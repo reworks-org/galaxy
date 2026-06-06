@@ -1,9 +1,0 @@
-<map id="galaxy::media::Video" name="galaxy::media::Video">
-<area shape="rect" id="Node000001" title="Plays an MPEG&#45;1 video." alt="" coords="35,413,185,899"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,277,215,343"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,343,113,397,107,397,107,343"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="35,141,185,207"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,221,113,277,107,277,107,221"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="99,5,121,71"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,71,113,125,107,125,107,71"/>
-</map>

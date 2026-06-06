@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['hash_3c_20galaxy_3a_3auuid_20_3e_0',['hash&lt; galaxy::UUID &gt;',['../d6/d94/structstd_1_1hash_3_01galaxy_1_1UUID_01_4.html',1,'std']]]
+  ['keyboard_0',['Keyboard',['../d8/db2/classgalaxy_1_1Keyboard.html',1,'galaxy']]],
+  ['keyinput_1',['KeyInput',['../d6/d71/structgalaxy_1_1KeyInput.html',1,'galaxy']]],
+  ['keypressed_2',['KeyPressed',['../d0/d11/structgalaxy_1_1KeyPressed.html',1,'galaxy']]],
+  ['keyreleased_3',['KeyReleased',['../d5/d60/structgalaxy_1_1KeyReleased.html',1,'galaxy']]]
 ];

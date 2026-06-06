@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../d8/db2/classgalaxy_1_1Keyboard.html',1,'galaxy']]],
-  ['keyinput_1',['KeyInput',['../d6/d71/structgalaxy_1_1KeyInput.html',1,'galaxy']]],
-  ['keypressed_2',['KeyPressed',['../d0/d11/structgalaxy_1_1KeyPressed.html',1,'galaxy']]],
-  ['keyreleased_3',['KeyReleased',['../d5/d60/structgalaxy_1_1KeyReleased.html',1,'galaxy']]]
+  ['mouse_0',['Mouse',['../d4/d5d/classgalaxy_1_1Mouse.html',1,'galaxy']]],
+  ['mousemoved_1',['MouseMoved',['../d5/d1a/structgalaxy_1_1MouseMoved.html',1,'galaxy']]],
+  ['mousepressed_2',['MousePressed',['../de/d27/structgalaxy_1_1MousePressed.html',1,'galaxy']]],
+  ['mousereleased_3',['MouseReleased',['../d1/d0d/structgalaxy_1_1MouseReleased.html',1,'galaxy']]],
+  ['mousewheel_4',['MouseWheel',['../da/d9e/structgalaxy_1_1MouseWheel.html',1,'galaxy']]],
+  ['musicloader_5',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
 ];

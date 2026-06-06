@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['info_0',['Info',['../d2/d56/structgalaxy_1_1resource_1_1TextureAtlas_1_1Info.html',1,'galaxy::resource::TextureAtlas']]],
-  ['instancebuffer_1',['InstanceBuffer',['../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html',1,'galaxy::graphics']]]
+  ['loader_0',['Loader',['../db/dbf/structgalaxy_1_1Loader.html',1,'galaxy']]],
+  ['loader_3c_20media_3a_3asound_20_3e_1',['Loader&lt; media::Sound &gt;',['../db/dbf/structgalaxy_1_1Loader.html',1,'galaxy']]],
+  ['log_2',['Log',['../dd/dd3/classgalaxy_1_1Log.html',1,'galaxy']]],
+  ['logmessage_3',['LogMessage',['../d6/d64/structgalaxy_1_1LogMessage.html',1,'galaxy']]],
+  ['lostfocus_4',['LostFocus',['../dc/d92/structgalaxy_1_1LostFocus.html',1,'galaxy']]],
+  ['lua_5',['Lua',['../d3/ddf/classgalaxy_1_1Lua.html',1,'galaxy']]]
 ];

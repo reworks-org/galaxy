@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Circle::Circle" name="galaxy::graphics::Circle::Circle">
-<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="5,37,179,77"/>
-<area shape="rect" id="Node000002" href="$d8/d6f/classgalaxy_1_1graphics_1_1Circle.html#a014422d595f03ed74296e621b78aaced" title="Constructor." alt="" coords="228,5,401,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,42,214,37,215,42,179,48"/>
-<area shape="rect" id="Node000003" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#aafd88f3a5b2876a9843c18f0afe13f4b" title="Constructor." alt="" coords="227,69,403,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,67,214,72,213,77,179,72"/>
-</map>

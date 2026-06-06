@@ -1,9 +1,0 @@
-<map id="galaxy/src/galaxy/graphics/RenderData.cpp" name="galaxy/src/galaxy/graphics/RenderData.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="44,5,240,45"/>
-<area shape="rect" id="Node000002" href="$df/d32/RenderData_8hpp.html" title=" " alt="" coords="79,93,205,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,46,145,79,139,79,139,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,135,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="132,121,93,159,90,155,128,117"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="159,167,269,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="156,117,194,155,191,159,152,121"/>
-</map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['blend_5fequation_0',['blend_equation',['../d1/dd6/structgalaxy_1_1RenderPipeline.html#a064ccbb851d4d33e4440f46feb8f0cc5',1,'galaxy::RenderPipeline']]],
-  ['blend_5ffunction_1',['blend_function',['../d1/dd6/structgalaxy_1_1RenderPipeline.html#a42976e018519784b0c23e0aaaeea8186',1,'galaxy::RenderPipeline']]]
+  ['chunksize_0',['ChunkSize',['../df/d85/classgalaxy_1_1ZLib.html#ae336d4d8e76284523f9066b5cfea2fde',1,'galaxy::ZLib']]],
+  ['colour_1',['colour',['../d6/d64/structgalaxy_1_1LogMessage.html#ad4f717cd9912b645a64b3de9bc1cb770',1,'galaxy::LogMessage']]]
 ];

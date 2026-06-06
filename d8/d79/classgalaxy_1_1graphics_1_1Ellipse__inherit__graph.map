@@ -1,5 +1,0 @@
-<map id="galaxy::graphics::Ellipse" name="galaxy::graphics::Ellipse">
-<area shape="rect" id="Node000001" title="An elliptical circle." alt="" coords="5,339,176,544"/>
-<area shape="rect" id="Node000002" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html" title="A generic 2D shape." alt="" coords="7,5,175,291"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,304,93,338,88,338,88,304"/>
-</map>

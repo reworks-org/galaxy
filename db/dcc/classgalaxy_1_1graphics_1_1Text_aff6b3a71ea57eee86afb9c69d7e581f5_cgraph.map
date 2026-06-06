@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Text::Text" name="galaxy::graphics::Text::Text">
-<area shape="rect" id="Node000001" title="Copy constructor." alt="" coords="5,5,168,45"/>
-<area shape="rect" id="Node000002" href="$db/dcc/classgalaxy_1_1graphics_1_1Text.html#ad444c36410fdee1f8e38d747e480aedc" title="Constructor." alt="" coords="216,5,379,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,23,202,23,202,28,168,28"/>
-<area shape="rect" id="Node000003" href="$db/dab/namespacegalaxy_1_1graphics.html#a4694c0aea940ac82bb3331c1490bb0ee" title="Generate some default indices." alt="" coords="427,5,587,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="379,23,413,23,413,28,379,28"/>
-</map>

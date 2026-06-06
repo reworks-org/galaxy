@@ -1,7 +1,0 @@
-<map id="galaxy::Shader::set_uniform" name="galaxy::Shader::set_uniform">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,152,75"/>
-<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="212,5,359,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,42,198,35,199,40,153,47"/>
-<area shape="rect" id="Node000003" href="$d1/d5e/classgalaxy_1_1Shader.html#a24dd1a45ea450080ae1eeffcac7d1d45" title="Constructor." alt="" coords="200,70,371,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,62,187,67,186,72,152,67"/>
-</map>

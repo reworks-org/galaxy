@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['b_0',['b',['../d8/d74/classgalaxy_1_1Colour.html#aedf7aa0bad0a42d2f7bf14f9ab63b119',1,'galaxy::Colour::b(const std::uint8_t b) noexcept'],['../d8/d74/classgalaxy_1_1Colour.html#ac91e36db60470f6838e32d469d5aead5',1,'galaxy::Colour::b() const noexcept']]],
-  ['base64_2ecpp_1',['Base64.cpp',['../d4/de5/Base64_8cpp.html',1,'']]],
-  ['base64_2ehpp_2',['Base64.hpp',['../d0/d79/Base64_8hpp.html',1,'']]],
-  ['begin_3',['begin',['../df/dc0/classgalaxy_1_1graphics_1_1Framebuffer.html#af6ac285cc200de4a04e605e0bd697cee',1,'galaxy::graphics::Framebuffer']]],
-  ['begin_5fpass_4',['begin_pass',['../d5/dab/classgalaxy_1_1Renderer.html#adf4e72cc65714e8d4251663916b2b6a4',1,'galaxy::Renderer']]],
-  ['begin_5ftext_5finput_5',['begin_text_input',['../d8/db2/classgalaxy_1_1Keyboard.html#ad9f89c849d9d51cc649143a74ada4de4',1,'galaxy::Keyboard']]],
-  ['begins_5fwith_6',['begins_with',['../df/d98/namespacegalaxy_1_1str.html#a872b29b8a64350f32966d80e587e609a',1,'galaxy::str']]],
-  ['bilinear_7',['BILINEAR',['../d0/d46/namespacegalaxy.html#a5410d082df2a9bbbea865082cd9b91c0aad6fddf718ad19b063e02fdd7e8e3e65',1,'galaxy']]],
-  ['bind_8',['bind',['../d6/df6/classgalaxy_1_1Sampler.html#a47f357b2e8a47c03a3d19835bc8eb633',1,'galaxy::Sampler::bind()'],['../d1/d5e/classgalaxy_1_1Shader.html#ae64788a349cad8380e2f29f63f3bdb70',1,'galaxy::Shader::bind()'],['../dd/d83/classgalaxy_1_1ShaderBuffer.html#a36188203e96a164def03aae643d96add',1,'galaxy::ShaderBuffer::bind()'],['../df/db8/classgalaxy_1_1Texture.html#ab2cfa7153a6fdd1a60662fb8399cd6d5',1,'galaxy::Texture::bind()'],['../db/d02/classgalaxy_1_1VertexArray.html#a3f4c42a4c5bbbea427b9d4dfb28bd588',1,'galaxy::VertexArray::bind()'],['../d8/d69/classgalaxy_1_1graphics_1_1PostProcess.html#a1251591b09dec524ca3d040bc92af737',1,'galaxy::graphics::PostProcess::bind()'],['../d8/d85/classgalaxy_1_1graphics_1_1RenderTexture.html#af3a70c8fba7ff0f3f493ea1df8d30aad',1,'galaxy::graphics::RenderTexture::bind()'],['../d5/dd2/classgalaxy_1_1VertexBatch.html#a235694ff23a07ce410186a938d541991',1,'galaxy::VertexBatch::bind()']]],
-  ['bind_5fpipeline_9',['bind_pipeline',['../d5/dab/classgalaxy_1_1Renderer.html#ac2da47c7b62e7ef4e33d5859da053f3c',1,'galaxy::Renderer']]],
-  ['bind_5fwindow_10',['bind_window',['../d3/d81/classgalaxy_1_1WindowBindable.html#a181df3a8bdb2ea55503edbe129b42533',1,'galaxy::WindowBindable']]],
-  ['blend_5fequation_11',['blend_equation',['../d1/dd6/structgalaxy_1_1RenderPipeline.html#a064ccbb851d4d33e4440f46feb8f0cc5',1,'galaxy::RenderPipeline']]],
-  ['blend_5ffunction_12',['blend_function',['../d1/dd6/structgalaxy_1_1RenderPipeline.html#a42976e018519784b0c23e0aaaeea8186',1,'galaxy::RenderPipeline']]],
-  ['bs_5fthread_5fpool_5fnative_5fextensions_13',['BS_THREAD_POOL_NATIVE_EXTENSIONS',['../d2/db6/Application_8cpp.html#a2b483b8d6946638fd4cd67bc7bbe3fa9',1,'Application.cpp']]],
-  ['buffer_14',['buffer',['../d7/d34/classgalaxy_1_1graphics_1_1InstanceBuffer.html#a9b0f8008b590344d05f7b8867f8e4796',1,'galaxy::graphics::InstanceBuffer::buffer()'],['../dd/d83/classgalaxy_1_1ShaderBuffer.html#aa6597feb073309c6799004ac81e40332',1,'galaxy::ShaderBuffer::buffer()'],['../db/d02/classgalaxy_1_1VertexArray.html#a7491ebf0b3b1b3bdb4085a99b6443bee',1,'galaxy::VertexArray::buffer()'],['../da/d97/classgalaxy_1_1VertexBuffer.html#a2dea2dfb4162b562e40350a212f466f0',1,'galaxy::VertexBuffer::buffer()']]],
-  ['build_15',['build',['../d1/d70/classgalaxy_1_1graphics_1_1Font.html#ac3d604f1f9ad6653e0dbeac0dcefaeb9',1,'galaxy::graphics::Font::build()'],['../de/d0b/classgalaxy_1_1media_1_1Video.html#a2b07380cb1b31f12defa395debb9c18f',1,'galaxy::media::Video::build()']]]
+  ['base64_2ecpp_0',['Base64.cpp',['../d4/de5/Base64_8cpp.html',1,'']]],
+  ['base64_2ehpp_1',['Base64.hpp',['../d0/d79/Base64_8hpp.html',1,'']]],
+  ['begin_5ftext_5finput_2',['begin_text_input',['../d8/db2/classgalaxy_1_1Keyboard.html#ad9f89c849d9d51cc649143a74ada4de4',1,'galaxy::Keyboard']]],
+  ['begins_5fwith_3',['begins_with',['../df/d98/namespacegalaxy_1_1str.html#a872b29b8a64350f32966d80e587e609a',1,'galaxy::str']]],
+  ['bind_5fwindow_4',['bind_window',['../d3/d81/classgalaxy_1_1WindowBindable.html#a181df3a8bdb2ea55503edbe129b42533',1,'galaxy::WindowBindable']]],
+  ['bs_5fthread_5fpool_5fnative_5fextensions_5',['BS_THREAD_POOL_NATIVE_EXTENSIONS',['../d2/db6/Application_8cpp.html#a2b483b8d6946638fd4cd67bc7bbe3fa9',1,'Application.cpp']]]
 ];

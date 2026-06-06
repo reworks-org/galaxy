@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['repeat_0',['REPEAT',['../d0/d46/namespacegalaxy.html#ab6695f13c0a6b3334f6f6012b05167a7a5be68175be14dfaa080165456c2e9555',1,'galaxy']]],
-  ['right_1',['RIGHT',['../db/dcc/classgalaxy_1_1graphics_1_1Text.html#a45d9ce5645ed8fa04ea76dd1d6a354c6a21507b40c80068eda19865706fdc2403',1,'galaxy::graphics::Text::RIGHT'],['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806a21507b40c80068eda19865706fdc2403',1,'galaxy::RIGHT']]]
+  ['warning_0',['WARNING',['../d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a059e9861e0400dfbe05c98a841f3f96b',1,'galaxy']]],
+  ['warning_1',['warning',['../d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803a7b83d3f08fa392b79e3f553b585971cd',1,'galaxy']]]
 ];

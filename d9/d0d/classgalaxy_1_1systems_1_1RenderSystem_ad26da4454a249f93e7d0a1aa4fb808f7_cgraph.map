@@ -1,17 +1,7 @@
 <map id="galaxy::systems::RenderSystem::update" name="galaxy::systems::RenderSystem::update">
-<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,120,236,160"/>
-<area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="284,120,464,160"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,137,270,137,270,143,236,143"/>
-<area shape="rect" id="Node000003" href="$d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71" title=" " alt="" coords="512,127,707,153"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,137,498,137,498,143,465,143"/>
-<area shape="rect" id="Node000004" href="$db/d02/classgalaxy_1_1VertexArray.html#a87e6cfbd5eb2ed0a5713055f06372fbd" title="Get the index count." alt="" coords="783,5,934,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="629,125,684,91,754,55,772,47,774,52,756,60,686,96,631,129"/>
-<area shape="rect" id="Node000005" href="$db/d02/classgalaxy_1_1VertexArray.html#acddeda1d5d9bf580cb18dc8fbd3b8dbf" title="Get vertex array handle." alt="" coords="774,70,943,95"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="665,125,789,96,790,101,666,130"/>
-<area shape="rect" id="Node000006" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a7de0c2ae3bfe82182e945bdc10e24f04" title="Get OpenGL rendering mode." alt="" coords="771,120,947,160"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="707,137,757,137,757,143,707,143"/>
-<area shape="rect" id="Node000007" href="$db/d02/classgalaxy_1_1VertexArray.html#adb96644f9b5b6465a0f279f34007458b" title="Gets index offset." alt="" coords="783,184,934,224"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="661,150,771,179,769,184,659,155"/>
-<area shape="rect" id="Node000008" href="$d9/d29/classgalaxy_1_1graphics_1_1Shape.html#a75140eb8460d3dd95f59a613e2429fbf" title="Get vertex array object." alt="" coords="755,249,963,274"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="628,151,682,192,718,214,756,234,779,242,777,247,754,238,715,219,679,196,624,155"/>
+<area shape="rect" id="Node000001" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>
+<area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="284,5,464,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,23,270,23,270,28,236,28"/>
+<area shape="rect" id="Node000003" href="$d2/d27/namespacegalaxy_1_1systems.html#ab1d8a3e8040b4ad896461fe3a7f4cc71" title=" " alt="" coords="512,13,707,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,23,498,23,498,28,465,28"/>
 </map>

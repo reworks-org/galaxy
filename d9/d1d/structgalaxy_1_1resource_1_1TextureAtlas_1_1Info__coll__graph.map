@@ -1,9 +1,0 @@
-<map id="galaxy::resource::TextureAtlas::Info" name="galaxy::resource::TextureAtlas::Info">
-<area shape="rect" id="Node000001" title="Information about textures stored in atlas." alt="" coords="5,1093,183,1253"/>
-<area shape="rect" id="Node000002" href="$d5/d58/classgalaxy_1_1Rect.html" title=" " alt="" coords="23,617,165,1023"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,1023,97,1077,91,1077,91,1023"/>
-<area shape="rect" id="Node000003" href="$d5/d58/classgalaxy_1_1Rect.html" title="Represents a rectangle object." alt="" coords="17,201,171,547"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,560,97,617,91,617,91,560"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="72,5,116,71"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="97,71,97,185,91,185,91,71"/>
-</map>

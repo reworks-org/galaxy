@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['mouse_0',['Mouse',['../d4/d5d/classgalaxy_1_1Mouse.html',1,'galaxy']]],
-  ['mousemoved_1',['MouseMoved',['../d5/d1a/structgalaxy_1_1MouseMoved.html',1,'galaxy']]],
-  ['mousepressed_2',['MousePressed',['../de/d27/structgalaxy_1_1MousePressed.html',1,'galaxy']]],
-  ['mousereleased_3',['MouseReleased',['../d1/d0d/structgalaxy_1_1MouseReleased.html',1,'galaxy']]],
-  ['mousewheel_4',['MouseWheel',['../da/d9e/structgalaxy_1_1MouseWheel.html',1,'galaxy']]],
-  ['musicloader_5',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
+  ['rect_0',['Rect',['../d5/d58/classgalaxy_1_1Rect.html',1,'galaxy']]],
+  ['rect_3c_20float_20_3e_1',['Rect&lt; float &gt;',['../d5/d58/classgalaxy_1_1Rect.html',1,'galaxy']]],
+  ['rect_3c_20int_20_3e_2',['Rect&lt; int &gt;',['../d5/d58/classgalaxy_1_1Rect.html',1,'galaxy']]],
+  ['rectpack_3',['RectPack',['../d9/d9f/classgalaxy_1_1RectPack.html',1,'galaxy']]],
+  ['registry_4',['Registry',['../df/dbe/classgalaxy_1_1Registry.html',1,'galaxy']]],
+  ['rendersystem_5',['RenderSystem',['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html',1,'galaxy::systems']]]
 ];

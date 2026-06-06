@@ -1,7 +1,7 @@
 <map id="galaxy::SceneManager" name="galaxy::SceneManager">
-<area shape="rect" id="Node000001" title="State machine for managing scenes." alt="" coords="239,1289,401,1535"/>
+<area shape="rect" id="Node000001" title="State machine for managing scenes." alt="" coords="239,1289,401,1575"/>
 <area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="153,899,308,1219"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,1232,292,1288,286,1290,272,1233"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,1231,288,1289,283,1290,270,1233"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,297,176,377"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,378,71,461,60,574,59,637,62,701,70,765,84,827,110,891,146,951,142,953,106,894,79,829,64,766,56,702,53,637,55,574,65,461,79,377"/>
 <area shape="rect" id="Node000006" href="$da/d52/classgalaxy_1_1StateMachine.html" title="A finite state machine." alt="" coords="168,448,323,828"/>
@@ -12,7 +12,7 @@
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="93,71,93,125,88,125,88,71"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="241,842,239,898,234,898,236,842"/>
 <area shape="rect" id="Node000007" href="$d9/d4c/classgalaxy_1_1EntityManager.html" title="Class for making creating and managing entities easier." alt="" coords="332,966,492,1151"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="391,1152,359,1274,353,1273,385,1151"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="392,1152,362,1274,356,1273,387,1151"/>
 <area shape="rect" id="Node000008" href="$df/dbe/classgalaxy_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="353,555,471,721"/>
 <area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="415,721,415,950,409,950,409,721"/>
 </map>

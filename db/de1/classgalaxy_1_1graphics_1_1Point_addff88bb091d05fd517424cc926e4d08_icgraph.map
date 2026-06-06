@@ -1,7 +1,0 @@
-<map id="galaxy::graphics::Point::pos" name="galaxy::graphics::Point::pos">
-<area shape="rect" id="Node000001" title="Get pos." alt="" coords="223,45,423,70"/>
-<area shape="rect" id="Node000002" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#a6f71373fa2b2940c76439a1c467e1fc3" title="Initial point positon." alt="" coords="5,5,175,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,45,174,40,175,34,217,40"/>
-<area shape="rect" id="Node000003" href="$db/de1/classgalaxy_1_1graphics_1_1Point.html#aedebaa3553d7d976e2b0a185e4b711aa" title="Move assignment operator." alt="" coords="5,69,175,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,75,175,80,174,75,216,69"/>
-</map>

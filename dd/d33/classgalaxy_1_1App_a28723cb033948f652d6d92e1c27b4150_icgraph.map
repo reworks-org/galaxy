@@ -1,11 +1,13 @@
 <map id="galaxy::App::App" name="galaxy::App::App">
-<area shape="rect" id="Node000001" title="Default constructor." alt="" coords="225,80,356,105"/>
+<area shape="rect" id="Node000001" title="Default constructor." alt="" coords="225,104,356,129"/>
 <area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,76,176,44,141,33,143,28,178,40,253,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,98,222,70,176,44,146,33,148,28,178,40,225,66,264,93"/>
 <area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,85,157,78,157,73,212,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,103,143,83,144,77,226,98"/>
 <area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,105,178,109,177,104,211,100"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,119,178,119,178,114,212,114"/>
 <area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,153,177,179"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="251,113,178,143,140,156,138,151,176,138,249,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,203,155,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="264,140,224,167,178,192,145,205,143,200,176,188,222,162,261,136"/>
 </map>
