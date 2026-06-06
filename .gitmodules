@@ -43,3 +43,18 @@
 [submodule "deps/mimalloc"]
 	path = deps/mimalloc
 	url = https://github.com/microsoft/mimalloc.git
+[submodule "deps/ray/rltext"]
+	path = deps/ray/rltext
+	url = https://github.com/raylib-extras/rlTextLib.git
+[submodule "deps/ray/rlimgui"]
+	path = deps/ray/rlimgui
+	url = https://github.com/raylib-extras/rlImGui.git
+[submodule "deps/ray/raynuklear"]
+	path = deps/ray/raynuklear
+	url = https://github.com/RobLoach/raylib-nuklear.git
+[submodule "deps/ray/rayphysfs"]
+	path = deps/ray/rayphysfs
+	url = https://github.com/RobLoach/raylib-physfs.git
+[submodule "deps/ray/rayluasol"]
+	path = deps/ray/rayluasol
+	url = https://github.com/RobLoach/raylib-lua-sol.git

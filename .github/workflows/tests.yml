@@ -14,15 +14,6 @@ jobs:
         shell: cmd
 
     steps:
-      - name: Install Visual Studio Build Tools
-        shell: pwsh
-        run: |
-          Write-Host "Installing VS 2026 Build Tools..."
-          choco install visualstudio2026buildtools `
-            --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --includeRecommended --quiet" `
-            -y --ignore-package-exit-codes=3010
-          Write-Host "VS 2026 Build Tools installation completed" 
-
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
@@ -30,9 +21,9 @@ jobs:
           fetch-depth: 1
 
       - name: Set up MSBuild path
-        uses: microsoft/setup-msbuild@v2
+        uses: microsoft/setup-msbuild@v3
         with:
-          vs-version: '[18.1.1]'
+          vs-version: '[18.6.2]'
 
       - name: Build solution
         run: msbuild galaxy.sln /p:Configuration=Debug /p:Platform=x64
