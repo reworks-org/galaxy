@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{ABB5EAE7-B3E6-432E-B636-333449892EA7}</ProjectGuid>
+    <RootNamespace>mimalloc-override-dll</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>_mimalloc-override-dll</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)out\mimalloc\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\mimalloc\$(Configuration)\</IntDir>
+    <TargetExt>.dll</TargetExt>
+    <TargetName>mimalloc</TargetName>
+    <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\..\out\msvc-$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\out\msvc-$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetExt>.dll</TargetExt>
+    <TargetName>mimalloc</TargetName>
+    <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/mimalloc/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MI_DEBUG=4;MI_SHARED_LIB;MI_SHARED_LIB_EXPORT;MI_MALLOC_OVERRIDE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)mimalloc\bin\mimalloc-redirect.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ImportLibrary>$(OutDir)$(TargetName).dll.lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).dll.pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>COPY /Y "$(ProjectDir)mimalloc\bin\mimalloc-redirect.dll" "$(OutputPath)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>copy mimalloc-redirect.dll to the output directory</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/mimalloc/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MI_SHARED_LIB;MI_SHARED_LIB_EXPORT;MI_MALLOC_OVERRIDE;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$$(ProjectDir)mimalloc\bin\mimalloc-redirect.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ImportLibrary>$(OutDir)$(TargetName).dll.lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).dll.pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>COPY /Y "$(ProjectDir)mimalloc\bin\mimalloc-redirect.dll" "$(OutputPath)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>copy mimalloc-redirect.dll to the output directory</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc-new-delete.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc-override.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc-stats.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\atomic.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\bits.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\internal.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\prim.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\track.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\types.h" />
+    <ClInclude Include="$(ProjectDir)mimalloc\src\bitmap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\alloc-aligned.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\alloc-override.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\alloc-posix.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\alloc.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\arena-meta.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\arena.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\bitmap.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\free.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\heap.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\theap.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\init.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\libc.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\page-map.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\prim\prim.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\prim\windows\prim.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\options.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\os.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\page-queue.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\page.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\random.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\stats.c" />
+    <ClCompile Include="$(ProjectDir)mimalloc\src\threadlocal.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -11,10 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\lua\Lua.hpp" />
+    <ClInclude Include="src\galaxy\utils\Async.hpp" />
+    <ClInclude Include="src\galaxy\utils\Memory.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
+    <ClInclude Include="src\galaxy\utils\UUID.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\lua\Lua.cpp" />
+    <ClCompile Include="src\galaxy\utils\Async.cpp" />
+    <ClCompile Include="src\galaxy\utils\Memory.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
+    <ClCompile Include="src\galaxy\utils\UUID.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -96,7 +105,7 @@
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <StringPooling>true</StringPooling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -129,7 +138,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(SolutionDir)out\dependencies\$(Configuration)\dependencies.lib;$(SolutionDir)build\dependencies\$(Configuration)\mimalloc\src\static.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)out\dependencies\$(Configuration)\dependencies.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -156,7 +165,7 @@
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -188,7 +197,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(SolutionDir)out\dependencies\$(Configuration)\dependencies.lib;$(SolutionDir)build\dependencies\$(Configuration)\mimalloc\src\static.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)out\dependencies\$(Configuration)\dependencies.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

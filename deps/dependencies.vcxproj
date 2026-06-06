@@ -11,6 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="googletest\googlemock\src\gmock-cardinalities.cc" />
+    <ClCompile Include="googletest\googlemock\src\gmock-internal-utils.cc" />
+    <ClCompile Include="googletest\googlemock\src\gmock-matchers.cc" />
+    <ClCompile Include="googletest\googlemock\src\gmock-spec-builders.cc" />
+    <ClCompile Include="googletest\googlemock\src\gmock.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-assertion-result.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-death-test.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-filepath.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-matchers.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-port.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-printers.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
+    <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -44,7 +58,6 @@
     <ClCompile Include="lua\lutf8lib.c" />
     <ClCompile Include="lua\lvm.c" />
     <ClCompile Include="lua\lzio.c" />
-    <ClCompile Include="mimalloc\src\static.c" />
     <ClCompile Include="physfs\src\physfs.c" />
     <ClCompile Include="physfs\src\physfs_archiver_7z.c" />
     <ClCompile Include="physfs\src\physfs_archiver_csm.c" />
@@ -173,6 +186,45 @@
     <ClInclude Include="entt_sol\entt_sol\registry\bond.hpp" />
     <ClInclude Include="entt_sol\entt_sol\scheduler\script_process.hpp" />
     <ClInclude Include="entt_sol\entt_sol\utility\meta_helper.hpp" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-actions.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-cardinalities.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-function-mocker.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-matchers.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-more-actions.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-more-matchers.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-nice-strict.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock-spec-builders.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\gmock.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-generated-actions.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-matchers.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-port.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\internal\gmock-internal-utils.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\internal\gmock-port.h" />
+    <ClInclude Include="googletest\googlemock\include\gmock\internal\gmock-pp.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-assertion-result.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-death-test.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-matchers.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-message.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-param-test.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-printers.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-spi.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-test-part.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest-typed-test.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest_pred_impl.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\gtest_prod.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\custom\gtest-port.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\custom\gtest-printers.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\custom\gtest.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-death-test-internal.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-filepath.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-internal.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-param-util.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-port-arch.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-port.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-string.h" />
+    <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-type-util.h" />
+    <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
     <ClInclude Include="httplib\httplib.h" />
     <ClInclude Include="imgui\imgui\imstb_sprintf.h" />
     <ClInclude Include="json\include\nlohmann\adl_serializer.hpp" />
@@ -258,16 +310,6 @@
     <ClInclude Include="magic_enum\include\magic_enum\magic_enum_iostream.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum\magic_enum_switch.hpp" />
     <ClInclude Include="magic_enum\include\magic_enum\magic_enum_utility.hpp" />
-    <ClInclude Include="mimalloc\include\mimalloc-new-delete.h" />
-    <ClInclude Include="mimalloc\include\mimalloc-override.h" />
-    <ClInclude Include="mimalloc\include\mimalloc-stats.h" />
-    <ClInclude Include="mimalloc\include\mimalloc.h" />
-    <ClInclude Include="mimalloc\include\mimalloc\atomic.h" />
-    <ClInclude Include="mimalloc\include\mimalloc\bits.h" />
-    <ClInclude Include="mimalloc\include\mimalloc\internal.h" />
-    <ClInclude Include="mimalloc\include\mimalloc\prim.h" />
-    <ClInclude Include="mimalloc\include\mimalloc\track.h" />
-    <ClInclude Include="mimalloc\include\mimalloc\types.h" />
     <ClInclude Include="physfs\src\physfs.h" />
     <ClInclude Include="physfs\src\physfs_casefolding.h" />
     <ClInclude Include="physfs\src\physfs_internal.h" />
@@ -492,7 +534,7 @@
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <StringPooling>true</StringPooling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
@@ -525,7 +567,7 @@
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;imm32.lib;version.lib;setupapi.lib;imagehlp.lib;dinput8.lib;dxguid.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)out\mimalloc\$(Configuration)\mimalloc.dll.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;imm32.lib;version.lib;setupapi.lib;imagehlp.lib;dinput8.lib;dxguid.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
@@ -550,7 +592,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -583,7 +625,7 @@
       <ErrorReporting>NoErrorReport</ErrorReporting>
       <TreatLibWarningAsErrors>false</TreatLibWarningAsErrors>
       <AdditionalOptions>/ignore:4006 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;imm32.lib;version.lib;setupapi.lib;imagehlp.lib;dinput8.lib;dxguid.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)out\mimalloc\$(Configuration)\mimalloc.dll.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;synchronization.lib;ws2_32.lib;imm32.lib;version.lib;setupapi.lib;imagehlp.lib;dinput8.lib;dxguid.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>

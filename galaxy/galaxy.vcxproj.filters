@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClInclude Include="src\galaxy\utils\Async.hpp" />
+    <ClInclude Include="src\galaxy\utils\Memory.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
+    <ClInclude Include="src\galaxy\utils\UUID.hpp" />
+    <ClInclude Include="src\galaxy\lua\Lua.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\utils\Async.cpp" />
+    <ClCompile Include="src\galaxy\utils\Memory.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
+    <ClCompile Include="src\galaxy\utils\UUID.cpp" />
+    <ClCompile Include="src\galaxy\lua\Lua.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
   </ItemGroup>
 </Project>
