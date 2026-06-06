@@ -22,8 +22,6 @@ jobs:
 
       - name: Set up MSBuild path
         uses: microsoft/setup-msbuild@v3
-        with:
-          vs-version: '[18.6.2]'
 
       - name: Build solution
         run: msbuild galaxy.sln /p:Configuration=Release /p:Platform=x64
