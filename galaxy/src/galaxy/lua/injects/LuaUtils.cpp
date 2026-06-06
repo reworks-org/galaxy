@@ -8,6 +8,7 @@
 #include <entt/locator/locator.hpp>
 #include <sol/sol.hpp>
 
+#include "galaxy/utils/Async.hpp"
 #include "galaxy/utils/StringUtils.hpp"
 #include "galaxy/utils/UUID.hpp"
 
@@ -19,6 +20,7 @@ namespace galaxy
 	{
 		auto& lua = entt::locator<sol::state>::value();
 
+		lua.set_function("is_work_done", &async::is_work_done<void>);
 		lua.set_function("str_split", &str::split);
 		lua.set_function("str_replace_first", &str::replace_first);
 		lua.set_function("str_replace_all", &str::replace_all);
