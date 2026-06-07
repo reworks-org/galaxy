@@ -10,9 +10,7 @@
 
 #include <random>
 
-#include <glm/vec2.hpp>
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
+#include <Raylib.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -59,7 +57,7 @@ namespace galaxy
 		/// \return Pseudo-randomized vec2.
 		///
 		[[nodiscard]]
-		glm::vec2 random_vec2(const glm::vec2& min, const glm::vec2& max) noexcept;
+		ray::Vector2 random_vec2(const ray::Vector2& min, const ray::Vector2& max) noexcept;
 
 		///
 		/// Generate a random vec3.
@@ -70,7 +68,7 @@ namespace galaxy
 		/// \return Pseudo-randomized vec3.
 		///
 		[[nodiscard]]
-		glm::vec3 random_vec3(const glm::vec3& min, const glm::vec3& max) noexcept;
+		ray::Vector3 random_vec3(const ray::Vector3& min, const ray::Vector3& max) noexcept;
 
 		///
 		/// Generate a random vec4.
@@ -81,7 +79,7 @@ namespace galaxy
 		/// \return Pseudo-randomized vec4.
 		///
 		[[nodiscard]]
-		glm::vec4 random_vec4(const glm::vec4& min, const glm::vec4& max) noexcept;
+		ray::Vector4 random_vec4(const ray::Vector4& min, const ray::Vector4& max) noexcept;
 	} // namespace math
 } // namespace galaxy
 
