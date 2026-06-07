@@ -8,45 +8,6 @@
 #ifndef DEPS_RAYLIB_HPP_
 #define DEPS_RAYLIB_HPP_
 
-//----------------------------------------------------------------------------------
-// Defines and Macros
-//----------------------------------------------------------------------------------
-
-// Some Basic Colors
-// NOTE: Custom raylib color palette for amazing visuals on WHITE background
-#define RAY_LIGHTGRAY  (Color){ 200, 200, 200, 255 }   // Light Gray
-#define RAY_GRAY       (Color){ 130, 130, 130, 255 }   // Gray
-#define RAY_DARKGRAY   (Color){ 80, 80, 80, 255 }      // Dark Gray
-#define RAY_YELLOW     (Color){ 253, 249, 0, 255 }     // Yellow
-#define RAY_GOLD       (Color){ 255, 203, 0, 255 }     // Gold
-#define RAY_ORANGE     (Color){ 255, 161, 0, 255 }     // Orange
-#define RAY_PINK       (Color){ 255, 109, 194, 255 }   // Pink
-#define RAY_RED        (Color){ 230, 41, 55, 255 }     // Red
-#define RAY_MAROON     (Color){ 190, 33, 55, 255 }     // Maroon
-#define RAY_GREEN      (Color){ 0, 228, 48, 255 }      // Green
-#define RAY_LIME       (Color){ 0, 158, 47, 255 }      // Lime
-#define RAY_DARKGREEN(Color){0, 117, 44, 255 } // Dark Green
-#define RAY_SKYBLUE    (Color){ 102, 191, 255, 255 }   // Sky Blue
-#define RAY_BLUE       (Color){ 0, 121, 241, 255 }     // Blue
-#define RAY_DARKBLUE   (Color){ 0, 82, 172, 255 }      // Dark Blue
-#define RAY_PURPLE     (Color){ 200, 122, 255, 255 }   // Purple
-#define RAY_VIOLET     (Color){ 135, 60, 190, 255 }    // Violet
-#define RAY_DARKPURPLE (Color){ 112, 31, 126, 255 }    // Dark Purple
-#define RAY_BEIGE      (Color){ 211, 176, 131, 255 }   // Beige
-#define RAY_BROWN      (Color){ 127, 106, 79, 255 }    // Brown
-#define RAY_DARKBROWN  (Color){ 76, 63, 47, 255 }      // Dark Brown
-
-#define RAY_WHITE      (Color){ 255, 255, 255, 255 }   // White
-#define RAY_BLACK      (Color){ 0, 0, 0, 255 }         // Black
-#define RAY_BLANK      (Color){ 0, 0, 0, 0 }           // Blank (Transparent)
-#define RAY_MAGENTA    (Color){ 255, 0, 255, 255 }     // Magenta
-#define RAY_RAYWHITE   (Color){ 245, 245, 245, 255 }   // My own White (raylib logo)
-
-// Math stuff
-#define RAY_PI 3.14159265358979323846f
-#define RAY_DEG2RAD (PI/180.0f)
-#define RAY_RAD2DEG (180.0f/PI)
-
 namespace ray
 {
 	//----------------------------------------------------------------------------------
@@ -844,10 +805,16 @@ namespace ray
 	// N-patch layout
 	typedef enum
 	{
-		NPATCH_NINE_PATCH = 0,        // Npatch layout: 3x3 tiles
-		NPATCH_THREE_PATCH_VERTICAL,  // Npatch layout: 1x3 tiles
-		NPATCH_THREE_PATCH_HORIZONTAL // Npatch layout: 3x1 tiles
+		NPATCH_NINE_PATCH = 0,                                                                      // Npatch layout: 3x3 tiles
+		NPATCH_THREE_PATCH_VERTICAL,                                                                // Npatch layout: 1x3 tiles
+		NPATCH_THREE_PATCH_HORIZONTAL                                                               // Npatch layout: 3x1 tiles
 	} NPatchLayout;
+
+	typedef void           (*TraceLogCallback)(int logLevel, const char* text, va_list args);       // Logging: Redirect trace log messages
+	typedef unsigned char* (*LoadFileDataCallback)(const char* fileName, int* dataSize);            // FileIO: Load binary data
+	typedef bool           (*SaveFileDataCallback)(const char* fileName, void* data, int dataSize); // FileIO: Save binary data
+	typedef char*          (*LoadFileTextCallback)(const char* fileName);                           // FileIO: Load text data
+	typedef bool           (*SaveFileTextCallback)(const char* fileName, char* text);               // FileIO: Save text data
 
 	//------------------------------------------------------------------------------------
 	// Window and Graphics Device Functions (Module: core)
@@ -1657,5 +1624,43 @@ namespace ray
 
 	void AttachAudioMixedProcessor(AudioCallback processor); // Attach audio stream processor to the entire audio pipeline, receives frames x 2 samples as 'float' (stereo)
 } // namespace ray
+
+//----------------------------------------------------------------------------------
+// Defines and Macros
+//----------------------------------------------------------------------------------
+
+// Some Basic Colors
+// NOTE: Custom raylib color palette for amazing visuals on WHITE background
+#define RAY_LIGHTGRAY  ray::Color { 200, 200, 200, 255 }   // Light Gray
+#define RAY_GRAY       ray::Color { 130, 130, 130, 255 }   // Gray
+#define RAY_DARKGRAY   ray::Color { 80, 80, 80, 255 }      // Dark Gray
+#define RAY_YELLOW     ray::Color { 253, 249, 0, 255 }     // Yellow
+#define RAY_GOLD       ray::Color { 255, 203, 0, 255 }     // Gold
+#define RAY_ORANGE     ray::Color { 255, 161, 0, 255 }     // Orange
+#define RAY_PINK       ray::Color { 255, 109, 194, 255 }   // Pink
+#define RAY_RED        ray::Color { 230, 41, 55, 255 }     // Red
+#define RAY_MAROON     ray::Color { 190, 33, 55, 255 }     // Maroon
+#define RAY_GREEN      ray::Color { 0, 228, 48, 255 }      // Green
+#define RAY_LIME       ray::Color { 0, 158, 47, 255 }      // Lime
+#define RAY_DARKGREEN  ray::Color {0, 117, 44, 255 } // Dark Green
+#define RAY_SKYBLUE    ray::Color { 102, 191, 255, 255 }   // Sky Blue
+#define RAY_BLUE       ray::Color { 0, 121, 241, 255 }     // Blue
+#define RAY_DARKBLUE   ray::Color { 0, 82, 172, 255 }      // Dark Blue
+#define RAY_PURPLE     ray::Color { 200, 122, 255, 255 }   // Purple
+#define RAY_VIOLET     ray::Color { 135, 60, 190, 255 }    // Violet
+#define RAY_DARKPURPLE ray::Color { 112, 31, 126, 255 }    // Dark Purple
+#define RAY_BEIGE      ray::Color { 211, 176, 131, 255 }   // Beige
+#define RAY_BROWN      ray::Color { 127, 106, 79, 255 }    // Brown
+#define RAY_DARKBROWN  ray::Color { 76, 63, 47, 255 }      // Dark Brown
+#define RAY_WHITE      ray::Color { 255, 255, 255, 255 }   // White
+#define RAY_BLACK      ray::Color { 0, 0, 0, 255 }         // Black
+#define RAY_BLANK      ray::Color { 0, 0, 0, 0 }           // Blank (Transparent)
+#define RAY_MAGENTA    ray::Color { 255, 0, 255, 255 }     // Magenta
+#define RAY_RAYWHITE   ray::Color { 245, 245, 245, 255 }   // My own White (raylib logo)
+
+// Math stuff
+#define RAY_PI 3.14159265358979323846f
+#define RAY_DEG2RAD (RAY_PI/180.0f)
+#define RAY_RAD2DEG (180.0f/RAY_PI)
 
 #endif

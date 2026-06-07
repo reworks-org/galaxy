@@ -571,7 +571,7 @@ namespace ray
 
 	void SetTraceLogCallback(TraceLogCallback callback)
 	{
-		::SetTraceLogCallback(callback);
+		::SetTraceLogCallback(reinterpret_cast<::TraceLogCallback&>(callback));
 	}
 
 	void* MemAlloc(unsigned int size)
@@ -626,22 +626,22 @@ namespace ray
 
 	void SetLoadFileDataCallback(LoadFileDataCallback callback)
 	{
-		::SetLoadFileDataCallback(callback);
+		::SetLoadFileDataCallback(reinterpret_cast<::LoadFileDataCallback&>(callback)); // Set custom file binary data loader
 	}
 
 	void SetSaveFileDataCallback(SaveFileDataCallback callback)
 	{
-		::SetSaveFileDataCallback(callback);
+		::SetSaveFileDataCallback(reinterpret_cast<::SaveFileDataCallback&>(callback)); // Set custom file binary data saver
 	}
 
 	void SetLoadFileTextCallback(LoadFileTextCallback callback)
 	{
-		::SetLoadFileTextCallback(callback);
+		::SetLoadFileTextCallback(reinterpret_cast<::LoadFileTextCallback&>(callback)); // Set custom file text data loader
 	}
 
 	void SetSaveFileTextCallback(SaveFileTextCallback callback)
 	{
-		::SetSaveFileTextCallback(callback);
+		::SetSaveFileTextCallback(reinterpret_cast<::SaveFileTextCallback&>(callback)); // Set custom file text data saver
 	}
 
 	int FileRename(const char* fileName, const char* fileRename)
