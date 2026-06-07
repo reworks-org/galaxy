@@ -215,3 +215,12 @@ TEST(Time, DeltaTime)
 
 	ASSERT_EQ(dt, 10.0);
 }
+
+TEST(Time, TimeSinceEpoch)
+{
+	auto prev = galaxy::time::time_since_epoch();
+	std::this_thread::sleep_for(1s);
+	auto now = galaxy::time::time_since_epoch();
+
+	ASSERT_TRUE(now > prev);
+}

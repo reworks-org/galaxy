@@ -23,6 +23,14 @@ namespace galaxy
 		auto now() noexcept -> std::chrono::local_time<std::chrono::system_clock::duration>;
 
 		///
+		/// Time since epoch.
+		///
+		/// \return Nanoseconds.
+		///
+		[[nodiscard]]
+		std::uint64_t time_since_epoch() noexcept;
+
+		///
 		/// Set galaxy delta time.
 		///
 		/// \param dt Delta-Time.

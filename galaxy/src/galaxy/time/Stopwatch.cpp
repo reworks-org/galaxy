@@ -5,7 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <SDL3/SDL_timer.h>
+#include <chrono>
+
+#include "galaxy/time/Time.hpp"
 
 #include "Stopwatch.hpp"
 
@@ -43,7 +45,7 @@ namespace galaxy
 		m_stopped = false;
 		m_paused  = false;
 
-		m_start_ticks  = SDL_GetTicksNS();
+		m_start_ticks  = time::time_since_epoch();
 		m_paused_ticks = 0;
 	}
 
@@ -62,7 +64,7 @@ namespace galaxy
 		{
 			m_paused = true;
 
-			m_paused_ticks = SDL_GetTicksNS() - m_start_ticks;
+			m_paused_ticks = time::time_since_epoch() - m_start_ticks;
 			m_start_ticks  = 0;
 		}
 	}
@@ -73,7 +75,7 @@ namespace galaxy
 		{
 			m_paused = false;
 
-			m_start_ticks  = SDL_GetTicksNS() - m_paused_ticks;
+			m_start_ticks  = time::time_since_epoch() - m_paused_ticks;
 			m_paused_ticks = 0;
 		}
 	}
@@ -116,7 +118,7 @@ namespace galaxy
 			}
 			else
 			{
-				time = SDL_GetTicksNS() - m_start_ticks;
+				time = time::time_since_epoch() - m_start_ticks;
 			}
 		}
 

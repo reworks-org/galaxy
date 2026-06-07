@@ -18,6 +18,12 @@ namespace galaxy
 			return std::chrono::zoned_time {std::chrono::current_zone(), std::chrono::system_clock::now()}.get_local_time();
 		}
 
+		std::uint64_t time_since_epoch() noexcept
+		{
+			const auto duration = now().time_since_epoch();
+			return std::chrono::duration_cast<std::chrono::nanoseconds>(duration).count();
+		}
+
 		void dt(const double dt) noexcept
 		{
 			s_delta_time = dt;
