@@ -29,13 +29,13 @@ namespace galaxy
 		lua.set("GALAXY_UNIX_PLATFORM", true);
 #endif
 
-		auto sub_type      = lua.new_usertype<Subprocess>("Subprocess", sol::constructors<Subprocess(), Subprocess(std::string_view)>());
-		sub_type["create"] = &Subprocess::create;
-		sub_type["kill"]   = &Subprocess::kill;
-		sub_type["wait"]   = &Subprocess::wait;
+		auto sub_type         = lua.new_usertype<Subprocess>("Subprocess", sol::constructors<Subprocess(), Subprocess(std::string_view)>());
+		sub_type["create"]    = &Subprocess::create;
+		sub_type["alive"]     = &Subprocess::alive;
+		sub_type["destroy"]   = &Subprocess::destroy;
+		sub_type["join"]      = &Subprocess::join;
+		sub_type["terminate"] = &Subprocess::terminate;
 
 		lua.set_function("galaxy_seed_random", &platform::seed_random);
-		lua.set_function("galaxy_set_metadata", &platform::set_metadata);
-		lua.set_function("galaxy_set_hint", &platform::set_hint);
 	}
 } // namespace galaxy

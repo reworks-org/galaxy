@@ -8,8 +8,6 @@
 #ifndef GALAXY_PLATFORM_PRAGMA_HPP_
 #define GALAXY_PLATFORM_PRAGMA_HPP_
 
-#include <SDL3/SDL_platform.h>
-
 ///
 /// Prevents compiler warnings when applied to unused parameters.
 ///
@@ -27,7 +25,7 @@
 #define GALAXY_DEBUG_BUILD true
 #elif defined(_NDEBUG) || defined(NDEBUG)
 ///
-/// Define a constexpr compatible debug macro.
+/// Define a constexpr compatible release macro.
 ///
 #define GALAXY_DEBUG_BUILD false
 #endif

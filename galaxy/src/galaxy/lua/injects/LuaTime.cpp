@@ -21,6 +21,7 @@ namespace galaxy
 		auto& lua = entt::locator<sol::state>::value();
 
 		lua.set_function("time_now", &time::now);
+		lua.set_function("time_since_epoch", &time::time_since_epoch);
 		lua.set_function("time_set_dt", sol::resolve<void(const double)>(&time::dt));
 		lua.set_function("time_get_dt", sol::resolve<double(void)>(&time::dt));
 
