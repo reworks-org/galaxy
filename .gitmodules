@@ -52,9 +52,6 @@
 [submodule "deps/ray/raynuklear"]
 	path = deps/ray/raynuklear
 	url = https://github.com/RobLoach/raylib-nuklear.git
-[submodule "deps/ray/rayphysfs"]
-	path = deps/ray/rayphysfs
-	url = https://github.com/RobLoach/raylib-physfs.git
 [submodule "deps/ray/rayluasol"]
 	path = deps/ray/rayluasol
 	url = https://github.com/RobLoach/raylib-lua-sol.git
