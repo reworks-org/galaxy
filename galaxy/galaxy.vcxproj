@@ -11,15 +11,65 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
+    <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
+    <ClInclude Include="src\galaxy\logging\Log.hpp" />
+    <ClInclude Include="src\galaxy\logging\LogLevel.hpp" />
+    <ClInclude Include="src\galaxy\logging\LogMessage.hpp" />
+    <ClInclude Include="src\galaxy\logging\PhysFSError.hpp" />
+    <ClInclude Include="src\galaxy\logging\Sink.hpp" />
     <ClInclude Include="src\galaxy\lua\Lua.hpp" />
+    <ClInclude Include="src\galaxy\math\Base64.hpp" />
+    <ClInclude Include="src\galaxy\math\FNV1a.hpp" />
+    <ClInclude Include="src\galaxy\math\Math.hpp" />
+    <ClInclude Include="src\galaxy\math\Random.hpp" />
+    <ClInclude Include="src\galaxy\math\Rect.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\math\ZLib.hpp" />
+    <ClInclude Include="src\galaxy\platform\Platform.hpp" />
+    <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
+    <ClInclude Include="src\galaxy\platform\specific\Windows.hpp" />
+    <ClInclude Include="src\galaxy\platform\Subprocess.hpp" />
+    <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
+    <ClInclude Include="src\galaxy\time\Time.hpp" />
+    <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />
     <ClInclude Include="src\galaxy\utils\UUID.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\core\Application.cpp" />
+    <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
+    <ClCompile Include="src\galaxy\logging\FileSink.cpp" />
+    <ClCompile Include="src\galaxy\logging\Log.cpp" />
+    <ClCompile Include="src\galaxy\logging\LogLevel.cpp" />
+    <ClCompile Include="src\galaxy\logging\LogMessage.cpp" />
+    <ClCompile Include="src\galaxy\logging\PhysFSError.cpp" />
+    <ClCompile Include="src\galaxy\logging\Sink.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\lua\Lua.cpp" />
+    <ClCompile Include="src\galaxy\math\Base64.cpp" />
+    <ClCompile Include="src\galaxy\math\FNV1a.cpp" />
+    <ClCompile Include="src\galaxy\math\Math.cpp" />
+    <ClCompile Include="src\galaxy\math\Random.cpp" />
+    <ClCompile Include="src\galaxy\math\Rect.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\math\ZLib.cpp" />
+    <ClCompile Include="src\galaxy\platform\Platform.cpp" />
+    <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />
+    <ClCompile Include="src\galaxy\platform\specific\Windows.cpp" />
+    <ClCompile Include="src\galaxy\platform\Subprocess.cpp" />
+    <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
+    <ClCompile Include="src\galaxy\time\Time.cpp" />
+    <ClCompile Include="src\galaxy\time\Timer.cpp" />
     <ClCompile Include="src\galaxy\utils\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
@@ -122,7 +172,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <ErrorReporting>None</ErrorReporting>
@@ -182,7 +232,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

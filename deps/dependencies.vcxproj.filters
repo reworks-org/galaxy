@@ -446,5 +446,6 @@
     <ClInclude Include="googletest\googletest\include\gtest\gtest-test-part.h" />
     <ClInclude Include="googletest\googletest\include\gtest\gtest-typed-test.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
+    <ClInclude Include="subprocess\subprocess.h" />
   </ItemGroup>
 </Project>

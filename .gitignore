@@ -6,6 +6,15 @@ legacy/
 out/
 build/
 
+dist/bin/Debug/*.dll
+dist/bin/Debug/*.exe
+dist/bin/Debug/*.pdb
+dist/bin/Debug/logs/
+dist/bin/Release/*.dll
+dist/bin/Release/*.exe
+dist/bin/Release/*.pdb
+dist/bin/Release/logs/
+
 sandbox/bin/Debug/*.dll
 sandbox/bin/Debug/*.exe
 sandbox/bin/Debug/*.pdb

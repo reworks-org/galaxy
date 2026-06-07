@@ -12,6 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\math\Base64Test.cpp" />
+    <ClCompile Include="src\math\FNV1aTest.cpp" />
+    <ClCompile Include="src\math\MathTest.cpp" />
+    <ClCompile Include="src\math\RandomTest.cpp" />
+    <ClCompile Include="src\math\RectPackTest.cpp" />
+    <ClCompile Include="src\math\RectTest.cpp" />
+    <ClCompile Include="src\math\ZLibTest.cpp" />
+    <ClCompile Include="src\time\TimeTest.cpp" />
     <ClCompile Include="src\utils\AsyncTest.cpp" />
     <ClCompile Include="src\utils\StringUtilsTest.cpp" />
     <ClCompile Include="src\utils\UUIDTest.cpp" />
@@ -86,7 +94,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp23</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>true</SupportJustMyCode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -147,7 +155,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp23</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/ray/raylib/src/external/glfw/include;$(SolutionDir)deps/ray/raylib/src/external/glfw/src;$(SolutionDir)deps/ray/raylib/src;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/subprocess;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
