@@ -58,3 +58,6 @@
 [submodule "deps/ray/rayluasol"]
 	path = deps/ray/rayluasol
 	url = https://github.com/RobLoach/raylib-lua-sol.git
+[submodule "deps/subprocess"]
+	path = deps/subprocess
+	url = https://github.com/sheredom/subprocess.h.git
