@@ -5,41 +5,54 @@
 /// See LICENSE.txt.
 ///
 
-#include <SDL3/SDL_log.h>
+#include <cstdarg>
+
+#include <Raylib.hpp>
 
 #include "Log.hpp"
 
 namespace galaxy
 {
-	void sdl_log_callback(void* userdata, int category, SDL_LogPriority priority, const char* message)
-	{
-		switch (priority)
-		{
-			case SDL_LOG_PRIORITY_INVALID:
-			case SDL_LOG_PRIORITY_TRACE:
-			case SDL_LOG_PRIORITY_VERBOSE:
-			case SDL_LOG_PRIORITY_DEBUG:
-			case SDL_LOG_PRIORITY_INFO:
-				GALAXY_LOG(GALAXY_INFO, message);
-				break;
-			case SDL_LOG_PRIORITY_WARN:
-				GALAXY_LOG(GALAXY_WARN, message);
-				break;
-			case SDL_LOG_PRIORITY_ERROR:
-			case SDL_LOG_PRIORITY_CRITICAL:
-				GALAXY_LOG(GALAXY_ERROR, message);
-				break;
-			default:
-				GALAXY_LOG(GALAXY_INFO, message);
-				break;
-		}
-	}
-
 	Log::Log() noexcept
 		: m_min_level {LogLevel::INFO}
 	{
 		m_sinks.reserve(2);
-		SDL_SetLogOutputFunction(&sdl_log_callback, nullptr);
+
+		ray::SetTraceLogLevel(ray::LOG_DEBUG);
+		ray::SetTraceLogCallback([](int msgType, const char* text, va_list args) {
+			va_list args_copy;
+			va_copy(args_copy, args);
+
+			const auto size = vsnprintf(nullptr, 0, text, args_copy);
+			va_end(args_copy);
+
+			std::string result(size, '\0');
+			vsnprintf(result.data(), result.size() + 1, text, args);
+
+			switch (msgType)
+			{
+				case ray::LOG_DEBUG:
+				case ray::LOG_INFO:
+					GALAXY_LOG(GALAXY_INFO, "[Raylib] {0}", result);
+					break;
+
+				case ray::LOG_WARNING:
+					GALAXY_LOG(GALAXY_WARN, "[Raylib] {0}", result);
+					break;
+
+				case ray::LOG_ERROR:
+					GALAXY_LOG(GALAXY_ERROR, "[Raylib] {0}", result);
+					break;
+
+				case ray::LOG_FATAL:
+					GALAXY_LOG(GALAXY_FATAL, "[Raylib] {0}", result);
+					break;
+
+				default:
+					GALAXY_LOG(GALAXY_ERROR, "Unknown raylib log message level.");
+					break;
+			}
+		});
 	}
 
 	Log::~Log() noexcept

@@ -9,7 +9,6 @@
 
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/logging/PhysFSError.hpp"
-#include "galaxy/logging/OpenGLError.hpp"
 
 #include "../Lua.hpp"
 
@@ -50,8 +49,5 @@ namespace galaxy
 
 		lua.set_function("galaxy_log", &log_wrapper);
 		lua.set_function("galaxy_log_physfs_check", sol::resolve<bool(const int)>(log::physfs_check));
-		lua.set_function("galaxy_gl_errcode_as_string", &log::gl_errcode_as_string);
-		lua.set_function("galaxy_gl_get_all_errors", &log::gl_get_all_errors);
-		lua.set_function("galaxy_gl_add_error", &log::gl_add_error);
 	}
 } // namespace galaxy
