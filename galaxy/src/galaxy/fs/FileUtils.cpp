@@ -8,7 +8,7 @@
 #include <fstream>
 
 #include <nlohmann/json.hpp>
-#include <SDL3/SDL_misc.h>
+#include <Raylib.hpp>
 
 #include "galaxy/logging/Log.hpp"
 
@@ -114,9 +114,13 @@ namespace galaxy
 
 		void open_url(const std::string& url) noexcept
 		{
-			if (!SDL_OpenURL(url.c_str()))
+			if (!url.empty())
 			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to open url: {0}.", SDL_GetError());
+				ray::OpenURL(url.c_str());
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Tried to open an empty URL!");
 			}
 		}
 	} // namespace fileutils
