@@ -1,14 +1,16 @@
 <map id="galaxy/src/galaxy/fs/FileError.hpp" name="galaxy/src/galaxy/fs/FileError.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="216,5,369,45"/>
-<area shape="rect" id="Node000002" href="$d0/d29/FileError_8cpp.html" title=" " alt="" coords="39,93,192,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,54,155,96,153,91,240,49"/>
-<area shape="rect" id="Node000003" href="$da/dc2/FileUtils_8hpp.html" title=" " alt="" coords="216,93,369,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="295,59,295,93,290,93,290,59"/>
-<area shape="rect" id="Node000006" href="$d8/d7f/LuaFS_8cpp.html" title=" " alt="" coords="376,181,537,221"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="335,51,383,91,420,138,448,180,443,182,416,141,379,95,331,55"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="384,5,537,45"/>
+<area shape="rect" id="Node000002" href="$d0/d29/FileError_8cpp.html" title=" " alt="" coords="207,93,360,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="411,54,323,96,321,91,408,49"/>
+<area shape="rect" id="Node000003" href="$da/dc2/FileUtils_8hpp.html" title=" " alt="" coords="384,93,537,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="463,59,463,93,458,93,458,59"/>
+<area shape="rect" id="Node000007" href="$d8/d7f/LuaFS_8cpp.html" title=" " alt="" coords="569,181,731,221"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="500,51,550,91,598,138,636,179,632,183,594,141,547,95,497,56"/>
 <area shape="rect" id="Node000004" href="$de/da7/Config_8cpp.html" title=" " alt="" coords="5,181,175,221"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="237,141,135,184,133,179,235,136"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,138,172,184,171,179,370,133"/>
 <area shape="rect" id="Node000005" href="$d1/d23/FileUtils_8cpp.html" title=" " alt="" coords="199,181,352,221"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="289,147,282,182,277,181,284,146"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="342,137,422,179,420,184,340,142"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="409,142,317,184,315,179,406,137"/>
+<area shape="rect" id="Node000006" href="$d5/deb/VirtualFileSystem_8cpp.html" title=" " alt="" coords="377,181,545,221"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="463,147,463,181,458,181,458,147"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="516,137,610,179,607,184,513,141"/>
 </map>

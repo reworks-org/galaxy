@@ -53,6 +53,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -63,14 +64,14 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ace07ecb19807512eee6d74e4ffd37b28",
-"d1/d4d/classgalaxy_1_1Cache.html#a0504bc638d461fc0213900591bf715fd",
-"d4/d1b/namespacegalaxy_1_1resource.html#a6286366ad0ea9df0086a6bbca8632e07",
-"d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44",
+"d1/d4d/classgalaxy_1_1Cache.html#a274a41d9093fc966d1c042d88b78a769",
+"d4/d1b/namespacegalaxy_1_1resource.html#a77ecc744c1b541a6175f1bdebb07f731",
+"d5/d58/classgalaxy_1_1Rect.html#ae14aef4e95a8011d209a0acc816c7192",
 "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e",
-"db/d49/classgalaxy_1_1Config.html#a22f2fb7ca7999bcc5c230c77fda41787",
-"dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a70a0b34589e5fb89ac9f851c5793a819",
+"db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html",
+"dd/d33/classgalaxy_1_1App.html#afe2aa04c43ea6b5c239f614bb82a98df",
 "df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0",
-"functions_z.html"
+"functions_~.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

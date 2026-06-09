@@ -1,0 +1,9 @@
+<map id="galaxy::VirtualFileSystem::load_ray_wave" name="galaxy::VirtualFileSystem::load_ray_wave">
+<area shape="rect" id="Node000001" title="Load wave data from VFS. You must manually free the data after." alt="" coords="5,37,193,77"/>
+<area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1" title="Get a file or path&#39;s extension." alt="" coords="271,5,400,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,42,256,33,257,39,194,47"/>
+<area shape="rect" id="Node000003" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af5d6601c81e250d33fc7bb13912c8545" title="Read a binary file." alt="" coords="241,69,429,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,67,228,72,227,77,193,73"/>
+<area shape="rect" id="Node000004" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="477,69,621,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="429,87,463,87,463,92,429,92"/>
+</map>

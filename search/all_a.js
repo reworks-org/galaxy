@@ -270,6 +270,5 @@ var searchData=
   ['keyreleased_2ehpp_267',['KeyReleased.hpp',['../d9/dab/KeyReleased_8hpp.html',1,'']]],
   ['keys_268',['Keys',['../d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83',1,'galaxy']]],
   ['keys_2ecpp_269',['Keys.cpp',['../d4/d76/Keys_8cpp.html',1,'']]],
-  ['keys_2ehpp_270',['Keys.hpp',['../dd/d25/Keys_8hpp.html',1,'']]],
-  ['kill_271',['kill',['../db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99',1,'galaxy::Subprocess']]]
+  ['keys_2ehpp_270',['Keys.hpp',['../dd/d25/Keys_8hpp.html',1,'']]]
 ];

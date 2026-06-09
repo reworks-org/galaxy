@@ -5,8 +5,6 @@ var dir_7db1507fc1775b8ca4bc86e9c6fd5e9d =
     [ "LuaEntt.cpp", "d2/dc7/LuaEntt_8cpp.html", null ],
     [ "LuaEvents.cpp", "df/d33/LuaEvents_8cpp.html", null ],
     [ "LuaFS.cpp", "d8/d7f/LuaFS_8cpp.html", "d8/d7f/LuaFS_8cpp" ],
-    [ "LuaGLM.cpp", "d6/db3/LuaGLM_8cpp.html", null ],
-    [ "LuaGraphics.cpp", "dd/d97/LuaGraphics_8cpp.html", null ],
     [ "LuaInput.cpp", "d4/dd6/LuaInput_8cpp.html", null ],
     [ "LuaLogging.cpp", "d2/dc6/LuaLogging_8cpp.html", "d2/dc6/LuaLogging_8cpp" ],
     [ "LuaMath.cpp", "df/d48/LuaMath_8cpp.html", null ],

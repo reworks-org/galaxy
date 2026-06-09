@@ -1,0 +1,11 @@
+<map id="galaxy::VirtualFileSystem::load_ray_texture" name="galaxy::VirtualFileSystem::load_ray_texture">
+<area shape="rect" id="Node000001" title="Load a texture from VFS. You must manually free the data after." alt="" coords="5,37,193,77"/>
+<area shape="rect" id="Node000002" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a8fe710cc1bfbed61ef847e49964911ae" title="Load an image from VFS. You must manually free the data after." alt="" coords="241,37,429,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,55,227,55,227,60,194,60"/>
+<area shape="rect" id="Node000003" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1" title="Get a file or path&#39;s extension." alt="" coords="507,5,636,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,42,492,33,493,39,430,47"/>
+<area shape="rect" id="Node000004" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af5d6601c81e250d33fc7bb13912c8545" title="Read a binary file." alt="" coords="477,69,665,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="430,67,464,72,463,77,429,73"/>
+<area shape="rect" id="Node000005" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="713,69,857,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="665,87,699,87,699,92,665,92"/>
+</map>

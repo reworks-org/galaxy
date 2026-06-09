@@ -1,17 +1,13 @@
 <map id="galaxy/src/galaxy/platform/Platform.cpp" name="galaxy/src/galaxy/platform/Platform.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="147,5,345,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="75,5,273,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,71,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,48,82,91,80,86,195,43"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,48,71,89,69,84,140,43"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="95,93,154,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,48,155,88,153,84,215,43"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="179,93,313,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="249,46,249,79,243,79,243,46"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="337,93,461,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="284,43,366,85,364,89,282,48"/>
-<area shape="rect" id="Node000006" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="486,93,593,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="317,43,484,87,482,92,316,48"/>
-<area shape="rect" id="Node000007" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="435,167,643,192"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="542,119,542,153,537,153,537,119"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="460,240,619,265"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="542,192,542,226,537,226,537,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,47,141,83,137,80,160,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="178,93,269,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,44,211,80,207,83,184,47"/>
+<area shape="rect" id="Node000005" href="$d5/d40/Platform_8hpp.html" title=" " alt="" coords="293,93,399,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="216,43,309,85,307,90,214,48"/>
+<area shape="rect" id="Node000006" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="242,167,450,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="349,119,349,153,343,153,343,119"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="galaxy::Stopwatch::pause" name="galaxy::Stopwatch::pause">
+<area shape="rect" id="Node000001" title="Pause the Stopwatch." alt="" coords="5,5,155,45"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#aebedc9a10397936471d9247289126577" title="Time since epoch." alt="" coords="203,5,344,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,23,189,23,189,28,155,28"/>
+<area shape="rect" id="Node000003" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="392,13,531,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="344,23,378,23,378,28,344,28"/>
+</map>

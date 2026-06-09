@@ -42,7 +42,7 @@ var searchData=
   ['m_5fpath_39',['m_path',['../db/d49/classgalaxy_1_1Config.html#aabb4be74348fee1b3663ac1edade4dd9',1,'galaxy::Config::m_path'],['../d5/d13/classgalaxy_1_1FileError.html#ac7c74428c6de8f1ba0246ce045487f8c',1,'galaxy::FileError::m_path']]],
   ['m_5fpaused_40',['m_paused',['../d4/d22/classgalaxy_1_1Stopwatch.html#a83182e8092e8920646b4d8b07e0547dc',1,'galaxy::Stopwatch::m_paused'],['../d0/d7b/classgalaxy_1_1Timer.html#a68891d3b2676951c6d26201c00f1479d',1,'galaxy::Timer::m_paused']]],
   ['m_5fpaused_5fticks_41',['m_paused_ticks',['../d4/d22/classgalaxy_1_1Stopwatch.html#ad9aad9a0c8087302ed480eb1d3557ff0',1,'galaxy::Stopwatch']]],
-  ['m_5fprocess_42',['m_process',['../db/d1d/classgalaxy_1_1Subprocess.html#a539b6afd30365f6673be85a9a7058add',1,'galaxy::Subprocess']]],
+  ['m_5fprocess_42',['m_process',['../db/d1d/classgalaxy_1_1Subprocess.html#aa18a258bfb667d25b92c879619b500bd',1,'galaxy::Subprocess']]],
   ['m_5fraw_43',['m_raw',['../d0/d11/structgalaxy_1_1KeyPressed.html#a21c6eae3e76d2144e3c3d5dfbd4b500f',1,'galaxy::KeyPressed::m_raw'],['../d5/d60/structgalaxy_1_1KeyReleased.html#ad28bdb3b8fca28ec0b1b484f368b336e',1,'galaxy::KeyReleased::m_raw']]],
   ['m_5freason_44',['m_reason',['../d5/d13/classgalaxy_1_1FileError.html#a8bc2ce57505ddc2a32ecf8d64f8f9c62',1,'galaxy::FileError']]],
   ['m_5fregistry_45',['m_registry',['../d9/d4c/classgalaxy_1_1EntityManager.html#a36b211a6d4c5ebad1416b803e0f9c065',1,'galaxy::EntityManager']]],

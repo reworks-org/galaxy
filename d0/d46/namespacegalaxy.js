@@ -19,14 +19,7 @@ var namespacegalaxy =
       [ "is_mouse_down", "dd/d59/namespacegalaxy_1_1input.html#ae1faa66f3b5b7bb59121727a12f3a9f0", null ],
       [ "get_cursor_pos", "dd/d59/namespacegalaxy_1_1input.html#a7583b70eec34e14b210812880e951522", null ]
     ] ],
-    [ "laptop", "d8/dd6/namespacegalaxy_1_1laptop.html", [
-      [ "get_battery_remaining", "d8/dd6/namespacegalaxy_1_1laptop.html#abd075cd614737c754483507fc86400fe", null ],
-      [ "get_battery_status", "d8/dd6/namespacegalaxy_1_1laptop.html#a8b56b612d7b0fcbdc0df4eeaa2f7ed41", null ]
-    ] ],
     [ "log", "d2/dc7/namespacegalaxy_1_1log.html", [
-      [ "gl_errcode_as_string", "d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950", null ],
-      [ "gl_get_all_errors", "d2/dc7/namespacegalaxy_1_1log.html#a6ace45b0939dfcd5a3a7a804f6a28fc9", null ],
-      [ "gl_add_error", "d2/dc7/namespacegalaxy_1_1log.html#a704e5c0683e808fbad47ffab52e466ea", null ],
       [ "physfs_check", "d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4", null ],
       [ "physfs_check", "d2/dc7/namespacegalaxy_1_1log.html#ab455f2b719a52a1539cc2e7dcb732942", null ]
     ] ],
@@ -38,9 +31,7 @@ var namespacegalaxy =
     ] ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
-      [ "seed_random", "dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366", null ],
-      [ "set_metadata", "dd/dfc/namespacegalaxy_1_1platform.html#a3bf5b2167c7c116467dfa63a38e453c8", null ],
-      [ "set_hint", "dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d", null ]
+      [ "seed_random", "dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366", null ]
     ] ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "str", "df/d98/namespacegalaxy_1_1str.html", [
@@ -56,6 +47,7 @@ var namespacegalaxy =
     [ "systems", "d2/d27/namespacegalaxy_1_1systems.html", "d2/d27/namespacegalaxy_1_1systems" ],
     [ "time", "d2/d2f/namespacegalaxy_1_1time.html", [
       [ "now", "d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d", null ],
+      [ "time_since_epoch", "d2/d2f/namespacegalaxy_1_1time.html#aebedc9a10397936471d9247289126577", null ],
       [ "dt", "d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53", null ],
       [ "dt", "d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed", null ],
       [ "s_delta_time", "d2/d2f/namespacegalaxy_1_1time.html#aac7c9842cf05e61375649a239e5be089", null ]
@@ -423,7 +415,6 @@ var namespacegalaxy =
       [ "ERROR", "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395abb1ca97ec761fc37101737ba0aa2e7c5", null ],
       [ "FATAL", "d0/d46/namespacegalaxy.html#a4e15f13440e547247ba6615bce4e3395a19da7170bea36556dde582519795f3fc", null ]
     ] ],
-    [ "sdl_log_callback", "d0/d46/namespacegalaxy.html#a6ab4be042a306ac849b975c9e7045f3f", null ],
     [ "get_loglevel_colour", "d0/d46/namespacegalaxy.html#a6319b32641882789298150a015a96f74", null ],
     [ "root_path_wrapper", "d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21", null ],
     [ "assets_path_wrapper", "d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57", null ],
