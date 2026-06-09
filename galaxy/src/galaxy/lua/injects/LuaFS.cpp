@@ -75,23 +75,30 @@ namespace galaxy
 		lua.set_function("fs_write", &fileutils::write);
 		lua.set_function("fs_open_url", &fileutils::open_url);
 
-		auto vfs_type                    = lua.new_usertype<VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
-		vfs_type["read"]                 = &VirtualFileSystem::read;
-		vfs_type["read_binary"]          = &VirtualFileSystem::read_binary;
-		vfs_type["write"]                = &VirtualFileSystem::write;
-		vfs_type["write_binary"]         = &VirtualFileSystem::write_binary;
-		vfs_type["write_raw"]            = &VirtualFileSystem::write_raw;
-		vfs_type["mkdir"]                = &VirtualFileSystem::mkdir;
-		vfs_type["remove"]               = &VirtualFileSystem::remove;
-		vfs_type["exists"]               = &VirtualFileSystem::exists;
-		vfs_type["is_dir"]               = &VirtualFileSystem::is_dir;
-		vfs_type["list"]                 = &VirtualFileSystem::list;
-		vfs_type["alert"]                = &VirtualFileSystem::alert;
-		vfs_type["notification"]         = &VirtualFileSystem::notification;
-		vfs_type["message_box"]          = &VirtualFileSystem::message_box;
-		vfs_type["input_box"]            = &VirtualFileSystem::input_box;
-		vfs_type["open_save_dialog"]     = &VirtualFileSystem::open_save_dialog;
-		vfs_type["open_file_dialog"]     = &VirtualFileSystem::open_file_dialog;
-		vfs_type["select_folder_dialog"] = &VirtualFileSystem::select_folder_dialog;
+		auto vfs_type                     = lua.new_usertype<VirtualFileSystem>("VirtualFileSystem", sol::no_constructor);
+		vfs_type["read"]                  = &VirtualFileSystem::read;
+		vfs_type["read_binary"]           = &VirtualFileSystem::read_binary;
+		vfs_type["write"]                 = &VirtualFileSystem::write;
+		vfs_type["write_binary"]          = &VirtualFileSystem::write_binary;
+		vfs_type["write_raw"]             = &VirtualFileSystem::write_raw;
+		vfs_type["mkdir"]                 = &VirtualFileSystem::mkdir;
+		vfs_type["remove"]                = &VirtualFileSystem::remove;
+		vfs_type["exists"]                = &VirtualFileSystem::exists;
+		vfs_type["is_dir"]                = &VirtualFileSystem::is_dir;
+		vfs_type["list"]                  = &VirtualFileSystem::list;
+		vfs_type["alert"]                 = &VirtualFileSystem::alert;
+		vfs_type["notification"]          = &VirtualFileSystem::notification;
+		vfs_type["message_box"]           = &VirtualFileSystem::message_box;
+		vfs_type["input_box"]             = &VirtualFileSystem::input_box;
+		vfs_type["open_save_dialog"]      = &VirtualFileSystem::open_save_dialog;
+		vfs_type["open_file_dialog"]      = &VirtualFileSystem::open_file_dialog;
+		vfs_type["select_folder_dialog"]  = &VirtualFileSystem::select_folder_dialog;
+		vfs_type["load_ray_font"]         = &VirtualFileSystem::load_ray_font;
+		vfs_type["load_ray_image"]        = &VirtualFileSystem::load_ray_image;
+		vfs_type["load_ray_image_anim"]   = &VirtualFileSystem::load_ray_image_anim;
+		vfs_type["load_ray_music_stream"] = &VirtualFileSystem::load_ray_music_stream;
+		vfs_type["load_ray_shader"]       = &VirtualFileSystem::load_ray_shader;
+		vfs_type["load_ray_texture"]      = &VirtualFileSystem::load_ray_texture;
+		vfs_type["load_ray_wave"]         = &VirtualFileSystem::load_ray_wave;
 	}
 } // namespace galaxy

@@ -12,6 +12,7 @@
 #include <zip.h>
 
 #include "galaxy/core/Settings.hpp"
+#include "galaxy/fs/FileUtils.hpp"
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/logging/PhysFSError.hpp"
 #include "galaxy/platform/Pragma.hpp"
@@ -194,6 +195,222 @@ namespace galaxy
 		}
 
 		return false;
+	}
+
+	std::optional<ray::Image> VirtualFileSystem::load_ray_image(const std::string& filename) noexcept
+	{
+		const auto extension = fileutils::extension(filename);
+		if (extension.has_value())
+		{
+			auto data = read_binary(filename);
+			if (!data.empty())
+			{
+				ray::Image image = ray::LoadImageFromMemory(extension.value().c_str(), data.data(), static_cast<int>(data.size()));
+				if (image.data)
+				{
+					return std::make_optional(image);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from memory.", filename);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} from vfs.", filename);
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} extension.", filename);
+		}
+
+		return std::nullopt;
+	}
+
+	std::optional<ray::Image> VirtualFileSystem::load_ray_image_anim(const std::string& filename, int* frames) noexcept
+	{
+		const auto extension = fileutils::extension(filename);
+		if (extension.has_value())
+		{
+			auto data = read_binary(filename);
+			if (!data.empty())
+			{
+				ray::Image image = ray::LoadImageAnimFromMemory(extension.value().c_str(), data.data(), static_cast<int>(data.size()), frames);
+				if (image.data)
+				{
+					return std::make_optional(image);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from memory.", filename);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} from vfs.", filename);
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} extension.", filename);
+		}
+
+		return std::nullopt;
+	}
+
+	std::optional<ray::Texture2D> VirtualFileSystem::load_ray_texture(const std::string& filename) noexcept
+	{
+		const auto image = load_ray_image(filename);
+		if (image.has_value())
+		{
+			ray::Texture2D texture = ray::LoadTextureFromImage(image.value());
+			if (texture.id != 0)
+			{
+				ray::UnloadImage(image.value());
+				return std::make_optional(texture);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load texture {0} from image.");
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load texture {0} because of failing to read image.");
+		}
+
+		return std::nullopt;
+	}
+
+	std::optional<ray::Wave> VirtualFileSystem::load_ray_wave(const std::string& filename) noexcept
+	{
+		const auto extension = fileutils::extension(filename);
+		if (extension.has_value())
+		{
+			auto data = read_binary(filename);
+			if (!data.empty())
+			{
+				ray::Wave wave = ray::LoadWaveFromMemory(extension.value().c_str(), data.data(), static_cast<int>(data.size()));
+				if (wave.data)
+				{
+					return std::make_optional(wave);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from memory.", filename);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} from vfs.", filename);
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} extension.", filename);
+		}
+
+		return std::nullopt;
+	}
+
+	std::optional<ray::Music> VirtualFileSystem::load_ray_music_stream(const std::string& filename) noexcept
+	{
+		const auto extension = fileutils::extension(filename);
+		if (extension.has_value())
+		{
+			auto data = read_binary(filename);
+			if (!data.empty())
+			{
+				ray::Music music = ray::LoadMusicStreamFromMemory(extension.value().c_str(), data.data(), static_cast<int>(data.size()));
+				if (music.ctxData)
+				{
+					return std::make_optional(music);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from memory.", filename);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} from vfs.", filename);
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} extension.", filename);
+		}
+
+		return std::nullopt;
+	}
+
+	std::optional<ray::Font> VirtualFileSystem::load_ray_font(const std::string& filename, int font_size, std::span<int> font_chars) noexcept
+	{
+		const auto extension = fileutils::extension(filename);
+		if (extension.has_value())
+		{
+			auto data = read_binary(filename);
+			if (!data.empty())
+			{
+				ray::Font font = ray::LoadFontFromMemory(
+					extension.value().c_str(),
+					data.data(),
+					static_cast<int>(data.size()),
+					font_size,
+					font_chars.data(),
+					static_cast<int>(font_chars.size())
+				);
+				if (font.texture.id != 0)
+				{
+					return std::make_optional(font);
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} from memory.", filename);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} from vfs.", filename);
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read {0} extension.", filename);
+		}
+
+		return std::nullopt;
+	}
+
+	std::optional<ray::Shader> VirtualFileSystem::load_ray_shader(const std::string& vs_file, const std::string& fs_file) noexcept
+	{
+		auto vs_data = read(vs_file);
+		if (vs_data.empty())
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read vertex shader {0}.", vs_file);
+		}
+
+		auto fs_data = read(fs_file);
+		if (fs_data.empty())
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to read frag shader {0}.", fs_data);
+		}
+
+		if (!vs_data.empty() && !fs_data.empty())
+		{
+			ray::Shader shader = ray::LoadShaderFromMemory(vs_data.data(), fs_data.data());
+			if (shader.id != 0)
+			{
+				return std::make_optional(shader);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load shader from memory {0} | {1}.", vs_file, fs_file);
+			}
+		}
+
+		return std::nullopt;
 	}
 
 	void VirtualFileSystem::mkdir(const std::string& dir) noexcept

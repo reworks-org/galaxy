@@ -12,6 +12,8 @@
 #include <string>
 #include <vector>
 
+#include <Raylib.hpp>
+
 #include "galaxy/fs/DialogButton.hpp"
 #include "galaxy/fs/DialogIcons.hpp"
 #include "galaxy/fs/DialogType.hpp"
@@ -91,6 +93,80 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		bool write_raw(const void* data, const std::size_t size, const std::string& file);
+
+		///
+		/// Load an image from VFS. You must manually free the data after.
+		///
+		/// \param filename The filename to load from the search paths.
+		///
+		/// \return The loaded image on success.
+		///
+		[[nodiscard]]
+		std::optional<ray::Image> load_ray_image(const std::string& filename) noexcept;
+
+		///
+		/// Load an animated image from VFS (e.g. GIF). You must manually free the data after.
+		///
+		/// \param filename The filename to load from the search paths.
+		/// \param frames Set to the number of frames decoded on success.
+		///
+		/// \return The loaded image on success (height = frames * frameHeight).
+		///
+		[[nodiscard]]
+		std::optional<ray::Image> load_ray_image_anim(const std::string& filename, int* frames) noexcept;
+
+		///
+		/// Load a texture from VFS. You must manually free the data after.
+		///
+		/// \param fileName The filename to load from the search paths.
+		///
+		/// \return The loaded texture on success.
+		///
+		[[nodiscard]]
+		std::optional<ray::Texture2D> load_ray_texture(const std::string& filename) noexcept;
+
+		///
+		/// Load wave data from VFS. You must manually free the data after.
+		///
+		/// \param filename The file name to load from the PhysFS mount paths.
+		///
+		/// \return The Wave object.
+		///
+		[[nodiscard]]
+		std::optional<ray::Wave> load_ray_wave(const std::string& filename) noexcept;
+
+		///
+		/// Load module music from VFS. You must manually free the data after.
+		///
+		/// \param filename The file name to load from the PhysFS mount paths.
+		///
+		/// \return The Music object.
+		///
+		[[nodiscard]]
+		std::optional<ray::Music> load_ray_music_stream(const std::string& filename) noexcept;
+
+		///
+		/// Load font from VFS. You must manually free the data after.
+		///
+		/// \param filename The file name to load from the PhysFS mount paths.
+		/// \param font_size Size of the font.
+		/// \param font_chars Characters to load.
+		///
+		/// \return The Font object.
+		///
+		[[nodiscard]]
+		std::optional<ray::Font> load_ray_font(const std::string& filename, int font_size, std::span<int> font_chars) noexcept;
+
+		///
+		/// Load a Shader from VFS. You must manually free the data after.
+		///
+		/// \param vs_file The name of the vs file to load.
+		/// \param fs_file The name of the fs file to load.
+		///
+		/// \return The Shader object.
+		///
+		[[nodiscard]]
+		std::optional<ray::Shader> load_ray_shader(const std::string& vs_file, const std::string& fs_file) noexcept;
 
 		///
 		/// \brief Creates an empty folder in the filesystem relative to the root.
