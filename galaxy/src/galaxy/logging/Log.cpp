@@ -9,7 +9,14 @@
 
 #include <Raylib.hpp>
 
+#include "galaxy/platform/Pragma.hpp"
+
 #include "Log.hpp"
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_PUSH
+GALAXY_DISABLE_WARNING(26477)
+#endif
 
 namespace galaxy
 {
@@ -62,3 +69,7 @@ namespace galaxy
 		m_sinks.clear();
 	}
 } // namespace galaxy
+
+#ifdef GALAXY_WIN_PLATFORM
+GALAXY_DISABLE_WARNING_POP
+#endif
