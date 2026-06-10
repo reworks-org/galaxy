@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\ConfigTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\Base64Test.cpp" />
     <ClCompile Include="src\math\FNV1aTest.cpp" />

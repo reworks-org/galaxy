@@ -43,6 +43,11 @@ namespace galaxy
 		static void inject_entt() noexcept;
 
 		///
+		/// Inject Raylib into Lua.
+		///
+		static void inject_raylib() noexcept;
+
+		///
 		/// Inject galaxy event data objects into Lua.
 		///
 		static void inject_events() noexcept;

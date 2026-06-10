@@ -8,28 +8,23 @@
 #define BS_THREAD_POOL_NATIVE_EXTENSIONS
 
 #include <format>
+#include <filesystem>
 
 #include <BS_thread_pool.hpp>
+#include <entt/locator/locator.hpp>
 #include <entt/signal/dispatcher.hpp>
-#include <glad/glad.h>
 #include <mimalloc.h>
-#include <SDL3/SDL.h>
+#include <Raylib.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
-#include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/gl/Sampler.hpp"
-#include "galaxy/input/Keyboard.hpp"
-#include "galaxy/input/Mouse.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/lua/Lua.hpp"
-#include "galaxy/meta/SystemFactory.hpp"
 #include "galaxy/platform/Platform.hpp"
-#include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/time/Time.hpp"
 
 #include "Application.hpp"
@@ -40,20 +35,17 @@ namespace galaxy
 {
 	App::App(const std::string& config_file)
 	{
-		SDL_SetMemoryFunctions(&mi_malloc, &mi_calloc, &mi_realloc, &mi_free);
-
 		setup_async();
 		setup_logging();
 		setup_config(config_file);
 		setup_platform();
 		setup_fs();
 		setup_rendering();
-		setup_events();
-		setup_input();
-		// setup_nuklear();
-		// setup_loader();
-		setup_meta();
-		setup_services();
+		// setup_input();
+		//  setup_nuklear();
+		//  setup_loader();
+		// setup_meta();
+		// setup_services();
 		setup_scripting();
 
 		// Load game assets.
@@ -62,33 +54,33 @@ namespace galaxy
 
 	App::~App()
 	{
-		entt::locator<VirtualFileSystem>::reset();
-		entt::locator<Config>::reset();
+		// entt::locator<VirtualFileSystem>::reset();
+		// entt::locator<Config>::reset();
 
-		GALAXY_LOG(GALAXY_INFO, "Application closed.");
-		entt::locator<BS::priority_thread_pool>::value().wait();
+		// GALAXY_LOG(GALAXY_INFO, "Application closed.");
+		// entt::locator<BS::priority_thread_pool>::value().wait();
 
-		entt::locator<Log>::reset();
-		entt::locator<BS::priority_thread_pool>::reset();
+		// entt::locator<Log>::reset();
+		// entt::locator<BS::priority_thread_pool>::reset();
 
-		SDL_Quit();
+		ray::CloseWindow();
 	}
 
-	/*void App::load()
+	void App::load()
 	{
-		const auto path = Settings::root_dir() / Settings::asset_pack();
+		// const auto path = Settings::root_dir() / Settings::asset_pack();
 
-		auto& sm = entt::locator<scene::SceneManager>::value();
-		sm.load_app(path.string());
-	}*/
+		// auto& sm = entt::locator<scene::SceneManager>::value();
+		// sm.load_app(path.string());
+	}
 
 	void App::run()
 	{
 		// https://stackoverflow.com/a/59446610
 		// We dont need 't' or 'alpha/render' sections.
 
-		auto& window = entt::locator<Window>::value();
-		auto& scenes = entt::locator<SceneManager>::value();
+		// auto& window = entt::locator<Window>::value();
+		//  auto& scenes = entt::locator<SceneManager>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
 		// into a double so it can participate in the physics computation.
@@ -110,40 +102,25 @@ namespace galaxy
 		if (!m_update)
 		{
 			m_update = [&](App* app) {
-				while (SDL_PollEvent(&m_events))
-				{
-					switch (m_events.type)
-					{
-						case SDL_EVENT_QUIT:
-							window.close();
-							break;
-
-						case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
-							if (m_events.window.windowID == SDL_GetWindowID(window.handle()))
-							{
-								window.close();
-							}
-							break;
-
-						default:
-							scenes.on_event(m_events);
-							break;
-					}
-				}
-
-				scenes.update();
+				ray::PollInputEvents();
+				// scenes.update();
 			};
 		}
 
 		if (!m_render)
 		{
 			m_render = [&](App* app) {
-				scenes.render();
-				window.swap();
+				ray::BeginDrawing();
+				ray::ClearBackground(RAY_WHITE);
+
+				// scenes.render();
+				// window.swap();
+				ray::EndDrawing();
+				ray::SwapScreenBuffer();
 			};
 		}
 
-		while (window.is_open())
+		while (!ray::WindowShouldClose())
 		{
 			now          = clock::now();
 			auto elapsed = now - prev;
@@ -174,7 +151,7 @@ namespace galaxy
 
 			if (perf >= 1s)
 			{
-				window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
+				ray::SetWindowTitle(std::format(" | UPS: {0}, FPS: {1}", updates, frames).c_str());
 
 				frames  = 0;
 				updates = 0;
@@ -191,11 +168,6 @@ namespace galaxy
 	void App::set_render_func(LoopFunc&& render)
 	{
 		m_render = std::move(render);
-	}
-
-	SDL_Event& App::events() noexcept
-	{
-		return m_events;
 	}
 
 	void App::setup_async()
@@ -243,70 +215,6 @@ namespace galaxy
 	void App::setup_platform()
 	{
 		platform::seed_random();
-
-		platform::set_metadata(SDL_PROP_APP_METADATA_NAME_STRING, Settings::title().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_VERSION_STRING, Settings::version().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_IDENTIFIER_STRING, Settings::identifier().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_CREATOR_STRING, Settings::creator().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_COPYRIGHT_STRING, Settings::copyright().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_URL_STRING, Settings::website().c_str());
-		platform::set_metadata(SDL_PROP_APP_METADATA_TYPE_STRING, "game");
-
-		platform::set_hint(SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED, "1");
-		platform::set_hint(SDL_HINT_ASSERT, "break");
-		platform::set_hint(SDL_HINT_AUDIO_CATEGORY, "playback");
-		platform::set_hint(SDL_HINT_AUDIO_CHANNELS, "2");
-		platform::set_hint(SDL_HINT_AUDIO_INCLUDE_MONITORS, "0");
-		platform::set_hint(SDL_HINT_AUTO_UPDATE_JOYSTICKS, "1");
-		platform::set_hint(SDL_HINT_AUTO_UPDATE_SENSORS, "1");
-		platform::set_hint(SDL_HINT_LOGGING, "warn");
-		platform::set_hint(SDL_HINT_ENABLE_SCREEN_KEYBOARD, "0");
-		platform::set_hint(SDL_HINT_EVENT_LOGGING, "0");
-		platform::set_hint(SDL_HINT_FRAMEBUFFER_ACCELERATION, "opengl");
-		platform::set_hint(SDL_HINT_GAMECONTROLLER_SENSOR_FUSION, "1");
-		platform::set_hint(SDL_HINT_GPU_DRIVER, "vulkan");
-		platform::set_hint(SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS, "1");
-		platform::set_hint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "0");
-		platform::set_hint(SDL_HINT_JOYSTICK_DIRECTINPUT, "1");
-		platform::set_hint(SDL_HINT_TV_REMOTE_AS_JOYSTICK, "1");
-		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "0");
-		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
-		platform::set_hint(SDL_HINT_MOUSE_RELATIVE_MODE_CENTER, "0");
-		platform::set_hint(SDL_HINT_MOUSE_TOUCH_EVENTS, "1");
-		platform::set_hint(SDL_HINT_MOUSE_DPI_SCALE_CURSORS, "1");
-		platform::set_hint(SDL_HINT_PEN_MOUSE_EVENTS, "1");
-		platform::set_hint(SDL_HINT_PEN_TOUCH_EVENTS, "1");
-		platform::set_hint(SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE, "1");
-		platform::set_hint(SDL_HINT_RENDER_DRIVER, "opengl");
-		platform::set_hint(SDL_HINT_RENDER_GPU_DEBUG, "0");
-		platform::set_hint(SDL_HINT_RENDER_GPU_LOW_POWER, "0");
-		platform::set_hint(SDL_HINT_TOUCH_MOUSE_EVENTS, "1");
-		platform::set_hint(SDL_HINT_TRACKPAD_IS_TOUCH_ONLY, "0");
-		platform::set_hint(SDL_HINT_THREAD_FORCE_REALTIME_TIME_CRITICAL, "0");
-		platform::set_hint(SDL_HINT_XINPUT_ENABLED, "1");
-		platform::set_hint(SDL_HINT_VIDEO_ALLOW_SCREENSAVER, "0");
-		platform::set_hint(SDL_HINT_VIDEO_DUMMY_SAVE_FRAMES, "0");
-		platform::set_hint(SDL_HINT_VIDEO_MATCH_EXCLUSIVE_MODE_ON_MOVE, "1");
-		platform::set_hint(SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS, "0");
-		platform::set_hint(SDL_HINT_VIDEO_OFFSCREEN_SAVE_FRAMES, "0");
-		platform::set_hint(SDL_HINT_VIDEO_SYNC_WINDOW_OPERATIONS, "0");
-		platform::set_hint(SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN, "1");
-		platform::set_hint(SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4, "1");
-		platform::set_hint(SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS, "0");
-		platform::set_hint(SDL_HINT_WINDOWS_GAMEINPUT, "1");
-		platform::set_hint(SDL_HINT_WINDOWS_RAW_KEYBOARD, "0");
-		// TODO: platform::set_hint(SDL_HINT_IME_IMPLEMENTED_UI, "0");
-
-		const auto vsync = Settings::vsync() ? "1" : "0";
-		platform::set_hint(SDL_HINT_RENDER_VSYNC, vsync);
-
-		const auto audio_freq = std::to_string(Settings::audio_freq());
-		platform::set_hint(SDL_HINT_AUDIO_FREQUENCY, audio_freq.c_str());
-
-		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC | SDL_INIT_SENSOR))
-		{
-			GALAXY_LOG(GALAXY_FATAL, SDL_GetError());
-		}
 	}
 
 	void App::setup_fs()
@@ -316,102 +224,109 @@ namespace galaxy
 
 	void App::setup_rendering()
 	{
-		auto& window = entt::locator<Window>::emplace();
-
-		window.set_icon(Settings::window_icon());
-		window.show();
-
-		auto& sampler = entt::locator<Sampler>::emplace();
-
-		// Need to create our default texture sampler object.
-		if (Settings::mipmap())
+		if (Settings::vsync())
 		{
-			switch (Settings::texture_filter())
+			ray::SetConfigFlags(ray::FLAG_VSYNC_HINT);
+		}
+
+		if (Settings::window_resizable())
+		{
+			ray::SetConfigFlags(ray::FLAG_WINDOW_RESIZABLE);
+		}
+
+		if (Settings::fullscreen())
+		{
+			ray::SetConfigFlags(ray::FLAG_FULLSCREEN_MODE);
+		}
+
+		if (Settings::borderless_fullscreen())
+		{
+			ray::SetConfigFlags(ray::FLAG_BORDERLESS_WINDOWED_MODE);
+		}
+
+		if (!Settings::decoration())
+		{
+			ray::SetConfigFlags(ray::FLAG_WINDOW_UNDECORATED);
+		}
+
+		if (Settings::ontop())
+		{
+			ray::SetConfigFlags(ray::FLAG_WINDOW_TOPMOST);
+		}
+
+		ray::SetConfigFlags(ray::FLAG_WINDOW_HIGHDPI);
+		ray::SetConfigFlags(ray::FLAG_WINDOW_HIDDEN);
+		ray::SetConfigFlags(ray::FLAG_WINDOW_TRANSPARENT);
+		ray::InitWindow(Settings::window_width(), Settings::window_height(), Settings::title().c_str());
+		ray::SetExitKey(ray::KEY_NULL);
+
+		if (Settings::maximized())
+		{
+			ray::SetWindowState(ray::FLAG_WINDOW_MAXIMIZED);
+		}
+
+		if (Settings::minimized())
+		{
+			ray::SetWindowState(ray::FLAG_WINDOW_MINIMIZED);
+		}
+
+		if (!Settings::window_icon().empty())
+		{
+			auto& fs = entt::locator<VirtualFileSystem>::value();
+
+			const auto image = fs.load_ray_image(Settings::window_icon());
+			if (image.has_value())
 			{
-				case GLTextureFilter::NEAREST:
-					sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-					sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-					break;
-				case GLTextureFilter::BILINEAR:
-					sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-					sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					break;
-				case GLTextureFilter::TRILINEAR:
-					sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-					sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					break;
+				ray::SetWindowIcon(image.value());
+				ray::UnloadImage(image.value());
 			}
 		}
-		else
-		{
-			if (Settings::texture_filter() == GLTextureFilter::NEAREST)
-			{
-				sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-				sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			}
-			else
-			{
-				sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-				sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			}
-		}
 
-		auto ansio = std::clamp(Settings::ansiotrophy(), 1, 16);
-		if (ansio == 3)
-		{
-			ansio = 4;
-		}
-		else if (ansio > 4 && ansio < 8)
-		{
-			ansio = 8;
-		}
-		else
-		{
-			ansio = 16;
-		}
-		sampler.setf(GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(ansio));
+		ray::ClearWindowState(ray::FLAG_WINDOW_HIDDEN);
+		ray::SetWindowFocused();
 
-		sampler.set(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		sampler.set(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		sampler.set(GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-		sampler.set(GL_TEXTURE_LOD_BIAS, GL_NONE);
-	}
-
-	void App::setup_events()
-	{
-		SDL_zero(m_events);
+		//	FLAG_WINDOW_UNFOCUSED         = 0x00000800, // Set to window non focused
+		//	FLAG_WINDOW_ALWAYS_RUN        = 0x00000100, // Set to allow windows running while minimized
+		//	FLAG_WINDOW_MOUSE_PASSTHROUGH = 0x00004000, // Set to support mouse passthrough, only supported when FLAG_WINDOW_UNDECORATED
+		//	FLAG_MSAA_4X_HINT             = 0x00000020, // Set to try enabling MSAA 4X
+		//	FLAG_INTERLACED_HINT          = 0x00010000  // Set to try enabling interlaced video format (for V3D)
 	}
 
 	void App::setup_input()
 	{
-		auto& keyboard = entt::locator<Keyboard>::emplace();
-		auto& mouse    = entt::locator<Mouse>::emplace();
-
-		mouse.set_cursor_custom(Settings::cursor_icon(), Settings::cursor_hotspot());
-		if (Settings::cursor_show())
+		if (Settings::cursor_locked())
 		{
-			mouse.show_cursor();
+			ray::DisableCursor();
 		}
 		else
 		{
-			mouse.hide_cursor();
+			ray::EnableCursor();
+		}
+
+		if (Settings::cursor_show())
+		{
+			ray::ShowCursor();
+		}
+		else
+		{
+			ray::HideCursor();
 		}
 	}
 
-	// void App::setup_nuklear()
-	//{
-	// auto& nui = ServiceLocator<ui::NuklearUI>::make();
-	// }
+	void App::setup_nuklear()
+	{
+		// auto& nui = ServiceLocator<ui::NuklearUI>::make();
+	}
 
-	// void App::setup_loader()
-	//{
-	//	// entt::locator<Loader>::make();
-	// }
+	void App::setup_loader()
+	{
+		// entt::locator<Loader>::make();
+	}
 
 	void App::setup_meta()
 	{
-		auto& sf = entt::locator<SystemFactory>::emplace();
-		// auto& ef = entt::locator<meta::EntityFactory>::emplace();
+		// auto& sf = entt::locator<SystemFactory>::emplace();
+		//  auto& ef = entt::locator<meta::EntityFactory>::emplace();
 
 		/*ef.register_component<components::Tag>("Tag");
 
@@ -457,7 +372,7 @@ namespace galaxy
 		// entt::locator<resource::Textures>::make();
 		// entt::locator<resource::Prefabs>::make();
 		//	  entt::locator<resource::Scripts>::make();
-		entt::locator<SceneManager>::emplace();
+		// entt::locator<SceneManager>::emplace();
 	}
 
 	void App::setup_scripting()
