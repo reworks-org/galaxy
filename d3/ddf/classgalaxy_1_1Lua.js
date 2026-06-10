@@ -5,6 +5,7 @@ var classgalaxy_1_1Lua =
     [ "inject", "d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e", null ],
     [ "inject_core", "d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01", null ],
     [ "inject_entt", "d3/ddf/classgalaxy_1_1Lua.html#a8b2f90e0343d46ebeecbdfc1ec4976c0", null ],
+    [ "inject_raylib", "d3/ddf/classgalaxy_1_1Lua.html#a6374ad2a2baf08488bb21687c9e21b67", null ],
     [ "inject_events", "d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0", null ],
     [ "inject_entity", "d3/ddf/classgalaxy_1_1Lua.html#a0943b94035c1d33f5a1842d5057043b2", null ],
     [ "inject_fs", "d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab", null ],

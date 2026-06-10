@@ -1,9 +1,7 @@
 <map id="galaxy::App::setup_input" name="galaxy::App::setup_input">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,63,148,103"/>
-<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a9398c6fd9695f01783053e2780a1cb65" title="Cursor selector point (hotspot)." alt="" coords="216,5,391,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,62,210,46,211,51,149,67"/>
-<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca" title="Cursor texture file in vfs." alt="" coords="199,70,407,95"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,80,186,80,186,85,148,85"/>
-<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453" title="Is the mouse cursor visible or not." alt="" coords="196,119,411,145"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,96,232,114,231,119,148,101"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,148,75"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a37a5289c390fc75a39994936510c760d" title="Is the cursor grabbed." alt="" coords="216,5,391,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,43,202,36,203,41,149,48"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453" title="Is the mouse cursor visible or not." alt="" coords="196,70,411,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,61,187,66,187,71,148,66"/>
 </map>

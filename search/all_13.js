@@ -1,7 +1,7 @@
 var searchData=
 [
   ['terminate_0',['terminate',['../db/d1d/classgalaxy_1_1Subprocess.html#a44d55609528c6ffb90935163d07267aa',1,'galaxy::Subprocess']]],
-  ['texture_5ffilter_1',['texture_filter',['../df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c',1,'galaxy::Settings']]],
+  ['texture_5fsettings_2ehpp_1',['texture_settings.hpp',['../d3/dac/texture__settings_8hpp.html',1,'']]],
   ['textures_2',['Textures',['../d4/d1b/namespacegalaxy_1_1resource.html#aa5031532536aac07cd2b756378ad6741',1,'galaxy::resource']]],
   ['textures_2ecpp_3',['Textures.cpp',['../d0/d35/Textures_8cpp.html',1,'']]],
   ['textures_2ehpp_4',['Textures.hpp',['../da/d41/Textures_8hpp.html',1,'']]],

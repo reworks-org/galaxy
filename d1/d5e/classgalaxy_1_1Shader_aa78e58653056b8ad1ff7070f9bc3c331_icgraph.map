@@ -1,0 +1,13 @@
+<map id="galaxy::Shader::set_uniform" name="galaxy::Shader::set_uniform">
+<area shape="rect" id="Node000001" title="Specialized variadic template for setting shader uniforms." alt="" coords="204,133,351,173"/>
+<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#aefe3ef13344ebc9d1f4ece79b38ee07e" title=" " alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,126,202,92,155,60,132,48,135,43,157,55,205,88,246,122"/>
+<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#ad9cb6dfbd90c009fa55aacc5fdf3f8d5" title=" " alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,132,142,112,143,107,203,127"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#a41609beb1e7e0da65c0d3ce249b057bb" title=" " alt="" coords="5,133,156,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,156,156,156,156,151,190,151"/>
+<area shape="rect" id="Node000005" href="$d0/d46/namespacegalaxy.html#a472fdee96e6184e9ef3e250d64b18ece" title=" " alt="" coords="5,197,156,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="203,180,143,200,142,195,202,175"/>
+<area shape="rect" id="Node000006" href="$d0/d46/namespacegalaxy.html#a8b144dedb16ccafc15fd33dc4e932248" title=" " alt="" coords="5,261,156,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="246,185,205,218,157,252,135,264,132,259,155,247,202,214,243,180"/>
+</map>

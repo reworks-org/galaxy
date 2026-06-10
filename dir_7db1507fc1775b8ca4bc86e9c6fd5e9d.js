@@ -9,6 +9,7 @@ var dir_7db1507fc1775b8ca4bc86e9c6fd5e9d =
     [ "LuaLogging.cpp", "d2/dc6/LuaLogging_8cpp.html", "d2/dc6/LuaLogging_8cpp" ],
     [ "LuaMath.cpp", "df/d48/LuaMath_8cpp.html", null ],
     [ "LuaPlatform.cpp", "da/d96/LuaPlatform_8cpp.html", null ],
+    [ "LuaRaylib.cpp", "d3/d72/LuaRaylib_8cpp.html", null ],
     [ "LuaScene.cpp", "da/dda/LuaScene_8cpp.html", null ],
     [ "LuaServices.cpp", "d1/d50/LuaServices_8cpp.html", null ],
     [ "LuaState.cpp", "db/d27/LuaState_8cpp.html", null ],

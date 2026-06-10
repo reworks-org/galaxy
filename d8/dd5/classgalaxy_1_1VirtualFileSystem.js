@@ -15,7 +15,6 @@ var classgalaxy_1_1VirtualFileSystem =
     [ "load_ray_wave", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a5cef2904f1e1089e22695fd215f98bb5", null ],
     [ "load_ray_music_stream", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a99d70f321a8a6d3675352617ed41c53a", null ],
     [ "load_ray_font", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#aca38eae20d599208042ea386c8110ca5", null ],
-    [ "load_ray_shader", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a55c45d3a52153cd9eb68acfcaa97ce0a", null ],
     [ "mkdir", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14", null ],
     [ "remove", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#aca348e65708b9e1ec6095de6ec11d110", null ],
     [ "exists", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e", null ],

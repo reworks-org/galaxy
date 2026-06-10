@@ -50,6 +50,7 @@ var annotated_dup =
       [ "SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", "d1/dbc/classgalaxy_1_1SceneManager" ],
       [ "Script", "db/da2/classgalaxy_1_1Script.html", "db/da2/classgalaxy_1_1Script" ],
       [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
+      [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html", "d1/d5e/classgalaxy_1_1Shader" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
       [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],
       [ "StateMachine", "da/d52/classgalaxy_1_1StateMachine.html", "da/d52/classgalaxy_1_1StateMachine" ],
@@ -61,7 +62,6 @@ var annotated_dup =
       [ "Timer", "d0/d7b/classgalaxy_1_1Timer.html", "d0/d7b/classgalaxy_1_1Timer" ],
       [ "UUID", "dd/da7/classgalaxy_1_1UUID.html", "dd/da7/classgalaxy_1_1UUID" ],
       [ "VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", "d8/dd5/classgalaxy_1_1VirtualFileSystem" ],
-      [ "Window", "d0/d84/classgalaxy_1_1Window.html", "d0/d84/classgalaxy_1_1Window" ],
       [ "WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", "d3/d81/classgalaxy_1_1WindowBindable" ],
       [ "WindowResized", "d9/d35/structgalaxy_1_1WindowResized.html", "d9/d35/structgalaxy_1_1WindowResized" ],
       [ "ZLib", "df/d85/classgalaxy_1_1ZLib.html", "df/d85/classgalaxy_1_1ZLib" ]

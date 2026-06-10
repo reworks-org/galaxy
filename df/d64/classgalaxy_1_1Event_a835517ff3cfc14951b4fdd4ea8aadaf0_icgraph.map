@@ -1,25 +1,8 @@
 <map id="galaxy::Event::consumed" name="galaxy::Event::consumed">
-<area shape="rect" id="Node000001" title="Is this event already consumed?" alt="" coords="971,191,1156,216"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0" title="Inject galaxy event data objects into Lua." alt="" coords="783,183,923,223"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="957,206,923,206,923,201,957,201"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="768,189,728,181,729,176,770,184"/>
-<area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,227,728,252"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="769,222,729,230,728,225,768,217"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" id="edge10_Node000004_Node000008" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
-<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
-<area shape="rect" id="Node000007" href="$dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" id="Node000009" href="$dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="698,216,688,208,665,205,645,207,635,212,632,218,638,225,634,228,627,218,631,208,643,202,665,200,690,204,701,212"/>
+<area shape="rect" id="Node000001" title="Is this event already consumed?" alt="" coords="368,29,553,55"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0" title="Inject galaxy event data objects into Lua." alt="" coords="180,22,320,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="354,45,320,45,320,39,354,39"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="5,29,132,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="166,45,132,45,132,39,166,39"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="101,19,91,11,69,8,50,10,40,15,37,20,43,28,39,31,32,21,36,11,48,5,69,3,94,6,104,15"/>
 </map>

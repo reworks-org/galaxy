@@ -52,6 +52,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
@@ -63,15 +64,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ace07ecb19807512eee6d74e4ffd37b28",
-"d1/d4d/classgalaxy_1_1Cache.html#a274a41d9093fc966d1c042d88b78a769",
-"d4/d1b/namespacegalaxy_1_1resource.html#a77ecc744c1b541a6175f1bdebb07f731",
-"d5/d58/classgalaxy_1_1Rect.html#ae14aef4e95a8011d209a0acc816c7192",
-"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e",
-"db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html",
-"dd/d33/classgalaxy_1_1App.html#afe2aa04c43ea6b5c239f614bb82a98df",
-"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0",
-"functions_~.html"
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83acbb70a86b463a83c346ecf1a05c0606c",
+"d1/d5e/classgalaxy_1_1Shader.html#a726e786b0ca0948c0957de97137f5b3b",
+"d4/d1b/namespacegalaxy_1_1resource.html#aae0e407eefc27af7b00f881c73cd7184",
+"d5/d58/classgalaxy_1_1Rect.html#ae687af636fdf1f09d97d7a810c745eac",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a8fe710cc1bfbed61ef847e49964911ae",
+"db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8",
+"dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a70a0b34589e5fb89ac9f851c5793a819",
+"df/d64/classgalaxy_1_1Event.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

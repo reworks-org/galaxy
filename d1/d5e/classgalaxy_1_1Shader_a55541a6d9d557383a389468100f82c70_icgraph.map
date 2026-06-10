@@ -1,0 +1,11 @@
+<map id="galaxy::Shader::get_uniform_location" name="galaxy::Shader::get_uniform_location">
+<area shape="rect" id="Node000001" title="Retrieves the location of a shader uniform." alt="" coords="200,101,347,141"/>
+<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html#aab488faa2da6b3308134990357ff7e1e" title=" " alt="" coords="5,5,152,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,97,151,60,126,48,128,43,153,55,225,92"/>
+<area shape="rect" id="Node000003" href="$d1/d5e/classgalaxy_1_1Shader.html#a137ca23f80295d150a8ef58dc9fdfaeb" title=" " alt="" coords="5,69,152,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,110,152,104,153,99,187,104"/>
+<area shape="rect" id="Node000004" href="$d1/d5e/classgalaxy_1_1Shader.html#a6fba917d4288225bcf0af91b2d08f9e8" title=" " alt="" coords="5,133,152,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,138,153,144,152,139,186,133"/>
+<area shape="rect" id="Node000005" href="$d1/d5e/classgalaxy_1_1Shader.html#a8e5f84e115cfa12978dfce3823361d8f" title=" " alt="" coords="5,197,152,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="225,150,153,188,128,200,126,195,151,183,223,146"/>
+</map>

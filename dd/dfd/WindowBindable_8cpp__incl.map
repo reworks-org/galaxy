@@ -1,19 +1,9 @@
 <map id="galaxy/src/galaxy/meta/WindowBindable.cpp" name="galaxy/src/galaxy/meta/WindowBindable.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="227,5,402,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="27,93,200,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,48,157,91,155,86,265,43"/>
-<area shape="rect" id="Node000003" href="$d0/de3/Window_8hpp.html" title=" " alt="" coords="224,93,405,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="317,46,317,79,312,79,312,46"/>
-<area shape="rect" id="Node000009" href="$d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="430,93,589,119"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="362,43,469,86,467,91,360,48"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,167,64,192"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="268,121,78,169,77,164,267,116"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="88,167,235,192"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="291,121,200,163,198,158,289,116"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="259,167,370,192"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="317,119,317,153,312,153,312,119"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="395,167,541,192"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="340,116,432,158,430,163,338,121"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="565,167,704,192"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="367,116,570,161,569,166,366,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="206,5,381,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,179,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,48,135,91,133,86,244,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="203,93,384,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="296,46,296,79,291,79,291,46"/>
+<area shape="rect" id="Node000004" href="$d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="409,93,567,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="341,43,448,86,446,91,339,48"/>
 </map>

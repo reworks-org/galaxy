@@ -201,6 +201,8 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An encapsulation of a bunch of functions for easy usage of a script.  <a href="../../db/da2/classgalaxy_1_1Script.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Settings" id="r_Settings"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/d23/structgalaxy_1_1Settings.html">Settings</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class to encapsulate our global settings we want to quickly access across app.  <a href="../../df/d23/structgalaxy_1_1Settings.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Shader" id="r_Shader"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html">Shader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html" title="OpenGL Shader Program.">Shader</a> Program.  <a href="../../d1/d5e/classgalaxy_1_1Shader.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Sink" id="r_Sink"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d42/classgalaxy_1_1Sink.html">Sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A source for log messages to be recorded to.  <a href="../../d2/d42/classgalaxy_1_1Sink.html#details">More...</a><br /></td></tr>
 <tr class="memitem:State" id="r_State"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html">State</a></td></tr>
@@ -223,8 +225,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains a 128bit randomly generated <a class="el" href="../../dd/da7/classgalaxy_1_1UUID.html" title="Contains a 128bit randomly generated UUID, along with helper functions.">UUID</a>, along with helper functions.  <a href="../../dd/da7/classgalaxy_1_1UUID.html#details">More...</a><br /></td></tr>
 <tr class="memitem:VirtualFileSystem" id="r_VirtualFileSystem"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html">VirtualFileSystem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">File <a class="el" href="../../dc/dd4/classgalaxy_1_1System.html" title="Represents a system that operates on sets of components.">System</a> to make managing files easier.  <a href="../../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Window" id="r_Window"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html">Window</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII <a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a>. Handles events, input &amp; display.  <a href="../../d0/d84/classgalaxy_1_1Window.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WindowBindable" id="r_WindowBindable"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d81/classgalaxy_1_1WindowBindable.html">WindowBindable</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows you to bind a base class to the window.  <a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WindowResized" id="r_WindowResized"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d9/d35/structgalaxy_1_1WindowResized.html">WindowResized</a></td></tr>
@@ -628,11 +628,20 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a41609beb1e7e0da65c0d3ce249b057bb" id="r_a41609beb1e7e0da65c0d3ce249b057bb"><td class="memItemLeft">template&lt;&gt; </td></tr>
+<tr class="memitem:a41609beb1e7e0da65c0d3ce249b057bb template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a41609beb1e7e0da65c0d3ce249b057bb">Shader::set_uniform&lt; ray::Vector2 &gt;</a> (const std::string &amp;name, const ray::Vector2 &amp;a)</td></tr>
+<tr class="memitem:a472fdee96e6184e9ef3e250d64b18ece" id="r_a472fdee96e6184e9ef3e250d64b18ece"><td class="memItemLeft">template&lt;&gt; </td></tr>
+<tr class="memitem:a472fdee96e6184e9ef3e250d64b18ece template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a472fdee96e6184e9ef3e250d64b18ece">Shader::set_uniform&lt; ray::Vector3 &gt;</a> (const std::string &amp;name, const ray::Vector3 &amp;a)</td></tr>
+<tr class="memitem:a8b144dedb16ccafc15fd33dc4e932248" id="r_a8b144dedb16ccafc15fd33dc4e932248"><td class="memItemLeft">template&lt;&gt; </td></tr>
+<tr class="memitem:a8b144dedb16ccafc15fd33dc4e932248 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8b144dedb16ccafc15fd33dc4e932248">Shader::set_uniform&lt; ray::Vector4 &gt;</a> (const std::string &amp;name, const ray::Vector4 &amp;a)</td></tr>
+<tr class="memitem:aefe3ef13344ebc9d1f4ece79b38ee07e" id="r_aefe3ef13344ebc9d1f4ece79b38ee07e"><td class="memItemLeft">template&lt;&gt; </td></tr>
+<tr class="memitem:aefe3ef13344ebc9d1f4ece79b38ee07e template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aefe3ef13344ebc9d1f4ece79b38ee07e">Shader::set_uniform&lt; ray::Matrix &gt;</a> (const std::string &amp;name, const ray::Matrix &amp;a)</td></tr>
+<tr class="memitem:ad9cb6dfbd90c009fa55aacc5fdf3f8d5" id="r_ad9cb6dfbd90c009fa55aacc5fdf3f8d5"><td class="memItemLeft">template&lt;&gt; </td></tr>
+<tr class="memitem:ad9cb6dfbd90c009fa55aacc5fdf3f8d5 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad9cb6dfbd90c009fa55aacc5fdf3f8d5">Shader::set_uniform&lt; ray::Texture2D &gt;</a> (const std::string &amp;name, const ray::Texture2D &amp;a)</td></tr>
 <tr class="memitem:a6319b32641882789298150a015a96f74" id="r_a6319b32641882789298150a015a96f74"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a> level&gt; </td></tr>
 <tr class="memitem:a6319b32641882789298150a015a96f74 template"><td class="memItemLeft">constexpr const char *const&#160;</td><td class="memItemRight"><a class="el" href="#a6319b32641882789298150a015a96f74">get_loglevel_colour</a> ()</td></tr>
 <tr class="memitem:ad827c35fec639f2519aca49899166c21" id="r_ad827c35fec639f2519aca49899166c21"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ad827c35fec639f2519aca49899166c21">root_path_wrapper</a> () noexcept</td></tr>
 <tr class="memitem:a41b360d7e35341259457ab3ec21b2f57" id="r_a41b360d7e35341259457ab3ec21b2f57"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a41b360d7e35341259457ab3ec21b2f57">assets_path_wrapper</a> () noexcept</td></tr>
-<tr class="memitem:ae75c97fd983f82b9ac19a20d72886c49" id="r_ae75c97fd983f82b9ac19a20d72886c49"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ae75c97fd983f82b9ac19a20d72886c49">editor_path_wrapper</a> () noexcept</td></tr>
 <tr class="memitem:a319291094a5f4b14dd9eaa07f698fc3f" id="r_a319291094a5f4b14dd9eaa07f698fc3f"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a319291094a5f4b14dd9eaa07f698fc3f">fileutils_read_wrapper</a> (const std::string &amp;filepath) noexcept</td></tr>
 <tr class="memitem:a2cf60407a5ec21327f632d6c1f712f92" id="r_a2cf60407a5ec21327f632d6c1f712f92"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2cf60407a5ec21327f632d6c1f712f92">log_wrapper</a> (<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a> error_level, std::string_view message)</td></tr>
 <tr class="memitem:ac79729a7cd11384b6477920808b1a4a3" id="r_ac79729a7cd11384b6477920808b1a4a3"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#ac79729a7cd11384b6477920808b1a4a3">mem_alloc</a> (size_t sz, void *user_data)</td></tr>
@@ -713,6 +722,7 @@ Functions</h2></td></tr>
 <p>LuaStates.cpp galaxy.</p>
 <p><a class="el" href="../../d1/d50/LuaServices_8cpp.html">LuaServices.cpp</a> galaxy.</p>
 <p>LuaScenes.cpp galaxy.</p>
+<p><a class="el" href="../../d3/d72/LuaRaylib_8cpp.html">LuaRaylib.cpp</a> galaxy.</p>
 <p><a class="el" href="../../da/d96/LuaPlatform_8cpp.html">LuaPlatform.cpp</a> galaxy.</p>
 <p><a class="el" href="../../df/d48/LuaMath_8cpp.html">LuaMath.cpp</a> galaxy.</p>
 <p>LuaError.cpp galaxy.</p>
@@ -741,6 +751,8 @@ Functions</h2></td></tr>
 <p><a class="el" href="../../df/de8/Input_8cpp.html">Input.cpp</a> galaxy.</p>
 <p><a class="el" href="../../db/d20/Clipboard_8hpp.html">Clipboard.hpp</a> galaxy.</p>
 <p><a class="el" href="../../df/d0a/Clipboard_8cpp.html">Clipboard.cpp</a> galaxy.</p>
+<p><a class="el" href="../../d4/d6e/Shader_8hpp.html">Shader.hpp</a> galaxy.</p>
+<p><a class="el" href="../../dd/d84/Shader_8cpp.html">Shader.cpp</a> galaxy.</p>
 <p><a class="el" href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a> galaxy.</p>
 <p><a class="el" href="../../d5/deb/VirtualFileSystem_8cpp.html">VirtualFileSystem.cpp</a> galaxy.</p>
 <p><a class="el" href="../../da/dc2/FileUtils_8hpp.html">FileUtils.hpp</a> galaxy.</p>
@@ -1605,6 +1617,226 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a41609beb1e7e0da65c0d3ce249b057bb" name="a41609beb1e7e0da65c0d3ce249b057bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41609beb1e7e0da65c0d3ce249b057bb">&#9670;&#160;</a></span>Shader::set_uniform&lt; ray::Vector2 &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331">galaxy::Shader::set_uniform</a>&lt; ray::Vector2 &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ray::Vector2 &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d6e/Shader_8hpp_source.html#l00164">164</a> of file <a class="el" href="../../d4/d6e/Shader_8hpp_source.html">Shader.hpp</a>.</p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a41609beb1e7e0da65c0d3ce249b057bb_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a41609beb1e7e0da65c0d3ce249b057bb_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a41609beb1e7e0da65c0d3ce249b057bb_cgraph" id="ad0/d46/namespacegalaxy_a41609beb1e7e0da65c0d3ce249b057bb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="204,5,351,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a472fdee96e6184e9ef3e250d64b18ece" name="a472fdee96e6184e9ef3e250d64b18ece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472fdee96e6184e9ef3e250d64b18ece">&#9670;&#160;</a></span>Shader::set_uniform&lt; ray::Vector3 &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331">galaxy::Shader::set_uniform</a>&lt; ray::Vector3 &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ray::Vector3 &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d6e/Shader_8hpp_source.html#l00170">170</a> of file <a class="el" href="../../d4/d6e/Shader_8hpp_source.html">Shader.hpp</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a472fdee96e6184e9ef3e250d64b18ece_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a472fdee96e6184e9ef3e250d64b18ece_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a472fdee96e6184e9ef3e250d64b18ece_cgraph" id="ad0/d46/namespacegalaxy_a472fdee96e6184e9ef3e250d64b18ece_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="204,5,351,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8b144dedb16ccafc15fd33dc4e932248" name="a8b144dedb16ccafc15fd33dc4e932248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b144dedb16ccafc15fd33dc4e932248">&#9670;&#160;</a></span>Shader::set_uniform&lt; ray::Vector4 &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331">galaxy::Shader::set_uniform</a>&lt; ray::Vector4 &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ray::Vector4 &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d6e/Shader_8hpp_source.html#l00176">176</a> of file <a class="el" href="../../d4/d6e/Shader_8hpp_source.html">Shader.hpp</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a8b144dedb16ccafc15fd33dc4e932248_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a8b144dedb16ccafc15fd33dc4e932248_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a8b144dedb16ccafc15fd33dc4e932248_cgraph" id="ad0/d46/namespacegalaxy_a8b144dedb16ccafc15fd33dc4e932248_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="204,5,351,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aefe3ef13344ebc9d1f4ece79b38ee07e" name="aefe3ef13344ebc9d1f4ece79b38ee07e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe3ef13344ebc9d1f4ece79b38ee07e">&#9670;&#160;</a></span>Shader::set_uniform&lt; ray::Matrix &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331">galaxy::Shader::set_uniform</a>&lt; ray::Matrix &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ray::Matrix &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d6e/Shader_8hpp_source.html#l00182">182</a> of file <a class="el" href="../../d4/d6e/Shader_8hpp_source.html">Shader.hpp</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_aefe3ef13344ebc9d1f4ece79b38ee07e_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_aefe3ef13344ebc9d1f4ece79b38ee07e_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_aefe3ef13344ebc9d1f4ece79b38ee07e_cgraph" id="ad0/d46/namespacegalaxy_aefe3ef13344ebc9d1f4ece79b38ee07e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="204,5,351,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad9cb6dfbd90c009fa55aacc5fdf3f8d5" name="ad9cb6dfbd90c009fa55aacc5fdf3f8d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9cb6dfbd90c009fa55aacc5fdf3f8d5">&#9670;&#160;</a></span>Shader::set_uniform&lt; ray::Texture2D &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331">galaxy::Shader::set_uniform</a>&lt; ray::Texture2D &gt; </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ray::Texture2D &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d6e/Shader_8hpp_source.html#l00188">188</a> of file <a class="el" href="../../d4/d6e/Shader_8hpp_source.html">Shader.hpp</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_ad9cb6dfbd90c009fa55aacc5fdf3f8d5_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ad9cb6dfbd90c009fa55aacc5fdf3f8d5_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_ad9cb6dfbd90c009fa55aacc5fdf3f8d5_cgraph" id="ad0/d46/namespacegalaxy_ad9cb6dfbd90c009fa55aacc5fdf3f8d5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" href="../../d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="204,5,351,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a6319b32641882789298150a015a96f74" name="a6319b32641882789298150a015a96f74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6319b32641882789298150a015a96f74">&#9670;&#160;</a></span>get_loglevel_colour()</h2>
 
@@ -1631,10 +1863,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d00/LogLevel_8hpp_source.html#l00047">47</a> of file <a class="el" href="../../d8/d00/LogLevel_8hpp_source.html">LogLevel.hpp</a>.</p>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a6319b32641882789298150a015a96f74_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a6319b32641882789298150a015a96f74_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a6319b32641882789298150a015a96f74_icgraph" id="ad0/d46/namespacegalaxy_a6319b32641882789298150a015a96f74_icgraph">
 <area shape="rect" title=" " alt="" coords="177,5,331,45"/>
@@ -1668,11 +1900,11 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_cgraph" id="ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,200,31"/>
@@ -1680,35 +1912,34 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <area shape="poly" title=" " alt="" coords="200,15,235,15,235,21,200,21"/>
 </map>
 </div>
-<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph" id="ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph">
-<area shape="rect" title=" " alt="" coords="1005,191,1200,216"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,191,957,216"/>
-<area shape="poly" title=" " alt="" coords="992,206,958,206,958,201,992,201"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" title=" " alt="" coords="786,191,734,181,735,176,787,185"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,227,728,252"/>
-<area shape="poly" title=" " alt="" coords="784,221,729,231,728,226,783,216"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
+<area shape="rect" title=" " alt="" coords="1005,141,1200,167"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,141,957,167"/>
+<area shape="poly" title=" " alt="" coords="992,157,958,157,958,151,992,151"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,104,735,129"/>
+<area shape="poly" title=" " alt="" coords="786,141,734,132,735,127,787,136"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,177,728,203"/>
+<area shape="poly" title=" " alt="" coords="784,172,729,182,728,176,783,166"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,97,547,137"/>
+<area shape="poly" title=" " alt="" coords="581,119,547,119,547,114,581,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,104,356,129"/>
+<area shape="poly" title=" " alt="" coords="390,119,356,119,356,114,390,114"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
+<area shape="poly" title=" " alt="" coords="261,98,222,70,176,44,146,33,148,28,178,40,225,66,264,93"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" title=" " alt="" coords="698,216,689,208,665,205,645,207,634,212,632,218,638,225,633,228,627,218,630,208,643,202,665,200,691,204,702,212"/>
+<area shape="poly" title=" " alt="" coords="225,103,143,83,144,77,226,98"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,114,212,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="28,203,155,228"/>
+<area shape="poly" title=" " alt="" coords="264,140,224,167,178,192,145,205,143,200,176,188,222,162,261,136"/>
+<area shape="poly" title=" " alt="" coords="698,167,689,159,665,156,645,158,634,163,632,168,638,176,633,179,627,169,630,159,643,153,665,151,691,154,702,163"/>
 </map>
 </div>
 
@@ -1737,11 +1968,11 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_cgraph" id="ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,156,45"/>
@@ -1749,104 +1980,34 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
 </map>
 </div>
-<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph" id="ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph">
-<area shape="rect" title=" " alt="" coords="1005,183,1156,223"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,191,957,216"/>
-<area shape="poly" title=" " alt="" coords="991,206,957,206,957,201,991,201"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" title=" " alt="" coords="786,191,734,181,735,176,787,185"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,227,728,252"/>
-<area shape="poly" title=" " alt="" coords="784,221,729,231,728,226,783,216"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
+<area shape="rect" title=" " alt="" coords="1005,134,1156,174"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,141,957,167"/>
+<area shape="poly" title=" " alt="" coords="991,157,957,157,957,151,991,151"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,104,735,129"/>
+<area shape="poly" title=" " alt="" coords="786,141,734,132,735,127,787,136"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,177,728,203"/>
+<area shape="poly" title=" " alt="" coords="784,172,729,182,728,176,783,166"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,97,547,137"/>
+<area shape="poly" title=" " alt="" coords="581,119,547,119,547,114,581,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,104,356,129"/>
+<area shape="poly" title=" " alt="" coords="390,119,356,119,356,114,390,114"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
+<area shape="poly" title=" " alt="" coords="261,98,222,70,176,44,146,33,148,28,178,40,225,66,264,93"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" title=" " alt="" coords="698,216,689,208,665,205,645,207,634,212,632,218,638,225,633,228,627,218,630,208,643,202,665,200,691,204,702,212"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae75c97fd983f82b9ac19a20d72886c49" name="ae75c97fd983f82b9ac19a20d72886c49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae75c97fd983f82b9ac19a20d72886c49">&#9670;&#160;</a></span>editor_path_wrapper()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string galaxy::editor_path_wrapper </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
-<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_cgraph" loading="lazy" alt=""/></div>
-<map name="ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_cgraph" id="ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,152,45"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#aba7589e93d0cea374b1cf93e94421f99" title="Directory for editor specific stuff." alt="" coords="200,13,396,38"/>
-<area shape="poly" title=" " alt="" coords="152,23,186,23,186,28,152,28"/>
-</map>
-</div>
-<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph" loading="lazy" alt=""/></div>
-<map name="ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph" id="ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph">
-<area shape="rect" title=" " alt="" coords="1005,183,1152,223"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,191,957,216"/>
-<area shape="poly" title=" " alt="" coords="992,206,957,206,957,201,992,201"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" title=" " alt="" coords="786,191,734,181,735,176,787,185"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,227,728,252"/>
-<area shape="poly" title=" " alt="" coords="784,221,729,231,728,226,783,216"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" title=" " alt="" coords="698,216,689,208,665,205,645,207,634,212,632,218,638,225,633,228,627,218,630,208,643,202,665,200,691,204,702,212"/>
+<area shape="poly" title=" " alt="" coords="225,103,143,83,144,77,226,98"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,114,212,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="28,203,155,228"/>
+<area shape="poly" title=" " alt="" coords="264,140,224,167,178,192,145,205,143,200,176,188,222,162,261,136"/>
+<area shape="poly" title=" " alt="" coords="698,167,689,159,665,156,645,158,634,163,632,168,638,176,633,179,627,169,630,159,643,153,665,151,691,154,702,163"/>
 </map>
 </div>
 
@@ -1876,10 +2037,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html#l00022">22</a> of file <a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html">LuaFS.cpp</a>.</p>
-<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_cgraph" id="ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,163,45"/>
@@ -1887,35 +2048,34 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <area shape="poly" title=" " alt="" coords="163,23,197,23,197,28,163,28"/>
 </map>
 </div>
-<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph" id="ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph">
-<area shape="rect" title=" " alt="" coords="989,183,1147,223"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="783,191,941,216"/>
-<area shape="poly" title=" " alt="" coords="976,206,942,206,942,201,976,201"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" title=" " alt="" coords="780,191,732,181,733,176,781,185"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,227,728,252"/>
-<area shape="poly" title=" " alt="" coords="779,221,729,230,728,225,778,216"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
+<area shape="rect" title=" " alt="" coords="989,134,1147,174"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="783,141,941,167"/>
+<area shape="poly" title=" " alt="" coords="976,157,942,157,942,151,976,151"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,104,735,129"/>
+<area shape="poly" title=" " alt="" coords="780,141,732,132,733,127,781,136"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,177,728,203"/>
+<area shape="poly" title=" " alt="" coords="779,172,729,181,728,176,778,167"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,97,547,137"/>
+<area shape="poly" title=" " alt="" coords="581,119,547,119,547,114,581,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,104,356,129"/>
+<area shape="poly" title=" " alt="" coords="390,119,356,119,356,114,390,114"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
+<area shape="poly" title=" " alt="" coords="261,98,222,70,176,44,146,33,148,28,178,40,225,66,264,93"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" title=" " alt="" coords="698,216,689,208,665,205,645,207,634,212,632,218,638,225,633,228,627,218,630,208,643,202,665,200,691,204,702,212"/>
+<area shape="poly" title=" " alt="" coords="225,103,143,83,144,77,226,98"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,114,212,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="28,203,155,228"/>
+<area shape="poly" title=" " alt="" coords="264,140,224,167,178,192,145,205,143,200,176,188,222,162,261,136"/>
+<area shape="poly" title=" " alt="" coords="698,167,689,159,665,156,645,158,634,163,632,168,638,176,633,179,627,169,630,159,643,153,665,151,691,154,702,163"/>
 </map>
 </div>
 
@@ -1941,36 +2101,34 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html">LuaLogging.cpp</a>.</p>
-<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph" id="ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph">
-<area shape="rect" title=" " alt="" coords="1159,153,1312,179"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8" title="Injects logging into Lua." alt="" coords="971,146,1111,186"/>
-<area shape="poly" title=" " alt="" coords="1145,169,1111,169,1111,163,1145,163"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" title=" " alt="" coords="957,156,922,153,853,149,783,153,735,158,735,152,782,147,853,144,923,147,957,151"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="783,186,923,226"/>
-<area shape="poly" title=" " alt="" coords="958,186,924,194,923,188,957,181"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
+<area shape="rect" title=" " alt="" coords="971,145,1124,171"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8" title="Injects logging into Lua." alt="" coords="783,138,923,178"/>
+<area shape="poly" title=" " alt="" coords="957,161,923,161,923,155,957,155"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,104,735,129"/>
+<area shape="poly" title=" " alt="" coords="768,142,722,132,724,127,769,137"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="595,178,735,218"/>
+<area shape="poly" title=" " alt="" coords="770,178,736,186,735,180,769,173"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,97,547,137"/>
+<area shape="poly" title=" " alt="" coords="581,119,547,119,547,114,581,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,104,356,129"/>
+<area shape="poly" title=" " alt="" coords="390,119,356,119,356,114,390,114"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
+<area shape="poly" title=" " alt="" coords="261,98,222,70,176,44,146,33,148,28,178,40,225,66,264,93"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" title=" " alt="" coords="769,191,724,181,725,176,770,186"/>
-<area shape="poly" title=" " alt="" coords="884,174,873,167,853,165,835,167,824,171,820,177,822,185,817,186,815,176,821,167,834,161,853,159,875,162,887,170"/>
+<area shape="poly" title=" " alt="" coords="225,103,143,83,144,77,226,98"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,114,212,114"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="28,203,155,228"/>
+<area shape="poly" title=" " alt="" coords="264,140,224,167,178,192,145,205,143,200,176,188,222,162,261,136"/>
+<area shape="poly" title=" " alt="" coords="696,166,685,159,665,157,647,159,636,163,632,169,634,177,629,178,627,168,633,159,646,153,665,151,687,154,699,162"/>
 </map>
 </div>
 
@@ -1996,10 +2154,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph" id="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph">
 <area shape="rect" title=" " alt="" coords="212,5,357,31"/>
@@ -2030,10 +2188,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph" id="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph">
 <area shape="rect" title=" " alt="" coords="212,5,352,31"/>
@@ -2068,10 +2226,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph" id="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph">
 <area shape="rect" title=" " alt="" coords="212,5,375,31"/>
@@ -2106,10 +2264,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph" id="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph">
 <area shape="rect" title=" " alt="" coords="212,5,363,31"/>
@@ -2144,10 +2302,10 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph" id="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph">
 <area shape="rect" title=" " alt="" coords="212,5,347,31"/>

@@ -44,6 +44,7 @@ var hierarchy =
     [ "galaxy::Script", "db/da2/classgalaxy_1_1Script.html", null ],
     [ "galaxy::meta::EntityFactory::SerializationData", "d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html", null ],
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
+    [ "galaxy::Shader", "d1/d5e/classgalaxy_1_1Shader.html", null ],
     [ "galaxy::Sink", "d2/d42/classgalaxy_1_1Sink.html", [
       [ "galaxy::ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", null ],
       [ "galaxy::FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", null ]
@@ -69,7 +70,6 @@ var hierarchy =
     [ "galaxy::Timer", "d0/d7b/classgalaxy_1_1Timer.html", null ],
     [ "galaxy::UUID", "dd/da7/classgalaxy_1_1UUID.html", null ],
     [ "galaxy::VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", null ],
-    [ "galaxy::Window", "d0/d84/classgalaxy_1_1Window.html", null ],
     [ "galaxy::WindowBindable", "d3/d81/classgalaxy_1_1WindowBindable.html", [
       [ "galaxy::Keyboard", "d8/db2/classgalaxy_1_1Keyboard.html", null ],
       [ "galaxy::Mouse", "d4/d5d/classgalaxy_1_1Mouse.html", null ]

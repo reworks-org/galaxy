@@ -1,25 +1,24 @@
 <map id="galaxy::VirtualFileSystem::write_binary" name="galaxy::VirtualFileSystem::write_binary">
-<area shape="rect" id="Node000001" title="Writes a binary file to disk." alt="" coords="989,183,1177,223"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="783,191,941,216"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="976,206,941,206,941,201,976,201"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,153,735,179"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="780,191,732,181,733,176,781,185"/>
-<area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,227,728,252"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="779,221,729,230,728,225,778,216"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,146,547,186"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="581,169,547,169,547,163,581,163"/>
-<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="390,151,353,144,354,139,391,146"/>
-<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" id="edge10_Node000004_Node000008" title=" " alt="" coords="390,179,178,207,177,202,390,174"/>
+<area shape="rect" id="Node000001" title="Writes a binary file to disk." alt="" coords="989,134,1177,174"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="783,141,941,167"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="976,157,941,157,941,151,976,151"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,104,735,129"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="780,141,732,132,733,127,781,136"/>
+<area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,177,728,203"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="779,172,729,181,728,176,778,167"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,97,547,137"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="581,119,547,119,547,114,581,114"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,104,356,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="390,119,356,119,356,114,390,114"/>
 <area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="261,98,222,70,176,44,146,33,148,28,178,40,225,66,264,93"/>
 <area shape="rect" id="Node000007" href="$dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" id="Node000009" href="$dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="698,216,689,208,665,205,645,207,634,212,632,218,638,225,633,228,627,218,630,208,643,202,665,200,691,204,702,212"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="225,103,143,83,144,77,226,98"/>
+<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="212,119,178,119,178,114,212,114"/>
+<area shape="rect" id="Node000009" href="$dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
+<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="28,203,155,228"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="264,140,224,167,178,192,145,205,143,200,176,188,222,162,261,136"/>
+<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="698,167,689,159,665,156,645,158,634,163,632,168,638,176,633,179,627,169,630,159,643,153,665,151,691,154,702,163"/>
 </map>
