@@ -158,17 +158,6 @@ namespace galaxy
 		std::optional<ray::Font> load_ray_font(const std::string& filename, int font_size, std::span<int> font_chars) noexcept;
 
 		///
-		/// Load a Shader from VFS. You must manually free the data after.
-		///
-		/// \param vs_file The name of the vs file to load.
-		/// \param fs_file The name of the fs file to load.
-		///
-		/// \return The Shader object.
-		///
-		[[nodiscard]]
-		std::optional<ray::Shader> load_ray_shader(const std::string& vs_file, const std::string& fs_file) noexcept;
-
-		///
 		/// \brief Creates an empty folder in the filesystem relative to the root.
 		///
 		/// All missing parent directories are also created if they don't exist.

@@ -383,36 +383,6 @@ namespace galaxy
 		return std::nullopt;
 	}
 
-	std::optional<ray::Shader> VirtualFileSystem::load_ray_shader(const std::string& vs_file, const std::string& fs_file) noexcept
-	{
-		auto vs_data = read(vs_file);
-		if (vs_data.empty())
-		{
-			GALAXY_LOG(GALAXY_ERROR, "Failed to read vertex shader {0}.", vs_file);
-		}
-
-		auto fs_data = read(fs_file);
-		if (fs_data.empty())
-		{
-			GALAXY_LOG(GALAXY_ERROR, "Failed to read frag shader {0}.", fs_data);
-		}
-
-		if (!vs_data.empty() && !fs_data.empty())
-		{
-			ray::Shader shader = ray::LoadShaderFromMemory(vs_data.data(), fs_data.data());
-			if (shader.id != 0)
-			{
-				return std::make_optional(shader);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to load shader from memory {0} | {1}.", vs_file, fs_file);
-			}
-		}
-
-		return std::nullopt;
-	}
-
 	void VirtualFileSystem::mkdir(const std::string& dir) noexcept
 	{
 		if (!exists(dir))
