@@ -14,7 +14,24 @@
 namespace galaxy
 {
 	Shader::Shader() noexcept
+		: m_shader {}
 	{
+	}
+
+	Shader::Shader(const std::string& file) noexcept
+	{
+		if (!load(file))
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load {0} in shader constructor.", file);
+		}
+	}
+
+	Shader::Shader(const std::string& vertex, const std::string& frag) noexcept
+	{
+		if (!load(vertex, frag))
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load in raw shader constructor.");
+		}
 	}
 
 	Shader::Shader(Shader&& s) noexcept

@@ -8,6 +8,7 @@
 #ifndef GALAXY_FS_VIRTUALFILESYSTEM_HPP_
 #define GALAXY_FS_VIRTUALFILESYSTEM_HPP_
 
+#include <optional>
 #include <span>
 #include <string>
 #include <vector>

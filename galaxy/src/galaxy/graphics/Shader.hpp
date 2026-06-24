@@ -29,6 +29,21 @@ namespace galaxy
 		Shader() noexcept;
 
 		///
+		/// Loads a combined shader from a file.
+		///
+		/// \param file Path to a combined shader file.
+		///
+		Shader(const std::string& file) noexcept;
+
+		///
+		/// Loads shader code from separate files.
+		///
+		/// \param vertex Vertex shader source.
+		/// \param frag Fragment shader source.
+		///
+		Shader(const std::string& vertex, const std::string& frag) noexcept;
+
+		///
 		/// Move constructor.
 		///
 		Shader(Shader&&) noexcept;
@@ -44,9 +59,9 @@ namespace galaxy
 		~Shader() noexcept;
 
 		///
-		/// Loads a combined shader.
+		/// Loads a combined shader file.
 		///
-		/// \param file Path to a combined shader source.
+		/// \param file Path to a combined shader file.
 		///
 		/// \return True if successful.
 		///
@@ -54,10 +69,10 @@ namespace galaxy
 		bool load(const std::string& file) noexcept;
 
 		///
-		/// Loads an OpenGL shader.
+		/// Loads shader code from separate files.
 		///
-		/// \param vertex Vertex shader.
-		/// \param frag Fragment shader.
+		/// \param vertex Vertex shader source.
+		/// \param frag Fragment shader source.
 		///
 		/// \return True if successful.
 		///
