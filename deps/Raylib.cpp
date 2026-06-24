@@ -5,10 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#define RL_TEXT_IMPLEMENTATION
-#define RAYLIB_NUKLEAR_IMPLEMENTATION
-
 #include <raylib.h>
+#include <raymath.h>
+#include <rcamera.h>
 
 #include "Raylib.hpp"
 
@@ -3158,5 +3157,922 @@ namespace ray
 	void DetachAudioMixedProcessor(AudioCallback processor)
 	{
 		::DetachAudioMixedProcessor(reinterpret_cast<::AudioCallback&>(processor));
+	}
+
+	float Clamp(float value, float min, float max)
+	{
+		return ::Clamp(value, min, max);
+	}
+
+	float Lerp(float start, float end, float amount)
+	{
+		return ::Lerp(start, end, amount);
+	}
+
+	float Normalize(float value, float start, float end)
+	{
+		return ::Normalize(value, start, end);
+	}
+
+	float Remap(float value, float inputStart, float inputEnd, float outputStart, float outputEnd)
+	{
+		return ::Remap(value, inputStart, inputEnd, outputStart, outputEnd);
+	}
+
+	float Wrap(float value, float min, float max)
+	{
+		return ::Wrap(value, min, max);
+	}
+
+	int FloatEquals(float x, float y)
+	{
+		return ::FloatEquals(x, y);
+	}
+
+	Vector2 Vector2Zero(void)
+	{
+		return ray::Vector2 {0.0f, 0.0f};
+	}
+
+	Vector2 Vector2One(void)
+	{
+		return ray::Vector2 {1.0f, 1.0f};
+	}
+
+	Vector2 Vector2Add(Vector2 v1, Vector2 v2)
+	{
+		::Vector2 temp = ::Vector2Add(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2AddValue(Vector2 v, float add)
+	{
+		::Vector2 temp = ::Vector2AddValue(reinterpret_cast<::Vector2&>(v), add);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Subtract(Vector2 v1, Vector2 v2)
+	{
+		::Vector2 temp = ::Vector2Subtract(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2SubtractValue(Vector2 v, float sub)
+	{
+		::Vector2 temp = ::Vector2SubtractValue(reinterpret_cast<::Vector2&>(v), sub);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	float Vector2Length(Vector2 v)
+	{
+		return ::Vector2Length(reinterpret_cast<::Vector2&>(v));
+	}
+
+	float Vector2LengthSqr(Vector2 v)
+	{
+		return ::Vector2LengthSqr(reinterpret_cast<::Vector2&>(v));
+	}
+
+	float Vector2DotProduct(Vector2 v1, Vector2 v2)
+	{
+		return ::Vector2DotProduct(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+	}
+
+	float Vector2CrossProduct(Vector2 v1, Vector2 v2)
+	{
+		return ::Vector2CrossProduct(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+	}
+
+	float Vector2Distance(Vector2 v1, Vector2 v2)
+	{
+		return ::Vector2Distance(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+	}
+
+	float Vector2DistanceSqr(Vector2 v1, Vector2 v2)
+	{
+		return ::Vector2DistanceSqr(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+	}
+
+	float Vector2Angle(Vector2 v1, Vector2 v2)
+	{
+		return ::Vector2Angle(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+	}
+
+	float Vector2LineAngle(Vector2 start, Vector2 end)
+	{
+		return ::Vector2LineAngle(reinterpret_cast<::Vector2&>(start), reinterpret_cast<::Vector2&>(end));
+	}
+
+	Vector2 Vector2Scale(Vector2 v, float scale)
+	{
+		::Vector2 temp = ::Vector2Scale(reinterpret_cast<::Vector2&>(v), scale);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Multiply(Vector2 v1, Vector2 v2)
+	{
+		::Vector2 temp = ::Vector2Multiply(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Negate(Vector2 v)
+	{
+		::Vector2 temp = ::Vector2Negate(reinterpret_cast<::Vector2&>(v));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Divide(Vector2 v1, Vector2 v2)
+	{
+		::Vector2 temp = ::Vector2Divide(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Normalize(Vector2 v)
+	{
+		::Vector2 temp = ::Vector2Normalize(reinterpret_cast<::Vector2&>(v));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Transform(Vector2 v, Matrix mat)
+	{
+		::Vector2 temp = ::Vector2Transform(reinterpret_cast<::Vector2&>(v), reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Lerp(Vector2 v1, Vector2 v2, float amount)
+	{
+		::Vector2 temp = ::Vector2Lerp(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2), amount);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Reflect(Vector2 v, Vector2 normal)
+	{
+		::Vector2 temp = ::Vector2Reflect(reinterpret_cast<::Vector2&>(v), reinterpret_cast<::Vector2&>(normal));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Min(Vector2 v1, Vector2 v2)
+	{
+		::Vector2 temp = ::Vector2Min(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Max(Vector2 v1, Vector2 v2)
+	{
+		::Vector2 temp = ::Vector2Max(reinterpret_cast<::Vector2&>(v1), reinterpret_cast<::Vector2&>(v2));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Rotate(Vector2 v, float angle)
+	{
+		::Vector2 temp = ::Vector2Rotate(reinterpret_cast<::Vector2&>(v), angle);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2MoveTowards(Vector2 v, Vector2 target, float maxDistance)
+	{
+		::Vector2 temp = ::Vector2MoveTowards(reinterpret_cast<::Vector2&>(v), reinterpret_cast<::Vector2&>(target), maxDistance);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Invert(Vector2 v)
+	{
+		::Vector2 temp = ::Vector2Invert(reinterpret_cast<::Vector2&>(v));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2Clamp(Vector2 v, Vector2 min, Vector2 max)
+	{
+		::Vector2 temp = ::Vector2Clamp(reinterpret_cast<::Vector2&>(v), reinterpret_cast<::Vector2&>(min), reinterpret_cast<::Vector2&>(max));
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector2 Vector2ClampValue(Vector2 v, float min, float max)
+	{
+		::Vector2 temp = ::Vector2ClampValue(reinterpret_cast<::Vector2&>(v), min, max);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	int Vector2Equals(Vector2 p, Vector2 q)
+	{
+		return ::Vector2Equals(reinterpret_cast<::Vector2&>(p), reinterpret_cast<::Vector2&>(q));
+	}
+
+	Vector2 Vector2Refract(Vector2 v, Vector2 n, float r)
+	{
+		::Vector2 temp = ::Vector2Refract(reinterpret_cast<::Vector2&>(v), reinterpret_cast<::Vector2&>(n), r);
+		return reinterpret_cast<Vector2&>(temp);
+	}
+
+	Vector3 Vector3Zero(void)
+	{
+		return Vector3 {0.0f, 0.0f, 0.0f};
+	}
+
+	Vector3 Vector3One(void)
+	{
+		return Vector3 {1.0f, 1.0f, 1.0f};
+	}
+
+	Vector3 Vector3Add(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Add(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3AddValue(Vector3 v, float add)
+	{
+		::Vector3 temp = ::Vector3AddValue(reinterpret_cast<::Vector3&>(v), add);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Subtract(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Subtract(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3SubtractValue(Vector3 v, float sub)
+	{
+		::Vector3 temp = ::Vector3SubtractValue(reinterpret_cast<::Vector3&>(v), sub);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Scale(Vector3 v, float scalar)
+	{
+		::Vector3 temp = ::Vector3Scale(reinterpret_cast<::Vector3&>(v), scalar);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Multiply(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Multiply(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3CrossProduct(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3CrossProduct(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Perpendicular(Vector3 v)
+	{
+		::Vector3 temp = ::Vector3Perpendicular(reinterpret_cast<::Vector3&>(v));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	float Vector3Length(const Vector3 v)
+	{
+		return ::Vector3Length(reinterpret_cast<const ::Vector3&>(v));
+	}
+
+	float Vector3LengthSqr(const Vector3 v)
+	{
+		return ::Vector3LengthSqr(reinterpret_cast<const ::Vector3&>(v));
+	}
+
+	float Vector3DotProduct(Vector3 v1, Vector3 v2)
+	{
+		return ::Vector3DotProduct(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+	}
+
+	float Vector3Distance(Vector3 v1, Vector3 v2)
+	{
+		return ::Vector3Distance(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+	}
+
+	float Vector3DistanceSqr(Vector3 v1, Vector3 v2)
+	{
+		return ::Vector3DistanceSqr(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+	}
+
+	float Vector3Angle(Vector3 v1, Vector3 v2)
+	{
+		return ::Vector3Angle(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+	}
+
+	Vector3 Vector3Negate(Vector3 v)
+	{
+		::Vector3 temp = ::Vector3Negate(reinterpret_cast<::Vector3&>(v));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Divide(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Divide(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Normalize(Vector3 v)
+	{
+		::Vector3 temp = ::Vector3Normalize(reinterpret_cast<::Vector3&>(v));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Project(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Project(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Reject(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Reject(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	void Vector3OrthoNormalize(Vector3* v1, Vector3* v2)
+	{
+		::Vector3OrthoNormalize(reinterpret_cast<::Vector3*>(v1), reinterpret_cast<::Vector3*>(v2));
+	}
+
+	Vector3 Vector3Transform(Vector3 v, Matrix mat)
+	{
+		::Vector3 temp = ::Vector3Transform(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3RotateByQuaternion(Vector3 v, Quaternion q)
+	{
+		::Vector3 temp = ::Vector3RotateByQuaternion(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Quaternion&>(q));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3RotateByAxisAngle(Vector3 v, Vector3 axis, float angle)
+	{
+		::Vector3 temp = ::Vector3RotateByAxisAngle(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Vector3&>(axis), angle);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3MoveTowards(Vector3 v, Vector3 target, float maxDistance)
+	{
+		::Vector3 temp = ::Vector3MoveTowards(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Vector3&>(target), maxDistance);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Lerp(Vector3 v1, Vector3 v2, float amount)
+	{
+		::Vector3 temp = ::Vector3Lerp(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2), amount);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3CubicHermite(Vector3 v1, Vector3 tangent1, Vector3 v2, Vector3 tangent2, float amount)
+	{
+		::Vector3 temp = ::Vector3CubicHermite(
+			reinterpret_cast<::Vector3&>(v1),
+			reinterpret_cast<::Vector3&>(tangent1),
+			reinterpret_cast<::Vector3&>(v2),
+			reinterpret_cast<::Vector3&>(tangent2),
+			amount
+		);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Reflect(Vector3 v, Vector3 normal)
+	{
+		::Vector3 temp = ::Vector3Reflect(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Vector3&>(normal));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Min(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Min(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Max(Vector3 v1, Vector3 v2)
+	{
+		::Vector3 temp = ::Vector3Max(reinterpret_cast<::Vector3&>(v1), reinterpret_cast<::Vector3&>(v2));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Barycenter(Vector3 p, Vector3 a, Vector3 b, Vector3 c)
+	{
+		::Vector3 temp = ::Vector3Barycenter(reinterpret_cast<::Vector3&>(p), reinterpret_cast<::Vector3&>(a), reinterpret_cast<::Vector3&>(b), reinterpret_cast<::Vector3&>(c));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Unproject(Vector3 source, Matrix projection, Matrix view)
+	{
+		::Vector3 temp = ::Vector3Unproject(reinterpret_cast<::Vector3&>(source), reinterpret_cast<::Matrix&>(projection), reinterpret_cast<::Matrix&>(view));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	float3 Vector3ToFloatV(Vector3 v)
+	{
+		::float3 temp = ::Vector3ToFloatV(reinterpret_cast<::Vector3&>(v));
+		return reinterpret_cast<float3&>(temp);
+	}
+
+	Vector3 Vector3Invert(Vector3 v)
+	{
+		::Vector3 temp = ::Vector3Invert(reinterpret_cast<::Vector3&>(v));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3Clamp(Vector3 v, Vector3 min, Vector3 max)
+	{
+		::Vector3 temp = ::Vector3Clamp(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Vector3&>(min), reinterpret_cast<::Vector3&>(max));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 Vector3ClampValue(Vector3 v, float min, float max)
+	{
+		::Vector3 temp = ::Vector3ClampValue(reinterpret_cast<::Vector3&>(v), min, max);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	int Vector3Equals(Vector3 p, Vector3 q)
+	{
+		return ::Vector3Equals(reinterpret_cast<::Vector3&>(p), reinterpret_cast<::Vector3&>(q));
+	}
+
+	Vector3 Vector3Refract(Vector3 v, Vector3 n, float r)
+	{
+		::Vector3 temp = ::Vector3Refract(reinterpret_cast<::Vector3&>(v), reinterpret_cast<::Vector3&>(n), r);
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector4 Vector4Zero(void)
+	{
+		return ray::Vector4 {0.0f, 0.0f, 0.0f, 0.0f};
+	}
+
+	Vector4 Vector4One(void)
+	{
+		return ray::Vector4 {1.0f, 1.0f, 1.0f, 1.0f};
+	}
+
+	Vector4 Vector4Add(Vector4 v1, Vector4 v2)
+	{
+		::Vector4 temp = ::Vector4Add(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4AddValue(Vector4 v, float add)
+	{
+		::Vector4 temp = ::Vector4AddValue(reinterpret_cast<::Vector4&>(v), add);
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Subtract(Vector4 v1, Vector4 v2)
+	{
+		::Vector4 temp = ::Vector4Subtract(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4SubtractValue(Vector4 v, float add)
+	{
+		::Vector4 temp = ::Vector4SubtractValue(reinterpret_cast<::Vector4&>(v), add);
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	float Vector4Length(Vector4 v)
+	{
+		return ::Vector4Length(reinterpret_cast<::Vector4&>(v));
+	}
+
+	float Vector4LengthSqr(Vector4 v)
+	{
+		return ::Vector4LengthSqr(reinterpret_cast<::Vector4&>(v));
+	}
+
+	float Vector4DotProduct(Vector4 v1, Vector4 v2)
+	{
+		return ::Vector4DotProduct(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+	}
+
+	float Vector4Distance(Vector4 v1, Vector4 v2)
+	{
+		return ::Vector4Distance(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+	}
+
+	float Vector4DistanceSqr(Vector4 v1, Vector4 v2)
+	{
+		return ::Vector4DistanceSqr(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+	}
+
+	Vector4 Vector4Scale(Vector4 v, float scale)
+	{
+		::Vector4 temp = ::Vector4Scale(reinterpret_cast<::Vector4&>(v), scale);
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Multiply(Vector4 v1, Vector4 v2)
+	{
+		::Vector4 temp = ::Vector4Multiply(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Negate(Vector4 v)
+	{
+		::Vector4 temp = ::Vector4Negate(reinterpret_cast<::Vector4&>(v));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Divide(Vector4 v1, Vector4 v2)
+	{
+		::Vector4 temp = ::Vector4Divide(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Normalize(Vector4 v)
+	{
+		::Vector4 temp = ::Vector4Normalize(reinterpret_cast<::Vector4&>(v));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Min(Vector4 v1, Vector4 v2)
+	{
+		::Vector4 temp = ::Vector4Min(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Max(Vector4 v1, Vector4 v2)
+	{
+		::Vector4 temp = ::Vector4Max(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Lerp(Vector4 v1, Vector4 v2, float amount)
+	{
+		::Vector4 temp = ::Vector4Lerp(reinterpret_cast<::Vector4&>(v1), reinterpret_cast<::Vector4&>(v2), amount);
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4MoveTowards(Vector4 v, Vector4 target, float maxDistance)
+	{
+		::Vector4 temp = ::Vector4MoveTowards(reinterpret_cast<::Vector4&>(v), reinterpret_cast<::Vector4&>(target), maxDistance);
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	Vector4 Vector4Invert(Vector4 v)
+	{
+		::Vector4 temp = ::Vector4Invert(reinterpret_cast<::Vector4&>(v));
+		return reinterpret_cast<Vector4&>(temp);
+	}
+
+	int Vector4Equals(Vector4 p, Vector4 q)
+	{
+		return ::Vector4Equals(reinterpret_cast<::Vector4&>(p), reinterpret_cast<::Vector4&>(q));
+	}
+
+	float MatrixDeterminant(Matrix mat)
+	{
+		return ::MatrixDeterminant(reinterpret_cast<::Matrix&>(mat));
+	}
+
+	float MatrixTrace(Matrix mat)
+	{
+		return ::MatrixTrace(reinterpret_cast<::Matrix&>(mat));
+	}
+
+	Matrix MatrixTranspose(Matrix mat)
+	{
+		::Matrix temp = ::MatrixTranspose(reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixInvert(Matrix mat)
+	{
+		::Matrix temp = ::MatrixInvert(reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixIdentity(void)
+	{
+		::Matrix temp = ::MatrixIdentity();
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixAdd(Matrix left, Matrix right)
+	{
+		::Matrix temp = ::MatrixAdd(reinterpret_cast<::Matrix&>(left), reinterpret_cast<::Matrix&>(right));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixSubtract(Matrix left, Matrix right)
+	{
+		::Matrix temp = ::MatrixSubtract(reinterpret_cast<::Matrix&>(left), reinterpret_cast<::Matrix&>(right));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixMultiply(Matrix left, Matrix right)
+	{
+		::Matrix temp = ::MatrixMultiply(reinterpret_cast<::Matrix&>(left), reinterpret_cast<::Matrix&>(right));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixMultiplyValue(Matrix left, float value)
+	{
+		::Matrix temp = ::MatrixMultiplyValue(reinterpret_cast<::Matrix&>(left), value);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixTranslate(float x, float y, float z)
+	{
+		::Matrix temp = ::MatrixTranslate(x, y, z);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixRotate(Vector3 axis, float angle)
+	{
+		::Matrix temp = ::MatrixRotate(reinterpret_cast<::Vector3&>(axis), angle);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixRotateX(float angle)
+	{
+		::Matrix temp = ::MatrixRotateX(angle);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixRotateY(float angle)
+	{
+		::Matrix temp = ::MatrixRotateY(angle);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixRotateZ(float angle)
+	{
+		::Matrix temp = ::MatrixRotateZ(angle);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixRotateXYZ(Vector3 angle)
+	{
+		::Matrix temp = ::MatrixRotateXYZ(reinterpret_cast<::Vector3&>(angle));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixRotateZYX(Vector3 angle)
+	{
+		::Matrix temp = ::MatrixRotateZYX(reinterpret_cast<::Vector3&>(angle));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixScale(float x, float y, float z)
+	{
+		::Matrix temp = ::MatrixScale(x, y, z);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixFrustum(double left, double right, double bottom, double top, double nearPlane, double farPlane)
+	{
+		::Matrix temp = ::MatrixFrustum(left, right, bottom, top, nearPlane, farPlane);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixPerspective(double fovY, double aspect, double nearPlane, double farPlane)
+	{
+		::Matrix temp = ::MatrixPerspective(fovY, aspect, nearPlane, farPlane);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixOrtho(double left, double right, double bottom, double top, double nearPlane, double farPlane)
+	{
+		::Matrix temp = ::MatrixOrtho(left, right, bottom, top, nearPlane, farPlane);
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix MatrixLookAt(Vector3 eye, Vector3 target, Vector3 up)
+	{
+		::Matrix temp = ::MatrixLookAt(reinterpret_cast<::Vector3&>(eye), reinterpret_cast<::Vector3&>(target), reinterpret_cast<::Vector3&>(up));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	float16 MatrixToFloatV(Matrix mat)
+	{
+		::float16 temp = ::MatrixToFloatV(reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<float16&>(temp);
+	}
+
+	Matrix MatrixCompose(Vector3 translation, Quaternion rotation, Vector3 scale)
+	{
+		::Matrix temp = ::MatrixCompose(reinterpret_cast<::Vector3&>(translation), reinterpret_cast<::Quaternion&>(rotation), reinterpret_cast<::Vector3&>(scale));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	void MatrixDecompose(Matrix mat, Vector3* translation, Quaternion* rotation, Vector3* scale)
+	{
+		::MatrixDecompose(
+			reinterpret_cast<::Matrix&>(mat),
+			reinterpret_cast<::Vector3*>(translation),
+			reinterpret_cast<::Quaternion*>(rotation),
+			reinterpret_cast<::Vector3*>(scale)
+		);
+	}
+
+	Quaternion QuaternionAdd(Quaternion q1, Quaternion q2)
+	{
+		::Quaternion temp = ::QuaternionAdd(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionAddValue(Quaternion q, float add)
+	{
+		::Quaternion temp = ::QuaternionAddValue(reinterpret_cast<::Quaternion&>(q), add);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionSubtract(Quaternion q1, Quaternion q2)
+	{
+		::Quaternion temp = ::QuaternionSubtract(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionSubtractValue(Quaternion q, float sub)
+	{
+		::Quaternion temp = ::QuaternionSubtractValue(reinterpret_cast<::Quaternion&>(q), sub);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionIdentity(void)
+	{
+		::Quaternion temp = ::QuaternionIdentity();
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	float QuaternionLength(Quaternion q)
+	{
+		return ::QuaternionLength(reinterpret_cast<::Quaternion&>(q));
+	}
+
+	Quaternion QuaternionNormalize(Quaternion q)
+	{
+		::Quaternion temp = ::QuaternionNormalize(reinterpret_cast<::Quaternion&>(q));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionInvert(Quaternion q)
+	{
+		::Quaternion temp = ::QuaternionInvert(reinterpret_cast<::Quaternion&>(q));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionMultiply(Quaternion q1, Quaternion q2)
+	{
+		::Quaternion temp = ::QuaternionMultiply(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionScale(Quaternion q, float mul)
+	{
+		::Quaternion temp = ::QuaternionScale(reinterpret_cast<::Quaternion&>(q), mul);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionDivide(Quaternion q1, Quaternion q2)
+	{
+		::Quaternion temp = ::QuaternionDivide(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionLerp(Quaternion q1, Quaternion q2, float amount)
+	{
+		::Quaternion temp = ::QuaternionLerp(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2), amount);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionNlerp(Quaternion q1, Quaternion q2, float amount)
+	{
+		::Quaternion temp = ::QuaternionNlerp(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2), amount);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionSlerp(Quaternion q1, Quaternion q2, float amount)
+	{
+		::Quaternion temp = ::QuaternionSlerp(reinterpret_cast<::Quaternion&>(q1), reinterpret_cast<::Quaternion&>(q2), amount);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionCubicHermiteSpline(Quaternion q1, Quaternion outTangent1, Quaternion q2, Quaternion inTangent2, float t)
+	{
+		::Quaternion temp = ::QuaternionCubicHermiteSpline(
+			reinterpret_cast<::Quaternion&>(q1),
+			reinterpret_cast<::Quaternion&>(outTangent1),
+			reinterpret_cast<::Quaternion&>(q2),
+			reinterpret_cast<::Quaternion&>(inTangent2),
+			t
+		);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionFromVector3ToVector3(Vector3 from, Vector3 to)
+	{
+		::Quaternion temp = ::QuaternionFromVector3ToVector3(reinterpret_cast<::Vector3&>(from), reinterpret_cast<::Vector3&>(to));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Quaternion QuaternionFromMatrix(Matrix mat)
+	{
+		::Quaternion temp = ::QuaternionFromMatrix(reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Matrix QuaternionToMatrix(Quaternion q)
+	{
+		::Matrix temp = ::QuaternionToMatrix(reinterpret_cast<::Quaternion&>(q));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Quaternion QuaternionFromAxisAngle(Vector3 axis, float angle)
+	{
+		::Quaternion temp = ::QuaternionFromAxisAngle(reinterpret_cast<::Vector3&>(axis), angle);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	void QuaternionToAxisAngle(Quaternion q, Vector3* outAxis, float* outAngle)
+	{
+		::QuaternionToAxisAngle(reinterpret_cast<::Quaternion&>(q), reinterpret_cast<::Vector3*>(outAxis), outAngle);
+	}
+
+	Quaternion QuaternionFromEuler(float pitch, float yaw, float roll)
+	{
+		::Quaternion temp = ::QuaternionFromEuler(pitch, yaw, roll);
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	Vector3 QuaternionToEuler(Quaternion q)
+	{
+		::Vector3 temp = ::QuaternionToEuler(reinterpret_cast<::Quaternion&>(q));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Quaternion QuaternionTransform(Quaternion q, Matrix mat)
+	{
+		::Quaternion temp = ::QuaternionTransform(reinterpret_cast<::Quaternion&>(q), reinterpret_cast<::Matrix&>(mat));
+		return reinterpret_cast<Quaternion&>(temp);
+	}
+
+	int QuaternionEquals(Quaternion p, Quaternion q)
+	{
+		return ::QuaternionEquals(reinterpret_cast<::Quaternion&>(p), reinterpret_cast<::Quaternion&>(q));
+	}
+
+	Vector3 GetCameraForward(Camera* camera)
+	{
+		::Vector3 temp = ::GetCameraForward(reinterpret_cast<::Camera*>(camera));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 GetCameraUp(Camera* camera)
+	{
+		::Vector3 temp = ::GetCameraUp(reinterpret_cast<::Camera*>(camera));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	Vector3 GetCameraRight(Camera* camera)
+	{
+		::Vector3 temp = ::GetCameraRight(reinterpret_cast<::Camera*>(camera));
+		return reinterpret_cast<Vector3&>(temp);
+	}
+
+	void CameraMoveForward(Camera* camera, float distance, bool moveInWorldPlane)
+	{
+		::CameraMoveForward(reinterpret_cast<::Camera*>(camera), distance, moveInWorldPlane);
+	}
+
+	void CameraMoveUp(Camera* camera, float distance)
+	{
+		::CameraMoveUp(reinterpret_cast<::Camera*>(camera), distance);
+	}
+
+	void CameraMoveRight(Camera* camera, float distance, bool moveInWorldPlane)
+	{
+		::CameraMoveRight(reinterpret_cast<::Camera*>(camera), distance, moveInWorldPlane);
+	}
+
+	void CameraMoveToTarget(Camera* camera, float delta)
+	{
+		::CameraMoveToTarget(reinterpret_cast<::Camera*>(camera), delta);
+	}
+
+	void CameraYaw(Camera* camera, float angle, bool rotateAroundTarget)
+	{
+		::CameraYaw(reinterpret_cast<::Camera*>(camera), angle, rotateAroundTarget);
+	}
+
+	void CameraPitch(Camera* camera, float angle, bool lockView, bool rotateAroundTarget, bool rotateUp)
+	{
+		::CameraPitch(reinterpret_cast<::Camera*>(camera), angle, lockView, rotateAroundTarget, rotateUp);
+	}
+
+	void CameraRoll(Camera* camera, float angle)
+	{
+		::CameraRoll(reinterpret_cast<::Camera*>(camera), angle);
+	}
+
+	Matrix GetCameraViewMatrix(Camera* camera)
+	{
+		::Matrix temp = ::GetCameraViewMatrix(reinterpret_cast<::Camera*>(camera));
+		return reinterpret_cast<Matrix&>(temp);
+	}
+
+	Matrix GetCameraProjectionMatrix(Camera* camera, float aspect)
+	{
+		::Matrix temp = ::GetCameraProjectionMatrix(reinterpret_cast<::Camera*>(camera), aspect);
+		return reinterpret_cast<Matrix&>(temp);
 	}
 } // namespace ray

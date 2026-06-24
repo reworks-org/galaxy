@@ -83,11 +83,11 @@
     <ClCompile Include="ray\raylib\src\rshapes.c" />
     <ClCompile Include="ray\raylib\src\rtext.c" />
     <ClCompile Include="ray\raylib\src\rtextures.c" />
-    <ClCompile Include="googletest\googlemock\src\gmock-spec-builders.cc" />
     <ClCompile Include="googletest\googlemock\src\gmock.cc" />
     <ClCompile Include="googletest\googlemock\src\gmock-cardinalities.cc" />
     <ClCompile Include="googletest\googlemock\src\gmock-internal-utils.cc" />
     <ClCompile Include="googletest\googlemock\src\gmock-matchers.cc" />
+    <ClCompile Include="googletest\googlemock\src\gmock-spec-builders.cc" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-assertion-result.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-death-test.cc" />
@@ -407,6 +407,7 @@
     <ClInclude Include="ray\raylib\src\raymath.h" />
     <ClInclude Include="ray\raylib\src\rcamera.h" />
     <ClInclude Include="ray\raylib\src\rlgl.h" />
+    <ClInclude Include="subprocess\subprocess.h" />
     <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-generated-actions.h" />
     <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-matchers.h" />
     <ClInclude Include="googletest\googlemock\include\gmock\internal\custom\gmock-port.h" />
@@ -446,6 +447,5 @@
     <ClInclude Include="googletest\googletest\include\gtest\gtest-test-part.h" />
     <ClInclude Include="googletest\googletest\include\gtest\gtest-typed-test.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
-    <ClInclude Include="subprocess\subprocess.h" />
   </ItemGroup>
 </Project>
