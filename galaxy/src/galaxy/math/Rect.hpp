@@ -10,7 +10,7 @@
 
 #include <compare>
 
-#include <Raylib.hpp>
+#include <glm/vec2.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -91,7 +91,7 @@ namespace galaxy
 		///
 		/// \param pos {x, y} coordinate.
 		///
-		void set_top_left(const ray::Vector2& pos) noexcept;
+		void set_top_left(const glm::vec<2, Type, glm::defaultp>& pos) noexcept;
 
 		///
 		/// Get top right corner.
@@ -115,7 +115,7 @@ namespace galaxy
 		/// \return {x, y}.
 		///
 		[[nodiscard]]
-		ray::Vector2 get_top_left() const noexcept;
+		glm::vec<2, Type, glm::defaultp> get_top_left() const noexcept;
 
 		///
 		/// Gets the center of the rectangle.
@@ -123,7 +123,7 @@ namespace galaxy
 		/// \return Center point of rectangle.
 		///
 		[[nodiscard]]
-		ray::Vector2 get_center() const noexcept;
+		glm::vec<2, Type, glm::defaultp> get_center() const noexcept;
 
 		///
 		/// Gets width and height of rectangle.
@@ -131,7 +131,7 @@ namespace galaxy
 		/// \return {width, height}.
 		///
 		[[nodiscard]]
-		ray::Vector2 get_size() const noexcept;
+		glm::vec<2, Type, glm::defaultp> get_size() const noexcept;
 
 		///
 		/// Comparison operator.
@@ -238,10 +238,10 @@ namespace galaxy
 	}
 
 	template<meta::is_arithmetic Type>
-	inline void Rect<Type>::set_top_left(const ray::Vector2& pos) noexcept
+	inline void Rect<Type>::set_top_left(const glm::vec<2, Type, glm::defaultp>& pos) noexcept
 	{
-		m_xpos = static_cast<Type>(pos.x);
-		m_ypos = static_cast<Type>(pos.y);
+		m_xpos = pos.x;
+		m_ypos = pos.y;
 	}
 
 	template<meta::is_arithmetic Type>
@@ -257,21 +257,21 @@ namespace galaxy
 	}
 
 	template<meta::is_arithmetic Type>
-	inline ray::Vector2 Rect<Type>::get_top_left() const noexcept
+	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_top_left() const noexcept
 	{
-		return {static_cast<float>(m_xpos), static_cast<float>(m_ypos)};
+		return {m_xpos, m_ypos};
 	}
 
 	template<meta::is_arithmetic Type>
-	inline ray::Vector2 Rect<Type>::get_center() const noexcept
+	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_center() const noexcept
 	{
-		return {static_cast<float>((m_xpos + m_width) / 2.0), static_cast<float>((m_ypos + m_height) / 2.0)};
+		return {(m_xpos + m_width) / 2.0, (m_ypos + m_height) / 2.0};
 	}
 
 	template<meta::is_arithmetic Type>
-	inline ray::Vector2 Rect<Type>::get_size() const noexcept
+	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_size() const noexcept
 	{
-		return {static_cast<float>(m_width), static_cast<float>(m_height)};
+		return {m_width, m_height};
 	}
 
 	template<meta::is_arithmetic Type>
