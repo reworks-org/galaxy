@@ -24,7 +24,7 @@ namespace galaxy
 
 	Subprocess::~Subprocess() noexcept
 	{
-		terminate();
+		kill();
 	}
 
 	void Subprocess::create(std::string_view process, std::span<std::string> args)
@@ -41,52 +41,26 @@ namespace galaxy
 		}
 		cmd_line.push_back(nullptr);
 
-		if (subprocess_create(cmd_line.data(), subprocess_option_inherit_environment, &m_process) != 0)
+		m_process = SDL_CreateProcess(cmd_line.data(), false);
+		if (!m_process)
 		{
 			GALAXY_LOG(GALAXY_ERROR, "Failed to launch subprocess: {0}.", process);
 		}
 	}
 
-	int Subprocess::join() noexcept
+	bool Subprocess::wait(const bool block) noexcept
 	{
-		if (alive())
-		{
-			int code = -1;
-			if (subprocess_join(&m_process, &code) != 0)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to join subprocess.");
-			}
-
-			return code;
-		}
-
-		return -1;
+		return SDL_WaitProcess(m_process, block, nullptr);
 	}
 
-	void Subprocess::terminate() noexcept
+	void Subprocess::kill() noexcept
 	{
-		if (alive())
+		if (m_process)
 		{
-			if (subprocess_terminate(&m_process) != 0)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to terminate subprocess.");
-			}
-		}
-	}
+			SDL_KillProcess(m_process, false);
+			SDL_DestroyProcess(m_process);
 
-	void Subprocess::destroy() noexcept
-	{
-		if (alive())
-		{
-			if (subprocess_destroy(&m_process) != 0)
-			{
-				GALAXY_LOG(GALAXY_ERROR, "Failed to destroy subprocess.");
-			}
+			m_process = nullptr;
 		}
-	}
-
-	bool Subprocess::alive() noexcept
-	{
-		return subprocess_alive(&m_process) != 0 ? true : false;
 	}
 } // namespace galaxy

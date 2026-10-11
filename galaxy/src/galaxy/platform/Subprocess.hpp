@@ -9,15 +9,9 @@
 #define GALAXY_PLATFORM_SUBPROCESS_HPP_
 
 #include <span>
-#include <string>
 #include <string_view>
 
-#include <subprocess.h>
-
-///
-/// Typedef subprocess struct.
-///
-typedef struct subprocess_s subprocess;
+#include <SDL3/SDL_process.h>
 
 namespace galaxy
 {
@@ -58,34 +52,23 @@ namespace galaxy
 		///
 		/// Wait for a process to finish execution.
 		///
-		/// \return Process exit code. -1 on error.
+		/// \param block Should the main app be blocked until the subprocess exits?
+		///
+		/// \return Returns True if process exited, otherwise false.
 		///
 		[[maybe_unused]]
-		int join() noexcept;
+		bool wait(const bool block) noexcept;
 
 		///
-		/// Terminate process, killing if alive.
+		/// Terminates process.
 		///
-		void terminate() noexcept;
-
-		///
-		/// Destroy process, preserving if alive.
-		///
-		void destroy() noexcept;
-
-		///
-		/// Check if subprocess is still alive and executing.
-		///
-		/// \return True if process is alive.
-		///
-		[[nodiscard]]
-		bool alive() noexcept;
+		void kill() noexcept;
 
 	private:
 		///
 		/// Process information and handles.
 		///
-		subprocess m_process;
+		SDL_Process* m_process;
 	};
 } // namespace galaxy
 

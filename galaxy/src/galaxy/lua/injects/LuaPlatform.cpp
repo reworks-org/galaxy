@@ -37,5 +37,7 @@ namespace galaxy
 		sub_type["terminate"] = &Subprocess::terminate;
 
 		lua.set_function("galaxy_seed_random", &platform::seed_random);
+		lua.set_function("galaxy_set_metadata", &platform::set_metadata);
+		lua.set_function("galaxy_set_hint", &platform::set_hint);
 	}
 } // namespace galaxy

@@ -8,6 +8,8 @@
 #ifndef GALAXY_PLATFORM_PRAGMA_HPP_
 #define GALAXY_PLATFORM_PRAGMA_HPP_
 
+#include <SDL3/SDL_platform.h>
+
 ///
 /// Prevents compiler warnings when applied to unused parameters.
 ///
