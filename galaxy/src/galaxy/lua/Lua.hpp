@@ -33,6 +33,14 @@ namespace galaxy
 		Lua() = delete;
 
 		///
+		/// Injects misc galaxy utils into Lua.
+		///
+		static void inject_utils() noexcept;
+	};
+} // namespace galaxy
+
+/*
+///
 		/// Inject galaxy core services into Lua.
 		///
 		static void inject_core() noexcept;
@@ -112,14 +120,6 @@ namespace galaxy
 		///
 		static void inject_time() noexcept;
 
-		///
-		/// Injects misc galaxy utils into Lua.
-		///
-		static void inject_utils() noexcept;
-	};
-} // namespace galaxy
-
-/*
 
 
 ///
