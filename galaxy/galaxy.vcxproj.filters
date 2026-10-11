@@ -89,7 +89,7 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaRaylib.cpp" />
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\graphics\Shader.cpp" />
-    <ClCompile Include="src\galaxy\input\AutomationEvents.cpp" />
-    <ClCompile Include="src\galaxy\input\AutomationEvents.hpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaInput.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaGraphics.cpp" />
   </ItemGroup>
 </Project>

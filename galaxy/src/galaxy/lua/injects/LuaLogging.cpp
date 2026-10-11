@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <entt/locator/locator.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/logging/Log.hpp"
