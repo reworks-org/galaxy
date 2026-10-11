@@ -43,6 +43,3 @@
 [submodule "deps/mimalloc"]
 	path = deps/mimalloc
 	url = https://github.com/microsoft/mimalloc
-[submodule "deps/subprocess"]
-	path = deps/subprocess
-	url = https://github.com/sheredom/subprocess.h.git

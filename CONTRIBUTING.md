@@ -28,5 +28,5 @@ Go [Here][submit-pr] to submit a PR.
 
 - Follow coding conventions.
 
-[issue-tracker]: https://github.com/domre/galaxy/issues
-[submit-pr]: https://github.com/domre/galaxy/pulls
+[issue-tracker]: https://github.com/reworks-org/galaxy/issues
+[submit-pr]: https://github.com/reworks-org/galaxy/pulls

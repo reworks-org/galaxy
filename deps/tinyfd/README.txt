@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Zlib
-Copyright (c) 2014 - 2025 Guillaume Vareille http://ysengrin.com
+Copyright (c) 2014 - 2026 Guillaume Vareille http://ysengrin.com
 
 ********* TINY FILE DIALOGS OFFICIAL WEBSITE IS ON SOURCEFORGE *********
 
@@ -11,7 +11,7 @@ Copyright (c) 2014 - 2025 Guillaume Vareille http://ysengrin.com
   | 100% compatible C C++  ->  You can rename tinfiledialogs.c as .cpp |
   \____________________________________________________________________/
 
-tiny file dialogs ( cross-platform C C++ ) v3.21.2 [Oct 25, 2025]
+tiny file dialogs ( cross-platform C C++ ) v3.21.5 [Sep 30, 2026]
  _________
 /         \   Tray-popup InputBox PasswordBox MessageBox Notification Beep ColorPicker
 |tiny file|   ColorPicker OpenFileDialog SaveFileDialog SelectFolderDialog
@@ -36,12 +36,12 @@ Included in LWJGL(java), Rust, Haskell, Allegrobasic.
 | |________________________________________________________________________| |
 |____________________________________________________________________________|
 
-         ———————————————————————————————————————————————————————
+         _______________________________________________________
         | v3.10: FORTRAN module fully implemented with examples |
         | v3.13: PASCAL unit fully implemented with examples    |
         | v3.14: R inteface fully implemented with examples     |
-		| v3.21: New HAIKU porting                              |
-         ———————————————————————————————————————————————————————
+        | v3.21: New HAIKU porting                              |
+        |_______________________________________________________|
      _____________________________________________________________________
     |                                                                     |
     | my email address is at the top of the header file tinyfiledialogs.h |
