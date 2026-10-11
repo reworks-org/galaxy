@@ -12,16 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\core\Config.hpp" />
-    <ClInclude Include="src\galaxy\core\Settings.hpp" />
-    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
-    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
-    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileError.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
-    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
-    <ClInclude Include="src\galaxy\graphics\Shader.hpp" />
-    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
     <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
     <ClInclude Include="src\galaxy\logging\Log.hpp" />
@@ -37,7 +27,6 @@
     <ClInclude Include="src\galaxy\math\Rect.hpp" />
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\math\ZLib.hpp" />
-    <ClInclude Include="src\galaxy\meta\Concepts.hpp" />
     <ClInclude Include="src\galaxy\platform\Platform.hpp" />
     <ClInclude Include="src\galaxy\platform\Pragma.hpp" />
     <ClInclude Include="src\galaxy\platform\specific\Unix.hpp" />
@@ -77,7 +66,6 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
-    <ClCompile Include="src\galaxy\lua\injects\LuaRaylib.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaTime.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\lua\Lua.cpp" />
@@ -88,7 +76,6 @@
     <ClCompile Include="src\galaxy\math\Rect.cpp" />
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\math\ZLib.cpp" />
-    <ClCompile Include="src\galaxy\meta\Concepts.cpp" />
     <ClCompile Include="src\galaxy\platform\Platform.cpp" />
     <ClCompile Include="src\galaxy\platform\Pragma.cpp" />
     <ClCompile Include="src\galaxy\platform\specific\Unix.cpp" />

@@ -13,6 +13,5 @@
     <ClCompile Include="src\math\RectTest.cpp" />
     <ClCompile Include="src\math\ZLibTest.cpp" />
     <ClCompile Include="src\time\TimeTest.cpp" />
-    <ClCompile Include="src\core\ConfigTest.cpp" />
   </ItemGroup>
 </Project>

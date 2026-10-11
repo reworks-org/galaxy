@@ -11,6 +11,8 @@
 #include <string>
 #include <functional>
 
+#include <SDL3/SDL_events.h>
+
 namespace galaxy
 {
 	///
@@ -42,7 +44,7 @@ namespace galaxy
 		///
 		/// Loads the default appdata file.
 		///
-		void load();
+		// void load();
 
 		///
 		/// Main game loop.
@@ -62,6 +64,13 @@ namespace galaxy
 		/// \param render Callback.
 		///
 		void set_render_func(LoopFunc&& render);
+
+		///
+		/// Get event data.
+		///
+		/// \return SDL_Event data.
+		///
+		SDL_Event& events() noexcept;
 
 	private:
 		///
@@ -90,14 +99,20 @@ namespace galaxy
 		void setup_platform();
 		void setup_fs();
 		void setup_rendering();
+		void setup_events();
 		void setup_input();
-		void setup_nuklear();
-		void setup_loader();
+		// void setup_nuklear();
+		// void setup_loader();
 		void setup_meta();
 		void setup_services();
 		void setup_scripting();
 
 	private:
+		///
+		/// Core event data.
+		///
+		SDL_Event m_events;
+
 		///
 		/// Update step in gameloop.
 		///
