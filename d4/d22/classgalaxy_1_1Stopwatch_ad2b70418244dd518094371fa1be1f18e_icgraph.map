@@ -1,15 +1,15 @@
 <map id="galaxy::Stopwatch::get_time_passed" name="galaxy::Stopwatch::get_time_passed">
-<area shape="rect" id="Node000001" title="Time passed in milliseconds." alt="" coords="1205,138,1355,178"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32" title="Register galaxy time support functions into Lua." alt="" coords="783,145,960,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1191,157,1157,157,1008,157,960,158,960,152,1008,151,1157,151,1192,152"/>
-<area shape="rect" id="Node000012" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="1008,166,1157,206"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1192,173,1158,178,1157,173,1191,168"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,104,735,129"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="793,145,728,132,729,127,795,140"/>
-<area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="595,178,735,218"/>
-<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="792,176,735,187,734,182,791,171"/>
+<area shape="rect" id="Node000001" title="Time passed in milliseconds." alt="" coords="1237,134,1387,174"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32" title="Register galaxy time support functions into Lua." alt="" coords="815,141,992,167"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1223,153,1189,153,1040,153,992,154,992,148,1040,147,1189,147,1224,148"/>
+<area shape="rect" id="Node000012" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="1040,162,1189,202"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1224,169,1190,174,1189,169,1223,164"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="611,104,751,129"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="813,142,750,131,751,126,814,136"/>
+<area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#ab6b3cd6dad6d54abc87ffb313d5b8844" title="Injects GLM into Lua." alt="" coords="595,177,767,203"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="811,172,760,180,759,175,810,166"/>
 <area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,97,547,137"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="581,119,547,119,547,114,581,114"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="597,119,547,119,547,114,597,114"/>
 <area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,104,356,129"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="390,119,356,119,356,114,390,114"/>
 <area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
@@ -22,6 +22,6 @@
 <area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="226,135,144,156,143,151,225,130"/>
 <area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="28,203,155,228"/>
 <area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="264,140,225,168,178,194,148,205,146,200,176,189,222,163,261,136"/>
-<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="696,166,685,159,665,157,647,159,636,163,632,169,634,177,629,178,627,168,632,159,645,153,665,151,687,154,699,162"/>
-<area shape="poly" id="edge13_Node000012_Node000002" title=" " alt="" coords="994,177,960,172,961,167,995,172"/>
+<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="717,168,707,159,681,156,659,158,647,163,645,168,651,176,647,179,640,169,643,159,657,153,681,151,709,154,721,163"/>
+<area shape="poly" id="edge13_Node000012_Node000002" title=" " alt="" coords="1026,173,992,168,993,163,1027,168"/>
 </map>

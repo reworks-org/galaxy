@@ -1,10 +1,10 @@
 <map id="galaxy::SceneManager::clear" name="galaxy::SceneManager::clear">
-<area shape="rect" id="Node000001" title="Removes all data." alt="" coords="411,61,580,101"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="208,29,348,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="396,69,348,62,349,57,397,64"/>
-<area shape="rect" id="Node000004" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a251f00780fe7055df13e90e8361d9504" title="Destructor." alt="" coords="193,93,363,133"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="397,98,363,104,362,98,397,93"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="5,29,145,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,52,146,52,146,47,194,47"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="109,18,97,11,75,8,56,10,44,15,40,21,42,28,37,30,35,20,41,11,55,5,75,3,99,6,112,13"/>
+<area shape="rect" id="Node000001" title="Removes all data." alt="" coords="443,54,612,94"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="240,22,380,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="428,62,380,55,381,50,429,57"/>
+<area shape="rect" id="Node000004" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a251f00780fe7055df13e90e8361d9504" title="Destructor." alt="" coords="225,86,395,126"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="429,91,395,96,394,91,429,86"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ab6b3cd6dad6d54abc87ffb313d5b8844" title="Injects GLM into Lua." alt="" coords="5,29,177,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,45,178,45,178,39,226,39"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="131,20,120,11,91,8,68,10,56,15,53,20,60,28,56,31,48,21,52,11,67,5,91,3,122,6,134,15"/>
 </map>

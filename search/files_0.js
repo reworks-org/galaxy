@@ -7,5 +7,7 @@ var searchData=
   ['application_2ecpp_4',['Application.cpp',['../d2/db6/Application_8cpp.html',1,'']]],
   ['application_2ehpp_5',['Application.hpp',['../df/d3c/Application_8hpp.html',1,'']]],
   ['async_2ecpp_6',['Async.cpp',['../df/d28/Async_8cpp.html',1,'']]],
-  ['async_2ehpp_7',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]]
+  ['async_2ehpp_7',['Async.hpp',['../d3/d4b/Async_8hpp.html',1,'']]],
+  ['automationevents_2ecpp_8',['AutomationEvents.cpp',['../d7/dbc/AutomationEvents_8cpp.html',1,'']]],
+  ['automationevents_2ehpp_9',['AutomationEvents.hpp',['../db/dcd/AutomationEvents_8hpp.html',1,'']]]
 ];

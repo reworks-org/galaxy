@@ -65,13 +65,13 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83acbb70a86b463a83c346ecf1a05c0606c",
-"d1/d5e/classgalaxy_1_1Shader.html#a726e786b0ca0948c0957de97137f5b3b",
-"d4/d1b/namespacegalaxy_1_1resource.html#aae0e407eefc27af7b00f881c73cd7184",
-"d5/d58/classgalaxy_1_1Rect.html#ae687af636fdf1f09d97d7a810c745eac",
-"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a8fe710cc1bfbed61ef847e49964911ae",
-"db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8",
-"dd/d3e/structstd_1_1formatter_3_01galaxy_1_1LogMessage_01_4.html#a70a0b34589e5fb89ac9f851c5793a819",
-"df/d64/classgalaxy_1_1Event.html"
+"d1/d5e/classgalaxy_1_1Shader.html#a6614473b3713855c98def4de3ea51289",
+"d4/d1b/namespacegalaxy_1_1resource.html#a77ecc744c1b541a6175f1bdebb07f731",
+"d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a77c59a61e3d8a0dbd8bac30149f79c11",
+"db/d27/LuaState_8cpp_source.html",
+"dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f",
+"df/d28/Async_8cpp_source.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

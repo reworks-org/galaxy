@@ -1,25 +1,25 @@
 <map id="galaxy::State::State" name="galaxy::State::State">
-<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="657,161,807,186"/>
-<area shape="poly" id="edge12_Node000001_Node000001" title=" " alt="" coords="770,151,760,143,732,139,709,141,697,146,695,152,701,159,697,162,690,152,693,142,708,136,732,134,762,138,773,147"/>
-<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="437,37,600,62"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="707,152,664,113,608,76,580,65,582,60,611,71,667,109,711,148"/>
-<area shape="rect" id="Node000005" href="$d4/d7c/classgalaxy_1_1State.html#a066bb1abdd76ade33cb5cf7b3cf77547" title="Copy assignment operator." alt="" coords="428,86,609,111"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="690,158,608,125,571,114,573,109,610,120,692,153"/>
-<area shape="rect" id="Node000006" href="$d4/d7c/classgalaxy_1_1State.html#af2f9023cae9f5d8bc696356599605257" title="Move assignment operator." alt="" coords="428,135,609,161"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="643,165,609,161,610,156,644,160"/>
-<area shape="rect" id="Node000007" href="$df/dba/classgalaxy_1_1Scene.html#acc93e9019791a669c1213208c2e8ccb4" title="Name constructor." alt="" coords="439,185,598,210"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="644,186,599,191,598,186,643,181"/>
-<area shape="rect" id="Node000010" href="$d4/d7c/classgalaxy_1_1State.html#a90f35b85901761c5b9ea3f405bb2d39d" title="Constructor." alt="" coords="444,234,593,259"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="690,194,610,225,573,236,571,231,608,220,688,189"/>
-<area shape="rect" id="Node000011" href="$d4/d7c/classgalaxy_1_1State.html#a293316668609bb7f32ec4ddb1f3db65b" title="Copy constructor." alt="" coords="444,283,593,309"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="710,198,666,237,611,274,582,286,580,281,608,270,663,233,707,194"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="217,29,357,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,52,357,52,357,47,423,47"/>
-<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="5,29,145,69"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="203,52,145,52,145,47,203,47"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="111,18,98,11,75,8,55,10,43,15,39,21,41,28,36,30,33,20,40,10,54,5,75,3,100,6,113,13"/>
-<area shape="rect" id="Node000008" href="$df/dba/classgalaxy_1_1Scene.html#a528f3b015d8cbb98a94eb387530856bd" title="Copy assignment operator." alt="" coords="193,161,380,186"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="425,190,380,186,380,180,426,185"/>
-<area shape="rect" id="Node000009" href="$df/dba/classgalaxy_1_1Scene.html#a17ded5a3430ca748c0d160ad1c7f76d5" title="Copy constructor." alt="" coords="207,210,366,235"/>
-<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="426,210,367,217,366,211,425,205"/>
+<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="689,153,839,179"/>
+<area shape="poly" id="edge12_Node000001_Node000001" title=" " alt="" coords="802,144,792,135,764,132,741,134,729,139,727,144,733,152,729,155,722,145,725,135,740,129,764,127,794,130,805,139"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="469,29,632,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="739,145,696,106,640,68,612,57,614,52,643,64,699,101,743,141"/>
+<area shape="rect" id="Node000005" href="$d4/d7c/classgalaxy_1_1State.html#a066bb1abdd76ade33cb5cf7b3cf77547" title="Copy assignment operator." alt="" coords="460,79,641,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="722,150,640,118,603,107,605,101,642,113,724,145"/>
+<area shape="rect" id="Node000006" href="$d4/d7c/classgalaxy_1_1State.html#af2f9023cae9f5d8bc696356599605257" title="Move assignment operator." alt="" coords="460,128,641,153"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="675,158,641,154,642,149,676,153"/>
+<area shape="rect" id="Node000007" href="$df/dba/classgalaxy_1_1Scene.html#acc93e9019791a669c1213208c2e8ccb4" title="Name constructor." alt="" coords="471,177,630,203"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="676,179,631,184,630,178,675,173"/>
+<area shape="rect" id="Node000010" href="$d4/d7c/classgalaxy_1_1State.html#a90f35b85901761c5b9ea3f405bb2d39d" title="Constructor." alt="" coords="476,227,625,252"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="722,187,642,218,605,229,603,224,640,213,720,182"/>
+<area shape="rect" id="Node000011" href="$d4/d7c/classgalaxy_1_1State.html#a293316668609bb7f32ec4ddb1f3db65b" title="Copy constructor." alt="" coords="476,276,625,301"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="742,191,698,230,643,267,614,278,612,273,640,262,695,226,739,187"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="249,22,389,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="455,45,389,45,389,39,455,39"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#ab6b3cd6dad6d54abc87ffb313d5b8844" title="Injects GLM into Lua." alt="" coords="5,29,177,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="235,45,178,45,178,39,235,39"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="132,20,121,11,91,8,67,10,54,15,52,20,58,27,54,31,46,21,51,11,66,5,91,3,123,7,135,16"/>
+<area shape="rect" id="Node000008" href="$df/dba/classgalaxy_1_1Scene.html#a528f3b015d8cbb98a94eb387530856bd" title="Copy assignment operator." alt="" coords="225,153,412,179"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="457,183,412,178,412,173,458,178"/>
+<area shape="rect" id="Node000009" href="$df/dba/classgalaxy_1_1Scene.html#a17ded5a3430ca748c0d160ad1c7f76d5" title="Copy constructor." alt="" coords="239,203,398,228"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="458,203,399,209,398,204,457,197"/>
 </map>

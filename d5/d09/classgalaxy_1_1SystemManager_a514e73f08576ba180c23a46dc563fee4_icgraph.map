@@ -1,8 +1,8 @@
 <map id="galaxy::SystemManager::add_system" name="galaxy::SystemManager::add_system">
-<area shape="rect" id="Node000001" title="Add a system to operate on entities in this scene." alt="" coords="381,29,560,69"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997" title="Injects galaxy system management into Lua." alt="" coords="193,29,333,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="367,52,334,52,334,47,367,47"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="5,29,145,69"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,52,146,52,146,47,179,47"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="107,17,96,11,75,8,58,10,47,15,43,21,45,28,40,30,38,20,44,11,56,5,75,3,97,6,109,13"/>
+<area shape="rect" id="Node000001" title="Add a system to operate on entities in this scene." alt="" coords="413,22,592,62"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997" title="Injects galaxy system management into Lua." alt="" coords="225,22,365,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,45,366,45,366,39,399,39"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ab6b3cd6dad6d54abc87ffb313d5b8844" title="Injects GLM into Lua." alt="" coords="5,29,177,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,45,177,45,177,39,212,39"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="127,20,117,11,91,8,70,10,58,15,56,20,62,28,58,31,51,21,55,11,68,5,91,3,120,6,131,16"/>
 </map>

@@ -1,6 +1,8 @@
 var classgalaxy_1_1Shader =
 [
     [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html#a24dd1a45ea450080ae1eeffcac7d1d45", null ],
+    [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html#a09c7666acf7407e064368e570ca18ccb", null ],
+    [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html#a3dc101827a6dbc521d7e6d5059c61c0c", null ],
     [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html#a7765c253ca3f6557945923095e2445a2", null ],
     [ "~Shader", "d1/d5e/classgalaxy_1_1Shader.html#a6499fc28b6c5954f1e0fc407a4354d3c", null ],
     [ "Shader", "d1/d5e/classgalaxy_1_1Shader.html#a2665414e0270e66c0b8fc373fe704ce2", null ],

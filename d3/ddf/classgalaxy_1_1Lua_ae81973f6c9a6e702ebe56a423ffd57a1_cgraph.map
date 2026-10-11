@@ -1,0 +1,11 @@
+<map id="galaxy::Lua::inject_graphics" name="galaxy::Lua::inject_graphics">
+<area shape="rect" id="Node000001" title="Injects graphics module into Lua." alt="" coords="5,49,145,89"/>
+<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html#ae5ea0e3dfd53c83ac96a5d8be4c57ab3" title="Loads a combined shader file." alt="" coords="193,5,348,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,48,207,32,208,37,146,53"/>
+<area shape="rect" id="Node000003" href="$d1/d5e/classgalaxy_1_1Shader.html#ac4978ffe2cb9a39387e6bb23598db35d" title="Loads a combined raw shader." alt="" coords="396,31,559,56"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="146,62,382,47,382,52,146,67"/>
+<area shape="rect" id="Node000004" href="$d1/d5e/classgalaxy_1_1Shader.html#aa78e58653056b8ad1ff7070f9bc3c331" title="Specialized variadic template for setting shader uniforms." alt="" coords="197,106,344,146"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="145,86,190,99,188,105,143,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,25,383,29,382,34,348,30"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="444,32,436,22,440,12,454,6,477,4,506,8,517,17,514,21,504,13,477,9,455,11,444,16,442,22,448,29"/>
+</map>

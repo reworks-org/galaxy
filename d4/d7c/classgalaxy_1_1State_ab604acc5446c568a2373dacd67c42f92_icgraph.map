@@ -1,22 +1,22 @@
 <map id="galaxy::State::name" name="galaxy::State::name">
-<area shape="rect" id="Node000001" title="Get state name." alt="" coords="639,114,791,139"/>
-<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="217,5,357,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="673,111,590,80,467,52,356,36,357,30,468,47,591,75,675,106"/>
-<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="217,69,357,109"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="648,114,590,104,467,94,357,92,357,86,467,89,591,99,648,108"/>
-<area shape="rect" id="Node000005" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="428,114,591,139"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="625,129,591,129,591,124,625,124"/>
-<area shape="rect" id="Node000006" href="$df/dba/classgalaxy_1_1Scene.html#acc93e9019791a669c1213208c2e8ccb4" title="Name constructor." alt="" coords="430,163,589,189"/>
-<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="649,145,564,166,562,161,647,140"/>
-<area shape="rect" id="Node000009" href="$d4/d7c/classgalaxy_1_1State.html#af2007cf51939290a8268d8332fc81a0d" title="Name constructor." alt="" coords="435,213,584,238"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="685,150,642,176,592,202,558,215,556,210,590,198,639,172,682,145"/>
-<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a8644aa28c6efc94d7d291b15ad82f2f5" title="Injects graphics module into Lua." alt="" coords="5,37,145,77"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="203,41,146,49,145,44,202,35"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="111,26,98,19,75,16,55,18,43,23,39,29,41,36,36,38,33,28,40,18,54,13,75,11,100,14,113,21"/>
-<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="202,79,145,71,146,65,203,74"/>
-<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="419,114,356,104,357,98,420,109"/>
-<area shape="rect" id="Node000007" href="$df/dba/classgalaxy_1_1Scene.html#a528f3b015d8cbb98a94eb387530856bd" title="Copy assignment operator." alt="" coords="193,149,380,174"/>
-<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="416,173,380,170,380,165,417,167"/>
-<area shape="rect" id="Node000008" href="$df/dba/classgalaxy_1_1Scene.html#a17ded5a3430ca748c0d160ad1c7f76d5" title="Copy constructor." alt="" coords="207,198,366,223"/>
-<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="417,193,367,201,366,196,416,188"/>
+<area shape="rect" id="Node000001" title="Get state name." alt="" coords="671,114,823,139"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="249,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="705,111,622,80,499,52,388,36,389,30,500,47,623,75,707,106"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="249,69,389,109"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="680,114,622,104,499,94,389,92,389,86,499,89,623,99,680,108"/>
+<area shape="rect" id="Node000005" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="460,114,623,139"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="657,129,623,129,623,124,657,124"/>
+<area shape="rect" id="Node000006" href="$df/dba/classgalaxy_1_1Scene.html#acc93e9019791a669c1213208c2e8ccb4" title="Name constructor." alt="" coords="462,163,621,189"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="681,145,596,166,594,161,679,140"/>
+<area shape="rect" id="Node000009" href="$d4/d7c/classgalaxy_1_1State.html#af2007cf51939290a8268d8332fc81a0d" title="Name constructor." alt="" coords="467,213,616,238"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="717,150,674,176,624,202,590,215,588,210,622,198,671,172,714,145"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#ab6b3cd6dad6d54abc87ffb313d5b8844" title="Injects GLM into Lua." alt="" coords="5,45,177,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,40,178,48,177,43,234,34"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="132,35,121,27,91,23,67,25,54,30,52,36,58,43,54,46,46,36,51,26,66,20,91,18,123,22,135,31"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="234,80,177,72,178,67,235,75"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="451,114,388,104,389,98,452,109"/>
+<area shape="rect" id="Node000007" href="$df/dba/classgalaxy_1_1Scene.html#a528f3b015d8cbb98a94eb387530856bd" title="Copy assignment operator." alt="" coords="225,149,412,174"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="448,173,412,170,412,165,449,167"/>
+<area shape="rect" id="Node000008" href="$df/dba/classgalaxy_1_1Scene.html#a17ded5a3430ca748c0d160ad1c7f76d5" title="Copy constructor." alt="" coords="239,198,398,223"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="449,193,399,201,398,196,448,188"/>
 </map>
