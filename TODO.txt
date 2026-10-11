@@ -6,6 +6,9 @@ TODO:
 https://www.raylib.com/cheatsheet/cheatsheet.html
 https://www.raylib.com/examples.html
 https://github.com/raylib-extras/FramerateIndependentInputExample
+- https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sdl_opengl3/main.c
+- https://github.com/mikke89/RmlUi
+https://github.com/ocornut/imgui
 
 httplib:
 - add async support by pushing requests to threadpool
@@ -20,15 +23,6 @@ save/load:
 - implement save-load (have concept thbat does this to check).
 - pass each object to a master function that expects those to have that function.
 - call that function to save/load
-
-raylib extensions:
-https://github.com/RobLoach/raylib-aseprite
-https://github.com/raysan5/rfxgen
-https://github.com/raysan5/riconpacker
-https://github.com/RobLoach/awesome-raylib
-https://github.com/RobLoach/raylib-tmx
-https://github.com/raylib-extras/examples-cpp
-https://github.com/raylib-extras/examples-c
 
 update:
 nuklear
