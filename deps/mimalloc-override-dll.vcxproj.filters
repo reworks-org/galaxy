@@ -58,13 +58,22 @@
     <ClCompile Include="$(ProjectDir)mimalloc\src\free.c">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)mimalloc\src\arena-meta.c">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="$(ProjectDir)mimalloc\src\heap.c">
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="$(ProjectDir)mimalloc\src\threadlocal.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\prim\prim-tls.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\subproc.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\sample-guarded.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)mimalloc\src\sample-profile.c">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -100,6 +109,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc-stats.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc\prim-tls.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(ProjectDir)mimalloc\include\mimalloc-profile.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

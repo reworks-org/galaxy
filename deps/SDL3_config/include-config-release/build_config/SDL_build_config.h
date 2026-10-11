@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2026 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -107,7 +107,6 @@
 /* #undef HAVE_STRTOK_R */
 #define HAVE_ITOA 1
 #define HAVE__LTOA 1
-/* #undef HAVE__UITOA */
 #define HAVE__ULTOA 1
 #define HAVE_STRTOL 1
 #define HAVE_STRTOUL 1
@@ -201,6 +200,8 @@
 /* #undef HAVE_ELF_AUX_INFO */
 /* #undef HAVE_PPOLL */
 #define HAVE__EXIT 1
+/* #undef HAVE_GETRESUID */
+/* #undef HAVE_GETRESGID */
 
 #endif /* HAVE_LIBC */
 
@@ -570,6 +571,8 @@
 /* #undef SDL_VIDEO_VITA_PIB */
 /* #undef SDL_VIDEO_VITA_PVR */
 /* #undef SDL_VIDEO_VITA_PVR_OGL */
+
+/* #undef SDL_EMSCRIPTEN_PERSISTENT_PATH_STRING */
 
 /* xkbcommon version info */
 #define SDL_XKBCOMMON_VERSION_MAJOR 
