@@ -40,3 +40,9 @@
 [submodule "deps/SDL3"]
 	path = deps/SDL3
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "deps/mimalloc"]
+	path = deps/mimalloc
+	url = https://github.com/microsoft/mimalloc
+[submodule "deps/subprocess"]
+	path = deps/subprocess
+	url = https://github.com/sheredom/subprocess.h.git
