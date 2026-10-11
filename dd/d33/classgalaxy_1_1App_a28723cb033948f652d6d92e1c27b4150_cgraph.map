@@ -1,572 +1,111 @@
 <map id="galaxy::App::App" name="galaxy::App::App">
-<area shape="rect" id="Node000001" title="Default constructor." alt="" coords="5,459,136,485"/>
-<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#a775b1edecc7bb4c1ee0c4dc51efa34c1" title=" " alt="" coords="204,179,347,219"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,458,83,416,105,357,137,293,158,263,182,235,198,223,201,228,186,239,162,266,142,296,109,359,89,418,77,460"/>
-<area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9" title=" " alt="" coords="622,69,765,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,458,86,423,108,374,140,323,160,300,182,279,206,263,229,253,270,245,314,241,366,228,514,169,637,113,640,118,516,174,367,233,314,246,271,250,230,258,209,268,186,283,164,303,144,326,113,377,91,425,78,460"/>
-<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a8654d56d94e38cdfb176cce7ae11cd37" title=" " alt="" coords="204,293,347,333"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="78,458,118,403,148,371,182,343,193,337,195,342,186,348,152,375,122,407,82,461"/>
-<area shape="rect" id="Node000007" href="$dd/d33/classgalaxy_1_1App.html#a58b6a708bb2d4c9490fabbc8f7798abe" title=" " alt="" coords="195,358,356,383"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="88,457,131,429,183,400,219,385,221,390,185,405,133,434,91,461"/>
-<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#a86d571a1d4c82ad7d223b867e4b6dc9f" title=" " alt="" coords="622,216,765,256"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="134,457,243,430,366,392,444,360,520,325,643,260,646,265,522,330,446,365,368,397,245,436,135,462"/>
-<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#a6a77663e1d276911baecbfe17dc079e6" title=" " alt="" coords="622,365,765,405"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="136,471,220,471,325,467,440,457,554,437,597,425,638,409,640,414,599,430,555,443,441,462,325,473,220,477,136,477"/>
-<area shape="rect" id="Node000015" href="$dd/d33/classgalaxy_1_1App.html#aac7775008055df505b0b9549d8246413" title=" " alt="" coords="184,510,367,535"/>
-<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="124,482,211,504,210,509,122,487"/>
-<area shape="rect" id="Node000016" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="622,640,765,680"/>
-<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="88,483,130,514,185,544,239,562,285,573,367,580,451,583,499,590,555,603,637,632,636,637,554,608,498,595,450,589,367,585,284,578,237,567,183,549,127,519,85,487"/>
-<area shape="rect" id="Node000028" href="$dd/d33/classgalaxy_1_1App.html#a902f8e3173d55036e17b41356ff4fa69" title=" " alt="" coords="622,1113,765,1153"/>
-<area shape="poly" id="edge32_Node000001_Node000028" title=" " alt="" coords="83,483,124,533,153,561,185,586,211,599,234,607,277,614,320,622,343,631,368,647,428,700,483,759,531,823,574,888,641,1010,681,1099,676,1101,636,1012,569,891,527,826,478,763,424,703,365,651,341,636,319,627,276,619,233,612,209,604,183,590,149,565,120,536,79,486"/>
-<area shape="rect" id="Node000033" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="204,661,347,701"/>
-<area shape="poly" id="edge37_Node000001_Node000033" title=" " alt="" coords="80,484,117,557,148,601,186,641,203,653,200,657,182,645,144,605,113,560,75,486"/>
-<area shape="rect" id="Node000221" href="$dd/d33/classgalaxy_1_1App.html#ac771de8e6a31c118fa22632f5af06af4" title=" " alt="" coords="204,725,347,765"/>
-<area shape="poly" id="edge349_Node000001_Node000221" title=" " alt="" coords="77,484,87,528,107,588,140,654,161,685,186,711,194,718,191,722,182,715,157,688,135,657,103,591,82,529,72,486"/>
-<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0" title="Restore all config settings to default." alt="" coords="864,5,1019,45"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="764,68,850,46,851,51,766,74"/>
-<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a617413cbbb4c96092405241a092b55cc" title="Set all our settings using the provided config file." alt="" coords="859,69,1024,109"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="765,87,845,87,845,92,765,92"/>
-<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a9398c6fd9695f01783053e2780a1cb65" title="Cursor selector point (hotspot)." alt="" coords="854,133,1029,173"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="746,213,831,183,856,175,857,180,833,188,747,218"/>
-<area shape="rect" id="Node000010" href="$df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca" title="Cursor texture file in vfs." alt="" coords="837,198,1045,223"/>
-<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="765,226,823,220,824,225,765,231"/>
-<area shape="rect" id="Node000011" href="$df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453" title="Is the mouse cursor visible or not." alt="" coords="834,247,1049,273"/>
-<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="765,240,820,246,820,251,765,246"/>
-<area shape="rect" id="Node000013" href="$df/d23/structgalaxy_1_1Settings.html#a1d94a85eab4dd45d82a23deb78f40a1b" title="Current root directory of application, unless it has been changed." alt="" coords="852,373,1031,398"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="765,383,838,383,838,388,765,388"/>
-<area shape="rect" id="Node000014" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="1133,9961,1272,9986"/>
-<area shape="poly" id="edge14_Node000012_Node000014" title=" " alt="" coords="727,363,795,329,837,313,883,301,929,294,974,296,1016,308,1053,335,1061,446,1068,743,1079,1789,1091,4947,1097,8108,1101,9572,1121,9682,1147,9790,1195,9947,1190,9948,1142,9791,1116,9684,1096,9572,1091,8108,1086,4947,1074,1789,1063,743,1056,447,1048,337,1013,313,973,301,929,299,884,306,839,318,797,334,729,368"/>
-<area shape="poly" id="edge13_Node000013_Node000013" title=" " alt="" coords="901,374,892,364,897,354,914,348,941,346,976,350,986,355,990,360,986,363,983,359,975,355,941,351,915,353,901,358,898,364,905,371"/>
-<area shape="poly" id="edge15_Node000014_Node000014" title=" " alt="" coords="1166,9962,1158,9952,1162,9942,1178,9936,1203,9934,1234,9938,1246,9947,1243,9951,1232,9943,1203,9939,1179,9941,1166,9946,1163,9952,1170,9959"/>
-<area shape="rect" id="Node000017" href="$df/d23/structgalaxy_1_1Settings.html#a9db4ecfad6dd65a63d3ed656be4053c4" title="Set audio frequency to use with SDL." alt="" coords="840,474,1043,499"/>
-<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="705,638,754,574,790,538,831,508,843,502,846,507,833,513,793,542,758,577,709,642"/>
-<area shape="rect" id="Node000018" href="$df/d23/structgalaxy_1_1Settings.html#a26ef27c56e5d81e964c85f6d0cd93987" title="Copyright message." alt="" coords="844,523,1039,549"/>
-<area shape="poly" id="edge19_Node000016_Node000018" title=" " alt="" coords="715,638,765,597,797,576,831,558,850,550,852,555,833,562,800,580,768,601,718,642"/>
-<area shape="rect" id="Node000019" href="$df/d23/structgalaxy_1_1Settings.html#ae5123c5e578157596e05918c8729fe04" title="Owner." alt="" coords="851,573,1031,598"/>
-<area shape="poly" id="edge20_Node000016_Node000019" title=" " alt="" coords="743,637,831,607,862,599,864,604,833,612,745,642"/>
-<area shape="rect" id="Node000020" href="$df/d23/structgalaxy_1_1Settings.html#a79fab905c1018adefe65ba76e9d2b5da" title="Game identifier i.e. com.galaxy.app." alt="" coords="845,622,1037,647"/>
-<area shape="poly" id="edge21_Node000016_Node000020" title=" " alt="" coords="765,650,831,643,831,649,765,655"/>
-<area shape="rect" id="Node000021" href="$dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366" title="Seed the cstdlib rng algos." alt="" coords="857,844,1025,884"/>
-<area shape="poly" id="edge22_Node000016_Node000021" title=" " alt="" coords="712,678,763,738,797,773,834,805,884,836,881,840,830,809,793,777,759,742,708,682"/>
-<area shape="rect" id="Node000022" href="$dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d" title="Sets SDL hints." alt="" coords="847,933,1036,958"/>
-<area shape="poly" id="edge24_Node000016_Node000022" title=" " alt="" coords="704,679,721,723,749,780,786,840,809,869,834,894,858,912,885,925,883,930,855,916,830,898,805,872,782,843,744,782,716,725,699,681"/>
-<area shape="rect" id="Node000023" href="$dd/dfc/namespacegalaxy_1_1platform.html#a3bf5b2167c7c116467dfa63a38e453c8" title="Sets metadata." alt="" coords="863,1007,1020,1047"/>
-<area shape="poly" id="edge26_Node000016_Node000023" title=" " alt="" coords="701,680,716,735,741,811,780,893,805,932,834,967,853,984,875,998,872,1003,850,989,830,971,801,935,776,896,736,813,710,736,696,681"/>
-<area shape="rect" id="Node000024" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="1123,1286,1283,1311"/>
-<area shape="poly" id="edge28_Node000016_Node000024" title=" " alt="" coords="699,639,715,598,743,548,781,498,804,476,831,459,891,431,919,422,945,418,972,419,998,426,1025,439,1052,459,1076,485,1096,520,1114,564,1130,614,1157,730,1176,858,1189,986,1197,1105,1204,1272,1198,1272,1192,1106,1183,987,1170,858,1151,731,1125,616,1109,566,1091,523,1071,488,1049,463,1022,444,996,431,971,425,946,424,920,428,893,436,833,464,808,480,785,501,747,551,720,601,704,641"/>
-<area shape="rect" id="Node000025" href="$df/d23/structgalaxy_1_1Settings.html#a9d19ac9a121ad6f2ca646d3030811bd3" title="Game semver." alt="" coords="850,671,1033,697"/>
-<area shape="poly" id="edge29_Node000016_Node000025" title=" " alt="" coords="765,664,837,671,836,677,765,670"/>
-<area shape="rect" id="Node000026" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="855,721,1027,746"/>
-<area shape="poly" id="edge30_Node000016_Node000026" title=" " alt="" coords="749,677,833,705,868,715,867,720,831,711,747,683"/>
-<area shape="rect" id="Node000027" href="$df/d23/structgalaxy_1_1Settings.html#aa2a2e4abad7aea21bd839ecc3fb08221" title="Website URL." alt="" coords="849,770,1034,795"/>
-<area shape="poly" id="edge31_Node000016_Node000027" title=" " alt="" coords="719,678,769,717,833,755,857,764,855,769,831,760,766,722,716,682"/>
-<area shape="poly" id="edge23_Node000021_Node000021" title=" " alt="" coords="895,844,892,834,900,825,916,819,941,817,970,820,986,827,984,832,969,825,941,823,917,825,903,829,898,835,900,843"/>
-<area shape="poly" id="edge25_Node000022_Node000022" title=" " alt="" coords="901,934,892,924,897,914,914,908,941,906,976,910,986,915,990,920,986,923,983,919,975,915,941,911,915,913,901,918,898,924,905,931"/>
-<area shape="poly" id="edge27_Node000023_Node000023" title=" " alt="" coords="895,1007,892,997,900,988,916,982,941,980,970,983,986,990,984,995,969,988,941,985,917,987,903,992,898,998,900,1006"/>
-<area shape="rect" id="Node000029" href="$df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f" title="Ansiotropic filtering level." alt="" coords="836,1071,1047,1097"/>
-<area shape="poly" id="edge33_Node000028_Node000029" title=" " alt="" coords="764,1117,863,1097,864,1102,765,1122"/>
-<area shape="rect" id="Node000030" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="847,1121,1035,1146"/>
-<area shape="poly" id="edge34_Node000028_Node000030" title=" " alt="" coords="765,1131,834,1131,834,1136,765,1136"/>
-<area shape="rect" id="Node000031" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="851,1171,1032,1211"/>
-<area shape="poly" id="edge35_Node000028_Node000031" title=" " alt="" coords="766,1147,841,1165,840,1170,764,1152"/>
-<area shape="rect" id="Node000032" href="$df/d23/structgalaxy_1_1Settings.html#a02bb15b379602197658b6c49374c52ac" title="Window icon file in vfs." alt="" coords="832,1235,1051,1261"/>
-<area shape="poly" id="edge36_Node000028_Node000032" title=" " alt="" coords="722,1152,772,1187,833,1220,857,1229,856,1234,831,1225,769,1191,718,1156"/>
-<area shape="rect" id="Node000034" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="415,5945,555,5970"/>
-<area shape="poly" id="edge38_Node000033_Node000034" title=" " alt="" coords="349,694,369,712,377,737,384,786,398,954,410,1203,422,1521,441,2309,457,3216,478,4964,486,5931,480,5931,473,4964,452,3216,436,2309,416,1521,405,1203,392,954,379,787,372,738,364,715,345,698"/>
-<area shape="rect" id="Node000035" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="606,2307,781,2333"/>
-<area shape="poly" id="edge39_Node000034_Node000035" title=" " alt="" coords="484,5944,688,2347,693,2347,489,5945"/>
-<area shape="rect" id="Node000090" href="$d3/ddf/classgalaxy_1_1Lua.html#a0943b94035c1d33f5a1842d5057043b2" title="Inject galaxy entity management into Lua." alt="" coords="623,4581,763,4621"/>
-<area shape="poly" id="edge122_Node000034_Node000090" title=" " alt="" coords="483,5944,487,5794,501,5521,516,5355,536,5180,564,5003,600,4830,616,4775,636,4720,674,4633,679,4635,641,4722,621,4776,605,4831,569,5004,541,5181,521,5356,507,5521,492,5794,489,5944"/>
-<area shape="rect" id="Node000092" href="$d3/ddf/classgalaxy_1_1Lua.html#a8b2f90e0343d46ebeecbdfc1ec4976c0" title="Injects EnTT into Lua." alt="" coords="607,4842,780,4867"/>
-<area shape="poly" id="edge124_Node000034_Node000092" title=" " alt="" coords="484,5944,494,5741,517,5401,533,5224,552,5066,574,4945,587,4904,601,4878,605,4874,609,4877,605,4882,592,4906,580,4946,557,5067,538,5224,522,5401,499,5741,489,5945"/>
-<area shape="rect" id="Node000093" href="$d3/ddf/classgalaxy_1_1Lua.html#aee24f50784e2532af6656b5139e880c0" title="Inject galaxy event data objects into Lua." alt="" coords="623,4892,763,4932"/>
-<area shape="poly" id="edge125_Node000034_Node000093" title=" " alt="" coords="484,5944,492,5831,513,5633,547,5391,571,5265,600,5142,637,5032,674,4944,679,4946,642,5034,605,5143,577,5266,553,5392,518,5634,498,5831,489,5944"/>
-<area shape="rect" id="Node000096" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="614,5154,773,5179"/>
-<area shape="poly" id="edge128_Node000034_Node000096" title=" " alt="" coords="487,5944,683,5192,688,5193,492,5945"/>
-<area shape="rect" id="Node000119" href="$d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e" title="Injects GLM into Lua." alt="" coords="607,5779,779,5805"/>
-<area shape="poly" id="edge175_Node000034_Node000119" title=" " alt="" coords="491,5943,532,5882,564,5846,601,5815,615,5808,617,5812,604,5820,567,5850,536,5885,495,5946"/>
-<area shape="rect" id="Node000120" href="$d3/ddf/classgalaxy_1_1Lua.html#ae81973f6c9a6e702ebe56a423ffd57a1" title="Injects graphics module into Lua." alt="" coords="623,5829,763,5869"/>
-<area shape="poly" id="edge176_Node000034_Node000120" title=" " alt="" coords="502,5942,546,5911,601,5879,616,5872,619,5877,604,5884,549,5916,505,5947"/>
-<area shape="rect" id="Node000121" href="$d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="623,5981,763,6021"/>
-<area shape="poly" id="edge177_Node000034_Node000121" title=" " alt="" coords="546,5967,610,5981,609,5986,545,5973"/>
-<area shape="rect" id="Node000124" href="$d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8" title="Injects logging into Lua." alt="" coords="623,6236,763,6276"/>
-<area shape="poly" id="edge182_Node000034_Node000124" title=" " alt="" coords="497,5969,673,6223,668,6226,493,5972"/>
-<area shape="rect" id="Node000129" href="$d3/ddf/classgalaxy_1_1Lua.html#a666436b73710f7291b6526df08bb5570" title="Injects math stuff into Lua." alt="" coords="603,7319,784,7345"/>
-<area shape="poly" id="edge193_Node000034_Node000129" title=" " alt="" coords="491,5970,691,7305,685,7306,485,5970"/>
-<area shape="rect" id="Node000158" href="$d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12" title="Inject platform stuff into Lua." alt="" coords="623,5893,763,5933"/>
-<area shape="poly" id="edge246_Node000034_Node000158" title=" " alt="" coords="545,5942,609,5928,610,5933,546,5947"/>
-<area shape="rect" id="Node000160" href="$d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="623,8692,763,8732"/>
-<area shape="poly" id="edge251_Node000034_Node000160" title=" " alt="" coords="490,5970,692,8678,687,8679,484,5970"/>
-<area shape="rect" id="Node000181" href="$d3/ddf/classgalaxy_1_1Lua.html#a64011dd468d6b31d16aaa74a9d95cd5b" title="Regsiter static engine services in Lua." alt="" coords="623,8756,763,8796"/>
-<area shape="poly" id="edge285_Node000034_Node000181" title=" " alt="" coords="489,5970,495,6472,515,7388,530,7867,550,8288,562,8461,575,8598,589,8695,597,8725,605,8743,614,8752,610,8756,600,8745,592,8727,584,8696,570,8599,557,8461,545,8289,525,7867,509,7388,490,6472,483,5970"/>
-<area shape="rect" id="Node000182" href="$d3/ddf/classgalaxy_1_1Lua.html#a1b063296fdd0ace336c7d6d57db3af78" title="Injects galaxy state machine requirements into lua." alt="" coords="623,9457,763,9497"/>
-<area shape="poly" id="edge286_Node000034_Node000182" title=" " alt="" coords="489,5970,493,6310,508,6998,523,7425,543,7881,570,8349,605,8808,625,8997,649,9181,689,9443,684,9444,644,9181,620,8997,600,8808,565,8349,538,7882,518,7425,503,6998,487,6310,483,5970"/>
-<area shape="rect" id="Node000186" href="$d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997" title="Injects galaxy system management into Lua." alt="" coords="623,9704,763,9744"/>
-<area shape="poly" id="edge293_Node000034_Node000186" title=" " alt="" coords="489,5970,497,6563,518,7682,534,8284,553,8830,577,9259,591,9410,605,9509,620,9560,638,9609,676,9690,672,9692,633,9611,614,9561,600,9510,585,9411,572,9260,548,8830,528,8284,512,7682,491,6563,483,5970"/>
-<area shape="rect" id="Node000192" href="$d3/ddf/classgalaxy_1_1Lua.html#a0d36fa52739bcca8487f9f8f5efd4b32" title="Register galaxy time support functions into Lua." alt="" coords="605,10453,782,10478"/>
-<area shape="poly" id="edge300_Node000034_Node000192" title=" " alt="" coords="489,5970,489,6412,500,7328,513,7900,534,8512,564,9139,605,9756,625,9962,650,10163,690,10439,685,10439,645,10163,620,9963,600,9756,559,9140,529,8512,508,7900,494,7328,483,6412,483,5970"/>
-<area shape="rect" id="Node000210" href="$d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609" title="Injects misc galaxy utils into Lua." alt="" coords="623,11315,763,11355"/>
-<area shape="poly" id="edge327_Node000034_Node000210" title=" " alt="" coords="489,5970,489,6489,499,7582,513,8266,534,8999,564,9751,605,10490,625,10734,650,10972,690,11301,685,11301,645,10972,620,10735,600,10491,559,9752,528,8999,507,8266,494,7582,483,6489,483,5970"/>
-<area shape="poly" id="edge105_Node000035_Node000004" title=" " alt="" coords="693,2307,730,1877,757,1529,781,1165,793,606,806,242,817,116,823,76,830,56,850,39,853,43,834,59,828,78,822,117,812,242,798,607,787,1165,762,1529,735,1878,699,2307"/>
-<area shape="poly" id="edge108_Node000035_Node000005" title=" " alt="" coords="693,2307,730,1877,781,1165,793,639,807,295,817,177,823,139,830,120,845,106,848,110,834,123,828,141,822,177,813,296,799,639,787,1165,735,1878,698,2307"/>
-<area shape="poly" id="edge63_Node000035_Node000009" title=" " alt="" coords="693,2307,729,1877,781,1165,782,978,783,667,786,504,794,359,808,247,818,208,830,184,841,173,845,177,834,187,823,210,814,248,800,360,792,505,788,667,788,978,787,1165,735,1878,698,2307"/>
-<area shape="poly" id="edge64_Node000035_Node000010" title=" " alt="" coords="693,2307,729,1877,781,1165,782,987,783,691,787,537,795,399,808,293,818,256,830,233,832,230,836,234,834,236,823,258,814,294,800,399,792,537,788,691,788,987,787,1165,734,1878,698,2307"/>
-<area shape="poly" id="edge65_Node000035_Node000011" title=" " alt="" coords="693,2307,728,1877,781,1165,791,746,804,486,815,391,822,357,830,335,843,316,859,301,894,277,897,281,862,305,847,320,834,337,827,358,820,391,809,487,796,746,787,1165,734,1878,698,2307"/>
-<area shape="poly" id="edge85_Node000035_Node000013" title=" " alt="" coords="693,2307,781,1165,793,810,806,589,817,507,830,460,843,442,859,426,895,402,897,407,862,430,847,445,834,462,822,509,812,589,798,810,787,1165,698,2307"/>
-<area shape="poly" id="edge59_Node000035_Node000017" title=" " alt="" coords="693,2307,781,1165,790,831,803,626,814,551,821,525,830,509,832,506,836,510,834,512,826,527,819,552,808,626,795,832,787,1165,698,2307"/>
-<area shape="poly" id="edge61_Node000035_Node000018" title=" " alt="" coords="693,2307,830,559,832,556,836,559,834,561,698,2307"/>
-<area shape="poly" id="edge62_Node000035_Node000019" title=" " alt="" coords="693,2307,763,1403,807,856,830,608,838,600,841,604,834,610,812,857,768,1403,698,2307"/>
-<area shape="poly" id="edge76_Node000035_Node000020" title=" " alt="" coords="693,2307,760,1432,804,901,820,728,830,658,832,654,836,658,834,660,825,728,809,902,765,1432,698,2307"/>
-<area shape="poly" id="edge112_Node000035_Node000024" title=" " alt="" coords="693,2307,706,2117,735,1800,755,1637,777,1491,802,1381,816,1344,830,1322,850,1310,877,1301,948,1290,1030,1288,1109,1290,1109,1295,1030,1293,949,1296,879,1306,852,1314,834,1326,820,1347,807,1383,782,1492,760,1637,741,1801,712,2117,698,2308"/>
-<area shape="poly" id="edge114_Node000035_Node000025" title=" " alt="" coords="693,2307,760,1457,804,943,820,775,830,707,837,700,841,703,834,709,825,775,809,944,766,1457,698,2307"/>
-<area shape="poly" id="edge115_Node000035_Node000026" title=" " alt="" coords="693,2307,755,1488,798,992,816,826,830,756,842,745,845,749,834,759,821,827,803,992,760,1489,698,2307"/>
-<area shape="poly" id="edge116_Node000035_Node000027" title=" " alt="" coords="693,2307,755,1514,799,1034,816,875,830,807,835,801,839,805,834,809,822,876,804,1035,761,1515,698,2307"/>
-<area shape="poly" id="edge40_Node000035_Node000029" title=" " alt="" coords="693,2307,704,2080,731,1696,750,1496,773,1317,799,1181,814,1135,830,1106,833,1103,837,1107,834,1110,819,1137,805,1182,778,1318,756,1496,737,1697,710,2081,698,2307"/>
-<area shape="poly" id="edge90_Node000035_Node000030" title=" " alt="" coords="693,2307,705,2090,733,1722,752,1530,775,1359,801,1228,815,1184,830,1157,835,1152,838,1156,834,1160,820,1186,806,1230,780,1360,757,1530,738,1722,710,2090,698,2307"/>
-<area shape="poly" id="edge111_Node000035_Node000031" title=" " alt="" coords="692,2307,692,2115,695,1961,704,1788,720,1613,745,1449,762,1377,781,1314,804,1261,830,1221,838,1213,841,1217,834,1224,808,1264,786,1316,767,1379,750,1450,726,1613,710,1789,701,1961,697,2115,697,2307"/>
-<area shape="poly" id="edge119_Node000035_Node000032" title=" " alt="" coords="692,2307,693,2124,698,1978,708,1814,724,1648,748,1494,764,1426,783,1366,805,1316,830,1278,845,1265,848,1269,834,1282,810,1319,788,1368,770,1427,754,1495,729,1649,713,1815,703,1978,698,2124,697,2307"/>
-<area shape="rect" id="Node000036" href="$d0/d84/classgalaxy_1_1Window.html#a7d364f223de4e950def0c3201eb1e11f" title="Append to window title." alt="" coords="851,1336,1031,1376"/>
-<area shape="poly" id="edge41_Node000035_Node000036" title=" " alt="" coords="692,2307,696,2141,702,2010,713,1864,730,1716,755,1578,770,1518,787,1464,807,1420,830,1386,838,1379,842,1382,834,1390,812,1423,792,1466,775,1519,760,1580,736,1717,719,1865,708,2010,701,2141,697,2307"/>
-<area shape="rect" id="Node000037" href="$df/d23/structgalaxy_1_1Settings.html#a973d4cb94dea385fd095e99cb8d79c20" title="Name of packed assets file." alt="" coords="838,1401,1045,1426"/>
-<area shape="poly" id="edge43_Node000035_Node000037" title=" " alt="" coords="692,2307,697,2149,703,2024,715,1886,732,1746,756,1616,771,1559,788,1509,808,1468,830,1437,835,1432,839,1436,834,1440,812,1471,793,1511,776,1561,761,1618,737,1747,720,1886,709,2025,702,2149,697,2307"/>
-<area shape="rect" id="Node000038" href="$df/d23/structgalaxy_1_1Settings.html#a688bb9fb459a4a5b10e547daea875832" title="Animation data location." alt="" coords="853,1451,1029,1491"/>
-<area shape="poly" id="edge44_Node000035_Node000038" title=" " alt="" coords="692,2307,699,2159,720,1916,738,1787,761,1668,792,1569,810,1530,830,1501,840,1492,844,1496,834,1504,814,1533,797,1571,766,1669,743,1788,725,1917,705,2159,698,2307"/>
-<area shape="rect" id="Node000039" href="$df/d23/structgalaxy_1_1Settings.html#ae396f4971f441080b9657dc7de6b0e4f" title="Font asset location." alt="" coords="853,1515,1029,1555"/>
-<area shape="poly" id="edge45_Node000035_Node000039" title=" " alt="" coords="693,2307,701,2169,724,1946,742,1827,765,1718,794,1627,811,1592,830,1565,839,1556,843,1560,834,1568,816,1594,799,1629,770,1719,747,1828,729,1946,706,2169,698,2307"/>
-<area shape="rect" id="Node000040" href="$df/d23/structgalaxy_1_1Settings.html#aa3fd50d09a7fbaa8d78b51e1eb0c409a" title="Maps asset location." alt="" coords="853,1579,1029,1619"/>
-<area shape="poly" id="edge46_Node000035_Node000040" title=" " alt="" coords="693,2307,703,2179,727,1975,746,1867,768,1768,796,1685,812,1653,830,1629,839,1620,843,1624,834,1632,817,1656,801,1687,774,1769,751,1869,733,1976,708,2180,698,2307"/>
-<area shape="rect" id="Node000041" href="$df/d23/structgalaxy_1_1Settings.html#a68ed0e57e329e116448d38092f999310" title="Music asset location." alt="" coords="853,1643,1029,1683"/>
-<area shape="poly" id="edge47_Node000035_Node000041" title=" " alt="" coords="693,2307,705,2190,731,2005,750,1908,772,1818,799,1744,814,1715,830,1693,839,1684,843,1688,834,1696,818,1718,804,1746,777,1820,755,1909,736,2006,710,2191,698,2307"/>
-<area shape="rect" id="Node000042" href="$df/d23/structgalaxy_1_1Settings.html#a2352e26b2745352fd00a8b9a509c33bc" title="Prefab asset location." alt="" coords="853,1707,1029,1747"/>
-<area shape="poly" id="edge48_Node000035_Node000042" title=" " alt="" coords="693,2307,707,2200,735,2035,754,1948,776,1868,801,1802,815,1776,830,1757,840,1749,843,1753,834,1760,820,1779,806,1804,781,1870,759,1949,740,2036,712,2201,699,2307"/>
-<area shape="rect" id="Node000043" href="$df/d23/structgalaxy_1_1Settings.html#a68ea6105fe3d605a8fe0bd4ddb8e802c" title="Scripts asset location." alt="" coords="853,1771,1029,1811"/>
-<area shape="poly" id="edge49_Node000035_Node000043" title=" " alt="" coords="691,2307,692,2225,697,2164,706,2095,723,2022,748,1949,783,1881,805,1850,830,1821,839,1813,843,1817,834,1825,809,1853,788,1884,753,1951,728,2024,712,2096,702,2165,697,2225,697,2307"/>
-<area shape="rect" id="Node000044" href="$df/d23/structgalaxy_1_1Settings.html#aa38ca27ed949489f949b647d80f6ea84" title="SFX asset location." alt="" coords="853,1835,1029,1875"/>
-<area shape="poly" id="edge50_Node000035_Node000044" title=" " alt="" coords="692,2307,696,2234,702,2181,714,2121,731,2058,755,1995,788,1936,830,1885,840,1877,843,1881,834,1889,792,1939,760,1998,736,2060,719,2122,708,2182,701,2235,697,2307"/>
-<area shape="rect" id="Node000045" href="$df/d23/structgalaxy_1_1Settings.html#a502514ef6ee9552ee9ec7c01771ea3b5" title="Shaders asset location." alt="" coords="853,1899,1029,1939"/>
-<area shape="poly" id="edge51_Node000035_Node000045" title=" " alt="" coords="693,2307,700,2244,721,2147,739,2094,762,2041,792,1992,830,1949,840,1941,843,1945,834,1953,797,1995,767,2044,744,2096,726,2149,705,2245,698,2308"/>
-<area shape="rect" id="Node000046" href="$df/d23/structgalaxy_1_1Settings.html#a2794234a7da888721fb4f3d4f4090de1" title="Textures asset location." alt="" coords="853,1963,1029,2003"/>
-<area shape="poly" id="edge52_Node000035_Node000046" title=" " alt="" coords="694,2307,705,2253,729,2174,747,2131,769,2088,797,2048,830,2013,840,2005,843,2010,834,2017,801,2051,774,2090,752,2133,734,2176,710,2254,699,2308"/>
-<area shape="rect" id="Node000047" href="$df/d23/structgalaxy_1_1Settings.html#a591b1a40295208bdabb68802b0c70dd3" title="UI asset location." alt="" coords="853,2027,1029,2067"/>
-<area shape="poly" id="edge53_Node000035_Node000047" title=" " alt="" coords="696,2306,710,2263,737,2201,777,2134,802,2103,830,2077,840,2070,843,2074,834,2081,806,2107,781,2137,742,2203,715,2265,701,2308"/>
-<area shape="rect" id="Node000048" href="$df/d23/structgalaxy_1_1Settings.html#ac8246651c6c35d660db4da72c15cc487" title="Video asset location." alt="" coords="853,2091,1029,2131"/>
-<area shape="poly" id="edge54_Node000035_Node000048" title=" " alt="" coords="699,2306,717,2273,746,2228,784,2181,830,2141,840,2135,843,2139,834,2145,788,2185,750,2231,722,2275,703,2308"/>
-<area shape="rect" id="Node000049" href="$df/d23/structgalaxy_1_1Settings.html#a3447c1313b393c9cc00c3ddc438f2599" title="Voice asset location." alt="" coords="853,2155,1029,2195"/>
-<area shape="poly" id="edge55_Node000035_Node000049" title=" " alt="" coords="705,2305,756,2257,792,2229,831,2204,845,2197,848,2202,833,2209,795,2233,760,2261,708,2309"/>
-<area shape="rect" id="Node000050" href="$d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57" title=" " alt="" coords="866,2243,1017,2283"/>
-<area shape="poly" id="edge56_Node000035_Node000050" title=" " alt="" coords="749,2305,852,2280,853,2286,750,2310"/>
-<area shape="rect" id="Node000052" href="$d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe" title="Close window." alt="" coords="858,2307,1025,2333"/>
-<area shape="poly" id="edge60_Node000035_Node000052" title=" " alt="" coords="781,2317,844,2317,844,2323,781,2323"/>
-<area shape="rect" id="Node000053" href="$d0/d46/namespacegalaxy.html#ae75c97fd983f82b9ac19a20d72886c49" title=" " alt="" coords="868,2381,1015,2421"/>
-<area shape="poly" id="edge66_Node000035_Node000053" title=" " alt="" coords="734,2330,868,2375,866,2380,732,2335"/>
-<area shape="rect" id="Node000055" href="$db/d49/classgalaxy_1_1Config.html#a983023901515bdf9686b07c9853c056c" title="Is the config file blank." alt="" coords="859,2446,1023,2471"/>
-<area shape="poly" id="edge69_Node000035_Node000055" title=" " alt="" coords="708,2331,759,2380,795,2408,833,2431,853,2439,851,2444,831,2436,791,2412,756,2384,704,2335"/>
-<area shape="rect" id="Node000056" href="$df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261" title="Is window started fullscreen." alt="" coords="842,2495,1041,2521"/>
-<area shape="poly" id="edge70_Node000035_Node000056" title=" " alt="" coords="704,2332,723,2363,751,2403,789,2445,833,2480,848,2488,845,2493,831,2485,785,2449,747,2406,718,2365,699,2334"/>
-<area shape="rect" id="Node000057" href="$db/d49/classgalaxy_1_1Config.html#a516d635c5d39e6041bcb99a13ad10d0b" title="Retrieve a root config value." alt="" coords="870,2545,1013,2570"/>
-<area shape="poly" id="edge71_Node000035_Node000057" title=" " alt="" coords="702,2332,717,2371,745,2425,783,2482,807,2508,833,2530,858,2542,856,2547,831,2534,803,2512,779,2485,740,2428,712,2373,697,2334"/>
-<area shape="rect" id="Node000058" href="$d0/d84/classgalaxy_1_1Window.html#ac97e9f46c7fc0449ca77ccbaab5b803d" title="Get display content scale." alt="" coords="865,2595,1018,2635"/>
-<area shape="poly" id="edge72_Node000035_Node000058" title=" " alt="" coords="700,2332,714,2379,740,2446,779,2518,804,2551,834,2579,854,2592,851,2597,830,2583,800,2554,775,2520,735,2448,709,2381,695,2334"/>
-<area shape="rect" id="Node000059" href="$d0/d84/classgalaxy_1_1Window.html#aada22a825f4b880f305d8d18f22cd9dc" title="Get window size in pixels." alt="" coords="865,2659,1018,2699"/>
-<area shape="poly" id="edge73_Node000035_Node000059" title=" " alt="" coords="699,2332,709,2389,731,2474,749,2520,772,2565,800,2608,834,2645,854,2658,851,2662,830,2649,796,2611,767,2568,744,2522,726,2475,703,2390,694,2333"/>
-<area shape="rect" id="Node000060" href="$db/d49/classgalaxy_1_1Config.html#af361c1dd482db3fb195151ae2499b597" title="Check if the config file actually has a value." alt="" coords="1130,3007,1275,3033"/>
-<area shape="poly" id="edge74_Node000035_Node000060" title=" " alt="" coords="698,2333,703,2400,722,2502,739,2558,763,2613,794,2664,834,2709,861,2727,887,2736,913,2738,939,2736,993,2735,1022,2742,1052,2759,1082,2785,1108,2814,1149,2880,1179,2943,1197,2994,1192,2995,1174,2945,1145,2882,1103,2818,1078,2788,1049,2764,1020,2747,993,2740,939,2741,913,2743,886,2741,858,2732,830,2713,790,2668,758,2616,734,2560,717,2503,698,2400,692,2333"/>
-<area shape="rect" id="Node000061" href="$d0/d84/classgalaxy_1_1Window.html#aaf83759e1b9e4aeadce37a7374d730e2" title="Hide window." alt="" coords="861,2774,1021,2799"/>
-<area shape="poly" id="edge75_Node000035_Node000061" title=" " alt="" coords="697,2333,701,2406,708,2459,719,2518,736,2581,760,2643,792,2702,834,2753,852,2766,848,2770,830,2757,788,2705,755,2646,731,2583,714,2520,702,2459,696,2406,692,2333"/>
-<area shape="rect" id="Node000062" href="$d0/d84/classgalaxy_1_1Window.html#a5d700bc84cf9b0877891f56464d12e46" title="Is the window open or closed." alt="" coords="850,2823,1033,2849"/>
-<area shape="poly" id="edge77_Node000035_Node000062" title=" " alt="" coords="699,2332,714,2427,743,2571,762,2647,784,2715,808,2772,834,2809,840,2814,837,2818,830,2812,803,2774,779,2717,757,2648,738,2572,709,2428,694,2333"/>
-<area shape="rect" id="Node000063" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="866,2873,1017,2898"/>
-<area shape="poly" id="edge78_Node000035_Node000063" title=" " alt="" coords="699,2332,712,2435,740,2594,759,2678,781,2754,806,2817,820,2841,834,2858,855,2872,852,2877,830,2862,815,2844,801,2819,776,2756,754,2679,735,2595,707,2436,693,2333"/>
-<area shape="rect" id="Node000067" href="$df/d23/structgalaxy_1_1Settings.html#a6d790863e0c697622f98c201ec58e4b6" title="Max quads to render at once." alt="" coords="860,2923,1023,2963"/>
-<area shape="poly" id="edge86_Node000035_Node000067" title=" " alt="" coords="699,2332,712,2443,738,2616,757,2708,779,2792,805,2861,819,2888,834,2907,849,2920,846,2924,830,2911,815,2890,800,2863,774,2793,752,2709,733,2617,706,2443,693,2333"/>
-<area shape="rect" id="Node000068" href="$d0/d84/classgalaxy_1_1Window.html#a73c7aeb46b0a26f8b0edfe88ab1a82da" title="Maximize window." alt="" coords="843,2987,1040,3013"/>
-<area shape="poly" id="edge87_Node000035_Node000068" title=" " alt="" coords="698,2333,709,2455,733,2649,752,2751,774,2845,802,2922,817,2951,834,2973,839,2978,836,2982,830,2976,813,2954,797,2924,769,2846,746,2752,728,2650,703,2455,693,2333"/>
-<area shape="rect" id="Node000069" href="$df/d23/structgalaxy_1_1Settings.html#a8116b7ba973809ef35c4b7b23ed81cf6" title="Is window started maximized?" alt="" coords="838,3037,1045,3062"/>
-<area shape="poly" id="edge88_Node000035_Node000069" title=" " alt="" coords="698,2333,707,2463,730,2671,748,2782,771,2883,800,2967,816,2999,834,3022,839,3027,835,3031,830,3026,812,3001,795,2969,766,2885,743,2783,725,2672,702,2463,693,2333"/>
-<area shape="rect" id="Node000070" href="$d0/d84/classgalaxy_1_1Window.html#ad4568c3a89072612c1a5a14167a1f961" title="Minimize window." alt="" coords="845,3086,1038,3111"/>
-<area shape="poly" id="edge89_Node000035_Node000070" title=" " alt="" coords="698,2333,706,2471,727,2695,745,2813,768,2922,798,3012,815,3046,834,3072,839,3076,835,3080,830,3075,811,3049,793,3014,763,2924,740,2814,722,2696,700,2472,692,2333"/>
-<area shape="rect" id="Node000071" href="$df/d23/structgalaxy_1_1Settings.html#a9f11de9a6f51dcdee89b83645814cb0a" title="Is the cursor grabbed." alt="" coords="852,3136,1031,3176"/>
-<area shape="poly" id="edge91_Node000035_Node000071" title=" " alt="" coords="698,2333,705,2478,726,2715,744,2842,767,2959,797,3056,815,3093,834,3121,842,3129,839,3133,830,3124,810,3096,792,3058,762,2960,739,2843,721,2716,700,2478,692,2333"/>
-<area shape="rect" id="Node000072" href="$d0/d84/classgalaxy_1_1Window.html#a67734c3d1f69eae9772da1760dcd2992" title="Raise the window to be on top of other windows." alt="" coords="859,3201,1023,3226"/>
-<area shape="poly" id="edge92_Node000035_Node000072" title=" " alt="" coords="697,2333,702,2490,709,2612,721,2748,738,2885,762,3012,777,3068,794,3117,813,3156,834,3186,849,3198,846,3202,830,3190,808,3159,789,3119,772,3070,757,3013,733,2886,715,2749,704,2613,697,2490,692,2333"/>
-<area shape="rect" id="Node000073" href="$d0/d84/classgalaxy_1_1Window.html#af3ee69fcfee910382c3e1cfe738ebd58" title="Flash window on taskbar for user attention." alt="" coords="851,3251,1032,3291"/>
-<area shape="poly" id="edge93_Node000035_Node000073" title=" " alt="" coords="697,2333,702,2497,709,2626,720,2769,737,2914,761,3049,776,3108,793,3160,812,3203,834,3236,841,3243,838,3247,830,3239,808,3206,788,3162,771,3110,756,3050,732,2915,715,2770,703,2626,697,2497,692,2333"/>
-<area shape="rect" id="Node000074" href="$d0/d84/classgalaxy_1_1Window.html#a6a9ecb30bc3452e7b9ab9c35e34dc52a" title="Resizes window." alt="" coords="856,3315,1027,3341"/>
-<area shape="poly" id="edge94_Node000035_Node000074" title=" " alt="" coords="697,2333,699,2508,704,2646,714,2800,731,2957,755,3102,771,3165,789,3221,810,3267,834,3301,846,3311,842,3315,830,3304,805,3269,784,3223,766,3167,750,3103,725,2958,709,2801,699,2646,694,2508,692,2333"/>
-<area shape="rect" id="Node000075" href="$db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945" title="Sets a new setting, only if key or value does not already exist." alt="" coords="857,3365,1025,3390"/>
-<area shape="poly" id="edge95_Node000035_Node000075" title=" " alt="" coords="697,2333,698,2515,702,2661,711,2823,727,2988,752,3140,768,3207,787,3266,809,3314,834,3350,846,3361,843,3365,830,3354,804,3317,782,3268,763,3209,747,3141,722,2988,706,2823,697,2661,692,2515,692,2333"/>
-<area shape="rect" id="Node000076" href="$db/d49/classgalaxy_1_1Config.html#adf81f41178b29991ae5e049fb97aca87" title="Set a new key&#45;value pair for the config." alt="" coords="1131,3415,1274,3441"/>
-<area shape="poly" id="edge104_Node000035_Node000076" title=" " alt="" coords="698,2333,710,2538,738,2882,757,3060,780,3218,805,3337,819,3377,834,3399,853,3411,880,3420,954,3431,1038,3433,1117,3431,1117,3436,1038,3439,953,3436,879,3425,851,3416,830,3403,815,3379,800,3339,774,3219,752,3060,733,2882,705,2539,693,2333"/>
-<area shape="rect" id="Node000077" href="$d0/d84/classgalaxy_1_1Window.html#af95c4a43bf4726dd67b590da007be994" title="Restore window to previous *mize state." alt="" coords="852,3466,1031,3491"/>
-<area shape="poly" id="edge98_Node000035_Node000077" title=" " alt="" coords="698,2333,712,2544,740,2900,760,3085,782,3251,807,3377,820,3420,834,3445,848,3457,845,3461,830,3448,816,3422,802,3378,777,3252,754,3086,735,2900,706,2544,693,2333"/>
-<area shape="rect" id="Node000078" href="$d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21" title=" " alt="" coords="844,3589,1039,3614"/>
-<area shape="poly" id="edge99_Node000035_Node000078" title=" " alt="" coords="698,2333,711,2562,740,2951,760,3154,782,3336,807,3476,820,3523,834,3552,851,3568,872,3581,869,3585,848,3573,830,3555,815,3525,802,3477,777,3337,754,3155,735,2951,706,2562,693,2333"/>
-<area shape="rect" id="Node000080" href="$db/d49/classgalaxy_1_1Config.html#a2d27aeba46bb153367da4985d75154e7" title="Save the config file. Must be opened first." alt="" coords="865,3515,1018,3541"/>
-<area shape="poly" id="edge102_Node000035_Node000080" title=" " alt="" coords="698,2333,710,2555,737,2930,756,3125,779,3299,805,3432,819,3476,834,3502,853,3516,850,3521,830,3506,814,3478,800,3433,774,3300,751,3126,732,2930,705,2555,693,2333"/>
-<area shape="rect" id="Node000081" href="$d0/d84/classgalaxy_1_1Window.html#a095c8b8cd886f02b62c017514d2feafc" title="Toggle fullscreen." alt="" coords="865,3639,1017,3679"/>
-<area shape="poly" id="edge106_Node000035_Node000081" title=" " alt="" coords="698,2333,709,2575,735,2989,754,3205,777,3398,804,3546,819,3595,834,3625,854,3641,851,3645,830,3628,814,3597,799,3547,772,3399,749,3206,730,2989,704,2575,693,2333"/>
-<area shape="rect" id="Node000082" href="$d0/d84/classgalaxy_1_1Window.html#aed3b9111ee0b7573993c9be2eb76aca9" title="Set window icon." alt="" coords="848,3703,1035,3729"/>
-<area shape="poly" id="edge107_Node000035_Node000082" title=" " alt="" coords="698,2333,708,2586,732,3021,751,3248,774,3451,787,3536,802,3606,817,3658,834,3689,839,3694,835,3698,830,3692,812,3660,796,3607,782,3537,769,3452,745,3249,727,3021,702,2586,692,2333"/>
-<area shape="rect" id="Node000083" href="$d0/d84/classgalaxy_1_1Window.html#a9ad74e54be25443954cb6b05f1a862b3" title="Sets the taskbar icon progress overlay." alt="" coords="865,3753,1017,3793"/>
-<area shape="poly" id="edge109_Node000035_Node000083" title=" " alt="" coords="698,2333,707,2594,732,3044,751,3280,774,3491,787,3580,802,3653,817,3707,834,3740,854,3756,851,3760,830,3743,812,3709,796,3654,782,3581,768,3492,745,3281,727,3045,702,2594,692,2333"/>
-<area shape="rect" id="Node000084" href="$d0/d84/classgalaxy_1_1Window.html#abd31a698739a0dcdadbec961b55c72de" title="Show window." alt="" coords="858,3818,1025,3843"/>
-<area shape="poly" id="edge110_Node000035_Node000084" title=" " alt="" coords="698,2333,706,2605,729,3077,747,3324,770,3545,784,3637,799,3713,816,3770,834,3804,847,3815,844,3819,830,3807,811,3772,794,3715,779,3638,765,3546,742,3325,724,3078,701,2606,692,2333"/>
-<area shape="rect" id="Node000085" href="$df/d23/structgalaxy_1_1Settings.html#a63077443966b4774610d887a7c21a943" title="Should asset data be read from pack or assets dir." alt="" coords="863,3868,1020,3908"/>
-<area shape="poly" id="edge113_Node000035_Node000085" title=" " alt="" coords="698,2333,706,2613,729,3101,747,3356,770,3585,784,3681,799,3760,816,3819,834,3854,852,3869,848,3873,830,3858,811,3821,794,3761,779,3682,765,3586,742,3357,724,3101,701,2613,692,2333"/>
-<area shape="rect" id="Node000086" href="$df/d23/structgalaxy_1_1Settings.html#a55e304adba9cc033fcbe30b07c2222de" title="Controls if a window has a border around it (including titlebar)." alt="" coords="849,3932,1033,3972"/>
-<area shape="poly" id="edge117_Node000035_Node000086" title=" " alt="" coords="698,2333,705,2624,727,3132,745,3399,769,3637,783,3737,798,3820,815,3881,834,3918,840,3925,836,3929,830,3922,810,3883,793,3821,777,3738,763,3638,740,3399,722,3132,700,2624,692,2333"/>
-<area shape="rect" id="Node000087" href="$df/d23/structgalaxy_1_1Settings.html#a184b71c8922b5bd70374577a76e241e6" title="Window creation height." alt="" coords="849,3996,1033,4036"/>
-<area shape="poly" id="edge118_Node000035_Node000087" title=" " alt="" coords="698,2333,704,2633,725,3162,743,3440,767,3689,781,3793,797,3879,815,3944,834,3982,840,3989,836,3993,830,3986,810,3946,792,3881,776,3794,762,3689,738,3441,720,3162,699,2633,692,2333"/>
-<area shape="rect" id="Node000088" href="$df/d23/structgalaxy_1_1Settings.html#a75754687c3498a8217cf8ac521ca8370" title="Is the window resizable." alt="" coords="849,4060,1033,4100"/>
-<area shape="poly" id="edge120_Node000035_Node000088" title=" " alt="" coords="697,2333,704,2644,724,3193,741,3482,765,3741,779,3849,796,3939,814,4006,834,4046,840,4053,836,4057,830,4050,809,4008,791,3940,774,3850,760,3742,736,3483,718,3194,698,2644,692,2333"/>
-<area shape="rect" id="Node000089" href="$df/d23/structgalaxy_1_1Settings.html#a49a479dbb85c78c17784ccc52677b6b1" title="Window creation width." alt="" coords="849,4124,1033,4164"/>
-<area shape="poly" id="edge121_Node000035_Node000089" title=" " alt="" coords="697,2333,703,2654,710,2924,722,3224,739,3524,763,3793,778,3906,795,3999,813,4068,834,4110,840,4117,836,4121,830,4114,808,4070,789,4000,773,3907,758,3794,734,3525,717,3225,705,2924,697,2655,692,2333"/>
-<area shape="poly" id="edge42_Node000036_Node000024" title=" " alt="" coords="1031,1334,1130,1312,1132,1317,1032,1339"/>
-<area shape="poly" id="edge58_Node000050_Node000050" title=" " alt="" coords="895,2243,892,2233,900,2224,916,2218,941,2216,970,2219,986,2226,984,2231,969,2224,941,2221,917,2223,903,2228,898,2234,900,2242"/>
-<area shape="rect" id="Node000051" href="$df/d23/structgalaxy_1_1Settings.html#a8e8e8205de8e6534d17d71b89c57bcc7" title="Main data directory." alt="" coords="1103,2250,1303,2275"/>
-<area shape="poly" id="edge57_Node000050_Node000051" title=" " alt="" coords="1017,2260,1089,2260,1089,2265,1017,2265"/>
-<area shape="poly" id="edge68_Node000053_Node000053" title=" " alt="" coords="895,2382,892,2372,900,2362,916,2357,941,2355,970,2358,986,2365,984,2370,969,2363,941,2360,917,2362,903,2367,898,2373,900,2380"/>
-<area shape="rect" id="Node000054" href="$df/d23/structgalaxy_1_1Settings.html#aba7589e93d0cea374b1cf93e94421f99" title="Directory for editor specific stuff." alt="" coords="1105,2389,1301,2414"/>
-<area shape="poly" id="edge67_Node000053_Node000054" title=" " alt="" coords="1015,2399,1091,2399,1091,2404,1015,2404"/>
-<area shape="rect" id="Node000064" href="$d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="1123,3366,1282,3391"/>
-<area shape="poly" id="edge79_Node000063_Node000064" title=" " alt="" coords="1018,2890,1036,2897,1053,2909,1075,2969,1117,3098,1196,3352,1191,3354,1112,3099,1070,2970,1049,2912,1034,2902,1016,2895"/>
-<area shape="rect" id="Node000066" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="1138,3499,1267,3539"/>
-<area shape="poly" id="edge82_Node000063_Node000066" title=" " alt="" coords="1018,2887,1037,2896,1053,2909,1066,2930,1076,2955,1085,3019,1087,3095,1083,3178,1079,3260,1078,3338,1084,3404,1091,3430,1101,3452,1118,3473,1141,3489,1137,3494,1115,3477,1096,3455,1086,3432,1079,3405,1073,3338,1074,3260,1078,3177,1081,3095,1080,3020,1070,2957,1061,2932,1049,2912,1034,2900,1016,2892"/>
-<area shape="poly" id="edge81_Node000064_Node000064" title=" " alt="" coords="1166,3368,1158,3358,1162,3348,1178,3342,1203,3339,1234,3343,1246,3353,1243,3357,1232,3348,1203,3345,1179,3347,1166,3352,1163,3357,1170,3364"/>
-<area shape="rect" id="Node000065" href="$d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="1359,3424,1494,3464"/>
-<area shape="poly" id="edge80_Node000064_Node000065" title=" " alt="" coords="1264,3389,1307,3400,1360,3417,1358,3422,1306,3405,1263,3394"/>
-<area shape="poly" id="edge83_Node000066_Node000065" title=" " alt="" coords="1262,3496,1352,3466,1354,3471,1264,3501"/>
-<area shape="poly" id="edge84_Node000066_Node000066" title=" " alt="" coords="1161,3499,1158,3489,1165,3480,1180,3474,1203,3472,1229,3475,1243,3482,1241,3487,1227,3480,1203,3477,1181,3479,1168,3484,1163,3490,1166,3498"/>
-<area shape="poly" id="edge96_Node000075_Node000060" title=" " alt="" coords="1024,3364,1049,3350,1083,3316,1112,3277,1136,3235,1155,3191,1181,3108,1195,3046,1200,3047,1186,3110,1160,3193,1140,3237,1116,3280,1087,3320,1052,3354,1027,3369"/>
-<area shape="poly" id="edge97_Node000075_Node000076" title=" " alt="" coords="1008,3388,1124,3410,1123,3415,1007,3393"/>
-<area shape="poly" id="edge101_Node000078_Node000078" title=" " alt="" coords="901,3590,892,3580,897,3570,914,3564,941,3562,976,3566,986,3571,990,3576,986,3579,983,3575,975,3571,941,3567,915,3569,901,3574,898,3580,905,3587"/>
-<area shape="rect" id="Node000079" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="1111,5242,1295,5267"/>
-<area shape="poly" id="edge100_Node000078_Node000079" title=" " alt="" coords="1038,3612,1053,3625,1062,3650,1069,3698,1079,3853,1090,4299,1094,4749,1097,4907,1101,4984,1120,5055,1145,5123,1191,5228,1186,5231,1140,5125,1115,5056,1096,4984,1092,4907,1089,4749,1084,4300,1074,3853,1063,3699,1056,3651,1048,3628,1034,3616"/>
-<area shape="poly" id="edge103_Node000080_Node000066" title=" " alt="" coords="1018,3523,1124,3519,1125,3524,1018,3528"/>
-<area shape="rect" id="Node000091" href="$d9/d4c/classgalaxy_1_1EntityManager.html#abf4b9553fb55616ec3e3c900afd5c570" title="Get entity registry." alt="" coords="857,4188,1025,4228"/>
-<area shape="poly" id="edge123_Node000090_Node000091" title=" " alt="" coords="694,4581,703,4516,725,4424,743,4374,766,4325,795,4280,830,4239,843,4229,847,4233,834,4243,799,4283,770,4328,748,4376,730,4426,708,4517,699,4582"/>
-<area shape="rect" id="Node000094" href="$df/d64/classgalaxy_1_1Event.html#a9c2e34c8012fd9fd73a254255a81979f" title="Mark this event as consumed." alt="" coords="853,4253,1030,4278"/>
-<area shape="poly" id="edge126_Node000093_Node000094" title=" " alt="" coords="762,4895,782,4878,794,4856,803,4828,811,4758,809,4674,803,4584,798,4493,797,4410,806,4340,816,4311,830,4289,839,4280,843,4284,834,4292,821,4314,811,4341,802,4410,803,4493,808,4583,814,4674,816,4758,808,4829,799,4858,786,4882,765,4899"/>
-<area shape="rect" id="Node000095" href="$df/d64/classgalaxy_1_1Event.html#a835517ff3cfc14951b4fdd4ea8aadaf0" title="Is this event already consumed?" alt="" coords="849,4302,1034,4327"/>
-<area shape="poly" id="edge127_Node000093_Node000095" title=" " alt="" coords="762,4895,782,4878,793,4858,801,4833,809,4770,809,4694,804,4613,800,4531,800,4455,809,4392,817,4366,830,4345,844,4332,847,4336,834,4348,822,4368,814,4393,806,4456,806,4531,810,4612,814,4694,814,4770,806,4834,798,4861,786,4882,765,4899"/>
-<area shape="poly" id="edge168_Node000096_Node000066" title=" " alt="" coords="699,5152,739,5066,763,5006,781,4943,788,4889,790,4820,786,4657,786,4575,792,4499,805,4435,816,4410,830,4389,856,4367,884,4358,912,4358,940,4361,969,4365,996,4365,1023,4357,1049,4338,1068,4312,1086,4278,1117,4187,1142,4076,1162,3955,1187,3718,1197,3553,1203,3553,1192,3719,1167,3956,1148,4077,1122,4188,1091,4280,1073,4315,1053,4342,1025,4362,997,4370,968,4371,940,4367,912,4363,885,4364,859,4372,834,4392,821,4412,810,4437,797,4500,791,4575,791,4657,795,4820,794,4890,787,4945,768,5008,744,5068,704,5155"/>
-<area shape="rect" id="Node000097" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a00ee72cd861c0d33f3668bce5c48b45f" title="Trigger a standard filesystem audio alert." alt="" coords="847,4427,1035,4467"/>
-<area shape="poly" id="edge129_Node000096_Node000097" title=" " alt="" coords="699,5152,739,5066,762,5006,781,4943,788,4899,790,4842,791,4708,793,4639,799,4577,810,4523,830,4484,841,4473,845,4476,834,4487,815,4525,804,4577,798,4640,796,4708,796,4842,793,4899,787,4945,767,5008,744,5068,704,5155"/>
-<area shape="rect" id="Node000098" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e" title="Does the file exist in the vfs." alt="" coords="1109,4633,1297,4673"/>
-<area shape="poly" id="edge131_Node000096_Node000098" title=" " alt="" coords="699,5152,739,5066,762,5006,781,4943,787,4903,789,4850,788,4726,790,4664,796,4607,809,4560,818,4542,830,4527,857,4507,883,4495,909,4490,935,4490,989,4504,1052,4527,1090,4545,1124,4570,1178,4621,1174,4625,1121,4574,1087,4550,1050,4532,987,4509,934,4495,909,4495,885,4500,860,4512,834,4531,823,4545,813,4562,801,4608,795,4664,793,4726,794,4850,792,4903,787,4945,767,5008,744,5068,704,5155"/>
-<area shape="rect" id="Node000099" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1" title="Get a file or path&#39;s extension." alt="" coords="877,4565,1006,4605"/>
-<area shape="poly" id="edge132_Node000096_Node000099" title=" " alt="" coords="699,5153,738,5066,761,5006,781,4943,790,4894,791,4849,784,4769,782,4732,787,4695,802,4656,830,4616,845,4603,863,4594,865,4598,848,4607,834,4619,806,4659,792,4696,787,4732,789,4769,797,4849,796,4894,787,4945,766,5008,743,5069,703,5155"/>
-<area shape="rect" id="Node000100" href="$d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f" title=" " alt="" coords="863,4653,1020,4693"/>
-<area shape="poly" id="edge134_Node000096_Node000100" title=" " alt="" coords="698,5153,737,5066,781,4943,789,4907,792,4874,790,4816,790,4788,796,4761,808,4733,830,4703,849,4689,852,4693,834,4707,813,4736,801,4763,796,4789,795,4816,797,4874,795,4908,787,4945,742,5068,703,5155"/>
-<area shape="rect" id="Node000101" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a77c59a61e3d8a0dbd8bac30149f79c11" title="Opens a platform specific text input box." alt="" coords="847,4741,1035,4781"/>
-<area shape="poly" id="edge137_Node000096_Node000101" title=" " alt="" coords="698,5153,734,5065,781,4943,792,4899,795,4862,804,4827,814,4810,830,4791,835,4787,838,4791,834,4795,819,4813,809,4829,801,4863,797,4900,787,4945,739,5067,703,5155"/>
-<area shape="rect" id="Node000102" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0" title="Checks if a file is a folder." alt="" coords="847,4805,1035,4845"/>
-<area shape="poly" id="edge139_Node000096_Node000102" title=" " alt="" coords="697,5153,763,4996,802,4910,830,4862,847,4850,850,4854,834,4866,807,4912,768,4998,702,5155"/>
-<area shape="rect" id="Node000103" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a4aa6a65d69a7595f79b09f9ef35455e7" title="Get assets in an asset folder." alt="" coords="1109,4932,1297,4972"/>
-<area shape="poly" id="edge140_Node000096_Node000103" title=" " alt="" coords="694,5153,706,5104,730,5035,748,4999,770,4964,798,4932,831,4907,870,4889,912,4880,955,4878,999,4881,1081,4899,1149,4924,1147,4929,1079,4904,998,4886,955,4883,913,4885,872,4894,833,4912,801,4936,775,4967,752,5001,735,5037,711,5106,699,5155"/>
-<area shape="rect" id="Node000105" href="$d5/d13/classgalaxy_1_1FileError.html#a6fddfe48f26194025a033ce89482b990" title="Prints the file error in a nice format to the console." alt="" coords="864,4921,1019,4946"/>
-<area shape="poly" id="edge144_Node000096_Node000105" title=" " alt="" coords="697,5153,713,5114,740,5061,780,5004,804,4979,831,4956,849,4946,852,4951,833,4961,807,4982,784,5008,745,5063,718,5116,702,5155"/>
-<area shape="rect" id="Node000106" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0d32700de2c56498333e7f2bfc54a542" title="Opens a platform specific message box." alt="" coords="847,4995,1035,5035"/>
-<area shape="poly" id="edge145_Node000096_Node000106" title=" " alt="" coords="704,5152,755,5100,791,5070,831,5044,844,5038,847,5042,833,5049,794,5075,759,5104,708,5156"/>
-<area shape="rect" id="Node000107" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14" title="Creates an empty folder in the filesystem relative to the root." alt="" coords="847,5059,1035,5099"/>
-<area shape="poly" id="edge147_Node000096_Node000107" title=" " alt="" coords="723,5151,831,5108,855,5100,857,5105,833,5113,725,5156"/>
-<area shape="rect" id="Node000108" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a72470275dbda0532a188b0fdea86f32d" title="Trigger a system notification." alt="" coords="847,5147,1035,5187"/>
-<area shape="poly" id="edge150_Node000096_Node000108" title=" " alt="" coords="773,5164,833,5164,833,5169,773,5169"/>
-<area shape="rect" id="Node000109" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a803b87252d75800508ee4fa4dff433b3" title="Open a file dialog." alt="" coords="847,5235,1035,5275"/>
-<area shape="poly" id="edge152_Node000096_Node000109" title=" " alt="" coords="731,5177,872,5228,870,5233,729,5182"/>
-<area shape="rect" id="Node000110" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a9a49804951501cf4b742865ca5ef2a88" title="Open a save file dialog." alt="" coords="847,5323,1035,5363"/>
-<area shape="poly" id="edge155_Node000096_Node000110" title=" " alt="" coords="709,5177,761,5227,834,5284,885,5314,882,5319,830,5289,758,5231,705,5181"/>
-<area shape="rect" id="Node000111" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a26c21036c5b5a679c39939d39422df99" title="Open URL in default webbrowser." alt="" coords="877,5411,1006,5451"/>
-<area shape="poly" id="edge157_Node000096_Node000111" title=" " alt="" coords="703,5178,721,5215,749,5266,788,5322,834,5373,878,5402,875,5407,830,5377,783,5325,745,5269,716,5218,698,5181"/>
-<area shape="rect" id="Node000112" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a5714f1be5d091e5e20d6c6d9ae8de541" title="Read a file." alt="" coords="1109,5543,1297,5583"/>
-<area shape="poly" id="edge159_Node000096_Node000112" title=" " alt="" coords="697,5179,701,5248,707,5297,718,5350,735,5406,759,5460,792,5509,834,5549,865,5567,900,5581,936,5589,973,5593,1047,5592,1114,5583,1115,5588,1048,5598,973,5599,935,5594,898,5586,863,5572,830,5553,787,5512,754,5463,730,5408,713,5352,702,5297,696,5248,692,5180"/>
-<area shape="rect" id="Node000113" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af5d6601c81e250d33fc7bb13912c8545" title="Read a binary file." alt="" coords="1109,5607,1297,5647"/>
-<area shape="poly" id="edge161_Node000096_Node000113" title=" " alt="" coords="697,5179,698,5255,703,5310,712,5371,729,5434,754,5496,788,5552,809,5577,834,5599,863,5618,894,5632,928,5642,963,5648,1032,5651,1097,5646,1098,5651,1032,5657,962,5654,927,5647,892,5637,860,5623,830,5603,805,5581,784,5556,749,5499,724,5436,707,5372,697,5310,692,5255,691,5179"/>
-<area shape="rect" id="Node000114" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#aca348e65708b9e1ec6095de6ec11d110" title="Delete a file or folder." alt="" coords="1109,5671,1297,5711"/>
-<area shape="poly" id="edge163_Node000096_Node000114" title=" " alt="" coords="699,5179,713,5275,741,5421,760,5497,782,5566,806,5621,820,5642,834,5657,852,5667,877,5675,943,5686,1019,5691,1095,5692,1095,5697,1019,5697,942,5692,875,5681,849,5672,830,5661,816,5645,802,5624,777,5567,755,5498,736,5422,708,5276,694,5180"/>
-<area shape="rect" id="Node000115" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab7c4aaec31a37cf0863f43997240fcff" title="Select a folder using a dialog." alt="" coords="847,5499,1035,5539"/>
-<area shape="poly" id="edge165_Node000096_Node000115" title=" " alt="" coords="700,5179,714,5229,739,5304,779,5386,805,5425,834,5461,853,5477,874,5490,871,5495,849,5481,830,5465,800,5429,774,5389,734,5306,708,5231,695,5180"/>
-<area shape="rect" id="Node000116" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a6cbcf8ba11e8e51be045c168e802a90f" title="Writes a file to disk." alt="" coords="847,5715,1035,5755"/>
-<area shape="poly" id="edge169_Node000096_Node000116" title=" " alt="" coords="699,5179,714,5279,743,5434,762,5516,784,5591,808,5652,834,5694,847,5705,843,5709,830,5698,803,5655,779,5592,757,5517,738,5435,709,5280,694,5180"/>
-<area shape="rect" id="Node000117" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1" title="Raw data writing." alt="" coords="1109,5753,1297,5793"/>
-<area shape="poly" id="edge174_Node000096_Node000117" title=" " alt="" coords="698,5179,708,5294,732,5473,751,5567,773,5652,801,5721,817,5746,834,5765,866,5786,902,5800,940,5808,979,5812,1056,5807,1125,5794,1126,5799,1057,5813,979,5817,939,5813,900,5805,864,5790,830,5769,813,5750,796,5723,768,5654,745,5568,727,5474,703,5294,693,5180"/>
-<area shape="rect" id="Node000118" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a47bcceba1a6260628db6e3821caec273" title="Writes a binary file to disk." alt="" coords="847,5829,1035,5869"/>
-<area shape="poly" id="edge172_Node000096_Node000118" title=" " alt="" coords="698,5179,710,5298,736,5488,755,5588,777,5681,804,5757,818,5787,834,5809,846,5820,842,5824,830,5812,814,5789,799,5759,772,5682,750,5589,731,5489,705,5299,693,5180"/>
-<area shape="poly" id="edge130_Node000097_Node000097" title=" " alt="" coords="895,4427,892,4417,900,4408,916,4402,941,4400,970,4403,986,4410,984,4415,969,4408,941,4405,917,4407,903,4412,898,4418,900,4426"/>
-<area shape="poly" id="edge133_Node000099_Node000099" title=" " alt="" coords="895,4566,892,4556,900,4546,916,4541,941,4539,970,4542,986,4549,984,4554,969,4547,941,4544,917,4546,903,4551,898,4557,900,4564"/>
-<area shape="poly" id="edge136_Node000100_Node000064" title=" " alt="" coords="1006,4651,1030,4636,1048,4616,1060,4585,1067,4536,1074,4394,1072,4210,1067,4006,1062,3803,1062,3620,1066,3543,1072,3480,1082,3431,1097,3401,1109,3390,1113,3394,1101,3404,1087,3433,1078,3480,1071,3544,1068,3620,1067,3803,1072,4006,1078,4210,1079,4394,1073,4537,1065,4587,1053,4619,1033,4640,1009,4655"/>
-<area shape="poly" id="edge135_Node000100_Node000100" title=" " alt="" coords="895,4654,892,4644,900,4634,916,4629,941,4627,970,4630,986,4637,984,4642,969,4635,941,4632,917,4634,903,4639,898,4645,900,4652"/>
-<area shape="poly" id="edge138_Node000101_Node000101" title=" " alt="" coords="895,4742,892,4732,900,4722,916,4717,941,4715,970,4718,986,4725,984,4730,969,4723,941,4720,917,4722,903,4727,898,4733,900,4740"/>
-<area shape="poly" id="edge141_Node000103_Node000103" title=" " alt="" coords="1161,4932,1158,4922,1165,4913,1180,4907,1203,4905,1229,4908,1243,4915,1241,4920,1227,4913,1203,4911,1181,4913,1168,4917,1163,4923,1166,4931"/>
-<area shape="rect" id="Node000104" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="1355,5607,1499,5647"/>
-<area shape="poly" id="edge142_Node000103_Node000104" title=" " alt="" coords="1221,4971,1265,5036,1289,5078,1309,5122,1355,5255,1388,5390,1411,5508,1424,5592,1418,5593,1406,5509,1383,5391,1349,5257,1304,5124,1284,5080,1260,5039,1217,4974"/>
-<area shape="poly" id="edge143_Node000104_Node000104" title=" " alt="" coords="1385,5607,1382,5597,1389,5588,1404,5582,1427,5580,1453,5583,1467,5590,1465,5595,1451,5588,1427,5585,1405,5587,1392,5592,1387,5598,1390,5606"/>
-<area shape="poly" id="edge146_Node000106_Node000106" title=" " alt="" coords="895,4995,892,4985,900,4976,916,4970,941,4968,970,4971,986,4978,984,4983,969,4976,941,4973,917,4975,903,4980,898,4986,900,4994"/>
-<area shape="poly" id="edge148_Node000107_Node000098" title=" " alt="" coords="1034,5056,1049,5045,1064,5027,1073,5011,1082,4977,1085,4940,1096,4895,1143,4779,1184,4685,1189,4687,1148,4781,1101,4897,1091,4941,1087,4978,1078,5013,1068,5030,1052,5049,1037,5061"/>
-<area shape="poly" id="edge149_Node000107_Node000104" title=" " alt="" coords="1036,5091,1104,5109,1177,5136,1248,5176,1280,5200,1309,5229,1341,5273,1366,5321,1386,5372,1401,5424,1420,5520,1427,5593,1422,5593,1415,5520,1396,5425,1381,5374,1361,5324,1336,5276,1305,5232,1277,5204,1245,5180,1175,5141,1102,5114,1035,5096"/>
-<area shape="poly" id="edge151_Node000108_Node000108" title=" " alt="" coords="895,5147,892,5137,900,5128,916,5122,941,5120,970,5123,986,5130,984,5135,969,5128,941,5125,917,5127,903,5132,898,5138,900,5146"/>
-<area shape="poly" id="edge154_Node000109_Node000079" title=" " alt="" coords="1036,5252,1097,5252,1097,5257,1036,5257"/>
-<area shape="poly" id="edge153_Node000109_Node000109" title=" " alt="" coords="895,5235,892,5225,900,5216,916,5210,941,5208,970,5211,986,5218,984,5223,969,5216,941,5213,917,5215,903,5220,898,5226,900,5234"/>
-<area shape="poly" id="edge156_Node000110_Node000110" title=" " alt="" coords="895,5323,892,5313,900,5304,916,5298,941,5296,970,5299,986,5306,984,5311,969,5304,941,5301,917,5303,903,5308,898,5314,900,5322"/>
-<area shape="poly" id="edge158_Node000111_Node000111" title=" " alt="" coords="895,5411,892,5401,900,5392,916,5386,941,5384,970,5387,986,5394,984,5399,969,5392,941,5389,917,5391,903,5396,898,5402,900,5410"/>
-<area shape="poly" id="edge160_Node000112_Node000104" title=" " alt="" coords="1274,5580,1344,5600,1342,5605,1273,5585"/>
-<area shape="poly" id="edge162_Node000113_Node000104" title=" " alt="" coords="1297,5624,1341,5624,1341,5629,1297,5629"/>
-<area shape="poly" id="edge164_Node000114_Node000104" title=" " alt="" coords="1273,5668,1342,5648,1344,5653,1274,5673"/>
-<area shape="poly" id="edge166_Node000115_Node000079" title=" " alt="" coords="992,5496,1021,5480,1049,5461,1094,5415,1133,5365,1186,5278,1191,5281,1137,5368,1098,5419,1052,5465,1024,5485,994,5501"/>
-<area shape="poly" id="edge167_Node000115_Node000115" title=" " alt="" coords="895,5499,892,5489,900,5480,916,5474,941,5472,970,5475,986,5482,984,5487,969,5480,941,5477,917,5479,903,5484,898,5490,900,5498"/>
-<area shape="poly" id="edge170_Node000116_Node000117" title=" " alt="" coords="1036,5746,1095,5755,1094,5760,1035,5751"/>
-<area shape="poly" id="edge171_Node000117_Node000104" title=" " alt="" coords="1249,5751,1305,5720,1351,5688,1391,5654,1394,5658,1354,5692,1308,5725,1251,5756"/>
-<area shape="poly" id="edge173_Node000118_Node000117" title=" " alt="" coords="1010,5827,1119,5795,1121,5800,1012,5832"/>
-<area shape="rect" id="Node000122" href="$dd/d59/namespacegalaxy_1_1input.html#ae2d79d9b95b9983f6513d0aeb3b38ada" title="Get clipboard contents." alt="" coords="874,5981,1009,6021"/>
-<area shape="poly" id="edge178_Node000121_Node000122" title=" " alt="" coords="764,5999,860,5999,860,6004,764,6004"/>
-<area shape="rect" id="Node000123" href="$dd/d59/namespacegalaxy_1_1input.html#a2fce3445e15cb1035e0ba4b4dad9b105" title="Set clipboard contents." alt="" coords="874,6069,1009,6109"/>
-<area shape="poly" id="edge180_Node000121_Node000123" title=" " alt="" coords="752,6019,872,6062,870,6067,750,6024"/>
-<area shape="poly" id="edge179_Node000122_Node000122" title=" " alt="" coords="895,5982,892,5972,900,5962,916,5957,941,5955,970,5958,986,5965,984,5970,969,5963,941,5960,917,5962,903,5967,898,5973,900,5980"/>
-<area shape="poly" id="edge181_Node000123_Node000123" title=" " alt="" coords="895,6070,892,6060,900,6050,916,6045,941,6043,970,6046,986,6053,984,6058,969,6051,941,6048,917,6050,903,6055,898,6061,900,6068"/>
-<area shape="poly" id="edge192_Node000124_Node000104" title=" " alt="" coords="720,6234,770,6201,831,6170,864,6159,893,6153,944,6150,993,6144,1020,6135,1049,6119,1117,6069,1179,6010,1235,5945,1284,5878,1327,5812,1362,5752,1409,5658,1413,5661,1366,5754,1331,5815,1289,5881,1239,5948,1183,6013,1121,6073,1052,6124,1022,6140,994,6149,944,6155,894,6158,865,6164,833,6174,773,6205,723,6238"/>
-<area shape="rect" id="Node000125" href="$d2/dc7/namespacegalaxy_1_1log.html#a704e5c0683e808fbad47ffab52e466ea" title="Insert a message into the OpenGL debug stack." alt="" coords="869,6208,1013,6248"/>
-<area shape="poly" id="edge183_Node000124_Node000125" title=" " alt="" coords="763,6245,855,6235,856,6240,764,6251"/>
-<area shape="rect" id="Node000126" href="$d2/dc7/namespacegalaxy_1_1log.html#a79e8a6dd8a5cc2cf130cfde3e3f5b950" title="Convert a GL error code to a string." alt="" coords="1118,6307,1287,6347"/>
-<area shape="poly" id="edge185_Node000124_Node000126" title=" " alt="" coords="764,6263,1105,6310,1104,6316,763,6268"/>
-<area shape="rect" id="Node000127" href="$d2/dc7/namespacegalaxy_1_1log.html#a6ace45b0939dfcd5a3a7a804f6a28fc9" title="Returns all GL errors on stack." alt="" coords="871,6347,1012,6387"/>
-<area shape="poly" id="edge187_Node000124_Node000127" title=" " alt="" coords="740,6274,884,6339,882,6343,738,6278"/>
-<area shape="rect" id="Node000128" href="$d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92" title=" " alt="" coords="865,6435,1018,6461"/>
-<area shape="poly" id="edge190_Node000124_Node000128" title=" " alt="" coords="712,6275,763,6333,797,6367,834,6396,862,6414,892,6428,889,6432,859,6418,830,6401,793,6371,759,6337,708,6278"/>
-<area shape="poly" id="edge184_Node000125_Node000125" title=" " alt="" coords="895,6208,892,6198,900,6189,916,6183,941,6181,970,6184,986,6191,984,6196,969,6189,941,6187,917,6189,903,6193,898,6199,900,6207"/>
-<area shape="poly" id="edge186_Node000126_Node000126" title=" " alt="" coords="1161,6307,1158,6297,1165,6288,1180,6282,1203,6280,1229,6283,1243,6290,1241,6295,1227,6288,1203,6285,1181,6287,1168,6292,1163,6298,1166,6306"/>
-<area shape="poly" id="edge188_Node000127_Node000126" title=" " alt="" coords="1012,6353,1104,6339,1105,6344,1013,6359"/>
-<area shape="poly" id="edge189_Node000127_Node000127" title=" " alt="" coords="895,6347,892,6337,900,6328,916,6322,941,6320,970,6323,986,6330,984,6335,969,6328,941,6325,917,6327,903,6332,898,6338,900,6346"/>
-<area shape="poly" id="edge191_Node000128_Node000128" title=" " alt="" coords="901,6437,892,6427,897,6417,914,6411,941,6409,976,6413,986,6417,990,6423,986,6426,983,6421,975,6418,941,6414,915,6416,901,6421,898,6426,905,6433"/>
-<area shape="rect" id="Node000130" href="$d9/d9f/classgalaxy_1_1RectPack.html#ab9926f88e2c0f81f17723d271c41d051" title="Clear all data." alt="" coords="855,6485,1027,6510"/>
-<area shape="poly" id="edge194_Node000129_Node000130" title=" " alt="" coords="692,7319,699,7172,719,6931,736,6803,760,6685,791,6587,809,6549,830,6521,841,6511,845,6515,834,6524,814,6552,796,6589,765,6686,742,6804,724,6932,704,7172,698,7319"/>
-<area shape="rect" id="Node000131" href="$d5/d58/classgalaxy_1_1Rect.html#a1f29b6d6017a9fcbd5e565410fae9c1f" title=" " alt="" coords="868,6535,1015,6575"/>
-<area shape="poly" id="edge195_Node000129_Node000131" title=" " alt="" coords="693,7319,702,7185,725,6968,743,6854,766,6747,795,6659,812,6624,830,6598,844,6586,860,6577,862,6582,847,6591,834,6602,816,6627,800,6661,771,6748,748,6854,730,6969,707,7185,698,7319"/>
-<area shape="poly" id="edge196_Node000129_Node000131" title=" " alt="" coords="692,7319,701,7181,724,6957,742,6838,765,6728,794,6637,811,6601,830,6574,854,6556,857,6561,834,6578,816,6604,799,6639,770,6729,747,6839,729,6957,706,7181,698,7319"/>
-<area shape="rect" id="Node000132" href="$df/d85/classgalaxy_1_1ZLib.html#a18b0bd8e4ebb825882fbd63e6e2f550a" title="Decompresses string into ZLib." alt="" coords="863,6599,1019,6625"/>
-<area shape="poly" id="edge197_Node000129_Node000132" title=" " alt="" coords="693,7319,702,7191,725,6984,744,6875,767,6775,795,6692,812,6660,830,6635,849,6622,852,6626,834,6639,816,6662,800,6694,772,6776,749,6876,731,6985,707,7191,698,7319"/>
-<area shape="rect" id="Node000134" href="$d1/d92/namespacegalaxy_1_1math.html#a6ae9cb90ed7180e96e12016f22b1121d" title="Decompresses string into Base64." alt="" coords="860,6673,1023,6713"/>
-<area shape="poly" id="edge199_Node000129_Node000134" title=" " alt="" coords="693,7319,706,7205,732,7027,751,6933,773,6846,800,6774,814,6746,830,6725,846,6712,849,6716,834,6729,819,6749,805,6776,779,6847,756,6934,738,7028,711,7206,699,7319"/>
-<area shape="rect" id="Node000135" href="$df/d85/classgalaxy_1_1ZLib.html#ada997046aa986c5b458ca141fef2495f" title="Compresses string into ZLib." alt="" coords="863,6738,1019,6763"/>
-<area shape="poly" id="edge201_Node000129_Node000135" title=" " alt="" coords="693,7319,707,7213,734,7049,753,6962,775,6883,801,6818,815,6793,830,6774,849,6761,852,6765,834,6778,819,6796,806,6820,780,6885,758,6964,739,7050,712,7214,699,7319"/>
-<area shape="rect" id="Node000136" href="$d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529" title="Compresses string into Base64." alt="" coords="860,6812,1023,6852"/>
-<area shape="poly" id="edge203_Node000129_Node000136" title=" " alt="" coords="692,7319,694,7242,700,7184,710,7120,727,7052,752,6984,785,6920,830,6863,846,6851,849,6855,834,6867,790,6923,757,6986,732,7053,715,7121,705,7185,699,7242,697,7319"/>
-<area shape="rect" id="Node000137" href="$d1/d92/namespacegalaxy_1_1math.html#ad5d656c78b2808c52fd7ed8c456956b7" title="Convert string to 32bit hash." alt="" coords="854,6901,1029,6926"/>
-<area shape="poly" id="edge205_Node000129_Node000137" title=" " alt="" coords="692,7319,698,7251,717,7148,734,7091,758,7035,790,6982,830,6937,840,6929,844,6933,834,6941,794,6985,763,7037,739,7093,722,7149,703,7252,698,7319"/>
-<area shape="rect" id="Node000139" href="$d1/d92/namespacegalaxy_1_1math.html#a15c79fa809b7e36b1a0e85c4cb92a814" title="Convert string to 64bit hash." alt="" coords="854,6974,1029,6999"/>
-<area shape="poly" id="edge209_Node000129_Node000139" title=" " alt="" coords="693,7319,703,7262,726,7179,744,7133,767,7088,795,7046,830,7010,840,7003,843,7007,834,7014,799,7049,771,7090,748,7135,731,7180,708,7263,699,7320"/>
-<area shape="rect" id="Node000140" href="$d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c" title=" " alt="" coords="868,7024,1015,7064"/>
-<area shape="poly" id="edge212_Node000129_Node000140" title=" " alt="" coords="697,7318,712,7274,738,7211,777,7144,802,7113,830,7086,867,7066,869,7071,834,7090,806,7117,781,7147,743,7214,717,7276,702,7320"/>
-<area shape="poly" id="edge213_Node000129_Node000140" title=" " alt="" coords="694,7319,707,7270,733,7201,751,7163,773,7126,800,7092,830,7062,853,7048,856,7052,834,7066,804,7095,778,7129,756,7166,738,7203,712,7272,699,7320"/>
-<area shape="rect" id="Node000141" href="$d5/d58/classgalaxy_1_1Rect.html#ae496c4d7c4e06d7482593f6cb72effd1" title=" " alt="" coords="868,7088,1015,7128"/>
-<area shape="poly" id="edge214_Node000129_Node000141" title=" " alt="" coords="701,7318,748,7239,785,7191,831,7150,871,7130,873,7135,833,7154,789,7195,752,7242,706,7320"/>
-<area shape="poly" id="edge215_Node000129_Node000141" title=" " alt="" coords="696,7318,712,7279,741,7227,780,7173,804,7148,830,7126,854,7113,856,7118,834,7130,808,7151,784,7176,745,7230,717,7282,701,7320"/>
-<area shape="rect" id="Node000142" href="$d9/d9f/classgalaxy_1_1RectPack.html#a1fa3ed643f1715fe336dcaba3a388900" title="Get free rectangles." alt="" coords="861,7152,1022,7192"/>
-<area shape="poly" id="edge216_Node000129_Node000142" title=" " alt="" coords="703,7317,754,7262,790,7230,831,7202,846,7194,849,7199,833,7206,793,7234,758,7266,707,7321"/>
-<area shape="rect" id="Node000143" href="$d9/d9f/classgalaxy_1_1RectPack.html#aba268a4100dc078d40c424079ef83586" title="Get total height." alt="" coords="861,7216,1022,7256"/>
-<area shape="poly" id="edge217_Node000129_Node000143" title=" " alt="" coords="718,7317,769,7292,831,7266,853,7258,855,7263,833,7270,772,7297,720,7322"/>
-<area shape="rect" id="Node000144" href="$d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63" title=" " alt="" coords="868,7280,1015,7320"/>
-<area shape="poly" id="edge218_Node000129_Node000144" title=" " alt="" coords="784,7326,854,7317,854,7322,785,7332"/>
-<area shape="poly" id="edge219_Node000129_Node000144" title=" " alt="" coords="738,7317,854,7300,855,7305,738,7322"/>
-<area shape="rect" id="Node000145" href="$d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9" title=" " alt="" coords="868,7344,1015,7384"/>
-<area shape="poly" id="edge220_Node000129_Node000145" title=" " alt="" coords="738,7342,855,7359,854,7364,738,7347"/>
-<area shape="poly" id="edge221_Node000129_Node000145" title=" " alt="" coords="785,7332,854,7342,854,7347,784,7338"/>
-<area shape="rect" id="Node000146" href="$d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420" title=" " alt="" coords="868,7408,1015,7448"/>
-<area shape="poly" id="edge222_Node000129_Node000146" title=" " alt="" coords="708,7342,761,7374,833,7406,855,7413,854,7418,831,7410,759,7378,705,7347"/>
-<area shape="poly" id="edge223_Node000129_Node000146" title=" " alt="" coords="741,7342,833,7382,891,7401,889,7406,831,7386,739,7347"/>
-<area shape="rect" id="Node000147" href="$d9/d9f/classgalaxy_1_1RectPack.html#ac1e13bbfea5b2af6946b037d107708fc" title="Get total width." alt="" coords="861,7472,1022,7512"/>
-<area shape="poly" id="edge224_Node000129_Node000147" title=" " alt="" coords="707,7343,758,7398,793,7430,833,7458,849,7465,846,7470,831,7462,790,7434,754,7402,703,7347"/>
-<area shape="rect" id="Node000148" href="$d9/d9f/classgalaxy_1_1RectPack.html#aba5a364702dbddce33ed245ff7777532" title="Set starting width and height of rectangle." alt="" coords="861,7537,1022,7562"/>
-<area shape="poly" id="edge225_Node000129_Node000148" title=" " alt="" coords="702,7344,719,7379,747,7428,786,7479,808,7502,833,7522,849,7530,847,7535,831,7526,805,7506,782,7483,743,7431,714,7382,697,7346"/>
-<area shape="rect" id="Node000149" href="$d5/d58/classgalaxy_1_1Rect.html#a0850694437a41e6220f0e5c48ead332b" title=" " alt="" coords="868,7587,1015,7627"/>
-<area shape="poly" id="edge226_Node000129_Node000149" title=" " alt="" coords="700,7344,713,7390,739,7456,779,7525,805,7557,834,7585,856,7598,853,7603,830,7589,801,7561,775,7528,734,7458,708,7392,694,7346"/>
-<area shape="poly" id="edge227_Node000129_Node000149" title=" " alt="" coords="702,7344,718,7386,745,7445,783,7507,807,7536,834,7560,870,7580,868,7585,830,7565,803,7539,779,7510,740,7447,713,7388,697,7346"/>
-<area shape="rect" id="Node000150" href="$d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48" title="Calc normalized value from range." alt="" coords="851,7675,1031,7701"/>
-<area shape="poly" id="edge228_Node000129_Node000150" title=" " alt="" coords="700,7344,712,7397,737,7474,755,7517,777,7560,803,7601,834,7637,857,7655,883,7668,880,7673,854,7659,830,7641,799,7604,772,7563,750,7520,732,7476,707,7398,694,7346"/>
-<area shape="rect" id="Node000151" href="$d5/d58/classgalaxy_1_1Rect.html#a3c9861f8677060f4b6fba0cd20fe6595" title=" " alt="" coords="868,7725,1015,7765"/>
-<area shape="poly" id="edge230_Node000129_Node000151" title=" " alt="" coords="698,7345,704,7412,724,7514,741,7571,764,7626,795,7678,834,7723,856,7739,853,7743,830,7727,791,7681,760,7629,736,7572,718,7516,699,7413,692,7345"/>
-<area shape="poly" id="edge231_Node000129_Node000151" title=" " alt="" coords="698,7345,706,7408,727,7503,744,7556,767,7608,797,7657,834,7699,865,7718,862,7723,830,7703,792,7660,762,7610,739,7558,721,7505,701,7409,693,7345"/>
-<area shape="rect" id="Node000152" href="$d9/d9f/classgalaxy_1_1RectPack.html#a65fdd1c9bcff2ff1f01e9ba060f24c57" title="Pack a rectangle into the master rectangle." alt="" coords="856,7790,1027,7815"/>
-<area shape="poly" id="edge232_Node000129_Node000152" title=" " alt="" coords="697,7345,700,7420,705,7475,716,7536,732,7601,757,7665,790,7724,834,7775,846,7784,842,7788,830,7779,786,7727,752,7667,727,7603,711,7537,700,7476,694,7420,692,7345"/>
-<area shape="rect" id="Node000153" href="$d1/d92/namespacegalaxy_1_1math.html#adf0344db54bbd7135212f9ab4c6b142a" title="Generate a random number of type T." alt="" coords="1120,7951,1285,7977"/>
-<area shape="poly" id="edge233_Node000129_Node000153" title=" " alt="" coords="699,7345,714,7440,743,7586,762,7662,784,7732,808,7788,834,7826,860,7846,884,7858,909,7863,933,7864,988,7864,1018,7868,1052,7878,1117,7909,1172,7942,1170,7946,1115,7914,1050,7882,1017,7873,987,7869,933,7869,908,7868,883,7863,857,7851,830,7830,803,7791,779,7733,757,7663,738,7587,709,7441,694,7345"/>
-<area shape="rect" id="Node000154" href="$d1/d92/namespacegalaxy_1_1math.html#ab59c723d503abbbac0e87b58ad6efcf9" title="Generate a random vec2." alt="" coords="840,7915,1043,7941"/>
-<area shape="poly" id="edge235_Node000129_Node000154" title=" " alt="" coords="697,7345,699,7430,704,7495,714,7568,731,7646,755,7725,789,7801,834,7870,858,7892,886,7908,883,7912,855,7896,830,7874,785,7804,750,7727,726,7648,709,7569,699,7495,693,7431,692,7345"/>
-<area shape="rect" id="Node000155" href="$d1/d92/namespacegalaxy_1_1math.html#a50ce6c7f3195fd6b4686ba572a33b1aa" title="Generate a random vec3." alt="" coords="840,7989,1043,8014"/>
-<area shape="poly" id="edge238_Node000129_Node000155" title=" " alt="" coords="699,7344,712,7459,739,7641,758,7738,780,7827,806,7901,820,7930,834,7952,853,7969,875,7981,873,7986,850,7973,830,7955,815,7932,801,7903,775,7828,753,7739,734,7642,707,7460,693,7345"/>
-<area shape="rect" id="Node000156" href="$d1/d92/namespacegalaxy_1_1math.html#acc85c39820381d5834ca43090cf05fcf" title="Generate a random vec4." alt="" coords="840,8062,1043,8087"/>
-<area shape="poly" id="edge241_Node000129_Node000156" title=" " alt="" coords="698,7345,710,7472,735,7676,754,7784,776,7884,803,7968,818,8000,834,8025,852,8042,874,8054,872,8059,849,8046,830,8028,813,8003,798,7970,771,7886,749,7785,730,7677,704,7472,693,7345"/>
-<area shape="rect" id="Node000157" href="$d5/d58/classgalaxy_1_1Rect.html#a6863051bea01744a6b35ad5c44fb2f93" title=" " alt="" coords="868,8112,1015,8152"/>
-<area shape="poly" id="edge244_Node000129_Node000157" title=" " alt="" coords="698,7345,706,7487,727,7718,745,7841,769,7954,798,8048,815,8083,834,8110,857,8127,854,8131,830,8114,811,8086,793,8050,763,7956,740,7842,722,7719,700,7488,692,7345"/>
-<area shape="poly" id="edge245_Node000129_Node000157" title=" " alt="" coords="698,7345,706,7482,729,7706,746,7825,770,7935,799,8025,816,8060,834,8086,860,8105,856,8109,830,8090,811,8063,794,8027,764,7936,741,7826,723,7707,701,7483,693,7345"/>
-<area shape="rect" id="Node000133" href="$df/d85/classgalaxy_1_1ZLib.html#ab5f4ed375e0a125145163f43359d80b9" title="Constructor." alt="" coords="1134,6669,1271,6694"/>
-<area shape="poly" id="edge198_Node000132_Node000133" title=" " alt="" coords="1000,6622,1051,6635,1148,6662,1146,6667,1050,6640,999,6627"/>
-<area shape="poly" id="edge200_Node000134_Node000134" title=" " alt="" coords="895,6674,892,6664,900,6654,916,6649,941,6647,970,6650,986,6657,984,6662,969,6655,941,6652,917,6654,903,6659,898,6665,900,6672"/>
-<area shape="poly" id="edge202_Node000135_Node000133" title=" " alt="" coords="999,6735,1050,6723,1146,6695,1148,6701,1051,6728,1000,6741"/>
-<area shape="poly" id="edge204_Node000136_Node000136" title=" " alt="" coords="895,6812,892,6802,900,6793,916,6787,941,6785,970,6788,986,6795,984,6800,969,6793,941,6791,917,6793,903,6797,898,6803,900,6811"/>
-<area shape="poly" id="edge208_Node000137_Node000137" title=" " alt="" coords="901,6902,892,6892,897,6882,914,6876,941,6874,976,6878,986,6883,990,6888,986,6891,983,6887,975,6883,941,6879,915,6881,901,6886,898,6892,905,6899"/>
-<area shape="rect" id="Node000138" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="1127,6974,1279,6999"/>
-<area shape="poly" id="edge206_Node000137_Node000138" title=" " alt="" coords="1001,6923,1051,6936,1152,6967,1150,6972,1050,6941,1000,6929"/>
-<area shape="poly" id="edge207_Node000138_Node000138" title=" " alt="" coords="1166,6976,1158,6966,1162,6956,1178,6950,1203,6947,1234,6951,1246,6961,1243,6965,1232,6956,1203,6953,1179,6955,1166,6960,1163,6965,1170,6972"/>
-<area shape="poly" id="edge210_Node000139_Node000138" title=" " alt="" coords="1029,6984,1113,6984,1113,6989,1029,6989"/>
-<area shape="poly" id="edge211_Node000139_Node000139" title=" " alt="" coords="901,6976,892,6966,897,6956,914,6950,941,6947,976,6951,986,6956,990,6962,986,6965,983,6960,975,6956,941,6953,915,6955,901,6960,898,6965,905,6972"/>
-<area shape="poly" id="edge229_Node000150_Node000150" title=" " alt="" coords="901,7677,892,7667,897,7657,914,7651,941,7649,976,7653,986,7657,990,7663,986,7666,983,7661,975,7658,941,7654,915,7656,901,7661,898,7666,905,7673"/>
-<area shape="poly" id="edge234_Node000153_Node000153" title=" " alt="" coords="1166,7953,1158,7943,1162,7933,1178,7927,1203,7925,1234,7929,1246,7938,1243,7942,1232,7933,1203,7930,1179,7932,1166,7937,1163,7942,1170,7949"/>
-<area shape="poly" id="edge236_Node000154_Node000153" title=" " alt="" coords="1034,7938,1106,7948,1106,7953,1033,7943"/>
-<area shape="poly" id="edge237_Node000154_Node000154" title=" " alt="" coords="901,7917,892,7907,897,7897,914,7891,941,7889,976,7893,986,7897,990,7903,986,7906,983,7901,975,7898,941,7894,915,7896,901,7901,898,7906,905,7913"/>
-<area shape="poly" id="edge239_Node000155_Node000153" title=" " alt="" coords="1030,7986,1106,7975,1107,7980,1031,7991"/>
-<area shape="poly" id="edge240_Node000155_Node000155" title=" " alt="" coords="901,7990,892,7980,897,7970,914,7964,941,7962,976,7966,986,7971,990,7976,986,7979,983,7975,975,7971,941,7967,915,7969,901,7974,898,7980,905,7987"/>
-<area shape="poly" id="edge242_Node000156_Node000153" title=" " alt="" coords="971,8060,1158,7980,1160,7985,973,8064"/>
-<area shape="poly" id="edge243_Node000156_Node000156" title=" " alt="" coords="901,8064,892,8054,897,8044,914,8038,941,8035,976,8039,986,8044,990,8050,986,8053,983,8048,975,8044,941,8041,915,8043,901,8048,898,8053,905,8060"/>
-<area shape="poly" id="edge248_Node000158_Node000021" title=" " alt="" coords="762,5897,782,5880,788,5857,794,5808,803,5639,808,5389,811,5070,810,4284,804,3388,799,2492,798,1706,801,1387,807,1137,816,969,822,919,830,895,844,881,847,885,834,897,827,920,821,969,812,1137,806,1388,803,1706,804,2492,809,3388,815,4283,816,5070,814,5389,808,5639,800,5808,794,5858,786,5883,765,5901"/>
-<area shape="poly" id="edge249_Node000158_Node000022" title=" " alt="" coords="762,5897,782,5880,788,5857,794,5809,803,5643,810,5082,809,4307,803,3424,798,2542,797,1767,800,1454,806,1208,816,1042,822,993,830,969,834,965,838,968,834,972,827,994,821,1042,811,1208,805,1454,802,1767,803,2542,808,3424,814,4307,816,5082,808,5643,799,5809,793,5858,786,5883,765,5901"/>
-<area shape="poly" id="edge250_Node000158_Node000023" title=" " alt="" coords="762,5897,782,5880,788,5858,794,5810,802,5647,810,5097,809,4336,804,3469,799,2603,799,1842,802,1534,807,1292,816,1129,822,1081,830,1057,848,1041,852,1045,834,1060,828,1082,822,1129,813,1292,807,1534,804,1842,804,2603,810,3469,815,4336,816,5097,808,5647,799,5811,793,5859,786,5883,765,5901"/>
-<area shape="rect" id="Node000159" href="$db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa" title="Launch a subprocess." alt="" coords="868,5893,1015,5933"/>
-<area shape="poly" id="edge247_Node000158_Node000159" title=" " alt="" coords="764,5911,854,5911,854,5916,764,5916"/>
-<area shape="rect" id="Node000161" href="$da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff" title="Add a new state." alt="" coords="844,8177,1039,8202"/>
-<area shape="poly" id="edge252_Node000160_Node000161" title=" " alt="" coords="695,8691,711,8591,740,8447,759,8373,780,8305,804,8250,830,8213,837,8207,840,8211,834,8216,808,8253,785,8307,764,8374,745,8448,716,8592,700,8692"/>
-<area shape="rect" id="Node000162" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a2e72ab8baeccc61e805c0a9e6b6e8042" title="Removes all data." alt="" coords="857,8227,1026,8267"/>
-<area shape="poly" id="edge254_Node000160_Node000162" title=" " alt="" coords="692,8692,699,8617,718,8508,736,8448,759,8389,791,8333,830,8283,844,8272,848,8276,834,8287,795,8336,764,8391,741,8450,724,8509,704,8617,698,8692"/>
-<area shape="rect" id="Node000163" href="$da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616" title=" " alt="" coords="1121,8256,1284,8296"/>
-<area shape="poly" id="edge266_Node000160_Node000163" title=" " alt="" coords="692,8692,699,8621,718,8521,736,8468,759,8416,791,8368,830,8327,851,8315,878,8305,949,8291,1030,8281,1107,8276,1108,8281,1030,8287,950,8296,880,8311,853,8320,834,8331,795,8371,764,8418,741,8470,723,8523,704,8622,698,8692"/>
-<area shape="rect" id="Node000164" href="$da/d52/classgalaxy_1_1StateMachine.html#ad4f4c0a625683eed4fb573f5927c8dcd" title=" " alt="" coords="860,8365,1023,8405"/>
-<area shape="poly" id="edge257_Node000160_Node000164" title=" " alt="" coords="696,8691,708,8636,733,8562,751,8522,773,8483,799,8447,830,8415,846,8404,849,8409,834,8419,803,8451,778,8486,756,8525,738,8564,714,8638,701,8692"/>
-<area shape="rect" id="Node000165" href="$da/d52/classgalaxy_1_1StateMachine.html#aa79bd08879ade02418a4cca85b479dd1" title=" " alt="" coords="860,8453,1023,8493"/>
-<area shape="poly" id="edge259_Node000160_Node000165" title=" " alt="" coords="701,8691,719,8653,748,8604,785,8554,830,8510,851,8497,853,8502,834,8514,789,8557,752,8607,724,8655,706,8693"/>
-<area shape="rect" id="Node000166" href="$d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92" title="Get state name." alt="" coords="1127,9395,1279,9421"/>
-<area shape="poly" id="edge261_Node000160_Node000166" title=" " alt="" coords="703,8690,722,8658,751,8620,787,8583,831,8555,893,8529,947,8515,974,8515,1000,8522,1026,8535,1053,8556,1061,8568,1067,8589,1078,8649,1089,8818,1095,8989,1101,9092,1122,9176,1148,9258,1193,9382,1188,9384,1143,9260,1117,9178,1096,9092,1090,8990,1084,8818,1072,8650,1062,8590,1056,8570,1049,8559,1023,8539,998,8527,973,8521,948,8520,894,8534,833,8560,790,8587,755,8623,727,8661,708,8693"/>
-<area shape="rect" id="Node000167" href="$df/dba/classgalaxy_1_1Scene.html#a71e0d66e8b6b31ca397c261541987cd4" title="When scene is popped from the stack." alt="" coords="858,8569,1025,8594"/>
-<area shape="poly" id="edge262_Node000160_Node000167" title=" " alt="" coords="713,8690,764,8646,796,8624,831,8604,852,8596,854,8601,833,8609,799,8628,767,8651,717,8694"/>
-<area shape="rect" id="Node000168" href="$df/dba/classgalaxy_1_1Scene.html#a068861c6a2477f254bde93f9cff27827" title="When scene is pushed to the stack." alt="" coords="854,8618,1029,8643"/>
-<area shape="poly" id="edge263_Node000160_Node000168" title=" " alt="" coords="738,8689,831,8653,865,8644,866,8649,833,8659,740,8694"/>
-<area shape="rect" id="Node000169" href="$da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443" title=" " alt="" coords="860,8692,1023,8732"/>
-<area shape="poly" id="edge264_Node000160_Node000169" title=" " alt="" coords="764,8709,846,8709,846,8715,764,8715"/>
-<area shape="rect" id="Node000170" href="$da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5" title=" " alt="" coords="860,8780,1023,8820"/>
-<area shape="poly" id="edge267_Node000160_Node000170" title=" " alt="" coords="752,8730,785,8741,872,8773,871,8778,783,8747,750,8735"/>
-<area shape="rect" id="Node000171" href="$da/d52/classgalaxy_1_1StateMachine.html#a3b458339fae2313edabd5b34f2f91a34" title=" " alt="" coords="860,8868,1023,8908"/>
-<area shape="poly" id="edge269_Node000160_Node000171" title=" " alt="" coords="765,8728,786,8742,804,8764,811,8786,818,8808,834,8830,854,8846,876,8860,873,8864,851,8851,830,8834,813,8810,806,8788,799,8767,782,8746,762,8733"/>
-<area shape="rect" id="Node000172" href="$df/dba/classgalaxy_1_1Scene.html#ae8bb8df4c69f70acdddf72a7f32a7014" title="Render scene." alt="" coords="860,8933,1023,8958"/>
-<area shape="poly" id="edge271_Node000160_Node000172" title=" " alt="" coords="765,8726,786,8742,802,8765,809,8788,809,8833,810,8877,818,8897,834,8918,849,8929,846,8934,830,8922,813,8900,805,8878,804,8833,804,8789,797,8768,782,8746,762,8731"/>
-<area shape="rect" id="Node000173" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a95ee1d5d5faf9dc81f95a0dfaff97224" title="Render scenes." alt="" coords="857,8983,1026,9023"/>
-<area shape="poly" id="edge272_Node000160_Node000173" title=" " alt="" coords="765,8726,786,8742,805,8772,813,8801,813,8830,810,8858,807,8886,807,8914,815,8941,834,8969,846,8979,843,8983,830,8972,810,8944,802,8915,801,8886,805,8858,808,8830,808,8802,800,8774,782,8746,762,8730"/>
-<area shape="rect" id="Node000174" href="$da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f" title=" " alt="" coords="1121,9040,1284,9080"/>
-<area shape="poly" id="edge280_Node000160_Node000174" title=" " alt="" coords="765,8726,786,8742,800,8762,809,8781,816,8819,813,8857,806,8895,799,8931,798,8966,808,9000,819,9016,834,9033,852,9044,879,9053,948,9063,1029,9065,1107,9064,1107,9069,1029,9071,948,9068,877,9058,850,9049,830,9037,814,9020,803,9002,793,8967,794,8930,801,8894,808,8857,811,8820,804,8783,795,8764,782,8746,762,8730"/>
-<area shape="rect" id="Node000175" href="$da/d52/classgalaxy_1_1StateMachine.html#afacc93b18c0f29fef01a0d538d82e8a9" title=" " alt="" coords="860,9121,1023,9161"/>
-<area shape="poly" id="edge275_Node000160_Node000175" title=" " alt="" coords="765,8726,786,8742,812,8786,822,8828,821,8868,815,8909,808,8949,805,8990,812,9032,834,9077,852,9097,874,9112,871,9117,848,9101,830,9080,807,9034,800,8990,802,8948,809,8908,816,8868,817,8828,807,8788,782,8746,762,8730"/>
-<area shape="rect" id="Node000176" href="$da/d52/classgalaxy_1_1StateMachine.html#a0fa4267551f156f32e5f84a7ca946222" title=" " alt="" coords="860,9209,1023,9249"/>
-<area shape="poly" id="edge277_Node000160_Node000176" title=" " alt="" coords="765,8725,786,8742,805,8771,818,8798,826,8825,829,8852,825,8905,814,8956,803,9008,798,9061,800,9087,806,9115,817,9143,834,9172,849,9188,866,9201,863,9205,845,9192,830,9175,812,9145,801,9116,795,9088,793,9061,798,9007,809,8955,820,8904,824,8852,821,8827,813,8800,801,8773,782,8746,762,8729"/>
-<area shape="rect" id="Node000177" href="$df/dba/classgalaxy_1_1Scene.html#af43befa3dc6cbcbd6844e33b88c56843" title="Get system manager." alt="" coords="852,9274,1031,9299"/>
-<area shape="poly" id="edge279_Node000160_Node000177" title=" " alt="" coords="765,8725,786,8742,798,8763,806,8788,813,8851,813,8925,809,9004,805,9083,805,9156,814,9217,822,9241,834,9260,842,9267,839,9271,830,9263,817,9243,808,9218,800,9157,799,9083,803,9004,808,8925,808,8851,801,8789,793,8765,782,8746,762,8729"/>
-<area shape="rect" id="Node000178" href="$df/dba/classgalaxy_1_1Scene.html#a6994fa68aa02866f7d388c3e160219a9" title="Process events and updates." alt="" coords="859,9389,1024,9414"/>
-<area shape="poly" id="edge281_Node000160_Node000178" title=" " alt="" coords="765,8725,786,8742,800,8767,809,8798,817,8875,815,8965,808,9062,802,9159,801,9248,804,9287,810,9322,820,9351,834,9374,848,9386,845,9390,830,9378,815,9354,805,9323,798,9288,795,9248,796,9158,803,9062,810,8965,812,8875,804,8799,795,8769,782,8746,762,8729"/>
-<area shape="rect" id="Node000180" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a17089421810615d345d5d7a3d97d2121" title="Process events and updates." alt="" coords="857,9324,1026,9364"/>
-<area shape="poly" id="edge283_Node000160_Node000180" title=" " alt="" coords="765,8725,786,8742,799,8765,808,8793,815,8861,815,8942,810,9029,805,9116,804,9196,813,9263,822,9289,834,9310,846,9322,843,9326,830,9314,817,9292,808,9264,799,9196,799,9116,804,9029,809,8942,810,8861,802,8794,794,8767,782,8746,762,8729"/>
-<area shape="poly" id="edge253_Node000161_Node000138" title=" " alt="" coords="1033,8174,1048,8163,1059,8115,1077,7999,1122,7644,1196,7013,1201,7013,1127,7645,1082,7999,1065,8116,1053,8165,1037,8179"/>
-<area shape="poly" id="edge255_Node000162_Node000163" title=" " alt="" coords="1027,8254,1108,8263,1107,8268,1026,8259"/>
-<area shape="poly" id="edge256_Node000163_Node000163" title=" " alt="" coords="1161,8256,1158,8246,1165,8237,1180,8231,1203,8229,1229,8232,1243,8239,1241,8244,1227,8237,1203,8235,1181,8237,1168,8241,1163,8247,1166,8255"/>
-<area shape="poly" id="edge258_Node000164_Node000164" title=" " alt="" coords="895,8366,892,8356,900,8346,916,8341,941,8339,970,8342,986,8349,984,8354,969,8347,941,8344,917,8346,903,8351,898,8357,900,8364"/>
-<area shape="poly" id="edge260_Node000165_Node000165" title=" " alt="" coords="895,8454,892,8444,900,8434,916,8429,941,8427,970,8430,986,8437,984,8442,969,8435,941,8432,917,8434,903,8439,898,8445,900,8452"/>
-<area shape="poly" id="edge265_Node000169_Node000169" title=" " alt="" coords="895,8692,892,8682,900,8673,916,8667,941,8665,970,8668,986,8675,984,8680,969,8673,941,8671,917,8673,903,8677,898,8683,900,8691"/>
-<area shape="poly" id="edge268_Node000170_Node000170" title=" " alt="" coords="895,8780,892,8770,900,8761,916,8755,941,8753,970,8756,986,8763,984,8768,969,8761,941,8759,917,8761,903,8765,898,8771,900,8779"/>
-<area shape="poly" id="edge270_Node000171_Node000171" title=" " alt="" coords="895,8868,892,8858,900,8849,916,8843,941,8841,970,8844,986,8851,984,8856,969,8849,941,8847,917,8849,903,8853,898,8859,900,8867"/>
-<area shape="poly" id="edge273_Node000173_Node000174" title=" " alt="" coords="1027,9019,1108,9037,1107,9042,1026,9024"/>
-<area shape="poly" id="edge274_Node000174_Node000174" title=" " alt="" coords="1161,9040,1158,9030,1165,9021,1180,9015,1203,9013,1229,9016,1243,9023,1241,9028,1227,9021,1203,9019,1181,9021,1168,9025,1163,9031,1166,9039"/>
-<area shape="poly" id="edge276_Node000175_Node000175" title=" " alt="" coords="895,9122,892,9112,900,9102,916,9097,941,9095,970,9098,986,9105,984,9110,969,9103,941,9100,917,9102,903,9107,898,9113,900,9120"/>
-<area shape="poly" id="edge278_Node000176_Node000176" title=" " alt="" coords="895,9210,892,9200,900,9190,916,9185,941,9183,970,9186,986,9193,984,9198,969,9191,941,9188,917,9190,903,9195,898,9201,900,9208"/>
-<area shape="rect" id="Node000179" href="$d5/d09/classgalaxy_1_1SystemManager.html#afa874b6ccd2114218dd496f7c0d936c9" title="Process all systems." alt="" coords="1113,9445,1292,9485"/>
-<area shape="poly" id="edge282_Node000178_Node000179" title=" " alt="" coords="995,9412,1108,9439,1106,9445,994,9417"/>
-<area shape="poly" id="edge284_Node000180_Node000174" title=" " alt="" coords="1025,9324,1049,9310,1076,9286,1099,9259,1139,9200,1169,9141,1188,9092,1193,9094,1174,9143,1144,9202,1104,9262,1079,9290,1052,9314,1027,9329"/>
-<area shape="poly" id="edge287_Node000182_Node000166" title=" " alt="" coords="763,9465,1112,9417,1113,9423,764,9471"/>
-<area shape="rect" id="Node000183" href="$d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3" title="Triggered when state is popped off the stack." alt="" coords="860,9490,1023,9515"/>
-<area shape="poly" id="edge288_Node000182_Node000183" title=" " alt="" coords="764,9482,847,9490,846,9496,763,9487"/>
-<area shape="rect" id="Node000185" href="$d4/d7c/classgalaxy_1_1State.html#a57cfda12d640367d90ebab4feed2855e" title="Triggered when state is pushed onto the stack." alt="" coords="857,9539,1026,9565"/>
-<area shape="poly" id="edge292_Node000182_Node000185" title=" " alt="" coords="745,9495,833,9525,864,9534,862,9539,831,9531,743,9500"/>
-<area shape="poly" id="edge289_Node000183_Node000166" title=" " alt="" coords="999,9487,1049,9468,1073,9450,1083,9440,1097,9431,1119,9422,1121,9427,1100,9436,1086,9445,1076,9454,1052,9473,1001,9492"/>
-<area shape="rect" id="Node000184" href="$d4/d7c/classgalaxy_1_1State.html#af140f04013e7abfc38b56a1e1fc0694c" title="Move constructor." alt="" coords="1128,9534,1277,9559"/>
-<area shape="poly" id="edge290_Node000183_Node000184" title=" " alt="" coords="1018,9513,1115,9529,1114,9535,1017,9518"/>
-<area shape="poly" id="edge291_Node000184_Node000184" title=" " alt="" coords="1166,9536,1158,9526,1162,9516,1178,9510,1203,9507,1234,9511,1246,9521,1243,9525,1232,9516,1203,9513,1179,9515,1166,9520,1163,9525,1170,9532"/>
-<area shape="poly" id="edge299_Node000186_Node000179" title=" " alt="" coords="716,9702,767,9663,831,9626,864,9614,893,9609,945,9607,995,9602,1021,9592,1049,9575,1065,9557,1073,9538,1080,9517,1097,9497,1107,9490,1110,9494,1100,9501,1085,9520,1078,9539,1070,9560,1052,9579,1023,9597,996,9607,945,9612,894,9614,865,9619,833,9630,770,9667,719,9706"/>
-<area shape="rect" id="Node000187" href="$d5/d09/classgalaxy_1_1SystemManager.html#a514e73f08576ba180c23a46dc563fee4" title="Add a system to operate on entities in this scene." alt="" coords="852,9640,1031,9680"/>
-<area shape="poly" id="edge294_Node000186_Node000187" title=" " alt="" coords="763,9703,849,9681,850,9686,764,9709"/>
-<area shape="rect" id="Node000188" href="$d5/d09/classgalaxy_1_1SystemManager.html#a7036b9a6857756d2ab492b8906984868" title="Remove all systems." alt="" coords="852,9704,1031,9744"/>
-<area shape="poly" id="edge295_Node000186_Node000188" title=" " alt="" coords="764,9721,838,9721,838,9727,764,9727"/>
-<area shape="rect" id="Node000189" href="$d5/d09/classgalaxy_1_1SystemManager.html#aa402190584baaf0c0ea58b56f4669226" title="Resume all systems." alt="" coords="852,9768,1031,9808"/>
-<area shape="poly" id="edge296_Node000186_Node000189" title=" " alt="" coords="764,9739,850,9762,849,9767,763,9745"/>
-<area shape="rect" id="Node000190" href="$d5/d09/classgalaxy_1_1SystemManager.html#afdc7ba4766011e716113389ffe7cbc8e" title="Get list of systems." alt="" coords="852,9832,1031,9872"/>
-<area shape="poly" id="edge297_Node000186_Node000190" title=" " alt="" coords="720,9742,770,9780,833,9818,850,9825,847,9830,831,9822,767,9785,717,9746"/>
-<area shape="rect" id="Node000191" href="$d5/d09/classgalaxy_1_1SystemManager.html#af1c068b13430a1fa2ae01b551fc1f097" title="Suspend all running systems." alt="" coords="852,9896,1031,9936"/>
-<area shape="poly" id="edge298_Node000186_Node000191" title=" " alt="" coords="709,9743,758,9811,793,9849,834,9882,844,9888,841,9893,830,9886,789,9853,754,9815,705,9746"/>
-<area shape="poly" id="edge304_Node000192_Node000014" title=" " alt="" coords="694,10452,709,10361,737,10222,756,10151,778,10086,803,10033,830,9998,852,9986,881,9978,956,9968,1040,9965,1119,9966,1119,9971,1040,9970,956,9973,882,9983,854,9991,834,10002,807,10035,783,10087,761,10152,742,10224,714,10362,699,10453"/>
-<area shape="rect" id="Node000193" href="$d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53" title="Set galaxy delta time." alt="" coords="879,10035,1003,10061"/>
-<area shape="poly" id="edge301_Node000192_Node000193" title=" " alt="" coords="693,10452,699,10386,719,10286,737,10230,760,10175,791,10123,830,10078,846,10066,865,10057,867,10062,849,10071,834,10082,796,10126,765,10178,742,10232,724,10287,704,10387,698,10453"/>
-<area shape="rect" id="Node000194" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ad2b70418244dd518094371fa1be1f18e" title="Time passed in milliseconds." alt="" coords="1128,10304,1277,10344"/>
-<area shape="poly" id="edge303_Node000192_Node000194" title=" " alt="" coords="692,10452,698,10390,718,10297,735,10248,759,10200,791,10157,830,10122,860,10104,887,10092,913,10086,939,10085,965,10088,992,10096,1052,10122,1077,10137,1101,10156,1140,10201,1170,10249,1190,10290,1186,10292,1165,10251,1136,10205,1097,10160,1074,10141,1049,10126,990,10101,964,10093,939,10090,914,10091,889,10097,862,10109,834,10126,795,10160,764,10203,740,10250,723,10299,704,10390,698,10453"/>
-<area shape="rect" id="Node000195" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0a032b952afcb140cd332bc4ea57cbf0" title="Pause the Stopwatch." alt="" coords="867,10136,1016,10176"/>
-<area shape="poly" id="edge305_Node000192_Node000195" title=" " alt="" coords="695,10451,708,10402,733,10331,751,10292,773,10254,799,10218,830,10187,852,10173,855,10178,834,10191,803,10222,778,10257,756,10295,738,10333,713,10404,700,10453"/>
-<area shape="rect" id="Node000196" href="$d0/d7b/classgalaxy_1_1Timer.html#a50f0d64fd708111eb62d9b489da845d5" title="Pause the timer." alt="" coords="862,10225,1021,10250"/>
-<area shape="poly" id="edge306_Node000192_Node000196" title=" " alt="" coords="697,10451,713,10413,741,10361,780,10307,804,10282,831,10260,848,10251,850,10256,833,10265,808,10286,784,10310,746,10364,718,10416,702,10454"/>
-<area shape="rect" id="Node000197" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a81bcdc1a7aa0685dc7cc29829cdaf214" title="Is the Stopwatch paused?" alt="" coords="867,10275,1016,10315"/>
-<area shape="poly" id="edge308_Node000192_Node000197" title=" " alt="" coords="702,10451,752,10391,789,10356,831,10326,852,10315,855,10319,833,10330,793,10360,756,10395,706,10454"/>
-<area shape="rect" id="Node000198" href="$d0/d7b/classgalaxy_1_1Timer.html#a7e522ba4bf8f337309f6e1bc214e5633" title="Is the timer paused?" alt="" coords="858,10339,1025,10365"/>
-<area shape="poly" id="edge309_Node000192_Node000198" title=" " alt="" coords="709,10450,761,10413,831,10375,856,10366,858,10371,833,10380,764,10418,712,10455"/>
-<area shape="rect" id="Node000199" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a7e03d3166670edad50f5693c377a8da8" title="Make function repeat itself instead of running once." alt="" coords="867,10413,1016,10453"/>
-<area shape="poly" id="edge310_Node000192_Node000199" title=" " alt="" coords="782,10451,853,10442,853,10447,783,10457"/>
-<area shape="rect" id="Node000200" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a210374bce91d24678f7a80a95d0d2532" title="Start Stopwatch." alt="" coords="867,10477,1016,10517"/>
-<area shape="poly" id="edge312_Node000192_Node000200" title=" " alt="" coords="783,10474,853,10483,853,10489,782,10479"/>
-<area shape="rect" id="Node000201" href="$d0/d7b/classgalaxy_1_1Timer.html#a5651cbe143bfe10f3060b2c08683a46e" title="Start timer." alt="" coords="867,10542,1016,10567"/>
-<area shape="poly" id="edge313_Node000192_Node000201" title=" " alt="" coords="720,10476,771,10501,833,10527,864,10536,862,10541,831,10532,769,10506,717,10481"/>
-<area shape="rect" id="Node000202" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a0449a10e0a78d1413305b2ddc86bde9a" title="Stop Stopwatch." alt="" coords="1114,10683,1291,10709"/>
-<area shape="poly" id="edge314_Node000192_Node000202" title=" " alt="" coords="708,10476,759,10526,794,10554,833,10578,891,10600,940,10608,989,10614,1051,10629,1111,10652,1164,10675,1162,10680,1109,10657,1050,10635,989,10620,939,10614,890,10605,831,10582,791,10558,756,10530,704,10480"/>
-<area shape="rect" id="Node000203" href="$d0/d7b/classgalaxy_1_1Timer.html#a02332d07fa9c6a5b4752b7c00a635b63" title="Stop timer." alt="" coords="868,10643,1015,10669"/>
-<area shape="poly" id="edge315_Node000192_Node000203" title=" " alt="" coords="704,10477,753,10546,790,10587,833,10622,863,10636,861,10641,831,10626,786,10591,749,10549,700,10480"/>
-<area shape="rect" id="Node000205" href="$d4/d22/classgalaxy_1_1Stopwatch.html#af13ca67e10c4cc05793186448e6ca952" title="Is the Stopwatch finished?" alt="" coords="867,10693,1016,10733"/>
-<area shape="poly" id="edge318_Node000192_Node000205" title=" " alt="" coords="702,10477,718,10517,745,10571,784,10630,807,10656,834,10679,855,10692,853,10696,830,10683,804,10660,780,10633,740,10574,713,10519,697,10479"/>
-<area shape="rect" id="Node000206" href="$d0/d7b/classgalaxy_1_1Timer.html#abf8466c070a07ffba25abac3354fa944" title="Is the timer finished?" alt="" coords="856,10758,1027,10783"/>
-<area shape="poly" id="edge319_Node000192_Node000206" title=" " alt="" coords="700,10478,711,10528,736,10600,754,10639,776,10678,802,10713,834,10743,845,10751,842,10755,830,10747,798,10717,771,10681,749,10642,731,10602,706,10529,694,10479"/>
-<area shape="rect" id="Node000207" href="$d2/d2f/namespacegalaxy_1_1time.html#aebedc9a10397936471d9247289126577" title="Time since epoch." alt="" coords="871,10832,1012,10872"/>
-<area shape="poly" id="edge320_Node000192_Node000207" title=" " alt="" coords="699,10478,711,10534,736,10617,754,10663,776,10710,802,10754,834,10794,852,10810,873,10823,870,10828,849,10814,830,10798,798,10757,771,10712,749,10665,731,10619,706,10535,694,10479"/>
-<area shape="rect" id="Node000208" href="$d4/d22/classgalaxy_1_1Stopwatch.html#a14bf40363e1867dd4bb7ae406c8b3175" title="Resume the Stopwatch." alt="" coords="867,10896,1016,10936"/>
-<area shape="poly" id="edge323_Node000192_Node000208" title=" " alt="" coords="697,10478,702,10548,721,10657,738,10717,761,10777,793,10833,834,10882,855,10897,852,10901,830,10886,789,10836,757,10779,733,10719,715,10658,697,10549,692,10478"/>
-<area shape="rect" id="Node000209" href="$d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee" title="Call this if you want to trigger the callback after delay has passed." alt="" coords="867,10960,1016,11000"/>
-<area shape="poly" id="edge324_Node000192_Node000209" title=" " alt="" coords="697,10478,698,10558,703,10617,713,10683,730,10754,754,10823,789,10889,810,10919,834,10946,856,10962,853,10966,830,10950,806,10922,784,10892,749,10825,725,10755,708,10684,698,10618,693,10558,692,10478"/>
-<area shape="poly" id="edge302_Node000193_Node000193" title=" " alt="" coords="901,10037,892,10027,897,10017,914,10011,941,10009,976,10013,986,10017,990,10023,986,10026,983,10021,975,10018,941,10014,915,10016,901,10021,898,10026,905,10033"/>
-<area shape="poly" id="edge307_Node000196_Node000196" title=" " alt="" coords="901,10226,892,10216,897,10206,914,10200,941,10198,976,10202,986,10207,990,10212,986,10215,983,10211,975,10207,941,10203,915,10205,901,10210,898,10216,905,10223"/>
-<area shape="poly" id="edge311_Node000199_Node000199" title=" " alt="" coords="895,10414,892,10404,900,10394,916,10389,941,10387,970,10390,986,10397,984,10402,969,10395,941,10392,917,10394,903,10399,898,10405,900,10412"/>
-<area shape="rect" id="Node000204" href="$d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b" title="Check if an async thread has finished or not." alt="" coords="1099,10935,1307,10961"/>
-<area shape="poly" id="edge316_Node000203_Node000204" title=" " alt="" coords="1016,10662,1052,10679,1082,10706,1108,10736,1150,10804,1179,10870,1197,10921,1192,10923,1175,10871,1146,10806,1104,10739,1078,10709,1049,10684,1014,10667"/>
-<area shape="poly" id="edge317_Node000204_Node000204" title=" " alt="" coords="1166,10937,1158,10927,1162,10917,1178,10911,1203,10909,1234,10913,1246,10922,1243,10926,1232,10917,1203,10914,1179,10916,1166,10921,1163,10926,1170,10933"/>
-<area shape="poly" id="edge321_Node000207_Node000014" title=" " alt="" coords="1005,10830,1029,10815,1048,10795,1067,10751,1079,10693,1085,10624,1087,10550,1088,10404,1090,10341,1096,10292,1117,10206,1143,10123,1188,9998,1193,10000,1148,10124,1122,10207,1101,10292,1095,10342,1093,10404,1092,10550,1090,10625,1084,10694,1072,10753,1053,10797,1033,10819,1008,10834"/>
-<area shape="poly" id="edge322_Node000207_Node000207" title=" " alt="" coords="895,10832,892,10822,900,10813,916,10807,941,10805,970,10808,986,10815,984,10820,969,10813,941,10811,917,10813,903,10817,898,10823,900,10831"/>
-<area shape="poly" id="edge325_Node000209_Node000194" title=" " alt="" coords="1015,10968,1034,10959,1049,10946,1073,10913,1087,10882,1092,10852,1092,10821,1088,10753,1089,10715,1096,10671,1144,10493,1188,10356,1193,10358,1150,10494,1101,10673,1095,10715,1094,10753,1098,10821,1097,10852,1092,10883,1078,10916,1053,10950,1036,10963,1018,10972"/>
-<area shape="poly" id="edge326_Node000209_Node000202" title=" " alt="" coords="1015,10964,1049,10946,1083,10906,1122,10843,1187,10720,1192,10722,1127,10845,1088,10909,1052,10950,1018,10969"/>
-<area shape="poly" id="edge331_Node000210_Node000204" title=" " alt="" coords="696,11314,710,11262,736,11194,753,11158,775,11123,800,11090,830,11062,859,11043,885,11032,910,11026,935,11024,987,11022,1017,11018,1050,11009,1109,10987,1162,10964,1164,10969,1111,10992,1051,11015,1018,11023,988,11027,935,11029,911,11031,887,11037,861,11048,834,11066,804,11094,779,11126,758,11160,740,11196,715,11264,701,11315"/>
-<area shape="rect" id="Node000211" href="$df/d98/namespacegalaxy_1_1str.html#a872b29b8a64350f32966d80e587e609a" title="Check if string begins with another string." alt="" coords="853,11099,1029,11125"/>
-<area shape="poly" id="edge328_Node000210_Node000211" title=" " alt="" coords="700,11313,719,11275,746,11226,784,11177,806,11154,831,11135,843,11128,846,11132,833,11140,810,11158,788,11180,751,11229,723,11277,705,11315"/>
-<area shape="rect" id="Node000212" href="$dd/da7/classgalaxy_1_1UUID.html#abd4a87cceb1e700365b4b4ae42282241" title="Get the UUID as a hash." alt="" coords="868,11149,1015,11174"/>
-<area shape="poly" id="edge330_Node000210_Node000212" title=" " alt="" coords="707,11313,757,11253,792,11220,831,11191,863,11176,866,11181,833,11196,795,11224,761,11256,711,11316"/>
-<area shape="rect" id="Node000213" href="$df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79" title="Trim string from end." alt="" coords="1138,11362,1267,11387"/>
-<area shape="poly" id="edge332_Node000210_Node000213" title=" " alt="" coords="713,11313,763,11271,796,11250,831,11235,892,11217,942,11210,992,11216,1052,11235,1095,11258,1132,11289,1164,11321,1187,11349,1183,11353,1160,11324,1129,11292,1092,11262,1050,11240,991,11221,942,11216,893,11223,833,11240,798,11255,766,11275,716,11317"/>
-<area shape="rect" id="Node000214" href="$df/d98/namespacegalaxy_1_1str.html#ac2460a7064f04edb82dabf39d869831c" title="Make a string single spaced." alt="" coords="851,11273,1031,11313"/>
-<area shape="poly" id="edge334_Node000210_Node000214" title=" " alt="" coords="763,11320,837,11308,838,11313,764,11326"/>
-<area shape="rect" id="Node000215" href="$df/d98/namespacegalaxy_1_1str.html#a68cef8525cd038dbfacf06b977df2381" title="Replaces all occurrences of a string." alt="" coords="857,11362,1026,11387"/>
-<area shape="poly" id="edge336_Node000210_Node000215" title=" " alt="" coords="764,11343,849,11357,848,11362,763,11349"/>
-<area shape="rect" id="Node000216" href="$df/d98/namespacegalaxy_1_1str.html#ac7da95a6162660909185af790134481a" title="Replace first occurrence of a string." alt="" coords="868,11436,1015,11476"/>
-<area shape="poly" id="edge338_Node000210_Node000216" title=" " alt="" coords="736,11352,888,11427,886,11432,734,11357"/>
-<area shape="rect" id="Node000217" href="$df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd" title="Trim string from start." alt="" coords="1137,11599,1268,11625"/>
-<area shape="poly" id="edge340_Node000210_Node000217" title=" " alt="" coords="709,11354,758,11420,793,11456,833,11486,863,11501,890,11510,939,11518,989,11522,1051,11537,1114,11563,1168,11590,1165,11595,1112,11568,1050,11543,988,11528,938,11523,888,11516,861,11506,831,11490,790,11460,754,11423,705,11357"/>
-<area shape="rect" id="Node000218" href="$df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572" title="Split a string based on a delimiter." alt="" coords="878,11575,1005,11601"/>
-<area shape="poly" id="edge342_Node000210_Node000218" title=" " alt="" coords="707,11354,755,11437,791,11486,834,11530,863,11551,894,11567,892,11572,860,11555,830,11534,787,11489,751,11440,702,11356"/>
-<area shape="rect" id="Node000219" href="$dd/da7/classgalaxy_1_1UUID.html#a2c2949a1885f9d4ca14f8dd229b6d642" title="Get the UUID as a string." alt="" coords="875,11625,1007,11650"/>
-<area shape="poly" id="edge344_Node000210_Node000219" title=" " alt="" coords="701,11354,714,11407,739,11477,757,11514,778,11550,804,11583,834,11611,864,11627,861,11631,830,11616,800,11586,774,11553,752,11516,734,11479,709,11408,696,11356"/>
-<area shape="rect" id="Node000220" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="879,11698,1004,11723"/>
-<area shape="poly" id="edge345_Node000210_Node000220" title=" " alt="" coords="700,11354,713,11413,737,11494,755,11539,777,11582,803,11624,834,11661,855,11678,880,11691,878,11695,853,11682,830,11665,799,11627,772,11585,750,11541,732,11496,708,11414,695,11355"/>
-<area shape="poly" id="edge329_Node000211_Node000211" title=" " alt="" coords="901,11101,892,11091,897,11081,914,11075,941,11073,976,11077,986,11081,990,11087,986,11090,983,11085,975,11082,941,11078,915,11080,901,11085,898,11090,905,11097"/>
-<area shape="poly" id="edge333_Node000213_Node000213" title=" " alt="" coords="1166,11364,1158,11354,1162,11344,1178,11338,1203,11335,1234,11339,1246,11349,1243,11353,1232,11344,1203,11341,1179,11343,1166,11348,1163,11353,1170,11360"/>
-<area shape="poly" id="edge335_Node000214_Node000214" title=" " alt="" coords="895,11274,892,11264,900,11254,916,11249,941,11247,970,11250,986,11257,984,11262,969,11255,941,11252,917,11254,903,11259,898,11265,900,11272"/>
-<area shape="poly" id="edge337_Node000215_Node000215" title=" " alt="" coords="901,11364,892,11354,897,11344,914,11338,941,11335,976,11339,986,11344,990,11350,986,11353,983,11348,975,11344,941,11341,915,11343,901,11348,898,11353,905,11360"/>
-<area shape="poly" id="edge339_Node000216_Node000216" title=" " alt="" coords="895,11436,892,11426,900,11417,916,11411,941,11409,970,11412,986,11419,984,11424,969,11417,941,11415,917,11417,903,11421,898,11427,900,11435"/>
-<area shape="poly" id="edge341_Node000217_Node000217" title=" " alt="" coords="1166,11601,1158,11591,1162,11581,1178,11575,1203,11573,1234,11577,1246,11586,1243,11590,1232,11581,1203,11578,1179,11580,1166,11585,1163,11590,1170,11597"/>
-<area shape="poly" id="edge343_Node000218_Node000218" title=" " alt="" coords="901,11577,892,11567,897,11557,914,11551,941,11549,976,11553,986,11557,990,11563,986,11566,983,11561,975,11558,941,11554,915,11556,901,11561,898,11566,905,11573"/>
-<area shape="poly" id="edge346_Node000220_Node000213" title=" " alt="" coords="988,11696,1020,11681,1049,11661,1068,11638,1077,11616,1084,11592,1096,11563,1185,11398,1190,11401,1101,11565,1089,11594,1082,11618,1072,11640,1052,11665,1023,11686,991,11700"/>
-<area shape="poly" id="edge347_Node000220_Node000217" title=" " alt="" coords="975,11695,1154,11627,1156,11632,977,11700"/>
-<area shape="poly" id="edge348_Node000220_Node000220" title=" " alt="" coords="901,11700,892,11690,897,11680,914,11674,941,11671,976,11675,986,11680,990,11686,986,11689,983,11684,975,11680,941,11677,915,11679,901,11684,898,11689,905,11696"/>
+<area shape="rect" id="Node000001" title="Default constructor." alt="" coords="5,322,136,347"/>
+<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#a775b1edecc7bb4c1ee0c4dc51efa34c1" title=" " alt="" coords="204,7,347,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,321,79,272,98,202,113,163,131,125,154,89,182,57,190,50,194,54,186,61,159,92,136,127,118,165,103,203,85,273,76,322"/>
+<area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9" title=" " alt="" coords="204,71,347,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,321,85,282,106,229,138,171,159,144,182,121,191,114,194,119,186,125,163,148,143,174,111,231,90,284,78,322"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#a8654d56d94e38cdfb176cce7ae11cd37" title=" " alt="" coords="204,135,347,175"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="76,321,115,256,146,218,182,185,190,179,193,184,186,189,150,222,119,260,81,323"/>
+<area shape="rect" id="Node000007" href="$dd/d33/classgalaxy_1_1App.html#a58b6a708bb2d4c9490fabbc8f7798abe" title=" " alt="" coords="195,199,356,225"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="81,320,123,278,152,255,183,235,201,227,203,232,185,240,155,259,127,282,85,324"/>
+<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#a86d571a1d4c82ad7d223b867e4b6dc9f" title=" " alt="" coords="204,249,347,289"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="111,319,198,291,200,296,112,324"/>
+<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#a6a77663e1d276911baecbfe17dc079e6" title=" " alt="" coords="204,315,347,355"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="136,332,190,332,190,337,136,337"/>
+<area shape="rect" id="Node000015" href="$dd/d33/classgalaxy_1_1App.html#aac7775008055df505b0b9549d8246413" title=" " alt="" coords="184,379,367,405"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="117,345,185,364,216,373,215,378,183,369,116,350"/>
+<area shape="rect" id="Node000016" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="204,676,347,716"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="82,346,258,662,254,665,77,349"/>
+<area shape="rect" id="Node000028" href="$dd/d33/classgalaxy_1_1App.html#a902f8e3173d55036e17b41356ff4fa69" title=" " alt="" coords="204,1112,347,1152"/>
+<area shape="poly" id="edge32_Node000001_Node000028" title=" " alt="" coords="78,347,268,1098,263,1099,73,348"/>
+<area shape="rect" id="Node000033" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="204,1176,347,1216"/>
+<area shape="poly" id="edge37_Node000001_Node000033" title=" " alt="" coords="75,348,77,497,90,742,104,872,124,993,151,1094,167,1133,186,1162,194,1171,191,1174,182,1166,163,1135,146,1096,119,995,99,873,85,742,72,497,69,348"/>
+<area shape="rect" id="Node000047" href="$dd/d33/classgalaxy_1_1App.html#ac771de8e6a31c118fa22632f5af06af4" title=" " alt="" coords="204,1240,347,1280"/>
+<area shape="poly" id="edge62_Node000001_Node000047" title=" " alt="" coords="74,348,75,507,79,632,87,771,100,912,120,1043,133,1101,148,1152,166,1194,186,1226,194,1235,191,1238,182,1230,161,1197,143,1154,128,1103,115,1044,95,913,82,771,74,632,70,507,69,348"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0" title="Restore all config settings to default." alt="" coords="447,69,601,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="347,88,433,87,433,92,347,93"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a617413cbbb4c96092405241a092b55cc" title="Set all our settings using the provided config file." alt="" coords="441,5,607,45"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="346,69,433,46,435,51,348,75"/>
+<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a9398c6fd9695f01783053e2780a1cb65" title="Cursor selector point (hotspot)." alt="" coords="437,233,611,273"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="347,262,423,257,423,262,347,267"/>
+<area shape="rect" id="Node000010" href="$df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca" title="Cursor texture file in vfs." alt="" coords="420,134,628,159"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="343,247,365,234,380,218,388,201,396,185,413,169,424,163,426,167,416,173,401,188,393,204,384,221,368,238,346,252"/>
+<area shape="rect" id="Node000011" href="$df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453" title="Is the mouse cursor visible or not." alt="" coords="417,183,631,209"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="329,247,414,219,450,209,451,214,415,224,331,252"/>
+<area shape="rect" id="Node000013" href="$df/d23/structgalaxy_1_1Settings.html#a1d94a85eab4dd45d82a23deb78f40a1b" title="Current root directory of application, unless it has been changed." alt="" coords="435,395,613,421"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="345,352,468,389,466,394,343,357"/>
+<area shape="rect" id="Node000014" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="455,322,593,347"/>
+<area shape="poly" id="edge14_Node000012_Node000014" title=" " alt="" coords="347,332,441,332,441,337,347,337"/>
+<area shape="poly" id="edge13_Node000013_Node000013" title=" " alt="" coords="487,397,479,387,483,377,499,371,524,369,556,373,568,382,565,386,554,377,524,374,500,376,487,381,484,386,491,393"/>
+<area shape="poly" id="edge15_Node000014_Node000014" title=" " alt="" coords="487,324,479,314,483,304,499,298,524,295,556,299,568,309,565,313,554,304,524,301,500,303,487,308,484,313,491,320"/>
+<area shape="rect" id="Node000017" href="$df/d23/structgalaxy_1_1Settings.html#a9db4ecfad6dd65a63d3ed656be4053c4" title="Set audio frequency to use with SDL." alt="" coords="423,494,625,519"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="285,674,305,642,334,602,370,562,413,528,425,522,428,527,416,533,374,566,338,605,310,645,290,677"/>
+<area shape="rect" id="Node000018" href="$df/d23/structgalaxy_1_1Settings.html#a26ef27c56e5d81e964c85f6d0cd93987" title="Copyright message." alt="" coords="427,543,621,569"/>
+<area shape="poly" id="edge19_Node000016_Node000018" title=" " alt="" coords="293,674,344,625,377,599,413,578,430,571,432,576,416,582,380,604,347,629,296,678"/>
+<area shape="rect" id="Node000019" href="$df/d23/structgalaxy_1_1Settings.html#ae5123c5e578157596e05918c8729fe04" title="Owner." alt="" coords="434,593,614,618"/>
+<area shape="poly" id="edge20_Node000016_Node000019" title=" " alt="" coords="311,673,359,649,414,627,440,619,442,624,416,632,361,654,314,678"/>
+<area shape="rect" id="Node000020" href="$df/d23/structgalaxy_1_1Settings.html#a79fab905c1018adefe65ba76e9d2b5da" title="Game identifier i.e. com.galaxy.app." alt="" coords="428,642,620,667"/>
+<area shape="poly" id="edge21_Node000016_Node000020" title=" " alt="" coords="347,682,433,667,434,672,348,687"/>
+<area shape="rect" id="Node000021" href="$dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366" title="Seed the cstdlib rng algos." alt="" coords="440,716,608,756"/>
+<area shape="poly" id="edge22_Node000016_Node000021" title=" " alt="" coords="348,705,427,718,426,723,347,710"/>
+<area shape="rect" id="Node000022" href="$dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d" title="Sets SDL hints." alt="" coords="429,805,619,830"/>
+<area shape="poly" id="edge24_Node000016_Node000022" title=" " alt="" coords="315,714,416,766,482,797,480,801,413,770,313,718"/>
+<area shape="rect" id="Node000023" href="$dd/dfc/namespacegalaxy_1_1platform.html#a3bf5b2167c7c116467dfa63a38e453c8" title="Sets metadata." alt="" coords="445,879,603,919"/>
+<area shape="poly" id="edge26_Node000016_Node000023" title=" " alt="" coords="294,715,346,774,380,808,416,839,466,870,464,875,413,843,376,812,342,778,290,718"/>
+<area shape="rect" id="Node000024" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="444,943,604,969"/>
+<area shape="poly" id="edge28_Node000016_Node000024" title=" " alt="" coords="285,715,301,760,328,818,366,878,389,905,416,929,433,938,430,943,413,933,386,909,362,881,323,821,296,762,280,717"/>
+<area shape="rect" id="Node000025" href="$df/d23/structgalaxy_1_1Settings.html#a9d19ac9a121ad6f2ca646d3030811bd3" title="Game semver." alt="" coords="433,993,615,1018"/>
+<area shape="poly" id="edge29_Node000016_Node000025" title=" " alt="" coords="283,716,296,769,321,840,339,878,360,915,386,949,416,978,426,984,423,989,413,982,382,952,356,918,334,881,316,842,291,770,278,717"/>
+<area shape="rect" id="Node000026" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="438,1042,610,1067"/>
+<area shape="poly" id="edge30_Node000016_Node000026" title=" " alt="" coords="281,716,291,777,314,862,332,907,354,951,382,992,416,1027,427,1035,424,1039,413,1031,378,995,350,954,327,909,309,863,286,778,276,717"/>
+<area shape="rect" id="Node000027" href="$df/d23/structgalaxy_1_1Settings.html#aa2a2e4abad7aea21bd839ecc3fb08221" title="Website URL." alt="" coords="431,445,617,470"/>
+<area shape="poly" id="edge31_Node000016_Node000027" title=" " alt="" coords="281,675,298,633,326,580,364,525,387,500,413,479,422,474,425,478,416,484,391,504,368,528,330,583,303,635,286,677"/>
+<area shape="poly" id="edge23_Node000021_Node000021" title=" " alt="" coords="482,716,479,706,486,697,501,691,524,689,550,692,565,699,562,704,549,697,524,695,502,697,489,701,484,707,487,715"/>
+<area shape="poly" id="edge25_Node000022_Node000022" title=" " alt="" coords="487,806,479,796,483,786,499,780,524,778,556,782,568,791,565,795,554,787,524,783,500,785,487,790,484,796,491,803"/>
+<area shape="poly" id="edge27_Node000023_Node000023" title=" " alt="" coords="482,879,479,869,486,860,501,854,524,852,550,855,565,862,562,867,549,860,524,857,502,859,489,864,484,870,487,878"/>
+<area shape="rect" id="Node000029" href="$df/d23/structgalaxy_1_1Settings.html#a1e48964c911e6c8ef59959b4ec05ae3f" title="Ansiotropic filtering level." alt="" coords="419,1255,629,1281"/>
+<area shape="poly" id="edge33_Node000028_Node000029" title=" " alt="" coords="348,1149,368,1162,385,1182,393,1203,400,1222,416,1241,427,1247,425,1252,413,1245,395,1225,388,1205,381,1185,365,1166,346,1154"/>
+<area shape="rect" id="Node000030" href="$df/d23/structgalaxy_1_1Settings.html#a466f1fef1442e3514e1c055e2a5d0af8" title="Mipmapping." alt="" coords="430,1091,618,1117"/>
+<area shape="poly" id="edge34_Node000028_Node000030" title=" " alt="" coords="347,1121,416,1113,416,1119,347,1127"/>
+<area shape="rect" id="Node000031" href="$df/d23/structgalaxy_1_1Settings.html#a831c053a3a21c45f8cc51c8baef8c32c" title="Texture filtering type." alt="" coords="433,1141,615,1181"/>
+<area shape="poly" id="edge35_Node000028_Node000031" title=" " alt="" coords="347,1138,420,1146,420,1152,347,1143"/>
+<area shape="rect" id="Node000032" href="$df/d23/structgalaxy_1_1Settings.html#a02bb15b379602197658b6c49374c52ac" title="Window icon file in vfs." alt="" coords="415,1206,633,1231"/>
+<area shape="poly" id="edge36_Node000028_Node000032" title=" " alt="" coords="339,1150,368,1162,392,1177,416,1191,442,1200,440,1205,414,1196,389,1181,365,1166,337,1154"/>
+<area shape="rect" id="Node000034" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="454,1305,594,1330"/>
+<area shape="poly" id="edge38_Node000033_Node000034" title=" " alt="" coords="348,1214,368,1226,384,1243,393,1259,401,1275,416,1290,441,1302,439,1307,413,1294,397,1278,388,1262,380,1246,365,1230,345,1218"/>
+<area shape="rect" id="Node000035" href="$d3/ddf/classgalaxy_1_1Lua.html#a6e8190d6fa4df4d86cf09cbcea645609" title="Injects misc galaxy utils into Lua." alt="" coords="681,1297,821,1337"/>
+<area shape="poly" id="edge39_Node000034_Node000035" title=" " alt="" coords="595,1315,668,1315,668,1320,595,1320"/>
+<area shape="rect" id="Node000036" href="$df/d98/namespacegalaxy_1_1str.html#a872b29b8a64350f32966d80e587e609a" title="Check if string begins with another string." alt="" coords="885,969,1061,994"/>
+<area shape="poly" id="edge40_Node000035_Node000036" title=" " alt="" coords="751,1297,758,1239,777,1160,792,1117,811,1075,836,1037,868,1003,873,999,876,1003,871,1007,841,1040,816,1078,797,1119,782,1161,764,1240,757,1298"/>
+<area shape="rect" id="Node000037" href="$dd/da7/classgalaxy_1_1UUID.html#abd4a87cceb1e700365b4b4ae42282241" title="Get the UUID as a hash." alt="" coords="900,1018,1047,1043"/>
+<area shape="poly" id="edge42_Node000035_Node000037" title=" " alt="" coords="753,1297,763,1247,783,1181,799,1146,817,1112,840,1080,868,1053,886,1041,888,1046,871,1057,844,1083,822,1114,803,1148,788,1183,768,1248,758,1298"/>
+<area shape="rect" id="Node000038" href="$d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b" title="Check if an async thread has finished or not." alt="" coords="869,1091,1077,1117"/>
+<area shape="poly" id="edge43_Node000035_Node000038" title=" " alt="" coords="758,1296,773,1261,797,1217,828,1173,868,1134,893,1120,895,1124,871,1138,832,1176,801,1220,778,1263,763,1298"/>
+<area shape="rect" id="Node000039" href="$df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79" title="Trim string from end." alt="" coords="1126,1406,1255,1431"/>
+<area shape="poly" id="edge45_Node000035_Node000039" title=" " alt="" coords="760,1296,777,1267,800,1234,831,1202,868,1178,925,1154,975,1144,1000,1145,1025,1151,1079,1178,1105,1199,1127,1225,1145,1253,1159,1284,1179,1344,1189,1392,1183,1393,1174,1345,1154,1286,1140,1256,1123,1228,1101,1203,1076,1182,1023,1156,999,1151,976,1150,927,1159,871,1182,835,1206,805,1237,781,1270,765,1298"/>
+<area shape="rect" id="Node000040" href="$df/d98/namespacegalaxy_1_1str.html#ac2460a7064f04edb82dabf39d869831c" title="Make a string single spaced." alt="" coords="883,1216,1063,1256"/>
+<area shape="poly" id="edge47_Node000035_Node000040" title=" " alt="" coords="796,1295,868,1266,891,1258,892,1263,870,1270,798,1300"/>
+<area shape="rect" id="Node000041" href="$df/d98/namespacegalaxy_1_1str.html#a68cef8525cd038dbfacf06b977df2381" title="Replaces all occurrences of a string." alt="" coords="889,1305,1058,1330"/>
+<area shape="poly" id="edge49_Node000035_Node000041" title=" " alt="" coords="821,1315,875,1315,875,1320,821,1320"/>
+<area shape="rect" id="Node000042" href="$df/d98/namespacegalaxy_1_1str.html#ac7da95a6162660909185af790134481a" title="Replace first occurrence of a string." alt="" coords="900,1379,1047,1419"/>
+<area shape="poly" id="edge51_Node000035_Node000042" title=" " alt="" coords="808,1335,906,1371,904,1376,806,1340"/>
+<area shape="rect" id="Node000043" href="$df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd" title="Trim string from start." alt="" coords="1125,1529,1256,1554"/>
+<area shape="poly" id="edge53_Node000035_Node000043" title=" " alt="" coords="756,1337,761,1397,777,1478,792,1520,812,1560,838,1596,871,1626,898,1642,922,1652,946,1656,969,1656,1018,1645,1076,1626,1103,1613,1127,1597,1167,1563,1170,1567,1130,1602,1105,1618,1078,1630,1019,1651,969,1662,945,1662,921,1657,895,1647,868,1630,834,1600,807,1563,787,1522,772,1479,755,1398,750,1338"/>
+<area shape="rect" id="Node000044" href="$df/d98/namespacegalaxy_1_1str.html#a7f59cc153df4977d094f04b5f0584572" title="Split a string based on a delimiter." alt="" coords="910,1541,1037,1566"/>
+<area shape="poly" id="edge55_Node000035_Node000044" title=" " alt="" coords="763,1337,803,1415,834,1461,871,1502,895,1519,922,1533,919,1538,892,1524,868,1506,830,1464,798,1418,759,1339"/>
+<area shape="rect" id="Node000045" href="$dd/da7/classgalaxy_1_1UUID.html#a2c2949a1885f9d4ca14f8dd229b6d642" title="Get the UUID as a string." alt="" coords="907,1590,1039,1615"/>
+<area shape="poly" id="edge57_Node000035_Node000045" title=" " alt="" coords="758,1337,769,1386,789,1451,822,1518,845,1549,871,1575,895,1589,892,1594,868,1579,841,1552,818,1521,784,1453,763,1387,753,1338"/>
+<area shape="rect" id="Node000046" href="$df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5" title="Trim both ends of string." alt="" coords="911,1467,1036,1493"/>
+<area shape="poly" id="edge58_Node000035_Node000046" title=" " alt="" coords="772,1336,814,1381,871,1428,928,1460,925,1464,868,1433,811,1385,768,1339"/>
+<area shape="poly" id="edge41_Node000036_Node000036" title=" " alt="" coords="938,970,930,960,934,950,949,944,973,942,1003,946,1015,955,1012,959,1001,951,973,947,950,949,938,954,936,960,942,967"/>
+<area shape="poly" id="edge44_Node000038_Node000038" title=" " alt="" coords="938,1093,930,1083,934,1073,949,1067,973,1065,1003,1068,1015,1077,1012,1082,1001,1073,973,1070,950,1072,938,1077,936,1082,942,1090"/>
+<area shape="poly" id="edge46_Node000039_Node000039" title=" " alt="" coords="1155,1408,1148,1398,1152,1388,1166,1382,1191,1379,1221,1383,1233,1392,1229,1396,1219,1388,1191,1385,1168,1387,1155,1392,1153,1397,1159,1404"/>
+<area shape="poly" id="edge48_Node000040_Node000040" title=" " alt="" coords="933,1216,930,1206,937,1197,951,1191,973,1189,999,1192,1012,1200,1010,1204,997,1197,973,1195,953,1197,940,1201,936,1207,938,1215"/>
+<area shape="poly" id="edge50_Node000041_Node000041" title=" " alt="" coords="938,1306,930,1296,934,1286,949,1280,973,1278,1003,1282,1015,1291,1012,1295,1001,1287,973,1283,950,1285,938,1290,936,1296,942,1303"/>
+<area shape="poly" id="edge52_Node000042_Node000042" title=" " alt="" coords="933,1379,930,1369,937,1360,951,1354,973,1352,999,1355,1012,1362,1010,1367,997,1360,973,1357,953,1359,940,1364,936,1370,938,1378"/>
+<area shape="poly" id="edge54_Node000043_Node000043" title=" " alt="" coords="1155,1530,1148,1520,1152,1510,1166,1504,1191,1502,1221,1506,1233,1515,1229,1519,1219,1511,1191,1507,1168,1509,1155,1514,1153,1520,1159,1527"/>
+<area shape="poly" id="edge56_Node000044_Node000044" title=" " alt="" coords="938,1542,930,1532,934,1522,949,1516,973,1514,1003,1518,1015,1527,1012,1531,1001,1523,973,1519,950,1521,938,1526,936,1532,942,1539"/>
+<area shape="poly" id="edge59_Node000046_Node000039" title=" " alt="" coords="1018,1465,1131,1433,1133,1438,1020,1470"/>
+<area shape="poly" id="edge60_Node000046_Node000043" title=" " alt="" coords="1034,1490,1078,1501,1142,1522,1140,1527,1077,1507,1033,1495"/>
+<area shape="poly" id="edge61_Node000046_Node000046" title=" " alt="" coords="938,1469,930,1459,934,1449,949,1443,973,1441,1003,1444,1015,1453,1012,1458,1001,1449,973,1446,950,1448,938,1453,936,1458,942,1466"/>
 </map>

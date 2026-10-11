@@ -65,13 +65,13 @@ var NAVTREEINDEX =
 "annotated.html",
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ace07ecb19807512eee6d74e4ffd37b28",
 "d1/d4d/classgalaxy_1_1Cache.html#a028cac1ee1032dcc9597a18fc7ec7d25",
-"d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8",
-"d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63",
-"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0",
-"db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99",
-"dd/d33/classgalaxy_1_1App.html#a768f4823162d20125bfdccc519370552",
-"df/d23/structgalaxy_1_1Settings.html#a688bb9fb459a4a5b10e547daea875832",
-"dir_719a66e699117833dd2aa990b86b1834.html"
+"d4/d22/classgalaxy_1_1Stopwatch.html",
+"d5/d60/structgalaxy_1_1KeyReleased.html",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169",
+"db/d49/classgalaxy_1_1Config.html#a5718bbf3837f08d5023818d5e01e4a99",
+"dd/d33/classgalaxy_1_1App.html#ac771de8e6a31c118fa22632f5af06af4",
+"df/d23/structgalaxy_1_1Settings.html#a8e8e8205de8e6534d17d71b89c57bcc7",
+"functions_func_i.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

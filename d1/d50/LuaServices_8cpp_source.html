@@ -124,8 +124,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d50/LuaServ
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d3/ddf/classgalaxy_1_1Lua.html#a64011dd468d6b31d16aaa74a9d95cd5b">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/ddf/classgalaxy_1_1Lua.html#a64011dd468d6b31d16aaa74a9d95cd5b">Lua::inject_services</a>() noexcept</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> Lua::inject_services() noexcept</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">auto</span>&amp; lua = entt::locator&lt;sol::state&gt;::value();</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
@@ -156,13 +155,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d50/LuaServ
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">        lua[&quot;galaxy_fontcontext&quot;] = std::ref(entt::locator&lt;graphics::FontContext&gt;::value());</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">        */</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
-</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aConfig_8hpp_html"><div class="ttname"><a href="../../df/db4/Config_8hpp.html">Config.hpp</a></div></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
 <div class="ttc" id="aWindow_8hpp_html"><div class="ttname"><a href="../../d0/de3/Window_8hpp.html">Window.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Lua_html_a64011dd468d6b31d16aaa74a9d95cd5b"><div class="ttname"><a href="../../d3/ddf/classgalaxy_1_1Lua.html#a64011dd468d6b31d16aaa74a9d95cd5b">galaxy::Lua::inject_services</a></div><div class="ttdeci">static void inject_services() noexcept</div><div class="ttdoc">Regsiter static engine services in Lua.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">LuaServices.cpp:19</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db6/Application_8cpp_source.html#l00039">Application.cpp:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

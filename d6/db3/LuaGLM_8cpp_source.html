@@ -124,8 +124,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/db3/LuaGLM_
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e">Lua::inject_glm</a>() noexcept</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> Lua::inject_glm() noexcept</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">auto</span>&amp; lua       = entt::locator&lt;sol::state&gt;::value();</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">auto</span>  vec2_type = lua.new_usertype&lt;glm::vec2&gt;(</div>
@@ -330,10 +329,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/db3/LuaGLM_
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        mat3_type[<span class="stringliteral">&quot;length&quot;</span>] = &amp;glm::mat3::length;</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        mat4_type[<span class="stringliteral">&quot;length&quot;</span>] = &amp;glm::mat4::length;</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
-</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLua_8hpp_html"><div class="ttname"><a href="../../de/d92/Lua_8hpp.html">Lua.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Lua_html_aa74316878e18db65927ce3261722412e"><div class="ttname"><a href="../../d3/ddf/classgalaxy_1_1Lua.html#aa74316878e18db65927ce3261722412e">galaxy::Lua::inject_glm</a></div><div class="ttdeci">static void inject_glm() noexcept</div><div class="ttdoc">Injects GLM into Lua.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">LuaGLM.cpp:19</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db6/Application_8cpp_source.html#l00039">Application.cpp:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
