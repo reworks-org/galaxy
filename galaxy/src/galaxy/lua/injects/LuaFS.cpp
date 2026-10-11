@@ -93,11 +93,5 @@ namespace galaxy
 		vfs_type["open_save_dialog"]      = &VirtualFileSystem::open_save_dialog;
 		vfs_type["open_file_dialog"]      = &VirtualFileSystem::open_file_dialog;
 		vfs_type["select_folder_dialog"]  = &VirtualFileSystem::select_folder_dialog;
-		vfs_type["load_ray_font"]         = &VirtualFileSystem::load_ray_font;
-		vfs_type["load_ray_image"]        = &VirtualFileSystem::load_ray_image;
-		vfs_type["load_ray_image_anim"]   = &VirtualFileSystem::load_ray_image_anim;
-		vfs_type["load_ray_music_stream"] = &VirtualFileSystem::load_ray_music_stream;
-		vfs_type["load_ray_texture"]      = &VirtualFileSystem::load_ray_texture;
-		vfs_type["load_ray_wave"]         = &VirtualFileSystem::load_ray_wave;
 	}
 } // namespace galaxy
