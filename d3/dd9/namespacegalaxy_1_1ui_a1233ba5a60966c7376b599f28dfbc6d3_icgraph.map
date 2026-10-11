@@ -1,5 +1,7 @@
 <map id="galaxy::ui::imgui_rescale" name="galaxy::ui::imgui_rescale">
-<area shape="rect" id="Node000001" title="Bake a fixed style scale." alt="" coords="212,5,396,31"/>
-<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+<area shape="rect" id="Node000001" title="Bake a fixed style scale." alt="" coords="212,29,396,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="343,20,332,11,304,8,281,10,268,15,266,20,272,28,268,31,261,21,265,11,279,5,304,3,334,6,346,15"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,29,164,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,45,164,45,164,39,198,39"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="124,20,113,11,85,8,61,10,49,15,46,20,53,28,49,31,41,21,45,11,60,5,85,3,115,6,127,15"/>
 </map>

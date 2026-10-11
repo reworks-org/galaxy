@@ -1,0 +1,6 @@
+<map id="galaxy::fileutils::write" name="galaxy::fileutils::write">
+<area shape="rect" id="Node000001" title="Writes a non&#45;binary file to disk." alt="" coords="5,29,135,69"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="36,30,34,20,39,11,52,5,70,3,91,6,103,13,100,17,89,11,70,8,53,10,43,15,39,21,41,28"/>
+<area shape="rect" id="Node000002" href="$d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="183,29,317,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,47,169,47,169,52,135,52"/>
+</map>

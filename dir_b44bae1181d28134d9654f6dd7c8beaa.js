@@ -1,7 +1,5 @@
 var dir_b44bae1181d28134d9654f6dd7c8beaa =
 [
-    [ "AutomationEvents.cpp", "d7/dbc/AutomationEvents_8cpp.html", null ],
-    [ "AutomationEvents.hpp", "db/dcd/AutomationEvents_8hpp.html", null ],
     [ "Clipboard.cpp", "df/d0a/Clipboard_8cpp.html", "df/d0a/Clipboard_8cpp" ],
     [ "Clipboard.hpp", "db/d20/Clipboard_8hpp.html", "db/d20/Clipboard_8hpp" ],
     [ "Input.cpp", "df/de8/Input_8cpp.html", "df/de8/Input_8cpp" ],

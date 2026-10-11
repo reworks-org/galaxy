@@ -1,5 +1,7 @@
 <map id="galaxy::mem_alloc" name="galaxy::mem_alloc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="212,5,357,31"/>
-<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="212,29,357,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="320,20,310,11,285,8,263,10,252,15,250,20,256,28,252,31,245,21,248,11,262,5,285,3,313,6,324,16"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,29,164,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,45,164,45,164,39,198,39"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="120,20,110,11,85,8,63,10,52,15,50,20,56,28,52,31,45,21,48,11,62,5,85,3,113,6,124,16"/>
 </map>

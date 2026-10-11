@@ -1,0 +1,5 @@
+<map id="galaxy::System::id" name="galaxy::System::id">
+<area shape="rect" id="Node000001" title="Get identifier." alt="" coords="228,5,371,31"/>
+<area shape="rect" id="Node000002" href="$dc/dd4/classgalaxy_1_1System.html#aef9165cf3e8d4daa54d0496f81ed2caf" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,180,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,21,180,21,180,15,214,15"/>
+</map>

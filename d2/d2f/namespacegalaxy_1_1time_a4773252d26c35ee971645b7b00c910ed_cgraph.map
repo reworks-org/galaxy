@@ -1,0 +1,6 @@
+<map id="galaxy::time::dt" name="galaxy::time::dt">
+<area shape="rect" id="Node000001" title="Get galaxy delta time." alt="" coords="5,29,129,55"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53" title="Set galaxy delta time." alt="" coords="177,29,301,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,39,163,39,163,45,130,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="211,31,205,21,208,11,220,5,239,3,263,6,273,15,269,19,260,11,239,8,221,10,212,15,210,20,215,28"/>
+</map>

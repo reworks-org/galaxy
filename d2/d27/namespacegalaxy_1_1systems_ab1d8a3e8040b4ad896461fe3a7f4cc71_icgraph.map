@@ -1,7 +1,9 @@
 <map id="galaxy::systems::add_cmd" name="galaxy::systems::add_cmd">
-<area shape="rect" id="Node000001" title=" " alt="" coords="512,13,707,38"/>
-<area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="284,5,464,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="498,28,464,28,464,23,498,23"/>
-<area shape="rect" id="Node000003" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,5,236,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="270,28,236,28,236,23,270,23"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="512,37,707,62"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="652,28,640,19,609,15,584,17,571,22,568,28,575,35,571,38,563,28,567,18,583,12,609,10,642,14,655,23"/>
+<area shape="rect" id="Node000002" href="$d2/d27/namespacegalaxy_1_1systems.html#aab63f1ed02e09bc176b2d805663f0283" title=" " alt="" coords="284,29,464,69"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="498,52,464,52,464,47,498,47"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="414,18,400,11,374,8,351,10,338,15,333,21,335,28,330,30,328,20,335,10,350,5,374,3,401,6,416,13"/>
+<area shape="rect" id="Node000003" href="$d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7" title="Abstract implementation for updating the system. Use the manager to retreive your components." alt="" coords="5,29,236,69"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="270,52,236,52,236,47,270,47"/>
 </map>

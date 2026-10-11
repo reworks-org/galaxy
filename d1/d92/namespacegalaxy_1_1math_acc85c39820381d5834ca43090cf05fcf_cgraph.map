@@ -1,0 +1,7 @@
+<map id="galaxy::math::random_vec4" name="galaxy::math::random_vec4">
+<area shape="rect" id="Node000001" title="Generate a random vec4." alt="" coords="5,29,208,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="69,31,61,21,65,11,81,5,107,3,139,7,152,16,148,20,137,11,107,8,82,10,69,15,66,20,73,27"/>
+<area shape="rect" id="Node000002" href="$d1/d92/namespacegalaxy_1_1math.html#adf0344db54bbd7135212f9ab4c6b142a" title="Generate a random number of type T." alt="" coords="256,29,421,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,39,242,39,242,45,208,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="301,31,293,21,297,11,313,5,339,3,371,7,384,16,380,20,369,11,339,8,314,10,301,15,298,20,305,27"/>
+</map>

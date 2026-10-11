@@ -1,8 +1,0 @@
-<map id="galaxy::Shader::Shader" name="galaxy::Shader::Shader">
-<area shape="rect" id="Node000001" title="Loads a combined shader from a file." alt="" coords="5,29,176,55"/>
-<area shape="rect" id="Node000002" href="$d1/d5e/classgalaxy_1_1Shader.html#ae5ea0e3dfd53c83ac96a5d8be4c57ab3" title="Loads a combined shader file." alt="" coords="224,29,379,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,39,210,39,210,45,176,45"/>
-<area shape="rect" id="Node000003" href="$d1/d5e/classgalaxy_1_1Shader.html#ac4978ffe2cb9a39387e6bb23598db35d" title="Loads a combined raw shader." alt="" coords="427,29,589,55"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="379,39,413,39,413,45,379,45"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="474,31,467,21,471,11,485,5,508,3,537,6,548,15,545,20,534,11,508,8,486,10,475,15,472,20,478,28"/>
-</map>

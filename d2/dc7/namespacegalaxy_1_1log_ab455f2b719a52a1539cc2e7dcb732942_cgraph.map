@@ -1,0 +1,6 @@
+<map id="galaxy::log::physfs_check" name="galaxy::log::physfs_check">
+<area shape="rect" id="Node000001" title="Call a physfs function with error handling and logs a message for you." alt="" coords="5,29,149,69"/>
+<area shape="rect" id="Node000002" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="197,29,341,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,47,184,47,184,52,150,52"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="233,30,231,20,237,11,250,5,269,3,292,6,304,13,302,17,290,11,269,8,251,10,240,15,236,21,238,28"/>
+</map>

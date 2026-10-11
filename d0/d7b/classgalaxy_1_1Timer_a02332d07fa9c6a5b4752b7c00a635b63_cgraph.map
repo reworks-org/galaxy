@@ -1,5 +1,6 @@
 <map id="galaxy::Timer::stop" name="galaxy::Timer::stop">
-<area shape="rect" id="Node000001" title="Stop timer." alt="" coords="5,5,152,31"/>
-<area shape="rect" id="Node000002" href="$d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b" title="Check if an async thread has finished or not." alt="" coords="200,5,408,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,15,186,15,186,21,152,21"/>
+<area shape="rect" id="Node000001" title="Stop timer." alt="" coords="5,29,152,55"/>
+<area shape="rect" id="Node000002" href="$d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b" title="Check if an async thread has finished or not." alt="" coords="200,29,408,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,39,186,39,186,45,152,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="267,31,260,21,264,11,279,5,304,3,336,7,348,16,344,20,334,11,304,8,280,10,267,15,265,20,272,27"/>
 </map>

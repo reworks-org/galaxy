@@ -1,0 +1,5 @@
+<map id="galaxy::Scene::update" name="galaxy::Scene::update">
+<area shape="rect" id="Node000001" title="Process events and updates." alt="" coords="5,13,171,38"/>
+<area shape="rect" id="Node000002" href="$d5/d09/classgalaxy_1_1SystemManager.html#afa874b6ccd2114218dd496f7c0d936c9" title="Process all systems." alt="" coords="219,5,397,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,23,205,23,205,28,171,28"/>
+</map>

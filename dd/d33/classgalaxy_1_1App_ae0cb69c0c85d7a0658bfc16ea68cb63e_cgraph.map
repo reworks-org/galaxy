@@ -1,5 +1,28 @@
 <map id="galaxy::App::setup_platform" name="galaxy::App::setup_platform">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,148,45"/>
-<area shape="rect" id="Node000002" href="$dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366" title="Seed the cstdlib rng algos." alt="" coords="196,5,364,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,23,182,23,182,28,148,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,309,148,349"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a9db4ecfad6dd65a63d3ed656be4053c4" title="Set audio frequency to use with SDL." alt="" coords="196,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,308,87,254,106,182,122,143,141,105,165,70,194,40,200,36,203,40,198,44,169,74,146,108,126,145,111,183,92,255,83,309"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a26ef27c56e5d81e964c85f6d0cd93987" title="Copyright message." alt="" coords="200,55,395,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="79,308,91,262,113,203,147,142,169,114,194,89,201,84,204,89,198,93,173,117,151,145,118,205,96,264,85,309"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#ae5123c5e578157596e05918c8729fe04" title="Owner." alt="" coords="207,104,387,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="82,308,97,271,121,225,153,178,194,139,203,133,206,137,198,143,157,182,125,228,102,273,87,310"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a79fab905c1018adefe65ba76e9d2b5da" title="Game identifier i.e. com.galaxy.app." alt="" coords="201,153,393,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="88,307,130,248,160,216,195,189,209,181,212,186,197,194,163,220,134,252,92,310"/>
+<area shape="rect" id="Node000006" href="$dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366" title="Seed the cstdlib rng algos." alt="" coords="213,227,381,267"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="123,306,195,277,217,269,218,274,197,282,125,311"/>
+<area shape="rect" id="Node000007" href="$dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d" title="Sets SDL hints." alt="" coords="203,316,392,341"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="148,326,189,326,189,331,148,331"/>
+<area shape="rect" id="Node000008" href="$dd/dfc/namespacegalaxy_1_1platform.html#a3bf5b2167c7c116467dfa63a38e453c8" title="Sets metadata." alt="" coords="219,390,376,430"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="133,346,231,383,229,388,131,351"/>
+<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="217,455,377,480"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="95,347,138,394,166,419,197,440,214,447,212,452,195,444,163,423,134,398,91,351"/>
+<area shape="rect" id="Node000010" href="$df/d23/structgalaxy_1_1Settings.html#a9d19ac9a121ad6f2ca646d3030811bd3" title="Game semver." alt="" coords="206,504,389,529"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="89,348,106,380,130,418,160,457,198,489,210,496,208,501,194,494,156,460,125,421,101,382,85,350"/>
+<area shape="rect" id="Node000011" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="211,553,383,579"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="86,348,99,389,122,441,155,494,175,518,198,539,207,545,204,549,194,543,171,522,150,497,117,443,94,391,81,350"/>
+<area shape="rect" id="Node000012" href="$df/d23/structgalaxy_1_1Settings.html#aa2a2e4abad7aea21bd839ecc3fb08221" title="Website URL." alt="" coords="205,603,390,628"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="84,348,94,398,115,463,149,530,171,561,198,588,206,594,203,598,194,592,167,565,144,533,110,465,89,399,78,349"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="256,228,254,218,260,208,275,203,297,201,323,204,337,211,334,216,321,209,297,206,276,208,264,213,259,219,261,226"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="262,318,254,308,258,298,273,292,297,289,328,293,340,302,337,306,326,298,297,295,274,297,262,302,259,307,266,314"/>
+<area shape="poly" id="edge10_Node000008_Node000008" title=" " alt="" coords="256,390,254,380,260,371,275,365,297,363,323,366,337,374,334,378,321,371,297,369,276,371,264,375,259,381,261,389"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="galaxy::time::time_since_epoch" name="galaxy::time::time_since_epoch">
-<area shape="rect" id="Node000001" title="Time since epoch." alt="" coords="5,5,147,45"/>
-<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="195,13,333,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,23,181,23,181,28,147,28"/>
+<area shape="rect" id="Node000001" title="Time since epoch." alt="" coords="5,29,147,69"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="41,30,39,20,44,11,57,5,76,3,98,6,110,13,107,17,96,11,76,8,58,10,48,15,44,21,46,28"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="195,37,333,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,47,181,47,181,52,147,52"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="233,38,227,28,230,18,243,12,264,10,290,14,300,22,297,26,288,18,264,15,244,17,234,22,232,28,237,35"/>
 </map>

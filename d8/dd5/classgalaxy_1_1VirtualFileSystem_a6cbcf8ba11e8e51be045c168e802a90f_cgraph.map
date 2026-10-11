@@ -1,7 +1,8 @@
 <map id="galaxy::VirtualFileSystem::write" name="galaxy::VirtualFileSystem::write">
-<area shape="rect" id="Node000001" title="Writes a file to disk." alt="" coords="5,5,193,45"/>
-<area shape="rect" id="Node000002" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1" title="Raw data writing." alt="" coords="241,5,429,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,23,227,23,227,28,194,28"/>
-<area shape="rect" id="Node000003" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="477,5,621,45"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,23,463,23,463,28,429,28"/>
+<area shape="rect" id="Node000001" title="Writes a file to disk." alt="" coords="5,29,193,69"/>
+<area shape="rect" id="Node000002" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a697e7fdd95f1508f4cf7275885c05bd1" title="Raw data writing." alt="" coords="241,29,429,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,47,227,47,227,52,194,52"/>
+<area shape="rect" id="Node000003" href="$d2/dc7/namespacegalaxy_1_1log.html#ab5128f3f602b3877607f258a52bc0ff4" title="Call a physfs function with error handling and logs a message for you." alt="" coords="477,29,621,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,47,463,47,463,52,429,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="509,30,507,20,513,10,528,5,549,3,574,6,588,13,585,18,573,11,549,8,529,10,517,15,512,21,514,28"/>
 </map>

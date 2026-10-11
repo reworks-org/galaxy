@@ -1,5 +1,8 @@
 <map id="galaxy::Config::save" name="galaxy::Config::save">
-<area shape="rect" id="Node000001" title="Save the config file. Must be opened first." alt="" coords="5,13,159,38"/>
-<area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="207,5,336,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
+<area shape="rect" id="Node000001" title="Save the config file. Must be opened first." alt="" coords="5,37,159,62"/>
+<area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="207,29,336,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,47,193,47,193,52,159,52"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="237,30,235,20,241,11,253,5,271,3,293,6,304,13,301,17,291,11,271,8,254,10,244,15,241,21,243,28"/>
+<area shape="rect" id="Node000003" href="$d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="384,29,519,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="336,47,371,47,371,52,336,52"/>
 </map>

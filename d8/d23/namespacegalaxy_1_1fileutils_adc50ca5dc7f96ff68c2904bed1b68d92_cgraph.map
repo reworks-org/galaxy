@@ -1,0 +1,6 @@
+<map id="galaxy::fileutils::read" name="galaxy::fileutils::read">
+<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="5,29,164,55"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="53,31,46,21,49,11,63,5,85,3,111,6,123,15,119,19,109,11,85,8,64,10,53,15,51,20,57,28"/>
+<area shape="rect" id="Node000002" href="$d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="212,22,347,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,39,198,39,198,45,164,45"/>
+</map>

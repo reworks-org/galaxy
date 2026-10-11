@@ -1,5 +1,7 @@
 <map id="galaxy::load_theme" name="galaxy::load_theme">
-<area shape="rect" id="Node000001" title=" " alt="" coords="212,5,363,31"/>
-<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,5,164,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,21,164,21,164,15,198,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="212,29,363,55"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="323,20,313,11,287,8,266,10,254,15,252,20,258,28,254,31,247,21,251,11,264,5,287,3,316,6,327,16"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="5,29,164,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,45,164,45,164,39,198,39"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="121,20,111,11,85,8,63,10,52,15,49,20,56,28,51,31,44,21,48,11,62,5,85,3,113,6,124,16"/>
 </map>

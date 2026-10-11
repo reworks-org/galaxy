@@ -1,5 +1,6 @@
 <map id="galaxy::root_path_wrapper" name="galaxy::root_path_wrapper">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,200,31"/>
-<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="248,5,432,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,15,235,15,235,21,200,21"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,200,55"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="64,31,56,21,60,11,76,5,103,3,136,7,149,16,145,20,134,11,103,8,77,10,64,15,61,20,68,27"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2" title="Current root directory of application, unless it has been changed." alt="" coords="248,29,432,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,39,235,39,235,45,200,45"/>
 </map>

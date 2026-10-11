@@ -54,7 +54,6 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -64,14 +63,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83acbb70a86b463a83c346ecf1a05c0606c",
-"d1/d5e/classgalaxy_1_1Shader.html#a6614473b3713855c98def4de3ea51289",
-"d4/d1b/namespacegalaxy_1_1resource.html#a77ecc744c1b541a6175f1bdebb07f731",
-"d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44",
-"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a77c59a61e3d8a0dbd8bac30149f79c11",
-"db/d27/LuaState_8cpp_source.html",
-"dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f",
-"df/d28/Async_8cpp_source.html"
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ace07ecb19807512eee6d74e4ffd37b28",
+"d1/d4d/classgalaxy_1_1Cache.html#a028cac1ee1032dcc9597a18fc7ec7d25",
+"d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8",
+"d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a34008c04bb324590cf2643aee0cfece0",
+"db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99",
+"dd/d33/classgalaxy_1_1App.html#a768f4823162d20125bfdccc519370552",
+"df/d23/structgalaxy_1_1Settings.html#a688bb9fb459a4a5b10e547daea875832",
+"dir_719a66e699117833dd2aa990b86b1834.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

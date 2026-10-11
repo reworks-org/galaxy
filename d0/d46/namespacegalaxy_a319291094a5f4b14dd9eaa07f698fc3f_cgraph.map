@@ -1,5 +1,9 @@
 <map id="galaxy::fileutils_read_wrapper" name="galaxy::fileutils_read_wrapper">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,163,45"/>
-<area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="211,13,369,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,23,197,23,197,28,163,28"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,163,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="45,30,43,20,49,11,63,5,84,3,108,6,121,13,119,18,106,11,84,8,64,10,53,15,48,21,50,28"/>
+<area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="211,37,369,62"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="163,47,197,47,197,52,163,52"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="258,38,251,28,255,18,268,12,290,10,317,14,328,22,325,27,315,18,290,15,269,17,258,22,256,28,262,35"/>
+<area shape="rect" id="Node000003" href="$d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="417,29,552,69"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="369,47,403,47,403,52,369,52"/>
 </map>

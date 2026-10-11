@@ -1,7 +1,9 @@
 <map id="galaxy::Lua::inject_input" name="galaxy::Lua::inject_input">
-<area shape="rect" id="Node000001" title="Injects input handling into Lua." alt="" coords="5,37,145,77"/>
-<area shape="rect" id="Node000002" href="$dd/d59/namespacegalaxy_1_1input.html#ae2d79d9b95b9983f6513d0aeb3b38ada" title="Get clipboard contents." alt="" coords="193,5,328,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,43,180,37,180,42,146,48"/>
-<area shape="rect" id="Node000003" href="$dd/d59/namespacegalaxy_1_1input.html#a2fce3445e15cb1035e0ba4b4dad9b105" title="Set clipboard contents." alt="" coords="193,69,328,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,67,180,73,180,78,145,72"/>
+<area shape="rect" id="Node000001" title="Injects input handling into Lua." alt="" coords="5,73,145,113"/>
+<area shape="rect" id="Node000002" href="$dd/d59/namespacegalaxy_1_1input.html#ae2d79d9b95b9983f6513d0aeb3b38ada" title="Get clipboard contents." alt="" coords="193,29,328,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,74,179,66,181,71,146,79"/>
+<area shape="rect" id="Node000003" href="$dd/d59/namespacegalaxy_1_1input.html#a2fce3445e15cb1035e0ba4b4dad9b105" title="Set clipboard contents." alt="" coords="193,117,328,157"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="146,107,181,116,179,121,145,113"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="226,30,224,20,229,11,242,5,261,3,282,6,294,13,291,17,281,11,261,8,243,10,233,15,229,21,231,28"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="226,118,224,108,229,99,242,93,261,91,282,94,294,101,291,105,281,99,261,96,243,98,233,103,229,109,231,116"/>
 </map>
