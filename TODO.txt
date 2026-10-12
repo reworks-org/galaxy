@@ -17,7 +17,9 @@ https://wiki.libsdl.org/SDL3/CategoryFilesystem
 https://wiki.libsdl.org/SDL3/CategoryIOStream
 https://wiki.libsdl.org/SDL3/CategoryStorage
 https://wiki.libsdl.org/SDL3/CategoryAsyncIO
-
+https://wiki.libsdl.org/SDL3/CategoryBits
+https://wiki.libsdl.org/SDL3/CategoryEndian
+https://wiki.libsdl.org/SDL3/CategoryIntrinsics
 
 
 
