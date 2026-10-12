@@ -33,6 +33,21 @@ namespace galaxy
 		Lua() = delete;
 
 		///
+		/// Injects logging into Lua.
+		///
+		static void inject_logging() noexcept;
+
+		///
+		/// Injects math stuff into Lua.
+		///
+		static void inject_math() noexcept;
+
+		///
+		/// Inject platform stuff into Lua.
+		///
+		static void inject_platform() noexcept;
+
+		///
 		/// Injects misc galaxy utils into Lua.
 		///
 		static void inject_utils() noexcept;
@@ -80,20 +95,10 @@ namespace galaxy
 		///
 		static void inject_input() noexcept;
 
-		///
-		/// Injects logging into Lua.
-		///
-		static void inject_logging() noexcept;
 
-		///
-		/// Injects math stuff into Lua.
-		///
-		static void inject_math() noexcept;
 
-		///
-		/// Inject platform stuff into Lua.
-		///
-		static void inject_platform() noexcept;
+
+
 
 		///
 		/// Injects galaxy scene management into lua.

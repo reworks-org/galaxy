@@ -1,4 +1,155 @@
-TODO:
+https://github.com/reworks-org/rsimlib
+
+
+
+
+
+
+
+
+
+
+
+
+OLD TODO:
+SDL:
+https://wiki.libsdl.org/SDL3_mixer/FrontPage
+https://wiki.libsdl.org/SDL3/SDL_CreateColorCursor
+https://wiki.libsdl.org/SDL3/CategoryHaptic
+https://wiki.libsdl.org/SDL3/CategorySensor
+https://wiki.libsdl.org/SDL3/CategoryPen
+https://wiki.libsdl.org/SDL3/CategoryTouch
+https://wiki.libsdl.org/SDL3/CategoryGamepad
+https://wiki.libsdl.org/SDL3/CategoryJoystick
+https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressState
+https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressValue
+https://wiki.libsdl.org/SDL3/SDL_CreateAnimatedCursor
+
+
+Renderer:
+https://github.com/ivan-resetnikov/demo-2D-PBR-renderer-opengl
+- instancing? if required?
+- future renddering improvement:
+- copy vertex to batch on creation, and remove after its destroyed, rather than per frame.
+    - optimize batch rendeirng avoid pushing each frame
+- batch shapes, at the moment only quads are batched.
+- move camera out of pipeline and add generic projection support to pass?
+- object pooling
+- vao caching
+- vertex and index caching (i.e. define a has and reuse existing if it already exists).
+
+scenemanager should have registry and pass to scenes.
+systems might need to be scripted in.
+    - might need to work out how to handle specific system groups such as UI -> menu ui system, game ui system, etc...
+    -> could just use a tag... mainmenuui for mainmenusystem, but still uses same shared ui component.
+    
+
+https://kylekukshtel.com/ecs-collisions-dinghy
+https://arielcoppes.dev/2023/07/13/design-decisions-when-building-games-using-ecs.html
+
+
+map is an entity -> there is a mapsystem which controls mapdata and events. it will destroy any components on level change that arent marked persistent. it will be responsible for enabling/disabling
+entities based on the current map, entites for the map such as maprender, map collision, etc would be toggleable. esp since a level is just a map.  
+systems can subscribe to events -> such as map load / map unload, can then flag the update loop for this to happen (and reset flag). level data arent unique -> your main scene would have a map with different levels, and to communicate you would trigger a command (event) component that gets called once and disposed.
+which would set player location to new level coords, and pop/push that maps entitys -> which you would verify by having a leveltag perhaps. or you would use a relationship component to control those subentities of i.e. the top level map parent entity. or flag them as a map enttiy anyway.
+
+https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sfml_opengl3/main.cpp
+
+about render system in ecs:
+https://david-delassus.medium.com/trying-out-sdl3-by-writing-a-c-game-engine-c9bb13156b74
+
+loading/saving:
+- call load_app to load defaults
+- on load save, call load_app again.
+
+https://trederia.blogspot.com/2013/03/further-enhancing-2d-sprites-with-3d.html
+https://github.com/fallahn/tmxlite
+https://github.com/SSBMTonberry/tileson
+https://github.com/gale93/randballs
+https://github.com/eXpl0it3r/LTBL?tab=readme-ov-file
+https://github.com/222464/LTBL2
+https://github.com/eXpl0it3r/sfTheora/tree/master
+https://github.com/skyrpex/RichText
+https://github.com/MiguelMJ/Candle
+
+
+- integrate camera controller
+https://trederia.blogspot.com/2013/02/faking-ambient-occlusion-in-sfml-tile.html
+https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson6
+https://github.com/romrz/Basic-2D-lighting
+https://github.com/deepnight/ldtk/issues/119#issuecomment-1133785141
+- handle incompatible components (cant use entt signal mixins)
+- think about ripping out bindless textures if i cant debug.
+- ADD LOADING SCREEN FOR SCENES
+- add entity heirachy. i.e. u can attach entities to each other. This can then be saved as a prefab
+	- scene heirarchy / scene tree thingy?
+- merge concepts and possibly entitymeta.
+- fix event priority.
+- fix registry only calling construction of script when its created from json, not blank.
+- make map entity more flexible.
+- aspect ratio independant camera.
+- https://stackoverflow.com/questions/15691320/does-it-make-sense-to-use-box2d-only-for-collision-detection
+- https://gameprogrammingpatterns.com/data-locality.html
+- https://gameprogrammingpatterns.com/event-queue.html
+- https://gameprogrammingpatterns.com/flyweight.html
+
+Signals:
+- https://coffeebraingames.wordpress.com/2017/10/22/simple-signal-system/
+- https://github.com/skypjack/entt/wiki/Crash-Course:-events,-signals-and-everything-in-between#signals
+
+Scripting:
+- refine Scripts to more easily "attachable" single use scripts or "trigger" scripts.
+
+Tilemap:
+- https://github.com/Madour/LDtkLoader
+- https://github.com/Madour/LDtkViewer
+- https://github.com/Madour/LDtk-SFML-Game
+- https://github.com/deepnight/ldtk/issues/119
+
+editor stuff:
+https://github.com/Green-Sky/imgui_entt_entity_editor
+https://github.com/scottmudge/imgui_tabs
+https://github.com/ocornut/imgui/issues/2668#issuecomment-1900456751
+
+animation:
+- need to wire up state management to input and animation in the ECS using messages/events?
+	- maybe using lua?
+- animation editor in console...
+- https://github.com/Rikora/SpriteAnimator
+- https://gamedev.stackexchange.com/questions/40672/how-to-update-entity-states-and-animations-in-a-component-based-game
+- https://michaelbitzos.com/devblog/fsm-player-controllers
+
+AI:
+https://github.com/linkdd/aitoolkit
+https://github.com/Caerind/AwesomeCppGameDev#ai
+https://github.com/BehaviorTree/BehaviorTree.CPP
+
+renderer:
+https://old.reddit.com/r/opengl/comments/3m9u36/how_to_render_using_glmultidrawarraysindirect/
+https://github.com/Authlantech/2D_Lighting
+https://www.google.com/search?q=2d+normal+mapping&bshm=rime%2F1
+https://slembcke.github.io/SuperFastSoftShadows
+https://github.com/AntonioModer/2d-lighting-engine
+https://github.com/edgarMeinart/opengl-2d-light-example
+https://github.com/RandyGaul/cute_headers/blob/master/cute_spritebatch.h
+https://old.reddit.com/r/opengl/comments/16oo7we/2d_sprite_animation/
+https://learnopengl.com/Advanced-Lighting/Deferred-Shading
+https://github.com/lettier/3d-game-shaders-for-beginners
+https://github.com/ands/lightmapper
+https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.hpp
+https://github.com/DomRe/3DRenderer/blob/master/graphics/GeomBuffer.cpp
+https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.hpp
+https://github.com/DomRe/3DRenderer/blob/master/graphics/Renderer3D.cpp
+https://github.com/DomRe/3DRenderer/blob/master/systems/RenderSystem3D.cpp
+https://pvigier.github.io/2019/07/28/vagabond-2d-light-system.html
+https://old.reddit.com/r/opengl/comments/19eqoi9/dealing_with_resolution_independence_in_a_2d_game/
+https://old.reddit.com/r/cpp/comments/19ehte1/c_final_is_truly_cool_enhancing_performance_and/
+https://github.com/miloyip/light2d
+https://www.geeks3d.com/shader-library/
+custom shaders for objects/entities?
+	- https://lettier.github.io/3d-game-shaders-for-beginners/posterization.html
+	- https://lettier.github.io/3d-game-shaders-for-beginners/pixelization.html
+
 - look into using std::ranges properly... (i.e. replacing some for loops).
 - make sure all services are created in app, then destroyed in the correct order, and assigned in lua.
 - update imgui

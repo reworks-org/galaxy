@@ -40,13 +40,13 @@ namespace galaxy
 		auto& lua = entt::locator<sol::state>::value();
 
 		// clang-format off
-			// We dont have FATAL here because we dont want to throw exceptions inside lua.
-			lua.new_enum<LogLevel>("LogLevels",
-			{
-				{"INFO", LogLevel::INFO},
-				{"WARNING", LogLevel::WARNING},
-				{"ERROR", LogLevel::ERROR},
-			});
+		// We dont have FATAL here because we dont want to throw exceptions inside lua.
+		lua.new_enum<LogLevel>("LogLevels",
+		{
+			{"INFO", LogLevel::INFO},
+			{"WARNING", LogLevel::WARNING},
+			{"ERROR", LogLevel::ERROR},
+		});
 		// clang-format on
 
 		lua.set_function("galaxy_log", &log_wrapper);

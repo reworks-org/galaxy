@@ -10,6 +10,8 @@
 
 #include <cstdint>
 
+#include <SDL3/SDL_power.h>
+
 #include "galaxy/platform/Pragma.hpp"
 
 #ifdef GALAXY_WIN_PLATFORM

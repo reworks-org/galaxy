@@ -14,6 +14,12 @@ TEST(Platform, Detect)
 #ifdef GALAXY_WIN_PLATFORM
 	ASSERT_TRUE(true);
 #else
-	ASSERT_TRUE(false);
+	ASSERT_FALSE(false);
+#endif
+
+#ifdef GALAXY_UNIX_PLATFORM
+	ASSERT_TRUE(true);
+#else
+	ASSERT_FALSE(false);
 #endif
 }
