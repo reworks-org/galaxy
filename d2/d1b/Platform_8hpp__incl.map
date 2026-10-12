@@ -1,7 +1,9 @@
 <map id="galaxy/src/galaxy/platform/Platform.hpp" name="galaxy/src/galaxy/platform/Platform.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="11,5,208,45"/>
-<area shape="rect" id="Node000002" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="5,93,213,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,46,112,79,107,79,107,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="30,167,189,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,119,112,153,107,153,107,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,212,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,64,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,47,58,85,54,82,92,44"/>
+<area shape="rect" id="Node000003" href="$d5/ddd/Pragma_8hpp.html" title=" " alt="" coords="88,93,296,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,44,172,82,169,85,130,47"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="113,167,271,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,119,195,153,189,153,189,119"/>
 </map>

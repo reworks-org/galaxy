@@ -3,6 +3,7 @@ var hierarchy =
     [ "galaxy::App", "dd/d33/classgalaxy_1_1App.html", null ],
     [ "galaxy::Cache&lt; Resource, SpecLoader &gt;", "d1/d4d/classgalaxy_1_1Cache.html", null ],
     [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
+    [ "galaxy::CPUInfo", "d5/df7/structgalaxy_1_1CPUInfo.html", null ],
     [ "galaxy::meta::EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", null ],
     [ "galaxy::EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", null ],
     [ "galaxy::Event", "df/d64/classgalaxy_1_1Event.html", [

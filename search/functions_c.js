@@ -15,5 +15,6 @@ var searchData=
   ['mousemoved_12',['MouseMoved',['../d5/d1a/structgalaxy_1_1MouseMoved.html#afd3f93442389581e4b063859f8178734',1,'galaxy::MouseMoved']]],
   ['mousepressed_13',['MousePressed',['../de/d27/structgalaxy_1_1MousePressed.html#ac0807b0e0af02de693ece168e56c3953',1,'galaxy::MousePressed']]],
   ['mousereleased_14',['MouseReleased',['../d1/d0d/structgalaxy_1_1MouseReleased.html#abf12b9ec83ae196c80e2bab5e2eeb4e9',1,'galaxy::MouseReleased']]],
-  ['mousewheel_15',['MouseWheel',['../da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d',1,'galaxy::MouseWheel']]]
+  ['mousewheel_15',['MouseWheel',['../da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d',1,'galaxy::MouseWheel']]],
+  ['ms_5fto_5fns_16',['ms_to_ns',['../d2/d2f/namespacegalaxy_1_1time.html#a046911c2ac18fbfa890f38c3cc1a3205',1,'galaxy::time']]]
 ];

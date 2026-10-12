@@ -9,5 +9,7 @@ var searchData=
   ['config_2ecpp_6',['Config.cpp',['../de/da7/Config_8cpp.html',1,'']]],
   ['config_2ehpp_7',['Config.hpp',['../df/db4/Config_8hpp.html',1,'']]],
   ['consolesink_2ecpp_8',['ConsoleSink.cpp',['../d8/d31/ConsoleSink_8cpp.html',1,'']]],
-  ['consolesink_2ehpp_9',['ConsoleSink.hpp',['../d9/d4b/ConsoleSink_8hpp.html',1,'']]]
+  ['consolesink_2ehpp_9',['ConsoleSink.hpp',['../d9/d4b/ConsoleSink_8hpp.html',1,'']]],
+  ['cpuinfo_2ecpp_10',['CPUInfo.cpp',['../d5/d59/CPUInfo_8cpp.html',1,'']]],
+  ['cpuinfo_2ehpp_11',['CPUInfo.hpp',['../dd/db4/CPUInfo_8hpp.html',1,'']]]
 ];

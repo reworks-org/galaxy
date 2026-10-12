@@ -24,6 +24,7 @@ var annotated_dup =
       [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
       [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
       [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
+      [ "CPUInfo", "d5/df7/structgalaxy_1_1CPUInfo.html", "d5/df7/structgalaxy_1_1CPUInfo" ],
       [ "EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", "d9/d4c/classgalaxy_1_1EntityManager" ],
       [ "Event", "df/d64/classgalaxy_1_1Event.html", "df/d64/classgalaxy_1_1Event" ],
       [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],

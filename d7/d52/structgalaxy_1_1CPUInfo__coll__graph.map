@@ -1,0 +1,3 @@
+<map id="galaxy::CPUInfo" name="galaxy::CPUInfo">
+<area shape="rect" id="Node000001" title="Data structure containing info about the cpu, such as RAM, cache, SIMD, etc." alt="" coords="5,5,167,271"/>
+</map>

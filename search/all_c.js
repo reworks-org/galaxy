@@ -133,6 +133,7 @@ var searchData=
   ['mousewheel_130',['MouseWheel',['../da/d9e/structgalaxy_1_1MouseWheel.html',1,'galaxy::MouseWheel'],['../da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d',1,'galaxy::MouseWheel::MouseWheel()']]],
   ['mousewheel_2ecpp_131',['MouseWheel.cpp',['../d9/d94/MouseWheel_8cpp.html',1,'']]],
   ['mousewheel_2ehpp_132',['MouseWheel.hpp',['../dd/dd7/MouseWheel_8hpp.html',1,'']]],
-  ['musiccache_133',['MusicCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a6b48a53a4d4bb9fca0460bdf407ab69f',1,'galaxy::resource']]],
-  ['musicloader_134',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
+  ['ms_5fto_5fns_133',['ms_to_ns',['../d2/d2f/namespacegalaxy_1_1time.html#a046911c2ac18fbfa890f38c3cc1a3205',1,'galaxy::time']]],
+  ['musiccache_134',['MusicCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a6b48a53a4d4bb9fca0460bdf407ab69f',1,'galaxy::resource']]],
+  ['musicloader_135',['MusicLoader',['../d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html',1,'galaxy::resource']]]
 ];

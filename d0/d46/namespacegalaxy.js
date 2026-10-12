@@ -38,9 +38,11 @@ var namespacegalaxy =
     ] ],
     [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", "d3/d12/namespacegalaxy_1_1meta" ],
     [ "platform", "dd/dfc/namespacegalaxy_1_1platform.html", [
+      [ "get_cpu_info", "dd/dfc/namespacegalaxy_1_1platform.html#a2c92b2d0a45081d107964c5448a23496", null ],
       [ "seed_random", "dd/dfc/namespacegalaxy_1_1platform.html#a06355ed6dd13b8aecadea476f6d9e366", null ],
       [ "set_metadata", "dd/dfc/namespacegalaxy_1_1platform.html#a3bf5b2167c7c116467dfa63a38e453c8", null ],
-      [ "set_hint", "dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d", null ]
+      [ "set_hint", "dd/dfc/namespacegalaxy_1_1platform.html#a8c531241f34ce4ede44af4b9b9be1b0d", null ],
+      [ "as_string", "dd/dfc/namespacegalaxy_1_1platform.html#a41eb55119245a631c2e0d072d5a5a448", null ]
     ] ],
     [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", "d4/d1b/namespacegalaxy_1_1resource" ],
     [ "str", "df/d98/namespacegalaxy_1_1str.html", [
@@ -59,6 +61,13 @@ var namespacegalaxy =
       [ "time_since_epoch", "d2/d2f/namespacegalaxy_1_1time.html#aebedc9a10397936471d9247289126577", null ],
       [ "dt", "d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53", null ],
       [ "dt", "d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed", null ],
+      [ "delay", "d2/d2f/namespacegalaxy_1_1time.html#a45f371ce0529274de59620842902df1e", null ],
+      [ "ms_to_ns", "d2/d2f/namespacegalaxy_1_1time.html#a046911c2ac18fbfa890f38c3cc1a3205", null ],
+      [ "ns_to_ms", "d2/d2f/namespacegalaxy_1_1time.html#a93e4339ea44bb79414856c84159424cf", null ],
+      [ "ns_to_s", "d2/d2f/namespacegalaxy_1_1time.html#ae00a01c50a6bdeda44d68e3c290fafd3", null ],
+      [ "ns_to_us", "d2/d2f/namespacegalaxy_1_1time.html#aaae24fb393e7ea106fba7eecbeb7f328", null ],
+      [ "s_to_ns", "d2/d2f/namespacegalaxy_1_1time.html#a65138001a1cd0e8311c60d631b1ed7d4", null ],
+      [ "us_to_ns", "d2/d2f/namespacegalaxy_1_1time.html#a6f5a173e86eb5661f15a9ee792077272", null ],
       [ "s_delta_time", "d2/d2f/namespacegalaxy_1_1time.html#aac7c9842cf05e61375649a239e5be089", null ]
     ] ],
     [ "ui", "d3/dd9/namespacegalaxy_1_1ui.html", [
@@ -72,6 +81,7 @@ var namespacegalaxy =
     [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
     [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
+    [ "CPUInfo", "d5/df7/structgalaxy_1_1CPUInfo.html", "d5/df7/structgalaxy_1_1CPUInfo" ],
     [ "EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", "d9/d4c/classgalaxy_1_1EntityManager" ],
     [ "Event", "df/d64/classgalaxy_1_1Event.html", "df/d64/classgalaxy_1_1Event" ],
     [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],

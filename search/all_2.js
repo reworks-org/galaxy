@@ -39,10 +39,14 @@ var searchData=
   ['contains_36',['contains',['../d5/d58/classgalaxy_1_1Rect.html#a1f29b6d6017a9fcbd5e565410fae9c1f',1,'galaxy::Rect::contains(const Type _x, const Type _y) const noexcept'],['../d5/d58/classgalaxy_1_1Rect.html#a79a80e66d69857b1e42f6d20fb8ca782',1,'galaxy::Rect::contains(const Rect&lt; Type &gt; &amp;b) const noexcept']]],
   ['context_37',['context',['../d0/d84/classgalaxy_1_1Window.html#a47a6b4e15871d67f037b2f440641bde1',1,'galaxy::Window']]],
   ['copyright_38',['copyright',['../df/d23/structgalaxy_1_1Settings.html#a26ef27c56e5d81e964c85f6d0cd93987',1,'galaxy::Settings']]],
-  ['create_39',['create',['../db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa',1,'galaxy::Subprocess']]],
-  ['create_5fsystem_40',['create_system',['../d3/dac/classgalaxy_1_1SystemFactory.html#ad643efcf152edd5f920b5f680a342503',1,'galaxy::SystemFactory']]],
-  ['creator_41',['creator',['../df/d23/structgalaxy_1_1Settings.html#ae5123c5e578157596e05918c8729fe04',1,'galaxy::Settings']]],
-  ['cursor_5fhotspot_42',['cursor_hotspot',['../df/d23/structgalaxy_1_1Settings.html#a9398c6fd9695f01783053e2780a1cb65',1,'galaxy::Settings']]],
-  ['cursor_5ficon_43',['cursor_icon',['../df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca',1,'galaxy::Settings']]],
-  ['cursor_5fshow_44',['cursor_show',['../df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453',1,'galaxy::Settings']]]
+  ['cpu_5fcache_5fline_5fsize_39',['cpu_cache_line_size',['../d5/df7/structgalaxy_1_1CPUInfo.html#adaacf9580fdea83394d7ede77a4905e1',1,'galaxy::CPUInfo']]],
+  ['cpuinfo_40',['CPUInfo',['../d5/df7/structgalaxy_1_1CPUInfo.html',1,'galaxy']]],
+  ['cpuinfo_2ecpp_41',['CPUInfo.cpp',['../d5/d59/CPUInfo_8cpp.html',1,'']]],
+  ['cpuinfo_2ehpp_42',['CPUInfo.hpp',['../dd/db4/CPUInfo_8hpp.html',1,'']]],
+  ['create_43',['create',['../db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa',1,'galaxy::Subprocess']]],
+  ['create_5fsystem_44',['create_system',['../d3/dac/classgalaxy_1_1SystemFactory.html#ad643efcf152edd5f920b5f680a342503',1,'galaxy::SystemFactory']]],
+  ['creator_45',['creator',['../df/d23/structgalaxy_1_1Settings.html#ae5123c5e578157596e05918c8729fe04',1,'galaxy::Settings']]],
+  ['cursor_5fhotspot_46',['cursor_hotspot',['../df/d23/structgalaxy_1_1Settings.html#a9398c6fd9695f01783053e2780a1cb65',1,'galaxy::Settings']]],
+  ['cursor_5ficon_47',['cursor_icon',['../df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca',1,'galaxy::Settings']]],
+  ['cursor_5fshow_48',['cursor_show',['../df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453',1,'galaxy::Settings']]]
 ];
