@@ -44,6 +44,73 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		double dt() noexcept;
+
+		///
+		/// Delay the current thread for x time.
+		///
+		/// \param milli Number of milliseconds to wait.
+		///
+		void delay(const int milli) noexcept;
+
+		///
+		/// Converts milliseconds to nanoseconds.
+		///
+		/// \param ms Milliseconds.
+		///
+		/// \return Nanoseconds.
+		///
+		[[nodiscard]]
+		std::uint64_t ms_to_ns(const std::uint64_t ms) noexcept;
+
+		///
+		/// Converts nanoseconds to milliseconds.
+		///
+		/// \param ns Nanoseconds.
+		///
+		/// \return Milliseconds.
+		///
+		[[nodiscard]]
+		std::uint64_t ns_to_ms(const std::uint64_t ns) noexcept;
+
+		///
+		/// Converts nanoseconds to seconds.
+		///
+		/// \param ns Nanoseconds.
+		///
+		/// \return Seconds.
+		///
+		[[nodiscard]]
+		std::uint64_t ns_to_s(const std::uint64_t ns) noexcept;
+
+		///
+		/// Converts nanoseconds to microseconds.
+		///
+		/// \param ns Nanoseconds.
+		///
+		/// \return Microseconds.
+		///
+		[[nodiscard]]
+		std::uint64_t ns_to_us(const std::uint64_t ns) noexcept;
+
+		///
+		/// Converts seconds to nanoseconds.
+		///
+		/// \param s Seconds.
+		///
+		/// \return Nanoseconds.
+		///
+		[[nodiscard]]
+		std::uint64_t s_to_ns(const std::uint64_t s) noexcept;
+
+		///
+		/// Converts microseconds to nanoseconds.
+		///
+		/// \param us Microseconds.
+		///
+		/// \return Nanoseconds.
+		///
+		[[nodiscard]]
+		std::uint64_t us_to_ns(const std::uint64_t us) noexcept;
 	} // namespace time
 } // namespace galaxy
 

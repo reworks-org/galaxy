@@ -6,6 +6,7 @@
 ///
 
 #include <entt/locator/locator.hpp>
+#include <SDL3/SDL_timer.h>
 #include <sol/sol.hpp>
 
 #include "galaxy/time/Stopwatch.hpp"
@@ -24,6 +25,19 @@ namespace galaxy
 		lua.set_function("time_since_epoch", &time::time_since_epoch);
 		lua.set_function("time_set_dt", sol::resolve<void(const double)>(&time::dt));
 		lua.set_function("time_get_dt", sol::resolve<double(void)>(&time::dt));
+		lua.set_function("time_delay", &time::delay);
+		lua.set_function("time_ms_to_ns", &time::ms_to_ns);
+		lua.set_function("time_ns_to_ms", &time::ns_to_ms);
+		lua.set_function("time_ns_to_s", &time::ns_to_s);
+		lua.set_function("time_ns_to_us", &time::ns_to_us);
+		lua.set_function("time_s_to_ns", &time::s_to_ns);
+		lua.set_function("time_us_to_ns", &time::us_to_ns);
+
+		lua.set("GALAXY_MS_PER_SECOND", SDL_MS_PER_SECOND);
+		lua.set("GALAXY_NS_PER_MS", SDL_NS_PER_MS);
+		lua.set("GALAXY_NS_PER_SECOND", SDL_NS_PER_SECOND);
+		lua.set("GALAXY_NS_PER_US", SDL_NS_PER_US);
+		lua.set("GALAXY_US_PER_SECOND", SDL_US_PER_SECOND);
 
 		auto stopwatch_type = lua.new_usertype<Stopwatch>("Stopwatch", sol::constructors<Stopwatch()>());
 		// stopwatch_type["set"]             = &Stopwatch::set;

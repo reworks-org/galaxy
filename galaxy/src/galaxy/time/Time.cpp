@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <SDL3/SDL_timer.h>
+
 #include "Time.hpp"
 
 namespace galaxy
@@ -32,6 +34,41 @@ namespace galaxy
 		double dt() noexcept
 		{
 			return s_delta_time;
+		}
+
+		void delay(const int milli) noexcept
+		{
+			SDL_DelayPrecise(SDL_MS_TO_NS(milli));
+		}
+
+		std::uint64_t ms_to_ns(const std::uint64_t ms) noexcept
+		{
+			return SDL_MS_TO_NS(ms);
+		}
+
+		std::uint64_t ns_to_ms(const std::uint64_t ns) noexcept
+		{
+			return SDL_NS_TO_MS(ns);
+		}
+
+		std::uint64_t ns_to_s(const std::uint64_t ns) noexcept
+		{
+			return SDL_NS_TO_SECONDS(ns);
+		}
+
+		std::uint64_t ns_to_us(const std::uint64_t ns) noexcept
+		{
+			return SDL_NS_TO_US(ns);
+		}
+
+		std::uint64_t s_to_ns(const std::uint64_t s) noexcept
+		{
+			return SDL_SECONDS_TO_NS(s);
+		}
+
+		std::uint64_t us_to_ns(const std::uint64_t us) noexcept
+		{
+			return SDL_US_TO_NS(us);
 		}
 	} // namespace time
 } // namespace galaxy

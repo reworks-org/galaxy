@@ -1,9 +1,39 @@
+SDL TODO:
+https://wiki.libsdl.org/SDL3/CategoryHaptic
+.has_sve2            = SDL_HasSVE2() TODO SDL3: 3.6.0
+
+
+
+
+
+SDL Unused:
+https://wiki.libsdl.org/SDL3/CategoryGPU
+https://wiki.libsdl.org/SDL3/CategoryAudio
+https://wiki.libsdl.org/SDL3/CategoryThread
+https://wiki.libsdl.org/SDL3/CategoryMutex
+https://wiki.libsdl.org/SDL3/CategoryAtomic
+https://wiki.libsdl.org/SDL3/CategoryTime
+https://wiki.libsdl.org/SDL3/CategoryFilesystem
+https://wiki.libsdl.org/SDL3/CategoryIOStream
+https://wiki.libsdl.org/SDL3/CategoryStorage
+https://wiki.libsdl.org/SDL3/CategoryAsyncIO
+
+
+
+
+
+
+
+
+
+
+
+libs:
 https://github.com/reworks-org/rsimlib
-
-
-
-
-
+https://github.com/ocornut/imgui
+https://github.com/mikke89/RmlUi
+https://github.com/libcpr/cpr
+https://github.com/yhirose/cpp-httplib
 
 
 
@@ -14,16 +44,7 @@ https://github.com/reworks-org/rsimlib
 OLD TODO:
 SDL:
 https://wiki.libsdl.org/SDL3_mixer/FrontPage
-https://wiki.libsdl.org/SDL3/SDL_CreateColorCursor
-https://wiki.libsdl.org/SDL3/CategoryHaptic
-https://wiki.libsdl.org/SDL3/CategorySensor
-https://wiki.libsdl.org/SDL3/CategoryPen
-https://wiki.libsdl.org/SDL3/CategoryTouch
-https://wiki.libsdl.org/SDL3/CategoryGamepad
-https://wiki.libsdl.org/SDL3/CategoryJoystick
-https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressState
-https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressValue
-https://wiki.libsdl.org/SDL3/SDL_CreateAnimatedCursor
+
 
 
 Renderer:
@@ -160,18 +181,6 @@ https://github.com/raylib-extras/FramerateIndependentInputExample
 - https://github.com/Immediate-Mode-UI/Nuklear/blob/master/demo/sdl_opengl3/main.c
 - https://github.com/mikke89/RmlUi
 https://github.com/ocornut/imgui
-SDL:
-https://wiki.libsdl.org/SDL3_mixer/FrontPage
-https://wiki.libsdl.org/SDL3/SDL_CreateColorCursor
-https://wiki.libsdl.org/SDL3/CategoryHaptic
-https://wiki.libsdl.org/SDL3/CategorySensor
-https://wiki.libsdl.org/SDL3/CategoryPen
-https://wiki.libsdl.org/SDL3/CategoryTouch
-https://wiki.libsdl.org/SDL3/CategoryGamepad
-https://wiki.libsdl.org/SDL3/CategoryJoystick
-https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressState
-https://wiki.libsdl.org/SDL3/SDL_SetWindowProgressValue
-https://wiki.libsdl.org/SDL3/SDL_CreateAnimatedCursor
 
 
 Renderer:
