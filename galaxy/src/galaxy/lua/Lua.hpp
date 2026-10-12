@@ -48,6 +48,11 @@ namespace galaxy
 		static void inject_platform() noexcept;
 
 		///
+		/// Register galaxy time support functions into Lua.
+		///
+		static void inject_time() noexcept;
+
+		///
 		/// Injects misc galaxy utils into Lua.
 		///
 		static void inject_utils() noexcept;
@@ -120,10 +125,7 @@ namespace galaxy
 		///
 		static void inject_systems() noexcept;
 
-		///
-		/// Register galaxy time support functions into Lua.
-		///
-		static void inject_time() noexcept;
+
 
 
 

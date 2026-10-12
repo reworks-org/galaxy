@@ -8,6 +8,8 @@
 #ifndef GALAXY_PLATFORM_PLATFORM_HPP_
 #define GALAXY_PLATFORM_PLATFORM_HPP_
 
+#include <string>
+
 #include "galaxy/platform/Pragma.hpp"
 
 namespace galaxy
@@ -38,6 +40,14 @@ namespace galaxy
 		/// \param value Value for the SDL HINT.
 		///
 		void set_hint(const char* hint, const char* value) noexcept;
+
+		///
+		/// Gets the current platform name as a string.
+		///
+		/// \return Returns the name of the platform. If the correct platform name is not available, returns a string beginning with the text "Unknown".
+		///
+		[[nodiscard]]
+		std::string as_string() noexcept;
 	} // namespace platform
 } // namespace galaxy
 

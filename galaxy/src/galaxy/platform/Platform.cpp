@@ -31,5 +31,10 @@ namespace galaxy
 		{
 			SDL_SetHintWithPriority(hint, value, SDL_HINT_OVERRIDE);
 		}
+
+		std::string as_string() noexcept
+		{
+			return {SDL_GetPlatform()};
+		}
 	} // namespace platform
 } // namespace galaxy
