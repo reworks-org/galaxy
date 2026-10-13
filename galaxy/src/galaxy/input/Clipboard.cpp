@@ -13,12 +13,12 @@ namespace galaxy
 {
 	namespace input
 	{
-		void set_clipboard(const std::string& contents) noexcept
+		void clipboard_set(const std::string& contents) noexcept
 		{
 			SDL_SetClipboardText(contents.c_str());
 		}
 
-		std::string get_clipboard() noexcept
+		std::string clipboard_get() noexcept
 		{
 			if (SDL_HasClipboardText())
 			{
@@ -29,6 +29,11 @@ namespace galaxy
 			{
 				return {};
 			}
+		}
+
+		bool clipboard_clear() noexcept
+		{
+			return SDL_ClearClipboardData();
 		}
 	} // namespace input
 } // namespace galaxy

@@ -19,7 +19,7 @@ namespace galaxy
 		///
 		/// \param contents UTF-8 string.
 		///
-		void set_clipboard(const std::string& contents) noexcept;
+		void clipboard_set(const std::string& contents) noexcept;
 
 		///
 		/// Get clipboard contents.
@@ -27,7 +27,15 @@ namespace galaxy
 		/// \return UTF-8 string.
 		///
 		[[nodiscard]]
-		std::string get_clipboard() noexcept;
+		std::string clipboard_get() noexcept;
+
+		///
+		/// Clear the clipboard contents.
+		///
+		/// \return True if successful.
+		///
+		[[maybe_unused]]
+		bool clipboard_clear() noexcept;
 	} // namespace input
 } // namespace galaxy
 

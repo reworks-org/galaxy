@@ -47,6 +47,8 @@
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaCore.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaInput.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -88,5 +90,6 @@
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
   </ItemGroup>
 </Project>

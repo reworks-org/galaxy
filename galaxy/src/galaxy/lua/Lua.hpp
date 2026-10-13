@@ -43,6 +43,11 @@ namespace galaxy
 		static void inject_fs() noexcept;
 
 		///
+		/// Injects input handling into Lua.
+		///
+		static void inject_input() noexcept;
+
+		///
 		/// Injects logging into Lua.
 		///
 		static void inject_logging() noexcept;
@@ -70,8 +75,6 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-
-
 		///
 		/// Injects EnTT into Lua.
 		///
@@ -87,8 +90,6 @@ namespace galaxy
 		///
 		static void inject_entity() noexcept;
 
-
-
 		///
 		/// Injects GLM into Lua.
 		///
@@ -98,16 +99,6 @@ namespace galaxy
 		/// Injects graphics module into Lua.
 		///
 		static void inject_graphics() noexcept;
-
-		///
-		/// Injects input handling into Lua.
-		///
-		static void inject_input() noexcept;
-
-
-
-
-
 
 		///
 		/// Injects galaxy scene management into lua.
@@ -129,40 +120,35 @@ namespace galaxy
 		///
 		static void inject_systems() noexcept;
 
+		///
+		/// Inject Nuklear into Lua.
+		///
+		void inject_nuklear();
 
+		///
+		/// Inject galaxy components into Lua.
+		///
+		void inject_components();
 
+		///
+		/// Injects galaxy flag components into Lua.
+		///
+		void inject_flags();
 
+		///
+		/// Injects mapping into Lua.
+		///
+		void inject_map();
 
-///
-/// Inject Nuklear into Lua.
-///
-void inject_nuklear();
+		///
+		/// Inject custom memory stuff into Lua.
+		///
+		void inject_mem();
 
-///
-/// Inject galaxy components into Lua.
-///
-void inject_components();
-
-///
-/// Injects galaxy flag components into Lua.
-///
-void inject_flags();
-
-///
-/// Injects mapping into Lua.
-///
-void inject_map();
-
-///
-/// Inject custom memory stuff into Lua.
-///
-void inject_mem();
-
-///
-/// Injects galaxy resource caches into lua.
-///
-void inject_resource();
-
+		///
+		/// Injects galaxy resource caches into lua.
+		///
+		void inject_resource();
 */
 
 #endif

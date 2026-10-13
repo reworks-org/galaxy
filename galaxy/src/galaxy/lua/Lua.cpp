@@ -13,6 +13,7 @@ namespace galaxy
 	{
 		Lua::inject_core();
 		Lua::inject_fs();
+		Lua::inject_input();
 		Lua::inject_logging();
 		Lua::inject_math();
 		Lua::inject_platform();
@@ -24,7 +25,7 @@ namespace galaxy
 		// Lua::inject_entity();
 		// Lua::inject_glm();
 		// Lua::inject_graphics();
-		// Lua::inject_input();
+
 		// Lua::inject_scene();
 		// Lua::inject_state();
 		// Lua::inject_systems();

@@ -6,9 +6,7 @@ SDL TODO:
 
 
 
-SDL Unused:
-https://wiki.libsdl.org/SDL3/CategoryGPU
-https://wiki.libsdl.org/SDL3/CategoryAudio
+Unused SDL API:
 https://wiki.libsdl.org/SDL3/CategoryThread
 https://wiki.libsdl.org/SDL3/CategoryMutex
 https://wiki.libsdl.org/SDL3/CategoryAtomic
@@ -21,13 +19,16 @@ https://wiki.libsdl.org/SDL3/CategoryBits
 https://wiki.libsdl.org/SDL3/CategoryEndian
 https://wiki.libsdl.org/SDL3/CategoryIntrinsics
 https://wiki.libsdl.org/SDL3/CategoryHaptic
-https://wiki.libsdl.org/SDL3/CategoryGUID
 https://wiki.libsdl.org/SDL3/CategoryStdinc
 https://wiki.libsdl.org/SDL3/SDL_Environment
 https://wiki.libsdl.org/SDL3/CategoryLocale
 https://wiki.libsdl.org/SDL3/CategorySharedObject
 https://wiki.libsdl.org/SDL3/CategoryTray
-
+https://wiki.libsdl.org/SDL3/CategorySystem
+https://wiki.libsdl.org/SDL3/CategoryCamera
+https://wiki.libsdl.org/SDL3/CategoryOpenXR
+https://wiki.libsdl.org/SDL3/CategoryMetal
+https://wiki.libsdl.org/SDL3/CategoryVulkan
 
 
 

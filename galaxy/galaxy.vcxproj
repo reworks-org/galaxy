@@ -19,6 +19,7 @@
     <ClCompile Include="src\galaxy\fs\FileError.cpp" />
     <ClCompile Include="src\galaxy\fs\FileUtils.cpp" />
     <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
+    <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\logging\ConsoleSink.cpp" />
     <ClCompile Include="src\galaxy\logging\FileSink.cpp" />
     <ClCompile Include="src\galaxy\logging\Log.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="src\galaxy\logging\Sink.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaCore.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaFS.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaInput.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaPlatform.cpp" />
@@ -67,6 +69,7 @@
     <ClInclude Include="src\galaxy\fs\FileError.hpp" />
     <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
     <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
+    <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\logging\ConsoleSink.hpp" />
     <ClInclude Include="src\galaxy\logging\FileSink.hpp" />
     <ClInclude Include="src\galaxy\logging\Log.hpp" />

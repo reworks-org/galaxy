@@ -23,8 +23,9 @@ namespace galaxy
 	{
 		auto& lua = entt::locator<sol::state>::value();
 
-		lua.set_function("input_clipboard_set", &input::set_clipboard);
-		lua.set_function("input_clipboard_get", &input::get_clipboard);
+		lua.set_function("galaxy_clipboard_set", &input::clipboard_set);
+		lua.set_function("galaxy_clipboard_get", &input::clipboard_get);
+		lua.set_function("galaxy_clipboard_clear", &input::clipboard_clear);
 
 		// lua.set_function("input_is_key_mod_down", &input::is_key_mod_down);
 		// lua.set_function("input_is_key_down", &input::is_key_down);
