@@ -12,8 +12,6 @@
 
 #include <glm/vec2.hpp>
 
-#include "galaxy/graphics/Enums.hpp"
-
 namespace galaxy
 {
 	///
@@ -33,6 +31,163 @@ namespace galaxy
 		static auto set_settings_from_config() -> void;
 
 		///
+		/// Current root directory of application, unless it has been changed.
+		///
+		/// \return Filesystem path.
+		///
+		[[nodiscard]]
+		static auto root_dir() noexcept -> std::filesystem::path;
+
+		///
+		/// Main data directory.
+		///
+		/// \return Filesystem path.
+		///
+		[[nodiscard]]
+		static auto assets_dir() noexcept -> std::filesystem::path;
+
+		///
+		/// Directory for editor specific stuff.
+		///
+		/// \return Filesystem path.
+		///
+		[[nodiscard]]
+		static auto editor_dir() noexcept -> std::filesystem::path;
+
+		///
+		/// Name of packed assets file.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto asset_pack() noexcept -> const std::string&;
+
+		///
+		/// Should asset data be read from pack or assets dir.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto use_loose_assets() noexcept -> bool;
+
+		///
+		/// Music asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_music() noexcept -> const std::string&;
+
+		///
+		/// SFX asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_sfx() noexcept -> const std::string&;
+
+		///
+		/// Voice asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_voice() noexcept -> const std::string&;
+
+		///
+		/// Font asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_font() noexcept -> const std::string&;
+
+		///
+		/// Scripts asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_script() noexcept -> const std::string&;
+
+		///
+		/// Shaders asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_shaders() noexcept -> const std::string&;
+
+		///
+		/// Animation data location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_animation() noexcept -> const std::string&;
+
+		///
+		/// Textures asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_texture() noexcept -> const std::string&;
+
+		///
+		/// Prefab asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_prefabs() noexcept -> const std::string&;
+
+		///
+		/// Maps asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_maps() noexcept -> const std::string&;
+
+		///
+		/// Video asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_video() noexcept -> const std::string&;
+
+		///
+		/// UI asset location.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto assets_dir_ui() noexcept -> const std::string&;
+
+	private:
+		inline static std::filesystem::path s_assets_dir;
+		inline static std::filesystem::path s_editor_dir;
+		inline static std::string           s_asset_pack;
+		inline static bool                  s_use_loose_assets;
+		inline static std::string           s_assets_music;
+		inline static std::string           s_assets_sfx;
+		inline static std::string           s_assets_voice;
+		inline static std::string           s_assets_font;
+		inline static std::string           s_assets_script;
+		inline static std::string           s_assets_shaders;
+		inline static std::string           s_assets_animation;
+		inline static std::string           s_assets_texture;
+		inline static std::string           s_assets_prefabs;
+		inline static std::string           s_assets_maps;
+		inline static std::string           s_assets_video;
+		inline static std::string           s_assets_ui;
+	};
+} // namespace galaxy
+
+/*
+* ///
 		/// Window creation width.
 		///
 		/// \return Integer.
@@ -226,143 +381,6 @@ namespace galaxy
 		[[nodiscard]]
 		static auto log_dir() noexcept -> const std::string&;
 
-		///
-		/// Current root directory of application, unless it has been changed.
-		///
-		/// \return Filesystem path.
-		///
-		[[nodiscard]]
-		static auto root_dir() noexcept -> std::filesystem::path;
-
-		///
-		/// Main data directory.
-		///
-		/// \return Filesystem path.
-		///
-		[[nodiscard]]
-		static auto assets_dir() noexcept -> std::filesystem::path;
-
-		///
-		/// Directory for editor specific stuff.
-		///
-		/// \return Filesystem path.
-		///
-		[[nodiscard]]
-		static auto editor_dir() noexcept -> std::filesystem::path;
-
-		///
-		/// Name of packed assets file.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto asset_pack() noexcept -> const std::string&;
-
-		///
-		/// Should asset data be read from pack or assets dir.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto use_loose_assets() noexcept -> bool;
-
-		///
-		/// Music asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_music() noexcept -> const std::string&;
-
-		///
-		/// SFX asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_sfx() noexcept -> const std::string&;
-
-		///
-		/// Voice asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_voice() noexcept -> const std::string&;
-
-		///
-		/// Font asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_font() noexcept -> const std::string&;
-
-		///
-		/// Scripts asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_script() noexcept -> const std::string&;
-
-		///
-		/// Shaders asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_shaders() noexcept -> const std::string&;
-
-		///
-		/// Animation data location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_animation() noexcept -> const std::string&;
-
-		///
-		/// Textures asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_texture() noexcept -> const std::string&;
-
-		///
-		/// Prefab asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_prefabs() noexcept -> const std::string&;
-
-		///
-		/// Maps asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_maps() noexcept -> const std::string&;
-
-		///
-		/// Video asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_video() noexcept -> const std::string&;
-
-		///
-		/// UI asset location.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto assets_dir_ui() noexcept -> const std::string&;
-
-	private:
 		inline static int         s_window_width;
 		inline static int         s_window_height;
 		inline static std::string s_window_icon;
@@ -391,26 +409,6 @@ namespace galaxy
 		inline static std::string s_copyright;
 		inline static std::string s_website;
 
-		inline static std::filesystem::path s_assets_dir;
-		inline static std::filesystem::path s_editor_dir;
-		inline static std::string           s_asset_pack;
-		inline static bool                  s_use_loose_assets;
-		inline static std::string           s_assets_music;
-		inline static std::string           s_assets_sfx;
-		inline static std::string           s_assets_voice;
-		inline static std::string           s_assets_font;
-		inline static std::string           s_assets_script;
-		inline static std::string           s_assets_shaders;
-		inline static std::string           s_assets_animation;
-		inline static std::string           s_assets_texture;
-		inline static std::string           s_assets_prefabs;
-		inline static std::string           s_assets_maps;
-		inline static std::string           s_assets_video;
-		inline static std::string           s_assets_ui;
-	};
-} // namespace galaxy
-
-/*
 // config.restore<int>("flag_bitset_count", 8, "misc");
 
 // config.restore<float>("world_to_box2d", 0.01f, "physics");

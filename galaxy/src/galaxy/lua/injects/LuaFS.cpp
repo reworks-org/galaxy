@@ -43,6 +43,7 @@ namespace galaxy
 
 		const auto& error = result.error();
 		error.log();
+		return false;
 	}
 
 	void Lua::inject_fs() noexcept

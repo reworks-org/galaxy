@@ -33,6 +33,11 @@ namespace galaxy
 		Lua() = delete;
 
 		///
+		/// Inject galaxy core services into Lua.
+		///
+		static void inject_core() noexcept;
+
+		///
 		/// Injects VFS support into Lua.
 		///
 		static void inject_fs() noexcept;
@@ -65,10 +70,7 @@ namespace galaxy
 } // namespace galaxy
 
 /*
-///
-		/// Inject galaxy core services into Lua.
-		///
-		static void inject_core() noexcept;
+
 
 		///
 		/// Injects EnTT into Lua.

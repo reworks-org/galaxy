@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\core\Config.cpp" />
+    <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
@@ -25,6 +27,7 @@
     <ClCompile Include="src\galaxy\logging\OpenGLError.cpp" />
     <ClCompile Include="src\galaxy\logging\PhysFSError.cpp" />
     <ClCompile Include="src\galaxy\logging\Sink.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaCore.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaFS.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaLogging.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaMath.cpp" />
@@ -56,6 +59,8 @@
     <ClCompile Include="src\galaxy\utils\UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\core\Config.hpp" />
+    <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogType.hpp" />

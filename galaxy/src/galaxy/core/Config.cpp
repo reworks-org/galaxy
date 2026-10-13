@@ -37,9 +37,9 @@ namespace galaxy
 		if (!std::filesystem::exists(path))
 		{
 			const auto result = fileutils::write(m_path, m_config.dump(4));
-			if (result != std::nullopt)
+			if (!result.has_value())
 			{
-				result.value().log();
+				result.error().log();
 			}
 		}
 		else
@@ -59,9 +59,9 @@ namespace galaxy
 	void Config::save()
 	{
 		const auto result = fileutils::write(m_path, m_config.dump(4));
-		if (result != std::nullopt)
+		if (!result.has_value())
 		{
-			result.value().log();
+			result.error().log();
 		}
 	}
 
