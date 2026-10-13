@@ -11,6 +11,7 @@ namespace galaxy
 {
 	void Lua::inject() noexcept
 	{
+		Lua::inject_fs();
 		Lua::inject_logging();
 		Lua::inject_math();
 		Lua::inject_platform();
@@ -21,7 +22,6 @@ namespace galaxy
 		// Lua::inject_entt();
 		// Lua::inject_events();
 		// Lua::inject_entity();
-		// Lua::inject_fs();
 		// Lua::inject_glm();
 		// Lua::inject_graphics();
 		// Lua::inject_input();

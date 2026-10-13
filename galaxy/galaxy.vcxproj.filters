@@ -37,6 +37,13 @@
     <ClCompile Include="src\galaxy\time\Time.cpp" />
     <ClCompile Include="src\galaxy\time\Timer.cpp" />
     <ClCompile Include="src\galaxy\platform\CPUInfo.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaFS.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogIcons.cpp" />
+    <ClCompile Include="src\galaxy\fs\DialogType.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileError.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileUtils.cpp" />
+    <ClCompile Include="src\galaxy\fs\VirtualFileSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -70,5 +77,11 @@
     <ClInclude Include="src\galaxy\time\Time.hpp" />
     <ClInclude Include="src\galaxy\time\Timer.hpp" />
     <ClInclude Include="src\galaxy\platform\CPUInfo.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogIcons.hpp" />
+    <ClInclude Include="src\galaxy\fs\DialogType.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileError.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileUtils.hpp" />
+    <ClInclude Include="src\galaxy\fs\VirtualFileSystem.hpp" />
   </ItemGroup>
 </Project>

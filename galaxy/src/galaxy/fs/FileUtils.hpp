@@ -9,7 +9,6 @@
 #define GALAXY_FS_FILEUTILS_HPP_
 
 #include <expected>
-#include <optional>
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -24,10 +23,10 @@ namespace galaxy
 		///
 		/// \param filepath Filename or path with a filename.
 		///
-		/// \return Extension, including dot. Nullopt if errors.
+		/// \return Extension, including dot. Filerror if an unexpected error occured.
 		///
 		[[nodiscard]]
-		std::optional<std::string> extension(const std::string& filepath) noexcept;
+		std::expected<std::string, FileError> extension(const std::string& filepath) noexcept;
 
 		///
 		/// Read a non-binary file on disk.
@@ -45,20 +44,20 @@ namespace galaxy
 		/// \param filepath Path to file to write to.
 		/// \param data Data to write to file.
 		///
-		/// \return Nullopt on success, FileError on failure.
+		/// \return True on success, FileError on failure.
 		///
 		[[nodiscard]]
-		std::optional<FileError> write(const std::string& filepath, const std::string& data);
+		std::expected<bool, FileError> write(const std::string& filepath, const std::string& data);
 
 		///
 		/// Read a json file from disk.
 		///
 		/// \param filepath Path to file to read.
 		///
-		/// \return Fully parsed json object. Nullopt if parsing failed.
+		/// \return Fully parsed json object. FileError if parsing failed.
 		///
 		[[nodiscard]]
-		std::optional<nlohmann::json> read_json(const std::string& filepath);
+		std::expected<nlohmann::json, FileError> read_json(const std::string& filepath);
 
 		///
 		/// Write json to disk.
@@ -66,10 +65,10 @@ namespace galaxy
 		/// \param filepath Path to file to write to.
 		/// \param json Json data to write.
 		///
-		/// \return True on success.
+		/// \return True on success. FileError if parsing failed.
 		///
 		[[nodiscard]]
-		bool write_json(const std::string& filepath, const nlohmann::json& json);
+		std::expected<bool, FileError> write_json(const std::string& filepath, const nlohmann::json& json);
 
 		///
 		/// Open URL in default webbrowser.

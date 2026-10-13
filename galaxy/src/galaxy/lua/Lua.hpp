@@ -33,6 +33,11 @@ namespace galaxy
 		Lua() = delete;
 
 		///
+		/// Injects VFS support into Lua.
+		///
+		static void inject_fs() noexcept;
+
+		///
 		/// Injects logging into Lua.
 		///
 		static void inject_logging() noexcept;
@@ -80,10 +85,7 @@ namespace galaxy
 		///
 		static void inject_entity() noexcept;
 
-		///
-		/// Injects VFS support into Lua.
-		///
-		static void inject_fs() noexcept;
+
 
 		///
 		/// Injects GLM into Lua.

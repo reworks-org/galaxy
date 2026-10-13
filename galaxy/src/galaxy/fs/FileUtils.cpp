@@ -18,15 +18,15 @@ namespace galaxy
 {
 	namespace fileutils
 	{
-		std::optional<std::string> extension(const std::string& filepath) noexcept
+		std::expected<std::string, FileError> extension(const std::string& filepath) noexcept
 		{
 			const auto path = std::filesystem::path(filepath);
 			if (path.has_extension())
 			{
-				return std::make_optional(path.extension().string());
+				return path.extension().string();
 			}
 
-			return std::nullopt;
+			return std::unexpected(FileError("read", "Path does not have extension.", path));
 		}
 
 		std::expected<std::string, FileError> read(const std::string& filepath)
@@ -59,57 +59,53 @@ namespace galaxy
 			return buffer;
 		}
 
-		std::optional<FileError> write(const std::string& filepath, const std::string& data)
+		std::expected<bool, FileError> write(const std::string& filepath, const std::string& data)
 		{
 			const auto path = std::filesystem::path(filepath);
 			if (std::filesystem::exists(path))
 			{
 				if (std::filesystem::is_directory(path))
 				{
-					return std::make_optional(FileError("write", "Tried to write to a directory not a file.", path));
+					return std::unexpected(FileError("write", "Tried to write to a directory not a file.", path));
 				}
 			}
 
 			std::ofstream ofs {path, std::ofstream::out | std::ofstream::trunc};
 			if (!ofs.good())
 			{
-				return std::make_optional(FileError("write", "Permission denied.", path));
+				return std::unexpected(FileError("write", "Permission denied.", path));
 			}
 
 			ofs << data;
 
 			if (ofs.fail())
 			{
-				return std::make_optional(FileError("write", "Failed to write into file.", path));
+				return std::unexpected(FileError("write", "Failed to write into file.", path));
 			}
 
-			return std::nullopt;
+			return true;
 		}
 
-		std::optional<nlohmann::json> read_json(const std::string& filepath)
+		std::expected<nlohmann::json, FileError> read_json(const std::string& filepath)
 		{
 			const auto read = fileutils::read(filepath);
 			if (read)
 			{
-				return std::make_optional(nlohmann::json::parse(read.value()));
+				return nlohmann::json::parse(read.value());
 			}
-			else
-			{
-				read.error().log();
-				return std::nullopt;
-			}
+
+			return std::unexpected(read.error());
 		}
 
-		bool write_json(const std::string& filepath, const nlohmann::json& json)
+		std::expected<bool, FileError> write_json(const std::string& filepath, const nlohmann::json& json)
 		{
 			const auto write = fileutils::write(filepath, json.dump(4));
 			if (write)
 			{
-				write.value().log();
-				return false;
+				return write.value();
 			}
 
-			return true;
+			return std::unexpected(write.error());
 		}
 
 		void open_url(const std::string& url) noexcept

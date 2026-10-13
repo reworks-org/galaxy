@@ -1,5 +1,5 @@
 SDL TODO:
-https://wiki.libsdl.org/SDL3/CategoryHaptic
+
 .has_sve2            = SDL_HasSVE2() TODO SDL3: 3.6.0
 
 
@@ -20,12 +20,13 @@ https://wiki.libsdl.org/SDL3/CategoryAsyncIO
 https://wiki.libsdl.org/SDL3/CategoryBits
 https://wiki.libsdl.org/SDL3/CategoryEndian
 https://wiki.libsdl.org/SDL3/CategoryIntrinsics
-
-
-
-
-
-
+https://wiki.libsdl.org/SDL3/CategoryHaptic
+https://wiki.libsdl.org/SDL3/CategoryGUID
+https://wiki.libsdl.org/SDL3/CategoryStdinc
+https://wiki.libsdl.org/SDL3/SDL_Environment
+https://wiki.libsdl.org/SDL3/CategoryLocale
+https://wiki.libsdl.org/SDL3/CategorySharedObject
+https://wiki.libsdl.org/SDL3/CategoryTray
 
 
 
