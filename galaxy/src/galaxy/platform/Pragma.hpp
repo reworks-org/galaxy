@@ -62,4 +62,9 @@
 #define GALAXY_DISABLE_WARNING_POP  GALAXY_PLATFORM_POP
 #define GALAXY_DISABLE_WARNING(x)   GALAXY_PLATFORM_WARNING(x)
 
+///
+/// Exit success macro.
+///
+#define GALAXY_EXIT_SUCCESS 0
+
 #endif

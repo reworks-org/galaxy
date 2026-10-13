@@ -5,8 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#define SDL_MAIN_HANDLED
+
 #include <mimalloc.h>
 #include <mimalloc-new-delete.h>
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
 
 // #include "tests/LoggingTests.hpp"
 // #include "tests/PlatformTests.hpp"
@@ -14,12 +18,13 @@
 // #include "Sandbox.hpp"
 // #include "TestConfig.hpp"
 
-int main(int argc, char* argv[])
+#include <galaxy/platform/Pragma.hpp>
+
+int SDL_main(int argc, char* argv[])
 {
 	mi_version();
-
-	// GALAXY_UNUSED(argc);
-	// GALAXY_UNUSED(argv);
+	GALAXY_UNUSED(argc);
+	GALAXY_UNUSED(argv);
 
 	// try
 	//{
@@ -49,5 +54,13 @@ int main(int argc, char* argv[])
 	//	tinyfd_notifyPopup("Error", e.what(), "error");
 	//}
 
-	return 0;
+	return GALAXY_EXIT_SUCCESS;
+}
+
+int main(int argc, char* argv[])
+{
+	GALAXY_UNUSED(argc);
+	GALAXY_UNUSED(argv);
+
+	return SDL_RunApp(0, nullptr, SDL_main, nullptr);
 }

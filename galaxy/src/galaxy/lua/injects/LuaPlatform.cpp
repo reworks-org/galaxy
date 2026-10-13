@@ -22,6 +22,7 @@ namespace galaxy
 		auto& lua = entt::locator<sol::state>::value();
 
 		lua.set("GALAXY_DEBUG_BUILD", GALAXY_DEBUG_BUILD);
+		lua.set("GALAXY_EXIT_SUCCESS", GALAXY_EXIT_SUCCESS);
 
 #ifdef GALAXY_WIN_PLATFORM
 		lua.set("GALAXY_WIN_PLATFORM", true);
