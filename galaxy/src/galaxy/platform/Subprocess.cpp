@@ -50,7 +50,12 @@ namespace galaxy
 
 	bool Subprocess::wait(const bool block) noexcept
 	{
-		return SDL_WaitProcess(m_process, block, nullptr);
+		if (m_process)
+		{
+			return SDL_WaitProcess(m_process, block, nullptr);
+		}
+
+		return false;
 	}
 
 	void Subprocess::kill() noexcept
@@ -62,5 +67,15 @@ namespace galaxy
 
 			m_process = nullptr;
 		}
+	}
+
+	SDL_PropertiesID Subprocess::get_properties() const noexcept
+	{
+		if (m_process)
+		{
+			return SDL_GetProcessProperties(m_process);
+		}
+
+		return 0;
 	}
 } // namespace galaxy

@@ -64,6 +64,14 @@ namespace galaxy
 		///
 		void kill() noexcept;
 
+		///
+		/// Get the properties associated with a process.
+		///
+		/// \return Returns a valid property ID on success or 0 on failure;
+		///
+		[[nodiscard]]
+		SDL_PropertiesID get_properties() const noexcept;
+
 	private:
 		///
 		/// Process information and handles.
