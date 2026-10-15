@@ -12,6 +12,12 @@
 
 #include "galaxy/platform/Pragma.hpp"
 
+#ifdef GALAXY_WIN_PLATFORM
+#include "galaxy/platform/specific/Windows.hpp"
+#elif GALAXY_UNIX_PLATFORM
+#include "galaxy/platform/specific/Unix.hpp"
+#endif
+
 namespace galaxy
 {
 	namespace platform
