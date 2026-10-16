@@ -224,11 +224,9 @@
         FT_UInt  len = strings[p];
 
 
-        if ( len > 63U )
-        {
-          error = FT_THROW( Invalid_File_Format );
-          goto Fail;
-        }
+        /* all names in Adobe Glyph List are shorter than 40 characters */
+        if ( len >= 40U )
+          FT_TRACE4(( "load_format_20: unusual %u-char name found\n", len ));
 
         strings[p]      = 0;
         name_strings[n] = strings + p + 1;

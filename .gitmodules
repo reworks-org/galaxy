@@ -43,3 +43,6 @@
 [submodule "deps/mimalloc"]
 	path = deps/mimalloc
 	url = https://github.com/microsoft/mimalloc
+[submodule "deps/SDL3_TTF"]
+	path = deps/SDL3_TTF
+	url = https://github.com/libsdl-org/SDL_ttf.git

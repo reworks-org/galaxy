@@ -28,9 +28,7 @@
     <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
-    <ClCompile Include="msdfgl\src\msdfgl.c" />
-    <ClCompile Include="msdfgl\src\msdfgl_map.c" />
-    <ClCompile Include="msdfgl\src\msdfgl_serializer.c" />
+    <ClCompile Include="harfbuzz\src\harfbuzz.cc" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -103,6 +101,12 @@
     <ClCompile Include="SDL3_mixer\src\SDL_mixer.c" />
     <ClCompile Include="SDL3_mixer\src\SDL_mixer_metadata_tags.c" />
     <ClCompile Include="SDL3_mixer\src\SDL_mixer_spatialization.c" />
+    <ClCompile Include="SDL3_TTF\src\SDL_gpu_textengine.c" />
+    <ClCompile Include="SDL3_TTF\src\SDL_hashtable.c" />
+    <ClCompile Include="SDL3_TTF\src\SDL_hashtable_ttf.c" />
+    <ClCompile Include="SDL3_TTF\src\SDL_renderer_textengine.c" />
+    <ClCompile Include="SDL3_TTF\src\SDL_surface_textengine.c" />
+    <ClCompile Include="SDL3_TTF\src\SDL_ttf.c" />
     <ClCompile Include="stb\SDL_stbimage.c" />
     <ClCompile Include="stb\stb_image.c" />
     <ClCompile Include="stb\stb_perlin.c" />
@@ -541,6 +545,39 @@
     <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-string.h" />
     <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-type-util.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
+    <ClInclude Include="harfbuzz\src\hb-aat-layout.h" />
+    <ClInclude Include="harfbuzz\src\hb-aat.h" />
+    <ClInclude Include="harfbuzz\src\hb-blob.h" />
+    <ClInclude Include="harfbuzz\src\hb-buffer.h" />
+    <ClInclude Include="harfbuzz\src\hb-common.h" />
+    <ClInclude Include="harfbuzz\src\hb-cplusplus.hh" />
+    <ClInclude Include="harfbuzz\src\hb-deprecated.h" />
+    <ClInclude Include="harfbuzz\src\hb-draw.h" />
+    <ClInclude Include="harfbuzz\src\hb-face.h" />
+    <ClInclude Include="harfbuzz\src\hb-font.h" />
+    <ClInclude Include="harfbuzz\src\hb-ft.h" />
+    <ClInclude Include="harfbuzz\src\hb-gdi.h" />
+    <ClInclude Include="harfbuzz\src\hb-map.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-color.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-deprecated.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-font.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-layout.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-math.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-meta.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-metrics.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-name.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-shape.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot-var.h" />
+    <ClInclude Include="harfbuzz\src\hb-ot.h" />
+    <ClInclude Include="harfbuzz\src\hb-paint.h" />
+    <ClInclude Include="harfbuzz\src\hb-set.h" />
+    <ClInclude Include="harfbuzz\src\hb-shape-plan.h" />
+    <ClInclude Include="harfbuzz\src\hb-shape.h" />
+    <ClInclude Include="harfbuzz\src\hb-style.h" />
+    <ClInclude Include="harfbuzz\src\hb-unicode.h" />
+    <ClInclude Include="harfbuzz\src\hb-uniscribe.h" />
+    <ClInclude Include="harfbuzz\src\hb-version.h" />
+    <ClInclude Include="harfbuzz\src\hb.h" />
     <ClInclude Include="httplib\httplib.h" />
     <ClInclude Include="json\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="json\include\nlohmann\byte_container_with_subtype.hpp" />
@@ -644,139 +681,13 @@
     <ClInclude Include="mimalloc\include\mimalloc\prim.h" />
     <ClInclude Include="mimalloc\include\mimalloc\track.h" />
     <ClInclude Include="mimalloc\include\mimalloc\types.h" />
-    <ClInclude Include="msdfgl\include\msdfgl.h" />
-    <ClInclude Include="msdfgl\include\msdfgl_map.h" />
-    <ClInclude Include="msdfgl\include\msdfgl_serializer.h" />
-    <ClInclude Include="msdfgl\include\_msdfgl_shaders.h" />
     <ClInclude Include="physfs\src\physfs.h" />
     <ClInclude Include="physfs\src\physfs_casefolding.h" />
     <ClInclude Include="physfs\src\physfs_internal.h" />
     <ClInclude Include="physfs\src\physfs_lzmasdk.h" />
     <ClInclude Include="physfs\src\physfs_miniz.h" />
     <ClInclude Include="physfs\src\physfs_platforms.h" />
-    <ClInclude Include="freetype\include\freetype\freetype.h" />
-    <ClInclude Include="freetype\include\freetype\ftadvanc.h" />
-    <ClInclude Include="freetype\include\freetype\ftbbox.h" />
-    <ClInclude Include="freetype\include\freetype\ftbdf.h" />
-    <ClInclude Include="freetype\include\freetype\ftbitmap.h" />
-    <ClInclude Include="freetype\include\freetype\ftbzip2.h" />
-    <ClInclude Include="freetype\include\freetype\ftcache.h" />
-    <ClInclude Include="freetype\include\freetype\ftchapters.h" />
-    <ClInclude Include="freetype\include\freetype\ftcid.h" />
-    <ClInclude Include="freetype\include\freetype\ftcolor.h" />
-    <ClInclude Include="freetype\include\freetype\ftdriver.h" />
-    <ClInclude Include="freetype\include\freetype\fterrdef.h" />
-    <ClInclude Include="freetype\include\freetype\fterrors.h" />
-    <ClInclude Include="freetype\include\freetype\ftfntfmt.h" />
-    <ClInclude Include="freetype\include\freetype\ftgasp.h" />
-    <ClInclude Include="freetype\include\freetype\ftglyph.h" />
-    <ClInclude Include="freetype\include\freetype\ftgxval.h" />
-    <ClInclude Include="freetype\include\freetype\ftgzip.h" />
-    <ClInclude Include="freetype\include\freetype\ftimage.h" />
-    <ClInclude Include="freetype\include\freetype\ftincrem.h" />
-    <ClInclude Include="freetype\include\freetype\ftlcdfil.h" />
-    <ClInclude Include="freetype\include\freetype\ftlist.h" />
-    <ClInclude Include="freetype\include\freetype\ftlogging.h" />
-    <ClInclude Include="freetype\include\freetype\ftlzw.h" />
-    <ClInclude Include="freetype\include\freetype\ftmac.h" />
-    <ClInclude Include="freetype\include\freetype\ftmm.h" />
-    <ClInclude Include="freetype\include\freetype\ftmodapi.h" />
-    <ClInclude Include="freetype\include\freetype\ftmoderr.h" />
-    <ClInclude Include="freetype\include\freetype\ftotval.h" />
-    <ClInclude Include="freetype\include\freetype\ftoutln.h" />
-    <ClInclude Include="freetype\include\freetype\ftparams.h" />
-    <ClInclude Include="freetype\include\freetype\ftpfr.h" />
-    <ClInclude Include="freetype\include\freetype\ftrender.h" />
-    <ClInclude Include="freetype\include\freetype\ftsizes.h" />
-    <ClInclude Include="freetype\include\freetype\ftsnames.h" />
-    <ClInclude Include="freetype\include\freetype\ftstroke.h" />
-    <ClInclude Include="freetype\include\freetype\ftsynth.h" />
-    <ClInclude Include="freetype\include\freetype\ftsystem.h" />
-    <ClInclude Include="freetype\include\freetype\fttrigon.h" />
-    <ClInclude Include="freetype\include\freetype\fttypes.h" />
-    <ClInclude Include="freetype\include\freetype\ftwinfnt.h" />
-    <ClInclude Include="freetype\include\freetype\otsvg.h" />
-    <ClInclude Include="freetype\include\freetype\t1tables.h" />
-    <ClInclude Include="freetype\include\freetype\ttnameid.h" />
-    <ClInclude Include="freetype\include\freetype\tttables.h" />
-    <ClInclude Include="freetype\include\freetype\tttags.h" />
-    <ClInclude Include="freetype\include\ft2build.h" />
-    <ClInclude Include="freetype\include\freetype\config\ftconfig.h" />
-    <ClInclude Include="freetype\include\freetype\config\ftheader.h" />
-    <ClInclude Include="freetype\include\freetype\config\ftmodule.h" />
-    <ClInclude Include="freetype\include\freetype\config\ftoption.h" />
-    <ClInclude Include="freetype\include\freetype\config\ftstdlib.h" />
-    <ClInclude Include="freetype\include\freetype\config\integer-types.h" />
-    <ClInclude Include="freetype\include\freetype\config\mac-support.h" />
-    <ClInclude Include="freetype\include\freetype\config\public-macros.h" />
-    <ClInclude Include="freetype\include\freetype\internal\autohint.h" />
-    <ClInclude Include="freetype\include\freetype\internal\cffotypes.h" />
-    <ClInclude Include="freetype\include\freetype\internal\cfftypes.h" />
-    <ClInclude Include="freetype\include\freetype\internal\compiler-macros.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftcalc.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftdebug.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftdrv.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftgloadr.h" />
-    <ClInclude Include="freetype\include\freetype\internal\fthash.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftmemory.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftmmtypes.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftobjs.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftpsprop.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftrfork.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftserv.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftstream.h" />
-    <ClInclude Include="freetype\include\freetype\internal\fttrace.h" />
-    <ClInclude Include="freetype\include\freetype\internal\ftvalid.h" />
-    <ClInclude Include="freetype\include\freetype\internal\psaux.h" />
-    <ClInclude Include="freetype\include\freetype\internal\pshints.h" />
-    <ClInclude Include="freetype\include\freetype\internal\sfnt.h" />
-    <ClInclude Include="freetype\include\freetype\internal\svginterface.h" />
-    <ClInclude Include="freetype\include\freetype\internal\t1types.h" />
-    <ClInclude Include="freetype\include\freetype\internal\tttypes.h" />
-    <ClInclude Include="freetype\include\freetype\internal\wofftypes.h" />
     <ClCompile Include="MemoryAllocator.cpp" />
-    <ClCompile Include="freetype\src\autofit\autofit.c" />
-    <ClCompile Include="freetype\src\base\ftbase.c" />
-    <ClCompile Include="freetype\src\base\ftbbox.c" />
-    <ClCompile Include="freetype\src\base\ftbdf.c" />
-    <ClCompile Include="freetype\src\base\ftbitmap.c" />
-    <ClCompile Include="freetype\src\base\ftcid.c" />
-    <ClCompile Include="freetype\src\base\ftfstype.c" />
-    <ClCompile Include="freetype\src\base\ftgasp.c" />
-    <ClCompile Include="freetype\src\base\ftglyph.c" />
-    <ClCompile Include="freetype\src\base\ftgxval.c" />
-    <ClCompile Include="freetype\src\base\ftinit.c" />
-    <ClCompile Include="freetype\src\base\ftmm.c" />
-    <ClCompile Include="freetype\src\base\ftotval.c" />
-    <ClCompile Include="freetype\src\base\ftpatent.c" />
-    <ClCompile Include="freetype\src\base\ftpfr.c" />
-    <ClCompile Include="freetype\src\base\ftstroke.c" />
-    <ClCompile Include="freetype\src\base\ftsynth.c" />
-    <ClCompile Include="freetype\src\base\fttype1.c" />
-    <ClCompile Include="freetype\src\base\ftwinfnt.c" />
-    <ClCompile Include="freetype\src\bdf\bdf.c" />
-    <ClCompile Include="freetype\src\bzip2\ftbzip2.c" />
-    <ClCompile Include="freetype\src\cache\ftcache.c" />
-    <ClCompile Include="freetype\src\cff\cff.c" />
-    <ClCompile Include="freetype\src\cid\type1cid.c" />
-    <ClCompile Include="freetype\src\gzip\ftgzip.c" />
-    <ClCompile Include="freetype\src\lzw\ftlzw.c" />
-    <ClCompile Include="freetype\src\pcf\pcf.c" />
-    <ClCompile Include="freetype\src\pfr\pfr.c" />
-    <ClCompile Include="freetype\src\psaux\psaux.c" />
-    <ClCompile Include="freetype\src\pshinter\pshinter.c" />
-    <ClCompile Include="freetype\src\psnames\psnames.c" />
-    <ClCompile Include="freetype\src\raster\raster.c" />
-    <ClCompile Include="freetype\src\sdf\sdf.c" />
-    <ClCompile Include="freetype\src\sfnt\sfnt.c" />
-    <ClCompile Include="freetype\src\smooth\smooth.c" />
-    <ClCompile Include="freetype\src\svg\svg.c" />
-    <ClCompile Include="freetype\src\truetype\truetype.c" />
-    <ClCompile Include="freetype\src\type1\type1.c" />
-    <ClCompile Include="freetype\src\type42\type42.c" />
-    <ClCompile Include="freetype\src\winfonts\winfnt.c" />
-    <ClCompile Include="freetype\builds\windows\ftsystem.c" />
-    <ClCompile Include="freetype\builds\windows\ftdebug.c" />
     <ClCompile Include="SDL3\src\SDL.c" />
     <ClCompile Include="SDL3\src\SDL_assert.c" />
     <ClInclude Include="SDL3\src\SDL_assert_c.h" />
@@ -1355,6 +1266,8 @@
     <ClInclude Include="SDL3_config\include-config-release\build_config\SDL_build_config.h" />
     <ClInclude Include="SDL3_config\include-revision\SDL3\SDL_revision.h" />
     <ClInclude Include="SDL3_mixer\include\SDL3_mixer\SDL_mixer.h" />
+    <ClInclude Include="SDL3_TTF\include\SDL3_ttf\SDL_textengine.h" />
+    <ClInclude Include="SDL3_TTF\include\SDL3_ttf\SDL_ttf.h" />
     <ClInclude Include="sol\include\sol\abort.hpp" />
     <ClInclude Include="sol\include\sol\assert.hpp" />
     <ClInclude Include="sol\include\sol\as_args.hpp" />
@@ -1484,6 +1397,128 @@
     <ClInclude Include="zip\src\miniz.h" />
     <ClInclude Include="zip\src\zip.h" />
     <ClInclude Include="SDL3\include\SDL3\SDL.h" />
+    <ClInclude Include="freetype\include\freetype\freetype.h" />
+    <ClInclude Include="freetype\include\freetype\ftadvanc.h" />
+    <ClInclude Include="freetype\include\freetype\ftbbox.h" />
+    <ClInclude Include="freetype\include\freetype\ftbdf.h" />
+    <ClInclude Include="freetype\include\freetype\ftbitmap.h" />
+    <ClInclude Include="freetype\include\freetype\ftbzip2.h" />
+    <ClInclude Include="freetype\include\freetype\ftcache.h" />
+    <ClInclude Include="freetype\include\freetype\ftchapters.h" />
+    <ClInclude Include="freetype\include\freetype\ftcid.h" />
+    <ClInclude Include="freetype\include\freetype\ftcolor.h" />
+    <ClInclude Include="freetype\include\freetype\ftdriver.h" />
+    <ClInclude Include="freetype\include\freetype\fterrdef.h" />
+    <ClInclude Include="freetype\include\freetype\fterrors.h" />
+    <ClInclude Include="freetype\include\freetype\ftfntfmt.h" />
+    <ClInclude Include="freetype\include\freetype\ftgasp.h" />
+    <ClInclude Include="freetype\include\freetype\ftglyph.h" />
+    <ClInclude Include="freetype\include\freetype\ftgxval.h" />
+    <ClInclude Include="freetype\include\freetype\ftgzip.h" />
+    <ClInclude Include="freetype\include\freetype\ftimage.h" />
+    <ClInclude Include="freetype\include\freetype\ftincrem.h" />
+    <ClInclude Include="freetype\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="freetype\include\freetype\ftlist.h" />
+    <ClInclude Include="freetype\include\freetype\ftlogging.h" />
+    <ClInclude Include="freetype\include\freetype\ftlzw.h" />
+    <ClInclude Include="freetype\include\freetype\ftmac.h" />
+    <ClInclude Include="freetype\include\freetype\ftmm.h" />
+    <ClInclude Include="freetype\include\freetype\ftmodapi.h" />
+    <ClInclude Include="freetype\include\freetype\ftmoderr.h" />
+    <ClInclude Include="freetype\include\freetype\ftotval.h" />
+    <ClInclude Include="freetype\include\freetype\ftoutln.h" />
+    <ClInclude Include="freetype\include\freetype\ftparams.h" />
+    <ClInclude Include="freetype\include\freetype\ftpfr.h" />
+    <ClInclude Include="freetype\include\freetype\ftrender.h" />
+    <ClInclude Include="freetype\include\freetype\ftsizes.h" />
+    <ClInclude Include="freetype\include\freetype\ftsnames.h" />
+    <ClInclude Include="freetype\include\freetype\ftstroke.h" />
+    <ClInclude Include="freetype\include\freetype\ftsynth.h" />
+    <ClInclude Include="freetype\include\freetype\ftsystem.h" />
+    <ClInclude Include="freetype\include\freetype\fttrigon.h" />
+    <ClInclude Include="freetype\include\freetype\fttypes.h" />
+    <ClInclude Include="freetype\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="freetype\include\freetype\otsvg.h" />
+    <ClInclude Include="freetype\include\freetype\t1tables.h" />
+    <ClInclude Include="freetype\include\freetype\ttnameid.h" />
+    <ClInclude Include="freetype\include\freetype\tttables.h" />
+    <ClInclude Include="freetype\include\freetype\tttags.h" />
+    <ClInclude Include="freetype\include\ft2build.h" />
+    <ClInclude Include="freetype\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="freetype\include\freetype\config\ftheader.h" />
+    <ClInclude Include="freetype\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="freetype\include\freetype\config\ftoption.h" />
+    <ClInclude Include="freetype\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="freetype\include\freetype\config\integer-types.h" />
+    <ClInclude Include="freetype\include\freetype\config\mac-support.h" />
+    <ClInclude Include="freetype\include\freetype\config\public-macros.h" />
+    <ClInclude Include="freetype\include\freetype\internal\autohint.h" />
+    <ClInclude Include="freetype\include\freetype\internal\cffotypes.h" />
+    <ClInclude Include="freetype\include\freetype\internal\cfftypes.h" />
+    <ClInclude Include="freetype\include\freetype\internal\compiler-macros.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftdrv.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="freetype\include\freetype\internal\fthash.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftmmtypes.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftpsprop.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="freetype\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="freetype\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="freetype\include\freetype\internal\psaux.h" />
+    <ClInclude Include="freetype\include\freetype\internal\pshints.h" />
+    <ClInclude Include="freetype\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="freetype\include\freetype\internal\svginterface.h" />
+    <ClInclude Include="freetype\include\freetype\internal\t1types.h" />
+    <ClInclude Include="freetype\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="freetype\include\freetype\internal\wofftypes.h" />
+    <ClCompile Include="freetype\src\autofit\autofit.c" />
+    <ClCompile Include="freetype\src\base\ftbase.c" />
+    <ClCompile Include="freetype\src\base\ftbbox.c" />
+    <ClCompile Include="freetype\src\base\ftbdf.c" />
+    <ClCompile Include="freetype\src\base\ftbitmap.c" />
+    <ClCompile Include="freetype\src\base\ftcid.c" />
+    <ClCompile Include="freetype\src\base\ftfstype.c" />
+    <ClCompile Include="freetype\src\base\ftgasp.c" />
+    <ClCompile Include="freetype\src\base\ftglyph.c" />
+    <ClCompile Include="freetype\src\base\ftgxval.c" />
+    <ClCompile Include="freetype\src\base\ftinit.c" />
+    <ClCompile Include="freetype\src\base\ftmm.c" />
+    <ClCompile Include="freetype\src\base\ftotval.c" />
+    <ClCompile Include="freetype\src\base\ftpatent.c" />
+    <ClCompile Include="freetype\src\base\ftpfr.c" />
+    <ClCompile Include="freetype\src\base\ftstroke.c" />
+    <ClCompile Include="freetype\src\base\ftsynth.c" />
+    <ClCompile Include="freetype\src\base\fttype1.c" />
+    <ClCompile Include="freetype\src\base\ftwinfnt.c" />
+    <ClCompile Include="freetype\src\bdf\bdf.c" />
+    <ClCompile Include="freetype\src\bzip2\ftbzip2.c" />
+    <ClCompile Include="freetype\src\cache\ftcache.c" />
+    <ClCompile Include="freetype\src\cff\cff.c" />
+    <ClCompile Include="freetype\src\cid\type1cid.c" />
+    <ClCompile Include="freetype\src\gzip\ftgzip.c" />
+    <ClCompile Include="freetype\src\lzw\ftlzw.c" />
+    <ClCompile Include="freetype\src\pcf\pcf.c" />
+    <ClCompile Include="freetype\src\pfr\pfr.c" />
+    <ClCompile Include="freetype\src\psaux\psaux.c" />
+    <ClCompile Include="freetype\src\pshinter\pshinter.c" />
+    <ClCompile Include="freetype\src\psnames\psnames.c" />
+    <ClCompile Include="freetype\src\raster\raster.c" />
+    <ClCompile Include="freetype\src\sdf\sdf.c" />
+    <ClCompile Include="freetype\src\sfnt\sfnt.c" />
+    <ClCompile Include="freetype\src\smooth\smooth.c" />
+    <ClCompile Include="freetype\src\svg\svg.c" />
+    <ClCompile Include="freetype\src\truetype\truetype.c" />
+    <ClCompile Include="freetype\src\type1\type1.c" />
+    <ClCompile Include="freetype\src\type42\type42.c" />
+    <ClCompile Include="freetype\src\winfonts\winfnt.c" />
+    <ClCompile Include="freetype\builds\windows\ftsystem.c" />
+    <ClCompile Include="freetype\builds\windows\ftdebug.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
@@ -1692,7 +1727,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;MSDFGL_STATIC_DEFINE;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_DEBUG;DEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FT_PUBLIC_FUNCTION_ATTRIBUTE=;HAVE_ATEXIT;HAVE_ISATTY;HAVE_STDBOOL_H;HAVE_FREETYPE=1;HAVE_FT_GET_VAR_BLEND_COORDINATES;HAVE_FT_SET_VAR_BLEND_COORDINATES;HAVE_FT_DONE_MM_VAR;HAVE_FT_GET_TRANSFORM;HAVE_GDI;HAVE_UNISCRIBE;TTF_USE_HARFBUZZ=1;MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_DEBUG;DEBUG;_LIB</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1727,7 +1762,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/rmlui;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-debug/build_config;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/freetype/include/freetype/config;$(SolutionDir)deps/harfbuzz/src;$(SolutionDir)deps/SDL3_TTF/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/rmlui;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-debug/build_config;</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1753,7 +1788,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;MSDFGL_STATIC_DEFINE;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_NDEBUG;NDEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FT_PUBLIC_FUNCTION_ATTRIBUTE=;HAVE_ATEXIT;HAVE_ISATTY;HAVE_STDBOOL_H;HAVE_FREETYPE=1;HAVE_FT_GET_VAR_BLEND_COORDINATES;HAVE_FT_SET_VAR_BLEND_COORDINATES;HAVE_FT_DONE_MM_VAR;HAVE_FT_GET_TRANSFORM;HAVE_GDI;HAVE_UNISCRIBE;TTF_USE_HARFBUZZ=1;MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_NDEBUG;NDEBUG;_LIB</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1784,7 +1819,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/rmlui;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-release/build_config;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/freetype/include/freetype/config;$(SolutionDir)deps/harfbuzz/src;$(SolutionDir)deps/SDL3_TTF/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/rmlui;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-release/build_config;</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

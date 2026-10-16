@@ -62,6 +62,7 @@ FT_BEGIN_HEADER
    * because it is needed by `FT_EXPORT`.
    */
 
+#ifndef FT_PUBLIC_FUNCTION_ATTRIBUTE
   /* Visual C, mingw */
 #if defined( _WIN32 )
 
@@ -80,7 +81,7 @@ FT_BEGIN_HEADER
 #elif defined( __SUNPRO_C ) && __SUNPRO_C >= 0x550
 #define FT_PUBLIC_FUNCTION_ATTRIBUTE  __global
 #endif
-
+#endif /* FT_PUBLIC_FUNCTION_ATTRIBUTE */
 
 #ifndef FT_PUBLIC_FUNCTION_ATTRIBUTE
 #define FT_PUBLIC_FUNCTION_ATTRIBUTE  /* empty */

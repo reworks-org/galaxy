@@ -110,7 +110,7 @@
 
 # To minimize the number of cmake_policy() workarounds,
 # CMake >= 3 is requested.
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0...3.10)
 
 if (NOT CMAKE_VERSION VERSION_LESS 3.3)
   # Allow symbol visibility settings also on static libraries. CMake < 3.3
@@ -252,10 +252,25 @@ include(FindPkgConfig)
 
 if (NOT FT_DISABLE_HARFBUZZ)
   set(HARFBUZZ_MIN_VERSION "2.0.0")
+  if (TARGET harfbuzz)
+    # Don't find harfbuzz when it is being built currently (for vendoring purposes)
+    add_library(HarfBuzz::HarfBuzz ALIAS harfbuzz)
+    set(HarfBuzz_FOUND ON)
+    set(HARFBUZZ_FOUND ON)
+    set(HarfBuzz_LIBRARY HarfBuzz::HarfBuzz)
+  elseif (TARGET harfbuzz::harfbuzz)
+    # Don't find harfbuzz again when it already found (avoid possibility of finding 2 different harfbuzz libraries)
+    add_library(HarfBuzz::HarfBuzz INTERFACE IMPORTED)
+    set_target_properties(HarfBuzz::HarfBuzz PROPERTIES INTERFACE_LINK_LIBRARIES harfbuzz::harfbuzz)
+    set(HarfBuzz_FOUND ON)
+    set(HARFBUZZ_FOUND ON)
+    set(HarfBuzz_LIBRARY HarfBuzz::HarfBuzz)
+  else ()
   if (FT_REQUIRE_HARFBUZZ)
     find_package(HarfBuzz ${HARFBUZZ_MIN_VERSION} REQUIRED)
   else ()
     find_package(HarfBuzz ${HARFBUZZ_MIN_VERSION})
+  endif ()
   endif ()
 endif ()
 
@@ -297,7 +312,7 @@ if (NOT FT_DISABLE_BROTLI)
 endif ()
 
 # Create the configuration file
-if (UNIX)
+if (UNIX AND NOT WIN32)
   check_include_file("unistd.h" HAVE_UNISTD_H)
   check_include_file("fcntl.h" HAVE_FCNTL_H)
 
@@ -423,10 +438,10 @@ set(BASE_SRCS
   src/winfonts/winfnt.c
 )
 
-if (UNIX)
-  list(APPEND BASE_SRCS "builds/unix/ftsystem.c")
-elseif (WIN32)
+if (WIN32)
   list(APPEND BASE_SRCS "builds/windows/ftsystem.c")
+elseif (UNIX)
+  list(APPEND BASE_SRCS "builds/unix/ftsystem.c")
 else ()
   list(APPEND BASE_SRCS "src/base/ftsystem.c")
 endif ()
@@ -464,7 +479,7 @@ set_target_properties(
 
 target_compile_definitions(
   freetype PRIVATE FT2_BUILD_LIBRARY)
-
+target_compile_definitions(freetype PRIVATE FT_PUBLIC_FUNCTION_ATTRIBUTE=)  # Don't export freetype symbols
 if (WIN32)
   target_compile_definitions(
     freetype PRIVATE _CRT_SECURE_NO_WARNINGS _CRT_NONSTDC_NO_WARNINGS)
@@ -620,7 +635,10 @@ if (NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
     file(WRITE "${FREETYPE2_PC_IN_NAME}" ${FREETYPE2_PC_IN})
   endif ()
 
-
+  install(
+    FILES ${PROJECT_BINARY_DIR}/freetype2.pc
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+    COMPONENT pkgconfig)
 
   include(CMakePackageConfigHelpers)
   write_basic_package_version_file(
