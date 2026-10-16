@@ -1,0 +1,58 @@
+#version 430 core
+
+layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+
+uniform ivec2 screenSize;
+uniform ivec2 tileCount;
+uniform int lightCount;
+
+struct GpuLight
+{
+    vec4 positionRadius;
+    vec4 colourIntensity;
+    vec4 shadowSoftness;
+};
+
+layout(std430, binding = 2) readonly buffer LightBuffer
+{
+    GpuLight lights[];
+};
+
+layout(std430, binding = 3) writeonly buffer TileCounts
+{
+    uint tileCounts[];
+};
+
+layout(std430, binding = 4) writeonly buffer TileIndices
+{
+    uint tileIndices[];
+};
+
+void main()
+{
+    ivec2 tile = ivec2(gl_GlobalInvocationID.xy);
+    if (tile.x >= tileCount.x || tile.y >= tileCount.y)
+    {
+        return;
+    }
+
+    int tileIndex = tile.y * tileCount.x + tile.x;
+    vec2 minimum = vec2(tile * 16);
+    vec2 maximum = min(minimum + vec2(16), vec2(screenSize));
+    uint count = 0u;
+
+    for (int index = 0; index < lightCount; ++index)
+    {
+        vec2 closest = clamp(lights[index].positionRadius.xy, minimum, maximum);
+        vec2 delta = lights[index].positionRadius.xy - closest;
+        float radius = lights[index].positionRadius.z;
+
+        if (dot(delta, delta) <= radius * radius && count < 128u)
+        {
+            tileIndices[tileIndex * 128 + count] = uint(index);
+            count++;
+        }
+    }
+
+    tileCounts[tileIndex] = count;
+}
