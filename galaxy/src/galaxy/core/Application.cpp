@@ -7,29 +7,32 @@
 
 #define BS_THREAD_POOL_NATIVE_EXTENSIONS
 
+#include <filesystem>
 #include <format>
+#include <chrono>
 
 #include <BS_thread_pool.hpp>
-#include <entt/signal/dispatcher.hpp>
-#include <glad/glad.h>
+#include <entt/locator/locator.hpp>
+// #include <entt/signal/dispatcher.hpp>
+// #include <glad/glad.h>
 #include <mimalloc.h>
 #include <SDL3/SDL.h>
-#include <sol/sol.hpp>
+// #include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
-#include "galaxy/core/Window.hpp"
+// #include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-#include "galaxy/graphics/gl/Sampler.hpp"
-#include "galaxy/input/Keyboard.hpp"
-#include "galaxy/input/Mouse.hpp"
+// #include "galaxy/graphics/gl/Sampler.hpp"
+// #include "galaxy/input/Keyboard.hpp"
+// #include "galaxy/input/Mouse.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/Log.hpp"
-#include "galaxy/lua/Lua.hpp"
-#include "galaxy/meta/SystemFactory.hpp"
+// #include "galaxy/lua/Lua.hpp"
+// #include "galaxy/meta/SystemFactory.hpp"
 #include "galaxy/platform/Platform.hpp"
-#include "galaxy/scene/SceneManager.hpp"
+// #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/time/Time.hpp"
 
 #include "Application.hpp"
@@ -47,14 +50,14 @@ namespace galaxy
 		setup_config(config_file);
 		setup_platform();
 		setup_fs();
-		setup_rendering();
-		setup_events();
-		setup_input();
+		// setup_rendering();
+		// setup_events();
+		// setup_input();
 		// setup_nuklear();
 		// setup_loader();
-		setup_meta();
-		setup_services();
-		setup_scripting();
+		// setup_meta();
+		// setup_services();
+		// setup_scripting();
 
 		// Load game assets.
 		// core::entt::locator<core::Loader>::ref().load_all();
@@ -62,12 +65,10 @@ namespace galaxy
 
 	App::~App()
 	{
-		entt::locator<VirtualFileSystem>::reset();
-		entt::locator<Config>::reset();
-
-		GALAXY_LOG(GALAXY_INFO, "Application closed.");
 		entt::locator<BS::priority_thread_pool>::value().wait();
 
+		entt::locator<VirtualFileSystem>::reset();
+		entt::locator<Config>::reset();
 		entt::locator<Log>::reset();
 		entt::locator<BS::priority_thread_pool>::reset();
 
@@ -87,8 +88,8 @@ namespace galaxy
 		// https://stackoverflow.com/a/59446610
 		// We dont need 't' or 'alpha/render' sections.
 
-		auto& window = entt::locator<Window>::value();
-		auto& scenes = entt::locator<SceneManager>::value();
+		// auto& window = entt::locator<Window>::value();
+		// auto& scenes = entt::locator<SceneManager>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
 		// into a double so it can participate in the physics computation.
@@ -115,35 +116,35 @@ namespace galaxy
 					switch (m_events.type)
 					{
 						case SDL_EVENT_QUIT:
-							window.close();
+							// window.close();
 							break;
 
 						case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
-							if (m_events.window.windowID == SDL_GetWindowID(window.handle()))
+							// if (m_events.window.windowID == SDL_GetWindowID(window.handle()))
 							{
-								window.close();
+								// window.close();
 							}
 							break;
 
 						default:
-							scenes.on_event(m_events);
+							// scenes.on_event(m_events);
 							break;
 					}
 				}
 
-				scenes.update();
+				// scenes.update();
 			};
 		}
 
 		if (!m_render)
 		{
 			m_render = [&](App* app) {
-				scenes.render();
-				window.swap();
+				// scenes.render();
+				// window.swap();
 			};
 		}
 
-		while (window.is_open())
+		while (false) // window.is_open()
 		{
 			now          = clock::now();
 			auto elapsed = now - prev;
@@ -174,7 +175,7 @@ namespace galaxy
 
 			if (perf >= 1s)
 			{
-				window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
+				// window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
 
 				frames  = 0;
 				updates = 0;
@@ -220,13 +221,13 @@ namespace galaxy
 	void App::setup_logging()
 	{
 		platform::configure_terminal();
-		if (!std::filesystem::exists(Settings::log_dir()))
+		if (!std::filesystem::exists(Settings::logs_dir()))
 		{
-			std::filesystem::create_directory(Settings::log_dir());
+			std::filesystem::create_directory(Settings::logs_dir());
 		}
 		entt::locator<Log>::emplace();
 
-		const auto path = std::format("{0}{1}{2}", Settings::log_dir(), std::format("{0:%d-%m-%Y-[%H-%M]}", time::now()), ".log");
+		const auto path = std::format("{0}{1}{2}", Settings::logs_dir(), std::format("{0:%d-%m-%Y-[%H-%M]}", time::now()), ".log");
 		GALAXY_ADD_SINK(FileSink, path);
 
 		GALAXY_ADD_SINK(ConsoleSink);
@@ -252,6 +253,7 @@ namespace galaxy
 		platform::set_metadata(SDL_PROP_APP_METADATA_URL_STRING, Settings::website().c_str());
 		platform::set_metadata(SDL_PROP_APP_METADATA_TYPE_STRING, "game");
 
+		// https://wiki.libsdl.org/SDL3/CategoryHints
 		platform::set_hint(SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED, "1");
 		platform::set_hint(SDL_HINT_ASSERT, "break");
 		platform::set_hint(SDL_HINT_AUDIO_CATEGORY, "playback");
@@ -295,7 +297,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS, "0");
 		platform::set_hint(SDL_HINT_WINDOWS_GAMEINPUT, "1");
 		platform::set_hint(SDL_HINT_WINDOWS_RAW_KEYBOARD, "0");
-		// TODO: platform::set_hint(SDL_HINT_IME_IMPLEMENTED_UI, "0");
+		platform::set_hint(SDL_HINT_IME_IMPLEMENTED_UI, "0");
 
 		const auto vsync = Settings::vsync() ? "1" : "0";
 		platform::set_hint(SDL_HINT_RENDER_VSYNC, vsync);
@@ -314,6 +316,7 @@ namespace galaxy
 		entt::locator<VirtualFileSystem>::emplace();
 	}
 
+	/*
 	void App::setup_rendering()
 	{
 		auto& window = entt::locator<Window>::emplace();
@@ -439,7 +442,6 @@ namespace galaxy
 		em.register_dependencies<components::RigidBody, components::Transform>();
 		em.register_dependencies<components::Sprite, components::Transform>();
 		em.register_dependencies<components::Text, components::Transform>();
-		*/
 	}
 
 	void App::setup_services()
@@ -471,5 +473,5 @@ namespace galaxy
 		// Add engine services to lua.
 		//
 		Lua::inject();
-	}
+	}*/
 } // namespace galaxy

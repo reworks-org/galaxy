@@ -98,14 +98,14 @@ namespace galaxy
 		void setup_config(std::string_view config_file);
 		void setup_platform();
 		void setup_fs();
-		void setup_rendering();
-		void setup_events();
-		void setup_input();
+		// void setup_rendering();
+		// void setup_events();
+		// void setup_input();
 		// void setup_nuklear();
 		// void setup_loader();
-		void setup_meta();
-		void setup_services();
-		void setup_scripting();
+		// void setup_meta();
+		// void setup_services();
+		// void setup_scripting();
 
 	private:
 		///

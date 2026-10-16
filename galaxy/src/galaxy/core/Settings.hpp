@@ -31,6 +31,78 @@ namespace galaxy
 		static auto set_settings_from_config() -> void;
 
 		///
+		/// Vsync control.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto vsync() noexcept -> bool;
+
+		///
+		/// Set audio frequency to use with SDL.
+		///
+		/// \return Int.
+		///
+		[[nodiscard]]
+		static auto audio_freq() noexcept -> int;
+
+		///
+		/// Game title.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto title() noexcept -> const std::string&;
+
+		///
+		/// Game semver.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto version() noexcept -> const std::string&;
+
+		///
+		/// Game identifier i.e. com.galaxy.app.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto identifier() noexcept -> const std::string&;
+
+		///
+		/// Owner.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto creator() noexcept -> const std::string&;
+
+		///
+		/// Copyright message.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto copyright() noexcept -> const std::string&;
+
+		///
+		/// Website URL.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto website() noexcept -> const std::string&;
+
+		///
+		/// Current root directory of application, unless it has been changed.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto logs_dir() noexcept -> const std::string&;
+
+		///
 		/// Current root directory of application, unless it has been changed.
 		///
 		/// \return Filesystem path.
@@ -167,6 +239,17 @@ namespace galaxy
 		static auto assets_dir_ui() noexcept -> const std::string&;
 
 	private:
+		inline static bool s_vsync;
+		inline static int  s_audio_freq;
+
+		inline static std::string s_title;
+		inline static std::string s_version;
+		inline static std::string s_identifier;
+		inline static std::string s_creator;
+		inline static std::string s_copyright;
+		inline static std::string s_website;
+
+		inline static std::string           s_logs_dir;
 		inline static std::filesystem::path s_assets_dir;
 		inline static std::filesystem::path s_editor_dir;
 		inline static std::string           s_asset_pack;
@@ -229,13 +312,7 @@ namespace galaxy
 		[[nodiscard]]
 		static auto maximized() noexcept -> bool;
 
-		///
-		/// Vsync control.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto vsync() noexcept -> bool;
+
 
 		///
 		/// Is the window resizable.
@@ -285,13 +362,6 @@ namespace galaxy
 		[[nodiscard]]
 		static auto cursor_hotspot() noexcept -> const glm::ivec2&;
 
-		///
-		/// Set audio frequency to use with SDL.
-		///
-		/// \return Int.
-		///
-		[[nodiscard]]
-		static auto audio_freq() noexcept -> int;
 
 		///
 		/// Ansiotropic filtering level.
@@ -325,68 +395,15 @@ namespace galaxy
 		[[nodiscard]]
 		static auto max_quads() noexcept -> int;
 
-		///
-		/// Game title.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto title() noexcept -> const std::string&;
 
-		///
-		/// Game semver.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto version() noexcept -> const std::string&;
 
-		///
-		/// Game identifier i.e. com.galaxy.app.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto identifier() noexcept -> const std::string&;
 
-		///
-		/// Owner.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto creator() noexcept -> const std::string&;
-
-		///
-		/// Copyright message.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto copyright() noexcept -> const std::string&;
-
-		///
-		/// Website URL.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto website() noexcept -> const std::string&;
-
-		///
-		/// Current root directory of application, unless it has been changed.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto log_dir() noexcept -> const std::string&;
 
 		inline static int         s_window_width;
 		inline static int         s_window_height;
 		inline static std::string s_window_icon;
 		inline static bool        s_fullscreen;
 		inline static bool        s_maximized;
-		inline static bool        s_vsync;
 		inline static bool        s_resizable;
 		inline static bool        s_border;
 
@@ -395,19 +412,14 @@ namespace galaxy
 		inline static std::string s_cursor_icon;
 		inline static glm::ivec2  s_cursor_hotspot;
 
-		inline static int s_audio_freq;
+
 
 		inline static int             s_ansio;
 		inline static bool            s_mipmap;
 		inline static GLTextureFilter s_filtering;
 		inline static int             s_max_quads;
 
-		inline static std::string s_title;
-		inline static std::string s_version;
-		inline static std::string s_identifier;
-		inline static std::string s_creator;
-		inline static std::string s_copyright;
-		inline static std::string s_website;
+
 
 // config.restore<int>("flag_bitset_count", 8, "misc");
 

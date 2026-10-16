@@ -29,7 +29,7 @@ https://wiki.libsdl.org/SDL3/CategoryCamera
 https://wiki.libsdl.org/SDL3/CategoryOpenXR
 https://wiki.libsdl.org/SDL3/CategoryMetal
 https://wiki.libsdl.org/SDL3/CategoryVulkan
-
+https://wiki.libsdl.org/SDL3/CategoryProperties
 
 
 libs:

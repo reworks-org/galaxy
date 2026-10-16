@@ -29,7 +29,6 @@ namespace galaxy
 		// config.restore<std::string>("icon", "", "window");
 		// config.restore<bool>("fullscreen", false, "window");
 		// config.restore<bool>("maximized", true, "window");
-		// config.restore<bool>("vsync", false, "window");
 		// config.restore<bool>("resizable", true, "window");
 		// config.restore<bool>("border", true, "window");
 
@@ -39,20 +38,22 @@ namespace galaxy
 		// config.restore<int>("x", 0, "mouse.cursor_hotspot");
 		// config.restore<int>("y", 0, "mouse.cursor_hotspot");
 
-		// config.restore<int>("audio_freq", 44100, "audio");
-
 		// config.restore<int>("ansiotrophy", 16, "graphics");
 		// config.restore<bool>("mipmap", true, "graphics");
 		// config.restore<std::string>("texture_filter", "NEAREST", "graphics");
 		// config.restore<int>("max_quads", 250, "graphics");
 
-		// config.restore<std::string>("title", "galaxy app", "meta");
-		// config.restore<std::string>("version", "1.0", "meta");
-		// config.restore<std::string>("identifier", "com.galaxy.app", "meta");
-		// config.restore<std::string>("creator", "reworks", "meta");
-		// config.restore<std::string>("copyright", "2025+ reworks", "meta");
-		// config.restore<std::string>("website", "https://reworks-org.github.io/galaxy/", "meta");
+		config.restore<bool>("vsync", false, "window");
+		config.restore<int>("audio_freq", 44100, "audio");
 
+		config.restore<std::string>("title", "galaxy app", "meta");
+		config.restore<std::string>("version", "1.0", "meta");
+		config.restore<std::string>("identifier", "com.galaxy.app", "meta");
+		config.restore<std::string>("creator", "reworks", "meta");
+		config.restore<std::string>("copyright", "2025+ reworks", "meta");
+		config.restore<std::string>("website", "https://reworks-org.github.io/galaxy/", "meta");
+
+		config.restore<std::string>("logs_dir", "logs/", "fs");
 		config.restore<std::string>("assets_dir", "assets/", "fs");
 		config.restore<std::string>("editor_dir", "editor/", "fs");
 		config.restore<std::string>("asset_pack", "assets.galaxy", "fs");
@@ -82,7 +83,6 @@ namespace galaxy
 		// s_window_icon   = *config.get<std::string>("icon", "window");
 		// s_fullscreen    = *config.get<bool>("fullscreen", "window");
 		// s_maximized     = *config.get<bool>("maximized", "window");
-		// s_vsync         = *config.get<bool>("vsync", "window");
 		// s_resizable     = *config.get<bool>("resizable", "window");
 		// s_border        = *config.get<bool>("border", "window");
 
@@ -92,8 +92,6 @@ namespace galaxy
 		// s_cursor_hotspot.x = *config.get<int>("x", "mouse.cursor_hotspot");
 		// s_cursor_hotspot.y = *config.get<int>("y", "mouse.cursor_hotspot");
 
-		// s_audio_freq = *config.get<int>("audio_freq", "audio");
-
 		// s_ansio     = *config.get<int>("ansiotrophy", "graphics");
 		// s_mipmap    = *config.get<bool>("mipmap", "graphics");
 		// s_filtering = *config.get<std::string>("texture_filter", "graphics").and_then([](std::string_view filter) {
@@ -101,13 +99,17 @@ namespace galaxy
 		// });
 		// s_max_quads = *config.get<int>("max_quads", "graphics");
 
-		// s_title      = *config.get<std::string>("title", "meta");
-		// s_version    = *config.get<std::string>("version", "meta");
-		// s_identifier = *config.get<std::string>("identifier", "meta");
-		// s_creator    = *config.get<std::string>("creator", "meta");
-		// s_copyright  = *config.get<std::string>("copyright", "meta");
-		// s_website    = *config.get<std::string>("website", "meta");
+		s_vsync      = *config.get<bool>("vsync", "window");
+		s_audio_freq = *config.get<int>("audio_freq", "audio");
 
+		s_title      = *config.get<std::string>("title", "meta");
+		s_version    = *config.get<std::string>("version", "meta");
+		s_identifier = *config.get<std::string>("identifier", "meta");
+		s_creator    = *config.get<std::string>("creator", "meta");
+		s_copyright  = *config.get<std::string>("copyright", "meta");
+		s_website    = *config.get<std::string>("website", "meta");
+
+		s_logs_dir         = *config.get<std::string>("logs_dir", "fs");
 		s_assets_dir       = *config.get<std::string>("assets_dir", "fs");
 		s_editor_dir       = *config.get<std::string>("editor_dir", "fs");
 		s_asset_pack       = *config.get<std::string>("asset_pack", "fs");
@@ -124,6 +126,51 @@ namespace galaxy
 		s_assets_maps      = *config.get<std::string>("assets_maps", "fs");
 		s_assets_video     = *config.get<std::string>("assets_video", "fs");
 		s_assets_ui        = *config.get<std::string>("assets_ui", "fs");
+	}
+
+	auto Settings::vsync() noexcept -> bool
+	{
+		return s_vsync;
+	}
+
+	auto Settings::audio_freq() noexcept -> int
+	{
+		return s_audio_freq;
+	}
+
+	auto Settings::title() noexcept -> const std::string&
+	{
+		return s_title;
+	}
+
+	auto Settings::version() noexcept -> const std::string&
+	{
+		return s_version;
+	}
+
+	auto Settings::identifier() noexcept -> const std::string&
+	{
+		return s_identifier;
+	}
+
+	auto Settings::creator() noexcept -> const std::string&
+	{
+		return s_creator;
+	}
+
+	auto Settings::copyright() noexcept -> const std::string&
+	{
+		return s_copyright;
+	}
+
+	auto Settings::website() noexcept -> const std::string&
+	{
+		return s_website;
+	}
+
+	auto Settings::logs_dir() noexcept -> const std::string&
+	{
+		return s_logs_dir;
 	}
 
 	auto Settings::root_dir() noexcept -> std::filesystem::path
@@ -242,10 +289,7 @@ auto Settings::window_width() noexcept -> int
 		return s_maximized;
 	}
 
-	auto Settings::vsync() noexcept -> bool
-	{
-		return s_vsync;
-	}
+
 
 	auto Settings::window_resizable() noexcept -> bool
 	{
@@ -277,10 +321,6 @@ auto Settings::window_width() noexcept -> int
 		return s_cursor_hotspot;
 	}
 
-	auto Settings::audio_freq() noexcept -> int
-	{
-		return s_audio_freq;
-	}
 
 	auto Settings::ansiotrophy() noexcept -> int
 	{
@@ -302,39 +342,6 @@ auto Settings::window_width() noexcept -> int
 		return s_max_quads;
 	}
 
-	auto Settings::title() noexcept -> const std::string&
-	{
-		return s_title;
-	}
 
-	auto Settings::version() noexcept -> const std::string&
-	{
-		return s_version;
-	}
 
-	auto Settings::identifier() noexcept -> const std::string&
-	{
-		return s_identifier;
-	}
-
-	auto Settings::creator() noexcept -> const std::string&
-	{
-		return s_creator;
-	}
-
-	auto Settings::copyright() noexcept -> const std::string&
-	{
-		return s_copyright;
-	}
-
-	auto Settings::website() noexcept -> const std::string&
-	{
-		return s_website;
-	}
-
-	auto Settings::log_dir() noexcept -> const std::string&
-	{
-		static std::string log_dir = "logs/";
-		return log_dir;
-	}
 */

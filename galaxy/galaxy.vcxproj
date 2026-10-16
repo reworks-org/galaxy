@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Config.cpp" />
     <ClCompile Include="src\galaxy\core\Settings.cpp" />
     <ClCompile Include="src\galaxy\fs\DialogButton.cpp" />
@@ -61,6 +62,7 @@
     <ClCompile Include="src\galaxy\utils\UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Config.hpp" />
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\fs\DialogButton.hpp" />
