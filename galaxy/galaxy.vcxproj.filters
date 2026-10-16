@@ -50,6 +50,7 @@
     <ClCompile Include="src\galaxy\lua\injects\LuaInput.cpp" />
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
+    <ClCompile Include="src\galaxy\core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -93,5 +94,6 @@
     <ClInclude Include="src\galaxy\core\Settings.hpp" />
     <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\core\Window.hpp" />
   </ItemGroup>
 </Project>
