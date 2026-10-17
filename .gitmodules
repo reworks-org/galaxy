@@ -46,3 +46,6 @@
 [submodule "deps/SDL3_TTF"]
 	path = deps/SDL3_TTF
 	url = https://github.com/libsdl-org/SDL_ttf.git
+[submodule "deps/pl_mpeg"]
+	path = deps/pl_mpeg
+	url = https://github.com/phoboslab/pl_mpeg.git
