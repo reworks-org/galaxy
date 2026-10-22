@@ -23,7 +23,6 @@ union SDL_Event;
 namespace galaxy
 {
 	///
-	/// RAII Window.
 	/// Handles events, input & display.
 	///
 	class Window final
