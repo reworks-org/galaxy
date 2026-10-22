@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_7eanimationsystem_0',['~AnimationSystem',['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#aefb3bdd30343a8d16b433356af7fc131',1,'galaxy::systems::AnimationSystem']]],
-  ['_7eapp_1',['~App',['../dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f',1,'galaxy::App::~App()'],['../dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f',1,'galaxy::App::~App()']]],
+  ['_7eapp_1',['~App',['../dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f',1,'galaxy::App']]],
   ['_7ecache_2',['~Cache',['../d1/d4d/classgalaxy_1_1Cache.html#ace32ff28ae9db099557e1f59b396334f',1,'galaxy::Cache']]],
   ['_7econfig_3',['~Config',['../db/d49/classgalaxy_1_1Config.html#a4716f5bccc91a84de5daa9f10d36c845',1,'galaxy::Config']]],
   ['_7econsolesink_4',['~ConsoleSink',['../d9/d14/classgalaxy_1_1ConsoleSink.html#a52f72b7cbc567fad110579b8066e033f',1,'galaxy::ConsoleSink']]],

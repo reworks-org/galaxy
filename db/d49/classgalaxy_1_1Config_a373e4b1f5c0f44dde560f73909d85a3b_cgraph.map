@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Loads config json from disk." alt="" coords="5,71,156,96"/>
 <area shape="rect" id="Node000002" href="$d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92" title="Read a non&#45;binary file on disk." alt="" coords="204,29,363,55"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,68,207,55,208,60,144,73"/>
-<area shape="rect" id="Node000004" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e" title="Writes a non&#45;binary file to disk." alt="" coords="219,103,348,143"/>
+<area shape="rect" id="Node000004" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a69e5da47690e6d988ec2e36da70a548a" title="Writes a non&#45;binary file to disk." alt="" coords="219,103,348,143"/>
 <area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="146,93,206,105,205,111,145,99"/>
 <area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="251,31,244,21,248,11,261,5,283,3,310,6,321,15,318,19,308,11,283,8,263,10,252,15,250,20,255,28"/>
 <area shape="rect" id="Node000003" href="$d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="411,63,545,103"/>

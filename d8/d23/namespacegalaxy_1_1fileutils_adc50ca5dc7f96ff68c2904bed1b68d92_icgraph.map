@@ -1,14 +1,27 @@
 <map id="galaxy::fileutils::read" name="galaxy::fileutils::read">
-<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="421,94,580,119"/>
-<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="537,84,527,76,501,73,479,75,467,79,465,85,471,92,467,96,460,86,463,76,477,70,501,67,529,71,541,80"/>
-<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f" title=" " alt="" coords="216,29,373,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,93,366,72,368,67,442,88"/>
-<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="219,94,370,119"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="408,109,370,109,370,104,408,104"/>
-<area shape="rect" id="Node000005" href="$d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094" title="Read a json file from disk." alt="" coords="230,168,359,208"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="456,127,347,170,345,165,454,122"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="329,18,317,11,295,8,275,10,263,15,259,21,261,28,256,30,254,20,260,11,274,5,295,3,319,6,332,13"/>
-<area shape="rect" id="Node000004" href="$db/d49/classgalaxy_1_1Config.html#a8112e04fd59550497dc793e9d07be719" title="Argument constructor." alt="" coords="5,94,168,119"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="206,109,168,109,168,104,206,104"/>
-<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="329,156,317,149,295,147,275,149,263,153,259,159,261,167,256,168,254,158,260,149,274,143,295,141,319,144,332,152"/>
+<area shape="rect" id="Node000001" title="Read a non&#45;binary file on disk." alt="" coords="808,104,967,129"/>
+<area shape="poly" id="edge13_Node000001_Node000001" title=" " alt="" coords="924,94,914,86,887,83,865,85,854,89,852,95,858,102,854,106,846,96,850,86,864,80,887,77,916,81,927,90"/>
+<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f" title=" " alt="" coords="603,97,760,137"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="795,119,760,119,760,114,795,114"/>
+<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="606,23,757,48"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="846,101,759,63,723,51,725,46,761,58,848,96"/>
+<area shape="rect" id="Node000010" href="$d8/d23/namespacegalaxy_1_1fileutils.html#aed40b349358804042d8866871ef05e31" title="Read a json file from disk." alt="" coords="617,185,746,225"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="845,137,730,187,728,182,843,132"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="716,85,704,78,681,75,662,77,650,82,646,88,648,96,643,97,640,87,647,78,660,72,681,70,705,73,719,80"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="388,104,547,129"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="589,119,547,119,547,114,589,114"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,12,332,37"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="395,102,379,95,354,77,331,58,295,40,297,35,333,53,357,73,381,90,397,97"/>
+<area shape="rect" id="Node000006" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,92,325,117"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="374,114,326,111,326,106,374,109"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,12,144,37"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="179,27,144,27,144,22,179,22"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="295,82,286,74,262,71,242,73,232,77,230,83,235,90,231,93,225,84,228,74,241,68,262,65,288,69,298,78"/>
+<area shape="rect" id="Node000008" href="$db/d49/classgalaxy_1_1Config.html#a8112e04fd59550497dc793e9d07be719" title="Argument constructor." alt="" coords="386,55,549,80"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="592,51,549,58,549,53,592,46"/>
+<area shape="rect" id="Node000009" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,5,555,31"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="592,31,555,28,555,22,592,25"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="366,24,333,25,332,20,366,19"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="401,37,381,44,328,69,285,94,282,90,326,65,379,40,399,32"/>
+<area shape="poly" id="edge15_Node000010_Node000010" title=" " alt="" coords="716,173,704,166,681,163,662,165,650,170,646,176,648,184,643,185,640,175,647,166,660,160,681,158,705,161,719,168"/>
 </map>

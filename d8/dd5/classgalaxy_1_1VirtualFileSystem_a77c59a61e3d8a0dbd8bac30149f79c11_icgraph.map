@@ -1,4 +1,13 @@
 <map id="galaxy::VirtualFileSystem::input_box" name="galaxy::VirtualFileSystem::input_box">
-<area shape="rect" id="Node000001" title="Opens a platform specific text input box." alt="" coords="5,29,193,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="131,17,120,11,99,8,82,10,71,15,67,21,69,28,64,30,62,20,68,11,80,5,99,3,121,6,133,13"/>
+<area shape="rect" id="Node000001" title="Opens a platform specific text input box." alt="" coords="587,35,775,75"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="718,24,705,17,681,14,659,16,647,21,642,27,644,34,639,36,637,26,643,16,658,11,681,9,707,12,721,19"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="380,43,539,68"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="573,58,539,58,539,53,573,53"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,43,329,33,330,28,379,37"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="376,73,326,82,325,77,376,68"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>

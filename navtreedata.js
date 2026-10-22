@@ -63,15 +63,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83ace07ecb19807512eee6d74e4ffd37b28",
-"d1/d4d/classgalaxy_1_1Cache.html#a028cac1ee1032dcc9597a18fc7ec7d25",
-"d4/d1b/namespacegalaxy_1_1resource.html#a6286366ad0ea9df0086a6bbca8632e07",
-"d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44",
-"d8/db2/classgalaxy_1_1Keyboard.html#ac30aaebb6af4975787ed7e30c347785d",
-"da/d9f/Rect_8cpp_source.html",
+"d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83acbc55a981874476c41bbc954dfe3ec6e",
+"d1/d4d/classgalaxy_1_1Cache.html#a0504bc638d461fc0213900591bf715fd",
+"d4/d1b/namespacegalaxy_1_1resource.html#a0a558b76b83408eb125523a657eafe89",
+"d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c",
+"d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14",
+"da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5",
 "dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9",
-"df/d23/structgalaxy_1_1Settings.html#a40a6456666350f69d352df5e89eaa905",
-"df/dba/classgalaxy_1_1Scene.html#af87a6c6e30eb38c7556f25642645f3be"
+"df/d23/structgalaxy_1_1Settings.html#ab55bd6d285934234af9d029c7978cc5c",
+"namespaces.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

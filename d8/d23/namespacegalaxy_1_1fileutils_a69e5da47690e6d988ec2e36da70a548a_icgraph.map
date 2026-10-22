@@ -1,0 +1,30 @@
+<map id="galaxy::fileutils::write" name="galaxy::fileutils::write">
+<area shape="rect" id="Node000001" title="Writes a non&#45;binary file to disk." alt="" coords="812,89,941,129"/>
+<area shape="poly" id="edge15_Node000001_Node000001" title=" " alt="" coords="909,77,898,70,877,67,858,69,847,74,843,80,846,88,840,89,838,79,844,70,857,64,877,62,899,65,912,72"/>
+<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#a4ed551c8abc8a9521e66ab3f3a2070d5" title=" " alt="" coords="603,129,764,169"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="799,127,765,135,764,129,798,122"/>
+<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b" title="Loads config json from disk." alt="" coords="608,55,759,80"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="798,95,743,83,744,77,799,89"/>
+<area shape="rect" id="Node000010" href="$db/d49/classgalaxy_1_1Config.html#a2d27aeba46bb153367da4985d75154e7" title="Save the config file. Must be opened first." alt="" coords="607,5,760,31"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="833,83,763,44,733,33,735,28,765,40,836,79"/>
+<area shape="rect" id="Node000011" href="$d8/d23/namespacegalaxy_1_1fileutils.html#a4bb10620b79b49bc7507c58b326e74dd" title="Write json to disk." alt="" coords="619,217,748,257"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="835,139,716,219,713,214,833,134"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="716,117,704,110,683,107,665,109,654,114,650,120,652,128,647,129,645,119,651,110,664,104,683,102,706,105,718,112"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="388,120,547,145"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="589,144,547,141,547,136,589,139"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,28,332,53"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="395,118,379,111,354,94,331,75,293,56,295,51,333,70,357,89,381,106,397,113"/>
+<area shape="rect" id="Node000006" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,108,325,133"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="374,130,326,127,326,122,374,125"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,28,144,53"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="179,43,144,43,144,38,179,38"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="295,98,286,90,262,87,242,89,232,93,230,99,235,106,231,109,225,100,228,90,241,84,262,81,288,85,298,94"/>
+<area shape="rect" id="Node000008" href="$db/d49/classgalaxy_1_1Config.html#a8112e04fd59550497dc793e9d07be719" title="Argument constructor." alt="" coords="386,71,549,96"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="595,77,549,80,549,75,594,71"/>
+<area shape="rect" id="Node000009" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,21,555,47"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="594,56,549,49,550,44,595,51"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="366,40,333,41,332,36,366,35"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="405,53,381,62,329,86,286,110,283,105,327,81,379,57,403,48"/>
+<area shape="poly" id="edge14_Node000010_Node000009" title=" " alt="" coords="593,27,555,30,555,25,593,22"/>
+<area shape="poly" id="edge17_Node000011_Node000011" title=" " alt="" coords="716,205,704,198,683,195,665,197,654,202,650,208,652,216,647,217,645,207,651,198,664,192,683,190,706,193,718,200"/>
+</map>

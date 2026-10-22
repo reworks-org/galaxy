@@ -6,5 +6,6 @@ var classgalaxy_1_1Subprocess =
     [ "create", "db/d1d/classgalaxy_1_1Subprocess.html#ad693b155443b360c95cd2c3e9b6a6daa", null ],
     [ "wait", "db/d1d/classgalaxy_1_1Subprocess.html#ae453f3c0015bdd5ad882cc19a5d955b2", null ],
     [ "kill", "db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99", null ],
+    [ "get_properties", "db/d1d/classgalaxy_1_1Subprocess.html#a1829243d4bbffbabd1125078387c88d1", null ],
     [ "m_process", "db/d1d/classgalaxy_1_1Subprocess.html#a539b6afd30365f6673be85a9a7058add", null ]
 ];

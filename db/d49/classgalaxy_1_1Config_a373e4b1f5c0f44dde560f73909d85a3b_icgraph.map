@@ -1,5 +1,14 @@
 <map id="galaxy::Config::load" name="galaxy::Config::load">
-<area shape="rect" id="Node000001" title="Loads config json from disk." alt="" coords="216,5,367,31"/>
-<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a8112e04fd59550497dc793e9d07be719" title="Argument constructor." alt="" coords="5,5,168,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,21,168,21,168,15,202,15"/>
+<area shape="rect" id="Node000001" title="Loads config json from disk." alt="" coords="603,31,753,56"/>
+<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a8112e04fd59550497dc793e9d07be719" title="Argument constructor." alt="" coords="386,5,549,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="588,35,549,30,549,25,589,30"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,55,555,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="589,56,555,60,554,55,588,51"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,17,332,43"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,55,332,45,333,40,384,49"/>
+<area shape="rect" id="Node000006" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,91,325,116"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="382,85,326,95,325,90,381,80"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,17,144,43"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="179,33,144,33,144,27,179,27"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="295,80,286,72,262,69,242,71,232,76,230,82,235,89,231,92,225,82,228,72,241,66,262,64,288,68,298,76"/>
 </map>

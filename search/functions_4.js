@@ -10,5 +10,5 @@ var searchData=
   ['event_7',['Event',['../df/d64/classgalaxy_1_1Event.html#a22a3067af283cf0828ab47a90bd6dbe5',1,'galaxy::Event::Event() noexcept'],['../df/d64/classgalaxy_1_1Event.html#a016843d9a9c125f370ceb63c082eeb36',1,'galaxy::Event::Event(Event &amp;&amp;) noexcept'],['../df/d64/classgalaxy_1_1Event.html#a5bfa64a796545baf36bec038d87f5301',1,'galaxy::Event::Event(const Event &amp;) noexcept']]],
   ['events_8',['events',['../dd/d33/classgalaxy_1_1App.html#a24f7dc434b7fd086bfbbb758885cddf5',1,'galaxy::App']]],
   ['exists_9',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
-  ['extension_10',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
+  ['extension_10',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a5ac2489b7dc8f1bd9b7c3778fb36705d',1,'galaxy::fileutils']]]
 ];

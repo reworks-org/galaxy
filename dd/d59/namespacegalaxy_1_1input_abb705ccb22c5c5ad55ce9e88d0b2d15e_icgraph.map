@@ -1,0 +1,13 @@
+<map id="galaxy::input::clipboard_set" name="galaxy::input::clipboard_set">
+<area shape="rect" id="Node000001" title="Set clipboard contents." alt="" coords="568,43,769,68"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="708,33,697,25,669,21,645,23,633,28,630,34,637,41,633,44,625,34,629,24,644,18,669,16,699,20,711,29"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="380,35,520,75"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="554,58,520,58,520,53,554,53"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="366,41,326,33,327,28,367,36"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="367,74,326,82,325,77,366,69"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>

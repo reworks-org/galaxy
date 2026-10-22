@@ -114,10 +114,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d59/namespa
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2fce3445e15cb1035e0ba4b4dad9b105" id="r_a2fce3445e15cb1035e0ba4b4dad9b105"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2fce3445e15cb1035e0ba4b4dad9b105">set_clipboard</a> (const std::string &amp;contents) noexcept</td></tr>
-<tr class="memdesc:a2fce3445e15cb1035e0ba4b4dad9b105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set clipboard contents.  <br /></td></tr>
-<tr class="memitem:ae2d79d9b95b9983f6513d0aeb3b38ada" id="r_ae2d79d9b95b9983f6513d0aeb3b38ada"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ae2d79d9b95b9983f6513d0aeb3b38ada">get_clipboard</a> () noexcept</td></tr>
-<tr class="memdesc:ae2d79d9b95b9983f6513d0aeb3b38ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get clipboard contents.  <br /></td></tr>
+<tr class="memitem:abb705ccb22c5c5ad55ce9e88d0b2d15e" id="r_abb705ccb22c5c5ad55ce9e88d0b2d15e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abb705ccb22c5c5ad55ce9e88d0b2d15e">clipboard_set</a> (const std::string &amp;contents) noexcept</td></tr>
+<tr class="memdesc:abb705ccb22c5c5ad55ce9e88d0b2d15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set clipboard contents.  <br /></td></tr>
+<tr class="memitem:a51778ae141b12a9cbd74fe276ea5e258" id="r_a51778ae141b12a9cbd74fe276ea5e258"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a51778ae141b12a9cbd74fe276ea5e258">clipboard_get</a> () noexcept</td></tr>
+<tr class="memdesc:a51778ae141b12a9cbd74fe276ea5e258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get clipboard contents.  <br /></td></tr>
+<tr class="memitem:a6874f15424e361b982cdead1e92a9e38" id="r_a6874f15424e361b982cdead1e92a9e38"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6874f15424e361b982cdead1e92a9e38">clipboard_clear</a> () noexcept</td></tr>
+<tr class="memdesc:a6874f15424e361b982cdead1e92a9e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the clipboard contents.  <br /></td></tr>
 <tr class="memitem:a8effd0c4f610b629a6b8926cf5a00e74" id="r_a8effd0c4f610b629a6b8926cf5a00e74"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8effd0c4f610b629a6b8926cf5a00e74">is_key_mod_down</a> (const <a class="el" href="../../d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351">KeyMods</a> modifier) noexcept</td></tr>
 <tr class="memdesc:a8effd0c4f610b629a6b8926cf5a00e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">See if a key mod is being held down.  <br /></td></tr>
 <tr class="memitem:a9ae81b722326a313a1d1721825d7f0da" id="r_a9ae81b722326a313a1d1721825d7f0da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9ae81b722326a313a1d1721825d7f0da">is_key_down</a> (const <a class="el" href="../../d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83">Keys</a> key) noexcept</td></tr>
@@ -128,8 +130,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7583b70eec34e14b210812880e951522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current cursor position.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a2fce3445e15cb1035e0ba4b4dad9b105" name="a2fce3445e15cb1035e0ba4b4dad9b105"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fce3445e15cb1035e0ba4b4dad9b105">&#9670;&#160;</a></span>set_clipboard()</h2>
+<a id="abb705ccb22c5c5ad55ce9e88d0b2d15e" name="abb705ccb22c5c5ad55ce9e88d0b2d15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb705ccb22c5c5ad55ce9e88d0b2d15e">&#9670;&#160;</a></span>clipboard_set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,7 +140,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void galaxy::input::set_clipboard </td>
+          <td class="memname">void galaxy::input::clipboard_set </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>contents</em></span></td><td>)</td>
           <td></td>
@@ -164,27 +166,36 @@ Functions</h2></td></tr>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_cgraph" loading="lazy" alt=""/></div>
-<map name="add/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_cgraph" id="add/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_cgraph">
-<area shape="rect" title="Set clipboard contents." alt="" coords="5,29,140,69"/>
-<area shape="poly" title=" " alt="" coords="47,29,45,20,49,11,59,5,73,3,89,6,98,13,94,17,87,10,73,8,60,10,53,14,50,20,52,29"/>
+<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_cgraph" loading="lazy" alt=""/></div>
+<map name="add/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_cgraph" id="add/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_cgraph">
+<area shape="rect" title="Set clipboard contents." alt="" coords="5,29,207,55"/>
+<area shape="poly" title=" " alt="" coords="73,31,66,21,70,11,83,5,106,3,134,6,145,16,142,20,132,11,106,8,85,10,74,15,71,20,77,28"/>
 </map>
 </div>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_icgraph" loading="lazy" alt=""/></div>
-<map name="add/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_icgraph" id="add/d59/namespacegalaxy_1_1input_a2fce3445e15cb1035e0ba4b4dad9b105_icgraph">
-<area shape="rect" title="Set clipboard contents." alt="" coords="5,29,140,69"/>
-<area shape="poly" title=" " alt="" coords="94,17,87,10,73,8,60,10,53,14,50,20,52,29,47,29,45,20,49,11,59,5,73,3,89,6,98,13"/>
+<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_icgraph" loading="lazy" alt=""/></div>
+<map name="add/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_icgraph" id="add/d59/namespacegalaxy_1_1input_abb705ccb22c5c5ad55ce9e88d0b2d15e_icgraph">
+<area shape="rect" title="Set clipboard contents." alt="" coords="568,43,769,68"/>
+<area shape="poly" title=" " alt="" coords="708,33,697,25,669,21,645,23,633,28,630,34,637,41,633,44,625,34,629,24,644,18,669,16,699,20,711,29"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="380,35,520,75"/>
+<area shape="poly" title=" " alt="" coords="554,58,520,58,520,53,554,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="366,41,326,33,327,28,367,36"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="367,74,326,82,325,77,366,69"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae2d79d9b95b9983f6513d0aeb3b38ada" name="ae2d79d9b95b9983f6513d0aeb3b38ada"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2d79d9b95b9983f6513d0aeb3b38ada">&#9670;&#160;</a></span>get_clipboard()</h2>
+<a id="a51778ae141b12a9cbd74fe276ea5e258" name="a51778ae141b12a9cbd74fe276ea5e258"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51778ae141b12a9cbd74fe276ea5e258">&#9670;&#160;</a></span>clipboard_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,7 +204,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string galaxy::input::get_clipboard </td>
+          <td class="memname">std::string galaxy::input::clipboard_get </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -214,20 +225,88 @@ Functions</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_cgraph" loading="lazy" alt=""/></div>
-<map name="add/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_cgraph" id="add/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_cgraph">
-<area shape="rect" title="Get clipboard contents." alt="" coords="5,29,140,69"/>
-<area shape="poly" title=" " alt="" coords="47,29,45,20,49,11,59,5,73,3,89,6,98,13,94,17,87,10,73,8,60,10,53,14,50,20,52,29"/>
+<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_cgraph" loading="lazy" alt=""/></div>
+<map name="add/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_cgraph" id="add/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_cgraph">
+<area shape="rect" title="Get clipboard contents." alt="" coords="5,29,208,55"/>
+<area shape="poly" title=" " alt="" coords="73,31,66,21,70,11,84,5,107,3,135,6,146,16,143,20,133,11,107,8,85,10,74,15,71,20,78,28"/>
 </map>
 </div>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_icgraph" loading="lazy" alt=""/></div>
-<map name="add/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_icgraph" id="add/d59/namespacegalaxy_1_1input_ae2d79d9b95b9983f6513d0aeb3b38ada_icgraph">
-<area shape="rect" title="Get clipboard contents." alt="" coords="5,29,140,69"/>
-<area shape="poly" title=" " alt="" coords="94,17,87,10,73,8,60,10,53,14,50,20,52,29,47,29,45,20,49,11,59,5,73,3,89,6,98,13"/>
+<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_icgraph" loading="lazy" alt=""/></div>
+<map name="add/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_icgraph" id="add/d59/namespacegalaxy_1_1input_a51778ae141b12a9cbd74fe276ea5e258_icgraph">
+<area shape="rect" title="Get clipboard contents." alt="" coords="568,43,771,68"/>
+<area shape="poly" title=" " alt="" coords="709,33,698,25,669,21,646,23,634,28,631,34,638,41,634,44,626,34,630,24,645,18,669,16,700,20,712,29"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="380,35,520,75"/>
+<area shape="poly" title=" " alt="" coords="554,58,520,58,520,53,554,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="366,41,326,33,327,28,367,36"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="367,74,326,82,325,77,366,69"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6874f15424e361b982cdead1e92a9e38" name="a6874f15424e361b982cdead1e92a9e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6874f15424e361b982cdead1e92a9e38">&#9670;&#160;</a></span>clipboard_clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::input::clipboard_clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear the clipboard contents. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if successful. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/d0a/Clipboard_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../df/d0a/Clipboard_8cpp_source.html">Clipboard.cpp</a>.</p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_cgraph" loading="lazy" alt=""/></div>
+<map name="add/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_cgraph" id="add/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_cgraph">
+<area shape="rect" title="Clear the clipboard contents." alt="" coords="5,29,180,69"/>
+<area shape="poly" title=" " alt="" coords="60,30,58,20,63,11,75,5,93,3,113,6,124,13,122,17,111,11,93,8,76,10,67,15,63,21,65,28"/>
+</map>
+</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_icgraph" loading="lazy" alt=""/></div>
+<map name="add/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_icgraph" id="add/d59/namespacegalaxy_1_1input_a6874f15424e361b982cdead1e92a9e38_icgraph">
+<area shape="rect" title="Clear the clipboard contents." alt="" coords="568,35,743,75"/>
+<area shape="poly" title=" " alt="" coords="690,24,678,17,655,14,636,16,624,21,620,27,622,34,617,36,614,26,621,17,634,11,655,9,679,12,693,19"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3fb88beaf9458550f3302ed5226e88aa" title="Injects input handling into Lua." alt="" coords="380,35,520,75"/>
+<area shape="poly" title=" " alt="" coords="554,58,520,58,520,53,554,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="366,41,326,33,327,28,367,36"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="367,74,326,82,325,77,366,69"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -266,20 +345,20 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if keymod is currently down. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../df/de8/Input_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../df/de8/Input_8cpp_source.html">Input.cpp</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_cgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_cgraph" id="add/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_cgraph">
 <area shape="rect" title="See if a key mod is being held down." alt="" coords="5,29,160,69"/>
 <area shape="poly" title=" " alt="" coords="53,29,52,20,56,11,67,5,83,3,101,6,111,13,108,17,99,11,83,8,68,10,60,14,57,21,59,28"/>
 </map>
 </div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_icgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_icgraph" id="add/d59/namespacegalaxy_1_1input_a8effd0c4f610b629a6b8926cf5a00e74_icgraph">
 <area shape="rect" title="See if a key mod is being held down." alt="" coords="5,29,160,69"/>
@@ -322,20 +401,20 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if key is currently down. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../df/de8/Input_8cpp_source.html#l00022">22</a> of file <a class="el" href="../../df/de8/Input_8cpp_source.html">Input.cpp</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_cgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_cgraph" id="add/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_cgraph">
 <area shape="rect" title="See if a key is being held down." alt="" coords="5,29,203,55"/>
 <area shape="poly" title=" " alt="" coords="71,31,65,21,68,11,82,5,104,3,131,6,142,15,139,19,129,11,104,8,83,10,72,15,70,20,76,28"/>
 </map>
 </div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_icgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_icgraph" id="add/d59/namespacegalaxy_1_1input_a9ae81b722326a313a1d1721825d7f0da_icgraph">
 <area shape="rect" title="See if a key is being held down." alt="" coords="5,29,203,55"/>
@@ -378,20 +457,20 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if button was pressed. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../df/de8/Input_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../df/de8/Input_8cpp_source.html">Input.cpp</a>.</p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_cgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_cgraph" id="add/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_cgraph">
 <area shape="rect" title="Check if a mouse button was pressed." alt="" coords="5,29,224,55"/>
 <area shape="poly" title=" " alt="" coords="79,31,71,21,75,11,90,5,115,3,145,6,157,15,154,20,143,11,115,8,91,10,79,15,76,20,83,28"/>
 </map>
 </div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_icgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_icgraph" id="add/d59/namespacegalaxy_1_1input_ae1faa66f3b5b7bb59121727a12f3a9f0_icgraph">
 <area shape="rect" title="Check if a mouse button was pressed." alt="" coords="5,29,224,55"/>
@@ -428,20 +507,20 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Returns position as a vec2. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../df/de8/Input_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../df/de8/Input_8cpp_source.html">Input.cpp</a>.</p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-12-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_cgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_cgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_cgraph" id="add/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_cgraph">
 <area shape="rect" title="Get current cursor position." alt="" coords="5,29,140,69"/>
 <area shape="poly" title=" " alt="" coords="47,29,45,20,49,11,59,5,73,3,89,6,98,13,94,17,87,10,73,8,60,10,53,14,50,20,52,29"/>
 </map>
 </div>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-13-content" class="dyncontent hidden">
 <div class="center"><img src="../../dd/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_icgraph.png" border="0" usemap="#add/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_icgraph" loading="lazy" alt=""/></div>
 <map name="add/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_icgraph" id="add/d59/namespacegalaxy_1_1input_a7583b70eec34e14b210812880e951522_icgraph">
 <area shape="rect" title="Get current cursor position." alt="" coords="5,29,140,69"/>

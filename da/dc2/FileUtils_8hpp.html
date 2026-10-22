@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dc2/FileUti
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;expected&gt;</code><br />
-<code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;nlohmann/json_fwd.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d8/db6/FileError_8hpp_source.html">galaxy/fs/FileError.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for FileUtils.hpp:</div>
@@ -121,19 +120,17 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dc2/FileUti
 <div id="dynsection-0-content" class="dyncontent hidden">
 <div class="center"><img src="../../d8/d3b/FileUtils_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2fs_2FileUtils_8hpp" loading="lazy" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2fs_2FileUtils_8hpp" id="agalaxy_2src_2galaxy_2fs_2FileUtils_8hpp">
-<area shape="rect" title=" " alt="" coords="147,5,301,45"/>
+<area shape="rect" title=" " alt="" coords="123,5,277,45"/>
 <area shape="rect" title=" " alt="" coords="5,93,88,119"/>
-<area shape="poly" title=" " alt="" coords="183,48,86,90,84,85,180,43"/>
-<area shape="rect" title=" " alt="" coords="112,93,187,119"/>
-<area shape="poly" title=" " alt="" coords="208,47,172,85,168,81,204,44"/>
-<area shape="rect" title=" " alt="" coords="211,93,387,119"/>
-<area shape="poly" title=" " alt="" coords="244,44,280,81,276,85,240,47"/>
-<area shape="rect" href="../../d8/db6/FileError_8hpp.html" title=" " alt="" coords="411,93,578,119"/>
-<area shape="poly" title=" " alt="" coords="290,43,443,87,441,92,288,48"/>
-<area shape="rect" title=" " alt="" coords="397,167,488,192"/>
-<area shape="poly" title=" " alt="" coords="488,121,461,157,457,154,484,117"/>
-<area shape="rect" title=" " alt="" coords="512,167,579,192"/>
-<area shape="poly" title=" " alt="" coords="505,117,531,154,527,157,501,121"/>
+<area shape="poly" title=" " alt="" coords="164,48,82,89,80,85,162,43"/>
+<area shape="rect" title=" " alt="" coords="112,93,288,119"/>
+<area shape="poly" title=" " alt="" coords="203,46,203,79,197,79,197,46"/>
+<area shape="rect" href="../../d8/db6/FileError_8hpp.html" title=" " alt="" coords="313,93,479,119"/>
+<area shape="poly" title=" " alt="" coords="248,43,355,86,353,91,246,48"/>
+<area shape="rect" title=" " alt="" coords="299,167,389,192"/>
+<area shape="poly" title=" " alt="" coords="390,121,363,157,358,154,385,117"/>
+<area shape="rect" title=" " alt="" coords="413,167,480,192"/>
+<area shape="poly" title=" " alt="" coords="407,117,433,154,428,157,402,121"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
@@ -162,16 +159,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a508e266dc3b9a1f83e32bb098a1e98b1" id="r_a508e266dc3b9a1f83e32bb098a1e98b1"><td class="memItemLeft">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1">galaxy::fileutils::extension</a> (const std::string &amp;filepath) noexcept</td></tr>
-<tr class="memdesc:a508e266dc3b9a1f83e32bb098a1e98b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a file or path's extension.  <br /></td></tr>
+<tr class="memitem:a5ac2489b7dc8f1bd9b7c3778fb36705d" id="r_a5ac2489b7dc8f1bd9b7c3778fb36705d"><td class="memItemLeft">std::expected&lt; std::string, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a5ac2489b7dc8f1bd9b7c3778fb36705d">galaxy::fileutils::extension</a> (const std::string &amp;filepath) noexcept</td></tr>
+<tr class="memdesc:a5ac2489b7dc8f1bd9b7c3778fb36705d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a file or path's extension.  <br /></td></tr>
 <tr class="memitem:adc50ca5dc7f96ff68c2904bed1b68d92" id="r_adc50ca5dc7f96ff68c2904bed1b68d92"><td class="memItemLeft">std::expected&lt; std::string, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92">galaxy::fileutils::read</a> (const std::string &amp;filepath)</td></tr>
 <tr class="memdesc:adc50ca5dc7f96ff68c2904bed1b68d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a non-binary file on disk.  <br /></td></tr>
-<tr class="memitem:a08aa5cf80f6e7f648fd96f850acf1e7e" id="r_a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="memItemLeft">std::optional&lt; <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e">galaxy::fileutils::write</a> (const std::string &amp;filepath, const std::string &amp;data)</td></tr>
-<tr class="memdesc:a08aa5cf80f6e7f648fd96f850acf1e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a non-binary file to disk.  <br /></td></tr>
-<tr class="memitem:afa2b4b065386c19c0911c9953f565094" id="r_afa2b4b065386c19c0911c9953f565094"><td class="memItemLeft">std::optional&lt; nlohmann::json &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094">galaxy::fileutils::read_json</a> (const std::string &amp;filepath)</td></tr>
-<tr class="memdesc:afa2b4b065386c19c0911c9953f565094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a json file from disk.  <br /></td></tr>
-<tr class="memitem:aa1b4eead3698b8ab97d50c6cd2c86c78" id="r_aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78">galaxy::fileutils::write_json</a> (const std::string &amp;filepath, const nlohmann::json &amp;json)</td></tr>
-<tr class="memdesc:aa1b4eead3698b8ab97d50c6cd2c86c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write json to disk.  <br /></td></tr>
+<tr class="memitem:a69e5da47690e6d988ec2e36da70a548a" id="r_a69e5da47690e6d988ec2e36da70a548a"><td class="memItemLeft">std::expected&lt; bool, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a69e5da47690e6d988ec2e36da70a548a">galaxy::fileutils::write</a> (const std::string &amp;filepath, const std::string &amp;data)</td></tr>
+<tr class="memdesc:a69e5da47690e6d988ec2e36da70a548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a non-binary file to disk.  <br /></td></tr>
+<tr class="memitem:aed40b349358804042d8866871ef05e31" id="r_aed40b349358804042d8866871ef05e31"><td class="memItemLeft">std::expected&lt; nlohmann::json, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#aed40b349358804042d8866871ef05e31">galaxy::fileutils::read_json</a> (const std::string &amp;filepath)</td></tr>
+<tr class="memdesc:aed40b349358804042d8866871ef05e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a json file from disk.  <br /></td></tr>
+<tr class="memitem:a4bb10620b79b49bc7507c58b326e74dd" id="r_a4bb10620b79b49bc7507c58b326e74dd"><td class="memItemLeft">std::expected&lt; bool, <a class="el" href="../../d5/d13/classgalaxy_1_1FileError.html">FileError</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a4bb10620b79b49bc7507c58b326e74dd">galaxy::fileutils::write_json</a> (const std::string &amp;filepath, const nlohmann::json &amp;json)</td></tr>
+<tr class="memdesc:a4bb10620b79b49bc7507c58b326e74dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write json to disk.  <br /></td></tr>
 <tr class="memitem:a26c21036c5b5a679c39939d39422df99" id="r_a26c21036c5b5a679c39939d39422df99"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a26c21036c5b5a679c39939d39422df99">galaxy::fileutils::open_url</a> (const std::string &amp;url) noexcept</td></tr>
 <tr class="memdesc:a26c21036c5b5a679c39939d39422df99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open URL in default webbrowser.  <br /></td></tr>
 </table>

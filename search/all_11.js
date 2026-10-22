@@ -14,7 +14,7 @@ var searchData=
   ['raw_11',['raw',['../db/d49/classgalaxy_1_1Config.html#a764247a31026c4bb340b0b7bd25bda54',1,'galaxy::Config::raw(const nlohmann::json &amp;json) noexcept'],['../db/d49/classgalaxy_1_1Config.html#aed66deba74b35484061b889c06db04ea',1,'galaxy::Config::raw() const noexcept']]],
   ['read_12',['read',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a5714f1be5d091e5e20d6c6d9ae8de541',1,'galaxy::VirtualFileSystem::read()'],['../d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92',1,'galaxy::fileutils::read()']]],
   ['read_5fbinary_13',['read_binary',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af5d6601c81e250d33fc7bb13912c8545',1,'galaxy::VirtualFileSystem']]],
-  ['read_5fjson_14',['read_json',['../d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094',1,'galaxy::fileutils']]],
+  ['read_5fjson_14',['read_json',['../d8/d23/namespacegalaxy_1_1fileutils.html#aed40b349358804042d8866871ef05e31',1,'galaxy::fileutils']]],
   ['readme_2emd_15',['README.md',['../da/ddd/README_8md.html',1,'']]],
   ['rect_16',['Rect',['../d5/d58/classgalaxy_1_1Rect.html',1,'galaxy::Rect&lt; Type &gt;'],['../d5/d58/classgalaxy_1_1Rect.html#aede617e11acffab117f553eab2bc0ca7',1,'galaxy::Rect::Rect() noexcept'],['../d5/d58/classgalaxy_1_1Rect.html#ae687af636fdf1f09d97d7a810c745eac',1,'galaxy::Rect::Rect(const Type x, const Type y, const Type width, const Type height) noexcept']]],
   ['rect_2ecpp_17',['Rect.cpp',['../da/d9f/Rect_8cpp.html',1,'']]],
@@ -57,5 +57,5 @@ var searchData=
   ['root_5fdir_54',['root_dir',['../df/d23/structgalaxy_1_1Settings.html#a0cfe5e4897178c7a08c2b1b4c2eae1e2',1,'galaxy::Settings']]],
   ['root_5fpath_5fwrapper_55',['root_path_wrapper',['../d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21',1,'galaxy']]],
   ['rtrim_56',['rtrim',['../df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd',1,'galaxy::str']]],
-  ['run_57',['run',['../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c',1,'galaxy::App::run()'],['../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c',1,'galaxy::App::run()'],['../db/da2/classgalaxy_1_1Script.html#a985770c037690a1351f969e6e90a31b7',1,'galaxy::Script::run()']]]
+  ['run_57',['run',['../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c',1,'galaxy::App::run()'],['../db/da2/classgalaxy_1_1Script.html#a985770c037690a1351f969e6e90a31b7',1,'galaxy::Script::run()']]]
 ];

@@ -1,5 +1,9 @@
 var NAVTREEINDEX4 =
 {
+"d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c":[2,0,0,28,9],
+"d5/d58/classgalaxy_1_1Rect.html#ad7b7b6122dfbb4ecd1689d937a50aeb1":[0,0,0,38,17],
+"d5/d58/classgalaxy_1_1Rect.html#ad7b7b6122dfbb4ecd1689d937a50aeb1":[2,0,0,28,17],
+"d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44":[0,0,0,38,15],
 "d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44":[2,0,0,28,15],
 "d5/d58/classgalaxy_1_1Rect.html#ae14aef4e95a8011d209a0acc816c7192":[0,0,0,38,13],
 "d5/d58/classgalaxy_1_1Rect.html#ae14aef4e95a8011d209a0acc816c7192":[2,0,0,28,13],
@@ -50,6 +54,7 @@ var NAVTREEINDEX4 =
 "d5/ddd/Pragma_8hpp.html":[3,0,0,0,0,10,8],
 "d5/ddd/Pragma_8hpp.html#a3514101475ec72e36c0a92d2a955c041":[3,0,0,0,0,10,8,3],
 "d5/ddd/Pragma_8hpp.html#a493ace087f54988a69e8944e2a30ed97":[3,0,0,0,0,10,8,1],
+"d5/ddd/Pragma_8hpp.html#ab60071f31aa1ecbc5179b6df85063a7c":[3,0,0,0,0,10,8,5],
 "d5/ddd/Pragma_8hpp.html#ad30c844175cedd5057b721af549804e1":[3,0,0,0,0,10,8,4],
 "d5/ddd/Pragma_8hpp.html#aeea47fcf9ec981a261237221194b033f":[3,0,0,0,0,10,8,0],
 "d5/ddd/Pragma_8hpp.html#aefee1add5f6cd2daaa34807a79a79d4b":[3,0,0,0,0,10,8,2],
@@ -209,12 +214,12 @@ var NAVTREEINDEX4 =
 "d8/d23/KeyReleased_8cpp.html":[3,0,0,0,0,2,8],
 "d8/d23/KeyReleased_8cpp_source.html":[3,0,0,0,0,2,8],
 "d8/d23/namespacegalaxy_1_1fileutils.html":[0,0,0,1],
-"d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e":[0,0,0,1,2],
 "d8/d23/namespacegalaxy_1_1fileutils.html#a26c21036c5b5a679c39939d39422df99":[0,0,0,1,5],
-"d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1":[0,0,0,1,0],
-"d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78":[0,0,0,1,4],
+"d8/d23/namespacegalaxy_1_1fileutils.html#a4bb10620b79b49bc7507c58b326e74dd":[0,0,0,1,4],
+"d8/d23/namespacegalaxy_1_1fileutils.html#a5ac2489b7dc8f1bd9b7c3778fb36705d":[0,0,0,1,0],
+"d8/d23/namespacegalaxy_1_1fileutils.html#a69e5da47690e6d988ec2e36da70a548a":[0,0,0,1,2],
 "d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92":[0,0,0,1,1],
-"d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094":[0,0,0,1,3],
+"d8/d23/namespacegalaxy_1_1fileutils.html#aed40b349358804042d8866871ef05e31":[0,0,0,1,3],
 "d8/d31/ConsoleSink_8cpp.html":[3,0,0,0,0,6,0],
 "d8/d31/ConsoleSink_8cpp_source.html":[3,0,0,0,0,6,0],
 "d8/d31/Subprocess_8hpp.html":[3,0,0,0,0,10,10],
@@ -244,10 +249,5 @@ var NAVTREEINDEX4 =
 "d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41":[0,0,0,24,11],
 "d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41":[2,0,0,14,11],
 "d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[0,0,0,24,2],
-"d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[2,0,0,14,2],
-"d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14":[0,0,0,24,1],
-"d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14":[2,0,0,14,1],
-"d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa":[0,0,0,24,10],
-"d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa":[2,0,0,14,10],
-"d8/db2/classgalaxy_1_1Keyboard.html#ac30aaebb6af4975787ed7e30c347785d":[0,0,0,24,7]
+"d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[2,0,0,14,2]
 };

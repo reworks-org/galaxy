@@ -1,7 +1,17 @@
 <map id="galaxy::Config::has" name="galaxy::Config::has">
-<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="221,31,367,56"/>
-<area shape="rect" id="Node000002" href="$db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945" title="Sets a new setting, only if key or value does not already exist." alt="" coords="5,5,173,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,35,173,31,174,26,208,30"/>
-<area shape="rect" id="Node000003" href="$db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b" title="Sets a new setting, only if key or value does not already exist." alt="" coords="5,55,173,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,56,174,60,173,55,207,51"/>
+<area shape="rect" id="Node000001" title="Check if the config file actually has a value." alt="" coords="819,68,964,93"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="825,68,770,59,658,53,555,54,555,49,658,48,771,54,825,63"/>
+<area shape="rect" id="Node000006" href="$db/d49/classgalaxy_1_1Config.html#a928bde516c403fa791cf6d017da24945" title="Sets a new setting, only if key or value does not already exist." alt="" coords="603,68,771,93"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="805,83,771,83,771,78,805,78"/>
+<area shape="rect" id="Node000007" href="$db/d49/classgalaxy_1_1Config.html#a98d56dd5fd0898253d8be371b8e17b3b" title="Sets a new setting, only if key or value does not already exist." alt="" coords="603,117,771,143"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="826,99,741,120,740,115,824,94"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="588,72,555,68,555,63,589,67"/>
 </map>

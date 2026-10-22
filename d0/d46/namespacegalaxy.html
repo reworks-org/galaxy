@@ -629,6 +629,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a41b360d7e35341259457ab3ec21b2f57" id="r_a41b360d7e35341259457ab3ec21b2f57"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a41b360d7e35341259457ab3ec21b2f57">assets_path_wrapper</a> () noexcept</td></tr>
 <tr class="memitem:ae75c97fd983f82b9ac19a20d72886c49" id="r_ae75c97fd983f82b9ac19a20d72886c49"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ae75c97fd983f82b9ac19a20d72886c49">editor_path_wrapper</a> () noexcept</td></tr>
 <tr class="memitem:a319291094a5f4b14dd9eaa07f698fc3f" id="r_a319291094a5f4b14dd9eaa07f698fc3f"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a319291094a5f4b14dd9eaa07f698fc3f">fileutils_read_wrapper</a> (const std::string &amp;filepath) noexcept</td></tr>
+<tr class="memitem:a4ed551c8abc8a9521e66ab3f3a2070d5" id="r_a4ed551c8abc8a9521e66ab3f3a2070d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4ed551c8abc8a9521e66ab3f3a2070d5">fileutils_write_wrapper</a> (const std::string &amp;filepath, const std::string &amp;data) noexcept</td></tr>
 <tr class="memitem:a2cf60407a5ec21327f632d6c1f712f92" id="r_a2cf60407a5ec21327f632d6c1f712f92"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2cf60407a5ec21327f632d6c1f712f92">log_wrapper</a> (<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a> error_level, std::string_view message)</td></tr>
 <tr class="memitem:ac79729a7cd11384b6477920808b1a4a3" id="r_ac79729a7cd11384b6477920808b1a4a3"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#ac79729a7cd11384b6477920808b1a4a3">mem_alloc</a> (size_t sz, void *user_data)</td></tr>
 <tr class="memitem:a88b00e4db87ec3991645c71cec85da56" id="r_a88b00e4db87ec3991645c71cec85da56"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a88b00e4db87ec3991645c71cec85da56">mem_free</a> (void *ptr, void *user_data)</td></tr>
@@ -1736,7 +1737,7 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -1755,8 +1756,17 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph" id="ad0/d46/namespacegalaxy_ad827c35fec639f2519aca49899166c21_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,200,55"/>
-<area shape="poly" title=" " alt="" coords="137,19,127,11,103,8,82,10,71,15,69,20,75,28,71,31,64,21,67,11,81,5,103,3,129,6,141,15"/>
+<area shape="rect" title=" " alt="" coords="603,43,797,68"/>
+<area shape="poly" title=" " alt="" coords="742,34,731,25,700,21,675,23,662,28,659,34,666,41,662,44,654,34,658,24,674,18,700,16,733,20,745,29"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -1785,7 +1795,7 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -1804,8 +1814,17 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph" id="ad0/d46/namespacegalaxy_a41b360d7e35341259457ab3ec21b2f57_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,156,69"/>
-<area shape="poly" title=" " alt="" coords="105,17,97,11,81,8,67,10,59,14,55,21,57,28,52,29,50,20,55,11,65,5,81,3,99,6,108,13"/>
+<area shape="rect" title=" " alt="" coords="603,35,753,75"/>
+<area shape="poly" title=" " alt="" coords="714,24,701,17,678,14,658,16,646,21,641,27,644,34,638,36,636,26,642,16,657,11,678,9,703,12,716,19"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -1834,7 +1853,7 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../d2/d01/LuaCore_8cpp_source.html">LuaCore.cpp</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -1853,8 +1872,17 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph" id="ad0/d46/namespacegalaxy_ae75c97fd983f82b9ac19a20d72886c49_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,152,69"/>
-<area shape="poly" title=" " alt="" coords="103,17,94,11,79,8,65,10,57,14,54,21,56,28,50,29,49,20,53,11,63,5,79,3,96,6,106,13"/>
+<area shape="rect" title=" " alt="" coords="603,35,749,75"/>
+<area shape="poly" title=" " alt="" coords="711,24,699,17,676,14,656,16,644,21,640,27,642,34,637,36,635,26,641,16,655,11,676,9,700,12,714,19"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -1905,8 +1933,82 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 <div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph" id="ad0/d46/namespacegalaxy_a319291094a5f4b14dd9eaa07f698fc3f_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,163,69"/>
-<area shape="poly" title=" " alt="" coords="110,17,101,11,84,8,69,10,61,14,57,21,59,28,54,29,52,20,57,11,68,5,84,3,103,6,113,13"/>
+<area shape="rect" title=" " alt="" coords="587,35,744,75"/>
+<area shape="poly" title=" " alt="" coords="700,24,688,17,665,14,646,16,634,21,630,27,632,34,627,36,624,26,631,17,644,11,665,9,689,12,703,19"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="380,43,539,68"/>
+<area shape="poly" title=" " alt="" coords="573,58,539,58,539,53,573,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="378,43,329,33,330,28,379,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="376,73,326,82,325,77,376,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4ed551c8abc8a9521e66ab3f3a2070d5" name="a4ed551c8abc8a9521e66ab3f3a2070d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed551c8abc8a9521e66ab3f3a2070d5">&#9670;&#160;</a></span>fileutils_write_wrapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::fileutils_write_wrapper </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filepath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d8/d7f/LuaFS_8cpp_source.html">LuaFS.cpp</a>.</p>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_cgraph" id="ad0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,167,69"/>
+<area shape="poly" title=" " alt="" coords="50,30,48,20,53,11,66,5,86,3,109,6,121,13,118,17,107,11,86,8,68,10,57,15,53,21,55,28"/>
+<area shape="rect" href="../../d8/d23/namespacegalaxy_1_1fileutils.html#a69e5da47690e6d988ec2e36da70a548a" title="Writes a non&#45;binary file to disk." alt="" coords="215,29,344,69"/>
+<area shape="poly" title=" " alt="" coords="167,47,201,47,201,52,167,52"/>
+<area shape="poly" title=" " alt="" coords="245,30,243,20,249,11,261,5,279,3,301,6,312,13,309,17,299,11,279,8,262,10,252,15,249,21,251,28"/>
+<area shape="rect" href="../../d5/d13/classgalaxy_1_1FileError.html#af59da9249f7eb1be4cd13096d8fc45e3" title="Constructor." alt="" coords="392,29,527,69"/>
+<area shape="poly" title=" " alt="" coords="344,47,379,47,379,52,344,52"/>
+</map>
+</div>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
+</div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_icgraph" id="ad0/d46/namespacegalaxy_a4ed551c8abc8a9521e66ab3f3a2070d5_icgraph">
+<area shape="rect" title=" " alt="" coords="587,35,748,75"/>
+<area shape="poly" title=" " alt="" coords="702,24,690,17,667,14,647,16,635,21,631,27,633,34,628,36,626,26,632,16,646,11,667,9,692,12,705,19"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="380,43,539,68"/>
+<area shape="poly" title=" " alt="" coords="573,58,539,58,539,53,573,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="378,43,329,33,330,28,379,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="376,73,326,82,325,77,376,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -1932,48 +2034,33 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d2/dc6/LuaLogging_8cpp_source.html">LuaLogging.cpp</a>.</p>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
 </div>
-<div id="dynsection-12-content" class="dyncontent hidden">
+<div id="dynsection-14-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_cgraph" id="ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,159,55"/>
 <area shape="poly" title=" " alt="" coords="56,31,51,21,54,11,64,5,82,3,103,6,112,15,108,19,101,11,82,8,66,10,58,15,56,20,61,28"/>
 </map>
 </div>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
 </div>
-<div id="dynsection-13-content" class="dyncontent hidden">
+<div id="dynsection-15-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph" id="ad0/d46/namespacegalaxy_a2cf60407a5ec21327f632d6c1f712f92_icgraph">
-<area shape="rect" title=" " alt="" coords="971,213,1124,239"/>
-<area shape="poly" title=" " alt="" coords="1082,203,1072,195,1047,192,1027,194,1016,199,1014,204,1019,212,1015,215,1008,205,1012,195,1025,189,1047,187,1074,190,1085,199"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8" title="Injects logging into Lua." alt="" coords="783,206,923,246"/>
-<area shape="poly" title=" " alt="" coords="957,229,923,229,923,223,957,223"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,176,735,201"/>
-<area shape="poly" title=" " alt="" coords="768,212,728,204,729,199,770,207"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,249,728,275"/>
-<area shape="poly" title=" " alt="" coords="769,245,729,253,728,247,768,239"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,139,547,179"/>
-<area shape="poly" title=" " alt="" coords="580,178,547,173,548,168,581,173"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,204,545,229"/>
-<area shape="poly" title=" " alt="" coords="581,204,545,209,544,204,580,198"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,116,356,141"/>
-<area shape="poly" title=" " alt="" coords="390,148,356,142,357,137,391,143"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,203,177,228"/>
-<area shape="poly" title=" " alt="" coords="391,174,178,205,177,200,390,169"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="264,108,225,75,176,44,148,33,150,28,179,40,228,71,268,104"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="239,114,177,94,138,83,140,77,178,89,241,109"/>
-<area shape="poly" title=" " alt="" coords="259,151,221,173,178,194,146,205,144,200,176,189,219,168,257,147"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="211,127,177,125,178,119,212,121"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Loads the default appdata file." alt="" coords="28,153,155,179"/>
-<area shape="poly" title=" " alt="" coords="212,146,156,157,155,152,211,141"/>
-<area shape="poly" title=" " alt="" coords="698,239,688,231,665,228,645,230,635,235,632,240,638,248,634,251,627,241,631,231,643,225,665,223,690,226,701,235"/>
+<area shape="rect" title=" " alt="" coords="568,43,721,68"/>
+<area shape="poly" title=" " alt="" coords="679,33,669,24,645,21,624,23,613,28,611,34,617,41,613,44,606,34,609,24,623,18,645,16,671,20,683,28"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8" title="Injects logging into Lua." alt="" coords="380,35,520,75"/>
+<area shape="poly" title=" " alt="" coords="554,58,520,58,520,53,554,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="366,41,326,33,327,28,367,36"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="367,74,326,82,325,77,366,69"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -1999,20 +2086,20 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
 </div>
-<div id="dynsection-14-content" class="dyncontent hidden">
+<div id="dynsection-16-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_cgraph" id="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,151,55"/>
 <area shape="poly" title=" " alt="" coords="53,30,48,21,51,11,61,5,78,3,98,6,107,15,103,18,95,11,78,8,63,10,55,15,54,20,58,28"/>
 </map>
 </div>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
 </div>
-<div id="dynsection-15-content" class="dyncontent hidden">
+<div id="dynsection-17-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph" id="ad0/d46/namespacegalaxy_ac79729a7cd11384b6477920808b1a4a3_icgraph">
 <area shape="rect" title=" " alt="" coords="212,29,357,55"/>
@@ -2045,20 +2132,20 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
 </div>
-<div id="dynsection-16-content" class="dyncontent hidden">
+<div id="dynsection-18-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_cgraph" id="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,145,55"/>
 <area shape="poly" title=" " alt="" coords="52,30,47,21,49,11,59,5,75,3,95,6,103,15,99,18,92,11,75,8,61,10,54,15,52,20,56,28"/>
 </map>
 </div>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary">
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
 </div>
-<div id="dynsection-17-content" class="dyncontent hidden">
+<div id="dynsection-19-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph" id="ad0/d46/namespacegalaxy_a88b00e4db87ec3991645c71cec85da56_icgraph">
 <area shape="rect" title=" " alt="" coords="212,29,352,55"/>
@@ -2095,20 +2182,20 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary">
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
 </div>
-<div id="dynsection-18-content" class="dyncontent hidden">
+<div id="dynsection-20-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_cgraph" id="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,168,55"/>
 <area shape="poly" title=" " alt="" coords="59,31,54,21,57,11,68,5,87,3,109,6,119,15,115,19,107,11,87,8,70,10,61,15,59,20,64,28"/>
 </map>
 </div>
-<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary">
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary">
 </div>
-<div id="dynsection-19-content" class="dyncontent hidden">
+<div id="dynsection-21-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph" id="ad0/d46/namespacegalaxy_ab97b063d81a57ddd95b905f24abbf1d9_icgraph">
 <area shape="rect" title=" " alt="" coords="212,29,375,55"/>
@@ -2145,20 +2232,20 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary">
+<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary">
 </div>
-<div id="dynsection-20-content" class="dyncontent hidden">
+<div id="dynsection-22-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_cgraph" id="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,156,55"/>
 <area shape="poly" title=" " alt="" coords="55,31,50,21,53,11,63,5,81,3,101,6,110,15,106,19,99,11,81,8,65,10,57,15,55,20,60,28"/>
 </map>
 </div>
-<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary">
+<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary">
 </div>
-<div id="dynsection-21-content" class="dyncontent hidden">
+<div id="dynsection-23-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph" id="ad0/d46/namespacegalaxy_a62ee8445a67c4373fff6804dd79c9427_icgraph">
 <area shape="rect" title=" " alt="" coords="212,29,363,55"/>
@@ -2195,20 +2282,20 @@ template&lt;<a class="el" href="#a4e15f13440e547247ba6615bce4e3395">LogLevel</a>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00139">139</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary">
+<div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary">
 </div>
-<div id="dynsection-22-content" class="dyncontent hidden">
+<div id="dynsection-24-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_cgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_cgraph" id="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,140,55"/>
 <area shape="poly" title=" " alt="" coords="50,30,45,21,48,11,57,5,73,3,91,6,99,14,95,18,88,11,73,8,59,10,52,14,50,20,54,28"/>
 </map>
 </div>
-<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary">
+<div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary">
 </div>
-<div id="dynsection-23-content" class="dyncontent hidden">
+<div id="dynsection-25-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph.png" border="0" usemap="#ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph" id="ad0/d46/namespacegalaxy_a7025aca645c6019f23e76dc0556af757_icgraph">
 <area shape="rect" title=" " alt="" coords="212,29,347,55"/>

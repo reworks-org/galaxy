@@ -1,6 +1,15 @@
 <map id="galaxy::Settings::editor_dir" name="galaxy::Settings::editor_dir">
-<area shape="rect" id="Node000001" title="Directory for editor specific stuff." alt="" coords="200,37,396,62"/>
-<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#ae75c97fd983f82b9ac19a20d72886c49" title=" " alt="" coords="5,29,152,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,52,152,52,152,47,186,47"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="116,18,103,11,79,8,58,10,45,15,40,21,43,28,38,30,35,20,42,10,56,5,79,3,104,6,118,13"/>
+<area shape="rect" id="Node000001" title="Directory for editor specific stuff." alt="" coords="797,43,993,68"/>
+<area shape="rect" id="Node000002" href="$d0/d46/namespacegalaxy.html#ae75c97fd983f82b9ac19a20d72886c49" title=" " alt="" coords="603,35,749,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="784,58,749,58,749,53,784,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="711,24,699,17,676,14,656,16,644,21,640,27,642,34,637,36,635,26,641,16,655,11,676,9,700,12,714,19"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" id="Node000006" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>

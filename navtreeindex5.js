@@ -1,5 +1,10 @@
 var NAVTREEINDEX5 =
 {
+"d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14":[0,0,0,24,1],
+"d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14":[2,0,0,14,1],
+"d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa":[0,0,0,24,10],
+"d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa":[2,0,0,14,10],
+"d8/db2/classgalaxy_1_1Keyboard.html#ac30aaebb6af4975787ed7e30c347785d":[0,0,0,24,7],
 "d8/db2/classgalaxy_1_1Keyboard.html#ac30aaebb6af4975787ed7e30c347785d":[2,0,0,14,7],
 "d8/db2/classgalaxy_1_1Keyboard.html#ad9f89c849d9d51cc649143a74ada4de4":[0,0,0,24,4],
 "d8/db2/classgalaxy_1_1Keyboard.html#ad9f89c849d9d51cc649143a74ada4de4":[2,0,0,14,4],
@@ -244,10 +249,5 @@ var NAVTREEINDEX5 =
 "da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d":[0,0,0,37,0],
 "da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d":[2,0,0,27,0],
 "da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[0,0,0,37,1],
-"da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[2,0,0,27,1],
-"da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5":[0,0,0,37,3],
-"da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5":[2,0,0,27,3],
-"da/d9f/MousePressed_8cpp.html":[3,0,0,0,0,2,14],
-"da/d9f/MousePressed_8cpp_source.html":[3,0,0,0,0,2,14],
-"da/d9f/Rect_8cpp.html":[3,0,0,0,0,8,8]
+"da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[2,0,0,27,1]
 };

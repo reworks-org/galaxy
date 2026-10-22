@@ -4,16 +4,17 @@ var namespacegalaxy =
       [ "is_work_done", "d0/d7f/namespacegalaxy_1_1async.html#a93a939037e97468ef4e93924f7ccdb4b", null ]
     ] ],
     [ "fileutils", "d8/d23/namespacegalaxy_1_1fileutils.html", [
-      [ "extension", "d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1", null ],
+      [ "extension", "d8/d23/namespacegalaxy_1_1fileutils.html#a5ac2489b7dc8f1bd9b7c3778fb36705d", null ],
       [ "read", "d8/d23/namespacegalaxy_1_1fileutils.html#adc50ca5dc7f96ff68c2904bed1b68d92", null ],
-      [ "write", "d8/d23/namespacegalaxy_1_1fileutils.html#a08aa5cf80f6e7f648fd96f850acf1e7e", null ],
-      [ "read_json", "d8/d23/namespacegalaxy_1_1fileutils.html#afa2b4b065386c19c0911c9953f565094", null ],
-      [ "write_json", "d8/d23/namespacegalaxy_1_1fileutils.html#aa1b4eead3698b8ab97d50c6cd2c86c78", null ],
+      [ "write", "d8/d23/namespacegalaxy_1_1fileutils.html#a69e5da47690e6d988ec2e36da70a548a", null ],
+      [ "read_json", "d8/d23/namespacegalaxy_1_1fileutils.html#aed40b349358804042d8866871ef05e31", null ],
+      [ "write_json", "d8/d23/namespacegalaxy_1_1fileutils.html#a4bb10620b79b49bc7507c58b326e74dd", null ],
       [ "open_url", "d8/d23/namespacegalaxy_1_1fileutils.html#a26c21036c5b5a679c39939d39422df99", null ]
     ] ],
     [ "input", "dd/d59/namespacegalaxy_1_1input.html", [
-      [ "set_clipboard", "dd/d59/namespacegalaxy_1_1input.html#a2fce3445e15cb1035e0ba4b4dad9b105", null ],
-      [ "get_clipboard", "dd/d59/namespacegalaxy_1_1input.html#ae2d79d9b95b9983f6513d0aeb3b38ada", null ],
+      [ "clipboard_set", "dd/d59/namespacegalaxy_1_1input.html#abb705ccb22c5c5ad55ce9e88d0b2d15e", null ],
+      [ "clipboard_get", "dd/d59/namespacegalaxy_1_1input.html#a51778ae141b12a9cbd74fe276ea5e258", null ],
+      [ "clipboard_clear", "dd/d59/namespacegalaxy_1_1input.html#a6874f15424e361b982cdead1e92a9e38", null ],
       [ "is_key_mod_down", "dd/d59/namespacegalaxy_1_1input.html#a8effd0c4f610b629a6b8926cf5a00e74", null ],
       [ "is_key_down", "dd/d59/namespacegalaxy_1_1input.html#a9ae81b722326a313a1d1721825d7f0da", null ],
       [ "is_mouse_down", "dd/d59/namespacegalaxy_1_1input.html#ae1faa66f3b5b7bb59121727a12f3a9f0", null ],
@@ -440,6 +441,7 @@ var namespacegalaxy =
     [ "assets_path_wrapper", "d0/d46/namespacegalaxy.html#a41b360d7e35341259457ab3ec21b2f57", null ],
     [ "editor_path_wrapper", "d0/d46/namespacegalaxy.html#ae75c97fd983f82b9ac19a20d72886c49", null ],
     [ "fileutils_read_wrapper", "d0/d46/namespacegalaxy.html#a319291094a5f4b14dd9eaa07f698fc3f", null ],
+    [ "fileutils_write_wrapper", "d0/d46/namespacegalaxy.html#a4ed551c8abc8a9521e66ab3f3a2070d5", null ],
     [ "log_wrapper", "d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92", null ],
     [ "mem_alloc", "d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3", null ],
     [ "mem_free", "d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56", null ],

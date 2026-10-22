@@ -1,5 +1,5 @@
 <map id="galaxy::Settings" name="galaxy::Settings">
-<area shape="rect" id="Node000001" title="Helper class to encapsulate our global settings we want to quickly access across app." alt="" coords="5,471,207,936"/>
+<area shape="rect" id="Node000001" title="Helper class to encapsulate our global settings we want to quickly access across app." alt="" coords="5,471,207,1016"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="67,135,145,200"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,200,109,454,103,454,103,200"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="41,5,171,85"/>

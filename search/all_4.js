@@ -21,5 +21,5 @@ var searchData=
   ['event_2ehpp_18',['Event.hpp',['../df/d7d/Event_8hpp.html',1,'']]],
   ['events_19',['events',['../dd/d33/classgalaxy_1_1App.html#a24f7dc434b7fd086bfbbb758885cddf5',1,'galaxy::App']]],
   ['exists_20',['exists',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e',1,'galaxy::VirtualFileSystem']]],
-  ['extension_21',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a508e266dc3b9a1f83e32bb098a1e98b1',1,'galaxy::fileutils']]]
+  ['extension_21',['extension',['../d8/d23/namespacegalaxy_1_1fileutils.html#a5ac2489b7dc8f1bd9b7c3778fb36705d',1,'galaxy::fileutils']]]
 ];

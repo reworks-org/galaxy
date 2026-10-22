@@ -1,22 +1,36 @@
 <map id="galaxy::Settings::root_dir" name="galaxy::Settings::root_dir">
-<area shape="rect" id="Node000001" title="Current root directory of application, unless it has been changed." alt="" coords="484,159,668,185"/>
-<area shape="rect" id="Node000002" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a803b87252d75800508ee4fa4dff433b3" title="Open a file dialog." alt="" coords="245,29,433,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="546,153,495,118,435,84,406,72,409,67,437,79,498,114,549,149"/>
-<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21" title=" " alt="" coords="241,118,436,143"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="489,160,412,146,413,141,489,154"/>
-<area shape="rect" id="Node000004" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab7c4aaec31a37cf0863f43997240fcff" title="Select a folder using a dialog." alt="" coords="245,192,433,232"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="487,190,433,199,432,194,486,184"/>
-<area shape="rect" id="Node000005" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="245,256,433,296"/>
-<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="542,194,437,246,406,258,404,253,435,242,540,189"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="379,18,365,11,339,8,316,10,302,15,297,21,300,28,294,30,292,20,299,10,315,5,339,3,366,6,381,13"/>
-<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="381,109,370,100,339,97,313,99,300,104,297,109,304,116,300,120,292,110,296,100,312,94,339,91,372,95,385,105"/>
-<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="379,180,365,173,339,171,316,173,302,177,297,183,300,191,294,192,292,182,299,173,315,167,339,165,366,168,381,175"/>
-<area shape="rect" id="Node000006" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a615ad37308eaac397c39b3a0f3f8bdfe" title="Copy assignment operator." alt="" coords="5,160,193,200"/>
-<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="256,253,240,246,216,230,192,214,165,203,167,198,195,210,219,226,243,242,258,249"/>
-<area shape="rect" id="Node000007" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ac71e4e9706f6ccc99e585aaee790c539" title="Move assignment operator." alt="" coords="5,224,193,264"/>
-<area shape="poly" id="edge9_Node000005_Node000007" title=" " alt="" coords="231,264,193,259,194,254,231,259"/>
-<area shape="rect" id="Node000008" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7" title="Copy constructor." alt="" coords="5,288,193,328"/>
-<area shape="poly" id="edge10_Node000005_Node000008" title=" " alt="" coords="231,293,194,298,193,293,231,288"/>
-<area shape="rect" id="Node000009" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#abb23c7a1ebc3c08ca0c2597fc7963bf9" title="Move constructor." alt="" coords="5,352,193,392"/>
-<area shape="poly" id="edge11_Node000005_Node000009" title=" " alt="" coords="284,304,194,342,162,354,160,349,192,338,282,299"/>
+<area shape="rect" id="Node000001" title="Current root directory of application, unless it has been changed." alt="" coords="859,166,1043,191"/>
+<area shape="rect" id="Node000002" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a803b87252d75800508ee4fa4dff433b3" title="Open a file dialog." alt="" coords="619,29,807,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="922,159,871,121,809,84,782,72,784,67,812,79,874,117,925,155"/>
+<area shape="rect" id="Node000007" href="$d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21" title=" " alt="" coords="616,206,811,231"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="861,196,790,209,789,203,860,191"/>
+<area shape="rect" id="Node000009" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ab7c4aaec31a37cf0863f43997240fcff" title="Select a folder using a dialog." alt="" coords="619,117,807,157"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="863,166,807,156,808,151,864,161"/>
+<area shape="rect" id="Node000010" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169" title="Constructor." alt="" coords="619,277,807,317"/>
+<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="913,200,756,280,753,275,911,195"/>
+<area shape="poly" id="edge7_Node000002_Node000002" title=" " alt="" coords="754,18,740,11,713,8,690,10,677,15,672,21,674,28,669,30,666,20,674,10,689,5,713,3,741,6,756,13"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a964e2d87885b9b1fd5021cea3cc080ab" title="Injects VFS support into Lua." alt="" coords="395,107,553,133"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="632,76,519,110,517,105,631,71"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,95,332,121"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="380,117,332,115,332,109,381,112"/>
+<area shape="rect" id="Node000006" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,169,325,194"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="417,139,307,171,306,166,415,134"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,95,144,121"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="179,111,144,111,144,105,179,105"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="295,158,286,150,262,147,242,149,232,154,230,160,235,167,231,170,225,160,228,150,241,144,262,142,288,146,298,154"/>
+<area shape="poly" id="edge12_Node000007_Node000007" title=" " alt="" coords="756,197,745,188,713,185,688,187,674,192,672,197,679,204,675,208,666,198,671,188,687,182,713,179,747,183,759,193"/>
+<area shape="rect" id="Node000008" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="387,163,561,189"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="628,206,545,191,546,186,629,201"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="420,162,302,123,303,118,421,156"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="373,181,326,182,326,177,373,176"/>
+<area shape="poly" id="edge14_Node000009_Node000003" title=" " alt="" coords="606,132,553,128,554,123,606,127"/>
+<area shape="poly" id="edge15_Node000009_Node000009" title=" " alt="" coords="754,106,740,99,713,96,690,98,677,103,672,109,674,116,669,118,666,108,674,98,689,93,713,91,741,94,756,101"/>
+<area shape="rect" id="Node000011" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a615ad37308eaac397c39b3a0f3f8bdfe" title="Copy assignment operator." alt="" coords="380,341,568,381"/>
+<area shape="poly" id="edge17_Node000010_Node000011" title=" " alt="" coords="625,324,550,344,549,339,624,318"/>
+<area shape="rect" id="Node000012" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#ac71e4e9706f6ccc99e585aaee790c539" title="Move assignment operator." alt="" coords="380,405,568,445"/>
+<area shape="poly" id="edge18_Node000010_Node000012" title=" " alt="" coords="677,328,627,362,569,396,542,408,539,403,567,391,624,358,674,323"/>
+<area shape="rect" id="Node000013" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7" title="Copy constructor." alt="" coords="380,213,568,253"/>
+<area shape="poly" id="edge19_Node000010_Node000013" title=" " alt="" coords="624,276,549,256,550,251,625,271"/>
+<area shape="rect" id="Node000014" href="$d8/dd5/classgalaxy_1_1VirtualFileSystem.html#abb23c7a1ebc3c08ca0c2597fc7963bf9" title="Move constructor." alt="" coords="380,277,568,317"/>
+<area shape="poly" id="edge20_Node000010_Node000014" title=" " alt="" coords="606,300,568,300,568,295,606,295"/>
 </map>
