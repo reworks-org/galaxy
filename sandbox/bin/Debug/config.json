@@ -18,13 +18,8 @@
         "assets_video": "video/",
         "assets_voice": "voice/",
         "editor_dir": "editor/",
+        "logs_dir": "logs/",
         "use_loose_assets": true
-    },
-    "graphics": {
-        "ansiotrophy": 16,
-        "max_quads": 250,
-        "mipmap": true,
-        "texture_filter": "NEAREST"
     },
     "meta": {
         "copyright": "2025+ reworks",
@@ -34,23 +29,17 @@
         "version": "1.0",
         "website": "https://reworks-org.github.io/galaxy/"
     },
-    "mouse": {
-        "cursor_hotspot": {
-            "x": 0,
-            "y": 0
-        },
-        "cursor_icon": "",
-        "cursor_show": true,
-        "mouse_grabbed": false
-    },
     "window": {
         "border": true,
         "fullscreen": false,
-        "height": 1080,
-        "icon": "textures/icon.png",
+        "icon": "",
         "maximized": true,
+        "mouse_grabbed": false,
+        "requested_height": 720,
+        "requested_width": 1280,
         "resizable": true,
-        "vsync": false,
-        "width": 1920
+        "virtual_height": 0,
+        "virtual_width": 0,
+        "vsync": false
     }
 }

@@ -7,6 +7,8 @@
 
 #define SDL_STBIMG_SDL3
 
+#include <display.h>
+#include <system.h>
 #include <glad/glad.h>
 #include <SDL_stbimage.h>
 
@@ -34,10 +36,12 @@ namespace galaxy
 			SDL_DisableScreenSaver();
 		}
 
+		int             driver = sl::GFX_AUTODETECT_WINDOWED;
 		SDL_WindowFlags flags = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
 		if (Settings::fullscreen())
 		{
 			flags |= SDL_WINDOW_FULLSCREEN;
+			driver  = sl::GFX_AUTODETECT_FULLSCREEN;
 		}
 		else
 		{
@@ -78,72 +82,63 @@ namespace galaxy
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_RELEASE_BEHAVIOR, SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_RESET_NOTIFICATION, SDL_GL_CONTEXT_RESET_NO_NOTIFICATION);
 
-		m_window = SDL_CreateWindow(Settings::title().c_str(), Settings::window_width(), Settings::window_height(), flags);
-		if (m_window)
+		sl::set_graphics_backend(sl::GraphicsBackend::opengl);
+		const auto result = sl::set_gfx_mode(
+			Settings::title().c_str(),
+			flags,
+			driver, 
+			Settings::requested_width(),
+			Settings::requested_height(),
+			Settings::virtual_width(), 
+			Settings::virtual_height()
+		);
+
+		if (result)
 		{
-			m_context = SDL_GL_CreateContext(m_window);
-			if (m_context)
-			{
-				if (SDL_GL_MakeCurrent(m_window, m_context))
-				{
-					if (gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
+			m_window  = sl::get_window();
+			m_context = sl::get_gl_context();
+			
+			SDL_GL_SetSwapInterval(Settings::vsync());
+			SDL_SetWindowAlwaysOnTop(m_window, false);
+			SDL_SetWindowBordered(m_window, Settings::window_border());
+			SDL_SetWindowFocusable(m_window, true);
+			SDL_SetWindowFullscreenMode(m_window, nullptr); // Borderless Fullscreen mode.
+			SDL_SetWindowKeyboardGrab(m_window, false);
+			SDL_SetWindowMinimumSize(m_window, 640, 360);
+			SDL_SetWindowPosition(m_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+
+			// Debug configuration.
+			glEnable(GL_DEBUG_OUTPUT);
+			glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+
+			glDebugMessageCallback(
+				[](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
+					GALAXY_UNUSED(source);
+					GALAXY_UNUSED(type);
+					GALAXY_UNUSED(id);
+					GALAXY_UNUSED(length);
+					GALAXY_UNUSED(userParam);
+
+					switch (severity)
 					{
-						SDL_GL_SetSwapInterval(Settings::vsync());
-						SDL_SetWindowAlwaysOnTop(m_window, false);
-						SDL_SetWindowBordered(m_window, Settings::window_border());
-						SDL_SetWindowFocusable(m_window, true);
-						SDL_SetWindowFullscreenMode(m_window, nullptr); // Borderless Fullscreen mode.
-						SDL_SetWindowKeyboardGrab(m_window, false);
-						SDL_SetWindowMinimumSize(m_window, 640, 360);
-						SDL_SetWindowPosition(m_window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+						case GL_DEBUG_SEVERITY_HIGH:
+							GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}", message);
+							break;
+						case GL_DEBUG_SEVERITY_MEDIUM:
+							GALAXY_LOG(GALAXY_WARN, "[OpenGL] - {0}", message);
+							break;
+						case GL_DEBUG_SEVERITY_LOW:
+							GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message);
+							break;
+						default:
+							GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message);
+							break;
+					};
+				},
+				nullptr
+			);
 
-						// Debug configuration.
-						glEnable(GL_DEBUG_OUTPUT);
-						glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-
-						glDebugMessageCallback(
-							[](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
-								GALAXY_UNUSED(source);
-								GALAXY_UNUSED(type);
-								GALAXY_UNUSED(id);
-								GALAXY_UNUSED(length);
-								GALAXY_UNUSED(userParam);
-
-								switch (severity)
-								{
-									case GL_DEBUG_SEVERITY_HIGH:
-										GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}", message);
-										break;
-									case GL_DEBUG_SEVERITY_MEDIUM:
-										GALAXY_LOG(GALAXY_WARN, "[OpenGL] - {0}", message);
-										break;
-									case GL_DEBUG_SEVERITY_LOW:
-										GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message);
-										break;
-									default:
-										GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}", message);
-										break;
-								};
-							},
-							nullptr
-						);
-
-						glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_FATAL, "Failed to initialize glad.");
-					}
-				}
-				else
-				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to initialize OpenGL context into SDL.");
-				}
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize OpenGL context.");
-			}
+			glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, nullptr, GL_FALSE);
 		}
 		else
 		{
@@ -153,8 +148,7 @@ namespace galaxy
 
 	Window::~Window()
 	{
-		SDL_GL_DestroyContext(m_context);
-		SDL_DestroyWindow(m_window);
+		sl::shutdown(); // calls display_shutdown which calls wait_for_graphics.
 
 		m_context = nullptr;
 		m_window  = nullptr;
@@ -168,7 +162,8 @@ namespace galaxy
 
 	void Window::swap() const noexcept
 	{
-		SDL_GL_SwapWindow(m_window);
+		sl::show_video_bitmap();
+		sl::end_frame();
 	}
 
 	void Window::show() const noexcept
@@ -191,14 +186,14 @@ namespace galaxy
 	{
 		SDL_MaximizeWindow(m_window);
 		SDL_SyncWindow(m_window);
-		// TODO: trigger resize.
+		sl::resize();
 	}
 
 	void Window::restore() const noexcept
 	{
 		SDL_RestoreWindow(m_window);
 		SDL_SyncWindow(m_window);
-		// TODO: trigger resize.
+		sl::resize();
 	}
 
 	void Window::raise() const noexcept
@@ -214,18 +209,22 @@ namespace galaxy
 	void Window::resize(const int width, const int height) const noexcept
 	{
 		SDL_SetWindowSize(m_window, width, height);
-		// TODO: trigger resize.
+		sl::resize();
 	}
 
 	void Window::set_fullscreen(const bool fullscreen) const noexcept
 	{
-		SDL_SetWindowFullscreen(m_window, fullscreen);
-		// TODO: trigger resize.
+		sl::set_fullscreen(fullscreen);
 	}
 
 	void Window::set_taskbar_progress(const float progress) noexcept
 	{
 		SDL_SetWindowProgressValue(m_window, std::clamp(progress, 0.0f, 1.0f));
+	}
+
+	void Window::set_title(const std::string& title)
+	{
+		sl::set_window_title(title.c_str());
 	}
 
 	void Window::append_title(const std::string& append)
@@ -258,17 +257,50 @@ namespace galaxy
 		}
 	}
 
+	void Window::handle_window_events(const SDL_Event& events)
+	{
+		switch (events.type)
+		{
+			case SDL_EVENT_QUIT:
+				close();
+				break;
+
+			case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+				if (events.window.windowID == SDL_GetWindowID(m_window))
+				{
+					close();
+				}
+				break;
+
+			default:
+				sl::display_handle_event(events);
+				break;
+		}
+	}
+
+	int Window::screen_width() const noexcept
+	{
+		return sl::screen_width();
+	}
+
+	int Window::screen_height() const noexcept
+	{
+		return sl::screen_height();
+	}
+
+	int Window::virtual_screen_width() const noexcept
+	{
+		return sl::virtual_screen_width();
+	}
+
+	int Window::virtual_screen_height() const noexcept
+	{
+		return sl::virtual_screen_height();
+	}
+
 	bool Window::is_open() const noexcept
 	{
 		return m_open;
-	}
-
-	glm::ivec2 Window::get_pixel_size() noexcept
-	{
-		auto vec2 = glm::ivec2();
-		SDL_GetWindowSizeInPixels(m_window, &vec2.x, &vec2.y);
-
-		return vec2;
 	}
 
 	float Window::get_display_scale() const noexcept

@@ -108,7 +108,14 @@ namespace galaxy
 		void set_taskbar_progress(const float progress) noexcept;
 
 		///
-		/// \brief Append to window title.
+		/// \brief Set window title.
+		///
+		/// \param append String to set.
+		///
+		void set_title(const std::string& title);
+
+		///
+		/// \brief Append to window title from the settings.
 		///
 		/// Does not preserve last append when called again.
 		///
@@ -124,20 +131,51 @@ namespace galaxy
 		void set_icon(const std::string& icon) noexcept;
 
 		///
+		/// Process window specific events.
+		///
+		/// \param events SDL_Event containing latest event from PollEvent.
+		///
+		void handle_window_events(const SDL_Event& events);
+
+		///
+		/// Return the current drawable width in pixels.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int screen_width() const noexcept;
+
+		///
+		/// Return the current drawable height in pixels.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int screen_height() const noexcept;
+
+		///
+		/// Return the configured logical screen width.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int virtual_screen_width() const noexcept;
+
+		///
+		/// Return the configured logical screen height.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		int virtual_screen_height() const noexcept;
+
+		///
 		/// Is the window open or closed.
 		///
 		/// \return Boolean.
 		///
 		[[nodiscard]]
 		bool is_open() const noexcept;
-
-		///
-		/// Get window size in pixels.
-		///
-		/// \return Integer vec2.
-		///
-		[[nodiscard]]
-		glm::ivec2 get_pixel_size() noexcept;
 
 		///
 		/// Get display content scale.

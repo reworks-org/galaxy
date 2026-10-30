@@ -13,6 +13,11 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\TestConfig.hpp" />
+    <ClInclude Include="src\tests\LoggingTests.hpp" />
+    <ClInclude Include="src\tests\PlatformTests.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

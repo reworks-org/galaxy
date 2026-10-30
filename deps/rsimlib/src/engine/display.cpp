@@ -283,15 +283,7 @@ namespace sl
         {
             return false;
         }
-        // fullscreen toggles don't reliably deliver a window_resized event, so sync the viewport now
-        SDL_GetWindowSize(window, &width, &height);
-        if (renderer)
-        {
-            std::string error;
-            if (!renderer->resize(width, height, error) && !error.empty())
-                sl::detail::set_error(error);
-        }
-        detail::resize_screen(logicalWidth > 0 ? logicalWidth : width, logicalHeight > 0 ? logicalHeight : height);
+		resize();
         return true;
     }
 
@@ -341,7 +333,20 @@ namespace sl
             std::string error;
             renderer->resize(width, height, error);
         }
-    }
+	}
+
+	void resize()
+	{
+        // fullscreen toggles don't reliably deliver a window_resized event, so sync the viewport now
+		SDL_GetWindowSize(window, &width, &height);
+		if (renderer)
+		{
+			std::string error;
+			if (!renderer->resize(width, height, error) && !error.empty())
+				sl::detail::set_error(error);
+		}
+		detail::resize_screen(logicalWidth > 0 ? logicalWidth : width, logicalHeight > 0 ? logicalHeight : height);
+	}
 
     namespace detail
     {

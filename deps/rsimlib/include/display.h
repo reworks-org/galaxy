@@ -60,6 +60,8 @@ namespace sl
     int virtual_screen_height();
     /** Restore the GL viewport to the actual window size (used after rendering to an offscreen target). */
     void restore_window_viewport();
+	/**reisze screen*/
+	void resize();
     
     /** Show the mouse cursor (the custom bitmap if one is set, otherwise the OS cursor). */
     void show_mouse();
