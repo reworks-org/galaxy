@@ -1,5 +1,15 @@
 var NAVTREEINDEX6 =
 {
+"da/d9e/structgalaxy_1_1MouseWheel.html#a5b02ade56f9b880f7892917c424772d0":[0,0,0,37,6],
+"da/d9e/structgalaxy_1_1MouseWheel.html#a5b02ade56f9b880f7892917c424772d0":[2,0,0,27,6],
+"da/d9e/structgalaxy_1_1MouseWheel.html#a8d6eac7e84337aecebf5579fa07ab5a3":[0,0,0,37,5],
+"da/d9e/structgalaxy_1_1MouseWheel.html#a8d6eac7e84337aecebf5579fa07ab5a3":[2,0,0,27,5],
+"da/d9e/structgalaxy_1_1MouseWheel.html#aac2fc334b42ea4ed1a30172b351e91ed":[0,0,0,37,4],
+"da/d9e/structgalaxy_1_1MouseWheel.html#aac2fc334b42ea4ed1a30172b351e91ed":[2,0,0,27,4],
+"da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d":[0,0,0,37,0],
+"da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d":[2,0,0,27,0],
+"da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[0,0,0,37,1],
+"da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[2,0,0,27,1],
 "da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5":[0,0,0,37,3],
 "da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5":[2,0,0,27,3],
 "da/d9f/MousePressed_8cpp.html":[3,0,0,0,0,2,14],
@@ -239,15 +249,5 @@ var NAVTREEINDEX6 =
 "dd/d03/DialogType_8cpp.html":[3,0,0,0,0,3,4],
 "dd/d03/DialogType_8cpp_source.html":[3,0,0,0,0,3,4],
 "dd/d0d/namespacegalaxy_1_1mem.html":[0,0,0,6],
-"dd/d0d/namespacegalaxy_1_1mem.html#a506acf42277ffed35c36a51a3d7defe4":[0,0,0,6,2],
-"dd/d0d/namespacegalaxy_1_1mem.html#a7b83473b28650a3105cc20e9366c2f75":[0,0,0,6,0],
-"dd/d0d/namespacegalaxy_1_1mem.html#a88726f6aa5b0886038d8174591afedb9":[0,0,0,6,1],
-"dd/d0e/FileSink_8hpp.html":[3,0,0,0,0,6,3],
-"dd/d0e/FileSink_8hpp_source.html":[3,0,0,0,0,6,3],
-"dd/d25/Keys_8hpp.html":[3,0,0,0,0,5,7],
-"dd/d25/Keys_8hpp_source.html":[3,0,0,0,0,5,7],
-"dd/d33/classgalaxy_1_1App.html":[0,0,0,14],
-"dd/d33/classgalaxy_1_1App.html":[2,0,0,4],
-"dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134":[0,0,0,14,3],
-"dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134":[2,0,0,4,3]
+"dd/d0d/namespacegalaxy_1_1mem.html#a506acf42277ffed35c36a51a3d7defe4":[0,0,0,6,2]
 };

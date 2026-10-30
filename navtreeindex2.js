@@ -1,5 +1,15 @@
 var NAVTREEINDEX2 =
 {
+"d1/d36/Layer_8cpp.html":[3,0,0,0,0,12,0],
+"d1/d36/Layer_8cpp_source.html":[3,0,0,0,0,12,0],
+"d1/d44/StringUtils_8cpp.html":[3,0,0,0,0,17,4],
+"d1/d44/StringUtils_8cpp_source.html":[3,0,0,0,0,17,4],
+"d1/d44/StringUtils_8hpp.html":[3,0,0,0,0,17,5],
+"d1/d44/StringUtils_8hpp_source.html":[3,0,0,0,0,17,5],
+"d1/d4d/classgalaxy_1_1Cache.html":[0,0,0,15],
+"d1/d4d/classgalaxy_1_1Cache.html":[2,0,0,5],
+"d1/d4d/classgalaxy_1_1Cache.html#a028cac1ee1032dcc9597a18fc7ec7d25":[0,0,0,15,10],
+"d1/d4d/classgalaxy_1_1Cache.html#a028cac1ee1032dcc9597a18fc7ec7d25":[2,0,0,5,10],
 "d1/d4d/classgalaxy_1_1Cache.html#a0504bc638d461fc0213900591bf715fd":[0,0,0,15,14],
 "d1/d4d/classgalaxy_1_1Cache.html#a0504bc638d461fc0213900591bf715fd":[2,0,0,5,14],
 "d1/d4d/classgalaxy_1_1Cache.html#a274a41d9093fc966d1c042d88b78a769":[0,0,0,15,16],
@@ -239,15 +249,5 @@ var NAVTREEINDEX2 =
 "d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96":[0,0,0,32,1],
 "d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96":[2,0,0,22,1],
 "d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8":[0,0,0,32,6],
-"d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8":[2,0,0,22,6],
-"d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12":[0,0,0,32,8],
-"d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12":[2,0,0,22,8],
-"d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9":[0,0,0,32,0],
-"d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9":[2,0,0,22,0],
-"d4/d01/Shaders_8cpp.html":[3,0,0,0,0,11,15],
-"d4/d01/Shaders_8cpp_source.html":[3,0,0,0,0,11,15],
-"d4/d18/Memory_8hpp.html":[3,0,0,0,0,17,3],
-"d4/d18/Memory_8hpp_source.html":[3,0,0,0,0,17,3],
-"d4/d1b/namespacegalaxy_1_1resource.html":[0,0,0,9],
-"d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d":[0,0,0,9,19]
+"d3/ddf/classgalaxy_1_1Lua.html#aeb0b11bf428cf9ccf609edbceddddfa8":[2,0,0,22,6]
 };

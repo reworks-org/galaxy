@@ -1,5 +1,15 @@
 var NAVTREEINDEX7 =
 {
+"dd/d0d/namespacegalaxy_1_1mem.html#a7b83473b28650a3105cc20e9366c2f75":[0,0,0,6,0],
+"dd/d0d/namespacegalaxy_1_1mem.html#a88726f6aa5b0886038d8174591afedb9":[0,0,0,6,1],
+"dd/d0e/FileSink_8hpp.html":[3,0,0,0,0,6,3],
+"dd/d0e/FileSink_8hpp_source.html":[3,0,0,0,0,6,3],
+"dd/d25/Keys_8hpp.html":[3,0,0,0,0,5,7],
+"dd/d25/Keys_8hpp_source.html":[3,0,0,0,0,5,7],
+"dd/d33/classgalaxy_1_1App.html":[0,0,0,14],
+"dd/d33/classgalaxy_1_1App.html":[2,0,0,4],
+"dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134":[0,0,0,14,3],
+"dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134":[2,0,0,4,3],
 "dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9":[0,0,0,14,13],
 "dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9":[2,0,0,4,13],
 "dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c":[0,0,0,14,5],
@@ -239,15 +249,5 @@ var NAVTREEINDEX7 =
 "df/d23/structgalaxy_1_1Settings.html#aa38ca27ed949489f949b647d80f6ea84":[0,0,0,44,17],
 "df/d23/structgalaxy_1_1Settings.html#aa38ca27ed949489f949b647d80f6ea84":[2,0,0,34,17],
 "df/d23/structgalaxy_1_1Settings.html#aa3fd50d09a7fbaa8d78b51e1eb0c409a":[0,0,0,44,25],
-"df/d23/structgalaxy_1_1Settings.html#aa3fd50d09a7fbaa8d78b51e1eb0c409a":[2,0,0,34,25],
-"df/d23/structgalaxy_1_1Settings.html#aa7a7fd365d5be8b2b625e4949fb218de":[0,0,0,44,46],
-"df/d23/structgalaxy_1_1Settings.html#aa7a7fd365d5be8b2b625e4949fb218de":[2,0,0,34,46],
-"df/d23/structgalaxy_1_1Settings.html#aabc13784928120e8a21dee902671f2b6":[0,0,0,44,47],
-"df/d23/structgalaxy_1_1Settings.html#aabc13784928120e8a21dee902671f2b6":[2,0,0,34,47],
-"df/d23/structgalaxy_1_1Settings.html#aaff134ecab7d155cceac43eafdc75313":[0,0,0,44,38],
-"df/d23/structgalaxy_1_1Settings.html#aaff134ecab7d155cceac43eafdc75313":[2,0,0,34,38],
-"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0":[0,0,0,44,0],
-"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0":[2,0,0,34,0],
-"df/d23/structgalaxy_1_1Settings.html#ab206c323682e16b54dea58cb9277c735":[0,0,0,44,44],
-"df/d23/structgalaxy_1_1Settings.html#ab206c323682e16b54dea58cb9277c735":[2,0,0,34,44]
+"df/d23/structgalaxy_1_1Settings.html#aa3fd50d09a7fbaa8d78b51e1eb0c409a":[2,0,0,34,25]
 };

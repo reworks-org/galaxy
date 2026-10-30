@@ -1,0 +1,12 @@
+<map id="galaxy::Window::virtual_screen_height" name="galaxy::Window::virtual_screen_height">
+<area shape="rect" id="Node000001" title="Return the configured logical screen height." alt="" coords="603,35,777,75"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" id="Node000005" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" id="Node000004" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>

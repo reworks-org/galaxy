@@ -1,5 +1,15 @@
 var NAVTREEINDEX4 =
 {
+"d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba":[2,0,0,28,14],
+"d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac":[0,0,0,38,16],
+"d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac":[2,0,0,28,16],
+"d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9":[0,0,0,38,12],
+"d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9":[2,0,0,28,12],
+"d5/d58/classgalaxy_1_1Rect.html#abbe3a09a08d053f9e05c15f7ba00d566":[0,0,0,38,2],
+"d5/d58/classgalaxy_1_1Rect.html#abbe3a09a08d053f9e05c15f7ba00d566":[2,0,0,28,2],
+"d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420":[0,0,0,38,10],
+"d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420":[2,0,0,28,10],
+"d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c":[0,0,0,38,9],
 "d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c":[2,0,0,28,9],
 "d5/d58/classgalaxy_1_1Rect.html#ad7b7b6122dfbb4ecd1689d937a50aeb1":[0,0,0,38,17],
 "d5/d58/classgalaxy_1_1Rect.html#ad7b7b6122dfbb4ecd1689d937a50aeb1":[2,0,0,28,17],
@@ -239,15 +249,5 @@ var NAVTREEINDEX4 =
 "d8/db2/classgalaxy_1_1Keyboard.html":[0,0,0,24],
 "d8/db2/classgalaxy_1_1Keyboard.html":[2,0,0,14],
 "d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1":[0,0,0,24,0],
-"d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1":[2,0,0,14,0],
-"d8/db2/classgalaxy_1_1Keyboard.html#a1999303a18134c1999e072d9131d855a":[0,0,0,24,6],
-"d8/db2/classgalaxy_1_1Keyboard.html#a1999303a18134c1999e072d9131d855a":[2,0,0,14,6],
-"d8/db2/classgalaxy_1_1Keyboard.html#a2336aeb1e295b1a64053b1f69ee641e5":[0,0,0,24,5],
-"d8/db2/classgalaxy_1_1Keyboard.html#a2336aeb1e295b1a64053b1f69ee641e5":[2,0,0,14,5],
-"d8/db2/classgalaxy_1_1Keyboard.html#a27144e69e2b40a9f233c5fecba49f6f9":[0,0,0,24,9],
-"d8/db2/classgalaxy_1_1Keyboard.html#a27144e69e2b40a9f233c5fecba49f6f9":[2,0,0,14,9],
-"d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41":[0,0,0,24,11],
-"d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41":[2,0,0,14,11],
-"d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[0,0,0,24,2],
-"d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[2,0,0,14,2]
+"d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1":[2,0,0,14,0]
 };

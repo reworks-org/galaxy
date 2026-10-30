@@ -64,14 +64,14 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d0/d46/namespacegalaxy.html#a649e37db9438582b9449f8b91738dd83acbc55a981874476c41bbc954dfe3ec6e",
-"d1/d4d/classgalaxy_1_1Cache.html#a0504bc638d461fc0213900591bf715fd",
-"d4/d1b/namespacegalaxy_1_1resource.html#a0a558b76b83408eb125523a657eafe89",
-"d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c",
-"d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14",
-"da/d9e/structgalaxy_1_1MouseWheel.html#adacc7274243bae6236f9ecd613be15a5",
-"dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9",
-"df/d23/structgalaxy_1_1Settings.html#ab55bd6d285934234af9d029c7978cc5c",
-"namespaces.html"
+"d1/d36/Layer_8cpp.html",
+"d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12",
+"d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba",
+"d8/db2/classgalaxy_1_1Keyboard.html#a1999303a18134c1999e072d9131d855a",
+"da/d9e/structgalaxy_1_1MouseWheel.html#a5b02ade56f9b880f7892917c424772d0",
+"dd/d0d/namespacegalaxy_1_1mem.html#a7b83473b28650a3105cc20e9366c2f75",
+"df/d23/structgalaxy_1_1Settings.html#aa7a7fd365d5be8b2b625e4949fb218de",
+"globals_defs.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

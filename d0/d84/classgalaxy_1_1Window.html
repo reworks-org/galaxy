@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d84/classga
 </div><!--header-->
 <div class="contents">
 
-<p>RAII <a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a>. Handles events, input &amp; display.  
+<p>Handles events, input &amp; display.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>&gt;</code></p>
@@ -122,14 +122,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d84/classga
 <div id="dynsection-0-content" class="dyncontent hidden">
 <div class="center"><img src="../../d2/d51/classgalaxy_1_1Window__coll__graph.png" border="0" usemap="#agalaxy_1_1Window_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1Window_coll__map" id="agalaxy_1_1Window_coll__map">
-<area shape="rect" title="RAII Window. Handles events, input &amp; display." alt="" coords="5,5,128,391"/>
+<area shape="rect" title="Handles events, input &amp; display." alt="" coords="5,5,128,391"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a736121d0b4bbcb3371a44a7a1dcffbb3" id="r_a736121d0b4bbcb3371a44a7a1dcffbb3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a736121d0b4bbcb3371a44a7a1dcffbb3">Window</a> ()</td></tr>
-<tr class="memdesc:a736121d0b4bbcb3371a44a7a1dcffbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a> creation constructor.  <br /></td></tr>
+<tr class="memdesc:a736121d0b4bbcb3371a44a7a1dcffbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="Handles events, input &amp; display.">Window</a> creation constructor.  <br /></td></tr>
 <tr class="memitem:a186581ec2fa1e75aa0d4a1d543e198fc" id="r_a186581ec2fa1e75aa0d4a1d543e198fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a186581ec2fa1e75aa0d4a1d543e198fc">~Window</a> ()</td></tr>
 <tr class="memdesc:a186581ec2fa1e75aa0d4a1d543e198fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="memitem:a993aaef200c338363704f8c3898429fe" id="r_a993aaef200c338363704f8c3898429fe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a993aaef200c338363704f8c3898429fe">close</a> () noexcept</td></tr>
@@ -156,14 +156,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a095c8b8cd886f02b62c017514d2feafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle fullscreen.  <br /></td></tr>
 <tr class="memitem:a9ad74e54be25443954cb6b05f1a862b3" id="r_a9ad74e54be25443954cb6b05f1a862b3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9ad74e54be25443954cb6b05f1a862b3">set_taskbar_progress</a> (const float progress) noexcept</td></tr>
 <tr class="memdesc:a9ad74e54be25443954cb6b05f1a862b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the taskbar icon progress overlay.  <br /></td></tr>
+<tr class="memitem:af1b1d970b1cddd824f4a50da4044d8cd" id="r_af1b1d970b1cddd824f4a50da4044d8cd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af1b1d970b1cddd824f4a50da4044d8cd">set_title</a> (const std::string &amp;title)</td></tr>
+<tr class="memdesc:af1b1d970b1cddd824f4a50da4044d8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window title.  <br /></td></tr>
 <tr class="memitem:a7d364f223de4e950def0c3201eb1e11f" id="r_a7d364f223de4e950def0c3201eb1e11f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7d364f223de4e950def0c3201eb1e11f">append_title</a> (const std::string &amp;append)</td></tr>
-<tr class="memdesc:a7d364f223de4e950def0c3201eb1e11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append to window title.  <br /></td></tr>
+<tr class="memdesc:a7d364f223de4e950def0c3201eb1e11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append to window title from the settings.  <br /></td></tr>
 <tr class="memitem:aed3b9111ee0b7573993c9be2eb76aca9" id="r_aed3b9111ee0b7573993c9be2eb76aca9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aed3b9111ee0b7573993c9be2eb76aca9">set_icon</a> (const std::string &amp;icon) noexcept</td></tr>
 <tr class="memdesc:aed3b9111ee0b7573993c9be2eb76aca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set window icon.  <br /></td></tr>
+<tr class="memitem:a986738e6bddf8d58d232bf6491c35807" id="r_a986738e6bddf8d58d232bf6491c35807"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a986738e6bddf8d58d232bf6491c35807">handle_window_events</a> (const SDL_Event &amp;events)</td></tr>
+<tr class="memdesc:a986738e6bddf8d58d232bf6491c35807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process window specific events.  <br /></td></tr>
+<tr class="memitem:a21e40b0130bac4d071aefb5910255c9e" id="r_a21e40b0130bac4d071aefb5910255c9e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a21e40b0130bac4d071aefb5910255c9e">screen_width</a> () const noexcept</td></tr>
+<tr class="memdesc:a21e40b0130bac4d071aefb5910255c9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current drawable width in pixels.  <br /></td></tr>
+<tr class="memitem:addcceaf4180a3bd8b377766043fe33ba" id="r_addcceaf4180a3bd8b377766043fe33ba"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#addcceaf4180a3bd8b377766043fe33ba">screen_height</a> () const noexcept</td></tr>
+<tr class="memdesc:addcceaf4180a3bd8b377766043fe33ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current drawable height in pixels.  <br /></td></tr>
+<tr class="memitem:a799da2e198fd3f95ef3da0a3446ab144" id="r_a799da2e198fd3f95ef3da0a3446ab144"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a799da2e198fd3f95ef3da0a3446ab144">virtual_screen_width</a> () const noexcept</td></tr>
+<tr class="memdesc:a799da2e198fd3f95ef3da0a3446ab144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the configured logical screen width.  <br /></td></tr>
+<tr class="memitem:a74227d3ba530a7cf0e35ffcd8cbf0b75" id="r_a74227d3ba530a7cf0e35ffcd8cbf0b75"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a74227d3ba530a7cf0e35ffcd8cbf0b75">virtual_screen_height</a> () const noexcept</td></tr>
+<tr class="memdesc:a74227d3ba530a7cf0e35ffcd8cbf0b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the configured logical screen height.  <br /></td></tr>
 <tr class="memitem:a5d700bc84cf9b0877891f56464d12e46" id="r_a5d700bc84cf9b0877891f56464d12e46"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5d700bc84cf9b0877891f56464d12e46">is_open</a> () const noexcept</td></tr>
 <tr class="memdesc:a5d700bc84cf9b0877891f56464d12e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the window open or closed.  <br /></td></tr>
-<tr class="memitem:aada22a825f4b880f305d8d18f22cd9dc" id="r_aada22a825f4b880f305d8d18f22cd9dc"><td class="memItemLeft">glm::ivec2&#160;</td><td class="memItemRight"><a class="el" href="#aada22a825f4b880f305d8d18f22cd9dc">get_pixel_size</a> () noexcept</td></tr>
-<tr class="memdesc:aada22a825f4b880f305d8d18f22cd9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get window size in pixels.  <br /></td></tr>
 <tr class="memitem:ac97e9f46c7fc0449ca77ccbaab5b803d" id="r_ac97e9f46c7fc0449ca77ccbaab5b803d"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac97e9f46c7fc0449ca77ccbaab5b803d">get_display_scale</a> () const noexcept</td></tr>
 <tr class="memdesc:ac97e9f46c7fc0449ca77ccbaab5b803d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get display content scale.  <br /></td></tr>
 <tr class="memitem:a29c1789f9bf03b1d269c3c6defaf7da3" id="r_a29c1789f9bf03b1d269c3c6defaf7da3"><td class="memItemLeft">SDL_Window *&#160;</td><td class="memItemRight"><a class="el" href="#a29c1789f9bf03b1d269c3c6defaf7da3">handle</a> () const noexcept</td></tr>
@@ -189,12 +199,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab4db7313c5f82fb4423acb16da6cae2f" id="r_ab4db7313c5f82fb4423acb16da6cae2f"><td class="memItemLeft">SDL_GLContext&#160;</td><td class="memItemRight"><a class="el" href="#ab4db7313c5f82fb4423acb16da6cae2f">m_context</a></td></tr>
 <tr class="memdesc:ab4db7313c5f82fb4423acb16da6cae2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDL OpenGL context.  <br /></td></tr>
 <tr class="memitem:aad3f6761f9f8386260add6c0ed239310" id="r_aad3f6761f9f8386260add6c0ed239310"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aad3f6761f9f8386260add6c0ed239310">m_open</a></td></tr>
-<tr class="memdesc:aad3f6761f9f8386260add6c0ed239310"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a> state flag.  <br /></td></tr>
+<tr class="memdesc:aad3f6761f9f8386260add6c0ed239310"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="Handles events, input &amp; display.">Window</a> state flag.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>RAII <a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a>. Handles events, input &amp; display. </p>
+<div class="textblock"><p>Handles events, input &amp; display. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a736121d0b4bbcb3371a44a7a1dcffbb3" name="a736121d0b4bbcb3371a44a7a1dcffbb3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a736121d0b4bbcb3371a44a7a1dcffbb3">&#9670;&#160;</a></span>Window() <span class="overload">[1/3]</span></h2>
@@ -211,9 +221,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a> creation constructor. </p>
+<p><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="Handles events, input &amp; display.">Window</a> creation constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -264,7 +274,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00154">154</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00149">149</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +389,27 @@ Private Attributes</h2></td></tr>
 <p>Close window. </p>
 <p>This will exit game loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00164">164</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00158">158</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a993aaef200c338363704f8c3898429fe_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a993aaef200c338363704f8c3898429fe_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a993aaef200c338363704f8c3898429fe_icgraph" id="ad0/d84/classgalaxy_1_1Window_a993aaef200c338363704f8c3898429fe_icgraph">
+<area shape="rect" title="Close window." alt="" coords="604,42,771,67"/>
+<area shape="rect" href="../../d0/d84/classgalaxy_1_1Window.html#a986738e6bddf8d58d232bf6491c35807" title="Process window specific events." alt="" coords="380,5,556,45"/>
+<area shape="poly" title=" " alt="" coords="590,44,556,40,557,34,590,39"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="381,70,555,95"/>
+<area shape="poly" title=" " alt="" coords="590,70,556,74,555,69,590,64"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,33,332,58"/>
+<area shape="poly" title=" " alt="" coords="383,70,332,61,333,55,384,65"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,106,325,131"/>
+<area shape="poly" title=" " alt="" coords="382,100,326,110,325,105,381,95"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,33,144,58"/>
+<area shape="poly" title=" " alt="" coords="179,48,144,48,144,43,179,43"/>
+<area shape="poly" title=" " alt="" coords="295,96,286,88,262,85,242,87,232,91,230,97,235,104,231,107,225,98,228,88,241,82,262,79,288,83,298,92"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -408,7 +438,7 @@ Private Attributes</h2></td></tr>
 
 <p>Swap backbuffer with window framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00169">169</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00163">163</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -437,7 +467,25 @@ Private Attributes</h2></td></tr>
 
 <p>Show window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00174">174</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00169">169</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_abd31a698739a0dcdadbec961b55c72de_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_abd31a698739a0dcdadbec961b55c72de_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_abd31a698739a0dcdadbec961b55c72de_icgraph" id="ad0/d84/classgalaxy_1_1Window_abd31a698739a0dcdadbec961b55c72de_icgraph">
+<area shape="rect" title="Show window." alt="" coords="603,43,769,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -466,7 +514,25 @@ Private Attributes</h2></td></tr>
 
 <p>Hide window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00179">179</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00174">174</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_aaf83759e1b9e4aeadce37a7374d730e2_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_aaf83759e1b9e4aeadce37a7374d730e2_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_aaf83759e1b9e4aeadce37a7374d730e2_icgraph" id="ad0/d84/classgalaxy_1_1Window_aaf83759e1b9e4aeadce37a7374d730e2_icgraph">
+<area shape="rect" title="Hide window." alt="" coords="603,43,763,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -495,7 +561,25 @@ Private Attributes</h2></td></tr>
 
 <p>Minimize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00184">184</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00179">179</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_ad4568c3a89072612c1a5a14167a1f961_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_ad4568c3a89072612c1a5a14167a1f961_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_ad4568c3a89072612c1a5a14167a1f961_icgraph" id="ad0/d84/classgalaxy_1_1Window_ad4568c3a89072612c1a5a14167a1f961_icgraph">
+<area shape="rect" title="Minimize window." alt="" coords="603,43,796,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -524,7 +608,25 @@ Private Attributes</h2></td></tr>
 
 <p>Maximize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00190">190</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00185">185</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a73c7aeb46b0a26f8b0edfe88ab1a82da_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a73c7aeb46b0a26f8b0edfe88ab1a82da_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a73c7aeb46b0a26f8b0edfe88ab1a82da_icgraph" id="ad0/d84/classgalaxy_1_1Window_a73c7aeb46b0a26f8b0edfe88ab1a82da_icgraph">
+<area shape="rect" title="Maximize window." alt="" coords="603,43,800,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -553,7 +655,25 @@ Private Attributes</h2></td></tr>
 
 <p>Restore window to previous *mize state. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00197">197</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00192">192</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_af95c4a43bf4726dd67b590da007be994_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_af95c4a43bf4726dd67b590da007be994_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_af95c4a43bf4726dd67b590da007be994_icgraph" id="ad0/d84/classgalaxy_1_1Window_af95c4a43bf4726dd67b590da007be994_icgraph">
+<area shape="rect" title="Restore window to previous *mize state." alt="" coords="603,43,781,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -582,7 +702,25 @@ Private Attributes</h2></td></tr>
 
 <p>Raise the window to be on top of other windows. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00204">204</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a67734c3d1f69eae9772da1760dcd2992_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a67734c3d1f69eae9772da1760dcd2992_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a67734c3d1f69eae9772da1760dcd2992_icgraph" id="ad0/d84/classgalaxy_1_1Window_a67734c3d1f69eae9772da1760dcd2992_icgraph">
+<area shape="rect" title="Raise the window to be on top of other windows." alt="" coords="603,43,767,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -611,7 +749,25 @@ Private Attributes</h2></td></tr>
 
 <p>Flash window on taskbar for user attention. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00209">209</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00204">204</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_af3ee69fcfee910382c3e1cfe738ebd58_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_af3ee69fcfee910382c3e1cfe738ebd58_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_af3ee69fcfee910382c3e1cfe738ebd58_icgraph" id="ad0/d84/classgalaxy_1_1Window_af3ee69fcfee910382c3e1cfe738ebd58_icgraph">
+<area shape="rect" title="Flash window on taskbar for user attention." alt="" coords="603,35,784,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -651,7 +807,25 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00214">214</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00209">209</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
+</div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a6a9ecb30bc3452e7b9ab9c35e34dc52a_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a6a9ecb30bc3452e7b9ab9c35e34dc52a_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a6a9ecb30bc3452e7b9ab9c35e34dc52a_icgraph" id="ad0/d84/classgalaxy_1_1Window_a6a9ecb30bc3452e7b9ab9c35e34dc52a_icgraph">
+<area shape="rect" title="Resizes window." alt="" coords="603,43,773,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -686,7 +860,25 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00215">215</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
+</div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a095c8b8cd886f02b62c017514d2feafc_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a095c8b8cd886f02b62c017514d2feafc_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a095c8b8cd886f02b62c017514d2feafc_icgraph" id="ad0/d84/classgalaxy_1_1Window_a095c8b8cd886f02b62c017514d2feafc_icgraph">
+<area shape="rect" title="Toggle fullscreen." alt="" coords="603,35,755,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -721,7 +913,70 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00226">226</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a9ad74e54be25443954cb6b05f1a862b3_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a9ad74e54be25443954cb6b05f1a862b3_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a9ad74e54be25443954cb6b05f1a862b3_icgraph" id="ad0/d84/classgalaxy_1_1Window_a9ad74e54be25443954cb6b05f1a862b3_icgraph">
+<area shape="rect" title="Sets the taskbar icon progress overlay." alt="" coords="603,35,755,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af1b1d970b1cddd824f4a50da4044d8cd" name="af1b1d970b1cddd824f4a50da4044d8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b1d970b1cddd824f4a50da4044d8cd">&#9670;&#160;</a></span>set_title()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::Window::set_title </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>title</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set window title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">append</td><td>String to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00225">225</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
+</div>
+<div id="dynsection-16-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_af1b1d970b1cddd824f4a50da4044d8cd_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_af1b1d970b1cddd824f4a50da4044d8cd_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_af1b1d970b1cddd824f4a50da4044d8cd_icgraph" id="ad0/d84/classgalaxy_1_1Window_af1b1d970b1cddd824f4a50da4044d8cd_icgraph">
+<area shape="rect" title="Set window title." alt="" coords="603,35,755,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -740,7 +995,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Append to window title. </p>
+<p>Append to window title from the settings. </p>
 <p>Does not preserve last append when called again.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -749,16 +1004,34 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00231">231</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00230">230</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-17-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_cgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_cgraph" id="ad0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_cgraph">
-<area shape="rect" title="Append to window title." alt="" coords="5,5,185,45"/>
+<area shape="rect" title="Append to window title from the settings." alt="" coords="5,5,185,45"/>
 <area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="233,13,393,38"/>
 <area shape="poly" title=" " alt="" coords="185,23,219,23,219,28,185,28"/>
+</map>
+</div>
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
+</div>
+<div id="dynsection-18-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_icgraph" id="ad0/d84/classgalaxy_1_1Window_a7d364f223de4e950def0c3201eb1e11f_icgraph">
+<area shape="rect" title="Append to window title from the settings." alt="" coords="603,35,783,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="588,58,555,58,555,53,588,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
 </map>
 </div>
 
@@ -795,7 +1068,255 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00237">237</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00236">236</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
+</div>
+<div id="dynsection-19-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_aed3b9111ee0b7573993c9be2eb76aca9_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_aed3b9111ee0b7573993c9be2eb76aca9_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_aed3b9111ee0b7573993c9be2eb76aca9_icgraph" id="ad0/d84/classgalaxy_1_1Window_aed3b9111ee0b7573993c9be2eb76aca9_icgraph">
+<area shape="rect" title="Set window icon." alt="" coords="603,43,789,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="588,58,555,58,555,53,588,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a986738e6bddf8d58d232bf6491c35807" name="a986738e6bddf8d58d232bf6491c35807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a986738e6bddf8d58d232bf6491c35807">&#9670;&#160;</a></span>handle_window_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::Window::handle_window_events </td>
+          <td>(</td>
+          <td class="paramtype">const SDL_Event &amp;</td>          <td class="paramname"><span class="paramname"><em>events</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process window specific events. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">events</td><td>SDL_Event containing latest event from PollEvent. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00260">260</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
+</div>
+<div id="dynsection-20-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a986738e6bddf8d58d232bf6491c35807_cgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a986738e6bddf8d58d232bf6491c35807_cgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a986738e6bddf8d58d232bf6491c35807_cgraph" id="ad0/d84/classgalaxy_1_1Window_a986738e6bddf8d58d232bf6491c35807_cgraph">
+<area shape="rect" title="Process window specific events." alt="" coords="5,5,181,45"/>
+<area shape="rect" href="../../d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe" title="Close window." alt="" coords="229,13,396,38"/>
+<area shape="poly" title=" " alt="" coords="182,23,215,23,215,28,182,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a21e40b0130bac4d071aefb5910255c9e" name="a21e40b0130bac4d071aefb5910255c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e40b0130bac4d071aefb5910255c9e">&#9670;&#160;</a></span>screen_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::Window::screen_width </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the current drawable width in pixels. </p>
+<dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00281">281</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary">
+</div>
+<div id="dynsection-21-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a21e40b0130bac4d071aefb5910255c9e_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a21e40b0130bac4d071aefb5910255c9e_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a21e40b0130bac4d071aefb5910255c9e_icgraph" id="ad0/d84/classgalaxy_1_1Window_a21e40b0130bac4d071aefb5910255c9e_icgraph">
+<area shape="rect" title="Return the current drawable width in pixels." alt="" coords="603,35,777,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="addcceaf4180a3bd8b377766043fe33ba" name="addcceaf4180a3bd8b377766043fe33ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addcceaf4180a3bd8b377766043fe33ba">&#9670;&#160;</a></span>screen_height()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::Window::screen_height </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the current drawable height in pixels. </p>
+<dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00286">286</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary">
+</div>
+<div id="dynsection-22-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_addcceaf4180a3bd8b377766043fe33ba_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_addcceaf4180a3bd8b377766043fe33ba_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_addcceaf4180a3bd8b377766043fe33ba_icgraph" id="ad0/d84/classgalaxy_1_1Window_addcceaf4180a3bd8b377766043fe33ba_icgraph">
+<area shape="rect" title="Return the current drawable height in pixels." alt="" coords="603,35,777,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a799da2e198fd3f95ef3da0a3446ab144" name="a799da2e198fd3f95ef3da0a3446ab144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a799da2e198fd3f95ef3da0a3446ab144">&#9670;&#160;</a></span>virtual_screen_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::Window::virtual_screen_width </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the configured logical screen width. </p>
+<dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00291">291</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary">
+</div>
+<div id="dynsection-23-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a799da2e198fd3f95ef3da0a3446ab144_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a799da2e198fd3f95ef3da0a3446ab144_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a799da2e198fd3f95ef3da0a3446ab144_icgraph" id="ad0/d84/classgalaxy_1_1Window_a799da2e198fd3f95ef3da0a3446ab144_icgraph">
+<area shape="rect" title="Return the configured logical screen width." alt="" coords="603,35,777,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a74227d3ba530a7cf0e35ffcd8cbf0b75" name="a74227d3ba530a7cf0e35ffcd8cbf0b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74227d3ba530a7cf0e35ffcd8cbf0b75">&#9670;&#160;</a></span>virtual_screen_height()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int galaxy::Window::virtual_screen_height </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the configured logical screen height. </p>
+<dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00296">296</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary">
+</div>
+<div id="dynsection-24-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a74227d3ba530a7cf0e35ffcd8cbf0b75_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a74227d3ba530a7cf0e35ffcd8cbf0b75_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a74227d3ba530a7cf0e35ffcd8cbf0b75_icgraph" id="ad0/d84/classgalaxy_1_1Window_a74227d3ba530a7cf0e35ffcd8cbf0b75_icgraph">
+<area shape="rect" title="Return the configured logical screen height." alt="" coords="603,35,777,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -825,37 +1346,25 @@ Private Attributes</h2></td></tr>
 <p>Is the window open or closed. </p>
 <dl class="section return"><dt>Returns</dt><dd>Boolean. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00261">261</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00301">301</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary">
 </div>
+<div id="dynsection-25-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a5d700bc84cf9b0877891f56464d12e46_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a5d700bc84cf9b0877891f56464d12e46_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_a5d700bc84cf9b0877891f56464d12e46_icgraph" id="ad0/d84/classgalaxy_1_1Window_a5d700bc84cf9b0877891f56464d12e46_icgraph">
+<area shape="rect" title="Is the window open or closed." alt="" coords="603,43,785,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
 </div>
-<a id="aada22a825f4b880f305d8d18f22cd9dc" name="aada22a825f4b880f305d8d18f22cd9dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aada22a825f4b880f305d8d18f22cd9dc">&#9670;&#160;</a></span>get_pixel_size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::ivec2 galaxy::Window::get_pixel_size </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get window size in pixels. </p>
-<dl class="section return"><dt>Returns</dt><dd>Integer vec2. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00266">266</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +1394,25 @@ Private Attributes</h2></td></tr>
 <p>Get display content scale. </p>
 <dl class="section return"><dt>Returns</dt><dd>Main display scale. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00274">274</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00306">306</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<div id="dynsection-26" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary">
+</div>
+<div id="dynsection-26-content" class="dyncontent hidden">
+<div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_ac97e9f46c7fc0449ca77ccbaab5b803d_icgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_ac97e9f46c7fc0449ca77ccbaab5b803d_icgraph" loading="lazy" alt=""/></div>
+<map name="ad0/d84/classgalaxy_1_1Window_ac97e9f46c7fc0449ca77ccbaab5b803d_icgraph" id="ad0/d84/classgalaxy_1_1Window_ac97e9f46c7fc0449ca77ccbaab5b803d_icgraph">
+<area shape="rect" title="Get display content scale." alt="" coords="603,35,756,75"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="380,43,555,68"/>
+<area shape="poly" title=" " alt="" coords="589,58,555,58,555,53,589,53"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="192,5,332,31"/>
+<area shape="poly" title=" " alt="" coords="383,43,332,33,333,28,384,37"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="199,79,325,104"/>
+<area shape="poly" title=" " alt="" coords="382,73,326,83,325,78,381,68"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="5,5,144,31"/>
+<area shape="poly" title=" " alt="" coords="179,21,144,21,144,15,179,15"/>
+<area shape="poly" title=" " alt="" coords="295,68,286,60,262,57,242,59,232,64,230,70,235,77,231,80,225,70,228,60,241,54,262,52,288,56,298,64"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -915,7 +1442,7 @@ Private Attributes</h2></td></tr>
 <p>Get SDL window pointer. </p>
 <dl class="section return"><dt>Returns</dt><dd>Raw sdl window pointer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00279">279</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00311">311</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -945,7 +1472,7 @@ Private Attributes</h2></td></tr>
 <p>Get SDL GL context. </p>
 <dl class="section return"><dt>Returns</dt><dd>Opaque handle (pointer). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00284">284</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00316">316</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -973,10 +1500,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copy assignment operator. </p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<div id="dynsection-27" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-27-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_ac2c6a5be5cfd438398b4fbd7d15cf0f6_cgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_ac2c6a5be5cfd438398b4fbd7d15cf0f6_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d84/classgalaxy_1_1Window_ac2c6a5be5cfd438398b4fbd7d15cf0f6_cgraph" id="ad0/d84/classgalaxy_1_1Window_ac2c6a5be5cfd438398b4fbd7d15cf0f6_cgraph">
 <area shape="rect" title="Copy assignment operator." alt="" coords="5,31,204,56"/>
@@ -1015,10 +1542,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Move assignment operator. </p>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-28" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-28-content" class="dyncontent hidden">
 <div class="center"><img src="../../d0/d84/classgalaxy_1_1Window_a6c2a587ec074d30cc89b128060cd8a23_cgraph.png" border="0" usemap="#ad0/d84/classgalaxy_1_1Window_a6c2a587ec074d30cc89b128060cd8a23_cgraph" loading="lazy" alt=""/></div>
 <map name="ad0/d84/classgalaxy_1_1Window_a6c2a587ec074d30cc89b128060cd8a23_cgraph" id="ad0/d84/classgalaxy_1_1Window_a6c2a587ec074d30cc89b128060cd8a23_cgraph">
 <area shape="rect" title="Move assignment operator." alt="" coords="5,31,204,56"/>
@@ -1056,7 +1583,7 @@ Private Attributes</h2></td></tr>
 
 <p>SDL window handle. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00192">192</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00229">229</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1609,7 @@ Private Attributes</h2></td></tr>
 
 <p>SDL OpenGL context. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00197">197</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00234">234</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1106,9 +1633,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="RAII Window. Handles events, input &amp; display.">Window</a> state flag. </p>
+<p><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="Handles events, input &amp; display.">Window</a> state flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00202">202</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00239">239</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,15 @@
 var NAVTREEINDEX3 =
 {
+"d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12":[0,0,0,32,8],
+"d3/ddf/classgalaxy_1_1Lua.html#aec2df93287e65ec6adf7d5ec536f0a12":[2,0,0,22,8],
+"d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9":[0,0,0,32,0],
+"d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9":[2,0,0,22,0],
+"d4/d01/Shaders_8cpp.html":[3,0,0,0,0,11,15],
+"d4/d01/Shaders_8cpp_source.html":[3,0,0,0,0,11,15],
+"d4/d18/Memory_8hpp.html":[3,0,0,0,0,17,3],
+"d4/d18/Memory_8hpp_source.html":[3,0,0,0,0,17,3],
+"d4/d1b/namespacegalaxy_1_1resource.html":[0,0,0,9],
+"d4/d1b/namespacegalaxy_1_1resource.html#a01ee2ee096e31eb5fa5d13e4d92b1a6d":[0,0,0,9,19],
 "d4/d1b/namespacegalaxy_1_1resource.html#a0a558b76b83408eb125523a657eafe89":[0,0,0,9,17],
 "d4/d1b/namespacegalaxy_1_1resource.html#a25306ff215c5d7c55430a4917db20529":[0,0,0,9,16],
 "d4/d1b/namespacegalaxy_1_1resource.html#a2f7e089eb529e2182b13580c0e89a4d6":[0,0,0,9,20],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "d5/d58/classgalaxy_1_1Rect.html#a79a80e66d69857b1e42f6d20fb8ca782":[2,0,0,28,4],
 "d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63":[0,0,0,38,8],
 "d5/d58/classgalaxy_1_1Rect.html#a7a00b9b59171f3fa26857190f54d3c63":[2,0,0,28,8],
-"d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba":[0,0,0,38,14],
-"d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba":[2,0,0,28,14],
-"d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac":[0,0,0,38,16],
-"d5/d58/classgalaxy_1_1Rect.html#a948137d14ca82c77d3a156c77c90c0ac":[2,0,0,28,16],
-"d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9":[0,0,0,38,12],
-"d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9":[2,0,0,28,12],
-"d5/d58/classgalaxy_1_1Rect.html#abbe3a09a08d053f9e05c15f7ba00d566":[0,0,0,38,2],
-"d5/d58/classgalaxy_1_1Rect.html#abbe3a09a08d053f9e05c15f7ba00d566":[2,0,0,28,2],
-"d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420":[0,0,0,38,10],
-"d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420":[2,0,0,28,10],
-"d5/d58/classgalaxy_1_1Rect.html#ad752c94d51b5c0ed3ad9b8df0eee663c":[0,0,0,38,9]
+"d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba":[0,0,0,38,14]
 };

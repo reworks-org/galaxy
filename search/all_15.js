@@ -11,10 +11,12 @@ var searchData=
   ['videocache_8',['VideoCache',['../d4/d1b/namespacegalaxy_1_1resource.html#a77ecc744c1b541a6175f1bdebb07f731',1,'galaxy::resource']]],
   ['videoshader_2ecpp_9',['VideoShader.cpp',['../d5/dff/VideoShader_8cpp.html',1,'']]],
   ['videoshader_2ehpp_10',['VideoShader.hpp',['../dd/dad/VideoShader_8hpp.html',1,'']]],
-  ['virtualfilesystem_11',['VirtualFileSystem',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html',1,'galaxy::VirtualFileSystem'],['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169',1,'galaxy::VirtualFileSystem::VirtualFileSystem() noexcept'],['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7',1,'galaxy::VirtualFileSystem::VirtualFileSystem(const VirtualFileSystem &amp;)=delete'],['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#abb23c7a1ebc3c08ca0c2597fc7963bf9',1,'galaxy::VirtualFileSystem::VirtualFileSystem(VirtualFileSystem &amp;&amp;)=delete']]],
-  ['virtualfilesystem_2ecpp_12',['VirtualFileSystem.cpp',['../d5/deb/VirtualFileSystem_8cpp.html',1,'']]],
-  ['virtualfilesystem_2ehpp_13',['VirtualFileSystem.hpp',['../de/dc7/VirtualFileSystem_8hpp.html',1,'']]],
-  ['voicecache_14',['VoiceCache',['../d4/d1b/namespacegalaxy_1_1resource.html#aaacfdb74d8acbcb7b44270dd8a3e2adf',1,'galaxy::resource']]],
-  ['voiceloader_15',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]],
-  ['vsync_16',['vsync',['../df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5',1,'galaxy::Settings']]]
+  ['virtual_5fscreen_5fheight_11',['virtual_screen_height',['../d0/d84/classgalaxy_1_1Window.html#a74227d3ba530a7cf0e35ffcd8cbf0b75',1,'galaxy::Window']]],
+  ['virtual_5fscreen_5fwidth_12',['virtual_screen_width',['../d0/d84/classgalaxy_1_1Window.html#a799da2e198fd3f95ef3da0a3446ab144',1,'galaxy::Window']]],
+  ['virtualfilesystem_13',['VirtualFileSystem',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html',1,'galaxy::VirtualFileSystem'],['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af06e0fedf54483f6613997477f799169',1,'galaxy::VirtualFileSystem::VirtualFileSystem() noexcept'],['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0e3691418646c97e7e2b37af7f5e45c7',1,'galaxy::VirtualFileSystem::VirtualFileSystem(const VirtualFileSystem &amp;)=delete'],['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#abb23c7a1ebc3c08ca0c2597fc7963bf9',1,'galaxy::VirtualFileSystem::VirtualFileSystem(VirtualFileSystem &amp;&amp;)=delete']]],
+  ['virtualfilesystem_2ecpp_14',['VirtualFileSystem.cpp',['../d5/deb/VirtualFileSystem_8cpp.html',1,'']]],
+  ['virtualfilesystem_2ehpp_15',['VirtualFileSystem.hpp',['../de/dc7/VirtualFileSystem_8hpp.html',1,'']]],
+  ['voicecache_16',['VoiceCache',['../d4/d1b/namespacegalaxy_1_1resource.html#aaacfdb74d8acbcb7b44270dd8a3e2adf',1,'galaxy::resource']]],
+  ['voiceloader_17',['VoiceLoader',['../db/de5/structgalaxy_1_1resource_1_1VoiceLoader.html',1,'galaxy::resource']]],
+  ['vsync_18',['vsync',['../df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5',1,'galaxy::Settings']]]
 ];

@@ -1,5 +1,15 @@
 var NAVTREEINDEX5 =
 {
+"d8/db2/classgalaxy_1_1Keyboard.html#a1999303a18134c1999e072d9131d855a":[0,0,0,24,6],
+"d8/db2/classgalaxy_1_1Keyboard.html#a1999303a18134c1999e072d9131d855a":[2,0,0,14,6],
+"d8/db2/classgalaxy_1_1Keyboard.html#a2336aeb1e295b1a64053b1f69ee641e5":[0,0,0,24,5],
+"d8/db2/classgalaxy_1_1Keyboard.html#a2336aeb1e295b1a64053b1f69ee641e5":[2,0,0,14,5],
+"d8/db2/classgalaxy_1_1Keyboard.html#a27144e69e2b40a9f233c5fecba49f6f9":[0,0,0,24,9],
+"d8/db2/classgalaxy_1_1Keyboard.html#a27144e69e2b40a9f233c5fecba49f6f9":[2,0,0,14,9],
+"d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41":[0,0,0,24,11],
+"d8/db2/classgalaxy_1_1Keyboard.html#a4419a9f99746c09cb0d4673bc8265e41":[2,0,0,14,11],
+"d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[0,0,0,24,2],
+"d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf":[2,0,0,14,2],
 "d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14":[0,0,0,24,1],
 "d8/db2/classgalaxy_1_1Keyboard.html#a7e8b2cc74611e61e3baa93d6077a6c14":[2,0,0,14,1],
 "d8/db2/classgalaxy_1_1Keyboard.html#a991233cca335ebcdab05218795b1f7fa":[0,0,0,24,10],
@@ -239,15 +249,5 @@ var NAVTREEINDEX5 =
 "da/d9e/structgalaxy_1_1MouseWheel.html#a15455392efcbd713db28e46efa951b18":[0,0,0,37,2],
 "da/d9e/structgalaxy_1_1MouseWheel.html#a15455392efcbd713db28e46efa951b18":[2,0,0,27,2],
 "da/d9e/structgalaxy_1_1MouseWheel.html#a333520cd8cb80db0d4238392641bb794":[0,0,0,37,7],
-"da/d9e/structgalaxy_1_1MouseWheel.html#a333520cd8cb80db0d4238392641bb794":[2,0,0,27,7],
-"da/d9e/structgalaxy_1_1MouseWheel.html#a5b02ade56f9b880f7892917c424772d0":[0,0,0,37,6],
-"da/d9e/structgalaxy_1_1MouseWheel.html#a5b02ade56f9b880f7892917c424772d0":[2,0,0,27,6],
-"da/d9e/structgalaxy_1_1MouseWheel.html#a8d6eac7e84337aecebf5579fa07ab5a3":[0,0,0,37,5],
-"da/d9e/structgalaxy_1_1MouseWheel.html#a8d6eac7e84337aecebf5579fa07ab5a3":[2,0,0,27,5],
-"da/d9e/structgalaxy_1_1MouseWheel.html#aac2fc334b42ea4ed1a30172b351e91ed":[0,0,0,37,4],
-"da/d9e/structgalaxy_1_1MouseWheel.html#aac2fc334b42ea4ed1a30172b351e91ed":[2,0,0,27,4],
-"da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d":[0,0,0,37,0],
-"da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d":[2,0,0,27,0],
-"da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[0,0,0,37,1],
-"da/d9e/structgalaxy_1_1MouseWheel.html#ac750043ab8f0430a086b6ee77303bb67":[2,0,0,27,1]
+"da/d9e/structgalaxy_1_1MouseWheel.html#a333520cd8cb80db0d4238392641bb794":[2,0,0,27,7]
 };

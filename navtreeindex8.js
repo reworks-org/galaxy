@@ -1,5 +1,15 @@
 var NAVTREEINDEX8 =
 {
+"df/d23/structgalaxy_1_1Settings.html#aa7a7fd365d5be8b2b625e4949fb218de":[0,0,0,44,46],
+"df/d23/structgalaxy_1_1Settings.html#aa7a7fd365d5be8b2b625e4949fb218de":[2,0,0,34,46],
+"df/d23/structgalaxy_1_1Settings.html#aabc13784928120e8a21dee902671f2b6":[0,0,0,44,47],
+"df/d23/structgalaxy_1_1Settings.html#aabc13784928120e8a21dee902671f2b6":[2,0,0,34,47],
+"df/d23/structgalaxy_1_1Settings.html#aaff134ecab7d155cceac43eafdc75313":[0,0,0,44,38],
+"df/d23/structgalaxy_1_1Settings.html#aaff134ecab7d155cceac43eafdc75313":[2,0,0,34,38],
+"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0":[0,0,0,44,0],
+"df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0":[2,0,0,34,0],
+"df/d23/structgalaxy_1_1Settings.html#ab206c323682e16b54dea58cb9277c735":[0,0,0,44,44],
+"df/d23/structgalaxy_1_1Settings.html#ab206c323682e16b54dea58cb9277c735":[2,0,0,34,44],
 "df/d23/structgalaxy_1_1Settings.html#ab55bd6d285934234af9d029c7978cc5c":[0,0,0,44,52],
 "df/d23/structgalaxy_1_1Settings.html#ab55bd6d285934234af9d029c7978cc5c":[2,0,0,34,52],
 "df/d23/structgalaxy_1_1Settings.html#aba7589e93d0cea374b1cf93e94421f99":[0,0,0,44,13],
@@ -239,15 +249,5 @@ var NAVTREEINDEX8 =
 "functions_w.html":[2,3,0,21],
 "functions_z.html":[2,3,0,22],
 "functions_~.html":[2,3,0,23],
-"globals.html":[3,1,0],
-"globals_defs.html":[3,1,3],
-"globals_func.html":[3,1,1],
-"globals_vars.html":[3,1,2],
-"hierarchy.html":[2,2],
-"index.html":[],
-"namespacemembers.html":[0,1,0],
-"namespacemembers_enum.html":[0,1,4],
-"namespacemembers_func.html":[0,1,1],
-"namespacemembers_type.html":[0,1,3],
-"namespacemembers_vars.html":[0,1,2]
+"globals.html":[3,1,0]
 };
