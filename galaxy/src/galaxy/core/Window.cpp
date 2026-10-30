@@ -37,10 +37,10 @@ namespace galaxy
 		}
 
 		int             driver = sl::GFX_AUTODETECT_WINDOWED;
-		SDL_WindowFlags flags = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
+		SDL_WindowFlags flags  = SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_HIDDEN | SDL_WINDOW_HIGH_PIXEL_DENSITY;
 		if (Settings::fullscreen())
 		{
-			flags |= SDL_WINDOW_FULLSCREEN;
+			flags  |= SDL_WINDOW_FULLSCREEN;
 			driver  = sl::GFX_AUTODETECT_FULLSCREEN;
 		}
 		else
@@ -86,10 +86,10 @@ namespace galaxy
 		const auto result = sl::set_gfx_mode(
 			Settings::title().c_str(),
 			flags,
-			driver, 
+			driver,
 			Settings::requested_width(),
 			Settings::requested_height(),
-			Settings::virtual_width(), 
+			Settings::virtual_width(),
 			Settings::virtual_height()
 		);
 
@@ -97,7 +97,7 @@ namespace galaxy
 		{
 			m_window  = sl::get_window();
 			m_context = sl::get_gl_context();
-			
+
 			SDL_GL_SetSwapInterval(Settings::vsync());
 			SDL_SetWindowAlwaysOnTop(m_window, false);
 			SDL_SetWindowBordered(m_window, Settings::window_border());
