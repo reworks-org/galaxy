@@ -1,10 +1,12 @@
 /** @file
- * @brief Owns the SDL/OpenGL context lifecycle: creation, viewport, vsync, and swap.
+ * @brief Owns the SDL/OpenGL context lifecycle: creation, viewport, and swap.
  */
 #include "gl_context.h"
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
+#include <glad/glad.h>
+
+#include <SDL3/SDL.h>
+#include <cstdio>
 
 namespace sl::detail
 {
@@ -13,25 +15,22 @@ namespace sl::detail
         shutdown();
     }
 
-    void GLContext::configure_window_attributes()
-    {
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-        SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-    }
-
     bool GLContext::initialise(SDL_Window *window, std::string &error)
     {
         window_ = window;
         context_ = SDL_GL_CreateContext(window);
+		SDL_GL_MakeCurrent(window_, context_);
         if (!context_)
         {
             error = SDL_GetError();
             window_ = nullptr;
             return false;
         }
+#ifdef _WIN32
+		gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress);
+#endif
+        std::fprintf(stderr, "OpenGL renderer: %s (%s)\n", reinterpret_cast<const char *>(glGetString(GL_RENDERER)),
+                reinterpret_cast<const char *>(glGetString(GL_VERSION)));
         return true;
     }
 
@@ -39,7 +38,7 @@ namespace sl::detail
     {
         if (context_)
         {
-            SDL_GL_DeleteContext(context_);
+            SDL_GL_DestroyContext(context_);
             context_ = nullptr;
         }
         window_ = nullptr;
@@ -54,16 +53,6 @@ namespace sl::detail
         }
         glViewport(0, 0, width, height);
         return true;
-    }
-
-    bool GLContext::set_vsync(bool enabled)
-    {
-        return context_ && SDL_GL_SetSwapInterval(enabled ? 1 : 0) == 0;
-    }
-
-    bool GLContext::vsync_active() const
-    {
-        return context_ && SDL_GL_GetSwapInterval() != 0;
     }
 
     void GLContext::present()

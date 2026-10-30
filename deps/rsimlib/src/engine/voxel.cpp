@@ -1,5 +1,6 @@
 #include "voxel.h"
 
+#include <algorithm>
 #include <cmath>
 #include <limits>
 #include <vector>
@@ -146,6 +147,36 @@ namespace sl
                 return true;
             return false;
         }
+
+        int block_light_opacity(BlockId id)
+        {
+            if (id == BLOCK_AIR)
+                return 1;
+            const BlockDefinition &definition = get_block_definition(id);
+            if (definition.light_opacity <= 15)
+                return definition.light_opacity;
+            return definition.is_solid && !definition.is_transparent ? 15 : 1;
+        }
+
+        // Block light is boosted well past 1.0 (the framebuffer clamps) so emitters read as bright sources
+        constexpr float BLOCK_LIGHT_GAIN = 2.0f;
+
+        // Perceptual curve so mid-range light levels stay readable instead of fading linearly to black
+        float light_curve(std::uint8_t level)
+        {
+            return std::pow(static_cast<float>(level) / 15.0f, 0.6f);
+        }
+
+        std::uint8_t attenuate_light(std::uint8_t level, int opacity)
+        {
+            return level > opacity ? static_cast<std::uint8_t>(level - opacity) : 0;
+        }
+
+        std::uint64_t column_key(int x, int z)
+        {
+            return (static_cast<std::uint64_t>(static_cast<std::uint32_t>(x)) << 32) |
+                   static_cast<std::uint32_t>(z);
+        }
     } // namespace
 
     void register_block_definition(BlockId id, const BlockDefinition &def)
@@ -187,6 +218,7 @@ namespace sl
           chunk_y_(other.chunk_y_),
           chunk_z_(other.chunk_z_),
           blocks_(other.blocks_),
+          lights_(other.lights_),
           mesh_(other.mesh_),
           non_air_count_(other.non_air_count_)
     {
@@ -204,6 +236,7 @@ namespace sl
             chunk_y_ = other.chunk_y_;
             chunk_z_ = other.chunk_z_;
             blocks_ = other.blocks_;
+            lights_ = other.lights_;
             mesh_ = other.mesh_;
             non_air_count_ = other.non_air_count_;
             other.mesh_ = nullptr;
@@ -294,7 +327,9 @@ namespace sl
     }
 
     void VoxelChunk::rebuild_mesh(const VoxelAtlas *atlas,
-                                  const std::function<BlockId(int, int, int)> &world_block_lookup)
+                                  const std::function<BlockId(int, int, int)> &world_block_lookup,
+                                  const std::function<VoxelLight(int, int, int)> &world_light_lookup,
+                                 float sky_brightness)
     {
         if (mesh_)
         {
@@ -359,9 +394,20 @@ namespace sl
                             atlas->get_tile_uv(tile.x, tile.y, u0, v0, u1, v1);
                         }
 
-                        const float r = (def.tint.red / 255.0f) * face.brightness;
-                        const float g = (def.tint.green / 255.0f) * face.brightness;
-                        const float b = (def.tint.blue / 255.0f) * face.brightness;
+                        VoxelLight light{15, 0, 0, 0};
+                        if (world_light_lookup)
+                        {
+                            light = world_light_lookup(world_base_x + nx,
+                                                       world_base_y + ny,
+                                                       world_base_z + nz);
+                        }
+                        const float sky_scale = std::clamp(sky_brightness, 0.0f, 1.0f);
+                        const float light_red = std::max(sky_scale * light_curve(light.sky), BLOCK_LIGHT_GAIN * light_curve(light.red));
+                        const float light_green = std::max(sky_scale * light_curve(light.sky), BLOCK_LIGHT_GAIN * light_curve(light.green));
+                        const float light_blue = std::max(sky_scale * light_curve(light.sky), BLOCK_LIGHT_GAIN * light_curve(light.blue));
+                        const float r = (def.tint.red / 255.0f) * face.brightness * light_red;
+                        const float g = (def.tint.green / 255.0f) * face.brightness * light_green;
+                        const float b = (def.tint.blue / 255.0f) * face.brightness * light_blue;
                         const float a = def.tint.alpha / 255.0f;
 
                         const std::uint32_t base_index = static_cast<std::uint32_t>(vertices.size());
@@ -427,12 +473,9 @@ namespace sl
         return {positive_mod(x, CHUNK_SIZE), positive_mod(y, CHUNK_SIZE), positive_mod(z, CHUNK_SIZE)};
     }
 
-    std::uint64_t VoxelWorld::chunk_key(int cx, int cy, int cz)
+    VoxelWorld::ChunkKey VoxelWorld::chunk_key(int cx, int cy, int cz)
     {
-        const std::uint64_t ux = static_cast<std::uint64_t>(static_cast<std::uint32_t>(cx)) & 0x3FFFFFu;
-        const std::uint64_t uy = static_cast<std::uint64_t>(static_cast<std::uint32_t>(cy)) & 0xFFFFFu;
-        const std::uint64_t uz = static_cast<std::uint64_t>(static_cast<std::uint32_t>(cz)) & 0x3FFFFFu;
-        return (ux << 42) | (uy << 22) | uz;
+        return {cx, cy, cz};
     }
 
     BlockId VoxelWorld::get_block(int x, int y, int z) const
@@ -445,6 +488,21 @@ namespace sl
         return chunk->get_block(lp.x, lp.y, lp.z);
     }
 
+    VoxelLight VoxelWorld::get_light(int x, int y, int z) const
+    {
+        const glm::ivec3 cp = world_to_chunk(x, y, z);
+        const VoxelChunk *chunk = get_chunk(cp.x, cp.y, cp.z);
+        if (!chunk)
+        {
+            const auto highest = highest_opaque_by_column_.find(column_key(x, z));
+            if (highest == highest_opaque_by_column_.end() || y > highest->second)
+                return {15, 0, 0, 0};
+            return {};
+        }
+        const glm::ivec3 lp = world_to_local(x, y, z);
+        return chunk->lights_[VoxelChunk::index(lp.x, lp.y, lp.z)];
+    }
+
     bool VoxelWorld::set_block(int x, int y, int z, BlockId id)
     {
         const glm::ivec3 cp = world_to_chunk(x, y, z);
@@ -453,6 +511,7 @@ namespace sl
         if (!chunk.set_block(lp.x, lp.y, lp.z, id))
             return false;
 
+        lighting_dirty_ = true;
         mark_chunk_dirty(cp.x, cp.y, cp.z);
 
         // Mark neighbor chunks dirty if modified voxel lies on a chunk boundary
@@ -488,7 +547,7 @@ namespace sl
 
     VoxelChunk &VoxelWorld::get_or_create_chunk(int cx, int cy, int cz)
     {
-        const std::uint64_t key = chunk_key(cx, cy, cz);
+        const ChunkKey key = chunk_key(cx, cy, cz);
         auto it = chunks_.find(key);
         if (it == chunks_.end())
         {
@@ -502,15 +561,285 @@ namespace sl
 
     void VoxelWorld::mark_chunk_dirty(int cx, int cy, int cz)
     {
-        const std::uint64_t key = chunk_key(cx, cy, cz);
+        const ChunkKey key = chunk_key(cx, cy, cz);
         if (chunks_.find(key) != chunks_.end())
         {
             dirty_chunks_.insert(key);
         }
     }
 
+    void VoxelWorld::mark_all_dirty()
+    {
+        for (const auto &entry : chunks_)
+            dirty_chunks_.insert(entry.first);
+    }
+
+    void VoxelWorld::update_lighting()
+    {
+        struct LightNode
+        {
+            int x;
+            int y;
+            int z;
+        };
+
+        using LightArray = std::array<VoxelLight, CHUNK_VOLUME>;
+        std::vector<std::pair<ChunkKey, LightArray>> previous_lights;
+        previous_lights.reserve(chunks_.size());
+        highest_opaque_by_column_.clear();
+
+        for (auto &entry : chunks_)
+        {
+            const ChunkKey key = entry.first;
+            VoxelChunk &chunk = *entry.second;
+            previous_lights.emplace_back(key, chunk.lights_);
+            chunk.lights_.fill({});
+
+            const int base_x = chunk.chunk_x_ * CHUNK_SIZE;
+            const int base_y = chunk.chunk_y_ * CHUNK_SIZE;
+            const int base_z = chunk.chunk_z_ * CHUNK_SIZE;
+            for (int z = 0; z < CHUNK_SIZE; ++z)
+            {
+                for (int y = 0; y < CHUNK_SIZE; ++y)
+                {
+                    for (int x = 0; x < CHUNK_SIZE; ++x)
+                    {
+                        const BlockId id = chunk.blocks_[VoxelChunk::index(x, y, z)];
+                        if (block_light_opacity(id) >= 15)
+                        {
+                            const std::uint64_t column = column_key(base_x + x, base_z + z);
+                            const int world_y = base_y + y;
+                            auto highest = highest_opaque_by_column_.find(column);
+                            if (highest == highest_opaque_by_column_.end() || world_y > highest->second)
+                                highest_opaque_by_column_[column] = world_y;
+                        }
+                    }
+                }
+            }
+        }
+
+        auto light_at = [this](int x, int y, int z) -> VoxelLight *
+        {
+            const glm::ivec3 cp = world_to_chunk(x, y, z);
+            VoxelChunk *chunk = get_chunk(cp.x, cp.y, cp.z);
+            if (!chunk)
+                return nullptr;
+            const glm::ivec3 lp = world_to_local(x, y, z);
+            return &chunk->lights_[VoxelChunk::index(lp.x, lp.y, lp.z)];
+        };
+
+        std::vector<LightNode> sky_queue;
+        std::vector<LightNode> block_queue;
+
+        for (auto &entry : chunks_)
+        {
+            VoxelChunk &chunk = *entry.second;
+            const int base_x = chunk.chunk_x_ * CHUNK_SIZE;
+            const int base_y = chunk.chunk_y_ * CHUNK_SIZE;
+            const int base_z = chunk.chunk_z_ * CHUNK_SIZE;
+            for (int z = 0; z < CHUNK_SIZE; ++z)
+            {
+                for (int y = 0; y < CHUNK_SIZE; ++y)
+                {
+                    for (int x = 0; x < CHUNK_SIZE; ++x)
+                    {
+                        const int world_x = base_x + x;
+                        const int world_y = base_y + y;
+                        const int world_z = base_z + z;
+                        const int index = VoxelChunk::index(x, y, z);
+                        const BlockId id = chunk.blocks_[index];
+                        const int opacity = block_light_opacity(id);
+                        VoxelLight &light = chunk.lights_[index];
+
+                        auto highest = highest_opaque_by_column_.find(column_key(world_x, world_z));
+                        if (opacity < 15 &&
+                            (highest == highest_opaque_by_column_.end() || world_y > highest->second))
+                        {
+                            light.sky = static_cast<std::uint8_t>(
+                                id == BLOCK_AIR ? 15 : 15 - opacity);
+                        }
+
+                        const BlockDefinition &definition = get_block_definition(id);
+                        if (definition.light_emission > 0)
+                        {
+                            const unsigned int emission = std::min<unsigned int>(definition.light_emission, 15);
+                            light.red = static_cast<std::uint8_t>(emission * definition.light_colour.red / 255);
+                            light.green = static_cast<std::uint8_t>(emission * definition.light_colour.green / 255);
+                            light.blue = static_cast<std::uint8_t>(emission * definition.light_colour.blue / 255);
+                        }
+                    }
+                }
+            }
+        }
+
+        for (auto &entry : chunks_)
+        {
+            VoxelChunk &chunk = *entry.second;
+            const int base_x = chunk.chunk_x_ * CHUNK_SIZE;
+            const int base_y = chunk.chunk_y_ * CHUNK_SIZE;
+            const int base_z = chunk.chunk_z_ * CHUNK_SIZE;
+            for (int z = 0; z < CHUNK_SIZE; ++z)
+            {
+                for (int y = 0; y < CHUNK_SIZE; ++y)
+                {
+                    for (int x = 0; x < CHUNK_SIZE; ++x)
+                    {
+                        const VoxelLight &light = chunk.lights_[VoxelChunk::index(x, y, z)];
+                        if (light.sky == 0)
+                            continue;
+                        const int world_x = base_x + x;
+                        const int world_y = base_y + y;
+                        const int world_z = base_z + z;
+                        for (const FaceInfo &face : FACES)
+                        {
+                            VoxelLight *neighbor = light_at(world_x + face.dx,
+                                                            world_y + face.dy,
+                                                            world_z + face.dz);
+                            if (!neighbor)
+                                continue;
+                            const BlockId neighbor_id = get_block(world_x + face.dx,
+                                                                  world_y + face.dy,
+                                                                  world_z + face.dz);
+                            if (block_light_opacity(neighbor_id) < 15 &&
+                                neighbor->sky < attenuate_light(light.sky, block_light_opacity(neighbor_id)))
+                            {
+                                sky_queue.push_back({world_x, world_y, world_z});
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        auto propagate_sky = [&]()
+        {
+            for (std::size_t cursor = 0; cursor < sky_queue.size(); ++cursor)
+            {
+                const LightNode node = sky_queue[cursor];
+                const VoxelLight *source = light_at(node.x, node.y, node.z);
+                if (!source || source->sky == 0)
+                    continue;
+                const std::uint8_t source_level = source->sky;
+                for (const FaceInfo &face : FACES)
+                {
+                    const int nx = node.x + face.dx;
+                    const int ny = node.y + face.dy;
+                    const int nz = node.z + face.dz;
+                    VoxelLight *target = light_at(nx, ny, nz);
+                    if (!target)
+                        continue;
+                    const int opacity = block_light_opacity(get_block(nx, ny, nz));
+                    if (opacity >= 15)
+                        continue;
+                    const std::uint8_t candidate = attenuate_light(source_level, opacity);
+                    if (candidate > target->sky)
+                    {
+                        target->sky = candidate;
+                        sky_queue.push_back({nx, ny, nz});
+                    }
+                }
+            }
+        };
+
+        for (auto &entry : chunks_)
+        {
+            VoxelChunk &chunk = *entry.second;
+            const int base_x = chunk.chunk_x_ * CHUNK_SIZE;
+            const int base_y = chunk.chunk_y_ * CHUNK_SIZE;
+            const int base_z = chunk.chunk_z_ * CHUNK_SIZE;
+            for (int z = 0; z < CHUNK_SIZE; ++z)
+            {
+                for (int y = 0; y < CHUNK_SIZE; ++y)
+                {
+                    for (int x = 0; x < CHUNK_SIZE; ++x)
+                    {
+                        const VoxelLight &light = chunk.lights_[VoxelChunk::index(x, y, z)];
+                        if (light.red == 0 && light.green == 0 && light.blue == 0)
+                            continue;
+                        block_queue.push_back({base_x + x, base_y + y, base_z + z});
+                    }
+                }
+            }
+        }
+
+        auto propagate_block = [&]()
+        {
+            for (std::size_t cursor = 0; cursor < block_queue.size(); ++cursor)
+            {
+                const LightNode node = block_queue[cursor];
+                const VoxelLight *source = light_at(node.x, node.y, node.z);
+                if (!source)
+                    continue;
+                const VoxelLight source_light = *source;
+                if (source_light.red == 0 && source_light.green == 0 && source_light.blue == 0)
+                    continue;
+                for (const FaceInfo &face : FACES)
+                {
+                    const int nx = node.x + face.dx;
+                    const int ny = node.y + face.dy;
+                    const int nz = node.z + face.dz;
+                    VoxelLight *target = light_at(nx, ny, nz);
+                    if (!target)
+                        continue;
+                    const int opacity = block_light_opacity(get_block(nx, ny, nz));
+                    if (opacity >= 15)
+                        continue;
+
+                    const VoxelLight candidate{
+                        0,
+                        attenuate_light(source_light.red, opacity),
+                        attenuate_light(source_light.green, opacity),
+                        attenuate_light(source_light.blue, opacity)};
+                    bool changed = false;
+                    if (candidate.red > target->red)
+                    {
+                        target->red = candidate.red;
+                        changed = true;
+                    }
+                    if (candidate.green > target->green)
+                    {
+                        target->green = candidate.green;
+                        changed = true;
+                    }
+                    if (candidate.blue > target->blue)
+                    {
+                        target->blue = candidate.blue;
+                        changed = true;
+                    }
+                    if (changed)
+                        block_queue.push_back({nx, ny, nz});
+                }
+            }
+        };
+
+        propagate_sky();
+        propagate_block();
+
+        for (const auto &previous : previous_lights)
+        {
+            const auto chunk_it = chunks_.find(previous.first);
+            if (chunk_it == chunks_.end() || !chunk_it->second)
+                continue;
+            if (previous.second != chunk_it->second->lights_)
+                dirty_chunks_.insert(previous.first);
+        }
+        lighting_dirty_ = false;
+    }
+
+    void VoxelWorld::set_sky_brightness(float brightness)
+    {
+        brightness = std::clamp(brightness, 0.0f, 1.0f);
+        if (brightness == sky_brightness_)
+            return;
+        sky_brightness_ = brightness;
+        mark_all_dirty();
+    }
+
     void VoxelWorld::update_dirty_chunks(const VoxelAtlas *atlas)
     {
+        if (lighting_dirty_)
+            update_lighting();
         if (dirty_chunks_.empty())
             return;
 
@@ -518,13 +847,17 @@ namespace sl
         {
             return this->get_block(wx, wy, wz);
         };
+        auto light_lookup = [this](int wx, int wy, int wz) -> VoxelLight
+        {
+            return this->get_light(wx, wy, wz);
+        };
 
-        for (std::uint64_t key : dirty_chunks_)
+        for (const ChunkKey &key : dirty_chunks_)
         {
             auto it = chunks_.find(key);
             if (it != chunks_.end() && it->second)
             {
-                it->second->rebuild_mesh(atlas, lookup);
+                it->second->rebuild_mesh(atlas, lookup, light_lookup, sky_brightness_);
             }
         }
         dirty_chunks_.clear();
@@ -534,14 +867,22 @@ namespace sl
     {
         VoxelRaycastResult result;
         const float len_sq = glm::dot(direction, direction);
-        if (len_sq < 1e-6f || max_distance <= 0.0f)
+        if (!std::isfinite(origin.x) || !std::isfinite(origin.y) || !std::isfinite(origin.z) ||
+            !std::isfinite(direction.x) || !std::isfinite(direction.y) || !std::isfinite(direction.z) ||
+            !std::isfinite(len_sq) || !std::isfinite(max_distance) || len_sq < 1e-6f || max_distance <= 0.0f)
             return result;
 
         const glm::vec3 dir = glm::normalize(direction);
-
-        int x = static_cast<int>(std::floor(origin.x));
-        int y = static_cast<int>(std::floor(origin.y));
-        int z = static_cast<int>(std::floor(origin.z));
+        const double floor_x = std::floor(static_cast<double>(origin.x));
+        const double floor_y = std::floor(static_cast<double>(origin.y));
+        const double floor_z = std::floor(static_cast<double>(origin.z));
+        if (floor_x < std::numeric_limits<int>::lowest() || floor_x > std::numeric_limits<int>::max() ||
+            floor_y < std::numeric_limits<int>::lowest() || floor_y > std::numeric_limits<int>::max() ||
+            floor_z < std::numeric_limits<int>::lowest() || floor_z > std::numeric_limits<int>::max())
+            return result;
+        int x = static_cast<int>(floor_x);
+        int y = static_cast<int>(floor_y);
+        int z = static_cast<int>(floor_z);
 
         // If the origin itself is inside a solid block
         const BlockId start_id = get_block(x, y, z);
@@ -597,6 +938,9 @@ namespace sl
             {
                 if (t_max_x < t_max_z)
                 {
+                    if ((step_x > 0 && x == std::numeric_limits<int>::max()) ||
+                        (step_x < 0 && x == std::numeric_limits<int>::lowest()))
+                        return result;
                     x += step_x;
                     dist = t_max_x;
                     t_max_x += t_delta_x;
@@ -604,6 +948,9 @@ namespace sl
                 }
                 else
                 {
+                    if ((step_z > 0 && z == std::numeric_limits<int>::max()) ||
+                        (step_z < 0 && z == std::numeric_limits<int>::lowest()))
+                        return result;
                     z += step_z;
                     dist = t_max_z;
                     t_max_z += t_delta_z;
@@ -614,6 +961,9 @@ namespace sl
             {
                 if (t_max_y < t_max_z)
                 {
+                    if ((step_y > 0 && y == std::numeric_limits<int>::max()) ||
+                        (step_y < 0 && y == std::numeric_limits<int>::lowest()))
+                        return result;
                     y += step_y;
                     dist = t_max_y;
                     t_max_y += t_delta_y;
@@ -621,6 +971,9 @@ namespace sl
                 }
                 else
                 {
+                    if ((step_z > 0 && z == std::numeric_limits<int>::max()) ||
+                        (step_z < 0 && z == std::numeric_limits<int>::lowest()))
+                        return result;
                     z += step_z;
                     dist = t_max_z;
                     t_max_z += t_delta_z;

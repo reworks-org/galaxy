@@ -44,9 +44,9 @@ AnimationManager::AnimationManager()
 AnimationManager::~AnimationManager()
 {
 }
-void AnimationManager::update()
+
+void AnimationManager::update(const double delta_t)
 {
-    const double delta_t = sl::get_frame_time() / 1000.0;
     std::vector<AnimatedSprite> keep_list;
     for (auto &as : animated_sprites)
     {

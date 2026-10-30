@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <cstddef>
 #include <memory>
 #include <string>
 
@@ -20,10 +21,22 @@ namespace sl
         std::string error;
     };
 
+    /** Resource limits applied to scripts; a limit of zero disables that check. */
+    struct LuaLimits
+    {
+        /** Maximum Lua VM instructions per execute() or callback call. */
+        unsigned long long max_instructions = 100'000'000;
+        /** Maximum bytes the Lua state may allocate. */
+        std::size_t max_memory_bytes = 256u * 1024u * 1024u;
+    };
+
     /** Owns a sandboxed Lua state and provides script execution and callbacks. */
     class LuaRuntime
     {
     public:
+        /** Allocation and instruction accounting for the Lua state (internal). */
+        struct Budget;
+
         /** Receives output emitted by Lua print calls. */
         using OutputHandler = std::function<void(const std::string &)>;
 
@@ -35,6 +48,10 @@ namespace sl
         LuaRuntime(const LuaRuntime &) = delete;
         LuaRuntime &operator=(const LuaRuntime &) = delete;
 
+        /** Set the resource limits; takes effect for the current state and any later initialise(). */
+        void set_limits(const LuaLimits &limits);
+        /** Return the active resource limits. */
+        const LuaLimits &limits() const;
         /** Create the Lua state and register simlib's script bindings. */
         void initialise(OutputHandler output_handler = {});
         /** Return whether the Lua state has been initialised. */
@@ -61,6 +78,7 @@ namespace sl
         void reset();
 
     private:
+        std::unique_ptr<Budget> budget_;
         std::unique_ptr<sol::state> state_;
         OutputHandler output_handler_;
     };

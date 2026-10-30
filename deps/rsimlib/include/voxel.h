@@ -49,6 +49,27 @@ namespace sl
         VoxelTile tiles[6] = {};
         /** Base color tint multiplied into the face vertices. */
         Colour tint{255, 255, 255, 255};
+        /** Emitted block-light intensity in [0..15]. */
+        std::uint8_t light_emission = 0;
+        /** RGB color of emitted block light. */
+        Colour light_colour{255, 255, 255, 255};
+        /** Light attenuation in [0..15], or 255 to infer from solidity/transparency. */
+        std::uint8_t light_opacity = 255;
+    };
+
+    /** Propagated voxel light levels. Each channel is in [0..15]. */
+    struct VoxelLight
+    {
+        std::uint8_t sky = 0;
+        std::uint8_t red = 0;
+        std::uint8_t green = 0;
+        std::uint8_t blue = 0;
+
+        bool operator==(const VoxelLight &other) const
+        {
+            return sky == other.sky && red == other.red &&
+                   green == other.green && blue == other.blue;
+        }
     };
 
     /** Register a block definition in the global registry. */
@@ -133,9 +154,14 @@ namespace sl
          * @param atlas Optional texture atlas for UV calculation.
          * @param world_block_lookup Optional callback(wx, wy, wz) -> BlockId for checking
          *        neighbor voxels across chunk borders. If null, borders are treated as air.
+         * @param world_light_lookup Optional callback(wx, wy, wz) -> propagated light for
+         *        face shading. If null, the chunk is treated as fully sky-lit.
+         * @param sky_brightness Multiplier for the sky light contribution, 0 (night) to 1 (full daylight).
          */
         void rebuild_mesh(const VoxelAtlas *atlas = nullptr,
-                          const std::function<BlockId(int, int, int)> &world_block_lookup = nullptr);
+                          const std::function<BlockId(int, int, int)> &world_block_lookup = nullptr,
+                          const std::function<VoxelLight(int, int, int)> &world_light_lookup = nullptr,
+                          float sky_brightness = 1.0f);
 
         /** The current GPU mesh handle, or nullptr if empty. */
         Mesh *mesh() const { return mesh_; }
@@ -146,6 +172,8 @@ namespace sl
         bool draw(const Material &material = {});
 
     private:
+        friend class VoxelWorld;
+
         static constexpr int index(int x, int y, int z)
         {
             return x + y * CHUNK_SIZE + z * CHUNK_SIZE * CHUNK_SIZE;
@@ -155,6 +183,7 @@ namespace sl
         int chunk_y_ = 0;
         int chunk_z_ = 0;
         std::array<BlockId, CHUNK_VOLUME> blocks_{};
+        std::array<VoxelLight, CHUNK_VOLUME> lights_{};
         Mesh *mesh_ = nullptr;
         int non_air_count_ = 0;
     };
@@ -176,6 +205,8 @@ namespace sl
 
         /** Query block at arbitrary world coordinates. Returns BLOCK_AIR if chunk is unallocated. */
         BlockId get_block(int x, int y, int z) const;
+        /** Query propagated sky and RGB block light; unallocated cells can still receive direct sky. */
+        VoxelLight get_light(int x, int y, int z) const;
         /** Set block at world coordinates. Allocates chunk if needed and marks affected chunks dirty. */
         bool set_block(int x, int y, int z, BlockId id);
 
@@ -185,6 +216,16 @@ namespace sl
 
         /** Mark a chunk as needing mesh regeneration. */
         void mark_chunk_dirty(int cx, int cy, int cz);
+        /** Queue every chunk for remeshing, e.g. after the texture atlas changes. */
+        void mark_all_dirty();
+        /** Recalculate sky and RGB block light after world or light-emitter changes. */
+        void update_lighting();
+        /**
+         * Scale how much sky light brightens faces, 0 (night) to 1 (daylight, the default). Block light is unaffected,
+         * so torches and crystals stand out as the sky fades. Changing it queues every chunk for remeshing.
+         */
+        void set_sky_brightness(float brightness);
+        float sky_brightness() const { return sky_brightness_; }
         /** Rebuild meshes for all dirty chunks. */
         void update_dirty_chunks(const VoxelAtlas *atlas = nullptr);
 
@@ -203,10 +244,36 @@ namespace sl
         int total_triangles() const;
 
     private:
-        static std::uint64_t chunk_key(int cx, int cy, int cz);
+        struct ChunkKey
+        {
+            int x;
+            int y;
+            int z;
 
-        std::unordered_map<std::uint64_t, std::unique_ptr<VoxelChunk>> chunks_;
-        std::unordered_set<std::uint64_t> dirty_chunks_;
+            bool operator==(const ChunkKey &other) const noexcept
+            {
+                return x == other.x && y == other.y && z == other.z;
+            }
+        };
+
+        struct ChunkKeyHash
+        {
+            std::size_t operator()(const ChunkKey &key) const noexcept
+            {
+                std::size_t hash = std::hash<int>{}(key.x);
+                hash ^= std::hash<int>{}(key.y) + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+                hash ^= std::hash<int>{}(key.z) + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+                return hash;
+            }
+        };
+
+        static ChunkKey chunk_key(int cx, int cy, int cz);
+
+        std::unordered_map<ChunkKey, std::unique_ptr<VoxelChunk>, ChunkKeyHash> chunks_;
+        std::unordered_set<ChunkKey, ChunkKeyHash> dirty_chunks_;
+        std::unordered_map<std::uint64_t, int> highest_opaque_by_column_;
+        bool lighting_dirty_ = true;
+        float sky_brightness_ = 1.0f;
     };
 
 } // namespace sl

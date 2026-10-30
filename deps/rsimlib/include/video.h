@@ -8,12 +8,23 @@ namespace sl
 {
     struct Bitmap;
 
-    /** Opaque handle to an open MPEG1 video (with optional MP2 audio) decoding into a bitmap. */
+    /**
+     * Opaque handle to an open video (with optional audio) decoding into a bitmap.
+     * Supported formats depend on the build-time SIMLIB_VIDEO option: "plmpeg" decodes MPEG1/MP2
+     * program streams only, "ffmpeg" decodes anything FFmpeg supports, "none" disables video.
+     */
     struct Video;
 
-    /** Open an MPEG-PS (.mpg) file for playback. Pass audio=false to skip audio decoding/output. */
+    /** Name of the compiled-in video backend: "pl_mpeg", "FFmpeg" or "none". */
+    const char *video_backend_name();
+
+    /**
+     * Open a video file for playback. Pass audio=false to skip audio decoding/output.
+     * With the FFmpeg backend path may also be a URL (http, https, rtsp, ...); other backends reject URLs.
+     * Returns nullptr and sets last_error() on failure.
+     */
     Video *open_video(const std::string &path, bool audio = true);
-    /** Open an MPEG-PS video from a memory buffer; the caller retains ownership of data. */
+    /** Open a video from a memory buffer; the caller retains ownership of data and must keep it alive. */
     Video *open_video_from_memory(const std::uint8_t *data, std::size_t size, bool audio = true);
     /** Destroy a video and release its decode buffers and audio device. */
     void destroy_video(Video *video);
@@ -29,6 +40,12 @@ namespace sl
     int video_height(Video *video);
     /** Duration of the video in seconds, or 0 if unknown. */
     double video_duration(Video *video);
+    /** Current playback position in seconds. */
+    double video_position(Video *video);
+    /** Seek to a position in seconds. Returns false if the source is not seekable (e.g. a live stream). */
+    bool seek_video(Video *video, double seconds);
+    /** Whether the video has an audio track that will be played. */
+    bool video_has_audio(Video *video);
     /** Whether playback has reached the end. Always false while looping is enabled. */
     bool video_has_ended(Video *video);
     /** Enable or disable looping playback. Default false. */

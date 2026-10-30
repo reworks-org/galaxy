@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -11,9 +11,53 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="box2d\src\collision\b2_broad_phase.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_chain_shape.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_circle_shape.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_collide_circle.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_collide_edge.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_collide_polygon.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_collision.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_distance.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_dynamic_tree.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_edge_shape.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_polygon_shape.cpp" />
+    <ClCompile Include="box2d\src\collision\b2_time_of_impact.cpp" />
+    <ClCompile Include="box2d\src\common\b2_block_allocator.cpp" />
+    <ClCompile Include="box2d\src\common\b2_draw.cpp" />
+    <ClCompile Include="box2d\src\common\b2_math.cpp" />
+    <ClCompile Include="box2d\src\common\b2_settings.cpp" />
+    <ClCompile Include="box2d\src\common\b2_stack_allocator.cpp" />
+    <ClCompile Include="box2d\src\common\b2_timer.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_body.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_chain_circle_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_chain_polygon_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_circle_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_contact_manager.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_contact_solver.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_distance_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_edge_circle_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_edge_polygon_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_fixture.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_friction_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_gear_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_island.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_motor_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_mouse_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_polygon_circle_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_polygon_contact.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_prismatic_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_pulley_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_revolute_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_weld_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_wheel_joint.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_world.cpp" />
+    <ClCompile Include="box2d\src\dynamics\b2_world_callbacks.cpp" />
+    <ClCompile Include="box2d\src\rope\b2_rope.cpp" />
     <ClCompile Include="glad\glad.c" />
     <ClCompile Include="glm\glm\detail\glm.cpp" />
-    <ClCompile Include="glm\glm\glm.cppm" />
     <ClCompile Include="googletest\googlemock\src\gmock-cardinalities.cc" />
     <ClCompile Include="googletest\googlemock\src\gmock-internal-utils.cc" />
     <ClCompile Include="googletest\googlemock\src\gmock-matchers.cc" />
@@ -28,7 +72,6 @@
     <ClCompile Include="googletest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="googletest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="googletest\googletest\src\gtest.cc" />
-    <ClCompile Include="harfbuzz\src\harfbuzz.cc" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -80,6 +123,60 @@
     <ClCompile Include="physfs\src\physfs_byteorder.c" />
     <ClCompile Include="physfs\src\physfs_platform_windows.c" />
     <ClCompile Include="physfs\src\physfs_unicode.c" />
+    <ClCompile Include="rsimlib\src\engine\ac3d.cpp" />
+    <ClCompile Include="rsimlib\src\engine\animated_sprite.cpp" />
+    <ClCompile Include="rsimlib\src\engine\async_load.cpp" />
+    <ClCompile Include="rsimlib\src\engine\atlas.cpp" />
+    <ClCompile Include="rsimlib\src\engine\atmosphere.cpp" />
+    <ClCompile Include="rsimlib\src\engine\clutter.cpp" />
+    <ClCompile Include="rsimlib\src\engine\clutter_layer.cpp" />
+    <ClCompile Include="rsimlib\src\engine\controls.cpp" />
+    <ClCompile Include="rsimlib\src\engine\dds.cpp" />
+    <ClCompile Include="rsimlib\src\engine\display.cpp" />
+    <ClCompile Include="rsimlib\src\engine\draw.cpp" />
+    <ClCompile Include="rsimlib\src\engine\error.cpp" />
+    <ClCompile Include="rsimlib\src\engine\flight.cpp" />
+    <ClCompile Include="rsimlib\src\engine\fluid.cpp" />
+    <ClCompile Include="rsimlib\src\engine\fluid3d.cpp" />
+    <ClCompile Include="rsimlib\src\engine\font.cpp" />
+    <ClCompile Include="rsimlib\src\engine\gas_vessel.cpp" />
+    <ClCompile Include="rsimlib\src\engine\gl2d.cpp" />
+    <ClCompile Include="rsimlib\src\engine\gl_context.cpp" />
+    <ClCompile Include="rsimlib\src\engine\gl_renderer.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_bloom.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_blur.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_chromatic_aberration.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_colour_adjust.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_crt.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_dither.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_film_grain.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_hdr.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_heat_haze.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_lighting.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_pixelate.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_radial_blur.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_screen_shake.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_shockwave.cpp" />
+    <ClCompile Include="rsimlib\src\engine\graphics_fx_vignette.cpp" />
+    <ClCompile Include="rsimlib\src\engine\hud.cpp" />
+    <ClCompile Include="rsimlib\src\engine\input.cpp" />
+    <ClCompile Include="rsimlib\src\engine\model3d.cpp" />
+    <ClCompile Include="rsimlib\src\engine\net.cpp" />
+    <ClCompile Include="rsimlib\src\engine\noise.cpp" />
+    <ClCompile Include="rsimlib\src\engine\parallel_record.cpp" />
+    <ClCompile Include="rsimlib\src\engine\particles.cpp" />
+    <ClCompile Include="rsimlib\src\engine\physics.cpp" />
+    <ClCompile Include="rsimlib\src\engine\planet_tiles.cpp" />
+    <ClCompile Include="rsimlib\src\engine\proptree.cpp" />
+    <ClCompile Include="rsimlib\src\engine\renderer.cpp" />
+    <ClCompile Include="rsimlib\src\engine\shader_paths.cpp" />
+    <ClCompile Include="rsimlib\src\engine\surface3d.cpp" />
+    <ClCompile Include="rsimlib\src\engine\system.cpp" />
+    <ClCompile Include="rsimlib\src\engine\tilemap.cpp" />
+    <ClCompile Include="rsimlib\src\engine\video_none.cpp" />
+    <ClCompile Include="rsimlib\src\engine\video_plmpeg.cpp" />
+    <ClCompile Include="rsimlib\src\engine\voxel.cpp" />
     <ClCompile Include="SDL3_mixer\src\decoder_aiff.c" />
     <ClCompile Include="SDL3_mixer\src\decoder_au.c" />
     <ClCompile Include="SDL3_mixer\src\decoder_drflac.c" />
@@ -113,6 +210,55 @@
     <ClCompile Include="tinyfd\more_dialogs\tinyfd_moredialogs.c" />
     <ClCompile Include="tinyfd\tinyfiledialogs.c" />
     <ClCompile Include="zip\src\zip.c" />
+    <ClInclude Include="box2d\include\box2d\b2_api.h" />
+    <ClInclude Include="box2d\include\box2d\b2_block_allocator.h" />
+    <ClInclude Include="box2d\include\box2d\b2_body.h" />
+    <ClInclude Include="box2d\include\box2d\b2_broad_phase.h" />
+    <ClInclude Include="box2d\include\box2d\b2_chain_shape.h" />
+    <ClInclude Include="box2d\include\box2d\b2_circle_shape.h" />
+    <ClInclude Include="box2d\include\box2d\b2_collision.h" />
+    <ClInclude Include="box2d\include\box2d\b2_common.h" />
+    <ClInclude Include="box2d\include\box2d\b2_contact.h" />
+    <ClInclude Include="box2d\include\box2d\b2_contact_manager.h" />
+    <ClInclude Include="box2d\include\box2d\b2_distance.h" />
+    <ClInclude Include="box2d\include\box2d\b2_distance_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_draw.h" />
+    <ClInclude Include="box2d\include\box2d\b2_dynamic_tree.h" />
+    <ClInclude Include="box2d\include\box2d\b2_edge_shape.h" />
+    <ClInclude Include="box2d\include\box2d\b2_fixture.h" />
+    <ClInclude Include="box2d\include\box2d\b2_friction_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_gear_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_growable_stack.h" />
+    <ClInclude Include="box2d\include\box2d\b2_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_math.h" />
+    <ClInclude Include="box2d\include\box2d\b2_motor_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_mouse_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_polygon_shape.h" />
+    <ClInclude Include="box2d\include\box2d\b2_prismatic_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_pulley_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_revolute_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_rope.h" />
+    <ClInclude Include="box2d\include\box2d\b2_settings.h" />
+    <ClInclude Include="box2d\include\box2d\b2_shape.h" />
+    <ClInclude Include="box2d\include\box2d\b2_stack_allocator.h" />
+    <ClInclude Include="box2d\include\box2d\b2_timer.h" />
+    <ClInclude Include="box2d\include\box2d\b2_time_of_impact.h" />
+    <ClInclude Include="box2d\include\box2d\b2_time_step.h" />
+    <ClInclude Include="box2d\include\box2d\b2_types.h" />
+    <ClInclude Include="box2d\include\box2d\b2_weld_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_wheel_joint.h" />
+    <ClInclude Include="box2d\include\box2d\b2_world.h" />
+    <ClInclude Include="box2d\include\box2d\b2_world_callbacks.h" />
+    <ClInclude Include="box2d\include\box2d\box2d.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_chain_circle_contact.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_chain_polygon_contact.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_circle_contact.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_contact_solver.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_edge_circle_contact.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_edge_polygon_contact.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_island.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_polygon_circle_contact.h" />
+    <ClInclude Include="box2d\src\dynamics\b2_polygon_contact.h" />
     <ClInclude Include="dense\include\ankerl\huge_page_allocator.h" />
     <ClInclude Include="dense\include\ankerl\mapped_view.h" />
     <ClInclude Include="dense\include\ankerl\stl.h" />
@@ -545,39 +691,6 @@
     <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-string.h" />
     <ClInclude Include="googletest\googletest\include\gtest\internal\gtest-type-util.h" />
     <ClInclude Include="googletest\googletest\src\gtest-internal-inl.h" />
-    <ClInclude Include="harfbuzz\src\hb-aat-layout.h" />
-    <ClInclude Include="harfbuzz\src\hb-aat.h" />
-    <ClInclude Include="harfbuzz\src\hb-blob.h" />
-    <ClInclude Include="harfbuzz\src\hb-buffer.h" />
-    <ClInclude Include="harfbuzz\src\hb-common.h" />
-    <ClInclude Include="harfbuzz\src\hb-cplusplus.hh" />
-    <ClInclude Include="harfbuzz\src\hb-deprecated.h" />
-    <ClInclude Include="harfbuzz\src\hb-draw.h" />
-    <ClInclude Include="harfbuzz\src\hb-face.h" />
-    <ClInclude Include="harfbuzz\src\hb-font.h" />
-    <ClInclude Include="harfbuzz\src\hb-ft.h" />
-    <ClInclude Include="harfbuzz\src\hb-gdi.h" />
-    <ClInclude Include="harfbuzz\src\hb-map.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-color.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-deprecated.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-font.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-layout.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-math.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-meta.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-metrics.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-name.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-shape.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot-var.h" />
-    <ClInclude Include="harfbuzz\src\hb-ot.h" />
-    <ClInclude Include="harfbuzz\src\hb-paint.h" />
-    <ClInclude Include="harfbuzz\src\hb-set.h" />
-    <ClInclude Include="harfbuzz\src\hb-shape-plan.h" />
-    <ClInclude Include="harfbuzz\src\hb-shape.h" />
-    <ClInclude Include="harfbuzz\src\hb-style.h" />
-    <ClInclude Include="harfbuzz\src\hb-unicode.h" />
-    <ClInclude Include="harfbuzz\src\hb-uniscribe.h" />
-    <ClInclude Include="harfbuzz\src\hb-version.h" />
-    <ClInclude Include="harfbuzz\src\hb.h" />
     <ClInclude Include="httplib\httplib.h" />
     <ClInclude Include="json\include\nlohmann\adl_serializer.hpp" />
     <ClInclude Include="json\include\nlohmann\byte_container_with_subtype.hpp" />
@@ -690,6 +803,59 @@
     <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="SDL3\src\SDL.c" />
     <ClCompile Include="SDL3\src\SDL_assert.c" />
+    <ClInclude Include="pl_mpeg\pl_mpeg.h" />
+    <ClInclude Include="rsimlib\include\animated_sprite.h" />
+    <ClInclude Include="rsimlib\include\animation2d.h" />
+    <ClInclude Include="rsimlib\include\async_load.h" />
+    <ClInclude Include="rsimlib\include\atlas.h" />
+    <ClInclude Include="rsimlib\include\atmosphere.h" />
+    <ClInclude Include="rsimlib\include\camera2d.h" />
+    <ClInclude Include="rsimlib\include\clutter.h" />
+    <ClInclude Include="rsimlib\include\collision2d.h" />
+    <ClInclude Include="rsimlib\include\controls.h" />
+    <ClInclude Include="rsimlib\include\dds.h" />
+    <ClInclude Include="rsimlib\include\display.h" />
+    <ClInclude Include="rsimlib\include\draw.h" />
+    <ClInclude Include="rsimlib\include\error.h" />
+    <ClInclude Include="rsimlib\include\event.h" />
+    <ClInclude Include="rsimlib\include\FastNoiseLite.h" />
+    <ClInclude Include="rsimlib\include\flight.h" />
+    <ClInclude Include="rsimlib\include\fluid.h" />
+    <ClInclude Include="rsimlib\include\fluid3d.h" />
+    <ClInclude Include="rsimlib\include\font.h" />
+    <ClInclude Include="rsimlib\include\gamepad.h" />
+    <ClInclude Include="rsimlib\include\gas_vessel.h" />
+    <ClInclude Include="rsimlib\include\graphics_fx.h" />
+    <ClInclude Include="rsimlib\include\hud.h" />
+    <ClInclude Include="rsimlib\include\input.h" />
+    <ClInclude Include="rsimlib\include\isometric.h" />
+    <ClInclude Include="rsimlib\include\model3d.h" />
+    <ClInclude Include="rsimlib\include\net.h" />
+    <ClInclude Include="rsimlib\include\noise.h" />
+    <ClInclude Include="rsimlib\include\parallel_render.h" />
+    <ClInclude Include="rsimlib\include\particles.h" />
+    <ClInclude Include="rsimlib\include\pathfinding.h" />
+    <ClInclude Include="rsimlib\include\physics.h" />
+    <ClInclude Include="rsimlib\include\pixel_scale.h" />
+    <ClInclude Include="rsimlib\include\planet_tiles.h" />
+    <ClInclude Include="rsimlib\include\proptree.h" />
+    <ClInclude Include="rsimlib\include\surface3d.h" />
+    <ClInclude Include="rsimlib\include\system.h" />
+    <ClInclude Include="rsimlib\include\tilemap.h" />
+    <ClInclude Include="rsimlib\include\tween.h" />
+    <ClInclude Include="rsimlib\include\video.h" />
+    <ClInclude Include="rsimlib\include\voxel.h" />
+    <ClInclude Include="rsimlib\src\engine\async_internal.h" />
+    <ClInclude Include="rsimlib\src\engine\atmosphere_internal.h" />
+    <ClInclude Include="rsimlib\src\engine\deferred_mesh.h" />
+    <ClInclude Include="rsimlib\src\engine\gl2d.h" />
+    <ClInclude Include="rsimlib\src\engine\gl_context.h" />
+    <ClInclude Include="rsimlib\src\engine\gl_renderer.h" />
+    <ClInclude Include="rsimlib\src\engine\graphics_fx_internal.h" />
+    <ClInclude Include="rsimlib\src\engine\parallel_record.h" />
+    <ClInclude Include="rsimlib\src\engine\renderer.h" />
+    <ClInclude Include="rsimlib\src\engine\shader_paths.h" />
+    <ClInclude Include="rsimlib\src\engine\third_party\enet.h" />
     <ClInclude Include="SDL3\src\SDL_assert_c.h" />
     <ClCompile Include="SDL3\src\SDL_error.c" />
     <ClInclude Include="SDL3\src\SDL_error_c.h" />
@@ -1727,7 +1893,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>FT_PUBLIC_FUNCTION_ATTRIBUTE=;HAVE_ATEXIT;HAVE_ISATTY;HAVE_STDBOOL_H;HAVE_FREETYPE=1;HAVE_FT_GET_VAR_BLEND_COORDINATES;HAVE_FT_SET_VAR_BLEND_COORDINATES;HAVE_FT_DONE_MM_VAR;HAVE_FT_GET_TRANSFORM;HAVE_GDI;HAVE_UNISCRIBE;TTF_USE_HARFBUZZ=1;MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_DEBUG;DEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SIMLIB_RENDERER_GL;HAVE_ATEXIT;HAVE_ISATTY;HAVE_STDBOOL_H;HAVE_FREETYPE=1;HAVE_FT_GET_VAR_BLEND_COORDINATES;HAVE_FT_SET_VAR_BLEND_COORDINATES;HAVE_FT_DONE_MM_VAR;HAVE_FT_GET_TRANSFORM;HAVE_GDI;HAVE_UNISCRIBE;MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_DEBUG;DEBUG;_LIB</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1762,7 +1928,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/freetype/include/freetype/config;$(SolutionDir)deps/harfbuzz/src;$(SolutionDir)deps/SDL3_TTF/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/rmlui;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-debug/build_config;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/freetype/include/freetype/config;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/pl_mpeg;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/SDL3_TTF/include;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-debug/build_config;</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>
@@ -1788,7 +1954,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>FT_PUBLIC_FUNCTION_ATTRIBUTE=;HAVE_ATEXIT;HAVE_ISATTY;HAVE_STDBOOL_H;HAVE_FREETYPE=1;HAVE_FT_GET_VAR_BLEND_COORDINATES;HAVE_FT_SET_VAR_BLEND_COORDINATES;HAVE_FT_DONE_MM_VAR;HAVE_FT_GET_TRANSFORM;HAVE_GDI;HAVE_UNISCRIBE;TTF_USE_HARFBUZZ=1;MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_NDEBUG;NDEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SIMLIB_RENDERER_GL;HAVE_ATEXIT;HAVE_ISATTY;HAVE_STDBOOL_H;HAVE_FREETYPE=1;HAVE_FT_GET_VAR_BLEND_COORDINATES;HAVE_FT_SET_VAR_BLEND_COORDINATES;HAVE_FT_DONE_MM_VAR;HAVE_FT_GET_TRANSFORM;HAVE_GDI;HAVE_UNISCRIBE;MI_MALLOC_OVERRIDE;DECODER_OGGVORBIS_STB;ENTT_DISABLE_ASSERT;PHYSFS_SUPPORTS_DEFAULT=0;PHYSFS_STATIC;PHYSFS_SUPPORTS_ZIP;PHYSFS_SUPPORTS_7Z;PHYSFS_PLATFORM_WINDOWS;STBI_FAILURE_USERMSG;SOL_CXX17_FEATURES;WIN32_LEAN_AND_MEAN;NOMINMAX;WIN32;GLM_FORCE_INLINE;GLM_FORCE_INTRINSICS;GLM_FORCE_XYZW_ONLY;GLM_FORCE_SIZE_T_LENGTH;GLM_FORCE_SILENT_WARNINGS;GLM_FORCE_CTOR_INIT;GLM_FORCE_RADIANS;FT2_BUILD_LIBRARY;SDL_STATIC_LIB;SDL_BUILD_MAJOR_VERSION=3;SDL_BUILD_MINOR_VERSION=4;SDL_BUILD_MICRO_VERSION=18;USING_GENERATED_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_MBCS;_WINDOWS;%(PreprocessorDefinitions);_NDEBUG;NDEBUG;_LIB</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -1819,7 +1985,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
       <AdditionalOptions>/bigobj /Zc:preprocessor /utf-8  /Zc:lambda /Zc:externConstexpr /Zc:throwingNew /Zc:enumTypes /Zc:templateScope /constexpr:depth2147483647 /constexpr:steps2147483647 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/freetype/include/freetype/config;$(SolutionDir)deps/harfbuzz/src;$(SolutionDir)deps/SDL3_TTF/include;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/httplib;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/msdfgl/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/rmlui;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-release/build_config;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/box2d/include;$(SolutionDir)deps/dense/include;$(SolutionDir)deps/entt/src;$(SolutionDir)deps/entt_sol;$(SolutionDir)deps/freetype/include;$(SolutionDir)deps/freetype/include/freetype/config;$(SolutionDir)deps/glad/include;$(SolutionDir)deps/glm;$(SolutionDir)deps/googletest/googlemock/include;$(SolutionDir)deps/googletest/googletest/include;$(SolutionDir)deps/googletest/googletest;$(SolutionDir)deps/imgui;$(SolutionDir)deps/json/include;$(SolutionDir)deps/lua;$(SolutionDir)deps/magic_enum/include;$(SolutionDir)deps/mimalloc/include;$(SolutionDir)deps/nuklear;$(SolutionDir)deps/physfs/src;$(SolutionDir)deps/pl_mpeg;$(SolutionDir)deps/rsimlib/include;$(SolutionDir)deps/SDL3/include;$(SolutionDir)deps/SDL3/src;$(SolutionDir)deps/SDL3_config/include-revision;$(SolutionDir)deps/SDL3_mixer/include;$(SolutionDir)deps/SDL3_mixer/src;$(SolutionDir)deps/SDL3_mixer/src/codecs;$(SolutionDir)deps/SDL3_TTF/include;$(SolutionDir)deps/sol/include;$(SolutionDir)deps/stb;$(SolutionDir)deps/threadpool/include;$(SolutionDir)deps/tinyfd;$(SolutionDir)deps/zip/src;$(SolutionDir)deps/;$(SolutionDir)dist/src;$(SolutionDir)galaxy/src;$(SolutionDir)sandbox/src;$(SolutionDir)supercluster/src;$(SolutionDir)tests/src;%(AdditionalIncludeDirectories);$(SolutionDir)deps/SDL3_config/include-config-release/build_config;</AdditionalIncludeDirectories>
       <ErrorReporting>None</ErrorReporting>
     </ClCompile>
     <Link>

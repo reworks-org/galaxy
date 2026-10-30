@@ -3,15 +3,17 @@
  */
 
 #include "display.h"
+#include "async_internal.h"
+#include "parallel_record.h"
 
 #include "draw.h"
 #include "font.h"
 #include "error.h"
 #include "renderer.h"
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_opengl.h>
+#include <SDL3/SDL.h>
+#include <SDL3_TTF/SDL_ttf.h>
+#include <glad/glad.h>
 
 #include <memory>
 #include <string_view>
@@ -26,6 +28,16 @@ namespace sl
 
         SDL_Window *window = nullptr;
         std::unique_ptr<detail::Renderer> renderer;
+#if defined(_WIN32) && defined(SIMLIB_RENDERER_D3D12)
+        constexpr GraphicsBackend default_backend = GraphicsBackend::d3d12;
+#elif defined(SIMLIB_RENDERER_GL)
+        constexpr GraphicsBackend default_backend = GraphicsBackend::opengl;
+#elif defined(SIMLIB_RENDERER_VULKAN)
+        constexpr GraphicsBackend default_backend = GraphicsBackend::vulkan;
+#else
+#error "At least one renderer (SIMLIB_RENDERERS) must be enabled"
+#endif
+        GraphicsBackend selected_backend = default_backend;
         bool ttfInitialized = false;
         int width = 0;
         int height = 0;
@@ -37,9 +49,97 @@ namespace sl
         float screenOffsetY = 0.0f;
     } // namespace
 
-    bool set_gfx_mode(int driver,
-                      int requestedWidth, int requestedHeight,
-                      int virtualWidth, int virtualHeight)
+    bool set_graphics_backend(GraphicsBackend backend)
+    {
+        if (window)
+        {
+            sl::detail::set_error("Graphics backend cannot change while the display is active");
+            return false;
+        }
+        if (!graphics_backend_available(backend))
+        {
+            sl::detail::set_error(std::string(backend == GraphicsBackend::opengl   ? "OpenGL"
+                                              : backend == GraphicsBackend::vulkan ? "Vulkan"
+                                                                                   : "Direct3D 12") +
+                                  " is not available in this build (see SIMLIB_RENDERERS)");
+            return false;
+        }
+        selected_backend = backend;
+        return true;
+    }
+
+    bool configure_graphics_backend_from_args(int argc, char *argv[])
+    {
+        GraphicsBackend requested = default_backend;
+        for (int index = 1; index < argc; ++index)
+        {
+            const std::string_view argument(argv[index]);
+            if (argument == "--gl")
+                requested = GraphicsBackend::opengl;
+            else if (argument == "--vulkan")
+                requested = GraphicsBackend::vulkan;
+            else if (argument == "--d3d12")
+                requested = GraphicsBackend::d3d12;
+            else
+            {
+                std::fprintf(stderr, "Unknown graphics backend argument: %s\n", argument.data());
+                return false;
+            }
+        }
+        if (!set_graphics_backend(requested))
+        {
+            std::fprintf(stderr, "%s\n", sl::last_error().c_str());
+            return false;
+        }
+        return true;
+    }
+
+    bool graphics_backend_available(GraphicsBackend backend)
+    {
+        switch (backend)
+        {
+        case GraphicsBackend::opengl:
+#ifdef SIMLIB_RENDERER_GL
+            return true;
+#else
+            return false;
+#endif
+        case GraphicsBackend::vulkan:
+#ifdef SIMLIB_RENDERER_VULKAN
+            return true;
+#else
+            return false;
+#endif
+        case GraphicsBackend::d3d12:
+#if defined(_WIN32) && defined(SIMLIB_RENDERER_D3D12)
+            return true;
+#else
+            return false;
+#endif
+        }
+        return false;
+    }
+
+    GraphicsBackend graphics_backend()
+    {
+        return selected_backend;
+    }
+
+    std::string graphics_backend_name()
+    {
+        switch (selected_backend)
+        {
+        case GraphicsBackend::opengl:
+            return "OpenGL";
+        case GraphicsBackend::vulkan:
+            return "Vulkan";
+        case GraphicsBackend::d3d12:
+            return "D3D12";
+        }
+        return "Unknown";
+    }
+
+    bool set_gfx_mode(const char* title, SDL_WindowFlags windowflags, int driver, int requestedWidth, int requestedHeight, int virtualWidth, int virtualHeight)
     {
         const bool use_desktop_resolution =
             driver == GFX_AUTODETECT_FULLSCREEN && requestedWidth == 0 && requestedHeight == 0;
@@ -51,59 +151,37 @@ namespace sl
         }
 
         display_shutdown();
-        if (SDL_Init(SDL_INIT_VIDEO) != 0)
-        {
-            sl::detail::set_error(SDL_GetError());
-            return false;
-        }
 
         if (use_desktop_resolution)
         {
-            SDL_DisplayMode desktop_mode{};
-            if (SDL_GetDesktopDisplayMode(0, &desktop_mode) != 0)
-            {
-                sl::detail::set_error(SDL_GetError());
-                SDL_Quit();
-                return false;
-            }
-            requestedWidth = desktop_mode.w;
-            requestedHeight = desktop_mode.h;
+			auto display_id = SDL_GetPrimaryDisplay();
+			auto desktop_mode = SDL_GetDesktopDisplayMode(display_id);
+
+            requestedWidth = desktop_mode->w;
+            requestedHeight = desktop_mode->h;
         }
 
-        if (TTF_Init() != 0)
-        {
-            sl::detail::set_error(TTF_GetError());
-            SDL_Quit();
-            return false;
-        }
         ttfInitialized = true;
 
         renderer = detail::create_renderer(selected_backend);
         if (!renderer)
         {
             sl::detail::set_error("Requested graphics backend is not implemented");
-            TTF_Quit();
             ttfInitialized = false;
-            SDL_Quit();
             return false;
         }
-        renderer->configure_window();
-        uint32_t windowflags = renderer->window_flags();
-        if (driver == GFX_AUTODETECT_FULLSCREEN)
-            windowflags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
+
         window = SDL_CreateWindow(
-            "simlib",
-            SDL_WINDOWPOS_CENTERED,
-            SDL_WINDOWPOS_CENTERED,
+            title,
             requestedWidth,
             requestedHeight,
             windowflags);
         if (!window)
         {
             sl::detail::set_error(SDL_GetError());
-            TTF_Quit();
+            
             ttfInitialized = false;
-            SDL_Quit();
+            
             return false;
         }
 
@@ -115,9 +193,7 @@ namespace sl
             renderer.reset();
             SDL_DestroyWindow(window);
             window = nullptr;
-            TTF_Quit();
             ttfInitialized = false;
-            SDL_Quit();
             return false;
         }
 
@@ -132,9 +208,7 @@ namespace sl
             renderer.reset();
             SDL_DestroyWindow(window);
             window = nullptr;
-            TTF_Quit();
             ttfInitialized = false;
-            SDL_Quit();
             return false;
         }
         detail::initialise_screen(logicalWidth > 0 ? logicalWidth : width, logicalHeight > 0 ? logicalHeight : height);
@@ -149,22 +223,20 @@ namespace sl
         return true;
     }
 
-    void display_handle_event(const Event &event)
+    void display_handle_event(const SDL_Event& event)
     {
-        if (event.type() != Event::Type::window_resized)
+		if (event.type == SDL_EVENT_WINDOW_RESIZED || event.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED)
         {
-            return;
-        }
-
-        width = event.window_width();
-        height = event.window_height();
-        if (renderer)
-        {
-            std::string error;
-            if (!renderer->resize(width, height, error) && !error.empty())
-                sl::detail::set_error(error);
-        }
-        detail::resize_screen(logicalWidth > 0 ? logicalWidth : width, logicalHeight > 0 ? logicalHeight : height);
+			width  = event.window.data1;
+			height = event.window.data2;
+            if (renderer)
+            {
+                std::string error;
+                if (!renderer->resize(width, height, error) && !error.empty())
+                    sl::detail::set_error(error);
+            }
+            detail::resize_screen(logicalWidth > 0 ? logicalWidth : width, logicalHeight > 0 ? logicalHeight : height);
+		}
     }
 
     namespace
@@ -178,7 +250,14 @@ namespace sl
         {
             // a custom bitmap is drawn by the library, so the OS cursor is hidden while it is in use
             const bool softwareCursor = mouseVisible && mouse_bitmap() != nullptr;
-            SDL_ShowCursor(mouseVisible && !softwareCursor ? SDL_ENABLE : SDL_DISABLE);
+			if (mouseVisible && !softwareCursor)
+			{
+				SDL_ShowCursor();
+			}
+			else
+			{
+				SDL_HideCursor();
+            }
         }
     } // namespace detail
 
@@ -202,7 +281,7 @@ namespace sl
 
     bool set_fullscreen(bool enabled)
     {
-        if (!window || SDL_SetWindowFullscreen(window, enabled ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0) != 0)
+        if (!window || SDL_SetWindowFullscreen(window, enabled) != 0)
         {
             return false;
         }
@@ -229,14 +308,6 @@ namespace sl
         bool currently_fullscreen = is_fullscreen();
         return set_fullscreen(!currently_fullscreen);
     }
-    bool set_vsync(bool enabled)
-    {
-        return renderer->set_vsync(enabled);
-    }
-	bool get_vsync()
-	{
-		return renderer->vsync_active();
-	}
     int screen_width()
     {
         if (renderTargetWidth > 0)
@@ -330,9 +401,19 @@ namespace sl
         }
     }
 
+    namespace detail
+    {
+        static unsigned shutdown_count = 0;
+        unsigned display_generation() { return shutdown_count; }
+    } // namespace detail
+
     void display_shutdown()
     {
+        ++detail::shutdown_count;
         wait_for_graphics();
+        detail::async_load_shutdown();
+        detail::parallel_record_shutdown();
+        detail::parallel_record_shutdown();
 
         if (sl_default_monospace_font && ttfInitialized)
         {
@@ -343,6 +424,7 @@ namespace sl
         detail::destroy_screen();
         if (renderer)
         {
+            detail::release_transient_instance_buffers();
             renderer->shutdown();
             renderer.reset();
         }
@@ -355,7 +437,7 @@ namespace sl
         if (ttfInitialized)
         {
 
-            TTF_Quit();
+            
             ttfInitialized = false;
         }
         width = 0;
@@ -364,7 +446,7 @@ namespace sl
         logicalHeight = 0;
         renderTargetWidth = 0;
         renderTargetHeight = 0;
-        SDL_Quit();
+        
     }
 
     SDL_Window *get_window()

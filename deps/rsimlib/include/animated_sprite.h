@@ -1,6 +1,6 @@
 #pragma once
 
-#include "sl.h"
+#include "atlas.h"
 
 namespace sl 
 {
@@ -14,7 +14,7 @@ struct AnimationFrame {
 
 struct AnimatedSprite {
     sl::Atlas atlas;
-    int current_frame;
+    int current_frame=0;
     int x=0;
     int y=0;
     int width=32;
@@ -39,7 +39,7 @@ class AnimationManager {
 public:
     AnimationManager();
     ~AnimationManager();
-    void update();
+	void      update(const double delta_t);
     const int  add_animated_sprite(AnimatedSprite &sprite);
     void draw_sprites(sl::Bitmap *bitmap);
     bool get_sprite(int index, AnimatedSprite **sprite);

@@ -4,8 +4,6 @@
  * (Bloom, Vignette, CRTFilter, etc.) is implemented in its own graphics_fx_*.cpp file.
  */
 
-#define GL_GLEXT_PROTOTYPES
-
 #include "graphics_fx.h"
 #include "graphics_fx_internal.h"
 
@@ -13,10 +11,9 @@
 #include "draw.h"
 #include "gl2d.h"
 #include "renderer.h"
+#include "shader_paths.h"
 
-#include <SDL2/SDL_opengl.h>
-#include <SDL2/SDL_opengl_glext.h>
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 #include <filesystem>
 #include <fstream>
@@ -102,12 +99,8 @@ namespace sl
 	{
 		std::string load_glsl_shader(const char *name)
 		{
-			std::ifstream file(std::filesystem::path(SIMLIB_GLSL_SHADER_DIR) / name);
-			if (!file)
-			{
-				file.clear();
-				file.open(std::filesystem::path(SIMLIB_BUILD_GLSL_SHADER_DIR) / name);
-			}
+			const std::filesystem::path relative = std::filesystem::path("glsl") / name;
+			std::ifstream file(find_shader_root(relative) / relative);
 			return file ? std::string(std::istreambuf_iterator<char>(file), {}) : std::string{};
 		}
 

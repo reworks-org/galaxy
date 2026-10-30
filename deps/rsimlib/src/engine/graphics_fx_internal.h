@@ -5,7 +5,7 @@
 
 #include "graphics_fx.h"
 
-#include <SDL2/SDL_opengl.h>
+#include <glad/glad.h>
 
 #include <string>
 

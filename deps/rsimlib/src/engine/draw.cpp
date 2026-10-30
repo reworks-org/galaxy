@@ -2,23 +2,25 @@
  * @brief Implements bitmap storage, primitives, sprites, and render targets.
  */
 
-#include "draw.h"
+#include <SDL_stbimage.h>
 
+#include "draw.h"
+#include "input.h"
+#include "async_internal.h"
 #include "display.h"
 #include "error.h"
 #include "gl2d.h"
-#include "input.h"
 #include "renderer.h"
-#include "resource.h"
-
-#include <SDL2/SDL_image.h>
-#include <png.h>
 
 #include <algorithm>
 #include <cmath>
 #include <cstring>
 #include <filesystem>
 #include <cstdio>
+#include <exception>
+#include <limits>
+#include <memory>
+#include <new>
 #include <queue>
 #include <vector>
 
@@ -30,6 +32,21 @@ namespace sl
 	{
 
 		constexpr std::size_t bytes_per_pixel = 4;
+		Bitmap *cursorBitmap = nullptr;
+		int cursorOffsetX = 0;
+		int cursorOffsetY = 0;
+
+		bool pixel_buffer_size(int width, int height, std::size_t &size)
+		{
+			if (width <= 0 || height <= 0)
+				return false;
+			const std::size_t w = static_cast<std::size_t>(width);
+			const std::size_t h = static_cast<std::size_t>(height);
+			if (w > std::numeric_limits<std::size_t>::max() / bytes_per_pixel / h)
+				return false;
+			size = w * h * bytes_per_pixel;
+			return size <= std::vector<Uint8>().max_size();
+		}
 
 		/** Check whether a bitmap has usable dimensions. */
 		bool is_valid(const Bitmap *bitmap)
@@ -44,6 +61,13 @@ namespace sl
 		}
 
 		std::vector<Bitmap *> active_target_stack;
+		std::vector<Bitmap *> normal_map_sources;
+
+		void untrack_normal_map_source(Bitmap *bitmap)
+		{
+			normal_map_sources.erase(std::remove(normal_map_sources.begin(), normal_map_sources.end(), bitmap),
+							 normal_map_sources.end());
+		}
 
 		bool is_drawing_target(const Bitmap *bitmap)
 		{
@@ -77,12 +101,12 @@ namespace sl
 			{
 				detail::Renderer *renderer = detail::active_renderer();
 				std::uint32_t texture = 0;
-				if (!renderer || !renderer->create_texture({bitmap->width, bitmap->height, detail::TextureFilter::nearest}, texture))
+				if (!renderer || !renderer->create_texture({bitmap->width, bitmap->height, bitmap->smooth ? detail::TextureFilter::linear : detail::TextureFilter::nearest, false, bitmap->anisotropy, bitmap->mipmaps}, texture))
 				{
 					return false;
 				}
 				bitmap->gpu_texture = texture;
-				bitmap->gpu_dirty = !bitmap->pixels.empty();
+				bitmap->gpu_dirty = false;
 			}
 			return true;
 		}
@@ -94,17 +118,33 @@ namespace sl
 			{
 				return false;
 			}
+			if (bitmap->compressed)
+			{
+				sl::detail::set_error("Block-compressed bitmaps have no CPU pixels");
+				return false;
+			}
 			if (is_screen(bitmap))
 			{
 				return download_bitmap(bitmap);
 			}
+			if (bitmap->gpu_dirty)
+				return download_bitmap(bitmap);
 			if (bitmap->pixels.empty())
 			{
-				bitmap->pixels.resize(static_cast<std::size_t>(bitmap->width) * bitmap->height * bytes_per_pixel);
-				if (bitmap->gpu_texture != 0 && !bitmap->gpu_dirty)
+				std::size_t size = 0;
+				if (!pixel_buffer_size(bitmap->width, bitmap->height, size))
+					return false;
+				try
 				{
-					return download_bitmap(bitmap);
+					bitmap->pixels.resize(size);
 				}
+				catch (const std::exception &)
+				{
+					sl::detail::set_error("Unable to allocate bitmap pixel buffer");
+					return false;
+				}
+				if (bitmap->gpu_texture != 0 && !bitmap->ram_dirty)
+					return download_bitmap(bitmap);
 			}
 			return true;
 		}
@@ -125,9 +165,44 @@ namespace sl
 		void draw_screen_rect(float left, float top, float right, float bottom, bool filled, Bitmap *texture, Colour colour, float thickness = 1.0f);
 		void draw_screen_thick_line(float x1, float y1, float x2, float y2, float thickness, Bitmap *texture, Colour colour);
 
+		bool normal_pass_active = false;
+		bool normal_pass_transforms = false;
+
+		/** Vertex colour for 2D draws; in a normal pass it encodes how the sprite's normals must be transformed. */
+		struct Tint
+		{
+			float r = 1.0f, g = 1.0f, b = 1.0f, a = 1.0f;
+		};
+
+		/**
+		 * Encode the orthogonal 2x2 matrix [a b; c d] (first column a, c) as a negative-alpha vertex colour that
+		 * the default 2D shaders read as "write transformed normals" (see default_2d.frag).
+		 */
+		Tint normal_tint(float a, float b, float c, float d)
+		{
+			if (!normal_pass_active || !normal_pass_transforms)
+			{
+				return {};
+			}
+			const float determinant = a * d - b * c;
+			return {a * 0.5f + 0.5f, c * 0.5f + 0.5f, determinant >= 0.0f ? 1.0f : 0.0f, -1.0f};
+		}
+
+		Tint rotation_tint(float cosine, float sine)
+		{
+			return normal_tint(cosine, -sine, sine, cosine);
+		}
+
+		/** Return the bitmap to sample: the paired normal map during a normal pass (nullptr = skip). */
+		Bitmap *pass_bitmap(Bitmap *bitmap)
+		{
+			return normal_pass_active && bitmap ? bitmap->normal_map : bitmap;
+		}
+
 		/** Draw a bitmap region as a scaled and optionally flipped quad. */
 		void draw_textured_quad(Bitmap *bitmap, int sourceX, int sourceY, int width, int height, float x, float y, int destinationWidth = -1, int destinationHeight = -1, bool flipHorizontal = false, bool flipVertical = false)
 		{
+			bitmap = pass_bitmap(bitmap);
 			if (!upload_bitmap(bitmap))
 			{
 				return;
@@ -148,11 +223,12 @@ namespace sl
 			const float textureTop = flipVertical ? bottomTexture : topTexture;
 			const float textureBottom = flipVertical ? topTexture : bottomTexture;
 
+			const Tint tint = normal_tint(flipHorizontal ? -1.0f : 1.0f, 0.0f, 0.0f, flipVertical ? -1.0f : 1.0f);
 			const detail::GLVertex vertices[4] = {
-				{x, y, textureLeft, textureTop, 1.0f, 1.0f, 1.0f, 1.0f},
-				{right, y, textureRight, textureTop, 1.0f, 1.0f, 1.0f, 1.0f},
-				{right, bottom, textureRight, textureBottom, 1.0f, 1.0f, 1.0f, 1.0f},
-				{x, bottom, textureLeft, textureBottom, 1.0f, 1.0f, 1.0f, 1.0f},
+				{x, y, textureLeft, textureTop, tint.r, tint.g, tint.b, tint.a},
+				{right, y, textureRight, textureTop, tint.r, tint.g, tint.b, tint.a},
+				{right, bottom, textureRight, textureBottom, tint.r, tint.g, tint.b, tint.a},
+				{x, bottom, textureLeft, textureBottom, tint.r, tint.g, tint.b, tint.a},
 			};
 			detail::gl2d_submit(detail::PrimitiveType::triangle_fan, vertices, 4, bitmap->gpu_texture);
 		}
@@ -160,6 +236,7 @@ namespace sl
 		/** Draw a bitmap as a scaled quad rotated around its screen-space centre. */
 		void draw_textured_quad_rotated(Bitmap *bitmap, float centerX, float centerY, float angleDegrees, int destinationWidth = -1, int destinationHeight = -1)
 		{
+			bitmap = pass_bitmap(bitmap);
 			if (!upload_bitmap(bitmap))
 			{
 				return;
@@ -185,11 +262,12 @@ namespace sl
 			detail::gl2d_begin(screen_width(), screen_height());
 			if (detail::Renderer *renderer = detail::active_renderer())
 				renderer->set_premultiplied_alpha(bitmap->fbo != 0);
+			const Tint tint = rotation_tint(cosine, sine);
 			const detail::GLVertex vertices[4] = {
-				{topLeft.first, topLeft.second, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f},
-				{topRight.first, topRight.second, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f},
-				{bottomRight.first, bottomRight.second, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f},
-				{bottomLeft.first, bottomLeft.second, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f},
+				{topLeft.first, topLeft.second, 0.0f, 0.0f, tint.r, tint.g, tint.b, tint.a},
+				{topRight.first, topRight.second, 1.0f, 0.0f, tint.r, tint.g, tint.b, tint.a},
+				{bottomRight.first, bottomRight.second, 1.0f, 1.0f, tint.r, tint.g, tint.b, tint.a},
+				{bottomLeft.first, bottomLeft.second, 0.0f, 1.0f, tint.r, tint.g, tint.b, tint.a},
 			};
 			detail::gl2d_submit(detail::PrimitiveType::triangle_fan, vertices, 4, bitmap->gpu_texture);
 		}
@@ -197,6 +275,7 @@ namespace sl
 		/** Draw a bitmap region rotated clockwise around a pivot given in destination pixels, scaled to the destination size; (x, y) is the unrotated top-left. */
 		void draw_textured_region_rotated(Bitmap *bitmap, int sourceX, int sourceY, int width, int height, float x, float y, float destinationWidth, float destinationHeight, float pivotX, float pivotY, float angleDegrees)
 		{
+			bitmap = pass_bitmap(bitmap);
 			if (!upload_bitmap(bitmap))
 			{
 				return;
@@ -227,11 +306,79 @@ namespace sl
 			detail::gl2d_begin(screen_width(), screen_height());
 			if (detail::Renderer *renderer = detail::active_renderer())
 				renderer->set_premultiplied_alpha(bitmap->fbo != 0);
+			const Tint tint = rotation_tint(cosine, sine);
 			const detail::GLVertex vertices[4] = {
-				{topLeft.first, topLeft.second, leftTexture, topTexture, 1.0f, 1.0f, 1.0f, 1.0f},
-				{topRight.first, topRight.second, rightTexture, topTexture, 1.0f, 1.0f, 1.0f, 1.0f},
-				{bottomRight.first, bottomRight.second, rightTexture, bottomTexture, 1.0f, 1.0f, 1.0f, 1.0f},
-				{bottomLeft.first, bottomLeft.second, leftTexture, bottomTexture, 1.0f, 1.0f, 1.0f, 1.0f},
+				{topLeft.first, topLeft.second, leftTexture, topTexture, tint.r, tint.g, tint.b, tint.a},
+				{topRight.first, topRight.second, rightTexture, topTexture, tint.r, tint.g, tint.b, tint.a},
+				{bottomRight.first, bottomRight.second, rightTexture, bottomTexture, tint.r, tint.g, tint.b, tint.a},
+				{bottomLeft.first, bottomLeft.second, leftTexture, bottomTexture, tint.r, tint.g, tint.b, tint.a},
+			};
+			detail::gl2d_submit(detail::PrimitiveType::triangle_fan, vertices, 4, bitmap->gpu_texture);
+		}
+
+		/** Draw a bitmap region into an axis-aligned rectangle with optional diagonal, horizontal and vertical flips. */
+		void draw_textured_region_flipped(Bitmap *bitmap, int sourceX, int sourceY, int width, int height, float x, float y, float destinationWidth, float destinationHeight, bool flipHorizontal, bool flipVertical, bool flipDiagonal, Colour colour)
+		{
+			bitmap = pass_bitmap(bitmap);
+			if (!upload_bitmap(bitmap))
+			{
+				return;
+			}
+
+			const float left = static_cast<float>(sourceX) / bitmap->width;
+			const float top = static_cast<float>(sourceY) / bitmap->height;
+			const float right = static_cast<float>(sourceX + width) / bitmap->width;
+			const float bottom = static_cast<float>(sourceY + height) / bitmap->height;
+			// Corner order: top-left, top-right, bottom-right, bottom-left.
+			float u[4] = {left, right, right, left};
+			float v[4] = {top, top, bottom, bottom};
+			// Same order as Tiled: diagonal (transpose) first, then horizontal, then vertical.
+			if (flipDiagonal)
+			{
+				std::swap(u[1], u[3]);
+				std::swap(v[1], v[3]);
+			}
+			if (flipHorizontal)
+			{
+				std::swap(u[0], u[1]);
+				std::swap(v[0], v[1]);
+				std::swap(u[2], u[3]);
+				std::swap(v[2], v[3]);
+			}
+			if (flipVertical)
+			{
+				std::swap(u[0], u[3]);
+				std::swap(v[0], v[3]);
+				std::swap(u[1], u[2]);
+				std::swap(v[1], v[2]);
+			}
+
+			detail::gl2d_begin(screen_width(), screen_height());
+			if (detail::Renderer *renderer = detail::active_renderer())
+				renderer->set_premultiplied_alpha(bitmap->fbo != 0);
+			const float x2 = x + destinationWidth;
+			const float y2 = y + destinationHeight;
+			// Normal transform = flipV * flipH * transpose, the same order as the texture coordinate swaps above.
+			float ma = flipDiagonal ? 0.0f : 1.0f, mb = flipDiagonal ? 1.0f : 0.0f;
+			float mc = mb, md = ma;
+			if (flipHorizontal)
+			{
+				ma = -ma;
+				mb = -mb;
+			}
+			if (flipVertical)
+			{
+				mc = -mc;
+				md = -md;
+			}
+			Tint tint = normal_tint(ma, mb, mc, md);
+			if (!normal_pass_active)
+				tint = {colour.red / 255.0f, colour.green / 255.0f, colour.blue / 255.0f, colour.alpha / 255.0f};
+			const detail::GLVertex vertices[4] = {
+				{x, y, u[0], v[0], tint.r, tint.g, tint.b, tint.a},
+				{x2, y, u[1], v[1], tint.r, tint.g, tint.b, tint.a},
+				{x2, y2, u[2], v[2], tint.r, tint.g, tint.b, tint.a},
+				{x, y2, u[3], v[3], tint.r, tint.g, tint.b, tint.a},
 			};
 			detail::gl2d_submit(detail::PrimitiveType::triangle_fan, vertices, 4, bitmap->gpu_texture);
 		}
@@ -329,7 +476,8 @@ namespace sl
 
 			if (filled)
 			{
-				std::vector<detail::GLVertex> vertices;
+				static thread_local std::vector<detail::GLVertex> vertices;
+				vertices.clear();
 				vertices.reserve(static_cast<std::size_t>(segments) + 2);
 				vertices.push_back({x, y, 0.5f, 0.5f, r, g, b, a});
 				for (int index = 0; index <= segments; ++index)
@@ -343,7 +491,8 @@ namespace sl
 			}
 			else if (thickness <= 1.0f)
 			{
-				std::vector<detail::GLVertex> vertices;
+				static thread_local std::vector<detail::GLVertex> vertices;
+				vertices.clear();
 				vertices.reserve(static_cast<std::size_t>(segments));
 				for (int index = 0; index < segments; ++index)
 				{
@@ -366,7 +515,8 @@ namespace sl
 					return;
 				}
 
-				std::vector<detail::GLVertex> vertices;
+				static thread_local std::vector<detail::GLVertex> vertices;
+				vertices.clear();
 				vertices.reserve(static_cast<std::size_t>(segments) * 6);
 				for (int index = 0; index < segments; ++index)
 				{
@@ -547,22 +697,45 @@ namespace sl
 	/** Create a RAM-backed bitmap. */
 	Bitmap *create_bitmap(int width, int height)
 	{
-		if (width <= 0 || height <= 0)
+		std::size_t size = 0;
+		if (!pixel_buffer_size(width, height, size))
 		{
-			sl::detail::set_error("Bitmap dimensions must be positive");
+			sl::detail::set_error("Invalid bitmap dimensions or pixel buffer size");
 			return nullptr;
 		}
-		Bitmap *bitmap = new Bitmap;
+		std::unique_ptr<Bitmap> bitmap(new (std::nothrow) Bitmap);
+		if (!bitmap)
+		{
+			sl::detail::set_error("Unable to allocate bitmap");
+			return nullptr;
+		}
 		bitmap->width = width;
 		bitmap->height = height;
-		bitmap->pixels.resize(static_cast<std::size_t>(width) * height * bytes_per_pixel);
+		try
+		{
+			bitmap->pixels.resize(size);
+		}
+		catch (const std::exception &)
+		{
+			sl::detail::set_error("Unable to allocate bitmap pixel buffer");
+			return nullptr;
+		}
 		bitmap->ram_dirty = true;
-		return bitmap;
+		return bitmap.release();
 	}
 
 	/** Create a GPU-backed bitmap. */
 	Bitmap *create_video_bitmap(int width, int height)
 	{
+		if (detail::Renderer *renderer = detail::active_renderer())
+		{
+			const int limit = renderer->max_texture_size();
+			if (width > limit || height > limit)
+			{
+				sl::detail::set_error("Bitmap exceeds the maximum texture size of the graphics backend");
+				return nullptr;
+			}
+		}
 		Bitmap *bitmap = create_bitmap(width, height);
 		if (!bitmap || !upload_bitmap(bitmap))
 		{
@@ -576,6 +749,39 @@ namespace sl
 	}
 
 	/** Create an offscreen render target: a GPU texture with a framebuffer attached. */
+	void set_normal_map(Bitmap *bitmap, Bitmap *normal_map)
+	{
+		if (bitmap && bitmap != normal_map)
+		{
+			untrack_normal_map_source(bitmap);
+			bitmap->normal_map = normal_map;
+			if (normal_map)
+				normal_map_sources.push_back(bitmap);
+		}
+	}
+
+	bool begin_normal_pass(Bitmap *normal_buffer)
+	{
+		if (normal_pass_active || !begin_render_target(normal_buffer))
+		{
+			return false;
+		}
+		// Alpha zero marks pixels with no normal data so lighting falls back to flat shading.
+		clear_render_target(Colour{128, 128, 255, 0});
+		normal_pass_active = true;
+		normal_pass_transforms = true;
+		return true;
+	}
+
+	void end_normal_pass()
+	{
+		if (normal_pass_active)
+		{
+			normal_pass_active = false;
+			end_render_target();
+		}
+	}
+
 	Bitmap *create_render_target(int width, int height)
 	{
 		if (width <= 0 || height <= 0)
@@ -585,6 +791,11 @@ namespace sl
 		}
 
 		detail::Renderer *renderer = detail::active_renderer();
+		if (renderer && (width > renderer->max_texture_size() || height > renderer->max_texture_size()))
+		{
+			sl::detail::set_error("Render target exceeds the maximum texture size of the graphics backend");
+			return nullptr;
+		}
 		std::uint32_t texture = 0;
 		std::uint32_t fbo = 0;
 		if (!renderer || !renderer->create_render_target(width, height, texture, fbo))
@@ -593,12 +804,18 @@ namespace sl
 			return nullptr;
 		}
 
-		Bitmap *bitmap = new Bitmap;
+		std::unique_ptr<Bitmap> bitmap(new (std::nothrow) Bitmap);
+		if (!bitmap)
+		{
+			renderer->destroy_render_target(texture, fbo);
+			sl::detail::set_error("Unable to allocate render target bitmap");
+			return nullptr;
+		}
 		bitmap->width = width;
 		bitmap->height = height;
 		bitmap->gpu_texture = texture;
 		bitmap->fbo = fbo;
-		return bitmap;
+		return bitmap.release();
 	}
 
 	/** Redirect subsequent GPU drawing to a render target's framebuffer. */
@@ -609,6 +826,9 @@ namespace sl
 			return false;
 		}
 		detail::Renderer *renderer = detail::active_renderer();
+		if (target->ram_dirty && !upload_bitmap(target))
+			return false;
+		clear_clip_rect();
 		std::string error;
 		if (!renderer || !renderer->begin_render_target(target->fbo, target->width, target->height, error))
 		{
@@ -618,14 +838,25 @@ namespace sl
 		}
 		detail::set_render_target_size(target->width, target->height);
 		active_target_stack.push_back(target);
+		target->gpu_dirty = true;
 		return true;
 	}
+
+	namespace detail
+	{
+		bool is_active_render_target(const Bitmap *bitmap)
+		{
+			return bitmap && !active_target_stack.empty() && active_target_stack.back() == bitmap;
+		}
+	} // namespace detail
 
 	/** Stop rendering to a target and restore drawing to the window. */
 	void end_render_target()
 	{
-		if (!active_target_stack.empty())
-			active_target_stack.pop_back();
+		if (active_target_stack.empty())
+			return;
+		clear_clip_rect();
+		active_target_stack.pop_back();
 		if (detail::Renderer *renderer = detail::active_renderer())
 		{
 			std::string error;
@@ -648,6 +879,11 @@ namespace sl
 				static_cast<float>(colour.green) / 255.0f,
 				static_cast<float>(colour.blue) / 255.0f,
 				static_cast<float>(colour.alpha) / 255.0f);
+			if (!active_target_stack.empty())
+			{
+				active_target_stack.back()->ram_dirty = false;
+				active_target_stack.back()->gpu_dirty = true;
+			}
 		}
 	}
 
@@ -659,8 +895,8 @@ namespace sl
 			return nullptr;
 		}
 
-		SDL_Surface *rgba = SDL_ConvertSurfaceFormat(loaded, SDL_PIXELFORMAT_RGBA32, 0);
-		SDL_FreeSurface(loaded);
+		SDL_Surface *rgba = SDL_ConvertSurface(loaded, SDL_PIXELFORMAT_RGBA32);
+		SDL_DestroySurface(loaded);
 		if (!rgba)
 		{
 			sl::detail::set_error(SDL_GetError());
@@ -677,15 +913,15 @@ namespace sl
 				std::memcpy(bitmap->pixels.data() + static_cast<std::size_t>(y) * rowBytes, sourcePixels + static_cast<std::size_t>(y) * rgba->pitch, rowBytes);
 			}
 		}
-		SDL_FreeSurface(rgba);
+		SDL_DestroySurface(rgba);
 		return bitmap;
 	}
 
 	Bitmap *load_bitmap(const std::string &path)
 	{
-		SDL_Surface *loaded = IMG_Load(path.c_str());
+		SDL_Surface* loaded = STBIMG_Load(path.c_str());
 		if (!loaded)
-			sl::detail::set_error(IMG_GetError());
+			sl::detail::set_error(SDL_GetError());
 		return load_bitmap_from_surface(loaded);
 	}
 
@@ -693,86 +929,11 @@ namespace sl
 	{
 		if (!data || size == 0 || size > std::numeric_limits<int>::max())
 			return nullptr;
-		SDL_RWops *rw = SDL_RWFromConstMem(data, static_cast<int>(size));
-		if (!rw)
-		{
-			sl::detail::set_error(SDL_GetError());
-			return nullptr;
-		}
-		SDL_Surface *loaded = IMG_Load_RW(rw, 1);
+		
+		SDL_Surface* loaded = STBIMG_LoadFromMemory(data, size);
 		if (!loaded)
-			sl::detail::set_error(IMG_GetError());
+			sl::detail::set_error(SDL_GetError());
 		return load_bitmap_from_surface(loaded);
-	}
-
-	Bitmap *load_bitmap(const Archive &archive, const std::string &name)
-	{
-		const auto bytes = archive.read(name);
-		return load_bitmap_from_memory(bytes.data(), bytes.size());
-	}
-
-	/** Save a bitmap as an uncompressed PNG. */
-	bool save_bitmap(Bitmap *bitmap, const std::string &path)
-	{
-		if (!bitmap || path.empty() || !acquire_bitmap(bitmap))
-		{
-			return false;
-		}
-
-		std::filesystem::path outputPath(path);
-		if (outputPath.extension().empty())
-		{
-			outputPath += ".png";
-		}
-
-		FILE *file = std::fopen(outputPath.string().c_str(), "wb");
-		if (!file)
-		{
-			sl::detail::set_error("Unable to open bitmap output file");
-			return false;
-		}
-
-		png_structp png = png_create_write_struct(PNG_LIBPNG_VER_STRING, nullptr, nullptr, nullptr);
-		png_infop info = png ? png_create_info_struct(png) : nullptr;
-		if (!png || !info)
-		{
-			png_destroy_write_struct(png ? &png : nullptr, info ? &info : nullptr);
-			std::fclose(file);
-			return false;
-		}
-
-		if (setjmp(png_jmpbuf(png)))
-		{
-			png_destroy_write_struct(&png, &info);
-			std::fclose(file);
-			return false;
-		}
-
-		png_init_io(png, file);
-		png_set_compression_level(png, 0);
-		png_set_filter(png, 0, PNG_FILTER_NONE);
-		png_set_IHDR(
-			png,
-			info,
-			static_cast<png_uint_32>(bitmap->width),
-			static_cast<png_uint_32>(bitmap->height),
-			8,
-			PNG_COLOR_TYPE_RGBA,
-			PNG_INTERLACE_NONE,
-			PNG_COMPRESSION_TYPE_BASE,
-			PNG_FILTER_TYPE_BASE);
-
-		const std::size_t rowBytes = static_cast<std::size_t>(bitmap->width) * bytes_per_pixel;
-		png_write_info(png, info);
-		for (int y = 0; y < bitmap->height; ++y)
-		{
-			png_write_row(png, bitmap->pixels.data() + static_cast<std::size_t>(y) * rowBytes);
-		}
-		png_write_end(png, info);
-
-		png_destroy_write_struct(&png, &info);
-		std::fclose(file);
-		return true;
 	}
 
 	/** Destroy a bitmap and its GPU resources. */
@@ -782,7 +943,44 @@ namespace sl
 		{
 			return;
 		}
+		if (detail::is_async_worker_thread())
+		{
+			// An async loader discarding a half-built model: the bitmap has no GPU resources or registrations.
+			delete bitmap;
+			return;
+		}
+		if (std::find(active_target_stack.begin(), active_target_stack.end(), bitmap) != active_target_stack.end())
+		{
+			sl::detail::set_error("Cannot destroy a bitmap while it is an active render target");
+			return;
+		}
+		if (cursorBitmap == bitmap)
+		{
+			cursorBitmap = nullptr;
+			detail::refresh_mouse_cursor();
+		}
+		for (auto source = normal_map_sources.begin(); source != normal_map_sources.end();)
+		{
+			if (*source == bitmap)
+			{
+				source = normal_map_sources.erase(source);
+			}
+			else if ((*source)->normal_map == bitmap)
+			{
+				(*source)->normal_map = nullptr;
+				source = normal_map_sources.erase(source);
+			}
+			else
+			{
+				++source;
+			}
+		}
 		detail::Renderer *renderer = detail::active_renderer();
+		if (renderer)
+		{
+			// Queued 2D vertices may still reference this texture.
+			renderer->flush_2d();
+		}
 		if (renderer && bitmap->fbo != 0)
 		{
 			renderer->destroy_render_target(bitmap->gpu_texture, bitmap->fbo);
@@ -1468,10 +1666,17 @@ namespace sl
 			bitmap->pixels[offset + 2] = colour.blue;
 			bitmap->pixels[offset + 3] = colour.alpha;
 
-			queue.push({px + 1, py});
-			queue.push({px - 1, py});
-			queue.push({px, py + 1});
-			queue.push({px, py - 1});
+			// Neighbours are queued only if they still match, which keeps the queue near the filled area size.
+			const std::pair<int, int> neighbours[4] = {{px + 1, py}, {px - 1, py}, {px, py + 1}, {px, py - 1}};
+			for (const auto &n : neighbours)
+			{
+				if (n.first < 0 || n.first >= bitmap->width || n.second < 0 || n.second >= bitmap->height)
+					continue;
+				const std::size_t o = static_cast<std::size_t>(n.second) * stride + static_cast<std::size_t>(n.first) * bytes_per_pixel;
+				if (bitmap->pixels[o + 0] == target.red && bitmap->pixels[o + 1] == target.green &&
+					bitmap->pixels[o + 2] == target.blue && bitmap->pixels[o + 3] == target.alpha)
+					queue.push(n);
+			}
 		}
 
 		bitmap->ram_dirty = true;
@@ -1574,29 +1779,20 @@ namespace sl
 	/** Copy a bitmap region while skipping transparent pixels. */
 	void masked_blit(Bitmap *source, Bitmap *destination, int sourceX, int sourceY, float destinationX, float destinationY, int width, int height)
 	{
-		if (!source || !destination || width <= 0 || height <= 0 || !ensure_ram_pixels(source))
+		if (!source || !destination || width <= 0 || height <= 0)
 		{
 			return;
 		}
-		const int idestinationX = static_cast<int>(std::lround(destinationX));
-		const int idestinationY = static_cast<int>(std::lround(destinationY));
+		// Transparent texels already blend to nothing on the GPU, so a textured quad matches the masked copy.
 		if (is_drawing_target(destination))
 		{
-			for (int y = 0; y < height; ++y)
-			{
-				for (int x = 0; x < width; ++x)
-				{
-					const int sourcePixelX = sourceX + x;
-					const int sourcePixelY = sourceY + y;
-					if (sourcePixelX < 0 || sourcePixelX >= source->width || sourcePixelY < 0 || sourcePixelY >= source->height)
-						continue;
-					const std::size_t offset = pixel_offset(*source, sourcePixelX, sourcePixelY);
-					if (source->pixels[offset + 3] != 0)
-						putpixel(destination, idestinationX + x, idestinationY + y, {source->pixels[offset], source->pixels[offset + 1], source->pixels[offset + 2], source->pixels[offset + 3]});
-				}
-			}
+			blit(source, destination, sourceX, sourceY, destinationX, destinationY, width, height);
 			return;
 		}
+		if (!ensure_ram_pixels(source))
+			return;
+		const int idestinationX = static_cast<int>(std::lround(destinationX));
+		const int idestinationY = static_cast<int>(std::lround(destinationY));
 		if (!ensure_ram_pixels(destination))
 			return;
 		for (int y = 0; y < height; ++y)
@@ -1624,7 +1820,22 @@ namespace sl
 			return;
 		if (is_drawing_target(destination))
 		{
-			draw_textured_quad(source, sourceX, sourceY, sourceWidth, sourceHeight, destinationX, destinationY, destinationWidth, destinationHeight);
+			if (is_drawing_target(source))
+				return;
+			// Clip the source to the bitmap and shrink the destination in proportion so UVs stay in range.
+			const float scaleX = static_cast<float>(destinationWidth) / static_cast<float>(sourceWidth);
+			const float scaleY = static_cast<float>(destinationHeight) / static_cast<float>(sourceHeight);
+			const int left = std::max(sourceX, 0);
+			const int top = std::max(sourceY, 0);
+			const int right = std::min(sourceX + sourceWidth, source->width);
+			const int bottom = std::min(sourceY + sourceHeight, source->height);
+			if (right <= left || bottom <= top)
+				return;
+			draw_textured_quad(source, left, top, right - left, bottom - top,
+							   destinationX + static_cast<float>(left - sourceX) * scaleX,
+							   destinationY + static_cast<float>(top - sourceY) * scaleY,
+							   std::max(1, static_cast<int>(std::lround(static_cast<float>(right - left) * scaleX))),
+							   std::max(1, static_cast<int>(std::lround(static_cast<float>(bottom - top) * scaleY))));
 			return;
 		}
 		if (!ensure_ram_pixels(source) || !ensure_ram_pixels(destination))
@@ -1691,10 +1902,29 @@ namespace sl
 		{
 			return false;
 		}
-		bitmap->pixels.resize(static_cast<std::size_t>(bitmap->width) * bitmap->height * bytes_per_pixel);
+		if (bitmap->compressed)
+		{
+			sl::detail::set_error("Block-compressed bitmaps cannot be downloaded");
+			return false;
+		}
+		std::size_t size = 0;
+		if (!pixel_buffer_size(bitmap->width, bitmap->height, size))
+			return false;
+		const bool had_current_pixels = bitmap->pixels.size() == size && !bitmap->gpu_dirty;
+		try
+		{
+			bitmap->pixels.resize(size);
+		}
+		catch (const std::exception &)
+		{
+			sl::detail::set_error("Unable to allocate bitmap pixel buffer");
+			return false;
+		}
 		detail::Renderer *renderer = detail::active_renderer();
 		if (!renderer)
 		{
+			if (!had_current_pixels)
+				bitmap->pixels.clear();
 			return false;
 		}
 
@@ -1716,6 +1946,10 @@ namespace sl
 		{
 			bitmap->ram_dirty = false;
 			bitmap->gpu_dirty = false;
+		}
+		else if (!had_current_pixels)
+		{
+			bitmap->pixels.clear();
 		}
 		return success;
 	}
@@ -1740,13 +1974,6 @@ namespace sl
 		renderer->bind_texture_unit(unit, bitmap->gpu_texture);
 		return true;
 	}
-	namespace
-	{
-		Bitmap *cursorBitmap = nullptr;
-		int cursorOffsetX = 0;
-		int cursorOffsetY = 0;
-	} // namespace
-
 	void set_mouse_bitmap(Bitmap *mouse_bitmap, int offset_x, int offset_y)
 	{
 		cursorBitmap = mouse_bitmap;
@@ -1817,6 +2044,154 @@ namespace sl
 			return;
 		}
 		draw_textured_region_rotated(bitmap, sourceX, sourceY, width, height, x, y, destinationWidth, destinationHeight, pivotX, pivotY, angleDegrees);
+	}
+
+	/** Draw a bitmap region scaled to a destination rectangle with optional flips (diagonal is applied first). */
+	void draw_sprite_region_flipped(Bitmap *bitmap, int sourceX, int sourceY, int width, int height, float x, float y, float destinationWidth, float destinationHeight, bool flipHorizontal, bool flipVertical, bool flipDiagonal, Colour tint)
+	{
+		if (!bitmap || is_drawing_target(bitmap) || screen_width() <= 0 || screen_height() <= 0 || width <= 0 || height <= 0 || destinationWidth <= 0 || destinationHeight <= 0)
+		{
+			return;
+		}
+		draw_textured_region_flipped(bitmap, sourceX, sourceY, width, height, x, y, destinationWidth, destinationHeight, flipHorizontal, flipVertical, flipDiagonal, tint);
+	}
+
+	void draw_sprite_batch(Bitmap *bitmap, const std::vector<SpriteInstance> &sprites)
+	{
+		if (!bitmap || sprites.empty() || is_drawing_target(bitmap) || screen_width() <= 0 || screen_height() <= 0)
+			return;
+		bitmap = pass_bitmap(bitmap);
+		if (!upload_bitmap(bitmap) || bitmap->width <= 0 || bitmap->height <= 0)
+			return;
+
+		detail::gl2d_begin(screen_width(), screen_height());
+		if (detail::Renderer *renderer = detail::active_renderer())
+			renderer->set_premultiplied_alpha(bitmap->fbo != 0);
+
+		constexpr std::size_t chunk_sprites = 8192;
+		std::vector<detail::GLVertex> vertices;
+		vertices.reserve(std::min(sprites.size(), chunk_sprites) * 6);
+		const auto flush = [&]()
+		{
+			if (!vertices.empty())
+				detail::gl2d_submit(detail::PrimitiveType::triangles, vertices.data(), static_cast<int>(vertices.size()), bitmap->gpu_texture);
+			vertices.clear();
+		};
+		for (const SpriteInstance &sprite : sprites)
+		{
+			const int source_width = sprite.source_width > 0 && sprite.source_height > 0 ? sprite.source_width : bitmap->width;
+			const int source_height = sprite.source_width > 0 && sprite.source_height > 0 ? sprite.source_height : bitmap->height;
+			const int source_x = sprite.source_width > 0 && sprite.source_height > 0 ? sprite.source_x : 0;
+			const int source_y = sprite.source_width > 0 && sprite.source_height > 0 ? sprite.source_y : 0;
+			const float half_width = static_cast<float>(source_width) * sprite.scale_x * 0.5f;
+			const float half_height = static_cast<float>(source_height) * sprite.scale_y * 0.5f;
+			const float radians = sprite.rotation * pi / 180.0f;
+			const float cosine = std::cos(radians);
+			const float sine = std::sin(radians);
+			const float left_texture = static_cast<float>(source_x) / bitmap->width;
+			const float top_texture = static_cast<float>(source_y) / bitmap->height;
+			const float right_texture = static_cast<float>(source_x + source_width) / bitmap->width;
+			const float bottom_texture = static_cast<float>(source_y + source_height) / bitmap->height;
+			Tint tint = {sprite.tint.red / 255.0f, sprite.tint.green / 255.0f, sprite.tint.blue / 255.0f, sprite.tint.alpha / 255.0f};
+			if (normal_pass_active)
+				tint = normal_tint(cosine * (sprite.scale_x < 0.0f ? -1.0f : 1.0f), -sine * (sprite.scale_y < 0.0f ? -1.0f : 1.0f),
+								   sine * (sprite.scale_x < 0.0f ? -1.0f : 1.0f), cosine * (sprite.scale_y < 0.0f ? -1.0f : 1.0f));
+			const auto corner = [&](float dx, float dy, float u, float v)
+			{
+				return detail::GLVertex{sprite.x + dx * cosine - dy * sine, sprite.y + dx * sine + dy * cosine, u, v, tint.r, tint.g, tint.b, tint.a};
+			};
+			const detail::GLVertex top_left = corner(-half_width, -half_height, left_texture, top_texture);
+			const detail::GLVertex top_right = corner(half_width, -half_height, right_texture, top_texture);
+			const detail::GLVertex bottom_right = corner(half_width, half_height, right_texture, bottom_texture);
+			const detail::GLVertex bottom_left = corner(-half_width, half_height, left_texture, bottom_texture);
+			vertices.insert(vertices.end(), {top_left, top_right, bottom_right, top_left, bottom_right, bottom_left});
+			if (vertices.size() >= chunk_sprites * 6)
+				flush();
+		}
+		flush();
+	}
+
+	void draw_sprite_ex(Bitmap *bitmap, const SpriteParams &params)
+	{
+		if (!bitmap)
+			return;
+		const bool has_source = params.source_width > 0 && params.source_height > 0;
+		const float source_width = static_cast<float>(has_source ? params.source_width : bitmap->width);
+		const float source_height = static_cast<float>(has_source ? params.source_height : bitmap->height);
+		const float scale_x = params.scale_x * (params.flip_x ? -1.0f : 1.0f);
+		const float scale_y = params.scale_y * (params.flip_y ? -1.0f : 1.0f);
+		// The batch draws about the sprite centre, so move the centre by the rotated offset from the origin.
+		const float offset_x = (0.5f - params.origin_x) * source_width * params.scale_x;
+		const float offset_y = (0.5f - params.origin_y) * source_height * params.scale_y;
+		const float radians = params.rotation * pi / 180.0f;
+		const float cosine = std::cos(radians);
+		const float sine = std::sin(radians);
+
+		SpriteInstance instance;
+		instance.x = params.x + offset_x * cosine - offset_y * sine;
+		instance.y = params.y + offset_x * sine + offset_y * cosine;
+		instance.scale_x = scale_x;
+		instance.scale_y = scale_y;
+		instance.rotation = params.rotation;
+		instance.source_x = params.source_x;
+		instance.source_y = params.source_y;
+		instance.source_width = params.source_width;
+		instance.source_height = params.source_height;
+		instance.tint = params.tint;
+		static thread_local std::vector<SpriteInstance> single(1);
+		single[0] = instance;
+		draw_sprite_batch(bitmap, single);
+	}
+
+	namespace
+	{
+		bool clip_active = false;
+		int clip_x = 0, clip_y = 0, clip_w = 0, clip_h = 0;
+
+		void apply_clip_rect()
+		{
+			detail::Renderer *renderer = detail::active_renderer();
+			if (!renderer)
+				return;
+			detail::ClipRect2D clip;
+			clip.enabled = clip_active;
+			clip.x = static_cast<float>(clip_x);
+			clip.y = static_cast<float>(clip_y);
+			clip.width = static_cast<float>(clip_w);
+			clip.height = static_cast<float>(clip_h);
+			renderer->set_clip_rect_2d(clip);
+		}
+	} // namespace
+
+	void set_clip_rect(int x, int y, int width, int height)
+	{
+		clip_active = true;
+		clip_x = x;
+		clip_y = y;
+		clip_w = std::max(width, 0);
+		clip_h = std::max(height, 0);
+		apply_clip_rect();
+	}
+
+	void clear_clip_rect()
+	{
+		if (!clip_active)
+			return;
+		clip_active = false;
+		apply_clip_rect();
+	}
+
+	bool get_clip_rect(int *x, int *y, int *width, int *height)
+	{
+		if (x)
+			*x = clip_x;
+		if (y)
+			*y = clip_y;
+		if (width)
+			*width = clip_w;
+		if (height)
+			*height = clip_h;
+		return clip_active;
 	}
 
 	/** Draw a horizontally flipped bitmap. */

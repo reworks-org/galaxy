@@ -1,7 +1,7 @@
 #include "gl2d.h"
 #include "display.h"
 
-#include <SDL2/SDL_opengl.h>
+#include <glad/glad.h>
 
 namespace sl::detail
 {
@@ -14,8 +14,6 @@ namespace sl::detail
         outMatrix16[0] = width > 0.0f ? 2.0f / width : 0.0f;
         outMatrix16[5] = height > 0.0f ? -2.0f / height : 0.0f;
         outMatrix16[10] = -1.0f;
-        outMatrix16[12] = -1.0f + (width > 0.0f ? 2.0f * detail::screen_offset_x() / width : 0.0f);
-        outMatrix16[13] = 1.0f - (height > 0.0f ? 2.0f * detail::screen_offset_y() / height : 0.0f);
         outMatrix16[12] = -1.0f + (width > 0.0f ? 2.0f * detail::screen_offset_x() / width : 0.0f);
         outMatrix16[13] = 1.0f - (height > 0.0f ? 2.0f * detail::screen_offset_y() / height : 0.0f);
         outMatrix16[15] = 1.0f;

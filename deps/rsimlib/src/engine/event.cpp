@@ -403,6 +403,12 @@ namespace sl
 
     struct Event::Implementation
     {
+        ~Implementation()
+        {
+            if ((native.type == SDL_DROPFILE || native.type == SDL_DROPTEXT) && native.drop.file)
+                SDL_free(native.drop.file);
+        }
+
         SDL_Event native{};
         Type type = Type::unknown;
         Key key = Key::unknown;
@@ -437,9 +443,15 @@ namespace sl
 
     bool poll_event(Event *event)
     {
-        if (!event || SDL_PollEvent(&event->implementation_->native) == 0)
+        if (!event)
             return false;
-        const SDL_Event &native = event->implementation_->native;
+        SDL_Event native{};
+        if (SDL_PollEvent(&native) == 0)
+            return false;
+        if ((event->implementation_->native.type == SDL_DROPFILE || event->implementation_->native.type == SDL_DROPTEXT) &&
+            event->implementation_->native.drop.file)
+            SDL_free(event->implementation_->native.drop.file);
+        event->implementation_->native = native;
         event->implementation_->type = event_type(native);
         event->implementation_->key = native.type == SDL_KEYDOWN || native.type == SDL_KEYUP ? event_key(native.key.keysym.sym) : Event::Key::unknown;
         event->implementation_->key_code = native.type == SDL_KEYDOWN || native.type == SDL_KEYUP ? native.key.keysym.sym : 0;

@@ -1,11 +1,8 @@
 #pragma once
 
-#include <SDL2/SDL_stdinc.h>
-#include <SDL2/SDL_video.h>
+#include <SDL3/SDL.h>
 
 #include <string>
-
-#include "event.h"
 
 namespace sl
 {
@@ -16,12 +13,35 @@ namespace sl
     /** Select the auto-detected desktop fullscreen graphics driver. */
     constexpr int GFX_AUTODETECT_FULLSCREEN = 2;
 
+    /** Rendering backends understood by the engine. */
+    enum class GraphicsBackend
+    {
+        opengl,
+        vulkan,
+        d3d12
+    };
+
+    /**
+     * Select a backend before set_gfx_mode(); D3D12 is Windows-only. Default: D3D12 on Windows, OpenGL elsewhere.
+     * The backend is fixed for the life of the process: switching at runtime is unsupported because GPU
+     * resources (bitmaps, render targets, meshes) are not migrated between backends.
+     */
+    bool set_graphics_backend(GraphicsBackend backend);
+    /** Select OpenGL, Vulkan, or D3D12 from command-line arguments (--gl, --vulkan, --d3d12). */
+    bool configure_graphics_backend_from_args(int argc, char *argv[]);
+    /** Return whether a backend implementation is available in this build. */
+    bool graphics_backend_available(GraphicsBackend backend);
+    /** Return the selected graphics backend. */
+    GraphicsBackend graphics_backend();
+    /** Return a human-readable name for the selected graphics backend (e.g. "OpenGL", "Vulkan"). */
+    std::string graphics_backend_name();
+
     /** Create a window (windowed or desktop fullscreen) and initialize the drawing screen using the selected backend.
      * For fullscreen mode, width and height may both be omitted to use the primary display's desktop resolution.
      */
-    bool set_gfx_mode(int driver, int width = 0, int height = 0, int virtualWidth = 0, int virtualHeight = 0);
+	bool set_gfx_mode(const char* title, SDL_WindowFlags windowflags, int driver, int width = 0, int height = 0, int virtualWidth = 0, int virtualHeight = 0);
     /** Apply window-related SDL events, including resize events. */
-    void display_handle_event(const Event &event);
+    void display_handle_event(const SDL_Event &event);
     /** Set the window title. */
     void set_window_title(const char *title);
     /** Enable or disable desktop fullscreen mode. */
@@ -30,10 +50,6 @@ namespace sl
     bool is_fullscreen();
     /** Toggle the fullscreen state of the display. */
     bool toggle_fullscreen();
-    /** Set the OpenGL swap interval; zero disables vsync. */
-    bool set_vsync(bool enabled);
-      /** Return whether or not vsync is enabled */
-    bool get_vsync();  
     /** Return the current drawable width in pixels. */
     int screen_width();
     /** Return the current drawable height in pixels. */
@@ -53,6 +69,8 @@ namespace sl
     void set_mouse_bitmap(Bitmap *mouse_bitmap, int offset_x = 0, int offset_y = 0);
     namespace detail
     {
+        /** Counts completed display_shutdown() calls; lets long-lived objects tell whether their GPU resources are gone. */
+        unsigned display_generation();
         /** Return the custom mouse cursor bitmap, or nullptr. */
         Bitmap *mouse_bitmap();
         /** Apply the current mouse visibility and cursor bitmap to the OS cursor. */

@@ -5,6 +5,16 @@
 namespace sl
 {
 
+    /** True when the library was built with a GUI backend (SIMLIB_GUI=imgui); otherwise the gui_* calls are no-ops. */
+    constexpr bool gui_available()
+    {
+#ifdef SIMLIB_GUI_IMGUI
+        return true;
+#else
+        return false;
+#endif
+    }
+
     /** Create the ImGui context and attach it to the current SDL/GL window. */
     void gui_init();
     /** Forward an SDL event to ImGui's input handling. */

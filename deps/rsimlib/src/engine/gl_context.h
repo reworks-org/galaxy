@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL2/SDL_video.h>
+#include <SDL3/SDL_video.h>
 
 #include <string>
 
@@ -16,14 +16,9 @@ namespace sl::detail
         GLContext(const GLContext &) = delete;
         GLContext &operator=(const GLContext &) = delete;
 
-        /** Request a core 4.3 context; must be called before the SDL window is created. */
-        static void configure_window_attributes();
-
         bool initialise(SDL_Window *window, std::string &error);
         void shutdown();
         bool resize(int width, int height, std::string &error);
-        bool set_vsync(bool enabled);
-        bool vsync_active() const;
         void present();
         void clear(float red, float green, float blue, float alpha);
         bool is_valid() const;

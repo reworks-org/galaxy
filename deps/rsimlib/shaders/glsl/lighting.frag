@@ -6,6 +6,9 @@ uniform int shadowLightCount;
 uniform float ambient;
 uniform int flipVertical;
 uniform ivec2 tileCount;
+uniform sampler2D normals;
+uniform int useNormals;
+uniform float lightHeight;
 
 struct GpuLight
 {
@@ -72,6 +75,11 @@ void main()
     uint tileLightCount = tileCounts[tileIndex];
     vec3 illumination = vec3(ambient);
 
+    // Normal-buffer alpha below 0.5 means no normal data: shade flat, as without a normal pass.
+    vec4 normalSample = useNormals != 0 ? texture(normals, uv) : vec4(0.0);
+    bool hasNormal = normalSample.a > 0.5;
+    vec3 surfaceNormal = normalize(vec3(normalSample.x * 2.0 - 1.0, -(normalSample.y * 2.0 - 1.0), normalSample.z * 2.0 - 1.0));
+
     for (uint tileLight = 0u; tileLight < tileLightCount; ++tileLight)
     {
         int index = int(tileIndices[tileIndex * 128 + tileLight]);
@@ -110,7 +118,14 @@ void main()
             }
         }
 
-        illumination += light.colourIntensity.rgb * falloff * light.colourIntensity.a * shadow;
+        float diffuse = 1.0;
+        if (hasNormal)
+        {
+            vec3 toLight = normalize(vec3(light.positionRadius.xy - pixelPosition, lightHeight));
+            diffuse = max(dot(surfaceNormal, toLight), 0.0);
+        }
+
+        illumination += light.colourIntensity.rgb * falloff * light.colourIntensity.a * shadow * diffuse;
     }
 
     fragColor = vec4(base.rgb * illumination, base.a);

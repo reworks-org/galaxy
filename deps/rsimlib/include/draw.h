@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL2/SDL_stdinc.h>
+#include <SDL3/SDL_stdinc.h>
 
 #include <cstdint>
 #include <functional>
@@ -9,12 +9,7 @@
 
 namespace sl
 {
-    class Archive;
     struct Bitmap;
-}
-
-namespace sl
-{
 
     /** Callback signature for point-plotter algorithms (e.g. do_line, do_circle). */
     using PixelProc = std::function<void(Bitmap *bitmap, int x, int y, int d)>;
@@ -149,6 +144,16 @@ namespace sl
         bool gpu_dirty = false;
         /** Distinguishes ordinary bitmaps from the display framebuffer. */
         BitmapKind kind = BitmapKind::Bitmap;
+        /** Optional non-owning normal map paired with this bitmap; see set_normal_map(). */
+        Bitmap *normal_map = nullptr;
+        /** Sample the texture with bilinear filtering instead of nearest. Read when the GPU texture is first created. */
+        bool smooth = false;
+        /** Requested texture anisotropy; 1.0 disables it. Read when the GPU texture is first created. */
+        float anisotropy = 1.0f;
+        /** Build a mip chain when the pixels are uploaded, for cleaner minified sampling and effective anisotropy. */
+        bool mipmaps = false;
+        /** True for a block-compressed GPU-only texture from load_dds(): there are no CPU pixels to read or edit. */
+        bool compressed = false;
     };
 
     /** The current display framebuffer, owned by the display subsystem. */
@@ -171,14 +176,27 @@ namespace sl
     void end_render_target();
     /** Clear the currently bound render target (call between begin_render_target() and end_render_target()). */
     void clear_render_target(Colour colour);
+
+    /**
+     * Pair a bitmap (or atlas) with a tangent-space normal map of the same size and layout.
+     * The normal map is not owned; it must outlive any normal pass that draws the bitmap.
+     * Pass nullptr to remove the pairing.
+     */
+    void set_normal_map(Bitmap *bitmap, Bitmap *normal_map);
+    /**
+     * Redirect drawing to a normal buffer (a render target) and clear it to "no data".
+     * While active, every textured sprite/tile draw writes its paired normal map instead of its colour
+     * (rotation and flips are applied to the normals as well), and bitmaps without a normal map are skipped.
+     * Redraw the scene's sprites between begin_normal_pass() and end_normal_pass(), then pass the buffer to
+     * LightingPass::apply(). Only draw sprites and tiles inside a normal pass.
+     */
+    bool begin_normal_pass(Bitmap *normal_buffer);
+    /** Finish the normal pass started with begin_normal_pass(). */
+    void end_normal_pass();
     /** Load an image file into a bitmap, or return nullptr on failure. */
     Bitmap *load_bitmap(const std::string &path);
     /** Load an image from memory. */
     Bitmap *load_bitmap_from_memory(const std::uint8_t *data, std::size_t size);
-    /** Load an image entry from a ZIP archive. */
-    Bitmap *load_bitmap(const Archive &archive, const std::string &name);
-    /** Save a bitmap as an uncompressed PNG, appending .png when no extension is supplied. */
-    bool save_bitmap(Bitmap *bitmap, const std::string &path);
     /** Destroy a bitmap created by this module. */
     void destroy_bitmap(Bitmap *bitmap);
 
@@ -209,7 +227,13 @@ namespace sl
     enum class BlendMode
     {
         normal,
-        additive
+        additive,
+        /** Multiply the destination by the source colour (shadows, tinting); transparent texels leave it unchanged. */
+        multiply,
+        /** Inverse multiply: lightens the destination (glows, light shafts). */
+        screen,
+        /** Source colour is already multiplied by its alpha. */
+        premultiplied
     };
     /** Select the blend mode used when compositing subsequent draws onto the screen. */
     void set_blend_mode(BlendMode mode);
@@ -294,6 +318,59 @@ namespace sl
     void draw_sprite_rotated_stretched(Bitmap *bitmap, float centerX, float centerY, float angleDegrees, int width, int height);
     /** Draw a bitmap region with its unrotated top-left at (x, y), rotated clockwise by angleDegrees around a pivot offset (in destination pixels) from that corner; the region is scaled to destinationWidth x destinationHeight. */
     void draw_sprite_region_rotated(Bitmap *bitmap, int sourceX, int sourceY, int width, int height, float x, float y, float destinationWidth, float destinationHeight, float pivotX, float pivotY, float angleDegrees);
+    /** Draw a bitmap region scaled into a rectangle with optional flips; the diagonal flip (transpose) is applied first, as in Tiled; tint multiplies the texel colour and alpha. */
+    void draw_sprite_region_flipped(Bitmap *bitmap, int sourceX, int sourceY, int width, int height, float x, float y, float destinationWidth, float destinationHeight, bool flipHorizontal, bool flipVertical, bool flipDiagonal = false, Colour tint = White);
+    /** One sprite for draw_sprite_batch(). */
+    struct SpriteInstance
+    {
+        /** Centre of the sprite in screen pixels. */
+        float x = 0.0f, y = 0.0f;
+        /** Scale applied to the source rectangle; negative values mirror the sprite. */
+        float scale_x = 1.0f, scale_y = 1.0f;
+        /** Clockwise rotation about the centre, in degrees. */
+        float rotation = 0.0f;
+        /** Source rectangle in bitmap pixels; a zero width or height selects the whole bitmap. */
+        int source_x = 0, source_y = 0, source_width = 0, source_height = 0;
+        /** Multiplies the texel colour and alpha. */
+        Colour tint = White;
+    };
+    /**
+     * Draw many sprites from one bitmap. The sprites are generated in a single pass and submitted through the 2D
+     * batcher, so they cost one draw call per batch (not one per sprite) and respect the current blend mode and
+     * render target. This is not GPU instancing: the vertices are still built on the CPU. Instances are drawn in
+     * order. During a normal-map pass the tint is ignored.
+     */
+    void draw_sprite_batch(Bitmap *bitmap, const std::vector<SpriteInstance> &sprites);
+    /** Parameters for draw_sprite_ex(). */
+    struct SpriteParams
+    {
+        /** Position of the origin point in screen pixels. */
+        float x = 0.0f, y = 0.0f;
+        /** Origin within the drawn sprite as a fraction of its size: (0,0) top-left, (0.5,0.5) centre. Rotation and scaling pivot here. */
+        float origin_x = 0.5f, origin_y = 0.5f;
+        /** Scale applied to the source rectangle. */
+        float scale_x = 1.0f, scale_y = 1.0f;
+        /** Clockwise rotation about the origin, in degrees. */
+        float rotation = 0.0f;
+        /** Mirror the sprite horizontally or vertically. */
+        bool flip_x = false, flip_y = false;
+        /** Source rectangle in bitmap pixels; a zero width or height selects the whole bitmap. */
+        int source_x = 0, source_y = 0, source_width = 0, source_height = 0;
+        /** Multiplies the texel colour and alpha. Use the alpha channel for transparency. */
+        Colour tint = White;
+    };
+    /** Draw one sprite with full control over origin, scale, rotation, flips, source rectangle and tint. */
+    void draw_sprite_ex(Bitmap *bitmap, const SpriteParams &params);
+    /**
+     * Restrict subsequent drawing to the rectangle (x, y, width, height) in screen pixels, so anything outside it is
+     * not drawn. This affects GPU drawing to the screen or the active render target and is reset to the whole target
+     * by clear_clip_rect(), begin_render_target() and end_render_target(). Pending batched drawing is flushed first.
+     */
+    void set_clip_rect(int x, int y, int width, int height);
+    /** Remove the clip rectangle so drawing covers the whole target again. */
+    void clear_clip_rect();
+    /** Return whether a clip rectangle is active, and optionally its bounds. */
+    bool get_clip_rect(int *x = nullptr, int *y = nullptr, int *width = nullptr, int *height = nullptr);
     /** Draw a horizontally flipped bitmap. */
     void draw_sprite_h_flip(Bitmap *bitmap, float x, float y);
     /** Draw a vertically flipped bitmap. */
@@ -308,6 +385,8 @@ namespace sl
         void resize_screen(int width, int height);
         /** Destroy the display-owned screen bitmap. */
         void destroy_screen();
+        /** Return whether the bitmap is the render target currently being drawn to. */
+        bool is_active_render_target(const Bitmap *bitmap);
 
     } // namespace detail
 

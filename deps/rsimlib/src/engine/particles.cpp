@@ -7,7 +7,7 @@
 #include "display.h"
 #include "gl2d.h"
 
-#include <SDL2/SDL_opengl.h>
+#include <glad/glad.h>
 
 #include <algorithm>
 #include <cmath>
@@ -150,7 +150,9 @@ namespace sl
             glTexture = config_.texture->gpu_texture;
         }
 
-        std::vector<detail::GLVertex> vertices;
+        // Shared scratch buffer: avoids a per-emitter allocation every frame.
+        static thread_local std::vector<detail::GLVertex> vertices;
+        vertices.clear();
         vertices.reserve(particles_.size() * 6);
 
         for (const Particle &particle : particles_)

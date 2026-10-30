@@ -192,8 +192,6 @@ namespace sl
     {
         if (subsystem_initialised)
             return true;
-        if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER | SDL_INIT_JOYSTICK) != 0)
-            return false;
         subsystem_initialised = true;
         for (int index = 0; index < SDL_NumJoysticks(); ++index)
             open_device(index);
@@ -266,6 +264,47 @@ namespace sl
             return normalize_axis(SDL_GameControllerGetAxis(gamepad->controller, to_sdl_axis(axis)));
         const int axis_index = generic_axis(axis);
         return axis_index >= 0 && axis_index < SDL_JoystickNumAxes(gamepad->joystick) ? normalize_axis(SDL_JoystickGetAxis(gamepad->joystick, axis_index)) : 0.0f;
+    }
+
+    int joystick_axis_count(int index)
+    {
+        const ConnectedGamepad *gamepad = controller_at(index);
+        return gamepad && gamepad->joystick ? std::max(SDL_JoystickNumAxes(gamepad->joystick), 0) : 0;
+    }
+
+    float joystick_axis_raw(int index, int axis)
+    {
+        const ConnectedGamepad *gamepad = controller_at(index);
+        if (!gamepad || !gamepad->joystick || axis < 0 || axis >= SDL_JoystickNumAxes(gamepad->joystick))
+            return 0.0f;
+        const Sint16 value = SDL_JoystickGetAxis(gamepad->joystick, axis);
+        return value < 0 ? static_cast<float>(value) / 32768.0f : static_cast<float>(value) / 32767.0f;
+    }
+
+    int joystick_button_count(int index)
+    {
+        const ConnectedGamepad *gamepad = controller_at(index);
+        return gamepad && gamepad->joystick ? std::max(SDL_JoystickNumButtons(gamepad->joystick), 0) : 0;
+    }
+
+    bool joystick_button_raw(int index, int button)
+    {
+        const ConnectedGamepad *gamepad = controller_at(index);
+        return gamepad && gamepad->joystick && button >= 0 && button < SDL_JoystickNumButtons(gamepad->joystick) && SDL_JoystickGetButton(gamepad->joystick, button) != 0;
+    }
+
+    int joystick_hat_count(int index)
+    {
+        const ConnectedGamepad *gamepad = controller_at(index);
+        return gamepad && gamepad->joystick ? std::max(SDL_JoystickNumHats(gamepad->joystick), 0) : 0;
+    }
+
+    int joystick_hat_raw(int index, int hat)
+    {
+        const ConnectedGamepad *gamepad = controller_at(index);
+        if (!gamepad || !gamepad->joystick || hat < 0 || hat >= SDL_JoystickNumHats(gamepad->joystick))
+            return 0;
+        return SDL_JoystickGetHat(gamepad->joystick, hat) & 15;
     }
 
     void gamepad_set_deadzone(float value) { deadzone = std::clamp(value, 0.0f, 0.99f); }

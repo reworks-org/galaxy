@@ -5,6 +5,7 @@
 #include "graphics_fx_internal.h"
 
 #include "display.h"
+#include "error.h"
 #include "draw.h"
 #include "gl2d.h"
 #include "renderer.h"
@@ -100,7 +101,8 @@ namespace sl
 		  tileCountsBuffer_(std::exchange(other.tileCountsBuffer_, 0)),
 		  tileIndicesBuffer_(std::exchange(other.tileIndicesBuffer_, 0)),
 		  shadowEdgesBuffer_(std::exchange(other.shadowEdgesBuffer_, 0)),
-		  tileCountX_(other.tileCountX_), tileCountY_(other.tileCountY_)
+		  tileCountX_(other.tileCountX_), tileCountY_(other.tileCountY_),
+		  scratchTarget_(std::exchange(other.scratchTarget_, nullptr))
 	{
 	}
 
@@ -118,6 +120,7 @@ namespace sl
 			tileIndicesBuffer_ = std::exchange(other.tileIndicesBuffer_, 0);
 			tileCountX_ = other.tileCountX_;
 			tileCountY_ = other.tileCountY_;
+			scratchTarget_ = std::exchange(other.scratchTarget_, nullptr);
 		}
 		return *this;
 	}
@@ -128,9 +131,14 @@ namespace sl
 		{
 			return true;
 		}
-		if (!shader_.load(load_glsl_shader("fullscreen.vert"), load_glsl_shader("lighting.frag"), "lighting") ||
-			!cullShader_.load_compute(load_glsl_shader("light_cull.comp"), "light-cull"))
+		if (!shader_.load(load_glsl_shader("fullscreen.vert"), load_glsl_shader("lighting.frag"), "lighting"))
 		{
+			detail::set_error("Lighting shader: " + shader_.error());
+			return false;
+		}
+		if (!cullShader_.load_compute(load_glsl_shader("light_cull.comp"), "light-cull"))
+		{
+			detail::set_error("Light-culling compute shader: " + cullShader_.error());
 			return false;
 		}
 		if (!detail::active_renderer()->create_storage_buffer(sizeof(GpuLight), lightBuffer_) ||
@@ -144,6 +152,11 @@ namespace sl
 	void LightingPass::shutdown()
 	{
 		shader_.reset();
+		if (scratchTarget_)
+		{
+			destroy_bitmap(scratchTarget_);
+			scratchTarget_ = nullptr;
+		}
 		if (lightBuffer_ != 0)
 		{
 			detail::active_renderer()->destroy_storage_buffer(lightBuffer_);
@@ -182,14 +195,56 @@ namespace sl
 		ambient_ = std::clamp(ambient, 0.0f, 1.0f);
 	}
 
+	void LightingPass::set_light_height(float height)
+	{
+		lightHeight_ = std::max(height, 1.0f);
+	}
+
 	void LightingPass::apply(Bitmap *source, const Light &light, int x, int y, int width, int height,
 							 const std::vector<ShadowCaster> &casters) const
 	{
 		apply(source, std::vector<Light>{light}, x, y, width, height, casters);
 	}
 
+	void LightingPass::apply_via_scratch(Bitmap *source, Bitmap *normals, const std::vector<Light> &lights, int x, int y,
+										 int width, int height, const std::vector<ShadowCaster> &casters) const
+	{
+		if (scratchTarget_ && (scratchTarget_->width != source->width || scratchTarget_->height != source->height))
+		{
+			destroy_bitmap(scratchTarget_);
+			scratchTarget_ = nullptr;
+		}
+		if (!scratchTarget_)
+		{
+			scratchTarget_ = create_render_target(source->width, source->height);
+		}
+		if (!scratchTarget_)
+		{
+			return;
+		}
+		const int regionWidth = width > 0 ? width : source->width;
+		const int regionHeight = height > 0 ? height : source->height;
+		// Ending the target turns the source into a sampleable texture; the lit result is copied back afterwards.
+		end_render_target();
+		if (begin_render_target(scratchTarget_))
+		{
+			apply(source, normals, lights, x, y, regionWidth, regionHeight, casters);
+			end_render_target();
+		}
+		if (begin_render_target(source))
+		{
+			blit(scratchTarget_, source, x, y, static_cast<float>(x), static_cast<float>(y), regionWidth, regionHeight);
+		}
+	}
+
 	void LightingPass::apply(Bitmap *source, const std::vector<Light> &lights, int x, int y, int width, int height,
 							 const std::vector<ShadowCaster> &casters) const
+	{
+		apply(source, nullptr, lights, x, y, width, height, casters);
+	}
+
+	void LightingPass::apply(Bitmap *source, Bitmap *normals, const std::vector<Light> &lights, int x, int y,
+							 int width, int height, const std::vector<ShadowCaster> &casters) const
 	{
 		const bool flipVertical = graphics_backend() == GraphicsBackend::opengl;
 		if (!source || !is_valid() || !upload_bitmap(source))
@@ -207,6 +262,12 @@ namespace sl
 		}
 		if (width <= 0 || height <= 0)
 		{
+			return;
+		}
+		const bool useNormals = normals && upload_bitmap(normals);
+		if (graphics_backend() == GraphicsBackend::d3d12 && detail::is_active_render_target(source))
+		{
+			apply_via_scratch(source, normals, lights, x, y, width, height, casters);
 			return;
 		}
 		const bool sourceFlipVertical = graphics_backend() == GraphicsBackend::vulkan ? false : flipVertical;
@@ -290,6 +351,13 @@ namespace sl
 		shader_.set_uniform("tileCount", tileCountX_, tileCountY_);
 		shader_.set_uniform("ambient", ambient_);
 		shader_.set_uniform("flipVertical", sourceFlipVertical ? 1 : 0);
+		shader_.set_uniform("useNormals", useNormals ? 1 : 0);
+		shader_.set_uniform("lightHeight", lightHeight_);
+		if (useNormals)
+		{
+			renderer->bind_texture_unit(1, normals->gpu_texture);
+			shader_.set_uniform("normals", 1);
+		}
 		detail::gl2d_ortho_matrix(screen_width(), screen_height(), projection);
 		shader_.set_uniform_mat4("uProjection", projection);
 		submit_fullscreen_quad(x, y, width, height, source->gpu_texture, sourceFlipVertical);

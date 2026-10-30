@@ -7,6 +7,7 @@
 #include "audio.h"
 #include "display.h"
 #include "graphics_fx.h"
+#include "lua_world.h"
 #include "physics.h"
 #include "system.h"
 
@@ -40,7 +41,11 @@ namespace sl
             sprite,
             sprite_stretched,
             sprite_rotated,
-            sprite_rotated_stretched
+            sprite_rotated_stretched,
+            tilemap,
+            fluid,
+            voxel_view,
+            terrain_view
         };
 
         struct DrawingCommand
@@ -69,6 +74,7 @@ namespace sl
     struct LuaCanvas::Implementation
     {
         LuaRuntime runtime;
+        LuaWorld world;
         Colour background{0, 0, 0};
         std::vector<DrawingCommand> commands;
         std::filesystem::path asset_root{"assets"};
@@ -78,6 +84,17 @@ namespace sl
         std::unordered_map<std::string, Stream *> music;
         std::unordered_map<std::string, Shader *> shaders;
         std::unordered_map<std::string, StorageBuffer *> storage_buffers;
+
+        struct Lighting
+        {
+            bool enabled = false;
+            float ambient = 0.2f;
+            float height = 64.0f;
+            std::vector<Light> lights;
+            LightingPass pass;
+            Bitmap *scene = nullptr;
+            Bitmap *normals = nullptr;
+        } lighting;
 
         ScreenShake screen_shake;
         Bloom bloom;
@@ -98,6 +115,23 @@ namespace sl
                 return std::nullopt;
             }
             return asset_root / asset_path;
+        }
+
+        // Each world object has at most one retained draw command, so repeated draw calls update the view.
+        void upsert_world_drawing(LuaWorldDraw kind, const std::string &id)
+        {
+            const DrawingType type = kind == LuaWorldDraw::tilemap ? DrawingType::tilemap
+                                     : kind == LuaWorldDraw::fluid ? DrawingType::fluid
+                                     : kind == LuaWorldDraw::terrain_view ? DrawingType::terrain_view
+                                                                          : DrawingType::voxel_view;
+            for (const DrawingCommand &command : commands)
+            {
+                if (command.type == type && command.sprite_id == id)
+                    return;
+            }
+            DrawingCommand command{type};
+            command.sprite_id = id;
+            commands.push_back(command);
         }
 
         void add_drawing(
@@ -252,10 +286,63 @@ namespace sl
             const auto iterator = render_targets.find(id);
             if (iterator == render_targets.end())
                 return false;
+            detach_normal_map(iterator->second);
             sl::destroy_bitmap(iterator->second);
             render_targets.erase(iterator);
             return true;
         }
+
+        // Normal maps are non-owning pointers, so they must not outlive the bitmap they point at.
+        void detach_normal_map(const Bitmap *bitmap)
+        {
+            for (const auto &entry : sprites)
+            {
+                if (entry.second->normal_map == bitmap)
+                    entry.second->normal_map = nullptr;
+            }
+            for (const auto &entry : render_targets)
+            {
+                if (entry.second->normal_map == bitmap)
+                    entry.second->normal_map = nullptr;
+            }
+        }
+
+        void release_lighting_targets()
+        {
+            if (lighting.scene)
+                sl::destroy_bitmap(lighting.scene);
+            if (lighting.normals)
+                sl::destroy_bitmap(lighting.normals);
+            lighting.scene = nullptr;
+            lighting.normals = nullptr;
+        }
+
+        void clear_lighting()
+        {
+            release_lighting_targets();
+            lighting.pass.shutdown();
+            lighting.enabled = false;
+            lighting.ambient = 0.2f;
+            lighting.height = 64.0f;
+            lighting.lights.clear();
+        }
+
+        bool ensure_lighting_targets(int width, int height)
+        {
+            if (lighting.scene && lighting.scene->width == width && lighting.scene->height == height)
+                return true;
+            release_lighting_targets();
+            lighting.scene = sl::create_render_target(width, height);
+            lighting.normals = sl::create_render_target(width, height);
+            if (!lighting.scene || !lighting.normals)
+            {
+                release_lighting_targets();
+                return false;
+            }
+            return true;
+        }
+
+        void draw_commands(Bitmap *target, bool normal_pass) const;
 
         Bitmap *find_bitmap(const std::string &id) const
         {
@@ -272,6 +359,7 @@ namespace sl
         {
             for (const auto &[id, target] : render_targets)
             {
+                detach_normal_map(target);
                 sl::destroy_bitmap(target);
             }
             render_targets.clear();
@@ -300,6 +388,7 @@ namespace sl
                                          command.type == DrawingType::sprite_rotated || command.type == DrawingType::sprite_rotated_stretched) &&
                                         command.sprite_id == id; }),
                 commands.end());
+            detach_normal_map(sprite->second);
             sl::destroy_bitmap(sprite->second);
             sprites.erase(sprite);
             return true;
@@ -314,6 +403,7 @@ namespace sl
                 commands.end());
             for (const auto &sprite : sprites)
             {
+                detach_normal_map(sprite.second);
                 sl::destroy_bitmap(sprite.second);
             }
             sprites.clear();
@@ -404,7 +494,12 @@ namespace sl
             implementation_->clear_audio();
             implementation_->clear_physics();
             implementation_->clear_compute();
+            implementation_->world.clear();
+            implementation_->clear_lighting();
             implementation_->commands.clear();
+            implementation_->background = {0, 0, 0};
+            implementation_->asset_root = "assets";
+            implementation_->runtime.reset();
         }
     }
 
@@ -428,6 +523,13 @@ namespace sl
 
         implementation_->runtime.initialise(std::move(output_handler));
         sol::table app = implementation_->runtime.state()["app"];
+        implementation_->world.bind(
+            implementation_->runtime.state(), [this](const std::string &path)
+            { return implementation_->resolve_asset_path(path); },
+            [this](LuaWorldDraw kind, const std::string &id)
+            { implementation_->upsert_world_drawing(kind, id); },
+            [this](const std::string &id)
+            { return implementation_->find_bitmap(id); });
         app.set_function(
             "clear_screen",
             [this](int red, int green, int blue, sol::optional<int> alpha)
@@ -479,6 +581,60 @@ namespace sl
                          { return implementation_->create_render_target_handle(id, width, height); });
         app.set_function("destroy_render_target", [this](const std::string &id)
                          { return implementation_->destroy_render_target_handle(id); });
+
+        app.set_function("set_normal_map", [this](const std::string &id, sol::optional<std::string> normal_id)
+                         {
+                             Bitmap *bitmap = implementation_->find_bitmap(id);
+                             Bitmap *normal = normal_id ? implementation_->find_bitmap(*normal_id) : nullptr;
+                             if (!bitmap || (normal_id && !normal) || bitmap == normal)
+                                 return false;
+                             sl::set_normal_map(bitmap, normal);
+                             return true; });
+
+        constexpr std::size_t max_lua_lights = 64;
+        sol::table lighting = implementation_->runtime.state().create_named_table("lighting");
+        lighting.set_function("enable", [this](sol::optional<float> ambient, sol::optional<float> height)
+                              {
+                                  implementation_->lighting.enabled = true;
+                                  implementation_->lighting.ambient = std::clamp(ambient.value_or(0.2f), 0.0f, 1.0f);
+                                  implementation_->lighting.height = std::clamp(height.value_or(64.0f), 1.0f, 4096.0f); });
+        lighting.set_function("disable", [this]()
+                              { implementation_->lighting.enabled = false; });
+        lighting.set_function("clear", [this]()
+                              { implementation_->lighting.lights.clear(); });
+        lighting.set_function("add", [this, max_lua_lights](float x, float y, float radius,
+                                            sol::optional<float> intensity, sol::optional<int> red,
+                                            sol::optional<int> green, sol::optional<int> blue)
+                              {
+                                  auto &lights = implementation_->lighting.lights;
+                                  if (lights.size() >= max_lua_lights)
+                                      return 0;
+                                  Light light;
+                                  light.x = x;
+                                  light.y = y;
+                                  light.radius = std::clamp(radius, 1.0f, 4096.0f);
+                                  light.intensity = std::clamp(intensity.value_or(1.0f), 0.0f, 16.0f);
+                                  light.colour = make_colour(red.value_or(255), green.value_or(255), blue.value_or(255), std::nullopt);
+                                  lights.push_back(light);
+                                  return static_cast<int>(lights.size()); });
+        lighting.set_function("set", [this](int index, float x, float y, sol::optional<float> radius,
+                                            sol::optional<float> intensity, sol::optional<int> red,
+                                            sol::optional<int> green, sol::optional<int> blue)
+                              {
+                                  auto &lights = implementation_->lighting.lights;
+                                  if (index < 1 || index > static_cast<int>(lights.size()))
+                                      return false;
+                                  Light &light = lights[static_cast<std::size_t>(index - 1)];
+                                  light.x = x;
+                                  light.y = y;
+                                  if (radius)
+                                      light.radius = std::clamp(*radius, 1.0f, 4096.0f);
+                                  if (intensity)
+                                      light.intensity = std::clamp(*intensity, 0.0f, 16.0f);
+                                  if (red || green || blue)
+                                      light.colour = make_colour(red.value_or(light.colour.red), green.value_or(light.colour.green),
+                                                                 blue.value_or(light.colour.blue), std::nullopt);
+                                  return true; });
 
         sol::table display = implementation_->runtime.state().create_named_table("display");
         display.set_function("width", []()
@@ -863,15 +1019,14 @@ namespace sl
         implementation_->asset_root = path;
     }
 
-    void LuaCanvas::render(Bitmap *target) const
+    void LuaCanvas::Implementation::draw_commands(Bitmap *target, bool normal_pass) const
     {
-        if (!target)
+        for (const DrawingCommand &command : commands)
         {
-            return;
-        }
-        clear_to_colour(target, implementation_->background);
-        for (const DrawingCommand &command : implementation_->commands)
-        {
+            // Normal buffers only receive sprites; everything else is lit as flat.
+            if (normal_pass && command.type != DrawingType::sprite && command.type != DrawingType::sprite_stretched &&
+                command.type != DrawingType::sprite_rotated && command.type != DrawingType::sprite_rotated_stretched)
+                continue;
             switch (command.type)
             {
             case DrawingType::pixel:
@@ -906,34 +1061,81 @@ namespace sl
                 break;
             case DrawingType::sprite:
             {
-                Bitmap *sprite = implementation_->find_bitmap(command.sprite_id);
+                Bitmap *sprite = find_bitmap(command.sprite_id);
                 if (sprite)
                     draw_sprite(sprite, command.x1, command.y1);
                 break;
             }
             case DrawingType::sprite_stretched:
             {
-                Bitmap *sprite = implementation_->find_bitmap(command.sprite_id);
+                Bitmap *sprite = find_bitmap(command.sprite_id);
                 if (sprite)
                     draw_sprite_stretched(sprite, command.x1, command.y1, static_cast<int>(command.x2), static_cast<int>(command.y2));
                 break;
             }
             case DrawingType::sprite_rotated:
             {
-                Bitmap *sprite = implementation_->find_bitmap(command.sprite_id);
+                Bitmap *sprite = find_bitmap(command.sprite_id);
                 if (sprite)
                     draw_sprite_rotated(sprite, command.x1, command.y1, command.x3);
                 break;
             }
             case DrawingType::sprite_rotated_stretched:
             {
-                Bitmap *sprite = implementation_->find_bitmap(command.sprite_id);
+                Bitmap *sprite = find_bitmap(command.sprite_id);
                 if (sprite)
                     draw_sprite_rotated_stretched(sprite, command.x1, command.y1, command.x3, static_cast<int>(command.x2), static_cast<int>(command.y2));
                 break;
             }
+            case DrawingType::tilemap:
+                world.draw(LuaWorldDraw::tilemap, command.sprite_id, target);
+                break;
+            case DrawingType::fluid:
+                world.draw(LuaWorldDraw::fluid, command.sprite_id, target);
+                break;
+            case DrawingType::voxel_view:
+                world.draw(LuaWorldDraw::voxel_view, command.sprite_id, target);
+                break;
+            case DrawingType::terrain_view:
+                world.draw(LuaWorldDraw::terrain_view, command.sprite_id, target);
+                break;
             }
         }
+    }
+
+    void LuaCanvas::render(Bitmap *target) const
+    {
+        if (!target)
+        {
+            return;
+        }
+        Implementation &state = *implementation_;
+        clear_to_colour(target, state.background);
+        // Lighting is applied to the screen only; other targets are drawn unlit.
+        if (state.lighting.enabled && target == sl::screen && !state.lighting.lights.empty())
+        {
+            if (!state.lighting.pass.is_valid())
+                state.lighting.pass.initialise();
+            if (state.lighting.pass.is_valid() && state.ensure_lighting_targets(target->width, target->height))
+            {
+                state.lighting.pass.set_ambient(state.lighting.ambient);
+                state.lighting.pass.set_light_height(state.lighting.height);
+                if (begin_render_target(state.lighting.scene))
+                {
+                    clear_render_target(state.background);
+                    state.draw_commands(state.lighting.scene, false);
+                    end_render_target();
+                    if (begin_normal_pass(state.lighting.normals))
+                    {
+                        state.draw_commands(state.lighting.normals, true);
+                        end_normal_pass();
+                    }
+                    state.lighting.pass.apply(state.lighting.scene, state.lighting.normals, state.lighting.lights);
+                    return;
+                }
+            }
+        }
+        state.draw_commands(target, false);
     }
 
     void LuaCanvas::clear()

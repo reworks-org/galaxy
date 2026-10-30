@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cmath>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -34,6 +35,29 @@ namespace sl
             return glm::perspective(glm::radians(field_of_view), aspect_ratio, near_plane, far_plane);
         }
     };
+
+    /** A ray in world space; `direction` is unit length. */
+    struct Ray3D
+    {
+        glm::vec3 origin{0.0f};
+        glm::vec3 direction{0.0f, 0.0f, -1.0f};
+    };
+
+    /**
+     * The world-space ray under a pixel of a view `width` x `height` pixels drawn with `camera`, for picking. `x` and `y`
+     * are in the view's pixels with y down, so pass mouse coordinates minus the view's screen position.
+     */
+    inline Ray3D screen_ray(const Camera &camera, int width, int height, float x, float y)
+    {
+        const glm::vec3 forward = glm::normalize(camera.target - camera.position);
+        const glm::vec3 right = glm::normalize(glm::cross(forward, camera.up));
+        const glm::vec3 rise = glm::cross(right, forward);
+        const float half_height = std::tan(glm::radians(camera.field_of_view) * 0.5f);
+        const float half_width = half_height * static_cast<float>(width) / static_cast<float>(height);
+        const float ndc_x = 2.0f * x / static_cast<float>(width) - 1.0f;
+        const float ndc_y = 1.0f - 2.0f * y / static_cast<float>(height);
+        return {camera.position, glm::normalize(forward + right * (ndc_x * half_width) + rise * (ndc_y * half_height))};
+    }
 
     /** Build a model matrix from translation, Euler rotation, and scale. */
     inline glm::mat4 model_matrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale = glm::vec3(1.0f))

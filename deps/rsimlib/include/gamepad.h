@@ -45,7 +45,7 @@ namespace sl
     void gamepad_handle_event(const Event &event);
     /** Return the number of currently connected mapped gamepads. */
     int gamepad_count();
-    /** Return whether @p index identifies a connected gamepad. */
+    /** Return whether @p index identifies a connected gamepad. Indices are positions in the connected list, so unplugging a device shifts the indices of later ones; re-query after gamepad_removed events. */
     bool gamepad_connected(int index);
     /** Return a connected gamepad's descriptive name, or an empty string for an invalid index. */
     std::string gamepad_name(int index);
@@ -54,6 +54,19 @@ namespace sl
     /** Return a normalized axis value after applying the configured dead zone. */
     float gamepad_axis(int index, GamepadAxis axis);
     /** Set the analogue dead zone in the range [0, 1). */
+    /** Number of raw axes on a connected device (flight sticks, throttles and pedals expose axes that the gamepad layout does not name). */
+    int joystick_axis_count(int index);
+    /** Raw axis position, -1 to 1, with no dead zone and no remapping. */
+    float joystick_axis_raw(int index, int axis);
+    /** Number of raw buttons on a connected device. */
+    int joystick_button_count(int index);
+    /** True while this raw button is held. */
+    bool joystick_button_raw(int index, int button);
+    /** Number of hat switches on a connected device. */
+    int joystick_hat_count(int index);
+    /** Hat position as a bitmask: 1 up, 2 right, 4 down, 8 left. */
+    int joystick_hat_raw(int index, int hat);
+
     void gamepad_set_deadzone(float deadzone);
     /** Return the analogue dead zone in use. */
     float gamepad_deadzone();

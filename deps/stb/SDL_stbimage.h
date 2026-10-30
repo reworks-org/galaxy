@@ -91,7 +91,7 @@
     // if you really think you need <SDL2/SDL.h> here instead.. feel free to change it,
     // but the cool kids have path/to/include/SDL2/ in their compilers include path.
     // (meaning, that's how was supposed to be done for SDL2 and what sdl2-config supports)
-    #include <SDL.h>
+    #include <SDL3/SDL.h>
   #endif
 // else if it *is* defined, SDL.h was already included before including this header.
 // now, after including the headers, it definitely is available.
