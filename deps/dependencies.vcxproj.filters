@@ -1588,13 +1588,11 @@
     <ClInclude Include="rsimlib\include\display.h" />
     <ClInclude Include="rsimlib\include\draw.h" />
     <ClInclude Include="rsimlib\include\error.h" />
-    <ClInclude Include="rsimlib\include\event.h" />
     <ClInclude Include="rsimlib\include\FastNoiseLite.h" />
     <ClInclude Include="rsimlib\include\flight.h" />
     <ClInclude Include="rsimlib\include\fluid.h" />
     <ClInclude Include="rsimlib\include\fluid3d.h" />
     <ClInclude Include="rsimlib\include\font.h" />
-    <ClInclude Include="rsimlib\include\gamepad.h" />
     <ClInclude Include="rsimlib\include\gas_vessel.h" />
     <ClInclude Include="rsimlib\include\graphics_fx.h" />
     <ClInclude Include="rsimlib\include\hud.h" />

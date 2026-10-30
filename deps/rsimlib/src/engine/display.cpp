@@ -150,8 +150,6 @@ namespace sl
             return false;
         }
 
-        display_shutdown();
-
         if (use_desktop_resolution)
         {
 			auto display_id = SDL_GetPrimaryDisplay();

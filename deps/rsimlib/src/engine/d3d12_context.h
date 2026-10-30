@@ -38,6 +38,11 @@ namespace sl::detail
         void present(bool vsync);
         void clear(float red, float green, float blue, float alpha);
         bool wait_idle();
+        /** Waits until the GPU has finished the last presented frame (cheap when it already has). */
+        bool wait_frame();
+        /** The fence value that will cover everything submitted from now on. */
+        std::uint64_t retire_value() const { return fence_value_ + 1; }
+        std::uint64_t completed_value() const;
         bool is_valid() const;
         bool frame_open() const { return frame_open_; }
         std::uint64_t frame_serial() const { return frame_serial_; }

@@ -533,10 +533,7 @@ namespace sl::detail
                     flush_2d();
                     context_.present(vsync_enabled_);
                 }
-                else
-                {
-                    context_.wait_idle();
-                }
+                context_.wait_idle();
                 release_record_workers();
                 shutdown_2d();
                 for (auto &[handle, mesh] : meshes_)
@@ -595,10 +592,7 @@ namespace sl::detail
                     if (target.msaa_colour)
                         target.msaa_colour->Release();
                 }
-                for (auto &texture : retired_textures_)
-                    release_texture(texture);
-                retired_textures_.clear();
-                release_retired_textures();
+                release_retired_textures(true);
                 for (auto &[handle, program] : programs_)
                     release_program(program);
                 programs_.clear();
@@ -666,20 +660,24 @@ namespace sl::detail
                     trace("present %d: done", traced_presents++);
                 release_retired_textures();
                 if (shutdown_2d_pending_)
+                {
+                    context_.wait_idle();
                     release_2d_resources();
+                }
             }
             void wait_idle() override
             {
                 if (context_.frame_open())
                     present();
-                else
-                    context_.wait_idle();
+                context_.wait_idle();
+                release_retired_textures();
             }
             bool begin_frame(std::string &error) override
             {
                 if (context_.frame_open() || context_.begin_frame())
                 {
                     inline_mesh_run_ = 0;
+                    release_retired_textures();
                     return true;
                 }
                 error = "Unable to begin the D3D12 frame.";
@@ -809,8 +807,6 @@ namespace sl::detail
                         return false;
                     rebind_frame_targets();
                 }
-                if (!context_.wait_idle())
-                    return false;
 
                 D3D12_RESOURCE_DESC destination_desc = found->second.resource->GetDesc();
                 if (destination_desc.Width != static_cast<UINT64>(width) ||
@@ -922,14 +918,14 @@ namespace sl::detail
                 {
                     ID3D12CommandList *lists[] = {commands};
                     context_.command_queue()->ExecuteCommandLists(1, lists);
-                    if (!context_.wait_idle())
-                        result = E_FAIL;
                 }
-                commands->Release();
-                allocator->Release();
-                upload->Release();
+                // The GPU copies later, so these live until the fence passes instead of the CPU waiting for it.
+                retire(commands);
+                retire(allocator);
+                retire(upload, upload_size);
                 if (FAILED(result))
                     return false;
+                limit_retired_memory();
                 target.state = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
                 return true;
             }
@@ -976,11 +972,6 @@ namespace sl::detail
                     }
                     rebind_frame_targets();
                 }
-                if (!context_.wait_idle())
-                {
-                    destroy_texture(handle);
-                    return false;
-                }
                 std::vector<const std::uint8_t *> level_pixels;
                 std::vector<std::size_t> level_row_bytes;
                 std::size_t offset = 0;
@@ -1017,7 +1008,7 @@ namespace sl::detail
                 flush_2d();
                 if (context_.frame_open())
                 {
-                    retired_textures_.push_back(found->second);
+                    retired_textures_.push_back({found->second, context_.retire_value()});
                 }
                 else
                 {
@@ -1399,6 +1390,9 @@ namespace sl::detail
                 if (found == meshes_.end() || !vertices ||
                     sizeof(Vertex3D) * vertex_count != found->second.vertex_view.SizeInBytes)
                     return false;
+                // The buffer may still be in use by the frame that was just presented.
+                if (!context_.frame_open() && !context_.wait_frame())
+                    return false;
                 void *mapped = nullptr;
                 const D3D12_RANGE read_range{0, 0};
                 if (FAILED(found->second.vertices->Map(0, &read_range, &mapped)))
@@ -1412,13 +1406,11 @@ namespace sl::detail
                 const auto found = meshes_.find(handle);
                 if (found == meshes_.end())
                     return;
-                flush_2d();
-                if (context_.frame_open())
-                    present();
-                if (!context_.wait_idle())
-                    return;
-                release_mesh(found->second);
+                // Queued draws hold GPU addresses, so the buffers just have to outlive the frame that uses them.
+                retire(found->second.vertices, found->second.vertex_view.SizeInBytes);
+                retire(found->second.indices, found->second.index_view.SizeInBytes);
                 meshes_.erase(found);
+                limit_retired_memory();
             }
             bool draw_mesh(std::uint32_t handle, const MeshDrawParams &params) override
             {
@@ -1453,6 +1445,8 @@ namespace sl::detail
                     return false;
                 if (count == 0)
                     return true;
+                if (!context_.frame_open() && !context_.wait_frame())
+                    return false;
                 void *mapped = nullptr;
                 const D3D12_RANGE read_range{0, 0};
                 if (FAILED(found->second.resource->Map(0, &read_range, &mapped)))
@@ -1467,13 +1461,9 @@ namespace sl::detail
                 const auto found = instance_buffers_.find(handle);
                 if (found == instance_buffers_.end())
                     return;
-                flush_2d();
-                if (context_.frame_open())
-                    present();
-                if (!context_.wait_idle())
-                    return;
-                found->second.resource->Release();
+                retire(found->second.resource, found->second.view.SizeInBytes);
                 instance_buffers_.erase(found);
+                limit_retired_memory();
             }
             bool draw_mesh_instanced(std::uint32_t handle, const MeshDrawParams &params, std::uint32_t instance_buffer,
                                      std::size_t count) override
@@ -2454,7 +2444,7 @@ namespace sl::detail
                 if (found->second.resource)
                 {
                     if (context_.frame_open())
-                        retired_objects_.push_back(found->second.resource);
+                        retire(found->second.resource);
                     else
                     {
                         context_.wait_idle();
@@ -2478,7 +2468,7 @@ namespace sl::detail
                     StorageBuffer replacement;
                     if (!create_storage_resource(size, replacement))
                         return false;
-                    retired_objects_.push_back(buffer.resource);
+                    retire(buffer.resource);
                     buffer = replacement;
                 }
                 if (!data)
@@ -2500,7 +2490,7 @@ namespace sl::detail
                 }
                 std::memcpy(mapped, data, size);
                 staging->Unmap(0, nullptr);
-                retired_objects_.push_back(staging);
+                retire(staging);
 
                 auto *commands = context_.command_list();
                 transition_resource(commands, buffer.resource, D3D12_RESOURCE_STATE_UNORDERED_ACCESS,
@@ -3264,14 +3254,50 @@ namespace sl::detail
                 texture = {};
             }
 
-            void release_retired_textures()
+            void retire(IUnknown *object, std::uint64_t bytes = 0)
             {
-                for (auto &texture : retired_textures_)
-                    release_texture(texture);
-                retired_textures_.clear();
-                for (IUnknown *object : retired_objects_)
-                    object->Release();
-                retired_objects_.clear();
+                if (!object)
+                    return;
+                retired_objects_.push_back({object, context_.retire_value(), bytes});
+                retired_bytes_ += bytes;
+            }
+
+            // Frees what the GPU has finished with; `everything` is for when the GPU is known to be idle.
+            void release_retired_textures(bool everything = false)
+            {
+                const std::uint64_t done = everything ? UINT64_MAX : context_.completed_value();
+                std::size_t kept = 0;
+                for (auto &retired : retired_textures_)
+                {
+                    if (retired.fence <= done)
+                        release_texture(retired.texture);
+                    else
+                        retired_textures_[kept++] = retired;
+                }
+                retired_textures_.resize(kept);
+                kept = 0;
+                for (const RetiredObject &retired : retired_objects_)
+                {
+                    if (retired.fence <= done)
+                    {
+                        retired_bytes_ -= retired.bytes;
+                        retired.object->Release();
+                    }
+                    else
+                        retired_objects_[kept++] = retired;
+                }
+                retired_objects_.resize(kept);
+            }
+
+            // Bounds the memory held back for the GPU when no frames are being presented (e.g. while loading).
+            void limit_retired_memory()
+            {
+                constexpr std::uint64_t limit = 256ull * 1024 * 1024;
+                if (retired_bytes_ <= limit)
+                    return;
+                release_retired_textures();
+                if (retired_bytes_ > limit && context_.wait_idle())
+                    release_retired_textures(true);
             }
 
             static D3D12_CPU_DESCRIPTOR_HANDLE cpu_descriptor(ID3D12DescriptorHeap *heap,
@@ -3341,12 +3367,12 @@ namespace sl::detail
                 for (ID3D12PipelineState *pipeline : program.pipelines)
                 {
                     if (pipeline)
-                        retired_objects_.push_back(pipeline);
+                        retire(pipeline);
                 }
                 if (program.compute_pipeline)
-                    retired_objects_.push_back(program.compute_pipeline);
+                    retire(program.compute_pipeline);
                 if (program.root_signature)
-                    retired_objects_.push_back(program.root_signature);
+                    retire(program.root_signature);
                 program.pipelines = {};
                 program.compute_pipeline = nullptr;
                 program.root_signature = nullptr;
@@ -3911,7 +3937,20 @@ namespace sl::detail
                 std::uint32_t texture;
             };
             std::vector<ImageRestore> image_restores_;
-            std::vector<IUnknown *> retired_objects_;
+            // Released once the GPU has passed `fence`; the CPU never waits for them.
+            struct RetiredObject
+            {
+                IUnknown *object;
+                std::uint64_t fence;
+                std::uint64_t bytes;
+            };
+            struct RetiredTexture
+            {
+                Texture texture;
+                std::uint64_t fence;
+            };
+            std::vector<RetiredObject> retired_objects_;
+            std::uint64_t retired_bytes_ = 0;
             ID3D12Resource *constant_buffer_ = nullptr;
             std::uint8_t *mapped_constants_ = nullptr;
             std::size_t constant_offset_ = 0;
@@ -3967,7 +4006,7 @@ namespace sl::detail
             std::unordered_map<std::uint32_t, Texture> textures_;
             std::unordered_map<std::uint32_t, RenderTarget> render_targets_;
             std::unordered_map<std::uint32_t, Mesh> meshes_;
-            std::vector<Texture> retired_textures_;
+            std::vector<RetiredTexture> retired_textures_;
             std::vector<Vertex2D> batch_vertices_;
             PrimitiveType batch_primitive_ = PrimitiveType::triangles;
             std::uint32_t batch_texture_ = 0;

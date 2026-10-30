@@ -207,6 +207,23 @@ namespace sl::detail
         return true;
     }
 
+    bool D3D12Context::wait_frame()
+    {
+        if (!fence_ || !fence_event_)
+            return false;
+        if (fence_->GetCompletedValue() >= fence_value_)
+            return true;
+        if (FAILED(fence_->SetEventOnCompletion(fence_value_, static_cast<HANDLE>(fence_event_))))
+            return false;
+        WaitForSingleObject(static_cast<HANDLE>(fence_event_), INFINITE);
+        return true;
+    }
+
+    std::uint64_t D3D12Context::completed_value() const
+    {
+        return fence_ ? fence_->GetCompletedValue() : 0;
+    }
+
     bool D3D12Context::wait_idle()
     {
         flush_pending();
@@ -229,6 +246,9 @@ namespace sl::detail
     bool D3D12Context::begin_frame()
     {
         if (!is_valid() || frame_open_)
+            return false;
+        // The single allocator and the per-frame buffers are reused, so the previous frame must be finished.
+        if (!wait_frame())
             return false;
         if (FAILED(command_allocator_->Reset()) || FAILED(command_list_->Reset(command_allocator_, nullptr)))
             return false;
@@ -277,7 +297,9 @@ namespace sl::detail
             ID3D12CommandList *lists[] = {command_list_};
             command_queue_->ExecuteCommandLists(1, lists);
             swap_chain_->Present(vsync ? 1 : 0, 0);
-            wait_for_gpu();
+            // No wait here: the CPU carries on while the GPU draws, and begin_frame() or wait_idle() waits when it must.
+            if (FAILED(command_queue_->Signal(fence_, ++fence_value_)))
+                wait_for_gpu();
             frame_index_ = swap_chain_->GetCurrentBackBufferIndex();
         }
         frame_open_ = false;
