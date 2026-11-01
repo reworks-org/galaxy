@@ -11,6 +11,7 @@
 #include <compare>
 
 #include <glm/vec2.hpp>
+#include <SDL3/SDL_rect.h>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -132,6 +133,14 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		glm::vec<2, Type, glm::defaultp> get_size() const noexcept;
+
+		///
+		/// Get as an SDL_Rect.
+		///
+		/// \return As an SDL_Rect object.
+		///
+		[[nodiscard]]
+		SDL_Rect to_sdl() noexcept;
 
 		///
 		/// Comparison operator.
@@ -272,6 +281,13 @@ namespace galaxy
 	inline glm::vec<2, Type, glm::defaultp> Rect<Type>::get_size() const noexcept
 	{
 		return {m_width, m_height};
+	}
+
+	template<meta::is_arithmetic Type>
+	inline SDL_Rect Rect<Type>::to_sdl() noexcept
+	{
+		SDL_Rect rect {.x = m_xpos, .y = m_ypos, .w = m_width, .h = m_height};
+		return rect;
 	}
 
 	template<meta::is_arithmetic Type>
