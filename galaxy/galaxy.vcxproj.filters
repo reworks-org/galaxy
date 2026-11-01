@@ -51,6 +51,11 @@
     <ClCompile Include="src\galaxy\input\Clipboard.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Window.cpp" />
+    <ClCompile Include="src\galaxy\input\Keyboard.cpp" />
+    <ClCompile Include="src\galaxy\input\Keys.cpp" />
+    <ClCompile Include="src\galaxy\input\Mouse.cpp" />
+    <ClCompile Include="src\galaxy\input\MouseButton.cpp" />
+    <ClCompile Include="src\galaxy\meta\WindowBindable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -95,5 +100,10 @@
     <ClInclude Include="src\galaxy\input\Clipboard.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Window.hpp" />
+    <ClInclude Include="src\galaxy\input\Keyboard.hpp" />
+    <ClInclude Include="src\galaxy\input\Keys.hpp" />
+    <ClInclude Include="src\galaxy\input\Mouse.hpp" />
+    <ClInclude Include="src\galaxy\input\MouseButton.hpp" />
+    <ClInclude Include="src\galaxy\meta\WindowBindable.hpp" />
   </ItemGroup>
 </Project>

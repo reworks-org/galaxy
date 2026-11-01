@@ -33,6 +33,11 @@ namespace galaxy
 		}
 	}
 
+	bool Keyboard::is_text_input_active() const noexcept
+	{
+		return SDL_TextInputActive(m_window);
+	}
+
 	void Keyboard::end_text_input() const noexcept
 	{
 		SDL_StopTextInput(m_window);
@@ -56,5 +61,30 @@ namespace galaxy
 	bool Keyboard::onscreen_keyboard_active() const noexcept
 	{
 		return SDL_ScreenKeyboardShown(m_window);
+	}
+
+	bool Keyboard::is_key_mod_down(const KeyMods modifier) const noexcept
+	{
+		const auto mod = static_cast<SDL_Keymod>(modifier);
+		return SDL_GetModState() & mod;
+	}
+
+	bool Keyboard::is_key_down(const Keys key) const noexcept
+	{
+		const auto keys = SDL_GetKeyboardState(nullptr);
+		return keys[static_cast<SDL_Keycode>(key)];
+	}
+
+	SDL_Scancode Keyboard::get_scancode(const Keys key, const KeyMods modifier) const noexcept
+	{
+		if (modifier == KeyMods::MOD_NONE)
+		{
+			return SDL_GetScancodeFromKey(static_cast<SDL_Keycode>(key), nullptr);
+		}
+		else
+		{
+			auto mod = static_cast<SDL_Keymod>(modifier);
+			return SDL_GetScancodeFromKey(static_cast<SDL_Keycode>(key), &mod);
+		}
 	}
 } // namespace galaxy

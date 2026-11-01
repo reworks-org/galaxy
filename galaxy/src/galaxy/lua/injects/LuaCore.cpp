@@ -79,9 +79,9 @@ namespace galaxy
 		lua.set_function("settings_window_resizable", &Settings::window_resizable);
 		lua.set_function("settings_mouse_grabbed", &Settings::mouse_grabbed);
 		// lua.set_function("settings_window_border", &Settings::window_border);
-		// lua.set_function("settings_cursor_show", &Settings::cursor_show);
-		// lua.set_function("settings_cursor_icon", &Settings::cursor_icon);
-		// lua.set_function("settings_cursor_hotspot", &Settings::cursor_hotspot);
+		lua.set_function("settings_cursor_show", &Settings::cursor_show);
+		lua.set_function("settings_cursor_icon", &Settings::cursor_icon);
+		lua.set_function("settings_cursor_offset", &Settings::cursor_offset);
 		lua.set_function("settings_audio_freq", &Settings::audio_freq);
 		// lua.set_function("settings_ansiotrophy", &Settings::ansiotrophy);
 		// lua.set_function("settings_mipmap", &Settings::mipmap);

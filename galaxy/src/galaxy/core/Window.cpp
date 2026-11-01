@@ -99,6 +99,7 @@ namespace galaxy
 			m_context = sl::get_gl_context();
 
 			SDL_GL_SetSwapInterval(Settings::vsync());
+			SDL_CaptureMouse(false);
 			SDL_SetWindowAlwaysOnTop(m_window, false);
 			SDL_SetWindowBordered(m_window, Settings::window_border());
 			SDL_SetWindowFocusable(m_window, true);
