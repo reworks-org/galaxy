@@ -132,6 +132,7 @@ namespace sl
         struct ObjGroup
         {
             std::string material;
+            std::string object;
             std::vector<Vertex3D> vertices;
             std::vector<std::uint32_t> indices;
             std::vector<bool> has_normal;
@@ -154,11 +155,13 @@ namespace sl
             std::vector<glm::vec3> positions, normals;
             std::vector<glm::vec2> uvs;
             std::size_t current_index = 0;
-            auto select_group = [&](const std::string &material)
+            std::string current_material, current_object;
+            auto select_group = [&]()
             {
+                const std::string &material = current_material;
                 for (std::size_t i = 0; i < result.groups.size(); ++i)
                 {
-                    if (result.groups[i].material == material)
+                    if (result.groups[i].material == material && result.groups[i].object == current_object)
                     {
                         current_index = i;
                         return;
@@ -166,9 +169,10 @@ namespace sl
                 }
                 result.groups.emplace_back();
                 result.groups.back().material = material;
+                result.groups.back().object = current_object;
                 current_index = result.groups.size() - 1;
             };
-            select_group("");
+            select_group();
 
             auto resolve = [](long index, std::size_t count) -> long
             {
@@ -209,7 +213,16 @@ namespace sl
                 {
                     std::string name;
                     words >> name;
-                    select_group(name);
+                    current_material = name;
+                    select_group();
+                }
+                else if (keyword == "o")
+                {
+                    // Only `o` names a part; `g` is ignored because converters emit meaningless group0, group1...
+                    std::string name;
+                    words >> name;
+                    current_object = name;
+                    select_group();
                 }
                 else if (keyword == "f")
                 {
@@ -319,6 +332,10 @@ namespace sl
             Colour diffuse{255, 255, 255, 255};
             std::string texture;
             std::string normal_texture;
+            // PBR extension keys (Pm, Pr, Ke); the material is shaded as PBR only when one of them is present.
+            bool pbr = false;
+            float metallic = 0.0f, roughness = 0.6f;
+            float emissive[3] = {0.0f, 0.0f, 0.0f};
         };
 
         std::map<std::string, MtlEntry> parse_mtl(const std::filesystem::path &path)
@@ -350,6 +367,16 @@ namespace sl
                     double r = 1, g = 1, b = 1;
                     if (words >> r >> g >> b)
                         current->diffuse = {to_byte(r), to_byte(g), to_byte(b), 255};
+                }
+                else if (keyword == "Pm" && (words >> current->metallic))
+                    current->pbr = true;
+                else if (keyword == "Pr" && (words >> current->roughness))
+                    current->pbr = true;
+                else if (keyword == "Ke")
+                {
+                    if (words >> current->emissive[0] >> current->emissive[1] >> current->emissive[2])
+                        current->pbr = current->pbr || current->emissive[0] > 0.0f || current->emissive[1] > 0.0f ||
+                                       current->emissive[2] > 0.0f;
                 }
                 else if (keyword == "map_Kd" || keyword == "norm" || keyword == "map_Bump" ||
                          keyword == "map_bump" || keyword == "bump")
@@ -1308,12 +1335,21 @@ namespace sl
                 return nullptr;
             }
             ModelPart part;
-            part.name = group.material;
+            part.name = group.object.empty() ? group.material : group.object;
+            part.material_name = group.material;
             part.mesh = mesh;
             const auto entry = materials.find(group.material);
             if (entry != materials.end())
             {
                 part.material.tint = entry->second.diffuse;
+                if (entry->second.pbr)
+                {
+                    part.material.pbr = true;
+                    part.material.metallic = entry->second.metallic;
+                    part.material.roughness = entry->second.roughness;
+                    for (int c = 0; c < 3; ++c)
+                        part.material.emissive[c] = entry->second.emissive[c];
+                }
                 if (!entry->second.texture.empty())
                 {
                     auto cached = texture_cache.find(entry->second.texture);

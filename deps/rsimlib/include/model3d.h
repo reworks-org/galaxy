@@ -67,7 +67,10 @@ namespace sl
     /** One drawable piece of a Model: a mesh, its material and a transform relative to the model. */
     struct ModelPart
     {
+        /** The OBJ object (`o`) name, or the material name when the file has none; the glTF node name for glTF. */
         std::string name;
+        /** OBJ material name; animations and visibility rules may also target a part by this. */
+        std::string material_name;
         /** Owned by the Model; may be shared by several parts. */
         Mesh *mesh = nullptr;
         /** The texture, if any, is owned by the Model. */

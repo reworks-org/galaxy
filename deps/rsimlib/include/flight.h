@@ -395,15 +395,22 @@ namespace sl
         void update_rails(double t);
         void substep(double h);
         void deplete_propellant(double h);
-        dvec3 gravity_from(const std::vector<Kinematics> &kin, const dvec3 &point, int skip) const;
-        void air_from(const std::vector<Kinematics> &kin, const dvec3 &point, double &density, dvec3 &velocity) const;
-        double altitude_from(const std::vector<Kinematics> &kin, const dvec3 &point) const;
+        template <class K> dvec3 gravity_from(const K &kin, const dvec3 &point, int skip) const;
+        template <class K> void air_from(const K &kin, const dvec3 &point, double &density, dvec3 &velocity) const;
+        template <class K> double altitude_from(const K &kin, const dvec3 &point) const;
         void body_loads(int index, const std::vector<Kinematics> &kin, dvec3 &force, dvec3 &torque_body, bool record);
         std::vector<Kinematics> master_kinematics() const;
         void apply_rcs(FlightBody &body);
 
         std::vector<FlightBody> bodies_;
         std::vector<Kinematics> kin_;
+        struct RailsSample
+        {
+            OrbitState state;
+            double time = 0.0;
+            bool valid = false;
+        };
+        std::vector<RailsSample> rails_cache_;
         std::vector<int> slot_;
         std::vector<std::vector<double>> stage_;
         double time_ = 0.0;

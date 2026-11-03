@@ -82,13 +82,11 @@ namespace sl
                 requested = GraphicsBackend::d3d12;
             else
             {
-                std::fprintf(stderr, "Unknown graphics backend argument: %s\n", argument.data());
                 return false;
             }
         }
         if (!set_graphics_backend(requested))
         {
-            std::fprintf(stderr, "%s\n", sl::last_error().c_str());
             return false;
         }
         return true;
@@ -246,8 +244,8 @@ namespace sl
     {
         void refresh_mouse_cursor()
         {
-            // a custom bitmap is drawn by the library, so the OS cursor is hidden while it is in use
-            const bool softwareCursor = mouseVisible && mouse_bitmap() != nullptr;
+			// a custom bitmap is drawn by the library, so the OS cursor is hidden while it is in use
+			const bool softwareCursor = mouseVisible && mouse_bitmap() != nullptr;
 			if (mouseVisible && !softwareCursor)
 			{
 				SDL_ShowCursor();
@@ -255,7 +253,7 @@ namespace sl
 			else
 			{
 				SDL_HideCursor();
-            }
+			}
         }
     } // namespace detail
 

@@ -294,12 +294,14 @@ namespace sl
                 const float y = char_h_ * 3.8f;
                 const float xl = mark_ * 10.0f;
                 const float xr = width_ - mark_ * 10.0f - box_w;
-                box(xl, y, xl + box_w, y + char_h_ + 3.0f);
-                box(xr, y, xr + box_w, y + char_h_ + 3.0f);
+                // The labels carry their own backing panels, so the frames go on afterwards and stand clear of them.
                 label(xl + box_w * 0.5f, y + 1.0f, left, true);
                 label(xr + box_w * 0.5f, y + 1.0f, right, true);
-                text(xl - text_length(font_, left_tag) - 4.0f, y + 1.0f, left_tag);
-                text(xr + box_w + 4.0f, y + 1.0f, right_tag);
+                const float pad = 5.0f;
+                box(xl - pad, y - pad, xl + box_w + pad, y + char_h_ + 3.0f + pad);
+                box(xr - pad, y - pad, xr + box_w + pad, y + char_h_ + 3.0f + pad);
+                text(xl - pad - text_length(font_, left_tag) - 4.0f, y + 1.0f, left_tag);
+                text(xr + box_w + pad + 4.0f, y + 1.0f, right_tag);
             }
 
             /** The pitch ladder: bars every ten degrees of elevation above the plane whose normal is `up`. */

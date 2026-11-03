@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <utility>
 
 namespace sl
 {
@@ -92,52 +93,60 @@ namespace sl
         static const int dirs[3][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
         float vented = 0.0f;
 
+        std::vector<int> vent_cells;
+        for (int i = 0; i < static_cast<int>(v->vent.size()); ++i)
+            if (v->vent[i] > 0.0f)
+                vent_cells.push_back(i);
+
+        // The open mask is public, so the face list is rebuilt per call and shared by every gas and substep.
+        thread_local std::vector<std::pair<int, int>> faces;
+        faces.clear();
+        for (int z = 1; z < n - 1; ++z)
+            for (int y = 1; y < n - 1; ++y)
+                for (int x = 1; x < n - 1; ++x)
+                {
+                    const int a = idx(v, x, y, z);
+                    if (!v->open[a])
+                        continue;
+                    for (const auto &dir : dirs)
+                    {
+                        const int b = idx(v, x + dir[0], y + dir[1], z + dir[2]);
+                        if (v->open[b])
+                            faces.emplace_back(a, b);
+                    }
+                }
+
         for (int s = 0; s < steps; ++s)
         {
             for (int g = 0; g < kVesselGasCount; ++g)
             {
                 auto &m = v->mass[g];
                 // Exchange across each interior face (each pair visited once); symmetric, so mass is conserved.
-                for (int z = 1; z < n - 1; ++z)
-                    for (int y = 1; y < n - 1; ++y)
-                        for (int x = 1; x < n - 1; ++x)
-                        {
-                            const int a = idx(v, x, y, z);
-                            if (!v->open[a])
-                                continue;
-                            for (const auto &dir : dirs)
-                            {
-                                const int b = idx(v, x + dir[0], y + dir[1], z + dir[2]);
-                                if (!v->open[b])
-                                    continue;
-                                const float flow = d * (m[a] - m[b]);
-                                m[a] -= flow;
-                                m[b] += flow;
-                            }
-                        }
+                for (const auto &face : faces)
+                {
+                    const float flow = d * (m[face.first] - m[face.second]);
+                    m[face.first] -= flow;
+                    m[face.second] += flow;
+                }
                 // Vents sit in hull cells and drain every open neighbour toward vacuum.
-                for (int z = 0; z < n; ++z)
-                    for (int y = 0; y < n; ++y)
-                        for (int x = 0; x < n; ++x)
+                for (const int cell : vent_cells)
+                {
+                    const int x = cell % n, y = (cell / n) % n, z = cell / (n * n);
+                    const float keep = std::exp(-v->vent[cell] * sub);
+                    for (const auto &dir : dirs)
+                        for (int sign = -1; sign <= 1; sign += 2)
                         {
-                            const float rate = v->vent[idx(v, x, y, z)];
-                            if (rate <= 0.0f)
+                            const int nx = x + sign * dir[0], ny = y + sign * dir[1], nz = z + sign * dir[2];
+                            if (!in_range(v, nx, ny, nz))
                                 continue;
-                            const float keep = std::exp(-rate * sub);
-                            for (const auto &dir : dirs)
-                                for (int sign = -1; sign <= 1; sign += 2)
-                                {
-                                    const int nx = x + sign * dir[0], ny = y + sign * dir[1], nz = z + sign * dir[2];
-                                    if (!in_range(v, nx, ny, nz))
-                                        continue;
-                                    const int b = idx(v, nx, ny, nz);
-                                    if (!v->open[b])
-                                        continue;
-                                    const float lost = m[b] * (1.0f - keep);
-                                    m[b] -= lost;
-                                    vented += lost;
-                                }
+                            const int b = idx(v, nx, ny, nz);
+                            if (!v->open[b])
+                                continue;
+                            const float lost = m[b] * (1.0f - keep);
+                            m[b] -= lost;
+                            vented += lost;
                         }
+                }
             }
         }
         return vented;

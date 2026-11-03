@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL3/SDL_stdinc.h>
+#include <SDL3/SDL.h>
 
 #include <cstdint>
 #include <functional>
@@ -176,7 +176,8 @@ namespace sl
     void end_render_target();
     /** Clear the currently bound render target (call between begin_render_target() and end_render_target()). */
     void clear_render_target(Colour colour);
-
+	/** Load an image file into a bitmap. */
+	Bitmap* load_bitmap_from_surface(SDL_Surface* loaded);
     /**
      * Pair a bitmap (or atlas) with a tangent-space normal map of the same size and layout.
      * The normal map is not owned; it must outlive any normal pass that draws the bitmap.

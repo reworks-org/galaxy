@@ -72,30 +72,6 @@ namespace sl
 		return mapping_active ? static_cast<int>(std::floor((screen_y - mapping_y) / mapping_scale_y)) : screen_y;
 	}
 
-	std::uint32_t mouse_buttons()
-	{
-		return SDL_GetMouseState(nullptr, nullptr);
-	}
-
-	bool mouse_button_down(MouseButton button)
-	{
-		const int b = static_cast<int>(button);
-		if (b < 1 || b > 31)
-		{
-			return false;
-		}
-		return (mouse_buttons() & (1u << (b - 1))) != 0;
-	}
-
-	bool mouse_button_down(int button)
-	{
-		if (button < 1 || button > 31)
-		{
-			return false;
-		}
-		return (mouse_buttons() & (1u << (button - 1))) != 0;
-	}
-
 	bool set_relative_mouse_mode(SDL_Window* window, bool enabled)
 	{
 		return SDL_SetWindowRelativeMouseMode(window, enabled);

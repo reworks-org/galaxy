@@ -600,12 +600,19 @@ namespace sl
             return false;
         }
 
+        bool targets_part(const std::vector<std::string> &objects, const ModelPart &part)
+        {
+            return std::find(objects.begin(), objects.end(), part.name) != objects.end() ||
+                   (!part.material_name.empty() &&
+                    std::find(objects.begin(), objects.end(), part.material_name) != objects.end());
+        }
+
         bool part_is_visible(const Model &model, const ModelPart &part)
         {
             if (!part.visible)
                 return false;
             for (const ModelVisibility &visibility : model.visibility)
-                if (std::find(visibility.objects.begin(), visibility.objects.end(), part.name) != visibility.objects.end() &&
+                if (targets_part(visibility.objects, part) &&
                     !evaluate_condition(visibility.condition, model))
                     return false;
             return true;
@@ -873,7 +880,7 @@ namespace sl
             {
                 if (animation.type == ModelAnimationType::blend)
                     continue;
-                if (std::find(animation.objects.begin(), animation.objects.end(), part.name) == animation.objects.end())
+                if (!targets_part(animation.objects, part))
                     continue;
                 const auto property = model.animation_properties.find(animation.property);
                 const float input = property == model.animation_properties.end() ? 0.0f : property->second;
@@ -888,7 +895,7 @@ namespace sl
             for (const ModelAnimation &animation : model.animations)
             {
                 if (animation.type != ModelAnimationType::blend ||
-                    std::find(animation.objects.begin(), animation.objects.end(), part.name) == animation.objects.end())
+                    !targets_part(animation.objects, part))
                     continue;
                 const auto property = model.animation_properties.find(animation.property);
                 const float input = property == model.animation_properties.end() ? 0.0f : property->second;

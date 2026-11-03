@@ -534,7 +534,6 @@ namespace sl::detail
                 }
                 if (!create_texture({width, height, TextureFilter::linear}, texture))
                 {
-                    std::fprintf(stderr, "create_texture failed: GL error 0x%x\n", glGetError());
                     return false;
                 }
                 GLuint fbo = 0;

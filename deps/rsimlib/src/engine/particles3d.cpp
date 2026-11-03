@@ -50,7 +50,7 @@ namespace sl
         glow.fog = false;
         glow.cull = CullMode::none;
         std::vector<InstanceData3D> batch;
-        batch.reserve(particles_.size() * 2);
+        batch.reserve(particles_.size() * 7);
         // Smoke first so fire that burns in front of it still adds light on top. Each pass is one instanced draw.
         for (const bool additive : {false, true})
         {
@@ -66,16 +66,16 @@ namespace sl
                 const float alpha = tint.alpha * fade_in * fade_in * (3.0f - 2.0f * fade_in);
                 const float size = p.size_start + (p.size_end - p.size_start) * t;
                 const glm::mat4 at = glm::translate(glm::mat4(1.0f), p.position);
-                if (additive)
+                // A flat sphere is a hard-edged disc, so each puff is a stack of shells that thin toward the rim and read as a soft ball.
+                // Fire adds its shells (the heart sums to the full alpha); smoke composites them (the heart stays about as dense as before).
+                constexpr int shells = 7;
+                const float shell_alpha = additive ? alpha / shells : 1.0f - std::pow(1.0f - std::min(alpha * 0.62f / 255.0f, 1.0f), 2.0f / shells);
+                tint.alpha = static_cast<std::uint8_t>(additive ? shell_alpha : shell_alpha * 255.0f);
+                for (int i = 0; i < shells; ++i)
                 {
-                    tint.alpha = static_cast<std::uint8_t>(alpha);
-                    batch.push_back({frame * at * glm::scale(glm::mat4(1.0f), glm::vec3(size)), tint});
-                    continue;
-                }
-                // Smoke is a few nested translucent shells, so the edge is soft and the puff is densest at its heart.
-                tint.alpha = static_cast<std::uint8_t>(alpha * 0.62f);
-                for (const float k : {1.0f, 0.6f})
+                    const float k = 1.0f - 0.88f * static_cast<float>(i) / shells;
                     batch.push_back({frame * at * glm::scale(glm::mat4(1.0f), glm::vec3(size * k)), tint});
+                }
             }
             if (batch.empty())
                 continue;
