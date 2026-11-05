@@ -121,7 +121,7 @@ namespace galaxy
 		///
 		/// Only do 1 set of sinks at a time.
 		///
-		std::mutex m_mutex;
+		std::mutex m_sink_mutex;
 	};
 
 	template<std::derived_from<Sink> SinkTo, typename... Args>
@@ -160,22 +160,22 @@ namespace galaxy
 					// clang-format on
 
 					// Send message to all sinks.
-					const std::lock_guard<std::mutex> lock(m_mutex);
+					const std::lock_guard<std::mutex> lock(m_sink_mutex);
 
 					for (const auto& sink : m_sinks)
 					{
 						sink->sink(lm);
 					}
-
-					// Then throw error if its FATAL.
-					if constexpr (level == LogLevel::FATAL)
-					{
-						throw std::runtime_error(lm.trace);
-					}
 				}
 			},
 			BS::pr::lowest
 		);
+
+		// Then throw error if its FATAL.
+		if constexpr (level == LogLevel::FATAL)
+		{
+			throw std::runtime_error(std::to_string(trace));
+		}
 	}
 } // namespace galaxy
 
