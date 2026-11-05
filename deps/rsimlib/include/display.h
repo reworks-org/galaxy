@@ -40,8 +40,6 @@ namespace sl
      * For fullscreen mode, width and height may both be omitted to use the primary display's desktop resolution.
      */
 	bool set_gfx_mode(const char* title, SDL_WindowFlags windowflags, int driver, int width = 0, int height = 0, int virtualWidth = 0, int virtualHeight = 0);
-    /** Apply window-related SDL events, including resize events. */
-    void display_handle_event(const SDL_Event &event);
     /** Set the window title. */
     void set_window_title(const char *title);
     /** Enable or disable desktop fullscreen mode. */

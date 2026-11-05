@@ -219,22 +219,6 @@ namespace sl
         return true;
     }
 
-    void display_handle_event(const SDL_Event& event)
-    {
-		if (event.type == SDL_EVENT_WINDOW_RESIZED || event.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED)
-        {
-			width  = event.window.data1;
-			height = event.window.data2;
-            if (renderer)
-            {
-                std::string error;
-                if (!renderer->resize(width, height, error) && !error.empty())
-                    sl::detail::set_error(error);
-            }
-            detail::resize_screen(logicalWidth > 0 ? logicalWidth : width, logicalHeight > 0 ? logicalHeight : height);
-		}
-    }
-
     namespace
     {
         bool mouseVisible = true;
