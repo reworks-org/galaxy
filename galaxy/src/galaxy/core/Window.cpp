@@ -187,14 +187,12 @@ namespace galaxy
 	{
 		SDL_MaximizeWindow(m_window);
 		SDL_SyncWindow(m_window);
-		sl::resize();
 	}
 
 	void Window::restore() const noexcept
 	{
 		SDL_RestoreWindow(m_window);
 		SDL_SyncWindow(m_window);
-		sl::resize();
 	}
 
 	void Window::raise() const noexcept
@@ -210,7 +208,6 @@ namespace galaxy
 	void Window::resize(const int width, const int height) const noexcept
 	{
 		SDL_SetWindowSize(m_window, width, height);
-		sl::resize();
 	}
 
 	void Window::set_fullscreen(const bool fullscreen) const noexcept
@@ -263,18 +260,36 @@ namespace galaxy
 		switch (events.type)
 		{
 			case SDL_EVENT_QUIT:
+			case SDL_EVENT_TERMINATING:
 				close();
 				break;
 
 			case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+			case SDL_EVENT_WINDOW_DESTROYED:
 				if (events.window.windowID == SDL_GetWindowID(m_window))
 				{
 					close();
 				}
 				break;
 
-			default:
-				sl::display_handle_event(events);
+			case SDL_EVENT_WINDOW_RESIZED:
+			case SDL_EVENT_WINDOW_MAXIMIZED:
+			case SDL_EVENT_WINDOW_RESTORED:
+			case SDL_EVENT_WINDOW_ENTER_FULLSCREEN:
+			case SDL_EVENT_WINDOW_LEAVE_FULLSCREEN:
+			case SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED:
+			case SDL_EVENT_WINDOW_DISPLAY_CHANGED:
+			case SDL_EVENT_DISPLAY_ORIENTATION:
+			case SDL_EVENT_DISPLAY_DESKTOP_MODE_CHANGED:
+			case SDL_EVENT_DISPLAY_CURRENT_MODE_CHANGED:
+			case SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED:
+			case SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED:
+			case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+				// TODO
+				// SDL_GetDisplayContentScale
+				// SDL_GetWindowDisplayScale
+				// https://wiki.libsdl.org/SDL3/README-highdpi
+				sl::resize();
 				break;
 		}
 	}
