@@ -29,6 +29,14 @@
         "version": "1.0",
         "website": "https://reworks-org.github.io/galaxy/"
     },
+    "mouse": {
+        "cursor_icon": "",
+        "cursor_offset": {
+            "x": 0,
+            "y": 0
+        },
+        "cursor_show": true
+    },
     "window": {
         "border": true,
         "fullscreen": false,

@@ -9,7 +9,7 @@
 #include <nlohmann/json.hpp>
 #include <sol/sol.hpp>
 
-#include "galaxy/events/GainedFocus.hpp"
+/*#include "galaxy/events/GainedFocus.hpp"
 #include "galaxy/events/KeyInput.hpp"
 #include "galaxy/events/KeyPressed.hpp"
 #include "galaxy/events/KeyReleased.hpp"
@@ -18,7 +18,7 @@
 #include "galaxy/events/MousePressed.hpp"
 #include "galaxy/events/MouseReleased.hpp"
 #include "galaxy/events/MouseWheel.hpp"
-#include "galaxy/events/WindowResized.hpp"
+#include "galaxy/events/WindowResized.hpp"*/
 
 #include "Scene.hpp"
 
@@ -71,61 +71,10 @@ namespace galaxy
 		Core::EventDispatcher dispatcher(event);
 		dispatcher.Dispatch<Core::MouseButtonPressedEvent>([this](Core::MouseButtonPressedEvent& e) { return OnMouseButtonPressed(e); });
 		dispatcher.Dispatch<Core::MouseMovedEvent>([this](Core::MouseMovedEvent& e) { return OnMouseMoved(e); });
-		dispatcher.Dispatch<Core::WindowClosedEvent>([this](Core::WindowClosedEvent& e) { return OnWindowClosed(e); });
+		dispatcher.Dispatch<Core::WindowClosedEvent>([this](Core::WindowClosedEvent& e) { return OnWindowClosed(e); });*/
 
-		switch (event.type)
+		/*switch (event.type)
 		{
-			case SDL_EVENT_SCREEN_KEYBOARD_SHOWN:
-			case SDL_EVENT_SCREEN_KEYBOARD_HIDDEN:
-				break;
-
-			case SDL_EVENT_LOCALE_CHANGED:
-				// TODO: Handle Languages.
-				break;
-
-			case SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED:
-			case SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED:
-			  SDL_EVENT_DISPLAY_DESKTOP_MODE_CHANGED,  /**< Display has changed desktop mode
-		//SDL_EVENT_DISPLAY_CURRENT_MODE_CHANGED,      /**< Display has changed current mode
-		//	SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED, /**< Display has changed content scale
-			//SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED, /**< Display has changed usable bounds
-				// SDL_GetDisplayContentScale
-				// SDL_GetWindowDisplayScale
-				// https://wiki.libsdl.org/SDL3/README-highdpi
-					float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
-				break;
-
-			case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
-				// SDL_GetWindowSizeInPixels
-				break;
-
-			case SDL_EVENT_WINDOW_RESIZED:
-			case SDL_EVENT_WINDOW_MAXIMIZED:
-			case SDL_EVENT_WINDOW_RESTORED:
-			case SDL_EVENT_WINDOW_ENTER_FULLSCREEN:
-			case SDL_EVENT_WINDOW_LEAVE_FULLSCREEN:
-			case SDL_EVENT_DISPLAY_USABLE_BOUNDS_CHANGED:
-				{
-					const auto size = window.get_pixel_size();
-					dispatcher.enqueue<WindowResized>(size.x, size.y);
-				}
-				break;
-
-			case SDL_EVENT_WINDOW_DISPLAY_CHANGED:
-				// TODO
-				// HANDLE RESIZE + DISPLAY SCALE + PIXEL SIZE SCALE.
-				break;
-
-			case SDL_EVENT_WINDOW_MOUSE_ENTER:
-			case SDL_EVENT_WINDOW_FOCUS_GAINED:
-				dispatcher.enqueue<GainedFocus>();
-				break;
-
-			case SDL_EVENT_WINDOW_MOUSE_LEAVE:
-			case SDL_EVENT_WINDOW_FOCUS_LOST:
-				dispatcher.enqueue<LostFocus>();
-				break;
-
 			case SDL_EVENT_KEY_DOWN:
 				{
 					dispatcher.enqueue<KeyPressed>(
@@ -190,65 +139,110 @@ namespace galaxy
 					);
 				}
 				break;
+		}*/
 
-			case SDL_EVENT_DROP_BEGIN:
+		switch (event.type)
+		{
+				/// Keyboard events
+			case SDL_EVENT_KEY_DOWN:                /// Key pressed
+			case SDL_EVENT_KEY_UP:                  /// Key released
+			case SDL_EVENT_TEXT_EDITING:            /// Keyboard text editing (composition)
+			case SDL_EVENT_TEXT_INPUT:              /// Keyboard text input
+			case SDL_EVENT_KEYBOARD_ADDED:          /// A new keyboard has been inserted into the system
+			case SDL_EVENT_KEYBOARD_REMOVED:        /// A keyboard has been removed
+			case SDL_EVENT_TEXT_EDITING_CANDIDATES: /// Keyboard text editing candidates
+				break;
+
+			/// Mouse events
+			case SDL_EVENT_MOUSE_MOTION:      /// Mouse moved
+			case SDL_EVENT_MOUSE_BUTTON_DOWN: /// Mouse button pressed
+			case SDL_EVENT_MOUSE_BUTTON_UP:   /// Mouse button released
+			case SDL_EVENT_MOUSE_WHEEL:       /// Mouse wheel motion
+			case SDL_EVENT_MOUSE_ADDED:       /// A new mouse has been inserted into the system
+			case SDL_EVENT_MOUSE_REMOVED:     /// A mouse has been removed
+				break;
+
+			case SDL_EVENT_SENSOR_UPDATE:     /// A sensor was updated
 				// TODO
-				Drag and drop events
-				SDL_EVENT_DROP_FILE = 0x1000, /**< The system requests a file open *
-				SDL_EVENT_DROP_TEXT,      /**< text/plain drag-and-drop event *
-				SDL_EVENT_DROP_BEGIN,     /**< A new set of drops is beginning (NULL filename) *
-				SDL_EVENT_DROP_COMPLETE,  /**< Current set of drops is now complete (NULL filename) *
-				SDL_EVENT_DROP_POSITION,  /**< Position while moving over the window
-		// SDL_DropEvent
-		break;
+				break;
 
-		case SDL_EVENT_JOYSTICK_AXIS_MOTION:
-		case SDL_EVENT_JOYSTICK_BALL_MOTION:
-		case SDL_EVENT_JOYSTICK_HAT_MOTION:
-		case SDL_EVENT_JOYSTICK_BUTTON_DOWN:
-		case SDL_EVENT_JOYSTICK_BUTTON_UP:
-		case SDL_EVENT_JOYSTICK_REMOVED:
-		case SDL_EVENT_JOYSTICK_BATTERY_UPDATED:
-		case SDL_EVENT_JOYSTICK_UPDATE_COMPLETE:
-			// TODO
-			break;
+			case SDL_EVENT_PEN_PROXIMITY_IN:  /// Pressure-sensitive pen has become available
+			case SDL_EVENT_PEN_PROXIMITY_OUT: /// Pressure-sensitive pen has become unavailable
+			case SDL_EVENT_PEN_DOWN:          /// Pressure-sensitive pen touched drawing surface
+			case SDL_EVENT_PEN_UP:            /// Pressure-sensitive pen stopped touching drawing surface
+			case SDL_EVENT_PEN_BUTTON_DOWN:   /// Pressure-sensitive pen button pressed
+			case SDL_EVENT_PEN_BUTTON_UP:     /// Pressure-sensitive pen button released
+			case SDL_EVENT_PEN_MOTION:        /// Pressure-sensitive pen is moving on the tablet
+			case SDL_EVENT_PEN_AXIS:          /// Pressure-sensitive pen angle/pressure/etc changed
+				// TODO
+				break;
 
-		case SDL_EVENT_GAMEPAD_AXIS_MOTION:
-		case SDL_EVENT_GAMEPAD_BUTTON_DOWN:
-		case SDL_EVENT_GAMEPAD_BUTTON_UP:
-		case SDL_EVENT_GAMEPAD_REMOVED:
-		case SDL_EVENT_GAMEPAD_REMAPPED:
-		case SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN:
-		case SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION:
-		case SDL_EVENT_GAMEPAD_TOUCHPAD_UP:
-		case SDL_EVENT_GAMEPAD_SENSOR_UPDATE:
-		case SDL_EVENT_GAMEPAD_UPDATE_COMPLETE:
-		case SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED:
-			// TODO
-			break;
+			case SDL_EVENT_CAMERA_DEVICE_ADDED:    /// A new camera device is available
+			case SDL_EVENT_CAMERA_DEVICE_REMOVED:  /// A camera device has been removed.
+			case SDL_EVENT_CAMERA_DEVICE_APPROVED: /// A camera device has been approved for use by the user.
+			case SDL_EVENT_CAMERA_DEVICE_DENIED:   /// A camera device has been denied for use by the user.
+				// TODO
+				break;
 
-		case SDL_EVENT_FINGER_DOWN:
-		case SDL_EVENT_FINGER_UP:
-		case SDL_EVENT_FINGER_MOTION:
-		case SDL_EVENT_FINGER_CANCELED:
-			// TODO
-			break;
+			case SDL_EVENT_FINGER_DOWN:
+			case SDL_EVENT_FINGER_UP:
+			case SDL_EVENT_FINGER_MOTION:
+			case SDL_EVENT_FINGER_CANCELED:
+				// TODO
+				break;
 
-		case SDL_EVENT_PEN_PROXIMITY_IN:
-		case SDL_EVENT_PEN_PROXIMITY_OUT:
-		case SDL_EVENT_PEN_DOWN:
-		case SDL_EVENT_PEN_UP:
-		case SDL_EVENT_PEN_BUTTON_DOWN:
-		case SDL_EVENT_PEN_BUTTON_UP:
-		case SDL_EVENT_PEN_MOTION:
-		case SDL_EVENT_PEN_AXIS:
-			// TODO
-			break;
+			case SDL_EVENT_PINCH_BEGIN:  /// Pinch gesture started
+			case SDL_EVENT_PINCH_UPDATE: /// Pinch gesture updated
+			case SDL_EVENT_PINCH_END:    /// Pinch gesture ended
+				// TODO
+				break;
 
-		default:
-			break;
-	}
-	*/
+			/// Drag and drop events
+			case SDL_EVENT_DROP_FILE:     /// The system requests a file open
+			case SDL_EVENT_DROP_TEXT:     /// text/plain drag-and-drop event
+			case SDL_EVENT_DROP_BEGIN:    /// A new set of drops is beginning (NULL filename)
+			case SDL_EVENT_DROP_COMPLETE: /// Current set of drops is now complete (NULL filename)
+			case SDL_EVENT_DROP_POSITION: /// Position while moving over the window
+				// TODO
+				break;
+
+			case SDL_EVENT_JOYSTICK_AXIS_MOTION:     /// Joystick axis motion
+			case SDL_EVENT_JOYSTICK_BALL_MOTION:     /// Joystick trackball motion
+			case SDL_EVENT_JOYSTICK_HAT_MOTION:      /// Joystick hat position change
+			case SDL_EVENT_JOYSTICK_BUTTON_DOWN:     /// Joystick button pressed
+			case SDL_EVENT_JOYSTICK_BUTTON_UP:       /// Joystick button released
+			case SDL_EVENT_JOYSTICK_ADDED:           /// A new joystick has been inserted into the system
+			case SDL_EVENT_JOYSTICK_REMOVED:         /// An opened joystick has been removed
+			case SDL_EVENT_JOYSTICK_BATTERY_UPDATED: /// Joystick battery level change
+			case SDL_EVENT_JOYSTICK_UPDATE_COMPLETE: /// Joystick update is complete
+				// TODO
+				break;
+
+			case SDL_EVENT_GAMEPAD_AXIS_MOTION:          /// Gamepad axis motion
+			case SDL_EVENT_GAMEPAD_BUTTON_DOWN:          /// Gamepad button pressed
+			case SDL_EVENT_GAMEPAD_BUTTON_UP:            /// Gamepad button released
+			case SDL_EVENT_GAMEPAD_ADDED:                /// A new gamepad has been inserted into the system
+			case SDL_EVENT_GAMEPAD_REMOVED:              /// A gamepad has been removed
+			case SDL_EVENT_GAMEPAD_REMAPPED:             /// The gamepad mapping was updated
+			case SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN:        /// Gamepad touchpad was touched
+			case SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION:      /// Gamepad touchpad finger was moved
+			case SDL_EVENT_GAMEPAD_TOUCHPAD_UP:          /// Gamepad touchpad finger was lifted
+			case SDL_EVENT_GAMEPAD_SENSOR_UPDATE:        /// Gamepad sensor was updated
+			case SDL_EVENT_GAMEPAD_UPDATE_COMPLETE:      /// Gamepad update is complete
+			case SDL_EVENT_GAMEPAD_STEAM_HANDLE_UPDATED: /// Gamepad Steam handle has changed
+				// TODO
+				break;
+
+			case SDL_EVENT_WINDOW_MOUSE_ENTER:
+			case SDL_EVENT_WINDOW_FOCUS_GAINED:
+				// TODO
+				break;
+
+			case SDL_EVENT_WINDOW_MOUSE_LEAVE:
+			case SDL_EVENT_WINDOW_FOCUS_LOST:
+				// TODO
+				break;
+		}
 	}
 
 	void Scene::update(EntityManager& em)

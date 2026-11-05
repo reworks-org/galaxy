@@ -7,7 +7,7 @@
 
 #include <gtest/gtest.h>
 
-#include <galaxy/meta/SystemFactory.hpp>
+#include <galaxy/factory/SystemFactory.hpp>
 #include <galaxy/scene/SceneManager.hpp>
 #include <galaxy/systems/SystemManager.hpp>
 

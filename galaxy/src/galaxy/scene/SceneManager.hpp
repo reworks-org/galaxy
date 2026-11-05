@@ -9,7 +9,7 @@
 #define GALAXY_SCENE_SCENEMANAGER_HPP_
 
 #include "galaxy/entity/EntityManager.hpp"
-#include "galaxy/events/Event.hpp"
+// #include "galaxy/events/Event.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/state/StateMachine.hpp"
 

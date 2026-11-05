@@ -8,7 +8,7 @@
 #ifndef GALAXY_SYSTEMS_SYSTEMMANAGER_HPP_
 #define GALAXY_SYSTEMS_SYSTEMMANAGER_HPP_
 
-#include "galaxy/meta/SystemFactory.hpp"
+#include "galaxy/factory/SystemFactory.hpp"
 
 namespace galaxy
 {

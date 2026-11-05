@@ -56,6 +56,19 @@
     <ClCompile Include="src\galaxy\input\Mouse.cpp" />
     <ClCompile Include="src\galaxy\input\MouseButton.cpp" />
     <ClCompile Include="src\galaxy\meta\WindowBindable.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaScene.cpp" />
+    <ClCompile Include="src\galaxy\scene\Scene.cpp" />
+    <ClCompile Include="src\galaxy\scene\SceneManager.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaState.cpp" />
+    <ClCompile Include="src\galaxy\state\State.cpp" />
+    <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaEntity.cpp" />
+    <ClCompile Include="src\galaxy\entity\EntityManager.cpp" />
+    <ClCompile Include="src\galaxy\entity\Registry.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaSystems.cpp" />
+    <ClCompile Include="src\galaxy\systems\System.cpp" />
+    <ClCompile Include="src\galaxy\systems\SystemManager.cpp" />
+    <ClCompile Include="src\galaxy\factory\SystemFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -105,5 +118,14 @@
     <ClInclude Include="src\galaxy\input\Mouse.hpp" />
     <ClInclude Include="src\galaxy\input\MouseButton.hpp" />
     <ClInclude Include="src\galaxy\meta\WindowBindable.hpp" />
+    <ClInclude Include="src\galaxy\scene\Scene.hpp" />
+    <ClInclude Include="src\galaxy\scene\SceneManager.hpp" />
+    <ClInclude Include="src\galaxy\state\State.hpp" />
+    <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
+    <ClInclude Include="src\galaxy\entity\EntityManager.hpp" />
+    <ClInclude Include="src\galaxy\entity\Registry.hpp" />
+    <ClInclude Include="src\galaxy\systems\System.hpp" />
+    <ClInclude Include="src\galaxy\systems\SystemManager.hpp" />
+    <ClInclude Include="src\galaxy\factory\SystemFactory.hpp" />
   </ItemGroup>
 </Project>

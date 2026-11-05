@@ -8,7 +8,7 @@
 #include <entt/locator/locator.hpp>
 #include <sol/sol.hpp>
 
-#include "galaxy/state/State.hpp"
+#include "galaxy/state/StateMachine.hpp"
 
 #include "../Lua.hpp"
 

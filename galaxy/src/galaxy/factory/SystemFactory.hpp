@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_META_SYSTEMFACTORY_HPP_
-#define GALAXY_META_SYSTEMFACTORY_HPP_
+#ifndef GALAXY_FACTORY_SYSTEMFACTORY_HPP_
+#define GALAXY_FACTORY_SYSTEMFACTORY_HPP_
 
 #include <ankerl/unordered_dense.h>
 
