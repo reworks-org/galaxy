@@ -202,7 +202,9 @@ lua:
 - use of step_gc
 
 save/load:
-- save only required, not entire project.
+- save only required, not entire project. -> i.e just components, then load up base file, which then loads up saved components.
+    - ideally we dont load entitys/components that arent used yet. resources yes, entitys no.
+    - may have to separate out components/entity save data from app strucutre data.
 - implement save-load (have concept thbat does this to check).
 - pass each object to a master function that expects those to have that function.
 - call that function to save/load

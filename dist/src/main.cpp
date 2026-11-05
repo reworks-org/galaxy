@@ -11,38 +11,33 @@
 #include <mimalloc-new-delete.h>
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
-// #include <tinyfiledialogs.h>
+#include <tinyfiledialogs.h>
 
-// #include <galaxy/core/Application.hpp>
+#include <galaxy/core/Application.hpp>
 #include <galaxy/platform/Pragma.hpp>
-
-// using namespace galaxy;
 
 int SDL_main(int argc, char* argv[])
 {
-	mi_version();
 	GALAXY_UNUSED(argc);
 	GALAXY_UNUSED(argv);
 
-	// try
-	// {
-	// 	core::App dist("logs/", "config.json");
-
-	// 	dist.load();
-	// 	dist.run();
-	// }
-	// catch (const std::exception& e)
-	// {
-	// 	tinyfd_notifyPopup("Error", e.what(), "error");
-	// }
+	try
+	{
+		auto app = galaxy::App();
+		app.load();
+		app.run();
+	}
+	catch (const std::exception& e)
+	{
+		const std::string msg = {e.what()};
+		tinyfd_messageBox("Error", msg.c_str(), "ok", "error", 1);
+	}
 
 	return GALAXY_EXIT_SUCCESS;
 }
 
 int main(int argc, char* argv[])
 {
-	GALAXY_UNUSED(argc);
-	GALAXY_UNUSED(argv);
-
-	return SDL_RunApp(0, nullptr, SDL_main, nullptr);
+	mi_version();
+	return SDL_RunApp(argc, argv, SDL_main, nullptr);
 }

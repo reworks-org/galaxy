@@ -16,10 +16,6 @@
 
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/Window.hpp>
-#include <galaxy/graphics/Renderer.hpp>
-#include <galaxy/graphics/gl/Shader.hpp>
-#include <galaxy/graphics/gl/Texture.hpp>
-#include <galaxy/graphics/Enums.hpp>
 #include <galaxy/scene/SceneManager.hpp>
 
 class Sandbox final : public galaxy::Scene
@@ -35,23 +31,6 @@ public:
 	void render() override;
 
 private:
-	galaxy::RenderPass     pass;
-	galaxy::RenderPipeline pipeline;
-	galaxy::Renderer       renderer;
-	galaxy::Camera         camera;
-
-	galaxy::Texture tex;
-	galaxy::Texture tex2;
-	galaxy::Texture tex3;
-	galaxy::Shader  shader;
-
-	std::vector<galaxy::Vertex> verts;
-	std::vector<galaxy::Vertex> verts2;
-	std::vector<galaxy::Vertex> verts3;
-
-	galaxy::RenderCmd cmd1;
-	galaxy::RenderCmd cmd2;
-	galaxy::RenderCmd cmd3;
 };
 
 #endif
