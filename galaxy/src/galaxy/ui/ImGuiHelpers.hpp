@@ -22,6 +22,22 @@ namespace galaxy
 		void imgui_init(const char* ini);
 
 		///
+		/// \brief Set imgui theme.
+		///
+		/// Need to call when window is resized.
+		///
+		/// \param scale Display scale factor.
+		///
+		void imgui_set_theme(const float scale) noexcept;
+
+		///
+		/// Handle events in ImGui.
+		///
+		/// \param events Event data.
+		///
+		void imgui_handle_events(const SDL_Event& events);
+
+		///
 		/// Begin setting up ImGui pass.
 		///
 		void imgui_new_frame();
@@ -35,27 +51,10 @@ namespace galaxy
 		/// Destroy imgui context.
 		///
 		void imgui_exit();
-
-		///
-		/// \brief Bake a fixed style scale.
-		///
-		/// Recall on window scale change.
-		///
-		void imgui_rescale();
 	} // namespace ui
 } // namespace galaxy
 
 /*
-		///
-		/// Cleanup imgui resources used by galaxy.
-		///
-		void imgui_destroy_context();
-
-		///
-		/// Set our theme.
-		///
-		void imgui_set_theme();
-
 		///
 		/// Make sure the next window opened is centered on the monitor.
 		///

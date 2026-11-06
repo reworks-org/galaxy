@@ -26,11 +26,6 @@ namespace galaxy
 		return Settings::assets_dir().string();
 	}
 
-	std::string editor_path_wrapper() noexcept
-	{
-		return Settings::editor_dir().string();
-	}
-
 	void Lua::inject_core() noexcept
 	{
 		auto& lua = entt::locator<sol::state>::value();
@@ -96,7 +91,7 @@ namespace galaxy
 		lua.set_function("settings_logs_dir", &Settings::logs_dir);
 		lua.set_function("settings_root_dir", &root_path_wrapper);
 		lua.set_function("settings_assets_dir", &assets_path_wrapper);
-		lua.set_function("settings_editor_dir", &editor_path_wrapper);
+		lua.set_function("settings_base_data", &Settings::base_data);
 		lua.set_function("settings_asset_pack", &Settings::asset_pack);
 		lua.set_function("settings_use_loose_assets", &Settings::use_loose_assets);
 		lua.set_function("settings_assets_dir_music", &Settings::assets_dir_music);
@@ -111,6 +106,7 @@ namespace galaxy
 		lua.set_function("settings_assets_dir_maps", &Settings::assets_dir_maps);
 		lua.set_function("settings_assets_dir_video", &Settings::assets_dir_video);
 		lua.set_function("settings_assets_dir_ui", &Settings::assets_dir_ui);
+		lua.set_function("settings_enable_editor", &Settings::enable_editor);
 
 		auto window_type                     = lua.new_usertype<Window>("Window", sol::no_constructor);
 		window_type["append_title"]          = &Window::append_title;

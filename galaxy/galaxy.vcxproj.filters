@@ -64,11 +64,14 @@
     <ClCompile Include="src\galaxy\state\StateMachine.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaEntity.cpp" />
     <ClCompile Include="src\galaxy\entity\EntityManager.cpp" />
-    <ClCompile Include="src\galaxy\entity\Registry.cpp" />
     <ClCompile Include="src\galaxy\lua\injects\LuaSystems.cpp" />
     <ClCompile Include="src\galaxy\systems\System.cpp" />
     <ClCompile Include="src\galaxy\systems\SystemManager.cpp" />
     <ClCompile Include="src\galaxy\factory\SystemFactory.cpp" />
+    <ClCompile Include="src\galaxy\lua\injects\LuaGLM.cpp" />
+    <ClCompile Include="src\galaxy\meta\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
+    <ClCompile Include="src\galaxy\resource\embedded\RobotoLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -123,9 +126,13 @@
     <ClInclude Include="src\galaxy\state\State.hpp" />
     <ClInclude Include="src\galaxy\state\StateMachine.hpp" />
     <ClInclude Include="src\galaxy\entity\EntityManager.hpp" />
-    <ClInclude Include="src\galaxy\entity\Registry.hpp" />
     <ClInclude Include="src\galaxy\systems\System.hpp" />
     <ClInclude Include="src\galaxy\systems\SystemManager.hpp" />
     <ClInclude Include="src\galaxy\factory\SystemFactory.hpp" />
+    <ClInclude Include="src\galaxy\meta\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
+    <ClInclude Include="src\galaxy\resource\embedded\material_design_icons.h" />
+    <ClInclude Include="src\galaxy\resource\embedded\material_design_icons_ttf.h" />
+    <ClInclude Include="src\galaxy\resource\embedded\RobotoLight.hpp" />
   </ItemGroup>
 </Project>

@@ -12,6 +12,7 @@
 #include <nlohmann/json_fwd.hpp>
 #include <SDL3/SDL_events.h>
 
+#include "galaxy/meta/Serializable.hpp"
 #include "galaxy/state/State.hpp"
 #include "galaxy/systems/SystemManager.hpp"
 
@@ -23,7 +24,7 @@ namespace galaxy
 	/// Scenes should be logically grouped -> i.e. a map, player data + ui, battle, menu, etc.
 	/// Each scene is an independant collection of systems, but not entities.
 	///
-	class Scene : public State
+	class Scene : public State, public Serializable
 	{
 	public:
 		///
@@ -68,27 +69,27 @@ namespace galaxy
 		virtual void render();
 
 		///
-		/// Serializes object.
-		///
-		/// \return JSON object containing data to be serialized.
-		///
-		[[nodiscard]]
-		nlohmann::json serialize();
-
-		///
-		/// Deserializes from object.
-		///
-		/// \param json Json object to retrieve data from.
-		///
-		void deserialize(const nlohmann::json& json);
-
-		///
 		/// Get system manager.
 		///
 		/// \return Reference to systems for this specfic scene.
 		///
 		[[nodiscard]]
 		SystemManager& sys_man() noexcept;
+
+		///
+		/// Serializes object.
+		///
+		/// \return JSON object containing data to write out.
+		///
+		[[nodiscard]]
+		nlohmann::json serialize() override;
+
+		///
+		/// Deserializes from object.
+		///
+		/// \param json Json object to retrieve data from.
+		///
+		void deserialize(const nlohmann::json& json) override;
 
 	private:
 		///
@@ -139,20 +140,7 @@ void update_ui();
 ///
 [[nodiscard]]
 bool load_world(const std::string& file);
-///
-/// Serializes object.
-///
-/// \return JSON object containing data to write out.
-///
-[[nodiscard]]
-nlohmann::json serialize() override;
 
-///
-/// Deserializes from object.
-///
-/// \param json Json object to retrieve data from.
-///
-void deserialize(const nlohmann::json& json) override;
 ///
 /// Camera.
 ///

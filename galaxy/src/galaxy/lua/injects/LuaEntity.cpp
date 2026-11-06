@@ -9,7 +9,6 @@
 #include <sol/sol.hpp>
 
 #include "galaxy/entity/EntityManager.hpp"
-#include "galaxy/entity/Registry.hpp"
 
 #include "../Lua.hpp"
 
@@ -18,9 +17,6 @@ namespace galaxy
 	void Lua::inject_entity() noexcept
 	{
 		auto& lua = entt::locator<sol::state>::value();
-
-		auto registry_type    = lua.new_usertype<Registry>("Registry", sol::constructors<Registry()>());
-		registry_type["entt"] = &Registry::m_entt;
 
 		auto em_type        = lua.new_usertype<EntityManager>("EntityManager", sol::no_constructor);
 		em_type["registry"] = &EntityManager::registry;

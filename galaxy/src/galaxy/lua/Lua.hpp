@@ -38,9 +38,19 @@ namespace galaxy
 		static void inject_core() noexcept;
 
 		///
+		/// Inject galaxy entity management into Lua.
+		///
+		static void inject_entity() noexcept;
+
+		///
 		/// Injects VFS support into Lua.
 		///
 		static void inject_fs() noexcept;
+
+		///
+		/// Injects GLM into Lua.
+		///
+		static void inject_glm() noexcept;
 
 		///
 		/// Injects input handling into Lua.
@@ -61,6 +71,21 @@ namespace galaxy
 		/// Inject platform stuff into Lua.
 		///
 		static void inject_platform() noexcept;
+
+		///
+		/// Injects galaxy scene management into lua.
+		///
+		static void inject_scene() noexcept;
+
+		///
+		/// Injects galaxy state machine requirements into lua.
+		///
+		static void inject_state() noexcept;
+
+		///
+		/// Injects galaxy system management into Lua.
+		///
+		static void inject_systems() noexcept;
 
 		///
 		/// Register galaxy time support functions into Lua.
@@ -85,40 +110,24 @@ namespace galaxy
 		///
 		static void inject_events() noexcept;
 
-		///
-		/// Inject galaxy entity management into Lua.
-		///
-		static void inject_entity() noexcept;
 
-		///
-		/// Injects GLM into Lua.
-		///
-		static void inject_glm() noexcept;
+
+
 
 		///
 		/// Injects graphics module into Lua.
 		///
 		static void inject_graphics() noexcept;
 
-		///
-		/// Injects galaxy scene management into lua.
-		///
-		static void inject_scene() noexcept;
 
 		///
 		/// Regsiter static engine services in Lua.
 		///
 		static void inject_services() noexcept;
 
-		///
-		/// Injects galaxy state machine requirements into lua.
-		///
-		static void inject_state() noexcept;
 
-		///
-		/// Injects galaxy system management into Lua.
-		///
-		static void inject_systems() noexcept;
+
+
 
 		///
 		/// Inject Nuklear into Lua.

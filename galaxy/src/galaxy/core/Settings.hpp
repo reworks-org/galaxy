@@ -31,12 +31,94 @@ namespace galaxy
 		static auto set_settings_from_config() -> void;
 
 		///
+		/// Window requested width.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		static auto requested_width() noexcept -> int;
+
+		///
+		/// Window requested height.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		static auto requested_height() noexcept -> int;
+
+		///
+		/// Window virtual width.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		static auto virtual_width() noexcept -> int;
+
+		///
+		/// Window virtual height.
+		///
+		/// \return Integer.
+		///
+		[[nodiscard]]
+		static auto virtual_height() noexcept -> int;
+
+		///
+		/// Is window started fullscreen.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto fullscreen() noexcept -> bool;
+
+		///
+		/// \brief Is window started maximized?
+		///
+		/// Fullscreen takes priority.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto maximized() noexcept -> bool;
+
+		///
+		/// Is the window resizable.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto window_resizable() noexcept -> bool;
+
+		///
+		/// Is the cursor grabbed.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto mouse_grabbed() noexcept -> bool;
+
+		///
+		/// Controls if a window has a border around it (including titlebar).
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto window_border() noexcept -> bool;
+
+		///
 		/// Vsync control.
 		///
 		/// \return Boolean.
 		///
 		[[nodiscard]]
 		static auto vsync() noexcept -> bool;
+
+		///
+		/// Window icon file in vfs.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto icon() noexcept -> const std::string&;
 
 		///
 		/// Set audio frequency to use with SDL.
@@ -95,12 +177,44 @@ namespace galaxy
 		static auto website() noexcept -> const std::string&;
 
 		///
+		/// Is the mouse cursor visible or not.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto cursor_show() noexcept -> bool;
+
+		///
+		/// Cursor texture file in vfs.
+		///
+		/// \return Const std::string.
+		///
+		[[nodiscard]]
+		static auto cursor_icon() noexcept -> const std::string&;
+
+		///
+		/// Cursor selector point (offset).
+		///
+		/// \return Integer Vector2.
+		///
+		[[nodiscard]]
+		static auto cursor_offset() noexcept -> const glm::ivec2&;
+
+		///
 		/// Current root directory of application, unless it has been changed.
 		///
 		/// \return Const string.
 		///
 		[[nodiscard]]
 		static auto logs_dir() noexcept -> const std::string&;
+
+		///
+		/// Current root directory of application, unless it has been changed.
+		///
+		/// \return Const string.
+		///
+		[[nodiscard]]
+		static auto base_data() noexcept -> const std::string&;
 
 		///
 		/// Current root directory of application, unless it has been changed.
@@ -117,14 +231,6 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		static auto assets_dir() noexcept -> std::filesystem::path;
-
-		///
-		/// Directory for editor specific stuff.
-		///
-		/// \return Filesystem path.
-		///
-		[[nodiscard]]
-		static auto editor_dir() noexcept -> std::filesystem::path;
 
 		///
 		/// Name of packed assets file.
@@ -238,9 +344,28 @@ namespace galaxy
 		[[nodiscard]]
 		static auto assets_dir_ui() noexcept -> const std::string&;
 
+		///
+		/// Enable the debug editor UI.
+		///
+		/// \return Boolean.
+		///
+		[[nodiscard]]
+		static auto enable_editor() noexcept -> bool;
+
 	private:
-		inline static bool s_vsync;
-		inline static int  s_audio_freq;
+		inline static int         s_requested_width;
+		inline static int         s_virtual_width;
+		inline static int         s_requested_height;
+		inline static int         s_virtual_height;
+		inline static bool        s_fullscreen;
+		inline static bool        s_maximized;
+		inline static bool        s_resizable;
+		inline static bool        s_mouse_grabbed;
+		inline static bool        s_border;
+		inline static bool        s_vsync;
+		inline static std::string s_window_icon;
+
+		inline static int s_audio_freq;
 
 		inline static std::string s_title;
 		inline static std::string s_version;
@@ -249,9 +374,13 @@ namespace galaxy
 		inline static std::string s_copyright;
 		inline static std::string s_website;
 
+		inline static bool        s_cursor_show;
+		inline static std::string s_cursor_icon;
+		inline static glm::ivec2  s_cursor_offset;
+
 		inline static std::string           s_logs_dir;
+		inline static std::string           s_base_data;
 		inline static std::filesystem::path s_assets_dir;
-		inline static std::filesystem::path s_editor_dir;
 		inline static std::string           s_asset_pack;
 		inline static bool                  s_use_loose_assets;
 		inline static std::string           s_assets_music;
@@ -266,103 +395,12 @@ namespace galaxy
 		inline static std::string           s_assets_maps;
 		inline static std::string           s_assets_video;
 		inline static std::string           s_assets_ui;
+
+		inline static bool s_enable_editor;
 	};
 } // namespace galaxy
 
 /*
-* ///
-		/// Window creation width.
-		///
-		/// \return Integer.
-		///
-		[[nodiscard]]
-		static auto window_width() noexcept -> int;
-
-		///
-		/// Window creation height.
-		///
-		/// \return Integer.
-		///
-		[[nodiscard]]
-		static auto window_height() noexcept -> int;
-
-		///
-		/// Window icon file in vfs.
-		///
-		/// \return Const string.
-		///
-		[[nodiscard]]
-		static auto window_icon() noexcept -> const std::string&;
-
-		///
-		/// Is window started fullscreen.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto fullscreen() noexcept -> bool;
-
-		///
-		/// \brief Is window started maximized?
-		///
-		/// Fullscreen takes priority.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto maximized() noexcept -> bool;
-
-
-
-		///
-		/// Is the window resizable.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto window_resizable() noexcept -> bool;
-
-		///
-		/// Controls if a window has a border around it (including titlebar).
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto window_border() noexcept -> bool;
-
-		///
-		/// Is the cursor grabbed.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto mouse_grabbed() noexcept -> bool;
-
-		///
-		/// Is the mouse cursor visible or not.
-		///
-		/// \return Boolean.
-		///
-		[[nodiscard]]
-		static auto cursor_show() noexcept -> bool;
-
-		///
-		/// Cursor texture file in vfs.
-		///
-		/// \return Const std::string.
-		///
-		[[nodiscard]]
-		static auto cursor_icon() noexcept -> const std::string&;
-
-		///
-		/// Cursor selector point (hotspot).
-		///
-		/// \return Integer Vector2.
-		///
-		[[nodiscard]]
-		static auto cursor_hotspot() noexcept -> const glm::ivec2&;
-
-
 		///
 		/// Ansiotropic filtering level.
 		///
@@ -395,30 +433,10 @@ namespace galaxy
 		[[nodiscard]]
 		static auto max_quads() noexcept -> int;
 
-
-
-
-
-		inline static int         s_window_width;
-		inline static int         s_window_height;
-		inline static std::string s_window_icon;
-		inline static bool        s_fullscreen;
-		inline static bool        s_maximized;
-		inline static bool        s_resizable;
-		inline static bool        s_border;
-
-		inline static bool        s_mouse_grabbed;
-		inline static bool        s_cursor_show;
-		inline static std::string s_cursor_icon;
-		inline static glm::ivec2  s_cursor_hotspot;
-
-
-
 		inline static int             s_ansio;
 		inline static bool            s_mipmap;
 		inline static GLTextureFilter s_filtering;
 		inline static int             s_max_quads;
-
 
 
 // config.restore<int>("flag_bitset_count", 8, "misc");

@@ -2,6 +2,9 @@
     "audio": {
         "audio_freq": 44100
     },
+    "debug": {
+        "enable_editor": true
+    },
     "fs": {
         "asset_pack": "assets.galaxy",
         "assets_animation": "animations/",
@@ -17,6 +20,7 @@
         "assets_ui": "ui/",
         "assets_video": "video/",
         "assets_voice": "voice/",
+        "base_data": "base.galaxy",
         "editor_dir": "editor/",
         "logs_dir": "logs/",
         "use_loose_assets": true

@@ -12,13 +12,14 @@
 // #include "galaxy/events/Event.hpp"
 #include "galaxy/scene/Scene.hpp"
 #include "galaxy/state/StateMachine.hpp"
+#include "galaxy/meta/Serializable.hpp"
 
 namespace galaxy
 {
 	///
 	/// State machine for managing scenes.
 	///
-	class SceneManager final : public StateMachine<Scene>
+	class SceneManager final : public StateMachine<Scene>, public Serializable
 	{
 	public:
 		///
@@ -66,17 +67,17 @@ namespace galaxy
 		///
 		/// Serializes object.
 		///
-		/// \return JSON object containing data to be serialized.
+		/// \return JSON object containing data to write out.
 		///
 		[[nodiscard]]
-		nlohmann::json serialize();
+		nlohmann::json serialize() override;
 
 		///
 		/// Deserializes from object.
 		///
 		/// \param json Json object to retrieve data from.
 		///
-		void deserialize(const nlohmann::json& json);
+		void deserialize(const nlohmann::json& json) override;
 
 	private:
 		///
@@ -96,38 +97,5 @@ namespace galaxy
 		EntityManager m_entity_manager;
 	};
 } // namespace galaxy
-
-/*
-			///
-			/// \brief Load app data file into scene manager.
-			///
-			/// Will remove any other loaded scenes and adjust the currently loaded scene.
-			///
-			/// \param appdata_file Zlib + Base64 encoded json data file. Should have .galaxy extension.
-			///
-			void load_app(const std::string& appdata_file);
-
-			///
-			/// Save all active scenes and sub data within those scenes.
-			///
-			/// \param file File to save data to.
-			///
-			void save_app(const std::string& file);
-
-			///
-			/// Serializes object.
-			///
-			/// \return JSON object containing data to write out.
-			///
-			[[nodiscard]]
-			nlohmann::json serialize() override;
-
-			///
-			/// Deserializes from object.
-			///
-			/// \param json Json object to retrieve data from.
-			///
-			void deserialize(const nlohmann::json& json) override;
-*/
 
 #endif

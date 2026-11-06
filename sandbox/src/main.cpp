@@ -16,7 +16,6 @@
 #include "tests/LoggingTests.hpp"
 #include "tests/PlatformTests.hpp"
 
-#include "Sandbox.hpp"
 #include "TestConfig.hpp"
 
 #include <galaxy/core/Application.hpp>
@@ -45,7 +44,7 @@ int SDL_main(int argc, char* argv[])
 		if (ENABLE_SANDBOX)
 		{
 			auto& sm = entt::locator<galaxy::SceneManager>::value();
-			sm.add<Sandbox>("Sandbox");
+			sm.add("Sandbox");
 			sm.push("Sandbox");
 		}
 

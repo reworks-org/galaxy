@@ -429,8 +429,5 @@ namespace galaxy
 
 			return false;
 		}
-
-
-
 	*/
 } // namespace galaxy

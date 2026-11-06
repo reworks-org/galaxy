@@ -12,28 +12,32 @@
 #include <chrono>
 
 #include <BS_thread_pool.hpp>
+#include <error.h>
 #include <entt/locator/locator.hpp>
-// #include <entt/signal/dispatcher.hpp>
-// #include <glad/glad.h>
 #include <mimalloc.h>
+#include <nlohmann/json.hpp>
 #include <SDL3/SDL.h>
-// #include <sol/sol.hpp>
+#include <SDL3_TTF/SDL_ttf.h>
+#include <SDL3_mixer/SDL_mixer.h>
+#include <sol/sol.hpp>
 
 #include "galaxy/core/Config.hpp"
-// #include "galaxy/core/Window.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/core/Settings.hpp"
+#include "galaxy/factory/SystemFactory.hpp"
 #include "galaxy/fs/VirtualFileSystem.hpp"
-// #include "galaxy/graphics/gl/Sampler.hpp"
-// #include "galaxy/input/Keyboard.hpp"
-// #include "galaxy/input/Mouse.hpp"
+#include "galaxy/input/Keyboard.hpp"
+#include "galaxy/input/Mouse.hpp"
 #include "galaxy/logging/ConsoleSink.hpp"
 #include "galaxy/logging/FileSink.hpp"
 #include "galaxy/logging/Log.hpp"
-// #include "galaxy/lua/Lua.hpp"
-// #include "galaxy/meta/SystemFactory.hpp"
+#include "galaxy/lua/Lua.hpp"
+#include "galaxy/math/Base64.hpp"
+#include "galaxy/math/ZLib.hpp"
 #include "galaxy/platform/Platform.hpp"
-// #include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/time/Time.hpp"
+#include "galaxy/ui/ImGuiHelpers.hpp"
 
 #include "Application.hpp"
 
@@ -46,18 +50,18 @@ namespace galaxy
 		SDL_SetMemoryFunctions(&mi_malloc, &mi_calloc, &mi_realloc, &mi_free);
 
 		setup_async();
-		setup_logging();
 		setup_config(config_file);
+		setup_logging();
 		setup_platform();
 		setup_fs();
-		// setup_rendering();
-		// setup_events();
-		// setup_input();
-		// setup_nuklear();
+		setup_rendering();
+		setup_input();
+		setup_factory();
 		// setup_loader();
 		// setup_meta();
-		// setup_services();
-		// setup_scripting();
+		setup_services();
+		setup_ui();
+		setup_scripting();
 
 		// Load game assets.
 		// core::entt::locator<core::Loader>::ref().load_all();
@@ -67,29 +71,112 @@ namespace galaxy
 	{
 		entt::locator<BS::priority_thread_pool>::value().wait();
 
+		entt::locator<sol::state>::reset();
+		ui::imgui_exit();
+		entt::locator<SceneManager>::reset();
+		entt::locator<SystemFactory>::reset();
+		entt::locator<Mouse>::reset();
+		entt::locator<Keyboard>::reset();
+		entt::locator<Window>::reset();
 		entt::locator<VirtualFileSystem>::reset();
-		entt::locator<Config>::reset();
 		entt::locator<Log>::reset();
+		entt::locator<Config>::reset();
 		entt::locator<BS::priority_thread_pool>::reset();
 
+		MIX_Quit();
+		TTF_Quit();
 		SDL_Quit();
 	}
 
-	/*void App::load()
+	void App::load(const std::string& app_data)
 	{
-		const auto path = Settings::root_dir() / Settings::asset_pack();
+		// This just loads the scenes, the actual asset data is already loaded (and specificed) by config.
+		// and done in the VFS.
 
-		auto& sm = entt::locator<scene::SceneManager>::value();
-		sm.load_app(path.string());
-	}*/
+		auto&      fs   = entt::locator<VirtualFileSystem>::value();
+		const auto data = fs.read(Settings::base_data());
+
+		if (!data.empty())
+		{
+			const auto decoded_zlib = ZLib::decode(data);
+			if (!decoded_zlib.empty())
+			{
+				const auto decoded_base64 = math::decode_base64(decoded_zlib);
+				if (!decoded_base64.empty())
+				{
+					const auto parsed = nlohmann::json::parse(decoded_base64);
+
+					if (!parsed.empty())
+					{
+						auto& sm = entt::locator<SceneManager>::value();
+						sm.deserialize(parsed);
+					}
+					else
+					{
+						GALAXY_LOG(GALAXY_ERROR, "Failed to parse scenemanger JSON data from memory.");
+					}
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to decode base64 app_data '{0}'.", app_data);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to decode zlib app_data '{0}'.", app_data);
+			}
+		}
+		else
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load app_data '{0}'.", app_data);
+		}
+	}
+
+	void App::save(const std::string& app_data)
+	{
+		auto& sm = entt::locator<SceneManager>::value();
+
+		const auto json = sm.serialize();
+		auto       data = json.dump(4);
+
+		if constexpr (!GALAXY_DEBUG_BUILD)
+		{
+			data = math::encode_base64(data);
+			if (!data.empty())
+			{
+				data = ZLib::encode(data);
+				if (data.empty())
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to encode scenemanager to zlib '{0}'.", app_data);
+				}
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to encode scenemanager to base64 '{0}'.", app_data);
+			}
+
+			if (data.empty())
+			{
+				return;
+			}
+		}
+
+		auto& fs = entt::locator<VirtualFileSystem>::value();
+		if (!fs.write(data, app_data))
+		{
+			GALAXY_LOG(GALAXY_ERROR, "Failed to save '{0}' to disk.", app_data);
+		}
+	}
 
 	void App::run()
 	{
+		bool show_demo_window = true;
+
 		// https://stackoverflow.com/a/59446610
 		// We dont need 't' or 'alpha/render' sections.
 
-		// auto& window = entt::locator<Window>::value();
-		// auto& scenes = entt::locator<SceneManager>::value();
+		auto& window = entt::locator<Window>::value();
+		auto& scenes = entt::locator<SceneManager>::value();
 
 		// The expression dt/1s simply converts the double-based chrono seconds
 		// into a double so it can participate in the physics computation.
@@ -108,43 +195,7 @@ namespace galaxy
 		auto     frames  = 0u;
 		duration perf    = 0s;
 
-		if (!m_update)
-		{
-			m_update = [&](App* app) {
-				while (SDL_PollEvent(&m_events))
-				{
-					switch (m_events.type)
-					{
-						case SDL_EVENT_QUIT:
-							// window.close();
-							break;
-
-						case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
-							// if (m_events.window.windowID == SDL_GetWindowID(window.handle()))
-							{
-								// window.close();
-							}
-							break;
-
-						default:
-							// scenes.on_event(m_events);
-							break;
-					}
-				}
-
-				// scenes.update();
-			};
-		}
-
-		if (!m_render)
-		{
-			m_render = [&](App* app) {
-				// scenes.render();
-				// window.swap();
-			};
-		}
-
-		while (false) // window.is_open()
+		while (window.is_open())
 		{
 			now          = clock::now();
 			auto elapsed = now - prev;
@@ -164,34 +215,64 @@ namespace galaxy
 				perf  += dt;
 				accum -= dt;
 
-				m_update(this);
+				while (SDL_PollEvent(&m_events))
+				{
+					switch (m_events.type)
+					{
+						case SDL_EVENT_LOCALE_CHANGED:
+							// TODO change language
+							break;
+
+						case SDL_EVENT_WINDOW_SHOWN:
+							// TODO enable input/audio
+							break;
+
+						case SDL_EVENT_WINDOW_HIDDEN:
+						case SDL_EVENT_WINDOW_MINIMIZED:
+							// TODO disable input/audio
+							break;
+
+							/*case SDL_EVENT_NOTIFICATION_ACTION_INVOKED:
+								/// A user response to a system notification was received.
+								break;*/
+
+							/*case SDL_EVENT_CLIPBOARD_UPDATE:
+								/// Just use clipboard methods.
+								break;*/
+
+						default:
+							ui::imgui_handle_events(m_events);
+							window.handle_window_events(m_events);
+							scenes.on_event(m_events);
+							break;
+					}
+				}
+
+				scenes.update();
 
 				updates++;
 			}
 
-			m_render(this);
+			scenes.render();
+
+			ui::imgui_new_frame();
+			if (show_demo_window && Settings::enable_editor())
+				ImGui::ShowDemoWindow(&show_demo_window);
+			// TODO: Draw IMGUI here.
+			ui::imgui_render();
+			window.swap();
 
 			frames++;
 
 			if (perf >= 1s)
 			{
-				// window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
+				window.append_title(std::format(" | UPS: {0}, FPS: {1}", updates, frames));
 
 				frames  = 0;
 				updates = 0;
 				perf    = 0s;
 			}
 		}
-	}
-
-	void App::set_update_func(LoopFunc&& update)
-	{
-		m_update = std::move(update);
-	}
-
-	void App::set_render_func(LoopFunc&& render)
-	{
-		m_render = std::move(render);
 	}
 
 	SDL_Event& App::events() noexcept
@@ -218,6 +299,13 @@ namespace galaxy
 		});
 	}
 
+	void App::setup_config(std::string_view config_file)
+	{
+		auto& config = entt::locator<Config>::emplace(config_file);
+		Settings::set_config_to_default();
+		Settings::set_settings_from_config();
+	}
+
 	void App::setup_logging()
 	{
 		platform::configure_terminal();
@@ -232,13 +320,10 @@ namespace galaxy
 
 		GALAXY_ADD_SINK(ConsoleSink);
 		GALAXY_LOG(GALAXY_INFO, "App started.");
-	}
 
-	void App::setup_config(std::string_view config_file)
-	{
-		auto& config = entt::locator<Config>::emplace(config_file);
-		Settings::set_config_to_default();
-		Settings::set_settings_from_config();
+		sl::set_log_callback([](const std::string& msg) {
+			GALAXY_LOG(GALAXY_ERROR, "simlib | {0}", msg);
+		});
 	}
 
 	void App::setup_platform()
@@ -271,7 +356,7 @@ namespace galaxy
 		platform::set_hint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "0");
 		platform::set_hint(SDL_HINT_JOYSTICK_DIRECTINPUT, "1");
 		platform::set_hint(SDL_HINT_TV_REMOTE_AS_JOYSTICK, "1");
-		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "0");
+		platform::set_hint(SDL_HINT_MOUSE_AUTO_CAPTURE, "1");
 		platform::set_hint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
 		platform::set_hint(SDL_HINT_MOUSE_RELATIVE_MODE_CENTER, "0");
 		platform::set_hint(SDL_HINT_MOUSE_TOUCH_EVENTS, "1");
@@ -305,7 +390,17 @@ namespace galaxy
 		const auto audio_freq = std::to_string(Settings::audio_freq());
 		platform::set_hint(SDL_HINT_AUDIO_FREQUENCY, audio_freq.c_str());
 
-		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS | SDL_INIT_HAPTIC | SDL_INIT_SENSOR))
+		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS | SDL_INIT_GAMEPAD | SDL_INIT_JOYSTICK))
+		{
+			GALAXY_LOG(GALAXY_FATAL, SDL_GetError());
+		}
+
+		if (!TTF_Init())
+		{
+			GALAXY_LOG(GALAXY_FATAL, SDL_GetError());
+		}
+
+		if (!MIX_Init())
 		{
 			GALAXY_LOG(GALAXY_FATAL, SDL_GetError());
 		}
@@ -316,81 +411,76 @@ namespace galaxy
 		entt::locator<VirtualFileSystem>::emplace();
 	}
 
-	/*
 	void App::setup_rendering()
 	{
 		auto& window = entt::locator<Window>::emplace();
-
-		window.set_icon(Settings::window_icon());
+		window.set_icon(Settings::icon());
 		window.show();
 
-		auto& sampler = entt::locator<Sampler>::emplace();
+		// auto& sampler = entt::locator<Sampler>::emplace();
 
-		// Need to create our default texture sampler object.
-		if (Settings::mipmap())
-		{
-			switch (Settings::texture_filter())
-			{
-				case GLTextureFilter::NEAREST:
-					sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-					sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-					break;
-				case GLTextureFilter::BILINEAR:
-					sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-					sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					break;
-				case GLTextureFilter::TRILINEAR:
-					sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-					sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					break;
-			}
-		}
-		else
-		{
-			if (Settings::texture_filter() == GLTextureFilter::NEAREST)
-			{
-				sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-				sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			}
-			else
-			{
-				sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-				sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			}
-		}
+		//// Need to create our default texture sampler object.
+		// if (Settings::mipmap())
+		//{
+		//	switch (Settings::texture_filter())
+		//	{
+		//		case GLTextureFilter::NEAREST:
+		//			sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+		//			sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		//			break;
+		//		case GLTextureFilter::BILINEAR:
+		//			sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+		//			sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//			break;
+		//		case GLTextureFilter::TRILINEAR:
+		//			sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		//			sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//			break;
+		//	}
+		// }
+		// else
+		//{
+		//	if (Settings::texture_filter() == GLTextureFilter::NEAREST)
+		//	{
+		//		sampler.set(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		//		sampler.set(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		//	}
+		//	else
+		//	{
+		//		sampler.set(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		//		sampler.set(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//	}
+		// }
 
-		auto ansio = std::clamp(Settings::ansiotrophy(), 1, 16);
-		if (ansio == 3)
-		{
-			ansio = 4;
-		}
-		else if (ansio > 4 && ansio < 8)
-		{
-			ansio = 8;
-		}
-		else
-		{
-			ansio = 16;
-		}
-		sampler.setf(GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(ansio));
+		// auto ansio = std::clamp(Settings::ansiotrophy(), 1, 16);
+		// if (ansio == 3)
+		//{
+		//	ansio = 4;
+		// }
+		// else if (ansio > 4 && ansio < 8)
+		//{
+		//	ansio = 8;
+		// }
+		// else
+		//{
+		//	ansio = 16;
+		// }
+		// sampler.setf(GL_TEXTURE_MAX_ANISOTROPY, static_cast<float>(ansio));
 
-		sampler.set(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		sampler.set(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		sampler.set(GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-		sampler.set(GL_TEXTURE_LOD_BIAS, GL_NONE);
-	}
-
-	void App::setup_events()
-	{
-		SDL_zero(m_events);
+		// sampler.set(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		// sampler.set(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		// sampler.set(GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+		// sampler.set(GL_TEXTURE_LOD_BIAS, GL_NONE);
 	}
 
 	void App::setup_input()
 	{
+		SDL_zero(m_events);
+
 		auto& keyboard = entt::locator<Keyboard>::emplace();
 		auto& mouse    = entt::locator<Mouse>::emplace();
 
-		mouse.set_cursor_custom(Settings::cursor_icon(), Settings::cursor_hotspot());
+		mouse.use_custom_mouse(Settings::cursor_icon(), Settings::cursor_offset());
 		if (Settings::cursor_show())
 		{
 			mouse.show_cursor();
@@ -401,11 +491,12 @@ namespace galaxy
 		}
 	}
 
-	// void App::setup_nuklear()
-	//{
-	// auto& nui = ServiceLocator<ui::NuklearUI>::make();
-	// }
+	void App::setup_factory()
+	{
+		entt::locator<SystemFactory>::emplace();
+	}
 
+	/*
 	// void App::setup_loader()
 	//{
 	//	// entt::locator<Loader>::make();
@@ -413,7 +504,7 @@ namespace galaxy
 
 	void App::setup_meta()
 	{
-		auto& sf = entt::locator<SystemFactory>::emplace();
+
 		// auto& ef = entt::locator<meta::EntityFactory>::emplace();
 
 		/*ef.register_component<components::Tag>("Tag");
@@ -442,7 +533,7 @@ namespace galaxy
 		em.register_dependencies<components::RigidBody, components::Transform>();
 		em.register_dependencies<components::Sprite, components::Transform>();
 		em.register_dependencies<components::Text, components::Transform>();
-	}
+	}*/
 
 	void App::setup_services()
 	{
@@ -462,6 +553,13 @@ namespace galaxy
 		entt::locator<SceneManager>::emplace();
 	}
 
+	void App::setup_ui()
+	{
+		// ServiceLocator<ui::NuklearUI>::make();
+
+		ui::imgui_init("editor.ini");
+	}
+
 	void App::setup_scripting()
 	{
 		auto& lua = entt::locator<sol::state>::emplace();
@@ -473,5 +571,5 @@ namespace galaxy
 		// Add engine services to lua.
 		//
 		Lua::inject();
-	}*/
+	}
 } // namespace galaxy

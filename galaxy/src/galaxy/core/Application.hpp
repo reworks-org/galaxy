@@ -9,7 +9,6 @@
 #define GALAXY_CORE_APPLICATION_HPP_
 
 #include <string>
-#include <functional>
 
 #include <SDL3/SDL_events.h>
 
@@ -20,17 +19,11 @@ namespace galaxy
 	///
 	class App final
 	{
-		///
-		/// Defines a callback for update() or render() loops in app.run().
-		///
-		using LoopFunc = std::move_only_function<void(App* app)>;
-
 	public:
 		///
 		/// \brief Default constructor.
 		///
-		/// Sets up the engine. You need to inherit this and call it from a subclass.
-		/// Also calls std::srand(std::time(nullptr)) for you.
+		/// Constructs the engine, services, and loads resources.
 		///
 		/// \param config_file Filepath of config file.
 		///
@@ -42,28 +35,25 @@ namespace galaxy
 		~App();
 
 		///
-		/// Loads the default appdata file.
+		/// \brief Load app data file into scene manager.
 		///
-		// void load();
+		/// Will remove any other loaded scenes and adjust the currently loaded scene.
+		///
+		/// \param app_data Zlib + Base64 encoded json data file. Should have .galaxy extension.
+		///
+		void load(const std::string& app_data = "base.galaxy");
+
+		///
+		/// Save all active scenes and sub data within those scenes.
+		///
+		/// \param app_data File to save data to.
+		///
+		void save(const std::string& app_data);
 
 		///
 		/// Main game loop.
 		///
 		void run();
-
-		///
-		/// Use a custom update step in game loop.
-		///
-		/// \param update Callback.
-		///
-		void set_update_func(LoopFunc&& update);
-
-		///
-		/// Use a custom rendering step in game loop.
-		///
-		/// \param render Callback.
-		///
-		void set_render_func(LoopFunc&& render);
 
 		///
 		/// Get event data.
@@ -94,34 +84,24 @@ namespace galaxy
 		App& operator=(App&&) = delete;
 
 		void setup_async();
-		void setup_logging();
 		void setup_config(std::string_view config_file);
+		void setup_logging();
 		void setup_platform();
 		void setup_fs();
-		// void setup_rendering();
-		// void setup_events();
-		// void setup_input();
-		// void setup_nuklear();
+		void setup_rendering();
+		void setup_input();
+		void setup_factory();
 		// void setup_loader();
 		// void setup_meta();
-		// void setup_services();
-		// void setup_scripting();
+		void setup_services();
+		void setup_ui();
+		void setup_scripting();
 
 	private:
 		///
 		/// Core event data.
 		///
 		SDL_Event m_events;
-
-		///
-		/// Update step in gameloop.
-		///
-		LoopFunc m_update;
-
-		///
-		/// Render step in gameloop.
-		///
-		LoopFunc m_render;
 	};
 } // namespace galaxy
 

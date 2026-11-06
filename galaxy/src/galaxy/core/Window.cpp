@@ -16,6 +16,7 @@
 #include "galaxy/fs/VirtualFileSystem.hpp"
 #include "galaxy/logging/Log.hpp"
 #include "galaxy/platform/Pragma.hpp"
+#include "galaxy/ui/ImGuiHelpers.hpp"
 
 #include "Window.hpp"
 
@@ -290,6 +291,7 @@ namespace galaxy
 				// SDL_GetWindowDisplayScale
 				// https://wiki.libsdl.org/SDL3/README-highdpi
 				sl::resize();
+				ui::imgui_set_theme(get_display_scale());
 				break;
 		}
 	}
