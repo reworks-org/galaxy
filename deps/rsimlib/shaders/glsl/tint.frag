@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 in vec2 vTexCoord;
@@ -11,3 +12,4 @@ void main()
 {
     fragColor = texture(uTexture, vTexCoord) * vColor * vec4(1.0, 0.65, 0.35, 1.0);
 }
+)"

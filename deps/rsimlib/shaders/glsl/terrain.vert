@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 layout(location = 0) in vec3 aPosition;
@@ -46,3 +47,4 @@ void main()
     vUv = aUv;
     vFade = uTerrain[1].z > uTerrain[1].y ? smoothstep(uTerrain[1].y, uTerrain[1].z, distance(position, eye)) : 0.0;
 }
+)"

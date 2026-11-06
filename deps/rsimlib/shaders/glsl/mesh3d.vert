@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 layout(location = 0) in vec3 aPosition;
@@ -49,3 +50,4 @@ void main()
     vColour = vec4(aColour.rgb * vec3(uNormalRows[0].w, uNormalRows[1].w, uNormalRows[2].w), aColour.a);
     vTerrain = -1.0;
 }
+)"

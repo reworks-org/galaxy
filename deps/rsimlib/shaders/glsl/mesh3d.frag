@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 in vec3 vNormal;
@@ -311,3 +312,4 @@ void main()
         alpha = clamp(vColour.a * texture(uTexture, vUv).a * uEmissive.w, 0.0, 1.0);
     fragColor = vec4(colour, alpha);
 }
+)"

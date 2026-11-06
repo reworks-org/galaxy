@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 in vec3 vColour;
@@ -8,3 +9,4 @@ void main()
 {
     fragColor = vec4(vColour, 1.0);
 }
+)"

@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 // Procedural sky: gradient or scattered-light atmosphere, sun disc and up to four cloud layers. The row layout of uSky is
@@ -571,3 +572,4 @@ void main()
     }
     fragColor = vec4(sky, 1.0);
 }
+)"

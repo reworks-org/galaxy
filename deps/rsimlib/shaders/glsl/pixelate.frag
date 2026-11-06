@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform vec2 resolution;
@@ -9,3 +10,4 @@ void main() {
     vec2 sampleUv = (floor(uv * blocks) + vec2(0.5)) / blocks;
     fragColor = texture(source, sampleUv);
 }
+)"

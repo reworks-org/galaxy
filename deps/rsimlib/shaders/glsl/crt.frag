@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform vec2 resolution;
@@ -20,3 +21,4 @@ void main() {
     color.rgb *= vignette;
     fragColor = color;
 }
+)"

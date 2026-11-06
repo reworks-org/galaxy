@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform float strength;
@@ -10,3 +11,4 @@ void main() {
                      cos(uv.x * frequency * 1.17 + time * 1.21) * strength);
     fragColor = texture(source, uv + wave);
 }
+)"

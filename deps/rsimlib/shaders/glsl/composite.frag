@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 uniform sampler2D source;
@@ -13,3 +14,4 @@ void main()
     vec4 bloom = texture(bloomTex, uv);
     fragColor = vec4(base.rgb + bloom.rgb * intensity, max(base.a, bloom.a));
 }
+)"

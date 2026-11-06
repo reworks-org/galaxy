@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 in vec2 vTexCoord;
@@ -22,3 +23,4 @@ void main()
     }
     fragColor = texel * vColor;
 }
+)"

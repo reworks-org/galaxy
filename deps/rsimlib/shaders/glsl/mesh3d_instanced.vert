@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 layout(location = 0) in vec3 aPosition;
@@ -43,3 +44,4 @@ void main()
                    aColour.a * aInstanceTint.a);
     vTerrain = -1.0;
 }
+)"

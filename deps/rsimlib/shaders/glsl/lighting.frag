@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 uniform sampler2D source;
@@ -130,3 +131,4 @@ void main()
 
     fragColor = vec4(base.rgb * illumination, base.a);
 }
+)"

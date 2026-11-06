@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform vec2 centre;
@@ -13,3 +14,4 @@ void main() {
     vec2 offset = distance_from_centre > 0.0001 ? normalize(direction) * ring * strength : vec2(0.0);
     fragColor = texture(source, clamp(uv - offset, 0.0, 1.0));
 }
+)"

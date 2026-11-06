@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform float strength;
@@ -10,3 +11,4 @@ void main() {
     float blue = texture(source, uv - offset).b;
     fragColor = vec4(red, green, blue, texture(source, uv).a);
 }
+)"

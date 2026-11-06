@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 uniform sampler2D source;
@@ -32,3 +33,4 @@ void main()
         ? vec4(result.rgb * opacity, result.a * opacity)
         : vec4(result.a > 0.001 ? result.rgb / result.a : vec3(0.0), result.a * opacity);
 }
+)"

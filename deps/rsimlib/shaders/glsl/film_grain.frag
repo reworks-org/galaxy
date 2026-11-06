@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform float strength;
@@ -20,3 +21,4 @@ void main() {
     float grain = noise(uvec3(pixel, frame)) * 2.0 - 1.0;
     fragColor = vec4(clamp(colour.rgb + grain * strength, 0.0, 1.0), colour.a);
 }
+)"

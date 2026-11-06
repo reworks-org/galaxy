@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform vec2 resolution;
@@ -24,3 +25,4 @@ void main() {
     vec3 quantised = floor(adjusted * steps + 0.5) / steps;
     fragColor = vec4(clamp(quantised, 0.0, 1.0), color.a);
 }
+)"

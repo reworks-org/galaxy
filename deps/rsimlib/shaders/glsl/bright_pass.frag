@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 
 uniform sampler2D source;
@@ -12,3 +13,4 @@ void main()
     float alpha = clamp(max(colour.r, max(colour.g, colour.b)), 0.0, 1.0);
     fragColor = vec4(colour, alpha);
 }
+)"

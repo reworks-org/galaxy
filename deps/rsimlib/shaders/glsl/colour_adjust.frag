@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform float brightness;
@@ -15,3 +16,4 @@ void main() {
     adjusted *= pow(2.0, exposure);
     fragColor = vec4(adjusted, colour.a);
 }
+)"

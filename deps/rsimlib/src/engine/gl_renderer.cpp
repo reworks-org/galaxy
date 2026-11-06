@@ -29,9 +29,7 @@ namespace sl::detail
     {
         std::string load_glsl_shader(const char *name)
         {
-            const std::filesystem::path relative = std::filesystem::path("glsl") / name;
-            std::ifstream file(find_shader_root(relative) / relative);
-            return file ? std::string(std::istreambuf_iterator<char>(file), {}) : std::string{};
+            return get_shader(name);
         }
 
         std::string shader_log(GLuint shader)

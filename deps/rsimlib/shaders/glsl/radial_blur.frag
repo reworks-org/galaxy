@@ -1,3 +1,4 @@
+R"(
 #version 430 core
 uniform sampler2D source;
 uniform vec2 centre;
@@ -13,3 +14,4 @@ void main() {
         result += texture(source, uv + delta * (float(i) / float(count)));
     fragColor = result / float(count + 1);
 }
+)"

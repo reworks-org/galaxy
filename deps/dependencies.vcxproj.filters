@@ -453,7 +453,6 @@
     <ClCompile Include="rsimlib\src\engine\planet_tiles.cpp" />
     <ClCompile Include="rsimlib\src\engine\proptree.cpp" />
     <ClCompile Include="rsimlib\src\engine\renderer.cpp" />
-    <ClCompile Include="rsimlib\src\engine\shader_paths.cpp" />
     <ClCompile Include="rsimlib\src\engine\system.cpp" />
     <ClCompile Include="rsimlib\src\engine\tilemap.cpp" />
     <ClCompile Include="rsimlib\src\engine\video_none.cpp" />
@@ -517,6 +516,7 @@
     <ClCompile Include="imgui\imgui_draw.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
+    <ClCompile Include="rsimlib\src\engine\shader_paths.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dense\include\ankerl\huge_page_allocator.h" />
@@ -1628,7 +1628,6 @@
     <ClInclude Include="rsimlib\src\engine\graphics_fx_internal.h" />
     <ClInclude Include="rsimlib\src\engine\parallel_record.h" />
     <ClInclude Include="rsimlib\src\engine\renderer.h" />
-    <ClInclude Include="rsimlib\src\engine\shader_paths.h" />
     <ClInclude Include="rsimlib\src\engine\third_party\enet.h" />
     <ClInclude Include="box2d\include\box2d\b2_api.h" />
     <ClInclude Include="box2d\include\box2d\b2_block_allocator.h" />
@@ -1696,6 +1695,7 @@
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
+    <ClInclude Include="rsimlib\src\engine\shader_paths.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glm\glm\detail\func_common.inl" />
