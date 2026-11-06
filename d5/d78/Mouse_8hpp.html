@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d78/Mouse_8
 <div class="contents">
 <div class="textblock"><code>#include &lt;glm/vec2.hpp&gt;</code><br />
 <code>#include &lt;SDL3/SDL_mouse.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d34/MouseButton_8hpp_source.html">galaxy/input/MouseButton.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dd2/Rect_8hpp_source.html">galaxy/math/Rect.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d6/d16/WindowBindable_8hpp_source.html">galaxy/meta/WindowBindable.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Mouse.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
@@ -120,13 +122,31 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d78/Mouse_8
 <div id="dynsection-0-content" class="dyncontent hidden">
 <div class="center"><img src="../../d2/d5b/Mouse_8hpp__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2input_2Mouse_8hpp" loading="lazy" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2input_2Mouse_8hpp" id="agalaxy_2src_2galaxy_2input_2Mouse_8hpp">
-<area shape="rect" title=" " alt="" coords="127,5,301,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,116,119"/>
-<area shape="poly" title=" " alt="" coords="178,48,96,89,94,85,176,43"/>
-<area shape="rect" title=" " alt="" coords="141,93,287,119"/>
-<area shape="poly" title=" " alt="" coords="217,46,217,79,211,79,211,46"/>
-<area shape="rect" href="../../d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="311,93,557,119"/>
-<area shape="poly" title=" " alt="" coords="268,43,390,86,388,91,266,48"/>
+<area shape="rect" title=" " alt="" coords="245,5,419,45"/>
+<area shape="rect" title=" " alt="" coords="219,167,330,192"/>
+<area shape="poly" title=" " alt="" coords="331,46,309,120,291,156,286,154,304,118,326,45"/>
+<area shape="rect" title=" " alt="" coords="5,167,152,192"/>
+<area shape="poly" title=" " alt="" coords="245,39,136,60,91,76,74,85,63,95,57,108,57,123,67,153,62,155,52,124,52,107,59,92,71,81,89,71,134,55,244,34"/>
+<area shape="rect" href="../../d6/d34/MouseButton_8hpp.html" title=" " alt="" coords="73,93,295,119"/>
+<area shape="poly" title=" " alt="" coords="298,48,219,89,217,84,295,43"/>
+<area shape="rect" href="../../dc/dd2/Rect_8hpp.html" title=" " alt="" coords="369,93,535,119"/>
+<area shape="poly" title=" " alt="" coords="363,43,424,84,421,88,360,48"/>
+<area shape="rect" href="../../d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="559,93,804,119"/>
+<area shape="poly" title=" " alt="" coords="416,43,618,88,617,93,415,48"/>
+<area shape="poly" title=" " alt="" coords="169,121,108,161,106,157,166,116"/>
+<area shape="poly" title=" " alt="" coords="424,121,317,164,315,159,423,116"/>
+<area shape="rect" title=" " alt="" coords="574,167,653,192"/>
+<area shape="poly" title=" " alt="" coords="479,116,576,159,573,163,477,121"/>
+<area shape="rect" title=" " alt="" coords="677,167,805,192"/>
+<area shape="poly" title=" " alt="" coords="499,116,682,161,681,166,498,121"/>
+<area shape="rect" href="../../d3/d84/Concepts_8hpp.html" title=" " alt="" coords="354,167,550,192"/>
+<area shape="poly" title=" " alt="" coords="455,119,455,153,449,153,449,119"/>
+<area shape="rect" title=" " alt="" coords="319,240,399,265"/>
+<area shape="poly" title=" " alt="" coords="439,194,386,234,383,229,435,190"/>
+<area shape="rect" title=" " alt="" coords="423,240,481,265"/>
+<area shape="poly" title=" " alt="" coords="455,192,455,226,449,226,449,192"/>
+<area shape="rect" title=" " alt="" coords="506,240,598,265"/>
+<area shape="poly" title=" " alt="" coords="470,190,526,230,523,234,467,194"/>
 </map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
@@ -135,9 +155,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d78/Mouse_8
 <div id="dynsection-1-content" class="dyncontent hidden">
 <div class="center"><img src="../../d1/da6/Mouse_8hpp__dep__incl.png" border="0" usemap="#agalaxy_2src_2galaxy_2input_2Mouse_8hppdep" loading="lazy" alt=""/></div>
 <map name="agalaxy_2src_2galaxy_2input_2Mouse_8hppdep" id="agalaxy_2src_2galaxy_2input_2Mouse_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,180,45"/>
-<area shape="rect" href="../../db/d1a/Mouse_8cpp.html" title=" " alt="" coords="5,93,180,133"/>
-<area shape="poly" title=" " alt="" coords="95,59,95,93,90,93,90,59"/>
+<area shape="rect" title=" " alt="" coords="199,5,373,45"/>
+<area shape="rect" href="../../d2/db6/Application_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" title=" " alt="" coords="232,53,134,96,132,91,230,48"/>
+<area shape="rect" href="../../db/d1a/Mouse_8cpp.html" title=" " alt="" coords="199,93,373,133"/>
+<area shape="poly" title=" " alt="" coords="289,59,289,93,283,93,283,59"/>
+<area shape="rect" href="../../d4/dd6/LuaInput_8cpp.html" title=" " alt="" coords="397,93,559,133"/>
+<area shape="poly" title=" " alt="" coords="342,49,437,91,435,96,340,53"/>
 </map>
 </div>
 </div>
@@ -150,6 +174,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:sl" id="r_sl"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d2c/namespacesl.html">sl</a></td></tr>
+<tr class="memdesc:dd/d2c/namespacesl"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d5/d78/Mouse_8hpp.html">Mouse.hpp</a> galaxy. <br /></td></tr>
 <tr class="memitem:galaxy" id="r_galaxy"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d46/namespacegalaxy.html">galaxy</a></td></tr>
 <tr class="memdesc:d0/d46/namespacegalaxy"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d3c/Application_8hpp.html">Application.hpp</a> galaxy. <br /></td></tr>
 </table>

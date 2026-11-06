@@ -1,4 +1,6 @@
 <map id="galaxy::ui::imgui_exit" name="galaxy::ui::imgui_exit">
 <area shape="rect" id="Node000001" title="Destroy imgui context." alt="" coords="5,29,168,55"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="59,31,54,21,57,11,68,5,87,3,109,6,119,15,115,19,107,11,87,8,70,10,61,15,59,20,64,28"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="51,31,43,21,47,11,62,5,87,3,117,6,129,15,126,20,115,11,87,8,63,10,51,15,48,20,55,28"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="216,22,395,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,39,203,39,203,45,168,45"/>
 </map>

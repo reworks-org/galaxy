@@ -1,4 +1,6 @@
 <map id="galaxy::ui::imgui_exit" name="galaxy::ui::imgui_exit">
-<area shape="rect" id="Node000001" title="Destroy imgui context." alt="" coords="5,29,168,55"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="115,19,107,11,87,8,70,10,61,15,59,20,64,28,59,31,54,21,57,11,68,5,87,3,109,6,119,15"/>
+<area shape="rect" id="Node000001" title="Destroy imgui context." alt="" coords="196,29,359,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="313,20,303,11,277,8,256,10,245,15,243,20,249,28,244,31,237,21,241,11,255,5,277,3,305,6,316,16"/>
+<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f" title="Destructor." alt="" coords="5,29,148,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="182,45,148,45,148,39,182,39"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="galaxy::ui::imgui_set_theme" name="galaxy::ui::imgui_set_theme">
+<area shape="rect" id="Node000001" title="Set imgui theme." alt="" coords="229,29,387,69"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="344,18,331,11,308,8,288,10,275,15,271,21,273,28,268,30,266,20,272,10,286,5,308,3,333,6,347,13"/>
+<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1Window.html#a986738e6bddf8d58d232bf6491c35807" title="Process window specific events." alt="" coords="5,29,181,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,52,181,52,181,47,215,47"/>
+</map>

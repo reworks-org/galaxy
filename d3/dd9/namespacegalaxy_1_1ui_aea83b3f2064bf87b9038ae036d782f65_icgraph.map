@@ -1,4 +1,6 @@
 <map id="galaxy::ui::imgui_render" name="galaxy::ui::imgui_render">
-<area shape="rect" id="Node000001" title="Render imgui." alt="" coords="5,29,184,55"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="126,19,117,11,95,8,76,10,66,15,64,20,69,28,65,31,59,21,62,11,74,5,95,3,119,6,130,15"/>
+<area shape="rect" id="Node000001" title="Render imgui." alt="" coords="180,29,359,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="305,20,295,11,269,8,248,10,237,15,235,20,241,28,236,31,229,21,233,11,247,5,269,3,297,6,308,16"/>
+<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,29,132,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="166,45,132,45,132,39,166,39"/>
 </map>

@@ -4,7 +4,7 @@ var searchData=
   ['scenemanager_1',['SceneManager',['../d1/dbc/classgalaxy_1_1SceneManager.html',1,'galaxy']]],
   ['script_2',['Script',['../db/da2/classgalaxy_1_1Script.html',1,'galaxy']]],
   ['scriptsystem_3',['ScriptSystem',['../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html',1,'galaxy::systems']]],
-  ['serializationdata_4',['SerializationData',['../d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html',1,'galaxy::meta::EntityFactory']]],
+  ['serializable_4',['Serializable',['../d6/d82/classgalaxy_1_1Serializable.html',1,'galaxy']]],
   ['settings_5',['Settings',['../df/d23/structgalaxy_1_1Settings.html',1,'galaxy']]],
   ['sink_6',['Sink',['../d2/d42/classgalaxy_1_1Sink.html',1,'galaxy']]],
   ['soundloader_7',['SoundLoader',['../d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html',1,'galaxy::resource']]],

@@ -1,5 +1,12 @@
 <map id="galaxy::Window::handle_window_events" name="galaxy::Window::handle_window_events">
-<area shape="rect" id="Node000001" title="Process window specific events." alt="" coords="5,5,181,45"/>
-<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe" title="Close window." alt="" coords="229,13,396,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,23,215,23,215,28,182,28"/>
+<area shape="rect" id="Node000001" title="Process window specific events." alt="" coords="5,55,181,95"/>
+<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe" title="Close window." alt="" coords="229,5,396,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,53,249,32,251,37,171,58"/>
+<area shape="rect" id="Node000003" href="$d0/d84/classgalaxy_1_1Window.html#ac97e9f46c7fc0449ca77ccbaab5b803d" title="Get display content scale." alt="" coords="236,55,389,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,73,223,73,223,78,182,78"/>
+<area shape="rect" id="Node000004" href="$d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d" title="Set imgui theme." alt="" coords="234,143,391,183"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,93,250,136,248,141,143,98"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="272,144,269,134,276,124,290,119,313,117,338,120,352,127,350,132,337,125,313,122,292,124,279,129,274,135,277,142"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="444,143,623,183"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="391,161,430,161,430,166,391,166"/>
 </map>

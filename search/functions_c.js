@@ -1,16 +1,10 @@
 var searchData=
 [
-  ['make_5fsingle_5fspaced_0',['make_single_spaced',['../df/d98/namespacegalaxy_1_1str.html#ac2460a7064f04edb82dabf39d869831c',1,'galaxy::str']]],
-  ['maximize_1',['maximize',['../d0/d84/classgalaxy_1_1Window.html#a73c7aeb46b0a26f8b0edfe88ab1a82da',1,'galaxy::Window']]],
-  ['mem_5falloc_2',['mem_alloc',['../d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3',1,'galaxy']]],
-  ['mem_5ffree_3',['mem_free',['../d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56',1,'galaxy']]],
-  ['message_5fbox_4',['message_box',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a0d32700de2c56498333e7f2bfc54a542',1,'galaxy::VirtualFileSystem']]],
-  ['minimize_5',['minimize',['../d0/d84/classgalaxy_1_1Window.html#ad4568c3a89072612c1a5a14167a1f961',1,'galaxy::Window']]],
-  ['mkdir_6',['mkdir',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#af805106cad1d432f592b4213a3e28e14',1,'galaxy::VirtualFileSystem']]],
-  ['mouse_7',['Mouse',['../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a',1,'galaxy::Mouse::Mouse() noexcept'],['../d4/d5d/classgalaxy_1_1Mouse.html#a9a8f7cbe348473c23ca7c56b00f3e725',1,'galaxy::Mouse::Mouse(Mouse &amp;&amp;)=delete'],['../d4/d5d/classgalaxy_1_1Mouse.html#ad4eacffff9b65295b175d4bcb39d7245',1,'galaxy::Mouse::Mouse(const Mouse &amp;)=delete']]],
-  ['mousemoved_8',['MouseMoved',['../d5/d1a/structgalaxy_1_1MouseMoved.html#afd3f93442389581e4b063859f8178734',1,'galaxy::MouseMoved']]],
-  ['mousepressed_9',['MousePressed',['../de/d27/structgalaxy_1_1MousePressed.html#ac0807b0e0af02de693ece168e56c3953',1,'galaxy::MousePressed']]],
-  ['mousereleased_10',['MouseReleased',['../d1/d0d/structgalaxy_1_1MouseReleased.html#abf12b9ec83ae196c80e2bab5e2eeb4e9',1,'galaxy::MouseReleased']]],
-  ['mousewheel_11',['MouseWheel',['../da/d9e/structgalaxy_1_1MouseWheel.html#ab4f65b916bd72c5f6f70ceea216d6a9d',1,'galaxy::MouseWheel']]],
-  ['ms_5fto_5fns_12',['ms_to_ns',['../d2/d2f/namespacegalaxy_1_1time.html#a046911c2ac18fbfa890f38c3cc1a3205',1,'galaxy::time']]]
+  ['name_0',['name',['../d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92',1,'galaxy::State']]],
+  ['normalize_1',['normalize',['../d1/d92/namespacegalaxy_1_1math.html#a59b8e6974f10b241ee83381ce3e5df48',1,'galaxy::math']]],
+  ['notification_2',['notification',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a72470275dbda0532a188b0fdea86f32d',1,'galaxy::VirtualFileSystem']]],
+  ['now_3',['now',['../d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d',1,'galaxy::time']]],
+  ['ns_5fto_5fms_4',['ns_to_ms',['../d2/d2f/namespacegalaxy_1_1time.html#a93e4339ea44bb79414856c84159424cf',1,'galaxy::time']]],
+  ['ns_5fto_5fs_5',['ns_to_s',['../d2/d2f/namespacegalaxy_1_1time.html#ae00a01c50a6bdeda44d68e3c290fafd3',1,'galaxy::time']]],
+  ['ns_5fto_5fus_6',['ns_to_us',['../d2/d2f/namespacegalaxy_1_1time.html#aaae24fb393e7ea106fba7eecbeb7f328',1,'galaxy::time']]]
 ];

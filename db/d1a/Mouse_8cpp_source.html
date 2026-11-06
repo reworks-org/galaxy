@@ -115,161 +115,249 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/d1a/Mouse_8
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../db/d1a/Mouse_8cpp.html#aac1350657dc7f3f62b8185d2521bc94e">    8</a></span><span class="preprocessor">#define SDL_STBIMG_SDL3</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;SDL_stbimage.h&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/logging/Log.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;display.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;draw.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;input.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;SDL_stbimage.h&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d78/Mouse_8hpp.html">Mouse.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a">   19</a></span>    <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a">Mouse::Mouse</a>() noexcept</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        : <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">WindowBindable</a> {}</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        , m_cursor {<span class="keyword">nullptr</span>}</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
-</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a50b5b7eebc944f3f0c542ffdbc4c1437">   25</a></span>    <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a50b5b7eebc944f3f0c542ffdbc4c1437">Mouse::~Mouse</a>() noexcept</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../de/dc7/VirtualFileSystem_8hpp.html">galaxy/fs/VirtualFileSystem.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d82/Log_8hpp.html">galaxy/logging/Log.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d78/Mouse_8hpp.html">Mouse.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a">   22</a></span>    <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a">Mouse::Mouse</a>() noexcept</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        : <a class="code hl_function" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">WindowBindable</a> {}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        , m_cursor {<span class="keyword">nullptr</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        , m_cursor_bitmap {<span class="keyword">nullptr</span>}</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#acd71312528a78efb4c36df2bdea78735">   30</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#acd71312528a78efb4c36df2bdea78735">Mouse::has_mouse</a>() const noexcept</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> SDL_HasMouse();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5">   35</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5">Mouse::set_mouse_grab</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> grabbed) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        SDL_SetWindowMouseGrab(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>, grabbed);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a50b5b7eebc944f3f0c542ffdbc4c1437">   29</a></span>    <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a50b5b7eebc944f3f0c542ffdbc4c1437">Mouse::~Mouse</a>() noexcept</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a>)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            sl::destroy_bitmap(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c">   40</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c">Mouse::warp_mouse</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae67501b6339c33353daa3fbe3f97a1ee">   40</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae67501b6339c33353daa3fbe3f97a1ee">Mouse::mouse_connected</a>() const noexcept</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        SDL_WarpMouseInWindow(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>, x, y);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> SDL_HasMouse();</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
 </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1">Mouse::show_cursor</a>() const noexcept</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5">Mouse::set_mouse_grab</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> grabbed) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        SDL_ShowCursor();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        SDL_SetWindowMouseGrab(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>, grabbed);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
 </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266">Mouse::hide_cursor</a>() const noexcept</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c">Mouse::warp_mouse</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        SDL_HideCursor();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        SDL_WarpMouseInWindow(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>, x, y);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
 </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d">Mouse::set_cursor_system</a>(<span class="keyword">const</span> SDL_SystemCursor cursor) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a06f725eace64c1c0d03a7dc39d371a08">   55</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a06f725eace64c1c0d03a7dc39d371a08">Mouse::set_window_mouse_rect</a>(<a class="code hl_typedef" href="../../d0/d46/namespacegalaxy.html#a9b3b4aa5d37e03fe45aca3556b1a1f05">iRect</a>&amp; rect) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a> = SDL_CreateSystemCursor(cursor);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            SDL_SetCursor(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to create system cursor: &#39;{0}&#39;.&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sdlrect = rect.to_sdl();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> SDL_SetWindowMouseRect(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>, &amp;sdlrect);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae166b3f2d1f5afbc0fe4691ee0f0c4e0">   70</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae166b3f2d1f5afbc0fe4691ee0f0c4e0">Mouse::set_cursor_custom</a>(<span class="keyword">const</span> std::string&amp; cursor, <span class="keyword">const</span> glm::ivec2&amp; hotspot) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> (!cursor.empty())</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keyword">auto</span>&amp; fs = entt::locator&lt;VirtualFileSystem&gt;::value();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">auto</span> data = fs.read_binary(cursor);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">if</span> (!data.empty())</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <span class="keyword">auto</span> surface = STBIMG_LoadFromMemory(data.data(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data.size()));</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                <span class="keywordflow">if</span> (surface)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                    <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a> = SDL_CreateColorCursor(surface, hotspot.x, hotspot.y);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                    {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                        SDL_SetCursor(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                    }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                    {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                        <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to create custom cursor: &#39;{0}&#39;.&quot;</span>, SDL_GetError());</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                    }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, SDL_GetError());</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                SDL_DestroySurface(surface);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to read &#39;{0}&#39; from the vfs.&quot;</span>, cursor);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1">   61</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1">Mouse::show_cursor</a>() const noexcept</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        sl::show_mouse();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
 </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee">  108</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee">Mouse::restore_cursor</a>() noexcept</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        SDL_SetCursor(SDL_GetDefaultCursor());</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266">Mouse::hide_cursor</a>() const noexcept</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        sl::hide_mouse();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
 </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">  114</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">Mouse::destroy_cursor</a>() noexcept</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>)</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            SDL_DestroyCursor(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d">Mouse::set_cursor_system</a>(<span class="keyword">const</span> SDL_SystemCursor cursor) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a> = SDL_CreateSystemCursor(cursor);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            SDL_SetCursor(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to create system cursor: &#39;{0}&#39;.&quot;</span>, SDL_GetError());</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
 </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#af2cce36131e47ea7d4702f5ccb99f5d4">   86</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#af2cce36131e47ea7d4702f5ccb99f5d4">Mouse::use_custom_mouse</a>(<span class="keyword">const</span> std::string&amp; cursor, <span class="keyword">const</span> glm::ivec2&amp; offset)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> (!cursor.empty())</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keyword">auto</span>&amp; fs = entt::locator&lt;VirtualFileSystem&gt;::value();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keyword">auto</span> data = fs.read_binary(cursor);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keywordflow">if</span> (!data.empty())</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <span class="keyword">auto</span> surface = STBIMG_LoadFromMemory(data.data(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data.size()));</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                <span class="keywordflow">if</span> (surface)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a>)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                    {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                        sl::destroy_bitmap(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a>);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                    <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a> = sl::load_bitmap_from_surface(surface);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                    sl::set_mouse_bitmap(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">m_cursor_bitmap</a>, offset.x, offset.y);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, SDL_GetError());</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                SDL_DestroySurface(surface);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <a class="code hl_define" href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a>(<a class="code hl_define" href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a>, <span class="stringliteral">&quot;Failed to read &#39;{0}&#39; from the vfs.&quot;</span>, cursor);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee">Mouse::restore_cursor</a>() noexcept</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">destroy_cursor</a>();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        SDL_SetCursor(SDL_GetDefaultCursor());</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">  128</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">Mouse::destroy_cursor</a>() noexcept</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            SDL_DestroyCursor(<a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a>);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <a class="code hl_variable" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">m_cursor</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a429c69fabde23cd1d0653132746aa59e">  137</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a429c69fabde23cd1d0653132746aa59e">Mouse::is_mouse_down</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="../../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806">MouseButton</a> btn) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keyword">const</span> <span class="keyword">auto</span> buttons = SDL_GetMouseState(<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">return</span> buttons &amp; SDL_BUTTON_MASK(<span class="keyword">static_cast&lt;</span>SDL_MouseButtonFlags<span class="keyword">&gt;</span>(btn));</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ad4793cdf3afa2c062782989d645b1206">  143</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#ad4793cdf3afa2c062782989d645b1206">Mouse::mouse_x</a>() const noexcept</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">return</span> sl::mouse_x();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    }</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa3b7d7cbb66b8589de2e6131caccdf91">  148</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa3b7d7cbb66b8589de2e6131caccdf91">Mouse::mouse_y</a>() const noexcept</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> sl::mouse_y();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a3620f44faa06f9897878fe014481f767">  153</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a3620f44faa06f9897878fe014481f767">Mouse::set_mouse_mapping</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y, <span class="keyword">const</span> <span class="keywordtype">float</span> scale_x, <span class="keyword">const</span> <span class="keywordtype">float</span> scale_y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">return</span> sl::set_mouse_mapping(x, y, scale_x, scale_y);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8237d634c8b0551b070cdfbfd5a411e7">  158</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8237d634c8b0551b070cdfbfd5a411e7">Mouse::clear_mouse_mapping</a>() const noexcept</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        sl::clear_mouse_mapping();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a991bbdbac323dd6327725dddd4d3397b">  163</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a991bbdbac323dd6327725dddd4d3397b">Mouse::set_relative_mouse_mode</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> enabled) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        sl::set_relative_mouse_mode(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>, enabled);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="foldopen" id="foldopen00168" data-start="{" data-end="}">
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a90bd8971023112578b33c4f8de31d8e1">  168</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a90bd8971023112578b33c4f8de31d8e1">Mouse::relative_mouse_mode</a>() const noexcept</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">return</span> sl::relative_mouse_mode(<a class="code hl_variable" href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">m_window</a>);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
+</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a091703a604ad31e7360a24715bcb4c7c">  173</a></span>    glm::ivec2 <a class="code hl_function" href="../../d4/d5d/classgalaxy_1_1Mouse.html#a091703a604ad31e7360a24715bcb4c7c">Mouse::mouse_delta</a>(<span class="keywordtype">int</span>* dx, <span class="keywordtype">int</span>* dy) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        glm::ivec2 vec2;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        sl::mouse_delta(&amp;vec2.x, &amp;vec2.y);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordflow">return</span> vec2;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
+</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>} <span class="comment">// namespace galaxy</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5d255bae9c81d348f3dd2ac15d9777de"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#a5d255bae9c81d348f3dd2ac15d9777de">GALAXY_LOG</a></div><div class="ttdeci">#define GALAXY_LOG(level, msg,...)</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00029">Log.hpp:29</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_ae283c992c2a365de68af65c7d418f2dd"><div class="ttname"><a href="../../d0/d82/Log_8hpp.html#ae283c992c2a365de68af65c7d418f2dd">GALAXY_ERROR</a></div><div class="ttdeci">#define GALAXY_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d82/Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
 <div class="ttc" id="aMouse_8hpp_html"><div class="ttname"><a href="../../d5/d78/Mouse_8hpp.html">Mouse.hpp</a></div></div>
 <div class="ttc" id="aVirtualFileSystem_8hpp_html"><div class="ttname"><a href="../../de/dc7/VirtualFileSystem_8hpp.html">VirtualFileSystem.hpp</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a442681312d75d94e3f0427b025e0d18d"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d">galaxy::Mouse::set_cursor_system</a></div><div class="ttdeci">void set_cursor_system(const SDL_SystemCursor cursor) noexcept</div><div class="ttdoc">Set cursor to a system cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00055">Mouse.cpp:55</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a4b6f82503b7e9f4c48ee259c6b50fc8a"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a">galaxy::Mouse::Mouse</a></div><div class="ttdeci">Mouse() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">Mouse.cpp:19</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a50b5b7eebc944f3f0c542ffdbc4c1437"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a50b5b7eebc944f3f0c542ffdbc4c1437">galaxy::Mouse::~Mouse</a></div><div class="ttdeci">~Mouse() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">Mouse.cpp:25</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a8e08c8529394667f2cce73a5b86bf25a"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">galaxy::Mouse::destroy_cursor</a></div><div class="ttdeci">void destroy_cursor() noexcept</div><div class="ttdoc">Destroy any existing cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00114">Mouse.cpp:114</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a93461d1fb87848f2f6c4ed85167b7266"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266">galaxy::Mouse::hide_cursor</a></div><div class="ttdeci">void hide_cursor() const noexcept</div><div class="ttdoc">Hide cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Mouse.cpp:50</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a9e0e6a6326be7c3b659298db671815ee"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee">galaxy::Mouse::restore_cursor</a></div><div class="ttdeci">void restore_cursor() noexcept</div><div class="ttdoc">Set the cursor back to default.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">Mouse.cpp:108</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aa1363e0508a481321fd2a3faa44010c5"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5">galaxy::Mouse::set_mouse_grab</a></div><div class="ttdeci">void set_mouse_grab(const bool grabbed) const noexcept</div><div class="ttdoc">Toggle mouse grab.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Mouse.cpp:35</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aa7f1dde764f437a040d57bb82925f1e1"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1">galaxy::Mouse::show_cursor</a></div><div class="ttdeci">void show_cursor() const noexcept</div><div class="ttdoc">Show cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">Mouse.cpp:45</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aad3c1f12b41712b2fcd48a9e1ca474b3"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">galaxy::Mouse::m_cursor</a></div><div class="ttdeci">SDL_Cursor * m_cursor</div><div class="ttdoc">Holds data for a custom cursor.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d78/Mouse_8hpp_source.html#l00119">Mouse.hpp:119</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_acd71312528a78efb4c36df2bdea78735"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#acd71312528a78efb4c36df2bdea78735">galaxy::Mouse::has_mouse</a></div><div class="ttdeci">bool has_mouse() const noexcept</div><div class="ttdoc">Check if there is a mouse connected.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">Mouse.cpp:30</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_ae166b3f2d1f5afbc0fe4691ee0f0c4e0"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae166b3f2d1f5afbc0fe4691ee0f0c4e0">galaxy::Mouse::set_cursor_custom</a></div><div class="ttdeci">void set_cursor_custom(const std::string &amp;cursor, const glm::ivec2 &amp;hotspot) noexcept</div><div class="ttdoc">Set custom cursor texture.</div><div class="ttdef"><b>Definition</b> <a href="#l00070">Mouse.cpp:70</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aecacd60ec3a752228242654eeb3ea68c"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c">galaxy::Mouse::warp_mouse</a></div><div class="ttdeci">void warp_mouse(const float x, const float y) const noexcept</div><div class="ttdoc">Move the mouse cursor to the given position within the window.</div><div class="ttdef"><b>Definition</b> <a href="#l00040">Mouse.cpp:40</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a06f725eace64c1c0d03a7dc39d371a08"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a06f725eace64c1c0d03a7dc39d371a08">galaxy::Mouse::set_window_mouse_rect</a></div><div class="ttdeci">bool set_window_mouse_rect(iRect &amp;rect) noexcept</div><div class="ttdoc">Confines the cursor to the specified area of a window.</div><div class="ttdef"><b>Definition</b> <a href="#l00055">Mouse.cpp:55</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a091703a604ad31e7360a24715bcb4c7c"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a091703a604ad31e7360a24715bcb4c7c">galaxy::Mouse::mouse_delta</a></div><div class="ttdeci">glm::ivec2 mouse_delta(int *dx, int *dy) noexcept</div><div class="ttdoc">Retrieve relative mouse movement (delta) since the last call.</div><div class="ttdef"><b>Definition</b> <a href="#l00173">Mouse.cpp:173</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a33fd8ef976b633e9e1809600cb4d9916"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a33fd8ef976b633e9e1809600cb4d9916">galaxy::Mouse::m_cursor_bitmap</a></div><div class="ttdeci">sl::Bitmap * m_cursor_bitmap</div><div class="ttdoc">Mouse custom bitmap.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d78/Mouse_8hpp_source.html#l00215">Mouse.hpp:215</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a3620f44faa06f9897878fe014481f767"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a3620f44faa06f9897878fe014481f767">galaxy::Mouse::set_mouse_mapping</a></div><div class="ttdeci">void set_mouse_mapping(const int x, const int y, const float scale_x, const float scale_y) const noexcept</div><div class="ttdoc">Set mouse relative mapping to another coord space.</div><div class="ttdef"><b>Definition</b> <a href="#l00153">Mouse.cpp:153</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a429c69fabde23cd1d0653132746aa59e"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a429c69fabde23cd1d0653132746aa59e">galaxy::Mouse::is_mouse_down</a></div><div class="ttdeci">bool is_mouse_down(const MouseButton btn) const noexcept</div><div class="ttdoc">Check if a mouse button was pressed.</div><div class="ttdef"><b>Definition</b> <a href="#l00137">Mouse.cpp:137</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a442681312d75d94e3f0427b025e0d18d"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a442681312d75d94e3f0427b025e0d18d">galaxy::Mouse::set_cursor_system</a></div><div class="ttdeci">void set_cursor_system(const SDL_SystemCursor cursor) noexcept</div><div class="ttdoc">Set cursor to a system cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00071">Mouse.cpp:71</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a4b6f82503b7e9f4c48ee259c6b50fc8a"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a4b6f82503b7e9f4c48ee259c6b50fc8a">galaxy::Mouse::Mouse</a></div><div class="ttdeci">Mouse() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">Mouse.cpp:22</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a50b5b7eebc944f3f0c542ffdbc4c1437"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a50b5b7eebc944f3f0c542ffdbc4c1437">galaxy::Mouse::~Mouse</a></div><div class="ttdeci">~Mouse() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">Mouse.cpp:29</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a8237d634c8b0551b070cdfbfd5a411e7"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8237d634c8b0551b070cdfbfd5a411e7">galaxy::Mouse::clear_mouse_mapping</a></div><div class="ttdeci">void clear_mouse_mapping() const noexcept</div><div class="ttdoc">Return mouse_x()/mouse_y() to plain screen coordinates.</div><div class="ttdef"><b>Definition</b> <a href="#l00158">Mouse.cpp:158</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a8e08c8529394667f2cce73a5b86bf25a"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a">galaxy::Mouse::destroy_cursor</a></div><div class="ttdeci">void destroy_cursor() noexcept</div><div class="ttdoc">Destroy any existing cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00128">Mouse.cpp:128</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a90bd8971023112578b33c4f8de31d8e1"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a90bd8971023112578b33c4f8de31d8e1">galaxy::Mouse::relative_mouse_mode</a></div><div class="ttdeci">bool relative_mouse_mode() const noexcept</div><div class="ttdoc">Return whether relative mouse mode is currently enabled.</div><div class="ttdef"><b>Definition</b> <a href="#l00168">Mouse.cpp:168</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a93461d1fb87848f2f6c4ed85167b7266"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a93461d1fb87848f2f6c4ed85167b7266">galaxy::Mouse::hide_cursor</a></div><div class="ttdeci">void hide_cursor() const noexcept</div><div class="ttdoc">Hide cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00066">Mouse.cpp:66</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a991bbdbac323dd6327725dddd4d3397b"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a991bbdbac323dd6327725dddd4d3397b">galaxy::Mouse::set_relative_mouse_mode</a></div><div class="ttdeci">void set_relative_mouse_mode(const bool enabled) const noexcept</div><div class="ttdoc">Enable or disable relative mouse mode (locks cursor to window, hides it, and reports relative motion)...</div><div class="ttdef"><b>Definition</b> <a href="#l00163">Mouse.cpp:163</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_a9e0e6a6326be7c3b659298db671815ee"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#a9e0e6a6326be7c3b659298db671815ee">galaxy::Mouse::restore_cursor</a></div><div class="ttdeci">void restore_cursor() noexcept</div><div class="ttdoc">Set the cursor back to default.</div><div class="ttdef"><b>Definition</b> <a href="#l00122">Mouse.cpp:122</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aa1363e0508a481321fd2a3faa44010c5"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa1363e0508a481321fd2a3faa44010c5">galaxy::Mouse::set_mouse_grab</a></div><div class="ttdeci">void set_mouse_grab(const bool grabbed) const noexcept</div><div class="ttdoc">Toggle mouse grab.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">Mouse.cpp:45</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aa3b7d7cbb66b8589de2e6131caccdf91"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa3b7d7cbb66b8589de2e6131caccdf91">galaxy::Mouse::mouse_y</a></div><div class="ttdeci">int mouse_y() const noexcept</div><div class="ttdoc">Get current cursor y position.</div><div class="ttdef"><b>Definition</b> <a href="#l00148">Mouse.cpp:148</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aa7f1dde764f437a040d57bb82925f1e1"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1">galaxy::Mouse::show_cursor</a></div><div class="ttdeci">void show_cursor() const noexcept</div><div class="ttdoc">Show cursor.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">Mouse.cpp:61</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aad3c1f12b41712b2fcd48a9e1ca474b3"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aad3c1f12b41712b2fcd48a9e1ca474b3">galaxy::Mouse::m_cursor</a></div><div class="ttdeci">SDL_Cursor * m_cursor</div><div class="ttdoc">Holds data for a custom cursor.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d78/Mouse_8hpp_source.html#l00210">Mouse.hpp:210</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_ad4793cdf3afa2c062782989d645b1206"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#ad4793cdf3afa2c062782989d645b1206">galaxy::Mouse::mouse_x</a></div><div class="ttdeci">int mouse_x() const noexcept</div><div class="ttdoc">Get current cursor x position.</div><div class="ttdef"><b>Definition</b> <a href="#l00143">Mouse.cpp:143</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_ae67501b6339c33353daa3fbe3f97a1ee"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#ae67501b6339c33353daa3fbe3f97a1ee">galaxy::Mouse::mouse_connected</a></div><div class="ttdeci">bool mouse_connected() const noexcept</div><div class="ttdoc">Check if there is a mouse connected.</div><div class="ttdef"><b>Definition</b> <a href="#l00040">Mouse.cpp:40</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_aecacd60ec3a752228242654eeb3ea68c"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#aecacd60ec3a752228242654eeb3ea68c">galaxy::Mouse::warp_mouse</a></div><div class="ttdeci">void warp_mouse(const float x, const float y) const noexcept</div><div class="ttdoc">Move the mouse cursor to the given position within the window.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Mouse.cpp:50</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Mouse_html_af2cce36131e47ea7d4702f5ccb99f5d4"><div class="ttname"><a href="../../d4/d5d/classgalaxy_1_1Mouse.html#af2cce36131e47ea7d4702f5ccb99f5d4">galaxy::Mouse::use_custom_mouse</a></div><div class="ttdeci">void use_custom_mouse(const std::string &amp;cursor, const glm::ivec2 &amp;offset=glm::ivec2(0, 0))</div><div class="ttdoc">Replaces the system cursor with a bitmap.</div><div class="ttdef"><b>Definition</b> <a href="#l00086">Mouse.cpp:86</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_a6427593a425c67c511f43e470a93ad74"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74">galaxy::WindowBindable::WindowBindable</a></div><div class="ttdeci">WindowBindable() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../da/dba/WindowBindable_8cpp_source.html#l00016">WindowBindable.cpp:16</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1WindowBindable_html_ab8d052ecb9b1f59aaf4a01d301eed668"><div class="ttname"><a href="../../d3/d81/classgalaxy_1_1WindowBindable.html#ab8d052ecb9b1f59aaf4a01d301eed668">galaxy::WindowBindable::m_window</a></div><div class="ttdeci">SDL_Window * m_window</div><div class="ttdoc">Pointer to SDL_Window handle.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d16/WindowBindable_8hpp_source.html#l00063">WindowBindable.hpp:63</a></div></div>
-<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db6/Application_8cpp_source.html#l00042">Application.cpp:43</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db6/Application_8cpp_source.html#l00046">Application.cpp:47</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html_a9b3b4aa5d37e03fe45aca3556b1a1f05"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html#a9b3b4aa5d37e03fe45aca3556b1a1f05">galaxy::iRect</a></div><div class="ttdeci">Rect&lt; int &gt; iRect</div><div class="ttdoc">Type definition for an int rectangle.</div><div class="ttdef"><b>Definition</b> <a href="../../dc/dd2/Rect_8hpp_source.html#l00190">Rect.hpp:190</a></div></div>
+<div class="ttc" id="anamespacegalaxy_html_af0dc1495799405e3282bb92627920806"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806">galaxy::MouseButton</a></div><div class="ttdeci">MouseButton</div><div class="ttdoc">Enum class representing mouse buttons.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d34/MouseButton_8hpp_source.html#l00018">MouseButton.hpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

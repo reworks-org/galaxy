@@ -1,17 +1,19 @@
 <map id="galaxy::Scene" name="galaxy::Scene">
-<area shape="rect" id="Node000001" title="Represents a scene in a game." alt="" coords="92,819,209,1124"/>
+<area shape="rect" id="Node000001" title="Represents a scene in a game." alt="" coords="159,819,276,1124"/>
 <area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="18,483,123,728"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,741,120,818,115,819,98,742"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,740,161,823,156,825,122,742"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="31,319,110,385"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,385,73,466,68,466,68,385"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,141,136,221"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="73,235,73,319,68,319,68,235"/>
-<area shape="rect" id="Node000005" href="$d5/d09/classgalaxy_1_1SystemManager.html" title="Manages the systems assigned to it." alt="" coords="148,463,319,748"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="204,749,191,803,186,802,199,748"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="148,312,319,392"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="236,393,236,446,231,446,231,393"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="173,149,294,214"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="236,228,236,312,231,312,231,228"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="222,5,245,71"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="236,71,236,132,231,132,231,71"/>
+<area shape="rect" id="Node000005" href="$d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="147,503,288,708"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="220,722,220,818,215,818,215,722"/>
+<area shape="rect" id="Node000006" href="$d5/d09/classgalaxy_1_1SystemManager.html" title="Manages the systems assigned to it." alt="" coords="312,463,483,748"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="330,749,286,838,281,836,325,747"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="312,312,483,392"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="400,393,400,446,395,446,395,393"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="337,149,458,214"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="400,228,400,312,395,312,395,228"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="386,5,409,71"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="400,71,400,132,395,132,395,71"/>
 </map>

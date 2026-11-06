@@ -1,18 +1,14 @@
 var searchData=
 [
-  ['texture_5fsettings_2ehpp_0',['texture_settings.hpp',['../d3/dac/texture__settings_8hpp.html',1,'']]],
-  ['textures_1',['Textures',['../d4/d1b/namespacegalaxy_1_1resource.html#aa5031532536aac07cd2b756378ad6741',1,'galaxy::resource']]],
-  ['textures_2ecpp_2',['Textures.cpp',['../d0/d35/Textures_8cpp.html',1,'']]],
-  ['textures_2ehpp_3',['Textures.hpp',['../da/d41/Textures_8hpp.html',1,'']]],
-  ['time_4',['time',['../d6/d64/structgalaxy_1_1LogMessage.html#a6505798bec05d37e2360450a5de20cc0',1,'galaxy::LogMessage']]],
-  ['time_2ecpp_5',['Time.cpp',['../d8/d38/Time_8cpp.html',1,'']]],
-  ['time_2ehpp_6',['Time.hpp',['../d9/de7/Time_8hpp.html',1,'']]],
-  ['time_5fsince_5fepoch_7',['time_since_epoch',['../d2/d2f/namespacegalaxy_1_1time.html#aebedc9a10397936471d9247289126577',1,'galaxy::time']]],
-  ['timer_8',['Timer',['../d0/d7b/classgalaxy_1_1Timer.html',1,'galaxy::Timer'],['../d0/d7b/classgalaxy_1_1Timer.html#a0887c5f4327eaa322ad07f42633a2ab0',1,'galaxy::Timer::Timer() noexcept'],['../d0/d7b/classgalaxy_1_1Timer.html#aca737829a14a6f6619de2694a7789f55',1,'galaxy::Timer::Timer(const Timer &amp;)=delete']]],
-  ['timer_2ecpp_9',['Timer.cpp',['../d0/dc2/Timer_8cpp.html',1,'']]],
-  ['timer_2ehpp_10',['Timer.hpp',['../d8/dbf/Timer_8hpp.html',1,'']]],
-  ['title_11',['title',['../df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682',1,'galaxy::Settings']]],
-  ['top_12',['top',['../da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f',1,'galaxy::StateMachine']]],
-  ['trace_13',['trace',['../d6/d64/structgalaxy_1_1LogMessage.html#a6baf094f44932c1add16863a64b9654e',1,'galaxy::LogMessage']]],
-  ['trim_14',['trim',['../df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5',1,'galaxy::str']]]
+  ['unix_2ecpp_0',['Unix.cpp',['../d6/d50/Unix_8cpp.html',1,'']]],
+  ['unix_2ehpp_1',['Unix.hpp',['../d4/d86/Unix_8hpp.html',1,'']]],
+  ['unknown_2',['UNKNOWN',['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806a696b031073e74bf2cb98e5ef201d4aa3',1,'galaxy']]],
+  ['unpause_3',['unpause',['../d4/d22/classgalaxy_1_1Stopwatch.html#a14bf40363e1867dd4bb7ae406c8b3175',1,'galaxy::Stopwatch']]],
+  ['update_4',['update',['../df/dba/classgalaxy_1_1Scene.html#a6994fa68aa02866f7d388c3e160219a9',1,'galaxy::Scene::update()'],['../d1/dbc/classgalaxy_1_1SceneManager.html#a17089421810615d345d5d7a3d97d2121',1,'galaxy::SceneManager::update()'],['../d5/d63/classgalaxy_1_1systems_1_1AnimationSystem.html#a68d10ab4fa7d2404a739c0f08e8ca0f4',1,'galaxy::systems::AnimationSystem::update()'],['../df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a959ca5d0f7f9afb8b614e1c8e02f1f83',1,'galaxy::systems::PhysicsSystem::update()'],['../d9/d0d/classgalaxy_1_1systems_1_1RenderSystem.html#ad26da4454a249f93e7d0a1aa4fb808f7',1,'galaxy::systems::RenderSystem::update()'],['../dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html#a4a1df5c6ae098132b3e7f1f4e9ba4759',1,'galaxy::systems::ScriptSystem::update()'],['../dc/dd4/classgalaxy_1_1System.html#aef9165cf3e8d4daa54d0496f81ed2caf',1,'galaxy::System::update()'],['../d5/d09/classgalaxy_1_1SystemManager.html#afa874b6ccd2114218dd496f7c0d936c9',1,'galaxy::SystemManager::update()'],['../d4/d22/classgalaxy_1_1Stopwatch.html#ab717006f1300315a7ccbcaf874b429ee',1,'galaxy::Stopwatch::update()']]],
+  ['us_5fto_5fns_5',['us_to_ns',['../d2/d2f/namespacegalaxy_1_1time.html#a6f5a173e86eb5661f15a9ee792077272',1,'galaxy::time']]],
+  ['use_5fcustom_5fmouse_6',['use_custom_mouse',['../d4/d5d/classgalaxy_1_1Mouse.html#af2cce36131e47ea7d4702f5ccb99f5d4',1,'galaxy::Mouse']]],
+  ['use_5floose_5fassets_7',['use_loose_assets',['../df/d23/structgalaxy_1_1Settings.html#a63077443966b4774610d887a7c21a943',1,'galaxy::Settings']]],
+  ['uuid_8',['UUID',['../dd/da7/classgalaxy_1_1UUID.html',1,'galaxy::UUID'],['../dd/da7/classgalaxy_1_1UUID.html#a21855336b5682bee7964ccf1fb6a05f6',1,'galaxy::UUID::UUID()'],['../dd/da7/classgalaxy_1_1UUID.html#a3e80203a3239c686fc72e84a1b853fc8',1,'galaxy::UUID::UUID(UUID &amp;&amp;) noexcept'],['../dd/da7/classgalaxy_1_1UUID.html#a93d5ffb7e0cd785d318d31de38dda0f2',1,'galaxy::UUID::UUID(const UUID &amp;) noexcept']]],
+  ['uuid_2ecpp_9',['UUID.cpp',['../df/dae/UUID_8cpp.html',1,'']]],
+  ['uuid_2ehpp_10',['UUID.hpp',['../d6/da7/UUID_8hpp.html',1,'']]]
 ];

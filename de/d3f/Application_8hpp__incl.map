@@ -1,9 +1,7 @@
 <map id="galaxy/src/galaxy/core/Application.hpp" name="galaxy/src/galaxy/core/Application.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="47,5,217,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,5,182,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,64,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,48,61,87,58,82,107,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="89,93,175,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,46,135,79,129,79,129,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="200,93,347,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,43,241,84,239,89,165,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,47,55,84,51,81,80,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="88,93,235,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,44,145,81,141,84,111,47"/>
 </map>

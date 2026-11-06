@@ -1,0 +1,14 @@
+<map id="galaxy::App::setup_ui" name="galaxy::App::setup_ui">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,94,167,119"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="215,94,373,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,104,201,104,201,109,167,109"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="260,96,253,86,256,76,271,70,294,67,323,71,334,80,331,84,321,76,294,73,272,75,260,79,258,85,264,92"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="421,5,600,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,91,420,55,440,48,442,53,422,60,328,96"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="438,94,583,119"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="374,104,424,104,424,109,374,109"/>
+<area shape="rect" id="Node000005" href="$d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="441,167,581,193"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="333,117,460,160,458,165,332,122"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="475,96,468,86,472,76,486,70,511,67,541,71,553,80,549,84,539,76,511,73,488,75,475,80,473,85,479,92"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="475,169,468,159,472,149,486,143,511,141,541,144,553,153,549,158,539,149,511,146,488,148,475,153,473,158,479,166"/>
+</map>

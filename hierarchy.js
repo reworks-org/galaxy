@@ -4,7 +4,6 @@ var hierarchy =
     [ "galaxy::Cache&lt; Resource, SpecLoader &gt;", "d1/d4d/classgalaxy_1_1Cache.html", null ],
     [ "galaxy::Config", "db/d49/classgalaxy_1_1Config.html", null ],
     [ "galaxy::CPUInfo", "d5/df7/structgalaxy_1_1CPUInfo.html", null ],
-    [ "galaxy::meta::EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", null ],
     [ "galaxy::EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", null ],
     [ "galaxy::Event", "df/d64/classgalaxy_1_1Event.html", [
       [ "galaxy::GainedFocus", "d4/db4/structgalaxy_1_1GainedFocus.html", null ],
@@ -41,9 +40,11 @@ var hierarchy =
     [ "galaxy::Lua", "d3/ddf/classgalaxy_1_1Lua.html", null ],
     [ "galaxy::Rect&lt; Type &gt;", "d5/d58/classgalaxy_1_1Rect.html", null ],
     [ "galaxy::RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", null ],
-    [ "galaxy::Registry", "df/dbe/classgalaxy_1_1Registry.html", null ],
     [ "galaxy::Script", "db/da2/classgalaxy_1_1Script.html", null ],
-    [ "galaxy::meta::EntityFactory::SerializationData", "d5/d5c/structgalaxy_1_1meta_1_1EntityFactory_1_1SerializationData.html", null ],
+    [ "galaxy::Serializable", "d6/d82/classgalaxy_1_1Serializable.html", [
+      [ "galaxy::Scene", "df/dba/classgalaxy_1_1Scene.html", null ],
+      [ "galaxy::SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", null ]
+    ] ],
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
     [ "galaxy::Sink", "d2/d42/classgalaxy_1_1Sink.html", [
       [ "galaxy::ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", null ],

@@ -1,0 +1,7 @@
+<map id="galaxy::Serializable" name="galaxy::Serializable">
+<area shape="rect" id="Node000001" title="Allows a class to be serialized." alt="" coords="75,5,216,211"/>
+<area shape="rect" id="Node000002" href="$df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game." alt="" coords="5,259,123,584"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,225,109,259,104,258,113,223"/>
+<area shape="rect" id="Node000003" href="$d1/dbc/classgalaxy_1_1SceneManager.html" title="State machine for managing scenes." alt="" coords="146,279,307,564"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,224,192,278,187,279,173,225"/>
+</map>

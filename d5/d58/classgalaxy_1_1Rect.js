@@ -13,6 +13,7 @@ var classgalaxy_1_1Rect =
     [ "get_top_left", "d5/d58/classgalaxy_1_1Rect.html#abd0d80bdadaa108f89b9adafec303420", null ],
     [ "get_center", "d5/d58/classgalaxy_1_1Rect.html#ae496c4d7c4e06d7482593f6cb72effd1", null ],
     [ "get_size", "d5/d58/classgalaxy_1_1Rect.html#ab3642c42e2e8750c8cfb29219a9c83b9", null ],
+    [ "to_sdl", "d5/d58/classgalaxy_1_1Rect.html#ad0ce85b724c4c79207c6738f901e736a", null ],
     [ "operator<=>", "d5/d58/classgalaxy_1_1Rect.html#ae14aef4e95a8011d209a0acc816c7192", null ],
     [ "value_in_range", "d5/d58/classgalaxy_1_1Rect.html#a85ef09ebf02ad78948c02a23c84eccba", null ],
     [ "m_xpos", "d5/d58/classgalaxy_1_1Rect.html#ae049ebf533908f7d11720f9dbb6b2f44", null ],

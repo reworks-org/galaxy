@@ -1,8 +1,14 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../d8/db2/classgalaxy_1_1Keyboard.html#a009aef3d76007f8066c1f8f53427f2c1',1,'galaxy::Keyboard::Keyboard() noexcept'],['../d8/db2/classgalaxy_1_1Keyboard.html#a641df705acdfe89a94cad1767fffbbdf',1,'galaxy::Keyboard::Keyboard(Keyboard &amp;&amp;)=delete'],['../d8/db2/classgalaxy_1_1Keyboard.html#ae21844d3dbf752fee09ebcbbd776a15b',1,'galaxy::Keyboard::Keyboard(const Keyboard &amp;)=delete']]],
-  ['keyinput_1',['KeyInput',['../d6/d71/structgalaxy_1_1KeyInput.html#a26682bfb1be1014d1d3966f22f46a994',1,'galaxy::KeyInput']]],
-  ['keypressed_2',['KeyPressed',['../d0/d11/structgalaxy_1_1KeyPressed.html#a8160270e4a9ceac4237ddd71c815a84d',1,'galaxy::KeyPressed']]],
-  ['keyreleased_3',['KeyReleased',['../d5/d60/structgalaxy_1_1KeyReleased.html#a94ff1cb318cc0b630138c4a20bf94ec0',1,'galaxy::KeyReleased']]],
-  ['kill_4',['kill',['../db/d1d/classgalaxy_1_1Subprocess.html#a7dcb39aa84e43ef724e89e0560f3ee99',1,'galaxy::Subprocess']]]
+  ['list_0',['list',['../d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a4aa6a65d69a7595f79b09f9ef35455e7',1,'galaxy::VirtualFileSystem']]],
+  ['load_1',['load',['../dd/d33/classgalaxy_1_1App.html#ab0b6f3235c5c0fc4cd3988568825418c',1,'galaxy::App::load()'],['../db/d49/classgalaxy_1_1Config.html#a373e4b1f5c0f44dde560f73909d85a3b',1,'galaxy::Config::load()'],['../db/da2/classgalaxy_1_1Script.html#a9d8623aed965309d0779090eacfe32ac',1,'galaxy::Script::load()']]],
+  ['load_5ffile_2',['load_file',['../d1/d4d/classgalaxy_1_1Cache.html#a49af33561efab77c3752557129803fc6',1,'galaxy::Cache']]],
+  ['load_5ffolder_3',['load_folder',['../d1/d4d/classgalaxy_1_1Cache.html#a63f090ed3ba369b8d5cb929774775cbd',1,'galaxy::Cache']]],
+  ['load_5fresource_4',['load_resource',['../d1/d4d/classgalaxy_1_1Cache.html#a75979b96b730e82aca295bf087cb3200',1,'galaxy::Cache']]],
+  ['log_5',['Log',['../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5',1,'galaxy::Log::Log() noexcept'],['../dd/dd3/classgalaxy_1_1Log.html#adb2d0bd5adbd11e413c5c42b5bde640c',1,'galaxy::Log::Log(const Log &amp;)=delete'],['../dd/dd3/classgalaxy_1_1Log.html#a43656a87e002d3fc391e93d588a04807',1,'galaxy::Log::Log(Log &amp;&amp;)=delete']]],
+  ['log_6',['log',['../d5/d13/classgalaxy_1_1FileError.html#a6fddfe48f26194025a033ce89482b990',1,'galaxy::FileError::log()'],['../dd/dd3/classgalaxy_1_1Log.html#a912eca54b8810af68b6f7be9c8fef722',1,'galaxy::Log::log()']]],
+  ['log_5fwrapper_7',['log_wrapper',['../d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92',1,'galaxy']]],
+  ['logs_5fdir_8',['logs_dir',['../df/d23/structgalaxy_1_1Settings.html#a1f19c1d8228c4dda4d9ce62db15124ea',1,'galaxy::Settings']]],
+  ['ltrim_9',['ltrim',['../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79',1,'galaxy::str']]],
+  ['lua_10',['Lua',['../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96',1,'galaxy::Lua']]]
 ];

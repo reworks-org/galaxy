@@ -1,9 +1,27 @@
 <map id="galaxy::Window::Window" name="galaxy::Window::Window">
-<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="5,31,189,56"/>
-<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="237,31,421,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,41,223,41,223,46,190,46"/>
-<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="475,5,635,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,30,461,26,462,31,422,36"/>
-<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="469,55,641,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="422,50,456,54,455,59,421,56"/>
+<area shape="rect" id="Node000001" title="Move constructor." alt="" coords="5,297,189,323"/>
+<area shape="rect" id="Node000002" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="237,297,421,323"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,307,223,307,223,313,190,313"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261" title="Is window started fullscreen." alt="" coords="473,5,672,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,296,344,248,369,178,387,140,410,103,436,69,468,40,475,35,478,39,471,44,440,73,414,106,392,143,374,180,349,249,336,298"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a8116b7ba973809ef35c4b7b23ed81cf6" title="Is window started maximized?" alt="" coords="469,55,676,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="332,296,348,256,376,200,416,141,440,114,468,91,479,83,482,88,471,95,444,118,420,144,381,203,353,258,337,298"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a9f11de9a6f51dcdee89b83645814cb0a" title="Is the cursor grabbed." alt="" coords="483,105,662,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="337,296,386,229,424,189,468,154,478,148,481,153,471,159,428,193,390,232,341,299"/>
+<area shape="rect" id="Node000006" href="$df/d23/structgalaxy_1_1Settings.html#a33931b677100cc9b62a5913b5b04eed2" title="Window requested height." alt="" coords="473,169,672,209"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="346,295,399,258,468,218,485,211,487,216,471,223,402,262,349,299"/>
+<area shape="rect" id="Node000007" href="$df/d23/structgalaxy_1_1Settings.html#ae6022e221170aa410cefcdcc08e2c918" title="Window requested width." alt="" coords="473,233,672,273"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="383,295,474,273,475,278,385,300"/>
+<area shape="rect" id="Node000008" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="493,297,653,323"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="422,307,479,307,479,313,422,313"/>
+<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a82e204457c21b181df180193dd76f906" title="Window virtual height." alt="" coords="485,347,661,387"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="385,320,475,342,474,347,383,325"/>
+<area shape="rect" id="Node000010" href="$df/d23/structgalaxy_1_1Settings.html#a7c403cbc824fe7d5d3e1d2fcd9cea988" title="Window virtual width." alt="" coords="485,411,661,451"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="349,321,402,358,471,397,487,404,485,409,468,402,399,362,346,325"/>
+<area shape="rect" id="Node000011" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="487,476,659,501"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="341,321,390,389,427,428,471,461,486,469,483,473,468,466,424,432,386,392,336,325"/>
+<area shape="rect" id="Node000012" href="$df/d23/structgalaxy_1_1Settings.html#a55e304adba9cc033fcbe30b07c2222de" title="Controls if a window has a border around it (including titlebar)." alt="" coords="481,526,665,566"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="338,322,356,359,384,410,423,464,446,489,471,511,481,517,478,522,468,515,442,493,419,467,380,413,351,362,334,324"/>
+<area shape="rect" id="Node000013" href="$df/d23/structgalaxy_1_1Settings.html#a75754687c3498a8217cf8ac521ca8370" title="Is the window resizable." alt="" coords="481,590,665,630"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="336,322,350,370,375,438,415,512,441,546,471,576,477,581,474,585,468,580,437,550,411,515,371,440,344,371,331,324"/>
 </map>

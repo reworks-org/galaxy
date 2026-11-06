@@ -174,8 +174,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a5bff49425d37440ad23185ef9726b1cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum level for a message to be logged.  <br /></td></tr>
 <tr class="memitem:a4e839c49a101c2a78817342b1b3878fe" id="r_a4e839c49a101c2a78817342b1b3878fe"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; <a class="el" href="../../d2/d42/classgalaxy_1_1Sink.html">Sink</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4e839c49a101c2a78817342b1b3878fe">m_sinks</a></td></tr>
 <tr class="memdesc:a4e839c49a101c2a78817342b1b3878fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of sinks.  <br /></td></tr>
-<tr class="memitem:a26791507bfba919a360738752d4751f9" id="r_a26791507bfba919a360738752d4751f9"><td class="memItemLeft">std::mutex&#160;</td><td class="memItemRight"><a class="el" href="#a26791507bfba919a360738752d4751f9">m_mutex</a></td></tr>
-<tr class="memdesc:a26791507bfba919a360738752d4751f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only do 1 set of sinks at a time.  <br /></td></tr>
+<tr class="memitem:a9c761e5831819da20654081e19adf63e" id="r_a9c761e5831819da20654081e19adf63e"><td class="memItemLeft">std::mutex&#160;</td><td class="memItemRight"><a class="el" href="#a9c761e5831819da20654081e19adf63e">m_sink_mutex</a></td></tr>
+<tr class="memdesc:a9c761e5831819da20654081e19adf63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only do 1 set of sinks at a time.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to.">Sink</a> based logging system. </p>
@@ -620,8 +620,8 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
 
 </div>
 </div>
-<a id="a26791507bfba919a360738752d4751f9" name="a26791507bfba919a360738752d4751f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26791507bfba919a360738752d4751f9">&#9670;&#160;</a></span>m_mutex</h2>
+<a id="a9c761e5831819da20654081e19adf63e" name="a9c761e5831819da20654081e19adf63e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c761e5831819da20654081e19adf63e">&#9670;&#160;</a></span>m_sink_mutex</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -630,7 +630,7 @@ template&lt;<a class="el" href="../../d0/d46/namespacegalaxy.html#a4e15f13440e54
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::mutex galaxy::Log::m_mutex</td>
+          <td class="memname">std::mutex galaxy::Log::m_sink_mutex</td>
         </tr>
       </table>
   </td>

@@ -1,11 +1,15 @@
 <map id="galaxy/src/galaxy/input/Keyboard.cpp" name="galaxy/src/galaxy/input/Keyboard.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="82,5,257,45"/>
-<area shape="rect" id="Node000002" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="114,93,225,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,46,172,79,167,79,167,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="177,5,351,45"/>
+<area shape="rect" id="Node000002" href="$d8/dd0/Keyboard_8hpp.html" title=" " alt="" coords="209,93,319,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,46,267,79,261,79,261,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,167,64,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,121,70,162,68,158,146,116"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,121,78,167,76,162,226,116"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="88,167,251,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="172,119,172,153,167,153,167,119"/>
-<area shape="rect" id="Node000005" href="$d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="275,167,520,192"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="207,116,348,160,346,165,205,121"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="250,121,197,160,194,156,247,117"/>
+<area shape="rect" id="Node000005" href="$dd/d25/Keys_8hpp.html" title=" " alt="" coords="275,167,442,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="281,117,334,156,331,160,278,121"/>
+<area shape="rect" id="Node000007" href="$d6/d16/WindowBindable_8hpp.html" title=" " alt="" coords="467,167,712,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="317,116,524,161,523,166,316,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="280,240,437,265"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="361,192,361,226,356,226,356,192"/>
 </map>

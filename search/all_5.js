@@ -31,5 +31,6 @@ var searchData=
   ['formatter_3c_20galaxy_3a_3auuid_20_3e_28',['formatter&lt; galaxy::UUID &gt;',['../d8/d36/structstd_1_1formatter_3_01galaxy_1_1UUID_01_4.html',1,'std']]],
   ['formatter_3c_20std_3a_3afilesystem_3a_3apath_20_3e_29',['formatter&lt; std::filesystem::path &gt;',['../d4/d23/structstd_1_1formatter_3_01std_1_1filesystem_1_1path_01_4.html',1,'std']]],
   ['frect_30',['fRect',['../d0/d46/namespacegalaxy.html#ae9b4ec176dbd9b1257ee1c2c4f6eb730',1,'galaxy']]],
-  ['function_31',['Function',['../d4/d22/classgalaxy_1_1Stopwatch.html#acc875745b0bceebce4b83a2852c8c3e1',1,'galaxy::Stopwatch::Function'],['../d0/d7b/classgalaxy_1_1Timer.html#a9587914fe465b60fc5b54666b8a4951a',1,'galaxy::Timer::Function']]]
+  ['fullscreen_31',['fullscreen',['../df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261',1,'galaxy::Settings']]],
+  ['function_32',['Function',['../d4/d22/classgalaxy_1_1Stopwatch.html#acc875745b0bceebce4b83a2852c8c3e1',1,'galaxy::Stopwatch::Function'],['../d0/d7b/classgalaxy_1_1Timer.html#a9587914fe465b60fc5b54666b8a4951a',1,'galaxy::Timer::Function']]]
 ];

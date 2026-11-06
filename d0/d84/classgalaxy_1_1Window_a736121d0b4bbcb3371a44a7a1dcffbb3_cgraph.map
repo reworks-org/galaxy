@@ -1,7 +1,25 @@
 <map id="galaxy::Window::Window" name="galaxy::Window::Window">
-<area shape="rect" id="Node000001" title="Window creation constructor." alt="" coords="5,31,189,56"/>
-<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="243,5,403,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,30,229,26,230,31,190,36"/>
-<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="237,55,409,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,50,224,54,223,59,189,56"/>
+<area shape="rect" id="Node000001" title="Window creation constructor." alt="" coords="5,297,189,323"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a1e50f95224736ae3b1aca458be662261" title="Is window started fullscreen." alt="" coords="241,5,440,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,296,112,248,137,178,155,140,178,103,204,69,236,40,243,35,246,39,239,44,208,73,182,106,160,143,142,180,117,249,104,298"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a8116b7ba973809ef35c4b7b23ed81cf6" title="Is window started maximized?" alt="" coords="237,55,444,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="100,296,116,256,144,200,184,141,208,114,236,91,247,83,250,88,239,95,212,118,188,144,149,203,121,258,105,298"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a9f11de9a6f51dcdee89b83645814cb0a" title="Is the cursor grabbed." alt="" coords="251,105,430,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="105,296,154,229,192,189,236,154,246,148,249,153,239,159,196,193,158,232,109,299"/>
+<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#a33931b677100cc9b62a5913b5b04eed2" title="Window requested height." alt="" coords="241,169,440,209"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="114,295,167,258,236,218,253,211,255,216,239,223,170,262,117,299"/>
+<area shape="rect" id="Node000006" href="$df/d23/structgalaxy_1_1Settings.html#ae6022e221170aa410cefcdcc08e2c918" title="Window requested width." alt="" coords="241,233,440,273"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="151,295,242,273,243,278,153,300"/>
+<area shape="rect" id="Node000007" href="$df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682" title="Game title." alt="" coords="261,297,421,323"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="190,307,247,307,247,313,190,313"/>
+<area shape="rect" id="Node000008" href="$df/d23/structgalaxy_1_1Settings.html#a82e204457c21b181df180193dd76f906" title="Window virtual height." alt="" coords="253,347,429,387"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="153,320,243,342,242,347,151,325"/>
+<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a7c403cbc824fe7d5d3e1d2fcd9cea988" title="Window virtual width." alt="" coords="253,411,429,451"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="117,321,170,358,239,397,255,404,253,409,236,402,167,362,114,325"/>
+<area shape="rect" id="Node000010" href="$df/d23/structgalaxy_1_1Settings.html#a28460f72f9ca7125bcacab182361fad5" title="Vsync control." alt="" coords="255,476,427,501"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="109,321,158,389,195,428,239,461,254,469,251,473,236,466,192,432,154,392,104,325"/>
+<area shape="rect" id="Node000011" href="$df/d23/structgalaxy_1_1Settings.html#a55e304adba9cc033fcbe30b07c2222de" title="Controls if a window has a border around it (including titlebar)." alt="" coords="249,526,433,566"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="106,322,124,359,152,410,191,464,214,489,239,511,249,517,246,522,236,515,210,493,187,467,148,413,119,362,102,324"/>
+<area shape="rect" id="Node000012" href="$df/d23/structgalaxy_1_1Settings.html#a75754687c3498a8217cf8ac521ca8370" title="Is the window resizable." alt="" coords="249,590,433,630"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="104,322,118,370,143,438,183,512,209,546,239,576,245,581,242,585,236,580,205,550,179,515,139,440,112,371,99,324"/>
 </map>

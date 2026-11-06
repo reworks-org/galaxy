@@ -1,0 +1,17 @@
+<map id="galaxy::SceneManager::deserialize" name="galaxy::SceneManager::deserialize">
+<area shape="rect" id="Node000001" title="Deserializes from object." alt="" coords="5,135,175,175"/>
+<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html#a7edee7f4955f9e54e19d59acfb6ae6ff" title=" " alt="" coords="226,29,389,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,132,221,79,237,72,239,77,224,84,125,137"/>
+<area shape="rect" id="Node000003" href="$d1/dbc/classgalaxy_1_1SceneManager.html#a2e72ab8baeccc61e805c0a9e6b6e8042" title="Removes all data." alt="" coords="223,93,392,133"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="174,136,209,129,210,135,175,141"/>
+<area shape="rect" id="Node000005" href="$d1/d92/namespacegalaxy_1_1math.html#a71762d96d3da54f4838b91d092cb0fe9" title="Convert string to hash." alt="" coords="231,182,383,207"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="175,168,225,177,224,182,174,173"/>
+<area shape="rect" id="Node000006" href="$da/d52/classgalaxy_1_1StateMachine.html#afacc93b18c0f29fef01a0d538d82e8a9" title=" " alt="" coords="226,256,389,296"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="128,172,260,247,257,252,125,177"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="267,30,265,20,271,10,286,5,307,3,332,6,346,13,343,18,331,11,307,8,287,10,275,15,270,21,272,28"/>
+<area shape="rect" id="Node000004" href="$da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616" title=" " alt="" coords="440,93,603,133"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="392,111,426,111,426,116,392,116"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="481,94,479,84,485,74,500,69,521,67,546,70,560,77,557,82,545,75,521,72,501,74,489,79,484,85,486,92"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="272,184,265,174,269,164,283,158,307,155,337,159,349,168,346,172,335,164,307,161,285,163,273,168,270,173,277,180"/>
+<area shape="poly" id="edge9_Node000006_Node000006" title=" " alt="" coords="267,256,265,246,271,237,286,231,307,229,332,232,346,240,343,244,331,237,307,235,287,237,275,241,270,247,272,255"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="galaxy::App::save" name="galaxy::App::save">
+<area shape="rect" id="Node000001" title="Save all active scenes and sub data within those scenes." alt="" coords="5,47,143,72"/>
+<area shape="rect" id="Node000002" href="$df/d85/classgalaxy_1_1ZLib.html#ada997046aa986c5b458ca141fef2495f" title="Compresses string into ZLib." alt="" coords="194,5,350,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,44,197,31,198,36,136,49"/>
+<area shape="rect" id="Node000004" href="$d1/d92/namespacegalaxy_1_1math.html#a22ab4e39e7e3045a60708b514c2df529" title="Compresses string into Base64." alt="" coords="191,79,353,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="138,69,178,78,177,83,137,75"/>
+<area shape="rect" id="Node000003" href="$df/d85/classgalaxy_1_1ZLib.html#ab5f4ed375e0a125145163f43359d80b9" title="Constructor." alt="" coords="401,5,539,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,15,387,15,387,21,351,21"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="235,80,233,70,238,61,252,55,272,53,295,56,308,63,305,68,294,61,272,58,253,60,242,65,238,71,240,78"/>
+</map>

@@ -6,9 +6,6 @@ var annotated_dup =
         [ "fnv_1a_params&lt; std::uint32_t &gt;", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html", "da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4" ],
         [ "fnv_1a_params&lt; std::uint64_t &gt;", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html", "d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4" ]
       ] ],
-      [ "meta", "d3/d12/namespacegalaxy_1_1meta.html", [
-        [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ]
-      ] ],
       [ "resource", "d4/d1b/namespacegalaxy_1_1resource.html", [
         [ "SoundLoader", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader.html", "d2/d43/structgalaxy_1_1resource_1_1SoundLoader" ],
         [ "MusicLoader", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html", "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader" ],
@@ -46,10 +43,10 @@ var annotated_dup =
       [ "MouseWheel", "da/d9e/structgalaxy_1_1MouseWheel.html", "da/d9e/structgalaxy_1_1MouseWheel" ],
       [ "Rect", "d5/d58/classgalaxy_1_1Rect.html", "d5/d58/classgalaxy_1_1Rect" ],
       [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
-      [ "Registry", "df/dbe/classgalaxy_1_1Registry.html", "df/dbe/classgalaxy_1_1Registry" ],
       [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
       [ "SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", "d1/dbc/classgalaxy_1_1SceneManager" ],
       [ "Script", "db/da2/classgalaxy_1_1Script.html", "db/da2/classgalaxy_1_1Script" ],
+      [ "Serializable", "d6/d82/classgalaxy_1_1Serializable.html", "d6/d82/classgalaxy_1_1Serializable" ],
       [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
       [ "Sink", "d2/d42/classgalaxy_1_1Sink.html", "d2/d42/classgalaxy_1_1Sink" ],
       [ "State", "d4/d7c/classgalaxy_1_1State.html", "d4/d7c/classgalaxy_1_1State" ],

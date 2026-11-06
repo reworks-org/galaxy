@@ -1,4 +1,6 @@
 <map id="galaxy::ui::imgui_new_frame" name="galaxy::ui::imgui_new_frame">
 <area shape="rect" id="Node000001" title="Begin setting up ImGui pass." alt="" coords="5,29,169,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="56,29,54,20,59,11,70,5,87,3,107,6,117,13,114,17,105,11,87,8,72,10,63,14,60,21,61,28"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="46,30,44,20,50,10,65,5,87,3,113,6,127,13,124,18,111,11,87,8,66,10,54,15,49,21,51,28"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="217,29,396,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,47,204,47,204,52,169,52"/>
 </map>

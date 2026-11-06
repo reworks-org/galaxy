@@ -1,0 +1,6 @@
+<map id="galaxy::ui::imgui_set_theme" name="galaxy::ui::imgui_set_theme">
+<area shape="rect" id="Node000001" title="Set imgui theme." alt="" coords="5,29,163,69"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="43,30,41,20,48,10,62,5,84,3,109,6,123,13,121,18,108,11,84,8,63,10,51,15,46,21,49,28"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="211,29,389,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,47,197,47,197,52,163,52"/>
+</map>

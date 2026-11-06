@@ -1,6 +1,5 @@
 var namespacegalaxy_1_1meta =
 [
-    [ "EntityFactory", "db/db3/classgalaxy_1_1meta_1_1EntityFactory.html", "db/db3/classgalaxy_1_1meta_1_1EntityFactory" ],
     [ "is_arithmetic", "db/dc5/conceptgalaxy_1_1meta_1_1is__arithmetic.html", null ],
     [ "is_bitset_flag", "db/d45/conceptgalaxy_1_1meta_1_1is__bitset__flag.html", null ],
     [ "is_class", "d0/d17/conceptgalaxy_1_1meta_1_1is__class.html", null ],

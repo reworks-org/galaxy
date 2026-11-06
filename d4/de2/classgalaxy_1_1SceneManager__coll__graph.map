@@ -1,18 +1,18 @@
 <map id="galaxy::SceneManager" name="galaxy::SceneManager">
-<area shape="rect" id="Node000001" title="State machine for managing scenes." alt="" coords="239,1289,401,1575"/>
-<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="153,899,308,1219"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,1231,288,1289,283,1290,270,1233"/>
+<area shape="rect" id="Node000001" title="State machine for managing scenes." alt="" coords="182,1289,343,1575"/>
+<area shape="rect" id="Node000002" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="13,899,168,1219"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,1230,199,1288,195,1290,168,1232"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,297,176,377"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,378,71,461,60,574,59,637,62,701,70,765,84,827,110,891,146,951,142,953,106,894,79,829,64,766,56,702,53,637,55,574,65,461,79,377"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,378,84,448,81,674,85,882,80,882,75,674,79,448,84,377"/>
 <area shape="rect" id="Node000006" href="$da/d52/classgalaxy_1_1StateMachine.html" title="A finite state machine." alt="" coords="168,448,323,828"/>
 <area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="114,376,152,447,163,468,158,470,147,449,109,379"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="30,141,151,207"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="93,220,93,297,88,297,88,220"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="79,5,102,71"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="93,71,93,125,88,125,88,71"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="241,842,239,898,234,898,236,842"/>
-<area shape="rect" id="Node000007" href="$d9/d4c/classgalaxy_1_1EntityManager.html" title="Class for making creating and managing entities easier." alt="" coords="332,966,492,1151"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="392,1152,362,1274,356,1273,387,1151"/>
-<area shape="rect" id="Node000008" href="$df/dbe/classgalaxy_1_1Registry.html" title="Wrapper around entt::registry to expand functionality." alt="" coords="353,555,471,721"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="415,721,415,950,409,950,409,721"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="173,842,152,899,147,897,168,840"/>
+<area shape="rect" id="Node000007" href="$d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="192,956,333,1161"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="265,1175,265,1289,260,1289,260,1175"/>
+<area shape="rect" id="Node000008" href="$d9/d4c/classgalaxy_1_1EntityManager.html" title="Class for making creating and managing entities easier." alt="" coords="357,966,517,1151"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="397,1153,339,1276,334,1273,392,1150"/>
 </map>

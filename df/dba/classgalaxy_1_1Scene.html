@@ -122,9 +122,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dba/classga
 <div id="dynsection-0-content" class="dyncontent hidden">
 <div class="center"><img src="../../db/d44/classgalaxy_1_1Scene__inherit__graph.png" border="0" usemap="#agalaxy_1_1Scene_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
 <map name="agalaxy_1_1Scene_inherit__map" id="agalaxy_1_1Scene_inherit__map">
-<area shape="rect" title="Represents a scene in a game." alt="" coords="5,299,123,624"/>
-<area shape="rect" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="11,5,117,251"/>
-<area shape="poly" title=" " alt="" coords="67,265,67,299,61,299,61,265"/>
+<area shape="rect" title="Represents a scene in a game." alt="" coords="73,299,190,624"/>
+<area shape="rect" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="5,5,111,251"/>
+<area shape="poly" title=" " alt="" coords="91,264,98,298,93,299,85,265"/>
+<area shape="rect" href="../../d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="134,25,275,231"/>
+<area shape="poly" title=" " alt="" coords="182,245,170,299,165,298,177,243"/>
 </map>
 </div>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for galaxy::Scene:</div>
@@ -133,21 +135,23 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dba/classga
 <div id="dynsection-1-content" class="dyncontent hidden">
 <div class="center"><img src="../../de/d2b/classgalaxy_1_1Scene__coll__graph.png" border="0" usemap="#agalaxy_1_1Scene_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1Scene_coll__map" id="agalaxy_1_1Scene_coll__map">
-<area shape="rect" title="Represents a scene in a game." alt="" coords="92,819,209,1124"/>
+<area shape="rect" title="Represents a scene in a game." alt="" coords="159,819,276,1124"/>
 <area shape="rect" href="../../d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="18,483,123,728"/>
-<area shape="poly" title=" " alt="" coords="103,741,120,818,115,819,98,742"/>
+<area shape="poly" title=" " alt="" coords="127,740,161,823,156,825,122,742"/>
 <area shape="rect" title=" " alt="" coords="31,319,110,385"/>
 <area shape="poly" title=" " alt="" coords="73,385,73,466,68,466,68,385"/>
 <area shape="rect" title=" " alt="" coords="5,141,136,221"/>
 <area shape="poly" title=" " alt="" coords="73,235,73,319,68,319,68,235"/>
-<area shape="rect" href="../../d5/d09/classgalaxy_1_1SystemManager.html" title="Manages the systems assigned to it." alt="" coords="148,463,319,748"/>
-<area shape="poly" title=" " alt="" coords="204,749,191,803,186,802,199,748"/>
-<area shape="rect" title=" " alt="" coords="148,312,319,392"/>
-<area shape="poly" title=" " alt="" coords="236,393,236,446,231,446,231,393"/>
-<area shape="rect" title=" " alt="" coords="173,149,294,214"/>
-<area shape="poly" title=" " alt="" coords="236,228,236,312,231,312,231,228"/>
-<area shape="rect" title=" " alt="" coords="222,5,245,71"/>
-<area shape="poly" title=" " alt="" coords="236,71,236,132,231,132,231,71"/>
+<area shape="rect" href="../../d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="147,503,288,708"/>
+<area shape="poly" title=" " alt="" coords="220,722,220,818,215,818,215,722"/>
+<area shape="rect" href="../../d5/d09/classgalaxy_1_1SystemManager.html" title="Manages the systems assigned to it." alt="" coords="312,463,483,748"/>
+<area shape="poly" title=" " alt="" coords="330,749,286,838,281,836,325,747"/>
+<area shape="rect" title=" " alt="" coords="312,312,483,392"/>
+<area shape="poly" title=" " alt="" coords="400,393,400,446,395,446,395,393"/>
+<area shape="rect" title=" " alt="" coords="337,149,458,214"/>
+<area shape="poly" title=" " alt="" coords="400,228,400,312,395,312,395,228"/>
+<area shape="rect" title=" " alt="" coords="386,5,409,71"/>
+<area shape="poly" title=" " alt="" coords="400,71,400,132,395,132,395,71"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -167,12 +171,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6994fa68aa02866f7d388c3e160219a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process events and updates.  <br /></td></tr>
 <tr class="memitem:ae8bb8df4c69f70acdddf72a7f32a7014" id="r_ae8bb8df4c69f70acdddf72a7f32a7014"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae8bb8df4c69f70acdddf72a7f32a7014">render</a> ()</td></tr>
 <tr class="memdesc:ae8bb8df4c69f70acdddf72a7f32a7014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render scene.  <br /></td></tr>
-<tr class="memitem:ac34f0a97edfcb508e2c55737a995a3c3" id="r_ac34f0a97edfcb508e2c55737a995a3c3"><td class="memItemLeft">nlohmann::json&#160;</td><td class="memItemRight"><a class="el" href="#ac34f0a97edfcb508e2c55737a995a3c3">serialize</a> ()</td></tr>
-<tr class="memdesc:ac34f0a97edfcb508e2c55737a995a3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes object.  <br /></td></tr>
-<tr class="memitem:a4d07995dd8196a243fe6d31a0595504a" id="r_a4d07995dd8196a243fe6d31a0595504a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4d07995dd8196a243fe6d31a0595504a">deserialize</a> (const nlohmann::json &amp;json)</td></tr>
-<tr class="memdesc:a4d07995dd8196a243fe6d31a0595504a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes from object.  <br /></td></tr>
 <tr class="memitem:af43befa3dc6cbcbd6844e33b88c56843" id="r_af43befa3dc6cbcbd6844e33b88c56843"><td class="memItemLeft"><a class="el" href="../../d5/d09/classgalaxy_1_1SystemManager.html">SystemManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af43befa3dc6cbcbd6844e33b88c56843">sys_man</a> () noexcept</td></tr>
 <tr class="memdesc:af43befa3dc6cbcbd6844e33b88c56843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get system manager.  <br /></td></tr>
+<tr class="memitem:a120928ae6bf0f8f017ddeeb43e7f3ca2" id="r_a120928ae6bf0f8f017ddeeb43e7f3ca2"><td class="memItemLeft">nlohmann::json&#160;</td><td class="memItemRight"><a class="el" href="#a120928ae6bf0f8f017ddeeb43e7f3ca2">serialize</a> () override</td></tr>
+<tr class="memdesc:a120928ae6bf0f8f017ddeeb43e7f3ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes object.  <br /></td></tr>
+<tr class="memitem:a6a848e79fee6d7227d8a94f03613b84f" id="r_a6a848e79fee6d7227d8a94f03613b84f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6a848e79fee6d7227d8a94f03613b84f">deserialize</a> (const nlohmann::json &amp;json) override</td></tr>
+<tr class="memdesc:a6a848e79fee6d7227d8a94f03613b84f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes from object.  <br /></td></tr>
 <tr class="inherit_header pub_methods_classgalaxy_1_1State"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d4/d7c/classgalaxy_1_1State.html">galaxy::State</a></td></tr>
 <tr class="memitem:af140f04013e7abfc38b56a1e1fc0694c inherit pub_methods_classgalaxy_1_1State" id="r_af140f04013e7abfc38b56a1e1fc0694c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html#af140f04013e7abfc38b56a1e1fc0694c">State</a> (State &amp;&amp;)=default</td></tr>
 <tr class="memdesc:af140f04013e7abfc38b56a1e1fc0694c inherit pub_methods_classgalaxy_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
@@ -186,6 +190,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6a668d6307265d96975125ebd2617331 inherit pub_methods_classgalaxy_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
 <tr class="memitem:ab604acc5446c568a2373dacd67c42f92 inherit pub_methods_classgalaxy_1_1State" id="r_ab604acc5446c568a2373dacd67c42f92"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html#ab604acc5446c568a2373dacd67c42f92">name</a> () const noexcept</td></tr>
 <tr class="memdesc:ab604acc5446c568a2373dacd67c42f92 inherit pub_methods_classgalaxy_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get state name.  <br /></td></tr>
+<tr class="inherit_header pub_methods_classgalaxy_1_1Serializable"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html">galaxy::Serializable</a></td></tr>
+<tr class="memitem:af23b562fc4244467c93335f56a5a6da1 inherit pub_methods_classgalaxy_1_1Serializable" id="r_af23b562fc4244467c93335f56a5a6da1"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#af23b562fc4244467c93335f56a5a6da1">~Serializable</a> ()</td></tr>
+<tr class="memdesc:af23b562fc4244467c93335f56a5a6da1 inherit pub_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="memitem:a1f05b7789cd41dec6148c1779b49f7c1 inherit pub_methods_classgalaxy_1_1Serializable" id="r_a1f05b7789cd41dec6148c1779b49f7c1"><td class="memItemLeft">virtual <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a1f05b7789cd41dec6148c1779b49f7c1">operator=</a> (<a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="memdesc:a1f05b7789cd41dec6148c1779b49f7c1 inherit pub_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="memitem:afa1df0241ceb5e0b40a7f7751f60207a inherit pub_methods_classgalaxy_1_1Serializable" id="r_afa1df0241ceb5e0b40a7f7751f60207a"><td class="memItemLeft">virtual <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#afa1df0241ceb5e0b40a7f7751f60207a">operator=</a> (const <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;) noexcept=default</td></tr>
+<tr class="memdesc:afa1df0241ceb5e0b40a7f7751f60207a inherit pub_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -208,6 +219,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classgalaxy_1_1State"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d4/d7c/classgalaxy_1_1State.html">galaxy::State</a></td></tr>
 <tr class="memitem:af2007cf51939290a8268d8332fc81a0d inherit pro_methods_classgalaxy_1_1State" id="r_af2007cf51939290a8268d8332fc81a0d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html#af2007cf51939290a8268d8332fc81a0d">State</a> (const std::string &amp;name) noexcept</td></tr>
 <tr class="memdesc:af2007cf51939290a8268d8332fc81a0d inherit pro_methods_classgalaxy_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name constructor.  <br /></td></tr>
+<tr class="inherit_header pro_methods_classgalaxy_1_1Serializable"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html">galaxy::Serializable</a></td></tr>
+<tr class="memitem:a8820a1abf066ee1e437bb4844b39f3ac inherit pro_methods_classgalaxy_1_1Serializable" id="r_a8820a1abf066ee1e437bb4844b39f3ac"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> () noexcept=default</td></tr>
+<tr class="memdesc:a8820a1abf066ee1e437bb4844b39f3ac inherit pro_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="memitem:abc638a91dd243927b144cfe9ed1d0ce7 inherit pro_methods_classgalaxy_1_1Serializable" id="r_abc638a91dd243927b144cfe9ed1d0ce7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#abc638a91dd243927b144cfe9ed1d0ce7">Serializable</a> (Serializable &amp;&amp;) noexcept=default</td></tr>
+<tr class="memdesc:abc638a91dd243927b144cfe9ed1d0ce7 inherit pro_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="memitem:ab2d783a8e15fb5017dbab04425fce8aa inherit pro_methods_classgalaxy_1_1Serializable" id="r_ab2d783a8e15fb5017dbab04425fce8aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#ab2d783a8e15fb5017dbab04425fce8aa">Serializable</a> (const Serializable &amp;) noexcept=default</td></tr>
+<tr class="memdesc:ab2d783a8e15fb5017dbab04425fce8aa inherit pro_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
 <tr class="inherit_header pro_attribs_classgalaxy_1_1State"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="../../d4/d7c/classgalaxy_1_1State.html">galaxy::State</a></td></tr>
 <tr class="memitem:afaa36f3fae8eefe6b95d01f1a941f25b inherit pro_attribs_classgalaxy_1_1State" id="r_afaa36f3fae8eefe6b95d01f1a941f25b"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7c/classgalaxy_1_1State.html#afaa36f3fae8eefe6b95d01f1a941f25b">m_name</a></td></tr>
 <tr class="memdesc:afaa36f3fae8eefe6b95d01f1a941f25b inherit pro_attribs_classgalaxy_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name for debug purposes.  <br /></td></tr>
@@ -216,7 +234,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Represents a scene in a game. </p>
 <p>Scenes should be logically grouped -&gt; i.e. a map, player data + ui, battle, menu, etc. Each scene is an independant collection of systems, but not entities. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acc93e9019791a669c1213208c2e8ccb4" name="acc93e9019791a669c1213208c2e8ccb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc93e9019791a669c1213208c2e8ccb4">&#9670;&#160;</a></span>Scene() <span class="overload">[1/3]</span></h2>
@@ -408,6 +426,37 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="../../d4/d7c/classgalaxy_1_1State.html#a57cfda12d640367d90ebab4feed2855e">galaxy::State</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00047">47</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_a068861c6a2477f254bde93f9cff27827_icgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_a068861c6a2477f254bde93f9cff27827_icgraph" loading="lazy" alt=""/></div>
+<map name="adf/dba/classgalaxy_1_1Scene_a068861c6a2477f254bde93f9cff27827_icgraph" id="adf/dba/classgalaxy_1_1Scene_a068861c6a2477f254bde93f9cff27827_icgraph">
+<area shape="rect" title="When scene is pushed to the stack." alt="" coords="971,195,1145,220"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="783,187,923,227"/>
+<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
+<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
+<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
+<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
+<area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="390,149,178,163,177,158,390,144"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
+<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -439,6 +488,37 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="../../d4/d7c/classgalaxy_1_1State.html#aa5303772f45b7ab297c1f4336f6849b3">galaxy::State</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00051">51</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_a71e0d66e8b6b31ca397c261541987cd4_icgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_a71e0d66e8b6b31ca397c261541987cd4_icgraph" loading="lazy" alt=""/></div>
+<map name="adf/dba/classgalaxy_1_1Scene_a71e0d66e8b6b31ca397c261541987cd4_icgraph" id="adf/dba/classgalaxy_1_1Scene_a71e0d66e8b6b31ca397c261541987cd4_icgraph">
+<area shape="rect" title="When scene is popped from the stack." alt="" coords="971,195,1137,220"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="783,187,923,227"/>
+<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
+<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
+<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
+<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
+<area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="390,149,178,163,177,158,390,144"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
+<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -472,6 +552,64 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p><a class="el" href="../../d8/db2/classgalaxy_1_1Keyboard.html" title="Physical keyboard device and state management.">Keyboard</a> events</p>
+<p>Key pressed</p>
+<p>Key released</p>
+<p><a class="el" href="../../d8/db2/classgalaxy_1_1Keyboard.html" title="Physical keyboard device and state management.">Keyboard</a> text editing (composition)</p>
+<p><a class="el" href="../../d8/db2/classgalaxy_1_1Keyboard.html" title="Physical keyboard device and state management.">Keyboard</a> text input</p>
+<p>A new keyboard has been inserted into the system</p>
+<p>A keyboard has been removed</p>
+<p><a class="el" href="../../d8/db2/classgalaxy_1_1Keyboard.html" title="Physical keyboard device and state management.">Keyboard</a> text editing candidates</p>
+<p><a class="el" href="../../d4/d5d/classgalaxy_1_1Mouse.html" title="Physical mouse device and state management.">Mouse</a> events</p>
+<p><a class="el" href="../../d4/d5d/classgalaxy_1_1Mouse.html" title="Physical mouse device and state management.">Mouse</a> moved</p>
+<p><a class="el" href="../../d4/d5d/classgalaxy_1_1Mouse.html" title="Physical mouse device and state management.">Mouse</a> button pressed</p>
+<p><a class="el" href="../../d4/d5d/classgalaxy_1_1Mouse.html" title="Physical mouse device and state management.">Mouse</a> button released</p>
+<p><a class="el" href="../../d4/d5d/classgalaxy_1_1Mouse.html" title="Physical mouse device and state management.">Mouse</a> wheel motion</p>
+<p>A new mouse has been inserted into the system</p>
+<p>A mouse has been removed</p>
+<p>A sensor was updated</p>
+<p>Pressure-sensitive pen has become available</p>
+<p>Pressure-sensitive pen has become unavailable</p>
+<p>Pressure-sensitive pen touched drawing surface</p>
+<p>Pressure-sensitive pen stopped touching drawing surface</p>
+<p>Pressure-sensitive pen button pressed</p>
+<p>Pressure-sensitive pen button released</p>
+<p>Pressure-sensitive pen is moving on the tablet</p>
+<p>Pressure-sensitive pen angle/pressure/etc changed</p>
+<p>A new camera device is available</p>
+<p>A camera device has been removed.</p>
+<p>A camera device has been approved for use by the user.</p>
+<p>A camera device has been denied for use by the user.</p>
+<p>Pinch gesture started</p>
+<p>Pinch gesture updated</p>
+<p>Pinch gesture ended</p>
+<p>Drag and drop events</p>
+<p>The system requests a file open</p>
+<p>text/plain drag-and-drop event</p>
+<p>A new set of drops is beginning (NULL filename)</p>
+<p>Current set of drops is now complete (NULL filename)</p>
+<p>Position while moving over the window</p>
+<p>Joystick axis motion</p>
+<p>Joystick trackball motion</p>
+<p>Joystick hat position change</p>
+<p>Joystick button pressed</p>
+<p>Joystick button released</p>
+<p>A new joystick has been inserted into the system</p>
+<p>An opened joystick has been removed</p>
+<p>Joystick battery level change</p>
+<p>Joystick update is complete</p>
+<p>Gamepad axis motion</p>
+<p>Gamepad button pressed</p>
+<p>Gamepad button released</p>
+<p>A new gamepad has been inserted into the system</p>
+<p>A gamepad has been removed</p>
+<p>The gamepad mapping was updated</p>
+<p>Gamepad touchpad was touched</p>
+<p>Gamepad touchpad finger was moved</p>
+<p>Gamepad touchpad finger was lifted</p>
+<p>Gamepad sensor was updated</p>
+<p>Gamepad update is complete</p>
+<p>Gamepad Steam handle has changed</p>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00059">59</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
 
@@ -508,16 +646,47 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00254">254</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00248">248</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_cgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_cgraph" loading="lazy" alt=""/></div>
 <map name="adf/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_cgraph" id="adf/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_cgraph">
 <area shape="rect" title="Process events and updates." alt="" coords="5,13,171,38"/>
 <area shape="rect" href="../../d5/d09/classgalaxy_1_1SystemManager.html#afa874b6ccd2114218dd496f7c0d936c9" title="Process all systems." alt="" coords="219,5,397,45"/>
 <area shape="poly" title=" " alt="" coords="171,23,205,23,205,28,171,28"/>
+</map>
+</div>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_icgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_icgraph" loading="lazy" alt=""/></div>
+<map name="adf/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_icgraph" id="adf/dba/classgalaxy_1_1Scene_a6994fa68aa02866f7d388c3e160219a9_icgraph">
+<area shape="rect" title="Process events and updates." alt="" coords="971,195,1136,220"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="783,187,923,227"/>
+<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
+<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
+<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
+<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
+<area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="390,149,178,163,177,158,390,144"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
+<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
 </map>
 </div>
 
@@ -548,64 +717,38 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Render scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00266">266</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00260">260</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_ae8bb8df4c69f70acdddf72a7f32a7014_icgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_ae8bb8df4c69f70acdddf72a7f32a7014_icgraph" loading="lazy" alt=""/></div>
+<map name="adf/dba/classgalaxy_1_1Scene_ae8bb8df4c69f70acdddf72a7f32a7014_icgraph" id="adf/dba/classgalaxy_1_1Scene_ae8bb8df4c69f70acdddf72a7f32a7014_icgraph">
+<area shape="rect" title="Render scene." alt="" coords="971,195,1133,220"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="783,187,923,227"/>
+<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
+<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
+<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
+<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
+<area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="390,149,178,163,177,158,390,144"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
+<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
+</map>
 </div>
-<a id="ac34f0a97edfcb508e2c55737a995a3c3" name="ac34f0a97edfcb508e2c55737a995a3c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac34f0a97edfcb508e2c55737a995a3c3">&#9670;&#160;</a></span>serialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nlohmann::json galaxy::Scene::serialize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Serializes object. </p>
-<dl class="section return"><dt>Returns</dt><dd>JSON object containing data to be serialized. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00294">294</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a4d07995dd8196a243fe6d31a0595504a" name="a4d07995dd8196a243fe6d31a0595504a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d07995dd8196a243fe6d31a0595504a">&#9670;&#160;</a></span>deserialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::Scene::deserialize </td>
-          <td>(</td>
-          <td class="paramtype">const nlohmann::json &amp;</td>          <td class="paramname"><span class="paramname"><em>json</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Deserializes from object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">json</td><td>Json object to retrieve data from. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00351">351</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +778,107 @@ Additional Inherited Members</h2></td></tr>
 <p>Get system manager. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to systems for this specfic scene. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00412">412</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00406">406</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_af43befa3dc6cbcbd6844e33b88c56843_icgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_af43befa3dc6cbcbd6844e33b88c56843_icgraph" loading="lazy" alt=""/></div>
+<map name="adf/dba/classgalaxy_1_1Scene_af43befa3dc6cbcbd6844e33b88c56843_icgraph" id="adf/dba/classgalaxy_1_1Scene_af43befa3dc6cbcbd6844e33b88c56843_icgraph">
+<area shape="rect" title="Get system manager." alt="" coords="971,195,1149,220"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a3ab67c3bb8af50ec86d20caac87116cc" title="Injects galaxy scene management into lua." alt="" coords="783,187,923,227"/>
+<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
+<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
+<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
+<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
+<area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="390,149,178,163,177,158,390,144"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
+<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a120928ae6bf0f8f017ddeeb43e7f3ca2" name="a120928ae6bf0f8f017ddeeb43e7f3ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120928ae6bf0f8f017ddeeb43e7f3ca2">&#9670;&#160;</a></span>serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nlohmann::json galaxy::Scene::serialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serializes object. </p>
+<dl class="section return"><dt>Returns</dt><dd>JSON object containing data to write out. </dd></dl>
+
+<p>Implements <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a2f3a31156297e61b606d935ab68dca38">galaxy::Serializable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00288">288</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6a848e79fee6d7227d8a94f03613b84f" name="a6a848e79fee6d7227d8a94f03613b84f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a848e79fee6d7227d8a94f03613b84f">&#9670;&#160;</a></span>deserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::Scene::deserialize </td>
+          <td>(</td>
+          <td class="paramtype">const nlohmann::json &amp;</td>          <td class="paramname"><span class="paramname"><em>json</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deserializes from object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>Json object to retrieve data from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#ac7fcede5145878ee74be3a2329b07fa8">galaxy::Serializable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/d15/Scene_8cpp_source.html#l00345">345</a> of file <a class="el" href="../../de/d15/Scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -663,10 +906,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copy assignment operator. </p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><img src="../../df/dba/classgalaxy_1_1Scene_a528f3b015d8cbb98a94eb387530856bd_cgraph.png" border="0" usemap="#adf/dba/classgalaxy_1_1Scene_a528f3b015d8cbb98a94eb387530856bd_cgraph" loading="lazy" alt=""/></div>
 <map name="adf/dba/classgalaxy_1_1Scene_a528f3b015d8cbb98a94eb387530856bd_cgraph" id="adf/dba/classgalaxy_1_1Scene_a528f3b015d8cbb98a94eb387530856bd_cgraph">
 <area shape="rect" title="Copy assignment operator." alt="" coords="5,43,192,68"/>
@@ -705,7 +948,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Systems only used by this scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00114">114</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -731,7 +974,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p><a class="el" href="../../df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game.">Scene</a> event handler. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00118">118</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/de8/Scene_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../db/de8/Scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,6 @@
+<map id="galaxy::ui::imgui_handle_events" name="galaxy::ui::imgui_handle_events">
+<area shape="rect" id="Node000001" title="Handle events in ImGui." alt="" coords="180,29,361,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="304,18,292,11,271,8,252,10,240,15,236,21,238,28,233,30,231,20,237,11,250,5,271,3,294,6,307,13"/>
+<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,37,132,62"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="166,52,132,52,132,47,166,47"/>
+</map>

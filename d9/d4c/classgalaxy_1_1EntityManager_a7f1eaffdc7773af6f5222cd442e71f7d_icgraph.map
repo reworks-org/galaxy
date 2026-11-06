@@ -1,5 +1,5 @@
 <map id="galaxy::EntityManager::EntityManager" name="galaxy::EntityManager::EntityManager">
-<area shape="rect" id="Node000001" title="Constructor." alt="" coords="221,101,389,141"/>
+<area shape="rect" id="Node000001" title="Typedef for creating b2 bodies from components." alt="" coords="221,101,389,141"/>
 <area shape="rect" id="Node000002" href="$d9/d4c/classgalaxy_1_1EntityManager.html#a9dde737cf45ccc5f176cf09fc8ace21d" title="Copy constructor." alt="" coords="5,5,173,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,97,172,60,144,48,146,43,174,55,254,93"/>
 <area shape="rect" id="Node000003" href="$d9/d4c/classgalaxy_1_1EntityManager.html#a60ec5093d12bb3a84544dd956739180a" title="Move constructor." alt="" coords="5,69,173,109"/>

@@ -1,0 +1,9 @@
+<map id="galaxy::App::setup_input" name="galaxy::App::setup_input">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,148,95"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca" title="Cursor texture file in vfs." alt="" coords="199,5,407,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,53,195,41,234,31,235,36,197,46,149,58"/>
+<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a80ed0cfa1ad0e5b8f9df55975988d60e" title="Cursor selector point (offset)." alt="" coords="216,55,391,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,73,202,73,202,78,148,78"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#a8b730c04b5cb6e41e07fd7c035ece453" title="Is the mouse cursor visible or not." alt="" coords="196,120,411,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,92,197,105,235,114,234,119,195,110,148,97"/>
+</map>
