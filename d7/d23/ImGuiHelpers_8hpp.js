@@ -4,6 +4,7 @@ var ImGuiHelpers_8hpp =
     [ "galaxy::ui::imgui_set_theme", "d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d", null ],
     [ "galaxy::ui::imgui_handle_events", "d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45", null ],
     [ "galaxy::ui::imgui_new_frame", "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
+    [ "galaxy::ui::imgui_draw_editor", "d3/dd9/namespacegalaxy_1_1ui.html#a9a367f7954752c657b46bd43f4993852", null ],
     [ "galaxy::ui::imgui_render", "d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65", null ],
     [ "galaxy::ui::imgui_exit", "d3/dd9/namespacegalaxy_1_1ui.html#a75724fdf5b5623e0edfc966f9f439082", null ]
 ];

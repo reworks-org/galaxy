@@ -72,6 +72,7 @@ var namespacegalaxy =
       [ "imgui_set_theme", "d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d", null ],
       [ "imgui_handle_events", "d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45", null ],
       [ "imgui_new_frame", "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
+      [ "imgui_draw_editor", "d3/dd9/namespacegalaxy_1_1ui.html#a9a367f7954752c657b46bd43f4993852", null ],
       [ "imgui_render", "d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65", null ],
       [ "imgui_exit", "d3/dd9/namespacegalaxy_1_1ui.html#a75724fdf5b5623e0edfc966f9f439082", null ]
     ] ],
@@ -440,5 +441,6 @@ var namespacegalaxy =
     [ "fileutils_write_wrapper", "d0/d46/namespacegalaxy.html#a4ed551c8abc8a9521e66ab3f3a2070d5", null ],
     [ "log_wrapper", "d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92", null ],
     [ "mem_alloc", "d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3", null ],
-    [ "mem_free", "d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56", null ]
+    [ "mem_free", "d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56", null ],
+    [ "show_editor", "d0/d46/namespacegalaxy.html#ad1e5e812daa5c549ac4bdd2d21d5760a", null ]
 ];

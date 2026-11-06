@@ -1,5 +1,7 @@
 var NAVTREEINDEX33 =
 {
+"d5/d09/classgalaxy_1_1SystemManager.html#affd5f3df434add7be5b62d988d8056b6":[0,0,0,52,12],
+"d5/d09/classgalaxy_1_1SystemManager.html#affd5f3df434add7be5b62d988d8056b6":[2,0,0,41,12],
 "d5/d0a/Platform_8cpp.html":[3,0,0,0,0,10,5],
 "d5/d0a/Platform_8cpp_source.html":[3,0,0,0,0,10,5],
 "d5/d13/classgalaxy_1_1FileError.html":[0,0,0,21],
@@ -247,7 +249,5 @@ var NAVTREEINDEX33 =
 "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html#af4dc8fe9ff49f1554152ab39314a8454":[0,0,0,9,1,0],
 "d7/d3e/structgalaxy_1_1resource_1_1MusicLoader.html#af4dc8fe9ff49f1554152ab39314a8454":[2,0,0,1,1,0],
 "d7/d55/Stopwatch_8cpp.html":[3,0,0,0,0,15,0],
-"d7/d55/Stopwatch_8cpp_source.html":[3,0,0,0,0,15,0],
-"d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html":[0,0,0,5,2],
-"d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html":[2,0,0,0,2]
+"d7/d55/Stopwatch_8cpp_source.html":[3,0,0,0,0,15,0]
 };

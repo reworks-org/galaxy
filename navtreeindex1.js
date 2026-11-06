@@ -79,6 +79,7 @@ var NAVTREEINDEX1 =
 "d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351afcb2e7cee4d3f1ca1da48fb89f821324":[0,0,0,67,2],
 "d0/d46/namespacegalaxy.html#aba721fe73e89cc22a7beed8df68ea351aff6f3a7718318285bf225e5e746df72e":[0,0,0,67,7],
 "d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3":[0,0,0,77],
+"d0/d46/namespacegalaxy.html#ad1e5e812daa5c549ac4bdd2d21d5760a":[0,0,0,79],
 "d0/d46/namespacegalaxy.html#ad827c35fec639f2519aca49899166c21":[0,0,0,72],
 "d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803":[0,0,0,64],
 "d0/d46/namespacegalaxy.html#ae39089104721ef58a4b45e9fa4089803a5494af1f14a8c19939968c3e9e2d4f79":[0,0,0,64,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "d0/d76/material__design__icons_8h.html#a04a34f9f388e90b6e7cb8ad9b212b4a9":[3,0,0,0,0,11,0,0,1395],
 "d0/d76/material__design__icons_8h.html#a04b56e050fa1c34aadaa513da112a966":[3,0,0,0,0,11,0,0,3391],
 "d0/d76/material__design__icons_8h.html#a04b872d8eb48c3f31122337b10280651":[3,0,0,0,0,11,0,0,6238],
-"d0/d76/material__design__icons_8h.html#a04c3276a77a41ad255480ac6ac523035":[3,0,0,0,0,11,0,0,548],
-"d0/d76/material__design__icons_8h.html#a04e43ded20e33091a2cb409c8e89ca20":[3,0,0,0,0,11,0,0,2321]
+"d0/d76/material__design__icons_8h.html#a04c3276a77a41ad255480ac6ac523035":[3,0,0,0,0,11,0,0,548]
 };

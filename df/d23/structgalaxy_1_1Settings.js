@@ -42,6 +42,7 @@ var structgalaxy_1_1Settings =
     [ "assets_dir_video", "df/d23/structgalaxy_1_1Settings.html#ac8246651c6c35d660db4da72c15cc487", null ],
     [ "assets_dir_ui", "df/d23/structgalaxy_1_1Settings.html#a591b1a40295208bdabb68802b0c70dd3", null ],
     [ "enable_editor", "df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1", null ],
+    [ "editor_key", "df/d23/structgalaxy_1_1Settings.html#a4df24d3317e27a1a5c1e422718b82f34", null ],
     [ "s_requested_width", "df/d23/structgalaxy_1_1Settings.html#a3ba624d15dcf3015d449be30062e79c8", null ],
     [ "s_virtual_width", "df/d23/structgalaxy_1_1Settings.html#af721335e32255ea5a94a65d03de3509c", null ],
     [ "s_requested_height", "df/d23/structgalaxy_1_1Settings.html#a545d4bd2a4a4fcfdb5b0a93f6aaabf72", null ],
@@ -80,5 +81,6 @@ var structgalaxy_1_1Settings =
     [ "s_assets_maps", "df/d23/structgalaxy_1_1Settings.html#aa229ce07c1f4b768bf49c7481c7020b6", null ],
     [ "s_assets_video", "df/d23/structgalaxy_1_1Settings.html#a0e0e083755d744eeb4293ddcc8c45dff", null ],
     [ "s_assets_ui", "df/d23/structgalaxy_1_1Settings.html#ab55bd6d285934234af9d029c7978cc5c", null ],
-    [ "s_enable_editor", "df/d23/structgalaxy_1_1Settings.html#a858300eabe5a4453498c3dab4b3a2898", null ]
+    [ "s_enable_editor", "df/d23/structgalaxy_1_1Settings.html#a858300eabe5a4453498c3dab4b3a2898", null ],
+    [ "s_editor_key", "df/d23/structgalaxy_1_1Settings.html#ae5db19c6f0f386bfedd473ae71e7bf79", null ]
 ];
