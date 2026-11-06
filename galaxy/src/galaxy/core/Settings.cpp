@@ -74,6 +74,7 @@ namespace galaxy
 		config.restore<std::string>("assets_ui", "ui/", "fs");
 
 		config.restore<bool>("enable_editor", false, "debug");
+		config.restore<int>("editor_key", static_cast<int>(SDL_Scancode::SDL_SCANCODE_F10), "debug");
 
 		config.save();
 	}
@@ -136,6 +137,7 @@ namespace galaxy
 		s_assets_ui        = *config.get<std::string>("assets_ui", "fs");
 
 		s_enable_editor = *config.get<bool>("enable_editor", "debug");
+		s_editor_key    = *config.get<int>("editor_key", "debug");
 	}
 
 	auto Settings::requested_width() noexcept -> int
@@ -336,6 +338,11 @@ namespace galaxy
 	auto Settings::enable_editor() noexcept -> bool
 	{
 		return s_enable_editor;
+	}
+
+	auto Settings::editor_key() noexcept -> SDL_Scancode
+	{
+		return static_cast<SDL_Scancode>(s_editor_key);
 	}
 } // namespace galaxy
 

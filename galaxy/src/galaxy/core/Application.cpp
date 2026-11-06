@@ -170,8 +170,6 @@ namespace galaxy
 
 	void App::run()
 	{
-		bool show_demo_window = true;
-
 		// https://stackoverflow.com/a/59446610
 		// We dont need 't' or 'alpha/render' sections.
 
@@ -256,10 +254,9 @@ namespace galaxy
 			scenes.render();
 
 			ui::imgui_new_frame();
-			if (show_demo_window && Settings::enable_editor())
-				ImGui::ShowDemoWindow(&show_demo_window);
-			// TODO: Draw IMGUI here.
+			ui::imgui_draw_editor();
 			ui::imgui_render();
+
 			window.swap();
 
 			frames++;

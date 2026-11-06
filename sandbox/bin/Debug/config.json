@@ -3,6 +3,7 @@
         "audio_freq": 44100
     },
     "debug": {
+        "editor_key": 67,
         "enable_editor": true
     },
     "fs": {

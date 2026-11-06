@@ -33,7 +33,7 @@ namespace galaxy
 			.has_sse3            = SDL_HasSSE3(),
 			.has_sse41           = SDL_HasSSE41(),
 			.has_sse42           = SDL_HasSSE42(),
-			.has_sve2            = false
+			//.has_sve2            = SDL_HasSVE2() // TODO
 		};
 
 		return info;

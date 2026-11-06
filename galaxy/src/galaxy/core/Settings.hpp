@@ -11,6 +11,7 @@
 #include <filesystem>
 
 #include <glm/vec2.hpp>
+#include <SDL3/SDL_scancode.h>
 
 namespace galaxy
 {
@@ -352,6 +353,14 @@ namespace galaxy
 		[[nodiscard]]
 		static auto enable_editor() noexcept -> bool;
 
+		///
+		/// Editor debug toggle key.
+		///
+		/// \return SDL_Scancode enum value.
+		///
+		[[nodiscard]]
+		static auto editor_key() noexcept -> SDL_Scancode;
+
 	private:
 		inline static int         s_requested_width;
 		inline static int         s_virtual_width;
@@ -397,6 +406,7 @@ namespace galaxy
 		inline static std::string           s_assets_ui;
 
 		inline static bool s_enable_editor;
+		inline static int  s_editor_key;
 	};
 } // namespace galaxy
 

@@ -107,6 +107,7 @@ namespace galaxy
 		lua.set_function("settings_assets_dir_video", &Settings::assets_dir_video);
 		lua.set_function("settings_assets_dir_ui", &Settings::assets_dir_ui);
 		lua.set_function("settings_enable_editor", &Settings::enable_editor);
+		lua.set_function("settings_editor_key", &Settings::editor_key);
 
 		auto window_type                     = lua.new_usertype<Window>("Window", sol::no_constructor);
 		window_type["append_title"]          = &Window::append_title;

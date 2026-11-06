@@ -43,6 +43,11 @@ namespace galaxy
 		void imgui_new_frame();
 
 		///
+		/// Draw main editor interface.
+		///
+		void imgui_draw_editor();
+
+		///
 		/// Render imgui.
 		///
 		void imgui_render();

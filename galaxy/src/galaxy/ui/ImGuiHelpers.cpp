@@ -30,6 +30,8 @@
 
 namespace galaxy
 {
+	bool show_editor = false;
+
 	void* mem_alloc(size_t sz, void* user_data)
 	{
 		return mi_malloc(sz);
@@ -195,6 +197,14 @@ namespace galaxy
 		{
 			if (Settings::enable_editor() && ImGui::GetCurrentContext())
 			{
+				if (events.type == SDL_EVENT_KEY_DOWN)
+				{
+					if (events.key.scancode == Settings::editor_key())
+					{
+						show_editor = !show_editor;
+					}
+				}
+
 				ImGui_ImplSDL3_ProcessEvent(&events);
 			}
 		}
@@ -207,6 +217,14 @@ namespace galaxy
 				ImGui_ImplOpenGL3_NewFrame();
 				ImGui_ImplSDL3_NewFrame();
 				ImGui::NewFrame();
+			}
+		}
+
+		void imgui_draw_editor()
+		{
+			if (Settings::enable_editor() && ImGui::GetCurrentContext() && show_editor)
+			{
+				ImGui::ShowDemoWindow(&show_editor);
 			}
 		}
 
