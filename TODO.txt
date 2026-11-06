@@ -1,7 +1,6 @@
 SDL TODO:
 https://wiki.libsdl.org/SDL3/BestKeyboardPractices
-.has_sve2            = SDL_HasSVE2() TODO SDL3: 3.6.0
-
+https://wiki.libsdl.org/SDL3_mixer/FrontPage
 
 
 Unused SDL API:
@@ -36,13 +35,8 @@ https://wiki.libsdl.org/SDL3/CategoryGamepad
 https://wiki.libsdl.org/SDL3/CategoryJoystick
 
 libs:
-https://github.com/ocornut/imgui
 https://github.com/mikke89/RmlUi
 https://github.com/libcpr/cpr
-
-OLD TODO:
-SDL:
-https://wiki.libsdl.org/SDL3_mixer/FrontPage
 
 Renderer:
 https://github.com/ivan-resetnikov/demo-2D-PBR-renderer-opengl
