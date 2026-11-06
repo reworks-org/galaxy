@@ -802,7 +802,8 @@ namespace sl
         const bool want_shadow = material.lit && current_shadow && current_shadow->surface;
         const bool want_local_shadow = want_locals && current_local_shadow && current_local_shadow->slots_used > 0;
         // The flat style rebuilds face normals from the camera rays, so it needs them too.
-        const bool have_camera = (want_pbr || want_locals || want_shadow || params.style != 0) && detail::apply_pbr_camera(params);
+        const bool want_airless = material.airless && material.lit && !material.pbr;
+        const bool have_camera = (want_pbr || want_airless || want_locals || want_shadow || params.style != 0) && detail::apply_pbr_camera(params);
         if (want_shadow && have_camera)
         {
             params.shadow[0] = 1.0f;
@@ -892,6 +893,11 @@ namespace sl
             params.pbr[3] = std::clamp(material.occlusion_strength, 0.0f, 1.0f);
             for (int i = 0; i < 3; ++i)
                 params.emissive[i] = std::max(material.emissive[i], 0.0f);
+        }
+        else if (want_airless && have_camera)
+        {
+            params.pbr[0] = -1.0f;
+            params.pbr[1] = std::clamp(material.opposition_surge, 0.0f, 2.0f);
         }
         const bool drawn = instance_buffer != 0
                                ? renderer->draw_mesh_instanced(mesh->handle, params, instance_buffer, instance_count)

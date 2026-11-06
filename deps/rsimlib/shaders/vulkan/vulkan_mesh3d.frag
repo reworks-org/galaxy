@@ -202,7 +202,7 @@ void main()
     float metallic = 0.0;
     float roughness = 1.0;
     vec3 ray = vec3(0.0);
-    if (pbr || gloss || environment.cameraPosition.w > 0.5 || environment.shadow.x > 0.5)
+    if (pbr || gloss || environment.pbr.x < -0.5 || environment.cameraPosition.w > 0.5 || environment.shadow.x > 0.5)
     {
         // The viewport is flipped, so framebuffer y grows downward.
         vec2 pixel = gl_FragCoord.xy * environment.fogView.zw * 2.0;
@@ -224,6 +224,13 @@ void main()
     else
     {
         float diffuse = max(dot(normal, lighting.light.xyz), 0.0);
+        if (environment.pbr.x < -0.5)
+        {
+            // Lommel-Seeliger with an opposition surge, for airless bodies.
+            vec3 view_dir = normalize(-ray);
+            float seen = max(dot(normal, view_dir), 0.0);
+            diffuse = 2.5 * diffuse / (diffuse + seen + 0.5) + pow(clamp(dot(view_dir, lighting.light.xyz), 0.0, 1.0), 4.0) * environment.pbr.y * diffuse;
+        }
         colour = albedo * (lighting.light.w + (1.0 - lighting.light.w) * diffuse * sun_rgb);
     }
     if (gloss)

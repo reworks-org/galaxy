@@ -170,6 +170,13 @@ namespace sl
         Bitmap *metallic_roughness = nullptr;
         /** How much of the texture's R channel darkens ambient light, 0-1. */
         float occlusion_strength = 1.0f;
+        /**
+         * Shade like an airless, dusty body (Moon, Mercury, asteroids) instead of Lambert: Lommel-Seeliger reflectance, which
+         * stays bright towards the terminator and the limb, plus an opposition surge when the light is behind the camera.
+         * Only for lit, non-pbr materials. opposition_surge is the strength of that brightening (0 for none).
+         */
+        bool airless = false;
+        float opposition_surge = 0.3f;
         /** Linear rgb light the surface gives off, added after lighting. */
         float emissive[3] = {0.0f, 0.0f, 0.0f};
         TerrainShading terrain;

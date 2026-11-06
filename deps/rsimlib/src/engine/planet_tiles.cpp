@@ -222,6 +222,9 @@ namespace sl
         {
             Mesh *mesh = nullptr;
             std::uint64_t used = 0;
+            std::vector<Vertex3D> vertices; // kept only when options.limb_fade is on
+            std::vector<float> base_alpha;
+            bool faded = false;
         };
 
         struct Leaf
@@ -475,7 +478,10 @@ namespace sl
             MeshEntry &entry = meshes[key];
             entry.used = frame;
             if (entry.mesh)
+            {
+                apply_limb_fade(entry);
                 return entry.mesh;
+            }
 
             const int n = std::max(options.segments, 2);
             const int base_split = sets[colour_layer].base_split;
@@ -565,7 +571,50 @@ namespace sl
                     indices.push_back(index);
             }
             entry.mesh = create_mesh(vertices, indices);
+            if (options.limb_fade > 0.0f)
+            {
+                entry.base_alpha.reserve(vertices.size());
+                for (const Vertex3D &v : vertices)
+                    entry.base_alpha.push_back(v.colour[3]);
+                entry.vertices = std::move(vertices);
+                apply_limb_fade(entry);
+            }
             return entry.mesh;
+        }
+
+        // Scales each vertex's opacity by how squarely the eye looks at the sphere there; the eye is in the unit sphere's frame.
+        void apply_limb_fade(MeshEntry &entry)
+        {
+            if (options.limb_fade <= 0.0f || entry.vertices.empty() || eye_distance <= 1.0)
+            {
+                if (entry.faded && !entry.vertices.empty())
+                {
+                    for (std::size_t i = 0; i < entry.vertices.size(); ++i)
+                        entry.vertices[i].colour[3] = entry.base_alpha[i];
+                    update_mesh_vertices(entry.mesh, entry.vertices);
+                    entry.faded = false;
+                }
+                return;
+            }
+            const double full = options.limb_fade, clear = 0.3 * options.limb_fade;
+            bool any = false;
+            std::vector<float> alpha(entry.vertices.size());
+            for (std::size_t i = 0; i < entry.vertices.size(); ++i)
+            {
+                const Vertex3D &v = entry.vertices[i];
+                const glm::dvec3 p(v.position[0], v.position[1], v.position[2]);
+                const double len = glm::length(p);
+                const double facing = len > 0.0 ? -glm::dot(p / len, glm::normalize(p - eye)) : 1.0;
+                const double t = std::clamp((facing - clear) / (full - clear), 0.0, 1.0);
+                alpha[i] = entry.base_alpha[i] * static_cast<float>(t * t * (3.0 - 2.0 * t));
+                any = any || t < 1.0;
+            }
+            if (!any && !entry.faded)
+                return;
+            for (std::size_t i = 0; i < alpha.size(); ++i)
+                entry.vertices[i].colour[3] = alpha[i];
+            update_mesh_vertices(entry.mesh, entry.vertices);
+            entry.faded = any;
         }
 
         void evict()

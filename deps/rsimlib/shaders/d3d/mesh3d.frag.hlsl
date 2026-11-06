@@ -250,7 +250,7 @@ float4 main(PixelInput input) : SV_TARGET
     // Framebuffer y grows downward in D3D.
     float2 pixel = input.position.xy * fog_view.zw * 2.0;
     float2 view_ndc = float2(pixel.x - 1.0, 1.0 - pixel.y);
-    if (use_pbr || gloss || camera_position.w > 0.5 || shadow.x > 0.5)
+    if (use_pbr || gloss || pbr.x < -0.5 || camera_position.w > 0.5 || shadow.x > 0.5)
     {
         ray = camera_forward.xyz + view_ndc.x * camera_right.xyz + view_ndc.y * camera_up.xyz;
     }
@@ -269,6 +269,13 @@ float4 main(PixelInput input) : SV_TARGET
     else
     {
         float diffuse = max(dot(normal, light.xyz), 0.0);
+        if (pbr.x < -0.5)
+        {
+            // Lommel-Seeliger with an opposition surge, for airless bodies.
+            float3 view_dir = normalize(-ray);
+            float seen = max(dot(normal, view_dir), 0.0);
+            diffuse = 2.5 * diffuse / (diffuse + seen + 0.5) + pow(saturate(dot(view_dir, light.xyz)), 4.0) * pbr.y * diffuse;
+        }
         colour = albedo * (light.w + (1.0 - light.w) * diffuse * sun_rgb);
     }
     if (gloss)

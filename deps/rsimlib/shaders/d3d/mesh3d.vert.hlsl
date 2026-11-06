@@ -2,8 +2,8 @@ cbuffer MeshParameters : register(b0)
 {
     float4x4 mvp;
     // Normal-matrix rows; w holds the tint colour. A negative normal_rows[0].w selects terrain shading, where the
-    // rows carry: [1] xyz: eye (mesh space), w: morph start. [2] x: morph end. D3D12 has no texture arrays, so
-    // terrain is drawn in its vertex colours.
+    // rows carry: [1] xyz: eye (mesh space), w: morph start. [2] x: morph end. Textured terrain uses
+    // terrain.vert/frag instead; this path draws terrain in its vertex colours when no layer textures exist.
     float4 normal_rows[3];
     float4 light;
     float4 light_colour;

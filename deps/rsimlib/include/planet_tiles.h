@@ -58,6 +58,13 @@ namespace sl
         float feather = 0.3f;
         /** Seconds a tile takes to fade in over its parent when it finishes loading, so detail does not pop. 0 turns it off. */
         float fade_seconds = 0.4f;
+        /**
+         * For a translucent layer such as clouds: patches fade out where the view grazes the sphere, so a thin shell seen
+         * edge-on near the horizon does not smear into streaks. The value is the cosine of the angle between the line of
+         * sight and the surface normal at which the layer is fully opaque (it is clear at 0.3 of that). 0 turns it off.
+         * The fade is rewritten into the patch vertices each draw, so it costs some upload bandwidth near the limb.
+         */
+        float limb_fade = 0.0f;
     };
 
     /** What PlanetTiles is doing, for overlays and tests. */

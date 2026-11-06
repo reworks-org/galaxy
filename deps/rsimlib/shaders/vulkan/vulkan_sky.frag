@@ -7,7 +7,7 @@ layout(set = 0, binding = 0) uniform SkyBlock { vec4 uSky[28]; };
 layout(location = 0) out vec4 fragColor;
 
 const float PI = 3.14159265;
-const int VIEW_STEPS = 16;
+const int VIEW_STEPS = 12;
 const int LIGHT_STEPS = 6;
 const int LAYER_ROWS = 12; // First row of the cloud layers; each layer has four rows.
 
@@ -91,14 +91,32 @@ vec3 planet_sky(vec3 ro, vec3 rd, vec3 sun, float sun_intensity, vec3 ground, fl
     if (len <= 0.0)
         return vec3(0.0);
 
-    float ds = len / float(VIEW_STEPS);
+    // Air is thin and the chord long, so a uniform step skips the dense layer near the limb and leaves a hard edge there. Samples
+    // are packed toward the point of closest approach to the planet (squared spacing on each side of it).
+    float tm = clamp(-dot(ro, rd), t0, t1);
     float od_r = 0.0;
     float od_m = 0.0;
     vec3 sum_r = vec3(0.0);
     vec3 sum_m = vec3(0.0);
-    for (int i = 0; i < VIEW_STEPS; ++i)
+    for (int i = 0; i < 2 * VIEW_STEPS; ++i)
     {
-        vec3 p = ro + rd * (t0 + (float(i) + 0.5) * ds);
+        float tp;
+        float ds;
+        if (i < VIEW_STEPS)
+        {
+            float a = 1.0 - float(i) / float(VIEW_STEPS), b = 1.0 - float(i + 1) / float(VIEW_STEPS);
+            ds = (tm - t0) * (a * a - b * b);
+            tp = tm - (tm - t0) * 0.25 * (a + b) * (a + b);
+        }
+        else
+        {
+            float a = float(i - VIEW_STEPS) / float(VIEW_STEPS), b = float(i - VIEW_STEPS + 1) / float(VIEW_STEPS);
+            ds = (t1 - tm) * (b * b - a * a);
+            tp = tm + (t1 - tm) * 0.25 * (a + b) * (a + b);
+        }
+        if (ds <= 0.0)
+            continue;
+        vec3 p = ro + rd * tp;
         float h = max(length(p) - planet_radius, 0.0);
         float dr = exp(-h / hr) * ds;
         float dm = exp(-h / hm) * ds;
@@ -297,6 +315,7 @@ vec4 volume_clouds(vec3 rd, bool planet, vec3 up, float altitude, vec3 sun, vec3
     start = 0.0;
     bool valid = false;
     float limit;
+    float edge = 1.0;
     if (planet)
     {
         float r0 = planet_radius + altitude;
@@ -331,6 +350,10 @@ vec4 volume_clouds(vec3 rd, bool planet, vec3 up, float altitude, vec3 sun, vec3
             t0 = o0;
             t1 = (hit_inner && i0 > 0.0) ? i0 : o1;
             valid = true;
+            // A ray only just inside the layer's outer shell crosses a long sliver of it, which would end on a hard line at the limb.
+            // Fade by how deep the ray goes so the layer thins out toward the limb instead.
+            float closest = length(ro + rd * (-dot(ro, rd)));
+            edge = smoothstep(0.0, 0.06 * sqrt(2.0 * planet_radius * max(altitude - base, 1000.0)), ro_ - closest);
         }
         limit = 60000.0;
     }
@@ -433,7 +456,7 @@ vec4 volume_clouds(vec3 rd, bool planet, vec3 up, float altitude, vec3 sun, vec3
         if (transmittance < 0.02)
             break;
     }
-    return vec4(colour, transmittance);
+    return vec4(colour * edge, mix(1.0, transmittance, edge));
 }
 
 void main()
@@ -497,6 +520,7 @@ void main()
             float elevation = dot(rd, up);
             vec3 camera = uSky[9].xyz;
             float hit = -1.0;
+            float limb_fade = 1.0;
             if (planet)
             {
                 float planet_radius = uSky[8].z;
@@ -509,6 +533,17 @@ void main()
                 float q0, q1;
                 if (hit > 0.0 && ray_sphere(ro, rd, planet_radius, q0, q1) && q0 > 0.0 && q0 < hit)
                     hit = -1.0;
+                // Seen from above, the shell ends at a limb of its own. Rays that just miss it sample the layer at their closest
+                // approach, and rays near it fade, so the layer thins into the haze instead of stopping on a hard line.
+                float tangent = -dot(ro, rd);
+                float closest = length(ro + rd * tangent);
+                float margin = 0.06 * sqrt(2.0 * planet_radius * max(altitude - cloud_altitude, 1000.0));
+                if (altitude > cloud_altitude && tangent > 0.0 && closest < shell + margin)
+                {
+                    if (hit < 0.0 && !(ray_sphere(ro, rd, planet_radius, q0, q1) && q0 > 0.0))
+                        hit = tangent;
+                    limb_fade = 1.0 - smoothstep(shell - 0.5 * margin, shell + margin, closest);
+                }
             }
             else if (altitude < cloud_altitude && elevation > 0.002)
             {
@@ -528,7 +563,7 @@ void main()
                     float sun_side = clamp(dot(up, sun) * 4.0 + 0.5, 0.0, 1.0);
                     vec3 colour = mix(ambient * 0.7, sun_colour * 1.15, lit * sun_side) + ambient * 0.25;
                     float horizon_fade = smoothstep(0.0, planet ? 0.06 : 0.14, abs(elevation));
-                    float alpha = d * lrow(0).z * horizon_fade;
+                    float alpha = d * lrow(0).z * horizon_fade * limb_fade;
                     sky = mix(sky, min(colour, vec3(1.5)), alpha);
                 }
             }

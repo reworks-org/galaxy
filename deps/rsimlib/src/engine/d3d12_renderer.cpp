@@ -555,6 +555,18 @@ namespace sl::detail
                         pipeline->Release();
                     pipeline = nullptr;
                 }
+                for (ID3D12PipelineState *&pipeline : terrain_pipelines_)
+                {
+                    if (pipeline)
+                        pipeline->Release();
+                    pipeline = nullptr;
+                }
+                if (terrain_vertex_blob_)
+                    terrain_vertex_blob_->Release();
+                if (terrain_pixel_blob_)
+                    terrain_pixel_blob_->Release();
+                terrain_vertex_blob_ = nullptr;
+                terrain_pixel_blob_ = nullptr;
                 if (mesh_root_signature_)
                     mesh_root_signature_->Release();
                 mesh_root_signature_ = nullptr;
@@ -839,7 +851,8 @@ namespace sl::detail
                                      const std::vector<std::size_t> &level_row_bytes)
             {
                 D3D12_RESOURCE_DESC destination_desc = target.resource->GetDesc();
-                const UINT level_count = destination_desc.MipLevels;
+                // Subresource index is level + layer * mip count; arrays pass one pixel pointer per subresource.
+                const UINT level_count = static_cast<UINT>(destination_desc.MipLevels) * destination_desc.DepthOrArraySize;
                 std::vector<D3D12_PLACED_SUBRESOURCE_FOOTPRINT> footprints(level_count);
                 std::vector<UINT> row_counts(level_count);
                 std::vector<UINT64> unpadded_row_sizes(level_count);
@@ -999,6 +1012,109 @@ namespace sl::detail
                 return active_render_target_ == 0 && found != textures_.end() &&
                        readback_resource(found->second.resource, found->second.state, width, height, pixels);
             }
+
+            int max_texture_array_layers() const override { return D3D12_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION; }
+
+            bool create_texture_array(const TextureArrayDesc &description, const std::uint8_t *pixels,
+                                      std::uint32_t &texture) override
+            {
+                texture = 0;
+                if (!pixels || description.width <= 0 || description.height <= 0 || description.layers <= 0 ||
+                    description.layers > D3D12_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION || description.mip_levels <= 0 ||
+                    texture_array_byte_count(description) == 0 || !context_.device() || !context_.command_queue() ||
+                    !ensure_descriptor_heaps())
+                    return false;
+                const std::uint32_t descriptor = acquire_descriptor();
+                if (descriptor == descriptor_capacity)
+                    return false;
+
+                D3D12_RESOURCE_DESC resource_desc{};
+                resource_desc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+                resource_desc.Width = static_cast<UINT64>(description.width);
+                resource_desc.Height = static_cast<UINT>(description.height);
+                resource_desc.DepthOrArraySize = static_cast<UINT16>(description.layers);
+                resource_desc.MipLevels = static_cast<UINT16>(description.mip_levels);
+                resource_desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+                resource_desc.SampleDesc.Count = 1;
+                resource_desc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+                Texture resource;
+                resource.descriptor = descriptor;
+                const D3D12_HEAP_PROPERTIES default_heap = heap_properties(D3D12_HEAP_TYPE_DEFAULT);
+                if (FAILED(context_.device()->CreateCommittedResource(&default_heap, D3D12_HEAP_FLAG_NONE, &resource_desc,
+                                                                      D3D12_RESOURCE_STATE_COPY_DEST, nullptr,
+                                                                      IID_PPV_ARGS(&resource.resource))))
+                {
+                    free_descriptors_.push_back(descriptor);
+                    return false;
+                }
+
+                D3D12_SHADER_RESOURCE_VIEW_DESC srv_desc{};
+                srv_desc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+                srv_desc.Format = resource_desc.Format;
+                srv_desc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2DARRAY;
+                srv_desc.Texture2DArray.MipLevels = resource_desc.MipLevels;
+                srv_desc.Texture2DArray.ArraySize = resource_desc.DepthOrArraySize;
+                context_.device()->CreateShaderResourceView(
+                    resource.resource, &srv_desc, cpu_descriptor(srv_staging_heap_, srv_descriptor_size_, descriptor));
+                context_.device()->CopyDescriptorsSimple(
+                    1, cpu_descriptor(srv_heap_, srv_descriptor_size_, descriptor),
+                    cpu_descriptor(srv_staging_heap_, srv_descriptor_size_, descriptor),
+                    D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+
+                // Terrain tiles repeat, so arrays get their own wrapping, anisotropic trilinear sampler.
+                constexpr std::uint32_t array_sampler_key = 0x10000u;
+                const auto known = sampler_slots_.find(array_sampler_key);
+                if (known != sampler_slots_.end())
+                    resource.sampler = known->second;
+                else if (sampler_slots_.size() < persistent_sampler_capacity)
+                {
+                    D3D12_SAMPLER_DESC sampler_desc{};
+                    sampler_desc.Filter = D3D12_FILTER_ANISOTROPIC;
+                    sampler_desc.MaxAnisotropy = 8;
+                    sampler_desc.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+                    sampler_desc.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+                    sampler_desc.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+                    sampler_desc.MaxLOD = D3D12_FLOAT32_MAX;
+                    resource.sampler = static_cast<std::uint32_t>(sampler_slots_.size());
+                    context_.device()->CreateSampler(
+                        &sampler_desc, cpu_descriptor(sampler_staging_heap_, sampler_descriptor_size_, resource.sampler));
+                    context_.device()->CopyDescriptorsSimple(
+                        1, cpu_descriptor(sampler_heap_, sampler_descriptor_size_, resource.sampler),
+                        cpu_descriptor(sampler_staging_heap_, sampler_descriptor_size_, resource.sampler),
+                        D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER);
+                    sampler_slots_.emplace(array_sampler_key, resource.sampler);
+                }
+
+                // The data is level-major with all layers of a level together; subresources are level + layer * levels.
+                std::vector<const std::uint8_t *> sub_pixels(static_cast<std::size_t>(description.mip_levels) *
+                                                             description.layers);
+                std::vector<std::size_t> sub_row_bytes(sub_pixels.size());
+                for (int level = 0; level < description.mip_levels; ++level)
+                {
+                    const std::size_t width = static_cast<std::size_t>(std::max(description.width >> level, 1));
+                    const std::size_t height = static_cast<std::size_t>(std::max(description.height >> level, 1));
+                    const std::uint8_t *level_start = pixels + texture_array_level_offset(description, level);
+                    for (int layer = 0; layer < description.layers; ++layer)
+                    {
+                        const std::size_t index = static_cast<std::size_t>(level) +
+                                                  static_cast<std::size_t>(layer) * description.mip_levels;
+                        sub_pixels[index] = level_start + static_cast<std::size_t>(layer) * width * height * 4;
+                        sub_row_bytes[index] = width * 4;
+                    }
+                }
+                if (!upload_subresources(resource, sub_pixels, sub_row_bytes))
+                {
+                    release_texture(resource);
+                    return false;
+                }
+                texture = next_texture_++;
+                if (texture == 0)
+                    texture = next_texture_++;
+                textures_.emplace(texture, resource);
+                return true;
+            }
+
+            void destroy_texture_array(std::uint32_t handle) override { destroy_texture(handle); }
 
             void destroy_texture(std::uint32_t handle) override
             {
@@ -1522,7 +1638,20 @@ namespace sl::detail
                     return false;
                 // The eye position, shadow parameters and matrix are followed by four float4s per light and then
                 // the local-shadow matrices starting at local_shadow_matrix_base.
-                std::array<float, 44 + local_light_vec4s * 4> pbr_constants{};
+                // Terrain draws append the layer table after the lights: layers (32), averages (32), macro (4).
+                constexpr std::size_t terrain_floats = 44 + local_light_vec4s * 4 + 68;
+                const bool terrain = params.terrain_albedo != 0 && instances == nullptr;
+                if (terrain)
+                {
+                    texture = textures_.find(params.terrain_albedo);
+                    normal_map = textures_.find(params.terrain_normals != 0 ? params.terrain_normals
+                                                                            : params.terrain_albedo);
+                    if (texture == textures_.end() || normal_map == textures_.end() ||
+                        texture->second.state != D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE ||
+                        normal_map->second.state != D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE)
+                        return false;
+                }
+                std::array<float, terrain_floats> pbr_constants{};
                 std::copy(std::begin(params.pbr), std::end(params.pbr), pbr_constants.begin());
                 std::copy(std::begin(params.emissive), std::end(params.emissive), pbr_constants.begin() + 4);
                 std::copy(std::begin(params.camera_right), std::end(params.camera_right), pbr_constants.begin() + 8);
@@ -1543,8 +1672,17 @@ namespace sl::detail
                                    ? static_cast<std::size_t>(local_shadow_matrix_base) + shadow_slots * 24
                                    : 0);
                 std::memcpy(pbr_constants.data() + 44, params.local_lights, local_vec4s * sizeof(float) * 4);
+                if (terrain)
+                {
+                    float *table = pbr_constants.data() + 44 + local_light_vec4s * 4;
+                    std::memcpy(table, params.terrain_layers, sizeof(float) * 32);
+                    std::memcpy(table + 32, params.terrain_average, sizeof(float) * 32);
+                    std::copy(std::begin(params.terrain_macro), std::end(params.terrain_macro), table + 64);
+                    table[67] = params.terrain_normals != 0 ? 1.0f : 0.0f;
+                }
                 const D3D12_GPU_VIRTUAL_ADDRESS pbr_address =
-                    allocate_constants(pbr_constants.data(), sizeof(float) * (44 + local_vec4s * 4));
+                    allocate_constants(pbr_constants.data(),
+                                       sizeof(float) * (terrain ? terrain_floats : 44 + local_vec4s * 4));
                 if (pbr_address == 0)
                     return false;
 
@@ -1561,7 +1699,7 @@ namespace sl::detail
 
                 ID3D12PipelineState *mesh_pipeline =
                     get_mesh_pipeline(static_cast<std::size_t>(params.cull), target->second.samples, instances != nullptr,
-                                      std::min<std::uint32_t>(params.blend, 2), params.style == 2);
+                                      std::min<std::uint32_t>(params.blend, 2), params.style == 2, terrain);
                 if (!mesh_pipeline)
                     return false;
 
@@ -2769,12 +2907,45 @@ namespace sl::detail
                 return true;
             }
 
-            ID3D12PipelineState *get_mesh_pipeline(std::size_t cull, int samples, bool instanced = false, std::uint32_t blend = 0, bool wire = false)
+            bool initialise_terrain_shaders()
+            {
+                if (terrain_pixel_blob_)
+                    return true;
+                const std::string vertex_source = load_shader("terrain.vert.hlsl");
+                const std::string pixel_source = load_shader("terrain.frag.hlsl");
+                if (vertex_source.empty() || pixel_source.empty())
+                {
+                    last_error_ = "Unable to load the D3D12 terrain shaders.";
+                    return false;
+                }
+                ID3DBlob *vertex_blob = nullptr;
+                ID3DBlob *pixel_blob = nullptr;
+                // Optimisation level 1 keeps the layer and light loops from taking seconds to compile.
+                if (!compile_shader(vertex_source, "main", "vs_5_0", &vertex_blob, last_error_) ||
+                    !compile_shader(pixel_source, "main", "ps_5_0", &pixel_blob, last_error_,
+                                    D3DCOMPILE_OPTIMIZATION_LEVEL1))
+                {
+                    if (vertex_blob)
+                        vertex_blob->Release();
+                    if (pixel_blob)
+                        pixel_blob->Release();
+                    return false;
+                }
+                terrain_vertex_blob_ = vertex_blob;
+                terrain_pixel_blob_ = pixel_blob;
+                return true;
+            }
+
+            ID3D12PipelineState *get_mesh_pipeline(std::size_t cull, int samples, bool instanced = false, std::uint32_t blend = 0,
+                                                   bool wire = false, bool terrain = false)
             {
                 ID3D12PipelineState *&slot =
-                    (instanced ? mesh_instanced_pipelines_ : mesh_pipelines_)[(wire ? 9 * sample_slot_count : 0) + sample_slot(samples) * 9 + blend * 3 + cull];
+                    (terrain ? terrain_pipelines_ : instanced ? mesh_instanced_pipelines_ : mesh_pipelines_)
+                        [(wire ? 9 * sample_slot_count : 0) + sample_slot(samples) * 9 + blend * 3 + cull];
                 if (slot)
                     return slot;
+                if (terrain && !initialise_terrain_shaders())
+                    return nullptr;
                 static const D3D12_INPUT_ELEMENT_DESC elements[] = {
                     {"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0,
                      static_cast<UINT>(offsetof(Vertex3D, position)), D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
@@ -2793,11 +2964,18 @@ namespace sl::detail
                     {"INSTANCE", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA, 1},
                     {"INSTANCE", 4, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 64, D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA, 1}};
                 constexpr UINT vertex_element_count = 5;
+                // Terrain adds the weights of layers 4-7 after the five common elements.
+                static const D3D12_INPUT_ELEMENT_DESC terrain_elements[] = {
+                    elements[0], elements[1], elements[2], elements[3], elements[4],
+                    {"EXTRA", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0,
+                     static_cast<UINT>(offsetof(Vertex3D, extra)), D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0}};
                 D3D12_GRAPHICS_PIPELINE_STATE_DESC pipeline_desc{};
                 pipeline_desc.pRootSignature = mesh_root_signature_;
-                ID3DBlob *vertex_blob = instanced ? mesh_instanced_vertex_blob_ : mesh_vertex_blob_;
+                ID3DBlob *vertex_blob = terrain ? terrain_vertex_blob_
+                                                : instanced ? mesh_instanced_vertex_blob_ : mesh_vertex_blob_;
+                ID3DBlob *pixel_blob = terrain ? terrain_pixel_blob_ : mesh_pixel_blob_;
                 pipeline_desc.VS = {vertex_blob->GetBufferPointer(), vertex_blob->GetBufferSize()};
-                pipeline_desc.PS = {mesh_pixel_blob_->GetBufferPointer(), mesh_pixel_blob_->GetBufferSize()};
+                pipeline_desc.PS = {pixel_blob->GetBufferPointer(), pixel_blob->GetBufferSize()};
                 pipeline_desc.BlendState.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
                 if (blend != 0)
                 {
@@ -2823,7 +3001,10 @@ namespace sl::detail
                     blend == 0 ? D3D12_DEPTH_WRITE_MASK_ALL : D3D12_DEPTH_WRITE_MASK_ZERO;
                 pipeline_desc.DepthStencilState.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
                 pipeline_desc.DepthStencilState.StencilEnable = FALSE;
-                pipeline_desc.InputLayout = {elements, instanced ? static_cast<UINT>(std::size(elements)) : vertex_element_count};
+                pipeline_desc.InputLayout =
+                    terrain ? D3D12_INPUT_LAYOUT_DESC{terrain_elements, static_cast<UINT>(std::size(terrain_elements))}
+                            : D3D12_INPUT_LAYOUT_DESC{elements, instanced ? static_cast<UINT>(std::size(elements))
+                                                                          : vertex_element_count};
                 pipeline_desc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
                 pipeline_desc.NumRenderTargets = 1;
                 pipeline_desc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -3964,6 +4145,9 @@ namespace sl::detail
             ID3D12RootSignature *mesh_root_signature_ = nullptr;
             std::array<ID3D12PipelineState *, 18 * sample_slot_count> mesh_pipelines_{}; // The second half is wireframe.
             std::array<ID3D12PipelineState *, 18 * sample_slot_count> mesh_instanced_pipelines_{};
+            std::array<ID3D12PipelineState *, 18 * sample_slot_count> terrain_pipelines_{};
+            ID3DBlob *terrain_vertex_blob_ = nullptr;
+            ID3DBlob *terrain_pixel_blob_ = nullptr;
             std::uint64_t pipelines_created_ = 0;
             std::vector<QueuedMeshDraw> queued_draws_;
             std::size_t inline_mesh_run_ = 0;

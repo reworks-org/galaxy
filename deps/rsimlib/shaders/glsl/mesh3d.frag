@@ -237,7 +237,7 @@ void main()
     float metallic = 0.0;
     float roughness = 1.0;
     vec3 ray = vec3(0.0);
-    if (pbr || gloss || uCameraPosition.w > 0.5 || uShadow.x > 0.5)
+    if (pbr || gloss || uPbr.x < -0.5 || uCameraPosition.w > 0.5 || uShadow.x > 0.5)
     {
         vec2 ndc = gl_FragCoord.xy * uFogView.zw * 2.0 - 1.0;
         ray = uCameraForward.xyz + ndc.x * uCameraRight.xyz + ndc.y * uCameraUp.xyz;
@@ -257,6 +257,13 @@ void main()
     else
     {
         float diffuse = max(dot(normal, uLight.xyz), 0.0);
+        if (uPbr.x < -0.5)
+        {
+            // Lommel-Seeliger with an opposition surge, for airless bodies.
+            vec3 view_dir = normalize(-ray);
+            float seen = max(dot(normal, view_dir), 0.0);
+            diffuse = 2.5 * diffuse / (diffuse + seen + 0.5) + pow(clamp(dot(view_dir, uLight.xyz), 0.0, 1.0), 4.0) * uPbr.y * diffuse;
+        }
         colour = albedo * (uLight.w + (1.0 - uLight.w) * diffuse * sun_rgb);
     }
     if (gloss)
