@@ -11,85 +11,56 @@
 #include <mimalloc-new-delete.h>
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
+#include <tinyfiledialogs.h>
 
+#include "tests/LoggingTests.hpp"
+#include "tests/PlatformTests.hpp"
+
+#include "TestConfig.hpp"
+
+#include <galaxy/core/Application.hpp>
 #include <galaxy/platform/Pragma.hpp>
-
-// #include <physfs.h>
-// #include <tinyfiledialogs.h>
-// #include <filesystem>
-
-// #include <entt/locator/locator.hpp>
-// #include <galaxy/core/Application.hpp>
-// #include <galaxy/core/Window.hpp>
-// #include <galaxy/core/Settings.hpp>
-// #include <galaxy/logging/PhysFSError.hpp>
-// #include <galaxy/platform/Pragma.hpp>
-// #include <galaxy/scene/SceneManager.hpp>
-// #include <galaxy/ui/ImGuiHelpers.hpp>
-//
-// #include "Editor.hpp"
-//
-// using namespace galaxy;
-//
-// void create_projects()
-//{
-//	const auto merged = Settings::root_dir() / Settings::editor_dir();
-//	if (!std::filesystem::exists(merged))
-//	{
-//		std::filesystem::create_directories(merged);
-//	}
-//
-//	const auto projects = merged / "projects";
-//	if (!std::filesystem::exists(projects))
-//	{
-//		std::filesystem::create_directories(projects);
-//	}
-//
-//	log::physfs_check(PHYSFS_mount(merged.string().c_str(), "editor", true));
-// }
-//
-// void set_icon()
-//{
-//	auto& window = entt::locator<Window>::value();
-//	window.set_icon("editor/sc.png");
-// }
+#include <galaxy/scene/SceneManager.hpp>
 
 int SDL_main(int argc, char* argv[])
 {
-	mi_version();
 	GALAXY_UNUSED(argc);
 	GALAXY_UNUSED(argv);
 
-	// try
-	//{
-	//	auto app    = galaxy::App();
-	//	auto editor = sc::Editor();
+	try
+	{
+		auto app = galaxy::App();
 
-	//	create_projects();
-	//	set_icon();
+		if (ENABLE_PLATFORM_TESTS)
+		{
+			platform_tests();
+		}
 
-	//	app.set_update_func([&](App* app) {
-	//		editor.update(app->events());
-	//	});
+		if (ENABLE_LOGGING_TESTS)
+		{
+			logging_tests();
+		}
 
-	//	app.set_render_func([&](App* app) {
-	//		editor.render();
-	//	});
+		if (ENABLE_SANDBOX)
+		{
+			auto& sm = entt::locator<galaxy::SceneManager>::value();
+			sm.add("Sandbox");
+			sm.push("Sandbox");
+		}
 
-	//	app.run();
-	//}
-	// catch (const std::exception& e)
-	//{
-	//	tinyfd_notifyPopup("Error", e.what(), "error");
-	//}
+		app.run();
+	}
+	catch (const std::exception& e)
+	{
+		const std::string msg = {e.what()};
+		tinyfd_messageBox("Error", msg.c_str(), "ok", "error", 1);
+	}
 
 	return GALAXY_EXIT_SUCCESS;
 }
 
 int main(int argc, char* argv[])
 {
-	GALAXY_UNUSED(argc);
-	GALAXY_UNUSED(argv);
-
-	return SDL_RunApp(0, nullptr, SDL_main, nullptr);
+	mi_version();
+	return SDL_RunApp(argc, argv, SDL_main, nullptr);
 }

@@ -1,3 +1,3 @@
 # Supercluster
 
-Editor for Galaxy.
+Integration testing.
