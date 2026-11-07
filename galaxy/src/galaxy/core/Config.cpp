@@ -108,12 +108,7 @@ namespace galaxy
 		return m_config.empty();
 	}
 
-	void Config::raw(const nlohmann::json& json) noexcept
-	{
-		m_config = json;
-	}
-
-	const nlohmann::json& Config::raw() const noexcept
+	nlohmann::json& Config::raw() noexcept
 	{
 		return m_config;
 	}

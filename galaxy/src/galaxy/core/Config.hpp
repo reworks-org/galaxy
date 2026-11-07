@@ -166,19 +166,12 @@ namespace galaxy
 		bool empty() const;
 
 		///
-		/// Set as external json object.
-		///
-		/// \param json New json config data to set.
-		///
-		void raw(const nlohmann::json& json) noexcept;
-
-		///
 		/// Get raw json object.
 		///
-		/// \return Const reference to internal json object.
+		/// \return Reference to internal json object.
 		///
 		[[nodiscard]]
-		const nlohmann::json& raw() const noexcept;
+		nlohmann::json& raw() noexcept;
 
 	private:
 		///
