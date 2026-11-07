@@ -72,6 +72,9 @@
     <ClCompile Include="src\galaxy\meta\Serializable.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\resource\embedded\RobotoLight.cpp" />
+    <ClCompile Include="src\galaxy\ui\Editor.cpp" />
+    <ClCompile Include="src\galaxy\ui\panels\Panel.cpp" />
+    <ClCompile Include="src\galaxy\ui\panels\ConfigPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -134,5 +137,8 @@
     <ClInclude Include="src\galaxy\resource\embedded\material_design_icons.h" />
     <ClInclude Include="src\galaxy\resource\embedded\material_design_icons_ttf.h" />
     <ClInclude Include="src\galaxy\resource\embedded\RobotoLight.hpp" />
+    <ClInclude Include="src\galaxy\ui\Editor.hpp" />
+    <ClInclude Include="src\galaxy\ui\panels\Panel.hpp" />
+    <ClInclude Include="src\galaxy\ui\panels\ConfigPanel.hpp" />
   </ItemGroup>
 </Project>

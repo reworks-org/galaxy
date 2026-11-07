@@ -14,6 +14,8 @@
 
 namespace galaxy
 {
+	class Editor;
+
 	///
 	/// Base level class for any galaxy app.
 	///
@@ -83,18 +85,71 @@ namespace galaxy
 		///
 		App& operator=(App&&) = delete;
 
+		///
+		/// Setup async module.
+		///
 		void setup_async();
+
+		///
+		/// Setup config module.
+		///
+		/// \param config_file Config file on disk, not VFS, to load.
+		///
 		void setup_config(std::string_view config_file);
+
+		///
+		/// Setup logging module.
+		///
 		void setup_logging();
+
+		///
+		/// Setup platform module.
+		///
 		void setup_platform();
+
+		///
+		/// Setup filesystem module.
+		///
 		void setup_fs();
+
+		///
+		/// Setup graphics module.
+		///
 		void setup_rendering();
+
+		///
+		/// Setup input module.
+		///
 		void setup_input();
+
+		///
+		/// Setup factory module.
+		///
 		void setup_factory();
+
+		///
+		///
+		///
 		// void setup_loader();
+
+		///
+		///
+		///
 		// void setup_meta();
+
+		///
+		/// Setup services.
+		///
 		void setup_services();
+
+		///
+		/// Setup ui module.
+		///
 		void setup_ui();
+
+		///
+		/// Setup scripting module.
+		///
 		void setup_scripting();
 
 	private:
@@ -102,6 +157,11 @@ namespace galaxy
 		/// Core event data.
 		///
 		SDL_Event m_events;
+
+		///
+		/// Editor data.
+		///
+		std::unique_ptr<Editor> m_editor;
 	};
 } // namespace galaxy
 

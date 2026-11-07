@@ -9,6 +9,7 @@
 #define GALAXY_UI_IMGUIHELPERS_HPP_
 
 #include <imgui/imgui.h>
+#include <SDL3/SDL_events.h>
 
 namespace galaxy
 {
@@ -43,11 +44,6 @@ namespace galaxy
 		void imgui_new_frame();
 
 		///
-		/// Draw main editor interface.
-		///
-		void imgui_draw_editor();
-
-		///
 		/// Render imgui.
 		///
 		void imgui_render();
@@ -56,6 +52,34 @@ namespace galaxy
 		/// Destroy imgui context.
 		///
 		void imgui_exit();
+
+		///
+		/// ImGui success notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_success(const char* msg);
+
+		///
+		/// ImGui info notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_info(const char* msg);
+
+		///
+		/// ImGui warning notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_warning(const char* msg);
+
+		///
+		/// ImGui error notification.
+		///
+		/// \param msg Message to display.
+		///
+		void imgui_notify_error(const char* msg);
 	} // namespace ui
 } // namespace galaxy
 
@@ -64,14 +88,6 @@ namespace galaxy
 		/// Make sure the next window opened is centered on the monitor.
 		///
 		void imgui_center_next_window();
-
-		///
-		/// Is ImGui loaded?
-		///
-		/// \return True if imgui context is loaded.
-		///
-		[[nodiscard]]
-		bool imgui_loaded();
 
 		///
 		/// Cleaner way of rendering an ImGui popup.
@@ -119,33 +135,7 @@ namespace galaxy
 		///
 		void imgui_image(const graphics::RenderTexture& texture, const ImVec2& size);
 
-		///
-		/// ImGui success notification.
-		///
-		/// \param msg Message to display.
-		///
-		void imgui_notify_success(const char* msg);
 
-		///
-		/// ImGui info notification.
-		///
-		/// \param msg Message to display.
-		///
-		void imgui_notify_info(const char* msg);
-
-		///
-		/// ImGui warning notification.
-		///
-		/// \param msg Message to display.
-		///
-		void imgui_notify_warning(const char* msg);
-
-		///
-		/// ImGui error notification.
-		///
-		/// \param msg Message to display.
-		///
-		void imgui_notify_error(const char* msg);
 
 		///
 		/// GLM vector 2 widget.

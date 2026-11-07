@@ -77,7 +77,10 @@
     <ClCompile Include="src\galaxy\time\Stopwatch.cpp" />
     <ClCompile Include="src\galaxy\time\Time.cpp" />
     <ClCompile Include="src\galaxy\time\Timer.cpp" />
+    <ClCompile Include="src\galaxy\ui\Editor.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
+    <ClCompile Include="src\galaxy\ui\panels\ConfigPanel.cpp" />
+    <ClCompile Include="src\galaxy\ui\panels\Panel.cpp" />
     <ClCompile Include="src\galaxy\utils\Async.cpp" />
     <ClCompile Include="src\galaxy\utils\Memory.cpp" />
     <ClCompile Include="src\galaxy\utils\StringUtils.cpp" />
@@ -139,7 +142,10 @@
     <ClInclude Include="src\galaxy\time\Stopwatch.hpp" />
     <ClInclude Include="src\galaxy\time\Time.hpp" />
     <ClInclude Include="src\galaxy\time\Timer.hpp" />
+    <ClInclude Include="src\galaxy\ui\Editor.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
+    <ClInclude Include="src\galaxy\ui\panels\ConfigPanel.hpp" />
+    <ClInclude Include="src\galaxy\ui\panels\Panel.hpp" />
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
     <ClInclude Include="src\galaxy\utils\Memory.hpp" />
     <ClInclude Include="src\galaxy\utils\StringUtils.hpp" />

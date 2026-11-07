@@ -37,6 +37,7 @@
 #include "galaxy/platform/Platform.hpp"
 #include "galaxy/scene/SceneManager.hpp"
 #include "galaxy/time/Time.hpp"
+#include "galaxy/ui/Editor.hpp"
 #include "galaxy/ui/ImGuiHelpers.hpp"
 
 #include "Application.hpp"
@@ -72,7 +73,7 @@ namespace galaxy
 		entt::locator<BS::priority_thread_pool>::value().wait();
 
 		entt::locator<sol::state>::reset();
-		ui::imgui_exit();
+		m_editor.reset();
 		entt::locator<SceneManager>::reset();
 		entt::locator<SystemFactory>::reset();
 		entt::locator<Mouse>::reset();
@@ -230,18 +231,17 @@ namespace galaxy
 							// TODO disable input/audio
 							break;
 
-							/*case SDL_EVENT_NOTIFICATION_ACTION_INVOKED:
-								/// A user response to a system notification was received.
-								break;*/
-
-							/*case SDL_EVENT_CLIPBOARD_UPDATE:
-								/// Just use clipboard methods.
-								break;*/
-
 						default:
-							ui::imgui_handle_events(m_events);
 							window.handle_window_events(m_events);
-							scenes.on_event(m_events);
+
+							if (!Settings::enable_editor())
+							{
+								scenes.on_event(m_events);
+							}
+							else
+							{
+								m_editor->handle_events(m_events);
+							}
 							break;
 					}
 				}
@@ -251,12 +251,15 @@ namespace galaxy
 				updates++;
 			}
 
-			scenes.render();
-
-			ui::imgui_new_frame();
-			ui::imgui_draw_editor();
-			ui::imgui_render();
-
+			window.clear();
+			if (!Settings::enable_editor())
+			{
+				scenes.render();
+			}
+			else
+			{
+				m_editor->render();
+			}
 			window.swap();
 
 			frames++;
@@ -554,7 +557,10 @@ namespace galaxy
 	{
 		// ServiceLocator<ui::NuklearUI>::make();
 
-		ui::imgui_init("editor.ini");
+		if (Settings::enable_editor())
+		{
+			m_editor = std::make_unique<Editor>();
+		}
 	}
 
 	void App::setup_scripting()

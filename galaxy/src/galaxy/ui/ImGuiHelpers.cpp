@@ -12,6 +12,7 @@
 #include <imgui/backends/imgui_impl_opengl3.h>
 #include <imgui/backends/imgui_impl_sdl3.h>
 #include <imgui/misc/freetype/imgui_freetype.h>
+#include <imgui/notify/ImGuiNotify.hpp>
 #include <mimalloc.h>
 
 #include "galaxy/core/Settings.hpp"
@@ -30,7 +31,7 @@
 
 namespace galaxy
 {
-	bool show_editor = false;
+	ImGuiStyle g_Style;
 
 	void* mem_alloc(size_t sz, void* user_data)
 	{
@@ -46,60 +47,64 @@ namespace galaxy
 	{
 		void imgui_init(const char* ini)
 		{
-			if (Settings::enable_editor())
-			{
-				auto& window = entt::locator<Window>::value();
+			auto& window = entt::locator<Window>::value();
 
-				// clang-format off
-				IMGUI_CHECKVERSION();
-				ImGui::SetAllocatorFunctions(mem_alloc, mem_free, nullptr);
-				ImGuiFreeType::SetAllocatorFunctions(mem_alloc, mem_free, nullptr);
-				ImGui::CreateContext();
-				ImGuiIO& io = ImGui::GetIO(); (void)io;
-				// clang-format on
+			// clang-format off
+			IMGUI_CHECKVERSION();
+			ImGui::SetAllocatorFunctions(mem_alloc, mem_free, nullptr);
+			ImGuiFreeType::SetAllocatorFunctions(mem_alloc, mem_free, nullptr);
+			ImGui::CreateContext();
+			ImGuiIO& io = ImGui::GetIO(); (void)io;
+			// clang-format on
 
-				io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-				io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-				io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+			io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+			io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+			io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
-				io.ConfigInputTextCursorBlink = true;
-				io.ConfigDockingWithShift     = true;
-				// io.ConfigDockingAlwaysTabBar  = true;
-				io.ConfigWindowsMoveFromTitleBarOnly = true;
-				io.ConfigWindowsResizeFromEdges      = true;
-				io.MouseDrawCursor                   = false;
-				io.ConfigDpiScaleFonts               = true;
-				io.ConfigDpiScaleViewports           = true;
-				io.IniFilename                       = ini;
-				io.ConfigColorEditFlags =
-					ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_AlphaBar;
+			io.ConfigInputTextCursorBlink = true;
+			io.ConfigDockingWithShift     = true;
+			// io.ConfigDockingAlwaysTabBar  = true;
+			io.ConfigWindowsMoveFromTitleBarOnly = true;
+			io.ConfigWindowsResizeFromEdges      = true;
+			io.MouseDrawCursor                   = false;
+			io.ConfigDpiScaleFonts               = true;
+			io.ConfigDpiScaleViewports           = true;
+			io.FontAllowUserScaling              = true;
+			io.IniFilename                       = ini;
+			io.ConfigColorEditFlags =
+				ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_PickerHueBar | ImGuiColorEditFlags_AlphaBar;
 
-				ImGui_ImplSDL3_InitForOpenGL(window.handle(), window.context());
-				ImGui_ImplOpenGL3_Init("#version 460 core");
+			ImGui_ImplSDL3_InitForOpenGL(window.handle(), window.context());
+			ImGui_ImplOpenGL3_Init("#version 460 core");
 
-				const auto font_size = window.get_display_scale() * 16.0f;
+			ImFontConfig font_cfg          = {};
+			font_cfg.FontDataOwnedByAtlas  = false;
+			font_cfg.RasterizerMultiply    = 1.5f;
+			font_cfg.OversampleH           = 1;
+			font_cfg.OversampleV           = 1;
+			font_cfg.FontLoaderFlags      |= ImGuiFreeTypeLoaderFlags_LoadColor;
+			io.FontDefault                 = io.Fonts->AddFontFromMemoryTTF(&resource::roboto_light, resource::roboto_light_len, 16.0f, &font_cfg);
 
-				ImFontConfig font_cfg          = {};
-				font_cfg.FontDataOwnedByAtlas  = false;
-				font_cfg.RasterizerMultiply    = 1.5f;
-				font_cfg.OversampleH           = 1;
-				font_cfg.OversampleV           = 1;
-				font_cfg.FontLoaderFlags      |= ImGuiFreeTypeLoaderFlags_LoadColor;
-				io.FontDefault                 = io.Fonts->AddFontFromMemoryTTF(&resource::roboto_light, resource::roboto_light_len, font_size, &font_cfg);
+			static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
+			ImFontConfig         md_icons_cfg;
+			md_icons_cfg.FontDataOwnedByAtlas = false;
+			md_icons_cfg.MergeMode            = true;
+			md_icons_cfg.PixelSnapH           = true;
+			io.Fonts->AddFontFromMemoryTTF(&materialdesignicons_ttf, sizeof(materialdesignicons_ttf), 16.0f, &md_icons_cfg, icons_ranges);
 
-				static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
-				ImFontConfig         md_icons_cfg;
-				md_icons_cfg.FontDataOwnedByAtlas = false;
-				md_icons_cfg.MergeMode            = true;
-				md_icons_cfg.PixelSnapH           = true;
-				io.Fonts->AddFontFromMemoryTTF(&materialdesignicons_ttf, sizeof(materialdesignicons_ttf), font_size, &md_icons_cfg, icons_ranges);
-			}
+			imgui_set_theme(window.get_display_scale());
+
+			// Preserve initial copy.
+			g_Style = ImGui::GetStyle();
 		}
 
 		void imgui_set_theme(const float scale) noexcept
 		{
-			if (Settings::enable_editor() && ImGui::GetCurrentContext())
+			if (ImGui::GetCurrentContext())
 			{
+				// Copy back over.
+				ImGui::GetCurrentContext()->Style = g_Style;
+
 				// Hazy Dark style by kaitabuchi314 from ImThemes.
 				ImGuiStyle& style = ImGui::GetStyle();
 
@@ -188,49 +193,33 @@ namespace galaxy
 				style.Colors[ImGuiCol_NavWindowingDimBg]     = ImVec4(0.8f, 0.8f, 0.8f, 0.2f);
 				style.Colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.8f, 0.8f, 0.8f, 0.35f);
 
-				style.ScaleAllSizes(scale);
+				style.FontSizeBase = 18.0f;
 				style.FontScaleDpi = scale;
+				style.ScaleAllSizes(scale);
 			}
 		}
 
 		void imgui_handle_events(const SDL_Event& events)
 		{
-			if (Settings::enable_editor() && ImGui::GetCurrentContext())
+			if (ImGui::GetCurrentContext())
 			{
-				if (events.type == SDL_EVENT_KEY_DOWN)
-				{
-					if (events.key.scancode == Settings::editor_key())
-					{
-						show_editor = !show_editor;
-					}
-				}
-
 				ImGui_ImplSDL3_ProcessEvent(&events);
 			}
 		}
 
 		void imgui_new_frame()
 		{
-			if (Settings::enable_editor() && ImGui::GetCurrentContext())
+			if (ImGui::GetCurrentContext())
 			{
-				sl::clear_to_colour(sl::screen, {18, 23, 32});
 				ImGui_ImplOpenGL3_NewFrame();
 				ImGui_ImplSDL3_NewFrame();
 				ImGui::NewFrame();
 			}
 		}
 
-		void imgui_draw_editor()
-		{
-			if (Settings::enable_editor() && ImGui::GetCurrentContext() && show_editor)
-			{
-				ImGui::ShowDemoWindow(&show_editor);
-			}
-		}
-
 		void imgui_render()
 		{
-			if (Settings::enable_editor() && ImGui::GetCurrentContext())
+			if (ImGui::GetCurrentContext())
 			{
 				sl::detail::gl2d_flush();
 				ImGui::Render();
@@ -240,12 +229,32 @@ namespace galaxy
 
 		void imgui_exit()
 		{
-			if (Settings::enable_editor() && ImGui::GetCurrentContext())
+			if (ImGui::GetCurrentContext())
 			{
 				ImGui_ImplOpenGL3_Shutdown();
 				ImGui_ImplSDL3_Shutdown();
 				ImGui::DestroyContext();
 			}
+		}
+
+		void imgui_notify_success(const char* msg)
+		{
+			ImGui::InsertNotification({ImGuiToastType::Warning, 2000, msg});
+		}
+
+		void imgui_notify_info(const char* msg)
+		{
+			ImGui::InsertNotification({ImGuiToastType::Info, 2000, msg});
+		}
+
+		void imgui_notify_warning(const char* msg)
+		{
+			ImGui::InsertNotification({ImGuiToastType::Warning, 2000, msg});
+		}
+
+		void imgui_notify_error(const char* msg)
+		{
+			ImGui::InsertNotification({ImGuiToastType::Error, 2000, msg});
 		}
 	} // namespace ui
 } // namespace galaxy
@@ -332,25 +341,7 @@ namespace galaxy
 			ImGui::Image(reinterpret_cast<void*>(upcast), size, {0, 1}, {1, 0});
 		}
 
-		void imgui_notify_success(const char* msg)
-		{
-			ImGui::InsertNotification({ImGuiToastType::Warning, 2000, msg});
-		}
 
-		void imgui_notify_info(const char* msg)
-		{
-			ImGui::InsertNotification({ImGuiToastType::Info, 2000, msg});
-		}
-
-		void imgui_notify_warning(const char* msg)
-		{
-			ImGui::InsertNotification({ImGuiToastType::Warning, 2000, msg});
-		}
-
-		void imgui_notify_error(const char* msg)
-		{
-			ImGui::InsertNotification({ImGuiToastType::Error, 2000, msg});
-		}
 
 		bool imgui_glm_vec2(const char* label, glm::vec2& vec)
 		{
