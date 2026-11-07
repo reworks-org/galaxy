@@ -46,6 +46,11 @@ namespace galaxy
 		void close() noexcept;
 
 		///
+		/// Clear screen framebuffer.
+		///
+		void clear() noexcept;
+
+		///
 		/// Swap backbuffer with window framebuffer.
 		///
 		void swap() const noexcept;

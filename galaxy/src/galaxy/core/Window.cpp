@@ -8,6 +8,7 @@
 #define SDL_STBIMG_SDL3
 
 #include <display.h>
+#include <draw.h>
 #include <system.h>
 #include <glad/glad.h>
 #include <SDL_stbimage.h>
@@ -160,6 +161,11 @@ namespace galaxy
 	void Window::close() noexcept
 	{
 		m_open = false;
+	}
+
+	void Window::clear() noexcept
+	{
+		sl::clear_to_colour(sl::screen, {0, 0, 0, 0});
 	}
 
 	void Window::swap() const noexcept
