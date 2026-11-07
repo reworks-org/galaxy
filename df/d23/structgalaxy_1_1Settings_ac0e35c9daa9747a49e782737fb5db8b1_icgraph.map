@@ -1,59 +1,31 @@
 <map id="galaxy::Settings::enable_editor" name="galaxy::Settings::enable_editor">
-<area shape="rect" id="Node000001" title="Enable the debug editor UI." alt="" coords="1067,324,1245,364"/>
-<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a9a367f7954752c657b46bd43f4993852" title="Draw main editor interface." alt="" coords="843,29,1013,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1144,311,1127,261,1101,200,1065,137,1042,109,1017,83,1000,72,1003,67,1020,79,1046,105,1069,135,1106,198,1132,259,1149,310"/>
-<area shape="rect" id="Node000004" href="$d3/dd9/namespacegalaxy_1_1ui.html#a75724fdf5b5623e0edfc966f9f439082" title="Destroy imgui context." alt="" coords="847,367,1009,393"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="1053,363,1009,370,1008,365,1052,358"/>
-<area shape="rect" id="Node000006" href="$d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45" title="Handle events in ImGui." alt="" coords="837,117,1019,157"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="1135,314,1088,242,1055,204,1017,171,997,160,1000,155,1020,167,1058,201,1092,239,1140,311"/>
-<area shape="rect" id="Node000007" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="622,418,781,443"/>
-<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="1107,373,1065,391,1019,407,958,419,895,427,781,434,781,429,894,422,957,414,1018,401,1063,386,1104,368"/>
-<area shape="rect" id="Node000014" href="$d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1" title="Begin setting up ImGui pass." alt="" coords="846,205,1010,245"/>
-<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="1115,318,1069,288,1017,260,990,248,992,243,1020,255,1072,284,1117,314"/>
-<area shape="rect" id="Node000015" href="$d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65" title="Render imgui." alt="" coords="839,294,1017,319"/>
-<area shape="poly" id="edge22_Node000001_Node000015" title=" " alt="" coords="1053,330,1005,322,1006,317,1053,325"/>
-<area shape="rect" id="Node000016" href="$d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d" title="Set imgui theme." alt="" coords="849,567,1007,607"/>
-<area shape="poly" id="edge25_Node000001_Node000016" title=" " alt="" coords="1133,377,1083,439,1021,509,956,568,952,565,1017,505,1079,436,1129,374"/>
-<area shape="rect" id="Node000018" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="841,469,1015,494"/>
-<area shape="poly" id="edge28_Node000001_Node000018" title=" " alt="" coords="1125,375,1077,414,1020,452,975,471,973,466,1017,447,1074,410,1121,371"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="966,18,953,11,928,8,906,10,893,15,888,21,891,28,886,30,883,20,890,10,905,5,928,3,954,6,969,13"/>
-<area shape="rect" id="Node000003" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="638,169,765,194"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="852,77,839,84,770,129,719,170,715,166,767,124,836,79,850,72"/>
-<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="969,358,958,349,928,346,904,348,891,353,888,358,895,365,891,369,883,359,887,349,903,343,928,341,960,345,972,354"/>
-<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f" title="Destructor." alt="" coords="630,345,773,370"/>
-<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="832,373,772,367,773,362,833,368"/>
-<area shape="poly" id="edge9_Node000006_Node000003" title=" " alt="" coords="824,160,765,172,764,166,823,155"/>
-<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="966,106,953,99,928,96,906,98,893,103,888,109,891,116,886,118,883,108,890,98,905,93,928,91,954,94,969,101"/>
-<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="740,408,729,400,701,397,678,399,666,404,664,409,670,416,666,420,658,410,662,400,677,394,701,391,731,395,743,404"/>
-<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#a6c53cfe545a0c3a52bac1683891e1014" title=" " alt="" coords="404,411,565,437"/>
-<area shape="poly" id="edge12_Node000007_Node000008" title=" " alt="" coords="608,430,565,429,566,424,608,425"/>
-<area shape="rect" id="Node000009" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,390,356,415"/>
-<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="390,416,356,412,357,407,391,411"/>
-<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,465,177,490"/>
-<area shape="poly" id="edge18_Node000008_Node000012" title=" " alt="" coords="391,439,178,468,177,463,390,434"/>
-<area shape="rect" id="Node000010" href="$dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,317,157,342"/>
-<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="250,386,176,356,141,345,143,339,178,351,252,382"/>
-<area shape="rect" id="Node000011" href="$dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,366,157,391"/>
-<area shape="poly" id="edge15_Node000009_Node000011" title=" " alt="" coords="211,396,157,389,157,384,212,391"/>
-<area shape="poly" id="edge16_Node000009_Node000012" title=" " alt="" coords="252,424,178,454,140,467,138,462,176,450,250,419"/>
-<area shape="rect" id="Node000013" href="$dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,415,177,441"/>
-<area shape="poly" id="edge17_Node000009_Node000013" title=" " alt="" coords="212,415,178,420,177,414,211,410"/>
-<area shape="poly" id="edge21_Node000014_Node000003" title=" " alt="" coords="832,209,764,196,765,191,833,204"/>
-<area shape="poly" id="edge20_Node000014_Node000014" title=" " alt="" coords="966,194,953,187,928,184,906,186,893,191,888,197,891,204,886,206,883,196,890,186,905,181,928,179,954,182,969,189"/>
-<area shape="poly" id="edge24_Node000015_Node000003" title=" " alt="" coords="890,290,836,260,724,196,726,192,839,255,893,285"/>
-<area shape="poly" id="edge23_Node000015_Node000015" title=" " alt="" coords="969,285,958,276,928,273,904,275,891,280,888,285,895,292,891,296,883,286,887,276,903,270,928,267,960,271,972,281"/>
-<area shape="poly" id="edge27_Node000016_Node000016" title=" " alt="" coords="966,555,953,548,928,545,906,547,893,552,888,558,891,566,886,567,883,557,890,548,905,542,928,540,954,543,969,550"/>
-<area shape="rect" id="Node000017" href="$d0/d84/classgalaxy_1_1Window.html#a986738e6bddf8d58d232bf6491c35807" title="Process window specific events." alt="" coords="613,592,789,632"/>
-<area shape="poly" id="edge26_Node000016_Node000017" title=" " alt="" coords="836,600,790,605,789,600,835,594"/>
-<area shape="rect" id="Node000019" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="631,469,771,494"/>
-<area shape="poly" id="edge29_Node000018_Node000019" title=" " alt="" coords="827,484,771,484,771,479,827,479"/>
-<area shape="rect" id="Node000022" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="638,542,765,567"/>
-<area shape="poly" id="edge34_Node000018_Node000022" title=" " alt="" coords="875,501,742,544,741,539,874,496"/>
-<area shape="rect" id="Node000020" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="413,461,556,501"/>
-<area shape="poly" id="edge30_Node000019_Node000020" title=" " alt="" coords="617,484,556,484,556,479,617,479"/>
-<area shape="rect" id="Node000021" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="415,526,554,551"/>
-<area shape="poly" id="edge33_Node000019_Node000021" title=" " alt="" coords="640,500,534,529,533,523,639,495"/>
-<area shape="poly" id="edge31_Node000020_Node000009" title=" " alt="" coords="421,459,322,418,324,413,423,454"/>
-<area shape="poly" id="edge32_Node000020_Node000012" title=" " alt="" coords="399,483,177,481,177,476,399,478"/>
-<area shape="poly" id="edge35_Node000022_Node000022" title=" " alt="" coords="740,532,729,524,701,521,678,523,666,528,664,533,670,540,666,544,658,534,662,524,677,518,701,515,731,519,743,528"/>
+<area shape="rect" id="Node000001" title="Enable the debug editor UI." alt="" coords="1024,127,1203,167"/>
+<area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="801,135,976,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1010,150,976,150,976,145,1010,145"/>
+<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="825,184,952,209"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1011,173,948,187,947,181,1010,167"/>
+<area shape="rect" id="Node000013" href="$dd/d33/classgalaxy_1_1App.html#a6c53cfe545a0c3a52bac1683891e1014" title="Setup ui module." alt="" coords="404,77,565,103"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="1010,131,976,126,865,111,753,102,566,94,566,89,754,97,865,106,976,121,1011,126"/>
+<area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="613,184,753,209"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="823,166,738,187,736,181,821,161"/>
+<area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="620,135,747,160"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="787,150,747,150,747,145,787,145"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="413,177,556,217"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="599,199,556,199,556,194,599,194"/>
+<area shape="rect" id="Node000010" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="415,127,554,152"/>
+<area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="625,183,529,155,530,149,626,178"/>
+<area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,79,356,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="416,173,403,167,350,136,308,106,311,102,353,131,405,162,418,169"/>
+<area shape="rect" id="Node000008" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" id="edge9_Node000004_Node000008" title=" " alt="" coords="399,193,177,175,178,170,400,187"/>
+<area shape="rect" id="Node000006" href="$dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="250,75,176,45,141,33,143,28,178,39,252,70"/>
+<area shape="rect" id="Node000007" href="$dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="211,84,157,78,157,73,212,79"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="253,113,178,144,143,156,141,151,176,140,250,108"/>
+<area shape="rect" id="Node000009" href="$dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="212,104,178,108,177,103,211,99"/>
+<area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="718,125,708,116,683,113,662,115,651,120,649,126,655,133,651,136,644,126,647,116,661,110,683,108,710,112,722,120"/>
+<area shape="poly" id="edge15_Node000013_Node000005" title=" " alt="" coords="390,93,356,94,356,88,390,88"/>
+<area shape="poly" id="edge16_Node000013_Node000008" title=" " alt="" coords="411,108,357,119,163,156,162,151,355,114,410,103"/>
 </map>

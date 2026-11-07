@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Vsync control." alt="" coords="1073,165,1245,191"/>
 <area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="846,165,1021,191"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1059,181,1021,181,1021,175,1059,175"/>
-<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="404,67,547,107"/>
+<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title="Setup platform module." alt="" coords="404,67,547,107"/>
 <area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1094,165,957,134,793,106,662,95,547,91,547,85,663,89,794,101,958,129,1096,159"/>
 <area shape="rect" id="Node000013" href="$d0/d84/classgalaxy_1_1Window.html#a736121d0b4bbcb3371a44a7a1dcffbb3" title="Window creation constructor." alt="" coords="841,288,1025,313"/>
 <area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="1124,200,959,290,957,286,1121,195"/>
@@ -10,7 +10,7 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="833,191,765,198,764,192,832,185"/>
 <area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="631,140,757,165"/>
 <area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="832,170,757,162,758,157,833,165"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,182,547,222"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,182,547,222"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="610,205,547,205,547,199,610,199"/>
 <area shape="rect" id="Node000010" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,132,545,157"/>
 <area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="629,188,594,179,522,160,524,155,595,174,630,183"/>

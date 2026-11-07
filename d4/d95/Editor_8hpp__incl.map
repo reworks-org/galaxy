@@ -1,0 +1,11 @@
+<map id="galaxy/src/galaxy/ui/Editor.hpp" name="galaxy/src/galaxy/ui/Editor.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="110,5,263,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,152,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,48,108,87,105,83,159,43"/>
+<area shape="rect" id="Node000003" href="$d3/d7e/ConfigPanel_8hpp.html" title=" " alt="" coords="176,93,413,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,43,269,83,266,87,211,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,167,277,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="279,121,219,161,216,157,276,116"/>
+<area shape="rect" id="Node000005" href="$d1/d6f/Panel_8hpp.html" title=" " alt="" coords="302,167,498,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="313,116,373,157,370,161,310,121"/>
+</map>

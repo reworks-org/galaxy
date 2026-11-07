@@ -1,0 +1,5 @@
+<map id="galaxy::Editor::draw_menubar" name="galaxy::Editor::draw_menubar">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html#a78b8455996d890332c41d859b057ca90" title="Toggle visibility of panel." alt="" coords="204,13,361,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>

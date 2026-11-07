@@ -1,5 +1,5 @@
 <map id="galaxy::App::setup_logging" name="galaxy::App::setup_logging">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,148,75"/>
+<area shape="rect" id="Node000001" title="Setup logging module." alt="" coords="5,35,148,75"/>
 <area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a1f19c1d8228c4dda4d9ce62db15124ea" title="Current root directory of application, unless it has been changed." alt="" coords="196,5,381,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,40,202,30,203,36,149,45"/>
 <area shape="rect" id="Node000003" href="$d2/d2f/namespacegalaxy_1_1time.html#ac2912cac7c23670337aa8fbff785ab0d" title="Current local time." alt="" coords="219,79,358,104"/>

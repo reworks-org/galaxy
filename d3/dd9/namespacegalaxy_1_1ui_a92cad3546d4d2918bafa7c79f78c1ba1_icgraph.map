@@ -1,0 +1,10 @@
+<map id="galaxy::ui::imgui_notify_success" name="galaxy::ui::imgui_notify_success">
+<area shape="rect" id="Node000001" title="ImGui success notification." alt="" coords="611,29,785,69"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="733,18,721,11,698,8,678,10,666,15,662,21,664,28,659,30,657,20,663,10,677,5,698,3,722,6,736,13"/>
+<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb" title="Draw config panel." alt="" coords="413,29,563,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="597,52,563,52,563,47,597,47"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets." alt="" coords="215,37,365,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="399,52,366,52,366,47,399,47"/>
+<area shape="rect" id="Node000004" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,37,167,62"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,52,167,52,167,47,201,47"/>
+</map>

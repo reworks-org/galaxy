@@ -6,5 +6,9 @@ var searchData=
   ['delay_3',['delay',['../d2/d2f/namespacegalaxy_1_1time.html#a45f371ce0529274de59620842902df1e',1,'galaxy::time']]],
   ['deserialize_4',['deserialize',['../d6/d82/classgalaxy_1_1Serializable.html#ac7fcede5145878ee74be3a2329b07fa8',1,'galaxy::Serializable::deserialize()'],['../df/dba/classgalaxy_1_1Scene.html#a6a848e79fee6d7227d8a94f03613b84f',1,'galaxy::Scene::deserialize()'],['../d1/dbc/classgalaxy_1_1SceneManager.html#aa7f579ddeb63907f8c2248f95a05a7b6',1,'galaxy::SceneManager::deserialize()']]],
   ['destroy_5fcursor_5',['destroy_cursor',['../d4/d5d/classgalaxy_1_1Mouse.html#a8e08c8529394667f2cce73a5b86bf25a',1,'galaxy::Mouse']]],
-  ['dt_6',['dt',['../d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53',1,'galaxy::time::dt(const double dt) noexcept'],['../d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed',1,'galaxy::time::dt() noexcept']]]
+  ['do_5farray_6',['do_array',['../dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024',1,'galaxy::ConfigPanel']]],
+  ['do_5fobject_7',['do_object',['../dc/da4/classgalaxy_1_1ConfigPanel.html#af59b519585651197c4b24781063fff51',1,'galaxy::ConfigPanel']]],
+  ['draw_8',['draw',['../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca',1,'galaxy::Editor::draw()'],['../dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb',1,'galaxy::ConfigPanel::draw()'],['../d8/d50/classgalaxy_1_1Panel.html#a09768594e761ea53ffe11ab0631cfc35',1,'galaxy::Panel::draw()']]],
+  ['draw_5fmenubar_9',['draw_menubar',['../de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0',1,'galaxy::Editor']]],
+  ['dt_10',['dt',['../d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53',1,'galaxy::time::dt(const double dt) noexcept'],['../d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed',1,'galaxy::time::dt() noexcept']]]
 ];

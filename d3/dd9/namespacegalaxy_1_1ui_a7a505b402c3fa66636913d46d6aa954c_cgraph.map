@@ -1,12 +1,13 @@
 <map id="galaxy::ui::imgui_init" name="galaxy::ui::imgui_init">
-<area shape="rect" id="Node000001" title="Initialize ImGui context with galaxy." alt="" coords="5,94,164,119"/>
-<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="49,96,42,86,46,76,60,70,85,67,115,71,127,80,123,84,113,76,85,73,62,75,49,80,47,85,53,92"/>
-<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="212,5,391,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,91,211,55,231,48,232,53,213,60,119,96"/>
-<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="229,94,374,119"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="164,104,215,104,215,109,164,109"/>
-<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="231,167,371,193"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="124,117,251,160,249,165,122,122"/>
-<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="266,96,258,86,262,76,277,70,301,67,331,71,343,80,340,84,329,76,301,73,278,75,266,80,264,85,270,92"/>
-<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="266,169,258,159,262,149,277,143,301,141,331,144,343,153,340,158,329,149,301,146,278,148,266,153,264,158,270,166"/>
+<area shape="rect" id="Node000001" title="Initialize ImGui context with galaxy." alt="" coords="5,118,164,143"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="51,120,44,110,47,100,61,94,85,91,113,95,125,104,121,108,111,100,85,97,63,99,51,103,49,109,55,116"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d" title="Set imgui theme." alt="" coords="212,29,369,69"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="117,115,226,72,228,77,119,120"/>
+<area shape="rect" id="Node000003" href="$d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="218,118,363,143"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="164,128,204,128,204,133,164,133"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="221,191,361,217"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="122,141,242,184,240,189,121,146"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="252,30,250,20,256,11,270,5,291,3,315,6,328,13,325,18,313,11,291,8,271,10,259,15,255,21,257,28"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="257,120,250,110,253,100,267,94,291,91,319,95,331,104,327,108,317,100,291,97,269,99,257,103,255,109,261,116"/>
+<area shape="poly" id="edge7_Node000004_Node000004" title=" " alt="" coords="257,193,250,183,253,173,267,167,291,165,319,168,331,177,327,182,317,173,291,170,269,172,257,177,255,182,261,190"/>
 </map>

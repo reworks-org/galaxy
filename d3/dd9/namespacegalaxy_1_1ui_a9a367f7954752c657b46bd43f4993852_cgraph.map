@@ -1,6 +1,0 @@
-<map id="galaxy::ui::imgui_draw_editor" name="galaxy::ui::imgui_draw_editor">
-<area shape="rect" id="Node000001" title="Draw main editor interface." alt="" coords="5,29,175,69"/>
-<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="49,30,46,20,53,10,68,5,90,3,116,6,130,13,128,18,114,11,90,8,69,10,56,15,51,21,54,28"/>
-<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="223,29,401,69"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,47,209,47,209,52,175,52"/>
-</map>

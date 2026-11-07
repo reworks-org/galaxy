@@ -12,6 +12,7 @@ var searchData=
   ['cache_3c_20media_3a_3asound_2c_20voiceloader_20_3e_9',['Cache&lt; media::Sound, VoiceLoader &gt;',['../d1/d4d/classgalaxy_1_1Cache.html',1,'galaxy']]],
   ['cache_3c_20media_3a_3avideo_2c_20loader_3c_20media_3a_3avideo_20_3e_20_3e_10',['Cache&lt; media::Video, Loader&lt; media::Video &gt; &gt;',['../d1/d4d/classgalaxy_1_1Cache.html',1,'galaxy']]],
   ['config_11',['Config',['../db/d49/classgalaxy_1_1Config.html',1,'galaxy']]],
-  ['consolesink_12',['ConsoleSink',['../d9/d14/classgalaxy_1_1ConsoleSink.html',1,'galaxy']]],
-  ['cpuinfo_13',['CPUInfo',['../d5/df7/structgalaxy_1_1CPUInfo.html',1,'galaxy']]]
+  ['configpanel_12',['ConfigPanel',['../dc/da4/classgalaxy_1_1ConfigPanel.html',1,'galaxy']]],
+  ['consolesink_13',['ConsoleSink',['../d9/d14/classgalaxy_1_1ConsoleSink.html',1,'galaxy']]],
+  ['cpuinfo_14',['CPUInfo',['../d5/df7/structgalaxy_1_1CPUInfo.html',1,'galaxy']]]
 ];

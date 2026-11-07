@@ -21,5 +21,6 @@ var classgalaxy_1_1App =
     [ "setup_services", "dd/d33/classgalaxy_1_1App.html#ac771de8e6a31c118fa22632f5af06af4", null ],
     [ "setup_ui", "dd/d33/classgalaxy_1_1App.html#a6c53cfe545a0c3a52bac1683891e1014", null ],
     [ "setup_scripting", "dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2", null ],
-    [ "m_events", "dd/d33/classgalaxy_1_1App.html#a5c92ab9457e27a6dd6feb7b26145c631", null ]
+    [ "m_events", "dd/d33/classgalaxy_1_1App.html#a5c92ab9457e27a6dd6feb7b26145c631", null ],
+    [ "m_editor", "dd/d33/classgalaxy_1_1App.html#aa6e7eec97430c87d6696f3b0e92ac570", null ]
 ];

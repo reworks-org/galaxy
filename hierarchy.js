@@ -38,6 +38,10 @@ var hierarchy =
     [ "galaxy::Log", "dd/dd3/classgalaxy_1_1Log.html", null ],
     [ "galaxy::LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", null ],
     [ "galaxy::Lua", "d3/ddf/classgalaxy_1_1Lua.html", null ],
+    [ "galaxy::Panel", "d8/d50/classgalaxy_1_1Panel.html", [
+      [ "galaxy::ConfigPanel", "dc/da4/classgalaxy_1_1ConfigPanel.html", null ],
+      [ "galaxy::Editor", "de/dfe/classgalaxy_1_1Editor.html", null ]
+    ] ],
     [ "galaxy::Rect&lt; Type &gt;", "d5/d58/classgalaxy_1_1Rect.html", null ],
     [ "galaxy::RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", null ],
     [ "galaxy::Script", "db/da2/classgalaxy_1_1Script.html", null ],

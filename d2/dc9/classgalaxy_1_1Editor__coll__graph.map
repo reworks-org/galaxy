@@ -1,0 +1,8 @@
+<map id="galaxy::Editor" name="galaxy::Editor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,496,141,701"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="15,5,121,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,244,75,496,70,496,67,244"/>
+<area shape="rect" id="Node000003" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Shared data for an imgui panel." alt="" coords="89,280,231,425"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="120,243,134,278,129,280,115,245"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,427,118,481,112,479,132,425"/>
+</map>

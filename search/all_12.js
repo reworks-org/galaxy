@@ -12,7 +12,8 @@ var searchData=
   ['timer_2ehpp_9',['Timer.hpp',['../d8/dbf/Timer_8hpp.html',1,'']]],
   ['title_10',['title',['../df/d23/structgalaxy_1_1Settings.html#a840814a3b92ef5fb45b08dc88a981682',1,'galaxy::Settings']]],
   ['to_5fsdl_11',['to_sdl',['../d5/d58/classgalaxy_1_1Rect.html#ad0ce85b724c4c79207c6738f901e736a',1,'galaxy::Rect']]],
-  ['top_12',['top',['../da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f',1,'galaxy::StateMachine']]],
-  ['trace_13',['trace',['../d6/d64/structgalaxy_1_1LogMessage.html#a6baf094f44932c1add16863a64b9654e',1,'galaxy::LogMessage']]],
-  ['trim_14',['trim',['../df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5',1,'galaxy::str']]]
+  ['toggle_12',['toggle',['../d8/d50/classgalaxy_1_1Panel.html#a78b8455996d890332c41d859b057ca90',1,'galaxy::Panel']]],
+  ['top_13',['top',['../da/d52/classgalaxy_1_1StateMachine.html#afc7f34c55b4ccee27ea812fce84efe5f',1,'galaxy::StateMachine']]],
+  ['trace_14',['trace',['../d6/d64/structgalaxy_1_1LogMessage.html#a6baf094f44932c1add16863a64b9654e',1,'galaxy::LogMessage']]],
+  ['trim_15',['trim',['../df/d98/namespacegalaxy_1_1str.html#a8ceecca3f51edb00ff22232af4cf33f5',1,'galaxy::str']]]
 ];

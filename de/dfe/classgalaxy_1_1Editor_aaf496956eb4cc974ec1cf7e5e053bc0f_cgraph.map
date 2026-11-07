@@ -1,0 +1,8 @@
+<map id="galaxy::Editor::handle_events" name="galaxy::Editor::handle_events">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,168,79"/>
+<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a4df24d3317e27a1a5c1e422718b82f34" title="Editor debug toggle key." alt="" coords="216,5,419,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,42,232,31,233,36,169,47"/>
+<area shape="rect" id="Node000003" href="$d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45" title="Handle events in ImGui." alt="" coords="227,79,408,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,71,214,79,213,84,168,76"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="274,80,272,70,279,60,294,55,317,53,344,56,359,63,356,68,343,61,317,58,295,60,282,65,277,71,280,78"/>
+</map>

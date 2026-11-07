@@ -1,5 +1,5 @@
 <map id="galaxy::App::setup_platform" name="galaxy::App::setup_platform">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,309,148,349"/>
+<area shape="rect" id="Node000001" title="Setup platform module." alt="" coords="5,309,148,349"/>
 <area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a9db4ecfad6dd65a63d3ed656be4053c4" title="Set audio frequency to use with SDL." alt="" coords="196,5,399,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,308,87,254,106,182,122,143,141,105,165,70,194,40,200,36,203,40,198,44,169,74,146,108,126,145,111,183,92,255,83,309"/>
 <area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a26ef27c56e5d81e964c85f6d0cd93987" title="Copyright message." alt="" coords="200,55,395,80"/>

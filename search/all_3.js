@@ -17,5 +17,9 @@ var searchData=
   ['dialogtype_14',['DialogType',['../d0/d46/namespacegalaxy.html#a2930f35993edbdaf0308cd65346a4a9d',1,'galaxy']]],
   ['dialogtype_2ecpp_15',['DialogType.cpp',['../dd/d03/DialogType_8cpp.html',1,'']]],
   ['dialogtype_2ehpp_16',['DialogType.hpp',['../df/da3/DialogType_8hpp.html',1,'']]],
-  ['dt_17',['dt',['../d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53',1,'galaxy::time::dt(const double dt) noexcept'],['../d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed',1,'galaxy::time::dt() noexcept']]]
+  ['do_5farray_17',['do_array',['../dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024',1,'galaxy::ConfigPanel']]],
+  ['do_5fobject_18',['do_object',['../dc/da4/classgalaxy_1_1ConfigPanel.html#af59b519585651197c4b24781063fff51',1,'galaxy::ConfigPanel']]],
+  ['draw_19',['draw',['../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca',1,'galaxy::Editor::draw()'],['../dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb',1,'galaxy::ConfigPanel::draw()'],['../d8/d50/classgalaxy_1_1Panel.html#a09768594e761ea53ffe11ab0631cfc35',1,'galaxy::Panel::draw()']]],
+  ['draw_5fmenubar_20',['draw_menubar',['../de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0',1,'galaxy::Editor']]],
+  ['dt_21',['dt',['../d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53',1,'galaxy::time::dt(const double dt) noexcept'],['../d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed',1,'galaxy::time::dt() noexcept']]]
 ];

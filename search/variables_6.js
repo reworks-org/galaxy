@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['level_0',['level',['../d6/d64/structgalaxy_1_1LogMessage.html#a33ea3e7ff2dcc7c0bb117dfe0d500723',1,'galaxy::LogMessage']]],
-  ['line_1',['line',['../d6/d64/structgalaxy_1_1LogMessage.html#ac62f93f1293a1bf9737595cd7bdd32dd',1,'galaxy::LogMessage']]],
-  ['logical_5fcore_5fcount_2',['logical_core_count',['../d5/df7/structgalaxy_1_1CPUInfo.html#a4f6c4f6cb91faca7c6f9319eaaf2554f',1,'galaxy::CPUInfo']]]
+  ['is_5finstance_5fof_5fv_0',['is_instance_of_v',['../d3/d12/namespacegalaxy_1_1meta.html#a7b05438835481541bd19f7029bb89954',1,'galaxy::meta']]],
+  ['is_5finstance_5fof_5fv_3c_20u_3c_20vs_2e_2e_2e_20_3e_2c_20u_20_3e_1',['is_instance_of_v&lt; U&lt; Vs... &gt;, U &gt;',['../d3/d12/namespacegalaxy_1_1meta.html#aeb9ae13e04349db97ffe1d630bc33306',1,'galaxy::meta']]]
 ];

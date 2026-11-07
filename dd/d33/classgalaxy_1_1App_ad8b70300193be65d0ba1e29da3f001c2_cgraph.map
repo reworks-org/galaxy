@@ -1,5 +1,5 @@
 <map id="galaxy::App::setup_scripting" name="galaxy::App::setup_scripting">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,8559,148,8599"/>
+<area shape="rect" id="Node000001" title="Setup scripting module." alt="" coords="5,8559,148,8599"/>
 <area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="196,8566,336,8591"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,8576,182,8576,182,8581,148,8581"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="387,2137,562,2162"/>

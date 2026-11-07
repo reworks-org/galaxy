@@ -1,0 +1,9 @@
+<map id="galaxy::Panel::draw" name="galaxy::Panel::draw">
+<area shape="rect" id="Node000001" title="Draw the ImGui widgets." alt="" coords="5,55,153,80"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html#aa76c0b45a3935ff75d120b6de098e212" title="Constructor." alt="" coords="205,5,356,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,52,214,31,215,37,132,57"/>
+<area shape="rect" id="Node000003" href="$d8/d50/classgalaxy_1_1Panel.html#a2257833242781a8fd4b82d7d0cb69e2b" title="Check if panel is visible." alt="" coords="201,55,360,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,65,188,65,188,70,154,70"/>
+<area shape="rect" id="Node000004" href="$d8/d50/classgalaxy_1_1Panel.html#a78b8455996d890332c41d859b057ca90" title="Toggle visibility of panel." alt="" coords="202,104,359,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="132,77,215,98,214,103,131,83"/>
+</map>

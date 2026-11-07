@@ -134,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a186581ec2fa1e75aa0d4a1d543e198fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="memitem:a993aaef200c338363704f8c3898429fe" id="r_a993aaef200c338363704f8c3898429fe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a993aaef200c338363704f8c3898429fe">close</a> () noexcept</td></tr>
 <tr class="memdesc:a993aaef200c338363704f8c3898429fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close window.  <br /></td></tr>
+<tr class="memitem:ae08e1f896db87e24f088438544998cdb" id="r_ae08e1f896db87e24f088438544998cdb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae08e1f896db87e24f088438544998cdb">clear</a> () noexcept</td></tr>
+<tr class="memdesc:ae08e1f896db87e24f088438544998cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear screen framebuffer.  <br /></td></tr>
 <tr class="memitem:a54462ea5d5b5cb41e55f8482b62bcc9f" id="r_a54462ea5d5b5cb41e55f8482b62bcc9f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a54462ea5d5b5cb41e55f8482b62bcc9f">swap</a> () const noexcept</td></tr>
 <tr class="memdesc:a54462ea5d5b5cb41e55f8482b62bcc9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap backbuffer with window framebuffer.  <br /></td></tr>
 <tr class="memitem:abd31a698739a0dcdadbec961b55c72de" id="r_abd31a698739a0dcdadbec961b55c72de"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abd31a698739a0dcdadbec961b55c72de">show</a> () const noexcept</td></tr>
@@ -223,7 +225,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="Handles events, input &amp; display.">Window</a> creation constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00030">30</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -292,7 +294,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00151">151</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00152">152</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -443,7 +445,7 @@ Private Attributes</h2></td></tr>
 <p>Close window. </p>
 <p>This will exit game loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00160">160</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00161">161</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -459,7 +461,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="785,225,729,235,728,230,784,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -477,6 +479,35 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="698,220,689,212,665,209,645,211,634,216,632,222,638,229,633,232,627,222,630,212,643,206,665,204,691,208,702,216"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ae08e1f896db87e24f088438544998cdb" name="ae08e1f896db87e24f088438544998cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08e1f896db87e24f088438544998cdb">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::Window::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear screen framebuffer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00166">166</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -505,7 +536,7 @@ Private Attributes</h2></td></tr>
 
 <p>Swap backbuffer with window framebuffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00165">165</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00171">171</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -534,7 +565,7 @@ Private Attributes</h2></td></tr>
 
 <p>Show window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00171">171</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00177">177</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -548,7 +579,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -594,7 +625,7 @@ Private Attributes</h2></td></tr>
 
 <p>Hide window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00176">176</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00182">182</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -608,7 +639,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -654,7 +685,7 @@ Private Attributes</h2></td></tr>
 
 <p>Minimize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00181">181</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00187">187</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -668,7 +699,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -714,7 +745,7 @@ Private Attributes</h2></td></tr>
 
 <p>Maximize window. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00187">187</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00193">193</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -728,7 +759,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -774,7 +805,7 @@ Private Attributes</h2></td></tr>
 
 <p>Restore window to previous *mize state. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00193">193</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -788,7 +819,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -834,7 +865,7 @@ Private Attributes</h2></td></tr>
 
 <p>Raise the window to be on top of other windows. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00199">199</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00205">205</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -848,7 +879,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -894,7 +925,7 @@ Private Attributes</h2></td></tr>
 
 <p>Flash window on taskbar for user attention. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00204">204</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00210">210</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -908,7 +939,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -965,7 +996,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00209">209</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00215">215</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
@@ -979,7 +1010,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1031,7 +1062,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00214">214</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
@@ -1045,7 +1076,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1097,7 +1128,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00219">219</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00225">225</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary">
 </div>
@@ -1111,7 +1142,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1155,7 +1186,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00224">224</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00230">230</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary">
 </div>
@@ -1169,7 +1200,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1214,7 +1245,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00229">229</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00235">235</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
@@ -1239,7 +1270,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1291,7 +1322,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00235">235</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00241">241</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-19-summary" class="dynsummary">
 </div>
@@ -1305,7 +1336,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1349,7 +1380,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00259">259</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-20-summary" class="dynsummary">
 </div>
@@ -1364,8 +1395,6 @@ Private Attributes</h2></td></tr>
 <area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d" title="Set imgui theme." alt="" coords="234,143,391,183"/>
 <area shape="poly" title=" " alt="" coords="145,93,250,136,248,141,143,98"/>
 <area shape="poly" title=" " alt="" coords="272,144,269,134,276,124,290,119,313,117,338,120,352,127,350,132,337,125,313,122,292,124,279,129,274,135,277,142"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="444,143,623,183"/>
-<area shape="poly" title=" " alt="" coords="391,161,430,161,430,166,391,166"/>
 </map>
 </div>
 
@@ -1397,7 +1426,7 @@ Private Attributes</h2></td></tr>
 <p>Return the current drawable width in pixels. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00299">299</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00305">305</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-21-summary" class="dynsummary">
 </div>
@@ -1411,7 +1440,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1458,7 +1487,7 @@ Private Attributes</h2></td></tr>
 <p>Return the current drawable height in pixels. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00304">304</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00310">310</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-22-summary" class="dynsummary">
 </div>
@@ -1472,7 +1501,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1519,7 +1548,7 @@ Private Attributes</h2></td></tr>
 <p>Return the configured logical screen width. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00309">309</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00315">315</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-23-summary" class="dynsummary">
 </div>
@@ -1533,7 +1562,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1580,7 +1609,7 @@ Private Attributes</h2></td></tr>
 <p>Return the configured logical screen height. </p>
 <dl class="section return"><dt>Returns</dt><dd>Integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00314">314</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00320">320</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-24-summary" class="dynsummary">
 </div>
@@ -1594,7 +1623,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1641,7 +1670,7 @@ Private Attributes</h2></td></tr>
 <p>Is the window open or closed. </p>
 <dl class="section return"><dt>Returns</dt><dd>Boolean. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00319">319</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00325">325</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary">
 </div>
@@ -1655,7 +1684,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="784,225,729,235,728,230,783,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1702,7 +1731,7 @@ Private Attributes</h2></td></tr>
 <p>Get display content scale. </p>
 <dl class="section return"><dt>Returns</dt><dd>Main display scale. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00324">324</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00330">330</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 <div id="dynsection-26" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-26-summary" class="dynsummary">
 </div>
@@ -1718,7 +1747,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="786,195,734,185,735,180,787,189"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
 <area shape="poly" title=" " alt="" coords="785,225,729,235,728,230,784,220"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
@@ -1765,7 +1794,7 @@ Private Attributes</h2></td></tr>
 <p>Get SDL window pointer. </p>
 <dl class="section return"><dt>Returns</dt><dd>Raw sdl window pointer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00329">329</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00335">335</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1795,7 +1824,7 @@ Private Attributes</h2></td></tr>
 <p>Get SDL GL context. </p>
 <dl class="section return"><dt>Returns</dt><dd>Opaque handle (pointer). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00334">334</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d84/Window_8cpp_source.html#l00340">340</a> of file <a class="el" href="../../d2/d84/Window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -1942,7 +1971,7 @@ Private Attributes</h2></td></tr>
 
 <p>SDL window handle. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00229">229</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00234">234</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1968,7 +1997,7 @@ Private Attributes</h2></td></tr>
 
 <p>SDL OpenGL context. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00234">234</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00239">239</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -1994,7 +2023,7 @@ Private Attributes</h2></td></tr>
 
 <p><a class="el" href="../../d0/d84/classgalaxy_1_1Window.html" title="Handles events, input &amp; display.">Window</a> state flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00239">239</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/de3/Window_8hpp_source.html#l00244">244</a> of file <a class="el" href="../../d0/de3/Window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>

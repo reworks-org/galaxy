@@ -1,3 +1,16 @@
 <map id="galaxy::App" name="galaxy::App">
-<area shape="rect" id="Node000001" title="Base level class for any galaxy app." alt="" coords="5,5,149,471"/>
+<area shape="rect" id="Node000001" title="Base level class for any galaxy app." alt="" coords="121,923,265,1388"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="107,772,278,852"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,852,195,907,190,907,190,852"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html" title=" " alt="" coords="42,496,178,701"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,701,174,756,169,758,147,703"/>
+<area shape="rect" id="Node000004" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="5,5,111,231"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="58,244,61,333,70,425,84,495,78,496,65,426,56,334,53,245"/>
+<area shape="rect" id="Node000005" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Shared data for an imgui panel." alt="" coords="79,280,221,425"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="110,243,124,278,119,280,105,245"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="141,426,132,480,127,479,136,425"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="202,566,351,631"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="262,645,211,773,206,771,257,643"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="265,320,288,385"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="279,386,279,549,274,549,274,386"/>
 </map>

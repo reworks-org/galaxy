@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$df/d23/structgalaxy_1_1Settings.html" title="Helper class to encapsulate our global settings we want to quickly access across app." alt="" coords="5,5,132,31"/>
+<area shape="rect" id="Node000000" href="$d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="12,55,161,80"/>
+<area shape="rect" id="Node000001" href="$df/dba/classgalaxy_1_1Scene.html" title="Represents a scene in a game." alt="" coords="245,31,357,56"/>
+<area shape="poly" id="edge16_Node000000_Node000001" title=" " alt="" coords="175,55,244,47,245,52,176,60"/>
+<area shape="rect" id="Node000003" href="$d1/dbc/classgalaxy_1_1SceneManager.html" title="State machine for managing scenes." alt="" coords="216,84,385,109"/>
+<area shape="poly" id="edge17_Node000000_Node000003" title=" " alt="" coords="176,77,216,82,215,88,175,82"/>
+<area shape="rect" id="Node000002" href="$d4/d7c/classgalaxy_1_1State.html" title="A state to use in a finite state machine." alt="" coords="33,5,140,31"/>
+<area shape="poly" id="edge18_Node000002_Node000001" title=" " alt="" coords="154,23,245,34,244,39,153,29"/>
+<area shape="rect" id="Node000004" href="$da/d52/classgalaxy_1_1StateMachine.html" title=" " alt="" coords="5,105,168,145"/>
+<area shape="poly" id="edge19_Node000004_Node000003" title=" " alt="" coords="181,110,216,105,216,110,182,115"/>
 </map>

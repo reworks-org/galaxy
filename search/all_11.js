@@ -103,7 +103,7 @@ var searchData=
   ['shaders_2ehpp_100',['Shaders.hpp',['../d6/df6/Shaders_8hpp.html',1,'']]],
   ['show_101',['show',['../d0/d84/classgalaxy_1_1Window.html#abd31a698739a0dcdadbec961b55c72de',1,'galaxy::Window']]],
   ['show_5fcursor_102',['show_cursor',['../d4/d5d/classgalaxy_1_1Mouse.html#aa7f1dde764f437a040d57bb82925f1e1',1,'galaxy::Mouse']]],
-  ['show_5feditor_103',['show_editor',['../d0/d46/namespacegalaxy.html#ad1e5e812daa5c549ac4bdd2d21d5760a',1,'galaxy']]],
+  ['shown_103',['shown',['../d8/d50/classgalaxy_1_1Panel.html#a2257833242781a8fd4b82d7d0cb69e2b',1,'galaxy::Panel']]],
   ['side_5f1_104',['SIDE_1',['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806a4530b9c35631a07956d29675fb45c9c1',1,'galaxy']]],
   ['side_5f2_105',['SIDE_2',['../d0/d46/namespacegalaxy.html#af0dc1495799405e3282bb92627920806ad5ec4f1340dfe52a45446deeae641adc',1,'galaxy']]],
   ['simd_5falignment_106',['simd_alignment',['../d5/df7/structgalaxy_1_1CPUInfo.html#a321840f682110cad6141b96c22e088ee',1,'galaxy::CPUInfo']]],

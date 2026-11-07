@@ -5,6 +5,7 @@ var classgalaxy_1_1Window =
     [ "Window", "d0/d84/classgalaxy_1_1Window.html#a5ccfaecf284f1ed29c8262def0f9cf03", null ],
     [ "Window", "d0/d84/classgalaxy_1_1Window.html#ac1776a8ca15b6971e4582fff772af2bc", null ],
     [ "close", "d0/d84/classgalaxy_1_1Window.html#a993aaef200c338363704f8c3898429fe", null ],
+    [ "clear", "d0/d84/classgalaxy_1_1Window.html#ae08e1f896db87e24f088438544998cdb", null ],
     [ "swap", "d0/d84/classgalaxy_1_1Window.html#a54462ea5d5b5cb41e55f8482b62bcc9f", null ],
     [ "show", "d0/d84/classgalaxy_1_1Window.html#abd31a698739a0dcdadbec961b55c72de", null ],
     [ "hide", "d0/d84/classgalaxy_1_1Window.html#aaf83759e1b9e4aeadce37a7374d730e2", null ],

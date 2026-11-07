@@ -122,12 +122,18 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5861bd70d8b0bfba43ed8cc923e64b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle events in ImGui.  <br /></td></tr>
 <tr class="memitem:a6c64426a2357bdcdd6991be9483dc7e1" id="r_a6c64426a2357bdcdd6991be9483dc7e1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6c64426a2357bdcdd6991be9483dc7e1">imgui_new_frame</a> ()</td></tr>
 <tr class="memdesc:a6c64426a2357bdcdd6991be9483dc7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin setting up ImGui pass.  <br /></td></tr>
-<tr class="memitem:a9a367f7954752c657b46bd43f4993852" id="r_a9a367f7954752c657b46bd43f4993852"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9a367f7954752c657b46bd43f4993852">imgui_draw_editor</a> ()</td></tr>
-<tr class="memdesc:a9a367f7954752c657b46bd43f4993852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw main editor interface.  <br /></td></tr>
 <tr class="memitem:aea83b3f2064bf87b9038ae036d782f65" id="r_aea83b3f2064bf87b9038ae036d782f65"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aea83b3f2064bf87b9038ae036d782f65">imgui_render</a> ()</td></tr>
 <tr class="memdesc:aea83b3f2064bf87b9038ae036d782f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render imgui.  <br /></td></tr>
 <tr class="memitem:a75724fdf5b5623e0edfc966f9f439082" id="r_a75724fdf5b5623e0edfc966f9f439082"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a75724fdf5b5623e0edfc966f9f439082">imgui_exit</a> ()</td></tr>
 <tr class="memdesc:a75724fdf5b5623e0edfc966f9f439082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy imgui context.  <br /></td></tr>
+<tr class="memitem:a92cad3546d4d2918bafa7c79f78c1ba1" id="r_a92cad3546d4d2918bafa7c79f78c1ba1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a92cad3546d4d2918bafa7c79f78c1ba1">imgui_notify_success</a> (const char *msg)</td></tr>
+<tr class="memdesc:a92cad3546d4d2918bafa7c79f78c1ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">ImGui success notification.  <br /></td></tr>
+<tr class="memitem:acf7a7bef0f311ebe615256f621cb6af8" id="r_acf7a7bef0f311ebe615256f621cb6af8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf7a7bef0f311ebe615256f621cb6af8">imgui_notify_info</a> (const char *msg)</td></tr>
+<tr class="memdesc:acf7a7bef0f311ebe615256f621cb6af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ImGui info notification.  <br /></td></tr>
+<tr class="memitem:ad82f878bb9a1f2a1f293db478ae17eff" id="r_ad82f878bb9a1f2a1f293db478ae17eff"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad82f878bb9a1f2a1f293db478ae17eff">imgui_notify_warning</a> (const char *msg)</td></tr>
+<tr class="memdesc:ad82f878bb9a1f2a1f293db478ae17eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">ImGui warning notification.  <br /></td></tr>
+<tr class="memitem:a07ea7645484387d4e690f8efc3a9b8e4" id="r_a07ea7645484387d4e690f8efc3a9b8e4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a07ea7645484387d4e690f8efc3a9b8e4">imgui_notify_error</a> (const char *msg)</td></tr>
+<tr class="memdesc:a07ea7645484387d4e690f8efc3a9b8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ImGui error notification.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a7a505b402c3fa66636913d46d6aa954c" name="a7a505b402c3fa66636913d46d6aa954c"></a>
@@ -153,23 +159,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00047">47</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_cgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_cgraph">
-<area shape="rect" title="Initialize ImGui context with galaxy." alt="" coords="5,94,164,119"/>
-<area shape="poly" title=" " alt="" coords="49,96,42,86,46,76,60,70,85,67,115,71,127,80,123,84,113,76,85,73,62,75,49,80,47,85,53,92"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="212,5,391,45"/>
-<area shape="poly" title=" " alt="" coords="117,91,211,55,231,48,232,53,213,60,119,96"/>
-<area shape="rect" href="../../d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="229,94,374,119"/>
-<area shape="poly" title=" " alt="" coords="164,104,215,104,215,109,164,109"/>
-<area shape="rect" href="../../d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="231,167,371,193"/>
-<area shape="poly" title=" " alt="" coords="124,117,251,160,249,165,122,122"/>
-<area shape="poly" title=" " alt="" coords="266,96,258,86,262,76,277,70,301,67,331,71,343,80,340,84,329,76,301,73,278,75,266,80,264,85,270,92"/>
-<area shape="poly" title=" " alt="" coords="266,169,258,159,262,149,277,143,301,141,331,144,343,153,340,158,329,149,301,146,278,148,266,153,264,158,270,166"/>
+<area shape="rect" title="Initialize ImGui context with galaxy." alt="" coords="5,118,164,143"/>
+<area shape="poly" title=" " alt="" coords="51,120,44,110,47,100,61,94,85,91,113,95,125,104,121,108,111,100,85,97,63,99,51,103,49,109,55,116"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d" title="Set imgui theme." alt="" coords="212,29,369,69"/>
+<area shape="poly" title=" " alt="" coords="117,115,226,72,228,77,119,120"/>
+<area shape="rect" href="../../d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="218,118,363,143"/>
+<area shape="poly" title=" " alt="" coords="164,128,204,128,204,133,164,133"/>
+<area shape="rect" href="../../d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="221,191,361,217"/>
+<area shape="poly" title=" " alt="" coords="122,141,242,184,240,189,121,146"/>
+<area shape="poly" title=" " alt="" coords="252,30,250,20,256,11,270,5,291,3,315,6,328,13,325,18,313,11,291,8,271,10,259,15,255,21,257,28"/>
+<area shape="poly" title=" " alt="" coords="257,120,250,110,253,100,267,94,291,91,319,95,331,104,327,108,317,100,291,97,269,99,257,103,255,109,261,116"/>
+<area shape="poly" title=" " alt="" coords="257,193,250,183,253,173,267,167,291,165,319,168,331,177,327,182,317,173,291,170,269,172,257,177,255,182,261,190"/>
 </map>
 </div>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -178,21 +185,10 @@ Functions</h2></td></tr>
 <div id="dynsection-1-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_icgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a7a505b402c3fa66636913d46d6aa954c_icgraph">
-<area shape="rect" title="Initialize ImGui context with galaxy." alt="" coords="613,128,772,153"/>
-<area shape="poly" title=" " alt="" coords="730,118,720,110,693,107,671,109,659,113,656,119,663,126,659,130,651,120,655,110,669,104,693,101,722,105,733,114"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a6c53cfe545a0c3a52bac1683891e1014" title=" " alt="" coords="404,128,565,153"/>
-<area shape="poly" title=" " alt="" coords="600,143,565,143,565,138,600,138"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
-<area shape="poly" title=" " alt="" coords="390,131,356,127,357,121,391,126"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
-<area shape="poly" title=" " alt="" coords="391,149,178,163,177,158,390,144"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
-<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
-<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
-<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
-<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="rect" title="Initialize ImGui context with galaxy." alt="" coords="211,29,369,55"/>
+<area shape="poly" title=" " alt="" coords="327,20,316,11,290,8,268,10,257,15,254,20,260,28,256,31,249,21,253,11,267,5,290,3,319,6,330,15"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e" title=" " alt="" coords="5,29,163,55"/>
+<area shape="poly" title=" " alt="" coords="197,45,163,45,163,39,197,39"/>
 </map>
 </div>
 
@@ -230,7 +226,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00101">101</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -238,9 +234,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_cgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_cgraph">
 <area shape="rect" title="Set imgui theme." alt="" coords="5,29,163,69"/>
-<area shape="poly" title=" " alt="" coords="43,30,41,20,48,10,62,5,84,3,109,6,123,13,121,18,108,11,84,8,63,10,51,15,46,21,49,28"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="211,29,389,69"/>
-<area shape="poly" title=" " alt="" coords="163,47,197,47,197,52,163,52"/>
+<area shape="poly" title=" " alt="" coords="54,29,52,20,57,11,68,5,84,3,103,6,113,13,110,17,101,11,84,8,69,10,61,14,57,21,59,28"/>
 </map>
 </div>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -249,10 +243,15 @@ Functions</h2></td></tr>
 <div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_icgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a360d6f51e58ece51ec153edb4fc58c0d_icgraph">
-<area shape="rect" title="Set imgui theme." alt="" coords="229,29,387,69"/>
-<area shape="poly" title=" " alt="" coords="344,18,331,11,308,8,288,10,275,15,271,21,273,28,268,30,266,20,272,10,286,5,308,3,333,6,347,13"/>
-<area shape="rect" href="../../d0/d84/classgalaxy_1_1Window.html#a986738e6bddf8d58d232bf6491c35807" title="Process window specific events." alt="" coords="5,29,181,69"/>
-<area shape="poly" title=" " alt="" coords="215,52,181,52,181,47,215,47"/>
+<area shape="rect" title="Set imgui theme." alt="" coords="435,47,592,87"/>
+<area shape="poly" title=" " alt="" coords="549,35,537,28,513,25,493,27,481,32,476,38,478,46,473,47,471,37,477,28,492,22,513,20,538,23,552,30"/>
+<area shape="rect" href="../../d0/d84/classgalaxy_1_1Window.html#a986738e6bddf8d58d232bf6491c35807" title="Process window specific events." alt="" coords="211,5,387,45"/>
+<area shape="poly" title=" " alt="" coords="421,52,386,45,387,40,422,46"/>
+<area shape="rect" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="219,94,378,119"/>
+<area shape="poly" title=" " alt="" coords="421,87,368,97,367,91,420,81"/>
+<area shape="poly" title=" " alt="" coords="337,84,326,76,299,73,276,75,264,80,261,85,268,92,264,96,256,86,260,76,275,70,299,67,328,71,340,80"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e" title=" " alt="" coords="5,94,163,119"/>
+<area shape="poly" title=" " alt="" coords="206,109,163,109,163,104,206,104"/>
 </map>
 </div>
 
@@ -281,7 +280,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00196">196</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00202">202</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -289,11 +288,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_cgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_cgraph">
 <area shape="rect" title="Handle events in ImGui." alt="" coords="5,29,187,69"/>
-<area shape="poly" title=" " alt="" coords="51,30,49,20,56,10,72,5,96,3,124,6,139,13,137,18,122,11,96,8,73,10,59,15,54,21,56,28"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#a4df24d3317e27a1a5c1e422718b82f34" title="Editor debug toggle key." alt="" coords="235,7,437,33"/>
-<area shape="poly" title=" " alt="" coords="186,36,221,31,221,37,187,41"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="247,57,425,97"/>
-<area shape="poly" title=" " alt="" coords="187,57,233,63,233,68,186,63"/>
+<area shape="poly" title=" " alt="" coords="62,30,60,20,65,11,77,5,96,3,117,6,129,13,126,17,116,11,96,8,79,10,69,15,65,21,67,28"/>
 </map>
 </div>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -302,10 +297,10 @@ Functions</h2></td></tr>
 <div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_icgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a5861bd70d8b0bfba43ed8cc923e64b45_icgraph">
-<area shape="rect" title="Handle events in ImGui." alt="" coords="180,29,361,69"/>
-<area shape="poly" title=" " alt="" coords="304,18,292,11,271,8,252,10,240,15,236,21,238,28,233,30,231,20,237,11,250,5,271,3,294,6,307,13"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,37,132,62"/>
-<area shape="poly" title=" " alt="" coords="166,52,132,52,132,47,166,47"/>
+<area shape="rect" title="Handle events in ImGui." alt="" coords="216,29,397,69"/>
+<area shape="poly" title=" " alt="" coords="344,18,331,11,307,8,286,10,273,15,268,21,271,28,266,30,263,20,270,10,284,5,307,3,332,6,346,13"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#aaf496956eb4cc974ec1cf7e5e053bc0f" title=" " alt="" coords="5,29,168,69"/>
+<area shape="poly" title=" " alt="" coords="202,52,168,52,168,47,202,47"/>
 </map>
 </div>
 
@@ -328,7 +323,7 @@ Functions</h2></td></tr>
 
 <p>Begin setting up ImGui pass. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00212">212</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00210">210</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -336,9 +331,7 @@ Functions</h2></td></tr>
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_cgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_cgraph">
 <area shape="rect" title="Begin setting up ImGui pass." alt="" coords="5,29,169,69"/>
-<area shape="poly" title=" " alt="" coords="46,30,44,20,50,10,65,5,87,3,113,6,127,13,124,18,111,11,87,8,66,10,54,15,49,21,51,28"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="217,29,396,69"/>
-<area shape="poly" title=" " alt="" coords="169,47,204,47,204,52,169,52"/>
+<area shape="poly" title=" " alt="" coords="56,29,54,20,59,11,70,5,87,3,107,6,117,13,114,17,105,11,87,8,72,10,63,14,60,21,61,28"/>
 </map>
 </div>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -347,55 +340,10 @@ Functions</h2></td></tr>
 <div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_icgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a6c64426a2357bdcdd6991be9483dc7e1_icgraph">
-<area shape="rect" title="Begin setting up ImGui pass." alt="" coords="180,29,344,69"/>
-<area shape="poly" title=" " alt="" coords="294,17,283,11,262,8,244,10,233,15,229,21,231,28,226,30,224,20,229,11,242,5,262,3,285,6,297,13"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,37,132,62"/>
-<area shape="poly" title=" " alt="" coords="166,52,132,52,132,47,166,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9a367f7954752c657b46bd43f4993852" name="a9a367f7954752c657b46bd43f4993852"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a367f7954752c657b46bd43f4993852">&#9670;&#160;</a></span>imgui_draw_editor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void galaxy::ui::imgui_draw_editor </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Draw main editor interface. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00223">223</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_cgraph" loading="lazy" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_cgraph">
-<area shape="rect" title="Draw main editor interface." alt="" coords="5,29,175,69"/>
-<area shape="poly" title=" " alt="" coords="49,30,46,20,53,10,68,5,90,3,116,6,130,13,128,18,114,11,90,8,69,10,56,15,51,21,54,28"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="223,29,401,69"/>
-<area shape="poly" title=" " alt="" coords="175,47,209,47,209,52,175,52"/>
-</map>
-</div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_icgraph" loading="lazy" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a9a367f7954752c657b46bd43f4993852_icgraph">
-<area shape="rect" title="Draw main editor interface." alt="" coords="180,29,349,69"/>
-<area shape="poly" title=" " alt="" coords="297,17,286,11,265,8,246,10,235,15,231,21,233,28,228,30,226,20,232,11,245,5,265,3,288,6,300,13"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,37,132,62"/>
-<area shape="poly" title=" " alt="" coords="166,52,132,52,132,47,166,47"/>
+<area shape="rect" title="Begin setting up ImGui pass." alt="" coords="215,29,379,69"/>
+<area shape="poly" title=" " alt="" coords="332,18,320,11,297,8,276,10,264,15,260,21,262,28,257,30,255,20,261,10,275,5,297,3,321,6,335,13"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,37,167,62"/>
+<area shape="poly" title=" " alt="" coords="201,52,167,52,167,47,201,47"/>
 </map>
 </div>
 
@@ -418,29 +366,27 @@ Functions</h2></td></tr>
 
 <p>Render imgui. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00231">231</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00220">220</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_cgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_cgraph">
 <area shape="rect" title="Render imgui." alt="" coords="5,29,184,55"/>
-<area shape="poly" title=" " alt="" coords="58,31,50,21,54,11,69,5,95,3,127,7,139,16,135,20,125,11,95,8,70,10,58,15,55,20,62,27"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="232,22,411,62"/>
-<area shape="poly" title=" " alt="" coords="185,39,218,39,218,45,185,45"/>
+<area shape="poly" title=" " alt="" coords="65,31,59,21,62,11,74,5,95,3,119,6,130,15,126,19,117,11,95,8,76,10,66,15,64,20,69,28"/>
 </map>
 </div>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_icgraph" loading="lazy" alt=""/></div>
 <map name="ad3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_aea83b3f2064bf87b9038ae036d782f65_icgraph">
-<area shape="rect" title="Render imgui." alt="" coords="180,29,359,55"/>
-<area shape="poly" title=" " alt="" coords="305,20,295,11,269,8,248,10,237,15,235,20,241,28,236,31,229,21,233,11,247,5,269,3,297,6,308,16"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,29,132,55"/>
-<area shape="poly" title=" " alt="" coords="166,45,132,45,132,39,166,39"/>
+<area shape="rect" title="Render imgui." alt="" coords="215,29,393,55"/>
+<area shape="poly" title=" " alt="" coords="343,20,332,11,304,8,281,10,269,15,266,20,273,28,269,31,261,21,265,11,280,5,304,3,334,6,346,15"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,29,167,55"/>
+<area shape="poly" title=" " alt="" coords="201,45,167,45,167,39,201,39"/>
 </map>
 </div>
 
@@ -463,29 +409,221 @@ Functions</h2></td></tr>
 
 <p>Destroy imgui context. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00241">241</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00230">230</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph">
+<area shape="rect" title="Destroy imgui context." alt="" coords="5,29,168,55"/>
+<area shape="poly" title=" " alt="" coords="59,31,54,21,57,11,68,5,87,3,109,6,119,15,115,19,107,11,87,8,70,10,61,15,59,20,64,28"/>
+</map>
+</div>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph">
+<area shape="rect" title="Destroy imgui context." alt="" coords="221,29,384,55"/>
+<area shape="poly" title=" " alt="" coords="341,20,330,11,303,8,280,10,268,15,265,20,272,28,268,31,260,21,264,11,279,5,303,3,332,6,344,15"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a2aa31077d99485d56380b1fef37b4da1" title=" " alt="" coords="5,29,173,55"/>
+<area shape="poly" title=" " alt="" coords="207,45,173,45,173,39,207,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a92cad3546d4d2918bafa7c79f78c1ba1" name="a92cad3546d4d2918bafa7c79f78c1ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92cad3546d4d2918bafa7c79f78c1ba1">&#9670;&#160;</a></span>imgui_notify_success()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::ui::imgui_notify_success </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ImGui success notification. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Message to display. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00240">240</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
 <div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph" loading="lazy" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_cgraph">
-<area shape="rect" title="Destroy imgui context." alt="" coords="5,29,168,55"/>
-<area shape="poly" title=" " alt="" coords="51,31,43,21,47,11,62,5,87,3,117,6,129,15,126,20,115,11,87,8,63,10,51,15,48,20,55,28"/>
-<area shape="rect" href="../../df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="216,22,395,62"/>
-<area shape="poly" title=" " alt="" coords="168,39,203,39,203,45,168,45"/>
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_cgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_cgraph">
+<area shape="rect" title="ImGui success notification." alt="" coords="5,29,180,69"/>
+<area shape="poly" title=" " alt="" coords="60,30,58,20,63,11,75,5,93,3,113,6,124,13,122,17,111,11,93,8,76,10,67,15,63,21,65,28"/>
 </map>
 </div>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
 <div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph" loading="lazy" alt=""/></div>
-<map name="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a75724fdf5b5623e0edfc966f9f439082_icgraph">
-<area shape="rect" title="Destroy imgui context." alt="" coords="196,29,359,55"/>
-<area shape="poly" title=" " alt="" coords="313,20,303,11,277,8,256,10,245,15,243,20,249,28,244,31,237,21,241,11,255,5,277,3,305,6,316,16"/>
-<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af82f993f29a3da0dac00ae02f2e6109f" title="Destructor." alt="" coords="5,29,148,55"/>
-<area shape="poly" title=" " alt="" coords="182,45,148,45,148,39,182,39"/>
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_icgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a92cad3546d4d2918bafa7c79f78c1ba1_icgraph">
+<area shape="rect" title="ImGui success notification." alt="" coords="611,29,785,69"/>
+<area shape="poly" title=" " alt="" coords="733,18,721,11,698,8,678,10,666,15,662,21,664,28,659,30,657,20,663,10,677,5,698,3,722,6,736,13"/>
+<area shape="rect" href="../../dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb" title="Draw config panel." alt="" coords="413,29,563,69"/>
+<area shape="poly" title=" " alt="" coords="597,52,563,52,563,47,597,47"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets." alt="" coords="215,37,365,62"/>
+<area shape="poly" title=" " alt="" coords="399,52,366,52,366,47,399,47"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,37,167,62"/>
+<area shape="poly" title=" " alt="" coords="201,52,167,52,167,47,201,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acf7a7bef0f311ebe615256f621cb6af8" name="acf7a7bef0f311ebe615256f621cb6af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf7a7bef0f311ebe615256f621cb6af8">&#9670;&#160;</a></span>imgui_notify_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::ui::imgui_notify_info </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ImGui info notification. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Message to display. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00245">245</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
+</div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_cgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_cgraph">
+<area shape="rect" title="ImGui info notification." alt="" coords="5,29,212,55"/>
+<area shape="poly" title=" " alt="" coords="75,31,68,21,71,11,85,5,109,3,137,6,149,15,145,20,135,11,109,8,87,10,75,15,73,20,79,28"/>
+</map>
+</div>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_icgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_acf7a7bef0f311ebe615256f621cb6af8_icgraph">
+<area shape="rect" title="ImGui info notification." alt="" coords="5,29,212,55"/>
+<area shape="poly" title=" " alt="" coords="145,20,135,11,109,8,87,10,75,15,73,20,79,28,75,31,68,21,71,11,85,5,109,3,137,6,149,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad82f878bb9a1f2a1f293db478ae17eff" name="ad82f878bb9a1f2a1f293db478ae17eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad82f878bb9a1f2a1f293db478ae17eff">&#9670;&#160;</a></span>imgui_notify_warning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::ui::imgui_notify_warning </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ImGui warning notification. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Message to display. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00250">250</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
+</div>
+<div id="dynsection-16-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_cgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_cgraph">
+<area shape="rect" title="ImGui warning notification." alt="" coords="5,29,180,69"/>
+<area shape="poly" title=" " alt="" coords="60,30,58,20,63,11,75,5,93,3,113,6,124,13,122,17,111,11,93,8,76,10,67,15,63,21,65,28"/>
+</map>
+</div>
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
+</div>
+<div id="dynsection-17-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_icgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_ad82f878bb9a1f2a1f293db478ae17eff_icgraph">
+<area shape="rect" title="ImGui warning notification." alt="" coords="5,29,180,69"/>
+<area shape="poly" title=" " alt="" coords="122,17,111,11,93,8,76,10,67,15,63,21,65,28,60,30,58,20,63,11,75,5,93,3,113,6,124,13"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a07ea7645484387d4e690f8efc3a9b8e4" name="a07ea7645484387d4e690f8efc3a9b8e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ea7645484387d4e690f8efc3a9b8e4">&#9670;&#160;</a></span>imgui_notify_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::ui::imgui_notify_error </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ImGui error notification. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Message to display. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00255">255</a> of file <a class="el" href="../../d5/df3/ImGuiHelpers_8cpp_source.html">ImGuiHelpers.cpp</a>.</p>
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
+</div>
+<div id="dynsection-18-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_cgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_cgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_cgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_cgraph">
+<area shape="rect" title="ImGui error notification." alt="" coords="5,29,180,69"/>
+<area shape="poly" title=" " alt="" coords="60,30,58,20,63,11,75,5,93,3,113,6,124,13,122,17,111,11,93,8,76,10,67,15,63,21,65,28"/>
+</map>
+</div>
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
+</div>
+<div id="dynsection-19-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_icgraph.png" border="0" usemap="#ad3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_icgraph" loading="lazy" alt=""/></div>
+<map name="ad3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_icgraph" id="ad3/dd9/namespacegalaxy_1_1ui_a07ea7645484387d4e690f8efc3a9b8e4_icgraph">
+<area shape="rect" title="ImGui error notification." alt="" coords="5,29,180,69"/>
+<area shape="poly" title=" " alt="" coords="122,17,111,11,93,8,76,10,67,15,63,21,65,28,60,30,58,20,63,11,75,5,93,3,113,6,124,13"/>
 </map>
 </div>
 

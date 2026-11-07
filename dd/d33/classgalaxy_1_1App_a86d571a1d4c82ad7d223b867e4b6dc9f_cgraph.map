@@ -1,5 +1,5 @@
 <map id="galaxy::App::setup_input" name="galaxy::App::setup_input">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,148,95"/>
+<area shape="rect" id="Node000001" title="Setup input module." alt="" coords="5,55,148,95"/>
 <area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#acd1084b718449ae0b7f8facbd64644ca" title="Cursor texture file in vfs." alt="" coords="199,5,407,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,53,195,41,234,31,235,36,197,46,149,58"/>
 <area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#a80ed0cfa1ad0e5b8f9df55975988d60e" title="Cursor selector point (offset)." alt="" coords="216,55,391,95"/>

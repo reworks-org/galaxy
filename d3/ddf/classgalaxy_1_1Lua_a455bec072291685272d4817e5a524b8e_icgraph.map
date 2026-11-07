@@ -1,6 +1,6 @@
 <map id="galaxy::Lua::inject" name="galaxy::Lua::inject">
 <area shape="rect" id="Node000001" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
-<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
 <area shape="rect" id="Node000008" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>

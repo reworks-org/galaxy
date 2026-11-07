@@ -1,6 +1,6 @@
 <map id="galaxy::ui::imgui_new_frame" name="galaxy::ui::imgui_new_frame">
-<area shape="rect" id="Node000001" title="Begin setting up ImGui pass." alt="" coords="180,29,344,69"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="294,17,283,11,262,8,244,10,233,15,229,21,231,28,226,30,224,20,229,11,242,5,262,3,285,6,297,13"/>
-<area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#a22bdca674d2f7081e1dc315626c3ed9c" title="Main game loop." alt="" coords="5,37,132,62"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="166,52,132,52,132,47,166,47"/>
+<area shape="rect" id="Node000001" title="Begin setting up ImGui pass." alt="" coords="215,29,379,69"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="332,18,320,11,297,8,276,10,264,15,260,21,262,28,257,30,255,20,261,10,275,5,297,3,321,6,335,13"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,37,167,62"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="201,52,167,52,167,47,201,47"/>
 </map>

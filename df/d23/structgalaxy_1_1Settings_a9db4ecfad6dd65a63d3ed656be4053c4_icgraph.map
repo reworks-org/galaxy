@@ -2,13 +2,13 @@
 <area shape="rect" id="Node000001" title="Set audio frequency to use with SDL." alt="" coords="1005,136,1208,161"/>
 <area shape="rect" id="Node000002" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,161,957,187"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="992,164,958,167,957,162,991,158"/>
-<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title=" " alt="" coords="404,90,547,130"/>
+<area shape="rect" id="Node000012" href="$dd/d33/classgalaxy_1_1App.html#ae0cb69c0c85d7a0658bfc16ea68cb63e" title="Setup platform module." alt="" coords="404,90,547,130"/>
 <area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="991,144,547,117,547,112,992,139"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,161,735,187"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="769,177,735,177,735,171,769,171"/>
 <area shape="rect" id="Node000011" href="$d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,235,728,260"/>
 <area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="821,194,702,237,700,232,820,189"/>
-<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title=" " alt="" coords="404,154,547,194"/>
+<area shape="rect" id="Node000004" href="$dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,154,547,194"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="581,177,547,177,547,171,581,171"/>
 <area shape="rect" id="Node000010" href="$d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,219,545,244"/>
 <area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="610,193,519,221,517,216,608,188"/>

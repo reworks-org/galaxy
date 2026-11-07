@@ -1,5 +1,5 @@
 <map id="galaxy::App::setup_async" name="galaxy::App::setup_async">
-<area shape="rect" id="Node000001" title=" " alt="" coords="404,121,547,161"/>
+<area shape="rect" id="Node000001" title="Setup async module." alt="" coords="404,121,547,161"/>
 <area shape="rect" id="Node000002" href="$dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
 <area shape="rect" id="Node000005" href="$dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>

@@ -1,0 +1,15 @@
+<map id="galaxy::Editor::Editor" name="galaxy::Editor::Editor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,118,163,143"/>
+<area shape="rect" id="Node000002" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7a505b402c3fa66636913d46d6aa954c" title="Initialize ImGui context with galaxy." alt="" coords="211,118,369,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,128,197,128,197,133,163,133"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="256,120,249,110,253,100,267,94,290,91,319,95,330,104,327,108,316,100,290,97,268,99,257,103,254,109,260,116"/>
+<area shape="rect" id="Node000003" href="$d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d" title="Set imgui theme." alt="" coords="417,29,575,69"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="322,115,431,72,433,77,324,120"/>
+<area shape="rect" id="Node000004" href="$d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3" title=" " alt="" coords="423,118,569,143"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="369,128,409,128,409,133,369,133"/>
+<area shape="rect" id="Node000005" href="$d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56" title=" " alt="" coords="426,191,566,217"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="328,141,447,184,446,189,326,146"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="457,30,455,20,461,11,475,5,496,3,520,6,533,13,531,18,518,11,496,8,476,10,465,15,460,21,462,28"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="462,120,455,110,459,100,473,94,496,91,525,95,536,104,533,108,522,100,496,97,474,99,463,103,460,109,466,116"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="462,193,455,183,459,173,473,167,496,165,525,168,536,177,533,182,522,173,496,170,474,172,463,177,460,182,466,190"/>
+</map>

@@ -1,8 +1,4 @@
 <map id="galaxy::ui::imgui_handle_events" name="galaxy::ui::imgui_handle_events">
 <area shape="rect" id="Node000001" title="Handle events in ImGui." alt="" coords="5,29,187,69"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="51,30,49,20,56,10,72,5,96,3,124,6,139,13,137,18,122,11,96,8,73,10,59,15,54,21,56,28"/>
-<area shape="rect" id="Node000002" href="$df/d23/structgalaxy_1_1Settings.html#a4df24d3317e27a1a5c1e422718b82f34" title="Editor debug toggle key." alt="" coords="235,7,437,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,36,221,31,221,37,187,41"/>
-<area shape="rect" id="Node000003" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="247,57,425,97"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,57,233,63,233,68,186,63"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="62,30,60,20,65,11,77,5,96,3,117,6,129,13,126,17,116,11,96,8,79,10,69,15,65,21,67,28"/>
 </map>

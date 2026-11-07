@@ -72,15 +72,20 @@ var namespacegalaxy =
       [ "imgui_set_theme", "d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d", null ],
       [ "imgui_handle_events", "d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45", null ],
       [ "imgui_new_frame", "d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1", null ],
-      [ "imgui_draw_editor", "d3/dd9/namespacegalaxy_1_1ui.html#a9a367f7954752c657b46bd43f4993852", null ],
       [ "imgui_render", "d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65", null ],
-      [ "imgui_exit", "d3/dd9/namespacegalaxy_1_1ui.html#a75724fdf5b5623e0edfc966f9f439082", null ]
+      [ "imgui_exit", "d3/dd9/namespacegalaxy_1_1ui.html#a75724fdf5b5623e0edfc966f9f439082", null ],
+      [ "imgui_notify_success", "d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1", null ],
+      [ "imgui_notify_info", "d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8", null ],
+      [ "imgui_notify_warning", "d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff", null ],
+      [ "imgui_notify_error", "d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4", null ]
     ] ],
     [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
     [ "Config", "db/d49/classgalaxy_1_1Config.html", "db/d49/classgalaxy_1_1Config" ],
+    [ "ConfigPanel", "dc/da4/classgalaxy_1_1ConfigPanel.html", "dc/da4/classgalaxy_1_1ConfigPanel" ],
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
     [ "CPUInfo", "d5/df7/structgalaxy_1_1CPUInfo.html", "d5/df7/structgalaxy_1_1CPUInfo" ],
+    [ "Editor", "de/dfe/classgalaxy_1_1Editor.html", "de/dfe/classgalaxy_1_1Editor" ],
     [ "EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", "d9/d4c/classgalaxy_1_1EntityManager" ],
     [ "Event", "df/d64/classgalaxy_1_1Event.html", "df/d64/classgalaxy_1_1Event" ],
     [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
@@ -100,6 +105,7 @@ var namespacegalaxy =
     [ "MousePressed", "de/d27/structgalaxy_1_1MousePressed.html", "de/d27/structgalaxy_1_1MousePressed" ],
     [ "MouseReleased", "d1/d0d/structgalaxy_1_1MouseReleased.html", "d1/d0d/structgalaxy_1_1MouseReleased" ],
     [ "MouseWheel", "da/d9e/structgalaxy_1_1MouseWheel.html", "da/d9e/structgalaxy_1_1MouseWheel" ],
+    [ "Panel", "d8/d50/classgalaxy_1_1Panel.html", "d8/d50/classgalaxy_1_1Panel" ],
     [ "Rect", "d5/d58/classgalaxy_1_1Rect.html", "d5/d58/classgalaxy_1_1Rect" ],
     [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
     [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
@@ -442,5 +448,5 @@ var namespacegalaxy =
     [ "log_wrapper", "d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92", null ],
     [ "mem_alloc", "d0/d46/namespacegalaxy.html#ac79729a7cd11384b6477920808b1a4a3", null ],
     [ "mem_free", "d0/d46/namespacegalaxy.html#a88b00e4db87ec3991645c71cec85da56", null ],
-    [ "show_editor", "d0/d46/namespacegalaxy.html#ad1e5e812daa5c549ac4bdd2d21d5760a", null ]
+    [ "g_Style", "d0/d46/namespacegalaxy.html#ae80f70540f62ad2ac23ac71dbb655663", null ]
 ];

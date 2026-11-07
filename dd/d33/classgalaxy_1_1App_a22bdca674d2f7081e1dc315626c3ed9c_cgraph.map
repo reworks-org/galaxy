@@ -1,27 +1,10 @@
 <map id="galaxy::App::run" name="galaxy::App::run">
-<area shape="rect" id="Node000001" title="Main game loop." alt="" coords="5,199,132,224"/>
-<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="209,29,333,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,197,112,134,142,97,178,65,195,56,197,61,182,70,146,101,116,137,79,200"/>
-<area shape="rect" id="Node000004" href="$d3/dd9/namespacegalaxy_1_1ui.html#a9a367f7954752c657b46bd43f4993852" title="Draw main editor interface." alt="" coords="186,103,355,143"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="92,196,179,153,196,146,198,151,181,158,94,201"/>
-<area shape="rect" id="Node000006" href="$d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45" title="Handle events in ImGui." alt="" coords="180,354,361,394"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="83,222,125,266,182,316,224,345,220,349,178,320,121,269,80,226"/>
-<area shape="rect" id="Node000008" href="$d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1" title="Begin setting up ImGui pass." alt="" coords="189,191,353,231"/>
-<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="133,209,175,209,175,214,133,214"/>
-<area shape="rect" id="Node000009" href="$d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65" title="Render imgui." alt="" coords="181,280,360,305"/>
-<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="102,222,226,272,224,277,100,227"/>
-<area shape="rect" id="Node000003" href="$d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53" title="Set galaxy delta time." alt="" coords="449,29,573,55"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,39,435,39,435,45,333,45"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="472,31,463,21,468,11,484,5,511,3,544,7,557,16,554,20,542,11,511,8,485,10,471,15,469,20,476,27"/>
-<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="233,104,231,94,237,85,250,79,271,77,294,80,307,87,304,92,292,85,271,82,252,84,240,89,236,95,238,102"/>
-<area shape="rect" id="Node000005" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="421,233,600,273"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="335,141,363,153,422,187,473,222,470,227,419,192,360,158,333,146"/>
-<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="310,352,457,276,459,281,312,356"/>
-<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="233,354,231,344,237,335,250,329,271,327,294,330,307,338,304,342,292,335,271,333,252,335,240,339,236,345,238,353"/>
-<area shape="rect" id="Node000007" href="$df/d23/structgalaxy_1_1Settings.html#a4df24d3317e27a1a5c1e422718b82f34" title="Editor debug toggle key." alt="" coords="409,361,612,387"/>
-<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="361,371,396,371,396,377,361,377"/>
-<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="353,223,408,232,407,238,353,228"/>
-<area shape="poly" id="edge13_Node000008_Node000008" title=" " alt="" coords="233,192,231,182,237,173,250,167,271,165,294,168,307,175,304,180,292,173,271,170,252,172,240,177,236,183,238,190"/>
-<area shape="poly" id="edge15_Node000009_Node000005" title=" " alt="" coords="347,277,407,267,408,272,348,283"/>
-<area shape="poly" id="edge16_Node000009_Node000009" title=" " alt="" coords="238,281,231,272,234,262,248,256,271,253,299,257,310,266,306,270,296,262,271,259,249,261,238,265,236,271,242,278"/>
+<area shape="rect" id="Node000001" title="Main game loop." alt="" coords="5,59,132,84"/>
+<area shape="rect" id="Node000002" href="$d2/d2f/namespacegalaxy_1_1time.html#a4773252d26c35ee971645b7b00c910ed" title="Get galaxy delta time." alt="" coords="207,29,331,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,59,193,50,194,56,132,65"/>
+<area shape="rect" id="Node000004" href="$df/d23/structgalaxy_1_1Settings.html#ac0e35c9daa9747a49e782737fb5db8b1" title="Enable the debug editor UI." alt="" coords="180,79,359,119"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="132,77,167,82,166,88,132,83"/>
+<area shape="rect" id="Node000003" href="$d2/d2f/namespacegalaxy_1_1time.html#ab56d88ffe18246f10ff8c110d1c64a53" title="Set galaxy delta time." alt="" coords="407,29,531,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="332,39,393,39,393,45,332,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="436,31,429,21,433,11,446,5,469,3,496,6,507,15,504,19,494,11,469,8,448,10,437,15,434,20,440,28"/>
 </map>
