@@ -8,6 +8,8 @@
 #ifndef GALAXY_UI_IMGUIHELPERS_HPP_
 #define GALAXY_UI_IMGUIHELPERS_HPP_
 
+#include <functional>
+
 #include <imgui/imgui.h>
 #include <SDL3/SDL_events.h>
 
@@ -80,23 +82,11 @@ namespace galaxy
 		/// \param msg Message to display.
 		///
 		void imgui_notify_error(const char* msg);
-	} // namespace ui
-} // namespace galaxy
 
-/*
 		///
 		/// Make sure the next window opened is centered on the monitor.
 		///
 		void imgui_center_next_window();
-
-		///
-		/// Cleaner way of rendering an ImGui popup.
-		///
-		/// \param id Popup ID.
-		/// \param open Controls popup visibility.
-		/// \param func ImGui controls to show on popup.
-		///
-		void imgui_popup(const char* id, bool& open, std::move_only_function<void(void)>&& func);
 
 		///
 		/// Handles a popup for a yes/no situation.
@@ -106,6 +96,15 @@ namespace galaxy
 		/// \param no Code to run if user selects no.
 		///
 		void imgui_confirm(const char* msg, std::move_only_function<void(void)>&& yes = {}, std::move_only_function<void(void)>&& no = {});
+	} // namespace ui
+} // namespace galaxy
+
+/*
+
+
+
+
+
 		///
 		/// Render an imgui image button with a galaxy texture.
 		///
