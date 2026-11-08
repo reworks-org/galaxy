@@ -37,7 +37,7 @@
     "mouse": {
         "cursor_icon": "",
         "cursor_offset": {
-            "x": 1,
+            "x": 0,
             "y": 0
         },
         "cursor_show": true
@@ -48,8 +48,8 @@
         "icon": "",
         "maximized": true,
         "mouse_grabbed": false,
-        "requested_height": 720,
-        "requested_width": 1280,
+        "requested_height": 1080,
+        "requested_width": 1920,
         "resizable": true,
         "virtual_height": 0,
         "virtual_width": 0,

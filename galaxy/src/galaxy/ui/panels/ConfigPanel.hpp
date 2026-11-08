@@ -36,10 +36,24 @@ namespace galaxy
 		void draw() override;
 
 	private:
+		///
+		/// Handles rendering json objects.
+		///
+		/// \param json JSON object.
+		///
 		void do_object(nlohmann::json& json);
+
+		///
+		/// Handles rendering array objects.
+		///
+		/// \param json JSON array.
+		///
 		void do_array(nlohmann::json& json);
 
 	private:
+		///
+		/// Internal level counter for rendering.
+		///
 		int m_counter;
 	};
 } // namespace galaxy

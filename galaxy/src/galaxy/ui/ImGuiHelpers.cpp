@@ -83,19 +83,20 @@ namespace galaxy
 			font_cfg.OversampleH           = 1;
 			font_cfg.OversampleV           = 1;
 			font_cfg.FontLoaderFlags      |= ImGuiFreeTypeLoaderFlags_LoadColor;
-			io.FontDefault                 = io.Fonts->AddFontFromMemoryTTF(&resource::roboto_light, resource::roboto_light_len, 16.0f, &font_cfg);
+			io.FontDefault                 = io.Fonts->AddFontFromMemoryTTF(&resource::roboto_light, resource::roboto_light_len, 20.0f, &font_cfg);
 
 			static const ImWchar icons_ranges[] = {ICON_MIN_MDI, ICON_MAX_MDI, 0};
 			ImFontConfig         md_icons_cfg;
 			md_icons_cfg.FontDataOwnedByAtlas = false;
 			md_icons_cfg.MergeMode            = true;
 			md_icons_cfg.PixelSnapH           = true;
-			io.Fonts->AddFontFromMemoryTTF(&materialdesignicons_ttf, sizeof(materialdesignicons_ttf), 16.0f, &md_icons_cfg, icons_ranges);
-
-			imgui_set_theme(window.get_display_scale());
+			io.Fonts->AddFontFromMemoryTTF(&materialdesignicons_ttf, sizeof(materialdesignicons_ttf), 20.0f, &md_icons_cfg, icons_ranges);
 
 			// Preserve initial copy.
 			g_Style = ImGui::GetStyle();
+
+			// Then set theme.
+			imgui_set_theme(window.get_display_scale());
 		}
 
 		void imgui_set_theme(const float scale) noexcept
@@ -193,7 +194,7 @@ namespace galaxy
 				style.Colors[ImGuiCol_NavWindowingDimBg]     = ImVec4(0.8f, 0.8f, 0.8f, 0.2f);
 				style.Colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.8f, 0.8f, 0.8f, 0.35f);
 
-				style.FontSizeBase = 18.0f;
+				style.FontSizeBase = 17.0f;
 				style.FontScaleDpi = scale;
 				style.ScaleAllSizes(scale);
 			}

@@ -14,21 +14,59 @@
 
 namespace galaxy
 {
+	///
+	/// Ingame debug editor UI.
+	///
 	class Editor final : public Panel
 	{
 	public:
+		///
+		/// Constructor.
+		///
 		Editor();
+
+		///
+		/// Destructor.
+		///
 		~Editor();
 
+		///
+		/// Process events in the editor.
+		///
+		/// \param events Event structure.
+		///
 		void handle_events(const SDL_Event& events);
+
+		///
+		/// Render the editor to the screen.
+		///
 		void render();
+
+		///
+		/// Draw the ImGui widgets to ImGui buffers.
+		///
 		void draw() override;
 
 	private:
+		///
+		/// Start rendering the editor dock.
+		///
 		void begin_dock();
+
+		///
+		/// Finish rendering the editor dock.
+		///
 		void end_dock();
+
+		///
+		/// Draw the editor menubar.
+		///
 		void draw_menubar();
 
+	private:
+		///
+		/// Config panel for manipulating engine settings.
+		///
 		ConfigPanel m_config_panel;
 	};
 } // namespace galaxy
