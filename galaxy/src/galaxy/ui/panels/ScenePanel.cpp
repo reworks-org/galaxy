@@ -1,46 +1,51 @@
 ///
 /// ScenePanel.cpp
-/// supercluster
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui/imnotify/material_design_icons.h>
+#include <entt/locator/locator.hpp>
 
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/fs/VirtualFileSystem.hpp>
-#include <galaxy/math/Base64.hpp>
-#include <galaxy/math/ZLib.hpp>
-#include <galaxy/resource/Prefabs.hpp>
-#include <galaxy/ui/ImGuiHelpers.hpp>
+#include "galaxy/resource/embedded/material_design_icons.h"
+#include "galaxy/scene/SceneManager.hpp"
+#include "galaxy/ui/ImGuiHelpers.hpp"
 
 #include "ScenePanel.hpp"
 
-namespace sc
+namespace galaxy
 {
-	ScenePanel::ScenePanel()
-	{
-		for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
-		{
-			m_prefab_data.items.push_back(key);
-		}
-	}
-
-	ScenePanel::~ScenePanel()
+	ScenePanel::ScenePanel() noexcept
+		: m_new {"ScenePanelNewScene"}
+		, m_clear {"ScenePanelClearScenes"}
 	{
 	}
 
-	void ScenePanel::render(scene::SceneManager& project, meta::vector<std::move_only_function<void(void)>>& tasks, Selected& selected)
+	ScenePanel::~ScenePanel() noexcept
 	{
-		if (m_show)
-		{
-			ImGui::Begin(ICON_MDI_LIST_BOX_OUTLINE " Scenes");
+	}
 
-			m_show_new = ImGui::Button("New Scene");
+	void ScenePanel::draw()
+	{
+		if (ImGui::Begin(ICON_MDI_LIST_BOX_OUTLINE " Scenes"))
+		{
+			auto& sm = entt::locator<SceneManager>::value();
+
+			m_new.draw_button("New");
 			ImGui::SameLine();
-			m_show_clear = ImGui::Button("Clear Scenes");
+			m_clear.draw_button("Clear");
+			ImGui::SameLine();
+			if (ImGui::Button("Pop"))
+			{
+				sm.pop();
+			}
+			ImGui::SameLine();
+			if (ImGui::Button("Pop all"))
+			{
+				sm.pop_all();
+			}
 
-			ui::imgui_popup("ScenePanelNewScene", m_show_new, [&]() {
+			m_new.draw([&]() {
 				static std::string s_buff;
 				ImGui::TextUnformatted("Create a new Scene");
 				ImGui::Separator();
@@ -49,69 +54,70 @@ namespace sc
 				{
 					if (!s_buff.empty())
 					{
-						project.add(s_buff);
-						project.set_scene(s_buff);
-
+						sm.add(s_buff);
 						s_buff = "";
 
 						ImGui::CloseCurrentPopup();
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_ERROR, "Scene name cannot be empty.");
+						ui::imgui_notify_error("Scene name cannot be empty.");
 					}
 				}
 			});
 
-			ui::imgui_popup("ScenePanelClearScenes", m_show_clear, [&]() {
+			m_clear.draw([&]() {
 				ui::imgui_confirm("Are you sure you want to delete all scenes?", [&]() {
-					project.clear();
+					sm.clear();
 				});
 			});
 
-			for (auto&& [id, scene] : project.map())
+			static std::string top;
+			for (auto&& [id, scene] : sm.storage())
 			{
-				auto scene_ptr = scene.get();
-
-				std::string tree_id = scene_ptr->m_name;
-				if (project.current())
-				{
-					m_selected = project.current()->m_name;
-				}
+				ImGui::PushID(static_cast<int>(id));
 
 				ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-				if (m_selected == scene_ptr->m_name)
-				{
-					flags   |= ImGuiTreeNodeFlags_Selected;
-					tree_id += " (current)";
-				}
 
-				ImGui::PushID(static_cast<int>(id));
-				const bool is_open = ImGui::TreeNodeEx(tree_id.c_str(), flags);
-				if (ImGui::IsItemClicked())
+				std::string tree_id = scene->name();
+				if (sm.top())
 				{
-					m_selected = scene_ptr->m_name;
-				}
-
-				if (is_open)
-				{
-					if (ImGui::Button("Set Current"))
+					if (sm.top()->name() == scene->name())
 					{
-						project.set_scene(m_selected);
+						flags   |= ImGuiTreeNodeFlags_Selected;
+						tree_id += " (top)";
+					}
+				}
+
+				if (ImGui::TreeNodeEx(tree_id.c_str(), flags))
+				{
+					if (ImGui::Button("Push"))
+					{
+						sm.push(scene->name());
 					}
 
-					draw_camera(scene_ptr);
-					draw_physics(scene_ptr);
-					draw_mapping(tasks, scene_ptr, selected);
-					draw_registry(selected, scene_ptr, scene_ptr->m_registry, m_entity_filter);
+					// draw_camera(scene_ptr);
+					// draw_physics(scene_ptr);
+					// draw_mapping(tasks, scene_ptr, selected);
+					// draw_registry(selected, scene_ptr, scene_ptr->m_registry, m_entity_filter);
 
 					ImGui::TreePop();
 				}
 
 				ImGui::PopID();
 			}
+		}
 
-			ImGui::End();
+		ImGui::End();
+	}
+} // namespace galaxy
+
+/*
+ScenePanel::ScenePanel()
+	{
+		for (const auto& key : core::ServiceLocator<resource::Prefabs>::ref().keys())
+		{
+			m_prefab_data.items.push_back(key);
 		}
 	}
 
@@ -337,4 +343,4 @@ namespace sc
 			}
 		}
 	}
-} // namespace sc
+*/

@@ -16,6 +16,7 @@
 namespace galaxy
 {
 	Editor::Editor()
+		: m_hotkeys {"EditorMenuBarHotkeyPopup"}
 	{
 		ui::imgui_init("editor.ini");
 	}
@@ -25,7 +26,7 @@ namespace galaxy
 		ui::imgui_exit();
 	}
 
-	void Editor::handle_events(const SDL_Event& events)
+	void Editor::handle_events(const SDL_Event& events) noexcept
 	{
 		if (events.type == SDL_EVENT_KEY_DOWN)
 		{
@@ -78,23 +79,21 @@ namespace galaxy
 		//	});
 		// });
 
-		// ui::imgui_popup("About##MenuBarPopup", m_show_about, [&]() {
-		//	ImGui::Text("Galaxy Engine - Supercluster Editor\nLicensed under Apache 2.0.");
-		//	ImGui::Spacing();
-		//	ImGui::Text("Controls:\n[PAUSE] - Exit Game Mode.\n[LEFT SHIFT] - Enable Docking.");
-		// });
+		m_hotkeys.draw([&]() {
+			ImGui::Text("[LEFT SHIFT] - Enable Docking.\n");
+		});
 
 		// m_log_console.render();
 		// m_lua_console.render();
 		// m_code_editor.render();
 		// m_asset_panel.render(m_code_editor);
+
 		// m_scene_panel.render(m_project, m_tasks, m_selected);
+		m_scene_panel.draw();
+
 		// m_entity_panel.render(m_tasks, m_selected);
 		// m_viewport.render(m_state, m_editor_camera);
-		if (m_config_panel.shown())
-		{
-			m_config_panel.draw();
-		}
+		m_config_panel.draw();
 
 		// render_exporter();
 		end_dock();
@@ -150,10 +149,6 @@ namespace galaxy
 
 			// if (ImGui::BeginMenu("Panels"))
 			//{
-			//	if (ImGui::MenuItem("Toggle Scene Panel", "Ctrl+Alt+S"))
-			//	{
-			//		// m_scene_panel.m_show = !m_scene_panel.m_show;
-			//	}
 
 			//	if (ImGui::MenuItem("Toggle Entity Panel", "Ctrl+Alt+E"))
 			//	{
@@ -207,12 +202,7 @@ namespace galaxy
 			//	ImGui::EndMenu();
 			//}
 
-			if (ImGui::MenuItem("Edit Config"))
-			{
-				m_config_panel.toggle();
-			}
-
-			// m_show_about = ImGui::MenuItem("About");
+			m_hotkeys.draw_menuitem("Hotkeys");
 
 			// draw_game_controls();
 
@@ -655,11 +645,6 @@ namespace galaxy
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_A))
 		{
 			m_asset_panel.m_show = !m_asset_panel.m_show;
-		}
-
-		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_S))
-		{
-			m_scene_panel.m_show = !m_scene_panel.m_show;
 		}
 
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_E))

@@ -1,24 +1,54 @@
 ///
 /// ScenePanel.hpp
-/// supercluster
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_PANELS_SCENEPANEL_HPP_
-#define SUPERCLUSTER_PANELS_SCENEPANEL_HPP_
+#ifndef GALAXY_UI_PANELS_SCENEPANEL_HPP_
+#define GALAXY_UI_PANELS_SCENEPANEL_HPP_
 
-#include <imgui/combo_filter/imgui_combo_autoselect.h>
+#include "galaxy/ui/panels/Panel.hpp"
+#include "galaxy/ui/widgets/Popup.hpp"
 
-#include <galaxy/scene/SceneManager.hpp>
-
-#include "../Selected.hpp"
-
-using namespace galaxy;
-
-namespace sc
+namespace galaxy
 {
-	class ScenePanel final
+	///
+	/// Panel for editing scenes in engine.
+	///
+	class ScenePanel final : public Panel
+	{
+	public:
+		///
+		/// Constructor.
+		///
+		ScenePanel() noexcept;
+
+		///
+		/// Destructor.
+		///
+		virtual ~ScenePanel() noexcept;
+
+		///
+		/// Draw scene panel.
+		///
+		void draw() override;
+
+	private:
+		///
+		/// For creating a new scene.
+		///
+		Popup m_new;
+
+		///
+		/// For removing all scenes.
+		///
+		Popup m_clear;
+	};
+} // namespace galaxy
+
+/*
+class ScenePanel final
 	{
 	public:
 		ScenePanel();
@@ -36,8 +66,7 @@ namespace sc
 		bool m_show = true;
 
 	private:
-		bool                       m_show_new     = false;
-		bool                       m_show_clear   = false;
+
 		bool                       m_prefab_popup = false;
 		std::string                m_selected;
 		ImGui::ComboAutoSelectData m_map_data;
@@ -45,6 +74,6 @@ namespace sc
 		ImGuiTextFilter            m_entity_filter;
 		ImGuiTextFilter            m_map_entity_filter;
 	};
-} // namespace sc
+*/
 
 #endif

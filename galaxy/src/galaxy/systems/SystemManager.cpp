@@ -92,6 +92,8 @@ namespace galaxy
 		}
 
 		json["systems"]["suspended"] = m_suspended;
+
+		return json;
 	}
 
 	void SystemManager::deserialize(const nlohmann::json& json)

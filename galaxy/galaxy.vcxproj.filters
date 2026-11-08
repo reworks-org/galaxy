@@ -75,6 +75,8 @@
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
     <ClCompile Include="src\galaxy\ui\panels\Panel.cpp" />
     <ClCompile Include="src\galaxy\ui\panels\ConfigPanel.cpp" />
+    <ClCompile Include="src\galaxy\ui\panels\ScenePanel.cpp" />
+    <ClCompile Include="src\galaxy\ui\widgets\Popup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\utils\Async.hpp" />
@@ -140,5 +142,7 @@
     <ClInclude Include="src\galaxy\ui\Editor.hpp" />
     <ClInclude Include="src\galaxy\ui\panels\Panel.hpp" />
     <ClInclude Include="src\galaxy\ui\panels\ConfigPanel.hpp" />
+    <ClInclude Include="src\galaxy\ui\panels\ScenePanel.hpp" />
+    <ClInclude Include="src\galaxy\ui\widgets\Popup.hpp" />
   </ItemGroup>
 </Project>

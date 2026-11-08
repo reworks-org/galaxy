@@ -15,7 +15,7 @@
 namespace galaxy
 {
 	///
-	/// Shared data for an imgui panel.
+	/// Panel for editing engine settings.
 	///
 	class ConfigPanel final : public Panel
 	{

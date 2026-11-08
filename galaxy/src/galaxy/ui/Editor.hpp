@@ -11,6 +11,7 @@
 #include <SDL3/SDL_events.h>
 
 #include "galaxy/ui/panels/ConfigPanel.hpp"
+#include "galaxy/ui/panels/ScenePanel.hpp"
 
 namespace galaxy
 {
@@ -35,7 +36,7 @@ namespace galaxy
 		///
 		/// \param events Event structure.
 		///
-		void handle_events(const SDL_Event& events);
+		void handle_events(const SDL_Event& events) noexcept;
 
 		///
 		/// Render the editor to the screen.
@@ -68,6 +69,16 @@ namespace galaxy
 		/// Config panel for manipulating engine settings.
 		///
 		ConfigPanel m_config_panel;
+
+		///
+		/// Scene panel for managing scenes.
+		///
+		ScenePanel m_scene_panel;
+
+		///
+		/// Hotkey info.
+		///
+		Popup m_hotkeys;
 	};
 } // namespace galaxy
 
