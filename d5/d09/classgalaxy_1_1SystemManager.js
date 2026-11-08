@@ -11,6 +11,9 @@ var classgalaxy_1_1SystemManager =
     [ "resume", "d5/d09/classgalaxy_1_1SystemManager.html#aa402190584baaf0c0ea58b56f4669226", null ],
     [ "clear", "d5/d09/classgalaxy_1_1SystemManager.html#a7036b9a6857756d2ab492b8906984868", null ],
     [ "stack", "d5/d09/classgalaxy_1_1SystemManager.html#afdc7ba4766011e716113389ffe7cbc8e", null ],
+    [ "is_suspended", "d5/d09/classgalaxy_1_1SystemManager.html#aba9cc589724eda203a117e92f32ed15d", null ],
+    [ "serialize", "d5/d09/classgalaxy_1_1SystemManager.html#a7b133744244a0d64c34db3123f838d16", null ],
+    [ "deserialize", "d5/d09/classgalaxy_1_1SystemManager.html#a239988459084ed8a9aeead148bf6ca2e", null ],
     [ "operator=", "d5/d09/classgalaxy_1_1SystemManager.html#a52456acce570a167b56e25b22f47678b", null ],
     [ "m_systems", "d5/d09/classgalaxy_1_1SystemManager.html#affd5f3df434add7be5b62d988d8056b6", null ],
     [ "m_suspended", "d5/d09/classgalaxy_1_1SystemManager.html#a7d4167e2b8a3b4d6e762a4ba3254af34", null ]

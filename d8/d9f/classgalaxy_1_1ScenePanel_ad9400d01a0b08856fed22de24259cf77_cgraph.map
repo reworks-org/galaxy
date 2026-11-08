@@ -1,0 +1,16 @@
+<map id="galaxy::ScenePanel::draw" name="galaxy::ScenePanel::draw">
+<area shape="rect" id="Node000001" title="Draw scene panel." alt="" coords="5,128,152,168"/>
+<area shape="rect" id="Node000002" href="$d1/d07/classgalaxy_1_1Popup.html#af514ff48b65c5ece607c035851de0e3a" title="Show popup." alt="" coords="217,37,370,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,126,149,98,199,72,222,64,224,69,201,77,152,103,109,130"/>
+<area shape="rect" id="Node000004" href="$d1/d07/classgalaxy_1_1Popup.html#a6d963a409e1db393be0d65fbf82a7121" title="Draw the button to show the popup." alt="" coords="217,87,370,127"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="152,131,202,121,203,127,153,137"/>
+<area shape="rect" id="Node000005" href="$d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c" title="Handles a popup for a yes/no situation." alt="" coords="200,175,387,201"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="153,159,212,170,211,175,152,164"/>
+<area shape="rect" id="Node000006" href="$d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4" title="ImGui error notification." alt="" coords="206,249,381,289"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="116,166,247,240,244,245,114,170"/>
+<area shape="rect" id="Node000003" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e" title="Make sure the next window opened is centered on the monitor." alt="" coords="435,29,613,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,47,421,47,421,52,371,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="481,30,479,20,485,10,501,5,524,3,551,6,565,13,563,18,549,11,524,8,502,10,489,15,484,21,486,28"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="258,177,251,167,255,157,269,151,293,149,323,152,335,161,332,166,321,157,293,154,271,156,259,161,256,166,263,174"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="253,250,251,240,257,230,272,225,293,223,318,226,332,233,329,238,317,231,293,228,273,230,261,235,256,241,258,248"/>
+</map>

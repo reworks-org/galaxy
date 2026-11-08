@@ -217,7 +217,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0e35c9daa9747a49e782737fb5db8b1" id="r_ac0e35c9daa9747a49e782737fb5db8b1"><td class="memItemLeft">static auto&#160;</td><td class="memItemRight"><a class="el" href="#ac0e35c9daa9747a49e782737fb5db8b1">enable_editor</a> () noexcept -&gt; bool</td></tr>
 <tr class="memdesc:ac0e35c9daa9747a49e782737fb5db8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the debug editor UI.  <br /></td></tr>
 <tr class="memitem:a4df24d3317e27a1a5c1e422718b82f34" id="r_a4df24d3317e27a1a5c1e422718b82f34"><td class="memItemLeft">static auto&#160;</td><td class="memItemRight"><a class="el" href="#a4df24d3317e27a1a5c1e422718b82f34">editor_key</a> () noexcept -&gt; SDL_Scancode</td></tr>
-<tr class="memdesc:a4df24d3317e27a1a5c1e422718b82f34"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../de/dfe/classgalaxy_1_1Editor.html">Editor</a> debug toggle key.  <br /></td></tr>
+<tr class="memdesc:a4df24d3317e27a1a5c1e422718b82f34"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../de/dfe/classgalaxy_1_1Editor.html" title="Ingame debug editor UI.">Editor</a> debug toggle key.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -306,9 +306,9 @@ Static Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="1043,110,938,147,936,142,1041,105"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9" title="Setup config module." alt="" coords="413,72,556,112"/>
 <area shape="poly" title=" " alt="" coords="1020,87,556,94,556,88,1020,81"/>
-<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets." alt="" coords="613,13,764,38"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="613,13,764,38"/>
 <area shape="poly" title=" " alt="" coords="811,28,764,28,764,23,811,23"/>
-<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="404,13,565,38"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="404,13,565,38"/>
 <area shape="poly" title=" " alt="" coords="599,28,565,28,565,23,599,23"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="619,194,759,219"/>
 <area shape="poly" title=" " alt="" coords="832,176,744,197,743,191,831,171"/>
@@ -376,9 +376,9 @@ Static Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="1046,110,938,147,937,142,1044,105"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0f0200cf063408c5fdcbc67c12fa86b9" title="Setup config module." alt="" coords="413,72,556,112"/>
 <area shape="poly" title=" " alt="" coords="1021,87,556,94,556,88,1021,81"/>
-<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets." alt="" coords="613,13,764,38"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="613,13,764,38"/>
 <area shape="poly" title=" " alt="" coords="811,28,764,28,764,23,811,23"/>
-<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="404,13,565,38"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="404,13,565,38"/>
 <area shape="poly" title=" " alt="" coords="599,28,565,28,565,23,599,23"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="619,194,759,219"/>
 <area shape="poly" title=" " alt="" coords="832,176,744,197,743,191,831,171"/>
@@ -3199,7 +3199,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../de/dfe/classgalaxy_1_1Editor.html">Editor</a> debug toggle key. </p>
+<p><a class="el" href="../../de/dfe/classgalaxy_1_1Editor.html" title="Ingame debug editor UI.">Editor</a> debug toggle key. </p>
 <dl class="section return"><dt>Returns</dt><dd>SDL_Scancode enum value. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/dd8/Settings_8cpp_source.html#l00343">343</a> of file <a class="el" href="../../db/dd8/Settings_8cpp_source.html">Settings.cpp</a>.</p>
@@ -3210,7 +3210,7 @@ Static Private Attributes</h2></td></tr>
 <div class="center"><img src="../../df/d23/structgalaxy_1_1Settings_a4df24d3317e27a1a5c1e422718b82f34_icgraph.png" border="0" usemap="#adf/d23/structgalaxy_1_1Settings_a4df24d3317e27a1a5c1e422718b82f34_icgraph" loading="lazy" alt=""/></div>
 <map name="adf/d23/structgalaxy_1_1Settings_a4df24d3317e27a1a5c1e422718b82f34_icgraph" id="adf/d23/structgalaxy_1_1Settings_a4df24d3317e27a1a5c1e422718b82f34_icgraph">
 <area shape="rect" title="Editor debug toggle key." alt="" coords="1005,167,1208,192"/>
-<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#aaf496956eb4cc974ec1cf7e5e053bc0f" title=" " alt="" coords="789,130,951,170"/>
+<area shape="rect" href="../../de/dfe/classgalaxy_1_1Editor.html#a25fcc3870bcd4c57d1f1b89dfb5f735a" title="Process events in the editor." alt="" coords="789,130,951,170"/>
 <area shape="poly" title=" " alt="" coords="991,168,951,163,952,157,992,162"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,195,957,220"/>
 <area shape="poly" title=" " alt="" coords="992,196,958,200,957,194,991,190"/>

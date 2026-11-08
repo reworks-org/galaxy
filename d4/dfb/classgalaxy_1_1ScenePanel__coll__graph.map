@@ -1,0 +1,11 @@
+<map id="galaxy::ScenePanel" name="galaxy::ScenePanel">
+<area shape="rect" id="Node000001" title="Panel for editing scenes in engine." alt="" coords="37,587,175,692"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="5,271,111,496"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,509,99,586,94,587,79,510"/>
+<area shape="rect" id="Node000003" href="$d1/d07/classgalaxy_1_1Popup.html" title="Cleaner way of rendering an ImGui popup." alt="" coords="135,301,280,466"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,467,135,572,130,570,172,465"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="168,135,247,200"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="210,200,210,284,205,284,205,200"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="142,5,273,85"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="210,99,210,134,205,134,205,99"/>
+</map>

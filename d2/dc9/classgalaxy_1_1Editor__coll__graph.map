@@ -1,8 +1,18 @@
 <map id="galaxy::Editor" name="galaxy::Editor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,496,141,701"/>
-<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="15,5,121,231"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,244,75,496,70,496,67,244"/>
-<area shape="rect" id="Node000003" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Shared data for an imgui panel." alt="" coords="89,280,231,425"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="120,243,134,278,129,280,115,245"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,427,118,481,112,479,132,425"/>
+<area shape="rect" id="Node000001" title="Ingame debug editor UI." alt="" coords="108,803,244,1008"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="50,271,155,496"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,493,26,549,12,609,9,671,14,702,22,731,39,764,60,795,110,849,106,852,56,799,34,767,17,733,8,703,4,672,7,609,21,547,42,491"/>
+<area shape="rect" id="Node000003" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Panel for editing engine settings." alt="" coords="32,587,173,732"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="105,510,105,586,100,586,100,510"/>
+<area shape="rect" id="Node000004" href="$d8/d9f/classgalaxy_1_1ScenePanel.html" title="Panel for editing scenes in engine." alt="" coords="197,607,336,712"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="165,483,238,605,233,608,160,486"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="100,732,106,778,109,787,104,788,101,779,95,733"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="250,713,222,788,217,786,245,711"/>
+<area shape="rect" id="Node000005" href="$d1/d07/classgalaxy_1_1Popup.html" title="Cleaner way of rendering an ImGui popup." alt="" coords="253,301,398,466"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="357,466,374,536,384,617,384,660,379,701,369,742,352,780,333,806,311,830,260,867,257,863,307,826,329,803,347,777,363,740,374,700,379,659,379,618,369,537,352,467"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="310,467,284,591,278,590,305,466"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="286,135,365,200"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="328,200,328,284,323,284,323,200"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="260,5,391,85"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="328,99,328,134,323,134,323,99"/>
 </map>

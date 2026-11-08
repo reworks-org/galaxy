@@ -116,19 +116,32 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d09/classga
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>&gt;</code></p>
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for galaxy::SystemManager:</div>
+<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for galaxy::SystemManager:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><img src="../../d3/dd1/classgalaxy_1_1SystemManager__inherit__graph.png" border="0" usemap="#agalaxy_1_1SystemManager_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="agalaxy_1_1SystemManager_inherit__map" id="agalaxy_1_1SystemManager_inherit__map">
+<area shape="rect" title="Manages the systems assigned to it." alt="" coords="5,259,176,624"/>
+<area shape="rect" href="../../d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="20,5,161,211"/>
+<area shape="poly" title=" " alt="" coords="93,224,93,258,88,258,88,224"/>
+</map>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for galaxy::SystemManager:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
 <div class="center"><img src="../../d2/d22/classgalaxy_1_1SystemManager__coll__graph.png" border="0" usemap="#agalaxy_1_1SystemManager_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="agalaxy_1_1SystemManager_coll__map" id="agalaxy_1_1SystemManager_coll__map">
-<area shape="rect" title="Manages the systems assigned to it." alt="" coords="5,448,176,733"/>
-<area shape="rect" title=" " alt="" coords="5,297,176,377"/>
-<area shape="poly" title=" " alt="" coords="93,378,93,432,88,432,88,378"/>
-<area shape="rect" title=" " alt="" coords="30,141,151,207"/>
-<area shape="poly" title=" " alt="" coords="93,220,93,297,88,297,88,220"/>
-<area shape="rect" title=" " alt="" coords="79,5,102,71"/>
-<area shape="poly" title=" " alt="" coords="93,71,93,125,88,125,88,71"/>
+<area shape="rect" title="Manages the systems assigned to it." alt="" coords="47,573,217,919"/>
+<area shape="rect" href="../../d6/d82/classgalaxy_1_1Serializable.html" title="Allows a class to be serialized." alt="" coords="5,297,147,503"/>
+<area shape="poly" title=" " alt="" coords="97,516,107,573,101,574,92,517"/>
+<area shape="rect" title=" " alt="" coords="171,360,341,440"/>
+<area shape="poly" title=" " alt="" coords="245,441,202,559,197,557,240,439"/>
+<area shape="rect" title=" " alt="" coords="195,141,317,207"/>
+<area shape="poly" title=" " alt="" coords="259,220,259,360,253,360,253,220"/>
+<area shape="rect" title=" " alt="" coords="245,5,267,71"/>
+<area shape="poly" title=" " alt="" coords="259,71,259,125,253,125,253,71"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -154,6 +167,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7036b9a6857756d2ab492b8906984868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all systems.  <br /></td></tr>
 <tr class="memitem:afdc7ba4766011e716113389ffe7cbc8e" id="r_afdc7ba4766011e716113389ffe7cbc8e"><td class="memItemLeft"><a class="el" href="../../d0/d46/namespacegalaxy.html#a0f00c2ec1649b8c321e5b0d7ae3c56f7">SystemStack</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afdc7ba4766011e716113389ffe7cbc8e">stack</a> () noexcept</td></tr>
 <tr class="memdesc:afdc7ba4766011e716113389ffe7cbc8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get list of systems.  <br /></td></tr>
+<tr class="memitem:aba9cc589724eda203a117e92f32ed15d" id="r_aba9cc589724eda203a117e92f32ed15d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aba9cc589724eda203a117e92f32ed15d">is_suspended</a> () const noexcept</td></tr>
+<tr class="memdesc:aba9cc589724eda203a117e92f32ed15d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if systems are suspended.  <br /></td></tr>
+<tr class="memitem:a7b133744244a0d64c34db3123f838d16" id="r_a7b133744244a0d64c34db3123f838d16"><td class="memItemLeft">nlohmann::json&#160;</td><td class="memItemRight"><a class="el" href="#a7b133744244a0d64c34db3123f838d16">serialize</a> () override</td></tr>
+<tr class="memdesc:a7b133744244a0d64c34db3123f838d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes object.  <br /></td></tr>
+<tr class="memitem:a239988459084ed8a9aeead148bf6ca2e" id="r_a239988459084ed8a9aeead148bf6ca2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a239988459084ed8a9aeead148bf6ca2e">deserialize</a> (const nlohmann::json &amp;json) override</td></tr>
+<tr class="memdesc:a239988459084ed8a9aeead148bf6ca2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes from object.  <br /></td></tr>
+<tr class="inherit_header pub_methods_classgalaxy_1_1Serializable"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html">galaxy::Serializable</a></td></tr>
+<tr class="memitem:af23b562fc4244467c93335f56a5a6da1 inherit pub_methods_classgalaxy_1_1Serializable" id="r_af23b562fc4244467c93335f56a5a6da1"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#af23b562fc4244467c93335f56a5a6da1">~Serializable</a> ()</td></tr>
+<tr class="memdesc:af23b562fc4244467c93335f56a5a6da1 inherit pub_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="memitem:a1f05b7789cd41dec6148c1779b49f7c1 inherit pub_methods_classgalaxy_1_1Serializable" id="r_a1f05b7789cd41dec6148c1779b49f7c1"><td class="memItemLeft">virtual <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a1f05b7789cd41dec6148c1779b49f7c1">operator=</a> (<a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="memdesc:a1f05b7789cd41dec6148c1779b49f7c1 inherit pub_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="memitem:afa1df0241ceb5e0b40a7f7751f60207a inherit pub_methods_classgalaxy_1_1Serializable" id="r_afa1df0241ceb5e0b40a7f7751f60207a"><td class="memItemLeft">virtual <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#afa1df0241ceb5e0b40a7f7751f60207a">operator=</a> (const <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> &amp;) noexcept=default</td></tr>
+<tr class="memdesc:afa1df0241ceb5e0b40a7f7751f60207a inherit pub_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -168,12 +194,22 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:affd5f3df434add7be5b62d988d8056b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of systems to process.  <br /></td></tr>
 <tr class="memitem:a7d4167e2b8a3b4d6e762a4ba3254af34" id="r_a7d4167e2b8a3b4d6e762a4ba3254af34"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d4167e2b8a3b4d6e762a4ba3254af34">m_suspended</a></td></tr>
 <tr class="memdesc:a7d4167e2b8a3b4d6e762a4ba3254af34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are systems allowed to run.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_classgalaxy_1_1Serializable"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html">galaxy::Serializable</a></td></tr>
+<tr class="memitem:a8820a1abf066ee1e437bb4844b39f3ac inherit pro_methods_classgalaxy_1_1Serializable" id="r_a8820a1abf066ee1e437bb4844b39f3ac"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a8820a1abf066ee1e437bb4844b39f3ac">Serializable</a> () noexcept=default</td></tr>
+<tr class="memdesc:a8820a1abf066ee1e437bb4844b39f3ac inherit pro_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="memitem:abc638a91dd243927b144cfe9ed1d0ce7 inherit pro_methods_classgalaxy_1_1Serializable" id="r_abc638a91dd243927b144cfe9ed1d0ce7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#abc638a91dd243927b144cfe9ed1d0ce7">Serializable</a> (Serializable &amp;&amp;) noexcept=default</td></tr>
+<tr class="memdesc:abc638a91dd243927b144cfe9ed1d0ce7 inherit pro_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="memitem:ab2d783a8e15fb5017dbab04425fce8aa inherit pro_methods_classgalaxy_1_1Serializable" id="r_ab2d783a8e15fb5017dbab04425fce8aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#ab2d783a8e15fb5017dbab04425fce8aa">Serializable</a> (const Serializable &amp;) noexcept=default</td></tr>
+<tr class="memdesc:ab2d783a8e15fb5017dbab04425fce8aa inherit pro_methods_classgalaxy_1_1Serializable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages the systems assigned to it. </p>
 <p>A system belongs to a scene and operates on it and the shared entities. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aabe605ee9e0d47dccf88a5efca377e79" name="aabe605ee9e0d47dccf88a5efca377e79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabe605ee9e0d47dccf88a5efca377e79">&#9670;&#160;</a></span>SystemManager() <span class="overload">[1/3]</span></h2>
@@ -200,11 +236,11 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
+<div id="dynsection-2-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_aabe605ee9e0d47dccf88a5efca377e79_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_aabe605ee9e0d47dccf88a5efca377e79_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_aabe605ee9e0d47dccf88a5efca377e79_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_aabe605ee9e0d47dccf88a5efca377e79_icgraph">
 <area shape="rect" title="Constructor." alt="" coords="232,101,411,141"/>
@@ -246,11 +282,11 @@ Private Attributes</h2></td></tr>
 
 <p>Move constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
+<div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_abfcbfb069310726e17cf6d6f98e45726_cgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_abfcbfb069310726e17cf6d6f98e45726_cgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_abfcbfb069310726e17cf6d6f98e45726_cgraph" id="ad5/d09/classgalaxy_1_1SystemManager_abfcbfb069310726e17cf6d6f98e45726_cgraph">
 <area shape="rect" title="Move constructor." alt="" coords="5,5,184,45"/>
@@ -286,7 +322,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -314,10 +350,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copy constructor. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_ac9ba556dbb163a154b6aa6f3d7d1cf89_cgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_ac9ba556dbb163a154b6aa6f3d7d1cf89_cgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_ac9ba556dbb163a154b6aa6f3d7d1cf89_cgraph" id="ad5/d09/classgalaxy_1_1SystemManager_ac9ba556dbb163a154b6aa6f3d7d1cf89_cgraph">
 <area shape="rect" title="Copy constructor." alt="" coords="5,5,184,45"/>
@@ -354,11 +390,11 @@ Private Attributes</h2></td></tr>
 
 <p>Move assignment operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_aa3c6ba38b9d4af38e172f4a98922fc80_cgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_aa3c6ba38b9d4af38e172f4a98922fc80_cgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_aa3c6ba38b9d4af38e172f4a98922fc80_cgraph" id="ad5/d09/classgalaxy_1_1SystemManager_aa3c6ba38b9d4af38e172f4a98922fc80_cgraph">
 <area shape="rect" title="Move assignment operator." alt="" coords="5,5,184,45"/>
@@ -393,24 +429,28 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00038">38</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_a514e73f08576ba180c23a46dc563fee4_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_a514e73f08576ba180c23a46dc563fee4_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_a514e73f08576ba180c23a46dc563fee4_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_a514e73f08576ba180c23a46dc563fee4_icgraph">
-<area shape="rect" title="Add a system to operate on entities in this scene." alt="" coords="971,187,1149,227"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997" title="Injects galaxy system management into Lua." alt="" coords="783,187,923,227"/>
-<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
-<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
-<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
-<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" title="Add a system to operate on entities in this scene." alt="" coords="1060,125,1239,165"/>
+<area shape="rect" href="../../d5/d09/classgalaxy_1_1SystemManager.html#a239988459084ed8a9aeead148bf6ca2e" title="Deserializes from object." alt="" coords="833,93,1012,133"/>
+<area shape="poly" title=" " alt="" coords="1046,133,1012,128,1013,123,1047,127"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997" title="Injects galaxy system management into Lua." alt="" coords="853,157,993,197"/>
+<area shape="poly" title=" " alt="" coords="1046,162,993,169,993,164,1045,157"/>
+<area shape="rect" href="../../df/dba/classgalaxy_1_1Scene.html#a6a848e79fee6d7227d8a94f03613b84f" title="Deserializes from object." alt="" coords="595,100,785,125"/>
+<area shape="poly" title=" " alt="" coords="819,115,785,115,785,110,819,110"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="620,156,760,181"/>
+<area shape="poly" title=" " alt="" coords="839,176,760,174,760,168,839,171"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="627,229,753,255"/>
+<area shape="poly" title=" " alt="" coords="840,203,737,232,735,227,839,197"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
-<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="poly" title=" " alt="" coords="606,160,547,153,547,147,607,155"/>
 <area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
-<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="poly" title=" " alt="" coords="607,183,545,191,544,186,606,177"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
 <area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
@@ -422,7 +462,7 @@ Private Attributes</h2></td></tr>
 <area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
 <area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
 <area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
-<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
+<area shape="poly" title=" " alt="" coords="728,220,718,211,690,208,667,210,655,215,653,220,659,228,655,231,648,221,651,211,666,205,690,203,720,206,731,215"/>
 </map>
 </div>
 
@@ -456,11 +496,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00044">44</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_afa874b6ccd2114218dd496f7c0d936c9_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_afa874b6ccd2114218dd496f7c0d936c9_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_afa874b6ccd2114218dd496f7c0d936c9_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_afa874b6ccd2114218dd496f7c0d936c9_icgraph">
 <area shape="rect" title="Process all systems." alt="" coords="1184,186,1363,226"/>
@@ -522,11 +562,11 @@ Private Attributes</h2></td></tr>
 
 <p>Suspend all running systems. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_af1c068b13430a1fa2ae01b551fc1f097_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_af1c068b13430a1fa2ae01b551fc1f097_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_af1c068b13430a1fa2ae01b551fc1f097_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_af1c068b13430a1fa2ae01b551fc1f097_icgraph">
 <area shape="rect" title="Suspend all running systems." alt="" coords="971,187,1149,227"/>
@@ -582,11 +622,11 @@ Private Attributes</h2></td></tr>
 
 <p>Resume all systems. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_aa402190584baaf0c0ea58b56f4669226_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_aa402190584baaf0c0ea58b56f4669226_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_aa402190584baaf0c0ea58b56f4669226_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_aa402190584baaf0c0ea58b56f4669226_icgraph">
 <area shape="rect" title="Resume all systems." alt="" coords="971,187,1149,227"/>
@@ -634,11 +674,11 @@ Private Attributes</h2></td></tr>
 
 <p>Remove all systems. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00065">65</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00067">67</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_a7036b9a6857756d2ab492b8906984868_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_a7036b9a6857756d2ab492b8906984868_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_a7036b9a6857756d2ab492b8906984868_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_a7036b9a6857756d2ab492b8906984868_icgraph">
 <area shape="rect" title="Remove all systems." alt="" coords="971,187,1149,227"/>
@@ -695,11 +735,11 @@ Private Attributes</h2></td></tr>
 <p>Get list of systems. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../dc/dd4/classgalaxy_1_1System.html" title="Represents a system that operates on sets of components.">System</a> stack. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00070">70</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_afdc7ba4766011e716113389ffe7cbc8e_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_afdc7ba4766011e716113389ffe7cbc8e_icgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_afdc7ba4766011e716113389ffe7cbc8e_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_afdc7ba4766011e716113389ffe7cbc8e_icgraph">
 <area shape="rect" title="Get list of systems." alt="" coords="971,187,1149,227"/>
@@ -730,6 +770,169 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aba9cc589724eda203a117e92f32ed15d" name="aba9cc589724eda203a117e92f32ed15d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba9cc589724eda203a117e92f32ed15d">&#9670;&#160;</a></span>is_suspended()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool galaxy::SystemManager::is_suspended </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if systems are suspended. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if suspended. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00077">77</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_aba9cc589724eda203a117e92f32ed15d_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_aba9cc589724eda203a117e92f32ed15d_icgraph" loading="lazy" alt=""/></div>
+<map name="ad5/d09/classgalaxy_1_1SystemManager_aba9cc589724eda203a117e92f32ed15d_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_aba9cc589724eda203a117e92f32ed15d_icgraph">
+<area shape="rect" title="Check if systems are suspended." alt="" coords="971,187,1149,227"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a245a24d9df39512b91cb7efb1cf86997" title="Injects galaxy system management into Lua." alt="" coords="783,187,923,227"/>
+<area shape="poly" title=" " alt="" coords="957,210,923,210,923,205,957,205"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#a455bec072291685272d4817e5a524b8e" title="Inject everything into Lua." alt="" coords="595,157,735,183"/>
+<area shape="poly" title=" " alt="" coords="768,193,728,185,729,180,770,188"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96" title="Not supposed to be created." alt="" coords="601,231,728,256"/>
+<area shape="poly" title=" " alt="" coords="769,226,729,234,728,229,768,221"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ad8b70300193be65d0ba1e29da3f001c2" title="Setup scripting module." alt="" coords="404,121,547,161"/>
+<area shape="poly" title=" " alt="" coords="580,160,547,154,548,149,581,154"/>
+<area shape="rect" href="../../d3/ddf/classgalaxy_1_1Lua.html#afe5ee0b484dc8aeb2cb29b260d1e5ab9" title="Default destructor." alt="" coords="406,185,545,211"/>
+<area shape="poly" title=" " alt="" coords="581,185,545,190,544,185,580,180"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a28723cb033948f652d6d92e1c27b4150" title="Default constructor." alt="" coords="225,103,356,128"/>
+<area shape="poly" title=" " alt="" coords="390,132,356,127,357,122,391,126"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#ac7ce8b15c36b2501c0915d4af7f45db5" title="Move assignment operator." alt="" coords="5,153,177,179"/>
+<area shape="poly" title=" " alt="" coords="390,149,178,163,177,158,390,144"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#af894f3796d6c5a590cb8d81520437d09" title="Move constructor." alt="" coords="26,5,157,31"/>
+<area shape="poly" title=" " alt="" coords="261,96,222,70,176,44,146,33,148,28,178,40,225,65,264,92"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a0acf206b4852757b870a4a18a2151134" title="Copy constructor." alt="" coords="26,55,157,80"/>
+<area shape="poly" title=" " alt="" coords="223,102,144,83,145,77,225,97"/>
+<area shape="poly" title=" " alt="" coords="227,134,143,156,141,151,226,129"/>
+<area shape="rect" href="../../dd/d33/classgalaxy_1_1App.html#a40d1ecf5c7bd715ef3f17e0c2ebb1f0b" title="Copy assignment operator." alt="" coords="5,104,177,129"/>
+<area shape="poly" title=" " alt="" coords="212,119,178,119,178,113,212,113"/>
+<area shape="poly" title=" " alt="" coords="698,220,688,212,665,209,645,211,635,216,632,222,638,229,634,232,627,222,631,212,643,206,665,204,690,208,701,216"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7b133744244a0d64c34db3123f838d16" name="a7b133744244a0d64c34db3123f838d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b133744244a0d64c34db3123f838d16">&#9670;&#160;</a></span>serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nlohmann::json galaxy::SystemManager::serialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serializes object. </p>
+<dl class="section return"><dt>Returns</dt><dd>JSON object containing data to be serialized. </dd></dl>
+
+<p>Implements <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#a2f3a31156297e61b606d935ab68dca38">galaxy::Serializable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
+</div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_a7b133744244a0d64c34db3123f838d16_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_a7b133744244a0d64c34db3123f838d16_icgraph" loading="lazy" alt=""/></div>
+<map name="ad5/d09/classgalaxy_1_1SystemManager_a7b133744244a0d64c34db3123f838d16_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_a7b133744244a0d64c34db3123f838d16_icgraph">
+<area shape="rect" title="Serializes object." alt="" coords="228,5,407,45"/>
+<area shape="rect" href="../../df/dba/classgalaxy_1_1Scene.html#a120928ae6bf0f8f017ddeeb43e7f3ca2" title="Serializes object." alt="" coords="5,13,180,38"/>
+<area shape="poly" title=" " alt="" coords="214,28,180,28,180,23,214,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a239988459084ed8a9aeead148bf6ca2e" name="a239988459084ed8a9aeead148bf6ca2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239988459084ed8a9aeead148bf6ca2e">&#9670;&#160;</a></span>deserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void galaxy::SystemManager::deserialize </td>
+          <td>(</td>
+          <td class="paramtype">const nlohmann::json &amp;</td>          <td class="paramname"><span class="paramname"><em>json</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deserializes from object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>Json object to retrieve data from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="../../d6/d82/classgalaxy_1_1Serializable.html#ac7fcede5145878ee74be3a2329b07fa8">galaxy::Serializable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d9/d47/SystemManager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
+</div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_cgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_cgraph" loading="lazy" alt=""/></div>
+<map name="ad5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_cgraph" id="ad5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_cgraph">
+<area shape="rect" title="Deserializes from object." alt="" coords="5,5,184,45"/>
+<area shape="rect" href="../../d5/d09/classgalaxy_1_1SystemManager.html#a514e73f08576ba180c23a46dc563fee4" title="Add a system to operate on entities in this scene." alt="" coords="232,5,411,45"/>
+<area shape="poly" title=" " alt="" coords="185,23,218,23,218,28,185,28"/>
+</map>
+</div>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_icgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_icgraph" loading="lazy" alt=""/></div>
+<map name="ad5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_icgraph" id="ad5/d09/classgalaxy_1_1SystemManager_a239988459084ed8a9aeead148bf6ca2e_icgraph">
+<area shape="rect" title="Deserializes from object." alt="" coords="244,5,423,45"/>
+<area shape="rect" href="../../df/dba/classgalaxy_1_1Scene.html#a6a848e79fee6d7227d8a94f03613b84f" title="Deserializes from object." alt="" coords="5,13,196,38"/>
+<area shape="poly" title=" " alt="" coords="230,28,196,28,196,23,230,23"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a52456acce570a167b56e25b22f47678b" name="a52456acce570a167b56e25b22f47678b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52456acce570a167b56e25b22f47678b">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
@@ -754,10 +957,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copy assignment operator. </p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-16-content" class="dyncontent hidden">
 <div class="center"><img src="../../d5/d09/classgalaxy_1_1SystemManager_a52456acce570a167b56e25b22f47678b_cgraph.png" border="0" usemap="#ad5/d09/classgalaxy_1_1SystemManager_a52456acce570a167b56e25b22f47678b_cgraph" loading="lazy" alt=""/></div>
 <map name="ad5/d09/classgalaxy_1_1SystemManager_a52456acce570a167b56e25b22f47678b_cgraph" id="ad5/d09/classgalaxy_1_1SystemManager_a52456acce570a167b56e25b22f47678b_cgraph">
 <area shape="rect" title="Copy assignment operator." alt="" coords="5,5,184,45"/>
@@ -791,7 +994,7 @@ Private Attributes</h2></td></tr>
 
 <p>List of systems to process. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html#l00099">99</a> of file <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -817,7 +1020,7 @@ Private Attributes</h2></td></tr>
 
 <p>Are systems allowed to run. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html#l00104">104</a> of file <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html#l00128">128</a> of file <a class="el" href="../../d7/d72/SystemManager_8hpp_source.html">SystemManager.hpp</a>.</p>
 
 </div>
 </div>

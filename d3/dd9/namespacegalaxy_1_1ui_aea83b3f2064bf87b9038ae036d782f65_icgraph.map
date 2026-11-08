@@ -1,6 +1,6 @@
 <map id="galaxy::ui::imgui_render" name="galaxy::ui::imgui_render">
 <area shape="rect" id="Node000001" title="Render imgui." alt="" coords="215,29,393,55"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="343,20,332,11,304,8,281,10,269,15,266,20,273,28,269,31,261,21,265,11,280,5,304,3,334,6,346,15"/>
-<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,29,167,55"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,29,167,55"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="201,45,167,45,167,39,201,39"/>
 </map>

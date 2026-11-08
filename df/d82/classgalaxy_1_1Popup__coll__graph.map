@@ -1,0 +1,7 @@
+<map id="galaxy::Popup" name="galaxy::Popup">
+<area shape="rect" id="Node000001" title="Cleaner way of rendering an ImGui popup." alt="" coords="5,271,151,436"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="39,135,117,200"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,200,81,254,75,254,75,200"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="13,5,143,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,99,81,134,75,134,75,99"/>
+</map>

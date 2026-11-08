@@ -93,13 +93,13 @@ var NAVTREEINDEX =
 "d0/d76/material__design__icons_8h.html#af273c1740558a5264fd3b3f426b1fda5",
 "d0/d76/material__design__icons_8h.html#afb2780782e9ea948513eb1c5273b56ea",
 "d0/d84/classgalaxy_1_1Window.html#ac2c6a5be5cfd438398b4fbd7d15cf0f6",
-"d3/dac/classgalaxy_1_1SystemFactory.html",
-"d5/d09/classgalaxy_1_1SystemManager.html#aabe605ee9e0d47dccf88a5efca377e79",
-"d6/dd7/StateMachine_8hpp.html",
-"d9/d4c/classgalaxy_1_1EntityManager.html#adf3efd6e5f668e6802011f2f09c31184",
-"db/df1/LogMessage_8cpp_source.html",
-"de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4",
-"df/d98/namespacegalaxy_1_1str.html#a194c4e64ba25416b76e9563c24500ebd"
+"d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74",
+"d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc",
+"d6/d82/classgalaxy_1_1Serializable.html#a2f3a31156297e61b606d935ab68dca38",
+"d9/d14/classgalaxy_1_1ConsoleSink.html#a52f72b7cbc567fad110579b8066e033f",
+"db/d49/classgalaxy_1_1Config.html#af764a21579e18690157ae4c66416d630",
+"dd/df4/Cache_8cpp_source.html",
+"df/d64/classgalaxy_1_1Event.html#a39d85f493b95ec0d9d79b14a6468facc"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

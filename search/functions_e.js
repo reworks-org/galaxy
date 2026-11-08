@@ -8,5 +8,6 @@ var searchData=
   ['physicssystem_5',['PhysicsSystem',['../df/da4/classgalaxy_1_1systems_1_1PhysicsSystem.html#a6a7265f893173c45aa68392af402f31b',1,'galaxy::systems::PhysicsSystem']]],
   ['pop_6',['pop',['../da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443',1,'galaxy::StateMachine']]],
   ['pop_5fall_7',['pop_all',['../da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616',1,'galaxy::StateMachine']]],
-  ['push_8',['push',['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine']]]
+  ['popup_8',['Popup',['../d1/d07/classgalaxy_1_1Popup.html#ad72680505a77542db384de2799febc8f',1,'galaxy::Popup::Popup(std::string_view id) noexcept'],['../d1/d07/classgalaxy_1_1Popup.html#a8cca8b3e8e3a31d1a82a3e5751ee75a8',1,'galaxy::Popup::Popup()=delete']]],
+  ['push_9',['push',['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine']]]
 ];

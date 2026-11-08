@@ -1,0 +1,10 @@
+<map id="galaxy::Popup::draw" name="galaxy::Popup::draw">
+<area shape="rect" id="Node000001" title="Show popup." alt="" coords="608,5,761,31"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,5,365,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="594,17,560,17,413,17,366,18,365,13,413,11,560,11,594,12"/>
+<area shape="rect" id="Node000004" href="$d8/d9f/classgalaxy_1_1ScenePanel.html#ad9400d01a0b08856fed22de24259cf77" title="Draw scene panel." alt="" coords="413,26,560,66"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="595,33,560,38,560,33,594,28"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,5,167,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,21,167,21,167,15,201,15"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="399,36,365,31,366,26,400,31"/>
+</map>

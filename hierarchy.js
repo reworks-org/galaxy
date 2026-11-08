@@ -40,14 +40,17 @@ var hierarchy =
     [ "galaxy::Lua", "d3/ddf/classgalaxy_1_1Lua.html", null ],
     [ "galaxy::Panel", "d8/d50/classgalaxy_1_1Panel.html", [
       [ "galaxy::ConfigPanel", "dc/da4/classgalaxy_1_1ConfigPanel.html", null ],
-      [ "galaxy::Editor", "de/dfe/classgalaxy_1_1Editor.html", null ]
+      [ "galaxy::Editor", "de/dfe/classgalaxy_1_1Editor.html", null ],
+      [ "galaxy::ScenePanel", "d8/d9f/classgalaxy_1_1ScenePanel.html", null ]
     ] ],
+    [ "galaxy::Popup", "d1/d07/classgalaxy_1_1Popup.html", null ],
     [ "galaxy::Rect&lt; Type &gt;", "d5/d58/classgalaxy_1_1Rect.html", null ],
     [ "galaxy::RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", null ],
     [ "galaxy::Script", "db/da2/classgalaxy_1_1Script.html", null ],
     [ "galaxy::Serializable", "d6/d82/classgalaxy_1_1Serializable.html", [
       [ "galaxy::Scene", "df/dba/classgalaxy_1_1Scene.html", null ],
-      [ "galaxy::SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", null ]
+      [ "galaxy::SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", null ],
+      [ "galaxy::SystemManager", "d5/d09/classgalaxy_1_1SystemManager.html", null ]
     ] ],
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
     [ "galaxy::Sink", "d2/d42/classgalaxy_1_1Sink.html", [
@@ -71,7 +74,6 @@ var hierarchy =
       [ "galaxy::systems::ScriptSystem", "dc/d8b/classgalaxy_1_1systems_1_1ScriptSystem.html", null ]
     ] ],
     [ "galaxy::SystemFactory", "d3/dac/classgalaxy_1_1SystemFactory.html", null ],
-    [ "galaxy::SystemManager", "d5/d09/classgalaxy_1_1SystemManager.html", null ],
     [ "galaxy::Timer", "d0/d7b/classgalaxy_1_1Timer.html", null ],
     [ "galaxy::UUID", "dd/da7/classgalaxy_1_1UUID.html", null ],
     [ "galaxy::VirtualFileSystem", "d8/dd5/classgalaxy_1_1VirtualFileSystem.html", null ],

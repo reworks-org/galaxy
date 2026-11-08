@@ -1,38 +1,52 @@
 <map id="galaxy::Editor::render" name="galaxy::Editor::render">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,353,167,378"/>
-<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets." alt="" coords="229,271,379,297"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,350,214,307,240,298,242,303,216,312,115,355"/>
-<area shape="rect" id="Node000014" href="$d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1" title="Begin setting up ImGui pass." alt="" coords="222,345,386,385"/>
-<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="167,363,208,363,208,368,167,368"/>
-<area shape="rect" id="Node000015" href="$d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65" title="Render imgui." alt="" coords="215,434,393,459"/>
-<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="122,376,257,427,255,432,120,381"/>
-<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a926e2bf4d3044a66a25d67d6969bf510" title=" " alt="" coords="441,150,635,175"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,269,370,228,404,205,440,186,461,177,463,182,442,190,407,210,373,233,321,273"/>
-<area shape="rect" id="Node000004" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb" title="Draw config panel." alt="" coords="463,200,613,240"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="351,269,450,241,452,246,352,274"/>
-<area shape="rect" id="Node000010" href="$de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0" title=" " alt="" coords="463,264,613,304"/>
-<area shape="poly" id="edge14_Node000002_Node000010" title=" " alt="" coords="380,281,448,281,448,287,380,287"/>
-<area shape="rect" id="Node000012" href="$de/dfe/classgalaxy_1_1Editor.html#a41331b071e8c69ed0262702907619c1f" title=" " alt="" coords="447,329,629,354"/>
-<area shape="poly" id="edge16_Node000002_Node000012" title=" " alt="" coords="357,294,473,323,472,328,356,299"/>
-<area shape="rect" id="Node000013" href="$d8/d50/classgalaxy_1_1Panel.html#a2257833242781a8fd4b82d7d0cb69e2b" title="Check if panel is visible." alt="" coords="459,378,617,403"/>
-<area shape="poly" id="edge17_Node000002_Node000013" title=" " alt="" coords="369,294,395,307,411,322,420,337,428,351,443,364,454,370,451,375,440,369,424,354,415,340,407,325,392,312,366,299"/>
-<area shape="rect" id="Node000005" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024" title=" " alt="" coords="695,29,845,69"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="611,200,633,186,650,162,657,138,663,112,681,86,696,74,699,78,685,90,668,115,662,139,655,165,636,190,614,204"/>
-<area shape="rect" id="Node000006" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#af59b519585651197c4b24781063fff51" title=" " alt="" coords="905,29,1055,69"/>
-<area shape="poly" id="edge9_Node000004_Node000006" title=" " alt="" coords="612,197,633,186,648,172,656,158,665,144,681,130,759,106,891,70,893,75,760,111,684,134,669,147,661,161,652,176,636,190,614,202"/>
-<area shape="rect" id="Node000007" href="$d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1" title="ImGui success notification." alt="" coords="683,168,857,208"/>
-<area shape="poly" id="edge10_Node000004_Node000007" title=" " alt="" coords="613,207,669,199,669,205,614,212"/>
-<area shape="rect" id="Node000008" href="$df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0" title="Restore all config settings to default." alt="" coords="693,232,847,272"/>
-<area shape="poly" id="edge12_Node000004_Node000008" title=" " alt="" coords="614,228,680,237,679,242,613,233"/>
-<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a617413cbbb4c96092405241a092b55cc" title="Set all our settings using the provided config file." alt="" coords="687,296,853,336"/>
-<area shape="poly" id="edge13_Node000004_Node000009" title=" " alt="" coords="607,238,636,250,660,266,684,282,698,288,695,293,681,286,657,270,633,254,605,242"/>
-<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="731,30,729,20,735,10,749,5,770,3,794,6,808,13,805,18,793,11,770,8,750,10,738,15,734,21,736,28"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="845,55,892,56,892,61,845,61"/>
-<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="905,43,858,43,859,38,905,38"/>
-<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="941,30,939,20,945,10,959,5,980,3,1004,6,1018,13,1015,18,1003,11,980,8,960,10,948,15,944,21,946,28"/>
-<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="731,168,729,158,735,149,749,143,770,141,794,144,808,152,805,156,793,149,770,147,750,149,738,153,734,159,736,167"/>
-<area shape="rect" id="Node000011" href="$d8/d50/classgalaxy_1_1Panel.html#a78b8455996d890332c41d859b057ca90" title="Toggle visibility of panel." alt="" coords="691,361,849,386"/>
-<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="604,302,636,315,660,331,684,346,705,354,703,359,681,350,657,335,633,320,602,306"/>
-<area shape="poly" id="edge19_Node000014_Node000014" title=" " alt="" coords="263,346,261,336,268,326,282,321,304,319,329,322,343,329,341,334,328,327,304,324,283,326,271,331,266,337,269,344"/>
-<area shape="poly" id="edge21_Node000015_Node000015" title=" " alt="" coords="269,436,261,426,265,416,280,410,304,407,334,411,346,420,343,424,332,416,304,413,281,415,269,420,266,425,273,432"/>
+<area shape="rect" id="Node000001" title="Render the editor to the screen." alt="" coords="5,471,167,497"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="229,390,379,415"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,469,214,426,240,417,242,422,216,430,115,474"/>
+<area shape="rect" id="Node000019" href="$d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1" title="Begin setting up ImGui pass." alt="" coords="222,464,386,504"/>
+<area shape="poly" id="edge27_Node000001_Node000019" title=" " alt="" coords="167,481,208,481,208,487,167,487"/>
+<area shape="rect" id="Node000020" href="$d3/dd9/namespacegalaxy_1_1ui.html#aea83b3f2064bf87b9038ae036d782f65" title="Render imgui." alt="" coords="215,553,393,578"/>
+<area shape="poly" id="edge29_Node000001_Node000020" title=" " alt="" coords="122,494,257,545,255,550,120,499"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a926e2bf4d3044a66a25d67d6969bf510" title="Start rendering the editor dock." alt="" coords="441,182,635,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="309,388,326,354,355,308,393,259,440,218,453,210,456,215,443,222,397,263,359,311,331,357,314,391"/>
+<area shape="rect" id="Node000004" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb" title="Draw config panel." alt="" coords="463,232,613,272"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="324,388,493,277,496,282,327,392"/>
+<area shape="rect" id="Node000010" href="$d1/d07/classgalaxy_1_1Popup.html#af514ff48b65c5ece607c035851de0e3a" title="Show popup." alt="" coords="699,361,853,386"/>
+<area shape="poly" id="edge14_Node000002_Node000010" title=" " alt="" coords="380,395,685,376,685,382,380,401"/>
+<area shape="rect" id="Node000012" href="$d8/d9f/classgalaxy_1_1ScenePanel.html#ad9400d01a0b08856fed22de24259cf77" title="Draw scene panel." alt="" coords="465,411,611,451"/>
+<area shape="poly" id="edge17_Node000002_Node000012" title=" " alt="" coords="380,409,451,418,450,423,379,414"/>
+<area shape="rect" id="Node000016" href="$de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0" title="Draw the editor menubar." alt="" coords="463,475,613,515"/>
+<area shape="poly" id="edge24_Node000002_Node000016" title=" " alt="" coords="361,413,395,426,419,443,443,460,457,467,455,472,440,465,416,447,392,430,359,418"/>
+<area shape="rect" id="Node000018" href="$de/dfe/classgalaxy_1_1Editor.html#a41331b071e8c69ed0262702907619c1f" title="Finish rendering the editor dock." alt="" coords="447,539,629,565"/>
+<area shape="poly" id="edge26_Node000002_Node000018" title=" " alt="" coords="374,413,395,426,407,438,414,451,420,477,426,502,432,513,443,525,452,531,448,535,440,529,428,516,421,504,415,478,409,453,402,442,392,430,371,418"/>
+<area shape="rect" id="Node000005" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024" title="Handles rendering array objects." alt="" coords="701,29,851,69"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="612,232,633,217,645,201,652,186,657,153,661,121,668,103,681,86,695,74,698,78,685,90,672,106,666,122,662,154,657,187,650,204,636,221,615,236"/>
+<area shape="rect" id="Node000006" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#af59b519585651197c4b24781063fff51" title="Handles rendering json objects." alt="" coords="932,29,1081,69"/>
+<area shape="poly" id="edge9_Node000004_Node000006" title=" " alt="" coords="612,230,633,217,649,196,656,174,663,152,681,130,769,104,918,67,919,72,770,109,684,134,668,154,661,176,654,198,636,221,615,235"/>
+<area shape="rect" id="Node000007" href="$d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1" title="ImGui success notification." alt="" coords="689,168,863,208"/>
+<area shape="poly" id="edge10_Node000004_Node000007" title=" " alt="" coords="612,229,687,209,689,214,614,234"/>
+<area shape="rect" id="Node000008" href="$df/d23/structgalaxy_1_1Settings.html#ab169dec9bc95c9ad2555180b243017d0" title="Restore all config settings to default." alt="" coords="699,232,853,272"/>
+<area shape="poly" id="edge12_Node000004_Node000008" title=" " alt="" coords="613,249,685,249,685,255,613,255"/>
+<area shape="rect" id="Node000009" href="$df/d23/structgalaxy_1_1Settings.html#a617413cbbb4c96092405241a092b55cc" title="Set all our settings using the provided config file." alt="" coords="693,296,859,336"/>
+<area shape="poly" id="edge13_Node000004_Node000009" title=" " alt="" coords="614,270,689,290,687,295,612,275"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="733,30,731,20,737,10,753,5,776,3,803,6,817,13,815,18,801,11,776,8,754,10,741,15,736,21,738,28"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="851,55,918,55,918,61,851,60"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="932,44,864,43,864,38,932,38"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="964,30,961,20,968,10,983,5,1007,3,1033,6,1048,13,1046,18,1032,11,1007,8,985,10,971,15,966,21,969,28"/>
+<area shape="poly" id="edge11_Node000007_Node000007" title=" " alt="" coords="733,168,731,158,737,149,753,143,776,141,803,144,817,151,815,156,801,149,776,147,754,149,741,153,736,159,738,167"/>
+<area shape="rect" id="Node000011" href="$d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e" title="Make sure the next window opened is centered on the monitor." alt="" coords="917,353,1096,393"/>
+<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="853,371,904,371,904,376,853,376"/>
+<area shape="poly" id="edge16_Node000011_Node000011" title=" " alt="" coords="964,354,961,344,968,334,983,329,1007,327,1033,330,1048,337,1046,342,1032,335,1007,332,985,334,971,339,966,345,969,352"/>
+<area shape="poly" id="edge18_Node000012_Node000010" title=" " alt="" coords="611,410,709,387,710,392,612,416"/>
+<area shape="rect" id="Node000013" href="$d1/d07/classgalaxy_1_1Popup.html#a6d963a409e1db393be0d65fbf82a7121" title="Draw the button to show the popup." alt="" coords="699,411,853,451"/>
+<area shape="poly" id="edge19_Node000012_Node000013" title=" " alt="" coords="612,428,686,428,686,433,612,433"/>
+<area shape="rect" id="Node000014" href="$d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c" title="Handles a popup for a yes/no situation." alt="" coords="683,499,869,525"/>
+<area shape="poly" id="edge20_Node000012_Node000014" title=" " alt="" coords="600,448,636,460,727,492,726,497,634,465,599,453"/>
+<area shape="rect" id="Node000015" href="$d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4" title="ImGui error notification." alt="" coords="689,573,863,613"/>
+<area shape="poly" id="edge22_Node000012_Node000015" title=" " alt="" coords="613,447,636,461,653,479,662,497,670,515,685,534,724,564,721,569,681,538,665,518,657,499,649,482,633,465,610,451"/>
+<area shape="poly" id="edge21_Node000014_Node000014" title=" " alt="" coords="739,501,731,491,735,481,750,475,776,473,808,477,821,486,817,490,806,481,776,478,751,480,738,485,736,490,743,497"/>
+<area shape="poly" id="edge23_Node000015_Node000015" title=" " alt="" coords="733,574,731,564,737,554,753,549,776,547,803,550,817,557,815,562,801,555,776,552,754,554,741,559,736,565,738,572"/>
+<area shape="rect" id="Node000017" href="$d1/d07/classgalaxy_1_1Popup.html#a5725a649d592258330ab9bc5aa60498e" title="Draw a menu button to show the popup." alt="" coords="699,637,853,677"/>
+<area shape="poly" id="edge25_Node000016_Node000017" title=" " alt="" coords="615,511,637,525,655,550,661,575,667,600,685,624,690,628,687,632,681,627,663,602,656,577,650,552,633,529,612,515"/>
+<area shape="poly" id="edge28_Node000019_Node000019" title=" " alt="" coords="263,464,261,454,268,445,282,439,304,437,329,440,343,448,341,452,328,445,304,443,283,445,271,449,266,455,269,463"/>
+<area shape="poly" id="edge30_Node000020_Node000020" title=" " alt="" coords="269,554,261,544,265,534,280,528,304,526,334,530,346,539,343,543,332,535,304,531,281,533,269,538,266,544,273,551"/>
 </map>

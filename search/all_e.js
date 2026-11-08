@@ -16,11 +16,14 @@ var searchData=
   ['platform_2ehpp_13',['Platform.hpp',['../d5/d40/Platform_8hpp.html',1,'']]],
   ['pop_14',['pop',['../da/d52/classgalaxy_1_1StateMachine.html#a0fa5e82e8a5d71b68bd408e065c82443',1,'galaxy::StateMachine']]],
   ['pop_5fall_15',['pop_all',['../da/d52/classgalaxy_1_1StateMachine.html#a580241845f7f49dcc9183d8bbf38d616',1,'galaxy::StateMachine']]],
-  ['pragma_2ecpp_16',['Pragma.cpp',['../d7/dd6/Pragma_8cpp.html',1,'']]],
-  ['pragma_2ehpp_17',['Pragma.hpp',['../d5/ddd/Pragma_8hpp.html',1,'']]],
-  ['prefabs_18',['Prefabs',['../d4/d1b/namespacegalaxy_1_1resource.html#a3dc6697074b2967cf24f22d66ceb7cfb',1,'galaxy::resource']]],
-  ['prefabs_2ecpp_19',['Prefabs.cpp',['../dc/d7a/Prefabs_8cpp.html',1,'']]],
-  ['prefabs_2ehpp_20',['Prefabs.hpp',['../d3/d96/Prefabs_8hpp.html',1,'']]],
-  ['prime_21',['prime',['../da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html#a9306cf025fd33dd9c3f4de5c24a808ab',1,'galaxy::math::fnv_1a_params&lt; std::uint32_t &gt;::prime'],['../d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html#aab8801d3a6de0d15885ad2bcf755fa8d',1,'galaxy::math::fnv_1a_params&lt; std::uint64_t &gt;::prime']]],
-  ['push_22',['push',['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine']]]
+  ['popup_16',['Popup',['../d1/d07/classgalaxy_1_1Popup.html',1,'galaxy::Popup'],['../d1/d07/classgalaxy_1_1Popup.html#ad72680505a77542db384de2799febc8f',1,'galaxy::Popup::Popup(std::string_view id) noexcept'],['../d1/d07/classgalaxy_1_1Popup.html#a8cca8b3e8e3a31d1a82a3e5751ee75a8',1,'galaxy::Popup::Popup()=delete']]],
+  ['popup_2ecpp_17',['Popup.cpp',['../d8/dc8/Popup_8cpp.html',1,'']]],
+  ['popup_2ehpp_18',['Popup.hpp',['../dd/dc6/Popup_8hpp.html',1,'']]],
+  ['pragma_2ecpp_19',['Pragma.cpp',['../d7/dd6/Pragma_8cpp.html',1,'']]],
+  ['pragma_2ehpp_20',['Pragma.hpp',['../d5/ddd/Pragma_8hpp.html',1,'']]],
+  ['prefabs_21',['Prefabs',['../d4/d1b/namespacegalaxy_1_1resource.html#a3dc6697074b2967cf24f22d66ceb7cfb',1,'galaxy::resource']]],
+  ['prefabs_2ecpp_22',['Prefabs.cpp',['../dc/d7a/Prefabs_8cpp.html',1,'']]],
+  ['prefabs_2ehpp_23',['Prefabs.hpp',['../d3/d96/Prefabs_8hpp.html',1,'']]],
+  ['prime_24',['prime',['../da/d2b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint32__t_01_4.html#a9306cf025fd33dd9c3f4de5c24a808ab',1,'galaxy::math::fnv_1a_params&lt; std::uint32_t &gt;::prime'],['../d7/d5b/structgalaxy_1_1math_1_1fnv__1a__params_3_01std_1_1uint64__t_01_4.html#aab8801d3a6de0d15885ad2bcf755fa8d',1,'galaxy::math::fnv_1a_params&lt; std::uint64_t &gt;::prime']]],
+  ['push_25',['push',['../da/d52/classgalaxy_1_1StateMachine.html#ae927822dcf8e43be2e5550db475806d5',1,'galaxy::StateMachine']]]
 ];

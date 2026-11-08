@@ -1,16 +1,26 @@
 <map id="galaxy::App" name="galaxy::App">
-<area shape="rect" id="Node000001" title="Base level class for any galaxy app." alt="" coords="121,923,265,1388"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="107,772,278,852"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,852,195,907,190,907,190,852"/>
-<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html" title=" " alt="" coords="42,496,178,701"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,701,174,756,169,758,147,703"/>
-<area shape="rect" id="Node000004" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="5,5,111,231"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="58,244,61,333,70,425,84,495,78,496,65,426,56,334,53,245"/>
-<area shape="rect" id="Node000005" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Shared data for an imgui panel." alt="" coords="79,280,221,425"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="110,243,124,278,119,280,105,245"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="141,426,132,480,127,479,136,425"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="202,566,351,631"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="262,645,211,773,206,771,257,643"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="265,320,288,385"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="279,386,279,549,274,549,274,386"/>
+<area shape="rect" id="Node000001" title="Base level class for any galaxy app." alt="" coords="264,1229,408,1695"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="251,1079,422,1159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="339,1159,339,1213,334,1213,334,1159"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html" title="Ingame debug editor UI." alt="" coords="186,803,322,1008"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,1007,318,1062,313,1064,291,1009"/>
+<area shape="rect" id="Node000004" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="54,271,160,496"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="51,486,27,543,11,606,8,638,9,670,15,701,27,731,58,777,99,816,143,847,187,872,184,877,140,852,95,820,54,780,22,733,10,703,4,671,3,638,6,605,22,542,46,484"/>
+<area shape="rect" id="Node000005" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Panel for editing engine settings." alt="" coords="36,587,178,732"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="110,510,110,586,104,586,104,510"/>
+<area shape="rect" id="Node000006" href="$d8/d9f/classgalaxy_1_1ScenePanel.html" title="Panel for editing scenes in engine." alt="" coords="202,607,340,712"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="169,483,242,605,238,608,164,486"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="118,731,135,777,154,807,176,834,172,837,149,810,130,780,113,733"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="263,713,258,756,256,786,250,786,252,756,258,712"/>
+<area shape="rect" id="Node000007" href="$d1/d07/classgalaxy_1_1Popup.html" title="Cleaner way of rendering an ImGui popup." alt="" coords="273,301,418,466"/>
+<area shape="poly" id="edge11_Node000003_Node000007" title=" " alt="" coords="373,466,387,535,395,615,392,699,385,740,372,780,356,810,335,838,331,835,352,807,367,778,379,739,387,698,390,615,382,536,367,467"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="322,467,307,521,289,591,284,590,302,519,317,465"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="306,135,385,200"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="348,200,348,284,343,284,343,200"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="280,5,411,85"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="348,99,348,134,343,134,343,99"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="390,873,539,938"/>
+<area shape="poly" id="edge12_Node000002_Node000010" title=" " alt="" coords="440,951,362,1080,358,1077,436,948"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="498,627,521,692"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="506,693,476,857,470,856,501,692"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="galaxy::ui::imgui_init" name="galaxy::ui::imgui_init">
 <area shape="rect" id="Node000001" title="Initialize ImGui context with galaxy." alt="" coords="211,29,369,55"/>
 <area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="327,20,316,11,290,8,268,10,257,15,254,20,260,28,256,31,249,21,253,11,267,5,290,3,319,6,330,15"/>
-<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e" title=" " alt="" coords="5,29,163,55"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e" title="Constructor." alt="" coords="5,29,163,55"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,45,163,45,163,39,197,39"/>
 </map>

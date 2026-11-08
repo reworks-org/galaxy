@@ -1,5 +1,5 @@
 <map id="galaxy::Editor::draw" name="galaxy::Editor::draw">
-<area shape="rect" id="Node000001" title="Draw the ImGui widgets." alt="" coords="215,5,365,31"/>
-<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,5,167,31"/>
+<area shape="rect" id="Node000001" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,5,365,31"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,5,167,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,21,167,21,167,15,201,15"/>
 </map>

@@ -1,15 +1,15 @@
 <map id="galaxy::ConfigPanel::do_object" name="galaxy::ConfigPanel::do_object">
-<area shape="rect" id="Node000001" title=" " alt="" coords="808,29,957,69"/>
+<area shape="rect" id="Node000001" title="Handles rendering json objects." alt="" coords="808,29,957,69"/>
 <area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="916,18,904,11,883,8,864,10,853,15,848,21,851,28,845,30,843,20,849,11,862,5,883,3,906,6,919,13"/>
-<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024" title=" " alt="" coords="611,29,760,69"/>
+<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024" title="Handles rendering array objects." alt="" coords="611,29,760,69"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="794,61,760,61,760,55,794,56"/>
 <area shape="rect" id="Node000003" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ab4e417e5c81dd025d3f572043ea6fddb" title="Draw config panel." alt="" coords="413,59,563,99"/>
 <area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="805,75,760,84,657,90,563,88,563,82,657,85,760,79,804,70"/>
 <area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="774,38,808,38,808,43,774,43"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="719,18,707,11,685,8,666,10,655,15,651,21,653,28,648,30,646,20,652,11,665,5,685,3,709,6,721,13"/>
 <area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="598,65,563,70,563,65,597,60"/>
-<area shape="rect" id="Node000004" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets." alt="" coords="215,66,365,91"/>
+<area shape="rect" id="Node000004" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,66,365,91"/>
 <area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="399,81,366,81,366,76,399,76"/>
-<area shape="rect" id="Node000005" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title=" " alt="" coords="5,66,167,91"/>
+<area shape="rect" id="Node000005" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,66,167,91"/>
 <area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="201,81,167,81,167,76,201,76"/>
 </map>

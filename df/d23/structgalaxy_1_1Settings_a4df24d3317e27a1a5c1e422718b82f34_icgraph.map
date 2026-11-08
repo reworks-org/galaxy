@@ -1,6 +1,6 @@
 <map id="galaxy::Settings::editor_key" name="galaxy::Settings::editor_key">
 <area shape="rect" id="Node000001" title="Editor debug toggle key." alt="" coords="1005,167,1208,192"/>
-<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#aaf496956eb4cc974ec1cf7e5e053bc0f" title=" " alt="" coords="789,130,951,170"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a25fcc3870bcd4c57d1f1b89dfb5f735a" title="Process events in the editor." alt="" coords="789,130,951,170"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="991,168,951,163,952,157,992,162"/>
 <area shape="rect" id="Node000003" href="$d3/ddf/classgalaxy_1_1Lua.html#a6be6c0213bb0810c1785b71e4da75f01" title="Inject galaxy core services into Lua." alt="" coords="783,195,957,220"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="992,196,958,200,957,194,991,190"/>

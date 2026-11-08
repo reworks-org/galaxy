@@ -1,0 +1,18 @@
+<map id="galaxy/src/galaxy/ui/widgets/Popup.cpp" name="galaxy/src/galaxy/ui/widgets/Popup.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="266,5,419,45"/>
+<area shape="rect" id="Node000002" href="$d7/d23/ImGuiHelpers_8hpp.html" title=" " alt="" coords="156,93,359,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="324,48,282,86,278,82,320,44"/>
+<area shape="rect" id="Node000006" href="$dd/dc6/Popup_8hpp.html" title=" " alt="" coords="404,93,495,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="370,43,424,83,421,87,367,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="313,167,399,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,117,330,156,327,161,272,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,167,117,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="227,121,107,164,105,159,225,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="141,167,288,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="253,120,231,156,226,154,248,118"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="436,121,384,160,380,156,433,117"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="423,167,521,192"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="456,118,467,153,462,154,451,120"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="545,167,604,192"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="471,116,544,157,541,162,468,121"/>
+</map>

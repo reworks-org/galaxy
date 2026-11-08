@@ -1,6 +1,6 @@
 <map id="galaxy::ui::imgui_handle_events" name="galaxy::ui::imgui_handle_events">
 <area shape="rect" id="Node000001" title="Handle events in ImGui." alt="" coords="216,29,397,69"/>
 <area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="344,18,331,11,307,8,286,10,273,15,268,21,271,28,266,30,263,20,270,10,284,5,307,3,332,6,346,13"/>
-<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#aaf496956eb4cc974ec1cf7e5e053bc0f" title=" " alt="" coords="5,29,168,69"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a25fcc3870bcd4c57d1f1b89dfb5f735a" title="Process events in the editor." alt="" coords="5,29,168,69"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,52,168,52,168,47,202,47"/>
 </map>

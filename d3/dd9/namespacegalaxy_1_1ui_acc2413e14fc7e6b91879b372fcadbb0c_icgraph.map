@@ -1,0 +1,10 @@
+<map id="galaxy::ui::imgui_confirm" name="galaxy::ui::imgui_confirm">
+<area shape="rect" id="Node000001" title="Handles a popup for a yes/no situation." alt="" coords="608,29,795,55"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="740,20,729,11,701,8,679,10,667,15,664,20,671,28,666,31,659,21,663,11,677,5,701,3,731,6,743,15"/>
+<area shape="rect" id="Node000002" href="$d8/d9f/classgalaxy_1_1ScenePanel.html#ad9400d01a0b08856fed22de24259cf77" title="Draw scene panel." alt="" coords="413,22,560,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="594,45,560,45,560,39,594,39"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,29,365,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="399,45,366,45,366,39,399,39"/>
+<area shape="rect" id="Node000004" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,29,167,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,45,167,45,167,39,201,39"/>
+</map>

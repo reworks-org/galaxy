@@ -1,0 +1,5 @@
+<map id="galaxy::ScenePanel" name="galaxy::ScenePanel">
+<area shape="rect" id="Node000001" title="Panel for editing scenes in engine." alt="" coords="5,279,144,404"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="22,5,127,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,245,77,278,72,278,72,245"/>
+</map>

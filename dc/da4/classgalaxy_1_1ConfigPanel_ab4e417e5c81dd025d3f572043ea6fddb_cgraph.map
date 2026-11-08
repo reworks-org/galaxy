@@ -1,8 +1,8 @@
 <map id="galaxy::ConfigPanel::draw" name="galaxy::ConfigPanel::draw">
 <area shape="rect" id="Node000001" title="Draw config panel." alt="" coords="5,168,155,208"/>
-<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024" title=" " alt="" coords="215,29,365,69"/>
+<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#ad5f369025907c18398e63d613d2a7024" title="Handles rendering array objects." alt="" coords="215,29,365,69"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,166,145,126,201,86,224,73,227,78,204,90,149,131,104,170"/>
-<area shape="rect" id="Node000003" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#af59b519585651197c4b24781063fff51" title=" " alt="" coords="425,29,575,69"/>
+<area shape="rect" id="Node000003" href="$dc/da4/classgalaxy_1_1ConfigPanel.html#af59b519585651197c4b24781063fff51" title="Handles rendering json objects." alt="" coords="425,29,575,69"/>
 <area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="119,166,202,129,411,70,413,75,204,135,122,170"/>
 <area shape="rect" id="Node000004" href="$d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1" title="ImGui success notification." alt="" coords="203,168,377,208"/>
 <area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="155,185,189,185,189,191,155,191"/>

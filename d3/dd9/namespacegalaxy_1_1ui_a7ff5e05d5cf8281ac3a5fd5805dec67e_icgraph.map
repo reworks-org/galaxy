@@ -1,0 +1,13 @@
+<map id="galaxy::ui::imgui_center_next_window" name="galaxy::ui::imgui_center_next_window">
+<area shape="rect" id="Node000001" title="Make sure the next window opened is centered on the monitor." alt="" coords="809,29,988,69"/>
+<area shape="poly" id="edge6_Node000001_Node000001" title=" " alt="" coords="935,18,922,11,899,8,878,10,866,15,861,21,864,28,859,30,856,20,863,10,877,5,899,3,924,6,937,13"/>
+<area shape="rect" id="Node000002" href="$d1/d07/classgalaxy_1_1Popup.html#af514ff48b65c5ece607c035851de0e3a" title="Show popup." alt="" coords="608,37,761,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="795,52,762,52,762,47,795,47"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,37,365,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="594,49,560,48,413,48,366,49,365,44,413,43,560,43,594,43"/>
+<area shape="rect" id="Node000005" href="$d8/d9f/classgalaxy_1_1ScenePanel.html#ad9400d01a0b08856fed22de24259cf77" title="Draw scene panel." alt="" coords="413,57,560,97"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="595,65,560,70,560,64,594,59"/>
+<area shape="rect" id="Node000004" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,37,167,62"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,52,167,52,167,47,201,47"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="399,68,365,63,366,57,400,62"/>
+</map>

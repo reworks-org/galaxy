@@ -77,7 +77,9 @@ var namespacegalaxy =
       [ "imgui_notify_success", "d3/dd9/namespacegalaxy_1_1ui.html#a92cad3546d4d2918bafa7c79f78c1ba1", null ],
       [ "imgui_notify_info", "d3/dd9/namespacegalaxy_1_1ui.html#acf7a7bef0f311ebe615256f621cb6af8", null ],
       [ "imgui_notify_warning", "d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff", null ],
-      [ "imgui_notify_error", "d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4", null ]
+      [ "imgui_notify_error", "d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4", null ],
+      [ "imgui_center_next_window", "d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e", null ],
+      [ "imgui_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c", null ]
     ] ],
     [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
@@ -106,10 +108,12 @@ var namespacegalaxy =
     [ "MouseReleased", "d1/d0d/structgalaxy_1_1MouseReleased.html", "d1/d0d/structgalaxy_1_1MouseReleased" ],
     [ "MouseWheel", "da/d9e/structgalaxy_1_1MouseWheel.html", "da/d9e/structgalaxy_1_1MouseWheel" ],
     [ "Panel", "d8/d50/classgalaxy_1_1Panel.html", "d8/d50/classgalaxy_1_1Panel" ],
+    [ "Popup", "d1/d07/classgalaxy_1_1Popup.html", "d1/d07/classgalaxy_1_1Popup" ],
     [ "Rect", "d5/d58/classgalaxy_1_1Rect.html", "d5/d58/classgalaxy_1_1Rect" ],
     [ "RectPack", "d9/d9f/classgalaxy_1_1RectPack.html", "d9/d9f/classgalaxy_1_1RectPack" ],
     [ "Scene", "df/dba/classgalaxy_1_1Scene.html", "df/dba/classgalaxy_1_1Scene" ],
     [ "SceneManager", "d1/dbc/classgalaxy_1_1SceneManager.html", "d1/dbc/classgalaxy_1_1SceneManager" ],
+    [ "ScenePanel", "d8/d9f/classgalaxy_1_1ScenePanel.html", "d8/d9f/classgalaxy_1_1ScenePanel" ],
     [ "Script", "db/da2/classgalaxy_1_1Script.html", "db/da2/classgalaxy_1_1Script" ],
     [ "Serializable", "d6/d82/classgalaxy_1_1Serializable.html", "d6/d82/classgalaxy_1_1Serializable" ],
     [ "Settings", "df/d23/structgalaxy_1_1Settings.html", "df/d23/structgalaxy_1_1Settings" ],
