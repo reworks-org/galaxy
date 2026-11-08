@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "SystemManager.hpp"
 
 namespace galaxy
@@ -70,5 +72,38 @@ namespace galaxy
 	SystemStack& SystemManager::stack() noexcept
 	{
 		return m_systems;
+	}
+
+	bool SystemManager::is_suspended() const noexcept
+	{
+		return m_suspended;
+	}
+
+	nlohmann::json SystemManager::serialize()
+	{
+		nlohmann::json json = "{}"_json;
+
+		json["systems"]         = nlohmann::json::object();
+		json["systems"]["list"] = nlohmann::json::object();
+
+		for (auto i = 0; i < m_systems.size(); i++)
+		{
+			json["systems"]["list"][std::to_string(i)] = m_systems[i]->id();
+		}
+
+		json["systems"]["suspended"] = m_suspended;
+	}
+
+	void SystemManager::deserialize(const nlohmann::json& json)
+	{
+		const auto& systems = json.at("systems");
+
+		m_systems.reserve(systems.size());
+		for (const auto& [index, name] : systems.items())
+		{
+			add_system(name.get<std::string>());
+		}
+
+		m_suspended = json.at("suspended");
 	}
 } // namespace galaxy

@@ -289,6 +289,11 @@ namespace galaxy
 	{
 		nlohmann::json json = "{}"_json;
 
+		json["name"]    = m_name;
+		json["systems"] = m_sysman.serialize();
+
+		return json;
+
 		/*json["camera"]  = m_camera.serialize();
 		json["physics"] = nlohmann::json::object();
 		auto& physics   = json.at("physics");
@@ -330,29 +335,15 @@ namespace galaxy
 		json["ldtk_world"]               = m_world.file();
 		json["current_map"]              = m_world.get_active() ? m_world.get_active()->name() : "";
 
-		nlohmann::json json = "{}"_json;
-		json["name"]        = m_name;
-
-		json["systems"] = nlohmann::json::object();
-		for (auto i = 0; i < m_systems.size(); i++)
-		{
-			json["systems"][std::to_string(i)] = m_systems[i]->id();
-		}*/
-
-		return json;
+		*/
 	}
 
 	void Scene::deserialize(const nlohmann::json& json)
 	{
-		/*m_name = json.at("name");
+		m_name = json.at("name");
+		m_sysman.deserialize(json);
 
-		const auto& systems = json.at("systems");
-		m_systems.reserve(systems.size());
-		for (const auto& [index, name] : systems.items())
-		{
-			add_system(name.get<std::string>());
-		}
-
+		/*
 		m_camera.deserialize(json.at("camera"));
 		auto& em = core::ServiceLocator<meta::EntityMeta>::ref();
 
@@ -394,8 +385,6 @@ namespace galaxy
 				tag.m_tag = "Untagged";
 			}
 		}
-
-		m_name = json.at("name");
 
 		if (load_world(json.at("ldtk_world")))
 		{

@@ -9,6 +9,7 @@
 #define GALAXY_SYSTEMS_SYSTEMMANAGER_HPP_
 
 #include "galaxy/factory/SystemFactory.hpp"
+#include "galaxy/meta/Serializable.hpp"
 
 namespace galaxy
 {
@@ -19,7 +20,7 @@ namespace galaxy
 	///
 	/// A system belongs to a scene and operates on it and the shared entities.
 	///
-	class SystemManager final
+	class SystemManager final : public Serializable
 	{
 	public:
 		///
@@ -81,6 +82,29 @@ namespace galaxy
 		///
 		[[nodiscard]]
 		SystemStack& stack() noexcept;
+
+		///
+		/// Check if systems are suspended.
+		///
+		/// \return True if suspended.
+		///
+		[[nodiscard]]
+		bool is_suspended() const noexcept;
+
+		///
+		/// Serializes object.
+		///
+		/// \return JSON object containing data to be serialized.
+		///
+		[[nodiscard]]
+		nlohmann::json serialize() override;
+
+		///
+		/// Deserializes from object.
+		///
+		/// \param json Json object to retrieve data from.
+		///
+		void deserialize(const nlohmann::json& json) override;
 
 	private:
 		///
