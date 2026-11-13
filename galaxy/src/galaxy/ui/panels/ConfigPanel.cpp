@@ -145,12 +145,12 @@ namespace galaxy
 			}
 			else if (elem.is_number_integer())
 			{
-				ImGui::InputScalar(name.c_str(), ImGuiDataType_S64, reinterpret_cast<void*>(elem.get<std::int64_t*>()));
+				ImGui::InputScalar(name.c_str(), ImGuiDataType_S64, elem.get<std::int64_t*>());
 				counter++;
 			}
 			else if (elem.is_number_unsigned())
 			{
-				ImGui::InputScalar(name.c_str(), ImGuiDataType_U64, reinterpret_cast<void*>(elem.get<std::uint64_t*>()));
+				ImGui::InputScalar(name.c_str(), ImGuiDataType_U64, elem.get<std::uint64_t*>());
 				counter++;
 			}
 			else if (elem.is_number_float())

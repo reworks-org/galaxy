@@ -65,7 +65,7 @@ namespace galaxy
 		// }
 
 		draw_menubar();
-		// short_cuts();
+		shortcuts();
 
 		// ui::imgui_popup("New##MenuBarPopup", m_show_new, [&]() {
 		//	ui::imgui_confirm("Create a new project?\nUnsaved progress will be lost.", [&]() {
@@ -80,10 +80,14 @@ namespace galaxy
 		// });
 
 		m_hotkeys.draw([&]() {
-			ImGui::Text("[LEFT SHIFT] - Enable Docking.\n");
+			ImGui::Text("[LEFT SHIFT] Show docking\n[Ctrl+Alt+L] Toggle logs");
 		});
 
-		// m_log_console.render();
+		if (m_log_panel.shown())
+		{
+			m_log_panel.draw();
+		}
+
 		// m_lua_console.render();
 		// m_code_editor.render();
 		// m_asset_panel.render(m_code_editor);
@@ -165,10 +169,10 @@ namespace galaxy
 			//		// m_asset_panel.m_show = !m_asset_panel.m_show;
 			//	}
 
-			//	if (ImGui::MenuItem("Toggle Logs", "Ctrl+Alt+L"))
-			//	{
-			//		// m_log_console.m_show = !m_log_console.m_show;
-			//	}
+			if (ImGui::MenuItem("Toggle Logs", "Ctrl+Alt+L"))
+			{
+				m_log_panel.toggle();
+			}
 
 			//	if (ImGui::MenuItem("Toggle Lua Terminal", "Ctrl+Alt+T"))
 			//	{
@@ -210,6 +214,14 @@ namespace galaxy
 		}
 	}
 
+	void Editor::shortcuts()
+	{
+		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_L))
+		{
+			m_log_panel.toggle();
+		}
+	}
+
 	/*Editor::Editor(const std::string& name)
 		: Scene {name}
 		, m_state {EditorState::EDITOR}
@@ -219,9 +231,6 @@ namespace galaxy
 		// We dont want anything bound.
 		m_dispatcher           = {};
 		m_current_project_path = "";
-
-		auto& sink = GALAXY_ADD_SINK(EditorSink);
-		m_log_console.set_sink(&sink);
 
 		// clang-format off
 		m_autosave.repeat(true);
@@ -612,10 +621,6 @@ namespace galaxy
 			show_loadproject();
 		}
 
-		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_L))
-		{
-			m_log_console.m_show = !m_log_console.m_show;
-		}
 
 		if (ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_S))
 		{

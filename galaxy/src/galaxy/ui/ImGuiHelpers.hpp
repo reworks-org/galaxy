@@ -96,6 +96,14 @@ namespace galaxy
 		/// \param no Code to run if user selects no.
 		///
 		void imgui_confirm(const char* msg, std::move_only_function<void(void)>&& yes = {}, std::move_only_function<void(void)>&& no = {});
+
+		///
+		/// Get default text input flags.
+		///
+		/// \return ImGuiInputTextFlags.
+		///
+		[[nodiscard]]
+		ImGuiInputTextFlags imgui_default_flags() noexcept;
 	} // namespace ui
 } // namespace galaxy
 

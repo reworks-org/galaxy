@@ -80,6 +80,7 @@
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
     <ClCompile Include="src\galaxy\ui\ImGuiHelpers.cpp" />
     <ClCompile Include="src\galaxy\ui\panels\ConfigPanel.cpp" />
+    <ClCompile Include="src\galaxy\ui\panels\LogPanel.cpp" />
     <ClCompile Include="src\galaxy\ui\panels\Panel.cpp" />
     <ClCompile Include="src\galaxy\ui\panels\ScenePanel.cpp" />
     <ClCompile Include="src\galaxy\ui\widgets\Popup.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="src\galaxy\ui\Editor.hpp" />
     <ClInclude Include="src\galaxy\ui\ImGuiHelpers.hpp" />
     <ClInclude Include="src\galaxy\ui\panels\ConfigPanel.hpp" />
+    <ClInclude Include="src\galaxy\ui\panels\LogPanel.hpp" />
     <ClInclude Include="src\galaxy\ui\panels\Panel.hpp" />
     <ClInclude Include="src\galaxy\ui\panels\ScenePanel.hpp" />
     <ClInclude Include="src\galaxy\ui\widgets\Popup.hpp" />

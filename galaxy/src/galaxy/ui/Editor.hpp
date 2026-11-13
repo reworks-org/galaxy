@@ -11,6 +11,7 @@
 #include <SDL3/SDL_events.h>
 
 #include "galaxy/ui/panels/ConfigPanel.hpp"
+#include "galaxy/ui/panels/LogPanel.hpp"
 #include "galaxy/ui/panels/ScenePanel.hpp"
 
 namespace galaxy
@@ -64,6 +65,11 @@ namespace galaxy
 		///
 		void draw_menubar();
 
+		///
+		/// Handle ImGui widget shortcuts.
+		///
+		void shortcuts();
+
 	private:
 		///
 		/// Config panel for manipulating engine settings.
@@ -74,6 +80,11 @@ namespace galaxy
 		/// Scene panel for managing scenes.
 		///
 		ScenePanel m_scene_panel;
+
+		///
+		/// Log console panel.
+		///
+		LogPanel m_log_panel;
 
 		///
 		/// Hotkey info.
@@ -97,7 +108,6 @@ void export_project();
 
 
 void draw_game_controls();
-void short_cuts();
 void show_loadproject();
 void render_exporter() const;
 
@@ -137,7 +147,6 @@ ImVec2                m_imgui_mouse_delta = {0.0f, 0.0f};
 Selected              m_selected;
 
 // panels
-LogConsole    m_log_console;
 LuaConsole    m_lua_console;
 Viewport      m_viewport;
 CodeEditor    m_code_editor;

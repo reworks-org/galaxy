@@ -263,6 +263,11 @@ namespace galaxy
 				ImGui::CloseCurrentPopup();
 			}
 		}
+
+		ImGuiInputTextFlags imgui_default_flags() noexcept
+		{
+			return ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_EscapeClearsAll;
+		}
 	} // namespace ui
 } // namespace galaxy
 
