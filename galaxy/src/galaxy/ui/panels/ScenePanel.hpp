@@ -13,6 +13,8 @@
 
 namespace galaxy
 {
+	class Scene;
+
 	///
 	/// Panel for editing scenes in engine.
 	///
@@ -33,6 +35,14 @@ namespace galaxy
 		/// Draw scene panel.
 		///
 		void draw() override;
+
+	private:
+		///
+		/// Draw systems subtree.
+		///
+		/// \param scene Scene from ImGui tree.
+		///
+		void draw_systems(Scene* scene);
 
 	private:
 		///

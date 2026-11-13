@@ -31,6 +31,7 @@ namespace galaxy
 		{
 			auto& sm = entt::locator<SceneManager>::value();
 
+			ImGui::SeparatorText("Scene Manager");
 			m_new.draw_button("New");
 			ImGui::SameLine();
 			m_clear.draw_button("Clear");
@@ -72,6 +73,7 @@ namespace galaxy
 				});
 			});
 
+			ImGui::SeparatorText("Scenes");
 			static std::string top;
 			for (auto&& [id, scene] : sm.storage())
 			{
@@ -91,11 +93,13 @@ namespace galaxy
 
 				if (ImGui::TreeNodeEx(tree_id.c_str(), flags))
 				{
+					ImGui::SeparatorText("State");
 					if (ImGui::Button("Push"))
 					{
 						sm.push(scene->name());
 					}
 
+					draw_systems(scene.get());
 					// draw_camera(scene_ptr);
 					// draw_physics(scene_ptr);
 					// draw_mapping(tasks, scene_ptr, selected);
@@ -109,6 +113,48 @@ namespace galaxy
 		}
 
 		ImGui::End();
+	}
+
+	void ScenePanel::draw_systems(Scene* scene)
+	{
+		ImGui::SeparatorText("Systems");
+
+		auto& sysman = scene->sys_man();
+
+		static bool suspended = sysman.is_suspended();
+		if (ImGui::Checkbox("Suspend all", &suspended))
+		{
+			if (suspended)
+			{
+				sysman.resume();
+			}
+			else
+			{
+				sysman.suspend();
+			}
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Remove all"))
+		{
+			sysman.clear();
+		}
+
+		static std::string s_buff;
+		if (ImGui::InputText("Add system", &s_buff, ui::imgui_default_flags()))
+		{
+			if (s_buff.length() > 0)
+			{
+				sysman.add_system(s_buff);
+			}
+		}
+
+		ImGui::Text("System stack:");
+		for (auto&& system : sysman.stack())
+		{
+			ImGui::Text(system->id().c_str());
+		}
 	}
 } // namespace galaxy
 
