@@ -1,5 +1,7 @@
 <map id="galaxy::Editor::draw_menubar" name="galaxy::Editor::draw_menubar">
-<area shape="rect" id="Node000001" title="Draw the editor menubar." alt="" coords="5,5,156,45"/>
-<area shape="rect" id="Node000002" href="$d1/d07/classgalaxy_1_1Popup.html#a5725a649d592258330ab9bc5aa60498e" title="Draw a menu button to show the popup." alt="" coords="204,5,357,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+<area shape="rect" id="Node000001" title="Draw the editor menubar." alt="" coords="5,35,156,75"/>
+<area shape="rect" id="Node000002" href="$d1/d07/classgalaxy_1_1Popup.html#a5725a649d592258330ab9bc5aa60498e" title="Draw a menu button to show the popup." alt="" coords="206,5,359,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,41,192,36,193,41,157,46"/>
+<area shape="rect" id="Node000003" href="$d8/d50/classgalaxy_1_1Panel.html#a78b8455996d890332c41d859b057ca90" title="Toggle visibility of panel." alt="" coords="204,70,361,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,62,191,67,190,73,156,68"/>
 </map>

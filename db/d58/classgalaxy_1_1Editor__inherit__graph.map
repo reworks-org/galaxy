@@ -1,5 +1,5 @@
 <map id="galaxy::Editor" name="galaxy::Editor">
-<area shape="rect" id="Node000001" title="Ingame debug editor UI." alt="" coords="5,279,141,524"/>
+<area shape="rect" id="Node000001" title="Ingame debug editor UI." alt="" coords="5,279,141,564"/>
 <area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="21,5,126,231"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,245,76,279,71,279,71,245"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,244,76,279,71,279,71,244"/>
 </map>

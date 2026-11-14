@@ -1,0 +1,21 @@
+<map id="galaxy::LogPanel" name="galaxy::LogPanel">
+<area shape="rect" id="Node000001" title="Panel for showing console log messages." alt="" coords="9,1059,150,1224"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html" title="Shared data for an imgui panel." alt="" coords="5,763,111,988"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,1001,75,1058,70,1059,65,1002"/>
+<area shape="rect" id="Node000003" href="$d4/dd1/classgalaxy_1_1EditorSink.html" title="Sink to display log messages in overlay editor." alt="" coords="135,803,269,948"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,949,127,1045,122,1043,166,947"/>
+<area shape="rect" id="Node000004" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="101,507,207,692"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="175,705,192,802,187,803,170,706"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="231,559,373,639"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="290,641,236,788,231,786,285,639"/>
+<area shape="rect" id="Node000006" href="$d6/d64/structgalaxy_1_1LogMessage.html" title="Parts of a log message to be passed to sinks." alt="" coords="145,351,291,436"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="238,435,282,543,277,545,233,437"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="179,135,257,200"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="221,200,221,334,215,334,215,200"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="153,5,283,85"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="221,99,221,134,215,134,215,99"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="316,361,437,426"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="363,440,319,560,314,558,358,439"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="365,135,388,200"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="379,200,379,344,374,344,374,200"/>
+</map>

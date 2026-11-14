@@ -1,0 +1,17 @@
+<map id="galaxy::EditorSink" name="galaxy::EditorSink">
+<area shape="rect" id="Node000001" title="Sink to display log messages in overlay editor." alt="" coords="13,763,146,908"/>
+<area shape="rect" id="Node000002" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="5,507,111,692"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,706,75,762,70,763,65,706"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="135,559,277,639"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,641,129,749,124,746,182,638"/>
+<area shape="rect" id="Node000004" href="$d6/d64/structgalaxy_1_1LogMessage.html" title="Parts of a log message to be passed to sinks." alt="" coords="49,351,195,436"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="142,435,186,543,181,545,137,437"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="83,135,161,200"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="125,200,125,334,119,334,119,200"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="57,5,187,85"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="125,99,125,134,119,134,119,99"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="220,361,341,426"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="267,440,223,560,218,558,262,439"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="269,135,292,200"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="283,200,283,344,278,344,278,200"/>
+</map>

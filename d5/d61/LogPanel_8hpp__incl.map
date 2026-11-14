@@ -1,0 +1,25 @@
+<map id="galaxy/src/galaxy/ui/panels/LogPanel.hpp" name="galaxy/src/galaxy/ui/panels/LogPanel.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="258,5,417,45"/>
+<area shape="rect" id="Node000002" href="$d8/d5e/Sink_8hpp.html" title=" " alt="" coords="36,93,215,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="287,48,170,91,169,86,286,43"/>
+<area shape="rect" id="Node000008" href="$d1/d6f/Panel_8hpp.html" title=" " alt="" coords="239,93,435,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="340,46,340,79,335,79,335,46"/>
+<area shape="rect" id="Node000009" href="$d7/d23/ImGuiHelpers_8hpp.html" title=" " alt="" coords="460,93,663,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="392,43,517,86,515,91,390,48"/>
+<area shape="rect" id="Node000003" href="$d6/da7/LogMessage_8hpp.html" title=" " alt="" coords="10,167,241,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,119,128,153,123,153,123,119"/>
+<area shape="rect" id="Node000004" href="$d8/d00/LogLevel_8hpp.html" title=" " alt="" coords="21,240,229,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="128,192,128,226,123,226,123,192"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,313,72,339"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="113,267,65,307,62,302,110,263"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="96,313,155,339"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="128,266,128,300,123,300,123,266"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="178,313,401,339"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="153,263,251,305,249,310,151,268"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="394,167,481,192"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="543,121,471,162,468,157,540,116"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="505,167,617,192"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="564,119,564,153,559,153,559,119"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="641,167,788,192"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="587,116,678,158,676,163,585,121"/>
+</map>

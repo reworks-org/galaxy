@@ -79,7 +79,8 @@ var namespacegalaxy =
       [ "imgui_notify_warning", "d3/dd9/namespacegalaxy_1_1ui.html#ad82f878bb9a1f2a1f293db478ae17eff", null ],
       [ "imgui_notify_error", "d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4", null ],
       [ "imgui_center_next_window", "d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e", null ],
-      [ "imgui_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c", null ]
+      [ "imgui_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c", null ],
+      [ "imgui_default_flags", "d3/dd9/namespacegalaxy_1_1ui.html#a2bc24e13596d3bb67dbd1a34df1ec9e6", null ]
     ] ],
     [ "App", "dd/d33/classgalaxy_1_1App.html", "dd/d33/classgalaxy_1_1App" ],
     [ "Cache", "d1/d4d/classgalaxy_1_1Cache.html", "d1/d4d/classgalaxy_1_1Cache" ],
@@ -88,6 +89,7 @@ var namespacegalaxy =
     [ "ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", "d9/d14/classgalaxy_1_1ConsoleSink" ],
     [ "CPUInfo", "d5/df7/structgalaxy_1_1CPUInfo.html", "d5/df7/structgalaxy_1_1CPUInfo" ],
     [ "Editor", "de/dfe/classgalaxy_1_1Editor.html", "de/dfe/classgalaxy_1_1Editor" ],
+    [ "EditorSink", "d4/dd1/classgalaxy_1_1EditorSink.html", "d4/dd1/classgalaxy_1_1EditorSink" ],
     [ "EntityManager", "d9/d4c/classgalaxy_1_1EntityManager.html", "d9/d4c/classgalaxy_1_1EntityManager" ],
     [ "Event", "df/d64/classgalaxy_1_1Event.html", "df/d64/classgalaxy_1_1Event" ],
     [ "FileError", "d5/d13/classgalaxy_1_1FileError.html", "d5/d13/classgalaxy_1_1FileError" ],
@@ -100,6 +102,7 @@ var namespacegalaxy =
     [ "Loader", "db/dbf/structgalaxy_1_1Loader.html", "db/dbf/structgalaxy_1_1Loader" ],
     [ "Log", "dd/dd3/classgalaxy_1_1Log.html", "dd/dd3/classgalaxy_1_1Log" ],
     [ "LogMessage", "d6/d64/structgalaxy_1_1LogMessage.html", "d6/d64/structgalaxy_1_1LogMessage" ],
+    [ "LogPanel", "d3/daa/classgalaxy_1_1LogPanel.html", "d3/daa/classgalaxy_1_1LogPanel" ],
     [ "LostFocus", "dc/d92/structgalaxy_1_1LostFocus.html", null ],
     [ "Lua", "d3/ddf/classgalaxy_1_1Lua.html", "d3/ddf/classgalaxy_1_1Lua" ],
     [ "Mouse", "d4/d5d/classgalaxy_1_1Mouse.html", "d4/d5d/classgalaxy_1_1Mouse" ],

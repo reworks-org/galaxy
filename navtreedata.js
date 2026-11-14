@@ -93,13 +93,14 @@ var NAVTREEINDEX =
 "d0/d76/material__design__icons_8h.html#af273c1740558a5264fd3b3f426b1fda5",
 "d0/d76/material__design__icons_8h.html#afb2780782e9ea948513eb1c5273b56ea",
 "d0/d84/classgalaxy_1_1Window.html#ac2c6a5be5cfd438398b4fbd7d15cf0f6",
-"d3/d81/classgalaxy_1_1WindowBindable.html#a6427593a425c67c511f43e470a93ad74",
-"d4/de5/Base64_8cpp.html#ac4f9e41a23fa473fdca02b779d6559bc",
-"d6/d82/classgalaxy_1_1Serializable.html#a2f3a31156297e61b606d935ab68dca38",
-"d9/d14/classgalaxy_1_1ConsoleSink.html#a52f72b7cbc567fad110579b8066e033f",
-"db/d49/classgalaxy_1_1Config.html#af764a21579e18690157ae4c66416d630",
-"dd/df4/Cache_8cpp_source.html",
-"df/d64/classgalaxy_1_1Event.html#a39d85f493b95ec0d9d79b14a6468facc"
+"d3/d81/classgalaxy_1_1WindowBindable.html#a181df3a8bdb2ea55503edbe129b42533",
+"d4/d7c/classgalaxy_1_1State.html#af2f9023cae9f5d8bc696356599605257",
+"d6/d34/MouseButton_8hpp_source.html",
+"d8/dd5/classgalaxy_1_1VirtualFileSystem.html#a797be7bc1eb042bb9d5bc55f776ca64e",
+"db/d49/classgalaxy_1_1Config.html#a07c3fbca13a1cb6da48aa0acfdf5d5e8",
+"dd/da7/classgalaxy_1_1UUID.html#abca48d33167607b3618f16e55b9511b2",
+"df/d23/structgalaxy_1_1Settings.html#aca4b11adafbd2b94e8aa68904dc347d1",
+"namespacemembers_vars.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

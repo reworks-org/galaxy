@@ -8,7 +8,8 @@ var searchData=
   ['log_5',['Log',['../dd/dd3/classgalaxy_1_1Log.html#a2db84489382bb7f04702446893f2c7f5',1,'galaxy::Log::Log() noexcept'],['../dd/dd3/classgalaxy_1_1Log.html#adb2d0bd5adbd11e413c5c42b5bde640c',1,'galaxy::Log::Log(const Log &amp;)=delete'],['../dd/dd3/classgalaxy_1_1Log.html#a43656a87e002d3fc391e93d588a04807',1,'galaxy::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_6',['log',['../d5/d13/classgalaxy_1_1FileError.html#a6fddfe48f26194025a033ce89482b990',1,'galaxy::FileError::log()'],['../dd/dd3/classgalaxy_1_1Log.html#a912eca54b8810af68b6f7be9c8fef722',1,'galaxy::Log::log()']]],
   ['log_5fwrapper_7',['log_wrapper',['../d0/d46/namespacegalaxy.html#a2cf60407a5ec21327f632d6c1f712f92',1,'galaxy']]],
-  ['logs_5fdir_8',['logs_dir',['../df/d23/structgalaxy_1_1Settings.html#a1f19c1d8228c4dda4d9ce62db15124ea',1,'galaxy::Settings']]],
-  ['ltrim_9',['ltrim',['../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79',1,'galaxy::str']]],
-  ['lua_10',['Lua',['../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96',1,'galaxy::Lua']]]
+  ['logpanel_8',['LogPanel',['../d3/daa/classgalaxy_1_1LogPanel.html#a8dfadce878b56e6805964d383ce03062',1,'galaxy::LogPanel']]],
+  ['logs_5fdir_9',['logs_dir',['../df/d23/structgalaxy_1_1Settings.html#a1f19c1d8228c4dda4d9ce62db15124ea',1,'galaxy::Settings']]],
+  ['ltrim_10',['ltrim',['../df/d98/namespacegalaxy_1_1str.html#a8180ad707ae7c2ac52175bb9e6cb7c79',1,'galaxy::str']]],
+  ['lua_11',['Lua',['../d3/ddf/classgalaxy_1_1Lua.html#aae9d4d7a78137a94b4b3b8643fc83b96',1,'galaxy::Lua']]]
 ];

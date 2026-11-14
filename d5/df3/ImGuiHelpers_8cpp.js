@@ -14,5 +14,6 @@ var ImGuiHelpers_8cpp =
     [ "galaxy::ui::imgui_notify_error", "d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4", null ],
     [ "galaxy::ui::imgui_center_next_window", "d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e", null ],
     [ "galaxy::ui::imgui_confirm", "d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c", null ],
+    [ "galaxy::ui::imgui_default_flags", "d3/dd9/namespacegalaxy_1_1ui.html#a2bc24e13596d3bb67dbd1a34df1ec9e6", null ],
     [ "galaxy::g_Style", "d0/d46/namespacegalaxy.html#ae80f70540f62ad2ac23ac71dbb655663", null ]
 ];

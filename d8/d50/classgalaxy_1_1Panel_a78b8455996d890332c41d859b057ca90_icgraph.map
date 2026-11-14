@@ -1,5 +1,14 @@
 <map id="galaxy::Panel::toggle" name="galaxy::Panel::toggle">
-<area shape="rect" id="Node000001" title="Toggle visibility of panel." alt="" coords="201,5,359,31"/>
-<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html#a09768594e761ea53ffe11ab0631cfc35" title="Draw the ImGui widgets." alt="" coords="5,5,153,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,21,154,21,154,15,187,15"/>
+<area shape="rect" id="Node000001" title="Toggle visibility of panel." alt="" coords="640,63,797,88"/>
+<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html#a09768594e761ea53ffe11ab0631cfc35" title="Draw the ImGui widgets." alt="" coords="429,5,577,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="656,62,551,33,552,28,658,57"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0" title="Draw the editor menubar." alt="" coords="427,55,578,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="626,78,578,78,578,73,626,73"/>
+<area shape="rect" id="Node000006" href="$de/dfe/classgalaxy_1_1Editor.html#a3111fa20653061a0f76a04b671e8287b" title="Handle ImGui widget shortcuts." alt="" coords="413,120,592,145"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="658,94,552,123,551,117,656,89"/>
+<area shape="rect" id="Node000004" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,92,365,117"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="414,90,366,97,365,92,414,85"/>
+<area shape="rect" id="Node000005" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,92,167,117"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="201,107,167,107,167,102,201,102"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="399,122,365,117,366,112,400,116"/>
 </map>

@@ -148,40 +148,44 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d23/ImGuiHe
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a7ff5e05d5cf8281ac3a5fd5805dec67e">imgui_center_next_window</a>();</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#acc2413e14fc7e6b91879b372fcadbb0c">imgui_confirm</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg, std::move_only_function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">void</span>)&gt;&amp;&amp; yes = {}, std::move_only_function&lt;void(<span class="keywordtype">void</span>)&gt;&amp;&amp; no = {});</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    } <span class="comment">// namespace ui</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"></span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"></span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        [[maybe_unused]]</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        bool imgui_imagebutton(const graphics::Texture2D&amp; texture, const ImVec2&amp; size, const ImVec4&amp; bg_col = ImVec4(0, 0, 0, 0), const ImVec4&amp; tint_col = ImVec4(1, 1, 1, 1));</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        void imgui_image(const graphics::Texture2D&amp; texture, const ImVec2&amp; size);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        [[nodiscard]]</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        ImGuiInputTextFlags <a class="code hl_function" href="../../d3/dd9/namespacegalaxy_1_1ui.html#a2bc24e13596d3bb67dbd1a34df1ec9e6">imgui_default_flags</a>() noexcept;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    } <span class="comment">// namespace ui</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"></span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"></span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"></span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        [[maybe_unused]]</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        bool imgui_imagebutton(const graphics::Texture2D&amp; texture, const ImVec2&amp; size, const ImVec4&amp; bg_col = ImVec4(0, 0, 0, 0), const ImVec4&amp; tint_col = ImVec4(1, 1, 1, 1));</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        void imgui_image(const graphics::RenderTexture&amp; texture, const ImVec2&amp; size);</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        [[maybe_unused]]</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        bool imgui_glm_vec2(const char* label, glm::vec2&amp; vec);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        [[maybe_unused]]</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        bool imgui_glm_vec3(const char* label, glm::vec3&amp; vec);</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        [[maybe_unused]]</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        bool imgui_glm_vec4(const char* label, glm::vec4&amp; vec);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        [[maybe_unused]]</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        bool imgui_frect(const char* label, math::fRect&amp; rect);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>*/</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        void imgui_image(const graphics::Texture2D&amp; texture, const ImVec2&amp; size);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        void imgui_image(const graphics::RenderTexture&amp; texture, const ImVec2&amp; size);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        [[maybe_unused]]</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        bool imgui_glm_vec2(const char* label, glm::vec2&amp; vec);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        [[maybe_unused]]</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        bool imgui_glm_vec3(const char* label, glm::vec3&amp; vec);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        [[maybe_unused]]</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        bool imgui_glm_vec4(const char* label, glm::vec4&amp; vec);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        [[maybe_unused]]</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        bool imgui_frect(const char* label, math::fRect&amp; rect);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>*/</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html">galaxy::ui</a></div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00046">ImGuiHelpers.cpp:47</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a07ea7645484387d4e690f8efc3a9b8e4"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a07ea7645484387d4e690f8efc3a9b8e4">galaxy::ui::imgui_notify_error</a></div><div class="ttdeci">void imgui_notify_error(const char *msg)</div><div class="ttdoc">ImGui error notification.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00226">ImGuiHelpers.cpp:226</a></div></div>
+<div class="ttc" id="anamespacegalaxy_1_1ui_html_a2bc24e13596d3bb67dbd1a34df1ec9e6"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a2bc24e13596d3bb67dbd1a34df1ec9e6">galaxy::ui::imgui_default_flags</a></div><div class="ttdeci">ImGuiInputTextFlags imgui_default_flags() noexcept</div><div class="ttdoc">Get default text input flags.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00267">ImGuiHelpers.cpp:267</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a360d6f51e58ece51ec153edb4fc58c0d"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a360d6f51e58ece51ec153edb4fc58c0d">galaxy::ui::imgui_set_theme</a></div><div class="ttdeci">void imgui_set_theme(const float scale) noexcept</div><div class="ttdoc">Set imgui theme.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00102">ImGuiHelpers.cpp:102</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a5861bd70d8b0bfba43ed8cc923e64b45"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a5861bd70d8b0bfba43ed8cc923e64b45">galaxy::ui::imgui_handle_events</a></div><div class="ttdeci">void imgui_handle_events(const SDL_Event &amp;events)</div><div class="ttdoc">Handle events in ImGui.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00173">ImGuiHelpers.cpp:173</a></div></div>
 <div class="ttc" id="anamespacegalaxy_1_1ui_html_a6c64426a2357bdcdd6991be9483dc7e1"><div class="ttname"><a href="../../d3/dd9/namespacegalaxy_1_1ui.html#a6c64426a2357bdcdd6991be9483dc7e1">galaxy::ui::imgui_new_frame</a></div><div class="ttdeci">void imgui_new_frame()</div><div class="ttdoc">Begin setting up ImGui pass.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/df3/ImGuiHelpers_8cpp_source.html#l00181">ImGuiHelpers.cpp:181</a></div></div>

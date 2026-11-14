@@ -1,0 +1,7 @@
+<map id="galaxy::LogPanel::draw" name="galaxy::LogPanel::draw">
+<area shape="rect" id="Node000001" title="Draw config panel." alt="" coords="5,45,176,70"/>
+<area shape="rect" id="Node000002" href="$d4/dd1/classgalaxy_1_1EditorSink.html#a35ef3ea7580773ff6b78dbc03a4db433" title="Clear all logs stored." alt="" coords="224,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,42,210,36,211,41,172,47"/>
+<area shape="rect" id="Node000003" href="$d4/dd1/classgalaxy_1_1EditorSink.html#afc4eca97d9e539b96f94da9fc626222d" title="Get all stored logs." alt="" coords="224,69,363,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,67,211,74,210,79,171,73"/>
+</map>

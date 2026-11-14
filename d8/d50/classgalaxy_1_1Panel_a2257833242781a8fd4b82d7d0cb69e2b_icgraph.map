@@ -1,5 +1,9 @@
 <map id="galaxy::Panel::shown" name="galaxy::Panel::shown">
-<area shape="rect" id="Node000001" title="Check if panel is visible." alt="" coords="201,5,360,31"/>
-<area shape="rect" id="Node000002" href="$d8/d50/classgalaxy_1_1Panel.html#a09768594e761ea53ffe11ab0631cfc35" title="Draw the ImGui widgets." alt="" coords="5,5,153,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,21,153,21,153,15,187,15"/>
+<area shape="rect" id="Node000001" title="Check if panel is visible." alt="" coords="413,31,572,56"/>
+<area shape="rect" id="Node000002" href="$de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca" title="Draw the ImGui widgets to ImGui buffers." alt="" coords="215,5,365,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,34,365,30,366,25,400,29"/>
+<area shape="rect" id="Node000004" href="$d8/d50/classgalaxy_1_1Panel.html#a09768594e761ea53ffe11ab0631cfc35" title="Draw the ImGui widgets." alt="" coords="216,55,364,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="400,57,365,61,364,56,399,52"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081" title="Render the editor to the screen." alt="" coords="5,5,167,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,21,167,21,167,15,201,15"/>
 </map>

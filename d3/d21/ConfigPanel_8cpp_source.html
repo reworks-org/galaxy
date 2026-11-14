@@ -262,12 +262,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d21/ConfigP
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            }</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (elem.is_number_integer())</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            {</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                ImGui::InputScalar(name.c_str(), ImGuiDataType_S64, <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(elem.get&lt;std::int64_t*&gt;()));</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                ImGui::InputScalar(name.c_str(), ImGuiDataType_S64, elem.get&lt;std::int64_t*&gt;());</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                counter++;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            }</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (elem.is_number_unsigned())</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            {</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                ImGui::InputScalar(name.c_str(), ImGuiDataType_U64, <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(elem.get&lt;std::uint64_t*&gt;()));</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                ImGui::InputScalar(name.c_str(), ImGuiDataType_U64, elem.get&lt;std::uint64_t*&gt;());</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                counter++;</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            }</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (elem.is_number_float())</div>

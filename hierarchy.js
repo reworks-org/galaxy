@@ -41,6 +41,7 @@ var hierarchy =
     [ "galaxy::Panel", "d8/d50/classgalaxy_1_1Panel.html", [
       [ "galaxy::ConfigPanel", "dc/da4/classgalaxy_1_1ConfigPanel.html", null ],
       [ "galaxy::Editor", "de/dfe/classgalaxy_1_1Editor.html", null ],
+      [ "galaxy::LogPanel", "d3/daa/classgalaxy_1_1LogPanel.html", null ],
       [ "galaxy::ScenePanel", "d8/d9f/classgalaxy_1_1ScenePanel.html", null ]
     ] ],
     [ "galaxy::Popup", "d1/d07/classgalaxy_1_1Popup.html", null ],
@@ -55,6 +56,7 @@ var hierarchy =
     [ "galaxy::Settings", "df/d23/structgalaxy_1_1Settings.html", null ],
     [ "galaxy::Sink", "d2/d42/classgalaxy_1_1Sink.html", [
       [ "galaxy::ConsoleSink", "d9/d14/classgalaxy_1_1ConsoleSink.html", null ],
+      [ "galaxy::EditorSink", "d4/dd1/classgalaxy_1_1EditorSink.html", null ],
       [ "galaxy::FileSink", "d7/d7d/classgalaxy_1_1FileSink.html", null ]
     ] ],
     [ "galaxy::State", "d4/d7c/classgalaxy_1_1State.html", [

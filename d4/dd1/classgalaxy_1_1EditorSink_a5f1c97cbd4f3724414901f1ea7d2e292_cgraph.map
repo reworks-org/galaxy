@@ -1,0 +1,10 @@
+<map id="galaxy::EditorSink::EditorSink" name="galaxy::EditorSink::EditorSink">
+<area shape="rect" id="Node000001" title="Constructor." alt="" coords="5,69,144,109"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="39,70,37,60,43,51,56,45,75,43,97,46,109,53,106,57,95,51,75,48,57,50,46,55,42,61,44,68"/>
+<area shape="rect" id="Node000002" href="$d4/dd1/classgalaxy_1_1EditorSink.html#a35ef3ea7580773ff6b78dbc03a4db433" title="Clear all logs stored." alt="" coords="192,5,331,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,67,189,47,191,52,135,72"/>
+<area shape="rect" id="Node000003" href="$d4/dd1/classgalaxy_1_1EditorSink.html#afc4eca97d9e539b96f94da9fc626222d" title="Get all stored logs." alt="" coords="192,69,331,109"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="145,87,178,87,178,92,145,92"/>
+<area shape="rect" id="Node000004" href="$d4/dd1/classgalaxy_1_1EditorSink.html#a134b982069f518cc98405bbab6ce962e" title="Sink the message." alt="" coords="192,133,331,173"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="135,107,191,126,189,131,133,112"/>
+</map>

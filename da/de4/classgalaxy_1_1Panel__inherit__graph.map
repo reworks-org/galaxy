@@ -1,9 +1,11 @@
 <map id="galaxy::Panel" name="galaxy::Panel">
-<area shape="rect" id="Node000001" title="Shared data for an imgui panel." alt="" coords="186,5,291,231"/>
-<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Panel for editing engine settings." alt="" coords="5,329,147,474"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,224,120,330,115,327,177,221"/>
-<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html" title="Ingame debug editor UI." alt="" coords="171,279,307,524"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,245,241,279,236,279,236,245"/>
-<area shape="rect" id="Node000004" href="$d8/d9f/classgalaxy_1_1ScenePanel.html" title="Panel for editing scenes in engine." alt="" coords="331,339,469,464"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="301,222,367,337,362,340,296,224"/>
+<area shape="rect" id="Node000001" title="Shared data for an imgui panel." alt="" coords="267,5,373,231"/>
+<area shape="rect" id="Node000002" href="$dc/da4/classgalaxy_1_1ConfigPanel.html" title="Panel for editing engine settings." alt="" coords="5,349,147,494"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,176,209,225,161,280,115,350,111,347,157,277,205,221,255,172"/>
+<area shape="rect" id="Node000003" href="$de/dfe/classgalaxy_1_1Editor.html" title="Ingame debug editor UI." alt="" coords="171,279,307,564"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="289,245,280,279,274,278,284,243"/>
+<area shape="rect" id="Node000004" href="$d3/daa/classgalaxy_1_1LogPanel.html" title="Panel for showing console log messages." alt="" coords="331,329,472,514"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="356,243,379,328,374,329,351,244"/>
+<area shape="rect" id="Node000005" href="$d8/d9f/classgalaxy_1_1ScenePanel.html" title="Panel for editing scenes in engine." alt="" coords="496,349,635,494"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="385,171,436,221,486,277,532,347,527,350,482,280,433,224,381,175"/>
 </map>

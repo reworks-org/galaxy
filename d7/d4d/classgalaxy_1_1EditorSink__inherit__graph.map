@@ -1,0 +1,5 @@
+<map id="galaxy::EditorSink" name="galaxy::EditorSink">
+<area shape="rect" id="Node000001" title="Sink to display log messages in overlay editor." alt="" coords="5,239,139,384"/>
+<area shape="rect" id="Node000002" href="$d2/d42/classgalaxy_1_1Sink.html" title="A source for log messages to be recorded to." alt="" coords="19,5,125,191"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,204,75,238,69,238,69,204"/>
+</map>

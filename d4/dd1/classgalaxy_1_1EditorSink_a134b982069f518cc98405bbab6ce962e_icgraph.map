@@ -1,0 +1,6 @@
+<map id="galaxy::EditorSink::sink" name="galaxy::EditorSink::sink">
+<area shape="rect" id="Node000001" title="Sink the message." alt="" coords="192,29,331,69"/>
+<area shape="rect" id="Node000002" href="$d4/dd1/classgalaxy_1_1EditorSink.html#a5f1c97cbd4f3724414901f1ea7d2e292" title="Constructor." alt="" coords="5,29,144,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,52,145,52,145,47,178,47"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="106,17,95,11,75,8,57,10,46,15,42,21,44,28,39,30,37,20,43,11,56,5,75,3,97,6,109,13"/>
+</map>

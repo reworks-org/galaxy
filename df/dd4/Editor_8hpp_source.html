@@ -119,121 +119,128 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dd4/Editor_
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;SDL3/SDL_events.h&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d7e/ConfigPanel_8hpp.html">galaxy/ui/panels/ConfigPanel.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d9a/ScenePanel_8hpp.html">galaxy/ui/panels/ScenePanel.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">Editor</a> final : <span class="keyword">public</span> <a class="code hl_function" href="../../d8/d50/classgalaxy_1_1Panel.html#aa76c0b45a3935ff75d120b6de098e212">Panel</a></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">Editor</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">~Editor</a>();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a25fcc3870bcd4c57d1f1b89dfb5f735a">handle_events</a>(<span class="keyword">const</span> SDL_Event&amp; events) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081">render</a>();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca">draw</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a926e2bf4d3044a66a25d67d6969bf510">begin_dock</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a41331b071e8c69ed0262702907619c1f">end_dock</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0">draw_menubar</a>();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4">   71</a></span>        <a class="code hl_class" href="../../dc/da4/classgalaxy_1_1ConfigPanel.html">ConfigPanel</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4">m_config_panel</a>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#a6d816e7735c6788c59987b5b4cdb2449">   76</a></span>        <a class="code hl_class" href="../../d8/d9f/classgalaxy_1_1ScenePanel.html">ScenePanel</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#a6d816e7735c6788c59987b5b4cdb2449">m_scene_panel</a>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#adaf1f4726455196c5374c2cf4ebd05e2">   81</a></span>        <a class="code hl_class" href="../../d1/d07/classgalaxy_1_1Popup.html">Popup</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#adaf1f4726455196c5374c2cf4ebd05e2">m_hotkeys</a>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dd7/LogPanel_8hpp.html">galaxy/ui/panels/LogPanel.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d9a/ScenePanel_8hpp.html">galaxy/ui/panels/ScenePanel.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d46/namespacegalaxy.html">galaxy</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html">   22</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">Editor</a> final : <span class="keyword">public</span> <a class="code hl_function" href="../../d8/d50/classgalaxy_1_1Panel.html#aa76c0b45a3935ff75d120b6de098e212">Panel</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">Editor</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">~Editor</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a25fcc3870bcd4c57d1f1b89dfb5f735a">handle_events</a>(<span class="keyword">const</span> SDL_Event&amp; events) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081">render</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca">draw</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a926e2bf4d3044a66a25d67d6969bf510">begin_dock</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a41331b071e8c69ed0262702907619c1f">end_dock</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0">draw_menubar</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dfe/classgalaxy_1_1Editor.html#a3111fa20653061a0f76a04b671e8287b">shortcuts</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4">   77</a></span>        <a class="code hl_class" href="../../dc/da4/classgalaxy_1_1ConfigPanel.html">ConfigPanel</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4">m_config_panel</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#a6d816e7735c6788c59987b5b4cdb2449">   82</a></span>        <a class="code hl_class" href="../../d8/d9f/classgalaxy_1_1ScenePanel.html">ScenePanel</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#a6d816e7735c6788c59987b5b4cdb2449">m_scene_panel</a>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#a9cc429ed06580c5ddf40e9ec3c6345c8">   87</a></span>        <a class="code hl_class" href="../../d3/daa/classgalaxy_1_1LogPanel.html">LogPanel</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#a9cc429ed06580c5ddf40e9ec3c6345c8">m_log_panel</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../de/dfe/classgalaxy_1_1Editor.html#adaf1f4726455196c5374c2cf4ebd05e2">   92</a></span>        <a class="code hl_class" href="../../d1/d07/classgalaxy_1_1Popup.html">Popup</a> <a class="code hl_variable" href="../../de/dfe/classgalaxy_1_1Editor.html#adaf1f4726455196c5374c2cf4ebd05e2">m_hotkeys</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    };</div>
 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>} <span class="comment">// namespace galaxy</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">public:</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">using Tasks = meta::vector&lt;std::move_only_function&lt;void(void)&gt;&gt;;</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">private:</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">void exit();</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"></span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">void new_project();</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">void load_project(const std::string&amp; path);</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">void save_project(bool save_as = false);</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">void export_project();</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"></span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">void draw_game_controls();</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">void short_cuts();</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">void show_loadproject();</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">void render_exporter() const;</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path&amp; path);</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">void set_state_game();</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">void set_state_editor();</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">void set_state_game_and_editor();</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>} <span class="comment">// namespace galaxy</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">public:</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">using Tasks = meta::vector&lt;std::move_only_function&lt;void(void)&gt;&gt;;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">private:</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">void exit();</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"></span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">void new_project();</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">void load_project(const std::string&amp; path);</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">void save_project(bool save_as = false);</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">void export_project();</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"></span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"></span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">void set_input_game();</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">void set_input_editor();</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"></span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">private:</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">// game data independant from editor.</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">nlohmann::json m_backup;</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"></span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">EditorState         m_state;</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"></span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">// tools.</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">platform::Subprocess m_ldtk;</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">platform::Subprocess m_bfxr;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">void draw_game_controls();</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">void show_loadproject();</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">void render_exporter() const;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"></span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">void recursively_zip_assets(struct zip_t* zip, const std::filesystem::path&amp; path);</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">void set_state_game();</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">void set_state_editor();</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">void set_state_game_and_editor();</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"></span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">void set_input_game();</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">void set_input_editor();</span></div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"></span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">// popup controls.</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">bool m_show_new    = false;</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">bool m_show_exit   = false;</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">bool m_show_about  = false;</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">bool m_show_export = false;</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">private:</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">// game data independant from editor.</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">nlohmann::json m_backup;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"></span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">EditorState         m_state;</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"></span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">// random editor data.</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">ImVec2                m_padding;</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">Tasks                 m_tasks;</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">std::filesystem::path m_current_project_path;</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">async::Timer&lt;false&gt;   m_autosave;</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">graphics::Camera      m_editor_camera;</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">bool                  m_use_hand_cursor   = false;</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">ImVec2                m_imgui_mouse_delta = {0.0f, 0.0f};</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">Selected              m_selected;</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">// tools.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">platform::Subprocess m_ldtk;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">platform::Subprocess m_bfxr;</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"></span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">// popup controls.</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">bool m_show_new    = false;</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">bool m_show_exit   = false;</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">bool m_show_about  = false;</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">bool m_show_export = false;</span></div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"></span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">// panels</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">LogConsole    m_log_console;</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">LuaConsole    m_lua_console;</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">Viewport      m_viewport;</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">CodeEditor    m_code_editor;</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">AssetPanel    m_asset_panel;</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">ScenePanel    m_scene_panel;</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">EntityPanel   m_entity_panel;*/</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">// random editor data.</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">ImVec2                m_padding;</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">Tasks                 m_tasks;</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">std::filesystem::path m_current_project_path;</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">async::Timer&lt;false&gt;   m_autosave;</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">graphics::Camera      m_editor_camera;</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">bool                  m_use_hand_cursor   = false;</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">ImVec2                m_imgui_mouse_delta = {0.0f, 0.0f};</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">Selected              m_selected;</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"></span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">// panels</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">LuaConsole    m_lua_console;</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">Viewport      m_viewport;</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">CodeEditor    m_code_editor;</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">AssetPanel    m_asset_panel;</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">ScenePanel    m_scene_panel;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">EntityPanel   m_entity_panel;*/</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aConfigPanel_8hpp_html"><div class="ttname"><a href="../../d3/d7e/ConfigPanel_8hpp.html">ConfigPanel.hpp</a></div></div>
+<div class="ttc" id="aLogPanel_8hpp_html"><div class="ttname"><a href="../../d0/dd7/LogPanel_8hpp.html">LogPanel.hpp</a></div></div>
 <div class="ttc" id="aScenePanel_8hpp_html"><div class="ttname"><a href="../../db/d9a/ScenePanel_8hpp.html">ScenePanel.hpp</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1ConfigPanel_html"><div class="ttname"><a href="../../dc/da4/classgalaxy_1_1ConfigPanel.html">galaxy::ConfigPanel</a></div><div class="ttdoc">Panel for editing engine settings.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d7e/ConfigPanel_8hpp_source.html#l00020">ConfigPanel.hpp:21</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Editor_html_a07a82afb1c6b43fdf3aa79ebceaa6c8e"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a07a82afb1c6b43fdf3aa79ebceaa6c8e">galaxy::Editor::Editor</a></div><div class="ttdeci">Editor()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00018">Editor.cpp:18</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Editor_html_a25fcc3870bcd4c57d1f1b89dfb5f735a"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a25fcc3870bcd4c57d1f1b89dfb5f735a">galaxy::Editor::handle_events</a></div><div class="ttdeci">void handle_events(const SDL_Event &amp;events) noexcept</div><div class="ttdoc">Process events in the editor.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00029">Editor.cpp:29</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Editor_html_a3cd04d719798fd1a541bdb631baa36b4"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4">galaxy::Editor::m_config_panel</a></div><div class="ttdeci">ConfigPanel m_config_panel</div><div class="ttdoc">Config panel for manipulating engine settings.</div><div class="ttdef"><b>Definition</b> <a href="#l00071">Editor.hpp:71</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Editor_html_a41331b071e8c69ed0262702907619c1f"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a41331b071e8c69ed0262702907619c1f">galaxy::Editor::end_dock</a></div><div class="ttdeci">void end_dock()</div><div class="ttdoc">Finish rendering the editor dock.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00107">Editor.cpp:107</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_a3111fa20653061a0f76a04b671e8287b"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a3111fa20653061a0f76a04b671e8287b">galaxy::Editor::shortcuts</a></div><div class="ttdeci">void shortcuts()</div><div class="ttdoc">Handle ImGui widget shortcuts.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00217">Editor.cpp:217</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_a3cd04d719798fd1a541bdb631baa36b4"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a3cd04d719798fd1a541bdb631baa36b4">galaxy::Editor::m_config_panel</a></div><div class="ttdeci">ConfigPanel m_config_panel</div><div class="ttdoc">Config panel for manipulating engine settings.</div><div class="ttdef"><b>Definition</b> <a href="#l00077">Editor.hpp:77</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_a41331b071e8c69ed0262702907619c1f"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a41331b071e8c69ed0262702907619c1f">galaxy::Editor::end_dock</a></div><div class="ttdeci">void end_dock()</div><div class="ttdoc">Finish rendering the editor dock.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00111">Editor.cpp:111</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Editor_html_a504f5f864b2e39ff5eeee4467b6bb081"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a504f5f864b2e39ff5eeee4467b6bb081">galaxy::Editor::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">Render the editor to the screen.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00042">Editor.cpp:42</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Editor_html_a6d816e7735c6788c59987b5b4cdb2449"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a6d816e7735c6788c59987b5b4cdb2449">galaxy::Editor::m_scene_panel</a></div><div class="ttdeci">ScenePanel m_scene_panel</div><div class="ttdoc">Scene panel for managing scenes.</div><div class="ttdef"><b>Definition</b> <a href="#l00076">Editor.hpp:76</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_a6d816e7735c6788c59987b5b4cdb2449"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a6d816e7735c6788c59987b5b4cdb2449">galaxy::Editor::m_scene_panel</a></div><div class="ttdeci">ScenePanel m_scene_panel</div><div class="ttdoc">Scene panel for managing scenes.</div><div class="ttdef"><b>Definition</b> <a href="#l00082">Editor.hpp:82</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Editor_html_a8a9c74f6100710dcd961163a2936d7ca"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a8a9c74f6100710dcd961163a2936d7ca">galaxy::Editor::draw</a></div><div class="ttdeci">void draw() override</div><div class="ttdoc">Draw the ImGui widgets to ImGui buffers.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00052">Editor.cpp:52</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Editor_html_a926e2bf4d3044a66a25d67d6969bf510"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a926e2bf4d3044a66a25d67d6969bf510">galaxy::Editor::begin_dock</a></div><div class="ttdeci">void begin_dock()</div><div class="ttdoc">Start rendering the editor dock.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00102">Editor.cpp:102</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Editor_html_ac1f292d9cef7b223580b9d560f5d35e0"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0">galaxy::Editor::draw_menubar</a></div><div class="ttdeci">void draw_menubar()</div><div class="ttdoc">Draw the editor menubar.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00117">Editor.cpp:117</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1Editor_html_adaf1f4726455196c5374c2cf4ebd05e2"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#adaf1f4726455196c5374c2cf4ebd05e2">galaxy::Editor::m_hotkeys</a></div><div class="ttdeci">Popup m_hotkeys</div><div class="ttdoc">Hotkey info.</div><div class="ttdef"><b>Definition</b> <a href="#l00081">Editor.hpp:81</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_a926e2bf4d3044a66a25d67d6969bf510"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a926e2bf4d3044a66a25d67d6969bf510">galaxy::Editor::begin_dock</a></div><div class="ttdeci">void begin_dock()</div><div class="ttdoc">Start rendering the editor dock.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00106">Editor.cpp:106</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_a9cc429ed06580c5ddf40e9ec3c6345c8"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#a9cc429ed06580c5ddf40e9ec3c6345c8">galaxy::Editor::m_log_panel</a></div><div class="ttdeci">LogPanel m_log_panel</div><div class="ttdoc">Log console panel.</div><div class="ttdef"><b>Definition</b> <a href="#l00087">Editor.hpp:87</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_ac1f292d9cef7b223580b9d560f5d35e0"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#ac1f292d9cef7b223580b9d560f5d35e0">galaxy::Editor::draw_menubar</a></div><div class="ttdeci">void draw_menubar()</div><div class="ttdoc">Draw the editor menubar.</div><div class="ttdef"><b>Definition</b> <a href="../../de/dc6/Editor_8cpp_source.html#l00121">Editor.cpp:121</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1Editor_html_adaf1f4726455196c5374c2cf4ebd05e2"><div class="ttname"><a href="../../de/dfe/classgalaxy_1_1Editor.html#adaf1f4726455196c5374c2cf4ebd05e2">galaxy::Editor::m_hotkeys</a></div><div class="ttdeci">Popup m_hotkeys</div><div class="ttdoc">Hotkey info.</div><div class="ttdef"><b>Definition</b> <a href="#l00092">Editor.hpp:92</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1LogPanel_html"><div class="ttname"><a href="../../d3/daa/classgalaxy_1_1LogPanel.html">galaxy::LogPanel</a></div><div class="ttdoc">Panel for showing console log messages.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd7/LogPanel_8hpp_source.html#l00062">LogPanel.hpp:63</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Panel_html_aa76c0b45a3935ff75d120b6de098e212"><div class="ttname"><a href="../../d8/d50/classgalaxy_1_1Panel.html#aa76c0b45a3935ff75d120b6de098e212">galaxy::Panel::Panel</a></div><div class="ttdeci">Panel() noexcept</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d10/Panel_8cpp_source.html#l00012">Panel.cpp:12</a></div></div>
 <div class="ttc" id="aclassgalaxy_1_1Popup_html"><div class="ttname"><a href="../../d1/d07/classgalaxy_1_1Popup.html">galaxy::Popup</a></div><div class="ttdoc">Cleaner way of rendering an ImGui popup.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dc6/Popup_8hpp_source.html#l00020">Popup.hpp:21</a></div></div>
-<div class="ttc" id="aclassgalaxy_1_1ScenePanel_html"><div class="ttname"><a href="../../d8/d9f/classgalaxy_1_1ScenePanel.html">galaxy::ScenePanel</a></div><div class="ttdoc">Panel for editing scenes in engine.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d9a/ScenePanel_8hpp_source.html#l00019">ScenePanel.hpp:20</a></div></div>
+<div class="ttc" id="aclassgalaxy_1_1ScenePanel_html"><div class="ttname"><a href="../../d8/d9f/classgalaxy_1_1ScenePanel.html">galaxy::ScenePanel</a></div><div class="ttdoc">Panel for editing scenes in engine.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d9a/ScenePanel_8hpp_source.html#l00021">ScenePanel.hpp:22</a></div></div>
 <div class="ttc" id="anamespacegalaxy_html"><div class="ttname"><a href="../../d0/d46/namespacegalaxy.html">galaxy</a></div><div class="ttdoc">Application.hpp galaxy.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db6/Application_8cpp_source.html#l00047">Application.cpp:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
