@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_UI_PANELS_LogPanel_HPP_
-#define GALAXY_UI_PANELS_LogPanel_HPP_
+#ifndef GALAXY_UI_PANELS_LOGPANEL_HPP_
+#define GALAXY_UI_PANELS_LOGPANEL_HPP_
 
 #include "galaxy/logging/Sink.hpp"
 #include "galaxy/ui/panels/Panel.hpp"
